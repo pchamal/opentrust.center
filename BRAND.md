@@ -65,7 +65,8 @@ Pukar’s flame scale, sampled from the supplied swatches. Five steps, no beige.
 Derived type ink (not a sixth brand color): `--ink` `#ffc091` — washed flame for body, so we never reach for cream or beige. Labels and ranks use `--ember` or `--rust`.
 
 - Page is `--ground`. Always.
-- The only loud mark is `--flame`.
+- Body and names are `--ink` `#f4ebe0` — readable, calm, not a beige page.
+- `--flame` is a rare accent (links, stamp, outbound). Never paint the wordmark or every company name in it. That reads as a warning.
 - Do not invert this into a light beige register. That direction is closed.
 - No gold. No navy. No mint. No gradient. No glow orb. No `#efe6d2` or any manila/newsprint.
 
