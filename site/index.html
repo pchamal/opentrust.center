@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>opentrust.center — Company security, trust, and GRC pages in one place</title>
+  <meta name="description" content="A directory for GRC and security teams — and their agents. Find whether a company publishes a security page, customer trust center, or managed trust portal, and read the facts before you click out.">
+  <meta name="theme-color" content="#12110e">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://cobalt-quartz-nx3z.here.now/">
+  <meta property="og:title" content="opentrust.center">
+  <meta property="og:description" content="Open directory of company security pages, trust centers, and managed trust portals.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cobalt-quartz-nx3z.here.now/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="opentrust.center">
+  <meta name="twitter:description" content="Company security, trust, and GRC pages in one place. Certifications on the page, official link out.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "opentrust.center",
+    "url": "https://cobalt-quartz-nx3z.here.now/",
+    "description": "Open directory of public company trust centers.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://cobalt-quartz-nx3z.here.now/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2312110e' stroke='%23d4a24a' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='24' fill='none' stroke='%23d4a24a' stroke-width='1'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Georgia,serif' font-size='20' font-weight='700' fill='%23d4a24a'%3EOT%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="sheet">
+    <header class="mast">
+      <div class="mast-brand">
+        <div class="seal" aria-hidden="true">
+          <span class="seal-outer"></span>
+          <span class="seal-inner"></span>
+          <span class="seal-mark">OT</span>
+        </div>
+        <div class="mast-titles">
+          <p class="kicker">An open directory</p>
+          <h1>opentrust.center</h1>
+        </div>
+      </div>
+      <p class="mast-issue">Cloud 100 + enterprise</p>
+    </header>
+
+    <section class="hero">
+      <p class="lede">The security page, trust center, or managed portal — on one page, for humans and agents.</p>
+      <p class="deck">Forbes Cloud 100 plus the public software, security, and AI vendors people actually type. Built so a GRC person or agent can get the official URL and what it publishes without guessing.</p>
+      <form class="finder" id="finder" role="search">
+        <label class="search">
+          <span class="sr-only">Search for a company trust center</span>
+          <input id="q" type="search" name="q" placeholder="Search Stripe, Microsoft, Okta…" autocomplete="off" spellcheck="false" autofocus>
+        </label>
+        <button type="submit" class="finder-go">Search</button>
+      </form>
+      <div class="hero-rule" aria-hidden="true"></div>
+      <div class="census">
+        <p class="census-main">
+          <span id="stat-found">—</span>
+          <span class="census-of">of</span>
+          <span id="stat-total">—</span>
+          <span class="census-label">found</span>
+        </p>
+        <dl class="census-side">
+          <div>
+            <dt id="stat-missing">—</dt>
+            <dd>missing</dd>
+          </div>
+          <div>
+            <dt id="stat-vendors">—</dt>
+            <dd>vendors</dd>
+          </div>
+        </dl>
+      </div>
+      <p class="tally" id="vendor-tally"></p>
+    </section>
+
+    <section class="controls" aria-label="Filters">
+      <div class="chip-row" id="status-filters">
+        <button type="button" data-status="all" class="on">All</button>
+        <button type="button" data-status="found">Found</button>
+        <button type="button" data-status="missing">Missing</button>
+      </div>
+      <div class="chip-row vendors" id="vendor-filters">
+        <button type="button" data-vendor="safebase">SafeBase</button>
+        <button type="button" data-vendor="vanta">Vanta</button>
+        <button type="button" data-vendor="conveyor">Conveyor</button>
+        <button type="button" data-vendor="wolfia">Wolfia</button>
+        <button type="button" data-vendor="custom">Custom</button>
+      </div>
+    </section>
+
+    <p class="countline" id="countline"></p>
+
+    <div id="miss" class="miss" hidden>
+      <p class="miss-title" id="miss-title">Not in the index.</p>
+      <p class="muted" id="miss-body"></p>
+      <ul class="guesses" id="guesses"></ul>
+    </div>
+
+    <div id="cards" class="cards" hidden></div>
+
+    <div id="empty" class="empty" hidden>
+      <p>No crawl data yet.</p>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <div class="foot-inner">
+      <div>
+        <h2>Methodology</h2>
+        <p>We first probe <code>trust.{domain}</code>, <code>security.{domain}</code>, <code>/{trust,trust-center,security}</code>, and vendor hosts. Misses get a web search for “{company} Trust Center”, then a check that the result is that company’s real security portal. A hit is HTTP 200 plus a trust-center signature. Certifications are read from the public page text.</p>
+      </div>
+      <div>
+        <h2>Source</h2>
+        <p>Forbes Cloud 100 2025 and a curated set of public enterprise, security, and AI vendors.<br>
+          <a href="https://www.forbes.com/lists/cloud100/">forbes.com/lists/cloud100</a></p>
+        <p class="src-note" id="generated"></p>
+      </div>
+      <div>
+        <h2>Code</h2>
+        <p><a href="https://github.com/pchamal/trust-index">github.com/pchamal/trust-index</a></p>
+        <p class="muted">Outbound links are human-gated. Document files stay on the company’s domain.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="drawer" class="drawer" hidden>
+    <div class="drawer-back" data-close></div>
+    <aside class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawer-name">
+      <button type="button" class="drawer-x" data-close aria-label="Close">Close</button>
+      <p class="kicker" id="drawer-kicker"></p>
+      <h2 id="drawer-name"></h2>
+      <p class="drawer-domain" id="drawer-domain"></p>
+      <p class="drawer-summary" id="drawer-summary"></p>
+      <div class="cert-row" id="drawer-certs"></div>
+      <p class="drawer-meta" id="drawer-meta"></p>
+      <p class="drawer-host" id="drawer-host"></p>
+      <div class="drawer-actions">
+        <button type="button" class="open-official" id="drawer-open">Open official trust center</button>
+        <a class="perm" id="drawer-permalink" href="#">Permalink</a>
+      </div>
+    </aside>
+  </div>
+
+  <div id="gate" class="gate" hidden>
+    <div class="gate-card" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+      <p class="gate-kicker">Before you leave</p>
+      <h2 id="gate-title">Verify you are human</h2>
+      <p class="muted">This stops automated agents from walking the directory. The trust center itself is still on the company’s site.</p>
+      <label class="turn">
+        <input type="checkbox" id="gate-box">
+        <span class="turn-box" aria-hidden="true"></span>
+        <span>I am human</span>
+      </label>
+      <p class="gate-status" id="gate-status"></p>
+      <button type="button" class="gate-cancel" id="gate-cancel">Cancel</button>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
