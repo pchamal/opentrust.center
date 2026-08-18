@@ -4,7 +4,7 @@ This is a **public register**, not a security product and not a luxury brand.
 
 A GRC person or their agent comes here the way they open Companies House or the Federal Register: to find the official page and leave. We look like a clerk’s desk. We do not look like Vanta, Linear, Stripe, or a “dark gold thought leadership” template.
 
-If a screen could also sell a fintech debit card or a whiskey, it is wrong.
+If a screen could also sell a SaaS debit card, or if it sits on beige newsprint, it is wrong.
 
 ## The one sentence
 
@@ -52,27 +52,31 @@ Names are slightly tight. Meta is small, tracked a little, never uppercase-for-s
 
 ## Color
 
-Light register. Dark gold was the slop we are leaving.
+Pukar’s flame scale, sampled from the supplied swatches. Five steps, no beige.
 
 | Token | Hex | Role |
 |---|---|---|
-| `--paper` | `#efe6d2` | page |
-| `--paper-2` | `#e7dcc4` | well, hover |
-| `--ink` | `#1b1712` | text |
-| `--rule` | `#1b1712` | rules, at 100% or 18% |
-| `--stamp` | `#9c2b1f` | the only accent (seal, found, outbound) |
-| `--faint` | `#6e6658` | secondary |
+| `--flame` | `#ff6600` | stamp, wordmark heat, outbound, found |
+| `--ember` | `#cc5100` | hover, secondary stamp |
+| `--rust` | `#993d00` | rules, kickers |
+| `--well` | `#662900` | wells, hover rows |
+| `--ground` | `#331400` | page |
 
-No second accent. No gold. No navy-as-trust. No mint-as-compliance. No gradient. No glow. No orb behind the masthead.
+Derived type ink (not a sixth brand color): `--ink` `#ffc091` — washed flame for body, so we never reach for cream or beige. Labels and ranks use `--ember` or `--rust`.
 
-Links and “open official” are stamp red on paper, underline on hover. Missing is ink at 45%, italic in Newsreader — not a gray pill.
+- Page is `--ground`. Always.
+- The only loud mark is `--flame`.
+- Do not invert this into a light beige register. That direction is closed.
+- No gold. No navy. No mint. No gradient. No glow orb. No `#efe6d2` or any manila/newsprint.
+
+Links and “open official” are `--flame` on `--ground`, underline on hover. Missing is `--rust`, italic in Newsreader — not a gray pill.
 
 ## Mark
 
 A dry **ink stamp**, not a coin.
 
 - Circle, double ring, `OT` in Newsreader.
-- Color is `--stamp` on `--paper`, or reversed on a stamp block.
+- Color is `--flame` on `--ground`, or reversed (`--ground` on a `--flame` block).
 - Slight irregularity is fine (as if the pad was dry). Drop shadows, metallic gradients, and skeuomorphic wax are not.
 - Never put the mark in a rounded app-icon squircle.
 
@@ -99,7 +103,8 @@ We do not use stock “locks on blue.” We do not generate hero illustrations. 
 
 ## What this site must never look like
 
-- Dark paper + gold foil + serif (the previous look; also every “premium AI” landing page)
+- Beige, cream, newsprint, manila, or any light-paper register
+- Dark paper + gold foil + serif (the first look; also every “premium AI” landing page)
 - Inter / Geist, 8pt tracking, blur orbs, glass
 - Vanta mint, Drata navy, SafeBase purple
 - Three feature columns with line icons
