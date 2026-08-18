@@ -388,6 +388,7 @@ body.locked { overflow: hidden; }
 .perm { color: var(--mute); font-family: "IBM Plex Mono", monospace; font-size: 12px; }
 .perm:hover { color: var(--flame); }
 
+.gate[hidden], .drawer[hidden] { display: none !important; }
 .gate {
   position: fixed;
   inset: 0;
