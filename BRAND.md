@@ -84,12 +84,20 @@ Wordmark is always `opentrust.center` in Newsreader, lowercase, no tracking out,
 
 ## Layout
 
-- One column, measure ~68–72ch for prose, full measure for the register.
-- Hairline rules, not cards-in-a-grid-of-shadows. A row is a row in a book.
-- Search is a ruled field, not a floating capsule.
-- Filters are text with a rule, not pill chips.
-- Company pages are a folio: name, domain, finding, stamp list, official host.
-- Plenty of paper. Do not fill the void with illustrations.
+High-taste staff-engineer product, not a magazine and not a SaaS marketing page.
+
+- **Canvas, not a sheet.** The page is one continuous `--ground` field to the edges (Volta / VoltAgent posture). No floating paper card. No centered “document.”
+- **Surface:** a barely-there engineering grid (32px) plus film grain. If you notice either, turn it down. No glow orb, no mesh blob, no illustration.
+- **Instrument header:** small wordmark, mono kicker, tiny OT stamp. Display type stays ~28–32px. Census numbers are mono.
+- **Search is a command strip:** hairline box, Plex Mono, `/ company`. No pill, no shadow.
+- **Register is rows.** Hairline `--rust` rules, full measure, no card grid, no badge pills.
+- Filters are a segmented hairline bar, not chips.
+- Company folio is a side panel on the same canvas.
+- One column, ~920px. 8px rhythm.
+
+## Background (from Volta)
+
+Pukar called the background of Volta. We take the *posture*, not the teal/green: one unrelenting dark canvas, hairline elevation, no atmospheric marketing backdrop. Color stays on the flame scale.
 
 ## Motion
 
@@ -118,9 +126,10 @@ Build only these surfaces: home register, company folio, miss (not on file), hum
 
 ## References
 
-*User-supplied. Add URLs here when Pukar sends them.*
+- Volta / VoltAgent canvas: continuous dark field, hairlines, no orb. https://voltagent.dev/ and https://volta.sh (posture only).
+- Oxide.computer / a well-made CLI product site: type restraint, instrument chrome.
 
-Until then, posture only: London Gazette issue pages; Companies House company record; Federal Register HTML; EDGAR search. Do not copy their CSS.
+Do not copy their CSS or green/teal.
 
 ## Change control
 
