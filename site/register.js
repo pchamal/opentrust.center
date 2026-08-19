@@ -6,6 +6,7 @@ import {
   displayTier,
   tierClass,
   dataUrl,
+  fileMeterHtml,
 } from "./lib.js";
 import {
   parseFinder,
@@ -219,7 +220,7 @@ function render() {
         <td class="num">${escapeHtml(n)}</td>
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${escapeHtml(row.name)}</a></td>
         <td>${escapeHtml(row.domain || "")}</td>
-        <td class="${tierClass(row.tier)}">${escapeHtml(tier)}</td>
+        <td class="${tierClass(row.tier)}">${fileMeterHtml(row)}${escapeHtml(tier)}</td>
         <td class="marks">${marksCell(row)}</td>
         <td>${escapeHtml(fmtDay(row.probed_at || state.generatedAt))}</td>
       </tr>`;
