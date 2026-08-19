@@ -727,7 +727,7 @@ def dossier_html(row: dict, generated_at: str) -> str:
     tier = "on file" if disc["tier"] == "on-file" else disc["tier"]
     tier_cls = "silent" if disc["tier"] == "silent" else ""
     title = f"{name} — opentrust.center"
-    desc = "Official pages, attestations, years, and named processors. On file, or not."
+    desc = "A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not."
     list_label = "cloud 100" if row.get("list") == "cloud100" else (row.get("list") or "not on file")
     year = row.get("founded_year")
     year_src = row.get("founded_source")

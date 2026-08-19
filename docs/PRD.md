@@ -211,12 +211,14 @@ Active item is a hairline underline. Not a pill.
 
 Clerk. Lowercase wordmark. Short sentences. Numbers are facts.
 
-Allowed: found, missing, on file, not on file, silent, thin, substantial, complete, last probed, named, filed.
+Allowed: found, missing, on file, not on file, silent, thin, substantial, complete, last probed, named, filed, ledger.
 
 Banned: empower, seamless, reimagine, next-gen, in one place, trust made simple, the future of GRC, unlock, delightful, front pane of glass (that is our internal metaphor, not the headline), trust score, powered by.
 
-Hero (register): `Public record of what a company discloses.`
+One-liner: `A database of each company’s public trust ledger.`
+Register aid (if printed): `A database of each company’s public trust ledger.`
 Deck: `Attestations, instruments, years. Official page, or not.`
+The register prints finder, then the table. Do not add a homepage lede.
 
 Hero (processors): `Named subprocessors, as published.`
 Hero (attestations): `Marks a buyer will meet.`
