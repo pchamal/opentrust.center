@@ -1,0 +1,51 @@
+name: Claim or correct a file
+description: A company officer or a reader files a correction to a register dossier.
+title: "claim: "
+labels: ["claim"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is a public register. Proposed facts must already be on a first-party page.
+        An agent reads the issue, checks the source, and publishes only what it can verify.
+  - type: input
+    id: slug
+    attributes:
+      label: Register slug
+      description: The file path, e.g. openai for /c/openai.html
+      placeholder: openai
+    validations:
+      required: true
+  - type: input
+    id: company
+    attributes:
+      label: Company name
+    validations:
+      required: true
+  - type: input
+    id: email
+    attributes:
+      label: Contact email
+      description: Used only to confirm a claim. Not published.
+  - type: dropdown
+    id: role
+    attributes:
+      label: Who is filing
+      options:
+        - Company / official
+        - Reader / correction
+        - Prefer not to say
+  - type: textarea
+    id: edits
+    attributes:
+      label: What should change
+      description: Marks, instruments, founding year, named processors. One fact per line.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: First-party source URLs
+      description: The public pages that already state these facts.
+    validations:
+      required: true

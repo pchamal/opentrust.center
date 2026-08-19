@@ -17,7 +17,9 @@
       "list": "cloud100",
       "founded_year": 2015,
       "founded_source": "https://en.wikipedia.org/wiki/OpenAI",
-      "certs": [],
+      "certs": [
+        "FedRAMP 20x Moderate"
+      ],
       "links": {
         "trust": "https://trust.openai.com",
         "security_txt": "https://openai.com/.well-known/security.txt",
@@ -27,15 +29,34 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 43,
+        "score": 55,
         "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 5
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "20x Moderate",
+        "impact_levels": [
+          "20x Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2533155773",
+            "offering": "ChatGPT Enterprise and API Platform",
+            "status": "FedRAMP Authorized",
+            "impact_level": "20x Moderate",
+            "auth_date": "2026-01-09"
+          }
+        ]
       }
     },
     {
@@ -138,7 +159,9 @@
       "list": "cloud100",
       "founded_year": 2013,
       "founded_source": "https://en.wikipedia.org/wiki/Databricks",
-      "certs": [],
+      "certs": [
+        "FedRAMP High"
+      ],
       "links": {
         "trust": "https://www.databricks.com/trust",
         "security_txt": "https://www.databricks.com/.well-known/security.txt",
@@ -149,17 +172,51 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 60,
-        "tier": "on-file",
+        "score": 72,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 6
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 3,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High",
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR1834740315",
+            "offering": "Databricks on AWS US East/West",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2022-09-29"
+          },
+          {
+            "fedramp_id": "FR2324740262",
+            "offering": "Databricks on AWS GovCloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2025-02-26"
+          },
+          {
+            "fedramp_id": "FR2525247858",
+            "offering": "Databricks on Azure Commercial",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2026-01-16"
+          }
+        ]
       }
     },
     {
@@ -240,13 +297,31 @@
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "certs": 10,
+          "marks": 10,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 3
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 0,
+        "in_process_offerings": 1,
+        "highest_authorized": null,
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2516072131",
+            "offering": "Ramp for Government (RampGov)",
+            "status": "FedRAMP Ready",
+            "impact_level": "Moderate",
+            "auth_date": "Not Active"
+          }
+        ]
       }
     },
     {
@@ -550,7 +625,9 @@
       "source": "forbes-cloud-100-2025",
       "summary": "Welcome to Netskope Trust Portal's home for real-time and historical data on system performance.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "FedRAMP High"
+      ],
       "links": {
         "trust": "https://trust.netskope.com",
         "security_txt": "https://www.netskope.com/.well-known/security.txt",
@@ -560,18 +637,37 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 47,
+        "score": 59,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 12,
+          "processors": 8,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 7
         }
       },
       "founded_year": 2012,
-      "founded_source": "https://en.wikipedia.org/wiki/Netskope"
+      "founded_source": "https://en.wikipedia.org/wiki/Netskope",
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2105946715",
+            "offering": "Netskope NewEdge Government.",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2023-12-19"
+          }
+        ]
+      }
     },
     {
       "rank": 15,
@@ -684,7 +780,8 @@
         "GDPR",
         "CCPA",
         "StateRAMP",
-        "Cyber Essentials"
+        "Cyber Essentials",
+        "FedRAMP Moderate"
       ],
       "links": {
         "trust": "https://www.tanium.com/about/security",
@@ -701,13 +798,31 @@
         "tier": "complete",
         "factors": {
           "portal": 20,
-          "certs": 40,
+          "marks": 40,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 9
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2110342613",
+            "offering": "Tanium Cloud for US Government (TC-USG)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2023-11-08"
+          }
+        ]
       }
     },
     {
@@ -764,7 +879,9 @@
       "source": "forbes-cloud-100-2025",
       "summary": "Public trust center on file.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "FedRAMP Moderate"
+      ],
       "links": {
         "security": "https://security.abnormal.ai",
         "trust": "https://security.abnormal.ai",
@@ -774,14 +891,33 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 40,
+        "score": 52,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 12,
+          "processors": 8,
           "status": 6,
           "privacy": 6
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2425960757",
+            "offering": "Abnormal AI for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2025-04-11"
+          }
+        ]
       }
     },
     {
@@ -838,7 +974,8 @@
       "certs": [
         "HIPAA",
         "GDPR",
-        "CCPA"
+        "CCPA",
+        "FedRAMP Moderate"
       ],
       "links": {
         "privacy": "https://www.cohesity.com/agreements/privacy/",
@@ -848,15 +985,33 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 50,
+        "score": 62,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "certs": 12,
+          "marks": 24,
           "status": 6,
           "privacy": 6,
           "longevity": 6
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2306445868",
+            "offering": "Cohesity Cloud Services for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2024-05-06"
+          }
+        ]
       }
     },
     {
@@ -926,7 +1081,9 @@
       "source": "forbes-cloud-100-2025",
       "summary": "Public trust center on file.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "FedRAMP 20x Low"
+      ],
       "links": {
         "security": "https://security.flocksafety.com",
         "trust": "https://security.flocksafety.com",
@@ -937,10 +1094,11 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 42,
+        "score": 52,
         "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 10,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
@@ -948,7 +1106,25 @@
         }
       },
       "founded_year": 2017,
-      "founded_source": "https://en.wikipedia.org/wiki/Flock_Safety"
+      "founded_source": "https://en.wikipedia.org/wiki/Flock_Safety",
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "20x Low",
+        "impact_levels": [
+          "20x Low"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2527955211",
+            "offering": "Flock Safety Platform",
+            "status": "FedRAMP Authorized",
+            "impact_level": "20x Low",
+            "auth_date": "2025-07-25"
+          }
+        ]
+      }
     },
     {
       "rank": 24,
@@ -1032,7 +1208,9 @@
       "list": "cloud100",
       "founded_year": 2022,
       "founded_source": "https://en.wikipedia.org/wiki/Perplexity_AI",
-      "certs": [],
+      "certs": [
+        "FedRAMP 20x Low"
+      ],
       "links": {
         "trust": "https://trust.perplexity.ai",
         "security_txt": "https://perplexity.ai/.well-known/security.txt",
@@ -1043,16 +1221,35 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 48,
+        "score": 58,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 10,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 2
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "20x Low",
+        "impact_levels": [
+          "20x Low"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2604643715",
+            "offering": "Perplexity Enterprise and API Platform",
+            "status": "FedRAMP Authorized",
+            "impact_level": "20x Low",
+            "auth_date": "2026-02-01"
+          }
+        ]
       }
     },
     {
@@ -1184,9 +1381,11 @@
       "probed": 13,
       "source": "forbes-cloud-100-2025",
       "http_status": 200,
-      "summary": "Trust is in our DNA. Talkdesk CX Cloud™ is a cloud native end-to-end global contact center solution trusted by over 1,800 businesses in 75 countries.",
+      "summary": "Trust is in our DNA. Talkdesk CX Cloud\u2122 is a cloud native end-to-end global contact center solution trusted by over 1,800 businesses in 75 countries.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "FedRAMP Moderate"
+      ],
       "links": {
         "trust": "https://www.talkdesk.com/about/trust/",
         "security_txt": "https://www.talkdesk.com/.well-known/security.txt",
@@ -1197,15 +1396,34 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 46,
+        "score": 58,
         "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "dpa": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2213647361",
+            "offering": "Talkdesk CX Cloud\u2122 Government Edition",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2025-06-03"
+          }
+        ]
       }
     },
     {
@@ -1499,7 +1717,9 @@
       "http_status": 200,
       "summary": "Transparent, real-time security and compliance status to continuously earn the trust of users and customers.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "FedRAMP Moderate"
+      ],
       "links": {
         "trust": "https://trust.cribl.io/home",
         "security_txt": "https://cribl.io/.well-known/security.txt",
@@ -1527,19 +1747,38 @@
         }
       ],
       "disclosure": {
-        "score": 52,
+        "score": 64,
         "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 4
         }
       },
       "founded_year": 2018,
-      "founded_source": "https://en.wikipedia.org/wiki/Cribl.io"
+      "founded_source": "https://en.wikipedia.org/wiki/Cribl.io",
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2519759620",
+            "offering": "Cribl.Cloud Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2026-01-28"
+          }
+        ]
+      }
     },
     {
       "rank": 38,
@@ -1897,9 +2136,11 @@
       "title": "Trust - NinjaOne",
       "probed": 13,
       "source": "forbes-cloud-100-2025",
-      "summary": "NinjaOne is committed to making our products accessible and user-friendly to everyone. That’s why we’ve partnered with a third-party to perform accessibility",
+      "summary": "NinjaOne is committed to making our products accessible and user-friendly to everyone. That\u2019s why we\u2019ve partnered with a third-party to perform accessibility",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "FedRAMP Moderate"
+      ],
       "links": {
         "security_txt": "https://ninjaone.com/.well-known/security.txt",
         "privacy": "https://www.ninjaone.com/privacy-policy/",
@@ -1908,14 +2149,41 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 38,
-        "tier": "thin",
+        "score": 50,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "status": 6,
           "disclosure": 6,
           "privacy": 6
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 1,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "High",
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2430847803",
+            "offering": "NinjaOne for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2025-09-10"
+          },
+          {
+            "fedramp_id": "FR2620841940",
+            "offering": "NinjaOne for Government \u2013 FedRAMP High",
+            "status": "FedRAMP Ready",
+            "impact_level": "High",
+            "auth_date": "Not Active"
+          }
+        ]
       }
     },
     {
@@ -2059,7 +2327,8 @@
         "SOC 2 Type II",
         "ISO 27001",
         "ISO 27017",
-        "GDPR"
+        "GDPR",
+        "FedRAMP Moderate"
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, GDPR.",
       "list": "cloud100",
@@ -2077,18 +2346,36 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 86,
-        "tier": "substantial",
+        "score": 98,
+        "tier": "complete",
         "factors": {
           "portal": 20,
-          "certs": 27,
+          "marks": 39,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 5
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2230451369",
+            "offering": "Snyk for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2025-04-07"
+          }
+        ]
       }
     },
     {
@@ -2263,9 +2550,11 @@
       "title": "Collibra trust center: Security and compliance commitment | Collibra",
       "probed": 13,
       "source": "forbes-cloud-100-2025",
-      "summary": "Explore Collibra’s trust center for details on software security, infrastructure controls, compliance, training, and risk management practices.",
+      "summary": "Explore Collibra\u2019s trust center for details on software security, infrastructure controls, compliance, training, and risk management practices.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "FedRAMP Moderate"
+      ],
       "links": {
         "trust": "https://www.collibra.com/company/trust-center",
         "security_txt": "https://www.collibra.com/.well-known/security.txt",
@@ -2276,15 +2565,34 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 46,
+        "score": 58,
         "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "dpa": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR1706403967",
+            "offering": "Collibra Platform for Government (CPG)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2019-11-27"
+          }
+        ]
       }
     },
     {
@@ -2517,7 +2825,7 @@
       "title": "Pendo Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "At Pendo, security and data privacy are first-order considerations, the north star for how we design our products and policies as an organization. Language: English 日本語",
+      "summary": "At Pendo, security and data privacy are first-order considerations, the north star for how we design our products and policies as an organization. Language: English \u65e5\u672c\u8a9e",
       "list": "cloud100",
       "certs": [],
       "links": {
@@ -2561,7 +2869,8 @@
         "HITRUST",
         "GDPR",
         "Cyber Essentials",
-        "CMMC"
+        "CMMC",
+        "FedRAMP 20x Moderate"
       ],
       "links": {
         "trust": "https://trust.vanta.com",
@@ -2578,13 +2887,39 @@
         "tier": "complete",
         "factors": {
           "portal": 20,
-          "certs": 40,
+          "marks": 40,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 2,
+        "in_process_offerings": 0,
+        "highest_authorized": "20x Moderate",
+        "impact_levels": [
+          "20x Low",
+          "20x Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2525556241XM",
+            "offering": "Vanta Government Cloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "20x Moderate",
+            "auth_date": "2026-04-24"
+          },
+          {
+            "fedramp_id": "FR2525556241",
+            "offering": "Vanta Trust Management Platform",
+            "status": "FedRAMP Authorized",
+            "impact_level": "20x Low",
+            "auth_date": "2025-07-25"
+          }
+        ]
       }
     },
     {
@@ -2599,7 +2934,7 @@
       "title": "Webflow Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Webflow’s Trust Center – your source for transparency on security, compliance, availability, and governance for the Webflow platform.",
+      "summary": "Webflow\u2019s Trust Center \u2013 your source for transparency on security, compliance, availability, and governance for the Webflow platform.",
       "list": "cloud100",
       "certs": [],
       "links": {
@@ -2888,16 +3223,34 @@
         }
       ],
       "disclosure": {
-        "score": 80,
+        "score": 82,
         "tier": "substantial",
         "factors": {
           "portal": 20,
-          "certs": 30,
-          "subprocessors": 8,
+          "marks": 32,
+          "processors": 8,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR1923743650A",
+            "offering": "WordPress VIP",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2025-03-12"
+          }
+        ]
       }
     },
     {
@@ -2970,8 +3323,26 @@
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "certs": 40
+          "marks": 40
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2401047002",
+            "offering": "Axonius Asset Cloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2025-04-03"
+          }
+        ]
       }
     },
     {
@@ -2986,7 +3357,7 @@
       "title": "Algolia Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Welcome to our Trust Center. At Algolia, search is more than a feature—it’s a seamless, intelligent experience. Our AI-powered platform helps teams build fast, intuitive discovery that connects users to what they need in an instant. Ever",
+      "summary": "Welcome to our Trust Center. At Algolia, search is more than a feature\u2014it\u2019s a seamless, intelligent experience. Our AI-powered platform helps teams build fast, intuitive discovery that connects users to what they need in an instant. Ever",
       "list": "cloud100",
       "founded_year": 2012,
       "founded_source": "https://en.wikipedia.org/wiki/Algolia",
@@ -3048,7 +3419,7 @@
       "trust_url": "https://huggingface.co/docs/hub/en/security",
       "final_url": "https://huggingface.co/docs/hub/en/security",
       "vendor": "custom",
-      "title": "Security · Hugging Face",
+      "title": "Security \u00b7 Hugging Face",
       "probed": 18,
       "source": "forbes-cloud-100-2025",
       "http_status": 200,
@@ -3149,6 +3520,24 @@
           "status": 6,
           "privacy": 6
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 0,
+        "in_process_offerings": 1,
+        "highest_authorized": null,
+        "impact_levels": [
+          "High"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2614439182",
+            "offering": "Island Enterprise Platform",
+            "status": "Agency In Process",
+            "impact_level": "High",
+            "auth_date": "Not Active"
+          }
+        ]
       }
     },
     {
@@ -3314,6 +3703,24 @@
           "privacy": 6,
           "longevity": 3
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 0,
+        "in_process_offerings": 1,
+        "highest_authorized": null,
+        "impact_levels": [
+          "High"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2618046015",
+            "offering": "Cyera for Government",
+            "status": "Agency In Process",
+            "impact_level": "High",
+            "auth_date": "Not Active"
+          }
+        ]
       }
     },
     {
@@ -3328,7 +3735,7 @@
       "title": "Runway Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Welcome to the Runway’s Trust Center. Runway is an applied research company building the next era of art, entertainment and human creativity. We believe that AI systems applied to audiovisual content will forever change art and creativity.",
+      "summary": "Welcome to the Runway\u2019s Trust Center. Runway is an applied research company building the next era of art, entertainment and human creativity. We believe that AI systems applied to audiovisual content will forever change art and creativity.",
       "list": "cloud100",
       "founded_year": 2018,
       "founded_source": "https://en.wikipedia.org/wiki/Runway_(company)",
@@ -3612,7 +4019,9 @@
       "source": "forbes-cloud-100-2025",
       "summary": "Public trust center on file.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "FedRAMP Moderate"
+      ],
       "links": {
         "trust": "https://app.vanta.com/launchdarkly.com/trust/gu6fblhdgsyexg8g2xsj0",
         "privacy": "https://launchdarkly.com/privacy/",
@@ -3622,15 +4031,34 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 48,
+        "score": 60,
         "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "privacy": 6
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2120962552",
+            "offering": "LaunchDarkly",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2023-01-06"
+          }
+        ]
       }
     },
     {
@@ -3899,11 +4327,29 @@
         "tier": "substantial",
         "factors": {
           "portal": 20,
-          "certs": 40,
+          "marks": 40,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "privacy": 6
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 0,
+        "in_process_offerings": 1,
+        "highest_authorized": null,
+        "impact_levels": [
+          "High"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2323961436",
+            "offering": "xDome for Government",
+            "status": "Agency In Process",
+            "impact_level": "High",
+            "auth_date": "Not Active"
+          }
+        ]
       }
     },
     {
@@ -3989,7 +4435,7 @@
       "title": "Clay Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Go to market with unique data—and the ability to act on it. Access 100+ premium data sources and AI research agents in one platform, then automate growth workflows to turn insights into revenue. Note: To request a signed Data Processing Ag",
+      "summary": "Go to market with unique data\u2014and the ability to act on it. Access 100+ premium data sources and AI research agents in one platform, then automate growth workflows to turn insights into revenue. Note: To request a signed Data Processing Ag",
       "list": "cloud100",
       "certs": [],
       "links": {
@@ -4066,7 +4512,8 @@
       "founded_year": 1982,
       "founded_source": "https://en.wikipedia.org/wiki/Adobe_Inc.",
       "certs": [
-        "GDPR"
+        "GDPR",
+        "FedRAMP Moderate"
       ],
       "links": {
         "trust": "https://www.adobe.com/trust.html",
@@ -4097,17 +4544,85 @@
         }
       ],
       "disclosure": {
-        "score": 59,
-        "tier": "on-file",
+        "score": 71,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
-          "certs": 3,
-          "subprocessors": 8,
+          "marks": 15,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 8,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "LI-SaaS",
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR1832869359",
+            "offering": "Adobe Analytics",
+            "status": "FedRAMP Authorized",
+            "impact_level": "LI-SaaS",
+            "auth_date": "2019-09-18"
+          },
+          {
+            "fedramp_id": "FR2108360349",
+            "offering": "Adobe Acrobat Sign for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2022-05-25"
+          },
+          {
+            "fedramp_id": "FR1907354404",
+            "offering": "Adobe Campaign",
+            "status": "FedRAMP Authorized",
+            "impact_level": "LI-SaaS",
+            "auth_date": "2019-09-03"
+          },
+          {
+            "fedramp_id": "FR1832870021",
+            "offering": "Adobe Learning Manager",
+            "status": "FedRAMP Authorized",
+            "impact_level": "LI-SaaS",
+            "auth_date": "2019-10-11"
+          },
+          {
+            "fedramp_id": "F1509037236",
+            "offering": "Adobe Connect Managed Services (ACMS-GC)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2019-06-27"
+          },
+          {
+            "fedramp_id": "FR1820435960",
+            "offering": "Adobe Creative Cloud for Enterprise",
+            "status": "FedRAMP Authorized",
+            "impact_level": "LI-SaaS",
+            "auth_date": "2018-05-14"
+          },
+          {
+            "fedramp_id": "FR1820435961",
+            "offering": "Adobe Document Cloud including Adobe Acrobat, Adobe Acrobat Sign, Adobe Acrobat AI Assistant, Adobe Acrobat Analyzer, and Adobe Acrobat Services (APIs)\r\n",
+            "status": "FedRAMP Authorized",
+            "impact_level": "LI-SaaS",
+            "auth_date": "2018-05-14"
+          },
+          {
+            "fedramp_id": "F1509037239",
+            "offering": "Adobe Experience Manager Managed Services (AEMMS-GC)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2019-06-27"
+          }
+        ]
       }
     },
     {
@@ -4179,7 +4694,9 @@
       "list": "enterprise",
       "founded_year": 1998,
       "founded_source": "https://en.wikipedia.org/wiki/Akamai_Technologies",
-      "certs": [],
+      "certs": [
+        "FedRAMP Moderate"
+      ],
       "links": {
         "trust": "https://trust.akamai.com",
         "subprocessors": "https://trust.akamai.com/subprocessors"
@@ -4187,13 +4704,40 @@
       "summary": "Public trust center on file.",
       "subprocessors": [],
       "disclosure": {
-        "score": 38,
-        "tier": "thin",
+        "score": 50,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 12,
+          "processors": 8,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 1,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "High",
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "F1206061353",
+            "offering": "Content Delivery Services",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2013-08-23"
+          },
+          {
+            "fedramp_id": "FR2535161278",
+            "offering": "Akamai Cloud",
+            "status": "FedRAMP Ready",
+            "impact_level": "High",
+            "auth_date": "Not Active"
+          }
+        ]
       }
     },
     {
@@ -4215,7 +4759,8 @@
         "FedRAMP",
         "HIPAA",
         "PCI DSS",
-        "GDPR"
+        "GDPR",
+        "FedRAMP High"
       ],
       "links": {
         "trust": "https://aws.amazon.com/compliance/",
@@ -4232,16 +4777,42 @@
         }
       ],
       "disclosure": {
-        "score": 79,
-        "tier": "substantial",
+        "score": 90,
+        "tier": "complete",
         "factors": {
           "portal": 20,
-          "certs": 29,
-          "subprocessors": 8,
+          "marks": 40,
+          "processors": 8,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 2,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High",
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "AGENCYAMAZONEW",
+            "offering": "AWS US East/West",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2013-05-01"
+          },
+          {
+            "fedramp_id": "F1603047866",
+            "offering": "AWS GovCloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2016-06-21"
+          }
+        ]
       }
     },
     {
@@ -4349,7 +4920,8 @@
         "GDPR",
         "CCPA",
         "CSA STAR",
-        "TX-RAMP"
+        "TX-RAMP",
+        "FedRAMP Moderate"
       ],
       "links": {
         "trust": "https://trustcenter.asana.com/",
@@ -4366,12 +4938,30 @@
         "tier": "substantial",
         "factors": {
           "portal": 20,
-          "certs": 40,
+          "marks": 40,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 9
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2527132001",
+            "offering": "Asana",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2026-06-22"
+          }
+        ]
       }
     },
     {
@@ -4390,7 +4980,8 @@
       "founded_year": 2002,
       "founded_source": "https://en.wikipedia.org/wiki/Atlassian",
       "certs": [
-        "FedRAMP"
+        "FedRAMP",
+        "FedRAMP Moderate"
       ],
       "links": {
         "trust": "https://www.atlassian.com/trust",
@@ -4403,17 +4994,35 @@
       "summary": "Public trust center. On file: FedRAMP.",
       "subprocessors": [],
       "disclosure": {
-        "score": 70,
+        "score": 82,
         "tier": "substantial",
         "factors": {
           "portal": 20,
-          "certs": 12,
+          "marks": 24,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2412062433",
+            "offering": "Atlassian Government Cloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2025-03-14"
+          }
+        ]
       }
     },
     {
@@ -4431,19 +5040,40 @@
       "list": "enterprise",
       "founded_year": 1982,
       "founded_source": "https://en.wikipedia.org/wiki/Autodesk",
-      "certs": [],
+      "certs": [
+        "FedRAMP Moderate"
+      ],
       "links": {
         "trust": "https://trustportal.autodesk.com/"
       },
       "summary": "Trust Center html, body, #app { height: 100%; margin: 0; } .",
       "subprocessors": [],
       "disclosure": {
-        "score": 30,
-        "tier": "thin",
+        "score": 42,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2226322745",
+            "offering": "Autodesk for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2024-08-14"
+          }
+        ]
       }
     },
     {
@@ -4526,7 +5156,9 @@
       "list": "enterprise",
       "founded_year": 2009,
       "founded_source": "https://en.wikipedia.org/wiki/Box,_Inc.",
-      "certs": [],
+      "certs": [
+        "FedRAMP High"
+      ],
       "links": {
         "trust": "https://www.box.com/trust",
         "subprocessors": "https://www.box.com/legal/subprocessors",
@@ -4545,14 +5177,33 @@
         }
       ],
       "disclosure": {
-        "score": 42,
+        "score": 54,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 12,
+          "processors": 8,
           "status": 6,
           "longevity": 8
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "F1212191840A",
+            "offering": "Box Enterprise Cloud Content Collaboration Platform",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2025-03-25"
+          }
+        ]
       }
     },
     {
@@ -4637,7 +5288,9 @@
       "list": "enterprise",
       "founded_year": 1993,
       "founded_source": "https://en.wikipedia.org/wiki/Check_Point",
-      "certs": [],
+      "certs": [
+        "FedRAMP Moderate"
+      ],
       "links": {
         "security_txt": "https://www.checkpoint.com/security.txt",
         "privacy": "https://www.checkpoint.com/privacy/",
@@ -4647,14 +5300,33 @@
       "summary": "",
       "subprocessors": [],
       "disclosure": {
-        "score": 28,
+        "score": 40,
         "tier": "silent",
         "factors": {
+          "marks": 12,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2511048038",
+            "offering": "Check Point Infinity Platform for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2025-09-24"
+          }
+        ]
       }
     },
     {
@@ -4673,7 +5345,8 @@
       "founded_year": 1984,
       "founded_source": "https://en.wikipedia.org/wiki/Cisco",
       "certs": [
-        "NIST 800-53"
+        "NIST 800-53",
+        "FedRAMP High"
       ],
       "links": {
         "trust": "https://www.cisco.com/c/en/us/about/trust-center.html",
@@ -4685,15 +5358,90 @@
       "summary": "Public trust center. On file: NIST 800-53.",
       "subprocessors": [],
       "disclosure": {
-        "score": 46,
+        "score": 58,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "certs": 4,
+          "marks": 16,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 9,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High",
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2518163100",
+            "offering": "Spaces for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2025-11-25"
+          },
+          {
+            "fedramp_id": "FR1823368486",
+            "offering": "AppDynamics GovAPM",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2020-06-10"
+          },
+          {
+            "fedramp_id": "FR2304757473A",
+            "offering": "Cisco Security Cloud for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2026-08-06"
+          },
+          {
+            "fedramp_id": "F1605107897",
+            "offering": "Cisco Cloudlock for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2017-12-04"
+          },
+          {
+            "fedramp_id": "FR2315535023",
+            "offering": "Cisco Meraki US Government Region",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2025-02-18"
+          },
+          {
+            "fedramp_id": "F1511207635",
+            "offering": "Webex for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2016-02-02"
+          },
+          {
+            "fedramp_id": "FR2012534927",
+            "offering": "Cisco Catalyst SD-WAN for Government (SDWAN-G)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2024-03-14"
+          },
+          {
+            "fedramp_id": "FR2523656707",
+            "offering": "Cisco ThousandEyes for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2026-03-05"
+          },
+          {
+            "fedramp_id": "FR1823149273",
+            "offering": "Duo Federal",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2019-11-15"
+          }
+        ]
       }
     },
     {
@@ -4711,7 +5459,9 @@
       "list": "enterprise",
       "founded_year": 2009,
       "founded_source": "https://en.wikipedia.org/wiki/Cloudflare",
-      "certs": [],
+      "certs": [
+        "FedRAMP High"
+      ],
       "links": {
         "trust": "https://www.cloudflare.com/trust-hub/",
         "security_txt": "https://www.cloudflare.com/.well-known/security.txt",
@@ -4723,15 +5473,34 @@
       "summary": "Public trust center on file.",
       "subprocessors": [],
       "disclosure": {
-        "score": 48,
+        "score": 60,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 12,
+          "processors": 8,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 8
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2000863987A",
+            "offering": "Cloudflare for Government - High",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2026-08-06"
+          }
+        ]
       }
     },
     {
@@ -4793,7 +5562,9 @@
       "probed": 9,
       "source": "public-enterprise",
       "list": "enterprise",
-      "certs": [],
+      "certs": [
+        "FedRAMP 20x Moderate"
+      ],
       "links": {
         "trust": "https://confluent.safebase.us",
         "security_txt": "https://www.confluent.io/.well-known/security.txt",
@@ -4803,18 +5574,37 @@
       "summary": "Public trust center on file.",
       "subprocessors": [],
       "disclosure": {
-        "score": 46,
+        "score": 58,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 12,
+          "processors": 8,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 6
         }
       },
       "founded_year": 2014,
-      "founded_source": "https://en.wikipedia.org/wiki/Confluent"
+      "founded_source": "https://en.wikipedia.org/wiki/Confluent",
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "20x Moderate",
+        "impact_levels": [
+          "20x Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2409863458XL",
+            "offering": "Confluent Cloud for Government (CCG)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "20x Moderate",
+            "auth_date": "2026-03-06"
+          }
+        ]
+      }
     },
     {
       "rank": null,
@@ -4880,16 +5670,37 @@
       "list": "enterprise",
       "founded_year": 2006,
       "founded_source": "https://en.wikipedia.org/wiki/Coupa",
-      "certs": [],
+      "certs": [
+        "FedRAMP Moderate"
+      ],
       "links": {},
       "summary": "",
       "subprocessors": [],
       "disclosure": {
-        "score": 10,
+        "score": 22,
         "tier": "silent",
         "factors": {
+          "marks": 12,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "F1308202329",
+            "offering": "Coupa Spend Management for Federal",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2022-03-10"
+          }
+        ]
       }
     },
     {
@@ -4907,7 +5718,9 @@
       "list": "enterprise",
       "founded_year": 2011,
       "founded_source": "https://en.wikipedia.org/wiki/CrowdStrike",
-      "certs": [],
+      "certs": [
+        "FedRAMP High"
+      ],
       "links": {
         "trust": "https://trust.crowdstrike.com",
         "security_txt": "https://www.crowdstrike.com/.well-known/security.txt",
@@ -4917,14 +5730,40 @@
       "summary": "Public trust center on file.",
       "subprocessors": [],
       "disclosure": {
-        "score": 39,
-        "tier": "thin",
+        "score": 51,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 7
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 1,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2627547824",
+            "offering": "CrowdStrike Falcon Platform IL5 SaaS",
+            "status": "FedRAMP In Process",
+            "impact_level": "High",
+            "auth_date": "Not Active"
+          },
+          {
+            "fedramp_id": "FR1807853629A",
+            "offering": "CrowdStrike Falcon Platform for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2025-03-12"
+          }
+        ]
       }
     },
     {
@@ -4980,7 +5819,9 @@
       "list": "enterprise",
       "founded_year": 2010,
       "founded_source": "https://en.wikipedia.org/wiki/Datadog",
-      "certs": [],
+      "certs": [
+        "FedRAMP High"
+      ],
       "links": {
         "trust": "https://trust.datadoghq.com",
         "security_txt": "https://www.datadoghq.com/security.txt",
@@ -4993,17 +5834,36 @@
       "summary": "Public trust center on file.",
       "subprocessors": [],
       "disclosure": {
-        "score": 62,
-        "tier": "on-file",
+        "score": 74,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 8
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2023864279A",
+            "offering": "Datadog for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2026-05-05"
+          }
+        ]
       }
     },
     {
@@ -5060,7 +5920,9 @@
       "list": "enterprise",
       "founded_year": 2003,
       "founded_source": "https://en.wikipedia.org/wiki/Docusign",
-      "certs": [],
+      "certs": [
+        "FedRAMP Moderate"
+      ],
       "links": {
         "trust": "https://www.docusign.com/trust",
         "privacy": "https://www.docusign.com/privacy",
@@ -5069,14 +5931,40 @@
       "summary": "Public trust center on file.",
       "subprocessors": [],
       "disclosure": {
-        "score": 42,
+        "score": 54,
         "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "status": 6,
           "privacy": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 2,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "F1605027893",
+            "offering": "DocuSign CLM",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2017-08-24"
+          },
+          {
+            "fedramp_id": "F1609267945",
+            "offering": "Docusign - IAM eSignature",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2017-08-10"
+          }
+        ]
       }
     },
     {
@@ -5186,12 +6074,30 @@
         "tier": "complete",
         "factors": {
           "portal": 20,
-          "certs": 40,
-          "subprocessors": 8,
+          "marks": 40,
+          "processors": 8,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2016131254",
+            "offering": "Dynatrace Platform",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2020-07-27"
+          }
+        ]
       }
     },
     {
@@ -5220,7 +6126,8 @@
         "CSA STAR",
         "TISAX",
         "IRAP",
-        "Cyber Essentials"
+        "Cyber Essentials",
+        "FedRAMP High"
       ],
       "links": {
         "trust": "https://elastic.securitypal.com",
@@ -5235,11 +6142,37 @@
         "tier": "substantial",
         "factors": {
           "portal": 20,
-          "certs": 40,
+          "marks": 40,
           "status": 6,
           "privacy": 6,
           "longevity": 7
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 2,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High",
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2004446306",
+            "offering": "Elastic Cloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2020-07-22"
+          },
+          {
+            "fedramp_id": "FR2523939103",
+            "offering": "Elastic Cloud Hosted - High",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2026-03-23"
+          }
+        ]
       }
     },
     {
@@ -5263,7 +6196,7 @@
         "security": "https://www.fastly.com/products/web-application-api-protection",
         "trust": "https://www.fastly.com/trust"
       },
-      "summary": "Learn more about Fastly’s security and compliance, legal terms, privacy, and corporate values and ethics, please visit the resources.",
+      "summary": "Learn more about Fastly\u2019s security and compliance, legal terms, privacy, and corporate values and ethics, please visit the resources.",
       "subprocessors": [],
       "disclosure": {
         "score": 33,
@@ -5300,7 +6233,8 @@
         "TISAX",
         "TX-RAMP",
         "C5",
-        "ISMAP"
+        "ISMAP",
+        "FedRAMP Moderate"
       ],
       "links": {
         "trust": "https://compliance.figma.com",
@@ -5317,12 +6251,30 @@
         "tier": "substantial",
         "factors": {
           "portal": 20,
-          "certs": 40,
-          "subprocessors": 8,
+          "marks": 40,
+          "processors": 8,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 7
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2311345531",
+            "offering": "Figma for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2025-02-28"
+          }
+        ]
       }
     },
     {
@@ -5415,7 +6367,7 @@
       "trust_url": "https://github.com/security",
       "final_url": "https://github.com/security",
       "vendor": "self_hosted",
-      "title": "GitHub Security · GitHub",
+      "title": "GitHub Security \u00b7 GitHub",
       "probed": 13,
       "source": "public-enterprise",
       "list": "enterprise",
@@ -5423,7 +6375,8 @@
       "founded_source": "https://en.wikipedia.org/wiki/GitHub",
       "certs": [
         "SOC 2",
-        "GDPR"
+        "GDPR",
+        "FedRAMP LI-SaaS"
       ],
       "links": {
         "security_txt": "https://github.com/.well-known/security.txt",
@@ -5438,18 +6391,36 @@
       "summary": "Public trust center. On file: SOC 2, GDPR.",
       "subprocessors": [],
       "disclosure": {
-        "score": 70,
+        "score": 82,
         "tier": "substantial",
         "factors": {
           "portal": 20,
-          "certs": 7,
+          "marks": 19,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 9
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "LI-SaaS",
+        "impact_levels": [
+          "LI-SaaS"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR1812058188",
+            "offering": "GitHub Enterprise Cloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "LI-SaaS",
+            "auth_date": "2018-10-04"
+          }
+        ]
       }
     },
     {
@@ -5467,7 +6438,9 @@
       "list": "enterprise",
       "founded_year": 2011,
       "founded_source": "https://en.wikipedia.org/wiki/GitLab",
-      "certs": [],
+      "certs": [
+        "FedRAMP Moderate"
+      ],
       "links": {
         "trust": "https://trust.gitlab.com",
         "security_txt": "https://gitlab.com/.well-known/security.txt",
@@ -5481,17 +6454,36 @@
       "summary": "Public trust center on file.",
       "subprocessors": [],
       "disclosure": {
-        "score": 61,
-        "tier": "on-file",
+        "score": 73,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 7
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2411959145",
+            "offering": "GitLab Dedicated for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2025-05-15"
+          }
+        ]
       }
     },
     {
@@ -5510,7 +6502,9 @@
       "http_status": 200,
       "founded_year": 1998,
       "founded_source": "https://en.wikipedia.org/wiki/Google",
-      "certs": [],
+      "certs": [
+        "FedRAMP High"
+      ],
       "links": {
         "trust": "https://cloud.google.com/compliance",
         "security_txt": "https://www.google.com/.well-known/security.txt",
@@ -5520,14 +6514,55 @@
       "summary": "Discover Google Workspace and Google Cloud resources on regulatory compliance, certifications, and frameworks across regions and industries.",
       "subprocessors": [],
       "disclosure": {
-        "score": 42,
+        "score": 54,
         "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 3,
+        "in_process_offerings": 1,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "20x Low",
+          "High"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2604952026",
+            "offering": "Gemini for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "20x Low",
+            "auth_date": "2026-01-21"
+          },
+          {
+            "fedramp_id": "FR1805751477",
+            "offering": "Google Services (Google Cloud Platform Products and underlying Infrastructure)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2019-12-04"
+          },
+          {
+            "fedramp_id": "F1206081364",
+            "offering": "Google Workspace",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2021-10-28"
+          },
+          {
+            "fedramp_id": "FR2405153785",
+            "offering": "Google Cloud VMware Engine (GCVE)",
+            "status": "FedRAMP Ready",
+            "impact_level": "High",
+            "auth_date": "Not Active"
+          }
+        ]
       }
     },
     {
@@ -5668,7 +6703,9 @@
       "list": "enterprise",
       "founded_year": 1911,
       "founded_source": "https://en.wikipedia.org/wiki/IBM",
-      "certs": [],
+      "certs": [
+        "FedRAMP High"
+      ],
       "links": {
         "trust": "https://www.ibm.com/trust",
         "security_txt": "https://www.ibm.com/.well-known/security.txt",
@@ -5679,14 +6716,98 @@
       "summary": "Protecting our customers and business with security and privacy practices, and responsible AI.",
       "subprocessors": [],
       "disclosure": {
-        "score": 42,
+        "score": 54,
         "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 9,
+        "in_process_offerings": 1,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High",
+          "LI-SaaS",
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "F1208031461",
+            "offering": "IBM Platform Services for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2015-07-17"
+          },
+          {
+            "fedramp_id": "F1211011660",
+            "offering": "IBM Cloud for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2019-11-14"
+          },
+          {
+            "fedramp_id": "FR1728053006",
+            "offering": "IBM Automation Services for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2019-03-12"
+          },
+          {
+            "fedramp_id": "FR2417469779",
+            "offering": "IBM Envizi ESG Reporting",
+            "status": "FedRAMP Authorized",
+            "impact_level": "LI-SaaS",
+            "auth_date": "2024-09-13"
+          },
+          {
+            "fedramp_id": "F1206081363",
+            "offering": "SmartCloud for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2019-11-14"
+          },
+          {
+            "fedramp_id": "FR2607452240",
+            "offering": "GO.gov",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2026-06-04"
+          },
+          {
+            "fedramp_id": "FR2504062150",
+            "offering": "IBM Federal ATOM",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2025-11-13"
+          },
+          {
+            "fedramp_id": "FR2135730387",
+            "offering": "IBM Federal HR Cloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2023-06-08"
+          },
+          {
+            "fedramp_id": "FR2524349489",
+            "offering": "IBM Data Services for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2026-02-10"
+          },
+          {
+            "fedramp_id": "F1208031461A",
+            "offering": "IBM Platform Services for Government",
+            "status": "Agency In Process",
+            "impact_level": "High",
+            "auth_date": "Not Active"
+          }
+        ]
       }
     },
     {
@@ -5831,7 +6952,8 @@
       "founded_year": 1975,
       "founded_source": "https://en.wikipedia.org/wiki/Microsoft",
       "certs": [
-        "GDPR"
+        "GDPR",
+        "FedRAMP High"
       ],
       "links": {
         "security": "https://www.microsoft.com/en-us/security",
@@ -5843,16 +6965,63 @@
       "summary": "Public trust center. On file: GDPR.",
       "subprocessors": [],
       "disclosure": {
-        "score": 53,
+        "score": 65,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "certs": 3,
-          "subprocessors": 8,
+          "marks": 15,
+          "processors": 8,
           "status": 6,
           "privacy": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 4,
+        "in_process_offerings": 1,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High",
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "F1209051525",
+            "offering": "Azure Commercial Cloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2019-05-03"
+          },
+          {
+            "fedramp_id": "MSO365MTA",
+            "offering": "Microsoft 365 Government Community Cloud & Supporting Services",
+            "status": "FedRAMP In Process",
+            "impact_level": "High",
+            "auth_date": "Not Active"
+          },
+          {
+            "fedramp_id": "FR1824057433",
+            "offering": "Microsoft 365 Government Community Cloud-High ",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2024-12-26"
+          },
+          {
+            "fedramp_id": "MSO365MT",
+            "offering": "Microsoft 365 Government Community Cloud & Supporting Services",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2014-11-20"
+          },
+          {
+            "fedramp_id": "F1603087869",
+            "offering": "Azure Government (includes Dynamics 365)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2020-04-29"
+          }
+        ]
       }
     },
     {
@@ -5987,7 +7156,8 @@
         "FedRAMP",
         "HIPAA",
         "PCI DSS",
-        "GDPR"
+        "GDPR",
+        "FedRAMP Moderate"
       ],
       "links": {
         "privacy": "https://www.mongodb.com/legal/privacy",
@@ -6026,14 +7196,32 @@
         "tier": "complete",
         "factors": {
           "portal": 20,
-          "certs": 40,
+          "marks": 40,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 9
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2122150307",
+            "offering": "MongoDB Atlas for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2023-01-18"
+          }
+        ]
       }
     },
     {
@@ -6093,7 +7281,9 @@
       "list": "enterprise",
       "founded_year": 2008,
       "founded_source": "https://en.wikipedia.org/wiki/New_Relic",
-      "certs": [],
+      "certs": [
+        "FedRAMP Moderate"
+      ],
       "links": {
         "trust": "https://trust.newrelic.com",
         "security_txt": "https://newrelic.com/.well-known/security.txt",
@@ -6110,16 +7300,35 @@
         }
       ],
       "disclosure": {
-        "score": 55,
+        "score": 67,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 12,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 9
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "F1607057910",
+            "offering": "New Relic",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2020-03-02"
+          }
+        ]
       }
     },
     {
@@ -6173,7 +7382,9 @@
       "list": "enterprise",
       "founded_year": 2009,
       "founded_source": "https://en.wikipedia.org/wiki/Okta,_Inc.",
-      "certs": [],
+      "certs": [
+        "FedRAMP High"
+      ],
       "links": {
         "security": "https://security.okta.com",
         "trust": "https://security.okta.com",
@@ -6185,15 +7396,42 @@
       "summary": "Public trust center on file.",
       "subprocessors": [],
       "disclosure": {
-        "score": 46,
+        "score": 58,
         "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 8
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 2,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High",
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "F1512167750",
+            "offering": "Okta IDaaS Regulated Cloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2017-04-26"
+          },
+          {
+            "fedramp_id": "FR2131856836",
+            "offering": "Okta IDaaS Government High Cloud (GHC)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2023-03-23"
+          }
+        ]
       }
     },
     {
@@ -6211,16 +7449,80 @@
       "list": "enterprise",
       "founded_year": 1977,
       "founded_source": "https://en.wikipedia.org/wiki/Oracle_Corporation",
-      "certs": [],
+      "certs": [
+        "FedRAMP High"
+      ],
       "links": {},
       "summary": "",
       "subprocessors": [],
       "disclosure": {
-        "score": 10,
+        "score": 22,
         "tier": "silent",
         "factors": {
+          "marks": 12,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 6,
+        "in_process_offerings": 1,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High",
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "F1607077914A",
+            "offering": "Oracle Enterprise Performance Management (EPM)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2025-02-28"
+          },
+          {
+            "fedramp_id": "FR1712871948",
+            "offering": "Aconex for Defense",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2020-10-30"
+          },
+          {
+            "fedramp_id": "FR1900048743",
+            "offering": "Oracle Cloud Infrastructure-Government Cloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2020-10-01"
+          },
+          {
+            "fedramp_id": "F1206061351",
+            "offering": "Oracle Service Cloud (OSvC)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2014-12-05"
+          },
+          {
+            "fedramp_id": "F1603257882",
+            "offering": "Fusion Cloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2020-01-13"
+          },
+          {
+            "fedramp_id": "F1209041518",
+            "offering": "Federal Managed Cloud Services",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2014-02-26"
+          },
+          {
+            "fedramp_id": "FR2534673267",
+            "offering": "Oracle Primavera Cloud for Government",
+            "status": "Agency In Process",
+            "impact_level": "Moderate",
+            "auth_date": "Not Active"
+          }
+        ]
       }
     },
     {
@@ -6245,7 +7547,8 @@
         "PCI DSS",
         "CCPA",
         "TISAX",
-        "SOX"
+        "SOX",
+        "FedRAMP Low"
       ],
       "links": {
         "trust": "https://assurance.pagerduty.com",
@@ -6262,13 +7565,31 @@
         "tier": "complete",
         "factors": {
           "portal": 20,
-          "certs": 40,
+          "marks": 40,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "privacy": 6,
           "longevity": 8
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Low",
+        "impact_levels": [
+          "Low"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2310974411",
+            "offering": "PagerDuty Operations Cloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Low",
+            "auth_date": "2025-03-10"
+          }
+        ]
       }
     },
     {
@@ -6286,7 +7607,9 @@
       "list": "enterprise",
       "founded_year": 2003,
       "founded_source": "https://en.wikipedia.org/wiki/Palantir",
-      "certs": [],
+      "certs": [
+        "FedRAMP High"
+      ],
       "links": {
         "trust": "https://palantir.safebase.us",
         "security_txt": "https://www.palantir.com/.well-known/security.txt",
@@ -6296,13 +7619,39 @@
       "summary": "Public trust center on file.",
       "subprocessors": [],
       "disclosure": {
-        "score": 36,
-        "tier": "thin",
+        "score": 48,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "disclosure": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 2,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2315464863",
+            "offering": "Palantir Federal Cloud Service \u2013 Supporting Services (PFCS-SS)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2024-11-19"
+          },
+          {
+            "fedramp_id": "FR2434554673",
+            "offering": "Palantir Federal Cloud Service",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2024-11-19"
+          }
+        ]
       }
     },
     {
@@ -6331,7 +7680,8 @@
         "IRAP",
         "StateRAMP",
         "C5",
-        "ISMAP"
+        "ISMAP",
+        "FedRAMP High"
       ],
       "links": {
         "trust": "https://trust.paloaltonetworks.com",
@@ -6357,13 +7707,53 @@
         "tier": "complete",
         "factors": {
           "portal": 20,
-          "certs": 40,
-          "subprocessors": 8,
+          "marks": 40,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 4,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High",
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2317253567",
+            "offering": "GCS-HIGH",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2024-12-09"
+          },
+          {
+            "fedramp_id": "FR1913470600",
+            "offering": "Palo Alto Networks Government Cloud Services",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2021-01-21"
+          },
+          {
+            "fedramp_id": "FR2001619708",
+            "offering": "Idira Endpoint Privilege Manager for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2024-03-14"
+          },
+          {
+            "fedramp_id": "FR2001619337",
+            "offering": "Idira Identity Security Government Services Platform",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2024-03-14"
+          }
+        ]
       }
     },
     {
@@ -6419,7 +7809,8 @@
       "list": "enterprise",
       "http_status": 200,
       "certs": [
-        "FedRAMP"
+        "FedRAMP",
+        "FedRAMP Moderate"
       ],
       "links": {
         "trust": "https://www.proofpoint.com/us/legal/trust",
@@ -6465,20 +7856,52 @@
         }
       ],
       "disclosure": {
-        "score": 70,
+        "score": 82,
         "tier": "substantial",
         "factors": {
           "portal": 20,
-          "certs": 12,
+          "marks": 24,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 10
         }
       },
       "founded_year": 2002,
-      "founded_source": "https://en.wikipedia.org/wiki/Proofpoint"
+      "founded_source": "https://en.wikipedia.org/wiki/Proofpoint",
+      "fedramp": {
+        "authorized_offerings": 3,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "F1304222071",
+            "offering": "Proofpoint Email Archive",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2016-11-23"
+          },
+          {
+            "fedramp_id": "FR1819168894",
+            "offering": "Proofpoint Targeted Attack Protection",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2020-01-15"
+          },
+          {
+            "fedramp_id": "FR1720461312",
+            "offering": "Proofpoint Email and Information Protection Service",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2020-01-15"
+          }
+        ]
+      }
     },
     {
       "rank": null,
@@ -6496,7 +7919,9 @@
       "http_status": 200,
       "founded_year": 1999,
       "founded_source": "https://en.wikipedia.org/wiki/Qualys",
-      "certs": [],
+      "certs": [
+        "FedRAMP High"
+      ],
       "links": {
         "security_txt": "https://www.qualys.com/.well-known/security.txt",
         "privacy": "https://www.qualys.com/company/privacy",
@@ -6506,14 +7931,41 @@
       "summary": "",
       "subprocessors": [],
       "disclosure": {
-        "score": 28,
+        "score": 40,
         "tier": "silent",
         "factors": {
+          "marks": 12,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 2,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High",
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "F1508207205",
+            "offering": "Qualys Cloud Platform",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2016-11-02"
+          },
+          {
+            "fedramp_id": "FR2231052341",
+            "offering": "Qualys Government Platform",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2025-08-14"
+          }
+        ]
       }
     },
     {
@@ -6530,7 +7982,9 @@
       "source": "public-enterprise",
       "list": "enterprise",
       "http_status": 200,
-      "certs": [],
+      "certs": [
+        "FedRAMP Moderate"
+      ],
       "links": {
         "trust": "https://www.rapid7.com/trust/",
         "privacy": "https://www.rapid7.com/privacy-policy/",
@@ -6542,19 +7996,38 @@
       "summary": "Rapid7 is on a mission to drive the secops movement into the future, and we take that to heart with our holistic approach to security.",
       "subprocessors": [],
       "disclosure": {
-        "score": 58,
-        "tier": "on-file",
+        "score": 70,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "privacy": 6,
           "longevity": 10
         }
       },
       "founded_year": 2000,
-      "founded_source": "https://en.wikipedia.org/wiki/Rapid7,_Inc."
+      "founded_source": "https://en.wikipedia.org/wiki/Rapid7,_Inc.",
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2422240916",
+            "offering": "InsightGovCloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2025-07-11"
+          }
+        ]
+      }
     },
     {
       "rank": null,
@@ -6569,7 +8042,9 @@
       "probed": 1,
       "source": "public-enterprise",
       "list": "enterprise",
-      "certs": [],
+      "certs": [
+        "FedRAMP Moderate"
+      ],
       "links": {
         "trust": "https://trust.sailpoint.com",
         "privacy": "https://www.sailpoint.com/legal/privacy",
@@ -6580,15 +8055,34 @@
       "summary": "Public trust center on file.",
       "subprocessors": [],
       "disclosure": {
-        "score": 46,
+        "score": 58,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 12,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2001938710A",
+            "offering": "SailPoint Identity Security Cloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2024-06-05"
+          }
+        ]
       }
     },
     {
@@ -6607,7 +8101,8 @@
       "founded_year": 1999,
       "founded_source": "https://en.wikipedia.org/wiki/Salesforce",
       "certs": [
-        "GDPR"
+        "GDPR",
+        "FedRAMP High"
       ],
       "links": {
         "trust": "https://trust.salesforce.com",
@@ -6619,16 +8114,34 @@
       "summary": "Public trust center. On file: GDPR.",
       "subprocessors": [],
       "disclosure": {
-        "score": 51,
+        "score": 63,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "certs": 3,
+          "marks": 15,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2003061248",
+            "offering": "Salesforce Government Cloud Plus",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2020-05-27"
+          }
+        ]
       }
     },
     {
@@ -6681,7 +8194,9 @@
       "list": "enterprise",
       "founded_year": 1972,
       "founded_source": "https://en.wikipedia.org/wiki/SAP",
-      "certs": [],
+      "certs": [
+        "FedRAMP Moderate"
+      ],
       "links": {
         "trust": "https://www.sap.com/about/trust-center.html",
         "security_txt": "https://www.sap.com/.well-known/security.txt",
@@ -6693,15 +8208,41 @@
       "summary": "Learn about our security and data protection measures, regular compliance checks through internal reviews and audits, and availability of our cloud services worldwide.",
       "subprocessors": [],
       "disclosure": {
-        "score": 48,
+        "score": 60,
         "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 2,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR1719841002",
+            "offering": "SAP NS2 Cloud Intelligent Enterprise",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2017-11-13"
+          },
+          {
+            "fedramp_id": "F1602257856",
+            "offering": "DoD Cloud Intelligent Enterprise \u2013 DD-CIE",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2017-06-13"
+          }
+        ]
       }
     },
     {
@@ -6756,13 +8297,31 @@
         "tier": "substantial",
         "factors": {
           "portal": 20,
-          "certs": 32,
-          "subprocessors": 8,
+          "marks": 32,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 5
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2023666173",
+            "offering": "Scale AI Data Platform",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2024-09-09"
+          }
+        ]
       }
     },
     {
@@ -6780,7 +8339,9 @@
       "list": "enterprise",
       "founded_year": 2013,
       "founded_source": "https://en.wikipedia.org/wiki/SentinelOne",
-      "certs": [],
+      "certs": [
+        "FedRAMP High"
+      ],
       "links": {
         "trust": "https://trust.sentinelone.com",
         "security_txt": "https://sentinelone.com/.well-known/security.txt",
@@ -6792,15 +8353,34 @@
       "summary": "Enhance security compliance with SentinelOne's AI-powered solutions.",
       "subprocessors": [],
       "disclosure": {
-        "score": 44,
+        "score": 56,
         "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 6
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR1919071020A",
+            "offering": "SentinelOne Singularity Platform High",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2024-09-10"
+          }
+        ]
       }
     },
     {
@@ -6818,19 +8398,40 @@
       "list": "enterprise",
       "founded_year": 2004,
       "founded_source": "https://en.wikipedia.org/wiki/ServiceNow",
-      "certs": [],
+      "certs": [
+        "FedRAMP High"
+      ],
       "links": {
         "trust": "https://trust.servicenow.com"
       },
       "summary": "Transparent, real-time security and compliance status to continuously earn the trust of users and customers.",
       "subprocessors": [],
       "disclosure": {
-        "score": 30,
-        "tier": "thin",
+        "score": 42,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "F1305072116",
+            "offering": "Government Community Cloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2019-08-12"
+          }
+        ]
       }
     },
     {
@@ -6909,7 +8510,8 @@
         "TISAX",
         "IRAP",
         "C5",
-        "ISMAP"
+        "ISMAP",
+        "FedRAMP High"
       ],
       "links": {
         "security_txt": "https://slack.com/.well-known/security.txt",
@@ -6926,12 +8528,38 @@
         "tier": "substantial",
         "factors": {
           "portal": 20,
-          "certs": 40,
+          "marks": 40,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 6
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 2,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High",
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2230252267",
+            "offering": "GovSlack",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2024-01-25"
+          },
+          {
+            "fedramp_id": "FR1823447014",
+            "offering": "Slack",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2020-05-20"
+          }
+        ]
       }
     },
     {
@@ -6950,7 +8578,8 @@
       "founded_year": 2006,
       "founded_source": "https://en.wikipedia.org/wiki/Smartsheet",
       "certs": [
-        "SOC 2"
+        "SOC 2",
+        "FedRAMP Moderate"
       ],
       "links": {
         "trust": "https://smartsheet.securitypal.com",
@@ -6965,18 +8594,36 @@
       "summary": "Public trust center. On file: SOC 2.",
       "subprocessors": [],
       "disclosure": {
-        "score": 68,
-        "tier": "on-file",
+        "score": 84,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
-          "certs": 4,
+          "marks": 20,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR1730866868",
+            "offering": "Smartsheet Gov",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2019-08-12"
+          }
+        ]
       }
     },
     {
@@ -6994,7 +8641,9 @@
       "list": "enterprise",
       "founded_year": 2012,
       "founded_source": "https://en.wikipedia.org/wiki/Snowflake_Inc.",
-      "certs": [],
+      "certs": [
+        "FedRAMP High"
+      ],
       "links": {
         "trust": "https://trust.snowflake.com",
         "security_txt": "https://www.snowflake.com/.well-known/security.txt",
@@ -7007,16 +8656,50 @@
       "summary": "Public trust center on file.",
       "subprocessors": [],
       "disclosure": {
-        "score": 53,
+        "score": 65,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 12,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 7
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 3,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High",
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2308159208",
+            "offering": "The Data Cloud on AWS GovCloud (High)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2023-12-08"
+          },
+          {
+            "fedramp_id": "FR1809360201",
+            "offering": "The Data Cloud on AWS US East/West",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2020-07-02"
+          },
+          {
+            "fedramp_id": "FR1809360202A",
+            "offering": "The Data Cloud on Azure Government (High)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2025-06-17"
+          }
+        ]
       }
     },
     {
@@ -7044,7 +8727,8 @@
         "CCPA",
         "CSA STAR",
         "TISAX",
-        "StateRAMP"
+        "StateRAMP",
+        "FedRAMP High"
       ],
       "links": {
         "trust": "https://customertrust.splunk.com/",
@@ -7060,12 +8744,38 @@
         "tier": "substantial",
         "factors": {
           "portal": 20,
-          "certs": 40,
+          "marks": 40,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 2,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High",
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2314156865",
+            "offering": "Splunk Cloud Platform for FedRAMP High",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2024-09-13"
+          },
+          {
+            "fedramp_id": "F1607197917",
+            "offering": "Splunk Cloud Platform for FedRAMP Moderate",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2019-10-11"
+          }
+        ]
       }
     },
     {
@@ -7121,7 +8831,9 @@
       "list": "enterprise",
       "founded_year": 2002,
       "founded_source": "https://en.wikipedia.org/wiki/Tenable,_Inc.",
-      "certs": [],
+      "certs": [
+        "FedRAMP Moderate"
+      ],
       "links": {
         "trust": "https://compliance.tenable.com",
         "security_txt": "https://www.tenable.com/.well-known/security.txt",
@@ -7134,16 +8846,42 @@
       "summary": "Trust Center html, body, #app { height: 100%; margin: 0; } .",
       "subprocessors": [],
       "disclosure": {
-        "score": 56,
+        "score": 68,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 12,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 2,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2215045786",
+            "offering": "Tenable Cloud Security for US Government - Ermetic",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2025-03-26"
+          },
+          {
+            "fedramp_id": "FR1814276801",
+            "offering": "Tenable Government Solutions",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2021-09-22"
+          }
+        ]
       }
     },
     {
@@ -7198,7 +8936,9 @@
       "list": "enterprise",
       "founded_year": 2005,
       "founded_source": "https://en.wikipedia.org/wiki/UiPath",
-      "certs": [],
+      "certs": [
+        "FedRAMP Moderate"
+      ],
       "links": {
         "trust": "https://trust.uipath.com",
         "security_txt": "https://www.uipath.com/.well-known/security.txt",
@@ -7210,15 +8950,34 @@
       "summary": "Public trust center on file.",
       "subprocessors": [],
       "disclosure": {
-        "score": 48,
+        "score": 60,
         "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 12,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2132958724",
+            "offering": "Automation Cloud Public Sector",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2024-03-20"
+          }
+        ]
       }
     },
     {
@@ -7290,7 +9049,8 @@
         "CSA STAR",
         "TISAX",
         "IRAP",
-        "TX-RAMP"
+        "TX-RAMP",
+        "FedRAMP Moderate"
       ],
       "links": {
         "trust": "https://compliance.workday.com",
@@ -7314,11 +9074,29 @@
         "tier": "substantial",
         "factors": {
           "portal": 20,
-          "certs": 40,
-          "subprocessors": 8,
+          "marks": 40,
+          "processors": 8,
           "privacy": 6,
           "longevity": 10
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2103344623",
+            "offering": "Workday Government Cloud (WGC)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2022-07-11"
+          }
+        ]
       }
     },
     {
@@ -7396,12 +9174,30 @@
         "factors": {
           "portal": 20,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 1
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 0,
+        "in_process_offerings": 1,
+        "highest_authorized": null,
+        "impact_levels": [
+          "High"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2618542150",
+            "offering": "Grok for Government",
+            "status": "Agency In Process",
+            "impact_level": "High",
+            "auth_date": "Not Active"
+          }
+        ]
       }
     },
     {
@@ -7420,7 +9216,8 @@
       "founded_year": 2007,
       "founded_source": "https://en.wikipedia.org/wiki/Zendesk",
       "certs": [
-        "GDPR"
+        "GDPR",
+        "FedRAMP LI-SaaS"
       ],
       "links": {
         "trust": "https://trustcenter.zensai.com/hc/en-us",
@@ -7434,17 +9231,35 @@
       "summary": "Public trust center. On file: GDPR.",
       "subprocessors": [],
       "disclosure": {
-        "score": 58,
+        "score": 66,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "certs": 3,
+          "marks": 11,
           "dpa": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 9
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "LI-SaaS",
+        "impact_levels": [
+          "LI-SaaS"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR1821856903",
+            "offering": "Zendesk Customer Support and Help Desk Platform",
+            "status": "FedRAMP Authorized",
+            "impact_level": "LI-SaaS",
+            "auth_date": "2020-05-14"
+          }
+        ]
       }
     },
     {
@@ -7462,7 +9277,9 @@
       "list": "enterprise",
       "founded_year": 2011,
       "founded_source": "https://en.wikipedia.org/wiki/Zoom_Communications",
-      "certs": [],
+      "certs": [
+        "FedRAMP Moderate"
+      ],
       "links": {
         "security_txt": "https://zoom.us/.well-known/security.txt",
         "privacy": "https://www.zoom.com/en/trust/privacy/privacy-statement/?cms_guid=false",
@@ -7474,15 +9291,34 @@
       "summary": "Work together from anywhere, with trust as the cornerstone.",
       "subprocessors": [],
       "disclosure": {
-        "score": 47,
+        "score": 59,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 12,
+          "processors": 8,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 7
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 1,
+        "in_process_offerings": 0,
+        "highest_authorized": "Moderate",
+        "impact_levels": [
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR1825941347A",
+            "offering": "Zoom for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2023-07-28"
+          }
+        ]
       }
     },
     {
@@ -7500,7 +9336,9 @@
       "list": "enterprise",
       "founded_year": 2008,
       "founded_source": "https://en.wikipedia.org/wiki/Zscaler",
-      "certs": [],
+      "certs": [
+        "FedRAMP High"
+      ],
       "links": {
         "trust": "https://compliance.zscaler.com",
         "privacy": "https://www.zscaler.com:443/privacy-compliance/overview",
@@ -7520,15 +9358,56 @@
         }
       ],
       "disclosure": {
-        "score": 49,
+        "score": 61,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 12,
+          "processors": 8,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 9
         }
+      },
+      "fedramp": {
+        "authorized_offerings": 4,
+        "in_process_offerings": 0,
+        "highest_authorized": "High",
+        "impact_levels": [
+          "High",
+          "Moderate"
+        ],
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "fedramp_id": "FR2227062482",
+            "offering": "Zscaler Internet Access - Government (Secure Web Gateway - vTIC) - High",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2022-07-02"
+          },
+          {
+            "fedramp_id": "FR2219763604",
+            "offering": "Zscaler Private Access - Government (Zero Trust Exchange - VPN Replacement)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2022-11-07"
+          },
+          {
+            "fedramp_id": "FR1719759604",
+            "offering": "Zscaler Private Access - Government (Zero Trust Networking - VPN Replacement)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2020-04-29"
+          },
+          {
+            "fedramp_id": "FR1720454205",
+            "offering": "Zscaler Internet Access - Government (Secure Web Gateway - vTIC)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2018-12-14"
+          }
+        ]
       }
     }
   ],
