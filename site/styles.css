@@ -283,6 +283,19 @@ a:hover { color: var(--flame); text-decoration-color: var(--flame); }
 }
 .reg .tier-word { font: var(--t-meta); color: var(--ink); letter-spacing: 0.02em; }
 
+.fr-mark {
+  font: var(--t-kicker);
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  text-decoration: none;
+  margin-right: 10px;
+}
+.fr-mark:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rust);
+}
+
 /* ——— miss / empty ——— */
 .miss, .empty {
   margin-top: 24px;

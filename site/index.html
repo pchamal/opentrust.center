@@ -64,6 +64,13 @@
       <button type="button" data-list="cloud100">cloud 100</button>
       <button type="button" data-list="enterprise">enterprise</button>
     </div>
+    <div class="filters" id="fedramp-filters" aria-label="FedRAMP">
+      <button type="button" data-fedramp="all" class="on">all</button>
+      <button type="button" data-fedramp="any">any</button>
+      <button type="button" data-fedramp="low">low</button>
+      <button type="button" data-fedramp="moderate">moderate</button>
+      <button type="button" data-fedramp="high">high</button>
+    </div>
 
     <p class="coverage" id="coverage"></p>
     <p class="countline" id="countline"></p>
@@ -94,9 +101,9 @@
   </main>
 
   <footer class="colo">
-    <p>We probe <code>trust.{domain}</code>, <code>security.{domain}</code>, and <code>/{trust,trust-center,security}</code>. Marks and named processors come from public HTML only. JS-only portals stay empty — we do not invent marks or processor names. A processor page is not a parsed name. Disclosure rates the file, not the company. Missing rows print <i>not on file</i>.</p>
+    <p>We probe <code>trust.{domain}</code>, <code>security.{domain}</code>, and <code>/{trust,trust-center,security}</code>. Marks and named processors come from public HTML only. JS-only portals stay empty — we do not invent marks or processor names. A processor page is not a parsed name. Disclosure rates the file, not the company. Missing rows print <i>not on file</i>. FedRAMP marks are taken from the GSA marketplace, not the company's portal.</p>
     <p>Source · <a href="https://www.forbes.com/lists/cloud100/">Forbes Cloud 100 2025</a> and a curated public-enterprise set.</p>
-    <p><a href="./brand.html">specimen</a> · <a href="https://github.com/pchamal/opentrust.center">code</a> · outbound is human-gated. Documents stay on the company’s domain.</p>
+    <p><a href="./brand.html">specimen</a> · <a href="https://github.com/pchamal/opentrust.center">code</a> · outbound is human-gated. Documents stay on the company's domain.</p>
   </footer>
 
   <script type="module" src="./register.js"></script>

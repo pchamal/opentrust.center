@@ -8,18 +8,25 @@ import {
   tierClass,
 } from "./lib.js";
 
+const FEDRAMP_FILTERS = new Set(["all", "any", "low", "moderate", "high"]);
+
 const state = {
   rows: [],
   generatedAt: null,
   q: "",
   tier: "all",
   list: "all",
+  fedramp: "all",
 };
 
 function hay(row) {
   const marks = (row.certs || []).join(" ");
   const att = (row.attestations || []).map((a) => a.name || a.id).join(" ");
-  return [row.name, row.domain, row.slug, row.tier, displayTier(row.tier), marks, att]
+  const fr = row.fedramp;
+  const fed = fr
+    ? ["fedramp", fr.highest, ...(fr.levels || []), ...(fr.raw_levels || [])].filter(Boolean).join(" ")
+    : "";
+  return [row.name, row.domain, row.slug, row.tier, displayTier(row.tier), marks, att, fed]
     .filter(Boolean)
     .join(" ")
     .toLowerCase();
@@ -31,6 +38,13 @@ function apply() {
     if (state.tier !== "all" && row.tier !== state.tier) return false;
     if (state.list === "cloud100" && row.list !== "cloud100") return false;
     if (state.list === "enterprise" && row.list !== "enterprise") return false;
+    if (state.fedramp !== "all") {
+      if (!row.fedramp) return false;
+      if (state.fedramp !== "any") {
+        const levels = (row.fedramp.levels || []).map((lv) => String(lv).toLowerCase());
+        if (!levels.includes(state.fedramp)) return false;
+      }
+    }
     if (!q) return true;
     return hay(row).includes(q);
   });
@@ -44,12 +58,24 @@ function guessDomain(q) {
   return slug ? slug + ".com" : "";
 }
 
+function fedrampMark(row) {
+  const fr = row.fedramp;
+  if (!fr) return "";
+  const url = fr.marketplace || "";
+  const highest = fr.highest || "file";
+  if (!url) return `<span class="fr-mark">FedRAMP ${escapeHtml(highest)}</span>`;
+  return `<a class="fr-mark" href="${escapeHtml(url)}" target="_blank" rel="noopener">FedRAMP ${escapeHtml(highest)}</a>`;
+}
+
 function marksCell(row) {
+  const stamp = fedrampMark(row);
   const atts = (row.attestations || []).filter((a) => a && (a.name || a.short));
   const names = atts.length
     ? atts
     : (row.certs || []).map((name) => ({ name, id: null }));
-  if (!names.length) return `<span class="absent">not on file</span>`;
+  if (!names.length) {
+    return stamp || `<span class="absent">not on file</span>`;
+  }
   const head = names
     .slice(0, 3)
     .map((a) => {
@@ -60,7 +86,7 @@ function marksCell(row) {
     })
     .join(" · ");
   const extra = names.length > 3 ? ` +${names.length - 3}` : "";
-  return head + extra;
+  return (stamp ? stamp + " " : "") + head + extra;
 }
 
 function render() {
@@ -72,8 +98,9 @@ function render() {
   const count = $("countline");
   const tierLabel = state.tier === "all" ? "all" : displayTier(state.tier);
   const listLabel = state.list === "all" ? "all" : state.list === "cloud100" ? "cloud 100" : "enterprise";
+  const frLabel = state.fedramp === "all" ? "" : ` · fedramp ${state.fedramp}`;
   count.textContent = state.rows.length
-    ? `showing ${rows.length} of ${state.rows.length} · tier ${tierLabel} · list ${listLabel}`
+    ? `showing ${rows.length} of ${state.rows.length} · tier ${tierLabel} · list ${listLabel}${frLabel}`
     : "";
 
   if (!state.rows.length) {
@@ -126,6 +153,16 @@ function render() {
     .join("");
 }
 
+function setFedramp(value) {
+  const next = FEDRAMP_FILTERS.has(value) ? value : "all";
+  state.fedramp = next;
+  const bar = $("fedramp-filters");
+  if (!bar) return;
+  bar.querySelectorAll("button").forEach((b) => {
+    b.classList.toggle("on", b.getAttribute("data-fedramp") === next);
+  });
+}
+
 function bind() {
   $("finder").addEventListener("submit", (e) => {
     e.preventDefault();
@@ -154,6 +191,15 @@ function bind() {
       render();
     });
   });
+  const frBar = $("fedramp-filters");
+  if (frBar) {
+    frBar.querySelectorAll("button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        setFedramp(btn.getAttribute("data-fedramp"));
+        render();
+      });
+    });
+  }
   $("reg-body").addEventListener("click", (e) => {
     if (e.target.closest("a")) return;
     const tr = e.target.closest("tr");
@@ -180,6 +226,9 @@ async function load() {
   if (params.get("q")) {
     state.q = params.get("q");
     $("q").value = state.q;
+  }
+  if (params.get("fedramp")) {
+    setFedramp(String(params.get("fedramp")).toLowerCase());
   }
   try {
     const res = await fetch("./data.json", { cache: "no-store" });

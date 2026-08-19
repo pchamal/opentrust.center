@@ -448,6 +448,25 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
 FEDRAMP_MARKET = "https://www.fedramp.gov/marketplace/products/"
 
 
+def product_market_url(item: dict) -> str:
+    pid = str(item.get("id") or item.get("fedramp_id") or "").strip()
+    if item.get("url"):
+        return str(item["url"])
+    if pid:
+        return f"{FEDRAMP_MARKET.rstrip('/')}/{pid}"
+    return FEDRAMP_MARKET
+
+
+def collapse_fedramp_level(level: str) -> str | None:
+    if level in ("Low", "20x Low"):
+        return "Low"
+    if level in ("Moderate", "20x Moderate"):
+        return "Moderate"
+    if level == "High":
+        return "High"
+    return None
+
+
 def public_fedramp(raw) -> dict | None:
     """Pass through the GSA dump as filed. Do not invent offerings."""
     if not isinstance(raw, dict):
@@ -459,20 +478,49 @@ def public_fedramp(raw) -> dict | None:
         offering = str(item.get("offering") or "").strip()
         if not offering:
             continue
+        pid = str(item.get("id") or item.get("fedramp_id") or "").strip() or None
         products.append({
-            "fedramp_id": item.get("fedramp_id"),
+            "id": pid,
             "offering": offering,
             "status": str(item.get("status") or "").strip() or None,
             "impact_level": str(item.get("impact_level") or "").strip() or None,
             "auth_date": item.get("auth_date") or None,
+            "url": product_market_url(item),
         })
-    if not products and not raw.get("highest_authorized"):
+    if not products and not (raw.get("highest") or raw.get("highest_authorized")):
         return None
+    raw_levels = list(raw.get("raw_levels") or raw.get("impact_levels") or [])
+    if not raw_levels:
+        raw_levels = [p["impact_level"] for p in products if p.get("impact_level")]
+        # unique, High > 20x Moderate > Moderate > 20x Low > Low > LI-SaaS
+        rank = {"High": 6, "20x Moderate": 5, "Moderate": 4, "20x Low": 3, "Low": 2, "LI-SaaS": 1}
+        raw_levels = sorted(dict.fromkeys(raw_levels), key=lambda lv: (-rank.get(lv, 0), lv))
+    levels = list(raw.get("levels") or [])
+    if not levels:
+        levels = []
+        for lv in raw_levels:
+            bucket = collapse_fedramp_level(lv)
+            if bucket and bucket not in levels:
+                levels.append(bucket)
+        order = {"High": 0, "Moderate": 1, "Low": 2}
+        levels.sort(key=lambda lv: order.get(lv, 9))
+    authorized = raw.get("authorized")
+    if authorized is None:
+        authorized = raw.get("authorized_offerings") or 0
+    in_process = raw.get("in_process")
+    if in_process is None:
+        in_process = raw.get("in_process_offerings") or 0
+    highest = raw.get("highest") or raw.get("highest_authorized")
+    marketplace = raw.get("marketplace")
+    if not marketplace and products:
+        marketplace = products[0]["url"]
     return {
-        "authorized_offerings": raw.get("authorized_offerings") or 0,
-        "in_process_offerings": raw.get("in_process_offerings") or 0,
-        "highest_authorized": raw.get("highest_authorized"),
-        "impact_levels": raw.get("impact_levels") or [],
+        "levels": levels,
+        "raw_levels": raw_levels,
+        "highest": highest,
+        "authorized": authorized,
+        "in_process": in_process,
+        "marketplace": marketplace or FEDRAMP_MARKET,
         "source": raw.get("source") or FEDRAMP_MARKET,
         "products": products,
     }
@@ -505,7 +553,9 @@ def fedramp_block(row: dict) -> str:
         f'<p class="fig-sub">Filed from the <a href="{escape(FEDRAMP_MARKET)}">'
         f"FedRAMP Marketplace</a>. Not a badge.</p>"
     )
-    highest = (fed or {}).get("highest_authorized") if products else None
+    highest = None
+    if products and fed:
+        highest = fed.get("highest") or fed.get("highest_authorized")
     if products:
         rows = []
         for p in products:
@@ -513,8 +563,9 @@ def fedramp_block(row: dict) -> str:
             status = str(p.get("status") or "").strip() or "—"
             level = str(p.get("impact_level") or "").strip() or "—"
             auth = fmt_day(p.get("auth_date") or "") or "—"
+            href = str(p.get("url") or "").strip() or FEDRAMP_MARKET
             rows.append(
-                f'<tr><td class="mark"><a href="{escape(FEDRAMP_MARKET)}">{escape(offering)}</a></td>'
+                f'<tr><td class="mark"><a href="{escape(href)}">{escape(offering)}</a></td>'
                 f"<td>{escape(status)}</td>"
                 f"<td>{escape(level)}</td>"
                 f"<td>{escape(auth)}</td></tr>"

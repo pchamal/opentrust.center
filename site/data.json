@@ -234,20 +234,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "20x Moderate",
-        "impact_levels": [
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
           "20x Moderate"
         ],
+        "highest": "20x Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2533155773",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2533155773",
+            "id": "FR2533155773",
             "offering": "ChatGPT Enterprise and API Platform",
             "status": "FedRAMP Authorized",
             "impact_level": "20x Moderate",
-            "auth_date": "2026-01-09"
+            "auth_date": "2026-01-09",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2533155773"
           }
         ]
       }
@@ -823,35 +828,43 @@
         "http_status": 200
       },
       "fedramp": {
-        "authorized_offerings": 3,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High",
           "Moderate"
         ],
+        "raw_levels": [
+          "High",
+          "Moderate"
+        ],
+        "highest": "High",
+        "authorized": 3,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR1834740315",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR1834740315",
+            "id": "FR1834740315",
             "offering": "Databricks on AWS US East/West",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2022-09-29"
+            "auth_date": "2022-09-29",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1834740315"
           },
           {
-            "fedramp_id": "FR2324740262",
+            "id": "FR2324740262",
             "offering": "Databricks on AWS GovCloud",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2025-02-26"
+            "auth_date": "2025-02-26",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2324740262"
           },
           {
-            "fedramp_id": "FR2525247858",
+            "id": "FR2525247858",
             "offering": "Databricks on Azure Commercial",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2026-01-16"
+            "auth_date": "2026-01-16",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2525247858"
           }
         ]
       }
@@ -1036,20 +1049,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 0,
-        "in_process_offerings": 1,
-        "highest_authorized": null,
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 0,
+        "in_process": 1,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2516072131",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2516072131",
+            "id": "FR2516072131",
             "offering": "Ramp for Government (RampGov)",
             "status": "FedRAMP Ready",
             "impact_level": "Moderate",
-            "auth_date": "Not Active"
+            "auth_date": null,
+            "url": "https://www.fedramp.gov/marketplace/products/FR2516072131"
           }
         ]
       }
@@ -1881,20 +1899,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High"
         ],
+        "raw_levels": [
+          "High"
+        ],
+        "highest": "High",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2105946715",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2105946715",
+            "id": "FR2105946715",
             "offering": "Netskope NewEdge Government.",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2023-12-19"
+            "auth_date": "2023-12-19",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2105946715"
           }
         ]
       }
@@ -2209,20 +2232,25 @@
         "http_status": 200
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2110342613",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2110342613",
+            "id": "FR2110342613",
             "offering": "Tanium Cloud for US Government (TC-USG)",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2023-11-08"
+            "auth_date": "2023-11-08",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2110342613"
           }
         ]
       }
@@ -2389,20 +2417,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2425960757",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2425960757",
+            "id": "FR2425960757",
             "offering": "Abnormal AI for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2025-04-11"
+            "auth_date": "2025-04-11",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2425960757"
           }
         ]
       }
@@ -2593,20 +2626,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2306445868",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2306445868",
+            "id": "FR2306445868",
             "offering": "Cohesity Cloud Services for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2024-05-06"
+            "auth_date": "2024-05-06",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2306445868"
           }
         ]
       }
@@ -2784,20 +2822,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "20x Low",
-        "impact_levels": [
+        "levels": [
+          "Low"
+        ],
+        "raw_levels": [
           "20x Low"
         ],
+        "highest": "20x Low",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2527955211",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2527955211",
+            "id": "FR2527955211",
             "offering": "Flock Safety Platform",
             "status": "FedRAMP Authorized",
             "impact_level": "20x Low",
-            "auth_date": "2025-07-25"
+            "auth_date": "2025-07-25",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2527955211"
           }
         ]
       }
@@ -3020,20 +3063,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "20x Low",
-        "impact_levels": [
+        "levels": [
+          "Low"
+        ],
+        "raw_levels": [
           "20x Low"
         ],
+        "highest": "20x Low",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2604643715",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2604643715",
+            "id": "FR2604643715",
             "offering": "Perplexity Enterprise and API Platform",
             "status": "FedRAMP Authorized",
             "impact_level": "20x Low",
-            "auth_date": "2026-02-01"
+            "auth_date": "2026-02-01",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2604643715"
           }
         ]
       }
@@ -3448,20 +3496,25 @@
         "http_status": 200
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2213647361",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2213647361",
+            "id": "FR2213647361",
             "offering": "Talkdesk CX Cloud™ Government Edition",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2025-06-03"
+            "auth_date": "2025-06-03",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2213647361"
           }
         ]
       }
@@ -4253,20 +4306,25 @@
         "http_status": 200
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2519759620",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2519759620",
+            "id": "FR2519759620",
             "offering": "Cribl.Cloud Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2026-01-28"
+            "auth_date": "2026-01-28",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2519759620"
           }
         ]
       }
@@ -5570,28 +5628,35 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 1,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "High",
           "Moderate"
         ],
+        "raw_levels": [
+          "High",
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 1,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2430847803",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2430847803",
+            "id": "FR2430847803",
             "offering": "NinjaOne for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2025-09-10"
+            "auth_date": "2025-09-10",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2430847803"
           },
           {
-            "fedramp_id": "FR2620841940",
+            "id": "FR2620841940",
             "offering": "NinjaOne for Government – FedRAMP High",
             "status": "FedRAMP Ready",
             "impact_level": "High",
-            "auth_date": "Not Active"
+            "auth_date": null,
+            "url": "https://www.fedramp.gov/marketplace/products/FR2620841940"
           }
         ]
       }
@@ -6028,20 +6093,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2230451369",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2230451369",
+            "id": "FR2230451369",
             "offering": "Snyk for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2025-04-07"
+            "auth_date": "2025-04-07",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2230451369"
           }
         ]
       }
@@ -6631,20 +6701,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR1706403967",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR1706403967",
+            "id": "FR1706403967",
             "offering": "Collibra Platform for Government (CPG)",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2019-11-27"
+            "auth_date": "2019-11-27",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1706403967"
           }
         ]
       }
@@ -7637,28 +7712,35 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 2,
-        "in_process_offerings": 0,
-        "highest_authorized": "20x Moderate",
-        "impact_levels": [
-          "20x Low",
-          "20x Moderate"
+        "levels": [
+          "Moderate",
+          "Low"
         ],
+        "raw_levels": [
+          "20x Moderate",
+          "20x Low"
+        ],
+        "highest": "20x Moderate",
+        "authorized": 2,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2525556241XM",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2525556241XM",
+            "id": "FR2525556241XM",
             "offering": "Vanta Government Cloud",
             "status": "FedRAMP Authorized",
             "impact_level": "20x Moderate",
-            "auth_date": "2026-04-24"
+            "auth_date": "2026-04-24",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2525556241XM"
           },
           {
-            "fedramp_id": "FR2525556241",
+            "id": "FR2525556241",
             "offering": "Vanta Trust Management Platform",
             "status": "FedRAMP Authorized",
             "impact_level": "20x Low",
-            "auth_date": "2025-07-25"
+            "auth_date": "2025-07-25",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2525556241"
           }
         ]
       }
@@ -8557,20 +8639,25 @@
         "http_status": 200
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR1923743650A",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR1923743650A",
+            "id": "FR1923743650A",
             "offering": "WordPress VIP",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2025-03-12"
+            "auth_date": "2025-03-12",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1923743650A"
           }
         ]
       }
@@ -8801,20 +8888,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2401047002",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2401047002",
+            "id": "FR2401047002",
             "offering": "Axonius Asset Cloud",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2025-04-03"
+            "auth_date": "2025-04-03",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2401047002"
           }
         ]
       }
@@ -9311,20 +9403,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 0,
-        "in_process_offerings": 1,
-        "highest_authorized": null,
-        "impact_levels": [
+        "levels": [
           "High"
         ],
+        "raw_levels": [
+          "High"
+        ],
+        "highest": "High",
+        "authorized": 0,
+        "in_process": 1,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2614439182",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2614439182",
+            "id": "FR2614439182",
             "offering": "Island Enterprise Platform",
             "status": "Agency In Process",
             "impact_level": "High",
-            "auth_date": "Not Active"
+            "auth_date": null,
+            "url": "https://www.fedramp.gov/marketplace/products/FR2614439182"
           }
         ]
       }
@@ -10020,20 +10117,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 0,
-        "in_process_offerings": 1,
-        "highest_authorized": null,
-        "impact_levels": [
+        "levels": [
           "High"
         ],
+        "raw_levels": [
+          "High"
+        ],
+        "highest": "High",
+        "authorized": 0,
+        "in_process": 1,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2618046015",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2618046015",
+            "id": "FR2618046015",
             "offering": "Cyera for Government",
             "status": "Agency In Process",
             "impact_level": "High",
-            "auth_date": "Not Active"
+            "auth_date": null,
+            "url": "https://www.fedramp.gov/marketplace/products/FR2618046015"
           }
         ]
       }
@@ -11174,20 +11276,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2120962552",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2120962552",
+            "id": "FR2120962552",
             "offering": "LaunchDarkly",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2023-01-06"
+            "auth_date": "2023-01-06",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2120962552"
           }
         ]
       }
@@ -11926,20 +12033,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 0,
-        "in_process_offerings": 1,
-        "highest_authorized": null,
-        "impact_levels": [
+        "levels": [
           "High"
         ],
+        "raw_levels": [
+          "High"
+        ],
+        "highest": "High",
+        "authorized": 0,
+        "in_process": 1,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2323961436",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2323961436",
+            "id": "FR2323961436",
             "offering": "xDome for Government",
             "status": "Agency In Process",
             "impact_level": "High",
-            "auth_date": "Not Active"
+            "auth_date": null,
+            "url": "https://www.fedramp.gov/marketplace/products/FR2323961436"
           }
         ]
       }
@@ -12533,70 +12645,82 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 8,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
-          "LI-SaaS",
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate",
+          "LI-SaaS"
+        ],
+        "highest": "Moderate",
+        "authorized": 8,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR1832869359",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR1832869359",
+            "id": "FR1832869359",
             "offering": "Adobe Analytics",
             "status": "FedRAMP Authorized",
             "impact_level": "LI-SaaS",
-            "auth_date": "2019-09-18"
+            "auth_date": "2019-09-18",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1832869359"
           },
           {
-            "fedramp_id": "FR2108360349",
+            "id": "FR2108360349",
             "offering": "Adobe Acrobat Sign for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2022-05-25"
+            "auth_date": "2022-05-25",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2108360349"
           },
           {
-            "fedramp_id": "FR1907354404",
+            "id": "FR1907354404",
             "offering": "Adobe Campaign",
             "status": "FedRAMP Authorized",
             "impact_level": "LI-SaaS",
-            "auth_date": "2019-09-03"
+            "auth_date": "2019-09-03",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1907354404"
           },
           {
-            "fedramp_id": "FR1832870021",
+            "id": "FR1832870021",
             "offering": "Adobe Learning Manager",
             "status": "FedRAMP Authorized",
             "impact_level": "LI-SaaS",
-            "auth_date": "2019-10-11"
+            "auth_date": "2019-10-11",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1832870021"
           },
           {
-            "fedramp_id": "F1509037236",
+            "id": "F1509037236",
             "offering": "Adobe Connect Managed Services (ACMS-GC)",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2019-06-27"
+            "auth_date": "2019-06-27",
+            "url": "https://www.fedramp.gov/marketplace/products/F1509037236"
           },
           {
-            "fedramp_id": "FR1820435960",
+            "id": "FR1820435960",
             "offering": "Adobe Creative Cloud for Enterprise",
             "status": "FedRAMP Authorized",
             "impact_level": "LI-SaaS",
-            "auth_date": "2018-05-14"
+            "auth_date": "2018-05-14",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1820435960"
           },
           {
-            "fedramp_id": "FR1820435961",
+            "id": "FR1820435961",
             "offering": "Adobe Document Cloud including Adobe Acrobat, Adobe Acrobat Sign, Adobe Acrobat AI Assistant, Adobe Acrobat Analyzer, and Adobe Acrobat Services (APIs)",
             "status": "FedRAMP Authorized",
             "impact_level": "LI-SaaS",
-            "auth_date": "2018-05-14"
+            "auth_date": "2018-05-14",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1820435961"
           },
           {
-            "fedramp_id": "F1509037239",
+            "id": "F1509037239",
             "offering": "Adobe Experience Manager Managed Services (AEMMS-GC)",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2019-06-27"
+            "auth_date": "2019-06-27",
+            "url": "https://www.fedramp.gov/marketplace/products/F1509037239"
           }
         ]
       }
@@ -12770,28 +12894,35 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 1,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "High",
           "Moderate"
         ],
+        "raw_levels": [
+          "High",
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 1,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/F1206061353",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "F1206061353",
+            "id": "F1206061353",
             "offering": "Content Delivery Services",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2013-08-23"
+            "auth_date": "2013-08-23",
+            "url": "https://www.fedramp.gov/marketplace/products/F1206061353"
           },
           {
-            "fedramp_id": "FR2535161278",
+            "id": "FR2535161278",
             "offering": "Akamai Cloud",
             "status": "FedRAMP Ready",
             "impact_level": "High",
-            "auth_date": "Not Active"
+            "auth_date": null,
+            "url": "https://www.fedramp.gov/marketplace/products/FR2535161278"
           }
         ]
       }
@@ -12896,28 +13027,35 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 2,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High",
           "Moderate"
         ],
+        "raw_levels": [
+          "High",
+          "Moderate"
+        ],
+        "highest": "High",
+        "authorized": 2,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/AGENCYAMAZONEW",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "AGENCYAMAZONEW",
+            "id": "AGENCYAMAZONEW",
             "offering": "AWS US East/West",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2013-05-01"
+            "auth_date": "2013-05-01",
+            "url": "https://www.fedramp.gov/marketplace/products/AGENCYAMAZONEW"
           },
           {
-            "fedramp_id": "F1603047866",
+            "id": "F1603047866",
             "offering": "AWS GovCloud",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2016-06-21"
+            "auth_date": "2016-06-21",
+            "url": "https://www.fedramp.gov/marketplace/products/F1603047866"
           }
         ]
       }
@@ -13218,20 +13356,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2527132001",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2527132001",
+            "id": "FR2527132001",
             "offering": "Asana",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2026-06-22"
+            "auth_date": "2026-06-22",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2527132001"
           }
         ]
       }
@@ -13318,20 +13461,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2412062433",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2412062433",
+            "id": "FR2412062433",
             "offering": "Atlassian Government Cloud",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2025-03-14"
+            "auth_date": "2025-03-14",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2412062433"
           }
         ]
       }
@@ -13396,20 +13544,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2226322745",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2226322745",
+            "id": "FR2226322745",
             "offering": "Autodesk for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2024-08-14"
+            "auth_date": "2024-08-14",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2226322745"
           }
         ]
       }
@@ -13645,20 +13798,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High"
         ],
+        "raw_levels": [
+          "High"
+        ],
+        "highest": "High",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/F1212191840A",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "F1212191840A",
+            "id": "F1212191840A",
             "offering": "Box Enterprise Cloud Content Collaboration Platform",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2025-03-25"
+            "auth_date": "2025-03-25",
+            "url": "https://www.fedramp.gov/marketplace/products/F1212191840A"
           }
         ]
       }
@@ -13847,20 +14005,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2511048038",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2511048038",
+            "id": "FR2511048038",
             "offering": "Check Point Infinity Platform for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2025-09-24"
+            "auth_date": "2025-09-24",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2511048038"
           }
         ]
       }
@@ -13943,77 +14106,83 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 9,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High",
           "Moderate"
         ],
+        "raw_levels": [
+          "High",
+          "Moderate"
+        ],
+        "highest": "High",
+        "authorized": 8,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2518163100",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2518163100",
+            "id": "FR2518163100",
             "offering": "Spaces for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2025-11-25"
+            "auth_date": "2025-11-25",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2518163100"
           },
           {
-            "fedramp_id": "FR1823368486",
+            "id": "FR1823368486",
             "offering": "AppDynamics GovAPM",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2020-06-10"
+            "auth_date": "2020-06-10",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1823368486"
           },
           {
-            "fedramp_id": "FR2304757473A",
+            "id": "FR2304757473A",
             "offering": "Cisco Security Cloud for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2026-08-06"
+            "auth_date": "2026-08-06",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2304757473A"
           },
           {
-            "fedramp_id": "F1605107897",
+            "id": "F1605107897",
             "offering": "Cisco Cloudlock for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2017-12-04"
+            "auth_date": "2017-12-04",
+            "url": "https://www.fedramp.gov/marketplace/products/F1605107897"
           },
           {
-            "fedramp_id": "FR2315535023",
+            "id": "FR2315535023",
             "offering": "Cisco Meraki US Government Region",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2025-02-18"
+            "auth_date": "2025-02-18",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2315535023"
           },
           {
-            "fedramp_id": "F1511207635",
+            "id": "F1511207635",
             "offering": "Webex for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2016-02-02"
+            "auth_date": "2016-02-02",
+            "url": "https://www.fedramp.gov/marketplace/products/F1511207635"
           },
           {
-            "fedramp_id": "FR2012534927",
+            "id": "FR2012534927",
             "offering": "Cisco Catalyst SD-WAN for Government (SDWAN-G)",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2024-03-14"
+            "auth_date": "2024-03-14",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2012534927"
           },
           {
-            "fedramp_id": "FR2523656707",
+            "id": "FR2523656707",
             "offering": "Cisco ThousandEyes for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2026-03-05"
-          },
-          {
-            "fedramp_id": "FR1823149273",
-            "offering": "Duo Federal",
-            "status": "FedRAMP Authorized",
-            "impact_level": "Moderate",
-            "auth_date": "2019-11-15"
+            "auth_date": "2026-03-05",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2523656707"
           }
         ]
       }
@@ -14094,20 +14263,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High"
         ],
+        "raw_levels": [
+          "High"
+        ],
+        "highest": "High",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2000863987A",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2000863987A",
+            "id": "FR2000863987A",
             "offering": "Cloudflare for Government - High",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2026-08-06"
+            "auth_date": "2026-08-06",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2000863987A"
           }
         ]
       }
@@ -14296,20 +14470,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "20x Moderate",
-        "impact_levels": [
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
           "20x Moderate"
         ],
+        "highest": "20x Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2409863458XL",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2409863458XL",
+            "id": "FR2409863458XL",
             "offering": "Confluent Cloud for Government (CCG)",
             "status": "FedRAMP Authorized",
             "impact_level": "20x Moderate",
-            "auth_date": "2026-03-06"
+            "auth_date": "2026-03-06",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2409863458XL"
           }
         ]
       }
@@ -14457,20 +14636,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/F1308202329",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "F1308202329",
+            "id": "F1308202329",
             "offering": "Coupa Spend Management for Federal",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2022-03-10"
+            "auth_date": "2022-03-10",
+            "url": "https://www.fedramp.gov/marketplace/products/F1308202329"
           }
         ]
       }
@@ -14547,27 +14731,33 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 1,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High"
         ],
+        "raw_levels": [
+          "High"
+        ],
+        "highest": "High",
+        "authorized": 1,
+        "in_process": 1,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR1807853629A",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2627547824",
+            "id": "FR2627547824",
             "offering": "CrowdStrike Falcon Platform IL5 SaaS",
             "status": "FedRAMP In Process",
             "impact_level": "High",
-            "auth_date": "Not Active"
+            "auth_date": null,
+            "url": "https://www.fedramp.gov/marketplace/products/FR2627547824"
           },
           {
-            "fedramp_id": "FR1807853629A",
+            "id": "FR1807853629A",
             "offering": "CrowdStrike Falcon Platform for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2025-03-12"
+            "auth_date": "2025-03-12",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1807853629A"
           }
         ]
       }
@@ -14642,6 +14832,37 @@
         "vendor": "safebase",
         "title": "CyberArk CyberArk Trust Center",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "High"
+        ],
+        "raw_levels": [
+          "High"
+        ],
+        "highest": "High",
+        "authorized": 2,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2001619708",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR2001619708",
+            "offering": "Idira Endpoint Privilege Manager for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2024-03-14",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2001619708"
+          },
+          {
+            "id": "FR2001619337",
+            "offering": "Idira Identity Security Government Services Platform",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2024-03-14",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2001619337"
+          }
+        ]
       }
     },
     {
@@ -14728,20 +14949,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High"
         ],
+        "raw_levels": [
+          "High"
+        ],
+        "highest": "High",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2023864279A",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2023864279A",
+            "id": "FR2023864279A",
             "offering": "Datadog for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2026-05-05"
+            "auth_date": "2026-05-05",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2023864279A"
           }
         ]
       }
@@ -14902,27 +15128,33 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 2,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 2,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/F1605027893",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "F1605027893",
+            "id": "F1605027893",
             "offering": "DocuSign CLM",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2017-08-24"
+            "auth_date": "2017-08-24",
+            "url": "https://www.fedramp.gov/marketplace/products/F1605027893"
           },
           {
-            "fedramp_id": "F1609267945",
+            "id": "F1609267945",
             "offering": "Docusign - IAM eSignature",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2017-08-10"
+            "auth_date": "2017-08-10",
+            "url": "https://www.fedramp.gov/marketplace/products/F1609267945"
           }
         ]
       }
@@ -15277,20 +15509,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2016131254",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2016131254",
+            "id": "FR2016131254",
             "offering": "Dynatrace Platform",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2020-07-27"
+            "auth_date": "2020-07-27",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2016131254"
           }
         ]
       }
@@ -15433,28 +15670,35 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 2,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High",
           "Moderate"
         ],
+        "raw_levels": [
+          "High",
+          "Moderate"
+        ],
+        "highest": "High",
+        "authorized": 2,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2004446306",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2004446306",
+            "id": "FR2004446306",
             "offering": "Elastic Cloud",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2020-07-22"
+            "auth_date": "2020-07-22",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2004446306"
           },
           {
-            "fedramp_id": "FR2523939103",
+            "id": "FR2523939103",
             "offering": "Elastic Cloud Hosted - High",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2026-03-23"
+            "auth_date": "2026-03-23",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2523939103"
           }
         ]
       }
@@ -15667,20 +15911,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2311345531",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2311345531",
+            "id": "FR2311345531",
             "offering": "Figma for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2025-02-28"
+            "auth_date": "2025-02-28",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2311345531"
           }
         ]
       }
@@ -16055,20 +16304,23 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "LI-SaaS",
-        "impact_levels": [
+        "levels": [],
+        "raw_levels": [
           "LI-SaaS"
         ],
+        "highest": "LI-SaaS",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR1812058188",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR1812058188",
+            "id": "FR1812058188",
             "offering": "GitHub Enterprise Cloud",
             "status": "FedRAMP Authorized",
             "impact_level": "LI-SaaS",
-            "auth_date": "2018-10-04"
+            "auth_date": "2018-10-04",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1812058188"
           }
         ]
       }
@@ -16157,20 +16409,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2411959145",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2411959145",
+            "id": "FR2411959145",
             "offering": "GitLab Dedicated for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2025-05-15"
+            "auth_date": "2025-05-15",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2411959145"
           }
         ]
       }
@@ -16247,42 +16504,51 @@
         "http_status": 200
       },
       "fedramp": {
-        "authorized_offerings": 3,
-        "in_process_offerings": 1,
-        "highest_authorized": "High",
-        "impact_levels": [
-          "20x Low",
-          "High"
+        "levels": [
+          "High",
+          "Low"
         ],
+        "raw_levels": [
+          "High",
+          "20x Low"
+        ],
+        "highest": "High",
+        "authorized": 3,
+        "in_process": 1,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2604952026",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2604952026",
+            "id": "FR2604952026",
             "offering": "Gemini for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "20x Low",
-            "auth_date": "2026-01-21"
+            "auth_date": "2026-01-21",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2604952026"
           },
           {
-            "fedramp_id": "FR1805751477",
+            "id": "FR1805751477",
             "offering": "Google Services (Google Cloud Platform Products and underlying Infrastructure)",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2019-12-04"
+            "auth_date": "2019-12-04",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1805751477"
           },
           {
-            "fedramp_id": "F1206081364",
+            "id": "F1206081364",
             "offering": "Google Workspace",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2021-10-28"
+            "auth_date": "2021-10-28",
+            "url": "https://www.fedramp.gov/marketplace/products/F1206081364"
           },
           {
-            "fedramp_id": "FR2405153785",
+            "id": "FR2405153785",
             "offering": "Google Cloud VMware Engine (GCVE)",
             "status": "FedRAMP Ready",
             "impact_level": "High",
-            "auth_date": "Not Active"
+            "auth_date": null,
+            "url": "https://www.fedramp.gov/marketplace/products/FR2405153785"
           }
         ]
       }
@@ -16646,85 +16912,100 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 9,
-        "in_process_offerings": 1,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High",
-          "LI-SaaS",
           "Moderate"
         ],
+        "raw_levels": [
+          "High",
+          "Moderate",
+          "LI-SaaS"
+        ],
+        "highest": "High",
+        "authorized": 9,
+        "in_process": 1,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/F1208031461",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "F1208031461",
+            "id": "F1208031461",
             "offering": "IBM Platform Services for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2015-07-17"
+            "auth_date": "2015-07-17",
+            "url": "https://www.fedramp.gov/marketplace/products/F1208031461"
           },
           {
-            "fedramp_id": "F1211011660",
+            "id": "F1211011660",
             "offering": "IBM Cloud for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2019-11-14"
+            "auth_date": "2019-11-14",
+            "url": "https://www.fedramp.gov/marketplace/products/F1211011660"
           },
           {
-            "fedramp_id": "FR1728053006",
+            "id": "FR1728053006",
             "offering": "IBM Automation Services for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2019-03-12"
+            "auth_date": "2019-03-12",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1728053006"
           },
           {
-            "fedramp_id": "FR2417469779",
+            "id": "FR2417469779",
             "offering": "IBM Envizi ESG Reporting",
             "status": "FedRAMP Authorized",
             "impact_level": "LI-SaaS",
-            "auth_date": "2024-09-13"
+            "auth_date": "2024-09-13",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2417469779"
           },
           {
-            "fedramp_id": "F1206081363",
+            "id": "F1206081363",
             "offering": "SmartCloud for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2019-11-14"
+            "auth_date": "2019-11-14",
+            "url": "https://www.fedramp.gov/marketplace/products/F1206081363"
           },
           {
-            "fedramp_id": "FR2607452240",
+            "id": "FR2607452240",
             "offering": "GO.gov",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2026-06-04"
+            "auth_date": "2026-06-04",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2607452240"
           },
           {
-            "fedramp_id": "FR2504062150",
+            "id": "FR2504062150",
             "offering": "IBM Federal ATOM",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2025-11-13"
+            "auth_date": "2025-11-13",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2504062150"
           },
           {
-            "fedramp_id": "FR2135730387",
+            "id": "FR2135730387",
             "offering": "IBM Federal HR Cloud",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2023-06-08"
+            "auth_date": "2023-06-08",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2135730387"
           },
           {
-            "fedramp_id": "FR2524349489",
+            "id": "FR2524349489",
             "offering": "IBM Data Services for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2026-02-10"
+            "auth_date": "2026-02-10",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2524349489"
           },
           {
-            "fedramp_id": "F1208031461A",
+            "id": "F1208031461A",
             "offering": "IBM Platform Services for Government",
             "status": "Agency In Process",
             "impact_level": "High",
-            "auth_date": "Not Active"
+            "auth_date": null,
+            "url": "https://www.fedramp.gov/marketplace/products/F1208031461A"
           }
         ]
       }
@@ -17075,49 +17356,59 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 4,
-        "in_process_offerings": 1,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High",
           "Moderate"
         ],
+        "raw_levels": [
+          "High",
+          "Moderate"
+        ],
+        "highest": "High",
+        "authorized": 4,
+        "in_process": 1,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/F1209051525",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "F1209051525",
+            "id": "F1209051525",
             "offering": "Azure Commercial Cloud",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2019-05-03"
+            "auth_date": "2019-05-03",
+            "url": "https://www.fedramp.gov/marketplace/products/F1209051525"
           },
           {
-            "fedramp_id": "MSO365MTA",
+            "id": "MSO365MTA",
             "offering": "Microsoft 365 Government Community Cloud & Supporting Services",
             "status": "FedRAMP In Process",
             "impact_level": "High",
-            "auth_date": "Not Active"
+            "auth_date": null,
+            "url": "https://www.fedramp.gov/marketplace/products/MSO365MTA"
           },
           {
-            "fedramp_id": "FR1824057433",
+            "id": "FR1824057433",
             "offering": "Microsoft 365 Government Community Cloud-High",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2024-12-26"
+            "auth_date": "2024-12-26",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1824057433"
           },
           {
-            "fedramp_id": "MSO365MT",
+            "id": "MSO365MT",
             "offering": "Microsoft 365 Government Community Cloud & Supporting Services",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2014-11-20"
+            "auth_date": "2014-11-20",
+            "url": "https://www.fedramp.gov/marketplace/products/MSO365MT"
           },
           {
-            "fedramp_id": "F1603087869",
+            "id": "F1603087869",
             "offering": "Azure Government (includes Dynamics 365)",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2020-04-29"
+            "auth_date": "2020-04-29",
+            "url": "https://www.fedramp.gov/marketplace/products/F1603087869"
           }
         ]
       }
@@ -17561,20 +17852,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2122150307",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2122150307",
+            "id": "FR2122150307",
             "offering": "MongoDB Atlas for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2023-01-18"
+            "auth_date": "2023-01-18",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2122150307"
           }
         ]
       }
@@ -17765,20 +18061,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/F1607057910",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "F1607057910",
+            "id": "F1607057910",
             "offering": "New Relic",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2020-03-02"
+            "auth_date": "2020-03-02",
+            "url": "https://www.fedramp.gov/marketplace/products/F1607057910"
           }
         ]
       }
@@ -17923,28 +18224,35 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 2,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High",
           "Moderate"
         ],
+        "raw_levels": [
+          "High",
+          "Moderate"
+        ],
+        "highest": "High",
+        "authorized": 2,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/F1512167750",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "F1512167750",
+            "id": "F1512167750",
             "offering": "Okta IDaaS Regulated Cloud",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2017-04-26"
+            "auth_date": "2017-04-26",
+            "url": "https://www.fedramp.gov/marketplace/products/F1512167750"
           },
           {
-            "fedramp_id": "FR2131856836",
+            "id": "FR2131856836",
             "offering": "Okta IDaaS Government High Cloud (GHC)",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2023-03-23"
+            "auth_date": "2023-03-23",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2131856836"
           }
         ]
       }
@@ -18005,63 +18313,75 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 6,
-        "in_process_offerings": 1,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High",
           "Moderate"
         ],
+        "raw_levels": [
+          "High",
+          "Moderate"
+        ],
+        "highest": "High",
+        "authorized": 6,
+        "in_process": 1,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/F1607077914A",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "F1607077914A",
+            "id": "F1607077914A",
             "offering": "Oracle Enterprise Performance Management (EPM)",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2025-02-28"
+            "auth_date": "2025-02-28",
+            "url": "https://www.fedramp.gov/marketplace/products/F1607077914A"
           },
           {
-            "fedramp_id": "FR1712871948",
+            "id": "FR1712871948",
             "offering": "Aconex for Defense",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2020-10-30"
+            "auth_date": "2020-10-30",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1712871948"
           },
           {
-            "fedramp_id": "FR1900048743",
+            "id": "FR1900048743",
             "offering": "Oracle Cloud Infrastructure-Government Cloud",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2020-10-01"
+            "auth_date": "2020-10-01",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1900048743"
           },
           {
-            "fedramp_id": "F1206061351",
+            "id": "F1206061351",
             "offering": "Oracle Service Cloud (OSvC)",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2014-12-05"
+            "auth_date": "2014-12-05",
+            "url": "https://www.fedramp.gov/marketplace/products/F1206061351"
           },
           {
-            "fedramp_id": "F1603257882",
+            "id": "F1603257882",
             "offering": "Fusion Cloud",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2020-01-13"
+            "auth_date": "2020-01-13",
+            "url": "https://www.fedramp.gov/marketplace/products/F1603257882"
           },
           {
-            "fedramp_id": "F1209041518",
+            "id": "F1209041518",
             "offering": "Federal Managed Cloud Services",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2014-02-26"
+            "auth_date": "2014-02-26",
+            "url": "https://www.fedramp.gov/marketplace/products/F1209041518"
           },
           {
-            "fedramp_id": "FR2534673267",
+            "id": "FR2534673267",
             "offering": "Oracle Primavera Cloud for Government",
             "status": "Agency In Process",
             "impact_level": "Moderate",
-            "auth_date": "Not Active"
+            "auth_date": null,
+            "url": "https://www.fedramp.gov/marketplace/products/FR2534673267"
           }
         ]
       }
@@ -18188,20 +18508,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Low",
-        "impact_levels": [
+        "levels": [
           "Low"
         ],
+        "raw_levels": [
+          "Low"
+        ],
+        "highest": "Low",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2310974411",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2310974411",
+            "id": "FR2310974411",
             "offering": "PagerDuty Operations Cloud",
             "status": "FedRAMP Authorized",
             "impact_level": "Low",
-            "auth_date": "2025-03-10"
+            "auth_date": "2025-03-10",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2310974411"
           }
         ]
       }
@@ -18274,27 +18599,33 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 2,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High"
         ],
+        "raw_levels": [
+          "High"
+        ],
+        "highest": "High",
+        "authorized": 2,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2315464863",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2315464863",
+            "id": "FR2315464863",
             "offering": "Palantir Federal Cloud Service – Supporting Services (PFCS-SS)",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2024-11-19"
+            "auth_date": "2024-11-19",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2315464863"
           },
           {
-            "fedramp_id": "FR2434554673",
+            "id": "FR2434554673",
             "offering": "Palantir Federal Cloud Service",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2024-11-19"
+            "auth_date": "2024-11-19",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2434554673"
           }
         ]
       }
@@ -18456,42 +18787,35 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 4,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High",
           "Moderate"
         ],
+        "raw_levels": [
+          "High",
+          "Moderate"
+        ],
+        "highest": "High",
+        "authorized": 2,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2317253567",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2317253567",
+            "id": "FR2317253567",
             "offering": "GCS-HIGH",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2024-12-09"
+            "auth_date": "2024-12-09",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2317253567"
           },
           {
-            "fedramp_id": "FR1913470600",
+            "id": "FR1913470600",
             "offering": "Palo Alto Networks Government Cloud Services",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2021-01-21"
-          },
-          {
-            "fedramp_id": "FR2001619708",
-            "offering": "Idira Endpoint Privilege Manager for Government",
-            "status": "FedRAMP Authorized",
-            "impact_level": "High",
-            "auth_date": "2024-03-14"
-          },
-          {
-            "fedramp_id": "FR2001619337",
-            "offering": "Idira Identity Security Government Services Platform",
-            "status": "FedRAMP Authorized",
-            "impact_level": "High",
-            "auth_date": "2024-03-14"
+            "auth_date": "2021-01-21",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1913470600"
           }
         ]
       }
@@ -18691,34 +19015,41 @@
         "http_status": 200
       },
       "fedramp": {
-        "authorized_offerings": 3,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 3,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/F1304222071",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "F1304222071",
+            "id": "F1304222071",
             "offering": "Proofpoint Email Archive",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2016-11-23"
+            "auth_date": "2016-11-23",
+            "url": "https://www.fedramp.gov/marketplace/products/F1304222071"
           },
           {
-            "fedramp_id": "FR1819168894",
+            "id": "FR1819168894",
             "offering": "Proofpoint Targeted Attack Protection",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2020-01-15"
+            "auth_date": "2020-01-15",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1819168894"
           },
           {
-            "fedramp_id": "FR1720461312",
+            "id": "FR1720461312",
             "offering": "Proofpoint Email and Information Protection Service",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2020-01-15"
+            "auth_date": "2020-01-15",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1720461312"
           }
         ]
       }
@@ -18791,28 +19122,35 @@
         "http_status": 200
       },
       "fedramp": {
-        "authorized_offerings": 2,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High",
           "Moderate"
         ],
+        "raw_levels": [
+          "High",
+          "Moderate"
+        ],
+        "highest": "High",
+        "authorized": 2,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/F1508207205",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "F1508207205",
+            "id": "F1508207205",
             "offering": "Qualys Cloud Platform",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2016-11-02"
+            "auth_date": "2016-11-02",
+            "url": "https://www.fedramp.gov/marketplace/products/F1508207205"
           },
           {
-            "fedramp_id": "FR2231052341",
+            "id": "FR2231052341",
             "offering": "Qualys Government Platform",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2025-08-14"
+            "auth_date": "2025-08-14",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2231052341"
           }
         ]
       }
@@ -18897,20 +19235,25 @@
         "http_status": 200
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2422240916",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2422240916",
+            "id": "FR2422240916",
             "offering": "InsightGovCloud",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2025-07-11"
+            "auth_date": "2025-07-11",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2422240916"
           }
         ]
       }
@@ -18991,20 +19334,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2001938710A",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2001938710A",
+            "id": "FR2001938710A",
             "offering": "SailPoint Identity Security Cloud",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2024-06-05"
+            "auth_date": "2024-06-05",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2001938710A"
           }
         ]
       }
@@ -19091,20 +19439,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High"
         ],
+        "raw_levels": [
+          "High"
+        ],
+        "highest": "High",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2003061248",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2003061248",
+            "id": "FR2003061248",
             "offering": "Salesforce Government Cloud Plus",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2020-05-27"
+            "auth_date": "2020-05-27",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2003061248"
           }
         ]
       }
@@ -19287,27 +19640,33 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 2,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 2,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR1719841002",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR1719841002",
+            "id": "FR1719841002",
             "offering": "SAP NS2 Cloud Intelligent Enterprise",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2017-11-13"
+            "auth_date": "2017-11-13",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1719841002"
           },
           {
-            "fedramp_id": "F1602257856",
+            "id": "F1602257856",
             "offering": "DoD Cloud Intelligent Enterprise – DD-CIE",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2017-06-13"
+            "auth_date": "2017-06-13",
+            "url": "https://www.fedramp.gov/marketplace/products/F1602257856"
           }
         ]
       }
@@ -19425,20 +19784,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High"
         ],
+        "raw_levels": [
+          "High"
+        ],
+        "highest": "High",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2023666173",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2023666173",
+            "id": "FR2023666173",
             "offering": "Scale AI Data Platform",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2024-09-09"
+            "auth_date": "2024-09-09",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2023666173"
           }
         ]
       }
@@ -19519,20 +19883,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High"
         ],
+        "raw_levels": [
+          "High"
+        ],
+        "highest": "High",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR1919071020A",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR1919071020A",
+            "id": "FR1919071020A",
             "offering": "SentinelOne Singularity Platform High",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2024-09-10"
+            "auth_date": "2024-09-10",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1919071020A"
           }
         ]
       }
@@ -19597,20 +19966,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High"
         ],
+        "raw_levels": [
+          "High"
+        ],
+        "highest": "High",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/F1305072116",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "F1305072116",
+            "id": "F1305072116",
             "offering": "Government Community Cloud",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2019-08-12"
+            "auth_date": "2019-08-12",
+            "url": "https://www.fedramp.gov/marketplace/products/F1305072116"
           }
         ]
       }
@@ -19881,28 +20255,35 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 2,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High",
           "Moderate"
         ],
+        "raw_levels": [
+          "High",
+          "Moderate"
+        ],
+        "highest": "High",
+        "authorized": 2,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2230252267",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2230252267",
+            "id": "FR2230252267",
             "offering": "GovSlack",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2024-01-25"
+            "auth_date": "2024-01-25",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2230252267"
           },
           {
-            "fedramp_id": "FR1823447014",
+            "id": "FR1823447014",
             "offering": "Slack",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2020-05-20"
+            "auth_date": "2020-05-20",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1823447014"
           }
         ]
       }
@@ -19997,20 +20378,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR1730866868",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR1730866868",
+            "id": "FR1730866868",
             "offering": "Smartsheet Gov",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2019-08-12"
+            "auth_date": "2019-08-12",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1730866868"
           }
         ]
       }
@@ -20095,35 +20481,43 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 3,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High",
           "Moderate"
         ],
+        "raw_levels": [
+          "High",
+          "Moderate"
+        ],
+        "highest": "High",
+        "authorized": 3,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2308159208",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2308159208",
+            "id": "FR2308159208",
             "offering": "The Data Cloud on AWS GovCloud (High)",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2023-12-08"
+            "auth_date": "2023-12-08",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2308159208"
           },
           {
-            "fedramp_id": "FR1809360201",
+            "id": "FR1809360201",
             "offering": "The Data Cloud on AWS US East/West",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2020-07-02"
+            "auth_date": "2020-07-02",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1809360201"
           },
           {
-            "fedramp_id": "FR1809360202A",
+            "id": "FR1809360202A",
             "offering": "The Data Cloud on Azure Government (High)",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2025-06-17"
+            "auth_date": "2025-06-17",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1809360202A"
           }
         ]
       }
@@ -20264,28 +20658,35 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 2,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High",
           "Moderate"
         ],
+        "raw_levels": [
+          "High",
+          "Moderate"
+        ],
+        "highest": "High",
+        "authorized": 2,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2314156865",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2314156865",
+            "id": "FR2314156865",
             "offering": "Splunk Cloud Platform for FedRAMP High",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2024-09-13"
+            "auth_date": "2024-09-13",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2314156865"
           },
           {
-            "fedramp_id": "F1607197917",
+            "id": "F1607197917",
             "offering": "Splunk Cloud Platform for FedRAMP Moderate",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2019-10-11"
+            "auth_date": "2019-10-11",
+            "url": "https://www.fedramp.gov/marketplace/products/F1607197917"
           }
         ]
       }
@@ -20483,27 +20884,33 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 2,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 2,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2215045786",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2215045786",
+            "id": "FR2215045786",
             "offering": "Tenable Cloud Security for US Government - Ermetic",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2025-03-26"
+            "auth_date": "2025-03-26",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2215045786"
           },
           {
-            "fedramp_id": "FR1814276801",
+            "id": "FR1814276801",
             "offering": "Tenable Government Solutions",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2021-09-22"
+            "auth_date": "2021-09-22",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1814276801"
           }
         ]
       }
@@ -20706,20 +21113,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2132958724",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2132958724",
+            "id": "FR2132958724",
             "offering": "Automation Cloud Public Sector",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2024-03-20"
+            "auth_date": "2024-03-20",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2132958724"
           }
         ]
       }
@@ -20967,20 +21379,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2103344623",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2103344623",
+            "id": "FR2103344623",
             "offering": "Workday Government Cloud (WGC)",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2022-07-11"
+            "auth_date": "2022-07-11",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2103344623"
           }
         ]
       }
@@ -21221,20 +21638,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 0,
-        "in_process_offerings": 1,
-        "highest_authorized": null,
-        "impact_levels": [
+        "levels": [
           "High"
         ],
+        "raw_levels": [
+          "High"
+        ],
+        "highest": "High",
+        "authorized": 0,
+        "in_process": 1,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2618542150",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2618542150",
+            "id": "FR2618542150",
             "offering": "Grok for Government",
             "status": "Agency In Process",
             "impact_level": "High",
-            "auth_date": "Not Active"
+            "auth_date": null,
+            "url": "https://www.fedramp.gov/marketplace/products/FR2618542150"
           }
         ]
       }
@@ -21325,20 +21747,23 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "LI-SaaS",
-        "impact_levels": [
+        "levels": [],
+        "raw_levels": [
           "LI-SaaS"
         ],
+        "highest": "LI-SaaS",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR1821856903",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR1821856903",
+            "id": "FR1821856903",
             "offering": "Zendesk Customer Support and Help Desk Platform",
             "status": "FedRAMP Authorized",
             "impact_level": "LI-SaaS",
-            "auth_date": "2020-05-14"
+            "auth_date": "2020-05-14",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1821856903"
           }
         ]
       }
@@ -21419,20 +21844,25 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 1,
-        "in_process_offerings": 0,
-        "highest_authorized": "Moderate",
-        "impact_levels": [
+        "levels": [
           "Moderate"
         ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR1825941347A",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR1825941347A",
+            "id": "FR1825941347A",
             "offering": "Zoom for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2023-07-28"
+            "auth_date": "2023-07-28",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1825941347A"
           }
         ]
       }
@@ -21524,42 +21954,51 @@
         "http_status": null
       },
       "fedramp": {
-        "authorized_offerings": 4,
-        "in_process_offerings": 0,
-        "highest_authorized": "High",
-        "impact_levels": [
+        "levels": [
           "High",
           "Moderate"
         ],
+        "raw_levels": [
+          "High",
+          "Moderate"
+        ],
+        "highest": "High",
+        "authorized": 4,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2227062482",
         "source": "https://www.fedramp.gov/marketplace/products/",
         "products": [
           {
-            "fedramp_id": "FR2227062482",
+            "id": "FR2227062482",
             "offering": "Zscaler Internet Access - Government (Secure Web Gateway - vTIC) - High",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2022-07-02"
+            "auth_date": "2022-07-02",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2227062482"
           },
           {
-            "fedramp_id": "FR2219763604",
+            "id": "FR2219763604",
             "offering": "Zscaler Private Access - Government (Zero Trust Exchange - VPN Replacement)",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2022-11-07"
+            "auth_date": "2022-11-07",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2219763604"
           },
           {
-            "fedramp_id": "FR1719759604",
+            "id": "FR1719759604",
             "offering": "Zscaler Private Access - Government (Zero Trust Networking - VPN Replacement)",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
-            "auth_date": "2020-04-29"
+            "auth_date": "2020-04-29",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1719759604"
           },
           {
-            "fedramp_id": "FR1720454205",
+            "id": "FR1720454205",
             "offering": "Zscaler Internet Access - Government (Secure Web Gateway - vTIC)",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
-            "auth_date": "2018-12-14"
+            "auth_date": "2018-12-14",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1720454205"
           }
         ]
       }
@@ -22384,6 +22823,29 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "High"
+        ],
+        "raw_levels": [
+          "High"
+        ],
+        "highest": "High",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/F1606097904A",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "F1606097904A",
+            "offering": "Qualtrics XM Platform - High",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2025-07-08",
+            "url": "https://www.fedramp.gov/marketplace/products/F1606097904A"
+          }
+        ]
       }
     },
     {
@@ -22792,6 +23254,39 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "High",
+          "Moderate"
+        ],
+        "raw_levels": [
+          "High",
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 1,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR1819254092",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR1819254092",
+            "offering": "Citrix for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2022-04-18",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1819254092"
+          },
+          {
+            "id": "FR1819254092A",
+            "offering": "Citrix for Government - High",
+            "status": "Agency In Process",
+            "impact_level": "High",
+            "auth_date": null,
+            "url": "https://www.fedramp.gov/marketplace/products/FR1819254092A"
+          }
+        ]
       }
     },
     {
@@ -23076,6 +23571,29 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2129953050",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR2129953050",
+            "offering": "Manhattan Government Cloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2023-02-17",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2129953050"
+          }
+        ]
       }
     },
     {
@@ -23124,6 +23642,29 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2029331613",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR2029331613",
+            "offering": "Informatica Intelligent Cloud Services (IICS)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2022-02-02",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2029331613"
+          }
+        ]
       }
     },
     {
@@ -23320,6 +23861,29 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/F1608097919",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "F1608097919",
+            "offering": "PTC Cloud Services",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2017-12-01",
+            "url": "https://www.fedramp.gov/marketplace/products/F1608097919"
+          }
+        ]
       }
     },
     {
@@ -23520,6 +24084,45 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 3,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/F1301101857",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "F1301101857",
+            "offering": "OpenText™ Core Application Security (Fortify On Demand)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2015-02-04",
+            "url": "https://www.fedramp.gov/marketplace/products/F1301101857"
+          },
+          {
+            "id": "FR2203732438",
+            "offering": "OpenText Cloud for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2024-04-15",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2203732438"
+          },
+          {
+            "id": "FR2215946050",
+            "offering": "ITMX Platform featuring Service & Asset Management, Universal Discovery, CMDB and Project & Portfolio Management",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2024-08-21",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2215946050"
+          }
+        ]
       }
     },
     {
@@ -23568,6 +24171,29 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2221456469",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR2221456469",
+            "offering": "Bentley for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2026-03-31",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2221456469"
+          }
+        ]
       }
     },
     {
@@ -23616,6 +24242,45 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 2,
+        "in_process": 1,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2108649352",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR2108649352",
+            "offering": "Tyler Federal Product Suite",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2014-06-06",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2108649352"
+          },
+          {
+            "id": "FR2220654178",
+            "offering": "Tyler Federal Cloud Platform (TFCP)",
+            "status": "FedRAMP In Process",
+            "impact_level": "Moderate",
+            "auth_date": null,
+            "url": "https://www.fedramp.gov/marketplace/products/FR2220654178"
+          },
+          {
+            "id": "SOCRATA",
+            "offering": "Tyler Data Platform, powered by Socrata",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2017-05-15",
+            "url": "https://www.fedramp.gov/marketplace/products/SOCRATA"
+          }
+        ]
       }
     },
     {
@@ -23942,6 +24607,29 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "High"
+        ],
+        "raw_levels": [
+          "High"
+        ],
+        "highest": "High",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2330939028",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR2330939028",
+            "offering": "Aqua Platform for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2025-03-31",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2330939028"
+          }
+        ]
       }
     },
     {
@@ -23994,6 +24682,29 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2510664395",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR2510664395",
+            "offering": "ExtraHop RevealX Federal",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2025-09-15",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2510664395"
+          }
+        ]
       }
     },
     {
@@ -24096,6 +24807,29 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "High"
+        ],
+        "raw_levels": [
+          "High"
+        ],
+        "highest": "High",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2402468053",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR2402468053",
+            "offering": "Cyber AI Mission Defense and Email Protection",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2025-04-25",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2402468053"
+          }
+        ]
       }
     },
     {
@@ -24200,6 +24934,29 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2230244107",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR2230244107",
+            "offering": "Illumio Government Cloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2024-08-21",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2230244107"
+          }
+        ]
       }
     },
     {
@@ -24252,6 +25009,29 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2201340492",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR2201340492",
+            "offering": "KnowBe4 Platform",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2023-11-14",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2201340492"
+          }
+        ]
       }
     },
     {
@@ -24304,6 +25084,29 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2017257053",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR2017257053",
+            "offering": "Infoblox Government Cloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2022-12-15",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2017257053"
+          }
+        ]
       }
     },
     {
@@ -24356,6 +25159,29 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR1910758409",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR1910758409",
+            "offering": "Incydr Gov",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2020-12-08",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1910758409"
+          }
+        ]
       }
     },
     {
@@ -24408,6 +25234,29 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2301844932",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR2301844932",
+            "offering": "Orca Cloud Security Platform",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2025-02-10",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2301844932"
+          }
+        ]
       }
     },
     {
@@ -24508,6 +25357,29 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2231070252",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR2231070252",
+            "offering": "BeyondTrust Identity Security For Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2024-04-17",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2231070252"
+          }
+        ]
       }
     },
     {
@@ -24712,6 +25584,29 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2514624801",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR2514624801",
+            "offering": "Checkmarx One for Government (CXG)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2026-06-12",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2514624801"
+          }
+        ]
       }
     },
     {
@@ -24866,6 +25761,29 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 0,
+        "in_process": 1,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2531062517",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR2531062517",
+            "offering": "F5 Distributed Cloud",
+            "status": "Agency In Process",
+            "impact_level": "Moderate",
+            "auth_date": null,
+            "url": "https://www.fedramp.gov/marketplace/products/FR2531062517"
+          }
+        ]
       }
     },
     {
@@ -24968,6 +25886,29 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR1918740338",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR1918740338",
+            "offering": "Sumo Logic",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2021-01-29",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1918740338"
+          }
+        ]
       }
     },
     {
@@ -25116,6 +26057,29 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/F1509237360",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "F1509237360",
+            "offering": "Veracode Online Security Platform for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2022-07-18",
+            "url": "https://www.fedramp.gov/marketplace/products/F1509237360"
+          }
+        ]
       }
     },
     {
@@ -25360,6 +26324,29 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2234256499",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR2234256499",
+            "offering": "Rubrik Security Cloud - Government (RSC-G)",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2024-12-10",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2234256499"
+          }
+        ]
       }
     },
     {
@@ -25556,6 +26543,29 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 1,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2102652499",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR2102652499",
+            "offering": "RSA® ID Plus for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2022-04-26",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2102652499"
+          }
+        ]
       }
     },
     {
@@ -25604,6 +26614,39 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "High",
+          "Moderate"
+        ],
+        "raw_levels": [
+          "High",
+          "Moderate"
+        ],
+        "highest": "High",
+        "authorized": 2,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR1935245314A",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR1935245314A",
+            "offering": "Trellix GovCloud Security Platform",
+            "status": "FedRAMP Authorized",
+            "impact_level": "High",
+            "auth_date": "2024-11-05",
+            "url": "https://www.fedramp.gov/marketplace/products/FR1935245314A"
+          },
+          {
+            "id": "F1512017637",
+            "offering": "Trellix Email Security GovCloud",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2017-07-05",
+            "url": "https://www.fedramp.gov/marketplace/products/F1512017637"
+          }
+        ]
       }
     },
     {
@@ -25700,6 +26743,37 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "fedramp": {
+        "levels": [
+          "Moderate"
+        ],
+        "raw_levels": [
+          "Moderate"
+        ],
+        "highest": "Moderate",
+        "authorized": 2,
+        "in_process": 0,
+        "marketplace": "https://www.fedramp.gov/marketplace/products/FR2226231529",
+        "source": "https://www.fedramp.gov/marketplace/products/",
+        "products": [
+          {
+            "id": "FR2226231529",
+            "offering": "Trend Vision One for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2024-11-22",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2226231529"
+          },
+          {
+            "id": "FR2226228379",
+            "offering": "Trend Cloud One for Government",
+            "status": "FedRAMP Authorized",
+            "impact_level": "Moderate",
+            "auth_date": "2024-11-22",
+            "url": "https://www.fedramp.gov/marketplace/products/FR2226228379"
+          }
+        ]
       }
     },
     {
