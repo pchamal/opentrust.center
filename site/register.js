@@ -69,9 +69,9 @@ function fedrampMark(row) {
 function marksCell(row) {
   const stamp = fedrampMark(row);
   const atts = (row.attestations || []).filter((a) => a && (a.name || a.short));
-  const names = atts.length
-    ? atts
-    : (row.certs || []).map((name) => ({ name, id: null }));
+  const names = (atts.length ? atts : (row.certs || []).map((name) => ({ name, id: null })))
+    .slice()
+    .sort((a, b) => String(a.short || a.name || "").localeCompare(String(b.short || b.name || ""), undefined, { sensitivity: "base" }));
   if (!names.length) {
     return stamp || `<span class="absent">not on file</span>`;
   }

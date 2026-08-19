@@ -99,8 +99,8 @@ def main() -> int:
             if r == e["id"]:
                 errors.append(f"{e['id']} related self")
 
-    # Sort: family then id
-    entries.sort(key=lambda x: (x["family"].lower(), x["id"]))
+    # Sort: name A–Z (the book is a finding aid)
+    entries.sort(key=lambda x: x["name"].lower())
 
     # Canonical objects
     clean = []

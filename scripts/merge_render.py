@@ -369,13 +369,20 @@ def merge(paths: list[Path]) -> list[tuple]:
                     oldp.append(pid)
                     src = links.get("subprocessors") or c.get("trust_url") or ""
                     if src and (slug, pid) not in existing_e:
+                        node = nodes.get(pid) or {}
+                        node_name = str(node.get("name") or "").strip()
+                        raw_name = str(p).strip()
+                        if node_name and node_name != pid:
+                            proc_name = node_name
+                        else:
+                            proc_name = raw_name or pid
                         subs.setdefault("edges", []).append({
                             "from": slug, "to": pid, "source_url": src,
-                            "evidence": "listed on public trust or subprocessors page",
+                            "evidence": proc_name,
                         })
                         existing_e.add((slug, pid))
                     if pid not in nodes:
-                        nodes[pid] = {"id": pid, "name": pid, "kind": "subprocessor", "in_register": pid in by}
+                        nodes[pid] = {"id": pid, "name": str(p).strip() or pid, "kind": "subprocessor", "in_register": pid in by}
             c["subprocessors"] = oldp
             if c.get("certs"):
                 shown = ", ".join(c["certs"][:6])

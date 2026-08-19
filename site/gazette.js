@@ -58,7 +58,7 @@ function citedBy(id) {
 }
 
 function renderBook() {
-  const rows = state.items.filter(matches);
+  const rows = state.items.filter(matches).slice().sort((a, b) => String(a.name || "").localeCompare(String(b.name || ""), undefined, { sensitivity: "base" }));
   $("book-count").textContent = `showing ${rows.length} of ${state.items.length}`;
   $("book").innerHTML = rows
     .map((item) => {
@@ -465,7 +465,7 @@ async function load() {
       fetch("./data/attestations.json", { cache: "no-store" }).then((r) => r.json()),
       fetch("./data.json", { cache: "no-store" }).then((r) => r.json()),
     ]);
-    state.items = gaz.attestations || [];
+    state.items = (gaz.attestations || []).slice().sort((a, b) => String(a.name || "").localeCompare(String(b.name || ""), undefined, { sensitivity: "base" }));
     state.companies = reg.companies || [];
     fillIssue($("issue"), reg, `${state.items.length} marks`);
   } catch {

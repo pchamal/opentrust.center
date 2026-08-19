@@ -345,12 +345,34 @@ def file_instrument(instruments: dict, key: str, url: str, generated_at: str, co
     }
 
 
+def title_case_slug(to: str) -> str:
+    parts = [part for part in re.split(r"[-_]+", str(to or "")) if part]
+    return " ".join(part[:1].upper() + part[1:] for part in parts) if parts else str(to or "")
+
+
+def looks_like_processor_name(s: str) -> bool:
+    """A filing note or page sentence is not a processor name."""
+    t = str(s or "").strip()
+    if not t:
+        return False
+    if re.match(r"^listed on public", t, re.I):
+        return False
+    if re.search(r"listed on", t, re.I) or re.search(r"\bpage\b", t, re.I):
+        return False
+    return True
+
+
 def processor_display_name(edge: dict, node: dict, to: str) -> str:
-    """Evidence is the printed name when it is a name. A filing note is not."""
+    """Prefer the node name, then a title-cased `to` slug. A subprocessors link is not a parsed name."""
+    node_name = str(node.get("name") or "").strip()
+    if looks_like_processor_name(node_name):
+        return node_name
+    if to:
+        return title_case_slug(to)
     evidence = str(edge.get("evidence") or "").strip()
-    if evidence and len(evidence) <= 64 and not re.search(r"\blisted on\b", evidence, re.I):
+    if looks_like_processor_name(evidence):
         return evidence
-    return str(edge.get("processor") or node.get("name") or to)
+    return str(edge.get("processor") or to)
 
 
 def register_slug_for(node: dict, by_slug: dict, by_domain: dict) -> str | None:
@@ -378,7 +400,7 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
     official = row.get("trust_url") or links.get("trust") or links.get("security") or row.get("final_url") or ""
     if not found:
         official = ""
-    certs = [c for c in (row.get("certs") or []) if c]
+    certs = sorted((c for c in (row.get("certs") or []) if c), key=lambda x: str(x).lower())
     attestations = [map_cert(c) for c in certs]
     year = row.get("founded_year")
     year_src = row.get("founded_source")
@@ -773,7 +795,7 @@ def dossier_html(row: dict, generated_at: str) -> str:
       {outbound}
       {gate}
       {claim}
-      <a class="perm" href="./{escape(slug)}.html">permalink · c/{escape(slug)}.html</a>
+      <a class="perm" href="./{escape(slug)}.html">permalink · c/{escape(slug)}</a>
     </div>
   </main>
   <footer class="colo">

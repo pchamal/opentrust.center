@@ -24,23 +24,28 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "CSA STAR",
+        "GDPR",
         "ISO 27001",
         "ISO 27017",
         "ISO 27018",
         "ISO 27701",
-        "CSA STAR",
+        "PCI DSS",
+        "SOC 2 Type II",
         "TISAX",
         "TX-RAMP",
-        "GDPR",
-        "VPAT",
-        "PCI DSS"
+        "VPAT"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "iso-27001",
@@ -63,9 +68,14 @@
           "weight": 6
         },
         {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
-          "weight": 4
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
           "id": "tisax",
@@ -78,19 +88,9 @@
           "weight": 4
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
           "id": null,
           "name": "VPAT",
           "weight": 4
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27018, ISO 27701, CSA STAR +5.",
@@ -175,39 +175,24 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2",
-        "ISO 27001",
         "FedRAMP",
-        "HIPAA",
-        "PCI DSS",
+        "FedRAMP Moderate",
         "GDPR",
-        "FedRAMP Moderate"
+        "HIPAA",
+        "ISO 27001",
+        "PCI DSS",
+        "SOC 2"
       ],
       "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2",
-          "weight": 4
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
-        },
         {
           "id": "fedramp",
           "name": "FedRAMP",
           "weight": 12
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
         },
         {
           "id": "gdpr",
@@ -215,9 +200,24 @@
           "weight": 3
         },
         {
-          "id": "fedramp",
-          "name": "FedRAMP Moderate",
-          "weight": 12
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2, ISO 27001, FedRAMP, HIPAA, PCI DSS, GDPR.",
@@ -345,15 +345,35 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
+        "GDPR",
+        "HIPAA",
+        "ISO 27001",
+        "PCI DSS",
         "SOC 1 Type II",
         "SOC 2 Type II",
-        "HIPAA",
-        "GDPR",
-        "TX-RAMP",
-        "ISO 27001",
-        "PCI DSS"
+        "TX-RAMP"
       ],
       "attestations": [
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
         {
           "id": "soc-1-type-ii",
           "name": "SOC 1 Type II",
@@ -365,29 +385,9 @@
           "weight": 10
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
           "id": "tx-ramp",
           "name": "TX-RAMP",
           "weight": 4
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
         }
       ],
       "summary": "Public trust center. On file: SOC 1 Type II, SOC 2 Type II, HIPAA, GDPR, TX-RAMP, ISO 27001 +1.",
@@ -466,24 +466,29 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "CCPA",
+        "CSA STAR",
         "Cyber Essentials",
         "Cyber Essentials Plus",
-        "TX-RAMP",
-        "SOC 3",
-        "CCPA",
         "EU-US DPF",
-        "CSA STAR",
         "ISO 27001",
-        "SOC 1 Type II",
         "ISO 27701",
-        "PCI DSS"
+        "PCI DSS",
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "SOC 3",
+        "TX-RAMP"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "cyber-essentials",
@@ -496,39 +501,14 @@
           "weight": 4
         },
         {
-          "id": "tx-ramp",
-          "name": "TX-RAMP",
-          "weight": 4
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
           "id": null,
           "name": "EU-US DPF",
-          "weight": 4
-        },
-        {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
           "weight": 4
         },
         {
           "id": "iso-27001",
           "name": "ISO 27001",
           "weight": 10
-        },
-        {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1 Type II",
-          "weight": 4
         },
         {
           "id": "iso-27701",
@@ -539,6 +519,26 @@
           "id": "pci-dss",
           "name": "PCI DSS",
           "weight": 8
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        },
+        {
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, Cyber Essentials, Cyber Essentials Plus, TX-RAMP, SOC 3, CCPA +6.",
@@ -617,18 +617,23 @@
       "probed": 14,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "GDPR",
+        "HIPAA",
         "ISO 27001",
         "ISO 27701",
-        "HIPAA",
-        "GDPR",
+        "SOC 2 Type II",
         "TX-RAMP"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "iso-27001",
@@ -641,14 +646,9 @@
           "weight": 6
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
           "id": "tx-ramp",
@@ -732,28 +732,38 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 3",
+        "CCPA",
+        "CSA STAR",
+        "GDPR",
+        "HIPAA",
         "ISO 27001",
         "ISO 27017",
         "ISO 42001",
-        "CSA STAR",
         "PCI DSS",
-        "HIPAA",
-        "TX-RAMP",
-        "GDPR",
-        "CCPA"
+        "SOC 2 Type II",
+        "SOC 3",
+        "TX-RAMP"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
-          "id": "soc-3",
-          "name": "SOC 3",
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
           "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "iso-27001",
@@ -771,34 +781,24 @@
           "weight": 6
         },
         {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
-          "weight": 4
-        },
-        {
           "id": "pci-dss",
           "name": "PCI DSS",
           "weight": 8
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
         },
         {
           "id": "tx-ramp",
           "name": "TX-RAMP",
           "weight": 4
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, ISO 27001, ISO 27017, ISO 42001, CSA STAR +5.",
@@ -883,14 +883,29 @@
       "probed": 14,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
+        "EU-US DPF",
+        "NIST CSF",
+        "PCI DSS",
         "SOC 1 Type II",
         "SOC 2 Type II",
-        "SOC 3",
-        "PCI DSS",
-        "NIST CSF",
-        "EU-US DPF"
+        "SOC 3"
       ],
       "attestations": [
+        {
+          "id": null,
+          "name": "EU-US DPF",
+          "weight": 4
+        },
+        {
+          "id": "nist-csf",
+          "name": "NIST CSF",
+          "weight": 4
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
         {
           "id": "soc-1-type-ii",
           "name": "SOC 1 Type II",
@@ -904,21 +919,6 @@
         {
           "id": "soc-3",
           "name": "SOC 3",
-          "weight": 4
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
-        },
-        {
-          "id": "nist-csf",
-          "name": "NIST CSF",
-          "weight": 4
-        },
-        {
-          "id": null,
-          "name": "EU-US DPF",
           "weight": 4
         }
       ],
@@ -1144,34 +1144,49 @@
       "probed": 2,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 1",
-        "SOC 3",
-        "ISO 27001",
-        "FedRAMP",
-        "HIPAA",
-        "PCI DSS",
-        "HITRUST",
-        "GDPR",
         "CCPA",
+        "FedRAMP",
+        "GDPR",
+        "HIPAA",
+        "HITRUST",
+        "ISMAP",
+        "ISO 27001",
+        "PCI DSS",
+        "SOC 1",
+        "SOC 2 Type II",
+        "SOC 3",
         "TISAX",
-        "TX-RAMP",
-        "ISMAP"
+        "TX-RAMP"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1",
-          "weight": 4
+          "id": "fedramp",
+          "name": "FedRAMP",
+          "weight": 12
         },
         {
-          "id": "soc-3",
-          "name": "SOC 3",
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "hitrust-csf",
+          "name": "HITRUST",
+          "weight": 8
+        },
+        {
+          "id": "ismap",
+          "name": "ISMAP",
           "weight": 4
         },
         {
@@ -1180,34 +1195,24 @@
           "weight": 10
         },
         {
-          "id": "fedramp",
-          "name": "FedRAMP",
-          "weight": 12
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
           "id": "pci-dss",
           "name": "PCI DSS",
           "weight": 8
         },
         {
-          "id": "hitrust-csf",
-          "name": "HITRUST",
-          "weight": 8
+          "id": "soc-1-type-ii",
+          "name": "SOC 1",
+          "weight": 4
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
         },
         {
           "id": "tisax",
@@ -1217,11 +1222,6 @@
         {
           "id": "tx-ramp",
           "name": "TX-RAMP",
-          "weight": 4
-        },
-        {
-          "id": "ismap",
-          "name": "ISMAP",
           "weight": 4
         }
       ],
@@ -1301,24 +1301,29 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 1 Type II",
-        "SOC 2 Type II",
+        "CSA STAR",
+        "EU-US DPF",
+        "GDPR",
         "ISO 27001",
         "PCI DSS",
-        "CSA STAR",
-        "GDPR",
-        "EU-US DPF"
+        "SOC 1 Type II",
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1 Type II",
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
           "weight": 4
         },
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": null,
+          "name": "EU-US DPF",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "iso-27001",
@@ -1331,19 +1336,14 @@
           "weight": 8
         },
         {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
           "weight": 4
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": null,
-          "name": "EU-US DPF",
-          "weight": 4
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 1 Type II, SOC 2 Type II, ISO 27001, PCI DSS, CSA STAR, GDPR +1.",
@@ -1443,31 +1443,46 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 3",
+        "CCPA",
+        "CSA STAR",
+        "FedRAMP 20x Moderate",
+        "GDPR",
+        "HIPAA",
         "ISO 27001",
         "ISO 27017",
         "ISO 27018",
         "ISO 27701",
         "ISO 42001",
-        "CSA STAR",
-        "FedRAMP 20x Moderate",
-        "TX-RAMP",
         "PCI DSS",
-        "GDPR",
-        "CCPA",
-        "HIPAA"
+        "SOC 2 Type II",
+        "SOC 3",
+        "TX-RAMP"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
-          "id": "soc-3",
-          "name": "SOC 3",
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
           "weight": 4
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP 20x Moderate",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "iso-27001",
@@ -1495,39 +1510,24 @@
           "weight": 6
         },
         {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
-          "weight": 4
-        },
-        {
-          "id": "fedramp",
-          "name": "FedRAMP 20x Moderate",
-          "weight": 12
-        },
-        {
-          "id": "tx-ramp",
-          "name": "TX-RAMP",
-          "weight": 4
-        },
-        {
           "id": "pci-dss",
           "name": "PCI DSS",
           "weight": 8
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II (report request-gated; mark claimed on the public grid), SOC 3 (PDF public), ISO 27001 family, ISO 42001, CSA STAR Level 1, FedRAMP 20x Moderate (ChatGPT Enterprise and API), TX-RAMP Level 2, PCI DSS.",
@@ -1690,44 +1690,19 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "ISO 27001",
-        "PCI DSS",
-        "HIPAA",
-        "GDPR",
         "CCPA",
-        "EU-US DPF",
-        "PIPEDA",
-        "NIS2",
         "DORA",
+        "EU-US DPF",
+        "GDPR",
+        "HIPAA",
+        "ISO 27001",
+        "NIS2",
+        "PCI DSS",
+        "PIPEDA",
+        "SOC 2 Type II",
         "TISAX"
       ],
       "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
         {
           "id": "ccpa-cpra",
           "name": "CCPA",
@@ -1735,13 +1710,28 @@
         },
         {
           "id": null,
-          "name": "EU-US DPF",
+          "name": "DORA",
           "weight": 4
         },
         {
           "id": null,
-          "name": "PIPEDA",
+          "name": "EU-US DPF",
           "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
         },
         {
           "id": null,
@@ -1749,9 +1739,19 @@
           "weight": 4
         },
         {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
           "id": null,
-          "name": "DORA",
+          "name": "PIPEDA",
           "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
           "id": "tisax",
@@ -1906,17 +1906,22 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "FedRAMP Moderate",
+        "GDPR",
         "ISO 27001",
         "ISO 27017",
-        "GDPR",
-        "FedRAMP Moderate"
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "iso-27001",
@@ -1929,14 +1934,9 @@
           "weight": 4
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "fedramp",
-          "name": "FedRAMP Moderate",
-          "weight": 12
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, GDPR.",
@@ -2038,21 +2038,41 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "CCPA",
+        "Cyber Essentials",
+        "FedRAMP",
+        "FedRAMP Moderate",
+        "GDPR",
         "ISO 27001",
         "ISO 27018",
-        "FedRAMP",
-        "GDPR",
-        "CCPA",
-        "StateRAMP",
-        "Cyber Essentials",
-        "FedRAMP Moderate"
+        "SOC 2 Type II",
+        "StateRAMP"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "cyber-essentials",
+          "name": "Cyber Essentials",
+          "weight": 4
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP",
+          "weight": 12
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "iso-27001",
@@ -2065,34 +2085,14 @@
           "weight": 4
         },
         {
-          "id": "fedramp",
-          "name": "FedRAMP",
-          "weight": 12
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
           "id": "stateramp",
           "name": "StateRAMP",
           "weight": 4
-        },
-        {
-          "id": "cyber-essentials",
-          "name": "Cyber Essentials",
-          "weight": 4
-        },
-        {
-          "id": "fedramp",
-          "name": "FedRAMP Moderate",
-          "weight": 12
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27018, FedRAMP, GDPR, CCPA, StateRAMP, Cyber Essentials.",
@@ -2313,44 +2313,24 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "FedRAMP",
-        "HIPAA",
-        "PCI DSS",
-        "GDPR",
-        "CCPA",
-        "TISAX",
-        "IRAP",
-        "StateRAMP",
         "C5",
+        "CCPA",
+        "FedRAMP",
+        "FedRAMP High",
+        "GDPR",
+        "HIPAA",
+        "IRAP",
         "ISMAP",
-        "FedRAMP High"
+        "PCI DSS",
+        "SOC 2 Type II",
+        "StateRAMP",
+        "TISAX"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "fedramp",
-          "name": "FedRAMP",
-          "weight": 12
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
+          "id": "c5",
+          "name": "C5",
+          "weight": 4
         },
         {
           "id": "ccpa-cpra",
@@ -2358,23 +2338,28 @@
           "weight": 3
         },
         {
-          "id": "tisax",
-          "name": "TISAX",
-          "weight": 4
+          "id": "fedramp",
+          "name": "FedRAMP",
+          "weight": 12
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP High",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "irap",
           "name": "IRAP",
-          "weight": 4
-        },
-        {
-          "id": "stateramp",
-          "name": "StateRAMP",
-          "weight": 4
-        },
-        {
-          "id": "c5",
-          "name": "C5",
           "weight": 4
         },
         {
@@ -2383,9 +2368,24 @@
           "weight": 4
         },
         {
-          "id": "fedramp",
-          "name": "FedRAMP High",
-          "weight": 12
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "stateramp",
+          "name": "StateRAMP",
+          "weight": 4
+        },
+        {
+          "id": "tisax",
+          "name": "TISAX",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, FedRAMP, HIPAA, PCI DSS, GDPR, CCPA, TISAX, IRAP and others.",
@@ -2504,25 +2504,20 @@
       "probed": 4,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "ISO 27001",
-        "FedRAMP",
-        "PCI DSS",
         "CCPA",
-        "TISAX",
+        "FedRAMP",
+        "FedRAMP Low",
+        "ISO 27001",
+        "PCI DSS",
+        "SOC 2 Type II",
         "SOX",
-        "FedRAMP Low"
+        "TISAX"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
           "id": "fedramp",
@@ -2530,19 +2525,24 @@
           "weight": 12
         },
         {
+          "id": "fedramp",
+          "name": "FedRAMP Low",
+          "weight": 12
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
           "id": "pci-dss",
           "name": "PCI DSS",
           "weight": 8
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": "tisax",
-          "name": "TISAX",
-          "weight": 4
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
           "id": "sox",
@@ -2550,9 +2550,9 @@
           "weight": 4
         },
         {
-          "id": "fedramp",
-          "name": "FedRAMP Low",
-          "weight": 12
+          "id": "tisax",
+          "name": "TISAX",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, FedRAMP, PCI DSS, CCPA, TISAX, SOX.",
@@ -2650,57 +2650,22 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 3",
-        "ISO 27001",
-        "ISO 42001",
         "CSA STAR",
-        "HIPAA",
-        "FedRAMP High",
-        "NIST 800-171",
         "Cyber Essentials",
         "DoD IL4",
-        "DoD IL5"
+        "DoD IL5",
+        "FedRAMP High",
+        "HIPAA",
+        "ISO 27001",
+        "ISO 42001",
+        "NIST 800-171",
+        "SOC 2 Type II",
+        "SOC 3"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
-        },
-        {
-          "id": "iso-42001",
-          "name": "ISO 42001",
-          "weight": 6
-        },
-        {
           "id": "csa-star-l1",
           "name": "CSA STAR",
-          "weight": 4
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "fedramp",
-          "name": "FedRAMP High",
-          "weight": 12
-        },
-        {
-          "id": null,
-          "name": "NIST 800-171",
           "weight": 4
         },
         {
@@ -2716,6 +2681,41 @@
         {
           "id": null,
           "name": "DoD IL5",
+          "weight": 4
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP High",
+          "weight": 12
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": null,
+          "name": "NIST 800-171",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
           "weight": 4
         }
       ],
@@ -3053,36 +3053,36 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
         "CSA STAR",
+        "EU-US DPF",
+        "GDPR",
         "ISO 27001",
-        "ISO 27701",
         "ISO 27017",
         "ISO 27018",
         "ISO 27032",
-        "EU-US DPF",
-        "GDPR"
+        "ISO 27701",
+        "SOC 2 Type II"
       ],
       "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
         {
           "id": "csa-star-l1",
           "name": "CSA STAR",
           "weight": 4
         },
         {
+          "id": null,
+          "name": "EU-US DPF",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
           "id": "iso-27001",
           "name": "ISO 27001",
           "weight": 10
-        },
-        {
-          "id": "iso-27701",
-          "name": "ISO 27701",
-          "weight": 6
         },
         {
           "id": "iso-27017",
@@ -3100,14 +3100,14 @@
           "weight": 4
         },
         {
-          "id": null,
-          "name": "EU-US DPF",
-          "weight": 4
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, CSA STAR, ISO 27001, ISO 27701, ISO 27017, ISO 27018 +3.",
@@ -3208,29 +3208,44 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 1 Type II",
-        "SOC 2 Type II",
+        "CSA STAR",
+        "Cyber Essentials",
+        "Cyber Essentials Plus",
+        "GDPR",
+        "HIPAA",
         "ISO 27001",
         "ISO 27701",
         "ISO 9001",
-        "CSA STAR",
-        "TISAX",
-        "HIPAA",
-        "GDPR",
-        "Cyber Essentials",
-        "Cyber Essentials Plus",
-        "SOC 3"
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "SOC 3",
+        "TISAX"
       ],
       "attestations": [
         {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1 Type II",
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
           "weight": 4
         },
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "cyber-essentials",
+          "name": "Cyber Essentials",
+          "weight": 4
+        },
+        {
+          "id": null,
+          "name": "Cyber Essentials Plus",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "iso-27001",
@@ -3248,38 +3263,23 @@
           "weight": 4
         },
         {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
           "weight": 4
         },
         {
           "id": "tisax",
           "name": "TISAX",
-          "weight": 4
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "cyber-essentials",
-          "name": "Cyber Essentials",
-          "weight": 4
-        },
-        {
-          "id": null,
-          "name": "Cyber Essentials Plus",
-          "weight": 4
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
           "weight": 4
         }
       ],
@@ -3355,23 +3355,48 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "AIUC-1",
+        "CCPA",
+        "CSA STAR",
+        "GDPR",
+        "HDS",
+        "HIPAA",
         "ISO 27001",
         "ISO 27018",
         "ISO 27701",
         "ISO 42001",
-        "GDPR",
-        "CCPA",
-        "HIPAA",
-        "HDS",
-        "AIUC-1",
-        "CSA STAR"
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "aiuc-1",
+          "name": "AIUC-1",
+          "weight": 8
+        },
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": null,
+          "name": "HDS",
+          "weight": 4
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "iso-27001",
@@ -3394,34 +3419,9 @@
           "weight": 6
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": null,
-          "name": "HDS",
-          "weight": 4
-        },
-        {
-          "id": "aiuc-1",
-          "name": "AIUC-1",
-          "weight": 8
-        },
-        {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
-          "weight": 4
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27018, ISO 27701, ISO 42001, GDPR +5.",
@@ -3567,35 +3567,15 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 3",
-        "HIPAA",
-        "GDPR",
         "CCPA",
         "CSA STAR",
+        "GDPR",
+        "HIPAA",
+        "SOC 2 Type II",
+        "SOC 3",
         "TX-RAMP"
       ],
       "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
         {
           "id": "ccpa-cpra",
           "name": "CCPA",
@@ -3604,6 +3584,26 @@
         {
           "id": "csa-star-l1",
           "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
           "weight": 4
         },
         {
@@ -3684,12 +3684,17 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
+        "ISO 27001",
         "PCI DSS",
         "SOC 1 Type II",
-        "SOC 2 Type II",
-        "ISO 27001"
+        "SOC 2 Type II"
       ],
       "attestations": [
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
         {
           "id": "pci-dss",
           "name": "PCI DSS",
@@ -3703,11 +3708,6 @@
         {
           "id": "soc-2-type-ii",
           "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
           "weight": 10
         }
       ],
@@ -3787,28 +3787,23 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "HIPAA",
         "GDPR",
+        "HIPAA",
         "ISO 27001",
         "ISO 27701",
-        "ISO 42001"
+        "ISO 42001",
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "hipaa",
           "name": "HIPAA",
           "weight": 6
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
         },
         {
           "id": "iso-27001",
@@ -3824,6 +3819,11 @@
           "id": "iso-42001",
           "name": "ISO 42001",
           "weight": 6
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, HIPAA, GDPR, ISO 27001, ISO 27701, ISO 42001.",
@@ -4004,19 +4004,29 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "AIUC-1",
+        "CCPA",
+        "GDPR",
         "ISO 27001",
         "ISO 27701",
         "ISO 42001",
-        "GDPR",
-        "CCPA",
-        "AIUC-1"
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "aiuc-1",
+          "name": "AIUC-1",
+          "weight": 8
+        },
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "iso-27001",
@@ -4034,19 +4044,9 @@
           "weight": 6
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": "aiuc-1",
-          "name": "AIUC-1",
-          "weight": 8
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27701, ISO 42001, GDPR, CCPA.",
@@ -4125,37 +4125,42 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "ISO 27001",
-        "ISO 42001",
+        "CMMC",
+        "Cyber Essentials",
         "FedRAMP",
+        "FedRAMP 20x Moderate",
+        "GDPR",
         "HIPAA",
         "HITRUST",
-        "GDPR",
-        "Cyber Essentials",
-        "CMMC",
-        "FedRAMP 20x Moderate"
+        "ISO 27001",
+        "ISO 42001",
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "cmmc-l2",
+          "name": "CMMC",
+          "weight": 8
         },
         {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
-        },
-        {
-          "id": "iso-42001",
-          "name": "ISO 42001",
-          "weight": 6
+          "id": "cyber-essentials",
+          "name": "Cyber Essentials",
+          "weight": 4
         },
         {
           "id": "fedramp",
           "name": "FedRAMP",
           "weight": 12
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP 20x Moderate",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "hipaa",
@@ -4168,24 +4173,19 @@
           "weight": 8
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
         },
         {
-          "id": "cyber-essentials",
-          "name": "Cyber Essentials",
-          "weight": 4
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
         },
         {
-          "id": "cmmc-l2",
-          "name": "CMMC",
-          "weight": 8
-        },
-        {
-          "id": "fedramp",
-          "name": "FedRAMP 20x Moderate",
-          "weight": 12
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 42001, FedRAMP, HIPAA, HITRUST, GDPR, Cyber Essentials and others.",
@@ -4297,29 +4297,44 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 1 Type II",
+        "CCPA",
+        "DORA",
+        "EU-US DPF",
+        "GDPR",
+        "HIPAA",
         "ISO 27001",
         "ISO 27017",
         "ISO 27018",
         "ISO 42001",
         "PCI DSS",
-        "GDPR",
-        "CCPA",
-        "DORA",
-        "EU-US DPF",
-        "HIPAA"
+        "SOC 1 Type II",
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1 Type II",
+          "id": null,
+          "name": "DORA",
           "weight": 4
+        },
+        {
+          "id": null,
+          "name": "EU-US DPF",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "iso-27001",
@@ -4347,29 +4362,14 @@
           "weight": 8
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": null,
-          "name": "DORA",
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
           "weight": 4
         },
         {
-          "id": null,
-          "name": "EU-US DPF",
-          "weight": 4
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 1 Type II, ISO 27001, ISO 27017, ISO 27018, ISO 42001 +6.",
@@ -4519,14 +4519,19 @@
       "probed": 5,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
+        "HIPAA",
         "ISO 27001",
         "ISO 27701",
         "ISO 42001",
-        "SOC 2 Type II",
-        "HIPAA",
-        "PCI DSS"
+        "PCI DSS",
+        "SOC 2 Type II"
       ],
       "attestations": [
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
         {
           "id": "iso-27001",
           "name": "ISO 27001",
@@ -4543,19 +4548,14 @@
           "weight": 6
         },
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
           "id": "pci-dss",
           "name": "PCI DSS",
           "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: ISO 27001, ISO 27701, ISO 42001, SOC 2 Type II, HIPAA, PCI DSS.",
@@ -4680,25 +4680,20 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 1 Type II",
-        "SOC 2 Type II",
+        "CCPA",
         "ISO 27001",
         "ISO 27701",
         "PCI DSS",
-        "TX-RAMP",
-        "CCPA",
-        "PIPEDA"
+        "PIPEDA",
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "TX-RAMP"
       ],
       "attestations": [
         {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1 Type II",
-          "weight": 4
-        },
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
           "id": "iso-27001",
@@ -4716,18 +4711,23 @@
           "weight": 8
         },
         {
-          "id": "tx-ramp",
-          "name": "TX-RAMP",
+          "id": null,
+          "name": "PIPEDA",
           "weight": 4
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
         },
         {
-          "id": null,
-          "name": "PIPEDA",
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
           "weight": 4
         }
       ],
@@ -4803,24 +4803,29 @@
       "probed": 2,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "CCPA",
+        "GDPR",
         "ISO 27001",
         "ISO 27017",
         "ISO 27018",
         "ISO 27701",
         "ISO 42001",
-        "PCI DSS",
-        "GDPR",
-        "CCPA",
         "LGPD",
-        "SOC 3",
-        "SOC 1 Type II"
+        "PCI DSS",
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "SOC 3"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "iso-27001",
@@ -4848,33 +4853,28 @@
           "weight": 6
         },
         {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
           "id": null,
           "name": "LGPD",
           "weight": 4
         },
         {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
         },
         {
           "id": "soc-1-type-ii",
           "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
           "weight": 4
         }
       ],
@@ -4950,18 +4950,23 @@
       "probed": 2,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "Cyber Essentials",
+        "GDPR",
         "ISO 27001",
         "ISO 27701",
         "ISO 42001",
-        "GDPR",
-        "Cyber Essentials"
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "cyber-essentials",
+          "name": "Cyber Essentials",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "iso-27001",
@@ -4979,14 +4984,9 @@
           "weight": 6
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "cyber-essentials",
-          "name": "Cyber Essentials",
-          "weight": 4
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27701, ISO 42001, GDPR, Cyber Essentials.",
@@ -5097,40 +5097,20 @@
       "probed": 7,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "ISO 27001",
-        "HIPAA",
-        "PCI DSS",
-        "GDPR",
-        "CCPA",
         "C5",
-        "EU-US DPF"
+        "CCPA",
+        "EU-US DPF",
+        "GDPR",
+        "HIPAA",
+        "ISO 27001",
+        "PCI DSS",
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
+          "id": "c5",
+          "name": "C5",
+          "weight": 4
         },
         {
           "id": "ccpa-cpra",
@@ -5138,14 +5118,34 @@
           "weight": 3
         },
         {
-          "id": "c5",
-          "name": "C5",
-          "weight": 4
-        },
-        {
           "id": null,
           "name": "EU-US DPF",
           "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, HIPAA, PCI DSS, GDPR, CCPA +2.",
@@ -5249,35 +5249,25 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 1",
-        "SOC 3",
+        "CCPA",
         "FedRAMP High",
         "FedRAMP Moderate",
-        "HIPAA",
-        "PCI DSS",
         "GDPR",
-        "CCPA",
-        "TISAX",
+        "HIPAA",
         "IRAP",
-        "TX-RAMP",
-        "ISMAP"
+        "ISMAP",
+        "PCI DSS",
+        "SOC 1",
+        "SOC 2 Type II",
+        "SOC 3",
+        "TISAX",
+        "TX-RAMP"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1",
-          "weight": 4
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
           "id": "fedramp",
@@ -5290,29 +5280,14 @@
           "weight": 12
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
-        },
-        {
           "id": "gdpr",
           "name": "GDPR",
           "weight": 3
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": "tisax",
-          "name": "TISAX",
-          "weight": 4
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "irap",
@@ -5320,13 +5295,38 @@
           "weight": 4
         },
         {
-          "id": "tx-ramp",
-          "name": "TX-RAMP",
+          "id": "ismap",
+          "name": "ISMAP",
           "weight": 4
         },
         {
-          "id": "ismap",
-          "name": "ISMAP",
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        },
+        {
+          "id": "tisax",
+          "name": "TISAX",
+          "weight": 4
+        },
+        {
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
           "weight": 4
         }
       ],
@@ -5454,16 +5454,26 @@
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
         "FedRAMP",
-        "HIPAA",
-        "PCI DSS",
+        "FedRAMP High",
         "GDPR",
-        "FedRAMP High"
+        "HIPAA",
+        "PCI DSS"
       ],
       "attestations": [
         {
           "id": "fedramp",
           "name": "FedRAMP",
           "weight": 12
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP High",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "hipaa",
@@ -5474,16 +5484,6 @@
           "id": "pci-dss",
           "name": "PCI DSS",
           "weight": 8
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "fedramp",
-          "name": "FedRAMP High",
-          "weight": 12
         }
       ],
       "summary": "Public trust center. On file: FedRAMP, HIPAA, PCI DSS, GDPR.",
@@ -5587,40 +5587,65 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "AIUC-1",
+        "CCPA",
+        "CSA STAR",
+        "Cyber Essentials Plus",
+        "DORA",
+        "GDPR",
+        "HDS",
         "HIPAA",
-        "SOC 3",
         "ISO 27001",
         "ISO 27017",
         "ISO 27018",
         "ISO 27701",
         "ISO 42001",
-        "Cyber Essentials Plus",
-        "HDS",
-        "AIUC-1",
-        "PCI DSS",
-        "CSA STAR",
-        "GDPR",
-        "CCPA",
         "LGPD",
-        "DORA",
+        "PCI DSS",
+        "SOC 2 Type II",
+        "SOC 3",
         "TX-RAMP"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "aiuc-1",
+          "name": "AIUC-1",
+          "weight": 8
+        },
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": null,
+          "name": "Cyber Essentials Plus",
+          "weight": 4
+        },
+        {
+          "id": null,
+          "name": "DORA",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": null,
+          "name": "HDS",
+          "weight": 4
         },
         {
           "id": "hipaa",
           "name": "HIPAA",
           "weight": 6
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
         },
         {
           "id": "iso-27001",
@@ -5649,18 +5674,8 @@
         },
         {
           "id": null,
-          "name": "Cyber Essentials Plus",
+          "name": "LGPD",
           "weight": 4
-        },
-        {
-          "id": null,
-          "name": "HDS",
-          "weight": 4
-        },
-        {
-          "id": "aiuc-1",
-          "name": "AIUC-1",
-          "weight": 8
         },
         {
           "id": "pci-dss",
@@ -5668,28 +5683,13 @@
           "weight": 8
         },
         {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
-          "weight": 4
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": null,
-          "name": "LGPD",
-          "weight": 4
-        },
-        {
-          "id": null,
-          "name": "DORA",
+          "id": "soc-3",
+          "name": "SOC 3",
           "weight": 4
         },
         {
@@ -5907,17 +5907,47 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
+        "CCPA",
+        "FedRAMP",
+        "GDPR",
+        "HIPAA",
+        "ISMAP",
+        "PCI DSS",
         "SOC 2 Type II",
         "SOC 3",
-        "FedRAMP",
-        "HIPAA",
-        "PCI DSS",
-        "GDPR",
-        "CCPA",
-        "TX-RAMP",
-        "ISMAP"
+        "TX-RAMP"
       ],
       "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "ismap",
+          "name": "ISMAP",
+          "weight": 4
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
         {
           "id": "soc-2-type-ii",
           "name": "SOC 2 Type II",
@@ -5929,38 +5959,8 @@
           "weight": 4
         },
         {
-          "id": "fedramp",
-          "name": "FedRAMP",
-          "weight": 12
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
           "id": "tx-ramp",
           "name": "TX-RAMP",
-          "weight": 4
-        },
-        {
-          "id": "ismap",
-          "name": "ISMAP",
           "weight": 4
         }
       ],
@@ -6048,35 +6048,25 @@
       "probed": 18,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "ISO 27001",
-        "ISO 42001",
-        "ISO 22301",
-        "ISO 9001",
+        "Cyber Essentials",
+        "GDPR",
         "HIPAA",
         "HITRUST",
-        "GDPR",
-        "Cyber Essentials"
+        "ISO 22301",
+        "ISO 27001",
+        "ISO 42001",
+        "ISO 9001"
       ],
       "attestations": [
         {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
-        },
-        {
-          "id": "iso-42001",
-          "name": "ISO 42001",
-          "weight": 6
-        },
-        {
-          "id": "iso-22301",
-          "name": "ISO 22301",
+          "id": "cyber-essentials",
+          "name": "Cyber Essentials",
           "weight": 4
         },
         {
-          "id": "iso-9001",
-          "name": "ISO 9001",
-          "weight": 4
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "hipaa",
@@ -6089,13 +6079,23 @@
           "weight": 8
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
+          "id": "iso-22301",
+          "name": "ISO 22301",
+          "weight": 4
         },
         {
-          "id": "cyber-essentials",
-          "name": "Cyber Essentials",
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": "iso-9001",
+          "name": "ISO 9001",
           "weight": 4
         }
       ],
@@ -6167,49 +6167,19 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 1",
-        "SOC 3",
-        "FedRAMP",
-        "HIPAA",
-        "GDPR",
         "CCPA",
         "CSA STAR",
-        "TISAX",
+        "FedRAMP",
+        "FedRAMP High",
+        "GDPR",
+        "HIPAA",
+        "SOC 1",
+        "SOC 2 Type II",
+        "SOC 3",
         "StateRAMP",
-        "FedRAMP High"
+        "TISAX"
       ],
       "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1",
-          "weight": 4
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
-        },
-        {
-          "id": "fedramp",
-          "name": "FedRAMP",
-          "weight": 12
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
         {
           "id": "ccpa-cpra",
           "name": "CCPA",
@@ -6221,8 +6191,38 @@
           "weight": 4
         },
         {
-          "id": "tisax",
-          "name": "TISAX",
+          "id": "fedramp",
+          "name": "FedRAMP",
+          "weight": 12
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP High",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
           "weight": 4
         },
         {
@@ -6231,9 +6231,9 @@
           "weight": 4
         },
         {
-          "id": "fedramp",
-          "name": "FedRAMP High",
-          "weight": 12
+          "id": "tisax",
+          "name": "TISAX",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 1, SOC 3, FedRAMP, HIPAA, GDPR, CCPA, CSA STAR and others.",
@@ -6337,22 +6337,12 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 1",
         "ISO 27001",
-        "PCI DSS"
+        "PCI DSS",
+        "SOC 1",
+        "SOC 2 Type II"
       ],
       "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1",
-          "weight": 4
-        },
         {
           "id": "iso-27001",
           "name": "ISO 27001",
@@ -6362,6 +6352,16 @@
           "id": "pci-dss",
           "name": "PCI DSS",
           "weight": 8
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 1, ISO 27001, PCI DSS.",
@@ -6443,56 +6443,26 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 1 Type II",
-        "SOC 2 Type II",
-        "SOC 3",
-        "HIPAA",
-        "PCI DSS",
-        "NIST CSF",
-        "IRAP",
+        "CCPA",
         "DORA",
         "GDPR",
-        "NIS2",
-        "CCPA",
+        "HIPAA",
+        "IRAP",
         "ISO 27001",
         "ISO 27701",
-        "ISO 42001"
+        "ISO 42001",
+        "NIS2",
+        "NIST CSF",
+        "PCI DSS",
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "SOC 3"
       ],
       "attestations": [
         {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1 Type II",
-          "weight": 4
-        },
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
-        },
-        {
-          "id": "nist-csf",
-          "name": "NIST CSF",
-          "weight": 4
-        },
-        {
-          "id": "irap",
-          "name": "IRAP",
-          "weight": 4
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
           "id": null,
@@ -6505,14 +6475,14 @@
           "weight": 3
         },
         {
-          "id": null,
-          "name": "NIS2",
-          "weight": 4
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "irap",
+          "name": "IRAP",
+          "weight": 4
         },
         {
           "id": "iso-27001",
@@ -6528,6 +6498,36 @@
           "id": "iso-42001",
           "name": "ISO 42001",
           "weight": 6
+        },
+        {
+          "id": null,
+          "name": "NIS2",
+          "weight": 4
+        },
+        {
+          "id": "nist-csf",
+          "name": "NIST CSF",
+          "weight": 4
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 1 Type II, SOC 2 Type II, SOC 3, HIPAA, PCI DSS, NIST CSF +8.",
@@ -6659,28 +6659,58 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "CASA Tier 3",
+        "CCPA",
+        "CSA STAR",
+        "EU AI Act",
+        "EU-US DPF",
+        "GDPR",
+        "HIPAA",
         "ISO 27001",
         "ISO 27017",
         "ISO 27018",
-        "PCI DSS",
-        "HIPAA",
-        "NIST CSF",
-        "CASA Tier 3",
-        "CSA STAR",
-        "TX-RAMP",
-        "GDPR",
-        "CCPA",
         "LGPD",
+        "NIST CSF",
+        "PCI DSS",
         "PIPEDA",
-        "EU-US DPF",
-        "EU AI Act"
+        "SOC 2 Type II",
+        "TX-RAMP"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": null,
+          "name": "CASA Tier 3",
+          "weight": 4
+        },
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": null,
+          "name": "EU AI Act",
+          "weight": 4
+        },
+        {
+          "id": null,
+          "name": "EU-US DPF",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "iso-27001",
@@ -6698,14 +6728,9 @@
           "weight": 4
         },
         {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
+          "id": null,
+          "name": "LGPD",
+          "weight": 4
         },
         {
           "id": "nist-csf",
@@ -6713,34 +6738,9 @@
           "weight": 4
         },
         {
-          "id": null,
-          "name": "CASA Tier 3",
-          "weight": 4
-        },
-        {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
-          "weight": 4
-        },
-        {
-          "id": "tx-ramp",
-          "name": "TX-RAMP",
-          "weight": 4
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": null,
-          "name": "LGPD",
-          "weight": 4
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
         },
         {
           "id": null,
@@ -6748,13 +6748,13 @@
           "weight": 4
         },
         {
-          "id": null,
-          "name": "EU-US DPF",
-          "weight": 4
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
-          "id": null,
-          "name": "EU AI Act",
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
           "weight": 4
         }
       ],
@@ -6832,22 +6832,32 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "CCPA",
+        "GDPR",
+        "HIPAA",
         "ISO 27001",
         "ISO 27017",
         "ISO 27018",
         "ISO 27701",
         "ISO 42001",
-        "HIPAA",
         "PCI DSS",
-        "GDPR",
-        "CCPA"
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "iso-27001",
@@ -6875,24 +6885,14 @@
           "weight": 6
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
           "id": "pci-dss",
           "name": "PCI DSS",
           "weight": 8
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27018, ISO 27701, ISO 42001, HIPAA, PCI DSS and others.",
@@ -6967,35 +6967,15 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "PCI DSS",
-        "HIPAA",
-        "GDPR",
         "CCPA",
         "EU-US DPF",
+        "GDPR",
+        "HIPAA",
+        "PCI DSS",
+        "SOC 2 Type II",
         "TX-RAMP"
       ],
       "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
         {
           "id": "ccpa-cpra",
           "name": "CCPA",
@@ -7005,6 +6985,26 @@
           "id": null,
           "name": "EU-US DPF",
           "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
           "id": "tx-ramp",
@@ -7101,35 +7101,45 @@
       "probed": 2,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 2 Type I",
-        "SOC 3",
+        "CCPA",
+        "CSA STAR",
+        "FedRAMP Moderate",
+        "GDPR",
+        "HIPAA",
         "ISO 27001",
         "ISO 27017",
         "ISO 27018",
         "ISO 27701",
-        "HIPAA",
-        "GDPR",
-        "CCPA",
-        "CSA STAR",
-        "TX-RAMP",
-        "FedRAMP Moderate"
+        "SOC 2 Type I",
+        "SOC 2 Type II",
+        "SOC 3",
+        "TX-RAMP"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
-          "id": "soc-2-type-i",
-          "name": "SOC 2 Type I",
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
           "weight": 4
         },
         {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "iso-27001",
@@ -7152,34 +7162,24 @@
           "weight": 6
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
+          "id": "soc-2-type-i",
+          "name": "SOC 2 Type I",
+          "weight": 4
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
+          "id": "soc-3",
+          "name": "SOC 3",
           "weight": 4
         },
         {
           "id": "tx-ramp",
           "name": "TX-RAMP",
           "weight": 4
-        },
-        {
-          "id": "fedramp",
-          "name": "FedRAMP Moderate",
-          "weight": 12
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 2 Type I, SOC 3, ISO 27001, ISO 27017, ISO 27018, ISO 27701, HIPAA and others.",
@@ -7273,19 +7273,54 @@
       "probed": 3,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
+        "C5",
+        "CCPA",
+        "FedRAMP",
+        "FedRAMP Moderate",
+        "GDPR",
+        "HIPAA",
+        "ISMAP",
         "SOC 2 Type II",
         "SOC 3",
-        "FedRAMP",
-        "HIPAA",
-        "GDPR",
-        "CCPA",
         "TISAX",
-        "TX-RAMP",
-        "C5",
-        "ISMAP",
-        "FedRAMP Moderate"
+        "TX-RAMP"
       ],
       "attestations": [
+        {
+          "id": "c5",
+          "name": "C5",
+          "weight": 4
+        },
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP",
+          "weight": 12
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "ismap",
+          "name": "ISMAP",
+          "weight": 4
+        },
         {
           "id": "soc-2-type-ii",
           "name": "SOC 2 Type II",
@@ -7297,26 +7332,6 @@
           "weight": 4
         },
         {
-          "id": "fedramp",
-          "name": "FedRAMP",
-          "weight": 12
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
           "id": "tisax",
           "name": "TISAX",
           "weight": 4
@@ -7325,21 +7340,6 @@
           "id": "tx-ramp",
           "name": "TX-RAMP",
           "weight": 4
-        },
-        {
-          "id": "c5",
-          "name": "C5",
-          "weight": 4
-        },
-        {
-          "id": "ismap",
-          "name": "ISMAP",
-          "weight": 4
-        },
-        {
-          "id": "fedramp",
-          "name": "FedRAMP Moderate",
-          "weight": 12
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, FedRAMP, HIPAA, GDPR, CCPA, TISAX, TX-RAMP and others.",
@@ -7433,28 +7433,18 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 3",
-        "ISO 27001",
+        "CCPA",
         "CSA STAR",
         "GDPR",
-        "CCPA"
+        "ISO 27001",
+        "SOC 2 Type II",
+        "SOC 3"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
           "id": "csa-star-l1",
@@ -7467,9 +7457,19 @@
           "weight": 3
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, ISO 27001, CSA STAR, GDPR, CCPA.",
@@ -7544,25 +7544,30 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 1 Type II",
+        "CCPA",
+        "GDPR",
+        "HIPAA",
         "ISO 27001",
         "ISO 27701",
         "ISO 9001",
-        "HIPAA",
-        "GDPR",
-        "CCPA"
+        "SOC 1 Type II",
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1 Type II",
-          "weight": 4
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "iso-27001",
@@ -7580,19 +7585,14 @@
           "weight": 4
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 1 Type II, ISO 27001, ISO 27701, ISO 9001, HIPAA, GDPR, CCPA.",
@@ -7663,25 +7663,25 @@
       "probed": 2,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 3",
+        "CCPA",
+        "GDPR",
         "ISO 27001",
         "ISO 42001",
-        "GDPR",
-        "CCPA",
         "PIPEDA",
-        "SOC 1 Type II"
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "SOC 3"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "iso-27001",
@@ -7694,16 +7694,6 @@
           "weight": 6
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
           "id": null,
           "name": "PIPEDA",
           "weight": 4
@@ -7711,6 +7701,16 @@
         {
           "id": "soc-1-type-ii",
           "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
           "weight": 4
         }
       ],
@@ -7786,17 +7786,22 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "CCPA",
+        "GDPR",
         "ISO 27001",
         "ISO 42001",
-        "GDPR",
-        "CCPA"
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "iso-27001",
@@ -7809,14 +7814,9 @@
           "weight": 6
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 42001, GDPR, CCPA.",
@@ -7912,37 +7912,17 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "HIPAA",
-        "PCI DSS",
-        "GDPR",
         "CCPA",
         "CSA STAR",
         "FedRAMP High",
+        "GDPR",
+        "HIPAA",
         "ISO 27001",
-        "ISO 42001"
+        "ISO 42001",
+        "PCI DSS",
+        "SOC 2 Type II"
       ],
       "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
         {
           "id": "ccpa-cpra",
           "name": "CCPA",
@@ -7959,6 +7939,16 @@
           "weight": 12
         },
         {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
           "id": "iso-27001",
           "name": "ISO 27001",
           "weight": 10
@@ -7967,6 +7957,16 @@
           "id": "iso-42001",
           "name": "ISO 42001",
           "weight": 6
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, HIPAA, PCI DSS, GDPR, CCPA, CSA STAR +3.",
@@ -8103,34 +8103,44 @@
       "probed": 3,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 1",
-        "SOC 3",
+        "CSA STAR",
+        "FedRAMP",
+        "FedRAMP Moderate",
+        "GDPR",
+        "IRAP",
         "ISO 27001",
         "ISO 27017",
         "ISO 42001",
-        "FedRAMP",
-        "GDPR",
-        "CSA STAR",
+        "SOC 1",
+        "SOC 2 Type II",
+        "SOC 3",
         "TISAX",
-        "IRAP",
-        "TX-RAMP",
-        "FedRAMP Moderate"
+        "TX-RAMP"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1",
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
           "weight": 4
         },
         {
-          "id": "soc-3",
-          "name": "SOC 3",
+          "id": "fedramp",
+          "name": "FedRAMP",
+          "weight": 12
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "irap",
+          "name": "IRAP",
           "weight": 4
         },
         {
@@ -8149,18 +8159,18 @@
           "weight": 6
         },
         {
-          "id": "fedramp",
-          "name": "FedRAMP",
-          "weight": 12
+          "id": "soc-1-type-ii",
+          "name": "SOC 1",
+          "weight": 4
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
+          "id": "soc-3",
+          "name": "SOC 3",
           "weight": 4
         },
         {
@@ -8169,19 +8179,9 @@
           "weight": 4
         },
         {
-          "id": "irap",
-          "name": "IRAP",
-          "weight": 4
-        },
-        {
           "id": "tx-ramp",
           "name": "TX-RAMP",
           "weight": 4
-        },
-        {
-          "id": "fedramp",
-          "name": "FedRAMP Moderate",
-          "weight": 12
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 1, SOC 3, ISO 27001, ISO 27017, ISO 42001, FedRAMP, GDPR and others.",
@@ -8282,19 +8282,19 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2",
-        "FedRAMP Moderate"
+        "FedRAMP Moderate",
+        "SOC 2"
       ],
       "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2",
-          "weight": 4
-        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
           "weight": 12
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2.",
@@ -8396,25 +8396,15 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2",
-        "SOC 3",
         "ISO 27001",
         "ISO 27017",
         "ISO 27018",
         "ISO 27701",
-        "ISO 42001"
+        "ISO 42001",
+        "SOC 2",
+        "SOC 3"
       ],
       "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2",
-          "weight": 4
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
-        },
         {
           "id": "iso-27001",
           "name": "ISO 27001",
@@ -8439,6 +8429,16 @@
           "id": "iso-42001",
           "name": "ISO 42001",
           "weight": 6
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2, SOC 3, ISO 27001, ISO 27017, ISO 27018, ISO 27701, ISO 42001.",
@@ -8509,32 +8509,62 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2",
-        "SOC 3",
+        "C5",
+        "CCPA",
+        "FedRAMP High",
+        "FedRAMP Moderate",
+        "GDPR",
+        "HIPAA",
+        "IRAP",
+        "ISMAP",
         "ISO 27001",
         "ISO 27017",
         "ISO 27018",
         "ISO 27701",
         "ISO 42001",
-        "FedRAMP Moderate",
-        "HIPAA",
-        "GDPR",
-        "CCPA",
-        "TISAX",
-        "IRAP",
-        "C5",
-        "ISMAP",
-        "FedRAMP High"
+        "SOC 2",
+        "SOC 3",
+        "TISAX"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2",
+          "id": "c5",
+          "name": "C5",
           "weight": 4
         },
         {
-          "id": "soc-3",
-          "name": "SOC 3",
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP High",
+          "weight": 12
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "irap",
+          "name": "IRAP",
+          "weight": 4
+        },
+        {
+          "id": "ismap",
+          "name": "ISMAP",
           "weight": 4
         },
         {
@@ -8563,49 +8593,19 @@
           "weight": 6
         },
         {
-          "id": "fedramp",
-          "name": "FedRAMP Moderate",
-          "weight": 12
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
         },
         {
           "id": "tisax",
           "name": "TISAX",
           "weight": 4
-        },
-        {
-          "id": "irap",
-          "name": "IRAP",
-          "weight": 4
-        },
-        {
-          "id": "c5",
-          "name": "C5",
-          "weight": 4
-        },
-        {
-          "id": "ismap",
-          "name": "ISMAP",
-          "weight": 4
-        },
-        {
-          "id": "fedramp",
-          "name": "FedRAMP High",
-          "weight": 12
         }
       ],
       "summary": "Public trust center. On file: SOC 2, SOC 3, ISO 27001, ISO 27017, ISO 27018, ISO 27701, ISO 42001, FedRAMP Moderate and others.",
@@ -8709,18 +8709,28 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "C5",
+        "CCPA",
+        "GDPR",
         "ISO 27001",
         "ISO 27017",
-        "GDPR",
-        "CCPA",
-        "C5"
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "c5",
+          "name": "C5",
+          "weight": 4
+        },
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "iso-27001",
@@ -8733,19 +8743,9 @@
           "weight": 4
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": "c5",
-          "name": "C5",
-          "weight": 4
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, GDPR, CCPA, C5.",
@@ -8812,38 +8812,18 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 1 Type II",
-        "SOC 2 Type II",
-        "SOC 2 Type I",
-        "PCI DSS",
-        "PCI 3DS",
+        "DORA",
         "GDPR",
-        "DORA"
+        "PCI 3DS",
+        "PCI DSS",
+        "SOC 1 Type II",
+        "SOC 2 Type I",
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1 Type II",
-          "weight": 4
-        },
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-2-type-i",
-          "name": "SOC 2 Type I",
-          "weight": 4
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
-        },
-        {
           "id": null,
-          "name": "PCI 3DS",
+          "name": "DORA",
           "weight": 4
         },
         {
@@ -8853,8 +8833,28 @@
         },
         {
           "id": null,
-          "name": "DORA",
+          "name": "PCI 3DS",
           "weight": 4
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-i",
+          "name": "SOC 2 Type I",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 1 Type II, SOC 2 Type II, SOC 2 Type I, PCI DSS, PCI 3DS, GDPR +1.",
@@ -8925,21 +8925,36 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "ISO 27001",
-        "PCI DSS",
-        "HIPAA",
-        "GDPR",
         "CCPA",
         "EU-US DPF",
-        "SOC 3",
-        "SOC 1 Type II"
+        "GDPR",
+        "HIPAA",
+        "ISO 27001",
+        "PCI DSS",
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "SOC 3"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": null,
+          "name": "EU-US DPF",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "iso-27001",
@@ -8952,33 +8967,18 @@
           "weight": 8
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": null,
-          "name": "EU-US DPF",
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
           "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
           "id": "soc-3",
           "name": "SOC 3",
-          "weight": 4
-        },
-        {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1 Type II",
           "weight": 4
         }
       ],
@@ -9050,15 +9050,15 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "FedRAMP High",
         "ISO 27001",
-        "FedRAMP High"
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "fedramp",
+          "name": "FedRAMP High",
+          "weight": 12
         },
         {
           "id": "iso-27001",
@@ -9066,9 +9066,9 @@
           "weight": 10
         },
         {
-          "id": "fedramp",
-          "name": "FedRAMP High",
-          "weight": 12
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, FedRAMP High.",
@@ -9187,19 +9187,34 @@
       "probed": 5,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "CCPA",
+        "Cyber Essentials",
+        "GDPR",
+        "HIPAA",
         "ISO 27001",
         "ISO 42001",
-        "HIPAA",
-        "GDPR",
-        "CCPA",
-        "Cyber Essentials"
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "cyber-essentials",
+          "name": "Cyber Essentials",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "iso-27001",
@@ -9212,24 +9227,9 @@
           "weight": 6
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": "cyber-essentials",
-          "name": "Cyber Essentials",
-          "weight": 4
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 42001, HIPAA, GDPR, CCPA, Cyber Essentials.",
@@ -9573,16 +9573,16 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type I",
-        "ISO 27001",
         "FedRAMP Moderate",
+        "ISO 27001",
+        "SOC 2 Type I",
         "TX-RAMP"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-i",
-          "name": "SOC 2 Type I",
-          "weight": 4
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
         },
         {
           "id": "iso-27001",
@@ -9590,9 +9590,9 @@
           "weight": 10
         },
         {
-          "id": "fedramp",
-          "name": "FedRAMP Moderate",
-          "weight": 12
+          "id": "soc-2-type-i",
+          "name": "SOC 2 Type I",
+          "weight": 4
         },
         {
           "id": "tx-ramp",
@@ -9702,15 +9702,15 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2",
+        "FedRAMP LI-SaaS",
         "GDPR",
-        "FedRAMP LI-SaaS"
+        "SOC 2"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2",
-          "weight": 4
+          "id": "fedramp-li-saas",
+          "name": "FedRAMP LI-SaaS",
+          "weight": 12
         },
         {
           "id": "gdpr",
@@ -9718,9 +9718,9 @@
           "weight": 3
         },
         {
-          "id": "fedramp-li-saas",
-          "name": "FedRAMP LI-SaaS",
-          "weight": 12
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2, GDPR.",
@@ -9820,46 +9820,16 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 1 Type II",
-        "SOC 2 Type II",
-        "PCI DSS",
-        "PCI 3DS",
-        "ISO 27001",
-        "GDPR",
         "CCPA",
-        "Cyber Essentials"
+        "Cyber Essentials",
+        "GDPR",
+        "ISO 27001",
+        "PCI 3DS",
+        "PCI DSS",
+        "SOC 1 Type II",
+        "SOC 2 Type II"
       ],
       "attestations": [
-        {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1 Type II",
-          "weight": 4
-        },
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
-        },
-        {
-          "id": null,
-          "name": "PCI 3DS",
-          "weight": 4
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
         {
           "id": "ccpa-cpra",
           "name": "CCPA",
@@ -9869,6 +9839,36 @@
           "id": "cyber-essentials",
           "name": "Cyber Essentials",
           "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": null,
+          "name": "PCI 3DS",
+          "weight": 4
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 1 Type II, SOC 2 Type II, PCI DSS, PCI 3DS, ISO 27001, GDPR +2.",
@@ -9947,20 +9947,35 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "C5",
+        "CSA STAR",
+        "GDPR",
+        "HIPAA",
         "ISO 27001",
         "ISO 27701",
-        "HIPAA",
-        "GDPR",
-        "CSA STAR",
-        "TISAX",
-        "C5"
+        "SOC 2 Type II",
+        "TISAX"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "c5",
+          "name": "C5",
+          "weight": 4
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "iso-27001",
@@ -9973,28 +9988,13 @@
           "weight": 6
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
-          "weight": 4
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
           "id": "tisax",
           "name": "TISAX",
-          "weight": 4
-        },
-        {
-          "id": "c5",
-          "name": "C5",
           "weight": 4
         }
       ],
@@ -10155,22 +10155,17 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 3",
+        "GDPR",
         "ISO 27001",
         "PCI DSS",
-        "GDPR"
+        "SOC 2 Type II",
+        "SOC 3"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "iso-27001",
@@ -10183,9 +10178,14 @@
           "weight": 8
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, ISO 27001, PCI DSS, GDPR.",
@@ -10256,33 +10256,18 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 1",
-        "SOC 3",
-        "HIPAA",
+        "CCPA",
         "GDPR",
-        "CCPA"
+        "HIPAA",
+        "SOC 1",
+        "SOC 2 Type II",
+        "SOC 3"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1",
-          "weight": 4
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
           "id": "gdpr",
@@ -10290,9 +10275,24 @@
           "weight": 3
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 1, SOC 3, HIPAA, GDPR, CCPA.",
@@ -10379,34 +10379,39 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 1",
-        "SOC 3",
+        "CCPA",
+        "FedRAMP",
+        "GDPR",
+        "HIPAA",
         "ISO 27001",
         "ISO 27017",
         "ISO 27018",
         "ISO 27701",
         "ISO 42001",
-        "FedRAMP",
-        "HIPAA",
-        "GDPR",
-        "CCPA"
+        "SOC 1",
+        "SOC 2 Type II",
+        "SOC 3"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1",
-          "weight": 4
+          "id": "fedramp",
+          "name": "FedRAMP",
+          "weight": 12
         },
         {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "iso-27001",
@@ -10434,24 +10439,19 @@
           "weight": 6
         },
         {
-          "id": "fedramp",
-          "name": "FedRAMP",
-          "weight": 12
+          "id": "soc-1-type-ii",
+          "name": "SOC 1",
+          "weight": 4
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 1, SOC 3, ISO 27001, ISO 27017, ISO 27018, ISO 27701, ISO 42001 and others.",
@@ -10548,28 +10548,48 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 3",
+        "CSA STAR",
+        "Cyber Essentials",
+        "FedRAMP",
+        "FedRAMP High",
+        "HIPAA",
+        "IRAP",
         "ISO 27001",
         "ISO 27701",
-        "FedRAMP",
-        "HIPAA",
         "PCI DSS",
-        "CSA STAR",
-        "TISAX",
-        "IRAP",
-        "Cyber Essentials",
-        "FedRAMP High"
+        "SOC 2 Type II",
+        "SOC 3",
+        "TISAX"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
-          "id": "soc-3",
-          "name": "SOC 3",
+          "id": "cyber-essentials",
+          "name": "Cyber Essentials",
+          "weight": 4
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP",
+          "weight": 12
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP High",
+          "weight": 12
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "irap",
+          "name": "IRAP",
           "weight": 4
         },
         {
@@ -10583,44 +10603,24 @@
           "weight": 6
         },
         {
-          "id": "fedramp",
-          "name": "FedRAMP",
-          "weight": 12
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
           "id": "pci-dss",
           "name": "PCI DSS",
           "weight": 8
         },
         {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
           "weight": 4
         },
         {
           "id": "tisax",
           "name": "TISAX",
           "weight": 4
-        },
-        {
-          "id": "irap",
-          "name": "IRAP",
-          "weight": 4
-        },
-        {
-          "id": "cyber-essentials",
-          "name": "Cyber Essentials",
-          "weight": 4
-        },
-        {
-          "id": "fedramp",
-          "name": "FedRAMP High",
-          "weight": 12
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, ISO 27001, ISO 27701, FedRAMP, HIPAA, PCI DSS, CSA STAR and others.",
@@ -10720,30 +10720,20 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2",
-        "SOC 1",
-        "ISO 27001",
-        "FedRAMP",
-        "HIPAA",
-        "GDPR",
         "CCPA",
+        "FedRAMP",
+        "GDPR",
+        "HIPAA",
+        "ISO 27001",
+        "SOC 1",
+        "SOC 2",
         "TX-RAMP"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2",
-          "weight": 4
-        },
-        {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1",
-          "weight": 4
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
           "id": "fedramp",
@@ -10751,19 +10741,29 @@
           "weight": 12
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
           "id": "gdpr",
           "name": "GDPR",
           "weight": 3
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
         },
         {
           "id": "tx-ramp",
@@ -10938,21 +10938,36 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "C5",
+        "CCPA",
+        "GDPR",
+        "HIPAA",
         "ISO 27001",
         "ISO 27017",
         "ISO 27018",
         "ISO 27701",
-        "HIPAA",
-        "GDPR",
-        "CCPA",
-        "C5"
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "c5",
+          "name": "C5",
+          "weight": 4
+        },
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "iso-27001",
@@ -10975,24 +10990,9 @@
           "weight": 6
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": "c5",
-          "name": "C5",
-          "weight": 4
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27018, ISO 27701, HIPAA, GDPR, CCPA and others.",
@@ -11059,13 +11059,28 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 3",
-        "PCI DSS",
+        "CCPA",
         "GDPR",
-        "CCPA"
+        "PCI DSS",
+        "SOC 2 Type II",
+        "SOC 3"
       ],
       "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
         {
           "id": "soc-2-type-ii",
           "name": "SOC 2 Type II",
@@ -11075,21 +11090,6 @@
           "id": "soc-3",
           "name": "SOC 3",
           "weight": 4
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, PCI DSS, GDPR, CCPA.",
@@ -11160,27 +11160,17 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 1",
-        "SOC 3",
+        "CCPA",
         "GDPR",
-        "CCPA"
+        "SOC 1",
+        "SOC 2 Type II",
+        "SOC 3"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1",
-          "weight": 4
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
           "id": "gdpr",
@@ -11188,9 +11178,19 @@
           "weight": 3
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "soc-1-type-ii",
+          "name": "SOC 1",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 1, SOC 3, GDPR, CCPA.",
@@ -11265,24 +11265,29 @@
       "probed": 18,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 1 Type II",
-        "SOC 2 Type II",
+        "CCPA",
+        "CSA STAR",
+        "GDPR",
         "ISO 27001",
         "ISO 27701",
-        "GDPR",
-        "CSA STAR",
-        "CCPA"
+        "SOC 1 Type II",
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1 Type II",
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
           "weight": 4
         },
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "iso-27001",
@@ -11295,19 +11300,14 @@
           "weight": 6
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
           "weight": 4
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 1 Type II, SOC 2 Type II, ISO 27001, ISO 27701, GDPR, CSA STAR +1.",
@@ -11374,18 +11374,23 @@
       "probed": 18,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "CCPA",
+        "ISO 22301",
         "ISO 27001",
         "ISO 27017",
         "ISO 27701",
-        "ISO 22301",
-        "CCPA"
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "iso-22301",
+          "name": "ISO 22301",
+          "weight": 4
         },
         {
           "id": "iso-27001",
@@ -11403,14 +11408,9 @@
           "weight": 6
         },
         {
-          "id": "iso-22301",
-          "name": "ISO 22301",
-          "weight": 4
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27701, ISO 22301, CCPA.",
@@ -11481,22 +11481,42 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2",
+        "C5",
+        "CSA STAR",
+        "GDPR",
+        "HIPAA",
+        "ISMAP",
         "ISO 27001",
         "ISO 27017",
         "ISO 27018",
         "ISO 9001",
-        "HIPAA",
-        "GDPR",
-        "CSA STAR",
-        "TISAX",
-        "C5",
-        "ISMAP"
+        "SOC 2",
+        "TISAX"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2",
+          "id": "c5",
+          "name": "C5",
+          "weight": 4
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "ismap",
+          "name": "ISMAP",
           "weight": 4
         },
         {
@@ -11520,33 +11540,13 @@
           "weight": 4
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
           "weight": 4
         },
         {
           "id": "tisax",
           "name": "TISAX",
-          "weight": 4
-        },
-        {
-          "id": "c5",
-          "name": "C5",
-          "weight": 4
-        },
-        {
-          "id": "ismap",
-          "name": "ISMAP",
           "weight": 4
         }
       ],
@@ -11606,14 +11606,14 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "ISO 27001",
         "SOC 1 Type II",
-        "ISO 27001"
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
+          "id": "iso-27001",
+          "name": "ISO 27001",
           "weight": 10
         },
         {
@@ -11622,8 +11622,8 @@
           "weight": 4
         },
         {
-          "id": "iso-27001",
-          "name": "ISO 27001",
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
           "weight": 10
         }
       ],
@@ -11695,15 +11695,15 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "CCPA",
         "GDPR",
-        "CCPA"
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
           "id": "gdpr",
@@ -11711,9 +11711,9 @@
           "weight": 3
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, GDPR, CCPA.",
@@ -11792,13 +11792,23 @@
       "probed": 9,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
+        "ISO 22301",
+        "ISO 27001",
         "PCI DSS",
         "SOC 1 Type II",
-        "SOC 2 Type II",
-        "ISO 22301",
-        "ISO 27001"
+        "SOC 2 Type II"
       ],
       "attestations": [
+        {
+          "id": "iso-22301",
+          "name": "ISO 22301",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
         {
           "id": "pci-dss",
           "name": "PCI DSS",
@@ -11812,16 +11822,6 @@
         {
           "id": "soc-2-type-ii",
           "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "iso-22301",
-          "name": "ISO 22301",
-          "weight": 4
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
           "weight": 10
         }
       ],
@@ -11993,23 +11993,18 @@
       "probed": 2,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "ISO 27001",
+        "CCPA",
         "Cyber Essentials",
         "GDPR",
-        "CCPA",
-        "SLSA"
+        "ISO 27001",
+        "SLSA",
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
           "id": "cyber-essentials",
@@ -12022,14 +12017,19 @@
           "weight": 3
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
         },
         {
           "id": null,
           "name": "SLSA",
           "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, Cyber Essentials, GDPR, CCPA, SLSA.",
@@ -12121,31 +12121,31 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 3",
+        "CCPA",
         "FedRAMP",
+        "GDPR",
         "HIPAA",
         "HITRUST",
-        "GDPR",
-        "CCPA",
-        "TX-RAMP",
-        "ISMAP"
+        "ISMAP",
+        "SOC 2 Type II",
+        "SOC 3",
+        "TX-RAMP"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
           "id": "fedramp",
           "name": "FedRAMP",
           "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "hipaa",
@@ -12158,23 +12158,23 @@
           "weight": 8
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
+          "id": "ismap",
+          "name": "ISMAP",
+          "weight": 4
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
         },
         {
           "id": "tx-ramp",
           "name": "TX-RAMP",
-          "weight": 4
-        },
-        {
-          "id": "ismap",
-          "name": "ISMAP",
           "weight": 4
         }
       ],
@@ -12264,18 +12264,18 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "ISO 27001"
+        "ISO 27001",
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
+          "id": "iso-27001",
+          "name": "ISO 27001",
           "weight": 10
         },
         {
-          "id": "iso-27001",
-          "name": "ISO 27001",
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
           "weight": 10
         }
       ],
@@ -12625,27 +12625,17 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "ISO 27001",
-        "HIPAA",
+        "C5",
         "GDPR",
-        "C5"
+        "HIPAA",
+        "ISO 27001",
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
+          "id": "c5",
+          "name": "C5",
+          "weight": 4
         },
         {
           "id": "gdpr",
@@ -12653,9 +12643,19 @@
           "weight": 3
         },
         {
-          "id": "c5",
-          "name": "C5",
-          "weight": 4
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, HIPAA, GDPR, C5.",
@@ -12724,16 +12724,11 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
         "ISO 9001",
-        "PCI DSS"
+        "PCI DSS",
+        "SOC 2 Type II"
       ],
       "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
         {
           "id": "iso-9001",
           "name": "ISO 9001",
@@ -12743,6 +12738,11 @@
           "id": "pci-dss",
           "name": "PCI DSS",
           "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 9001, PCI DSS.",
@@ -12935,19 +12935,29 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "CCPA",
+        "GDPR",
+        "HIPAA",
         "ISO 27001",
         "ISO 27018",
-        "HIPAA",
         "PCI DSS",
-        "GDPR",
-        "CCPA"
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "iso-27001",
@@ -12960,24 +12970,14 @@
           "weight": 4
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
           "id": "pci-dss",
           "name": "PCI DSS",
           "weight": 8
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27018, HIPAA, PCI DSS, GDPR, CCPA.",
@@ -13040,45 +13040,20 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2",
-        "SOC 1",
-        "ISO 27001",
-        "HIPAA",
-        "PCI DSS",
-        "HITRUST",
+        "CCPA",
         "GDPR",
-        "CCPA"
+        "HIPAA",
+        "HITRUST",
+        "ISO 27001",
+        "PCI DSS",
+        "SOC 1",
+        "SOC 2"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2",
-          "weight": 4
-        },
-        {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1",
-          "weight": 4
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
-        },
-        {
-          "id": "hitrust-csf",
-          "name": "HITRUST",
-          "weight": 8
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
           "id": "gdpr",
@@ -13086,9 +13061,34 @@
           "weight": 3
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "hitrust-csf",
+          "name": "HITRUST",
+          "weight": 8
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2, SOC 1, ISO 27001, HIPAA, PCI DSS, HITRUST, GDPR, CCPA.",
@@ -13155,36 +13155,26 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "ISO 27001",
         "Cyber Essentials",
-        "TX-RAMP",
-        "PCI DSS",
+        "EU-US DPF",
         "GDPR",
         "HIPAA",
-        "EU-US DPF",
+        "ISO 27001",
+        "PCI DSS",
         "SOC 1 Type II",
-        "SOC 2 Type II"
+        "SOC 2 Type II",
+        "TX-RAMP"
       ],
       "attestations": [
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
-        },
         {
           "id": "cyber-essentials",
           "name": "Cyber Essentials",
           "weight": 4
         },
         {
-          "id": "tx-ramp",
-          "name": "TX-RAMP",
+          "id": null,
+          "name": "EU-US DPF",
           "weight": 4
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
         },
         {
           "id": "gdpr",
@@ -13197,9 +13187,14 @@
           "weight": 6
         },
         {
-          "id": null,
-          "name": "EU-US DPF",
-          "weight": 4
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
         },
         {
           "id": "soc-1-type-ii",
@@ -13210,6 +13205,11 @@
           "id": "soc-2-type-ii",
           "name": "SOC 2 Type II",
           "weight": 10
+        },
+        {
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: ISO 27001, Cyber Essentials, TX-RAMP, PCI DSS, GDPR, HIPAA +3.",
@@ -13295,19 +13295,19 @@
       "probed": 14,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "GDPR",
-        "FedRAMP Moderate"
+        "FedRAMP Moderate",
+        "GDPR"
       ],
       "attestations": [
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
           "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         }
       ],
       "summary": "Public trust center. On file: GDPR.",
@@ -13483,16 +13483,11 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
         "ISO 27001",
-        "ISO 27018"
+        "ISO 27018",
+        "SOC 2 Type II"
       ],
       "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
         {
           "id": "iso-27001",
           "name": "ISO 27001",
@@ -13502,6 +13497,11 @@
           "id": "iso-27018",
           "name": "ISO 27018",
           "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27018.",
@@ -13572,28 +13572,28 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 1",
+        "GDPR",
+        "HITRUST",
         "ISO 27001",
         "ISO 27017",
         "ISO 27701",
         "ISO 9001",
         "PCI DSS",
-        "HITRUST",
-        "GDPR",
+        "SOC 1",
+        "SOC 2 Type II",
         "TISAX",
         "TX-RAMP"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1",
-          "weight": 4
+          "id": "hitrust-csf",
+          "name": "HITRUST",
+          "weight": 8
         },
         {
           "id": "iso-27001",
@@ -13621,14 +13621,14 @@
           "weight": 8
         },
         {
-          "id": "hitrust-csf",
-          "name": "HITRUST",
-          "weight": 8
+          "id": "soc-1-type-ii",
+          "name": "SOC 1",
+          "weight": 4
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
           "id": "tisax",
@@ -13805,16 +13805,16 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "GDPR",
         "ISO 27001",
         "ISO 42001",
-        "GDPR"
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "iso-27001",
@@ -13827,9 +13827,9 @@
           "weight": 6
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 42001, GDPR.",
@@ -13892,16 +13892,11 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
         "GDPR",
-        "HIPAA"
+        "HIPAA",
+        "SOC 2 Type II"
       ],
       "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
         {
           "id": "gdpr",
           "name": "GDPR",
@@ -13911,6 +13906,11 @@
           "id": "hipaa",
           "name": "HIPAA",
           "weight": 6
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, GDPR, HIPAA.",
@@ -14006,12 +14006,17 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
+        "GDPR",
         "ISO 27001",
         "ISO 27701",
-        "SOC 2 Type II",
-        "GDPR"
+        "SOC 2 Type II"
       ],
       "attestations": [
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
         {
           "id": "iso-27001",
           "name": "ISO 27001",
@@ -14026,11 +14031,6 @@
           "id": "soc-2-type-ii",
           "name": "SOC 2 Type II",
           "weight": 10
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
         }
       ],
       "summary": "Public trust center. On file: ISO 27001, ISO 27701, SOC 2 Type II, GDPR.",
@@ -14230,19 +14230,19 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "FedRAMP Moderate",
-        "AIUC-1"
+        "AIUC-1",
+        "FedRAMP Moderate"
       ],
       "attestations": [
-        {
-          "id": "fedramp",
-          "name": "FedRAMP Moderate",
-          "weight": 12
-        },
         {
           "id": "aiuc-1",
           "name": "AIUC-1",
           "weight": 8
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
         }
       ],
       "summary": "Public trust center on file.",
@@ -14442,11 +14442,16 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
+        "PCI DSS",
         "SOC 2 Type II",
-        "SOC 3",
-        "PCI DSS"
+        "SOC 3"
       ],
       "attestations": [
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
         {
           "id": "soc-2-type-ii",
           "name": "SOC 2 Type II",
@@ -14456,11 +14461,6 @@
           "id": "soc-3",
           "name": "SOC 3",
           "weight": 4
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, PCI DSS.",
@@ -14629,19 +14629,19 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "GDPR",
-        "FedRAMP LI-SaaS"
+        "FedRAMP LI-SaaS",
+        "GDPR"
       ],
       "attestations": [
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
         {
           "id": "fedramp-li-saas",
           "name": "FedRAMP LI-SaaS",
           "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         }
       ],
       "summary": "Public trust center. On file: GDPR.",
@@ -14737,21 +14737,31 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "CCPA",
+        "EU-US DPF",
+        "GDPR",
         "ISO 27001",
         "ISO 27017",
         "ISO 27018",
-        "GDPR",
-        "EU-US DPF",
-        "CCPA",
         "ISO 9001",
-        "NIS2"
+        "NIS2",
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": null,
+          "name": "EU-US DPF",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "iso-27001",
@@ -14769,21 +14779,6 @@
           "weight": 4
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": null,
-          "name": "EU-US DPF",
-          "weight": 4
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
           "id": "iso-9001",
           "name": "ISO 9001",
           "weight": 4
@@ -14792,6 +14787,11 @@
           "id": null,
           "name": "NIS2",
           "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27018, GDPR, EU-US DPF +3.",
@@ -14854,19 +14854,19 @@
       "probed": 2,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "GDPR",
-        "FedRAMP High"
+        "FedRAMP High",
+        "GDPR"
       ],
       "attestations": [
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
           "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         }
       ],
       "summary": "Public trust center. On file: GDPR.",
@@ -15237,18 +15237,18 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "ISO 27001"
+        "ISO 27001",
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
+          "id": "iso-27001",
+          "name": "ISO 27001",
           "weight": 10
         },
         {
-          "id": "iso-27001",
-          "name": "ISO 27001",
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
           "weight": 10
         }
       ],
@@ -15316,13 +15316,23 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
+        "CCPA",
+        "HIPAA",
         "SOC 2 Type I",
         "SOC 2 Type II",
-        "HIPAA",
-        "TX-RAMP",
-        "CCPA"
+        "TX-RAMP"
       ],
       "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
         {
           "id": "soc-2-type-i",
           "name": "SOC 2 Type I",
@@ -15334,19 +15344,9 @@
           "weight": 10
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
           "id": "tx-ramp",
           "name": "TX-RAMP",
           "weight": 4
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type I, SOC 2 Type II, HIPAA, TX-RAMP, CCPA.",
@@ -15413,12 +15413,17 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
+        "GDPR",
         "ISO 27001",
         "ISO 27017",
-        "ISO 27018",
-        "GDPR"
+        "ISO 27018"
       ],
       "attestations": [
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
         {
           "id": "iso-27001",
           "name": "ISO 27001",
@@ -15433,11 +15438,6 @@
           "id": "iso-27018",
           "name": "ISO 27018",
           "weight": 4
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
         }
       ],
       "summary": "Public trust center. On file: ISO 27001, ISO 27017, ISO 27018, GDPR.",
@@ -15504,19 +15504,19 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "GDPR",
-        "FedRAMP High"
+        "FedRAMP High",
+        "GDPR"
       ],
       "attestations": [
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
           "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         }
       ],
       "summary": "Public trust center. On file: GDPR.",
@@ -15724,22 +15724,12 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "HIPAA",
-        "GDPR",
         "CCPA",
-        "FedRAMP Moderate"
+        "FedRAMP Moderate",
+        "GDPR",
+        "HIPAA"
       ],
       "attestations": [
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
         {
           "id": "ccpa-cpra",
           "name": "CCPA",
@@ -15749,6 +15739,16 @@
           "id": "fedramp",
           "name": "FedRAMP Moderate",
           "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         }
       ],
       "summary": "Public trust center. On file: HIPAA, GDPR, CCPA.",
@@ -15838,15 +15838,15 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2",
+        "GDPR",
         "HIPAA",
-        "GDPR"
+        "SOC 2"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2",
-          "weight": 4
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "hipaa",
@@ -15854,9 +15854,9 @@
           "weight": 6
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2, HIPAA, GDPR.",
@@ -16068,15 +16068,15 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2",
+        "HIPAA",
         "SOC 1",
-        "HIPAA"
+        "SOC 2"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2",
-          "weight": 4
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "soc-1-type-ii",
@@ -16084,9 +16084,9 @@
           "weight": 4
         },
         {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2, SOC 1, HIPAA.",
@@ -16261,15 +16261,15 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "CCPA",
         "HIPAA",
-        "CCPA"
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
           "id": "hipaa",
@@ -16277,9 +16277,9 @@
           "weight": 6
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, HIPAA, CCPA.",
@@ -16639,25 +16639,25 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2",
-        "ISO 27001",
+        "C5",
+        "CSA STAR",
         "FedRAMP Moderate",
         "HIPAA",
-        "CSA STAR",
         "IRAP",
-        "TX-RAMP",
-        "C5"
+        "ISO 27001",
+        "SOC 2",
+        "TX-RAMP"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2",
+          "id": "c5",
+          "name": "C5",
           "weight": 4
         },
         {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "fedramp",
@@ -16670,23 +16670,23 @@
           "weight": 6
         },
         {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
-          "weight": 4
-        },
-        {
           "id": "irap",
           "name": "IRAP",
           "weight": 4
         },
         {
-          "id": "tx-ramp",
-          "name": "TX-RAMP",
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
           "weight": 4
         },
         {
-          "id": "c5",
-          "name": "C5",
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
           "weight": 4
         }
       ],
@@ -16765,30 +16765,30 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 3",
+        "CCPA",
         "FedRAMP Moderate",
+        "GDPR",
         "HIPAA",
         "HITRUST",
-        "GDPR",
-        "CCPA",
+        "SOC 2 Type II",
+        "SOC 3",
         "TX-RAMP"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
           "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "hipaa",
@@ -16801,14 +16801,14 @@
           "weight": 8
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
         },
         {
           "id": "tx-ramp",
@@ -16891,21 +16891,16 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2",
-        "ISO 27001",
+        "CCPA",
         "GDPR",
-        "CCPA"
+        "ISO 27001",
+        "SOC 2"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2",
-          "weight": 4
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
           "id": "gdpr",
@@ -16913,9 +16908,14 @@
           "weight": 3
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2, ISO 27001, GDPR, CCPA.",
@@ -17086,41 +17086,16 @@
       "probed": 2,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 3",
-        "FedRAMP Moderate",
-        "HIPAA",
-        "GDPR",
         "CCPA",
         "CSA STAR",
+        "FedRAMP Moderate",
+        "GDPR",
+        "HIPAA",
+        "SOC 2 Type II",
+        "SOC 3",
         "TX-RAMP"
       ],
       "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
-        },
-        {
-          "id": "fedramp",
-          "name": "FedRAMP Moderate",
-          "weight": 12
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
         {
           "id": "ccpa-cpra",
           "name": "CCPA",
@@ -17129,6 +17104,31 @@
         {
           "id": "csa-star-l1",
           "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
           "weight": 4
         },
         {
@@ -17193,25 +17193,20 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "ISO 27001",
-        "FedRAMP Moderate",
-        "HIPAA",
-        "PCI DSS",
-        "GDPR",
         "CCPA",
+        "FedRAMP Moderate",
+        "GDPR",
+        "HIPAA",
+        "ISO 27001",
+        "PCI DSS",
+        "SOC 2 Type II",
         "TX-RAMP"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
           "id": "fedramp",
@@ -17219,9 +17214,19 @@
           "weight": 12
         },
         {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
           "id": "hipaa",
           "name": "HIPAA",
           "weight": 6
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
         },
         {
           "id": "pci-dss",
@@ -17229,14 +17234,9 @@
           "weight": 8
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
           "id": "tx-ramp",
@@ -17592,19 +17592,19 @@
       "probed": 14,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "NIST 800-53",
-        "FedRAMP High"
+        "FedRAMP High",
+        "NIST 800-53"
       ],
       "attestations": [
-        {
-          "id": "nist-800-53",
-          "name": "NIST 800-53",
-          "weight": 4
-        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
           "weight": 12
+        },
+        {
+          "id": "nist-800-53",
+          "name": "NIST 800-53",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: NIST 800-53.",
@@ -17862,16 +17862,11 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
         "ISO 27001",
-        "ISO 27701"
+        "ISO 27701",
+        "SOC 2 Type II"
       ],
       "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
         {
           "id": "iso-27001",
           "name": "ISO 27001",
@@ -17881,6 +17876,11 @@
           "id": "iso-27701",
           "name": "ISO 27701",
           "weight": 6
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27701.",
@@ -18039,19 +18039,19 @@
       "probed": 18,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "GDPR"
+        "GDPR",
+        "SOC 2 Type II"
       ],
       "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
         {
           "id": "gdpr",
           "name": "GDPR",
           "weight": 3
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, GDPR.",
@@ -18122,21 +18122,16 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 1 Type II",
-        "GDPR",
+        "C5",
         "CCPA",
-        "C5"
+        "GDPR",
+        "SOC 1 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1 Type II",
+          "id": "c5",
+          "name": "C5",
           "weight": 4
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
         },
         {
           "id": "ccpa-cpra",
@@ -18144,8 +18139,13 @@
           "weight": 3
         },
         {
-          "id": "c5",
-          "name": "C5",
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
           "weight": 4
         }
       ],
@@ -18854,15 +18854,15 @@
       "probed": 9,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2",
+        "GDPR",
         "ISO 27001",
-        "GDPR"
+        "SOC 2"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2",
-          "weight": 4
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "iso-27001",
@@ -18870,9 +18870,9 @@
           "weight": 10
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2, ISO 27001, GDPR.",
@@ -18943,18 +18943,18 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "FedRAMP Moderate",
-        "HITRUST",
-        "GDPR",
         "CCPA",
+        "FedRAMP Moderate",
+        "GDPR",
+        "HITRUST",
+        "SOC 2 Type II",
         "TX-RAMP"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
           "id": "fedramp",
@@ -18962,19 +18962,19 @@
           "weight": 12
         },
         {
-          "id": "hitrust-csf",
-          "name": "HITRUST",
-          "weight": 8
-        },
-        {
           "id": "gdpr",
           "name": "GDPR",
           "weight": 3
         },
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
+          "id": "hitrust-csf",
+          "name": "HITRUST",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
           "id": "tx-ramp",
@@ -19476,16 +19476,16 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
+        "GDPR",
         "ISO 27001",
         "ISO 42001",
-        "GDPR"
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
         },
         {
           "id": "iso-27001",
@@ -19498,9 +19498,9 @@
           "weight": 6
         },
         {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 42001, GDPR.",
@@ -20063,19 +20063,19 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2",
-        "GDPR"
+        "GDPR",
+        "SOC 2"
       ],
       "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2",
-          "weight": 4
-        },
         {
           "id": "gdpr",
           "name": "GDPR",
           "weight": 3
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2, GDPR.",
@@ -21012,19 +21012,19 @@
       "probed": 13,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "TX-RAMP",
-        "PCI DSS"
+        "PCI DSS",
+        "TX-RAMP"
       ],
       "attestations": [
-        {
-          "id": "tx-ramp",
-          "name": "TX-RAMP",
-          "weight": 4
-        },
         {
           "id": "pci-dss",
           "name": "PCI DSS",
           "weight": 8
+        },
+        {
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: TX-RAMP, PCI DSS.",
@@ -21445,13 +21445,28 @@
       "probed": 5,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "SOC 3",
         "FedRAMP Moderate",
+        "GDPR",
         "HIPAA",
-        "GDPR"
+        "SOC 2 Type II",
+        "SOC 3"
       ],
       "attestations": [
+        {
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
         {
           "id": "soc-2-type-ii",
           "name": "SOC 2 Type II",
@@ -21461,21 +21476,6 @@
           "id": "soc-3",
           "name": "SOC 3",
           "weight": 4
-        },
-        {
-          "id": "fedramp",
-          "name": "FedRAMP Moderate",
-          "weight": 12
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, FedRAMP Moderate, HIPAA, GDPR.",
@@ -22114,18 +22114,18 @@
       "probed": 1,
       "probed_at": "2026-08-19T11:14:23Z",
       "certs": [
-        "SOC 2 Type II",
-        "ISO 27001"
+        "ISO 27001",
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
+          "id": "iso-27001",
+          "name": "ISO 27001",
           "weight": 10
         },
         {
-          "id": "iso-27001",
-          "name": "ISO 27001",
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
           "weight": 10
         }
       ],

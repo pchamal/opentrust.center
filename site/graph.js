@@ -26,6 +26,31 @@ function registerSlug(node, companies) {
   return null;
 }
 
+function titleCaseSlug(to) {
+  return String(to || "")
+    .split(/[-_]+/)
+    .filter(Boolean)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}
+
+function looksLikeProcessorName(s) {
+  const t = String(s || "").trim();
+  if (!t) return false;
+  if (/^listed on public/i.test(t)) return false;
+  if (/listed on/i.test(t) || /\bpage\b/i.test(t)) return false;
+  return true;
+}
+
+function processorDisplayName(e, node, to) {
+  const nodeName = node && node.name ? String(node.name).trim() : "";
+  if (looksLikeProcessorName(nodeName)) return nodeName;
+  if (to) return titleCaseSlug(to);
+  const evidence = e && e.evidence ? String(e.evidence).trim() : "";
+  if (looksLikeProcessorName(evidence)) return evidence;
+  return (e && e.processor) || to;
+}
+
 function normalizeEdges(wires, companies) {
   const nodes = new Map((wires.nodes || []).map((n) => [n.id, n]));
   return (wires.edges || [])
@@ -37,7 +62,7 @@ function normalizeEdges(wires, companies) {
       const slug = registerSlug(node, companies) || (companies.has(to) ? to : e.processor_slug || null);
       return {
         company: from,
-        processor: e.evidence || e.processor || node.name || to,
+        processor: processorDisplayName(e, node, to),
         processor_slug: slug,
         processor_id: to,
         source_url: e.source_url,
