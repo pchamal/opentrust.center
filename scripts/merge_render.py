@@ -277,7 +277,12 @@ def normalize_row(raw: dict) -> dict | None:
             links.setdefault("dpa", u)
         elif "sub-processor" in lu or "subprocessor" in lu:
             links.setdefault("subprocessors", u)
-    procs = raw.get("subprocessors") or raw.get("named_subprocessors") or []
+    procs = raw.get("subprocessors") or raw.get("named_subprocessors") or raw.get("subprocessors_named") or []
+    # Visible report titles count as marks (not invented).
+    extra = []
+    for blob in (raw.get("certificate_artifacts_gated") or []) + (raw.get("public_resources_listed") or []):
+        extra.append(blob)
+    certs = list(certs) + extra
     names = []
     for p in procs:
         if isinstance(p, dict):

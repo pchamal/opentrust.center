@@ -1,0 +1,284 @@
+{
+  "batch": "batch-f",
+  "captured_at_utc": "2026-08-19T06:00:00Z",
+  "method": "Chrome page render, ~9-12s JS wait, visible text + first-party anchors only. No forms submitted.",
+  "vendors": [
+    {
+      "slug": "groq",
+      "url": "https://trust.groq.com",
+      "platform": "Vanta Trust Center",
+      "accessible": true,
+      "certifications_visible": ["SOC 2 Type II", "GDPR", "HIPAA"],
+      "certificate_artifacts_gated": ["SOC 2 Type II - 2025", "SOC 2 Type II - 2024"],
+      "links": {
+        "privacy_policy": "https://groq.com/privacy-policy/",
+        "subprocessors": "https://trust.groq.com/subprocessors",
+        "resources": "https://trust.groq.com/resources",
+        "controls": "https://trust.groq.com/controls",
+        "faq": "https://trust.groq.com/faq",
+        "updates": "https://trust.groq.com/updates",
+        "security_contact": "security@groq.com",
+        "dpa": null,
+        "status": null,
+        "bug_bounty": null
+      },
+      "subprocessors_named": [
+        {"name": "Stytch", "purpose": "Identity intermediary", "location": "San Francisco, CA"},
+        {"name": "Google Cloud Platform", "purpose": "Cloud provider", "location": "Mountain View, CA"},
+        {"name": "Stripe", "purpose": "Payment processing", "location": "California, Oregon"},
+        {"name": "CloudFlare", "purpose": "Cloud connectivity (WAF/CDN)", "location": null}
+      ],
+      "notes": "Overview lists 4 subprocessors; full list behind /subprocessors page. Updates note subprocessor list updated Nov 26, 2025."
+    },
+    {
+      "slug": "intuit",
+      "url": "https://security.intuit.com",
+      "platform": "First-party security center",
+      "accessible": true,
+      "certifications_visible": [],
+      "links": {
+        "privacy_policy": "https://www.intuit.com/privacy/statement",
+        "security_practices": "https://security.intuit.com/security-practices",
+        "responsible_disclosure": "https://security.intuit.com/responsible-disclosure",
+        "contact": "https://security.intuit.com/contact-us",
+        "dpa": null,
+        "subprocessors": null,
+        "status": null
+      },
+      "subprocessors_named": [],
+      "notes": "Bug bounty referenced in text via Responsible Disclosure page ('may qualify for our Bug Bounty program'); no separate bounty URL exposed. No certs listed on page."
+    },
+    {
+      "slug": "meta",
+      "url": "https://transparency.meta.com/policies/",
+      "platform": "Transparency Center (policies index)",
+      "accessible": true,
+      "certifications_visible": [],
+      "links": {
+        "privacy_policy": "https://www.facebook.com/privacy/policy/",
+        "cookies_policy": "https://www.facebook.com/privacy/policies/cookies/",
+        "cybersecurity_policy": "https://transparency.meta.com/policies/community-standards/cybersecurity/",
+        "threat_reporting": "https://transparency.meta.com/metasecurity/threat-reporting/",
+        "government_data_requests": "https://transparency.meta.com/reports/government-data-requests/",
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bug_bounty": null
+      },
+      "subprocessors_named": [],
+      "notes": "Content-policy hub, not a security/compliance trust center. No certifications, DPA, subprocessor list, status page, or bounty link visible on this page."
+    },
+    {
+      "slug": "mistral-ai",
+      "url": "https://trust.mistral.ai",
+      "platform": "Vanta Trust Center",
+      "accessible": true,
+      "certifications_visible": ["ISO 27001", "ISO 27701", "SOC 2 Type II", "GDPR"],
+      "certificate_artifacts_gated": [
+        "ISO/IEC 27001:2022 Official Certificate",
+        "ISO/IEC 27701:2019 Official Certificate",
+        "Letter of Attestation SOC 2 Type I",
+        "Letter of Attestation SOC 2 Type II"
+      ],
+      "links": {
+        "privacy_policy": "https://mistral.ai/terms/#privacy-policy",
+        "subprocessors": "https://trust.mistral.ai/subprocessors",
+        "resources": "https://trust.mistral.ai/resources",
+        "controls": "https://trust.mistral.ai/controls",
+        "updates": "https://trust.mistral.ai/updates",
+        "security_advisories": "https://docs.mistral.ai/resources/security-advisories",
+        "security_contact": "trust@mistral.ai",
+        "dpa": null,
+        "status": null,
+        "bug_bounty": null
+      },
+      "subprocessors_named": [
+        {"name": "Microsoft Inc.", "purpose": "Cloud infrastructure", "location": "Sweden, Norway"},
+        {"name": "Google LLC", "purpose": "Cloud infrastructure", "location": "Netherlands, Belgium, United States"},
+        {"name": "Mistral Compute", "purpose": "Cloud infrastructure", "location": "France"},
+        {"name": "Ory Corp.", "purpose": "User authentication", "location": "Belgium, Germany"}
+      ],
+      "notes": "Public docs visible: Code of Conduct (Suppliers), HIPAA Compliance doc, incident report MAI-2026-002."
+    },
+    {
+      "slug": "mixpanel",
+      "url": "https://trust.mixpanel.com",
+      "platform": "Vanta Trust Center (fully gated)",
+      "accessible": false,
+      "certifications_visible": [],
+      "links": {
+        "privacy_policy": "https://mixpanel.com/legal/privacy-policy/",
+        "contact": "grc@mixpanel.com",
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bug_bounty": null
+      },
+      "subprocessors_named": [],
+      "notes": "Entire trust center behind a request-access form; nothing public rendered. No form submitted."
+    },
+    {
+      "slug": "nvidia",
+      "url": "https://www.nvidia.com/en-us/security/",
+      "platform": "First-party PSIRT / product security",
+      "accessible": true,
+      "certifications_visible": [],
+      "links": {
+        "security_bulletins": "https://www.nvidia.com/en-us/security/",
+        "bulletin_archive": "https://www.nvidia.com/en-us/security/archive/",
+        "report_vulnerability": "https://www.nvidia.com/en-us/security/report-vulnerability/",
+        "psirt_policies": "https://www.nvidia.com/en-us/security/psirt-policies/",
+        "acknowledgements": "https://www.nvidia.com/en-us/security/acknowledgements/",
+        "pgp_key": "https://www.nvidia.com/en-us/security/pgp-key/",
+        "bulletins_github": "https://github.com/nvidia/product-security",
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bug_bounty": null
+      },
+      "subprocessors_named": [],
+      "notes": "PSIRT bulletin index (latest visible bulletin 18 Aug 2026). No certifications, DPA, subprocessors, or status page here."
+    },
+    {
+      "slug": "paypal",
+      "url": "https://paypal.com/security",
+      "platform": "Consumer security center",
+      "accessible": true,
+      "certifications_visible": [],
+      "links": {
+        "security_center": "https://www.paypal.com/us/security",
+        "protection_tips": "https://www.paypal.com/us/security/protect-personal-info",
+        "learn": "https://www.paypal.com/us/security/learn",
+        "report_fraud": "https://www.paypal.com/us/security/report-fraud",
+        "report_suspicious_messages": "https://www.paypal.com/us/security/report-suspicious-messages",
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bug_bounty": null
+      },
+      "subprocessors_named": [],
+      "notes": "Consumer fraud-help page only; no compliance certs, DPA, subprocessor list, status, or bounty links visible."
+    },
+    {
+      "slug": "samsara",
+      "url": "https://security.samsara.com",
+      "platform": "Vanta Trust Center",
+      "accessible": true,
+      "certifications_visible": ["ISO 27001:2022", "ISO 27017", "ISO 27018", "ISO 27701", "ISO/IEC 42001:2023"],
+      "certificate_artifacts_gated": [
+        "SOC 2 Type 2 Report", "Samsara 2026 Pen Test",
+        "ISO 27001/27017/27018/27701 Statement of Applicability", "Samsara CAIQ"
+      ],
+      "public_resources_listed": ["ISO 27017", "ISO 27018", "ISO 27701", "ISO 27001", "Customer Responsibility Matrix [CRM]", "Samsara ISO 42001:2023"],
+      "links": {
+        "resources": "https://security.samsara.com/resources",
+        "controls": "https://security.samsara.com/controls",
+        "faq": "https://security.samsara.com/faq",
+        "updates": "https://security.samsara.com/updates",
+        "legal_controls_incl_dpa_and_subprocessors": "https://security.samsara.com/controls#legal",
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bug_bounty": null
+      },
+      "subprocessors_named": [],
+      "notes": "Legal control group lists 'Subprocessors' and 'Data Processing Agreement' items but no named processors or direct URLs on overview. Responsible Disclosure listed as an App Security control. Latest update: new SOC 2 Type II report Feb 12, 2026."
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://trust.stability.ai",
+      "platform": "Vanta Trust Center",
+      "accessible": true,
+      "certifications_visible": ["SOC 2 Type 2"],
+      "certificate_artifacts_gated": ["SOC 2 Type 2 Report", "SOC 3 Report", "2025 Penetration Test Executive Report"],
+      "links": {
+        "privacy_policy": "https://stability.ai/privacy-policy",
+        "privacy_center": "https://stability.ai/privacy-center",
+        "subprocessors": "https://trust.stability.ai/subprocessors",
+        "resources": "https://trust.stability.ai/resources",
+        "controls": "https://trust.stability.ai/controls",
+        "faq": "https://trust.stability.ai/faq",
+        "bug_bounty": "https://bugcrowd.com/engagements/stability-ai-vdp-pro",
+        "security_contact": "security@stability.ai",
+        "dpa": null,
+        "status": null
+      },
+      "subprocessors_named": [
+        {"name": "Thorn", "purpose": "CSAM dataset filtering tooling", "location": null},
+        {"name": "Cinder", "purpose": "Cloud monitoring / policy violation review", "location": null},
+        {"name": "Amazon Web Services", "purpose": "Cloud provider (production + HPC)", "location": null},
+        {"name": "OpenRouter", "purpose": "Listed subprocessor (link on overview)", "location": null},
+        {"name": "Mistral AI", "purpose": "Listed subprocessor (link on overview)", "location": null},
+        {"name": "DeepInfra", "purpose": "Listed subprocessor (link on overview)", "location": null}
+      ],
+      "notes": "Public resources include Vulnerability Disclosure Policy and Model Cards. Bounty hosted on Bugcrowd (VDP)."
+    },
+    {
+      "slug": "twilio",
+      "url": "https://security.twilio.com",
+      "platform": "SafeBase Trust Center",
+      "accessible": true,
+      "certifications_visible": ["CCPA", "CPRA", "GDPR", "HIPAA", "ISO/IEC 27001", "ISO/IEC 27017:2015", "ISO/IEC 27018:2019", "PCI DSS", "PCI DSS v4.0.0", "SOC 2"],
+      "links": {
+        "subprocessors": "https://security.twilio.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57&source=click",
+        "data_protection_agreement": "https://security.twilio.com/?itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e&source=click",
+        "legal_section": "https://security.twilio.com/?itemName=legal&source=click",
+        "data_privacy_section": "https://security.twilio.com/?itemName=data_privacy&source=click",
+        "reports": "https://security.twilio.com/?itemName=reports&source=click",
+        "self_assessments_caiq_siglite": "https://security.twilio.com/?itemName=questionnaires&source=click",
+        "dpa": "https://security.twilio.com/?itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e&source=click",
+        "status": null,
+        "bug_bounty": null
+      },
+      "subprocessors_named": [],
+      "notes": "Named infrastructure item: Amazon Web Services. Policies list includes Data Protection Addendum, Acceptable Use Policy, Incident Response, 'Report Security Threats'. Documents (SOC 2, pen tests) require access request. Subprocessor page itself is a gated/linked item; no names rendered publicly."
+    },
+    {
+      "slug": "writer",
+      "url": "https://trustcenter.writer.com",
+      "platform": "Vanta Trust Center",
+      "accessible": true,
+      "certifications_visible": ["ISO 27001", "ISO 27701", "ISO 42001", "SOC 2 Type II", "HIPAA Type II", "PCI DSS - SAQ A"],
+      "certificate_artifacts_gated": [
+        "2026 WRITER SOC 2 Type II + HIPAA Report",
+        "ISO/IEC 27001:2022 Certificate - 2026",
+        "ISO/IEC 27701:2019 Certificate - 2026",
+        "ISO/IEC 42001:2023 Certificate - 2026",
+        "Attestation of Penetration Testing"
+      ],
+      "links": {
+        "privacy_policy": "https://writer.com/legal/privacy/",
+        "legal_hub": "https://writer.com/legal/",
+        "subprocessors": "http://writer.com/legal/subprocessors/",
+        "trust_center_subprocessors": "https://trustcenter.writer.com/subprocessors",
+        "resources": "https://trustcenter.writer.com/resources",
+        "controls": "https://trustcenter.writer.com/controls",
+        "developer_portal": "https://dev.writer.com/",
+        "help_center": "https://support.writer.com/",
+        "security_contact": "infosec@writer.com",
+        "dpa": null,
+        "status": null,
+        "bug_bounty": null
+      },
+      "subprocessors_named": [],
+      "notes": "Trust center points to first-party subprocessor list at writer.com/legal/subprocessors/ (not opened); no names rendered on trust center."
+    },
+    {
+      "slug": "xai",
+      "url": "https://trust.x.ai",
+      "platform": "Vanta Trust Center (fully gated)",
+      "accessible": false,
+      "certifications_visible": [],
+      "links": {
+        "privacy_policy": "https://x.ai/legal/privacy-policy",
+        "security_contact": "security@x.ai",
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bug_bounty": null
+      },
+      "subprocessors_named": [],
+      "notes": "Request-access form gate only; no public content. No form submitted."
+    }
+  ]
+}

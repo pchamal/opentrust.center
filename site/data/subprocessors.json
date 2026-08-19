@@ -1632,6 +1632,48 @@
       "name": "braintrust",
       "kind": "subprocessor",
       "in_register": false
+    },
+    {
+      "id": "stytch",
+      "name": "stytch",
+      "kind": "subprocessor",
+      "in_register": false
+    },
+    {
+      "id": "mistral-compute",
+      "name": "mistral-compute",
+      "kind": "subprocessor",
+      "in_register": false
+    },
+    {
+      "id": "ory-corp",
+      "name": "ory-corp",
+      "kind": "subprocessor",
+      "in_register": false
+    },
+    {
+      "id": "thorn",
+      "name": "thorn",
+      "kind": "subprocessor",
+      "in_register": false
+    },
+    {
+      "id": "cinder",
+      "name": "cinder",
+      "kind": "subprocessor",
+      "in_register": false
+    },
+    {
+      "id": "openrouter",
+      "name": "openrouter",
+      "kind": "subprocessor",
+      "in_register": false
+    },
+    {
+      "id": "deepinfra",
+      "name": "deepinfra",
+      "kind": "subprocessor",
+      "in_register": false
     }
   ],
   "edges": [
@@ -2797,6 +2839,90 @@
       "from": "clay",
       "to": "braintrust",
       "source_url": "https://trust.clay.com/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "groq",
+      "to": "stytch",
+      "source_url": "https://trust.groq.com/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "groq",
+      "to": "gcp",
+      "source_url": "https://trust.groq.com/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "groq",
+      "to": "stripe",
+      "source_url": "https://trust.groq.com/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "groq",
+      "to": "cloudflare",
+      "source_url": "https://trust.groq.com/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "mistral-ai",
+      "to": "microsoft",
+      "source_url": "https://trust.mistral.ai/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "mistral-ai",
+      "to": "google",
+      "source_url": "https://trust.mistral.ai/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "mistral-ai",
+      "to": "mistral-compute",
+      "source_url": "https://trust.mistral.ai/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "mistral-ai",
+      "to": "ory-corp",
+      "source_url": "https://trust.mistral.ai/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "stability-ai",
+      "to": "thorn",
+      "source_url": "https://trust.stability.ai/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "stability-ai",
+      "to": "cinder",
+      "source_url": "https://trust.stability.ai/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "stability-ai",
+      "to": "aws",
+      "source_url": "https://trust.stability.ai/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "stability-ai",
+      "to": "openrouter",
+      "source_url": "https://trust.stability.ai/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "stability-ai",
+      "to": "mistral-ai",
+      "source_url": "https://trust.stability.ai/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "stability-ai",
+      "to": "deepinfra",
+      "source_url": "https://trust.stability.ai/subprocessors",
       "evidence": "listed on public trust or subprocessors page"
     }
   ],
