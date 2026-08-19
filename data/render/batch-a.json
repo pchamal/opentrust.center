@@ -1,0 +1,123 @@
+{
+  "rows": [
+    {
+      "slug": "anthropic",
+      "certs": ["SOC 2 Type II", "SOC 3", "ISO 27001:2022", "ISO 42001:2023", "CSA STAR", "HIPAA", "FedRAMP High", "NIST 800-171", "UK Cyber Essentials", "DoD IL4", "DoD IL5"],
+      "links": {
+        "dpa": "https://www.anthropic.com/legal/data-processing-addendum",
+        "subprocessors": "https://trust.anthropic.com/subprocessors",
+        "resources": "https://trust.anthropic.com/resources",
+        "updates": "https://trust.anthropic.com/updates",
+        "privacy": "https://console.anthropic.com/legal/privacy",
+        "fedramp_marketplace": "https://marketplace.fedramp.gov/products/FR2315464863"
+      },
+      "subprocessors": ["Google Cloud Platform", "Amazon Web Services", "Microsoft Azure", "Cloudflare", "Stripe", "WorkOS", "Intercom", "Nutun", "Boldr", "Twilio", "Iterable", "Functional Software (Sentry)", "Sift", "Arkose Labs", "Brave Search", "ElevenLabs", "Palantir Federal Cloud Service (PFCS)", "TurboPuffer"],
+      "notes": "Vanta trust center, public. Cert scope matrix per product; DoD IL4/IL5 and FedRAMP High only for gov/partner-hosted offerings. Subprocessor page lists 20 entries; 18 captured visibly."
+    },
+    {
+      "slug": "stripe",
+      "certs": ["SOC 1 Type II", "SOC 2 Type II", "SOC 3", "PCI DSS (Service Provider Level 1)", "PA-DSS (Terminal)", "EMVCo L1/L2", "NIST CSF (aligned)", "APEC CBPR/PRP", "EU-US/UK/Swiss Data Privacy Framework"],
+      "links": {
+        "dpa": "https://stripe.com/legal/dpa",
+        "subprocessors": "https://stripe.com/legal/service-providers",
+        "security": "https://docs.stripe.com/security",
+        "privacy_center": "https://stripe.com/privacy-center/legal"
+      },
+      "subprocessors": ["Amazon Web Services", "Amazon Internet Services Private Limited", "Sprinklr", "Salesforce", "Twilio", "Intuition Machines (hCaptcha)", "Verifi", "Jack Henry & Associates", "Mitek Systems", "TELUS International", "AML RightSource", "Teleperformance Colombia", "TDCX (MY)", "Cognizant Worldwide", "WNS Global Services", "Microsoft", "FrontApp", "Adish", "Trulioo", "London Stock Exchange Group", "InscribeAI", "Data Zoo", "Shufti Pro", "LexisNexis Risk Solutions", "Ekata", "Lob.com", "LegalInc.com", "FreedomPay", "PPRO Payment Services", "NETSTARS"],
+      "notes": "Public sub-processor list last updated Dec 20, 2025 (partial capture; list continues past payment-method providers). SOC 1/SOC 2 Type II available on request; SOC 3 public. No ISO/FedRAMP claimed on page."
+    },
+    {
+      "slug": "navan",
+      "certs": ["SOC 1 Type 2", "SOC 2 Type 2", "ISO/IEC 27001", "PCI DSS", "CSA STAR", "GDPR", "EU-US DPF"],
+      "links": {
+        "dpa": "https://trust.navan.com/?itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e",
+        "subprocessors": "https://trust.navan.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
+        "responsible_disclosure": "https://navan.com/security",
+        "security": "https://navan.com/security"
+      },
+      "subprocessors": ["Conferma Ltd.", "Veryfi, Inc.", "OpenAI, Inc.", "Amazon Web Services"],
+      "notes": "SafeBase/Drata gated portal; certs visible as badges. Named processors taken only from public Trust Center Updates posts and AWS infrastructure item; full subprocessor doc is behind Get Access."
+    },
+    {
+      "slug": "celonis",
+      "certs": ["SOC 1", "SOC 2", "ISO/IEC 27001", "ISO/IEC 27701", "ISO 9001:2015", "CSA STAR", "TISAX", "HIPAA", "GDPR", "Cyber Essentials", "Cyber Essentials Plus"],
+      "links": {
+        "dpa": "https://trust.celonis.com/?itemName=documents&itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e",
+        "subprocessors": "https://trust.celonis.com/?itemName=documents&itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
+        "status": "https://trust.celonis.com/?itemName=documents&itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407"
+      },
+      "subprocessors": [],
+      "notes": "SafeBase gated; certs visible as badges (also SOC 2 Type 2 per updates). Subprocessor list is a gated document; no public named processors on page."
+    },
+    {
+      "slug": "attentive",
+      "certs": ["SOC 2 Type 2", "GDPR", "CCPA"],
+      "links": {
+        "dpa": "https://security.attentive.com/?itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e",
+        "subprocessors": "https://security.attentive.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
+        "responsible_disclosure": "https://security.attentive.com/?itemUid=64c9680b-ef79-4c92-baa0-13b541954bef"
+      },
+      "subprocessors": [],
+      "notes": "SafeBase gated. Only CCPA/GDPR/SOC 2 badges visible; SOC 2 Type 2 report and subprocessor list require Get Access."
+    },
+    {
+      "slug": "checkr",
+      "certs": ["SOC 2 (Type 2)", "SOC 3", "ISO/IEC 27001", "ISO/IEC 42001:2023", "GDPR", "CCPA", "CPRA", "PIPEDA", "Privacy Shield"],
+      "links": {
+        "privacy_policy": "https://security.checkr.com/?itemUid=63f59def-eb18-4135-95a1-addeb7463801",
+        "responsible_disclosure": "https://security.checkr.com/?itemUid=64c9680b-ef79-4c92-baa0-13b541954bef",
+        "status": "https://security.checkr.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407"
+      },
+      "subprocessors": [],
+      "notes": "SafeBase gated (NDA required for some docs). No subprocessor or DPA item visible in Legal section; ISO 42001 achieved Oct 22, 2025 per public update."
+    },
+    {
+      "slug": "postman",
+      "certs": ["SOC 2", "SOC 2 Type 2", "SOC 3", "ISO/IEC 27001", "ISO/IEC 27001:2022", "ISO/IEC 27017:2015", "ISO/IEC 42001:2023", "CSA STAR", "PCI DSS", "HIPAA", "TX-RAMP", "GDPR", "CCPA"],
+      "links": {
+        "subprocessors": "https://security.postman.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
+        "privacy": "https://www.postman.com/trust/privacy/",
+        "security": "https://www.postman.com/security/",
+        "status": "https://security.postman.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407"
+      },
+      "subprocessors": [],
+      "notes": "SafeBase gated. Certs visible as badges. Public update notes June 2026 security incident via third-party vendor Klue (Salesforce/Gong integrations). Sub-processor list item gated."
+    },
+    {
+      "slug": "dialpad",
+      "certs": ["SOC 2", "ISO/IEC 27001:2022", "ISO/IEC 27017:2015", "ISO/IEC 27018:2019", "PCI DSS", "HIPAA", "NIST CSF", "CASA Tier 3", "CSA STAR", "TX-RAMP Level 2", "GDPR", "CCPA", "CPRA", "LGPD", "PIPEDA", "EU-US DPF", "EU AI Act"],
+      "links": {
+        "dpa": "https://trust.dialpad.com/?itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e",
+        "subprocessors": "https://trust.dialpad.com/?itemName=legal",
+        "responsible_disclosure": "https://trust.dialpad.com/?itemUid=64c9680b-ef79-4c92-baa0-13b541954bef",
+        "privacy": "https://www.dialpad.com/legal/#privacy",
+        "status": "https://trust.dialpad.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407"
+      },
+      "subprocessors": ["Amazon Web Services"],
+      "notes": "SafeBase gated; badges public. AWS named in Infrastructure section; full Subprocessors List item requires access."
+    },
+    {
+      "slug": "1password",
+      "certs": ["SOC 2 Type 2", "ISO/IEC 27001:2022", "ISO/IEC 27017:2015", "ISO/IEC 27018:2019", "ISO/IEC 27701", "CSA STAR Level 1", "TISAX", "TX-RAMP", "GDPR", "VPAT"],
+      "links": {
+        "dpa": "https://trust.1password.io/?itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e",
+        "subprocessors": "https://trust.1password.io/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
+        "privacy_faq": "https://trust.1password.io/?itemUid=26115955-6428-446a-b597-1079bfb40357&itemName=application_security"
+      },
+      "subprocessors": ["Amazon Web Services"],
+      "notes": "SafeBase gated. PCI DSS appears only as a gated report doc, not a compliance badge. AWS named under Infrastructure; subprocessor list gated."
+    },
+    {
+      "slug": "checkout",
+      "certs": ["SOC 1 Type II", "SOC 2 Type II", "PCI DSS 4.0", "PCI 3DS", "ISO 27001:2022", "GDPR", "CCPA", "UK Cyber Essentials Plus"],
+      "links": {
+        "subprocessors": "https://trust.checkout.com/subprocessors",
+        "resources": "https://trust.checkout.com/resources",
+        "controls": "https://trust.checkout.com/controls",
+        "privacy": "https://www.checkout.com/legal/privacy-policy"
+      },
+      "subprocessors": ["Amazon Web Services", "Snowflake Computing Inc.", "Checkout Technology Ltd."],
+      "notes": "Vanta trust center; subprocessor list public (3 entries). Document downloads require Request access. No explicit DPA link on page."
+    }
+  ]
+}

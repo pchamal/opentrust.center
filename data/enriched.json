@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T04:49:11Z",
+  "generated_at": "2026-08-19T05:59:35Z",
   "companies": [
     {
       "rank": 1,
@@ -104,11 +104,23 @@
       "title": "Anthropic Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Anthropic is an AI safety and research company with a mission of ensuring the world safely makes the transition through transformative AI. We believe deeply in transparency and the need for secure practices in this rapidly evolving industry",
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, ISO 27001, ISO 42001, CSA STAR, HIPAA +5.",
       "list": "cloud100",
       "founded_year": 2021,
       "founded_source": "https://en.wikipedia.org/wiki/Anthropic",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "ISO 27001",
+        "ISO 42001",
+        "CSA STAR",
+        "HIPAA",
+        "FedRAMP High",
+        "NIST 800-171",
+        "Cyber Essentials",
+        "DoD IL4",
+        "DoD IL5"
+      ],
       "links": {
         "trust": "https://trust.anthropic.com",
         "security_txt": "https://www.anthropic.com/.well-known/security.txt",
@@ -118,14 +130,34 @@
         "status": "https://status.claude.com/",
         "bug_bounty": "https://www.anthropic.com/responsible-disclosure-policy"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "gcp",
+        "aws",
+        "azure",
+        "cloudflare",
+        "stripe",
+        "workos",
+        "intercom",
+        "nutun",
+        "boldr",
+        "twilio",
+        "iterable",
+        "sentry",
+        "sift",
+        "arkose-labs",
+        "brave-search",
+        "elevenlabs",
+        "palantir-federal-cloud-service-pfcs",
+        "turbopuffer"
+      ],
       "disclosure": {
-        "score": 56,
-        "tier": "on-file",
+        "score": 96,
+        "tier": "complete",
         "factors": {
           "portal": 20,
+          "marks": 40,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
@@ -145,29 +177,67 @@
       "title": "Security at Stripe | Stripe Documentation",
       "probed": 14,
       "source": "forbes-cloud-100-2025",
-      "summary": "Our users trust Stripe with their sensitive data and rely on us to be good custodians of their customers' data as well. As a payments infrastructure company, our security posture continually evolves to meet the rigorous standards of the glo",
+      "summary": "Public trust center. On file: SOC 1 Type II, SOC 2 Type II, SOC 3, PCI DSS, NIST CSF, EU-US DPF.",
       "list": "cloud100",
       "founded_year": 2010,
       "founded_source": "https://en.wikipedia.org/wiki/Stripe,_Inc.",
-      "certs": [],
+      "certs": [
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "SOC 3",
+        "PCI DSS",
+        "NIST CSF",
+        "EU-US DPF"
+      ],
       "links": {
         "security": "https://docs.stripe.com/security",
         "trust": "https://docs.stripe.com/security",
         "security_txt": "https://stripe.com/.well-known/security.txt",
-        "privacy": "https://stripe.com/privacy",
+        "privacy": "https://stripe.com/privacy-center/legal",
         "subprocessors": "https://stripe.com/legal/service-providers",
         "dpa": "https://stripe.com/legal/dpa",
         "status": "https://status.stripe.com",
         "bug_bounty": "https://hackerone.com/stripe#overview"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "sprinklr",
+        "salesforce",
+        "twilio",
+        "intuition-machines-hcaptcha",
+        "verifi",
+        "jack-henry-associates",
+        "mitek-systems",
+        "telus-international",
+        "aml-rightsource",
+        "teleperformance-colombia",
+        "tdcx-my",
+        "cognizant-worldwide",
+        "wns-global-services",
+        "microsoft",
+        "frontapp",
+        "adish",
+        "trulioo",
+        "london-stock-exchange-group",
+        "inscribeai",
+        "data-zoo",
+        "shufti-pro",
+        "lexisnexis-risk-solutions",
+        "ekata",
+        "lob-com",
+        "legalinc-com",
+        "freedompay",
+        "ppro-payment-services",
+        "netstars"
+      ],
       "disclosure": {
-        "score": 62,
-        "tier": "on-file",
+        "score": 99,
+        "tier": "complete",
         "factors": {
           "portal": 20,
+          "marks": 37,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
@@ -369,26 +439,44 @@
       "title": "Navan Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: SOC 1 Type II, SOC 2 Type II, ISO 27001, PCI DSS, CSA STAR, GDPR +1.",
       "list": "cloud100",
       "founded_year": 2015,
       "founded_source": "https://en.wikipedia.org/wiki/Navan,_Inc.",
-      "certs": [],
+      "certs": [
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "ISO 27001",
+        "PCI DSS",
+        "CSA STAR",
+        "GDPR",
+        "EU-US DPF"
+      ],
       "links": {
         "trust": "https://trust.navan.com",
         "privacy": "https://navan.com/privacy",
-        "dpa": "https://navan.com/dpa",
+        "dpa": "https://trust.navan.com/?itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e",
         "status": "https://status.navan.com",
-        "security": "https://navan.com/security"
+        "security": "https://navan.com/security",
+        "subprocessors": "https://trust.navan.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
+        "bug_bounty": "https://navan.com/security"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "conferma-ltd",
+        "veryfi-inc",
+        "openai",
+        "aws"
+      ],
       "disclosure": {
-        "score": 45,
-        "tier": "on-file",
+        "score": 99,
+        "tier": "complete",
         "factors": {
           "portal": 20,
+          "marks": 40,
           "dpa": 8,
+          "processors": 8,
           "status": 6,
+          "disclosure": 6,
           "privacy": 6,
           "longevity": 5
         }
@@ -586,21 +674,38 @@
       "title": "Celonis Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: SOC 1 Type II, SOC 2 Type II, ISO 27001, ISO 27701, ISO 9001, CSA STAR +5.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27701",
+        "ISO 9001",
+        "CSA STAR",
+        "TISAX",
+        "HIPAA",
+        "GDPR",
+        "Cyber Essentials",
+        "Cyber Essentials Plus"
+      ],
       "links": {
         "trust": "https://trust.celonis.com",
         "privacy": "https://www.celonis.com/legal/privacy-notice",
-        "status": "https://status.celonis.com",
-        "security": "https://trust.celonis.com/?itemName=data_security&amp;source=click"
+        "status": "https://trust.celonis.com/?itemName=documents&itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
+        "security": "https://trust.celonis.com/?itemName=data_security&amp;source=click",
+        "dpa": "https://trust.celonis.com/?itemName=documents&itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e",
+        "subprocessors": "https://trust.celonis.com/?itemName=documents&itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 39,
-        "tier": "thin",
+        "score": 95,
+        "tier": "complete",
         "factors": {
           "portal": 20,
+          "marks": 40,
+          "dpa": 8,
+          "processors": 8,
           "status": 6,
           "privacy": 6,
           "longevity": 7
@@ -965,22 +1070,33 @@
       "title": "Attentive Security Status Page",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: SOC 2 Type II, GDPR, CCPA.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "GDPR",
+        "CCPA"
+      ],
       "links": {
         "status": "https://security.attentive.com",
         "trust": "https://security.attentive.com",
         "privacy": "https://www.attentive.com/legal/privacy",
-        "security": "https://www.attentive.com/legal/security"
+        "security": "https://www.attentive.com/legal/security",
+        "dpa": "https://security.attentive.com/?itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e",
+        "subprocessors": "https://security.attentive.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
+        "bug_bounty": "https://security.attentive.com/?itemUid=64c9680b-ef79-4c92-baa0-13b541954bef"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 37,
-        "tier": "thin",
+        "score": 75,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
+          "marks": 16,
+          "dpa": 8,
+          "processors": 8,
           "status": 6,
+          "disclosure": 6,
           "privacy": 6,
           "longevity": 5
         }
@@ -1297,22 +1413,35 @@
       "title": "Checkr Trust and Security Portal",
       "probed": 2,
       "source": "forbes-cloud-100-2025",
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, ISO 27001, ISO 42001, GDPR, CCPA +1.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "ISO 27001",
+        "ISO 42001",
+        "GDPR",
+        "CCPA",
+        "PIPEDA"
+      ],
       "links": {
         "security": "https://security.checkr.com",
         "trust": "https://security.checkr.com",
-        "privacy": "https://checkr.com/legal/privacy-policy",
-        "dpa": "https://checkr.com/legal/dpa"
+        "privacy": "https://security.checkr.com/?itemUid=63f59def-eb18-4135-95a1-addeb7463801",
+        "dpa": "https://checkr.com/legal/dpa",
+        "bug_bounty": "https://security.checkr.com/?itemUid=64c9680b-ef79-4c92-baa0-13b541954bef",
+        "status": "https://security.checkr.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 34,
-        "tier": "thin",
+        "score": 85,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
+          "marks": 39,
           "dpa": 8,
+          "status": 6,
+          "disclosure": 6,
           "privacy": 6
         }
       }
@@ -1517,19 +1646,31 @@
       "title": "Postman Customer Trust Portal",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "View Postman security policies, reports, and compliance documents. Start your security review and subscribe to Postman security and customer trust updates.",
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, ISO 27001, ISO 27017, ISO 42001, CSA STAR +5.",
       "list": "cloud100",
       "founded_year": 2013,
       "founded_source": "https://en.wikipedia.org/wiki/Postman,_Inc.",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 42001",
+        "CSA STAR",
+        "PCI DSS",
+        "HIPAA",
+        "TX-RAMP",
+        "GDPR",
+        "CCPA"
+      ],
       "links": {
-        "security": "https://security.postman.com",
+        "security": "https://www.postman.com/security/",
         "trust": "https://security.postman.com",
         "security_txt": "https://www.postman.com/.well-known/security.txt",
         "privacy": "https://www.postman.com/privacy-policy",
-        "subprocessors": "https://www.postman.com/subprocessors",
+        "subprocessors": "https://security.postman.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
         "dpa": "https://www.postman.com/dpa",
-        "status": "https://status.postman.com",
+        "status": "https://security.postman.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
         "bug_bounty": "https://www.postman.com/bug-bounty"
       },
       "subprocessors": [
@@ -1539,12 +1680,13 @@
         }
       ],
       "disclosure": {
-        "score": 60,
-        "tier": "on-file",
+        "score": 100,
+        "tier": "complete",
         "factors": {
           "portal": 20,
+          "marks": 40,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
@@ -1825,23 +1967,45 @@
       "title": "Dialpad Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27018, PCI DSS, HIPAA +10.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "PCI DSS",
+        "HIPAA",
+        "NIST CSF",
+        "CASA Tier 3",
+        "CSA STAR",
+        "TX-RAMP",
+        "GDPR",
+        "CCPA",
+        "LGPD",
+        "PIPEDA",
+        "EU-US DPF",
+        "EU AI Act"
+      ],
       "links": {
         "trust": "https://trust.dialpad.com",
         "security_txt": "https://www.dialpad.com/.well-known/security.txt",
-        "subprocessors": "https://www.dialpad.com/subprocessors/",
-        "status": "https://status.dialpad.com",
-        "bug_bounty": "https://www.dialpad.com/trust/vulnerability/"
+        "subprocessors": "https://trust.dialpad.com/?itemName=legal",
+        "status": "https://trust.dialpad.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
+        "bug_bounty": "https://trust.dialpad.com/?itemUid=64c9680b-ef79-4c92-baa0-13b541954bef",
+        "dpa": "https://trust.dialpad.com/?itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws"
+      ],
       "disclosure": {
-        "score": 40,
-        "tier": "on-file",
+        "score": 88,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 40,
+          "dpa": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6
         }
@@ -1859,24 +2023,42 @@
       "title": "1Password Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27018, ISO 27701, CSA STAR +4.",
       "list": "cloud100",
       "founded_year": 2006,
       "founded_source": "https://en.wikipedia.org/wiki/1Password",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27701",
+        "CSA STAR",
+        "TISAX",
+        "TX-RAMP",
+        "GDPR",
+        "VPAT"
+      ],
       "links": {
         "trust": "https://trust.1password.io",
         "security_txt": "https://1password.com/.well-known/security.txt",
         "security": "https://1password.com/security",
         "privacy": "https://1password.com/legal/privacy",
-        "status": "https://status.1password.com"
+        "status": "https://status.1password.com",
+        "dpa": "https://trust.1password.io/?itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e",
+        "subprocessors": "https://trust.1password.io/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws"
+      ],
       "disclosure": {
-        "score": 48,
-        "tier": "on-file",
+        "score": 100,
+        "tier": "complete",
         "factors": {
           "portal": 20,
+          "marks": 40,
+          "dpa": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
@@ -1896,21 +2078,35 @@
       "title": "Checkout.com Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Checkout.com is a global payments platform that includes a gateway, acquirer, and processor. Our platform supports 145 currencies, major local payment methods, and fraud prevention. We process billions of transactions annually. Visit suppo",
+      "summary": "Public trust center. On file: SOC 1 Type II, SOC 2 Type II, PCI DSS, PCI 3DS, ISO 27001, GDPR +2.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "PCI DSS",
+        "PCI 3DS",
+        "ISO 27001",
+        "GDPR",
+        "CCPA",
+        "Cyber Essentials"
+      ],
       "links": {
         "trust": "https://trust.checkout.com",
         "bug_bounty": "https://www.checkout.com/vulnerability-disclosure",
         "subprocessors": "https://trust.checkout.com/subprocessors"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "snowflake",
+        "checkout-technology-ltd"
+      ],
       "disclosure": {
-        "score": 42,
-        "tier": "on-file",
+        "score": 82,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 40,
+          "processors": 8,
           "disclosure": 6,
           "longevity": 8
         }
@@ -1977,22 +2173,36 @@
       "title": "Motive Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: SOC 1 Type II, SOC 2 Type II, ISO 27001, ISO 27701, PCI DSS, TX-RAMP +2.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27701",
+        "PCI DSS",
+        "TX-RAMP",
+        "CCPA",
+        "PIPEDA"
+      ],
       "links": {
         "trust": "https://trust.gomotive.com",
         "privacy": "https://gomotive.com/legal/privacy/",
         "status": "https://status.gomotive.com",
-        "security": "https://trust.gomotive.com/?amp%3BitemName=certifications&amp;amp%3BitemUid=c0090430-6199-41d1-8e27-7b1282517370&amp;amp%3Bsource=click&amp;itemName=application_security&amp;itemUid=4064ac33-7b48-407b-aed7-ce02971d1ec1&amp;source=click"
+        "security": "https://trust.gomotive.com/?amp%3BitemName=certifications&amp;amp%3BitemUid=c0090430-6199-41d1-8e27-7b1282517370&amp;amp%3Bsource=click&amp;itemName=application_security&amp;itemUid=4064ac33-7b48-407b-aed7-ce02971d1ec1&amp;source=click",
+        "subprocessors": "https://trust.gomotive.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
+        "bug_bounty": "https://trust.gomotive.com/?itemUid=957bbfcf-667c-486c-aa30-cde4d95bcb7d"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 38,
-        "tier": "thin",
+        "score": 92,
+        "tier": "complete",
         "factors": {
           "portal": 20,
+          "marks": 40,
+          "processors": 8,
           "status": 6,
+          "disclosure": 6,
           "privacy": 6,
           "longevity": 6
         }
@@ -2012,26 +2222,58 @@
       "title": "Vercel Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Vercel's security, privacy, and compliance information available to help customers build and deploy on the AI Cloud.",
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, PCI DSS, HIPAA, GDPR, CCPA +5.",
       "list": "cloud100",
       "founded_year": 2015,
       "founded_source": "https://en.wikipedia.org/wiki/Vercel",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "PCI DSS",
+        "HIPAA",
+        "GDPR",
+        "CCPA",
+        "EU-US DPF",
+        "PIPEDA",
+        "NIS2",
+        "DORA",
+        "TISAX"
+      ],
       "links": {
         "security": "https://security.vercel.com",
         "trust": "https://security.vercel.com",
         "security_txt": "https://vercel.com/.well-known/security.txt",
         "privacy": "https://vercel.com/legal/privacy-notice",
-        "dpa": "https://vercel.com/legal/dpa",
-        "bug_bounty": "https://vercel.com/security/responsible-disclosure"
+        "dpa": "https://security.vercel.com/?itemName=legal",
+        "bug_bounty": "https://vercel.com/security/responsible-disclosure",
+        "subprocessors": "https://security.vercel.com/subprocessors",
+        "status": "https://security.vercel.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "google",
+        "microsoft",
+        "datadog",
+        "honeycomb",
+        "redis",
+        "workos",
+        "algolia",
+        "knock-labs",
+        "salesforce",
+        "stripe",
+        "tinybird",
+        "tray-io",
+        "twilio"
+      ],
       "disclosure": {
-        "score": 45,
-        "tier": "on-file",
+        "score": 99,
+        "tier": "complete",
         "factors": {
           "portal": 20,
+          "marks": 40,
           "dpa": 8,
+          "processors": 8,
+          "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 5
@@ -2095,26 +2337,37 @@
       "title": "Airwallex Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: SOC 1 Type II, SOC 2 Type II, SOC 2 Type I, PCI DSS, PCI 3DS, GDPR +1.",
       "list": "cloud100",
       "founded_year": 2015,
       "founded_source": "https://en.wikipedia.org/wiki/Airwallex",
-      "certs": [],
+      "certs": [
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "SOC 2 Type I",
+        "PCI DSS",
+        "PCI 3DS",
+        "GDPR",
+        "DORA"
+      ],
       "links": {
         "security": "https://security.airwallex.com",
         "trust": "https://security.airwallex.com",
         "security_txt": "https://www.airwallex.com:443/.well-known/security.txt",
         "status": "https://status.airwallex.com",
-        "bug_bounty": "https://help.airwallex.com/hc/en-gb/articles/900004502526-Bug-Bounty-Program-Rules"
+        "bug_bounty": "https://help.airwallex.com/hc/en-gb/articles/900004502526-Bug-Bounty-Program-Rules",
+        "privacy": "https://security.airwallex.com/?itemUid=63f59def-eb18-4135-95a1-addeb7463801"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 37,
-        "tier": "thin",
+        "score": 83,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
+          "marks": 40,
           "status": 6,
           "disclosure": 6,
+          "privacy": 6,
           "longevity": 5
         }
       }
@@ -2131,25 +2384,36 @@
       "title": "Clio Trust Centre",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "The source for all of Clio's public-facing security and compliance information. Download Clio's third-party audit reports, penetration test results, and more.",
+      "summary": "Public trust center. On file: SOC 1 Type II, SOC 2 Type II, HIPAA, GDPR, TX-RAMP.",
       "list": "cloud100",
       "founded_year": 2008,
       "founded_source": "https://en.wikipedia.org/wiki/Clio_(software_company)",
-      "certs": [],
+      "certs": [
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "HIPAA",
+        "GDPR",
+        "TX-RAMP"
+      ],
       "links": {
         "trust": "https://trust.clio.com",
         "security_txt": "https://www.clio.com/.well-known/security.txt",
         "privacy": "https://www.clio.com/privacy/",
-        "status": "https://status.clio.com",
+        "status": "https://trust.clio.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
         "bug_bounty": "https://www.clio.com/security/responsible-disclosure/",
-        "security": "https://www.clio.com/security/"
+        "security": "https://www.clio.com/security/",
+        "subprocessors": "https://trust.clio.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
+        "dpa": "https://trust.clio.com/?itemName=legal"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 47,
-        "tier": "on-file",
+        "score": 99,
+        "tier": "complete",
         "factors": {
           "portal": 20,
+          "marks": 36,
+          "dpa": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
@@ -2281,21 +2545,31 @@
       "probed": 18,
       "source": "forbes-cloud-100-2025",
       "http_status": 200,
-      "summary": "Use Lambda's Trust Portal to learn about our security posture and request access to our security documentation.",
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27701, ISO 22301, CCPA.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27701",
+        "ISO 22301",
+        "CCPA"
+      ],
       "links": {
         "trust": "https://trust.lambda.ai",
         "security_txt": "https://lambdalabs.com/.well-known/security.txt",
-        "status": "https://status.lambda.ai/",
-        "security": "https://trust.lambda.ai/?amp%3Bamp%3Bsource=click&amp;amp%3Bamp%3Bamp%3Bamp%3Bamp%3BitemUid=ebb9d0ce-15da-4d04-aadc-fe1cd5b827c6&amp;amp%3Bamp%3Bamp%3Bamp%3BitemName=awareness_training&amp;amp%3Bamp%3Bamp%3Bamp%3BitemUid=28da0a2c-3acb-4e37-990a-d887198867f9&amp;amp%3Bamp%3Bamp%3BitemName=legal&amp;amp%3Bamp%3BitemUid=722b9671-c0d5-4a19-a5f7-0ad8fd81307c&amp;amp%3BitemUid=6217dabc-952b-4163-b19b-8372a8de7d4d&amp;amp%3Bsource=click&amp;itemName=data_security&amp;source=click&amp;itemUid=747f7d10-7a80-45cd-99ca-49893533817c"
+        "status": "https://trust.lambda.ai/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
+        "security": "https://trust.lambda.ai/?amp%3Bamp%3Bsource=click&amp;amp%3Bamp%3Bamp%3Bamp%3Bamp%3BitemUid=ebb9d0ce-15da-4d04-aadc-fe1cd5b827c6&amp;amp%3Bamp%3Bamp%3Bamp%3BitemName=awareness_training&amp;amp%3Bamp%3Bamp%3Bamp%3BitemUid=28da0a2c-3acb-4e37-990a-d887198867f9&amp;amp%3Bamp%3Bamp%3BitemName=legal&amp;amp%3Bamp%3BitemUid=722b9671-c0d5-4a19-a5f7-0ad8fd81307c&amp;amp%3BitemUid=6217dabc-952b-4163-b19b-8372a8de7d4d&amp;amp%3Bsource=click&amp;itemName=data_security&amp;source=click&amp;itemUid=747f7d10-7a80-45cd-99ca-49893533817c",
+        "subprocessors": "https://trust.lambda.ai/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 32,
-        "tier": "thin",
+        "score": 77,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
+          "marks": 37,
+          "processors": 8,
           "status": 6,
           "disclosure": 6
         }
@@ -2314,29 +2588,35 @@
       "probed": 13,
       "source": "forbes-cloud-100-2025",
       "http_status": 200,
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: PCI DSS, SOC 1 Type II, SOC 2 Type II, ISO 27001.",
       "list": "cloud100",
       "founded_year": 2017,
       "founded_source": "https://en.wikipedia.org/wiki/Brex",
-      "certs": [],
+      "certs": [
+        "PCI DSS",
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "ISO 27001"
+      ],
       "links": {
         "trust": "https://trust-portal.brex.com",
         "security_txt": "https://www.brex.com/security.txt",
         "privacy": "https://www.brex.com/legal/privacy",
-        "subprocessors": "https://www.brex.com/subprocessors",
-        "dpa": "https://www.brex.com/dpa",
-        "status": "https://status.brex.com",
-        "bug_bounty": "https://www.brex.com/bug-bounty",
+        "subprocessors": "https://trust-portal.brex.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
+        "dpa": "https://trust-portal.brex.com/?itemName=legal",
+        "status": "https://trust-portal.brex.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
+        "bug_bounty": "https://www.brex.com/trust/responsible-disclosure",
         "security": "https://trust-portal.brex.com/?itemName=data_security&amp;itemUid=2295dac0-4666-4503-8305-18da8472661f&amp;q_mailing_7U7YeR6GBr5VvcWGjXL7RVqNFLcCmQxKhaCJb=RpGi3Z7zndmuuFjehcbtESNWC1E4ykk63iuxs2C8g3zBBTkB33NYcZN5d&amp;source=click"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 58,
-        "tier": "on-file",
+        "score": 94,
+        "tier": "complete",
         "factors": {
           "portal": 20,
+          "marks": 36,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
@@ -2471,26 +2751,56 @@
       "title": "Fin Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Fin upholds the highest standards for safety and security, including enterprise-grade testing and controls, internationally recognized compliance accreditations, and advanced protections for Fin AI Agent against LLM threats.",
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27018, ISO 27701, ISO 42001, GDPR +5.",
       "list": "cloud100",
       "founded_year": 2011,
       "founded_source": "https://en.wikipedia.org/wiki/Intercom_(company)",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27018",
+        "ISO 27701",
+        "ISO 42001",
+        "GDPR",
+        "CCPA",
+        "HIPAA",
+        "HDS",
+        "AIUC-1",
+        "CSA STAR"
+      ],
       "links": {
         "trust": "https://trust.intercom.com",
         "security_txt": "https://app.intercom.com/.well-known/security.txt",
         "privacy": "https://www.intercom.com/legal/privacy",
         "security": "https://www.intercom.com/security",
         "subprocessors": "https://trust.intercom.com/subprocessors",
-        "bug_bounty": "https://www.bugcrowd.com/resource/standard-disclosure-terms/"
+        "bug_bounty": "https://www.bugcrowd.com/resource/standard-disclosure-terms/",
+        "dpa": "https://www.intercom.com/legal/data-processing-agreement"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "openai",
+        "mailgun",
+        "sparkpost",
+        "snowflake",
+        "planetscale",
+        "twilio",
+        "cloudflare",
+        "microsoft",
+        "anthropic",
+        "google",
+        "elevenlabs",
+        "ably",
+        "cartesia-ai-inc"
+      ],
       "disclosure": {
-        "score": 47,
-        "tier": "on-file",
+        "score": 95,
+        "tier": "complete",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 40,
+          "dpa": 8,
+          "processors": 8,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 7
@@ -2509,7 +2819,7 @@
       "title": "Guild Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Trust Centers are the fastest and most transparent way to demonstrate your company's commitment to security",
+      "summary": "Trust portal found; marks sit behind an access request.",
       "list": "cloud100",
       "certs": [],
       "links": {
@@ -2528,7 +2838,7 @@
         "factors": {
           "portal": 20,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
@@ -2551,21 +2861,31 @@
       "probed": 13,
       "source": "forbes-cloud-100-2025",
       "http_status": 200,
-      "summary": "Using Bob means that your data is stored in an infinitely more secure environment than data stored in unprotected spreadsheets.",
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27018.",
       "list": "cloud100",
       "founded_year": 2015,
       "founded_source": "https://en.wikipedia.org/wiki/HiBob",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27018"
+      ],
       "links": {
-        "privacy": "https://www.hibob.com/privacy/security/",
-        "trust": "https://www.hibob.com/privacy/security/"
+        "privacy": "https://www.hibob.com/privacy/privacy-policy/",
+        "trust": "https://www.hibob.com/privacy/security/",
+        "security": "https://www.hibob.com/privacy/security/",
+        "dpa": "https://www.hibob.com/privacy/data-processing-addendum/",
+        "subprocessors": "https://www.hibob.com/privacy/hibob-subsidiaries-and-sub-processors/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 31,
-        "tier": "thin",
+        "score": 71,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
+          "marks": 24,
+          "dpa": 8,
+          "processors": 8,
           "privacy": 6,
           "longevity": 5
         }
@@ -2640,21 +2960,28 @@
       "title": "Abridge Abridge Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: SOC 2 Type I, SOC 2 Type II, HIPAA, TX-RAMP, CCPA.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type I",
+        "SOC 2 Type II",
+        "HIPAA",
+        "TX-RAMP",
+        "CCPA"
+      ],
       "links": {
         "trust": "https://trust.abridge.com",
         "privacy": "https://www.abridge.com/privacy",
-        "status": "https://status.abridge.com/access/login",
+        "status": "https://trust.abridge.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
         "security": "https://trust.abridge.com/?itemName=data_security&amp;source=click"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 32,
-        "tier": "thin",
+        "score": 64,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 32,
           "status": 6,
           "privacy": 6
         }

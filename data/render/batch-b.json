@@ -1,0 +1,124 @@
+{
+  "rows": [
+    {
+      "slug": "motive",
+      "certs": ["SOC 1", "SOC 1 Type II", "SOC 2", "SOC 2 Type II", "ISO/IEC 27001:2022", "ISO/IEC 27701:2019", "PCI DSS", "TX-RAMP", "CCPA", "PIPEDA"],
+      "links": {
+        "trust_center": "https://trust.gomotive.com/",
+        "subprocessors": "https://trust.gomotive.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
+        "bug_bounty": "https://trust.gomotive.com/?itemUid=957bbfcf-667c-486c-aa30-cde4d95bcb7d"
+      },
+      "subprocessors": [],
+      "notes": "SafeBase/Drata portal. Compliance badges visible publicly; documents (SOC 1/2 Type II, PCI DSS, pentest, ISO/TX-RAMP certs, InfoSec policy) require 'Get access'. Subprocessors exist as a Legal item but no named list rendered on the public page. Public SSL grade A (Qualys). No SOC 3, FedRAMP, HIPAA, HITRUST, CSA STAR, or GDPR badge shown."
+    },
+    {
+      "slug": "vercel",
+      "certs": ["SOC 2", "ISO/IEC 27001", "PCI DSS", "HIPAA", "HITECH", "GDPR", "CCPA", "CPRA", "EU-US DPF", "Swiss-US DPF", "UK Extension to EU-US DPF", "PIPEDA", "DSA", "NIS 2", "DORA", "nFADP", "TISAX"],
+      "links": {
+        "trust_center": "https://security.vercel.com/",
+        "subprocessors": "https://security.vercel.com/subprocessors",
+        "dpa": "https://security.vercel.com/?itemName=legal",
+        "status": "https://security.vercel.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
+        "responsible_disclosure": "mailto:responsible-disclosure@vercel.com"
+      },
+      "subprocessors": ["Amazon Web Services (AWS)", "Google", "Microsoft", "Datadog", "Honeycomb", "Redis", "WorkOS", "Algolia", "Knock Labs", "Salesforce", "Stripe", "Tinybird", "tray.io", "Twilio"],
+      "notes": "SafeBase portal. Public subprocessor table rendered inline on the trust center (also at /subprocessors); list captured may be truncated at Twilio - visible entries recorded. Reports (SOC 2, PCI DSS, HIPAA, pentest, whitepaper) are gated behind 'Get access'. Status shows 'All Systems Operational'. No SOC 3, FedRAMP, TX-RAMP, HITRUST, or CSA STAR shown."
+    },
+    {
+      "slug": "airwallex",
+      "certs": ["SOC 1", "SOC 1 Type 2", "SOC 2", "SOC 2 Type 1", "SOC 2 Type 2", "PCI DSS (Service Provider Level 1)", "PCI-3DS", "GDPR", "DORA", "BIMI", "Visa Service Provider", "ISO/IEC 27001 (shown as in-progress/renewal icon, not green-checked)"],
+      "links": {
+        "trust_center": "https://security.airwallex.com/",
+        "bug_bounty": "https://help.airwallex.com/hc/en-gb/articles/900004502526-Bug-Bounty-Program-Rules",
+        "responsible_disclosure": "mailto:security@airwallex.com",
+        "privacy_policy": "https://security.airwallex.com/?itemUid=63f59def-eb18-4135-95a1-addeb7463801"
+      },
+      "subprocessors": [],
+      "notes": "SafeBase portal. PCI-DSS certificate is publicly downloadable; other reports (SOC 1/2 Type II, PCI AOCs, pentest) gated. Public update posts confirm PCI DSS SP Level 1 renewal (Mar 2025) and an active Bug Bounty Program (contact bugbounty@airwallex.com). No public subprocessor list, no DPA link, no SOC 3/FedRAMP/TX-RAMP/HIPAA/HITRUST/CSA STAR."
+    },
+    {
+      "slug": "clio",
+      "certs": ["SOC 1 Type 2", "SOC 2 Type 2", "HIPAA", "GDPR", "TX-RAMP"],
+      "links": {
+        "trust_center": "https://trust.clio.com/",
+        "subprocessors": "https://trust.clio.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
+        "dpa": "https://trust.clio.com/?itemName=legal",
+        "status": "https://trust.clio.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
+        "responsible_disclosure": "https://www.clio.com/security/responsible-disclosure/"
+      },
+      "subprocessors": [],
+      "notes": "SafeBase portal ('Trust Centre'). Public: pentest report summary, SOC 1/2 Type 2 compliance items, liability insurance, AI overview, CAIQ Lite self-assessment; full reports gated. Subprocessors and DPA are Legal items but no named vendor list rendered publicly. Qualys A+ for US/CA/EU/AU. No ISO, SOC 3, FedRAMP, PCI, HITRUST, CSA STAR shown."
+    },
+    {
+      "slug": "lambda",
+      "certs": ["SOC 2 Type 2", "ISO/IEC 27001:2022", "ISO/IEC 27017:2015", "ISO/IEC 27701:2019", "ISO 22301:2019", "CCPA"],
+      "links": {
+        "trust_portal": "https://trust.lambda.ai/",
+        "subprocessors": "https://trust.lambda.ai/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
+        "status": "https://trust.lambda.ai/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
+        "responsible_disclosure": "mailto:security@lambda.ai"
+      },
+      "subprocessors": [],
+      "notes": "SafeBase portal. All documents (pentest report, ISO 22301/27001/27017/27701 certs, SOC 2 Type 2) require 'Get access'. Subprocessors listed as a Legal item with no public named list. Qualys SSL A+. No ISO 27018, ISO 42001, SOC 3, FedRAMP, TX-RAMP, HIPAA, PCI, HITRUST, CSA STAR, or GDPR badge shown."
+    },
+    {
+      "slug": "brex",
+      "certs": ["PCI DSS", "SOC 1 Type 2", "SOC 2 Type 2", "ISO/IEC 27001:2022"],
+      "links": {
+        "trust_center": "https://trust-portal.brex.com/",
+        "subprocessors": "https://trust-portal.brex.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
+        "dpa": "https://trust-portal.brex.com/?itemName=legal",
+        "status": "https://trust-portal.brex.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
+        "responsible_disclosure": "https://www.brex.com/trust/responsible-disclosure"
+      },
+      "subprocessors": [],
+      "notes": "SafeBase portal. Documents (Trust Whitepaper, Trust Overview, Security FAQs, PCI DSS, pentest, SOC 1/2 reports, CAIQ, SIG Lite) require 'Get access'. Subprocessors and DPA are Legal items; no named vendor list rendered publicly. Security grades public: Qualys A+, CryptCheck A+, ImmuniWeb A-. No SOC 3, FedRAMP, TX-RAMP, HIPAA, HITRUST, CSA STAR, GDPR badge shown."
+    },
+    {
+      "slug": "intercom",
+      "certs": ["SOC 2", "SOC 2 Type 2", "ISO 27001:2022", "ISO 27018", "ISO 27701", "ISO/IEC 42001:2023", "GDPR", "CCPA", "HIPAA", "HDS", "AIUC-1", "CSA STAR", "CSA STAR for AI", "EU AI Act"],
+      "links": {
+        "trust_center": "https://trust.intercom.com/",
+        "subprocessors": "https://trust.intercom.com/subprocessors",
+        "dpa": "https://www.intercom.com/legal/data-processing-agreement",
+        "privacy_policy": "https://www.intercom.com/legal/privacy",
+        "controls": "https://trust.intercom.com/controls",
+        "security_contact": "mailto:security@fin.ai"
+      },
+      "subprocessors": ["Amazon Web Services, Inc.", "OpenAI, L.L.C.", "Mailgun Technologies, LLC", "Message Systems, Inc. (d/b/a SparkPost)", "Snowflake Inc.", "PlanetScale Inc.", "Twilio, Inc.", "Cloudflare, Inc.", "Microsoft Corporation (EU)", "Anthropic, PBC", "Google", "Eleven Labs, Inc.", "Ably", "Cartesia AI, Inc."],
+      "notes": "Branded as Fin's Trust Center (Vanta-style). Full public subprocessor list of 14 entries captured. Public resource titles include SOC 2 Type 2 report, ISO 27001/27018/27701 certificates, ISO 42001 certificate, AIUC-1 certification report, CSA CAIQ self-assessment, CSA Star for AI, pentest reports (2024, 2025), HIPAA report, HDS certificate, cyber insurance certificate; downloads generally require access request. Bug Bounty listed as a product-security control. No FedRAMP, TX-RAMP, PCI DSS, HITRUST, or SOC 3."
+    },
+    {
+      "slug": "guild",
+      "certs": [],
+      "links": {"trust_center": "https://trust.guild.com/"},
+      "subprocessors": [],
+      "notes": "Fully gated: page renders only an access-request form (first/last name, email, company, reason) plus 'Reclaim access'. No public certifications, documents, subprocessor list, or policy links visible. No form submitted."
+    },
+    {
+      "slug": "hibob",
+      "certs": ["SOC 2 Type II", "ISO 27001:2022", "ISO 27018:2019"],
+      "links": {
+        "security_page": "https://www.hibob.com/privacy/security/",
+        "dpa": "https://www.hibob.com/privacy/data-processing-addendum/",
+        "subprocessors": "https://www.hibob.com/privacy/hibob-subsidiaries-and-sub-processors/",
+        "privacy_policy": "https://www.hibob.com/privacy/privacy-policy/",
+        "ai_trust_center": "https://www.hibob.com/privacy/ai-trust-center/"
+      },
+      "subprocessors": [],
+      "notes": "Marketing/legal Trust Center page (not a portal). States HiBob is ISO 27001:2022, ISO 27018:2019 and SOC 2 Type 2 certified; ISO certificates available on request, SOC 2 Type II report and pentest summary under NDA. Hosting on AWS (Ireland primary, Germany backup); AWS itself cited as ISO 27001 / PCI DSS SP Level 1 / SOC 2 - that is AWS's compliance, not HiBob's. Named sub-processor list lives on a separate linked page (not visited). No SOC 3, FedRAMP, TX-RAMP, HIPAA, HITRUST, CSA STAR, or bounty link on this page."
+    },
+    {
+      "slug": "abridge",
+      "certs": ["SOC 2 Type 1", "SOC 2 Type 2", "HIPAA", "TX-RAMP", "CCPA", "WCAG"],
+      "links": {
+        "trust_center": "https://trust.abridge.com/",
+        "status": "https://trust.abridge.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
+        "legal": "https://trust.abridge.com/?itemName=legal",
+        "support": "mailto:help@abridge.com"
+      },
+      "subprocessors": [],
+      "notes": "SafeBase portal. Documents (network diagram, security whitepaper, SOC 2 report, TX-RAMP, WCAG, BC/DR policy, clinician FAQ, patient one-pager) listed; downloads require 'Get access'. Legal section has 'Data Service Vendors', 'Cyber Insurance', 'Master Services Agreement' but no public named vendor/subprocessor list rendered. No ISO, SOC 3, FedRAMP, PCI DSS, HITRUST, CSA STAR, or GDPR badge shown."
+    }
+  ]
+}
