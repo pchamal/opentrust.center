@@ -9,7 +9,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent
 SITE = ROOT / "site"
-CANON = "https://cobalt-quartz-nx3z.here.now"
+CANON = "https://opentrust.center"
 
 VENDOR = {
     "safebase": "SafeBase",

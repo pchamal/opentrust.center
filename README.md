@@ -51,3 +51,10 @@ Do not run the crawler unless you mean to refresh the snapshot.
 [Forbes Cloud 100 2025](https://www.forbes.com/lists/cloud100/) and a curated public-enterprise set.
 
 Not affiliated with Forbes, Bessemer, or Salesforce Ventures.
+
+
+## Deploy
+
+GitHub: [pchamal/opentrust.center](https://github.com/pchamal/opentrust.center)
+
+Cloudflare Pages serves `site/` (see `wrangler.toml`). Custom domain: `opentrust.center`.
