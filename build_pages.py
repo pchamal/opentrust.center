@@ -352,13 +352,9 @@ def factor_line(disc: dict) -> str:
         f"marks {f['marks']}",
         f"dpa {f['dpa']}",
         f"subprocessors {f['processors']}",
-        f"status {f['status']}",
-        f"bounty {f['bounty']}",
-        f"privacy {f['privacy']}",
         f"years {f['years']}",
     ]
-    tier = "on file" if disc["tier"] == "on-file" else disc["tier"]
-    return " · ".join(bits) + f"   = {disc['score']}  {tier}"
+    return " · ".join(bits)
 
 
 def fmt_day(iso: str) -> str:
