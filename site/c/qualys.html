@@ -11,7 +11,7 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://opentrust.center/c/qualys.html">
   <meta name="theme-color" content="#331400">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Qualys — opentrust.center", "description": "Official pages, attestations, years, and named processors. On file, or not.", "url": "https://opentrust.center/c/qualys.html", "isPartOf": {"@type": "WebSite", "name": "opentrust.center", "url": "https://opentrust.center/"}, "about": {"@type": "Organization", "name": "Qualys", "url": "https://qualys.com"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Qualys — opentrust.center", "description": "Official pages, attestations, years, and named processors. On file, or not.", "url": "https://opentrust.center/c/qualys.html", "isPartOf": {"@type": "WebSite", "name": "opentrust.center", "url": "https://opentrust.center/"}, "about": {"@type": "Organization", "name": "Qualys", "url": "https://qualys.com", "hasCredential": ["FedRAMP High"]}}</script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23331400'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23ff6600' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23ff6600' stroke-width='1'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='Georgia,serif' font-size='16' font-weight='600' fill='%23ff6600'%3EOT%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,18 +40,26 @@
       <span class="stamp" aria-hidden="true">OT</span>
       <span class="tier-label silent">silent</span>
     </div>
-    <p class="factor">page 0 · marks 0 · dpa 0 · processors 0 · status 6 · bounty 6 · privacy 6 · years 10   = 28  silent</p>
+    <p class="factor">page 0 · marks 12 · dpa 0 · processors 0 · status 6 · bounty 6 · privacy 6 · years 10   = 40  silent</p>
 
     <p class="sec-kicker">attestations</p>
     <table class="inst">
       <thead><tr><th>mark</th><th>on page</th><th>weight</th></tr></thead>
-      <tbody><tr><td colspan="3"><span class="absent">not on file</span></td></tr></tbody>
+      <tbody><tr><td class="mark"><a href="../attestations.html#fedramp">FedRAMP High</a></td><td>cited</td><td>12</td></tr></tbody>
+    </table>
+
+    <p class="sec-kicker">fedramp</p>
+    <p class="ident-meta">highest authorized · High</p>
+    <p class="fig-sub">Filed from the <a href="https://www.fedramp.gov/marketplace/products/">FedRAMP Marketplace</a>. Not a badge.</p>
+    <table class="inst">
+      <thead><tr><th>offering</th><th>status</th><th>impact level</th><th>auth date</th></tr></thead>
+      <tbody><tr><td class="mark"><a href="https://www.fedramp.gov/marketplace/products/">Qualys Cloud Platform</a></td><td>FedRAMP Authorized</td><td>Moderate</td><td>2 Nov 2016</td></tr><tr><td class="mark"><a href="https://www.fedramp.gov/marketplace/products/">Qualys Government Platform</a></td><td>FedRAMP Authorized</td><td>High</td><td>14 Aug 2025</td></tr></tbody>
     </table>
 
     <p class="sec-kicker">instruments</p>
     <table class="inst">
       <thead><tr><th>instrument</th><th>host</th><th>last seen</th></tr></thead>
-      <tbody><tr><td>trust</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>security</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>privacy</td><td>qualys.com</td><td>19 Aug 2026</td></tr><tr><td>dpa</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>subprocessors</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>status</td><td>status.qualys.com</td><td>19 Aug 2026</td></tr><tr><td>bounty / security.txt</td><td>qualys.com</td><td>19 Aug 2026</td></tr></tbody>
+      <tbody><tr><td>trust</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>security</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>privacy</td><td><a class="official" href="https://www.qualys.com/company/privacy" rel="noopener noreferrer">qualys.com</a></td><td>19 Aug 2026</td></tr><tr><td>dpa</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>subprocessors</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>status</td><td><a class="official" href="https://status.qualys.com" rel="noopener noreferrer">status.qualys.com</a></td><td>19 Aug 2026</td></tr><tr><td>bounty / security.txt</td><td><a class="official" href="https://www.qualys.com/docs/responsible-disclosure-policy.pdf" rel="noopener noreferrer">qualys.com</a></td><td>19 Aug 2026</td></tr></tbody>
     </table>
 
     <p class="sec-kicker">named processors</p>
@@ -65,7 +73,15 @@
     <p class="probe">last probed 19 Aug 2026, 9:49 PM PT</p>
     <div class="actions">
       <span class="absent">open official page · not on file</span>
-      
+      <div class="gate" id="gate" hidden>
+      <label class="turn">
+        <input type="checkbox" id="gate-box">
+        <span class="turn-box" aria-hidden="true"></span>
+        <span>I am human</span>
+      </label>
+      <p class="gate-status" id="gate-status"></p>
+    </div>
+      <a class="perm" href="../claim.html?slug=qualys">claim or correct this file</a>
       <a class="perm" href="./qualys.html">permalink · c/qualys.html</a>
     </div>
   </main>

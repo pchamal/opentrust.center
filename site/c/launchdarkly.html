@@ -11,7 +11,7 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://opentrust.center/c/launchdarkly.html">
   <meta name="theme-color" content="#331400">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "LaunchDarkly — opentrust.center", "description": "Official pages, attestations, years, and named processors. On file, or not.", "url": "https://opentrust.center/c/launchdarkly.html", "isPartOf": {"@type": "WebSite", "name": "opentrust.center", "url": "https://opentrust.center/"}, "about": {"@type": "Organization", "name": "LaunchDarkly", "url": "https://launchdarkly.com"}, "significantLink": "https://trust.launchdarkly.com"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "LaunchDarkly — opentrust.center", "description": "Official pages, attestations, years, and named processors. On file, or not.", "url": "https://opentrust.center/c/launchdarkly.html", "isPartOf": {"@type": "WebSite", "name": "opentrust.center", "url": "https://opentrust.center/"}, "about": {"@type": "Organization", "name": "LaunchDarkly", "url": "https://launchdarkly.com", "hasCredential": ["FedRAMP Moderate"]}, "significantLink": "https://trust.launchdarkly.com"}</script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23331400'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23ff6600' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23ff6600' stroke-width='1'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='Georgia,serif' font-size='16' font-weight='600' fill='%23ff6600'%3EOT%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,18 +40,26 @@
       <span class="stamp" aria-hidden="true">OT</span>
       <span class="tier-label ">on file</span>
     </div>
-    <p class="factor">page 20 · marks 0 · dpa 8 · processors 8 · status 6 · bounty 0 · privacy 6 · years 0   = 48  on file</p>
+    <p class="factor">page 20 · marks 12 · dpa 8 · processors 8 · status 6 · bounty 0 · privacy 6 · years 0   = 60  on file</p>
 
     <p class="sec-kicker">attestations</p>
     <table class="inst">
       <thead><tr><th>mark</th><th>on page</th><th>weight</th></tr></thead>
-      <tbody><tr><td colspan="3"><span class="absent">not on file</span></td></tr></tbody>
+      <tbody><tr><td class="mark"><a href="../attestations.html#fedramp">FedRAMP Moderate</a></td><td>cited</td><td>12</td></tr></tbody>
+    </table>
+
+    <p class="sec-kicker">fedramp</p>
+    <p class="ident-meta">highest authorized · Moderate</p>
+    <p class="fig-sub">Filed from the <a href="https://www.fedramp.gov/marketplace/products/">FedRAMP Marketplace</a>. Not a badge.</p>
+    <table class="inst">
+      <thead><tr><th>offering</th><th>status</th><th>impact level</th><th>auth date</th></tr></thead>
+      <tbody><tr><td class="mark"><a href="https://www.fedramp.gov/marketplace/products/">LaunchDarkly</a></td><td>FedRAMP Authorized</td><td>Moderate</td><td>6 Jan 2023</td></tr></tbody>
     </table>
 
     <p class="sec-kicker">instruments</p>
     <table class="inst">
       <thead><tr><th>instrument</th><th>host</th><th>last seen</th></tr></thead>
-      <tbody><tr><td>trust</td><td>official page</td><td>19 Aug 2026</td></tr><tr><td>security</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>privacy</td><td>launchdarkly.com</td><td>19 Aug 2026</td></tr><tr><td>dpa</td><td>launchdarkly.com</td><td>19 Aug 2026</td></tr><tr><td>subprocessors</td><td>launchdarkly.com</td><td>19 Aug 2026</td></tr><tr><td>status</td><td>status.launchdarkly.com</td><td>19 Aug 2026</td></tr><tr><td>bounty / security.txt</td><td><span class="absent">not on file</span></td><td>—</td></tr></tbody>
+      <tbody><tr><td>trust</td><td><a class="official" href="https://app.vanta.com/launchdarkly.com/trust/gu6fblhdgsyexg8g2xsj0" rel="noopener noreferrer">official page</a></td><td>19 Aug 2026</td></tr><tr><td>security</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>privacy</td><td><a class="official" href="https://launchdarkly.com/privacy/" rel="noopener noreferrer">launchdarkly.com</a></td><td>19 Aug 2026</td></tr><tr><td>dpa</td><td><a class="official" href="https://launchdarkly.com/data-processing-addendum/" rel="noopener noreferrer">launchdarkly.com</a></td><td>19 Aug 2026</td></tr><tr><td>subprocessors</td><td><a class="official" href="https://launchdarkly.com/subprocessors/" rel="noopener noreferrer">launchdarkly.com</a></td><td>19 Aug 2026</td></tr><tr><td>status</td><td><a class="official" href="https://status.launchdarkly.com" rel="noopener noreferrer">status.launchdarkly.com</a></td><td>19 Aug 2026</td></tr><tr><td>bounty / security.txt</td><td><span class="absent">not on file</span></td><td>—</td></tr></tbody>
     </table>
 
     <p class="sec-kicker">named processors</p>
@@ -73,6 +81,7 @@
       </label>
       <p class="gate-status" id="gate-status"></p>
     </div>
+      <a class="perm" href="../claim.html?slug=launchdarkly">claim or correct this file</a>
       <a class="perm" href="./launchdarkly.html">permalink · c/launchdarkly.html</a>
     </div>
   </main>

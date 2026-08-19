@@ -21,6 +21,8 @@ Public record of what a company discloses — official pages, marks, years, and 
 - `founded_year`: only when a source URL is on file
 - `processors`: only edges with a first-party `source_url`
 - `instruments.subprocessors`: a public list URL. That is not the same as parsed processor names. JS-only portals (for example Stripe, OpenAI) stay empty.
+- `fedramp`: offerings filed from the FedRAMP Marketplace dump, when matched. Not a badge. Verify the live Marketplace listing.
+- Corrections: `/claim.html?slug={slug}` opens a GitHub issue draft labeled `claim`. An agent reads it and files only what it can verify.
 
 ## Do not
 
