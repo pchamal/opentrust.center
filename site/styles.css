@@ -633,6 +633,7 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
   align-items: start;
 }
 .wires-table { min-width: 0; }
+.wires-scroll { min-width: 0; overflow-x: auto; }
 .wires-table .inst { min-width: min(640px, 100%); }
 .wires-table .inst tbody tr { cursor: pointer; }
 .wires-table .inst td:last-child { white-space: nowrap; }
@@ -802,6 +803,16 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
 @media (max-width: 1100px) {
   .wires-grid { grid-template-columns: 1fr; }
   .wires-table { min-width: 0; }
+  .wires-scroll {
+    max-height: 360px;
+    overflow: auto;
+    border-bottom: var(--rule);
+  }
+  .wires-table .inst th {
+    position: sticky;
+    top: 0;
+    background: var(--ground);
+  }
   .wires-fig {
     width: auto;
     position: static;

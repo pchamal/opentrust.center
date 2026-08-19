@@ -35,18 +35,20 @@
 
     <div class="wires-grid">
       <div class="wires-table">
-        <table class="inst" id="wire-table" hidden>
-          <thead>
-            <tr>
-              <th>processor</th>
-              <th>exposure</th>
-              <th>tier</th>
-              <th>risk</th>
-              <th>source</th>
-            </tr>
-          </thead>
-          <tbody id="wire-body"></tbody>
-        </table>
+        <div class="wires-scroll">
+          <table class="inst" id="wire-table" hidden>
+            <thead>
+              <tr>
+                <th>processor</th>
+                <th>exposure</th>
+                <th>tier</th>
+                <th>risk</th>
+                <th>source</th>
+              </tr>
+            </thead>
+            <tbody id="wire-body"></tbody>
+          </table>
+        </div>
         <p class="clerk-line" id="empty-wires" hidden>No public subprocessor lists filed yet.</p>
         <p class="formula">risk = exposure × (0.4 + 0.6 × thinness). thinness is 1 if silent, thin, or not in the register; else (100 − disclosure) / 100. Do not read this as a CVE ranking.</p>
       </div>
