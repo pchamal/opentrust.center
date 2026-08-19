@@ -633,12 +633,16 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
   align-items: start;
 }
 .wires-table { min-width: 0; }
+.wires-scroll { min-width: 0; overflow-x: auto; }
 .wires-table .inst { min-width: min(640px, 100%); }
+.wires-table .inst tbody tr { cursor: pointer; }
 .wires-table .inst td:last-child { white-space: nowrap; }
 .wires-fig {
   width: 360px;
   max-width: 100%;
   min-width: 0;
+  position: sticky;
+  top: 16px;
 }
 .fig-well {
   width: 360px;
@@ -672,9 +676,16 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
 }
 .stub h2 {
   margin: 0 0 8px;
-  font: var(--t-name);
-  letter-spacing: -0.02em;
+  font: var(--t-title);
+  letter-spacing: -0.03em;
+  font-weight: 500;
 }
+.stub .absent {
+  font-family: var(--font-register);
+  font-style: italic;
+  color: var(--rust);
+}
+.stub .muted { color: var(--mute); }
 .clerk-line {
   margin: 8px 0 16px;
   font: var(--t-body);
@@ -792,7 +803,23 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
 @media (max-width: 1100px) {
   .wires-grid { grid-template-columns: 1fr; }
   .wires-table { min-width: 0; }
-  .wires-fig { width: auto; }
+  .wires-scroll {
+    max-height: 360px;
+    overflow: auto;
+    border-bottom: var(--rule);
+  }
+  .wires-table .inst th {
+    position: sticky;
+    top: 0;
+    background: var(--ground);
+  }
+  .wires-fig {
+    width: auto;
+    position: static;
+    display: flex;
+    flex-direction: column;
+  }
+  .wires-fig .stub { order: -1; }
 }
 
 @media (max-width: 800px) {
