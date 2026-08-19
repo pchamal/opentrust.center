@@ -45,12 +45,20 @@ function guessDomain(q) {
 }
 
 function marksCell(row) {
-  const names = (row.certs || []).slice();
-  if (!names.length && row.attestations) {
-    names.push(...row.attestations.map((a) => a.short || a.name).filter(Boolean));
-  }
+  const atts = (row.attestations || []).filter((a) => a && (a.name || a.short));
+  const names = atts.length
+    ? atts
+    : (row.certs || []).map((name) => ({ name, id: null }));
   if (!names.length) return `<span class="absent">not on file</span>`;
-  const head = names.slice(0, 3).map(escapeHtml).join(" · ");
+  const head = names
+    .slice(0, 3)
+    .map((a) => {
+      const label = escapeHtml(a.short || a.name);
+      return a.id
+        ? `<a href="./attestations.html#${encodeURIComponent(a.id)}">${label}</a>`
+        : label;
+    })
+    .join(" · ");
   const extra = names.length > 3 ? ` +${names.length - 3}` : "";
   return head + extra;
 }
@@ -108,7 +116,7 @@ function render() {
       const tier = displayTier(row.tier);
       return `<tr data-slug="${escapeHtml(row.slug)}">
         <td class="num">${escapeHtml(n)}</td>
-        <td class="name">${escapeHtml(row.name)}</td>
+        <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${escapeHtml(row.name)}</a></td>
         <td>${escapeHtml(row.domain || "")}</td>
         <td class="${tierClass(row.tier)}">${escapeHtml(tier)}</td>
         <td class="marks">${marksCell(row)}</td>
@@ -147,6 +155,7 @@ function bind() {
     });
   });
   $("reg-body").addEventListener("click", (e) => {
+    if (e.target.closest("a")) return;
     const tr = e.target.closest("tr");
     if (!tr) return;
     const slug = tr.getAttribute("data-slug");

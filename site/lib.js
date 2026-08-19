@@ -73,16 +73,15 @@ export function markHuman() {
 }
 
 export function attachGate({ button, box, status, url }) {
-  if (!button) return;
-  const href = url || button.dataset.url || "";
-  if (!href) {
-    button.hidden = true;
-    return;
+  let pending = url || (button && button.dataset.url) || "";
+
+  function reveal() {
+    const gate = box && box.closest(".gate");
+    if (gate) gate.hidden = false;
   }
-  button.hidden = false;
 
   function showVerified() {
-    if (box) box.closest(".gate") && (box.closest(".gate").hidden = false);
+    reveal();
     if (status) status.textContent = "verified · 30 min";
     if (box) {
       box.checked = true;
@@ -90,20 +89,42 @@ export function attachGate({ button, box, status, url }) {
     }
   }
 
-  if (humanOk()) showVerified();
+  function go(href) {
+    if (href) window.open(href, "_blank", "noopener,noreferrer");
+  }
 
-  button.addEventListener("click", () => {
-    const gate = box && box.closest(".gate");
+  function requestStamp(href) {
+    pending = href || pending;
     if (humanOk()) {
-      window.open(href, "_blank", "noopener,noreferrer");
+      go(pending);
       return;
     }
-    if (gate) gate.hidden = false;
+    reveal();
     if (status) status.textContent = "";
     if (box) {
       box.checked = false;
       box.disabled = false;
     }
+  }
+
+  if (humanOk()) showVerified();
+
+  if (button) {
+    const href = url || button.dataset.url || "";
+    if (!href) {
+      button.hidden = true;
+    } else {
+      button.hidden = false;
+      button.addEventListener("click", () => requestStamp(href));
+    }
+  }
+
+  document.querySelectorAll("a.official").forEach((a) => {
+    a.addEventListener("click", (e) => {
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      requestStamp(a.getAttribute("href") || a.href);
+    });
   });
 
   if (box) {
@@ -113,7 +134,7 @@ export function attachGate({ button, box, status, url }) {
       setTimeout(() => {
         markHuman();
         showVerified();
-        window.open(href, "_blank", "noopener,noreferrer");
+        go(pending);
       }, 250);
     });
   }

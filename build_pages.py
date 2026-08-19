@@ -198,8 +198,17 @@ def cert_key(name: str) -> str:
 
 def map_cert(name: str) -> dict:
     key = cert_key(name)
-    weight = CERT_WEIGHT.get(key, 4)
+    weight = CERT_WEIGHT.get(key)
     att_id = CERT_ID.get(key)
+    if "fedramp" in key:
+        if "li-saas" in key or "li saas" in key:
+            att_id = att_id or "fedramp-li-saas"
+        else:
+            att_id = att_id or "fedramp"
+        if weight is None:
+            weight = 12
+    if weight is None:
+        weight = 4
     return {"id": att_id, "name": name, "weight": weight}
 
 
@@ -394,6 +403,7 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
         file_instrument(instruments, "subprocessors", src, generated_at, domain)
 
     summary = clerk_summary(row, attestations, processors, found)
+    fedramp = public_fedramp(row.get("fedramp"))
 
     public = {
         "rank": row.get("rank"),
@@ -422,7 +432,97 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
             "http_status": (row.get("_crawl") or {}).get("http_status") or row.get("http_status"),
         },
     }
+    if fedramp:
+        public["fedramp"] = fedramp
     return public
+
+
+FEDRAMP_MARKET = "https://www.fedramp.gov/marketplace/products/"
+
+
+def public_fedramp(raw) -> dict | None:
+    """Pass through the GSA dump as filed. Do not invent offerings."""
+    if not isinstance(raw, dict):
+        return None
+    products = []
+    for item in raw.get("products") or []:
+        if not isinstance(item, dict):
+            continue
+        offering = str(item.get("offering") or "").strip()
+        if not offering:
+            continue
+        products.append({
+            "fedramp_id": item.get("fedramp_id"),
+            "offering": offering,
+            "status": str(item.get("status") or "").strip() or None,
+            "impact_level": str(item.get("impact_level") or "").strip() or None,
+            "auth_date": item.get("auth_date") or None,
+        })
+    if not products and not raw.get("highest_authorized"):
+        return None
+    return {
+        "authorized_offerings": raw.get("authorized_offerings") or 0,
+        "in_process_offerings": raw.get("in_process_offerings") or 0,
+        "highest_authorized": raw.get("highest_authorized"),
+        "impact_levels": raw.get("impact_levels") or [],
+        "source": raw.get("source") or FEDRAMP_MARKET,
+        "products": products,
+    }
+
+
+def official_a(url: str, text: str) -> str:
+    return (
+        f'<a class="official" href="{escape(url)}" rel="noopener noreferrer">'
+        f"{escape(text)}</a>"
+    )
+
+
+GATE_HTML = """<div class="gate" id="gate" hidden>
+      <label class="turn">
+        <input type="checkbox" id="gate-box">
+        <span class="turn-box" aria-hidden="true"></span>
+        <span>I am human</span>
+      </label>
+      <p class="gate-status" id="gate-status"></p>
+    </div>"""
+
+
+def fedramp_block(row: dict) -> str:
+    fed = row.get("fedramp") if isinstance(row.get("fedramp"), dict) else None
+    products = [
+        p for p in (fed or {}).get("products") or []
+        if str(p.get("offering") or "").strip()
+    ]
+    caption = (
+        f'<p class="fig-sub">Filed from the <a href="{escape(FEDRAMP_MARKET)}">'
+        f"FedRAMP Marketplace</a>. Not a badge.</p>"
+    )
+    highest = (fed or {}).get("highest_authorized") if products else None
+    if products:
+        rows = []
+        for p in products:
+            offering = str(p.get("offering") or "").strip()
+            status = str(p.get("status") or "").strip() or "—"
+            level = str(p.get("impact_level") or "").strip() or "—"
+            auth = fmt_day(p.get("auth_date") or "") or "—"
+            rows.append(
+                f'<tr><td class="mark"><a href="{escape(FEDRAMP_MARKET)}">{escape(offering)}</a></td>'
+                f"<td>{escape(status)}</td>"
+                f"<td>{escape(level)}</td>"
+                f"<td>{escape(auth)}</td></tr>"
+            )
+        body = "".join(rows)
+    else:
+        body = '<tr><td colspan="4"><span class="absent">not on file</span></td></tr>'
+    lines = ['    <p class="sec-kicker">fedramp</p>']
+    if highest:
+        lines.append(f'    <p class="ident-meta">highest authorized · {escape(highest)}</p>')
+    lines.append(f"    {caption}")
+    lines.append('    <table class="inst">')
+    lines.append('      <thead><tr><th>offering</th><th>status</th><th>impact level</th><th>auth date</th></tr></thead>')
+    lines.append(f"      <tbody>{body}</tbody>")
+    lines.append("    </table>")
+    return "\n".join(lines) + "\n"
 
 
 def mast(active: str, prefix: str) -> str:
@@ -496,7 +596,7 @@ def dossier_html(row: dict, generated_at: str) -> str:
         if rec and rec.get("url"):
             shown = rec.get("host") or display_host(rec["url"], domain)
             inst_rows.append(
-                f"<tr><td>{escape(label)}</td><td>{escape(shown)}</td>"
+                f"<tr><td>{escape(label)}</td><td>{official_a(rec['url'], shown)}</td>"
                 f"<td>{escape(fmt_day((rec.get('seen') or '') + 'T00:00:00Z') if rec.get('seen') else '—')}</td></tr>"
             )
         else:
@@ -513,7 +613,7 @@ def dossier_html(row: dict, generated_at: str) -> str:
                 if p.get("slug")
                 else '<td><span class="absent">not in register</span></td>'
             )
-            + f'<td><a href="{escape(p["source_url"])}">{escape(host_of(p["source_url"]))}</a></td></tr>'
+            + f'<td>{official_a(p["source_url"], host_of(p["source_url"]))}</td></tr>'
             for p in procs
         )
     else:
@@ -526,18 +626,11 @@ def dossier_html(row: dict, generated_at: str) -> str:
         if found and url
         else '<span class="absent">open official page · not on file</span>'
     )
-    gate = (
-        """<div class="gate" id="gate" hidden>
-      <label class="turn">
-        <input type="checkbox" id="gate-box">
-        <span class="turn-box" aria-hidden="true"></span>
-        <span>I am human</span>
-      </label>
-      <p class="gate-status" id="gate-status"></p>
-    </div>"""
-        if found and url
-        else ""
-    )
+    need_gate = bool(found and url) or any(
+        rec and rec.get("url") for rec in inst.values()
+    ) or any(p.get("source_url") for p in procs)
+    gate = GATE_HTML if need_gate else ""
+    claim = f'<a class="perm" href="../claim.html?slug={escape(slug)}">claim or correct this file</a>'
 
     about = {"@type": "Organization", "name": name}
     if domain:
@@ -599,6 +692,7 @@ def dossier_html(row: dict, generated_at: str) -> str:
       <tbody>{att_rows}</tbody>
     </table>
 
+{fedramp_block(row)}
     <p class="sec-kicker">instruments</p>
     <table class="inst">
       <thead><tr><th>instrument</th><th>host</th><th>last seen</th></tr></thead>
@@ -617,6 +711,7 @@ def dossier_html(row: dict, generated_at: str) -> str:
     <div class="actions">
       {outbound}
       {gate}
+      {claim}
       <a class="perm" href="./{escape(slug)}.html">permalink · c/{escape(slug)}.html</a>
     </div>
   </main>
@@ -716,6 +811,7 @@ def main() -> int:
         f"{CANON}/graph.html",
         f"{CANON}/attestations.html",
         f"{CANON}/brand.html",
+        f"{CANON}/claim.html",
     ]
     for row in public_companies:
         urls.append(f"{CANON}/c/{row['slug']}.html")
