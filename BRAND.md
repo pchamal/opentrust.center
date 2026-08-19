@@ -10,9 +10,11 @@ This file is law. Read it before any visual change. The audit that produced this
 
 ## The one sentence
 
-Public record of what a company discloses — official pages, marks, years, and named processors.
+A database of each company’s public trust ledger.
 
 We are no longer only a URL index. We file the public record (the dossier), the map of disclosed subprocessors (the processors), and the book of marks a buyer will meet (the attestations). The company’s own page stays authoritative. We still never look like a GRC SaaS.
+
+The register is the database. Each dossier is that company’s public ledger (official pages, marks, DPA, subprocessors, years).
 
 Do not print “front pane of glass” on the site. That is an internal metaphor. Do not print “in one place.” The clerk already has a word: **on file**.
 
@@ -31,22 +33,22 @@ Speak like the clerk who stamps the page.
 - Lowercase name always: `opentrust.center`
 - Short sentences. Numbers are facts, not flexes.
 - Company names in the register face. URLs, ranks, dates, ids in mono.
-- Allowed: found, missing, official, on file, not on file, last probed, silent, thin, substantial, complete, named, filed, cited.
+- Allowed: found, missing, official, on file, not on file, last probed, silent, thin, substantial, complete, named, filed, cited, ledger.
 - Banned: empower, seamless, reimagine, next-gen, in one place, trust made simple, the future of GRC, unlock, delightful, trust score, security rating, powered by, front pane of glass (on-site), OpenTrust.
 
 Hero copy is a finding aid, not a pitch.
 
 | Surface | Aid | Deck |
 |---|---|---|
-| Register | Public record of what a company discloses. | Attestations, instruments, years. Official page, or not. |
+| Register | A database of each company’s public trust ledger. | Attestations, instruments, years. Official page, or not. |
 | Processors | Named subprocessors, as published. | Filed from public lists. Not a complete supply chain. |
 | Attestations | Marks a buyer will meet. | By geography and industry. ELI-5, then the long form. |
 
 Bad: “Find every trust center in one place.”
-Good: “Public record of what a company discloses.”
+Good: “A database of each company’s public trust ledger.”
 
-`<title>`: `opentrust.center — public record of company disclosures`
-Meta: `Official pages, attestations, years, and named processors. On file, or not.`
+`<title>`: `opentrust.center — public trust ledger`
+Meta: `A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not.`
 
 Outbound: `open official page`. Never “Open SafeBase.” Never name the portal vendor on a public surface.
 
