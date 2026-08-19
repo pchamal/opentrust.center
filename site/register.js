@@ -2,6 +2,7 @@ import {
   $,
   escapeHtml,
   fillIssue,
+  coverageLine,
   fmtDay,
   displayTier,
   tierClass,
@@ -184,6 +185,8 @@ async function load() {
     });
     state.generatedAt = data.generated_at || null;
     fillIssue($("issue"), data);
+    const cov = $("coverage");
+    if (cov) cov.textContent = coverageLine(data.coverage);
   } catch {
     state.rows = [];
   }

@@ -20,10 +20,12 @@ Public record of what a company discloses — official pages, marks, years, and 
 - `attestations`: marks extracted from the public page, linked to the gazette
 - `founded_year`: only when a source URL is on file
 - `processors`: only edges with a first-party `source_url`
+- `instruments.subprocessors`: a public list URL. That is not the same as parsed processor names. JS-only portals (for example Stripe, OpenAI) stay empty.
 
 ## Do not
 
 - Invent a URL, certificate, founding year, or subprocessor edge
 - Treat a homepage or parked page as a portal
+- Treat a subprocessors *link* as named processors
 - Claim a company is secure or insecure
 - Print “in one place,” “trust score,” or “powered by”

@@ -65,6 +65,7 @@
       <button type="button" data-list="enterprise">enterprise</button>
     </div>
 
+    <p class="coverage" id="coverage"></p>
     <p class="countline" id="countline"></p>
 
     <div id="miss" class="miss" hidden>
@@ -93,7 +94,7 @@
   </main>
 
   <footer class="colo">
-    <p>We probe <code>trust.{domain}</code>, <code>security.{domain}</code>, and <code>/{trust,trust-center,security}</code>. A hit is HTTP 200 plus a trust-page signature. Marks are read from the public page text. Disclosure rates the file, not the company. Missing rows print <i>not on file</i>.</p>
+    <p>We probe <code>trust.{domain}</code>, <code>security.{domain}</code>, and <code>/{trust,trust-center,security}</code>. Marks and named processors come from public HTML only. JS-only portals stay empty — we do not invent marks or processor names. A processor page is not a parsed name. Disclosure rates the file, not the company. Missing rows print <i>not on file</i>.</p>
     <p>Source · <a href="https://www.forbes.com/lists/cloud100/">Forbes Cloud 100 2025</a> and a curated public-enterprise set.</p>
     <p><a href="./brand.html">specimen</a> · <a href="https://github.com/pchamal/opentrust.center">code</a> · outbound is human-gated. Documents stay on the company’s domain.</p>
   </footer>

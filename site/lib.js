@@ -129,6 +129,31 @@ export function fillIssue(el, data, extra) {
   el.textContent = `issue ${day} PT · ${onFile} on file · ${notOn} not on file · last probed ${when}${extra ? " · " + extra : ""}`;
 }
 
+export function coverageLine(cov) {
+  if (!cov) return "";
+  const t = cov.tiers || {};
+  const L = cov.links || {};
+  const top = (cov.top_processors || [])
+    .map((p) => `${p.id} ${p.n}`)
+    .join(", ");
+  const edges = top
+    ? `${cov.edges} named-processor edges · top ${top}`
+    : `${cov.edges} named-processor edges`;
+  return [
+    `${cov.companies} companies`,
+    `${cov.years} founding years (Wikipedia/Wikidata)`,
+    `${cov.certs_companies} with marks seen in public HTML`,
+    edges,
+    `${L.security_txt} security.txt`,
+    `${L.dpa} DPA`,
+    `${L.privacy} privacy`,
+    `${L.status} status`,
+    `${L.bug_bounty} bounty`,
+    `${L.subprocessors} processor pages (link ≠ parsed names)`,
+    `silent ${t.silent} · thin ${t.thin} · on file ${t["on-file"]} · substantial ${t.substantial} · complete ${t.complete}`,
+  ].join(" · ");
+}
+
 export function tierClass(tier) {
   return tier === "silent" ? "tier-silent" : "tier-word";
 }

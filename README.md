@@ -35,19 +35,23 @@ If `found` is true, use `trust_url` or the instrument URL on file. If it is fals
 ## Crawl
 
 ```bash
-python3 crawl.py          # writes data/results.json + data/register-source.json
-python3 probe_extra.py    # extras only
-python3 build_pages.py    # public data.json, dossiers, sitemap
+python3 crawl.py              # writes data/results.json + data/register-source.json
+python3 probe_extra.py        # extras only
+python3 scripts/enrich.py     # writes site/data/enriched.json + subprocessors.json
+python3 build_pages.py        # public data.json, dossiers, sitemap
 ```
 
-Stdlib only. Do not run the crawler unless you mean to refresh the snapshot. After a crawl, always run `build_pages.py` — that is what publishes the register.
+Publish from `site/data/enriched.json`, `site/data/subprocessors.json`, and `site/data/attestations.json`. Stdlib only. Do not run the crawler unless you mean to refresh the snapshot. After a crawl or enrich, always run `build_pages.py` — that is what publishes the register.
+
+`data/cache/` is a local HTTP cache for enrichment. It is not in the repository and must not be committed.
 
 ## Methodology
 
 1. Probe `trust.{domain}`, `security.{domain}`, `/{trust,trust-center,security}`.
 2. Misses get a “{company} Trust Center” search, then a check that the result is that company’s real page.
-3. Marks are read from the public page text.
-4. Disclosure rates the *file* (portal, marks, instruments, verified years). Missing rows print `not on file`.
+3. Marks and named processors are read from public HTML only. JS-only portals stay empty.
+4. A subprocessors *link* is not a parsed name.
+5. Disclosure rates the *file* (portal, marks, instruments, verified years). Missing rows print `not on file`.
 
 ## Source
 

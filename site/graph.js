@@ -299,7 +299,7 @@ async function load() {
     (reg.companies || []).forEach((c) => state.companies.set(c.slug, c));
     state.edges = normalizeEdges(wires, state.companies);
     state.processors = rankProcessors(state.edges, state.companies);
-    fillIssue($("issue"), reg);
+    fillIssue($("issue"), reg, `${state.edges.length} edges`);
   } catch {
     state.edges = [];
   }

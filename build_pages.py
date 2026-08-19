@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import re
+from collections import Counter
 from html import escape
 from pathlib import Path
 from urllib.parse import urlparse
@@ -121,11 +122,46 @@ FONTS = (
 )
 
 
+VENDOR_HOST_RE = re.compile(
+    r"(^|\.)(safebase\.us|safebase\.com|vanta\.com|conveyor\.com|wolfia\.\w+|"
+    r"securitypal\.com|drata\.com|secureframe\.com|whistic\.com|"
+    r"sprinto\.com|trustcloud\.com)$",
+    re.I,
+)
+
+
 def host_of(url: str) -> str:
     try:
-        return urlparse(url).netloc.lower().removeprefix("www.")
+        parsed = urlparse(url)
+        host = (parsed.hostname or parsed.netloc or "").lower().removeprefix("www.")
+        if parsed.port and parsed.port not in (80, 443):
+            return f"{host}:{parsed.port}"
+        return host
     except Exception:
         return ""
+
+
+def normalize_url(url: str) -> str:
+    try:
+        parsed = urlparse(url)
+        if not parsed.scheme or not parsed.hostname:
+            return url
+        netloc = parsed.hostname
+        if parsed.port and parsed.port not in (80, 443):
+            netloc = f"{parsed.hostname}:{parsed.port}"
+        return parsed._replace(netloc=netloc).geturl()
+    except Exception:
+        return url
+
+
+def display_host(url: str, company_domain: str = "") -> str:
+    host = host_of(url)
+    own = (company_domain or "").lower().removeprefix("www.")
+    if own and (host == own or host.endswith("." + own)):
+        return host
+    if VENDOR_HOST_RE.search(host):
+        return "official page"
+    return host
 
 
 def path_of(url: str) -> str:
@@ -167,23 +203,48 @@ def map_cert(name: str) -> dict:
     return {"id": att_id, "name": name, "weight": weight}
 
 
+CLERK_KEEP = re.compile(r"^(Public trust center|Official page)\b", re.I)
+MARKETING = re.compile(
+    r"\b(our users|our mission|rely on us|good custodians|commitment to|"
+    r"explore our|ensures security|building trusted|we are an)\b",
+    re.I,
+)
+
+FACTOR_KEYS = ("page", "marks", "dpa", "processors", "status", "bounty", "privacy", "years")
+FACTOR_FROM_FILE = {
+    "portal": "page",
+    "certs": "marks",
+    "page": "page",
+    "marks": "marks",
+    "dpa": "dpa",
+    "subprocessors": "processors",
+    "processors": "processors",
+    "status": "status",
+    "disclosure": "bounty",
+    "bounty": "bounty",
+    "privacy": "privacy",
+    "longevity": "years",
+    "years": "years",
+}
+
+
 def clerk_summary(row: dict, attestations: list[dict], processors: list[dict]) -> str:
-    raw = (row.get("summary") or "") + " " + (row.get("title") or "")
-    if VENDOR_WORDS.search(raw):
-        raw = ""
     if not row.get("found"):
         return ""
-    if raw and not VENDOR_WORDS.search(raw) and len(raw.strip()) > 40:
-        # Marketing reprint — do not keep.
+    raw = (row.get("summary") or "").strip()
+    if VENDOR_WORDS.search(raw) or MARKETING.search(raw):
         raw = ""
+    if raw and CLERK_KEEP.match(raw):
+        parts = re.split(r"(?<=[.?!])\s+", raw)
+        return " ".join(parts[:2]).strip()
     marks = [a["name"] for a in attestations]
     if marks:
         cited = ", ".join(marks[:6])
         extra = f" +{len(marks) - 6}" if len(marks) > 6 else ""
-        return f"Official page on file. Marks cited: {cited}{extra}."
+        return f"Official page on file. Marks cited from public HTML: {cited}{extra}."
     if processors:
         return "Official page on file. Named processors filed from a first-party list."
-    return "Official page on file. No marks extracted from the public page."
+    return "Official page on file. No marks extracted from the public HTML."
 
 
 def classify_official(url: str) -> str:
@@ -197,34 +258,21 @@ def classify_official(url: str) -> str:
     return "trust"
 
 
-def disclosure_of(found: bool, attestations: list[dict], instruments: dict, founded_year: int | None) -> dict:
-    factors = {
-        "page": 20 if found else 0,
-        "marks": 0,
-        "dpa": 8 if instruments.get("dpa") else 0,
-        "processors": 8 if instruments.get("subprocessors") else 0,
-        "status": 6 if instruments.get("status") else 0,
-        "bounty": 6 if instruments.get("bounty") else 0,
-        "privacy": 6 if instruments.get("privacy") else 0,
-        "years": 0,
-    }
-    if found:
-        factors["marks"] = min(40, sum(a["weight"] for a in attestations))
-    if founded_year:
-        factors["years"] = min(10, (SCORE_YEAR - founded_year) // 2)
-    score = min(100, sum(factors.values()))
-    if not found:
+def filed_disclosure(row: dict) -> dict:
+    """Print the file’s score. Crawl misses (found=false) stamp silent."""
+    raw = row.get("disclosure") or {}
+    factors = {k: 0 for k in FACTOR_KEYS}
+    for key, val in (raw.get("factors") or {}).items():
+        dest = FACTOR_FROM_FILE.get(key)
+        if dest:
+            factors[dest] = int(val or 0)
+    score = raw.get("score")
+    score = min(100, int(score)) if score is not None else min(100, sum(factors.values()))
+    tier = raw.get("tier") or "silent"
+    if row.get("found") is False:
+        return {"score": 0, "tier": "silent", "factors": {k: 0 for k in FACTOR_KEYS}}
+    if tier not in {"silent", "thin", "on-file", "substantial", "complete"}:
         tier = "silent"
-        score = 0
-        factors = {k: 0 for k in factors}
-    elif score < 40:
-        tier = "thin"
-    elif score < 70:
-        tier = "on-file"
-    elif score < 90:
-        tier = "substantial"
-    else:
-        tier = "complete"
     return {"score": score, "tier": tier, "factors": factors}
 
 
@@ -275,12 +323,13 @@ def seen_date(generated_at: str) -> str | None:
     return generated_at[:10] if generated_at else None
 
 
-def file_instrument(instruments: dict, key: str, url: str, generated_at: str) -> None:
+def file_instrument(instruments: dict, key: str, url: str, generated_at: str, company_domain: str = "") -> None:
     if not url or instruments.get(key):
         return
+    url = normalize_url(url)
     instruments[key] = {
         "url": url,
-        "host": host_of(url),
+        "host": display_host(url, company_domain),
         "seen": seen_date(generated_at),
     }
 
@@ -298,8 +347,11 @@ def register_slug_for(node: dict, by_slug: dict, by_domain: dict) -> str | None:
 def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_domain: dict, generated_at: str) -> dict:
     slug = row["slug"]
     links = row.get("links") or {}
-    found = bool(row.get("found") or links.get("trust") or links.get("security"))
-    official = row.get("trust_url") or links.get("trust") or links.get("security") or row.get("final_url") or ""
+    domain = row.get("domain") or ""
+    found = bool(row.get("found"))
+    official = ""
+    if found:
+        official = row.get("trust_url") or links.get("trust") or links.get("security") or row.get("final_url") or ""
     certs = [c for c in (row.get("certs") or []) if c]
     attestations = [map_cert(c) for c in certs]
     year = row.get("founded_year")
@@ -309,11 +361,12 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
     for link_key, inst_key in LINK_TO_INSTRUMENT.items():
         url = links.get(link_key)
         if url:
-            file_instrument(instruments, inst_key, url, generated_at)
+            file_instrument(instruments, inst_key, url, generated_at, domain)
     if found and official:
         slot = classify_official(official)
-        file_instrument(instruments, slot, official, generated_at)
+        file_instrument(instruments, slot, official, generated_at, domain)
 
+    # Real edges only. A subprocessors *link* is not a parsed name.
     mine = [
         e for e in edges
         if e.get("source_url") and (e.get("from") or e.get("company")) == slug
@@ -331,9 +384,9 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
         })
     if mine and not instruments.get("subprocessors"):
         src = mine[0]["source_url"]
-        file_instrument(instruments, "subprocessors", src, generated_at)
+        file_instrument(instruments, "subprocessors", src, generated_at, domain)
 
-    disc = disclosure_of(found, attestations, instruments, year)
+    disc = filed_disclosure(row)
     summary = clerk_summary(row, attestations, processors)
 
     public = {
@@ -435,8 +488,9 @@ def dossier_html(row: dict, generated_at: str) -> str:
         rec = inst.get(key)
         label = labels[key]
         if rec and rec.get("url"):
+            shown = rec.get("host") or display_host(rec["url"], domain)
             inst_rows.append(
-                f"<tr><td>{escape(label)}</td><td>{escape(rec.get('host') or host_of(rec['url']))}</td>"
+                f"<tr><td>{escape(label)}</td><td>{escape(shown)}</td>"
                 f"<td>{escape(fmt_day((rec.get('seen') or '') + 'T00:00:00Z') if rec.get('seen') else '—')}</td></tr>"
             )
         else:
@@ -570,21 +624,43 @@ def dossier_html(row: dict, generated_at: str) -> str:
 """
 
 
+def coverage_of(companies_in: list[dict], public_companies: list[dict], edges: list[dict]) -> dict:
+    links = Counter()
+    for row in companies_in:
+        for key, url in (row.get("links") or {}).items():
+            if url:
+                links[key] += 1
+    tiers = Counter(c["tier"] for c in public_companies)
+    top = Counter(e.get("to") for e in edges if e.get("to")).most_common(3)
+    return {
+        "companies": len(public_companies),
+        "years": sum(1 for c in companies_in if c.get("founded_year")),
+        "certs_companies": sum(1 for c in companies_in if c.get("certs")),
+        "edges": len(edges),
+        "top_processors": [{"id": key, "n": n} for key, n in top],
+        "links": {
+            "security_txt": links.get("security_txt", 0),
+            "dpa": links.get("dpa", 0),
+            "privacy": links.get("privacy", 0),
+            "status": links.get("status", 0),
+            "bug_bounty": links.get("bug_bounty", 0),
+            "subprocessors": links.get("subprocessors", 0),
+        },
+        "tiers": {
+            "silent": tiers.get("silent", 0),
+            "thin": tiers.get("thin", 0),
+            "on-file": tiers.get("on-file", 0),
+            "substantial": tiers.get("substantial", 0),
+            "complete": tiers.get("complete", 0),
+        },
+    }
+
+
 def main() -> int:
-    raw = {}
-    for candidate in (
-        ROOT / "data" / "enriched.json",
-        SITE / "data" / "enriched.json",
-        ROOT / "data" / "register-source.json",
-        ROOT / "data" / "results.json",
-        SITE / "data.json",
-    ):
-        raw = load_json(candidate, {})
-        companies = raw.get("companies") or []
-        if companies:
-            break
-    if not raw.get("companies"):
-        raw = {}
+    src = SITE / "data" / "enriched.json"
+    if not src.exists():
+        src = ROOT / "data" / "enriched.json"
+    raw = load_json(src, {})
     companies_in = raw.get("companies") or []
     generated_at = raw.get("generated_at") or ""
     sources = raw.get("sources") or [
@@ -592,10 +668,11 @@ def main() -> int:
         {"name": "Public enterprise, security, and AI vendors", "url": None},
     ]
 
-    edges_doc = load_json(ROOT / "data" / "subprocessors.json", {"edges": []})
-    if not edges_doc.get("edges"):
-        edges_doc = load_json(SITE / "data" / "subprocessors.json", {"edges": []})
-    edges = edges_doc.get("edges") or []
+    wires_path = SITE / "data" / "subprocessors.json"
+    if not wires_path.exists():
+        wires_path = ROOT / "data" / "subprocessors.json"
+    edges_doc = load_json(wires_path, {"edges": [], "nodes": []})
+    edges = [e for e in (edges_doc.get("edges") or []) if e.get("source_url")]
     nodes = {n["id"]: n for n in (edges_doc.get("nodes") or []) if n.get("id")}
     by_slug = {c["slug"]: c for c in companies_in if c.get("slug")}
     by_domain = {}
@@ -608,6 +685,7 @@ def main() -> int:
         enrich_company(row, edges, nodes, by_slug, by_domain, generated_at)
         for row in companies_in
     ]
+    coverage = coverage_of(companies_in, public_companies, edges)
 
     public = {
         "generated_at": generated_at,
@@ -615,13 +693,9 @@ def main() -> int:
         "companies": public_companies,
         "found": sum(1 for c in public_companies if c["found"]),
         "total": len(public_companies),
+        "coverage": coverage,
     }
     (SITE / "data.json").write_text(json.dumps(public, indent=2, ensure_ascii=False) + "\n")
-
-    (SITE / "data").mkdir(exist_ok=True)
-    (SITE / "data" / "subprocessors.json").write_text(
-        json.dumps(edges_doc, indent=2, ensure_ascii=False) + "\n"
-    )
 
     out = SITE / "c"
     if out.exists():
@@ -649,7 +723,8 @@ def main() -> int:
     for c in public_companies:
         tiers[c["tier"]] = tiers.get(c["tier"], 0) + 1
     print(f"Wrote {len(public_companies)} dossiers + public data.json + sitemap")
-    print("tiers", tiers)
+    print("coverage", json.dumps(coverage, sort_keys=True))
+    print("tiers", dict(tiers))
     print("edges", len(edges))
     return 0
 
