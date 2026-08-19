@@ -2,7 +2,7 @@
 
 export const GATE_KEY = "ot_human_v1";
 export const GATE_MS = 30 * 60 * 1000;
-export const DATA_V = "2026-08-19T11:14:23Z";
+export const DATA_V = "2026-08-19T15:54:07Z";
 export const FILE_KEYS = ["page", "marks", "dpa", "subprocessors", "years"];
 
 export function dataUrl(path) {
