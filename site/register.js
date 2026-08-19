@@ -17,12 +17,107 @@ import {
   echoWords,
 } from "./finder.js";
 
+const SORTS = new Set(["rank", "name", "domain", "tier", "marks", "probed"]);
+const DEFAULT_DIR = {
+  rank: "asc",
+  name: "asc",
+  domain: "asc",
+  tier: "desc",
+  marks: "desc",
+  probed: "desc",
+};
+const TIER_ORDER = {
+  silent: 0,
+  thin: 1,
+  "on-file": 2,
+  substantial: 3,
+  complete: 4,
+};
+
 const state = {
   rows: [],
   generatedAt: null,
   q: "",
   url: { tier: "all", list: "all", fedramp: "all" },
+  sort: "rank",
+  dir: "asc",
+  sorted: false,
 };
+
+export function normalizeSort(value) {
+  const v = String(value || "").trim().toLowerCase();
+  if (v === "#" || v === "num" || v === "number") return "rank";
+  return SORTS.has(v) ? v : "";
+}
+
+export function normalizeDir(value, sort) {
+  const v = String(value || "").trim().toLowerCase();
+  if (v === "asc" || v === "ascending") return "asc";
+  if (v === "desc" || v === "descending") return "desc";
+  return DEFAULT_DIR[sort] || "asc";
+}
+
+export function clickSort(current, key) {
+  const sort = normalizeSort(key);
+  if (!sort) return { sort: current.sort, dir: current.dir, sorted: current.sorted };
+  if (current.sorted && current.sort === sort) {
+    return { sort, dir: current.dir === "asc" ? "desc" : "asc", sorted: true };
+  }
+  return { sort, dir: DEFAULT_DIR[sort], sorted: true };
+}
+
+function rankOf(row) {
+  return row && row.rank != null ? row.rank : 9999;
+}
+
+function cmpText(a, b) {
+  return String(a || "").localeCompare(String(b || ""), undefined, { sensitivity: "base" });
+}
+
+export function marksCount(row) {
+  const stamp = !!(row && row.fedramp);
+  const atts = ((row && row.attestations) || []).filter((a) => a && (a.name || a.short));
+  let names = (atts.length ? atts : ((row && row.certs) || []).map((name) => ({ name, id: null }))).slice();
+  if (stamp) names = names.filter((a) => !isFedrampCite(a));
+  return names.length + (stamp ? 1 : 0);
+}
+
+function probeTime(row, fallback) {
+  const iso = (row && row.probed_at) || fallback || "";
+  const t = iso ? Date.parse(iso) : NaN;
+  return Number.isNaN(t) ? 0 : t;
+}
+
+export function compareRows(a, b, key, generatedAt) {
+  switch (key) {
+    case "rank":
+      return rankOf(a) - rankOf(b);
+    case "name":
+      return cmpText(a && a.name, b && b.name);
+    case "domain":
+      return cmpText(a && a.domain, b && b.domain);
+    case "tier":
+      return (TIER_ORDER[(a && a.tier) || "silent"] || 0) - (TIER_ORDER[(b && b.tier) || "silent"] || 0);
+    case "marks":
+      return marksCount(a) - marksCount(b);
+    case "probed":
+      return probeTime(a, generatedAt) - probeTime(b, generatedAt);
+    default:
+      return rankOf(a) - rankOf(b);
+  }
+}
+
+export function arrangeRows(rows, sort, dir, generatedAt) {
+  const key = normalizeSort(sort) || "rank";
+  const sign = dir === "desc" ? -1 : 1;
+  return rows.slice().sort((a, b) => {
+    const c = compareRows(a, b, key, generatedAt);
+    if (c) return c * sign;
+    const r = rankOf(a) - rankOf(b);
+    if (r) return r;
+    return cmpText(a && a.name, b && b.name);
+  });
+}
 
 function hay(row) {
   const marks = (row.certs || []).join(" ");
@@ -50,7 +145,7 @@ function active() {
 function apply() {
   const f = active();
   const q = f.q.trim().toLowerCase();
-  return state.rows.filter((row) => {
+  const found = state.rows.filter((row) => {
     if (f.tier !== "all" && row.tier !== f.tier) return false;
     if (f.list === "cloud100" && row.list !== "cloud100") return false;
     if (f.list === "enterprise" && row.list !== "enterprise") return false;
@@ -64,6 +159,7 @@ function apply() {
     if (!q) return true;
     return hay(row).includes(q);
   });
+  return arrangeRows(found, state.sort, state.dir, state.generatedAt);
 }
 
 function guessDomain(q) {
@@ -116,12 +212,30 @@ function syncUrl() {
   const parsed = parseFinder(state.q);
   if (parsed.tier === "all" && f.tier !== "all") params.set("tier", f.tier);
   if (parsed.list === "all" && f.list !== "all") params.set("list", f.list);
+  if (state.sorted) {
+    params.set("sort", state.sort);
+    params.set("dir", state.dir);
+  }
   const qs = params.toString();
   const next = (qs ? "?" + qs : "") + window.location.hash;
   const path = window.location.pathname + next;
   if (path !== window.location.pathname + window.location.search + window.location.hash) {
     history.replaceState(null, "", path || window.location.pathname);
   }
+}
+
+function paintHeaders() {
+  const heads = document.querySelectorAll("#reg thead th[data-sort]");
+  heads.forEach((th) => {
+    const key = th.getAttribute("data-sort");
+    const live = state.sorted && state.sort === key;
+    th.classList.toggle("on", live);
+    th.setAttribute("aria-sort", live ? (state.dir === "desc" ? "descending" : "ascending") : "none");
+    const arr = th.querySelector(".arr");
+    if (!arr) return;
+    arr.hidden = !live;
+    arr.textContent = live ? (state.dir === "desc" ? " ↓" : " ↑") : "";
+  });
 }
 
 function renderEcho() {
@@ -155,6 +269,7 @@ function render() {
     ? `showing ${rows.length} of ${state.rows.length}`
     : "";
   renderEcho();
+  paintHeaders();
   syncUrl();
 
   if (!state.rows.length) {
@@ -256,6 +371,18 @@ function bind() {
       clearToken(btn.getAttribute("data-clear"));
     });
   }
+  const head = document.querySelector("#reg thead");
+  if (head) {
+    head.addEventListener("click", (e) => {
+      const th = e.target.closest("th[data-sort]");
+      if (!th) return;
+      const next = clickSort(state, th.getAttribute("data-sort"));
+      state.sort = next.sort;
+      state.dir = next.dir;
+      state.sorted = next.sorted;
+      render();
+    });
+  }
   $("reg-body").addEventListener("click", (e) => {
     if (e.target.closest("a")) return;
     const tr = e.target.closest("tr");
@@ -292,6 +419,12 @@ async function load() {
   if (params.get("list")) {
     state.url.list = normalizeList(params.get("list"));
   }
+  const sort = normalizeSort(params.get("sort"));
+  if (sort) {
+    state.sort = sort;
+    state.dir = normalizeDir(params.get("dir"), sort);
+    state.sorted = true;
+  }
   try {
     const res = await fetch(dataUrl("./data.json"), { cache: "no-store" });
     if (!res.ok) throw new Error(String(res.status));
@@ -311,4 +444,6 @@ async function load() {
   render();
 }
 
-load();
+if (typeof window !== "undefined") {
+  load();
+}

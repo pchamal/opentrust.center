@@ -270,6 +270,36 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
   font-weight: 500;
   padding: 8px 8px 8px 0;
   border-bottom: var(--rule);
+  white-space: nowrap;
+}
+.reg th button {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  cursor: pointer;
+  border-radius: 0;
+}
+.reg th button:hover { color: var(--ink); }
+.reg th.on {
+  color: var(--ink);
+}
+.reg th.on button {
+  text-decoration: underline;
+  text-decoration-color: var(--rust);
+  text-underline-offset: 3px;
+}
+.reg th .arr {
+  font: var(--t-meta);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--mute);
+  font-weight: 400;
 }
 .reg td {
   font: var(--t-row);

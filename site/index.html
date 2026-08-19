@@ -67,12 +67,12 @@
     <table class="reg" id="reg" hidden>
       <thead>
         <tr>
-          <th>#</th>
-          <th>name</th>
-          <th>domain</th>
-          <th>tier</th>
-          <th class="marks">marks</th>
-          <th>probed</th>
+          <th scope="col" data-sort="rank"><button type="button">#<span class="arr" hidden></span></button></th>
+          <th scope="col" data-sort="name"><button type="button">name<span class="arr" hidden></span></button></th>
+          <th scope="col" data-sort="domain"><button type="button">domain<span class="arr" hidden></span></button></th>
+          <th scope="col" data-sort="tier"><button type="button">tier<span class="arr" hidden></span></button></th>
+          <th scope="col" class="marks" data-sort="marks"><button type="button">marks<span class="arr" hidden></span></button></th>
+          <th scope="col" data-sort="probed"><button type="button">probed<span class="arr" hidden></span></button></th>
         </tr>
       </thead>
       <tbody id="reg-body"></tbody>
