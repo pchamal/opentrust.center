@@ -208,6 +208,20 @@ def fmt_day(iso: str) -> str:
         return iso
 
 
+def fmt_when(iso: str) -> str:
+    if not iso:
+        return ""
+    try:
+        from datetime import datetime, timezone, timedelta
+        dt = datetime.strptime(iso, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+        pt = dt - timedelta(hours=7)  # PDT in August
+        hour = pt.hour % 12 or 12
+        ampm = "AM" if pt.hour < 12 else "PM"
+        return f"{fmt_day(iso)}, {hour}:{pt.minute:02d} {ampm} PT"
+    except Exception:
+        return fmt_day(iso)
+
+
 def enrich_company(row: dict, founded: dict, edges: list[dict], generated_at: str) -> dict:
     slug = row["slug"]
     found = bool(row.get("found"))
@@ -463,7 +477,7 @@ def dossier_html(row: dict, generated_at: str) -> str:
     </table>
 
     {clerk_html}
-    <p class="probe">last probed {escape(fmt_day(generated_at))}</p>
+    <p class="probe">last probed {escape(fmt_when(generated_at))}</p>
     <div class="actions">
       {outbound}
       {gate}

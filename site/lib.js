@@ -39,15 +39,18 @@ export function fmtWhen(iso) {
   if (!iso) return "";
   const d = new Date(iso);
   if (Number.isNaN(d.getTime())) return iso;
-  return d.toLocaleString("en-US", {
+  const day = d.toLocaleDateString("en-GB", {
     timeZone: "America/Los_Angeles",
     day: "numeric",
     month: "short",
     year: "numeric",
+  }).replace(",", "");
+  const time = d.toLocaleTimeString("en-US", {
+    timeZone: "America/Los_Angeles",
     hour: "numeric",
     minute: "2-digit",
-    timeZoneName: "short",
   });
+  return `${day}, ${time} PT`;
 }
 
 export function humanOk() {
