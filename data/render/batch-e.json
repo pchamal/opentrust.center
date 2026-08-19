@@ -1,0 +1,201 @@
+{
+  "batch": "e",
+  "captured_at": "2026-08-19T05:55:00Z",
+  "method": "Chrome page render, 9-11s JS wait, visible text + first-party links only. No forms submitted.",
+  "vendors": [
+    {
+      "slug": "papaya-global",
+      "url": "https://www.papayaglobal.com/security-and-privacy/",
+      "rendered": true,
+      "certifications_visible": ["SOC 1", "SOC 2", "ISO 27001", "ISO 27701", "GDPR"],
+      "links": {
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bounty": null,
+        "privacy_policy": "https://www.papayaglobal.com/privacy/"
+      },
+      "named_subprocessors": [],
+      "notes": "No trust-center portal. Cert list appears in footer text. AWS named as hosting provider in body copy (not a formal subprocessor list). Payments via Azimo (Papaya's licensed payments arm) mentioned in footer."
+    },
+    {
+      "slug": "brightwheel",
+      "url": "https://mybrightwheel.com/security/",
+      "rendered": true,
+      "certifications_visible": ["TX-RAMP certified security controls", "PCI Level 1"],
+      "links": {
+        "dpa": null,
+        "subprocessors": null,
+        "status": "https://brightwheel.statuspage.io/",
+        "bounty": null,
+        "privacy_policy": "https://mybrightwheel.com/privacy/"
+      },
+      "named_subprocessors": [],
+      "notes": "Marketing security page. AWS mentioned as cloud storage in body copy. Page references a 'brightwheel Security FAQ' but no resolvable first-party href captured. 99.9% uptime claim."
+    },
+    {
+      "slug": "chainguard",
+      "url": "https://security.chainguard.dev",
+      "rendered": true,
+      "platform": "Vanta Trust Center",
+      "certifications_visible": ["SOC 2 Type 2", "ISO 27001:2022", "UK Cyber Essentials", "GDPR", "CCPA", "SLSA"],
+      "links": {
+        "dpa": null,
+        "subprocessors": "https://security.chainguard.dev/subprocessors",
+        "status": null,
+        "bounty": null,
+        "vulnerability_disclosure_inbound": "https://www.chainguard.dev/legal/inbound-vulnerability-disclosure-policy",
+        "vulnerability_disclosure_outbound": "https://www.chainguard.dev/legal/outbound-vulnerability-disclosure-policy",
+        "privacy_policy": "https://www.chainguard.dev/legal/privacy-notice",
+        "uk_cyber_essentials_certificate": "https://registry.blockmarktech.com/certificates/fa50b6d0-21d2-41c5-befe-c6b205372377/"
+      },
+      "named_subprocessors": [
+        {"name": "Google Cloud Platform", "purpose": "Cloud service provider", "region": "United States"},
+        {"name": "Cloudflare", "purpose": "Content delivery services", "region": "United States"},
+        {"name": "Vercel", "purpose": "Data infrastructure and hosting services", "region": "United States, United Kingdom, Spain"},
+        {"name": "Zendesk", "purpose": "Customer support platform", "region": "United States"}
+      ],
+      "bug_bounty": false,
+      "notes": "Page states explicitly: 'We do not participate in a bug bounty program.' SOC 2 / pentest docs are gated behind request-access. Subprocessor list shown on overview is partial ('View all').",
+      "public_docs": ["SOC 2 Type II (gated)", "SOC 2 Type II Bridge Letter 2026 (gated)", "ISO 27001:2022 Certificate", "Pentest Cloud Infrastructure 2026 (gated)", "Pentest External Network 2026 (gated)", "CAIQ v4.0.2 (gated)", "SIG Lite 2025 (gated)", "HECVAT (gated)", "Hardening Guide (public PDF)", "DISA STIG Commitment", "FIPS Commitment"]
+    },
+    {
+      "slug": "synthesia",
+      "url": "https://security.synthesia.io",
+      "rendered": true,
+      "platform": "Vanta Trust Center",
+      "certifications_visible": ["SOC 2 Type II", "ISO/IEC 27001:2022", "ISO/IEC 27701:2019", "ISO/IEC 42001:2023", "GDPR", "UK Cyber Essentials"],
+      "links": {
+        "dpa": "https://www.synthesia.io/legal/data-processing-agreement",
+        "subprocessors": null,
+        "status": null,
+        "bounty": null,
+        "privacy_policy": "https://www.synthesia.io/terms/privacy-policy",
+        "security_practices": "https://www.synthesia.io/legal/security-practices",
+        "ai_governance_practices": "https://www.synthesia.io/legal/ai-governance-practices",
+        "responsible_ai": "https://www.synthesia.io/responsible-ai"
+      },
+      "named_subprocessors": [],
+      "notes": "No subprocessor tab; FAQ item 'Will any of the data be shared with any third parties (e.g., sub-processors)?' exists but list not rendered publicly. Certificates and 2026 SOC 2 / pentest reports listed but gated behind request-access. Update dated July 28, 2026 notes SOC 2 Type II by A-LIGN covering Apr 7 2025 - Jun 1 2026."
+    },
+    {
+      "slug": "clay",
+      "url": "https://trust.clay.com",
+      "rendered": true,
+      "platform": "Vanta Trust Center",
+      "certifications_visible": ["SOC 2 Type 2", "ISO 27001:2022", "ISO 42001:2023", "GDPR", "CCPA"],
+      "links": {
+        "dpa": "https://trust.clay.com/?requestAccessOpen=true&requestedResources=67321e88d73ffa64fb42a29c",
+        "subprocessors": "https://trust.clay.com/subprocessors",
+        "status": null,
+        "bounty": null,
+        "privacy_policy": "https://privacy.clay.com/"
+      },
+      "named_subprocessors": [
+        {"name": "Amazon Web Services", "purpose": "Cloud provider", "region": "USA"},
+        {"name": "Amplitude", "purpose": "Data analytics", "region": "USA"},
+        {"name": "Anthropic", "purpose": "LLM provider/hosting", "region": "USA"},
+        {"name": "Braintrust", "purpose": "LLM Operations", "region": "USA"}
+      ],
+      "notes": "Overview states signed DPA requested via security@clay.com; DPA document itself is gated. Subprocessor list shown is partial ('View all'). SOC 2 Type 2, SOC 2 Type 1, ISO 27001/42001 certs and Aug 2026 bridge letter all gated."
+    },
+    {
+      "slug": "block",
+      "url": "https://trust.squareup.com",
+      "final_url": "https://trust.squareup.com/overview",
+      "rendered": true,
+      "platform": "Vendict Trust Center",
+      "certifications_visible": ["PCI DSS 4.0.1", "SOC 1 Type 2", "SOC 2 Type 2", "ISO 22301:2019", "ISO 27001:2022", "PCI MPoC", "PCI PIN", "PCI PTS POI"],
+      "compliance_count_stated": 9,
+      "links": {
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bounty": null,
+        "pci_listing": "https://listings.pcisecuritystandards.org/assessors_and_solutions/pin_transaction_devices?agree=true"
+      },
+      "named_subprocessors": [],
+      "bug_bounty": "Listed as a control ('Bug Bounty Program') under Application Security, but no public link rendered",
+      "notes": "Branded as Square Trust Center (Block). Documents (16) include PCI DSS AOC, SOC 2 Type II Report, ISO 27001, SOC 2 Bridge Letter (July 2026), PCI DSS Merchant Responsibility Matrix, PCI PTS Approval - access-gated. Controls list includes Penetration Testing, Bug Bounty Program, Zero Trust Architecture, DDoS Protection, International Data Transfers."
+    },
+    {
+      "slug": "digitalocean",
+      "url": "https://www.digitalocean.com/trust",
+      "rendered": true,
+      "certifications_visible": ["SOC 2", "SOC 3", "Global PRP", "HIPAA eligible", "DORA eligible"],
+      "links": {
+        "dpa": null,
+        "subprocessors": null,
+        "status": "https://status.digitalocean.com/",
+        "bounty": null,
+        "privacy_policy": "https://www.digitalocean.com/legal/privacy-policy",
+        "certification_reports": "https://www.digitalocean.com/trust/certification-reports",
+        "controls": "https://www.digitalocean.com/trust/controls",
+        "resources": "https://www.digitalocean.com/trust/resources",
+        "faq": "https://www.digitalocean.com/trust/faq",
+        "report_vulnerability": "https://www.digitalocean.com/legal/contact-security",
+        "access_reports": "https://cloud.digitalocean.com/trust/security-reports"
+      },
+      "named_subprocessors": [],
+      "notes": "First-party trust hub. Report access requires cloud console login. No public subprocessor or DPA link on this page."
+    },
+    {
+      "slug": "dropbox",
+      "url": "https://trust.dropbox.com",
+      "rendered": true,
+      "platform": "SafeBase Trust Center (Dropbox for Teams profile)",
+      "certifications_visible": ["CCPA", "CSA STAR Level 2", "EU Cloud COC", "EU-US DPF", "GDPR", "HIPAA", "ISMAP", "ISO 22301", "ISO/IEC 27001", "ISO/IEC 27017:2015", "ISO/IEC 27018:2019", "ISO/IEC 27701", "PCI DSS", "SOC 1", "SOC 2", "SOC 3"],
+      "links": {
+        "dpa": null,
+        "subprocessors": "https://trust.dropbox.com/ (Legal > Sub-processors item)",
+        "status": "Status Monitoring item - 'All Systems Operational'",
+        "bounty": "https://trust.dropbox.com/?itemUid=64c9680b-ef79-4c92-baa0-13b541954bef&source=click",
+        "safety_center": "https://safety.dropbox.com/"
+      },
+      "named_subprocessors": [],
+      "notes": "Bug Bounty listed as a public App Security item. Sub-processors listed under Legal but rendered as an in-portal item, not a direct first-party URL. Public docs: Dropbox Security White Paper, FDA 21 CFR Part 11 White Paper, Pentest Reports, CAIQ, HECVAT Full, AI FAQ/Principles/Whitepaper. Update Dec 2, 2025: SOC reports for Oct 1 2024 - Sep 30 2025 published. Security grades shown: SecurityScorecard, HSTS Preload, ImmuniWeb A."
+    },
+    {
+      "slug": "fastly",
+      "url": "https://fastly.com/trust",
+      "final_url": "https://www.fastly.com/trust",
+      "rendered": true,
+      "certifications_visible": [],
+      "links": {
+        "dpa": "https://www.fastly.com/data-processing",
+        "subprocessors": "https://docs.fastly.com/products/sub-processors",
+        "status": "https://www.fastlystatus.com/",
+        "bounty": null,
+        "report_security_issue": "https://www.fastly.com/security/report-security-issue/",
+        "security_advisories": "https://www.fastly.com/security-advisories",
+        "compliance": "https://www.fastly.com/compliance",
+        "compliance_faq": "https://www.fastly.com/trust/faq",
+        "security_measures": "https://docs.fastly.com/en/guides/security-measures",
+        "privacy_policy": "https://www.fastly.com/privacy/",
+        "ccpa_statement": "https://www.fastly.com/ccpa-compliance-statement/",
+        "law_enforcement_guidelines": "https://www.fastly.com/trust/law-enforcement-request-guidelines",
+        "transparency_report": "https://www.fastly.com/trust (Fastly's Transparency Report link listed)"
+      },
+      "named_subprocessors": [],
+      "notes": "Link-hub page only; no certification badges or names rendered on this page (certs live on /compliance). Strong first-party DPA + subprocessor + status links."
+    },
+    {
+      "slug": "freshworks",
+      "url": "https://trust.freshworks.com",
+      "rendered": true,
+      "platform": "SafeBase Trust Center (Freshservice product profile selected by default)",
+      "certifications_visible": ["SOC 2 Type 2", "Cyber Essentials", "Cyber Essentials Plus", "TX-RAMP", "SOC 3", "CCPA", "EU-US DPF", "Swiss-US DPF", "UK Extension to EU-US DPF", "ISO/IEC 27001 SoA", "CSA STAR Level 1", "ISO/IEC 27001:2022", "SOC 1 Type 2", "ISO/IEC 27701:2019"],
+      "links": {
+        "dpa": "https://trust.freshworks.com/?itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e&source=click",
+        "subprocessors": "https://trust.freshworks.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57&source=click",
+        "status": "https://trust.freshworks.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407&source=click",
+        "bounty": null,
+        "responsible_disclosure": "listed under App Security (in-portal item)",
+        "privacy_policy": "https://trust.freshworks.com/?itemUid=63f59def-eb18-4135-95a1-addeb7463801&source=click"
+      },
+      "named_subprocessors": [],
+      "risk_profile": {"data_access_level": "Restricted", "impact_level": "Moderate", "rto": "4 hours"},
+      "notes": "Trust Center is product-scoped via dropdown; captured default (Freshservice). App/Infra VAPT reports, DFD, network architecture doc are gated. FedRAMP Readiness section present (CPO, FedRAMP Marketplace). Update Dec 24, 2025: SOC 1 Type II attestation achieved (Oct 1 2024 - Oct 31 2025)."
+    }
+  ]
+}

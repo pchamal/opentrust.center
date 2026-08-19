@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T05:59:35Z",
+  "generated_at": "2026-08-19T06:01:13Z",
   "companies": [
     {
       "rank": 1,
@@ -3000,27 +3000,37 @@
       "probed": 13,
       "source": "forbes-cloud-100-2025",
       "http_status": 200,
-      "summary": "\",\"@id\":\"https:\\/\\/www.appsflyer.com\\/trust\\/\",\"url\":\"https:\\/\\/www.appsflyer.com\\/trust\\/\",\"name\":\"Trust - AppsFlyer\",\"isPartOf\":{\"@id\":\"https:\\/\\/www.appsflyer.com\\/#website\"},\"datePublished\":\"2025-07-27T13:20:46+00:00\",\"dateModified\":\"20",
+      "summary": "Public trust center. On file: SOC 2 Type II, CSA STAR, ISO 27001, ISO 27701, ISO 27017, ISO 27018 +2.",
       "list": "cloud100",
       "founded_year": 2011,
       "founded_source": "https://en.wikipedia.org/wiki/AppsFlyer",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "CSA STAR",
+        "ISO 27001",
+        "ISO 27701",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27032",
+        "EU-US DPF"
+      ],
       "links": {
         "trust": "https://www.appsflyer.com/trust",
-        "privacy": "https://www.appsflyer.com:443/privacy",
+        "privacy": "https://www.appsflyer.com/trust/privacy/",
         "subprocessors": "https://www.appsflyer.com/legal/subprocessors/",
         "dpa": "https://www.appsflyer.com:443/legal/dpa",
         "status": "https://status.appsflyer.com",
-        "security": "https://www.appsflyer.com/products/enterprise-grade-security/"
+        "security": "https://www.appsflyer.com/trust/security/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 55,
-        "tier": "on-file",
+        "score": 95,
+        "tier": "complete",
         "factors": {
           "portal": 20,
+          "marks": 40,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "privacy": 6,
           "longevity": 7
@@ -3140,9 +3150,24 @@
       "title": "Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "y: flex; align-items: center; justify-content: center; width: 100%; height: 100%; } .boot-loader__spinner { width: 30px; height: 30px; animation: boot-loader-spin 0.5s linear infinite; transform-origin: center; } .boot-loader__spinner path:",
+      "summary": "Public trust center. On file: SOC 1 Type II, SOC 2 Type II, SOC 3, HIPAA, PCI DSS, NIST CSF +8.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "SOC 3",
+        "HIPAA",
+        "PCI DSS",
+        "NIST CSF",
+        "IRAP",
+        "DORA",
+        "GDPR",
+        "NIS2",
+        "CCPA",
+        "ISO 27001",
+        "ISO 27701",
+        "ISO 42001"
+      ],
       "links": {
         "trust": "https://trust.workato.com",
         "subprocessors": "https://www.workato.com/legal/sub-processors",
@@ -3157,15 +3182,20 @@
         {
           "id": "slack",
           "name": "Slack"
-        }
+        },
+        "aws",
+        "intercom",
+        "stripe",
+        "sparkpost"
       ],
       "disclosure": {
-        "score": 48,
-        "tier": "on-file",
+        "score": 88,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
+          "marks": 40,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "longevity": 6
         }
@@ -3185,22 +3215,38 @@
       "title": "Pendo Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "At Pendo, security and data privacy are first-order considerations, the north star for how we design our products and policies as an organization. Language: English \u65e5\u672c\u8a9e",
+      "summary": "Public trust center. On file: SOC 2 Type II, PCI DSS, HIPAA, GDPR, CCPA, EU-US DPF +1.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "PCI DSS",
+        "HIPAA",
+        "GDPR",
+        "CCPA",
+        "EU-US DPF",
+        "TX-RAMP"
+      ],
       "links": {
         "trust": "https://trust.pendo.io",
         "privacy": "https://www.pendo.io/legal/privacy-policy/",
         "dpa": "https://www.pendo.io:443/legal/data-processing-addendum/",
-        "status": "https://status.pendo.io"
+        "status": "https://status.pendo.io",
+        "subprocessors": "https://trust.pendo.io/subprocessors"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "gcp",
+        "aws",
+        "openai",
+        "elastic"
+      ],
       "disclosure": {
-        "score": 40,
-        "tier": "on-file",
+        "score": 88,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
+          "marks": 40,
           "dpa": 8,
+          "processors": 8,
           "status": 6,
           "privacy": 6
         }
@@ -3294,9 +3340,21 @@
       "title": "Webflow Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Webflow\u2019s Trust Center \u2013 your source for transparency on security, compliance, availability, and governance for the Webflow platform.",
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 1 Type II, ISO 27001, ISO 27017, ISO 27018, ISO 42001 +5.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 1 Type II",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 42001",
+        "PCI DSS",
+        "GDPR",
+        "CCPA",
+        "DORA",
+        "EU-US DPF"
+      ],
       "links": {
         "trust": "https://trust.webflow.com",
         "security_txt": "https://webflow.com/.well-known/security.txt",
@@ -3309,12 +3367,13 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 54,
-        "tier": "on-file",
+        "score": 94,
+        "tier": "complete",
         "factors": {
           "portal": 20,
+          "marks": 40,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6
@@ -3371,9 +3430,19 @@
       "probed": 13,
       "source": "forbes-cloud-100-2025",
       "http_status": 200,
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27018, GDPR, EU-US DPF +3.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "GDPR",
+        "EU-US DPF",
+        "CCPA",
+        "ISO 9001",
+        "NIS2"
+      ],
       "links": {
         "trust": "https://securitytrust.benchling.com",
         "privacy": "https://www.benchling.com/privacy",
@@ -3381,10 +3450,11 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 26,
-        "tier": "thin",
+        "score": 66,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 40,
           "privacy": 6
         }
       }
@@ -3483,19 +3553,26 @@
       "title": "Personio Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: GDPR, ISO 27001, ISO 27017.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "GDPR",
+        "ISO 27001",
+        "ISO 27017"
+      ],
       "links": {
         "trust": "https://trust.personio.com",
-        "security": "https://trust.personio.com/?itemName=data_security&amp;source=click"
+        "security": "https://trust.personio.com/?itemName=data_security&amp;source=click",
+        "bug_bounty": "https://app.intigriti.com/programs/personio/personio/detail"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 25,
-        "tier": "thin",
+        "score": 48,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 17,
+          "disclosure": 6,
           "longevity": 5
         }
       },
@@ -3514,13 +3591,24 @@
       "title": "ClickUp Trust Center",
       "probed": 2,
       "source": "forbes-cloud-100-2025",
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27018, ISO 27701, ISO 42001 +4.",
       "list": "cloud100",
       "founded_year": 2016,
       "founded_source": "https://en.wikipedia.org/wiki/ClickUp",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27701",
+        "ISO 42001",
+        "PCI DSS",
+        "GDPR",
+        "CCPA",
+        "LGPD"
+      ],
       "links": {
-        "security": "https://security.clickup.com",
+        "security": "https://clickup.com/security-policy",
         "trust": "https://security.clickup.com",
         "privacy": "https://clickup.com/terms/privacy",
         "dpa": "https://clickup.com/terms/dpa",
@@ -3529,10 +3617,11 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 51,
-        "tier": "on-file",
+        "score": 91,
+        "tier": "complete",
         "factors": {
           "portal": 20,
+          "marks": 40,
           "dpa": 8,
           "status": 6,
           "disclosure": 6,
@@ -3625,24 +3714,34 @@
       "title": "ClickHouse Trust center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, PCI DSS, HIPAA, GDPR, CCPA +1.",
       "list": "cloud100",
       "founded_year": 2016,
       "founded_source": "https://en.wikipedia.org/wiki/ClickHouse",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "PCI DSS",
+        "HIPAA",
+        "GDPR",
+        "CCPA",
+        "EU-US DPF"
+      ],
       "links": {
         "trust": "https://trust.clickhouse.com",
         "security_txt": "https://clickhouse.com/.well-known/security.txt",
         "privacy": "https://clickhouse.com/legal/privacy-policy",
         "status": "https://status.clickhouse.com",
-        "security": "https://trust.clickhouse.com/?itemName=data_security&amp;itemUid=4064ac33-7b48-407b-aed7-ce02971d1ec1&amp;mobile_co=1&amp;source=click&amp;uid=1"
+        "security": "https://trust.clickhouse.com/?itemName=data_security&amp;itemUid=4064ac33-7b48-407b-aed7-ce02971d1ec1&amp;mobile_co=1&amp;source=click&amp;uid=1",
+        "bug_bounty": "https://bugcrowd.com/clickhouse"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 43,
-        "tier": "on-file",
+        "score": 83,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
+          "marks": 40,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
@@ -3717,24 +3816,34 @@
       "title": "Algolia Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Welcome to our Trust Center. At Algolia, search is more than a feature\u2014it\u2019s a seamless, intelligent experience. Our AI-powered platform helps teams build fast, intuitive discovery that connects users to what they need in an instant. Ever",
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, GDPR, CCPA, C5.",
       "list": "cloud100",
       "founded_year": 2012,
       "founded_source": "https://en.wikipedia.org/wiki/Algolia",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27017",
+        "GDPR",
+        "CCPA",
+        "C5"
+      ],
       "links": {
         "trust": "https://trust.algolia.com",
         "status": "https://status.algolia.com",
-        "subprocessors": "https://trust.algolia.com/subprocessors"
+        "subprocessors": "https://trust.algolia.com/subprocessors",
+        "privacy": "https://www.algolia.com/policies/privacy"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 41,
-        "tier": "on-file",
+        "score": 83,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 36,
+          "processors": 8,
           "status": 6,
+          "privacy": 6,
           "longevity": 7
         }
       }
@@ -4516,21 +4625,30 @@
       "probed": 18,
       "source": "forbes-cloud-100-2025",
       "http_status": 200,
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: SOC 1 Type II, SOC 2 Type II, ISO 27001, ISO 27701, GDPR.",
       "list": "cloud100",
       "founded_year": 2016,
       "founded_source": "https://en.wikipedia.org/wiki/Papaya_Global",
-      "certs": [],
+      "certs": [
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27701",
+        "GDPR"
+      ],
       "links": {
-        "status": "https://status.papayaglobal.com"
+        "status": "https://status.papayaglobal.com",
+        "privacy": "https://www.papayaglobal.com/privacy/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 31,
-        "tier": "thin",
+        "score": 74,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
+          "marks": 37,
           "status": 6,
+          "privacy": 6,
           "longevity": 5
         }
       }
@@ -4548,20 +4666,26 @@
       "probed": 13,
       "source": "forbes-cloud-100-2025",
       "http_status": 200,
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: TX-RAMP, PCI DSS.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "TX-RAMP",
+        "PCI DSS"
+      ],
       "links": {
         "security": "https://mybrightwheel.com/security/",
         "trust": "https://mybrightwheel.com/security/",
-        "privacy": "https://mybrightwheel.com/privacy/"
+        "privacy": "https://mybrightwheel.com/privacy/",
+        "status": "https://brightwheel.statuspage.io/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 26,
-        "tier": "thin",
+        "score": 49,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 17,
+          "status": 6,
           "privacy": 6
         }
       }
@@ -4724,9 +4848,16 @@
       "title": "Chainguard Trust Center",
       "probed": 2,
       "source": "forbes-cloud-100-2025",
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, Cyber Essentials, GDPR, CCPA, SLSA.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "Cyber Essentials",
+        "GDPR",
+        "CCPA",
+        "SLSA"
+      ],
       "links": {
         "security": "https://security.chainguard.dev",
         "trust": "https://security.chainguard.dev",
@@ -4734,13 +4865,19 @@
         "status": "https://status.chainguard.dev",
         "subprocessors": "https://security.chainguard.dev/subprocessors"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "gcp",
+        "cloudflare",
+        "vercel",
+        "zendesk"
+      ],
       "disclosure": {
-        "score": 40,
-        "tier": "on-file",
+        "score": 74,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 34,
+          "processors": 8,
           "status": 6,
           "privacy": 6
         }
@@ -4758,25 +4895,35 @@
       "title": "Synthesia Trust Center",
       "probed": 2,
       "source": "forbes-cloud-100-2025",
-      "summary": "Synthesia allows you to create videos directly in a web browser. Simply select an actor, type in the text and use AI to generate your video without the need for actors, film crew or expensive equipment and post-production. You can create st",
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27701, ISO 42001, GDPR, Cyber Essentials.",
       "list": "cloud100",
       "founded_year": 2017,
       "founded_source": "https://en.wikipedia.org/wiki/Synthesia_(company)",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27701",
+        "ISO 42001",
+        "GDPR",
+        "Cyber Essentials"
+      ],
       "links": {
         "security": "https://security.synthesia.io",
         "trust": "https://security.synthesia.io",
-        "privacy": "https://www.synthesia.io/legal/privacy-policy",
+        "privacy": "https://www.synthesia.io/terms/privacy-policy",
         "subprocessors": "https://www.synthesia.io/legal/subprocessors",
-        "status": "https://status.synthesia.io"
+        "status": "https://status.synthesia.io",
+        "dpa": "https://www.synthesia.io/legal/data-processing-agreement"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 44,
-        "tier": "on-file",
+        "score": 91,
+        "tier": "complete",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 39,
+          "dpa": 8,
+          "processors": 8,
           "status": 6,
           "privacy": 6,
           "longevity": 4
@@ -4795,23 +4942,37 @@
       "title": "Clay Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Go to market with unique data\u2014and the ability to act on it. Access 100+ premium data sources and AI research agents in one platform, then automate growth workflows to turn insights into revenue. Note: To request a signed Data Processing Ag",
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 42001, GDPR, CCPA.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 42001",
+        "GDPR",
+        "CCPA"
+      ],
       "links": {
         "trust": "https://trust.clay.com",
         "security_txt": "https://clay.com/.well-known/security.txt",
-        "privacy": "https://www.clay.com/privacy",
+        "privacy": "https://privacy.clay.com/",
         "status": "https://status.clay.com",
-        "subprocessors": "https://trust.clay.com/subprocessors"
+        "subprocessors": "https://trust.clay.com/subprocessors",
+        "dpa": "https://trust.clay.com/?requestAccessOpen=true&requestedResources=67321e88d73ffa64fb42a29c"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "amplitude",
+        "anthropic",
+        "braintrust"
+      ],
       "disclosure": {
-        "score": 46,
-        "tier": "on-file",
+        "score": 86,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
-          "subprocessors": 8,
+          "marks": 32,
+          "dpa": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6
@@ -5483,19 +5644,26 @@
       "list": "enterprise",
       "founded_year": 2009,
       "founded_source": "https://en.wikipedia.org/wiki/Block,_Inc.",
-      "certs": [],
+      "certs": [
+        "PCI DSS",
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "ISO 22301",
+        "ISO 27001"
+      ],
       "links": {
         "trust": "https://trust.squareup.com",
         "privacy": "https://squareup.com/us/en/legal/general/privacy",
         "security": "https://squareup.com/us/en/payments/secure"
       },
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: PCI DSS, SOC 1 Type II, SOC 2 Type II, ISO 22301, ISO 27001.",
       "subprocessors": [],
       "disclosure": {
-        "score": 34,
-        "tier": "thin",
+        "score": 74,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
+          "marks": 40,
           "privacy": 6,
           "longevity": 8
         }
@@ -6242,22 +6410,26 @@
       "http_status": 200,
       "founded_year": 2011,
       "founded_source": "https://en.wikipedia.org/wiki/DigitalOcean",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3"
+      ],
       "links": {
         "trust": "https://www.digitalocean.com/trust",
         "security_txt": "https://www.digitalocean.com/.well-known/security.txt",
         "privacy": "https://www.digitalocean.com/legal/privacy-policy",
-        "status": "https://status.digitalocean.com",
+        "status": "https://status.digitalocean.com/",
         "security": "https://www.digitalocean.com/security",
         "bug_bounty": "https://app.intigriti.com/programs/digitalocean/digitalocean"
       },
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3.",
       "subprocessors": [],
       "disclosure": {
-        "score": 45,
+        "score": 59,
         "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 14,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
@@ -6342,21 +6514,43 @@
       "list": "enterprise",
       "founded_year": 2007,
       "founded_source": "https://en.wikipedia.org/wiki/Dropbox",
-      "certs": [],
+      "certs": [
+        "CCPA",
+        "CSA STAR",
+        "EU Cloud CoC",
+        "EU-US DPF",
+        "GDPR",
+        "HIPAA",
+        "ISMAP",
+        "ISO 22301",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27701",
+        "PCI DSS",
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "SOC 3"
+      ],
       "links": {
         "trust": "https://trust.dropbox.com",
         "privacy": "https://www.dropbox.com/privacy",
         "status": "https://status.dropbox.com",
-        "security": "https://www.dropbox.com/features/security"
+        "security": "https://www.dropbox.com/features/security",
+        "subprocessors": "https://trust.dropbox.com/ (Legal > Sub-processors item)",
+        "bug_bounty": "https://trust.dropbox.com/?itemUid=64c9680b-ef79-4c92-baa0-13b541954bef&source=click"
       },
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: CCPA, CSA STAR, EU Cloud CoC, EU-US DPF, GDPR, HIPAA +10.",
       "subprocessors": [],
       "disclosure": {
-        "score": 41,
-        "tier": "on-file",
+        "score": 95,
+        "tier": "complete",
         "factors": {
           "portal": 20,
+          "marks": 40,
+          "processors": 8,
           "status": 6,
+          "disclosure": 6,
           "privacy": 6,
           "longevity": 9
         }
@@ -6552,17 +6746,23 @@
       "founded_source": "https://en.wikipedia.org/wiki/Fastly",
       "certs": [],
       "links": {
-        "privacy": "https://www.fastly.com/privacy",
+        "privacy": "https://www.fastly.com/privacy/",
         "security": "https://www.fastly.com/products/web-application-api-protection",
-        "trust": "https://www.fastly.com/trust"
+        "trust": "https://www.fastly.com/trust",
+        "dpa": "https://www.fastly.com/data-processing",
+        "subprocessors": "https://docs.fastly.com/products/sub-processors",
+        "status": "https://www.fastlystatus.com/"
       },
       "summary": "Learn more about Fastly\u2019s security and compliance, legal terms, privacy, and corporate values and ethics, please visit the resources.",
       "subprocessors": [],
       "disclosure": {
-        "score": 33,
-        "tier": "thin",
+        "score": 55,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
+          "dpa": 8,
+          "processors": 8,
+          "status": 6,
           "privacy": 6,
           "longevity": 7
         }
@@ -6695,21 +6895,40 @@
       "probed": 1,
       "source": "public-enterprise",
       "list": "enterprise",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "Cyber Essentials",
+        "Cyber Essentials Plus",
+        "TX-RAMP",
+        "SOC 3",
+        "CCPA",
+        "EU-US DPF",
+        "CSA STAR",
+        "ISO 27001",
+        "SOC 1 Type II",
+        "ISO 27701"
+      ],
       "links": {
         "trust": "https://trust.freshworks.com",
         "security_txt": "https://freshworks.com/.well-known/security.txt",
-        "privacy": "https://www.freshworks.com/privacy/",
+        "privacy": "https://trust.freshworks.com/?itemUid=63f59def-eb18-4135-95a1-addeb7463801&source=click",
         "bug_bounty": "https://www.freshworks.com/security/responsible-disclosure/",
-        "security": "https://www.freshworks.com/security/"
+        "security": "https://www.freshworks.com/security/",
+        "dpa": "https://trust.freshworks.com/?itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e&source=click",
+        "subprocessors": "https://trust.freshworks.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57&source=click",
+        "status": "https://trust.freshworks.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407&source=click"
       },
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: SOC 2 Type II, Cyber Essentials, Cyber Essentials Plus, TX-RAMP, SOC 3, CCPA +5.",
       "subprocessors": [],
       "disclosure": {
-        "score": 40,
-        "tier": "on-file",
+        "score": 100,
+        "tier": "complete",
         "factors": {
           "portal": 20,
+          "marks": 40,
+          "dpa": 8,
+          "processors": 8,
+          "status": 6,
           "disclosure": 6,
           "privacy": 6,
           "longevity": 8

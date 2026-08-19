@@ -1626,6 +1626,12 @@
       "name": "cartesia-ai-inc",
       "kind": "subprocessor",
       "in_register": false
+    },
+    {
+      "id": "braintrust",
+      "name": "braintrust",
+      "kind": "subprocessor",
+      "in_register": false
     }
   ],
   "edges": [
@@ -2695,6 +2701,102 @@
       "from": "intercom",
       "to": "cartesia-ai-inc",
       "source_url": "https://trust.intercom.com/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "workato",
+      "to": "aws",
+      "source_url": "https://www.workato.com/legal/sub-processors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "workato",
+      "to": "intercom",
+      "source_url": "https://www.workato.com/legal/sub-processors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "workato",
+      "to": "stripe",
+      "source_url": "https://www.workato.com/legal/sub-processors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "workato",
+      "to": "sparkpost",
+      "source_url": "https://www.workato.com/legal/sub-processors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "pendo",
+      "to": "gcp",
+      "source_url": "https://trust.pendo.io/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "pendo",
+      "to": "aws",
+      "source_url": "https://trust.pendo.io/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "pendo",
+      "to": "openai",
+      "source_url": "https://trust.pendo.io/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "pendo",
+      "to": "elastic",
+      "source_url": "https://trust.pendo.io/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "chainguard",
+      "to": "gcp",
+      "source_url": "https://security.chainguard.dev/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "chainguard",
+      "to": "cloudflare",
+      "source_url": "https://security.chainguard.dev/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "chainguard",
+      "to": "vercel",
+      "source_url": "https://security.chainguard.dev/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "chainguard",
+      "to": "zendesk",
+      "source_url": "https://security.chainguard.dev/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "clay",
+      "to": "aws",
+      "source_url": "https://trust.clay.com/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "clay",
+      "to": "amplitude",
+      "source_url": "https://trust.clay.com/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "clay",
+      "to": "anthropic",
+      "source_url": "https://trust.clay.com/subprocessors",
+      "evidence": "listed on public trust or subprocessors page"
+    },
+    {
+      "from": "clay",
+      "to": "braintrust",
+      "source_url": "https://trust.clay.com/subprocessors",
       "evidence": "listed on public trust or subprocessors page"
     }
   ],
