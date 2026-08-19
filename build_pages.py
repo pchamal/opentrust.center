@@ -343,6 +343,14 @@ def file_instrument(instruments: dict, key: str, url: str, generated_at: str, co
     }
 
 
+def processor_display_name(edge: dict, node: dict, to: str) -> str:
+    """Evidence is the printed name when it is a name. A filing note is not."""
+    evidence = str(edge.get("evidence") or "").strip()
+    if evidence and len(evidence) <= 64 and not re.search(r"\blisted on\b", evidence, re.I):
+        return evidence
+    return str(edge.get("processor") or node.get("name") or to)
+
+
 def register_slug_for(node: dict, by_slug: dict, by_domain: dict) -> str | None:
     nid = node.get("id")
     if nid and nid in by_slug:
@@ -391,7 +399,7 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
     for e in mine:
         to = e.get("to") or e.get("processor_slug") or ""
         node = nodes.get(to) or {}
-        name = e.get("evidence") or e.get("processor") or node.get("name") or to
+        name = processor_display_name(e, node, to)
         proc_slug = register_slug_for(node, by_slug, by_domain)
         processors.append({
             "name": name,
