@@ -57,4 +57,4 @@ Not affiliated with Forbes, Bessemer, or Salesforce Ventures.
 
 GitHub: [pchamal/opentrust.center](https://github.com/pchamal/opentrust.center)
 
-Cloudflare Pages serves `site/` (see `wrangler.toml`). Custom domain: `opentrust.center`.
+Cloudflare Worker with static assets from `site/` (see `wrangler.toml`). Custom domain: `opentrust.center`.
