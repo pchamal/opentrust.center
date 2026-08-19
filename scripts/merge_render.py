@@ -244,13 +244,36 @@ def normalize_row(raw: dict) -> dict | None:
     if not slug:
         return None
     certs = raw.get("certs") or raw.get("certifications_visible") or []
+    expanded = []
+    for x in certs:
+        s = str(x)
+        parts = re.split(r"\s*\+\s*|\s*/\s*", s)
+        if len(parts) > 1 and any(p.lower().startswith(("iso", "soc", "hipaa")) for p in parts):
+            # "ISO 27001/27017/27018" or "SOC 2 Type 2 + HIPAA"
+            head = parts[0]
+            expanded.append(head)
+            for rest in parts[1:]:
+                r = rest.strip()
+                if r.lower().startswith(("iso", "soc", "hipaa", "pci", "fedramp")):
+                    expanded.append(r)
+                elif r[:5].isdigit() or r[:5].replace(":", "").isdigit() or re.match(r"^\d", r):
+                    # 27017 leftover from ISO 27001/27017
+                    prefix = "ISO " if "iso" in head.lower() else ""
+                    expanded.append(prefix + r)
+                else:
+                    expanded.append(r)
+        else:
+            expanded.append(s)
+    certs = expanded
     links = dict(raw.get("links") or {})
     for src, dest in (
         ("dpa_link", "dpa"),
         ("subprocessor_link", "subprocessors"),
         ("status_page_link", "status"),
         ("bounty_link", "bug_bounty"),
+        ("bug_bounty_link", "bug_bounty"),
         ("privacy_policy", "privacy"),
+        ("privacy_policy_link", "privacy"),
         ("privacy_center", "privacy"),
         ("responsible_disclosure", "bug_bounty"),
         ("security", "security"),

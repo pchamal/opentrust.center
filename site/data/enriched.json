@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T06:03:19Z",
+  "generated_at": "2026-08-19T06:04:39Z",
   "companies": [
     {
       "rank": 1,
@@ -3874,15 +3874,19 @@
       ],
       "links": {
         "status": "https://status.deepl.com",
-        "trust": "https://trust.deepl.com"
+        "trust": "https://trust.deepl.com",
+        "subprocessors": "https://deepl.safebase.us/?itemUid=82474471-b25f-4d71-aab2-0756c754ec3b (List of engaged third sub-processors in Early Access Programs)"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws"
+      ],
       "disclosure": {
-        "score": 65,
-        "tier": "on-file",
+        "score": 73,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
           "marks": 35,
+          "processors": 8,
           "status": 6,
           "longevity": 4
         }
@@ -3983,19 +3987,29 @@
       "probed": 1,
       "source": "forbes-cloud-100-2025",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "ISO 27001",
+        "Cyber Essentials",
+        "TX-RAMP",
+        "FedRAMP High",
+        "PCI DSS",
+        "GDPR",
+        "HIPAA",
+        "EU-US DPF"
+      ],
       "links": {
         "privacy": "https://www.island.io/legal/privacy",
         "status": "https://status.island.io",
         "trust": "https://trust.island.io"
       },
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: ISO 27001, Cyber Essentials, TX-RAMP, FedRAMP High, PCI DSS, GDPR +2.",
       "subprocessors": [],
       "disclosure": {
-        "score": 32,
-        "tier": "thin",
+        "score": 72,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
+          "marks": 40,
           "status": 6,
           "privacy": 6
         }
@@ -4070,22 +4084,64 @@
       "title": "ElevenLabs Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Public trust center on file.",
+      "summary": "Public trust center. On file: SOC 2 Type II, HIPAA, SOC 3, ISO 27001, ISO 27017, ISO 27018 +5.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "HIPAA",
+        "SOC 3",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27701",
+        "ISO 42001",
+        "Cyber Essentials Plus",
+        "HDS",
+        "AIUC-1"
+      ],
       "links": {
         "privacy": "https://elevenlabs.io/privacy-policy",
         "dpa": "https://elevenlabs.io/dpa",
         "status": "https://status.elevenlabs.io",
-        "subprocessors": "https://compliance.elevenlabs.io:443/subprocessors",
+        "subprocessors": "https://compliance.elevenlabs.io/subprocessors",
         "trust": "https://trust.elevenlabs.io"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "gcp",
+        "aws",
+        "azure",
+        "anthropic",
+        "openai",
+        "asana",
+        "slack",
+        "zendesk",
+        "posthog",
+        "pylon",
+        "stripe",
+        "zapier",
+        "sigma",
+        "trustpilot",
+        "cinder",
+        "twilio",
+        "fivetran",
+        "xai",
+        "ownd-aps-parahelp",
+        "bytedance",
+        "creatify",
+        "fal",
+        "hive",
+        "kling",
+        "runway",
+        "sync",
+        "mongodb",
+        "plain"
+      ],
       "disclosure": {
-        "score": 50,
-        "tier": "on-file",
+        "score": 90,
+        "tier": "complete",
         "factors": {
           "portal": 20,
+          "marks": 40,
           "dpa": 8,
           "processors": 8,
           "status": 6,
@@ -4164,7 +4220,7 @@
       "title": "Cyera Trust Center",
       "probed": 7,
       "source": "forbes-cloud-100-2025",
-      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, HIPAA, PCI DSS, GDPR, CCPA +1.",
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, HIPAA, PCI DSS, GDPR, CCPA +2.",
       "list": "cloud100",
       "founded_year": 2020,
       "founded_source": "https://en.wikipedia.org/wiki/Cyera",
@@ -4175,20 +4231,29 @@
         "PCI DSS",
         "GDPR",
         "CCPA",
-        "C5"
+        "C5",
+        "EU-US DPF"
       ],
       "links": {
         "security": "https://security.cyera.io/",
         "trust": "https://security.cyera.io/",
-        "privacy": "https://www.cyera.com/legal/privacy-policy"
+        "privacy": "https://www.cyera.com/legal/privacy-policy",
+        "dpa": "https://security.cyera.io/ (item: Master Services Agreement and Addendums, itemUid=9d9c6a4d-f335-4a92-ad43-ab4aae24bf0e)",
+        "subprocessors": "https://security.cyera.io/ (item: Third Party Subprocessors, itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57)",
+        "status": "https://security.cyera.io/ (item: Status Monitoring, itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407)"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws"
+      ],
       "disclosure": {
-        "score": 69,
-        "tier": "on-file",
+        "score": 91,
+        "tier": "complete",
         "factors": {
           "portal": 20,
           "marks": 40,
+          "dpa": 8,
+          "processors": 8,
+          "status": 6,
           "privacy": 6,
           "longevity": 3
         }
@@ -4224,23 +4289,27 @@
       "title": "Runway Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Welcome to the Runway\u2019s Trust Center. Runway is an applied research company building the next era of art, entertainment and human creativity. We believe that AI systems applied to audiovisual content will forever change art and creativity.",
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001.",
       "list": "cloud100",
       "founded_year": 2018,
       "founded_source": "https://en.wikipedia.org/wiki/Runway_(company)",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001"
+      ],
       "links": {
         "trust": "https://trust.runwayml.com",
-        "privacy": "https://runway.com/privacy-policy",
+        "privacy": "https://runwayml.com/privacy-policy",
         "status": "https://status.runwayml.com",
-        "subprocessors": "https://trust.runwayml.com/subprocessors"
+        "subprocessors": "https://runwayml.com/customer-subprocessors"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 44,
+        "score": 64,
         "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 20,
           "processors": 8,
           "status": 6,
           "privacy": 6,
@@ -4260,23 +4329,56 @@
       "title": "Fireworks AI Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Open-source AI models at blazing speed, optimized for your use case, scaled globally with the Fireworks Inference Cloud.",
+      "summary": "Public trust center. On file: SOC 2 Type II, HIPAA, GDPR, ISO 27001, ISO 27701.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "HIPAA",
+        "GDPR",
+        "ISO 27001",
+        "ISO 27701"
+      ],
       "links": {
         "trust": "https://trust.fireworks.ai",
         "privacy": "https://fireworks.ai/privacy-policy",
         "status": "https://status.fireworks.ai",
-        "subprocessors": "https://trust.fireworks.ai/subprocessors"
+        "subprocessors": "https://trust.fireworks.ai/subprocessors",
+        "dpa": "https://fireworks.ai/dpa",
+        "bug_bounty": "https://app.fireworks.ai/vdp (Vulnerability Disclosure Program)"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "gcp",
+        "oracle-cloud-infrastructure",
+        "cloudflare",
+        "vercel",
+        "pylon",
+        "linear",
+        "discord-inc",
+        "slack",
+        "lambda-labs",
+        "crusoe",
+        "vultr",
+        "coreweave",
+        "anthropic",
+        "openai",
+        "digitalocean",
+        "fluidstack",
+        "tensorwave",
+        "iren",
+        "gmi",
+        "era4"
+      ],
       "disclosure": {
-        "score": 40,
-        "tier": "on-file",
+        "score": 89,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
+          "marks": 35,
+          "dpa": 8,
           "processors": 8,
           "status": 6,
+          "disclosure": 6,
           "privacy": 6
         }
       }
@@ -4335,23 +4437,63 @@
       "title": "Together.ai Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "Together AI is a research-driven AI cloud infrastructure provider. Our purpose-built GPU cloud platform empowers AI engineers and researchers to train, fine-tune, and run frontier class AI models. Our customers include leading SaaS companie",
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001"
+      ],
       "links": {
         "trust": "https://trust.together.ai",
         "security_txt": "https://together.ai/.well-known/security.txt",
         "privacy": "https://www.together.ai/privacy",
         "status": "https://status.together.ai",
         "subprocessors": "https://trust.together.ai/subprocessors",
-        "bug_bounty": "https://hackerone.com/together_ai"
+        "bug_bounty": "https://hackerone.com/together_ai",
+        "dpa": "https://trust.together.ai/resources (Data Processing Addendum \u2014 access request required)"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "google",
+        "okta",
+        "stripe",
+        "5c-ai-group-inc",
+        "applied-digital",
+        "clusterpower",
+        "crusoe-cloud",
+        "hypertec",
+        "iren",
+        "massed-compute",
+        "northern-data-group",
+        "oracle-cloud",
+        "ori-industries",
+        "voltage-park",
+        "vultr",
+        "pylon",
+        "salesforce",
+        "slack",
+        "zoom",
+        "amplitude",
+        "anthropic",
+        "calendly",
+        "cloudflare",
+        "docusign",
+        "dropbox",
+        "gong",
+        "mongodb",
+        "openai",
+        "openrouter",
+        "perplexity-ai",
+        "snowflake",
+        "twilio"
+      ],
       "disclosure": {
-        "score": 46,
-        "tier": "on-file",
+        "score": 74,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
+          "marks": 20,
+          "dpa": 8,
           "processors": 8,
           "status": 6,
           "disclosure": 6,
@@ -4425,22 +4567,40 @@
       "title": "fal.ai Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "fal is a technology company headquartered in San Francisco, California with a globally distributed team. Specializing in AI inference for generative media, fal focuses on optimizing inference speeds and efficiency, enabling developers to cr",
+      "summary": "Public trust center. On file: SOC 2 Type II.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II"
+      ],
       "links": {
         "trust": "https://trust.fal.ai",
-        "privacy": "https://fal.ai/legal/privacy-policy",
+        "privacy": "https://fal.ai/docs/faq",
         "dpa": "https://fal.ai/legal/data-processing-addendum",
         "status": "https://status.fal.ai",
         "subprocessors": "https://trust.fal.ai/subprocessors"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "gcp",
+        "google",
+        "raintank-inc-grafana-labs",
+        "datadog",
+        "stripe",
+        "aws",
+        "slack-technologies-llc",
+        "pylon-labs-inc",
+        "cloudflare",
+        "linear-orbit-inc",
+        "lambda-inc",
+        "twilio",
+        "crusoe-energy-system-llc",
+        "salesforce"
+      ],
       "disclosure": {
-        "score": 48,
+        "score": 58,
         "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 10,
           "dpa": 8,
           "processors": 8,
           "status": 6,
@@ -4460,22 +4620,38 @@
       "title": "Mercor Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "We use AI to understand human ability and match talent with the opportunities they",
+      "summary": "Public trust center. On file: SOC 2 Type II.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II"
+      ],
       "links": {
         "trust": "https://trust.mercor.com",
         "security_txt": "https://www.mercor.com:443/security.txt",
-        "subprocessors": "https://trust.mercor.com/subprocessors"
+        "subprocessors": "https://trust.mercor.com/subprocessors",
+        "privacy": "https://www.mercor.com/data-privacy-policy/"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "github",
+        "gcp",
+        "openai",
+        "twilio",
+        "stripe",
+        "ashby",
+        "customer-io",
+        "airtable",
+        "google"
+      ],
       "disclosure": {
-        "score": 34,
-        "tier": "thin",
+        "score": 50,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 10,
           "processors": 8,
-          "disclosure": 6
+          "disclosure": 6,
+          "privacy": 6
         }
       }
     },
@@ -4593,9 +4769,17 @@
       "title": "Sierra Trust Center",
       "probed": 1,
       "source": "forbes-cloud-100-2025",
-      "summary": "We are adding the following entities to our list of subprocessors: Baseten, Fireworks AI, Together AI, and Modal. These subprocessors will be used in support of AI services available through our Platform Services.",
+      "summary": "Public trust center. On file: SOC 2 Type II, HIPAA, PCI DSS, GDPR, CCPA, CSA STAR +1.",
       "list": "cloud100",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "HIPAA",
+        "PCI DSS",
+        "GDPR",
+        "CCPA",
+        "CSA STAR",
+        "FedRAMP High"
+      ],
       "links": {
         "trust": "https://trust.sierra.ai",
         "security_txt": "https://sierra.ai/.well-known/security.txt",
@@ -4604,12 +4788,27 @@
         "bug_bounty": "https://sierra.ai/responsible-disclosure",
         "subprocessors": "https://trust.sierra.ai/subprocessors"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "anthropic",
+        "google",
+        "microsoft",
+        "openai",
+        "deepgram-inc",
+        "baseten-labs-inc",
+        "fireworks-ai-inc",
+        "modal-labs-inc",
+        "elevenlabs",
+        "twilio",
+        "cloudflare",
+        "workos"
+      ],
       "disclosure": {
-        "score": 46,
-        "tier": "on-file",
+        "score": 86,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
+          "marks": 40,
           "processors": 8,
           "status": 6,
           "disclosure": 6,
