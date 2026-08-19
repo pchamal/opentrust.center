@@ -103,7 +103,7 @@ function marksCell(row) {
     .join(" · ");
   const extra = names.length > 3 ? ` · +${names.length - 3}` : "";
   const line = `<span class="mark-line">${head}${extra}</span>`;
-  return stamp ? stamp + " " + line : line;
+  return stamp ? stamp + " · " + line : line;
 }
 
 function syncUrl() {
