@@ -51,6 +51,11 @@ def main() -> int:
     for f in files:
         mod = load_module(f[:-3], ROOT / f)
         entries.extend(mod.ENTRIES)
+    extra_mod = load_module("attestations_expand", ROOT / "attestations_expand.py")
+    extra = extra_mod.EXTRA
+    for e in entries:
+        if e["id"] in extra:
+            e["elaborate"] = (e["elaborate"].rstrip() + extra[e["id"]]).strip()
 
     # Dedup by id, last wins
     by_id = {}
@@ -74,8 +79,8 @@ def main() -> int:
         if e.get("kind") not in ALLOWED_KIND:
             errors.append(f"{e['id']} bad kind {e.get('kind')}")
         w = words(e.get("elaborate", ""))
-        if w < 70 or w > 360:
-            errors.append(f"{e['id']} elaborate {w} words (need 70-360)")
+        if w < 180 or w > 280:
+            errors.append(f"{e['id']} elaborate {w} words (need 180-280)")
         eli = e.get("eli5", "")
         sents = [x for x in eli.replace("?", ".").split(".") if x.strip()]
         if len(sents) < 2:
