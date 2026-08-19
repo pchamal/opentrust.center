@@ -228,8 +228,10 @@ FACTOR_FROM_FILE = {
 }
 
 
-def clerk_summary(row: dict, attestations: list[dict], processors: list[dict]) -> str:
-    if not row.get("found"):
+def clerk_summary(row: dict, attestations: list[dict], processors: list[dict], found: bool | None = None) -> str:
+    if found is None:
+        found = bool(row.get("found"))
+    if not found:
         return ""
     raw = (row.get("summary") or "").strip()
     if VENDOR_WORDS.search(raw) or MARKETING.search(raw):
@@ -259,7 +261,7 @@ def classify_official(url: str) -> str:
 
 
 def filed_disclosure(row: dict) -> dict:
-    """Print the file’s score. Crawl misses (found=false) stamp silent."""
+    """Print the file’s score, factors, and tier. Cap at 100. Do not rescore."""
     raw = row.get("disclosure") or {}
     factors = {k: 0 for k in FACTOR_KEYS}
     for key, val in (raw.get("factors") or {}).items():
@@ -267,10 +269,8 @@ def filed_disclosure(row: dict) -> dict:
         if dest:
             factors[dest] = int(val or 0)
     score = raw.get("score")
-    score = min(100, int(score)) if score is not None else min(100, sum(factors.values()))
+    score = min(100, max(0, int(score))) if score is not None else min(100, sum(factors.values()))
     tier = raw.get("tier") or "silent"
-    if row.get("found") is False:
-        return {"score": 0, "tier": "silent", "factors": {k: 0 for k in FACTOR_KEYS}}
     if tier not in {"silent", "thin", "on-file", "substantial", "complete"}:
         tier = "silent"
     return {"score": score, "tier": tier, "factors": factors}
@@ -348,10 +348,17 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
     slug = row["slug"]
     links = row.get("links") or {}
     domain = row.get("domain") or ""
-    found = bool(row.get("found"))
-    official = ""
-    if found:
-        official = row.get("trust_url") or links.get("trust") or links.get("security") or row.get("final_url") or ""
+    disc = filed_disclosure(row)
+    found = bool(
+        row.get("found")
+        or links.get("trust")
+        or links.get("security")
+        or disc["tier"] != "silent"
+        or disc["factors"].get("page")
+    )
+    official = row.get("trust_url") or links.get("trust") or links.get("security") or row.get("final_url") or ""
+    if not found:
+        official = ""
     certs = [c for c in (row.get("certs") or []) if c]
     attestations = [map_cert(c) for c in certs]
     year = row.get("founded_year")
@@ -386,8 +393,7 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
         src = mine[0]["source_url"]
         file_instrument(instruments, "subprocessors", src, generated_at, domain)
 
-    disc = filed_disclosure(row)
-    summary = clerk_summary(row, attestations, processors)
+    summary = clerk_summary(row, attestations, processors, found)
 
     public = {
         "rank": row.get("rank"),
