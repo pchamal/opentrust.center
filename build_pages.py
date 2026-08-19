@@ -949,6 +949,41 @@ def assign_file_ranks(public_companies: list[dict]) -> None:
         row["rank"] = i
 
 
+
+def name_to_slug(name: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", (name or "").lower()).strip("-")
+
+
+def dossier_aliases(row: dict) -> list[str]:
+    """Only when the filed slug is not the name people type (Cursor / anysphere)."""
+    slug = row.get("slug") or ""
+    if slug != "anysphere":
+        return []
+    alias = name_to_slug(row.get("name") or "")
+    if alias and alias != slug:
+        return [alias]
+    return []
+
+def redirect_dossier_html(row: dict) -> str:
+    slug = row["slug"]
+    name = row["name"]
+    dest = f"{CANON}/c/{slug}.html"
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0;url=./{escape(slug)}.html">
+  <link rel="canonical" href="{escape(dest)}">
+  <title>{escape(name)} — opentrust.center</title>
+  <script>location.replace("./{escape(slug)}.html"+location.search+location.hash)</script>
+</head>
+<body>
+  <p><a href="./{escape(slug)}.html">{escape(name)} file · c/{escape(slug)}</a></p>
+</body>
+</html>
+"""
+
+
 def main() -> int:
     src = SITE / "data" / "enriched.json"
     if not src.exists():
@@ -1004,8 +1039,16 @@ def main() -> int:
         for old in out.glob("*.html"):
             old.unlink()
     out.mkdir(exist_ok=True)
+    taken = {row["slug"] for row in public_companies if row.get("slug")}
+    extra_urls = []
     for row in public_companies:
         (out / f"{row['slug']}.html").write_text(dossier_html(row, generated_at), encoding="utf-8")
+        for alias in dossier_aliases(row):
+            if alias in taken:
+                continue
+            taken.add(alias)
+            (out / f"{alias}.html").write_text(redirect_dossier_html(row), encoding="utf-8")
+            extra_urls.append(f"{CANON}/c/{alias}.html")
 
     urls = [
         f"{CANON}/",
@@ -1016,6 +1059,7 @@ def main() -> int:
     ]
     for row in public_companies:
         urls.append(f"{CANON}/c/{row['slug']}.html")
+    urls.extend(extra_urls)
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
         sitemap.append(f"  <url><loc>{escape(u)}</loc></url>")

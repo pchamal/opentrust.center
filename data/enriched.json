@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T20:05:03Z",
+  "generated_at": "2026-08-19T20:34:14Z",
   "companies": [
     {
       "rank": 1,
@@ -526,9 +526,9 @@
     },
     {
       "rank": 8,
-      "name": "Anysphere",
+      "name": "Cursor",
       "slug": "anysphere",
-      "domain": "anysphere.co",
+      "domain": "cursor.com",
       "found": true,
       "trust_url": "https://trust.cursor.com",
       "final_url": "https://trust.cursor.com",
@@ -536,12 +536,13 @@
       "title": "Cursor Trust Center",
       "probed": 9,
       "source": "forbes-cloud-100-2025",
-      "summary": "Public trust center. On file: SOC 2 Type II.",
+      "summary": "Public trust center. On file: SOC 2 Type II, AIUC-1.",
       "list": "cloud100",
       "founded_year": 2022,
       "founded_source": "https://en.wikipedia.org/wiki/Cursor_(company)",
       "certs": [
-        "SOC 2 Type II"
+        "SOC 2 Type II",
+        "AIUC-1"
       ],
       "links": {
         "trust": "https://trust.cursor.com",
@@ -549,16 +550,18 @@
         "privacy": "https://cursor.com/privacy",
         "status": "https://status.cursor.com",
         "security": "https://cursor.com/security",
-        "subprocessors": "https://trust.cursor.com/subprocessors"
+        "subprocessors": "https://trust.cursor.com/subprocessors",
+        "dpa": "https://cursor.com/terms/dpa"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 58,
-        "tier": "on-file",
+        "score": 74,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
-          "certs": 10,
-          "subprocessors": 8,
+          "marks": 18,
+          "dpa": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
