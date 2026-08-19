@@ -6,18 +6,21 @@ import {
   displayTier,
   tierClass,
   dataUrl,
-  fileMeterHtml,
 } from "./lib.js";
-
-const FEDRAMP_FILTERS = new Set(["all", "any", "low", "moderate", "high"]);
+import {
+  parseFinder,
+  stripFinderToken,
+  normalizeTier,
+  normalizeList,
+  normalizeFedramp,
+  echoWords,
+} from "./finder.js";
 
 const state = {
   rows: [],
   generatedAt: null,
   q: "",
-  tier: "all",
-  list: "all",
-  fedramp: "all",
+  url: { tier: "all", list: "all", fedramp: "all" },
 };
 
 function hay(row) {
@@ -33,17 +36,28 @@ function hay(row) {
     .toLowerCase();
 }
 
+function active() {
+  const parsed = parseFinder(state.q);
+  return {
+    q: parsed.q,
+    tier: parsed.tier !== "all" ? parsed.tier : state.url.tier,
+    list: parsed.list !== "all" ? parsed.list : state.url.list,
+    fedramp: parsed.fedramp !== "all" ? parsed.fedramp : state.url.fedramp,
+  };
+}
+
 function apply() {
-  const q = state.q.trim().toLowerCase();
+  const f = active();
+  const q = f.q.trim().toLowerCase();
   return state.rows.filter((row) => {
-    if (state.tier !== "all" && row.tier !== state.tier) return false;
-    if (state.list === "cloud100" && row.list !== "cloud100") return false;
-    if (state.list === "enterprise" && row.list !== "enterprise") return false;
-    if (state.fedramp !== "all") {
+    if (f.tier !== "all" && row.tier !== f.tier) return false;
+    if (f.list === "cloud100" && row.list !== "cloud100") return false;
+    if (f.list === "enterprise" && row.list !== "enterprise") return false;
+    if (f.fedramp !== "all") {
       if (!row.fedramp) return false;
-      if (state.fedramp !== "any") {
+      if (f.fedramp !== "any") {
         const levels = (row.fedramp.levels || []).map((lv) => String(lv).toLowerCase());
-        if (!levels.includes(state.fedramp)) return false;
+        if (!levels.includes(f.fedramp)) return false;
       }
     }
     if (!q) return true;
@@ -59,50 +73,88 @@ function guessDomain(q) {
   return slug ? slug + ".com" : "";
 }
 
+function isFedrampCite(a) {
+  const id = String((a && a.id) || "").toLowerCase();
+  const name = String((a && (a.short || a.name)) || "").toLowerCase();
+  return id === "fedramp" || name.startsWith("fedramp");
+}
+
 function fedrampMark(row) {
   const fr = row.fedramp;
   if (!fr) return "";
   const url = fr.marketplace || "";
-  const highest = fr.highest || "file";
-  if (!url) return `<span class="fr-mark">FedRAMP ${escapeHtml(highest)}</span>`;
-  return `<a class="fr-mark" href="${escapeHtml(url)}" target="_blank" rel="noopener">FedRAMP ${escapeHtml(highest)}</a>`;
+  if (!url) return `<span class="fr-mark">fedramp</span>`;
+  return `<a class="fr-mark" href="${escapeHtml(url)}" target="_blank" rel="noopener">fedramp</a>`;
 }
 
 function marksCell(row) {
   const stamp = fedrampMark(row);
   const atts = (row.attestations || []).filter((a) => a && (a.name || a.short));
-  const names = (atts.length ? atts : (row.certs || []).map((name) => ({ name, id: null })))
+  let names = (atts.length ? atts : (row.certs || []).map((name) => ({ name, id: null })))
     .slice()
     .sort((a, b) => String(a.short || a.name || "").localeCompare(String(b.short || b.name || ""), undefined, { sensitivity: "base" }));
+  if (stamp) names = names.filter((a) => !isFedrampCite(a));
   if (!names.length) {
     return stamp || `<span class="absent">not on file</span>`;
   }
   const head = names
     .slice(0, 3)
-    .map((a) => {
-      const label = escapeHtml(a.short || a.name);
-      return a.id
-        ? `<a href="./attestations.html#${encodeURIComponent(a.id)}">${label}</a>`
-        : label;
-    })
+    .map((a) => escapeHtml(String(a.short || a.name).toLowerCase()))
     .join(" · ");
-  const extra = names.length > 3 ? ` +${names.length - 3}` : "";
-  return (stamp ? stamp + " " : "") + head + extra;
+  const extra = names.length > 3 ? ` · +${names.length - 3}` : "";
+  const line = `<span class="mark-line">${head}${extra}</span>`;
+  return stamp ? stamp + " " + line : line;
+}
+
+function syncUrl() {
+  const f = active();
+  const params = new URLSearchParams();
+  const q = state.q.trim();
+  if (q) params.set("q", q);
+  if (f.fedramp !== "all") params.set("fedramp", f.fedramp);
+  const parsed = parseFinder(state.q);
+  if (parsed.tier === "all" && f.tier !== "all") params.set("tier", f.tier);
+  if (parsed.list === "all" && f.list !== "all") params.set("list", f.list);
+  const qs = params.toString();
+  const next = (qs ? "?" + qs : "") + window.location.hash;
+  const path = window.location.pathname + next;
+  if (path !== window.location.pathname + window.location.search + window.location.hash) {
+    history.replaceState(null, "", path || window.location.pathname);
+  }
+}
+
+function renderEcho() {
+  const el = $("queryline");
+  if (!el) return;
+  const bits = echoWords(active());
+  if (!bits.length) {
+    el.hidden = true;
+    el.innerHTML = "";
+    return;
+  }
+  el.hidden = false;
+  el.innerHTML = bits
+    .map((b, i) => {
+      const sep = i ? `<span class="sep"> · </span>` : "";
+      return `${sep}<button type="button" data-clear="${escapeHtml(b.kind)}">${escapeHtml(b.label)}</button>`;
+    })
+    .join("");
 }
 
 function render() {
   const rows = apply();
-  const q = state.q.trim();
+  const f = active();
+  const q = f.q.trim();
+  const typed = state.q.trim();
   const table = $("reg");
   const empty = $("empty");
   const miss = $("miss");
   const count = $("countline");
-  const tierLabel = state.tier === "all" ? "all" : displayTier(state.tier);
-  const listLabel = state.list === "all" ? "all" : state.list === "cloud100" ? "cloud 100" : "enterprise";
-  const frLabel = state.fedramp === "all" ? "" : ` · fedramp ${state.fedramp}`;
   count.textContent = state.rows.length
-    ? `showing ${rows.length} of ${state.rows.length} · tier ${tierLabel} · list ${listLabel}${frLabel}`
+    ? `showing ${rows.length} of ${state.rows.length}`
     : "";
+  renderEcho();
+  syncUrl();
 
   if (!state.rows.length) {
     table.hidden = true;
@@ -114,7 +166,7 @@ function render() {
   }
   empty.hidden = true;
 
-  if (q && !rows.length) {
+  if (typed && !rows.length) {
     table.hidden = true;
     miss.hidden = false;
     $("miss-title").textContent = "Not in the index.";
@@ -138,15 +190,15 @@ function render() {
     const look = $("miss-look");
     const req = $("miss-request");
     if (actions) actions.hidden = false;
-    const brand = (domain || q).replace(/\.[a-z]{2,}$/i, "");
-    const query = `${q} trust center OR "trust profile" OR "trust.${brand}" OR /security`;
+    const brand = (domain || q || typed).replace(/\.[a-z]{2,}$/i, "");
+    const query = `${q || typed} trust center OR "trust profile" OR "trust.${brand}" OR /security`;
     if (look) {
       look.href = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
       look.hidden = false;
     }
     if (req) {
       const params = new URLSearchParams();
-      params.set("title", `request: ${q}`);
+      params.set("title", `request: ${q || typed}`);
       params.set("labels", "request");
       req.href = `https://github.com/pchamal/opentrust.center/issues/new?${params.toString()}`;
       req.hidden = false;
@@ -167,7 +219,7 @@ function render() {
         <td class="num">${escapeHtml(n)}</td>
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${escapeHtml(row.name)}</a></td>
         <td>${escapeHtml(row.domain || "")}</td>
-        <td class="${tierClass(row.tier)}">${fileMeterHtml(row)}${escapeHtml(tier)}</td>
+        <td class="${tierClass(row.tier)}">${escapeHtml(tier)}</td>
         <td class="marks">${marksCell(row)}</td>
         <td>${escapeHtml(fmtDay(row.probed_at || state.generatedAt))}</td>
       </tr>`;
@@ -175,14 +227,14 @@ function render() {
     .join("");
 }
 
-function setFedramp(value) {
-  const next = FEDRAMP_FILTERS.has(value) ? value : "all";
-  state.fedramp = next;
-  const bar = $("fedramp-filters");
-  if (!bar) return;
-  bar.querySelectorAll("button").forEach((b) => {
-    b.classList.toggle("on", b.getAttribute("data-fedramp") === next);
-  });
+function clearToken(kind) {
+  state.q = stripFinderToken(state.q, kind);
+  const input = $("q");
+  if (input) input.value = state.q;
+  if (kind === "tier") state.url.tier = "all";
+  if (kind === "list") state.url.list = "all";
+  if (kind === "fedramp") state.url.fedramp = "all";
+  render();
 }
 
 function bind() {
@@ -195,31 +247,12 @@ function bind() {
     state.q = e.target.value;
     render();
   });
-  $("tier-filters").querySelectorAll("button").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      state.tier = btn.getAttribute("data-tier");
-      $("tier-filters").querySelectorAll("button").forEach((b) => {
-        b.classList.toggle("on", b === btn);
-      });
-      render();
-    });
-  });
-  $("list-filters").querySelectorAll("button").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      state.list = btn.getAttribute("data-list");
-      $("list-filters").querySelectorAll("button").forEach((b) => {
-        b.classList.toggle("on", b === btn);
-      });
-      render();
-    });
-  });
-  const frBar = $("fedramp-filters");
-  if (frBar) {
-    frBar.querySelectorAll("button").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        setFedramp(btn.getAttribute("data-fedramp"));
-        render();
-      });
+  const echo = $("queryline");
+  if (echo) {
+    echo.addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-clear]");
+      if (!btn) return;
+      clearToken(btn.getAttribute("data-clear"));
     });
   }
   $("reg-body").addEventListener("click", (e) => {
@@ -250,7 +283,13 @@ async function load() {
     $("q").value = state.q;
   }
   if (params.get("fedramp")) {
-    setFedramp(String(params.get("fedramp")).toLowerCase());
+    state.url.fedramp = normalizeFedramp(params.get("fedramp"));
+  }
+  if (params.get("tier")) {
+    state.url.tier = normalizeTier(params.get("tier"));
+  }
+  if (params.get("list")) {
+    state.url.list = normalizeList(params.get("list"));
   }
   try {
     const res = await fetch(dataUrl("./data.json"), { cache: "no-store" });

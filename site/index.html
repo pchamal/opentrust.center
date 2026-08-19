@@ -46,32 +46,12 @@
     <form class="finder" id="finder" role="search">
       <label>
         <span class="sr-only">Find a company</span>
-        <input id="q" type="search" name="q" placeholder="/ stripe, microsoft, soc 2" autocomplete="off" spellcheck="false" autofocus>
+        <input id="q" type="search" name="q" placeholder="/ stripe, complete, fedramp moderate" autocomplete="off" spellcheck="false" autofocus>
       </label>
       <button type="submit" class="finder-go">go</button>
     </form>
 
-    <div class="filters" id="tier-filters" aria-label="Disclosure tier">
-      <button type="button" data-tier="all" class="on">all</button>
-      <button type="button" data-tier="silent">silent</button>
-      <button type="button" data-tier="thin">thin</button>
-      <button type="button" data-tier="on-file">on file</button>
-      <button type="button" data-tier="substantial">substantial</button>
-      <button type="button" data-tier="complete">complete</button>
-    </div>
-    <div class="filters" id="list-filters" aria-label="List">
-      <button type="button" data-list="all" class="on">all lists</button>
-      <button type="button" data-list="cloud100">cloud 100</button>
-      <button type="button" data-list="enterprise">enterprise</button>
-    </div>
-    <div class="filters" id="fedramp-filters" aria-label="FedRAMP">
-      <button type="button" data-fedramp="all" class="on">all</button>
-      <button type="button" data-fedramp="any">any</button>
-      <button type="button" data-fedramp="low">low</button>
-      <button type="button" data-fedramp="moderate">moderate</button>
-      <button type="button" data-fedramp="high">high</button>
-    </div>
-
+    <p class="queryline" id="queryline" hidden></p>
     <p class="countline" id="countline"></p>
 
     <div id="miss" class="miss" hidden>
