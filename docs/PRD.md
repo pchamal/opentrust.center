@@ -43,7 +43,7 @@ If a sentence could appear on a Vanta homepage, delete it.
 
 Also: `/brand.html` (specimen), `/llms.txt`, `/data.json`, `/sitemap.xml`.
 
-No blog. No pricing. No “platform” nav. The mast is a docket: `register · processors · attestations`.
+No blog. No pricing. No “platform” nav. The mast is a docket: `register · subprocessors · marks`.
 
 ---
 
@@ -185,7 +185,7 @@ UI:
 ```
 opentrust.center/
   index.html              register
-  graph.html              processors
+  graph.html              subprocessors
   attestations.html       attestations + globe
   brand.html              specimen
   c/{slug}.html           dossier
@@ -200,7 +200,7 @@ opentrust.center/
 Mast on every surface:
 
 ```
-opentrust.center          register   processors   attestations     OT
+opentrust.center          register   subprocessors   marks     OT
 ```
 
 Active item is a hairline underline. Not a pill.

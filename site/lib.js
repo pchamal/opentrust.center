@@ -2,6 +2,47 @@
 
 export const GATE_KEY = "ot_human_v1";
 export const GATE_MS = 30 * 60 * 1000;
+export const DATA_V = "2026-08-19T11:14:23Z";
+export const FILE_KEYS = ["page", "marks", "dpa", "subprocessors", "years"];
+
+export function dataUrl(path) {
+  const v = DATA_V ? encodeURIComponent(DATA_V) : "";
+  if (!v) return path;
+  return path + (path.includes("?") ? "&" : "?") + "v=" + v;
+}
+
+export function fileFlags(row) {
+  if (row && row.file && typeof row.file === "object") {
+    return {
+      page: !!row.file.page,
+      marks: !!row.file.marks,
+      dpa: !!row.file.dpa,
+      subprocessors: !!row.file.subprocessors,
+      years: !!row.file.years,
+    };
+  }
+  const f = (row && row.disclosure && row.disclosure.factors) || (row && row.factors) || {};
+  return {
+    page: !!f.page,
+    marks: !!(f.marks || (row && row.certs && row.certs.length) || (row && row.attestations && row.attestations.length)),
+    dpa: !!f.dpa,
+    subprocessors: !!(f.processors || f.subprocessors),
+    years: !!(row && (row.founded_year || f.years)),
+  };
+}
+
+export function fileMeterHtml(row) {
+  const flags = fileFlags(row);
+  const on = FILE_KEYS.filter((k) => flags[k]);
+  const legend = FILE_KEYS.join(" · ");
+  const listed = on.length ? on.join(" · ") + " on file" : "none on file";
+  const aria = `${legend} · ${listed}`;
+  const boxes = FILE_KEYS.map((k) => {
+    const cls = flags[k] ? ' class="on"' : "";
+    return `<span${cls} title="${k}"></span>`;
+  }).join("");
+  return `<span class="file-meter" title="${escapeHtml(aria)}" aria-label="${escapeHtml(aria)}">${boxes}</span>`;
+}
 
 export function $(id) {
   return document.getElementById(id);

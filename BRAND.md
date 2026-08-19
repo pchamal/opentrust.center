@@ -71,7 +71,7 @@ Two faces only.
 
 Do not add IBM Plex Sans, Source Serif 4, Inter, Geist, Recoleta, Suisse, GT America, or “a nicer grotesque.” The old site used Source Serif + Plex Sans. That pairing is retired. It is the default “thoughtful AI” stack. It is still live on `/c/*` and must be burned down.
 
-Names are slightly tight (−0.02 to −0.03em). Meta is small, tracked a little, never uppercase-for-style except 1-line kickers (`REGISTER`, `PROCESSORS`, `ATTESTATIONS`, `ISSUE`) and table headers.
+Names are slightly tight (−0.02 to −0.03em). Meta is small, tracked a little, never uppercase-for-style except 1-line kickers (`REGISTER`, `SUBPROCESSORS`, `ATTESTATIONS`, `ISSUE`) and table headers.
 
 ### Product scale (px). Do not invent others.
 
@@ -142,7 +142,7 @@ High-taste staff-engineer product, not a magazine and not a SaaS marketing page.
 
 - **Canvas, not a sheet.** The page is one continuous `--ground` field to the edges (VoltAgent posture). No floating paper card. No centered “document.” No `.sheet` as a card.
 - **Surface:** optional 32px grid at `--hair`, only in figure wells. Grain at 0.06 or off. If you notice either, delete it. No glow orb, no mesh blob, no illustration.
-- **Docket mast:** 48px high, full width, hairline under. Wordmark left (20px). Instruments as words: `register` `processors` `marks` (Plex Mono 11, tracking 0.12em). Active word: `--ink` + 1px `--flame` underline. OT ring right. No icons. No hamburger if the three words fit. No `Product` / `Docs` / `More`.
+- **Docket mast:** 48px high, full width, hairline under. Wordmark left (20px). Instruments as words: `register` `subprocessors` `marks` (Plex Mono 11, tracking 0.12em). Active word: `--ink` + 1px `--flame` underline. OT ring right. No icons. No hamburger if the three words fit. No `Product` / `Docs` / `More`.
 - **Issue line** under the mast, Plex Mono 11:
 
   `issue 18 Aug 2026 PT · 184 on file · 22 not on file · last probed 18 Aug 2026, 3:23 PM PT`

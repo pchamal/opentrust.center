@@ -1,4 +1,4 @@
-import { $, escapeHtml, fillIssue } from "./lib.js";
+import { $, escapeHtml, fillIssue, dataUrl } from "./lib.js";
 
 const GEO_GROUPS = {
   americas: ["US", "CA", "BR"],
@@ -462,8 +462,8 @@ async function load() {
   bind();
   try {
     const [gaz, reg] = await Promise.all([
-      fetch("./data/attestations.json", { cache: "no-store" }).then((r) => r.json()),
-      fetch("./data.json", { cache: "no-store" }).then((r) => r.json()),
+      fetch(dataUrl("./data/attestations.json"), { cache: "no-store" }).then((r) => r.json()),
+      fetch(dataUrl("./data.json"), { cache: "no-store" }).then((r) => r.json()),
     ]);
     state.items = (gaz.attestations || []).slice().sort((a, b) => String(a.name || "").localeCompare(String(b.name || ""), undefined, { sensitivity: "base" }));
     state.companies = reg.companies || [];

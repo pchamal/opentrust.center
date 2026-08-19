@@ -1,4 +1,4 @@
-import { $, escapeHtml, fillIssue, displayTier } from "./lib.js";
+import { $, escapeHtml, fillIssue, displayTier, dataUrl } from "./lib.js";
 
 const state = {
   data: null,
@@ -26,12 +26,38 @@ function registerSlug(node, companies) {
   return null;
 }
 
+function isSlugCase(s) {
+  return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(String(s || "").trim());
+}
+
 function titleCaseSlug(to) {
   return String(to || "")
     .split(/[-_]+/)
     .filter(Boolean)
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .map((w) => {
+      if (w.length <= 2 && /[a-z]/i.test(w)) {
+        return w.replace(/[a-z]/g, (c) => c.toUpperCase());
+      }
+      let cap = true;
+      return [...w]
+        .map((c) => {
+          if (/[a-z]/i.test(c)) {
+            const out = cap ? c.toUpperCase() : c.toLowerCase();
+            cap = false;
+            return out;
+          }
+          cap = /\d/.test(c);
+          return c;
+        })
+        .join("");
+    })
     .join(" ");
+}
+
+function humanizeProcessorName(s) {
+  const t = String(s || "").trim();
+  if (isSlugCase(t)) return titleCaseSlug(t);
+  return t;
 }
 
 function looksLikeProcessorName(s) {
@@ -44,11 +70,11 @@ function looksLikeProcessorName(s) {
 
 function processorDisplayName(e, node, to) {
   const nodeName = node && node.name ? String(node.name).trim() : "";
-  if (looksLikeProcessorName(nodeName)) return nodeName;
-  if (to) return titleCaseSlug(to);
+  if (looksLikeProcessorName(nodeName)) return humanizeProcessorName(nodeName);
+  if (to) return humanizeProcessorName(to) || titleCaseSlug(to);
   const evidence = e && e.evidence ? String(e.evidence).trim() : "";
-  if (looksLikeProcessorName(evidence)) return evidence;
-  return (e && e.processor) || to;
+  if (looksLikeProcessorName(evidence)) return humanizeProcessorName(evidence);
+  return humanizeProcessorName((e && e.processor) || to);
 }
 
 function normalizeEdges(wires, companies) {
@@ -317,8 +343,8 @@ async function load() {
   bind();
   try {
     const [reg, wires] = await Promise.all([
-      fetch("./data.json", { cache: "no-store" }).then((r) => r.json()),
-      fetch("./data/subprocessors.json", { cache: "no-store" }).then((r) => (r.ok ? r.json() : { edges: [] })),
+      fetch(dataUrl("./data.json"), { cache: "no-store" }).then((r) => r.json()),
+      fetch(dataUrl("./data/subprocessors.json"), { cache: "no-store" }).then((r) => (r.ok ? r.json() : { edges: [] })),
     ]);
     state.data = reg;
     (reg.companies || []).forEach((c) => state.companies.set(c.slug, c));

@@ -179,6 +179,33 @@ def load_json(path: Path, default):
     return json.loads(path.read_text())
 
 
+def write_json(path: Path, payload) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
+
+
+def pretty_subprocessor_nodes(doc: dict) -> None:
+    for node in doc.get("nodes") or []:
+        name = str(node.get("name") or "").strip()
+        if is_slug_case(name):
+            node["name"] = title_case_slug(name)
+
+
+def stamp_data_v(generated_at: str) -> None:
+    path = SITE / "lib.js"
+    if not generated_at or not path.exists():
+        return
+    original = path.read_text()
+    updated, n = re.subn(
+        r'export const DATA_V = "[^"]*";',
+        f'export const DATA_V = "{generated_at}";',
+        original,
+        count=1,
+    )
+    if n:
+        path.write_text(updated)
+
+
 VENDOR_TITLES = {
     "safebase", "vanta", "conveyor", "wolfia", "drata", "securitypal",
     "secureframe", "sprinto", "whistic", "trustcloud",
@@ -287,13 +314,44 @@ def filed_disclosure(row: dict) -> dict:
     return {"score": score, "tier": tier, "factors": factors}
 
 
+FILE_METER_KEYS = ("page", "marks", "dpa", "subprocessors", "years")
+
+
+def file_flags(row: dict, disc: dict) -> dict:
+    """Five instruments a buyer can see. Not a score."""
+    f = disc.get("factors") or {}
+    return {
+        "page": bool(f.get("page")),
+        "marks": bool(f.get("marks") or row.get("certs") or row.get("attestations")),
+        "dpa": bool(f.get("dpa")),
+        "subprocessors": bool(f.get("processors") or f.get("subprocessors")),
+        "years": bool(row.get("founded_year") or f.get("years")),
+    }
+
+
+def file_meter_html(flags: dict) -> str:
+    on_file = [k for k in FILE_METER_KEYS if flags.get(k)]
+    legend = " · ".join(FILE_METER_KEYS)
+    listed = (" · ".join(on_file) + " on file") if on_file else "none on file"
+    aria = f"{legend} · {listed}"
+    boxes = []
+    for key in FILE_METER_KEYS:
+        cls = ' class="on"' if flags.get(key) else ""
+        boxes.append(f'<span{cls} title="{escape(key)}"></span>')
+    return (
+        f'<span class="file-meter" title="{escape(aria)}" aria-label="{escape(aria)}">'
+        + "".join(boxes)
+        + "</span>"
+    )
+
+
 def factor_line(disc: dict) -> str:
     f = disc["factors"]
     bits = [
         f"page {f['page']}",
         f"marks {f['marks']}",
         f"dpa {f['dpa']}",
-        f"processors {f['processors']}",
+        f"subprocessors {f['processors']}",
         f"status {f['status']}",
         f"bounty {f['bounty']}",
         f"privacy {f['privacy']}",
@@ -345,9 +403,39 @@ def file_instrument(instruments: dict, key: str, url: str, generated_at: str, co
     }
 
 
+SLUG_NAME = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+
+
+def is_slug_case(s: str) -> bool:
+    t = str(s or "").strip()
+    return bool(t) and bool(SLUG_NAME.fullmatch(t))
+
+
 def title_case_slug(to: str) -> str:
     parts = [part for part in re.split(r"[-_]+", str(to or "")) if part]
-    return " ".join(part[:1].upper() + part[1:] for part in parts) if parts else str(to or "")
+    out = []
+    for part in parts:
+        if len(part) <= 2 and any(c.isalpha() for c in part):
+            out.append("".join(c.upper() if c.isalpha() else c for c in part))
+            continue
+        chars = []
+        cap_next = True
+        for c in part:
+            if c.isalpha():
+                chars.append(c.upper() if cap_next else c.lower())
+                cap_next = False
+            else:
+                chars.append(c)
+                cap_next = c.isdigit()
+        out.append("".join(chars) if chars else part)
+    return " ".join(out) if out else str(to or "")
+
+
+def humanize_processor_name(s: str) -> str:
+    t = str(s or "").strip()
+    if is_slug_case(t):
+        return title_case_slug(t)
+    return t
 
 
 def looks_like_processor_name(s: str) -> bool:
@@ -363,16 +451,16 @@ def looks_like_processor_name(s: str) -> bool:
 
 
 def processor_display_name(edge: dict, node: dict, to: str) -> str:
-    """Prefer the node name, then a title-cased `to` slug. A subprocessors link is not a parsed name."""
+    """Prefer the node name when it is already human. Slug-case names are title-cased, not invented."""
     node_name = str(node.get("name") or "").strip()
     if looks_like_processor_name(node_name):
-        return node_name
+        return humanize_processor_name(node_name)
     if to:
-        return title_case_slug(to)
+        return humanize_processor_name(to) or title_case_slug(to)
     evidence = str(edge.get("evidence") or "").strip()
     if looks_like_processor_name(evidence):
-        return evidence
-    return str(edge.get("processor") or to)
+        return humanize_processor_name(evidence)
+    return humanize_processor_name(str(edge.get("processor") or to))
 
 
 def register_slug_for(node: dict, by_slug: dict, by_domain: dict) -> str | None:
@@ -458,6 +546,7 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
         "processors": processors,
         "disclosure": disc,
         "tier": disc["tier"],
+        "file": file_flags(row, disc),
         "_crawl": {
             "vendor": (row.get("_crawl") or {}).get("vendor") or (row.get("vendor") if found else None),
             "title": scrub_title((row.get("_crawl") or {}).get("title") or row.get("title") or "", slug),
@@ -616,7 +705,7 @@ def mast(active: str, prefix: str) -> str:
     <a class="wordmark" href="{prefix}">opentrust.center</a>
     <nav class="docket" aria-label="instruments">
       {link("", "register")}
-      {link("graph.html", "processors")}
+      {link("graph.html", "subprocessors")}
       {link("attestations.html", "marks")}
     </nav>
     <span class="stamp" aria-hidden="true">OT</span>
@@ -766,7 +855,9 @@ def dossier_html(row: dict, generated_at: str) -> str:
     <div class="disclosure">
       <span class="stamp" aria-hidden="true">OT</span>
       <span class="tier-label {tier_cls}">{escape(tier)}</span>
+      {file_meter_html(file_flags(row, disc))}
     </div>
+    <p class="file-legend">page · marks · dpa · subprocessors · years</p>
     <p class="factor">{escape(factor_line(disc))}</p>
 
     <p class="sec-kicker">attestations</p>
@@ -800,7 +891,7 @@ def dossier_html(row: dict, generated_at: str) -> str:
   </main>
   <footer class="colo">
     <p>Disclosure rates the file, not the company. Empty rows print <i>not on file</i>.</p>
-    <p><a href="../">register</a> · <a href="../graph.html">processors</a> · <a href="../attestations.html">marks</a></p>
+    <p><a href="../">register</a> · <a href="../graph.html">subprocessors</a> · <a href="../attestations.html">marks</a></p>
   </footer>
   <script type="module" src="../dossier.js"></script>
 </body>
@@ -877,6 +968,14 @@ def main() -> int:
     if not wires_path.exists():
         wires_path = ROOT / "data" / "subprocessors.json"
     edges_doc = load_json(wires_path, {"edges": [], "nodes": []})
+    pretty_subprocessor_nodes(edges_doc)
+    write_json(wires_path, edges_doc)
+    data_wires = ROOT / "data" / "subprocessors.json"
+    if data_wires.resolve() != wires_path.resolve() and data_wires.exists():
+        other = load_json(data_wires, {"edges": [], "nodes": []})
+        pretty_subprocessor_nodes(other)
+        write_json(data_wires, other)
+    stamp_data_v(generated_at)
     edges = [e for e in (edges_doc.get("edges") or []) if e.get("source_url")]
     nodes = {n["id"]: n for n in (edges_doc.get("nodes") or []) if n.get("id")}
     by_slug = {c["slug"]: c for c in companies_in if c.get("slug")}

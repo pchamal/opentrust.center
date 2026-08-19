@@ -283,6 +283,32 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
 }
 .reg .tier-word { font: var(--t-meta); color: var(--ink); letter-spacing: 0.02em; }
 
+.file-meter {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.file-meter > span {
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--rust);
+  background: transparent;
+  flex: 0 0 8px;
+  display: block;
+}
+.file-meter > span.on {
+  background: var(--well);
+}
+.file-legend {
+  margin: 0 0 12px;
+  font: var(--t-kicker);
+  letter-spacing: 0.08em;
+  color: var(--mute);
+}
+.disclosure .file-meter { margin-left: 4px; margin-right: 0; }
+
 .fr-mark {
   font: var(--t-kicker);
   letter-spacing: 0.08em;
@@ -311,6 +337,28 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
 .miss .muted, .empty p { margin: 0; color: var(--mute); font: var(--t-body); }
 .guesses { margin: 12px 0 0; padding: 0; list-style: none; }
 .guesses li { margin: 6px 0; font: var(--t-row); color: var(--mute); }
+.guesses a { color: var(--mute); text-decoration-color: var(--rust); }
+.miss-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+.miss-go {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rust);
+  font: var(--t-kicker);
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  padding: 0 0 2px;
+  border-radius: 0;
+}
+.miss-go:hover {
+  background: var(--well);
+  color: var(--ink);
+  text-decoration: none;
+}
 
 /* ——— colophon ——— */
 .colo {

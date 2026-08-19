@@ -1,4 +1,4 @@
-import { $ } from "./lib.js";
+import { $, dataUrl } from "./lib.js";
 
 const REPO = "https://github.com/pchamal/opentrust.center/issues/new";
 
@@ -15,7 +15,7 @@ async function fillName(slug) {
   const name = $("name");
   if (!slug || !name || name.value) return;
   try {
-    const res = await fetch("./data.json", { cache: "no-store" });
+    const res = await fetch(dataUrl("./data.json"), { cache: "no-store" });
     if (!res.ok) return;
     const data = await res.json();
     const row = (data.companies || []).find((c) => c.slug === slug);

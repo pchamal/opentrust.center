@@ -5,6 +5,8 @@ import {
   fmtDay,
   displayTier,
   tierClass,
+  dataUrl,
+  fileMeterHtml,
 } from "./lib.js";
 
 const FEDRAMP_FILTERS = new Set(["all", "any", "low", "moderate", "high"]);
@@ -105,6 +107,8 @@ function render() {
   if (!state.rows.length) {
     table.hidden = true;
     miss.hidden = true;
+    const actions = $("miss-actions");
+    if (actions) actions.hidden = true;
     empty.hidden = false;
     return;
   }
@@ -128,12 +132,31 @@ function render() {
         ]
       : [];
     $("guesses").innerHTML = guesses
-      .map((u) => `<li><code>${escapeHtml(u)}</code></li>`)
+      .map((u) => `<li><a href="${escapeHtml(u)}" target="_blank" rel="noopener"><code>${escapeHtml(u)}</code></a></li>`)
       .join("");
+    const actions = $("miss-actions");
+    const look = $("miss-look");
+    const req = $("miss-request");
+    if (actions) actions.hidden = false;
+    const brand = (domain || q).replace(/\.[a-z]{2,}$/i, "");
+    const query = `${q} trust center OR "trust profile" OR "trust.${brand}" OR /security`;
+    if (look) {
+      look.href = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
+      look.hidden = false;
+    }
+    if (req) {
+      const params = new URLSearchParams();
+      params.set("title", `request: ${q}`);
+      params.set("labels", "request");
+      req.href = `https://github.com/pchamal/opentrust.center/issues/new?${params.toString()}`;
+      req.hidden = false;
+    }
     return;
   }
 
   miss.hidden = true;
+  const actions = $("miss-actions");
+  if (actions) actions.hidden = true;
   table.hidden = false;
   const body = $("reg-body");
   body.innerHTML = rows
@@ -144,7 +167,7 @@ function render() {
         <td class="num">${escapeHtml(n)}</td>
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${escapeHtml(row.name)}</a></td>
         <td>${escapeHtml(row.domain || "")}</td>
-        <td class="${tierClass(row.tier)}">${escapeHtml(tier)}</td>
+        <td class="${tierClass(row.tier)}">${fileMeterHtml(row)}${escapeHtml(tier)}</td>
         <td class="marks">${marksCell(row)}</td>
         <td>${escapeHtml(fmtDay(row.probed_at || state.generatedAt))}</td>
       </tr>`;
@@ -230,7 +253,7 @@ async function load() {
     setFedramp(String(params.get("fedramp")).toLowerCase());
   }
   try {
-    const res = await fetch("./data.json", { cache: "no-store" });
+    const res = await fetch(dataUrl("./data.json"), { cache: "no-store" });
     if (!res.ok) throw new Error(String(res.status));
     const data = await res.json();
     const companies = Array.isArray(data.companies) ? data.companies : [];
