@@ -21,22 +21,48 @@ VENDOR_WORDS = re.compile(
 
 CERT_WEIGHT = {
     "fedramp": 12,
+    "fedramp high": 12,
+    "fedramp moderate": 12,
     "soc 2 type ii": 10,
     "iso 27001": 10,
     "pci dss": 8,
     "hitrust": 8,
+    "cmmc": 8,
     "hipaa": 6,
     "iso 27701": 6,
     "iso 42001": 6,
+    "soc 2 type i": 4,
+    "soc 2": 4,
+    "soc 1 type ii": 4,
+    "soc 1": 4,
     "soc 3": 4,
+    "iso 27017": 4,
+    "iso 27018": 4,
+    "iso 22301": 4,
+    "iso 9001": 4,
+    "csa star": 4,
+    "tisax": 4,
+    "irap": 4,
+    "stateramp": 4,
+    "tx-ramp": 4,
+    "cyber essentials": 4,
+    "nist 800-53": 4,
+    "nist csf": 4,
+    "c5": 4,
+    "ismap": 4,
+    "sox": 4,
     "gdpr": 3,
     "ccpa": 3,
 }
 
 CERT_ID = {
     "fedramp": "fedramp",
+    "fedramp high": "fedramp",
+    "fedramp moderate": "fedramp",
     "soc 2 type ii": "soc-2-type-ii",
+    "soc 2 type i": "soc-2-type-i",
     "soc 2": "soc-2-type-ii",
+    "soc 1 type ii": "soc-1-type-ii",
     "soc 1": "soc-1-type-ii",
     "soc 3": "soc-3",
     "iso 27001": "iso-27001",
@@ -44,6 +70,8 @@ CERT_ID = {
     "iso 27018": "iso-27018",
     "iso 27701": "iso-27701",
     "iso 42001": "iso-42001",
+    "iso 22301": "iso-22301",
+    "iso 9001": "iso-9001",
     "gdpr": "gdpr",
     "ccpa": "ccpa-cpra",
     "hipaa": "hipaa",
@@ -51,7 +79,28 @@ CERT_ID = {
     "pci dss": "pci-dss",
     "csa star": "csa-star-l1",
     "nist": "nist-csf",
+    "nist csf": "nist-csf",
+    "nist 800-53": "nist-800-53",
     "tisax": "tisax",
+    "irap": "irap",
+    "stateramp": "stateramp",
+    "tx-ramp": "tx-ramp",
+    "cyber essentials": "cyber-essentials",
+    "cmmc": "cmmc-l2",
+    "c5": "c5",
+    "ismap": "ismap",
+    "sox": "sox",
+}
+
+LINK_TO_INSTRUMENT = {
+    "trust": "trust",
+    "security": "security",
+    "privacy": "privacy",
+    "dpa": "dpa",
+    "subprocessors": "subprocessors",
+    "status": "status",
+    "bug_bounty": "bounty",
+    "security_txt": "bounty",
 }
 
 INSTRUMENTS = ("trust", "security", "privacy", "dpa", "subprocessors", "status", "bounty")
@@ -222,40 +271,67 @@ def fmt_when(iso: str) -> str:
         return fmt_day(iso)
 
 
-def enrich_company(row: dict, founded: dict, edges: list[dict], generated_at: str) -> dict:
+def seen_date(generated_at: str) -> str | None:
+    return generated_at[:10] if generated_at else None
+
+
+def file_instrument(instruments: dict, key: str, url: str, generated_at: str) -> None:
+    if not url or instruments.get(key):
+        return
+    instruments[key] = {
+        "url": url,
+        "host": host_of(url),
+        "seen": seen_date(generated_at),
+    }
+
+
+def register_slug_for(node: dict, by_slug: dict, by_domain: dict) -> str | None:
+    nid = node.get("id")
+    if nid and nid in by_slug:
+        return nid
+    domain = (node.get("domain") or "").lower()
+    if domain in by_domain:
+        return by_domain[domain]
+    return None
+
+
+def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_domain: dict, generated_at: str) -> dict:
     slug = row["slug"]
-    found = bool(row.get("found"))
-    official = row.get("trust_url") or row.get("final_url") or ""
+    links = row.get("links") or {}
+    found = bool(row.get("found") or links.get("trust") or links.get("security"))
+    official = row.get("trust_url") or links.get("trust") or links.get("security") or row.get("final_url") or ""
     certs = [c for c in (row.get("certs") or []) if c]
     attestations = [map_cert(c) for c in certs]
-    year_rec = founded.get(slug) or {}
-    year = year_rec.get("year")
-    year_src = year_rec.get("source")
+    year = row.get("founded_year")
+    year_src = row.get("founded_source")
 
     instruments = {k: None for k in INSTRUMENTS}
+    for link_key, inst_key in LINK_TO_INSTRUMENT.items():
+        url = links.get(link_key)
+        if url:
+            file_instrument(instruments, inst_key, url, generated_at)
     if found and official:
         slot = classify_official(official)
-        instruments[slot] = {
-            "url": official,
-            "host": host_of(official),
-            "seen": generated_at[:10] if generated_at else None,
-        }
+        file_instrument(instruments, slot, official, generated_at)
 
-    mine = [e for e in edges if e.get("company") == slug and e.get("source_url")]
+    mine = [
+        e for e in edges
+        if e.get("source_url") and (e.get("from") or e.get("company")) == slug
+    ]
     processors = []
     for e in mine:
+        to = e.get("to") or e.get("processor_slug") or ""
+        node = nodes.get(to) or {}
+        name = e.get("evidence") or e.get("processor") or node.get("name") or to
+        proc_slug = register_slug_for(node, by_slug, by_domain)
         processors.append({
-            "name": e["processor"],
-            "slug": e.get("processor_slug"),
+            "name": name,
+            "slug": proc_slug,
             "source_url": e["source_url"],
         })
-    if mine:
+    if mine and not instruments.get("subprocessors"):
         src = mine[0]["source_url"]
-        instruments["subprocessors"] = {
-            "url": src,
-            "host": host_of(src),
-            "seen": generated_at[:10] if generated_at else None,
-        }
+        file_instrument(instruments, "subprocessors", src, generated_at)
 
     disc = disclosure_of(found, attestations, instruments, year)
     summary = clerk_summary(row, attestations, processors)
@@ -497,13 +573,15 @@ def dossier_html(row: dict, generated_at: str) -> str:
 def main() -> int:
     raw = {}
     for candidate in (
+        ROOT / "data" / "enriched.json",
+        SITE / "data" / "enriched.json",
         ROOT / "data" / "register-source.json",
         ROOT / "data" / "results.json",
         SITE / "data.json",
     ):
         raw = load_json(candidate, {})
         companies = raw.get("companies") or []
-        if companies and ("vendor" in companies[0] or companies[0].get("_crawl")):
+        if companies:
             break
     if not raw.get("companies"):
         raw = {}
@@ -514,11 +592,22 @@ def main() -> int:
         {"name": "Public enterprise, security, and AI vendors", "url": None},
     ]
 
-    founded = load_json(ROOT / "data" / "founded.json", {}).get("years") or {}
     edges_doc = load_json(ROOT / "data" / "subprocessors.json", {"edges": []})
+    if not edges_doc.get("edges"):
+        edges_doc = load_json(SITE / "data" / "subprocessors.json", {"edges": []})
     edges = edges_doc.get("edges") or []
+    nodes = {n["id"]: n for n in (edges_doc.get("nodes") or []) if n.get("id")}
+    by_slug = {c["slug"]: c for c in companies_in if c.get("slug")}
+    by_domain = {}
+    for c in companies_in:
+        domain = (c.get("domain") or "").lower()
+        if domain:
+            by_domain[domain] = c["slug"]
 
-    public_companies = [enrich_company(row, founded, edges, generated_at) for row in companies_in]
+    public_companies = [
+        enrich_company(row, edges, nodes, by_slug, by_domain, generated_at)
+        for row in companies_in
+    ]
 
     public = {
         "generated_at": generated_at,

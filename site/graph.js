@@ -15,10 +15,40 @@ function thinness(row) {
   return (100 - score) / 100;
 }
 
+function registerSlug(node, companies) {
+  if (!node) return null;
+  if (node.id && companies.has(node.id)) return node.id;
+  if (node.domain) {
+    for (const c of companies.values()) {
+      if ((c.domain || "").toLowerCase() === String(node.domain).toLowerCase()) return c.slug;
+    }
+  }
+  return null;
+}
+
+function normalizeEdges(wires, companies) {
+  const nodes = new Map((wires.nodes || []).map((n) => [n.id, n]));
+  return (wires.edges || [])
+    .filter((e) => e.source_url)
+    .map((e) => {
+      const from = e.from || e.company;
+      const to = e.to || e.processor_slug || e.processor;
+      const node = nodes.get(to) || {};
+      const slug = registerSlug(node, companies) || (companies.has(to) ? to : e.processor_slug || null);
+      return {
+        company: from,
+        processor: e.evidence || e.processor || node.name || to,
+        processor_slug: slug,
+        processor_id: to,
+        source_url: e.source_url,
+      };
+    });
+}
+
 function rankProcessors(edges, companies) {
   const by = new Map();
   for (const e of edges) {
-    const key = e.processor_slug || e.processor;
+    const key = e.processor_id || e.processor_slug || e.processor;
     if (!by.has(key)) {
       by.set(key, {
         name: e.processor,
@@ -267,7 +297,7 @@ async function load() {
     ]);
     state.data = reg;
     (reg.companies || []).forEach((c) => state.companies.set(c.slug, c));
-    state.edges = (wires.edges || []).filter((e) => e.source_url);
+    state.edges = normalizeEdges(wires, state.companies);
     state.processors = rankProcessors(state.edges, state.companies);
     fillIssue($("issue"), reg);
   } catch {
