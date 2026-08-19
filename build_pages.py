@@ -330,6 +330,7 @@ def file_flags(row: dict, disc: dict) -> dict:
 
 
 def file_meter_html(flags: dict) -> str:
+    """Dossier stamp only. The register table is the tier word, no boxes."""
     on_file = [k for k in FILE_METER_KEYS if flags.get(k)]
     legend = " · ".join(FILE_METER_KEYS)
     listed = (" · ".join(on_file) + " on file") if on_file else "none on file"

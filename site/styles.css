@@ -193,12 +193,37 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
   max-width: 72em;
   white-space: normal;
 }
+.queryline {
+  margin: 12px 0 0;
+  font: var(--t-meta);
+  letter-spacing: 0.02em;
+  color: var(--mute);
+}
+.queryline button {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  color: var(--mute);
+  font: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  border-radius: 0;
+}
+.queryline button:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rust);
+}
+.queryline .sep { color: var(--rust); }
 .countline {
   margin: 12px 0 8px;
   font: var(--t-meta);
   letter-spacing: 0.02em;
   color: var(--mute);
 }
+.queryline:not([hidden]) + .countline { margin-top: 8px; }
 
 /* ——— filters ——— */
 .filters {
@@ -270,7 +295,13 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
   text-decoration: underline;
   text-decoration-color: var(--rust);
 }
-.reg td.marks a { color: var(--ink); }
+.reg td.marks {
+  color: var(--mute);
+  font: var(--t-meta);
+  letter-spacing: 0.02em;
+}
+.reg td.marks a { color: var(--mute); }
+.reg .mark-line { color: var(--mute); text-decoration: none; }
 .reg td.num { color: var(--rust); width: 3.2em; }
 .reg tbody tr { cursor: pointer; }
 .reg tbody tr:hover { background: var(--well); }
@@ -310,15 +341,15 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
 .disclosure .file-meter { margin-left: 4px; margin-right: 0; }
 
 .fr-mark {
-  font: var(--t-kicker);
-  letter-spacing: 0.08em;
-  color: var(--ink);
-  text-decoration: none;
-  margin-right: 10px;
+  font: var(--t-meta);
+  letter-spacing: 0.02em;
+  color: var(--mute);
+  text-decoration: underline;
+  text-decoration-color: var(--rust);
+  margin-right: 0;
 }
 .fr-mark:hover {
   color: var(--ink);
-  text-decoration: underline;
   text-decoration-color: var(--rust);
 }
 
