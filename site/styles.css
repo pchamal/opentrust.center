@@ -612,12 +612,14 @@ a:hover { color: var(--flame); text-decoration-color: var(--flame); }
 }
 .map-well {
   width: 360px;
-  height: 320px;
+  height: 360px;
+  aspect-ratio: 1;
   border: var(--rule);
   background: var(--ground);
   position: relative;
 }
-.map-well canvas { cursor: grab; }
+.map-well canvas { display: block; width: 100%; height: 100%; cursor: grab; touch-action: none; }
+.map-well canvas:active { cursor: grabbing; }
 .map-legend {
   margin: 8px 0 0;
   font: var(--t-kicker);
@@ -727,7 +729,7 @@ a:hover { color: var(--flame); text-decoration-color: var(--flame); }
   .docket { flex: 1 1 100%; order: 3; }
   .stamp { order: 2; }
   .gaz-grid { grid-template-columns: 1fr; }
-  .map-well { width: 100%; max-width: 360px; height: 280px; }
+  .map-well { width: min(360px, 100%); max-width: 360px; height: auto; aspect-ratio: 1; }
   .reg td.marks { display: none; }
   .reg th.marks { display: none; }
 }

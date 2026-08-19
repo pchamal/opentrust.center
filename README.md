@@ -12,8 +12,8 @@ The company’s own page stays authoritative. We file what is public. We do not 
 |---|---|
 | `/` | Register — table of companies, disclosure tier |
 | `/c/{slug}.html` | Dossier — the file |
-| `/graph.html` | Wires — named subprocessors, as published |
-| `/attestations.html` | Gazette — book of marks |
+| `/graph.html` | Processors — named subprocessors, as published |
+| `/attestations.html` | Attestations — book of marks |
 | `/data.json` | Machine copy of the register (`_crawl` is not for citation) |
 | `/llms.txt` | Agent brief |
 

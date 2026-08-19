@@ -12,7 +12,7 @@ This file is law. Read it before any visual change. The audit that produced this
 
 Public record of what a company discloses — official pages, marks, years, and named processors.
 
-We are no longer only a URL index. We file the public record (the dossier), the map of disclosed subprocessors (the wires), and the book of marks a buyer will meet (the gazette). The company’s own page stays authoritative. We still never look like a GRC SaaS.
+We are no longer only a URL index. We file the public record (the dossier), the map of disclosed subprocessors (the processors), and the book of marks a buyer will meet (the attestations). The company’s own page stays authoritative. We still never look like a GRC SaaS.
 
 Do not print “front pane of glass” on the site. That is an internal metaphor. Do not print “in one place.” The clerk already has a word: **on file**.
 
@@ -39,8 +39,8 @@ Hero copy is a finding aid, not a pitch.
 | Surface | Aid | Deck |
 |---|---|---|
 | Register | Public record of what a company discloses. | Attestations, instruments, years. Official page, or not. |
-| Wires | Named subprocessors, as published. | Filed from public lists. Not a complete supply chain. |
-| Gazette | Marks a buyer will meet. | By geography and industry. ELI-5, then the long form. |
+| Processors | Named subprocessors, as published. | Filed from public lists. Not a complete supply chain. |
+| Attestations | Marks a buyer will meet. | By geography and industry. ELI-5, then the long form. |
 
 Bad: “Find every trust center in one place.”
 Good: “Public record of what a company discloses.”
@@ -54,7 +54,7 @@ Outbound: `open official page`. Never “Open SafeBase.” Never name the portal
 
 **A gazette / registrar issue, with three instruments on one desk.**
 
-The register is the index. The dossier is the file. The wires are a hairline map of names the file already gave us. The globe is a desk cartographic object for pointing at a region of marks. Horizontal rules, issue date, stamped mark, tabular names. Paper you could file. A seal that looks pressed in ink, not a 3D medallion.
+The register is the index. The dossier is the file. The processors are a hairline map of names the file already gave us. The globe is a desk cartographic object for pointing at a region of marks. Horizontal rules, issue date, stamped mark, tabular names. Paper you could file. A seal that looks pressed in ink, not a 3D medallion.
 
 Nearby kin (steal posture, not pixels): London Gazette *notices*, Federal Register issues, Companies House *company records*, SEC EDGAR *filings*, Oxide’s console table and `Fig. n` habit, VoltAgent’s empty dark field.
 
@@ -71,7 +71,7 @@ Two faces only.
 
 Do not add IBM Plex Sans, Source Serif 4, Inter, Geist, Recoleta, Suisse, GT America, or “a nicer grotesque.” The old site used Source Serif + Plex Sans. That pairing is retired. It is the default “thoughtful AI” stack. It is still live on `/c/*` and must be burned down.
 
-Names are slightly tight (−0.02 to −0.03em). Meta is small, tracked a little, never uppercase-for-style except 1-line kickers (`REGISTER`, `WIRES`, `GAZETTE`, `ISSUE`) and table headers.
+Names are slightly tight (−0.02 to −0.03em). Meta is small, tracked a little, never uppercase-for-style except 1-line kickers (`REGISTER`, `PROCESSORS`, `ATTESTATIONS`, `ISSUE`) and table headers.
 
 ### Product scale (px). Do not invent others.
 
@@ -142,7 +142,7 @@ High-taste staff-engineer product, not a magazine and not a SaaS marketing page.
 
 - **Canvas, not a sheet.** The page is one continuous `--ground` field to the edges (VoltAgent posture). No floating paper card. No centered “document.” No `.sheet` as a card.
 - **Surface:** optional 32px grid at `--hair`, only in figure wells. Grain at 0.06 or off. If you notice either, delete it. No glow orb, no mesh blob, no illustration.
-- **Docket mast:** 48px high, full width, hairline under. Wordmark left (20px). Instruments as words: `register` `wires` `gazette` (Plex Mono 11, tracking 0.12em). Active word: `--ink` + 1px `--flame` underline. OT ring right. No icons. No hamburger if the three words fit. No `Product` / `Docs` / `More`.
+- **Docket mast:** 48px high, full width, hairline under. Wordmark left (20px). Instruments as words: `register` `processors` `attestations` (Plex Mono 11, tracking 0.12em). Active word: `--ink` + 1px `--flame` underline. OT ring right. No icons. No hamburger if the three words fit. No `Product` / `Docs` / `More`.
 - **Issue line** under the mast, Plex Mono 11:
 
   `issue 18 Aug 2026 PT · 184 on file · 22 not on file · last probed 18 Aug 2026, 3:23 PM PT`
@@ -153,7 +153,7 @@ High-taste staff-engineer product, not a magazine and not a SaaS marketing page.
 - **Register is a table.** Columns: `#` · name · domain · tier · marks · probed. One line, ~44px, rust hairline. No card, no summary paragraph, no vendor column, no badge pills.
 - **Filters** are a segmented hairline bar of *tiers* (and optionally list). Not vendor chips.
 - **Dossier is a page**, `/c/{slug}.html`, 720px measure. Not a drawer. Not a side panel pretending to be a file.
-- **Wires** and **gazette** sit on a 1200px measure. Figures have `Fig. n` captions.
+- **Processors** and **attestations** sit on a 1200px measure. Figures have `Fig. n` captions.
 - Rhythm is 8px. Gutters 48px (24px on small screens). Radius 0 except the stamp.
 
 ## The three instruments
@@ -175,16 +175,16 @@ Always this order. Empty sections still print `not on file`.
 3. Disclosure stamp + factor line
 4. Attestations table → `/attestations.html#{id}`
 5. Instruments table (trust, security, privacy, DPA, subprocessors, status, bounty / security.txt) — all seven rows, always
-6. Named processors table → wires
+6. Named processors table → processors
 7. Clerk summary: two sentences, or nothing. No vendor. No marketing reprint.
 8. Last probed
 9. `open official page` (human-gated, inline) + permalink (this page)
 
 Do not render portal vendors. Keep `vendor` in crawl data only.
 
-### Wires
+### Processors
 
-A wire instrument plus a ranked table. The table is the authority.
+A processor instrument plus a ranked table. The table is the authority.
 
 - Caption: `Fig. 1 · Named processors, as published`
 - Subcaption: `Filed from public subprocessor lists. This is not a complete supply chain.`
@@ -194,21 +194,20 @@ A wire instrument plus a ranked table. The table is the authority.
 - Risk is concentration × thin public file, per the PRD. Print the formula. Do not color rows red.
 - Edges without a first-party public `source_url` do not ship.
 
-### Gazette
+### Attestations
 
 The book of marks. The globe is a pointer, not the product.
 
 - Caption: `Fig. 2 · Geography of marks`
 - Filters: geography, industry, kind — hairline bar
 - Every entry: name, kind, geography, industry, issuer, weight, ELI-5 (default), elaborate (instant toggle), related marks
-- Globe (or a printed equirectangular map if WebGL is a fool’s errand):
-  - 280–360px well, rust hairline, on the desk (the page), not full-bleed
-  - Land `--well`, sea `--ground`, graticule `--rust` 15° or 30°, coast 1px rust
+- Desk globe (canvas 2D orthographic sphere). No Three.js. No earth texture.
+  - 360px square well, rust hairline, on the desk (the page), not full-bleed
+  - Sea `--ground` disk, land `--well`, graticule `--rust` 15° or 30°, coast 1px rust, limb 1px rust
   - Marks: 2–3px flame ticks. No pulse, no ping
-  - Drag to rotate. Default still. No auto-rotate demo. No zoom-from-space
-  - Unlit / MeshBasic. No bloom, no atmosphere Fresnel, no starfield, no Blue Marble, no city lights, no clouds, no envmap, no wooden stand
+  - Slight axial tilt. Slow idle spin (~0.1 rad/s). Pause while dragging; resume after a beat. `prefers-reduced-motion`: still; drag still works. No zoom-from-space
+  - No bloom, no atmosphere, no starfield, no Blue Marble, no city lights, no clouds, no envmap, no wooden stand
   - Click region → filter the book. Click tick → `#id`
-- Prefer canvas 2D / SVG. Three.js only if it can obey the above. A demo that began as “threejs earth glow” is forbidden.
 
 ## Motion
 
@@ -216,7 +215,7 @@ Almost none. The register does not bounce, fade-slide, or shimmer. Instant open.
 
 The human gate is a **stamp box** inline under the outbound (checkbox + “I am human”), not a Cloudflare cosplay and not a modal. ≤300ms. On pass: `verified · 30 min`. No “Before you leave.”
 
-Globe: user drag only. Wires: settle, then stop.
+Globe: slow idle spin; pause on drag. Processors: settle, then stop.
 
 ## Imagery
 
@@ -249,9 +248,9 @@ Build only these surfaces:
 
 - home register (`/`)
 - company dossier (`/c/{slug}.html`)
-- wires (`/graph.html`)
-- gazette + globe (`/attestations.html`, `#id` for an entry)
-- processor stub (on wires, for names not in the register)
+- processors (`/graph.html`)
+- attestations + globe (`/attestations.html`, `#id` for an entry)
+- processor stub (on processors, for names not in the register)
 - miss (not on file)
 - human stamp (inline)
 - `llms.txt`

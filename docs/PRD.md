@@ -38,12 +38,12 @@ If a sentence could appear on a Vanta homepage, delete it.
 |---|---|---|
 | Register | `/` | Find a company. See disclosure tier. Open the dossier. |
 | Dossier | `/c/{slug}.html` | Every public security and compliance link we have on file, plus certs, years, subprocessors. |
-| Wires | `/graph.html` | Disclosed subprocessors. Who depends on whom. Which named processors sit under the most of the index with the thinnest public file. |
-| Gazette | `/attestations.html` | Every attestation a buyer will meet, ELI-5 and long form, by geography and industry, on a desk globe. |
+| Processors | `/graph.html` | Disclosed subprocessors. Who depends on whom. Which named processors sit under the most of the index with the thinnest public file. |
+| Attestations | `/attestations.html` | Every attestation a buyer will meet, ELI-5 and long form, by geography and industry, on a desk globe. |
 
 Also: `/brand.html` (specimen), `/llms.txt`, `/data.json`, `/sitemap.xml`.
 
-No blog. No pricing. No “platform” nav. The mast is a docket: `register · wires · gazette`.
+No blog. No pricing. No “platform” nav. The mast is a docket: `register · processors · attestations`.
 
 ---
 
@@ -185,8 +185,8 @@ UI:
 ```
 opentrust.center/
   index.html              register
-  graph.html              wires
-  attestations.html       gazette + globe
+  graph.html              processors
+  attestations.html       attestations + globe
   brand.html              specimen
   c/{slug}.html           dossier
   data.json               register (public, no vendor in the rendered sense)
@@ -200,7 +200,7 @@ opentrust.center/
 Mast on every surface:
 
 ```
-opentrust.center          register   wires   gazette     OT
+opentrust.center          register   processors   attestations     OT
 ```
 
 Active item is a hairline underline. Not a pill.
@@ -218,8 +218,8 @@ Banned: empower, seamless, reimagine, next-gen, in one place, trust made simple,
 Hero (register): `Public record of what a company discloses.`
 Deck: `Attestations, instruments, years. Official page, or not.`
 
-Hero (wires): `Named subprocessors, as published.`
-Hero (gazette): `Marks a buyer will meet.`
+Hero (processors): `Named subprocessors, as published.`
+Hero (attestations): `Marks a buyer will meet.`
 
 ---
 
@@ -228,7 +228,7 @@ Hero (gazette): `Marks a buyer will meet.`
 - Canonical `https://opentrust.center/` and `/c/{slug}.html`
 - JSON-LD: WebSite + Organization (us) + for each dossier a `WebPage` about that Organization, `hasCredential` when we have certs
 - `llms.txt` tells agents: cite the dossier; do not invent URLs; do not treat the disclosure tier as a security rating; do not name portal vendors from crawl leftovers
-- Sitemap includes register, graph, gazette, every dossier
+- Sitemap includes register, graph, attestations, every dossier
 - Human gate remains on outbound only. Agents may read on-page facts.
 
 ---
@@ -260,7 +260,7 @@ Partial honest data is the product. A complete fiction is a different product.
 A stranger can:
 
 1. Open `/`, search `stripe`, see a disclosure stamp, open the dossier, and not see the word SafeBase or Vanta anywhere.
-2. From Stripe’s dossier, jump to SOC 2 in the gazette, read ELI-5, press elaborate.
+2. From Stripe’s dossier, jump to SOC 2 in the attestations, read ELI-5, press elaborate.
 3. Open `/graph.html`, see AWS (or whoever the public lists actually name) as a high-exposure node, with a source URL on the edge.
 4. Open `/attestations.html`, drag the globe to Europe, see GDPR / ISO / C5 / DORA, not a starfield.
 5. View-source or `data.json` and still not be taught that “custom” vs “vanta” is the point of the site.

@@ -17,7 +17,7 @@ Public record of what a company discloses — official pages, marks, years, and 
 
 - `tier`: silent | thin | on-file | substantial | complete
 - `instruments`: trust, security, privacy, dpa, subprocessors, status, bounty — each a URL or not on file
-- `attestations`: marks extracted from the public page, linked to the gazette
+- `attestations`: marks extracted from the public page, linked to the attestations book
 - `founded_year`: only when a source URL is on file
 - `processors`: only edges with a first-party `source_url`
 - `instruments.subprocessors`: a public list URL. That is not the same as parsed processor names. JS-only portals (for example Stripe, OpenAI) stay empty.

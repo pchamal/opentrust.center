@@ -592,8 +592,8 @@ def mast(active: str, prefix: str) -> str:
     <a class="wordmark" href="{prefix}">opentrust.center</a>
     <nav class="docket" aria-label="instruments">
       {link("", "register")}
-      {link("graph.html", "wires")}
-      {link("attestations.html", "gazette")}
+      {link("graph.html", "processors")}
+      {link("attestations.html", "attestations")}
     </nav>
     <span class="stamp" aria-hidden="true">OT</span>
   </header>"""
@@ -776,7 +776,7 @@ def dossier_html(row: dict, generated_at: str) -> str:
   </main>
   <footer class="colo">
     <p>Disclosure rates the file, not the company. Empty rows print <i>not on file</i>.</p>
-    <p><a href="../">register</a> · <a href="../graph.html">wires</a> · <a href="../attestations.html">gazette</a></p>
+    <p><a href="../">register</a> · <a href="../graph.html">processors</a> · <a href="../attestations.html">attestations</a></p>
   </footer>
   <script type="module" src="../dossier.js"></script>
 </body>
