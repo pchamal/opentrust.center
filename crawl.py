@@ -464,11 +464,10 @@ def main() -> int:
     }
     text = json.dumps(payload, indent=2) + "\n"
     data_path = ROOT / "data" / "results.json"
-    site_path = ROOT / "site" / "data.json"
+    source_path = ROOT / "data" / "register-source.json"
     data_path.parent.mkdir(parents=True, exist_ok=True)
-    site_path.parent.mkdir(parents=True, exist_ok=True)
     data_path.write_text(text)
-    site_path.write_text(text)
+    source_path.write_text(text)
 
     found = sum(1 for r in results if r["found"])
     vendors = Counter(r["vendor"] for r in results if r["found"])
@@ -478,7 +477,8 @@ def main() -> int:
     for name, count in vendors.most_common():
         print(f"  {name}: {count}")
     print(f"Wrote {data_path}")
-    print(f"Wrote {site_path}")
+    print(f"Wrote {source_path}")
+    print("Run python3 build_pages.py to publish the public register.")
     return 0
 
 

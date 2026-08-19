@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>opentrust.center — public record of company disclosures</title>
+  <meta name="description" content="Official pages, attestations, years, and named processors. On file, or not.">
+  <meta name="theme-color" content="#331400">
+  <link rel="canonical" href="https://opentrust.center/graph.html">
+  <meta property="og:title" content="opentrust.center — wires">
+  <meta property="og:description" content="Named subprocessors, as published. On file, or not.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://opentrust.center/graph.html">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23331400'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23ff6600' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23ff6600' stroke-width='1'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='Georgia,serif' font-size='16' font-weight='600' fill='%23ff6600'%3EOT%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="mast">
+    <a class="wordmark" href="./">opentrust.center</a>
+    <nav class="docket" aria-label="instruments">
+      <a href="./">register</a>
+      <a href="./graph.html" class="on">wires</a>
+      <a href="./attestations.html">gazette</a>
+    </nav>
+    <span class="stamp" aria-hidden="true">OT</span>
+  </header>
+  <p class="issue" id="issue">issue —</p>
+
+  <main class="canvas">
+    <p class="lede">Named subprocessors, as published.</p>
+    <p class="deck">Filed from public lists. Not a complete supply chain.</p>
+
+    <div class="wires-grid">
+      <div>
+        <table class="inst" id="wire-table" hidden>
+          <thead>
+            <tr>
+              <th>processor</th>
+              <th>exposure</th>
+              <th>tier</th>
+              <th>risk</th>
+              <th>source</th>
+            </tr>
+          </thead>
+          <tbody id="wire-body"></tbody>
+        </table>
+        <p class="clerk-line" id="empty-wires" hidden>No public subprocessor lists filed yet.</p>
+        <p class="formula">risk = exposure × (0.4 + 0.6 × thinness). thinness is 1 if silent, thin, or not in the register; else (100 − disclosure) / 100. Do not read this as a CVE ranking.</p>
+        <div class="stub" id="stub" hidden></div>
+      </div>
+      <div>
+        <p class="fig-cap">Fig. 1 · Named processors, as published</p>
+        <p class="fig-sub">Filed from public subprocessor lists. This is not a complete supply chain.</p>
+        <div class="fig-well">
+          <canvas id="fig1" width="640" height="360" aria-label="Hairline map of named processors"></canvas>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="colo">
+    <p>Edges ship only with a first-party <code>source_url</code>. Login-gated lists are not on file. The table is the authority; the figure is a pointer.</p>
+    <p><a href="./">register</a> · <a href="./brand.html">specimen</a> · <a href="https://github.com/pchamal/opentrust.center">code</a></p>
+  </footer>
+
+  <script type="module" src="./graph.js"></script>
+</body>
+</html>

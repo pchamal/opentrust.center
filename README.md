@@ -1,57 +1,59 @@
 # opentrust.center
 
-An open directory of **company security pages, customer trust centers, and managed trust portals**.
+Public record of what a company discloses — official pages, marks, years, and named processors.
 
-Built for GRC and security people — and for agents acting on their behalf. Look up a company, see whether they publish a public portal, read what it says (vendor, certifications, summary), then open the official URL.
+Live: https://opentrust.center
 
-Coverage is the **2025 Forbes Cloud 100** plus public enterprise, security, and AI vendors people actually search (Microsoft, Salesforce, Okta, CrowdStrike, and peers).
+The company’s own page stays authoritative. We file what is public. We do not sell trust, and we do not name the portal host.
 
-Live: the here.now URL in this repo’s latest publish notes.
+## Surfaces
+
+| URL | Job |
+|---|---|
+| `/` | Register — table of companies, disclosure tier |
+| `/c/{slug}.html` | Dossier — the file |
+| `/graph.html` | Wires — named subprocessors, as published |
+| `/attestations.html` | Gazette — book of marks |
+| `/data.json` | Machine copy of the register (`_crawl` is not for citation) |
+| `/llms.txt` | Agent brief |
+
+Coverage is the 2025 Forbes Cloud 100 plus a curated public-enterprise set.
 
 ## For humans
 
-Open the site, search a name, read the card, then click out. Outbound links are human-gated so automated walkers do not hammer vendor portals.
+Finder, then the table, then the dossier. Outbound links are human-gated (session, 30 minutes). Documents stay on the company’s domain.
 
 ## For agents
 
-1. Company page: `/c/{slug}.html` (title, JSON-LD, facts)
-2. Structured index: `/data.json`
-3. Agent brief: `/llms.txt`
+1. Cite the dossier: `/c/{slug}.html`
+2. Structured register: `/data.json`
+3. Marks: `/data/attestations.json`
+4. Named processors: `/data/subprocessors.json`
 
-If `found` is true, use `trust_url`. If it is false, say no public portal is on file — do not invent a URL. A missing portal is not the same as “no security program.”
-
-## What counts as a hit
-
-- A first-party security / trust / compliance page
-- A customer trust center
-- A managed portal (SafeBase, Vanta, Conveyor, Wolfia, Drata, SecurityPal, and similar)
-
-A hit is HTTP 200 plus a trust-center signature. Homepages, soft 404s, and parked domains are rejected.
+If `found` is true, use `trust_url` or the instrument URL on file. If it is false, say no official page is on file. Do not invent a URL. Do not cite `_crawl`. Do not treat the disclosure tier as a security rating.
 
 ## Crawl
 
 ```bash
-python3 crawl.py          # Cloud 100 + extras if extra-companies.json exists
+python3 crawl.py          # writes data/results.json + data/register-source.json
 python3 probe_extra.py    # extras only
-python3 build_pages.py    # SEO pages + sitemap
+python3 build_pages.py    # public data.json, dossiers, sitemap
 ```
 
-Stdlib only. Writes `site/data.json` and `data/results.json`.
-
-Do not run the crawler unless you mean to refresh the snapshot.
+Stdlib only. Do not run the crawler unless you mean to refresh the snapshot. After a crawl, always run `build_pages.py` — that is what publishes the register.
 
 ## Methodology
 
-1. Probe `trust.{domain}`, `security.{domain}`, `/{trust,trust-center,security}`, and vendor hosts.
-2. Misses get a “{company} Trust Center” search, then a check that the result is that company’s real portal.
-3. Certifications are read from the public page text.
+1. Probe `trust.{domain}`, `security.{domain}`, `/{trust,trust-center,security}`.
+2. Misses get a “{company} Trust Center” search, then a check that the result is that company’s real page.
+3. Marks are read from the public page text.
+4. Disclosure rates the *file* (portal, marks, instruments, verified years). Missing rows print `not on file`.
 
 ## Source
 
 [Forbes Cloud 100 2025](https://www.forbes.com/lists/cloud100/) and a curated public-enterprise set.
 
 Not affiliated with Forbes, Bessemer, or Salesforce Ventures.
-
 
 ## Deploy
 
