@@ -32,6 +32,7 @@ CERT_WEIGHT = {
     "hipaa": 6,
     "iso 27701": 6,
     "iso 42001": 6,
+    "aiuc-1": 8,
     "soc 2 type i": 4,
     "soc 2": 4,
     "soc 1 type ii": 4,
@@ -71,6 +72,7 @@ CERT_ID = {
     "iso 27018": "iso-27018",
     "iso 27701": "iso-27701",
     "iso 42001": "iso-42001",
+    "aiuc-1": "aiuc-1",
     "iso 22301": "iso-22301",
     "iso 9001": "iso-9001",
     "gdpr": "gdpr",
@@ -816,6 +818,27 @@ def coverage_of(companies_in: list[dict], public_companies: list[dict], edges: l
     }
 
 
+def file_rank_key(row: dict) -> tuple:
+    """Transparency first, then years on file. Missing founded_year sorts last."""
+    score = int((row.get("disclosure") or {}).get("score") or 0)
+    year = row.get("founded_year")
+    if year:
+        years = SCORE_YEAR - int(year)
+        maturity = (0, -years)
+    else:
+        maturity = (1, 0)
+    return (-score, maturity, (row.get("name") or "").lower())
+
+
+def assign_file_ranks(public_companies: list[dict]) -> None:
+    """# is file order. Cloud 100 number stays on list_rank. Do not rewrite enriched.json."""
+    for row in public_companies:
+        row["list_rank"] = row.get("rank")
+    public_companies.sort(key=file_rank_key)
+    for i, row in enumerate(public_companies, start=1):
+        row["rank"] = i
+
+
 def main() -> int:
     src = SITE / "data" / "enriched.json"
     if not src.exists():
@@ -845,6 +868,7 @@ def main() -> int:
         enrich_company(row, edges, nodes, by_slug, by_domain, generated_at)
         for row in companies_in
     ]
+    assign_file_ranks(public_companies)
     coverage = coverage_of(companies_in, public_companies, edges)
 
     public = {

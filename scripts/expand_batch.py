@@ -30,6 +30,7 @@ CERT_RES = [
     (re.compile(r"\bISO(?:/IEC)?\s*27001\b", re.I), "ISO 27001"),
     (re.compile(r"\bISO(?:/IEC)?\s*27701\b", re.I), "ISO 27701"),
     (re.compile(r"\bISO(?:/IEC)?\s*42001\b", re.I), "ISO 42001"),
+    (re.compile(r"\bAIUC-1\b", re.I), "AIUC-1"),
     (re.compile(r"\bISO(?:/IEC)?\s*27017\b", re.I), "ISO 27017"),
     (re.compile(r"\bISO(?:/IEC)?\s*27018\b", re.I), "ISO 27018"),
     (re.compile(r"\bFedRAMP\s+High\b", re.I), "FedRAMP High"),

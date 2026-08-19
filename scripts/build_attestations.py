@@ -147,7 +147,7 @@ def main() -> int:
     doc = {
         "register": "opentrust.center attestations and certifications encyclopedia",
         "publisher": "opentrust.center",
-        "updated": "2026-08-18",
+        "updated": "2026-08-19",
         "count": len(clean),
         "disclaimer": (
             "A public finding aid for names a B2B company might hold or claim. "
@@ -204,7 +204,7 @@ def write_index(entries, path: Path) -> None:
         "Clerk copy. Not a marketplace. Not legal advice.",
         "",
         f"**Entries:** {len(entries)}  ",
-        f"**Updated:** 18 August 2026 (PT)  ",
+        f"**Updated:** 19 August 2026 (PT)  ",
         f"**File:** `data/attestations.json`",
         "",
         "## How to read a row",

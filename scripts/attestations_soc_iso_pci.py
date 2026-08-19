@@ -193,6 +193,23 @@ add(
 )
 
 add(
+    id="aiuc-1",
+    name="AIUC-1",
+    short="AIUC-1",
+    family="AIUC",
+    kind="certification",
+    geography=["US", "global"],
+    industry=["ai"],
+    issuer="Artificial Intelligence Underwriting Company; accredited auditor issues the certificate",
+    eli5="An independent audit that an AI agent was tested against a quarterly-updated enterprise standard for security, safety, and reliability. It is not ISO 42001 and not a government license.",
+    elaborate="AIUC-1 is a certification against the Artificial Intelligence Underwriting Company’s standard for AI agents. The six pillars are security, safety, reliability, accountability, data and privacy, and societal impact. The company publishes the standard; an accredited auditor issues the certificate. Schellman became the first accredited auditor in February 2026. The standard refreshes quarterly on a fixed calendar (15 January, 15 April, 15 July, 15 October). The edition current on this file is 15 July 2026. It operationalizes ISO 42001, the NIST AI Risk Management Framework, MITRE ATLAS, and the OWASP LLM Top 10 into testable agent practices and technical tests. A typical audit runs four to eight weeks: scoping the named agents, evidence collection, technical evaluation against adversarial scenarios, then the independent auditor’s opinion. To keep the mark, those agents are re-tested quarterly and the engagement is re-audited annually. Scope is usually named products or agent systems, not the whole firm. A certificate on a voice model is not evidence for a coding agent or an unlisted subsidiary. Buyers must read the report: which systems were in scope, which standard version, which practices were tested, and what was carved out. AIUC-1 is not ISO 42001. ISO 42001 certifies an AI management system (AIMS). AIUC-1 certifies that named agents were tested against this agent standard. It is not the NIST AI RMF; that framework issues no certificate. It is not an EU AI Act conformity assessment and not a government license. A logo on a trust page is not the report. Typical evidence is the certificate and the report under NDA. Absence of the mark is not evidence of no agent testing; presence is not evidence your use case was in scope.",
+    lat=37.7749,
+    lng=-122.4194,
+    related=["iso-42001", "nist-ai-rmf", "soc-2-type-ii", "eu-ai-act"],
+    weight=8,
+)
+
+add(
     id="iso-9001",
     name="ISO 9001",
     short="ISO 9001",

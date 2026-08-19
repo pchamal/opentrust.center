@@ -1653,7 +1653,7 @@
       "probed": 13,
       "source": "forbes-cloud-100-2025",
       "http_status": 200,
-      "summary": "Trust is in our DNA. Talkdesk CX Cloud™ is a cloud native end-to-end global contact center solution trusted by over 1,800 businesses in 75 countries.",
+      "summary": "Trust is in our DNA. Talkdesk CX Cloud\u2122 is a cloud native end-to-end global contact center solution trusted by over 1,800 businesses in 75 countries.",
       "list": "cloud100",
       "certs": [
         "FedRAMP Moderate"
@@ -1701,7 +1701,7 @@
           {
             "id": "FR2213647361",
             "fedramp_id": "FR2213647361",
-            "offering": "Talkdesk CX Cloud™ Government Edition",
+            "offering": "Talkdesk CX Cloud\u2122 Government Edition",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
             "auth_date": "2025-06-03",
@@ -2555,7 +2555,7 @@
       "title": "Trust - NinjaOne",
       "probed": 13,
       "source": "forbes-cloud-100-2025",
-      "summary": "NinjaOne is committed to making our products accessible and user-friendly to everyone. That’s why we’ve partnered with a third-party to perform accessibility",
+      "summary": "NinjaOne is committed to making our products accessible and user-friendly to everyone. That\u2019s why we\u2019ve partnered with a third-party to perform accessibility",
       "list": "cloud100",
       "certs": [
         "FedRAMP Moderate"
@@ -2612,7 +2612,7 @@
           {
             "id": "FR2620841940",
             "fedramp_id": "FR2620841940",
-            "offering": "NinjaOne for Government – FedRAMP High",
+            "offering": "NinjaOne for Government \u2013 FedRAMP High",
             "status": "FedRAMP Ready",
             "impact_level": "High",
             "auth_date": null,
@@ -3053,7 +3053,7 @@
       "title": "Collibra trust center: Security and compliance commitment | Collibra",
       "probed": 13,
       "source": "forbes-cloud-100-2025",
-      "summary": "Explore Collibra’s trust center for details on software security, infrastructure controls, compliance, training, and risk management practices.",
+      "summary": "Explore Collibra\u2019s trust center for details on software security, infrastructure controls, compliance, training, and risk management practices.",
       "list": "cloud100",
       "certs": [
         "FedRAMP Moderate"
@@ -4119,7 +4119,7 @@
       "trust_url": "https://huggingface.co/docs/hub/en/security",
       "final_url": "https://huggingface.co/docs/hub/en/security",
       "vendor": "custom",
-      "title": "Security · Hugging Face",
+      "title": "Security \u00b7 Hugging Face",
       "probed": 18,
       "source": "forbes-cloud-100-2025",
       "http_status": 200,
@@ -4701,7 +4701,7 @@
         "status": "https://status.together.ai",
         "subprocessors": "https://trust.together.ai/subprocessors",
         "bug_bounty": "https://hackerone.com/together_ai",
-        "dpa": "https://trust.together.ai/resources (Data Processing Addendum — access request required)"
+        "dpa": "https://trust.together.ai/resources (Data Processing Addendum \u2014 access request required)"
       },
       "subprocessors": [
         "aws",
@@ -4994,7 +4994,8 @@
         "ISO 27701",
         "ISO 42001",
         "GDPR",
-        "CCPA"
+        "CCPA",
+        "AIUC-1"
       ],
       "links": {
         "trust": "https://trust.harvey.ai",
@@ -5007,13 +5008,13 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 92,
+        "score": 94,
         "tier": "complete",
         "factors": {
           "portal": 20,
-          "certs": 38,
+          "marks": 40,
           "dpa": 8,
-          "subprocessors": 8,
+          "processors": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6
@@ -7436,7 +7437,7 @@
         "subprocessors": "https://docs.fastly.com/products/sub-processors",
         "status": "https://www.fastlystatus.com/"
       },
-      "summary": "Learn more about Fastly’s security and compliance, legal terms, privacy, and corporate values and ethics, please visit the resources.",
+      "summary": "Learn more about Fastly\u2019s security and compliance, legal terms, privacy, and corporate values and ethics, please visit the resources.",
       "subprocessors": [],
       "disclosure": {
         "score": 55,
@@ -7642,7 +7643,7 @@
       "trust_url": "https://github.com/security",
       "final_url": "https://github.com/security",
       "vendor": "self_hosted",
-      "title": "GitHub Security · GitHub",
+      "title": "GitHub Security \u00b7 GitHub",
       "probed": 13,
       "source": "public-enterprise",
       "list": "enterprise",
@@ -9104,7 +9105,7 @@
           {
             "id": "FR2315464863",
             "fedramp_id": "FR2315464863",
-            "offering": "Palantir Federal Cloud Service – Supporting Services (PFCS-SS)",
+            "offering": "Palantir Federal Cloud Service \u2013 Supporting Services (PFCS-SS)",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
             "auth_date": "2024-11-19",
@@ -9766,7 +9767,7 @@
           {
             "id": "F1602257856",
             "fedramp_id": "F1602257856",
-            "offering": "DoD Cloud Intelligent Enterprise – DD-CIE",
+            "offering": "DoD Cloud Intelligent Enterprise \u2013 DD-CIE",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
             "auth_date": "2017-06-13",
@@ -10591,7 +10592,8 @@
       "founded_year": 2005,
       "founded_source": "https://en.wikipedia.org/wiki/UiPath",
       "certs": [
-        "FedRAMP Moderate"
+        "FedRAMP Moderate",
+        "AIUC-1"
       ],
       "links": {
         "trust": "https://trust.uipath.com",
@@ -10604,11 +10606,11 @@
       "summary": "Public trust center on file.",
       "subprocessors": [],
       "disclosure": {
-        "score": 60,
+        "score": 68,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "marks": 12,
+          "marks": 20,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
@@ -11622,7 +11624,7 @@
     },
     {
       "rank": 202,
-      "name": "Dassault Systèmes",
+      "name": "Dassault Syst\u00e8mes",
       "slug": "dassault-systemes",
       "domain": "3ds.com",
       "found": true,
@@ -12280,7 +12282,7 @@
           {
             "id": "F1301101857",
             "fedramp_id": "F1301101857",
-            "offering": "OpenText™ Core Application Security (Fortify On Demand)",
+            "offering": "OpenText\u2122 Core Application Security (Fortify On Demand)",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
             "auth_date": "2015-02-04",
@@ -13803,7 +13805,7 @@
           {
             "id": "FR2102652499",
             "fedramp_id": "FR2102652499",
-            "offering": "RSA® ID Plus for Government",
+            "offering": "RSA\u00ae ID Plus for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
             "auth_date": "2022-04-26",

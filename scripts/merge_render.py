@@ -154,7 +154,7 @@ WEIGHT = {
     "CSA STAR": 4, "TISAX": 8, "GDPR": 3, "CCPA": 3, "PIPEDA": 3, "LGPD": 3,
     "Cyber Essentials": 4, "Cyber Essentials Plus": 6,
     "NIST 800-171": 5, "NIST CSF": 3, "EU-US DPF": 4,
-    "DoD IL4": 8, "DoD IL5": 10, "HDS": 6, "AIUC-1": 4, "CASA": 3,
+    "DoD IL4": 8, "DoD IL5": 10, "HDS": 6, "AIUC-1": 8, "CASA": 3,
     "DORA": 4, "NIS2": 4, "IRAP": 6, "C5": 6, "ISMAP": 6, "EU Cloud CoC": 4, "SLSA": 4,
 }
 

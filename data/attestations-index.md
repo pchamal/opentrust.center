@@ -3,22 +3,20 @@
 Public catalog of security, privacy, AI, and industry attestations a B2B company might hold or claim.
 Clerk copy. Not a marketplace. Not legal advice.
 
-**Entries:** 70  
-**Updated:** 18 August 2026 (PT)  
+**Entries:** 71  
+**Updated:** 19 August 2026 (PT)  
 **File:** `data/attestations.json`
-
-Elaborate word counts: 187–280.
 
 ## How to read a row
 
 - **certification** — a named third party issued a certificate for a scope (ISO body, HITRUST, PCI listing, ENS, HDS).
 - **attestation** — an independent report or approved mechanism (SOC, C5, TISAX, DPF, BCR, IRAP assessment).
-- **authorization** — a government ATO / Marketplace status (FedRAMP, GovRAMP, TX-RAMP). Extra kind; CR26 also says certification.
-- **regulation** — a statute or directive. Nobody holds it.
+- **authorization** — a government ATO / Marketplace status (FedRAMP, GovRAMP, TX-RAMP).
+- **regulation** — a statute or directive. Nobody 'holds' it.
 - **framework** — a control catalog you can map to. Not a cert.
 - **code-of-practice** — guidance or a contractual mechanism (ISO 27017/27018, SCCs).
 - **questionnaire** — SIG, CAIQ. Homework, not a mark.
-- **weight** — how much a verified public disclosure should move a score. FedRAMP 12, SOC 2 Type II 10, GDPR 3, Privacy Shield 0.
+- **weight** — how much a *verified* public disclosure should move a score. FedRAMP 12, SOC 2 Type II 10, GDPR 3, Privacy Shield 0.
 - **retired** — do not score. Privacy Shield is the only retired row.
 
 Look up the live artifact. A badge is not the report.
@@ -27,7 +25,7 @@ Look up the live artifact. A badge is not the report.
 
 | Key | Entries |
 |---|---|
-| certification | 24 |
+| certification | 25 |
 | regulation | 15 |
 | attestation | 14 |
 | framework | 7 |
@@ -35,14 +33,13 @@ Look up the live artifact. A badge is not the report.
 | code-of-practice | 3 |
 | questionnaire | 2 |
 
-## By geography tag (an entry may carry more than one)
+## By geography tag (an entry may have more than one)
 
 | Key | Entries |
 |---|---|
-| global | 32 |
-| US | 30 |
+| global | 33 |
+| US | 31 |
 | EU | 10 |
-| apac | 6 |
 | GB | 3 |
 | CA | 2 |
 | DE | 2 |
@@ -64,8 +61,8 @@ Look up the live artifact. A badge is not the report.
 | cloud | 22 |
 | public-sector | 16 |
 | healthcare | 7 |
+| ai | 4 |
 | financial | 4 |
-| ai | 3 |
 | payments | 3 |
 | automotive | 1 |
 
@@ -88,6 +85,7 @@ Look up the live artifact. A badge is not the report.
 | CMMC | 2 |
 | Cyber-Essentials | 2 |
 | FedRAMP | 2 |
+| AIUC | 1 |
 | C5 | 1 |
 | CIS | 1 |
 | ENS | 1 |
@@ -104,6 +102,7 @@ Look up the live artifact. A badge is not the report.
 
 ## Families, in clerk order
 
+- **AIUC** (1): aiuc-1
 - **C5** (1): c5
 - **CIS** (1): cis-controls
 - **CMMC** (2): cmmc-l1, cmmc-l2
@@ -135,29 +134,15 @@ Look up the live artifact. A badge is not the report.
 
 ## Retired
 
-- `privacy-shield` — EU-U.S. Privacy Shield. Invalidated 16 July 2020 (Schrems II). Do not accept as a transfer basis.
+- `privacy-shield` — EU-U.S. Privacy Shield. Invalidated; do not accept as a transfer basis.
 
 ## Deliberately excluded
 
-| Left out | Why |
-|---|---|
-| Cookie / consent-management platforms | Practice and product, not a cert. ePrivacy is the law. |
-| Pen-test letters, bug-bounty programs | Practices, not attestations. |
-| SOC 2 + HIPAA, SOC 2 Type II AI | Not AICPA products. Covered in the SOC 2 Type II and ISO 42001 rows. |
-| PA-DSS | Retired. Successor is PCI SSF. |
-| Safe Harbor | Predecessor of Privacy Shield; also invalidated. One retired transfer row is enough. |
-| ISO 14001, 45001, 50001 | Not security / privacy / AI assurance. |
-| ISO 31000 | Guidance, not the certifiable MS most buyers mean. |
-| ITIL training cards | People certs, not organization attestations. |
-| Vanta / Drata / SafeBase monitored seals | Platform telemetry, not an independent standard. |
-| Common Criteria / EUCC | Product/TOE evaluation, not a usual B2B SaaS company cert. |
-| DoD SRG IL2–IL6 | Mentioned under FedRAMP; not a separate public listing most ISVs hold. |
-| SecNumCloud, EUCS | Real, narrower than HDS/C5/ENS for this first register. |
-| Korea CSAP | Noted under K-ISMS; not merged, not given its own row. |
-| APEC / Global CBPR | Real privacy certification; omitted to stay at 70 rows. |
-| FERPA, GLBA, NYDFS 500, CJIS | Sector laws; HIPAA/SOX/DORA stand in for the pattern. |
-| CMMC Level 3 | DIBCAC / 800-172; later phases paused. Mentioned under Level 2. |
-| HITRUST AI assessments | Newer HITRUST products; not yet a default GRC ask. |
+See the end of this page in the build notes, and the parent agent's report.
+Short list: cookie/consent products; pen-test letters; bug-bounty programs;
+SOC 2+HIPAA or SOC 2 Type II AI as invented hybrids; PA-DSS (retired, successor is PCI SSF);
+ISO 14001 and other non-security management systems; employee training badges;
+vendor GRC-platform seals (Vanta/Drata 'monitored').
 
 ## Source posture
 
@@ -165,4 +150,3 @@ Issuers, program names, and legal citations are those a GRC analyst would recogn
 Where a 2026 program is in motion (FedRAMP CR26 classes, CMMC Phase II pause, DPF review letters),
 the row says what is still true and tells the buyer to open the live list.
 Dates and mappings that were not solid were omitted or put in `note`.
-

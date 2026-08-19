@@ -61,6 +61,7 @@ CERT_RULES = [
     ("ISO 27018", re.compile(r"\bISO(?:/IEC)?\s*27018\b", re.I), 4),
     ("ISO 27701", re.compile(r"\bISO(?:/IEC)?\s*27701\b", re.I), 6),
     ("ISO 42001", re.compile(r"\bISO(?:/IEC)?\s*42001\b", re.I), 6),
+    ("AIUC-1", re.compile(r"\bAIUC-1\b", re.I), 8),
     ("ISO 22301", re.compile(r"\bISO(?:/IEC)?\s*22301\b", re.I), 4),
     ("ISO 9001", re.compile(r"\bISO\s*9001\b", re.I), 4),
     ("FedRAMP High", re.compile(r"\bFedRAMP\s+High\b", re.I), 12),
