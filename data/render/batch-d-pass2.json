@@ -1,0 +1,396 @@
+{
+  "batch": "d",
+  "method": "Chrome page render, 8-12s JS wait, visible public content only, no forms submitted",
+  "vendors": [
+    {
+      "slug": "deepl",
+      "url": "https://deepl.safebase.us/",
+      "certifications_visible": [
+        "C5",
+        "GDPR",
+        "HIPAA",
+        "ISO/IEC 27001:2022",
+        "SOC 2 Type 2"
+      ],
+      "links": {
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bounty_responsible_disclosure": null,
+        "privacy": null
+      },
+      "named_subprocessors": [],
+      "notes": "Hosted gated portal; certs, document titles and long-form updates render publicly, but documents (incl. 'List of engaged third sub-processors in Early Access Programs' and Vulnerability Disclosure Policy) are portal items behind 'Get access', not first-party hrefs. Public update text mentions AWS as infrastructure but there is no public subprocessor list."
+    },
+    {
+      "slug": "island",
+      "url": "https://trust.island.io/",
+      "certifications_visible": [
+        "ISO 27001",
+        "SOC1",
+        "SOC2",
+        "Cyber Essentials",
+        "TX RAMP",
+        "FedRAMP HIGH (In Progress)",
+        "PCI DSS",
+        "GDPR",
+        "HIPAA",
+        "Data Privacy Framework"
+      ],
+      "links": {
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bounty_responsible_disclosure": null,
+        "privacy": null
+      },
+      "named_subprocessors": [],
+      "notes": "First-party custom trust center. Cert badges link to documentation.island.io doc pages. A 'Legal Info' section lists Subprocessors, Privacy policy, Terms of use and Security Addendum as text without real hrefs at render time, so no URLs recorded."
+    },
+    {
+      "slug": "elevenlabs",
+      "url": "https://compliance.elevenlabs.io/",
+      "certifications_visible": [
+        "SOC 2 Type 2",
+        "ISO 27001:2022",
+        "ISO 27017:2015",
+        "ISO 27018:2019",
+        "ISO 27701:2019",
+        "ISO/IEC 42001:2023",
+        "PCI DSS 4.0.1 Level 1",
+        "CSA STAR L1",
+        "AIUC-1",
+        "HIPAA",
+        "HDS",
+        "GDPR",
+        "CCPA",
+        "CPRA",
+        "LGPD",
+        "DORA",
+        "EU AI Act",
+        "UK Cyber Essentials Plus",
+        "TX-RAMP Level 2",
+        "NHS DSPT",
+        "EcoVadis Committed",
+        "Trusted Partner Network - Blue Shield"
+      ],
+      "links": {
+        "dpa": null,
+        "subprocessors": "https://compliance.elevenlabs.io/subprocessors",
+        "status": null,
+        "bounty_responsible_disclosure": null,
+        "privacy": "https://elevenlabs.io/privacy-policy"
+      },
+      "named_subprocessors": [
+        {
+          "name": "ElevenLabs Affiliates",
+          "purpose": "Affiliates",
+          "location": "Global"
+        },
+        {
+          "name": "Google Cloud Platform",
+          "purpose": "Cloud infrastructure, security, data storage & LLM Services",
+          "location": "Enterprise: US or customer's selected hosting location; Non-Enterprise: US, EU or Singapore"
+        },
+        {
+          "name": "AWS",
+          "purpose": "Cloud infrastructure & data storage",
+          "location": "Enterprise: US or customer's selected hosting location; Non-Enterprise: US, EU or Singapore"
+        },
+        {
+          "name": "Azure",
+          "purpose": "Cloud infrastructure, data storage & LLM Services",
+          "location": "India"
+        },
+        {
+          "name": "Anthropic",
+          "purpose": "LLM Services",
+          "location": "United States"
+        },
+        {
+          "name": "OpenAI",
+          "purpose": "LLM Services",
+          "location": "US/EU"
+        },
+        {
+          "name": "Asana",
+          "purpose": "Collaboration",
+          "location": "US"
+        },
+        {
+          "name": "Slack",
+          "purpose": "Collaboration",
+          "location": "US"
+        },
+        {
+          "name": "Zendesk",
+          "purpose": "Customer Support",
+          "location": "US"
+        },
+        {
+          "name": "PostHog",
+          "purpose": "Cloud monitoring",
+          "location": "EU"
+        },
+        {
+          "name": "Pylon",
+          "purpose": "Customer support",
+          "location": "US"
+        },
+        {
+          "name": "Stripe",
+          "purpose": "Payments",
+          "location": "US"
+        },
+        {
+          "name": "Zapier",
+          "purpose": "Syncs data between customer service tools",
+          "location": null
+        }
+      ],
+      "notes": "Hosted portal with rich public content: certs, resources index, controls, FAQ, updates. Subprocessors tab is public (29 entries, paginated 10/page); first 13 captured from page 1 plus the rendered full list. Most documents require access request but titles are public."
+    },
+    {
+      "slug": "cyera",
+      "url": "https://security.cyera.io/",
+      "certifications_visible": [
+        "CCPA",
+        "GDPR",
+        "ISO/IEC 27001:2022",
+        "SOC 2",
+        "C5",
+        "EU-US DPF",
+        "PCI DSS",
+        "VPAT",
+        "ENS",
+        "HIPAA"
+      ],
+      "links": {
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bounty_responsible_disclosure": null,
+        "privacy": null
+      },
+      "named_subprocessors": [],
+      "notes": "cyera.com/trust-center redirects to a hosted gated portal at security.cyera.io. Cert badges and document/section titles render publicly (incl. 'Third Party Subprocessors' and 'Affiliate Subprocessors'), but all documents sit behind 'Get access' with no first-party hrefs."
+    },
+    {
+      "slug": "runway",
+      "url": "https://trust.runwayml.com/",
+      "certifications_visible": [
+        "SOC 2 Type II",
+        "ISO 27001:2022"
+      ],
+      "links": {
+        "dpa": null,
+        "subprocessors": "https://runwayml.com/customer-subprocessors",
+        "status": null,
+        "bounty_responsible_disclosure": null,
+        "privacy": "https://runwayml.com/privacy-policy"
+      },
+      "named_subprocessors": [],
+      "notes": "Hosted portal. Public: certs, resource titles, controls. Subprocessors tab only points to the external first-party list URL; no names rendered on the trust center itself. Security whitepaper link: https://runwayml.com/data-security."
+    },
+    {
+      "slug": "fireworks-ai",
+      "url": "https://trust.fireworks.ai/",
+      "certifications_visible": [
+        "SOC 2 Type 2",
+        "HIPAA",
+        "GDPR",
+        "ISO 27001:2022",
+        "ISO 27701",
+        "ISO/IEC 42001:2023"
+      ],
+      "links": {
+        "dpa": "https://fireworks.ai/dpa",
+        "subprocessors": null,
+        "status": null,
+        "bounty_responsible_disclosure": "https://app.fireworks.ai/vdp",
+        "privacy": "https://www.fireworks.ai/privacy-policy"
+      },
+      "named_subprocessors": [
+        {
+          "name": "Amazon Web Services",
+          "purpose": "Cloud infrastructure and service provider",
+          "location": "United States, Japan"
+        },
+        {
+          "name": "Google Cloud Platform",
+          "purpose": "Cloud infrastructure and service provider",
+          "location": "United States"
+        },
+        {
+          "name": "Oracle Cloud Infrastructure",
+          "purpose": "Cloud infrastructure and service provider",
+          "location": "United States, Japan, United Kingdom, Germany, Australia"
+        },
+        {
+          "name": "CloudFlare",
+          "purpose": "Content delivery network provider",
+          "location": "Processing performed at the data center closest to the End User"
+        }
+      ],
+      "notes": "Hosted portal with strong public disclosure: certs, subprocessors with locations, FAQ, updates, and public first-party links for DPA, ToS, privacy and vulnerability disclosure program. Public update notes Anthropic PBC added as a subprocessor with zero-retention terms."
+    },
+    {
+      "slug": "together-ai",
+      "url": "https://trust.together.ai/",
+      "certifications_visible": [
+        "SOC 2",
+        "ISO 27001:2022"
+      ],
+      "links": {
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bounty_responsible_disclosure": null,
+        "privacy": "https://www.together.ai/privacy"
+      },
+      "named_subprocessors": [
+        {
+          "name": "Amazon Web Services",
+          "purpose": "Hosting and cloud infrastructure",
+          "location": "USA"
+        },
+        {
+          "name": "Google Workspace",
+          "purpose": "Email, collaboration, and file storage",
+          "location": "Global"
+        },
+        {
+          "name": "Okta",
+          "purpose": "User authentication services",
+          "location": "USA"
+        },
+        {
+          "name": "Stripe",
+          "purpose": "Payment processing",
+          "location": "USA"
+        }
+      ],
+      "notes": "Hosted portal. Subprocessors render publicly with locations. A 'Data Processing Addendum' resource is listed but is a gated portal document, not a public href."
+    },
+    {
+      "slug": "fal-ai",
+      "url": "https://trust.fal.ai/",
+      "certifications_visible": [
+        "SOC 2 Type II"
+      ],
+      "links": {
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bounty_responsible_disclosure": null,
+        "privacy": "https://fal.ai/docs/faq"
+      },
+      "named_subprocessors": [
+        {
+          "name": "Google LLC: Google Cloud Platform (GCP)",
+          "purpose": "Cloud Infrastructure",
+          "location": "United States (1600 Amphitheatre Parkway, Mountain View, CA 94043)"
+        },
+        {
+          "name": "Google LLC: G-Suite",
+          "purpose": "Email communication, cloud collaboration, calendar management and internal productivity platform",
+          "location": "United States (600 Amphitheatre Parkway, Mountain View, CA 94043)"
+        },
+        {
+          "name": "Raintank Inc (Grafana Labs)",
+          "purpose": "Service monitoring and logging; connectivity monitoring, logging and analytics",
+          "location": "United States (29 Broadway Penthouse, New York, NY 10006)"
+        },
+        {
+          "name": "Datadog, Inc.",
+          "purpose": "Service monitoring & analytics on application and infrastructure logs",
+          "location": "United States (620 8th Avenue, Floor 45, New York, NY 10018)"
+        }
+      ],
+      "notes": "Hosted portal. Subprocessors public with contacts and addresses. Only cert visible is SOC 2 Type II; the report itself is gated. The 'Privacy Policy' link on the page points to fal.ai/docs/faq."
+    },
+    {
+      "slug": "mercor",
+      "url": "https://trust.mercor.com/",
+      "certifications_visible": [
+        "SOC 2 Type 2"
+      ],
+      "links": {
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bounty_responsible_disclosure": null,
+        "privacy": "https://www.mercor.com/data-privacy-policy/"
+      },
+      "named_subprocessors": [
+        {
+          "name": "Amazon Web Services",
+          "purpose": "Cloud provider",
+          "location": null
+        },
+        {
+          "name": "GitHub",
+          "purpose": "Version control",
+          "location": null
+        },
+        {
+          "name": "Google Cloud Platform",
+          "purpose": "Cloud provider",
+          "location": null
+        },
+        {
+          "name": "OpenAI",
+          "purpose": "Engineering",
+          "location": null
+        }
+      ],
+      "notes": "Hosted portal. Subprocessors public but without locations. Documents (SOC 2, pentest, BCDR) are gated behind access request; titles visible. Public update notes Microsoft SSPA alignment (not a certification)."
+    },
+    {
+      "slug": "sierra",
+      "url": "https://trust.sierra.ai/",
+      "certifications_visible": [
+        "ISO/IEC 27001:2022",
+        "ISO/IEC 42001:2023",
+        "SOC 2",
+        "HIPAA",
+        "PCI DSS 4.0.1",
+        "GDPR",
+        "CCPA",
+        "CSA STAR",
+        "EU AI Act",
+        "FedRAMP High"
+      ],
+      "links": {
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bounty_responsible_disclosure": null,
+        "privacy": null
+      },
+      "named_subprocessors": [
+        {
+          "name": "Amazon Web Services, Inc.",
+          "purpose": "Data storage, cloud hosting, and AI services",
+          "location": "Global (localization available in United States, European Union, Southeast Asia, Japan, Australia)"
+        },
+        {
+          "name": "Anthropic, PBC",
+          "purpose": "AI services",
+          "location": "United States"
+        },
+        {
+          "name": "Google LLC",
+          "purpose": "AI services",
+          "location": "Global (localization available in United States, European Union)"
+        },
+        {
+          "name": "Microsoft Corporation",
+          "purpose": "AI services",
+          "location": "Global (localization available in United States, European Union)"
+        }
+      ],
+      "notes": "Hosted portal. Four subprocessors render on the overview with locations; public update posts also name Baseten, Fireworks AI, Together AI and Modal as newly added AI-services subprocessors (June 2, 2026). Documents are gated; no first-party DPA/privacy/status hrefs rendered."
+    }
+  ]
+}
