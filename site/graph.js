@@ -166,6 +166,19 @@ function hostOfSafe(url) {
   }
 }
 
+function namerLine(n) {
+  const co = state.companies.get(n.company);
+  const label = co ? co.name : n.company;
+  const href = co ? `./c/${encodeURIComponent(co.slug)}.html` : null;
+  const host = n.source_url ? hostOfSafe(n.source_url) : "";
+  const src = n.source_url
+    ? ` <span class="muted">· <a href="${escapeHtml(n.source_url)}" rel="noopener noreferrer">${escapeHtml(host)}</a></span>`
+    : "";
+  return href
+    ? `<li><a href="${href}">${escapeHtml(label)}</a>${src}</li>`
+    : `<li>${escapeHtml(label)}${src}</li>`;
+}
+
 function renderStub() {
   const el = $("stub");
   if (state.focus == null) {
@@ -178,26 +191,14 @@ function renderStub() {
     return;
   }
   el.hidden = false;
-  const namers = p.namers
-    .map((n) => {
-      const co = state.companies.get(n.company);
-      const label = co ? co.name : n.company;
-      const href = co ? `./c/${encodeURIComponent(co.slug)}.html` : null;
-      const src = n.source_url
-        ? ` <span class="muted">· ${escapeHtml(hostOfSafe(n.source_url))}</span>`
-        : "";
-      return href
-        ? `<li><a href="${href}">${escapeHtml(label)}</a>${src}</li>`
-        : `<li>${escapeHtml(label)}${src}</li>`;
-    })
-    .join("");
-  const self = p.inRegister
-    ? `<p class="ident-meta"><a href="./c/${encodeURIComponent(p.slug)}.html">dossier</a></p>`
-    : `<p class="ident-meta absent">not in register</p>`;
+  const status = p.inRegister
+    ? `<p class="ident-meta">on file · <a href="./c/${encodeURIComponent(p.slug)}.html">dossier</a></p>`
+    : `<p class="ident-meta"><span class="absent">not in register</span></p>`;
   el.innerHTML = `<h2>${escapeHtml(p.name)}</h2>
-    ${self}
+    ${status}
+    <p class="ident-meta">exposure · ${p.exposure}</p>
     <p class="fig-sub">Who named them, as published.</p>
-    <ul class="guesses">${namers}</ul>`;
+    <ul class="guesses">${p.namers.map(namerLine).join("")}</ul>`;
 }
 
 function drawFig() {
@@ -308,6 +309,7 @@ function bind() {
     renderTable();
     renderStub();
     drawFig();
+    revealFile();
   });
   $("fig1").addEventListener("click", (e) => {
     const canvas = e.currentTarget;
@@ -335,8 +337,16 @@ function bind() {
     renderTable();
     renderStub();
     drawFig();
+    revealFile();
   });
   window.addEventListener("resize", drawFig);
+}
+
+function revealFile() {
+  const el = $("stub");
+  if (!el || el.hidden) return;
+  if (!window.matchMedia("(max-width: 1100px)").matches) return;
+  el.scrollIntoView({ block: "nearest", behavior: "auto" });
 }
 
 async function load() {
