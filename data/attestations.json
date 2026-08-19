@@ -1,0 +1,1765 @@
+{
+  "register": "opentrust.center attestations and certifications encyclopedia",
+  "publisher": "opentrust.center",
+  "updated": "2026-08-18",
+  "count": 70,
+  "disclaimer": "A public finding aid for names a B2B company might hold or claim. Listing here is not an endorsement and not legal advice. Regulations are not vendor certifications. Verify the live certificate, Marketplace listing, or statute; do not rely on a trust-page badge. kind 'authorization' is used for government ATO / Marketplace programs (FedRAMP, GovRAMP, TX-RAMP) in addition to the core kinds.",
+  "kinds": [
+    "attestation",
+    "authorization",
+    "certification",
+    "code-of-practice",
+    "framework",
+    "questionnaire",
+    "regulation"
+  ],
+  "attestations": [
+    {
+      "id": "c5",
+      "name": "BSI C5",
+      "short": "C5",
+      "family": "C5",
+      "kind": "attestation",
+      "geography": [
+        "DE"
+      ],
+      "industry": [
+        "cloud",
+        "public-sector"
+      ],
+      "issuer": "BSI (catalog); independent auditor issues the attestation",
+      "eli5": "Germany's cloud-security criteria catalog from the BSI. An auditor writes a report, often like a SOC report. The BSI does not stamp your company. Customers are supposed to read the report.",
+      "elaborate": "The Cloud Computing Compliance Criteria Catalogue (C5) is published by Germany's Federal Office for Information Security (BSI). Current widely used edition is C5:2020; BSI has been revising the catalog (including work toward a later edition). C5 is not a BSI-issued certificate. An independent auditor attests against the criteria, commonly under ISAE 3000, as Type 1 (design at a date) or Type 2 (operating effectiveness over a period). BSI states it does not select auditors or review reports; the customer must read the report. Criteria split into basic and additional requirements across 17 areas, mapped to ISO 27001 and other sources. German public-sector and, in health, statutory cloud rules have increasingly pointed at C5 Type 2 — verify the current legal pointer for your sector. C5 is not FedRAMP and not ISO 27001, though a combined C5/SOC 2 report is common. Typical evidence is the C5 attestation report under NDA. A logo is not the report. Prefer Type 2.",
+      "lat": 50.7374,
+      "lng": 7.0982,
+      "related": [
+        "iso-27001",
+        "soc-2-type-ii",
+        "ens",
+        "tisax"
+      ],
+      "weight": 9
+    },
+    {
+      "id": "cis-controls",
+      "name": "CIS Controls",
+      "short": "CIS Controls",
+      "family": "CIS",
+      "kind": "framework",
+      "geography": [
+        "global"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "Center for Internet Security",
+      "eli5": "A prioritized list of security safeguards from the Center for Internet Security, in implementation groups. Anyone can adopt them. CIS does not certify your whole company for listing them.",
+      "elaborate": "The CIS Critical Security Controls are a prioritized set of safeguards published by the Center for Internet Security. Version 8 / 8.1 organizes controls into Implementation Groups IG1, IG2, and IG3. Organizations adopt them as a baseline. CIS offers related products (CSAT self-assessment, CIS Benchmarks for hardening, and some independently assessed Benchmark programs). There is no general 'CIS Controls certified company' mark equivalent to ISO 27001. A trust page that says 'CIS Controls aligned' is a mapping claim. Typical evidence is a scored CSAT or an independent assessment against a stated IG, not a CIS corporate seal. Benchmarks (for example CIS Amazon Linux) are product-hardening artifacts, not an organization certificate. Score the framework low unless a third party tested a stated IG.",
+      "lat": 42.5906,
+      "lng": -73.702,
+      "related": [
+        "nist-csf",
+        "iso-27001",
+        "sig"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "cmmc-l1",
+      "name": "CMMC Level 1",
+      "short": "CMMC L1",
+      "family": "CMMC",
+      "kind": "certification",
+      "geography": [
+        "US"
+      ],
+      "industry": [
+        "public-sector"
+      ],
+      "issuer": "U.S. Department of Defense; status posted in SPRS",
+      "eli5": "The basic Cybersecurity Maturity Model Certification level for contractors that handle ordinary federal contract information. Today it is a self-assessment, posted in a government system.",
+      "elaborate": "CMMC Level 1 (Self) is defined in 32 CFR Part 170. It requires the 15 basic safeguarding requirements in FAR 52.204-21 for Federal Contract Information (FCI). The organization seeking assessment performs an annual self-assessment and posts results in the Supplier Performance Risk System (SPRS), with an affirmation. Plans of action and milestones are not permitted at Level 1. This is not a C3PAO certificate. It is not protection of CUI (that is Level 2). It is not NIST SP 800-171. Phase 1 of CMMC implementation, in effect since November 2025, includes Level 1 self-assessment as a condition of award where designated. Typical evidence is an SPRS status the prime or the Department can see — not a PDF badge on a marketing site. A public 'CMMC L1 certified' claim without SPRS is unverifiable. Do not confuse this with Cyber Essentials or CIS IG1.",
+      "lat": 38.8719,
+      "lng": -77.0563,
+      "related": [
+        "cmmc-l2",
+        "nist-800-171"
+      ],
+      "weight": 6
+    },
+    {
+      "id": "cmmc-l2",
+      "name": "CMMC Level 2",
+      "short": "CMMC L2",
+      "family": "CMMC",
+      "kind": "certification",
+      "geography": [
+        "US"
+      ],
+      "industry": [
+        "public-sector"
+      ],
+      "issuer": "U.S. Department of Defense / The Cyber AB (for C3PAO assessments)",
+      "eli5": "The CMMC level for contractors that handle controlled unclassified information. It maps to NIST 800-171. A third-party certificate exists, but as of July 2026 the Department paused requiring those third-party assessments.",
+      "elaborate": "CMMC Level 2 is the CUI level. The security requirement set is the 110 requirements of NIST SP 800-171 Revision 2, as required by DFARS 252.204-7012. Two statuses exist in the rule: Level 2 (Self), a self-assessment posted to SPRS every three years with annual affirmation, and Level 2 (C3PAO), a third-party assessment by a Cyber AB-accredited C3PAO. On 13 July 2026 the Department of War announced immediate suspension of CMMC Phase II, which would have made C3PAO Level 2 a routine condition of award, and paused later phases. Phase I self-assessment requirements remain in place. Existing C3PAO certificates were not voided. Level 3 (DIBCAC, NIST SP 800-172) is out of scope for this entry and is also paused for new mandates. CMMC is not FedRAMP. Typical evidence for a C3PAO certificate is the Cyber AB / CMMC marketplace listing and SPRS status. Typical evidence for self is SPRS. A logo is not enough. DFARS 252.204-7012 safeguarding and incident reporting remain regardless of the Phase II pause.",
+      "lat": 38.8719,
+      "lng": -77.0563,
+      "related": [
+        "cmmc-l1",
+        "nist-800-171",
+        "nist-800-53",
+        "fedramp"
+      ],
+      "weight": 11
+    },
+    {
+      "id": "caiq",
+      "name": "CAIQ",
+      "short": "CAIQ",
+      "family": "CSA",
+      "kind": "questionnaire",
+      "geography": [
+        "global"
+      ],
+      "industry": [
+        "cloud"
+      ],
+      "issuer": "Cloud Security Alliance",
+      "eli5": "A long yes/no questionnaire CSA wrote so buyers can ask cloud vendors the same security questions. Filling it out is not a certification.",
+      "elaborate": "The Consensus Assessments Initiative Questionnaire is CSA's question set derived from the Cloud Controls Matrix. The version submitted to the STAR Registry is the STAR Level 1 Security Questionnaire (CAIQ v4 / v4.1 as specified by CSA). It is a questionnaire, not a certification. Providers answer it for the registry or send it to customers. Answers are claims unless backed by Level 2 or another audit. Typical evidence is the completed CAIQ or the STAR Registry item. Do not treat a filled CAIQ as equivalent to SOC 2. SIG is a different questionnaire family from Shared Assessments; do not merge them.",
+      "lat": 47.6062,
+      "lng": -122.3321,
+      "related": [
+        "csa-ccm",
+        "csa-star-l1",
+        "sig"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "csa-ccm",
+      "name": "CSA Cloud Controls Matrix",
+      "short": "CSA CCM",
+      "family": "CSA",
+      "kind": "framework",
+      "geography": [
+        "global"
+      ],
+      "industry": [
+        "cloud"
+      ],
+      "issuer": "Cloud Security Alliance",
+      "eli5": "CSA's list of cloud security controls. It is the library behind STAR and CAIQ. A company can map to it. Mapping is not a certificate.",
+      "elaborate": "The Cloud Controls Matrix is CSA's cloud security control framework. Current published editions in wide use are CCM v4 and v4.1 (CSA has published v4.1 with a transition path for STAR submissions). It organizes controls across cloud domains and maps to other standards. It is not a certification. STAR Level 1 and Level 2 use it. Buyers should not accept 'we follow CCM' as assurance. Typical evidence is a STAR Registry entry or an independent report that tested CCM controls. ISO 27017 and CCM overlap in topic, not in issuance. Score the framework low; score STAR Level 2 or ISO 27001 when those exist.",
+      "lat": 47.6062,
+      "lng": -122.3321,
+      "related": [
+        "caiq",
+        "csa-star-l1",
+        "csa-star-l2",
+        "iso-27017"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "csa-star-l1",
+      "name": "CSA STAR Level 1",
+      "short": "STAR L1",
+      "family": "CSA",
+      "kind": "attestation",
+      "geography": [
+        "global"
+      ],
+      "industry": [
+        "cloud"
+      ],
+      "issuer": "Cloud Security Alliance",
+      "eli5": "A cloud company fills out the CSA questionnaire and publishes it in the STAR registry. Nobody independent had to audit it. Useful transparency, weak assurance.",
+      "elaborate": "CSA STAR Level 1 is a self-assessment. The provider completes the Consensus Assessments Initiative Questionnaire (CAIQ / STAR Level 1 Security Questionnaire) based on the Cloud Controls Matrix and submits it to the CSA STAR Registry. CSA may offer optional automated checks (Valid-AI-ted) on submissions; that is not a third-party audit of the cloud service. Level 1 is transparency, not certification. Anyone can publish a CAIQ. Buyers should open the registry entry, read the date, and treat answers as claims. Typical evidence is the public STAR Registry URL. STAR Level 2 is the audited tier. Do not score Level 1 as if it were ISO 27001 or SOC 2. The underlying questionnaire is also catalogued as caiq.",
+      "lat": 47.6062,
+      "lng": -122.3321,
+      "related": [
+        "caiq",
+        "csa-ccm",
+        "csa-star-l2"
+      ],
+      "weight": 4
+    },
+    {
+      "id": "csa-star-l2",
+      "name": "CSA STAR Level 2",
+      "short": "STAR L2",
+      "family": "CSA",
+      "kind": "certification",
+      "geography": [
+        "global"
+      ],
+      "industry": [
+        "cloud"
+      ],
+      "issuer": "Cloud Security Alliance (via accredited certification bodies or CPA firms)",
+      "eli5": "A third party audits a cloud provider against the CSA cloud-control set, usually on top of ISO 27001 or SOC 2. Stronger than the self-filled Level 1 form.",
+      "elaborate": "CSA STAR Level 2 is third-party assurance against the Cloud Controls Matrix. Two common shapes exist: STAR Certification, an extension of ISO/IEC 27001 performed by a certification body, and STAR Attestation, a SOC 2 engagement that includes CCM criteria, performed by a CPA firm. Both should be visible in the STAR Registry. Level 2 is not Level 1. Level 3 (continuous auditing) has been described by CSA for years and is rarely what a B2B buyer is looking at on a trust page; do not assume a vendor has it. STAR Certification generally expects an ISO 27001 ISMS. Typical evidence is the STAR Registry entry plus the ISO certificate or SOC 2/STAR attestation report. A self-published CAIQ is not Level 2. Score Level 2 with other independent cloud attestations, below FedRAMP.",
+      "lat": 47.6062,
+      "lng": -122.3321,
+      "related": [
+        "csa-star-l1",
+        "csa-ccm",
+        "iso-27001",
+        "soc-2-type-ii"
+      ],
+      "weight": 8
+    },
+    {
+      "id": "cyber-essentials",
+      "name": "Cyber Essentials",
+      "short": "CE",
+      "family": "Cyber-Essentials",
+      "kind": "certification",
+      "geography": [
+        "GB"
+      ],
+      "industry": [
+        "all",
+        "public-sector"
+      ],
+      "issuer": "UK National Cyber Security Centre; delivered via IASME consortium",
+      "eli5": "A short UK government cyber hygiene scheme. The company answers questions about five basic controls. A person can get the badge without an on-site hack-test. Plus is the tested version.",
+      "elaborate": "Cyber Essentials is a UK scheme owned by the National Cyber Security Centre and operated through the IASME consortium and licensed certification bodies. It covers five technical control themes: firewalls, secure configuration, user access control, malware protection, and security update management. The base certificate is a self-assessment that is verified by a certification body; it is not a penetration test. UK government contracts often require at least Cyber Essentials. It is not ISO 27001 and not SOC 2. Typical evidence is the certificate and the listing on the NCSC/IASME registry. Validity is one year. Cyber Essentials Plus is a separate, hands-on assessed certificate. Do not score base CE as Plus. Scope (which legal entity and which network) matters; a group badge may not cover the product environment.",
+      "lat": 51.5074,
+      "lng": -0.1278,
+      "related": [
+        "cyber-essentials-plus",
+        "iso-27001"
+      ],
+      "weight": 4
+    },
+    {
+      "id": "cyber-essentials-plus",
+      "name": "Cyber Essentials Plus",
+      "short": "CE+",
+      "family": "Cyber-Essentials",
+      "kind": "certification",
+      "geography": [
+        "GB"
+      ],
+      "industry": [
+        "all",
+        "public-sector"
+      ],
+      "issuer": "UK National Cyber Security Centre; delivered via IASME consortium",
+      "eli5": "The tested version of Cyber Essentials. An assessor actually checks the five basic controls, including vulnerability scans. Still a hygiene certificate, not a full ISO audit.",
+      "elaborate": "Cyber Essentials Plus adds an independent technical assessment to the Cyber Essentials control set, including vulnerability scanning of in-scope systems and checks that the five themes work in practice. It is still a bounded hygiene scheme, not an ISMS certificate and not a SOC 2. UK public-sector and some regulated buyers ask for Plus rather than the base badge. Typical evidence is the Plus certificate and registry listing. Validity is one year. A base Cyber Essentials certificate is not Plus. Scope limitations apply; a scan that excluded production cloud accounts is a problem. Score Plus above base CE and well below ISO 27001.",
+      "lat": 51.5074,
+      "lng": -0.1278,
+      "related": [
+        "cyber-essentials",
+        "iso-27001"
+      ],
+      "weight": 6
+    },
+    {
+      "id": "ens",
+      "name": "ENS",
+      "short": "ENS",
+      "family": "ENS",
+      "kind": "certification",
+      "geography": [
+        "ES"
+      ],
+      "industry": [
+        "public-sector",
+        "cloud"
+      ],
+      "issuer": "Centro Criptológico Nacional (Spain); certificates by accredited bodies",
+      "eli5": "Spain's National Security Scheme for systems that handle government information. Companies get certified at a level: basic, medium, or high. Needed for a lot of Spanish public-sector work.",
+      "elaborate": "The Esquema Nacional de Seguridad is Spain's National Security Framework, currently set out in Royal Decree 311/2022. The Centro Criptológico Nacional (CCN) publishes CCN-STIC guidance. Systems are categorized Básico, Medio, or Alto. Certification is performed by bodies accredited for ENS, not by a blogger and not by ISO automatically. Cloud and SaaS vendors that sell to Spanish public bodies often hold ENS certification for a named service. ENS is not ISO 27001, though 27001 helps. It is not EU-wide. Typical evidence is the ENS certificate stating category and scope. A claim of 'aligned to ENS' without a certificate is a self-statement. Score it as a national government certification, similar in spirit to C5 or SecNumCloud but distinct.",
+      "lat": 40.4168,
+      "lng": -3.7038,
+      "related": [
+        "c5",
+        "iso-27001",
+        "fedramp"
+      ],
+      "weight": 8
+    },
+    {
+      "id": "dora",
+      "name": "DORA",
+      "short": "DORA",
+      "family": "EU-digital",
+      "kind": "regulation",
+      "geography": [
+        "EU"
+      ],
+      "industry": [
+        "financial"
+      ],
+      "issuer": "European Union (Regulation (EU) 2022/2554); ESAs and national competent authorities",
+      "eli5": "An EU law that says banks and other financial firms, and their important tech suppliers, must be operationally resilient. It is not a vendor certificate you can download.",
+      "elaborate": "The Digital Operational Resilience Act (Regulation (EU) 2022/2554) has applied since 17 January 2025. It imposes ICT risk, incident, testing, and third-party duties on financial entities and, for critical ICT third-party providers, a Union-level oversight regime under the European Supervisory Authorities. It is law, not a certification. A vendor cannot 'be DORA certified.' A financial entity can require contractual clauses, registers of information, and testing cooperation. Oversight of designated critical ICT third-party providers is a public process, not a logo. Typical evidence is contract language and, if the provider is designated, the oversight relationship — not a certificate PDF. ISO 22301 and SOC 2 may support a program; they do not discharge DORA. Weight is moderate as a disclosure claim because it is newly fashionable on trust pages and usually unverified.",
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "related": [
+        "nis2",
+        "iso-22301",
+        "soc-2-type-ii"
+      ],
+      "weight": 4
+    },
+    {
+      "id": "eu-ai-act",
+      "name": "EU AI Act",
+      "short": "EU AI Act",
+      "family": "EU-digital",
+      "kind": "regulation",
+      "geography": [
+        "EU"
+      ],
+      "industry": [
+        "ai"
+      ],
+      "issuer": "European Union (Regulation (EU) 2024/1689); AI Office and national market-surveillance authorities",
+      "eli5": "The European Union's law for AI systems, with bans, high-risk duties, and rules for general-purpose models. It is a statute. ISO 42001 is not the same thing.",
+      "elaborate": "Regulation (EU) 2024/1689, the AI Act, is EU law. It uses a risk-based scheme: prohibited practices, high-risk systems with conformity duties, transparency rules, and obligations for general-purpose AI models. Application is phased after entry into force in 2024; do not treat a vendor as 'AI Act certified.' Conformity assessment for high-risk systems, when required, is a regulated product process, not a SOC 2. ISO/IEC 42001 may be used as a management-system input; it is not an EU AI Act certificate. The EU AI Office and national market-surveillance authorities have roles that differ by provision. Typical evidence is none as a cert on a trust page. A GPAI model card or a high-risk technical file, if they exist, are the real artifacts. Weight is low as a claimed badge and high as a legal duty when the product is actually in a regulated class — this register scores the badge.",
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "related": [
+        "iso-42001",
+        "nist-ai-rmf"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "nis2",
+      "name": "NIS2",
+      "short": "NIS2",
+      "family": "EU-digital",
+      "kind": "regulation",
+      "geography": [
+        "EU"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "European Union (Directive (EU) 2022/2555); implemented by member states",
+      "eli5": "An EU directive that makes more essential and important entities, and some of their suppliers, meet cybersecurity duties. Each country writes it into national law. Not a certificate.",
+      "elaborate": "The NIS2 Directive (EU) 2022/2555 replaces the first NIS Directive and expands the set of essential and important entities. Member states transpose it into national law; the transposition deadline was 17 October 2024, and national implementations differ. It is not a vendor certification. There is no 'NIS2 certificate' issued by the Commission. Some countries overlay national schemes (for example, existing essential-service security laws). A SaaS vendor may be in scope as an important entity or as a supplier that gets contractual flow-down. Typical evidence is none as a cert. A trust-page badge is a claim. Pair with national schemes (C5, ENS, Cyber Essentials) when those are the actual artifacts. Weight is low.",
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "related": [
+        "dora",
+        "c5",
+        "ens",
+        "cyber-essentials"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "fedramp",
+      "name": "FedRAMP",
+      "short": "FedRAMP",
+      "family": "FedRAMP",
+      "kind": "authorization",
+      "geography": [
+        "US"
+      ],
+      "industry": [
+        "public-sector",
+        "cloud"
+      ],
+      "issuer": "U.S. General Services Administration, FedRAMP Program Management Office",
+      "eli5": "A U.S. government program that checks cloud services before agencies use them. Look the service up on the FedRAMP Marketplace. A blog badge is not an authorization.",
+      "elaborate": "The Federal Risk and Authorization Management Program is the U.S. government path for authorizing cloud services that process federal data. Historically, offerings were authorized at FIPS 199 impact levels Low, Moderate, or High, based on NIST SP 800-53 baselines (Rev. 5 is the current baseline family). An independent assessor (3PAO) produces a security assessment package; an agency authorizes use (ATO), and the offering is listed on the FedRAMP Marketplace. The PMO does not 'certify' a company; it lists a cloud service offering. FedRAMP Tailored LI-SaaS is a reduced path for low-impact SaaS and is a separate entry here. In 2026 the program published Consolidated Rules (CR26) that introduce Certification Classes A–D and 'FedRAMP Certified' language; marketplace listings and agency ATOs at Low/Moderate/High remain the labels most buyers still verify. This register does not treat consultant class-mapping blogs as the source of truth — verify the live Marketplace status. FedRAMP is not SOC 2. It is not DoD SRG Impact Level 4/5/6, though packages are reused. Typical evidence is the Marketplace listing for the exact offering name, plus a package under government NDA. 'FedRAMP in process' is not authorized. Weight is high because a real authorization is hard to fake and costly to maintain.",
+      "lat": 38.8951,
+      "lng": -77.0364,
+      "related": [
+        "fedramp-li-saas",
+        "govramp",
+        "tx-ramp",
+        "nist-800-53"
+      ],
+      "weight": 12,
+      "note": "kind uses 'authorization' because that is what agencies and the Marketplace still call a package; CR26 also uses 'certification.' Not a CPA attestation."
+    },
+    {
+      "id": "fedramp-li-saas",
+      "name": "FedRAMP Tailored LI-SaaS",
+      "short": "FedRAMP LI-SaaS",
+      "family": "FedRAMP",
+      "kind": "authorization",
+      "geography": [
+        "US"
+      ],
+      "industry": [
+        "public-sector",
+        "cloud"
+      ],
+      "issuer": "U.S. General Services Administration, FedRAMP Program Management Office",
+      "eli5": "A lighter FedRAMP path for simple, low-impact software in the cloud. It is real. It is not the same as a Moderate or High authorization.",
+      "elaborate": "FedRAMP Tailored, Low-Impact Software-as-a-Service (LI-SaaS), is a real FedRAMP policy path for low-risk SaaS where a full Low baseline is disproportionate. The Tailored policy identifies which Low-baseline requirements typically remain on the provider versus the customer or underlying platform, and it uses FedRAMP templates. Authorization is an Agency ATO; there was no JAB P-ATO path for LI-SaaS. The offering should still appear on the FedRAMP Marketplace with the tailored/LI-SaaS designation. It is not Moderate. It is not High. It is not a substitute for DoD IL4. Under CR26, public commentary maps former Low and LI-SaaS toward Certification Class B; buyers should still read the Marketplace line, not a class nickname on a slide. Typical evidence is the Marketplace listing for that offering. A vendor that says 'FedRAMP Tailored' without a listing is making a claim. This entry exists because the user-facing name is common and is not a hybrid invention.",
+      "lat": 38.8951,
+      "lng": -77.0364,
+      "related": [
+        "fedramp",
+        "govramp",
+        "nist-800-53"
+      ],
+      "weight": 8
+    },
+    {
+      "id": "fips-140-3",
+      "name": "FIPS 140-3",
+      "short": "FIPS 140-3",
+      "family": "FIPS",
+      "kind": "certification",
+      "geography": [
+        "US",
+        "CA"
+      ],
+      "industry": [
+        "all",
+        "public-sector"
+      ],
+      "issuer": "NIST Cryptographic Module Validation Program (with Canadian CSEC)",
+      "eli5": "A test of a cryptographic module — a library or a hardware box — not of a whole company. Look up the module certificate number. A vendor that says 'we are FIPS certified' is usually stretching.",
+      "elaborate": "FIPS 140-3 is the U.S. government standard for cryptographic module security, aligned with ISO/IEC 19790, validated under the NIST Cryptographic Module Validation Program (CMVP), jointly with the Canadian Centre for Cyber Security. Certificates attach to a named module and version, at a security level, with a certificate number in the CMVP listing. FIPS 140-2 certificates exist as legacy; new validations are 140-3. This is not a company certification. A SaaS vendor may use a validated module (for example a HSMs or an OpenSSL FIPS provider) inside a service. That does not put the company on the CMVP list. Federal buyers often require validated modules for cryptographic protection of federal data, which is a different demand than FedRAMP, though FedRAMP baselines expect validated cryptography. Typical evidence is the CMVP certificate number and the exact module version used in the product. A trust-page sentence without a number is a claim. Score a verified module listing as specialized crypto evidence, not as an ISMS.",
+      "lat": 39.1403,
+      "lng": -77.22,
+      "related": [
+        "fedramp",
+        "nist-800-53"
+      ],
+      "weight": 6
+    },
+    {
+      "id": "eprivacy",
+      "name": "ePrivacy Directive",
+      "short": "ePrivacy",
+      "family": "GDPR",
+      "kind": "regulation",
+      "geography": [
+        "EU"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "European Union (Directive 2002/58/EC as amended); implemented by member states",
+      "eli5": "An older EU rule about communications privacy and cookies, implemented differently in each country. The proposed ePrivacy Regulation never became the new law. This is not a vendor certificate.",
+      "elaborate": "The ePrivacy Directive (2002/58/EC), as amended, is EU law on privacy of electronic communications: traffic data, marketing, and storage of information on a subscriber's device (the 'cookie' rule). Member states implemented it in national law, so the details differ. A proposed ePrivacy Regulation has not replaced it. This is not a certification. Cookie banners and consent tools are not attestations and are out of scope for this register as products. The entry exists so a GRC reader can see why a trust page that says 'ePrivacy compliant' is making a legal claim, not showing an audit. Typical evidence is none as a cert. Weight is low. Do not confuse this with GDPR; they interact, especially on consent and electronic marketing.",
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "related": [
+        "gdpr",
+        "uk-gdpr"
+      ],
+      "weight": 2
+    },
+    {
+      "id": "gdpr",
+      "name": "GDPR",
+      "short": "GDPR",
+      "family": "GDPR",
+      "kind": "regulation",
+      "geography": [
+        "EU"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "European Union (Regulation (EU) 2016/679); supervised by member-state authorities and the EDPB",
+      "eli5": "The European Union's main privacy law. Every company that falls under it must follow it. There is no GDPR certificate. A badge that says 'GDPR certified' is advertising.",
+      "elaborate": "The General Data Protection Regulation (EU) 2016/679 has applied since 25 May 2018. It is law, not a vendor certification. Supervisory authorities in member states enforce it; the European Data Protection Board coordinates. Controllers and processors that are in scope must meet the Regulation's duties. Article 42 allows certification mechanisms, but there is no single EU-wide 'GDPR certificate' that a SaaS vendor typically holds, and ISO 27701 is not a GDPR certificate. A DPA, a RoPA, SCCs, BCRs, or a DPF listing are tools, not substitutes for the law. A trust-page badge does not move a serious score. This register still includes GDPR because nearly every B2B page claims it, and buyers need a clerk's reminder: ask for the legal mechanism and the DPA, not a logo. Typical evidence of a program — not of 'holding GDPR' — is a DPA, transfer tool, and, if offered, ISO 27701. Weight is low because presence on a page is nearly universal and unverifiable as a cert.",
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "related": [
+        "uk-gdpr",
+        "eprivacy",
+        "iso-27701",
+        "scc",
+        "bcr",
+        "eu-us-dpf"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "uk-gdpr",
+      "name": "UK GDPR",
+      "short": "UK GDPR",
+      "family": "GDPR",
+      "kind": "regulation",
+      "geography": [
+        "GB"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "United Kingdom (retained/reformed UK GDPR); Information Commissioner's Office",
+      "eli5": "The United Kingdom's version of the GDPR, kept after Brexit and run by the ICO. Still a law, not a certificate you can hang on the wall.",
+      "elaborate": "The UK GDPR is the United Kingdom's data-protection law, based on the EU GDPR as retained and amended after Brexit, read with the Data Protection Act 2018. The Information Commissioner's Office is the supervisor. It is not the EU GDPR. Transfers between the UK and the EU currently benefit from adequacy arrangements in both directions, but those are political instruments and can change; do not treat them as a vendor certificate. UK IDTA or the UK Addendum to the EU SCCs are the common contract tools when adequacy does not apply. There is no 'UK GDPR certified' mark from the ICO that a SaaS vendor holds as a product. Typical evidence is a UK-appropriate DPA and transfer tool. Score it as a regulation, like GDPR. A company can be in scope of both EU GDPR and UK GDPR at once.",
+      "lat": 51.5074,
+      "lng": -0.1278,
+      "related": [
+        "gdpr",
+        "eprivacy",
+        "scc",
+        "eu-us-dpf"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "hds",
+      "name": "HDS",
+      "short": "HDS",
+      "family": "HDS",
+      "kind": "certification",
+      "geography": [
+        "FR"
+      ],
+      "industry": [
+        "healthcare"
+      ],
+      "issuer": "Agence du Numérique en Santé; certificates by COFRAC-accredited bodies",
+      "eli5": "A French legal certificate required to host other people's health data. Built on ISO 27001 plus extra health and sovereignty rules. Hospitals in France will ask for it by name.",
+      "elaborate": "Hébergeur de Données de Santé is the French certification for hosting personal health data on behalf of others, under the Public Health Code (including article R1111-10 and related decrees). The Agence du Numérique en Santé publishes the certification and accreditation référentiels. Certification bodies accredited by COFRAC (or an equivalent European accreditation body) issue the certificate, typically for three years with surveillance. The scheme requires an ISO/IEC 27001 ISMS covering the hosting activities, plus HDS-specific contract, transparency, and sovereignty requirements. It replaced the older ministerial agrément. It is not HIPAA and not HITRUST. A U.S. HIPAA BAA does not satisfy HDS. Typical evidence is the HDS certificate naming activities and scope. French health buyers will look this up. Score it as a statutory national health-hosting certification.",
+      "lat": 48.8566,
+      "lng": 2.3522,
+      "related": [
+        "iso-27001",
+        "hipaa",
+        "hitrust-r2",
+        "iso-20000-1"
+      ],
+      "weight": 9
+    },
+    {
+      "id": "hipaa",
+      "name": "HIPAA",
+      "short": "HIPAA",
+      "family": "HIPAA",
+      "kind": "regulation",
+      "geography": [
+        "US"
+      ],
+      "industry": [
+        "healthcare"
+      ],
+      "issuer": "U.S. Department of Health and Human Services, Office for Civil Rights",
+      "eli5": "A U.S. law about health information. There is no official HIPAA certificate. A company can sign a contract and say it follows the rules. That is not the same as a third-party audit.",
+      "elaborate": "The Health Insurance Portability and Accountability Act of 1996, as amended (including HITECH), is U.S. federal law. The Privacy Rule, Security Rule, and Breach Notification Rule are administered by HHS OCR. Covered entities and business associates must comply. There is no HHS-issued 'HIPAA certification.' OCR does not license vendors. A Business Associate Agreement (BAA) is a contract, not an audit. Self-attestation, a security white paper, or a SOC 2 with a HIPAA mapping is not a government approval. HITRUST r2 is often used as a private-sector proxy because the CSF maps HIPAA; it is still not an OCR certificate. 'SOC 2 + HIPAA' is not a separate AICPA product. A buyer should obtain a BAA if required, read whether the vendor will sign one for the product in scope, and treat any third-party report as supporting evidence only. Typical evidence is the BAA plus, if offered, a SOC 2, HITRUST letter, or independent assessment that actually tested Security Rule controls. A trust-page badge that says 'HIPAA compliant' with no BAA and no report is a claim. HIPAA does not apply to all health-adjacent data, and it is not a privacy law for ordinary consumer apps.",
+      "lat": 38.9072,
+      "lng": -77.0369,
+      "related": [
+        "hitrust-r2",
+        "hitrust-csf",
+        "hds"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "hitrust-csf",
+      "name": "HITRUST CSF",
+      "short": "HITRUST CSF",
+      "family": "HITRUST",
+      "kind": "framework",
+      "geography": [
+        "US",
+        "global"
+      ],
+      "industry": [
+        "healthcare",
+        "all"
+      ],
+      "issuer": "HITRUST Alliance",
+      "eli5": "A big control library that mixes many laws and standards into one set. By itself it is a book of controls, not a certificate. The certificates are e1, i1, and r2.",
+      "elaborate": "The HITRUST CSF (also called the HITRUST Framework) is a proprietary control framework maintained by HITRUST Alliance. It maps and tailors requirements from HIPAA, NIST, ISO, PCI, and many other sources into a single catalog. Organizations use it to scope assessments. Holding 'the CSF' is not a certification. The certifiable assessment products built on the CSF are e1, i1, and r2 (and, separately, some targeted or AI-related HITRUST assessments). A vendor that says 'HITRUST CSF certified' without naming e1, i1, or r2 is being vague; ask which assessment and ask for the HITRUST-issued letter. The CSF is threat-adaptive; requirement sets change as HITRUST updates mappings. It is not a government framework, not NIST CSF, and not ISO 27001, though it maps to them. Typical evidence for the framework itself is none — you want the certification letter. This entry exists so a register can distinguish the library from the certificates. Score the letter, not the acronym.",
+      "lat": 33.1507,
+      "lng": -96.8236,
+      "related": [
+        "hitrust-e1",
+        "hitrust-i1",
+        "hitrust-r2",
+        "hipaa",
+        "nist-csf"
+      ],
+      "weight": 4
+    },
+    {
+      "id": "hitrust-e1",
+      "name": "HITRUST e1",
+      "short": "HITRUST e1",
+      "family": "HITRUST",
+      "kind": "certification",
+      "geography": [
+        "US",
+        "global"
+      ],
+      "industry": [
+        "healthcare",
+        "all"
+      ],
+      "issuer": "HITRUST Alliance",
+      "eli5": "The smallest HITRUST certificate. An assessor checks a short list of basic security hygiene controls. It lasts one year. It is not the same as the large r2 report hospitals often want.",
+      "elaborate": "HITRUST e1 (Essentials, 1-year) is a validated assessment and certification against a fixed set of foundational CSF controls — HITRUST documents this as 43 core controls. A HITRUST Authorized External Assessor performs the validated assessment; HITRUST quality-reviews the file and issues the certification. Validity is one year. e1 is entry-level assurance for lower-risk or less complex organizations. It is not r2, not a HIPAA certificate, and not equivalent to a SOC 2 Type II covering a broad system. Work on e1 can later be reused toward i1. Buyers should read the HITRUST certification letter for the assessed entity, scope, and expiration, and should not accept 'we are HITRUST' without the level. Typical evidence is the HITRUST-issued certification letter, sometimes shared through HITRUST Assessment XChange. A self-assessment against e1 controls without HITRUST certification is not e1. Score e1 below i1 and well below r2.",
+      "lat": 33.1507,
+      "lng": -96.8236,
+      "related": [
+        "hitrust-i1",
+        "hitrust-r2",
+        "hitrust-csf"
+      ],
+      "weight": 5
+    },
+    {
+      "id": "hitrust-i1",
+      "name": "HITRUST i1",
+      "short": "HITRUST i1",
+      "family": "HITRUST",
+      "kind": "certification",
+      "geography": [
+        "US",
+        "global"
+      ],
+      "industry": [
+        "healthcare",
+        "all"
+      ],
+      "issuer": "HITRUST Alliance",
+      "eli5": "A one-year HITRUST certificate on a larger, fixed set of security practices. Stronger than e1. Not as tailored or deep as r2. Issued by HITRUST after an assessor’s work.",
+      "elaborate": "HITRUST i1 (Implemented, 1-year) is a validated assessment against a fixed, threat-adaptive set of CSF controls — HITRUST documents this as 182 controls focused on implemented leading practices. A HITRUST Authorized External Assessor performs the work; HITRUST issues the certification after quality assurance. Validity is one year. i1 is moderate assurance. It is more comprehensive than e1 and less tailored than r2. r2 remains the assessment most large U.S. healthcare delivery organizations still ask for when they want a risk-based, multi-authoritative-source report. i1 is not a government authorization and not a SOC 2. HITRUST describes i1 as a certification with a defined control set and centralized QA, which is a different product shape from a CPA's SOC 2 opinion. Buyers should read the letter, the scope, and whether any optional authoritative sources were added. Typical evidence is the HITRUST certification letter. Work from i1 can be applied toward r2. Do not treat i1 and r2 as interchangeable on a hospital security questionnaire.",
+      "lat": 33.1507,
+      "lng": -96.8236,
+      "related": [
+        "hitrust-e1",
+        "hitrust-r2",
+        "hitrust-csf",
+        "soc-2-type-ii"
+      ],
+      "weight": 7
+    },
+    {
+      "id": "hitrust-r2",
+      "name": "HITRUST r2",
+      "short": "HITRUST r2",
+      "family": "HITRUST",
+      "kind": "certification",
+      "geography": [
+        "US",
+        "global"
+      ],
+      "industry": [
+        "healthcare",
+        "all"
+      ],
+      "issuer": "HITRUST Alliance",
+      "eli5": "The large HITRUST certificate. Controls are picked from the library based on risk and which laws apply. It lasts two years, with a check in the middle. This is the one most hospitals mean.",
+      "elaborate": "HITRUST r2 (Risk-based, 2-year) is the highest HITRUST validated assessment commonly seen on U.S. healthcare vendor pages. The requirement set is tailored from the CSF using risk factors such as data volumes, systems, and selected authoritative sources (HIPAA, NIST CSF, and others as scoped). A HITRUST Authorized External Assessor performs the validated assessment; HITRUST issues the certification after quality review. The certification is valid for two years, with a required interim assessment. Domain scoring thresholds apply; r2 is not a participation trophy. It is still not an HHS or OCR certificate. It does not replace a BAA. It does not prove that a specific product module added last month was in the assessed scope. Buyers should read the certification letter, the scope, included authoritative sources, and whether the interim is current. Typical evidence is the HITRUST letter and, under NDA, the full assessment report. r2 is often accepted in place of a stack of smaller questionnaires; that is a buyer policy choice, not a law. e1 and i1 are different products.",
+      "lat": 33.1507,
+      "lng": -96.8236,
+      "related": [
+        "hitrust-e1",
+        "hitrust-i1",
+        "hitrust-csf",
+        "hipaa",
+        "nist-csf"
+      ],
+      "weight": 10
+    },
+    {
+      "id": "irap",
+      "name": "IRAP",
+      "short": "IRAP",
+      "family": "IRAP",
+      "kind": "attestation",
+      "geography": [
+        "AU"
+      ],
+      "industry": [
+        "public-sector",
+        "cloud"
+      ],
+      "issuer": "Australian Signals Directorate (assessors); consuming agency accepts the assessment",
+      "eli5": "Australia's program of registered assessors who check systems against the government's information-security manual. ASD does not hand you a consumer certificate. An agency decides whether to accept the report.",
+      "elaborate": "The Information Security Registered Assessors Program is run by the Australian Signals Directorate. IRAP assessors independently assess systems against the Australian Government Information Security Manual (ISM) and related guidance. ASD endorses assessors; it does not issue a public 'IRAP certified' consumer mark for a SaaS brand. A consuming Australian government agency decides whether to accept the assessment for a classification (commonly Official or Protected for commercial cloud). Typical evidence is an IRAP assessment report and the agency's acceptance, plus any ASD or buyer listing of assessed services. Cloud hyperscalers publish which regions and services have been IRAP-assessed. A marketing line 'IRAP certified' without a classification, assessor, and service list is overstated. IRAP is not FedRAMP. It is not Essential Eight certification — Essential Eight is a different ASD maturity model. Score a documented Protected assessment high for Australian public sector.",
+      "lat": -35.2809,
+      "lng": 149.13,
+      "related": [
+        "fedramp",
+        "ismap",
+        "nist-800-53"
+      ],
+      "weight": 10
+    },
+    {
+      "id": "ismap",
+      "name": "ISMAP",
+      "short": "ISMAP",
+      "family": "ISMAP",
+      "kind": "certification",
+      "geography": [
+        "JP"
+      ],
+      "industry": [
+        "public-sector",
+        "cloud"
+      ],
+      "issuer": "ISMAP Steering Committee (Digital Agency / METI / MIC / NISC)",
+      "eli5": "Japan's government cloud-security register. A cloud service is audited and then listed if it passes. If it is not on the list, it is not ISMAP.",
+      "elaborate": "The Information system Security Management and Assessment Program is Japan's government program for assessing cloud services used in government information systems. The ISMAP Steering Committee (Digital Agency, METI, MIC, NISC and related bodies) governs it. Registered audit organizations assess services against the ISMAP control set; successful services appear on the ISMAP Cloud Service List. There is also ISMAP-LIU for lower-impact use, which is a lighter listing — read which list the service is on. ISMAP is not ISO 27001, though 27001 is typically part of the evidence pile. It is not FedRAMP. Typical evidence is the service's presence on the official ISMAP list, with the registered date and scope. A Japanese-language 'ISMAP aligned' slide is not a listing. Score a live listing as a national government cloud authorization.",
+      "lat": 35.6762,
+      "lng": 139.6503,
+      "related": [
+        "irap",
+        "fedramp",
+        "mtcs",
+        "k-isms"
+      ],
+      "weight": 9,
+      "note": "ISMAP-LIU is a related lighter listing; confirm on the official list rather than treating it as full ISMAP."
+    },
+    {
+      "id": "iso-13485",
+      "name": "ISO 13485",
+      "short": "ISO 13485",
+      "family": "ISO",
+      "kind": "certification",
+      "geography": [
+        "global"
+      ],
+      "industry": [
+        "healthcare"
+      ],
+      "issuer": "ISO; certificate issued by an accredited certification body",
+      "eli5": "A quality-system certificate for medical-device companies. It is about how devices are designed and made, not about a hospital SaaS being HIPAA certified.",
+      "elaborate": "ISO 13485:2016 is the quality management system standard for medical devices and related services. An accredited certification body (often also a regulatory notified-body or MDSAP participant, depending on market) certifies that the named scope runs a device QMS: design control, risk, supplier control, traceability, complaint handling, and documented manufacturing. It is relevant when the vendor is a device manufacturer or a software-as-a-medical-device organization. It is not HIPAA, not HITRUST, and not ISO 27001. A digital health SaaS that is not a device may hold 27001 and not 13485; that can be correct. Conversely, 13485 without a security attestation is a weak answer to a hospital security questionnaire. It does not prove clinical safety of a specific device version, and it is not an FDA 510(k) or CE mark under the EU MDR/IVDR. Buyers should read the scope (which devices or software) and the regulatory scheme the QMS supports. Typical evidence is the certificate. Include this in a security encyclopedia because health-tech vendors routinely list it next to security marks; it is a quality mark, scored as such.",
+      "lat": 46.2044,
+      "lng": 6.1432,
+      "related": [
+        "iso-9001",
+        "hipaa",
+        "hitrust-r2"
+      ],
+      "weight": 6
+    },
+    {
+      "id": "iso-20000-1",
+      "name": "ISO/IEC 20000-1",
+      "short": "ISO 20000-1",
+      "family": "ISO",
+      "kind": "certification",
+      "geography": [
+        "global"
+      ],
+      "industry": [
+        "all",
+        "cloud"
+      ],
+      "issuer": "ISO/IEC; certificate issued by an accredited certification body",
+      "eli5": "A certificate that the company manages IT services in a formal way — incidents, changes, service levels. It is not a security audit of the product.",
+      "elaborate": "ISO/IEC 20000-1:2018 is the certifiable IT service management system (SMS) standard. An accredited certification body audits whether the organization plans, designs, delivers, and improves services under a documented SMS for a stated scope. The family is related to ITIL practice but the certificate is to the ISO standard, not to AXELOS/PeopleCert ITIL training. It attests service-management process, not the security of a cloud control plane. It does not replace ISO 27001 or SOC 2. Some public-sector and outsourcing tenders still ask for it. Buyers should read the scope for which services are covered and not infer security testing from a 20000-1 logo. Typical evidence is the certificate. French HDS certification historically leaned on ISO 27001 and, for some activities, service-management evidence; HDS is a separate legal certification. ISO 20000-1 is not a continuity certificate (see 22301) and not a quality certificate (see 9001).",
+      "lat": 46.2044,
+      "lng": 6.1432,
+      "related": [
+        "iso-27001",
+        "iso-9001",
+        "iso-22301",
+        "hds"
+      ],
+      "weight": 5
+    },
+    {
+      "id": "iso-22301",
+      "name": "ISO 22301",
+      "short": "ISO 22301",
+      "family": "ISO",
+      "kind": "certification",
+      "geography": [
+        "global"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "ISO; certificate issued by an accredited certification body",
+      "eli5": "A certificate that the company has a business-continuity system: plans for when things break, and practice at those plans. It is not a backup screenshot and not an uptime SLA.",
+      "elaborate": "ISO 22301:2019 is the certifiable business continuity management system (BCMS) standard. An accredited certification body audits whether the organization identifies continuity requirements, runs impact analysis, sets strategies, and exercises plans for a stated scope. The certificate attests the management system, not a particular recovery-time objective on your tenant. It does not replace the contractual SLA, disaster-recovery runbooks, or a SOC 2 availability category. It does not prove the last exercise restored the product you buy. Buyers should read the scope (which services and sites), ask for exercise frequency and last exercise date under NDA, and match RTO/RPO to the contract. Typical evidence is the certificate. Some vendors offer a SOC 2 with availability instead of, or in addition to, 22301. Both can be valid; they are different artifacts. ISO 22301 is not cyber-resilience regulation. EU financial entities under DORA have statutory resilience duties that a 22301 certificate may support but does not discharge.",
+      "lat": 46.2044,
+      "lng": 6.1432,
+      "related": [
+        "iso-27001",
+        "dora",
+        "soc-2-type-ii"
+      ],
+      "weight": 6
+    },
+    {
+      "id": "iso-27001",
+      "name": "ISO/IEC 27001",
+      "short": "ISO 27001",
+      "family": "ISO",
+      "kind": "certification",
+      "geography": [
+        "global"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "ISO/IEC; certificate issued by an accredited certification body",
+      "eli5": "A third party checked that the company runs an information-security management system and keeps improving it. The certificate names a scope. If your product is outside that scope, the paper does not cover you.",
+      "elaborate": "ISO/IEC 27001 is the certifiable information security management system (ISMS) standard. The current edition is ISO/IEC 27001:2022. An accredited certification body, not ISO itself, audits and issues a three-year certificate with annual surveillance. The certificate attests that the named organization operates an ISMS for a stated scope — legal entities, locations, and services. It does not attest that a particular SaaS tenant cannot be breached, that every control in Annex A is implemented everywhere, or that personal data is processed lawfully. Annex A is a reference control set; Statement of Applicability decisions matter. Buyers should read the certificate scope, the certification body and accreditation mark (for example UKAS, ANAB, DAkkS), the expiry date, and whether the edition is 2022. A 2013 certificate after the transition window is stale. ISO 27001 is not SOC 2, not FedRAMP, and not a privacy law. It pairs often with ISO 27017 and 27018 for cloud, and with ISO 27701 for privacy. Typical evidence is the certificate PDF plus, under NDA, the statement of applicability or a high-level SoA extract. A 'certified' claim without a scope line is incomplete. Surveillance and recertification dates belong in the file.",
+      "lat": 46.2044,
+      "lng": 6.1432,
+      "related": [
+        "iso-27017",
+        "iso-27018",
+        "iso-27701",
+        "iso-22301",
+        "soc-2-type-ii"
+      ],
+      "weight": 10
+    },
+    {
+      "id": "iso-27017",
+      "name": "ISO/IEC 27017",
+      "short": "ISO 27017",
+      "family": "ISO",
+      "kind": "code-of-practice",
+      "geography": [
+        "global"
+      ],
+      "industry": [
+        "cloud"
+      ],
+      "issuer": "ISO/IEC; typically certified as an extension by an accredited body",
+      "eli5": "Extra cloud-security guidance that sits on top of ISO 27001. It says how a cloud provider and a cloud customer should split the work. It is not a stand-alone gold star.",
+      "elaborate": "ISO/IEC 27017 is a code of practice giving cloud-specific guidance on ISO/IEC 27002 controls, plus additional cloud controls, for both cloud service providers and cloud customers. The commonly cited edition is ISO/IEC 27017:2015. Organizations usually obtain it as an extension to an ISO/IEC 27001 certificate, not as a free-standing management-system certification. It addresses shared responsibility, virtualization, admin rights, customer isolation, and alignment of cloud roles. It does not replace ISO 27001. It does not attest privacy of personal data in the public cloud; that is closer to ISO 27018. It is not CSA STAR, though the topics overlap with the Cloud Controls Matrix. A buyer should confirm the 27017 mark appears on the certificate or in the certification body's scope language, and that the cloud service in the deal is inside that scope. Typical evidence is the ISO 27001 certificate listing 27017, or a separate statement from the certification body. A blog sentence that the company 'follows 27017' without a certificate is a practice claim, not a certification. Combined 27001/27017/27018 certificates are common at large cloud providers.",
+      "lat": 46.2044,
+      "lng": 6.1432,
+      "related": [
+        "iso-27001",
+        "iso-27018",
+        "csa-ccm",
+        "csa-star-l2"
+      ],
+      "weight": 6
+    },
+    {
+      "id": "iso-27018",
+      "name": "ISO/IEC 27018",
+      "short": "ISO 27018",
+      "family": "ISO",
+      "kind": "code-of-practice",
+      "geography": [
+        "global"
+      ],
+      "industry": [
+        "cloud"
+      ],
+      "issuer": "ISO/IEC; typically certified as an extension by an accredited body",
+      "eli5": "Cloud privacy guidance for companies that hold other people's personal data in a public cloud. It rides along with ISO 27001. It is not GDPR and it is not a government permit.",
+      "elaborate": "ISO/IEC 27018 is a code of practice for protecting personally identifiable information (PII) in public clouds acting as PII processors. The commonly cited edition is ISO/IEC 27018:2019. Like 27017, it is usually certified as an extension to ISO/IEC 27001 rather than as its own ISMS. It adds processor-oriented controls: purpose limitation, return and deletion of PII, transparency to the customer, and restrictions on use of customer data for provider marketing. It does not make the provider a GDPR-compliant controller. It does not replace a data processing agreement, SCCs, or a transfer mechanism. It does not cover every privacy law. A company that is a controller, or that processes PII only in a private cloud, may be outside the intended use. Buyers should check that the certificate scope names the cloud service and the processor role, and should still execute a DPA. Typical evidence is the ISO 27001 certificate listing 27018. ISO 27701 is the broader privacy information management system and is the better artifact if you need a PIMS, not only public-cloud processor guidance.",
+      "lat": 46.2044,
+      "lng": 6.1432,
+      "related": [
+        "iso-27001",
+        "iso-27017",
+        "iso-27701",
+        "gdpr"
+      ],
+      "weight": 6
+    },
+    {
+      "id": "iso-27701",
+      "name": "ISO/IEC 27701",
+      "short": "ISO 27701",
+      "family": "ISO",
+      "kind": "certification",
+      "geography": [
+        "global"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "ISO/IEC; certificate issued by an accredited certification body",
+      "eli5": "A certificate that the company runs a privacy management system for personal data. The 2019 version hung off ISO 27001. The 2025 version can stand alone. It is not a GDPR certificate from the EU.",
+      "elaborate": "ISO/IEC 27701 specifies a privacy information management system (PIMS) for PII controllers and processors. ISO/IEC 27701:2019 was written as an extension to ISO/IEC 27001 and 27002; most certificates you will still see are 2019 extensions on a 27001 ISMS. ISO/IEC 27701:2025, published 14 October 2025, is a standalone PIMS standard. Transition rules for existing 2019 certificates are set by accreditation and certification bodies; do not assume a date that is not on the paper. The certificate attests that the named scope operates a PIMS. It does not attest legal compliance with GDPR, CPRA, LGPD, or any other statute, and it is not issued by a data-protection authority. It does not replace records of processing, DPIAs, or transfer tools. Buyers should read the scope, whether the organization is certified as controller, processor, or both, the edition year, and the certification body's accreditation. Typical evidence is the certificate PDF. A 'GDPR certified' claim citing only 27701 is overstated. Pair it with the actual transfer mechanism (SCCs, DPF, BCRs) and the DPA. ISO 27018 remains the narrower public-cloud processor code of practice.",
+      "lat": 46.2044,
+      "lng": 6.1432,
+      "related": [
+        "iso-27001",
+        "iso-27018",
+        "gdpr",
+        "iso-42001"
+      ],
+      "weight": 7
+    },
+    {
+      "id": "iso-42001",
+      "name": "ISO/IEC 42001",
+      "short": "ISO 42001",
+      "family": "ISO",
+      "kind": "certification",
+      "geography": [
+        "global"
+      ],
+      "industry": [
+        "ai"
+      ],
+      "issuer": "ISO/IEC; certificate issued by an accredited certification body",
+      "eli5": "A certificate that the company has a management system for building and using AI on purpose, with roles, risk steps, and reviews. It does not prove a model is fair or safe in your case.",
+      "elaborate": "ISO/IEC 42001:2023 is the certifiable artificial intelligence management system (AIMS) standard. An accredited certification body audits whether the organization has established, implemented, and continually improved an AIMS for a stated scope: AI systems developed, provided, or used. The standard covers AI policy, risk, impact assessment, data for AI systems, lifecycle controls, and supplier relationships. It is not a model card, not a red-team report, and not an EU AI Act conformity assessment. It does not prove a given model is accurate, unbiased, or lawful to deploy in a high-risk use. The EU AI Act is a regulation; 42001 is a voluntary management-system certificate that some organizations use as supporting evidence. 'SOC 2 Type II AI' is not an ISO or AICPA product; if a vendor uses that phrase, ask for the ordinary SOC 2 plus this certificate or a scoped description, not a hybrid brand. Buyers should read the certificate scope (which products, which models, which business units), the certification body, and the expiry. Typical evidence is the certificate PDF. Absence of 42001 is not evidence the vendor has no AI program; presence is not evidence your use case was assessed.",
+      "lat": 46.2044,
+      "lng": 6.1432,
+      "related": [
+        "iso-27001",
+        "nist-ai-rmf",
+        "eu-ai-act",
+        "soc-2-type-ii"
+      ],
+      "weight": 8
+    },
+    {
+      "id": "iso-9001",
+      "name": "ISO 9001",
+      "short": "ISO 9001",
+      "family": "ISO",
+      "kind": "certification",
+      "geography": [
+        "global"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "ISO; certificate issued by an accredited certification body",
+      "eli5": "A quality-management certificate. It says the company has a system for consistent work and complaints, not that its software is secure. Common, and easy to over-read.",
+      "elaborate": "ISO 9001:2015 is the generic quality management system (QMS) standard. An accredited certification body issues a certificate that the named scope runs a QMS meeting 9001 requirements: customer focus, documented processes, corrective action, and improvement. It is not an information-security, privacy, or AI certificate. It does not attest software security, uptime, or lawful processing. Many manufacturers, device makers, and professional-services firms hold it. Software vendors sometimes display it because it is familiar to procurement. A buyer running a security review should not score ISO 9001 as if it were ISO 27001. For medical devices, ISO 13485 is the more specific QMS and should be preferred when that is the industry. Read the scope and expiry. Typical evidence is the certificate. Combined 9001/27001 certificates exist; read each scope. This register gives it a low public-disclosure weight because it is widely held and weakly related to security claims on a trust page.",
+      "lat": 46.2044,
+      "lng": 6.1432,
+      "related": [
+        "iso-13485",
+        "iso-27001",
+        "iso-20000-1"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "k-isms",
+      "name": "K-ISMS",
+      "short": "K-ISMS",
+      "family": "K-ISMS",
+      "kind": "certification",
+      "geography": [
+        "KR"
+      ],
+      "industry": [
+        "all",
+        "cloud"
+      ],
+      "issuer": "Korea Internet & Security Agency (KISA) / Ministry of Science and ICT",
+      "eli5": "South Korea's information-security management certification. Required for a lot of Korean public and large-service work. Related to ISO 27001 but it is a Korean legal scheme.",
+      "elaborate": "K-ISMS is the Korean Information Security Management System certification operated with KISA under Korean law (the Information and Communications Network Act framework and related rules). It certifies that an organization operates an ISMS meeting the Korean control set. It is influenced by ISO/IEC 27001 but is not the same certificate. Korea also operates a cloud-specific scheme (often referred to in English as CSAP / cloud security assurance) that is distinct; do not merge them. Typical evidence is the K-ISMS certificate issued in the Korean program, with scope and validity. A global ISO 27001 certificate is not K-ISMS. Score K-ISMS as a national ISMS certification when the buyer is Korean public sector or a regulated Korean service.",
+      "lat": 37.5665,
+      "lng": 126.978,
+      "related": [
+        "iso-27001",
+        "ismap",
+        "mtcs"
+      ],
+      "weight": 8,
+      "note": "Korea's cloud CSAP is a separate scheme; not merged into this entry."
+    },
+    {
+      "id": "mtcs",
+      "name": "MTCS",
+      "short": "MTCS",
+      "family": "MTCS",
+      "kind": "certification",
+      "geography": [
+        "SG"
+      ],
+      "industry": [
+        "cloud"
+      ],
+      "issuer": "IMDA Singapore (SS 584); certified by accredited bodies",
+      "eli5": "Singapore's multi-tier cloud security standard. Providers get certified at Level 1, 2, or 3. Level 3 is the strictest. It is a real certificate, not just the PDPA law.",
+      "elaborate": "The Multi-Tier Cloud Security standard is Singapore Standard SS 584, under the Infocomm Media Development Authority. Certification bodies audit cloud providers to one of three tiers (Level 1 baseline through Level 3). The certificate names the service and the level. MTCS is not the PDPA. It is not CSA STAR, though topics overlap. Typical evidence is the MTCS certificate and any IMDA or certification-body listing. Read the level and the service name. A Level 1 certificate is not Level 3. Score it as a national cloud certification, below IRAP/FedRAMP in this register because the buyer population is narrower, but it is independent assurance.",
+      "lat": 1.3521,
+      "lng": 103.8198,
+      "related": [
+        "pdpa-sg",
+        "ismap",
+        "k-isms",
+        "csa-star-l2"
+      ],
+      "weight": 7
+    },
+    {
+      "id": "nist-800-171",
+      "name": "NIST SP 800-171",
+      "short": "NIST 800-171",
+      "family": "NIST",
+      "kind": "framework",
+      "geography": [
+        "US"
+      ],
+      "industry": [
+        "public-sector"
+      ],
+      "issuer": "National Institute of Standards and Technology",
+      "eli5": "The NIST control set for protecting controlled unclassified information on a contractor's own systems. Defense contracts have pointed at Revision 2. It is not a certificate by itself.",
+      "elaborate": "NIST SP 800-171, Protecting Controlled Unclassified Information in Nonfederal Systems and Organizations, specifies security requirements for CUI on contractor systems. Revision 2 is the version CMMC Level 2 and DFARS 252.204-7012 currently use. Revision 3 has been published; do not assume a contract moved to Rev. 3 unless the contract says so. There is no NIST 800-171 certificate. Contractors self-assess and post scores to SPRS; some obtain a CMMC Level 2 C3PAO assessment against the same 110 requirements. A '800-171 compliant' badge on a trust page is a claim. Typical evidence is the SPRS score date, a system security plan, and, if offered, a CMMC status. 800-171 is not 800-53 and not FedRAMP. It does not apply merely because a SaaS vendor sells to a company that has a defense contract — it applies when CUI is processed on the vendor's system and the flow-down says so.",
+      "lat": 39.1403,
+      "lng": -77.22,
+      "related": [
+        "cmmc-l2",
+        "nist-800-53",
+        "cmmc-l1"
+      ],
+      "weight": 5
+    },
+    {
+      "id": "nist-800-53",
+      "name": "NIST SP 800-53",
+      "short": "NIST 800-53",
+      "family": "NIST",
+      "kind": "framework",
+      "geography": [
+        "US"
+      ],
+      "industry": [
+        "public-sector",
+        "cloud"
+      ],
+      "issuer": "National Institute of Standards and Technology",
+      "eli5": "A large U.S. government catalog of security and privacy controls. Agencies and FedRAMP use it. A company cannot be '800-53 certified.' It can be assessed against a baseline.",
+      "elaborate": "NIST Special Publication 800-53 is the Security and Privacy Controls for Information Systems and Organizations catalog. Revision 5 is the current revision used with FedRAMP baselines. It is a control catalog, not a certification program. There is no NIST-issued 800-53 certificate. FedRAMP, GovRAMP, TX-RAMP, and many agency authorizations select baselines (Low/Moderate/High, or program-specific) from this catalog. A vendor claim of 'NIST 800-53 compliant' without a baseline, an assessor, and a package is a self-assertion. Buyers should ask which revision, which baseline, who assessed it, and whether the result is a FedRAMP package, a GovRAMP status, or an internal mapping. Typical evidence is the authorization listing or an assessment report, not the SP itself. 800-53 is not 800-171. 800-171 is a derived set for nonfederal systems that process CUI. Do not score a 800-53 poster as equal to FedRAMP.",
+      "lat": 39.1403,
+      "lng": -77.22,
+      "related": [
+        "fedramp",
+        "nist-800-171",
+        "nist-csf",
+        "govramp"
+      ],
+      "weight": 4
+    },
+    {
+      "id": "nist-ai-rmf",
+      "name": "NIST AI Risk Management Framework",
+      "short": "NIST AI RMF",
+      "family": "NIST",
+      "kind": "framework",
+      "geography": [
+        "US",
+        "global"
+      ],
+      "industry": [
+        "ai"
+      ],
+      "issuer": "National Institute of Standards and Technology",
+      "eli5": "A NIST guidebook for managing risks of AI systems. Companies can follow it. NIST does not certify that they did. It is not the EU AI Act.",
+      "elaborate": "The NIST AI Risk Management Framework (AI RMF 1.0, NIST AI 100-1, January 2023) is voluntary guidance for governing, mapping, measuring, and managing risks of AI systems. A companion playbook exists. NIST does not issue AI RMF certificates. A vendor claim of 'NIST AI RMF aligned' is a self-description unless an independent assessor mapped practices to the Core and documented evidence. It is not ISO/IEC 42001, which is a certifiable AIMS. It is not the EU AI Act. Buyers who need AI assurance should prefer a scoped ISO 42001 certificate, a system card with evaluation results, and contractual terms, and should treat AI RMF as the vocabulary, not the proof. Typical evidence is a public mapping or an assessment report, not a NIST logo. Score it like other voluntary frameworks.",
+      "lat": 39.1403,
+      "lng": -77.22,
+      "related": [
+        "iso-42001",
+        "nist-csf",
+        "eu-ai-act"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "nist-csf",
+      "name": "NIST Cybersecurity Framework",
+      "short": "NIST CSF",
+      "family": "NIST",
+      "kind": "framework",
+      "geography": [
+        "US",
+        "global"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "National Institute of Standards and Technology",
+      "eli5": "A popular way to organize cybersecurity work: identify, protect, detect, respond, recover — and now govern. Anyone can say they use it. NIST does not hand out CSF certificates.",
+      "elaborate": "The NIST Cybersecurity Framework is voluntary guidance. CSF 2.0 was published in February 2024 and adds a Govern function to Identify, Protect, Detect, Respond, and Recover. Organizations adopt it as a language for programs and assessments. NIST does not certify companies to the CSF. HITRUST can produce a NIST CSF scorecard from a HITRUST assessment; that is a HITRUST product, not a NIST certificate. A SOC 2 or ISO 27001 can be mapped to CSF functions; the mapping is not a CSF certification. Buyers should treat 'aligned to NIST CSF' as a narrative unless an independent report maps controls to the Core. Typical evidence is that mapping or a HITRUST CSF scorecard, not a NIST seal. This framework is widely claimed and weakly evidentiary, so it scores low as a public-disclosure mover.",
+      "lat": 39.1403,
+      "lng": -77.22,
+      "related": [
+        "nist-800-53",
+        "nist-ai-rmf",
+        "hitrust-r2",
+        "cis-controls"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "pci-3ds",
+      "name": "PCI 3DS",
+      "short": "PCI 3DS",
+      "family": "PCI",
+      "kind": "certification",
+      "geography": [
+        "global"
+      ],
+      "industry": [
+        "payments"
+      ],
+      "issuer": "PCI Security Standards Council",
+      "eli5": "A PCI standard for the computers that run 3-D Secure, the extra card-check step at checkout. It is not the same as being PCI DSS compliant for a shop.",
+      "elaborate": "PCI 3DS refers to the PCI 3-D Secure Core Security Standard and related assessment program for environments that operate EMV 3-D Secure components: 3DS Servers, Directory Servers, and Access Control Servers. The PCI Security Standards Council publishes the standard. Assessors qualified for the 3DS program test those environments. Payment brands decide who must validate. This is not PCI DSS, though a 3DS environment may also be in a DSS scope. It is not a merchant 'we use 3-D Secure' badge. A checkout that offers 3-D Secure through a processor does not make the merchant PCI 3DS validated. Typical evidence is a 3DS Attestation of Compliance or listing appropriate to the role. Buyers of 3DS vendor platforms should ask which component was assessed and against which version. Do not treat a PCI DSS AOC as proof of 3DS, or the reverse. The program exists because 3-D Secure systems handle authentication data and protocol security that DSS alone does not fully cover.",
+      "lat": 42.503,
+      "lng": -71.0728,
+      "related": [
+        "pci-dss",
+        "pci-ssf"
+      ],
+      "weight": 7
+    },
+    {
+      "id": "pci-dss",
+      "name": "PCI DSS",
+      "short": "PCI DSS",
+      "family": "PCI",
+      "kind": "certification",
+      "geography": [
+        "global"
+      ],
+      "industry": [
+        "payments"
+      ],
+      "issuer": "PCI Security Standards Council; validated by a QSA or via SAQ",
+      "eli5": "Rules for companies that store, process, or transmit payment-card data. A qualified assessor or a self-questionnaire checks them. It is about cardholder data, not general privacy.",
+      "elaborate": "The Payment Card Industry Data Security Standard is issued by the PCI Security Standards Council. Current published versions are PCI DSS 4.0 and 4.0.1; 3.2.1 is retired. Payment brands (Visa, Mastercard, American Express, Discover, JCB) decide who must validate and how. Level 1 service providers and many large merchants require an annual Report on Compliance (ROC) by a Qualified Security Assessor (QSA) plus an Attestation of Compliance (AOC). Smaller entities may use a Self-Assessment Questionnaire (SAQ) of the matching type. The standard protects cardholder data and sensitive authentication data. It does not attest general corporate security, HIPAA, or SOC 2. A company can be PCI compliant for a payment environment and weak elsewhere. Scope reduction via a payment processor or P2PE matters; read the AOC for what was in scope. 'PCI certified' is loose talk. Typical evidence is the AOC (often shareable) and, under NDA, the ROC. Check the version, the QSA, the date, and whether the company is a merchant or a service provider. PCI DSS is not PCI 3DS and not the Software Security Framework.",
+      "lat": 42.503,
+      "lng": -71.0728,
+      "related": [
+        "pci-3ds",
+        "pci-ssf",
+        "soc-1-type-ii"
+      ],
+      "weight": 10
+    },
+    {
+      "id": "pci-ssf",
+      "name": "PCI Software Security Framework",
+      "short": "PCI SSF",
+      "family": "PCI",
+      "kind": "certification",
+      "geography": [
+        "global"
+      ],
+      "industry": [
+        "payments"
+      ],
+      "issuer": "PCI Security Standards Council",
+      "eli5": "PCI's modern program for payment software and for how that software is built. It replaced the old PA-DSS listing for payment applications. Two standards sit inside it.",
+      "elaborate": "The PCI Software Security Framework (SSF) is the PCI SSC's program for payment software security. It contains two standards. The Secure Software Standard is used to validate specific payment software products; successful products are listed as Validated Payment Software. The Secure Software Lifecycle (Secure SLC) Standard is used to validate a vendor's secure development and maintenance process; successful vendors are listed as Secure SLC Qualified Vendors. SSF Assessor Companies, qualified by PCI SSC, perform the assessments. SSF succeeds PA-DSS for payment applications; PA-DSS is retired and should not be claimed as current. SSF is not PCI DSS. A merchant's DSS AOC does not list software. A software vendor can hold SSF listings and still need DSS if it also stores card data as a service provider. Typical evidence is the PCI SSC public listing plus the report on validation where shareable. Read which standard, which product version, and the expiry. 'PCI certified software' without a listing URL is incomplete.",
+      "lat": 42.503,
+      "lng": -71.0728,
+      "related": [
+        "pci-dss",
+        "pci-3ds"
+      ],
+      "weight": 7
+    },
+    {
+      "id": "lgpd",
+      "name": "LGPD",
+      "short": "LGPD",
+      "family": "privacy-national",
+      "kind": "regulation",
+      "geography": [
+        "BR"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "Brazil (Lei nº 13.709/2018); Autoridade Nacional de Proteção de Dados",
+      "eli5": "Brazil's general data-protection law. The national authority is the ANPD. It is a law, not a certificate a vendor can buy.",
+      "elaborate": "The Lei Geral de Proteção de Dados Pessoais (Law 13.709/2018) is Brazil's general data-protection statute. The Autoridade Nacional de Proteção de Dados (ANPD) is the supervisor. It is not a certification. Agent roles (controller/operator) and transfer tools are legal constructs. A 'LGPD compliant' badge is a claim. Typical evidence is a Brazilian-law DPA and, if used, a transfer mechanism recognized under the statute. Weight is low. Do not treat ISO 27701 as an ANPD certificate.",
+      "lat": -15.7975,
+      "lng": -47.8919,
+      "related": [
+        "gdpr",
+        "pipeda",
+        "iso-27701"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "pdpa-sg",
+      "name": "PDPA (Singapore)",
+      "short": "PDPA SG",
+      "family": "privacy-national",
+      "kind": "regulation",
+      "geography": [
+        "SG"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "Singapore; Personal Data Protection Commission",
+      "eli5": "Singapore's personal-data law, enforced by the PDPC. Not the same law as Thailand's PDPA. Not a certificate.",
+      "elaborate": "Singapore's Personal Data Protection Act is national law, administered by the Personal Data Protection Commission (PDPC). It is not Thailand's PDPA and not Malaysia's PDPA. It is not a certification, though Singapore also has other cyber marks (for example Cyber Trust / Cyber Essentials-style marks under CSA Singapore) that are separate from the statute. A vendor cannot hold PDPA. Typical evidence is a Singapore-law processing agreement and a PDPC-aligned notice. Weight is low. MTCS is the Singapore cloud security standard and is a different entry.",
+      "lat": 1.3521,
+      "lng": 103.8198,
+      "related": [
+        "pdpa-th",
+        "mtcs",
+        "gdpr"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "pdpa-th",
+      "name": "PDPA (Thailand)",
+      "short": "PDPA TH",
+      "family": "privacy-national",
+      "kind": "regulation",
+      "geography": [
+        "TH"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "Thailand; Office of the Personal Data Protection Committee",
+      "eli5": "Thailand's personal-data law. Same acronym as Singapore's, different country and different statute. Still not a certificate.",
+      "elaborate": "Thailand's Personal Data Protection Act B.E. 2562 (2019) is national law. The Office of the Personal Data Protection Committee (PDPC) is the supervisor. It shares an English acronym with Singapore's PDPA and must not be merged with it. It is not a certification. A trust page that says 'PDPA' without a country is ambiguous. Typical evidence is a Thailand-law processing agreement. Weight is low. This entry exists so the register does not collapse two statutes.",
+      "lat": 13.7563,
+      "lng": 100.5018,
+      "related": [
+        "pdpa-sg",
+        "gdpr"
+      ],
+      "weight": 2
+    },
+    {
+      "id": "pipeda",
+      "name": "PIPEDA",
+      "short": "PIPEDA",
+      "family": "privacy-national",
+      "kind": "regulation",
+      "geography": [
+        "CA"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "Canada (federal); Office of the Privacy Commissioner of Canada",
+      "eli5": "Canada's federal private-sector privacy law. Provinces can have their own substantially similar laws. There is no PIPEDA certificate.",
+      "elaborate": "The Personal Information Protection and Electronic Documents Act is Canada's federal private-sector privacy statute, overseen by the Office of the Privacy Commissioner of Canada. Some provinces have substantially similar private-sector laws (for example Alberta, British Columbia, and Quebec's Law 25 / Law 14 regime, which is stricter and separate). PIPEDA is not a certification. A vendor cannot hold PIPEDA. Adequacy conversations with the EU are a government matter, not a vendor badge. Typical evidence is a Canadian DPA and program description. Weight is low. Do not treat a Canadian privacy policy as an attestation.",
+      "lat": 45.4215,
+      "lng": -75.6972,
+      "related": [
+        "gdpr",
+        "lgpd",
+        "ccpa-cpra"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "sig",
+      "name": "SIG",
+      "short": "SIG",
+      "family": "questionnaires",
+      "kind": "questionnaire",
+      "geography": [
+        "global"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "Shared Assessments",
+      "eli5": "A standard vendor-security questionnaire used by a lot of banks and big companies. Completing it is homework, not a certificate.",
+      "elaborate": "The Standardized Information Gathering questionnaire is published by Shared Assessments. Variants include SIG Core, SIG Lite, and topical modules (names have shifted across versions — read the version on the file). It is a questionnaire, not a certification. A completed SIG is evidence that someone answered questions, sometimes with attachments. It is not an independent audit unless a third party attested to the answers, which is uncommon. Typical evidence is the completed workbook dated and scoped to the product. CAIQ is the CSA cousin. Do not score a SIG as SOC 2. This register includes it because trust portals often list 'SIG available' as if it were a mark.",
+      "lat": 35.687,
+      "lng": -105.9378,
+      "related": [
+        "caiq",
+        "cis-controls",
+        "soc-2-type-ii"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "govramp",
+      "name": "GovRAMP",
+      "short": "GovRAMP",
+      "family": "RAMP",
+      "kind": "authorization",
+      "geography": [
+        "US"
+      ],
+      "industry": [
+        "public-sector",
+        "cloud"
+      ],
+      "issuer": "GovRAMP (StateRAMP Inc., d/b/a GovRAMP)",
+      "eli5": "A shared cloud-security program for U.S. state and local government, built on NIST 800-53. It used to be called StateRAMP. Check the authorized-products list, not a sticker.",
+      "elaborate": "GovRAMP is the current name of the multi-state cloud authorization program that operated as StateRAMP. The rebrand was announced 14 February 2025. StateRAMP Inc. remains the legal entity and operates as GovRAMP; existing memberships and authorizations continued. The program uses NIST SP 800-53-based security status (Ready, Authorized, and program statuses such as Core — verify current status names on govramp.org). It is voluntary at the program level; individual states choose whether and how to require it. It is not FedRAMP. FedRAMP does not automatically grant GovRAMP, or the reverse, though reciprocity conversations exist and Texas TX-RAMP has its own reciprocity rules. Buyers at state agencies should look up the product on the GovRAMP authorized list and confirm the status and impact level. Typical evidence is the public product listing. Older contracts and trust pages will still say StateRAMP; treat that as the same program unless the listing is gone. This is not a CPA attestation.",
+      "lat": 38.9072,
+      "lng": -77.0369,
+      "related": [
+        "stateramp",
+        "tx-ramp",
+        "fedramp",
+        "nist-800-53"
+      ],
+      "weight": 10
+    },
+    {
+      "id": "stateramp",
+      "name": "StateRAMP",
+      "short": "StateRAMP",
+      "family": "RAMP",
+      "kind": "authorization",
+      "geography": [
+        "US"
+      ],
+      "industry": [
+        "public-sector",
+        "cloud"
+      ],
+      "issuer": "StateRAMP Inc. (now d/b/a GovRAMP)",
+      "eli5": "The old name for GovRAMP. Same organization. If a page still says StateRAMP Authorized, look it up on the GovRAMP list to see if that status is still live.",
+      "elaborate": "StateRAMP was the name of the state and local cloud authorization program operated by StateRAMP Inc. On 14 February 2025 the program began operating as GovRAMP. The legal entity did not dissolve. Authorizations were not wiped. Many state documents, older AOCs, and vendor trust pages still use StateRAMP. Texas DIR materials for TX-RAMP reciprocity still mention StateRAMP in places and, in the TX-RAMP Program Manual 4.0, say that GovRAMP includes StateRAMP. This entry is the historical name, not a second program. Do not score StateRAMP and GovRAMP as two authorizations for one listing. Verify the live product status on the GovRAMP authorized list. Typical evidence is that listing, or an older StateRAMP letter that still matches a current listing. Weight is lower than GovRAMP so a double-count does not inflate a score if both strings appear on a page.",
+      "lat": 38.9072,
+      "lng": -77.0369,
+      "related": [
+        "govramp",
+        "tx-ramp",
+        "fedramp"
+      ],
+      "weight": 4,
+      "note": "Renamed to GovRAMP in February 2025; not a distinct live program."
+    },
+    {
+      "id": "tx-ramp",
+      "name": "TX-RAMP",
+      "short": "TX-RAMP",
+      "family": "RAMP",
+      "kind": "authorization",
+      "geography": [
+        "US"
+      ],
+      "industry": [
+        "public-sector",
+        "cloud"
+      ],
+      "issuer": "Texas Department of Information Resources",
+      "eli5": "Texas's own cloud-security authorization for vendors that sell to Texas state agencies. Required by Texas law for in-scope cloud services. FedRAMP does not list you automatically.",
+      "elaborate": "The Texas Risk and Authorization Management Program is established under Texas Government Code §2054.0593 and run by the Texas Department of Information Resources (DIR). Cloud computing services in scope must be certified to contract with Texas state agencies. DIR publishes Level 1 and Level 2 certification. FedRAMP and GovRAMP/StateRAMP can support reciprocity, but as of 30 October 2024 DIR no longer auto-lists those products; the vendor must file a TX-RAMP request (SPECTRIM) and wait for DIR validation. FedRAMP Low has been treated as corresponding to Level 1; Moderate or High to Level 2 — confirm in the current TX-RAMP manual, not in a blog. TX-RAMP is not FedRAMP and not a SOC 2. Typical evidence is the product's presence on the DIR TX-RAMP certified list at the required level. A FedRAMP Marketplace URL alone is not TX-RAMP. Provisional statuses exist; read the list. This is one of the few U.S. state cloud authorizations with a statutory mandate, which is why it is a separate entry from GovRAMP.",
+      "lat": 30.2672,
+      "lng": -97.7431,
+      "related": [
+        "fedramp",
+        "govramp",
+        "stateramp"
+      ],
+      "weight": 9
+    },
+    {
+      "id": "soc-1-type-i",
+      "name": "SOC 1 Type I",
+      "short": "SOC 1 I",
+      "family": "SOC",
+      "kind": "attestation",
+      "geography": [
+        "US",
+        "global"
+      ],
+      "industry": [
+        "all",
+        "financial"
+      ],
+      "issuer": "AICPA (CPA firm issues the report)",
+      "eli5": "A CPA looked at a vendor's financial-reporting controls on one day. The report is for the customer's auditors, not a security badge. Type I does not prove the controls kept working later.",
+      "elaborate": "SOC 1 Type I is an attestation under the AICPA attestation standards (SSAE 18 / AT-C section 320; internationally often paired with ISAE 3402). It reports on controls at a service organization that are relevant to a user entity's internal control over financial reporting (ICFR). A licensed CPA firm examines management's description of the system and opines on whether the description is fairly presented and whether the controls were suitably designed at a specified date. It does not test whether those controls operated effectively over time. That is Type II. The AICPA publishes the standard; it does not 'certify' the company. Typical readers are the customer's external financial-statement auditors, not security reviewers. A SOC 1 does not attest security, availability, or privacy. It does not replace a SOC 2. Scope is often a billing, payroll, payments, or transaction-processing system, not the whole firm. Read the opinion, the carved-out subprocessors, complementary user-entity controls, and the as-of date. A Type I dated last quarter is a snapshot, not a period test. Typical evidence is the full report under NDA. A logo on a marketing page is not the report. Companies sometimes show a SOC 1 when a buyer asked for 'SOC' without specifying; that is the wrong artifact for a security review.",
+      "lat": 40.758,
+      "lng": -73.9855,
+      "related": [
+        "soc-1-type-ii",
+        "soc-2-type-ii",
+        "sox"
+      ],
+      "weight": 5
+    },
+    {
+      "id": "soc-1-type-ii",
+      "name": "SOC 1 Type II",
+      "short": "SOC 1 II",
+      "family": "SOC",
+      "kind": "attestation",
+      "geography": [
+        "US",
+        "global"
+      ],
+      "industry": [
+        "all",
+        "financial"
+      ],
+      "issuer": "AICPA (CPA firm issues the report)",
+      "eli5": "Same idea as SOC 1 Type I, but the accountant tested whether the financial-reporting controls actually worked for several months. Still not a security certificate. Customer's financial auditors are the main audience.",
+      "elaborate": "SOC 1 Type II uses the same AICPA AT-C section 320 / SSAE 18 path as Type I, and is the form most user auditors accept. The CPA tests operating effectiveness of ICFR-relevant controls over a review period, commonly six to twelve months. The opinion covers fair presentation of the system description, suitability of design, and operating effectiveness. Exceptions and deviations are listed in the test matrices; a report can be unmodified and still contain exceptions that matter to the user's auditors. Internationally, many of these engagements are also issued under ISAE 3402. This is not a security, privacy, or availability attestation. It does not prove PCI, SOX, or HIPAA. It does not mean the vendor's product is free of material weakness at the customer. Buyers doing security due diligence should ask for SOC 2 Type II instead, and use SOC 1 Type II only when the deal affects the customer's books — payroll, billing, payments, fund administration, claims. Read the period, complementary user-entity controls, subservice organizations (inclusive vs carve-out), and whether a bridge letter covers the gap since period end. Typical evidence is the full Type II report under NDA. A public summary is uncommon; unlike SOC 3 there is no general-use SOC 1. The company cannot truthfully say it is 'SOC 1 certified.'",
+      "lat": 40.758,
+      "lng": -73.9855,
+      "related": [
+        "soc-1-type-i",
+        "soc-2-type-ii",
+        "sox"
+      ],
+      "weight": 8
+    },
+    {
+      "id": "soc-2-type-i",
+      "name": "SOC 2 Type I",
+      "short": "SOC 2 I",
+      "family": "SOC",
+      "kind": "attestation",
+      "geography": [
+        "US",
+        "global"
+      ],
+      "industry": [
+        "all",
+        "cloud"
+      ],
+      "issuer": "AICPA (CPA firm issues the report)",
+      "eli5": "An accountant checked that a company's security controls looked properly designed on one date. Nobody proved those controls worked next week. Buyers usually wait for Type II.",
+      "elaborate": "SOC 2 Type I is an attestation under AICPA AT-C section 205 using the Trust Services Criteria (TSC). A CPA firm opines, as of a point in time, on whether management's system description is fairly presented and whether controls were suitably designed to meet the in-scope TSC. Security is required. Availability, confidentiality, processing integrity, and privacy are optional inclusions. Type I does not test operating effectiveness over a period. That is why most enterprise security questionnaires treat Type I as an interim artifact, useful while a first Type II period is running, not as equivalent evidence. The AICPA does not issue the report. Scope, locations, products, and subprocessors are whatever management put in the description. A Type I on a single product is not evidence for the rest of the catalog. It does not prove ISO 27001, does not authorize federal use, and does not mean 'no findings.' Read the as-of date, the TSC categories, carve-outs, and complementary user-entity controls. Typical evidence is the full Type I report under NDA. Marketing that says 'SOC 2 certified' after a Type I is overstating the artifact. If the period for Type II has already closed, ask for Type II instead of accepting a newer Type I.",
+      "lat": 40.758,
+      "lng": -73.9855,
+      "related": [
+        "soc-2-type-ii",
+        "soc-3"
+      ],
+      "weight": 6
+    },
+    {
+      "id": "soc-2-type-ii",
+      "name": "SOC 2 Type II",
+      "short": "SOC 2 II",
+      "family": "SOC",
+      "kind": "attestation",
+      "geography": [
+        "US",
+        "global"
+      ],
+      "industry": [
+        "all",
+        "cloud"
+      ],
+      "issuer": "AICPA (CPA firm issues the report)",
+      "eli5": "An independent accountant tested whether a company's security controls worked over several months. It is a report, not a government license. It does not mean the company cannot be breached.",
+      "elaborate": "SOC 2 Type II is the common U.S. vendor security attestation. A licensed CPA firm examines a described system against the AICPA Trust Services Criteria and reports whether controls were suitably designed and operated effectively over a review period, typically three to twelve months. Security is required. Availability, confidentiality, processing integrity, and privacy appear only if scoped. The AICPA writes the criteria; the CPA firm issues the opinion. This is not a certification, not a regulator approval, and not a penetration-test letter. A clean opinion does not mean every product was in scope, that subprocessors were tested the same way, or that residual risk is acceptable for your use case. Read the system description, test exceptions, complementary user-entity controls, inclusive versus carve-out treatment of subservice organizations, and the period end date. Prefer a recent Type II plus a bridge letter if the period ended more than a few months ago. Typical evidence is the full report under NDA. A SOC 3 is a public summary, not a substitute. 'SOC 2 + HIPAA' and 'SOC 2 Type II AI' are not separate AICPA products. The first is usually a SOC 2 plus a HIPAA mapping or HITRUST; the second is an ordinary SOC 2 whose description mentions AI features. Pair ISO 42001 if you need an AI management-system certificate.",
+      "lat": 40.758,
+      "lng": -73.9855,
+      "related": [
+        "soc-2-type-i",
+        "soc-3",
+        "iso-27001",
+        "iso-42001"
+      ],
+      "weight": 10
+    },
+    {
+      "id": "soc-3",
+      "name": "SOC 3",
+      "short": "SOC 3",
+      "family": "SOC",
+      "kind": "attestation",
+      "geography": [
+        "US",
+        "global"
+      ],
+      "industry": [
+        "all",
+        "cloud"
+      ],
+      "issuer": "AICPA (CPA firm issues the report)",
+      "eli5": "A short public version of a SOC 2. You can post it on a website. It leaves out the detailed tests, so a buyer cannot really review the work.",
+      "elaborate": "SOC 3 is a general-use report under the same Trust Services Criteria as SOC 2. The CPA firm's opinion is intended for public distribution. The report describes the system at a high level and states whether the entity maintained effective controls over the review period, but it omits the detailed control descriptions, test procedures, and exception listings that make a SOC 2 Type II useful to a reviewer. Companies publish SOC 3 PDFs on trust pages because they can. A serious GRC review still needs the SOC 2 Type II under NDA. SOC 3 is not a higher bar than SOC 2; it is a less detailed public extract. It is not a certificate and not a regulator mark. If a vendor offers only SOC 3 and refuses SOC 2, treat that as incomplete evidence, not as equivalent assurance. Check that the SOC 3 period and TSC categories match the SOC 2 you later receive. Typical evidence is a downloadable PDF. Some firms also display a SysTrust/WebTrust-style seal; the seal is marketing. The underlying engagement is still a CPA attestation, not an ISO certification and not FedRAMP.",
+      "lat": 40.758,
+      "lng": -73.9855,
+      "related": [
+        "soc-2-type-ii",
+        "soc-2-type-i"
+      ],
+      "weight": 5
+    },
+    {
+      "id": "soc-supply-chain",
+      "name": "SOC for Supply Chain",
+      "short": "SOC SC",
+      "family": "SOC",
+      "kind": "attestation",
+      "geography": [
+        "US",
+        "global"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "AICPA (CPA firm issues the report)",
+      "eli5": "An accountant report about how a company makes, builds, or ships things — and the controls that protect that system. It is for manufacturers and distributors, not a cloud security badge.",
+      "elaborate": "SOC for Supply Chain is an AICPA attestation for organizations that produce, manufacture, or distribute goods. It uses the Trust Services Criteria plus the AICPA Description Criteria for a Description of an Entity's Production, Manufacturing, or Distribution System. A CPA firm reports on the system that produces or delivers goods and on controls relevant to security, availability, processing integrity, confidentiality, or privacy, as scoped. Type I and Type II forms exist; Type II covers operating effectiveness over a period. This is not SOC 2. A SaaS company that only processes data typically needs SOC 2, not SOC for Supply Chain. Hardware, device, and industrial vendors may hold this when customers want assurance over the build and delivery system, including aspects of integrity that a software SOC 2 does not cover. It is not a product-safety certification, not ISO 9001, and not a government authorization. It does not prove that a finished device is free of defects or that every supplier was audited. Read the system description for what plants, lines, and partners were in scope. Typical evidence is the full report under NDA. Do not treat a SOC 2 logo as this report, or the reverse.",
+      "lat": 40.758,
+      "lng": -73.9855,
+      "related": [
+        "soc-2-type-ii",
+        "iso-9001"
+      ],
+      "weight": 8
+    },
+    {
+      "id": "sox",
+      "name": "Sarbanes-Oxley Act",
+      "short": "SOX",
+      "family": "SOX",
+      "kind": "regulation",
+      "geography": [
+        "US"
+      ],
+      "industry": [
+        "financial"
+      ],
+      "issuer": "United States Congress; SEC and PCAOB oversee public-company reporting",
+      "eli5": "A U.S. law for public companies about honest books and the controls around those books. A private SaaS vendor is not 'SOX certified.' They might give you a SOC 1 so your auditors can do their SOX work.",
+      "elaborate": "The Sarbanes-Oxley Act of 2002 is U.S. federal law. Sections 302 and 404 are the ones GRC people mean: executive certification of reports and management's assessment of internal control over financial reporting, with an auditor's attestation for most issuers. The SEC administers the reporting regime; the PCAOB oversees the audit firms. SOX is not a vendor certification. A private company cannot hold SOX. A public vendor is subject to SOX for its own filings; that does not attest the security of a product it sells. What vendors correctly provide is a SOC 1 Type II so a customer's financial auditors can rely on ICFR-relevant controls. Typical evidence of 'SOX support' is that SOC 1, not a SOX certificate. Weight is low as a trust-page badge and the entry exists so the register can say this plainly.",
+      "lat": 38.9072,
+      "lng": -77.0369,
+      "related": [
+        "soc-1-type-ii",
+        "soc-1-type-i"
+      ],
+      "weight": 2
+    },
+    {
+      "id": "tisax",
+      "name": "TISAX",
+      "short": "TISAX",
+      "family": "TISAX",
+      "kind": "attestation",
+      "geography": [
+        "DE",
+        "EU"
+      ],
+      "industry": [
+        "automotive"
+      ],
+      "issuer": "ENX Association (VDA ISA catalog)",
+      "eli5": "A German-born car-industry assessment. A supplier gets labels on the ENX portal after an approved auditor checks them. Partners look it up there. A PDF on a website is not the point.",
+      "elaborate": "Trusted Information Security Assessment Exchange is the automotive information-security assessment scheme governed by the ENX Association, using the VDA ISA (Information Security Assessment) catalog, which is closely aligned with ISO/IEC 27001. Participants receive TISAX labels (for example Info high, prototype protection, data) at Assessment Levels AL2 (typically remote plausibility check) or AL3 (on-site). AL1 is a self-assessment and does not produce a shareable TISAX label. Results are exchanged on the ENX portal among participants, not primarily via a public certificate. TISAX is not ISO 27001, though many companies hold both. It is not a general cloud authorization. Typical evidence is a TISAX scope ID and labels visible to the partner on the ENX portal, plus the assessment result report if the participant shares it. A marketing badge without a scope ID is weak. Validity is commonly three years; confirm on the portal. Score it as industry-specific independent assurance.",
+      "lat": 50.1109,
+      "lng": 8.6821,
+      "related": [
+        "iso-27001",
+        "c5"
+      ],
+      "weight": 8
+    },
+    {
+      "id": "bcr",
+      "name": "Binding Corporate Rules",
+      "short": "BCRs",
+      "family": "transfers",
+      "kind": "attestation",
+      "geography": [
+        "EU",
+        "global"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "Lead supervisory authority / EDPB cooperation under GDPR Articles 46–47",
+      "eli5": "A company's own internal privacy rules, approved by a European regulator, so the group can move personal data among its affiliates. Rare, slow, and real. Not a product certificate for a SaaS you buy.",
+      "elaborate": "Binding Corporate Rules are a GDPR Article 47 transfer mechanism: a group's legally binding internal policies for international transfers, approved through the cooperation procedure with a lead supervisory authority and the EDPB. There are controller BCRs and processor BCRs. Approval is public enough that a buyer can often verify the group and the lead authority. BCRs are not a security certification of a named SaaS product. They authorize intra-group transfers that match the approved scope. They do not replace a DPA with the customer and do not approve transfers to unaffiliated subprocessors — those still need another Article 46 tool. Typical evidence is the approval and the BCR summary. BCRs are uncommon relative to SCCs; their presence is meaningful for large groups and meaningless if the product's subprocessors sit outside the group. Score them as a real, regulator-reviewed mechanism, not as FedRAMP.",
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "related": [
+        "scc",
+        "eu-us-dpf",
+        "gdpr",
+        "iso-27701"
+      ],
+      "weight": 5
+    },
+    {
+      "id": "eu-us-dpf",
+      "name": "EU-U.S. Data Privacy Framework",
+      "short": "EU-US DPF",
+      "family": "transfers",
+      "kind": "attestation",
+      "geography": [
+        "US",
+        "EU"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "U.S. Department of Commerce; EU adequacy decision of the European Commission",
+      "eli5": "The current EU-to-US transfer list. A US company self-certifies at Commerce and must stay on the public list. It is a transfer tool, not a security audit. Courts have not killed it; people are watching it.",
+      "elaborate": "The EU-U.S. Data Privacy Framework is a Department of Commerce self-certification program backed by a European Commission adequacy decision (July 2023) for certified organizations. Participants appear on the public Data Privacy Framework List and recertify annually. The UK Extension to the EU-U.S. DPF is a related UK transfer route; check the listing for which frameworks the organization joined. DPF is not SOC 2 and not a security certification. It addresses whether a US participant's commitments plus US legal safeguards were adequate for EU personal-data transfers. The General Court upheld the adequacy decision in Latombe (appeal status can change). As of August 2026 the adequacy decision remains in force; the EDPB has asked the Commission to review implications of U.S. Supreme Court developments on FTC independence. No court has invalidated DPF. Buyers should open the live list, check the active status and which principles apply, and still prefer SCCs as a fallback. Typical evidence is the listing URL. A logo is not enough. Privacy Shield is not DPF.",
+      "lat": 38.9072,
+      "lng": -77.0369,
+      "related": [
+        "swiss-us-dpf",
+        "scc",
+        "bcr",
+        "privacy-shield",
+        "gdpr"
+      ],
+      "weight": 4
+    },
+    {
+      "id": "privacy-shield",
+      "name": "EU-U.S. Privacy Shield",
+      "short": "Privacy Shield",
+      "family": "transfers",
+      "kind": "attestation",
+      "geography": [
+        "US",
+        "EU"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "U.S. Department of Commerce (invalidated as an EU transfer basis)",
+      "eli5": "A dead transfer deal. Europe's top court struck it down in 2020. A company that still says it 'holds Privacy Shield' is showing an expired badge. Do not rely on it.",
+      "elaborate": "The EU-U.S. Privacy Shield was a European Commission adequacy arrangement plus a U.S. Department of Commerce self-certification list. The Court of Justice of the European Union invalidated the adequacy decision in Case C-311/18 (Schrems II) on 16 July 2020. The Swiss-U.S. Privacy Shield was also discontinued as a transfer basis. Commerce later stood up the Data Privacy Framework, which is a different instrument. Privacy Shield is not a current lawful EU-to-US transfer mechanism. A trust page that still lists it is either historical or wrong. Typical evidence today is none that a buyer should accept. If a vendor cites Privacy Shield, ask for SCCs, BCRs, or a current DPF listing instead. This entry exists so the register can mark the name retired rather than pretend it never existed. Weight is zero for scoring.",
+      "lat": 38.9072,
+      "lng": -77.0369,
+      "related": [
+        "eu-us-dpf",
+        "swiss-us-dpf",
+        "scc",
+        "bcr"
+      ],
+      "weight": 0,
+      "retired": true
+    },
+    {
+      "id": "scc",
+      "name": "Standard Contractual Clauses",
+      "short": "SCCs",
+      "family": "transfers",
+      "kind": "code-of-practice",
+      "geography": [
+        "EU",
+        "global"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "European Commission (Implementing Decision (EU) 2021/914)",
+      "eli5": "A model contract the European Commission wrote so companies can send personal data to countries without an adequacy decision. It is paperwork, not a certificate. Anyone can sign it; the work is doing the transfer assessment.",
+      "elaborate": "Standard Contractual Clauses are a transfer mechanism under GDPR Article 46. The current modular set was adopted by Commission Implementing Decision (EU) 2021/914. Parties execute the modules that match controller-to-controller, controller-to-processor, processor-to-processor, or processor-to-controller. SCCs are not a certification. Executing them does not prove security controls. Schrems II still requires a transfer impact assessment and, where needed, supplementary measures. The UK uses the IDTA or the UK Addendum rather than treating the EU decision as automatic UK law. Typical evidence is the executed SCC modules (often inside a DPA) plus a TIA. A trust page that says 'we use SCCs' is a mechanism claim, which is correct vocabulary, not an audit. Do not score SCCs as if they were ISO 27001. This register includes them because they are one of the actual legal artifacts behind 'GDPR compliant' marketing.",
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "related": [
+        "bcr",
+        "eu-us-dpf",
+        "gdpr",
+        "uk-gdpr"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "swiss-us-dpf",
+      "name": "Swiss-U.S. Data Privacy Framework",
+      "short": "Swiss-US DPF",
+      "family": "transfers",
+      "kind": "attestation",
+      "geography": [
+        "US",
+        "CH"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "U.S. Department of Commerce; Swiss Federal Administration / FDPIC adequacy recognition",
+      "eli5": "The Switzerland-to-US cousin of the EU Data Privacy Framework. Separate box to tick on the Commerce list. Not the same as the EU one and not Privacy Shield.",
+      "elaborate": "The Swiss-U.S. Data Privacy Framework is the Commerce self-certification program for transfers from Switzerland to participating US organizations, recognized by Swiss authorities as an adequacy route. Organizations join it as a distinct framework on the Data Privacy Framework List; joining the EU-U.S. DPF does not automatically include Switzerland. It is not Privacy Shield. It is not a security audit. Typical evidence is the Commerce listing showing Swiss-U.S. DPF as Active. Buyers moving Swiss personal data should check that box, not only the EU box. Weight is slightly below the EU DPF because fewer pages claim it and the buyer set is smaller, but the verification method is the same.",
+      "lat": 46.948,
+      "lng": 7.4474,
+      "related": [
+        "eu-us-dpf",
+        "privacy-shield",
+        "scc",
+        "gdpr"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "ccpa-cpra",
+      "name": "CCPA / CPRA",
+      "short": "CPRA",
+      "family": "US-privacy",
+      "kind": "regulation",
+      "geography": [
+        "US"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "State of California; California Privacy Protection Agency and Attorney General",
+      "eli5": "California's consumer privacy law, as expanded by the CPRA. If a company is in scope, it must follow the statute. There is no California privacy certificate for vendors.",
+      "elaborate": "The California Consumer Privacy Act of 2018, as amended by the California Privacy Rights Act (Proposition 24, operative for most provisions in 2023), is state law. The California Privacy Protection Agency and the Attorney General enforce. It creates consumer rights and business duties for entities that meet thresholds or process data in specified ways. It is not a certification. A 'CCPA compliant' badge is a claim. Service-provider and contractor contract language matters more than a logo. The CPRA is the amendment; modern references should be to the amended CCPA, not to a separate certificate called CPRA. This is not GDPR. Typical evidence is contract terms and a privacy notice, not a cert PDF. Weight is low for the same reason as GDPR: nearly everyone in a B2B directory claims it, and it is not third-party assurance.",
+      "lat": 38.5816,
+      "lng": -121.4944,
+      "related": [
+        "vcdpa",
+        "us-state-privacy",
+        "gdpr"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "us-state-privacy",
+      "name": "U.S. state consumer privacy laws",
+      "short": "US state privacy",
+      "family": "US-privacy",
+      "kind": "regulation",
+      "geography": [
+        "US"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "Individual U.S. states",
+      "eli5": "A growing pile of state privacy laws that look a bit like each other but are not the same. None of them issue a vendor certificate. California and Virginia have their own entries.",
+      "elaborate": "Besides California and Virginia, many U.S. states have enacted comprehensive consumer privacy statutes (Colorado CPA, Connecticut CTDPA, Utah UCPA, Texas TDPSA, Oregon, Montana, and others — the set grows). They are laws, not certifications. They differ on thresholds, employee data, appeals, enforcement, and cure periods. A trust page that lists ten state acronyms is making a legal coverage claim. There is no 'U.S. state privacy certified' mark. Typical evidence is contract terms and a notice, not a cert. This family entry exists so the register does not pretend each state law is a separate assurance product. Score the family once. For California and Virginia, see the dedicated entries. Do not invent a national U.S. privacy certificate.",
+      "lat": 38.9072,
+      "lng": -77.0369,
+      "related": [
+        "ccpa-cpra",
+        "vcdpa"
+      ],
+      "weight": 2
+    },
+    {
+      "id": "vcdpa",
+      "name": "VCDPA",
+      "short": "VCDPA",
+      "family": "US-privacy",
+      "kind": "regulation",
+      "geography": [
+        "US"
+      ],
+      "industry": [
+        "all"
+      ],
+      "issuer": "Commonwealth of Virginia; Attorney General",
+      "eli5": "Virginia's consumer data-protection act. Another state privacy law. No certificate. The Attorney General enforces it.",
+      "elaborate": "The Virginia Consumer Data Protection Act is Virginia state law, effective 1 January 2023. The Attorney General enforces. It is a controller/processor statute with rights, duties, and a 30-day right-to-cure that has been part of the statute's enforcement design. It is not a certification. It is not the CCPA. A vendor cannot 'hold VCDPA.' This entry is the named example the register was asked to carry; the rest of the U.S. state cohort sits under us-state-privacy. Typical evidence is none as a cert. Include it on a trust page only as a legal scope statement.",
+      "lat": 37.5407,
+      "lng": -77.436,
+      "related": [
+        "ccpa-cpra",
+        "us-state-privacy"
+      ],
+      "weight": 2
+    }
+  ]
+}
