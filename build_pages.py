@@ -593,7 +593,7 @@ def mast(active: str, prefix: str) -> str:
     <nav class="docket" aria-label="instruments">
       {link("", "register")}
       {link("graph.html", "processors")}
-      {link("attestations.html", "attestations")}
+      {link("attestations.html", "marks")}
     </nav>
     <span class="stamp" aria-hidden="true">OT</span>
   </header>"""
@@ -776,7 +776,7 @@ def dossier_html(row: dict, generated_at: str) -> str:
   </main>
   <footer class="colo">
     <p>Disclosure rates the file, not the company. Empty rows print <i>not on file</i>.</p>
-    <p><a href="../">register</a> · <a href="../graph.html">processors</a> · <a href="../attestations.html">attestations</a></p>
+    <p><a href="../">register</a> · <a href="../graph.html">processors</a> · <a href="../attestations.html">marks</a></p>
   </footer>
   <script type="module" src="../dossier.js"></script>
 </body>

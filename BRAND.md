@@ -142,7 +142,7 @@ High-taste staff-engineer product, not a magazine and not a SaaS marketing page.
 
 - **Canvas, not a sheet.** The page is one continuous `--ground` field to the edges (VoltAgent posture). No floating paper card. No centered “document.” No `.sheet` as a card.
 - **Surface:** optional 32px grid at `--hair`, only in figure wells. Grain at 0.06 or off. If you notice either, delete it. No glow orb, no mesh blob, no illustration.
-- **Docket mast:** 48px high, full width, hairline under. Wordmark left (20px). Instruments as words: `register` `processors` `attestations` (Plex Mono 11, tracking 0.12em). Active word: `--ink` + 1px `--flame` underline. OT ring right. No icons. No hamburger if the three words fit. No `Product` / `Docs` / `More`.
+- **Docket mast:** 48px high, full width, hairline under. Wordmark left (20px). Instruments as words: `register` `processors` `marks` (Plex Mono 11, tracking 0.12em). Active word: `--ink` + 1px `--flame` underline. OT ring right. No icons. No hamburger if the three words fit. No `Product` / `Docs` / `More`.
 - **Issue line** under the mast, Plex Mono 11:
 
   `issue 18 Aug 2026 PT · 184 on file · 22 not on file · last probed 18 Aug 2026, 3:23 PM PT`

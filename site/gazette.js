@@ -298,7 +298,7 @@ function drawMap() {
   ctx.arc(cx, cy, R, 0, Math.PI * 2);
   ctx.clip();
 
-  ctx.fillStyle = "#662900";
+  ctx.fillStyle = "#4a1e00";
   for (const ring of LAND) {
     const pts = clipFront(ring);
     if (pts.length < 3) continue;
@@ -338,9 +338,12 @@ function drawMap() {
 
 function setGeo(geo) {
   state.geo = geo;
-  $("geo-legend").querySelectorAll("button").forEach((b) => {
-    b.classList.toggle("on", b.getAttribute("data-geo") === geo);
-  });
+  const legend = $("geo-legend");
+  if (legend) {
+    legend.querySelectorAll("button").forEach((b) => {
+      b.classList.toggle("on", b.getAttribute("data-geo") === geo);
+    });
+  }
   const bar = $("geo-filters");
   if (bar) {
     bar.querySelectorAll("button").forEach((b) => {

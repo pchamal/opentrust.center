@@ -5,7 +5,7 @@ const state = {
   edges: [],
   companies: new Map(),
   processors: [],
-  focus: null,
+  focus: 0,
 };
 
 function thinness(row) {
@@ -184,21 +184,21 @@ function drawFig() {
   const pPos = new Map();
   procs.forEach((p, i) => pPos.set(p.slug || p.name, { x: rightX, y: stack(procs.length, i), row: p, i }));
 
-  ctx.strokeStyle = "rgba(153, 61, 0, 0.6)";
   ctx.lineWidth = 1;
-  for (const e of state.edges) {
-    const a = cPos.get(e.company);
-    const b = pPos.get(e.processor_slug || e.processor);
-    if (!a || !b) continue;
-    const hi =
-      state.focus != null &&
-      (state.processors[state.focus].slug || state.processors[state.focus].name) ===
-        (e.processor_slug || e.processor);
-    ctx.strokeStyle = hi ? "#ff6600" : "rgba(153, 61, 0, 0.6)";
-    ctx.beginPath();
-    ctx.moveTo(a.x + 4, a.y);
-    ctx.lineTo(b.x - 4, b.y);
-    ctx.stroke();
+  const focused = state.focus != null ? state.processors[state.focus] : null;
+  const focusKey = focused ? focused.slug || focused.name : null;
+  if (focusKey) {
+    ctx.strokeStyle = "#cc5100";
+    for (const e of state.edges) {
+      const a = cPos.get(e.company);
+      const b = pPos.get(e.processor_slug || e.processor);
+      if (!a || !b) continue;
+      if ((e.processor_slug || e.processor) !== focusKey) continue;
+      ctx.beginPath();
+      ctx.moveTo(a.x + 4, a.y);
+      ctx.lineTo(b.x - 4, b.y);
+      ctx.stroke();
+    }
   }
 
   function square(x, y, fill, stroke) {
@@ -218,8 +218,8 @@ function drawFig() {
   }
   for (const { x, y, row, i } of pPos.values()) {
     const selected = state.focus === i;
-    if (row.inRegister) square(x, y, "#ffc091", selected ? "#ff6600" : "#993d00");
-    else square(x, y, null, selected ? "#ff6600" : "#993d00");
+    if (row.inRegister) square(x, y, "#ffc091", selected ? "#cc5100" : "#993d00");
+    else square(x, y, null, selected ? "#cc5100" : "#993d00");
   }
 
   ctx.font = "11px 'IBM Plex Mono', ui-monospace, monospace";

@@ -50,10 +50,10 @@ a {
   text-decoration-color: var(--rust);
   text-underline-offset: 2px;
 }
-a:hover { color: var(--flame); text-decoration-color: var(--flame); }
+a:hover { color: var(--ink); text-decoration-color: var(--rust); }
 
 :focus-visible {
-  outline: 1px solid var(--flame);
+  outline: 1px solid var(--rust);
   outline-offset: 2px;
 }
 
@@ -174,7 +174,7 @@ a:hover { color: var(--flame); text-decoration-color: var(--flame); }
 .finder-go {
   appearance: none;
   background: transparent;
-  color: var(--flame);
+  color: var(--ink);
   border: 0;
   border-left: var(--rule);
   font: var(--t-kicker);
@@ -486,9 +486,9 @@ a:hover { color: var(--flame); text-decoration-color: var(--flame); }
   appearance: none;
   margin-top: 20px;
   background: transparent;
-  color: var(--flame);
+  color: var(--ink);
   border: 0;
-  border-bottom: 1px solid var(--flame);
+  border-bottom: 1px solid var(--rust);
   font: var(--t-kicker);
   letter-spacing: 0.12em;
   padding: 0 0 2px;
@@ -496,8 +496,8 @@ a:hover { color: var(--flame); text-decoration-color: var(--flame); }
   border-radius: 0;
 }
 .claim-form .file-go:hover {
-  background: var(--flame);
-  color: var(--ground);
+  background: var(--well);
+  color: var(--ink);
 }
 
 /* human stamp — inline, not a modal */
@@ -670,7 +670,7 @@ a:hover { color: var(--flame); text-decoration-color: var(--flame); }
   text-decoration: underline;
   text-decoration-color: var(--rust);
 }
-.depth:hover { color: var(--flame); }
+.depth:hover { color: var(--ink); }
 .related {
   margin: 10px 0 0;
   font: var(--t-meta);
