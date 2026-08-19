@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T04:49:11Z",
+  "generated_at": "2026-08-19T05:49:05Z",
   "nodes": [
     {
       "id": "openai",
@@ -1838,6 +1838,78 @@
       "to": "okta",
       "source_url": "https://www.zscaler.com:443/privacy-compliance/subprocessors",
       "evidence": "Okta"
+    },
+    {
+      "from": "openai",
+      "to": "cloudflare",
+      "source_url": "https://openai.com/policies/sub-processor-list/",
+      "evidence": "listed on public OpenAI sub-processor page"
+    },
+    {
+      "from": "openai",
+      "to": "microsoft",
+      "source_url": "https://openai.com/policies/sub-processor-list/",
+      "evidence": "listed on public OpenAI sub-processor page"
+    },
+    {
+      "from": "openai",
+      "to": "coreweave",
+      "source_url": "https://openai.com/policies/sub-processor-list/",
+      "evidence": "listed on public OpenAI sub-processor page"
+    },
+    {
+      "from": "openai",
+      "to": "oracle",
+      "source_url": "https://openai.com/policies/sub-processor-list/",
+      "evidence": "listed on public OpenAI sub-processor page"
+    },
+    {
+      "from": "openai",
+      "to": "google",
+      "source_url": "https://openai.com/policies/sub-processor-list/",
+      "evidence": "listed on public OpenAI sub-processor page"
+    },
+    {
+      "from": "openai",
+      "to": "aws",
+      "source_url": "https://openai.com/policies/sub-processor-list/",
+      "evidence": "listed on public OpenAI sub-processor page"
+    },
+    {
+      "from": "openai",
+      "to": "snowflake",
+      "source_url": "https://openai.com/policies/sub-processor-list/",
+      "evidence": "listed on public OpenAI sub-processor page"
+    },
+    {
+      "from": "openai",
+      "to": "intercom",
+      "source_url": "https://openai.com/policies/sub-processor-list/",
+      "evidence": "listed on public OpenAI sub-processor page"
+    },
+    {
+      "from": "openai",
+      "to": "salesforce",
+      "source_url": "https://openai.com/policies/sub-processor-list/",
+      "evidence": "listed on public OpenAI sub-processor page"
+    },
+    {
+      "from": "openai",
+      "to": "fivetran",
+      "source_url": "https://openai.com/policies/sub-processor-list/",
+      "evidence": "listed on public OpenAI sub-processor page"
+    },
+    {
+      "from": "openai",
+      "to": "confluent",
+      "source_url": "https://openai.com/policies/sub-processor-list/",
+      "evidence": "listed on public OpenAI sub-processor page"
+    },
+    {
+      "from": "openai",
+      "to": "okta",
+      "source_url": "https://openai.com/policies/sub-processor-list/",
+      "evidence": "listed on public OpenAI sub-processor page"
     }
   ],
   "notes": "Only public lists. Incomplete by nature. Login-walled app URLs omitted."
