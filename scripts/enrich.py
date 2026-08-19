@@ -1584,7 +1584,13 @@ def run() -> int:
             page_text = tpage.get("meta") or (tpage.get("text") or "")[:500]
         summary = clerk_summary(bool(c.get("found")), certs, old_sum, page_text)
 
-        score, tier = score_row(bool(c.get("found")), certs, links, founded_year)
+        portal = bool(c.get("found")) or bool(links.get("trust") or links.get("security"))
+        score, tier = score_row(portal, certs, links, founded_year)
+        factors = disclosure_factors(portal, certs, links, founded_year)
+        proc_objs = []
+        for pid in procs:
+            pname = proc_meta.get(pid, (pid, ""))[0]
+            proc_objs.append({"id": pid, "name": pname})
 
         row = {
             "rank": c.get("rank"),
@@ -1595,19 +1601,19 @@ def run() -> int:
             "trust_url": c.get("trust_url"),
             "final_url": c.get("final_url"),
             "vendor": c.get("vendor"),
-            "title": clean_title(c.get("title") or ""),
+            "title": clean_title(c.get("title") or "", c.get("name") or ""),
             "probed": c.get("probed"),
             "source": c.get("source"),
             "list": c.get("list"),
-            "founded_year": founded_year,
-            "founded_source": founded_source,
             "certs": certs,
             "links": links,
             "summary": summary,
-            "subprocessors": procs,
-            "disclosure_score": score,
-            "disclosure_tier": tier,
+            "subprocessors": proc_objs,
+            "disclosure": {"score": score, "tier": tier, "factors": factors},
         }
+        if founded_year and founded_source:
+            row["founded_year"] = founded_year
+            row["founded_source"] = founded_source
         enriched.append(row)
 
         nodes[slug] = {

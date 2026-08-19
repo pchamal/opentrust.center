@@ -1,17 +1,17 @@
 # Enrichment log
 
-Generated: 2026-08-19T04:49:11Z UTC (Pacific UTC-7).
+Generated: 2026-08-19T04:49:11Z UTC (21:49 PT / America/Los_Angeles).
 
 ## Coverage
 
 | Fact | Count |
 |---|---|
 | Companies in register | 183 |
-| Portals already on file | 171 |
+| Portals on file (trust or security page) | 174 |
 | Founding years verified | 146 |
-| Companies with ≥1 cert mention | 74 |
+| Years skipped (no verified Wikipedia/Wikidata source) | 37 |
+| Companies with ≥1 cert seen in public HTML | 74 |
 | Cert mentions (total) | 404 |
-| Companies with named subprocessors | 24 |
 | Subprocessor edges | 82 |
 | security.txt | 90 |
 | DPA link | 56 |
@@ -20,66 +20,31 @@ Generated: 2026-08-19T04:49:11Z UTC (Pacific UTC-7).
 | Bug bounty / disclosure link | 75 |
 | Subprocessors link | 98 |
 
+Well-known paths were GET-probed for all 183 domains. Hits are HTTP 200 that are not a soft 404, parked page, login wall, or homepage bounce.
+
 ## Disclosure tiers
 
 | Tier | Count |
 |---|---|
-| silent | 12 |
-| thin | 30 |
-| on-file | 95 |
+| silent | 9 |
+| thin | 31 |
+| on-file | 97 |
 | substantial | 36 |
 | complete | 10 |
 
-## What was found
-
-Live GETs of well-known first-party paths plus known trust URLs. Cert tokens from visible HTML/title. Years from Wikipedia/Wikidata only, each with a source URL. Subprocessor names only from a public list page that returned 200.
-
-## What was skipped
-
-- No Wikipedia/Wikidata match, or a page whose official website is not the register company.
-- Certs that exist only in client-rendered portals or behind login. Empty `certs` means "not seen in public HTML," not "uncertified."
-- Stripe service-providers page is a real 200 (title names subprocessors) but the table is JS-only; no names copied.
-- Login-walled Notion `/space/` session URLs; processor names from those URLs were cleared.
-- Crunchbase, news blurbs, homepage copyright lines.
-- Vendor product names in public summaries. LaunchDarkly title that was only a portal host name was rewritten to the company trust-center title.
-
-## Years added from Wikipedia infobox / P571 in the verification pass
-
-- Deel 2019 https://en.wikipedia.org/wiki/Deel,_Inc.
-- Celonis 2011 https://en.wikipedia.org/wiki/Celonis
-- Netskope 2012 https://en.wikipedia.org/wiki/Netskope
-- Rippling 2017 https://en.wikipedia.org/wiki/Rippling_(company)
-- Miro 2011 https://en.wikipedia.org/wiki/Miro_(collaboration_platform)
-- Attentive 2016 https://en.wikipedia.org/wiki/Attentive_(company)
-- Arctic Wolf 2012 https://en.wikipedia.org/wiki/Arctic_Wolf_Networks
-- Flock Safety 2017 https://en.wikipedia.org/wiki/Flock_Safety
-- Cribl 2018 https://en.wikipedia.org/wiki/Cribl.io
-- Checkout.com 2009 https://en.wikipedia.org/wiki/Checkout.com
-- Motive 2013 https://en.wikipedia.org/wiki/Motive_(company)
-- Glean 2019 https://en.wikipedia.org/wiki/Glean_Technologies
-- Intercom source-corrected https://en.wikipedia.org/wiki/Intercom_(company)
-- Guild 2015 https://en.wikipedia.org/wiki/Guild_Education
-- Workato 2013 https://en.wikipedia.org/wiki/Workato
-- Personio 2015 https://en.wikipedia.org/wiki/Personio
-- ElevenLabs 2022 https://en.wikipedia.org/wiki/ElevenLabs
-- Amplitude 2014 https://en.wikipedia.org/wiki/Amplitude,_Inc.
-- Braze 2011 https://en.wikipedia.org/wiki/Braze,_Inc.
-- Confluent 2014 https://en.wikipedia.org/wiki/Confluent
-- Freshworks 2010 https://en.wikipedia.org/wiki/Freshworks
-- Proofpoint 2002 https://en.wikipedia.org/wiki/Proofpoint
-- Rapid7 2000 https://en.wikipedia.org/wiki/Rapid7,_Inc.
-- Samsara 2015 https://en.wikipedia.org/wiki/Samsara_(company)
+Score (cap 100): +20 portal, cert weights cap 40, +8 DPA, +8 subprocessors link, +6 status, +6 bounty or security.txt, +6 privacy, +min(10, floor((2026−year)/2)). Silent = no public trust or security page on file.
 
 ## Method
 
-1. Register: `site/data.json` (183 companies).
-2. Probe `/.well-known/security.txt`, `/privacy`, `/subprocessors`, `/legal/subprocessors`, `/dpa`, `status.{domain}`, disclosure paths, `/security`, `/trust`. Extra first-party variants for large vendors are candidates only.
-3. Fetch each known `trust_url`. Extract certs and hrefs.
-4. Wikipedia `pageprops` + Wikidata `P571`/`P856`. Infobox `founded` year when P571 is empty but the page is clearly that company.
-5. Subprocessors: public list URL only. Stable ids. No self-edges.
-6. Score: +20 portal, cert weights cap 40, +8 DPA, +8 subprocessors link, +6 status, +6 bounty or security.txt, +6 privacy, +min(10, floor((2026-year)/2)). Tiers: silent (no portal), thin <40, on-file 40–69, substantial 70–89, complete 90+.
+1. Founding years: Wikipedia title resolve → Wikidata P571, kept when the official website matches the register domain or the title/label is an unambiguous close match. A few additional years come from an explicit “founded/established/launched YYYY” sentence on the matching Wikipedia lead. Each year has a source URL. Ambiguous names were omitted.
+2. Path probe (parallel, 8s timeout): `/.well-known/security.txt`, `/security`, `/trust`, `/privacy`, `/legal/privacy`, `/legal/subprocessors`, `/subprocessors`, `/legal/dpa`, `/dpa`, `status.{domain}`, plus the existing `trust_url`.
+3. Certs extracted from live trust/security HTML only. JS-only or login-gated portals often yield no tokens; empty `certs` means not seen, not “uncertified.”
+4. Subprocessor edges only from a first-party public list that returned 200. Names normalized to a known catalog. Login-gated lists are not on file.
+5. Summaries are clerk voice. SafeBase / Vanta / Conveyor / Wolfia / Drata / SecurityPal are not written into public summaries.
 
-Repeat: `python3 scripts/enrich.py` from the repo root. HTTP cache lives in `data/cache/http/`.
+## What this is not
+
+A complete crawl of every live page. A claim that a missing fact does not exist. A vendor catalog.
 
 ## Top cert mentions
 
@@ -100,6 +65,11 @@ Repeat: `python3 scripts/enrich.py` from the repo root. HTTP cache lives in `dat
 | TISAX | 12 |
 | ISO 27017 | 11 |
 | ISO 42001 | 11 |
+| ISO 27018 | 10 |
+| CSA STAR | 9 |
+| ISMAP | 9 |
+| C5 | 8 |
+| HITRUST | 6 |
 
 ## Top subprocessors (public lists only)
 
@@ -272,6 +242,12 @@ Repeat: `python3 scripts/enrich.py` from the repo root. HTTP cache lives in `dat
 | Zoom | 2011 | https://en.wikipedia.org/wiki/Zoom_Communications |
 | Zscaler | 2008 | https://en.wikipedia.org/wiki/Zscaler |
 
-## Years still omitted
+## Years skipped (no verified source)
 
-Grafana Labs, Abnormal AI, AlphaSense, Checkr, Talkdesk, Fivetran, Dialpad, NinjaOne, Lambda, Gong, Collibra, Abridge, Komodo Health, Pendo, Vanta, Webflow, Benchling, Axonius, Harness, Island, MaintainX, Fireworks AI, Together AI, dbt Labs, Fal AI, Mercor, LaunchDarkly, Harvey, Sierra, Brightwheel, GlossGenius, Claroty, Chainguard, Clay, EvenUp, SailPoint, Writer
+grafana-labs, abnormal-ai, alphasense, checkr, talkdesk, fivetran, dialpad, ninjaone, lambda, gong, collibra, abridge, komodo-health, pendo, vanta, webflow, benchling, axonius, harness, island, maintainx, fireworks-ai, together-ai, dbt-labs, fal-ai, mercor, launchdarkly, harvey, sierra, brightwheel, glossgenius, claroty, chainguard, clay, evenup, sailpoint, writer
+
+## Outputs
+
+- `data/enriched.json`
+- `data/subprocessors.json`
+- `scripts/enrich.py` (repeatable; HTTP cache under `data/cache/http/`)
