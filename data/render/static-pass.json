@@ -1,0 +1,1340 @@
+{
+  "generated_at": "2026-08-19T06:01:52Z",
+  "rows": [
+    {
+      "slug": "anthropic",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.anthropic.com",
+        "security_txt": "https://www.anthropic.com/.well-known/security.txt",
+        "privacy": "https://www.anthropic.com/legal/privacy",
+        "dpa": "https://www.anthropic.com/legal/data-processing-addendum",
+        "status": "https://status.claude.com/",
+        "bug_bounty": "https://www.anthropic.com/responsible-disclosure-policy"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://trust.anthropic.com 200 JS shell (~4.8KB) with data-slugid but no cert tokens or public cert JSON. /subprocessors is the same shell.",
+      "rendered": false
+    },
+    {
+      "slug": "stripe",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "SOC 1",
+        "PCI DSS"
+      ],
+      "links": {
+        "security": "https://docs.stripe.com/security",
+        "trust": "https://docs.stripe.com/security",
+        "security_txt": "https://stripe.com/.well-known/security.txt",
+        "privacy": "https://stripe.com/privacy-center/legal",
+        "subprocessors": "https://stripe.com/legal/service-providers",
+        "dpa": "https://stripe.com/legal/dpa",
+        "status": "https://status.stripe.com",
+        "bug_bounty": "https://hackerone.com/stripe#overview"
+      },
+      "subprocessors": [
+        {
+          "id": "aws",
+          "name": "Amazon Web Services"
+        },
+        {
+          "id": "salesforce",
+          "name": "Salesforce"
+        },
+        {
+          "id": "twilio",
+          "name": "Twilio"
+        }
+      ],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, SOC 1, PCI DSS. Named processors published; DPA on file.",
+      "evidence": "Visible HTML on https://docs.stripe.com/security (SOC 1, SOC 2 Type II, SOC 3) and https://docs.stripe.com/security/guide (PCI DSS). Subprocessors at https://stripe.com/legal/service-providers.",
+      "rendered": false
+    },
+    {
+      "slug": "navan",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 1 Type II",
+        "ISO 27001",
+        "PCI DSS",
+        "CSA STAR",
+        "GDPR"
+      ],
+      "links": {
+        "trust": "https://trust.navan.com",
+        "privacy": "https://navan.com/privacy",
+        "status": "https://status.navan.com",
+        "security": "https://navan.com/security",
+        "bug_bounty": "https://navan.com/security"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 1 Type II, ISO 27001, PCI DSS, CSA STAR, GDPR. Reports themselves may be request-gated.",
+      "evidence": "Item titles in public __NEXT_DATA__ on https://trust.navan.com.",
+      "rendered": false
+    },
+    {
+      "slug": "celonis",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "SOC 1",
+        "ISO 27001",
+        "ISO 27701",
+        "HIPAA",
+        "CSA STAR",
+        "GDPR",
+        "TISAX"
+      ],
+      "links": {
+        "trust": "https://trust.celonis.com",
+        "privacy": "https://www.celonis.com/legal/privacy-notice"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, SOC 1, ISO 27001, ISO 27701, HIPAA, CSA STAR, GDPR and others. Reports themselves may be request-gated.",
+      "evidence": "Item titles and file names in public __NEXT_DATA__ on https://trust.celonis.com (SOC 1/2/3, ISO/IEC 27001/27701, HIPAA, CSA STAR, GDPR, TISAX).",
+      "rendered": false
+    },
+    {
+      "slug": "attentive",
+      "certs": [
+        "SOC 2 Type II",
+        "GDPR",
+        "CCPA"
+      ],
+      "links": {
+        "status": "https://security.attentive.com",
+        "trust": "https://security.attentive.com",
+        "privacy": "https://www.attentive.com/legal/privacy",
+        "security": "https://www.attentive.com/legal/security"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, GDPR, CCPA. Reports themselves may be request-gated.",
+      "evidence": "Item titles in public __NEXT_DATA__ on https://security.attentive.com (SOC 2 Type 2 Report, GDPR, CCPA).",
+      "rendered": false
+    },
+    {
+      "slug": "checkr",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "SOC 1 Type II",
+        "ISO 27001",
+        "ISO 42001",
+        "GDPR",
+        "CCPA"
+      ],
+      "links": {
+        "security": "https://security.checkr.com",
+        "trust": "https://security.checkr.com",
+        "dpa": "https://checkr.com/legal/dpa"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, SOC 1 Type II, ISO 27001, ISO 42001, GDPR, CCPA. DPA on file.",
+      "evidence": "Item titles and file names in public __NEXT_DATA__ on https://security.checkr.com (SOC 2, SOC 3 Type 2 report, ISO 27001/42001, GDPR, CCPA).",
+      "rendered": false
+    },
+    {
+      "slug": "postman",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 42001",
+        "TX-RAMP",
+        "HIPAA",
+        "PCI DSS",
+        "CSA STAR",
+        "GDPR",
+        "CCPA"
+      ],
+      "links": {
+        "security": "https://www.postman.com/security/",
+        "trust": "https://security.postman.com",
+        "security_txt": "https://www.postman.com/.well-known/security.txt",
+        "privacy": "https://www.postman.com/privacy-policy",
+        "dpa": "https://www.postman.com/dpa",
+        "bug_bounty": "https://www.postman.com/bug-bounty"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, ISO 27001, ISO 27017, ISO 42001, TX-RAMP, HIPAA, PCI DSS and others. DPA on file.",
+      "evidence": "Item titles and file names in public __NEXT_DATA__ on https://security.postman.com.",
+      "rendered": false
+    },
+    {
+      "slug": "dialpad",
+      "certs": [
+        "SOC 2",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "TX-RAMP",
+        "HIPAA",
+        "PCI DSS",
+        "CSA STAR",
+        "GDPR",
+        "CCPA"
+      ],
+      "links": {
+        "trust": "https://trust.dialpad.com",
+        "security_txt": "https://www.dialpad.com/.well-known/security.txt"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2, ISO 27001, ISO 27017, ISO 27018, TX-RAMP, HIPAA, PCI DSS, CSA STAR and others. Reports themselves may be request-gated.",
+      "evidence": "Item titles and file names in public __NEXT_DATA__ on https://trust.dialpad.com.",
+      "rendered": false
+    },
+    {
+      "slug": "1password",
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27701",
+        "TX-RAMP",
+        "PCI DSS",
+        "CSA STAR",
+        "GDPR",
+        "TISAX",
+        "CMMC"
+      ],
+      "links": {
+        "trust": "https://trust.1password.io",
+        "security_txt": "https://1password.com/.well-known/security.txt",
+        "security": "https://1password.com/security",
+        "privacy": "https://1password.com/legal/privacy",
+        "status": "https://status.1password.com"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27018, ISO 27701, TX-RAMP, PCI DSS, CSA STAR and others. Reports themselves may be request-gated.",
+      "evidence": "Document titles in public __NEXT_DATA__ JSON on https://trust.1password.io (SOC 2 Type 2, ISO/IEC 27001/27017/27018/27701, TX-RAMP, PCI DSS, CSA STAR, GDPR, TISAX, CMMC).",
+      "rendered": false
+    },
+    {
+      "slug": "checkout",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.checkout.com",
+        "bug_bounty": "https://www.checkout.com/vulnerability-disclosure"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://trust.checkout.com 200 JS shell with no cert tokens. /subprocessors is the same shell.",
+      "rendered": false
+    },
+    {
+      "slug": "motive",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 1 Type II",
+        "ISO 27001",
+        "ISO 27701",
+        "TX-RAMP",
+        "PCI DSS",
+        "CCPA"
+      ],
+      "links": {
+        "trust": "https://trust.gomotive.com",
+        "privacy": "https://gomotive.com/legal/privacy/",
+        "status": "https://status.gomotive.com"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 1 Type II, ISO 27001, ISO 27701, TX-RAMP, PCI DSS, CCPA. Reports themselves may be request-gated.",
+      "evidence": "Item titles in public __NEXT_DATA__ on https://trust.gomotive.com.",
+      "rendered": false
+    },
+    {
+      "slug": "vercel",
+      "certs": [
+        "SOC 2",
+        "ISO 27001",
+        "HIPAA",
+        "PCI DSS",
+        "GDPR",
+        "CCPA",
+        "TISAX"
+      ],
+      "links": {
+        "security": "https://security.vercel.com",
+        "trust": "https://security.vercel.com",
+        "security_txt": "https://vercel.com/.well-known/security.txt",
+        "privacy": "https://vercel.com/legal/privacy-notice",
+        "bug_bounty": "https://vercel.com/security/responsible-disclosure",
+        "subprocessors": "https://security.vercel.com/subprocessors",
+        "status": "https://www.vercel-status.com/"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2, ISO 27001, HIPAA, PCI DSS, GDPR, CCPA, TISAX. Reports themselves may be request-gated.",
+      "evidence": "Item titles in public __NEXT_DATA__ on https://security.vercel.com.",
+      "rendered": false
+    },
+    {
+      "slug": "airwallex",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 2 Type I",
+        "SOC 1 Type II",
+        "ISO 27001",
+        "PCI DSS",
+        "GDPR"
+      ],
+      "links": {
+        "security": "https://security.airwallex.com",
+        "trust": "https://security.airwallex.com",
+        "security_txt": "https://www.airwallex.com:443/.well-known/security.txt",
+        "status": "https://status.airwallex.com",
+        "bug_bounty": "https://help.airwallex.com/hc/en-gb/articles/900004502526-Bug-Bounty-Program-Rules"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 2 Type I, SOC 1 Type II, ISO 27001, PCI DSS, GDPR. Reports themselves may be request-gated.",
+      "evidence": "Item titles in public __NEXT_DATA__ on https://security.airwallex.com (SOC 1 Type 2, SOC 2 Type 1/2, ISO/IEC 27001, PCI DSS, GDPR).",
+      "rendered": false
+    },
+    {
+      "slug": "clio",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 2 Type I",
+        "SOC 1 Type II",
+        "ISO 27001",
+        "TX-RAMP",
+        "HIPAA",
+        "PCI DSS",
+        "GDPR"
+      ],
+      "links": {
+        "trust": "https://trust.clio.com",
+        "security_txt": "https://www.clio.com/.well-known/security.txt",
+        "privacy": "https://www.clio.com/privacy/",
+        "bug_bounty": "https://www.clio.com/security/responsible-disclosure/",
+        "security": "https://www.clio.com/security/"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 2 Type I, SOC 1 Type II, ISO 27001, TX-RAMP, HIPAA, PCI DSS, GDPR. Reports themselves may be request-gated.",
+      "evidence": "Item titles in public __NEXT_DATA__ on https://trust.clio.com and first-party https://www.clio.com/security/.",
+      "rendered": false
+    },
+    {
+      "slug": "lambda",
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27701",
+        "CCPA"
+      ],
+      "links": {
+        "trust": "https://trust.lambda.ai",
+        "security_txt": "https://lambdalabs.com/.well-known/security.txt"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27701, CCPA. Reports themselves may be request-gated.",
+      "evidence": "Item titles in public __NEXT_DATA__ on https://trust.lambda.ai.",
+      "rendered": false
+    },
+    {
+      "slug": "brex",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 1 Type II",
+        "ISO 27001",
+        "PCI DSS"
+      ],
+      "links": {
+        "trust": "https://trust-portal.brex.com",
+        "security_txt": "https://www.brex.com/security.txt",
+        "privacy": "https://www.brex.com/legal/privacy",
+        "bug_bounty": "https://www.brex.com/trust/responsible-disclosure"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 1 Type II, ISO 27001, PCI DSS. Reports themselves may be request-gated.",
+      "evidence": "Item titles in public __NEXT_DATA__ on https://trust-portal.brex.com (SOC 1 Type 2, SOC 2 Type 2, ISO/IEC 27001:2022, PCI DSS).",
+      "rendered": false
+    },
+    {
+      "slug": "intercom",
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27018",
+        "ISO 27701",
+        "ISO 42001",
+        "HIPAA",
+        "GDPR",
+        "CCPA"
+      ],
+      "links": {
+        "trust": "https://trust.intercom.com",
+        "security_txt": "https://app.intercom.com/.well-known/security.txt",
+        "privacy": "https://www.intercom.com/legal/privacy",
+        "security": "https://www.intercom.com/security",
+        "bug_bounty": "https://www.bugcrowd.com/resource/standard-disclosure-terms/",
+        "dpa": "https://www.intercom.com/legal/data-processing-agreement"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27018, ISO 27701, ISO 42001, HIPAA, GDPR, CCPA. DPA on file.",
+      "evidence": "Visible HTML on https://www.intercom.com/security (SOC 2 Type II, ISO 27001/27018/27701/42001, HIPAA, GDPR, CCPA). https://trust.intercom.com is a JS shell.",
+      "rendered": false
+    },
+    {
+      "slug": "guild",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.guild.com",
+        "privacy": "https://guild.com/privacy",
+        "dpa": "https://guild.com/dpa",
+        "status": "https://guild.com/status",
+        "bug_bounty": "https://guild.com/bug-bounty",
+        "security": "https://guild.com/security"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://trust.guild.com 200 JS shell. https://guild.com/security has no cert tokens. https://guild.com/subprocessors 200s as a 404 page.",
+      "rendered": false
+    },
+    {
+      "slug": "hibob",
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27018"
+      ],
+      "links": {
+        "privacy": "https://www.hibob.com/privacy/privacy-policy/",
+        "trust": "https://www.hibob.com/privacy/security/",
+        "security": "https://www.hibob.com/privacy/security/",
+        "dpa": "https://www.hibob.com/privacy/data-processing-addendum/",
+        "subprocessors": "https://www.hibob.com/privacy/hibob-subsidiaries-and-sub-processors/"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27018. DPA on file.",
+      "evidence": "Visible HTML on https://www.hibob.com/privacy/security/ states HiBob is ISO 27001:2022, ISO 27018:2019, and SOC 2 Type 2 certified.",
+      "rendered": false
+    },
+    {
+      "slug": "abridge",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 2 Type I",
+        "TX-RAMP",
+        "HIPAA",
+        "CCPA"
+      ],
+      "links": {
+        "trust": "https://trust.abridge.com",
+        "privacy": "https://www.abridge.com/privacy"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 2 Type I, TX-RAMP, HIPAA, CCPA. Reports themselves may be request-gated.",
+      "evidence": "Item titles in public __NEXT_DATA__ on https://trust.abridge.com (SOC 2 Type 1, SOC 2 Type 2, TX-RAMP, HIPAA, CCPA).",
+      "rendered": false
+    },
+    {
+      "slug": "appsflyer",
+      "certs": [
+        "ISO 27701",
+        "GDPR"
+      ],
+      "links": {
+        "trust": "https://www.appsflyer.com/trust",
+        "privacy": "https://www.appsflyer.com/trust/privacy/",
+        "subprocessors": "https://www.appsflyer.com/legal/subprocessors/",
+        "dpa": "https://www.appsflyer.com:443/legal/dpa",
+        "status": "https://status.appsflyer.com",
+        "security": "https://www.appsflyer.com/trust/security/"
+      },
+      "subprocessors": [
+        {
+          "id": "aws",
+          "name": "Amazon Web Services"
+        },
+        {
+          "id": "gcp",
+          "name": "Google Cloud"
+        },
+        {
+          "id": "databricks",
+          "name": "Databricks"
+        },
+        {
+          "id": "zendesk",
+          "name": "Zendesk"
+        },
+        {
+          "id": "openai",
+          "name": "OpenAI"
+        }
+      ],
+      "summary": "Public trust center. On file: ISO 27701, GDPR. Named processors published; DPA on file.",
+      "evidence": "Image filenames on https://www.appsflyer.com/trust/ include iso-27701-appsflyer-compliance.svg and local-gdpr.svg. Public list at https://www.appsflyer.com/legal/subprocessors/.",
+      "rendered": false
+    },
+    {
+      "slug": "calendly",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "ISO 27001",
+        "CSA STAR",
+        "GDPR",
+        "CCPA"
+      ],
+      "links": {
+        "trust": "https://calendly.com/trust-center",
+        "security_txt": "https://calendly.com/.well-known/security.txt",
+        "privacy": "https://calendly.com/legal/privacy-notice",
+        "dpa": "https://calendly.com/legal/data-processing-addendum",
+        "bug_bounty": "https://calendly.com/bug-bounty",
+        "security": "https://calendly.com/security",
+        "status": "https://calendlystatus.com/"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, ISO 27001, CSA STAR, GDPR, CCPA. DPA on file.",
+      "evidence": "Visible HTML on https://calendly.com/security (SOC 2 Type 2, SOC 3, ISO/IEC 27001, CSA STAR Level One, GDPR, CCPA). https://calendly.com/trust-center is a JS shell.",
+      "rendered": false
+    },
+    {
+      "slug": "workato",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.workato.com",
+        "subprocessors": "https://www.workato.com/legal/sub-processors",
+        "dpa": "https://www.workato.com/legal/dpa",
+        "status": "https://status.workato.com",
+        "security": "https://www.workato.com/legal/security"
+      },
+      "subprocessors": [
+        {
+          "id": "aws",
+          "name": "Amazon Web Services"
+        },
+        {
+          "id": "intercom",
+          "name": "Intercom"
+        },
+        {
+          "id": "stripe",
+          "name": "Stripe"
+        },
+        {
+          "id": "twilio",
+          "name": "Twilio"
+        },
+        {
+          "id": "openai",
+          "name": "OpenAI"
+        },
+        {
+          "id": "azure",
+          "name": "Microsoft Azure"
+        },
+        {
+          "id": "mongodb",
+          "name": "MongoDB"
+        },
+        {
+          "id": "gcp",
+          "name": "Google Cloud"
+        },
+        {
+          "id": "auth0",
+          "name": "Auth0"
+        }
+      ],
+      "summary": "Public trust portal is a JavaScript shell with no cert tokens. A first-party subprocessor PDF list is public.",
+      "evidence": "https://trust.workato.com 200 JS-gated shell with no cert tokens. Public subprocessor PDF 200s at the April 2026 list linked from https://www.workato.com/legal/sub-processors.",
+      "rendered": false
+    },
+    {
+      "slug": "pendo",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.pendo.io",
+        "privacy": "https://www.pendo.io/legal/privacy-policy/",
+        "dpa": "https://www.pendo.io:443/legal/data-processing-addendum/",
+        "status": "https://status.pendo.io",
+        "subprocessors": "https://trust.pendo.io/subprocessors"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://trust.pendo.io 200 JS shell with no cert tokens.",
+      "rendered": false
+    },
+    {
+      "slug": "webflow",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 1 Type II",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 42001",
+        "HIPAA",
+        "PCI DSS",
+        "GDPR",
+        "CCPA"
+      ],
+      "links": {
+        "trust": "https://trust.webflow.com",
+        "security_txt": "https://webflow.com/.well-known/security.txt",
+        "privacy": "https://webflow.com/legal/privacy",
+        "subprocessors": "https://webflow.com/legal/subprocessors",
+        "dpa": "https://webflow.com/legal/dpa",
+        "status": "https://status.webflow.com",
+        "security": "https://webflow.com/security",
+        "bug_bounty": "https://bugcrowd.com/engagements/webflow-vdp-pro"
+      },
+      "subprocessors": [
+        {
+          "id": "aws",
+          "name": "Amazon Web Services"
+        },
+        {
+          "id": "anthropic",
+          "name": "Anthropic"
+        },
+        {
+          "id": "cloudflare",
+          "name": "Cloudflare"
+        },
+        {
+          "id": "datadog",
+          "name": "Datadog"
+        },
+        {
+          "id": "fivetran",
+          "name": "Fivetran"
+        },
+        {
+          "id": "mongodb",
+          "name": "MongoDB"
+        },
+        {
+          "id": "openai",
+          "name": "OpenAI"
+        },
+        {
+          "id": "salesforce",
+          "name": "Salesforce"
+        },
+        {
+          "id": "slack",
+          "name": "Slack"
+        },
+        {
+          "id": "snowflake",
+          "name": "Snowflake"
+        },
+        {
+          "id": "stripe",
+          "name": "Stripe"
+        },
+        {
+          "id": "segment",
+          "name": "Twilio Segment"
+        },
+        {
+          "id": "zendesk",
+          "name": "Zendesk"
+        },
+        {
+          "id": "zoom",
+          "name": "Zoom"
+        }
+      ],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 1 Type II, ISO 27001, ISO 27017, ISO 27018, ISO 42001, HIPAA, PCI DSS and others. Named processors published; DPA on file.",
+      "evidence": "Item titles in public __NEXT_DATA__ on https://trust.webflow.com. Named processors in visible HTML on https://webflow.com/legal/subprocessors.",
+      "rendered": false
+    },
+    {
+      "slug": "benchling",
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "GDPR",
+        "CCPA"
+      ],
+      "links": {
+        "trust": "https://securitytrust.benchling.com",
+        "privacy": "https://www.benchling.com/privacy"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27018, GDPR, CCPA. Reports themselves may be request-gated.",
+      "evidence": "Item titles and file names in public __NEXT_DATA__ on https://securitytrust.benchling.com (SOC 2 Type 2, ISO/IEC 27001/27017/27018, GDPR, CCPA).",
+      "rendered": false
+    },
+    {
+      "slug": "personio",
+      "certs": [
+        "ISO 27001",
+        "ISO 27017",
+        "GDPR"
+      ],
+      "links": {
+        "trust": "https://trust.personio.com",
+        "bug_bounty": "https://app.intigriti.com/programs/personio/personio/detail"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: ISO 27001, ISO 27017, GDPR. Reports themselves may be request-gated.",
+      "evidence": "Item titles in public __NEXT_DATA__ on https://trust.personio.com.",
+      "rendered": false
+    },
+    {
+      "slug": "clickup",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "SOC 1 Type II",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27701",
+        "ISO 42001",
+        "PCI DSS",
+        "GDPR",
+        "CCPA"
+      ],
+      "links": {
+        "security": "https://clickup.com/security-policy",
+        "trust": "https://security.clickup.com",
+        "privacy": "https://clickup.com/terms/privacy",
+        "dpa": "https://clickup.com/terms/dpa",
+        "status": "https://status.clickup.com",
+        "bug_bounty": "https://clickup.com/vulnerability-disclosure"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, SOC 1 Type II, ISO 27001, ISO 27017, ISO 27018, ISO 27701, ISO 42001 and others. DPA on file.",
+      "evidence": "Item titles in public __NEXT_DATA__ on https://security.clickup.com (SOC 1 Type 2, SOC 2/3, ISO 27001/27017/27018/27701/42001, PCI DSS, GDPR, CCPA).",
+      "rendered": false
+    },
+    {
+      "slug": "clickhouse",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "SOC 1",
+        "ISO 27001",
+        "HIPAA",
+        "PCI DSS",
+        "GDPR",
+        "CCPA"
+      ],
+      "links": {
+        "trust": "https://trust.clickhouse.com",
+        "security_txt": "https://clickhouse.com/.well-known/security.txt",
+        "privacy": "https://clickhouse.com/legal/privacy-policy",
+        "status": "https://status.clickhouse.com",
+        "bug_bounty": "https://bugcrowd.com/clickhouse"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, SOC 1, ISO 27001, HIPAA, PCI DSS, GDPR, CCPA. Reports themselves may be request-gated.",
+      "evidence": "Item titles in public __NEXT_DATA__ on https://trust.clickhouse.com (SOC 2 Type 2, SOC 1/3, ISO/IEC 27001, HIPAA, PCI DSS, GDPR, CCPA).",
+      "rendered": false
+    },
+    {
+      "slug": "algolia",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.algolia.com",
+        "status": "https://status.algolia.com",
+        "privacy": "https://www.algolia.com/policies/privacy"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://trust.algolia.com 200 JS shell with no cert tokens.",
+      "rendered": false
+    },
+    {
+      "slug": "deepl",
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "HIPAA",
+        "GDPR",
+        "C5"
+      ],
+      "links": {
+        "status": "https://status.deepl.com",
+        "trust": "https://trust.deepl.com"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, HIPAA, GDPR, C5. Reports themselves may be request-gated.",
+      "evidence": "Item titles in public __NEXT_DATA__ JSON on https://trust.deepl.com (SOC 2 Type 2, ISO/IEC 27001:2022, HIPAA, GDPR, C5).",
+      "rendered": false
+    },
+    {
+      "slug": "island",
+      "certs": [],
+      "links": {
+        "privacy": "https://www.island.io/legal/privacy",
+        "status": "https://status.island.io",
+        "trust": "https://trust.island.io"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://trust.island.io 200 with almost no HTML (title only).",
+      "rendered": false
+    },
+    {
+      "slug": "elevenlabs",
+      "certs": [],
+      "links": {
+        "privacy": "https://elevenlabs.io/privacy-policy",
+        "dpa": "https://elevenlabs.io/dpa",
+        "status": "https://status.elevenlabs.io",
+        "trust": "https://trust.elevenlabs.io"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://trust.elevenlabs.io 200, redirected to compliance.elevenlabs.io; JS shell with no cert tokens.",
+      "rendered": false
+    },
+    {
+      "slug": "cyera",
+      "certs": [
+        "SOC 2",
+        "ISO 27001",
+        "HIPAA",
+        "PCI DSS",
+        "GDPR",
+        "CCPA",
+        "C5"
+      ],
+      "links": {
+        "security": "https://security.cyera.io/",
+        "trust": "https://security.cyera.io/",
+        "privacy": "https://www.cyera.com/legal/privacy-policy"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2, ISO 27001, HIPAA, PCI DSS, GDPR, CCPA, C5. Reports themselves may be request-gated.",
+      "evidence": "Compliance item titles in public __NEXT_DATA__ on https://security.cyera.io (redirect from cyera.com/trust-center).",
+      "rendered": false
+    },
+    {
+      "slug": "runway",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.runwayml.com",
+        "privacy": "https://runway.com/privacy-policy",
+        "status": "https://status.runwayml.com"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://trust.runwayml.com 200 JS shell with no cert tokens.",
+      "rendered": false
+    },
+    {
+      "slug": "fireworks-ai",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.fireworks.ai",
+        "privacy": "https://fireworks.ai/privacy-policy",
+        "status": "https://status.fireworks.ai"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://trust.fireworks.ai 200 JS shell with no cert tokens.",
+      "rendered": false
+    },
+    {
+      "slug": "together-ai",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.together.ai",
+        "security_txt": "https://together.ai/.well-known/security.txt",
+        "privacy": "https://www.together.ai/privacy",
+        "status": "https://status.together.ai",
+        "bug_bounty": "https://hackerone.com/together_ai"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://trust.together.ai 200 JS shell with no cert tokens.",
+      "rendered": false
+    },
+    {
+      "slug": "fal-ai",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.fal.ai",
+        "privacy": "https://fal.ai/legal/privacy-policy",
+        "dpa": "https://fal.ai/legal/data-processing-addendum",
+        "status": "https://status.fal.ai"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://trust.fal.ai 200 JS shell with no cert tokens.",
+      "rendered": false
+    },
+    {
+      "slug": "mercor",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.mercor.com",
+        "security_txt": "https://www.mercor.com:443/security.txt"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://trust.mercor.com 200 JS shell with no cert tokens.",
+      "rendered": false
+    },
+    {
+      "slug": "sierra",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.sierra.ai",
+        "security_txt": "https://sierra.ai/.well-known/security.txt",
+        "privacy": "https://sierra.ai/privacy-policy",
+        "status": "https://status.sierra.ai",
+        "bug_bounty": "https://sierra.ai/responsible-disclosure"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://trust.sierra.ai 200 JS shell with no cert tokens.",
+      "rendered": false
+    },
+    {
+      "slug": "papaya-global",
+      "certs": [
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27701",
+        "CSA STAR",
+        "GDPR",
+        "CCPA"
+      ],
+      "links": {
+        "status": "https://status.papayaglobal.com",
+        "privacy": "https://www.papayaglobal.com/privacy/",
+        "trust": "https://www.papayaglobal.com/security-and-privacy/"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 1 Type II, SOC 2 Type II, ISO 27001, ISO 27701, CSA STAR, GDPR, CCPA. Reports themselves may be request-gated.",
+      "evidence": "Visible HTML on https://www.papayaglobal.com/ (SOC 1 & 2 Type II, ISO 27001 & 27701, CSA STAR, GDPR/CCPA) and https://www.papayaglobal.com/security-and-privacy/.",
+      "rendered": false
+    },
+    {
+      "slug": "brightwheel",
+      "certs": [
+        "TX-RAMP"
+      ],
+      "links": {
+        "security": "https://mybrightwheel.com/security/",
+        "trust": "https://mybrightwheel.com/security/",
+        "privacy": "https://mybrightwheel.com/privacy/",
+        "status": "https://brightwheel.statuspage.io/"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: TX-RAMP. Reports themselves may be request-gated.",
+      "evidence": "Visible HTML on https://mybrightwheel.com/security/ mentions TX-RAMP-certified controls. PCI Level 1 is mentioned without a PCI DSS token.",
+      "rendered": false
+    },
+    {
+      "slug": "chainguard",
+      "certs": [],
+      "links": {
+        "security": "https://security.chainguard.dev",
+        "trust": "https://security.chainguard.dev",
+        "privacy": "https://www.chainguard.dev/legal/privacy-notice",
+        "status": "https://status.chainguard.dev"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://security.chainguard.dev 200 JS shell with no cert tokens.",
+      "rendered": false
+    },
+    {
+      "slug": "synthesia",
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 42001",
+        "GDPR"
+      ],
+      "links": {
+        "security": "https://security.synthesia.io",
+        "trust": "https://security.synthesia.io",
+        "privacy": "https://www.synthesia.io/terms/privacy-policy",
+        "subprocessors": "https://www.synthesia.io/legal/subprocessors",
+        "status": "https://status.synthesia.io",
+        "dpa": "https://www.synthesia.io/legal/data-processing-agreement"
+      },
+      "subprocessors": [
+        {
+          "id": "aws",
+          "name": "Amazon Web Services"
+        },
+        {
+          "id": "mongodb",
+          "name": "MongoDB"
+        },
+        {
+          "id": "gcp",
+          "name": "Google Cloud"
+        },
+        {
+          "id": "openai",
+          "name": "OpenAI"
+        },
+        {
+          "id": "anthropic",
+          "name": "Anthropic"
+        },
+        {
+          "id": "intercom",
+          "name": "Intercom"
+        },
+        {
+          "id": "datadog",
+          "name": "Datadog"
+        }
+      ],
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 42001, GDPR. Named processors published; DPA on file.",
+      "evidence": "Visible HTML on https://www.synthesia.io/legal/subprocessors (SOC 2 Type II, ISO 42001, GDPR) plus a public third-party list. https://security.synthesia.io is a JS shell.",
+      "rendered": false
+    },
+    {
+      "slug": "clay",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.clay.com",
+        "security_txt": "https://clay.com/.well-known/security.txt",
+        "privacy": "https://privacy.clay.com/",
+        "status": "https://status.clay.com",
+        "dpa": "https://trust.clay.com/?requestAccessOpen=true&requestedResources=67321e88d73ffa64fb42a29c"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://trust.clay.com 200 JS shell with no cert tokens.",
+      "rendered": false
+    },
+    {
+      "slug": "block",
+      "certs": [
+        "ISO 27001",
+        "PCI DSS"
+      ],
+      "links": {
+        "trust": "https://trust.squareup.com",
+        "privacy": "https://squareup.com/us/en/legal/general/privacy",
+        "security": "https://squareup.com/us/en/payments/secure"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: ISO 27001, PCI DSS. Reports themselves may be request-gated.",
+      "evidence": "Visible HTML on https://squareup.com/us/en/payments/secure (ISO 27001 certified; PCI Data Security Standard, Level 1). https://trust.squareup.com is a JS shell.",
+      "rendered": false
+    },
+    {
+      "slug": "digitalocean",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "PCI DSS"
+      ],
+      "links": {
+        "trust": "https://www.digitalocean.com/trust",
+        "security_txt": "https://www.digitalocean.com/.well-known/security.txt",
+        "privacy": "https://www.digitalocean.com/legal/privacy-policy",
+        "status": "https://status.digitalocean.com/",
+        "security": "https://www.digitalocean.com/security",
+        "bug_bounty": "https://app.intigriti.com/programs/digitalocean/digitalocean"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, PCI DSS. Reports themselves may be request-gated.",
+      "evidence": "Visible HTML on https://www.digitalocean.com/trust/certification-reports (SOC 2 Type II, SOC 3 Type II, PCI-DSS SAQ-A).",
+      "rendered": false
+    },
+    {
+      "slug": "dropbox",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "SOC 1",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27701",
+        "HIPAA",
+        "PCI DSS",
+        "CSA STAR",
+        "GDPR",
+        "CCPA"
+      ],
+      "links": {
+        "trust": "https://trust.dropbox.com",
+        "privacy": "https://www.dropbox.com/privacy",
+        "status": "https://status.dropbox.com",
+        "security": "https://www.dropbox.com/features/security",
+        "subprocessors": "https://trust.dropbox.com/ (Legal > Sub-processors item)"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, SOC 1, ISO 27001, ISO 27017, ISO 27018, ISO 27701, HIPAA and others. Reports themselves may be request-gated.",
+      "evidence": "Item titles and file names in public __NEXT_DATA__ on https://trust.dropbox.com.",
+      "rendered": false
+    },
+    {
+      "slug": "fastly",
+      "certs": [],
+      "links": {
+        "privacy": "https://www.fastly.com/privacy/",
+        "security": "https://www.fastly.com/products/web-application-api-protection",
+        "trust": "https://www.fastly.com/trust",
+        "dpa": "https://www.fastly.com/data-processing",
+        "subprocessors": "https://docs.fastly.com/products/sub-processors",
+        "status": "https://www.fastlystatus.com/"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://www.fastly.com/trust and https://docs.fastly.com/products/security-measures 200; no SOC/ISO/PCI tokens in visible HTML.",
+      "rendered": false
+    },
+    {
+      "slug": "freshworks",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "SOC 1 Type II",
+        "ISO 27001",
+        "ISO 27701",
+        "FedRAMP",
+        "TX-RAMP",
+        "PCI DSS",
+        "CSA STAR",
+        "CCPA"
+      ],
+      "links": {
+        "trust": "https://trust.freshworks.com",
+        "security_txt": "https://freshworks.com/.well-known/security.txt",
+        "bug_bounty": "https://www.freshworks.com/security/responsible-disclosure/",
+        "security": "https://www.freshworks.com/security/",
+        "status": "https://status.freshworks.com"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, SOC 1 Type II, ISO 27001, ISO 27701, FedRAMP, TX-RAMP, PCI DSS and others. Reports themselves may be request-gated.",
+      "evidence": "Item titles and file names in public __NEXT_DATA__ on https://trust.freshworks.com.",
+      "rendered": false
+    },
+    {
+      "slug": "groq",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.groq.com",
+        "security_txt": "https://groq.com/.well-known/security.txt",
+        "privacy": "https://groq.com/privacy-policy",
+        "security": "https://groq.com/security",
+        "status": "https://groqstatus.com/"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://trust.groq.com 200 JS shell. https://groq.com/security 200 with no cert tokens.",
+      "rendered": false
+    },
+    {
+      "slug": "intuit",
+      "certs": [],
+      "links": {
+        "security": "https://security.intuit.com",
+        "trust": "https://security.intuit.com"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://security.intuit.com 200 JS app shell with no cert tokens.",
+      "rendered": false
+    },
+    {
+      "slug": "meta",
+      "certs": [],
+      "links": {
+        "trust": "https://transparency.meta.com/policies"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://transparency.meta.com/policies/ 200 policy index with no org cert tokens.",
+      "rendered": false
+    },
+    {
+      "slug": "mistral-ai",
+      "certs": [],
+      "links": {
+        "status": "https://status.mistral.ai",
+        "trust": "https://trust.mistral.ai"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://trust.mistral.ai 200 JS shell. First-party /security and /privacy were 404.",
+      "rendered": false
+    },
+    {
+      "slug": "mixpanel",
+      "certs": [],
+      "links": {
+        "dpa": "https://mixpanel.com/legal/dpa/",
+        "privacy": "https://mixpanel.com/legal/privacy-policy/",
+        "status": "https://www.mixpanelstatus.com/",
+        "trust": "https://trust.mixpanel.com"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://trust.mixpanel.com 200 JS shell. https://mixpanel.com/legal/subprocessors/ 200s as marketing HTML without a public name list.",
+      "rendered": false
+    },
+    {
+      "slug": "nvidia",
+      "certs": [],
+      "links": {
+        "trust": "https://www.nvidia.com/en-us/security/",
+        "privacy": "https://www.nvidia.com/en-us/about-nvidia/privacy-policy/",
+        "security": "https://www.nvidia.com/en-us/security/",
+        "dpa": "https://www.nvidia.com/en-us/solutions/data-processing/"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://www.nvidia.com/en-us/security/ 200 product-security page with no org cert tokens.",
+      "rendered": false
+    },
+    {
+      "slug": "paypal",
+      "certs": [],
+      "links": {
+        "security_txt": "https://www.paypalobjects.com/.well-known/security.txt",
+        "privacy": "https://www.paypal.com/us/legalhub/paypal/privacy-full",
+        "status": "https://www.paypal-status.com/product/production",
+        "bug_bounty": "https://www.paypal.com/bug-bounty",
+        "security": "https://www.paypal.com/security",
+        "trust": "https://www.paypal.com/security"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://www.paypal.com/security 200 customer fraud-help center with no org cert tokens.",
+      "rendered": false
+    },
+    {
+      "slug": "samsara",
+      "certs": [],
+      "links": {
+        "security": "https://security.samsara.com",
+        "trust": "https://security.samsara.com",
+        "privacy": "https://www.samsara.com/company/privacy"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://security.samsara.com 200 JS shell with no cert tokens.",
+      "rendered": false
+    },
+    {
+      "slug": "stability-ai",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.stability.ai",
+        "security_txt": "https://static1.squarespace.com/static/6213c340453c3f502425776e/t/635aa31a2c677e36ee318747/1728899860281/security.txt",
+        "privacy": "https://stability.ai/privacy-policy",
+        "status": "https://status.stability.ai"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://trust.stability.ai 200 JS shell with no cert tokens.",
+      "rendered": false
+    },
+    {
+      "slug": "twilio",
+      "certs": [
+        "SOC 2",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "HIPAA",
+        "PCI DSS",
+        "GDPR",
+        "CCPA"
+      ],
+      "links": {
+        "security": "https://security.twilio.com",
+        "trust": "https://security.twilio.com",
+        "privacy": "https://www.twilio.com/en-us/privacy",
+        "subprocessors": "https://www.twilio.com/en-us/legal/sub-processors",
+        "status": "https://status.twilio.com"
+      },
+      "subprocessors": [],
+      "summary": "Public trust center. On file: SOC 2, ISO 27001, ISO 27017, ISO 27018, HIPAA, PCI DSS, GDPR, CCPA. Reports themselves may be request-gated.",
+      "evidence": "Item titles in public __NEXT_DATA__ on https://security.twilio.com.",
+      "rendered": false
+    },
+    {
+      "slug": "writer",
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27701",
+        "ISO 42001",
+        "HIPAA"
+      ],
+      "links": {
+        "trust": "https://trustcenter.writer.com",
+        "privacy": "https://writer.com/legal/privacy/",
+        "subprocessors": "https://writer.com/legal/subprocessors/",
+        "dpa": "https://writer.com/legal/data-processing/",
+        "status": "https://status.writer.com",
+        "bug_bounty": "https://writer.com/bugs/",
+        "security": "https://writer.com/trust/"
+      },
+      "subprocessors": [
+        {
+          "id": "aws",
+          "name": "Amazon Web Services"
+        },
+        {
+          "id": "cloudflare",
+          "name": "Cloudflare"
+        },
+        {
+          "id": "gcp",
+          "name": "Google Cloud"
+        },
+        {
+          "id": "azure",
+          "name": "Microsoft Azure"
+        },
+        {
+          "id": "stripe",
+          "name": "Stripe"
+        },
+        {
+          "id": "sendgrid",
+          "name": "SendGrid"
+        },
+        {
+          "id": "snowflake",
+          "name": "Snowflake"
+        },
+        {
+          "id": "segment",
+          "name": "Twilio Segment"
+        }
+      ],
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27701, ISO 42001, HIPAA. Named processors published; DPA on file.",
+      "evidence": "Visible HTML on https://writer.com/trust/ (SOC 2 Type II; ISO/IEC 27001, 27701, and 42001; HIPAA). Named processors on https://writer.com/legal/subprocessors/.",
+      "rendered": false
+    },
+    {
+      "slug": "xai",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.x.ai",
+        "security_txt": "https://x.ai/.well-known/security.txt",
+        "privacy": "https://x.ai/legal/privacy-policy",
+        "dpa": "https://x.ai/legal/data-processing-addendum",
+        "status": "https://status.x.ai",
+        "security": "https://x.ai/security"
+      },
+      "subprocessors": [],
+      "summary": "",
+      "evidence": "https://trust.x.ai 200 JS shell. https://x.ai/security 200 with no cert tokens.",
+      "rendered": false
+    }
+  ]
+}
