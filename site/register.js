@@ -2,9 +2,8 @@ import {
   $,
   escapeHtml,
   fillIssue,
-  displayTier,
-  displayFileState,
-  tierClass,
+  fileCount,
+  fileIndexHtml,
   dataUrl,
 } from "./lib.js";
 import {
@@ -26,14 +25,6 @@ const DEFAULT_DIR = {
   marks: "desc",
   probed: "desc",
 };
-const TIER_ORDER = {
-  silent: 0,
-  thin: 1,
-  "on-file": 2,
-  substantial: 3,
-  complete: 4,
-};
-
 const state = {
   rows: [],
   generatedAt: null,
@@ -93,7 +84,7 @@ export function compareRows(a, b, key) {
     case "domain":
       return cmpText(a && a.domain, b && b.domain);
     case "tier":
-      return (TIER_ORDER[(a && a.tier) || "silent"] || 0) - (TIER_ORDER[(b && b.tier) || "silent"] || 0);
+      return fileCount(a) - fileCount(b);
     case "marks":
       return marksCount(a) - marksCount(b);
     case "probed":
@@ -146,7 +137,7 @@ function hay(row) {
   const fed = fr
     ? ["fedramp", fr.highest, ...(fr.levels || []), ...(fr.raw_levels || [])].filter(Boolean).join(" ")
     : "";
-  return [row.name, row.domain, row.slug, row.tier, displayTier(row.tier), marks, att, fed]
+  return [row.name, row.domain, row.slug, marks, att, fed]
     .filter(Boolean)
     .join(" ")
     .toLowerCase();
@@ -337,8 +328,10 @@ function render() {
   paintHeaders();
   syncUrl();
 
+  const legend = $("file-legend");
   if (!state.rows.length) {
     table.hidden = true;
+    if (legend) legend.hidden = true;
     miss.hidden = true;
     const actions = $("miss-actions");
     if (actions) actions.hidden = true;
@@ -350,6 +343,7 @@ function render() {
 
   if (typed && !rows.length) {
     table.hidden = true;
+    if (legend) legend.hidden = true;
     miss.hidden = false;
     renderPager(0, 0);
     $("miss-title").textContent = "Not in the index.";
@@ -394,19 +388,19 @@ function render() {
   const actions = $("miss-actions");
   if (actions) actions.hidden = true;
   table.hidden = false;
+  if (legend) legend.hidden = false;
   const body = $("reg-body");
   const view = windowed.rows;
   renderPager(view.length, rows.length);
   body.innerHTML = view
     .map((row) => {
       const n = row.rank == null ? "—" : String(row.rank).padStart(3, "0");
-      const tier = displayFileState(row.tier);
       const selected = state.selected === row.slug ? ' aria-selected="true"' : "";
       return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
         <td class="num">${escapeHtml(n)}</td>
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${escapeHtml(row.name)}</a></td>
         <td class="domain">${escapeHtml(row.domain || "")}</td>
-        <td class="${tierClass(row.tier)}">${escapeHtml(tier)}</td>
+        <td class="file">${fileIndexHtml(row)}</td>
         <td class="marks">${marksCell(row)}</td>
       </tr>`;
     })
