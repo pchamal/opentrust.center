@@ -123,7 +123,8 @@ expect("wordmark unchanged", /<a class="wordmark" href="\.\/">opentrust<span cla
 expect("rules are ledger black", /\.file-rule \{[\s\S]*border-top: 1px solid var\(--ot-ledger-black\)/.test(css) && /\.file-rule\.on \{[\s\S]*background: var\(--ot-ledger-black\)/.test(css));
 expect("teal does not fill the rules", !/\.file-rule[\s\S]{0,80}--ot-evidence-teal/.test(css) && !/\.file-rule\.on[\s\S]{0,80}--ot-evidence-teal/.test(css));
 expect("rules are short horizontal", /\.file-rule \{[\s\S]*width: 12px;[\s\S]*height: 3px;[\s\S]*border-top: 1px solid/.test(css));
-expect("active docket is underline not teal type", /\.docket a\.on \{[\s\S]*border-bottom-color: var\(--ot-evidence-teal\)/.test(css) && !/\.docket a\.on \{[\s\S]{0,80}color: var\(--ot-evidence-teal\)/.test(css));
+const onBlock = (css.match(/\.docket a\.on \{[^}]+\}/) || [""])[0];
+expect("active docket is underline not teal type", onBlock.includes("border-bottom-color: var(--ot-evidence-teal)") && !/(?:^|[;\s{])color:\s*var\(--ot-evidence-teal\)/.test(onBlock));
 
 const dossier = readFileSync(new URL("../site/c/anysphere.html", import.meta.url), "utf8");
 expect("dossier docket names AITI", docketWords(dossier).join(" ") === "AITI Companies Map Standards");
