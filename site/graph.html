@@ -31,8 +31,14 @@
     <p class="lede">Named subprocessors, as published.</p>
     <p class="deck">Filed from public lists. Not a complete supply chain.</p>
 
-    <div class="wires-grid">
-      <div class="wires-table">
+    <nav class="view-toggle" role="tablist" aria-label="View">
+      <button type="button" role="tab" id="view-list" aria-controls="wires-list" aria-selected="true" class="on">list</button>
+      <span class="sep" aria-hidden="true">|</span>
+      <button type="button" role="tab" id="view-map" aria-controls="wires-map" aria-selected="false">map</button>
+    </nav>
+
+    <div class="wires-grid" id="wires" data-view="list">
+      <div class="wires-table" id="wires-list" role="tabpanel" aria-labelledby="view-list">
         <div class="wires-scroll">
           <table class="inst" id="wire-table" hidden>
             <thead>
@@ -50,14 +56,14 @@
         <p class="clerk-line" id="empty-wires" hidden>No public subprocessor lists filed yet.</p>
         <p class="formula">Concentration = exposure × (0.4 + 0.6 × thin public file). Thinness is 1 if silent, thin, or not in the register; else (100 − disclosure) / 100. This is concentration × a thin public file, not a security grade.</p>
       </div>
-      <div class="wires-fig">
-        <div class="fig-block">
-          <p class="fig-cap">Fig. 1 · Named processors, as published</p>
-          <p class="fig-sub">Filed from public subprocessor lists. This is not a complete supply chain.</p>
-          <div class="fig-well">
-            <canvas id="fig1" width="400" height="360" aria-label="Hairline map of named processors"></canvas>
-          </div>
+      <div class="wires-map" id="wires-map" role="tabpanel" aria-labelledby="view-map" hidden>
+        <p class="fig-cap">Fig. 1 · Named processors, as published.</p>
+        <p class="fig-sub">Filed from public lists. Not a complete supply chain.</p>
+        <div class="map-field">
+          <canvas id="fig1" width="800" height="560" aria-label="Named processors, as published"></canvas>
         </div>
+      </div>
+      <div class="wires-fig">
         <div class="stub" id="stub" hidden aria-live="polite"></div>
       </div>
     </div>

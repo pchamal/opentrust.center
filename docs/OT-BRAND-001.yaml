@@ -125,8 +125,14 @@ pages:
     nav_register_not_current: true
     no_file_meter_boxes: true
   graph:
+    landing: list
+    views: [list, map]
+    toggle: words list | map; 1px Evidence Teal underline; not pills
     table_plus_inspector: 400px
     selected_row_spine: true
+    map: light civic network; Record White field; Ledger Black nodes and edges; Evidence Teal 2px on selected node only
+    no_dark_canvas: true
+    no_risk_coloring: true
     risk_label: concentration × thin public file
   marks:
     list_primary: true

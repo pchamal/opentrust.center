@@ -170,13 +170,17 @@ Do not render portal vendors. Keep `vendor` in crawl data only. Nav must not mar
 
 ### Processors
 
-A table plus a 400px inspector. The table is the authority.
+List is the authority and the landing. Map is a second view.
 
-- Caption: `Fig. 1 · Named processors, as published`
-- Subcaption: `Filed from public subprocessor lists. This is not a complete supply chain.`
-- Selected row gets the spine.
-- Concentration is **exposure × thin public file**, per the PRD. Do not print RISK as a security grade.
-- Fig. 1 may stay if labels are readable and it is not a glowing hairball; otherwise drop the fan and keep the table.
+- Toggle: words `list` | `map`. Atkinson, ink, brief. Active: 1px Evidence Teal underline, same as nav. Not a pill.
+- List: the ranked table and the right-hand file. Selected row gets the spine.
+- Map: a light civic network on Record White. Ledger Black nodes and edges. Evidence Teal 2px on the selected node only. No dark canvas, glow, orbs, bloom, auto-rotate, or physics theater. Drag turns the settled desk object.
+- Caption: `Fig. 1 · Named processors, as published.`
+- Subcaption: `Filed from public lists. Not a complete supply chain.`
+- Click a processor: the existing right-hand file. Click a company: `/c/{slug}`.
+- `prefers-reduced-motion`: still. Drag still works.
+- At 390: list stays a table; map stays a field.
+- Concentration is **exposure × thin public file**, per the PRD. Do not print RISK as a security grade. No risk coloring.
 
 ### Attestations
 

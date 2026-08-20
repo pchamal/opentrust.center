@@ -6,6 +6,7 @@ const state = {
   companies: new Map(),
   processors: [],
   focus: 0,
+  view: "list",
 };
 
 function thinness(row) {
@@ -102,6 +103,7 @@ function rankProcessors(edges, companies) {
     const key = e.processor_id || e.processor_slug || e.processor;
     if (!by.has(key)) {
       by.set(key, {
+        id: key,
         name: e.processor,
         slug: e.processor_slug || null,
         sources: new Set(),
@@ -119,6 +121,7 @@ function rankProcessors(edges, companies) {
     const t = thinness(self);
     const risk = exposure * (0.4 + 0.6 * t);
     rows.push({
+      id: rec.id || rec.slug || rec.name,
       name: rec.name,
       slug: rec.slug,
       inRegister: Boolean(self),
@@ -201,12 +204,192 @@ function renderStub() {
     <ul class="guesses">${p.namers.map(namerLine).join("")}</ul>`;
 }
 
-function drawFig() {
+const map = {
+  nodes: [],
+  links: [],
+  screen: [],
+  yaw: 0.4,
+  pitch: 0.22,
+  laid: false,
+  drag: null,
+};
+
+function hash01(s) {
+  let h = 2166136261;
+  const str = String(s || "");
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return (h >>> 0) / 4294967296;
+}
+
+function processorKey(p) {
+  return p.id || p.slug || p.name;
+}
+
+function buildNetwork() {
+  const nodes = [];
+  const index = new Map();
+  function add(id, spec) {
+    if (index.has(id)) return index.get(id);
+    const n = { id, vx: 0, vy: 0, vz: 0, x: 0, y: 0, z: 0, ...spec };
+    index.set(id, n);
+    nodes.push(n);
+    return n;
+  }
+  state.processors.forEach((p, i) => {
+    add(processorKey(p), {
+      kind: "processor",
+      name: p.name,
+      slug: p.slug,
+      inRegister: p.inRegister,
+      exposure: p.exposure,
+      focus: i,
+    });
+  });
+  for (const e of state.edges) {
+    const co = state.companies.get(e.company);
+    add("co:" + e.company, {
+      kind: "company",
+      name: co ? co.name : e.company,
+      slug: e.company,
+    });
+  }
+  const links = [];
+  for (const e of state.edges) {
+    const a = index.get("co:" + e.company);
+    const b = index.get(e.processor_id || e.processor_slug || e.processor);
+    if (!a || !b) continue;
+    links.push({ a, b });
+  }
+  return { nodes, links };
+}
+
+function layoutNetwork(nodes, links, ticks) {
+  const n = nodes.length;
+  if (!n) return;
+  for (let i = 0; i < n; i++) {
+    const a = hash01(nodes[i].id);
+    const b = hash01(nodes[i].id + "#");
+    const u = Math.acos(Math.min(1, Math.max(-1, 2 * a - 1)));
+    const v = 2 * Math.PI * b;
+    nodes[i].x = Math.sin(u) * Math.cos(v);
+    nodes[i].y = Math.sin(u) * Math.sin(v);
+    nodes[i].z = Math.cos(u);
+    nodes[i].vx = 0;
+    nodes[i].vy = 0;
+    nodes[i].vz = 0;
+  }
+  const kRep = 0.32;
+  const kSpring = 0.04;
+  const rest = 0.52;
+  const kCenter = 0.018;
+  const damp = 0.86;
+  for (let t = 0; t < ticks; t++) {
+    const alpha = 1 - t / ticks;
+    for (let i = 0; i < n; i++) {
+      for (let j = i + 1; j < n; j++) {
+        let dx = nodes[i].x - nodes[j].x;
+        let dy = nodes[i].y - nodes[j].y;
+        let dz = nodes[i].z - nodes[j].z;
+        const d2 = dx * dx + dy * dy + dz * dz + 0.02;
+        const f = (kRep * alpha) / d2;
+        dx *= f;
+        dy *= f;
+        dz *= f;
+        nodes[i].vx += dx;
+        nodes[i].vy += dy;
+        nodes[i].vz += dz;
+        nodes[j].vx -= dx;
+        nodes[j].vy -= dy;
+        nodes[j].vz -= dz;
+      }
+    }
+    for (const L of links) {
+      let dx = L.b.x - L.a.x;
+      let dy = L.b.y - L.a.y;
+      let dz = L.b.z - L.a.z;
+      const dist = Math.sqrt(dx * dx + dy * dy + dz * dz) + 1e-6;
+      const f = (dist - rest) * kSpring * alpha;
+      dx = (dx / dist) * f;
+      dy = (dy / dist) * f;
+      dz = (dz / dist) * f;
+      L.a.vx += dx;
+      L.a.vy += dy;
+      L.a.vz += dz;
+      L.b.vx -= dx;
+      L.b.vy -= dy;
+      L.b.vz -= dz;
+    }
+    for (const p of nodes) {
+      p.vx += -p.x * kCenter;
+      p.vy += -p.y * kCenter;
+      p.vz += -p.z * kCenter;
+      p.vx *= damp;
+      p.vy *= damp;
+      p.vz *= damp;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.z += p.vz;
+    }
+  }
+  let max = 1e-6;
+  for (const p of nodes) max = Math.max(max, Math.hypot(p.x, p.y, p.z));
+  for (const p of nodes) {
+    p.x /= max;
+    p.y /= max;
+    p.z /= max;
+  }
+}
+
+function ensureLayout() {
+  if (map.laid) return;
+  const net = buildNetwork();
+  map.nodes = net.nodes;
+  map.links = net.links;
+  // Compute once, then stop. prefers-reduced-motion: still. Drag still works.
+  layoutNetwork(map.nodes, map.links, 160);
+  map.laid = true;
+}
+
+function projectNode(p, w, h) {
+  const cy = Math.cos(map.yaw);
+  const sy = Math.sin(map.yaw);
+  const cp = Math.cos(map.pitch);
+  const sp = Math.sin(map.pitch);
+  const x1 = p.x * cy - p.z * sy;
+  const z1 = p.x * sy + p.z * cy;
+  const y1 = p.y * cp - z1 * sp;
+  const z2 = p.y * sp + z1 * cp;
+  const persp = 3.4;
+  const s = persp / (persp + z2);
+  const R = Math.min(w, h) * 0.42;
+  return {
+    x: w / 2 + x1 * s * R,
+    y: h / 2 + y1 * s * R,
+    z: z2,
+    s,
+  };
+}
+
+function selectedProcessor() {
+  return state.focus != null ? state.processors[state.focus] : null;
+}
+
+function isSelectedNode(n) {
+  const focus = selectedProcessor();
+  if (!focus || n.kind !== "processor") return false;
+  return n.focus === state.focus;
+}
+
+function drawMap() {
   const canvas = $("fig1");
-  if (!canvas) return;
+  if (!canvas || state.view !== "map") return;
   const wrap = canvas.parentElement;
   const w = wrap.clientWidth;
   const h = wrap.clientHeight;
+  if (w < 8 || h < 8) return;
   const dpr = window.devicePixelRatio || 1;
   canvas.width = Math.floor(w * dpr);
   canvas.height = Math.floor(h * dpr);
@@ -214,86 +397,90 @@ function drawFig() {
   canvas.style.height = h + "px";
   const ctx = canvas.getContext("2d");
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  ctx.clearRect(0, 0, w, h);
+  ctx.fillStyle = tokenColor("--ot-record-white", "#F8FAF9");
+  ctx.fillRect(0, 0, w, h);
   if (!state.processors.length) return;
+  ensureLayout();
 
-  const procs = state.processors;
-  const companies = [...new Set(state.edges.map((e) => e.company))]
-    .map((slug) => state.companies.get(slug))
-    .filter(Boolean);
-
-  const leftX = 48;
-  const rightX = w - 48;
-  const top = 28;
-  const bot = h - 28;
-  function stack(n, i) {
-    if (n <= 1) return (top + bot) / 2;
-    return top + ((bot - top) * i) / (n - 1);
+  const ink = tokenColor("--ot-ledger-black", "#0B1411");
+  const teal = tokenColor("--ot-evidence-teal", "#00685C");
+  const mute = tokenColor("--ot-graphite", "#51615B");
+  const focus = selectedProcessor();
+  const named = new Set();
+  if (focus) {
+    named.add(processorKey(focus));
+    for (const n of focus.namers) named.add("co:" + n.company);
   }
 
-  const cPos = new Map();
-  companies.forEach((c, i) => cPos.set(c.slug, { x: leftX, y: stack(companies.length, i), row: c }));
-  const pPos = new Map();
-  procs.forEach((p, i) => pPos.set(p.slug || p.name, { x: rightX, y: stack(procs.length, i), row: p, i }));
+  map.screen = map.nodes.map((n) => {
+    const q = projectNode(n, w, h);
+    return { n, ...q };
+  });
+  map.screen.sort((a, b) => a.z - b.z);
 
+  const byId = new Map(map.screen.map((s) => [s.n.id, s]));
   ctx.lineWidth = 1;
-  const focused = state.focus != null ? state.processors[state.focus] : null;
-  const focusKey = focused ? focused.slug || focused.name : null;
-  if (focusKey) {
-    ctx.strokeStyle = tokenColor("--ot-evidence-teal", "#00685C");
-    for (const e of state.edges) {
-      const a = cPos.get(e.company);
-      const b = pPos.get(e.processor_slug || e.processor);
-      if (!a || !b) continue;
-      if ((e.processor_slug || e.processor) !== focusKey) continue;
-      ctx.beginPath();
-      ctx.moveTo(a.x + 4, a.y);
-      ctx.lineTo(b.x - 4, b.y);
-      ctx.stroke();
-    }
+  ctx.strokeStyle = ink;
+  ctx.beginPath();
+  for (const L of map.links) {
+    const a = byId.get(L.a.id);
+    const b = byId.get(L.b.id);
+    if (!a || !b) continue;
+    ctx.moveTo(a.x, a.y);
+    ctx.lineTo(b.x, b.y);
   }
+  ctx.stroke();
 
-  function square(x, y, fill, stroke) {
+  for (const s of map.screen) {
+    const selected = isSelectedNode(s.n);
+    const half = s.n.kind === "processor" ? 3.5 : 2.5;
+    const fill = s.n.kind === "company" || s.n.inRegister;
     ctx.beginPath();
-    ctx.rect(x - 3, y - 3, 6, 6);
+    ctx.rect(s.x - half, s.y - half, half * 2, half * 2);
     if (fill) {
-      ctx.fillStyle = fill;
+      ctx.fillStyle = ink;
       ctx.fill();
     }
-    ctx.strokeStyle = stroke;
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = selected ? teal : ink;
+    ctx.lineWidth = selected ? 2 : 1;
     ctx.stroke();
   }
 
-  const ink = tokenColor("--ot-ledger-black", "#0B1411");
-  const rule = tokenColor("--ot-rule-strong", "#70817A");
-  const index = tokenColor("--ot-evidence-teal", "#00685C");
-  const mute = tokenColor("--ot-graphite", "#51615B");
-  for (const { x, y } of cPos.values()) {
-    square(x, y, ink, rule);
-  }
-  for (const { x, y, row, i } of pPos.values()) {
-    const selected = state.focus === i;
-    if (row.inRegister) square(x, y, ink, selected ? index : rule);
-    else square(x, y, null, selected ? index : rule);
+  const placed = [];
+  function placeLabel(text, x, y, font, color) {
+    ctx.font = font;
+    const tw = ctx.measureText(text).width;
+    let lx = x + 8;
+    let ly = y + 4;
+    if (lx + tw > w - 8) lx = x - 8 - tw;
+    if (ly < 14) ly = y + 16;
+    if (ly > h - 6) ly = y - 8;
+    const box = { x: lx, y: ly - 12, w: tw, h: 16 };
+    for (const p of placed) {
+      if (box.x < p.x + p.w && box.x + box.w > p.x && box.y < p.y + p.h && box.y + box.h > p.y) {
+        return;
+      }
+    }
+    placed.push(box);
+    ctx.fillStyle = color;
+    ctx.fillText(text, lx, ly);
   }
 
-  ctx.font = "13px 'Atkinson Hyperlegible Next', Arial, system-ui, sans-serif";
-  const focus = state.focus != null ? state.processors[state.focus] : null;
+  const serif = "600 17px 'Source Serif 4', Georgia, 'Times New Roman', serif";
+  const utility = "13px 'Atkinson Hyperlegible Next', Arial, system-ui, sans-serif";
+  const ambient = map.screen
+    .filter((s) => s.n.kind === "processor")
+    .sort((a, b) => (b.n.exposure || 0) - (a.n.exposure || 0))
+    .slice(0, 8);
+
   if (focus) {
-    ctx.fillStyle = ink;
-    const pos = pPos.get(focus.slug || focus.name);
-    if (pos) ctx.fillText(focus.name, pos.x - 8 - ctx.measureText(focus.name).width, pos.y + 4);
-    for (const n of focus.namers) {
-      const c = cPos.get(n.company);
-      if (!c) continue;
-      ctx.fillStyle = mute;
-      ctx.fillText(c.row.name, c.x + 10, c.y + 4);
+    for (const s of map.screen) {
+      if (!named.has(s.n.id)) continue;
+      placeLabel(s.n.name, s.x, s.y, serif, ink);
     }
-  } else if (procs.length <= 16) {
-    ctx.fillStyle = mute;
-    for (const { x, y, row } of pPos.values()) {
-      ctx.fillText(row.name, x - 8 - ctx.measureText(row.name).width, y + 4);
+  } else {
+    for (const s of ambient) {
+      placeLabel(s.n.name, s.x, s.y, utility, mute);
     }
   }
 }
@@ -301,6 +488,102 @@ function drawFig() {
 function tokenColor(name, fallback) {
   const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
   return v || fallback;
+}
+
+function viewFromLocation() {
+  const q = new URLSearchParams(location.search).get("view");
+  if (q === "map" || location.hash === "#map") return "map";
+  return "list";
+}
+
+function setView(view, viaUser) {
+  state.view = view === "map" ? "map" : "list";
+  const grid = $("wires");
+  if (grid) grid.dataset.view = state.view;
+  const list = $("wires-list");
+  const mapPane = $("wires-map");
+  if (list) list.hidden = state.view !== "list";
+  if (mapPane) mapPane.hidden = state.view !== "map";
+  const listBtn = $("view-list");
+  const mapBtn = $("view-map");
+  if (listBtn) {
+    listBtn.classList.toggle("on", state.view === "list");
+    listBtn.setAttribute("aria-selected", state.view === "list" ? "true" : "false");
+  }
+  if (mapBtn) {
+    mapBtn.classList.toggle("on", state.view === "map");
+    mapBtn.setAttribute("aria-selected", state.view === "map" ? "true" : "false");
+  }
+  if (viaUser) {
+    if (state.view === "map") {
+      if (location.hash !== "#map") history.replaceState(null, "", "#map");
+    } else if (location.hash === "#map") {
+      history.replaceState(null, "", location.pathname + location.search);
+    }
+  }
+  if (state.view === "map") requestAnimationFrame(drawMap);
+}
+
+function fileProcessor(i) {
+  const p = state.processors[i];
+  if (!p) return;
+  state.focus = i;
+  renderTable();
+  renderStub();
+  if (state.view === "map") drawMap();
+  revealFile();
+}
+
+function hitNode(sx, sy) {
+  let best = null;
+  let bestD = 16;
+  for (const s of map.screen) {
+    const d = Math.hypot(s.x - sx, s.y - sy);
+    if (d < bestD) {
+      bestD = d;
+      best = s.n;
+    }
+  }
+  return best;
+}
+
+function onMapPointer(e) {
+  if (e.button != null && e.button !== 0) return;
+  const canvas = $("fig1");
+  map.drag = {
+    x: e.clientX,
+    y: e.clientY,
+    yaw: map.yaw,
+    pitch: map.pitch,
+    moved: false,
+    id: e.pointerId,
+  };
+  if (canvas && e.pointerId != null) canvas.setPointerCapture(e.pointerId);
+}
+
+function onMapMove(e) {
+  if (!map.drag) return;
+  const dx = e.clientX - map.drag.x;
+  const dy = e.clientY - map.drag.y;
+  if (Math.abs(dx) + Math.abs(dy) > 4) map.drag.moved = true;
+  map.yaw = map.drag.yaw + dx * 0.008;
+  map.pitch = Math.max(-1.15, Math.min(1.15, map.drag.pitch + dy * 0.008));
+  drawMap();
+}
+
+function onMapUp(e) {
+  const drag = map.drag;
+  map.drag = null;
+  if (!drag || drag.moved) return;
+  const canvas = $("fig1");
+  const rect = canvas.getBoundingClientRect();
+  const n = hitNode(e.clientX - rect.left, e.clientY - rect.top);
+  if (!n) return;
+  if (n.kind === "company" && n.slug) {
+    window.location.href = `./c/${encodeURIComponent(n.slug)}.html`;
+    return;
+  }
+  if (n.kind === "processor" && n.focus != null) fileProcessor(n.focus);
 }
 
 function bind() {
@@ -314,41 +597,21 @@ function bind() {
       window.location.href = `./c/${encodeURIComponent(p.slug)}.html`;
       return;
     }
-    state.focus = i;
-    renderTable();
-    renderStub();
-    drawFig();
-    revealFile();
+    fileProcessor(i);
   });
-  $("fig1").addEventListener("click", (e) => {
-    const canvas = e.currentTarget;
-    const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const w = rect.width;
-    const h = rect.height;
-    const procs = state.processors;
-    const top = 28;
-    const bot = h - 28;
-    const rightX = w - 48;
-    let hit = null;
-    procs.forEach((p, i) => {
-      const py = procs.length <= 1 ? (top + bot) / 2 : top + ((bot - top) * i) / (procs.length - 1);
-      if (Math.abs(x - rightX) < 16 && Math.abs(y - py) < 10) hit = i;
-    });
-    if (hit == null) return;
-    const p = procs[hit];
-    if (p.inRegister && p.slug && e.detail === 2) {
-      window.location.href = `./c/${encodeURIComponent(p.slug)}.html`;
-      return;
-    }
-    state.focus = hit;
-    renderTable();
-    renderStub();
-    drawFig();
-    revealFile();
+  $("view-list").addEventListener("click", () => setView("list", true));
+  $("view-map").addEventListener("click", () => setView("map", true));
+  const canvas = $("fig1");
+  canvas.addEventListener("pointerdown", onMapPointer);
+  canvas.addEventListener("pointermove", onMapMove);
+  canvas.addEventListener("pointerup", onMapUp);
+  canvas.addEventListener("pointercancel", () => {
+    map.drag = null;
   });
-  window.addEventListener("resize", drawFig);
+  window.addEventListener("hashchange", () => setView(viewFromLocation(), false));
+  window.addEventListener("resize", () => {
+    if (state.view === "map") drawMap();
+  });
 }
 
 function revealFile() {
@@ -360,6 +623,7 @@ function revealFile() {
 
 async function load() {
   bind();
+  setView(viewFromLocation(), false);
   try {
     const [reg, wires] = await Promise.all([
       fetch(dataUrl("./data.json"), { cache: "no-store" }).then((r) => r.json()),
@@ -375,7 +639,7 @@ async function load() {
   }
   renderTable();
   renderStub();
-  drawFig();
+  if (state.view === "map") drawMap();
 }
 
 load();
