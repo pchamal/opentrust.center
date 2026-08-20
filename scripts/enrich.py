@@ -1203,11 +1203,20 @@ def is_subprocessor_page(url: str, title: str, text: str) -> bool:
 
 
 def is_valid_security_txt(text: str, ctype: str) -> bool:
-    if not text:
+    """RFC-shaped: a Contact, Policy, Expires, or Canonical field. Not an HTML page."""
+    if not text or not str(text).strip():
         return False
-    if "html" in (ctype or "").lower() and "<html" in text.lower():
+    head = str(text)[:8000]
+    stripped = head.lstrip()
+    low = stripped.lower()
+    if low.startswith("<script") or low.startswith("(function"):
         return False
-    return bool(SEC_CONTACT.search(text) or re.search(r"(?im)^\s*Expires\s*:", text))
+    htmlish = "<html" in low or "<!doctype html" in low
+    if htmlish and ("<body" in low or "<nav" in low or "<header" in low):
+        return False
+    if "html" in (ctype or "").lower() and htmlish:
+        return False
+    return bool(SEC_FIELD.search(head))
 
 
 def classify_probe(url: str, rec: dict):
@@ -1224,7 +1233,7 @@ def classify_probe(url: str, rec: dict):
     if "session_sync" in (final or "").lower() or "/signin" in path or host.startswith("app."):
         if "sub-process" in path or "subprocessor" in path:
             return None
-    if "security.txt" in path:
+    if is_security_txt_path(final) or is_security_txt_path(url):
         raw = rec.get("raw_head") or text
         return "security_txt" if is_valid_security_txt(raw, rec.get("ctype") or "") else None
     if re.search(r"sub-?process|service-providers?", path) and (
@@ -1323,14 +1332,29 @@ def bounty_urls_from_security_txt(text: str) -> list[str]:
 
 
 def bounty_from_security_txt(text: str):
-    for url in bounty_urls_from_security_txt(text):
-        if re.search(
-            r"hackerone|bugcrowd|yeswehack|intigriti|bug-?bounty|bugbounty|"
-            r"responsible-?disclosure|vulnerability|bughunters|(?:^|/)(?:vdp|vrp|bounty)"
-            r"|vdp\.|bounty\.",
-            url, re.I,
-        ):
-            return url
+    """Policy/Contact/Bug Bounty HTTP URLs. Strip HTML tails. Hiring stays out."""
+    if not text:
+        return None
+    bounty_re = re.compile(
+        r"hackerone|bugcrowd|yeswehack|intigriti|bug-?bounty|bugbounty|\bbounty\b|"
+        r"responsible-?disclosure|vulnerabilit|bughunters|(?:^|/)(?:vdp|vrp|bounty)"
+        r"|vdp\.|bounty\.|/\bvdp\b|\bvdp/|psirt|security-disclosure|disclosure-policy",
+        re.I,
+    )
+    for pat in (SEC_POLICY, SEC_CONTACT):
+        for m in pat.finditer(text):
+            val = field_url(m.group(1))
+            if val.startswith("http") and bounty_re.search(val):
+                return val
+    for m in SEC_TXT_LINE.finditer(text):
+        field, raw = m.group(1).strip().lower(), m.group(2)
+        if field in SEC_TXT_SKIP_FIELDS:
+            continue
+        val = field_url(raw)
+        if not val.startswith("http"):
+            continue
+        if field in {"bug bounty", "bug-bounty", "bugbounty"} or bounty_re.search(val):
+            return val
     return None
 
 
@@ -3158,11 +3182,20 @@ def is_subprocessor_page(url: str, title: str, text: str) -> bool:
 
 
 def is_valid_security_txt(text: str, ctype: str) -> bool:
-    if not text:
+    """RFC-shaped: a Contact, Policy, Expires, or Canonical field. Not an HTML page."""
+    if not text or not str(text).strip():
         return False
-    if "html" in (ctype or "").lower() and "<html" in text.lower():
+    head = str(text)[:8000]
+    stripped = head.lstrip()
+    low = stripped.lower()
+    if low.startswith("<script") or low.startswith("(function"):
         return False
-    return bool(SEC_CONTACT.search(text) or re.search(r"(?im)^\s*Expires\s*:", text))
+    htmlish = "<html" in low or "<!doctype html" in low
+    if htmlish and ("<body" in low or "<nav" in low or "<header" in low):
+        return False
+    if "html" in (ctype or "").lower() and htmlish:
+        return False
+    return bool(SEC_FIELD.search(head))
 
 
 def classify_probe(url: str, rec: dict):
@@ -3179,7 +3212,7 @@ def classify_probe(url: str, rec: dict):
     if "session_sync" in (final or "").lower() or "/signin" in path or host.startswith("app."):
         if "sub-process" in path or "subprocessor" in path:
             return None
-    if "security.txt" in path:
+    if is_security_txt_path(final) or is_security_txt_path(url):
         raw = rec.get("raw_head") or text
         return "security_txt" if is_valid_security_txt(raw, rec.get("ctype") or "") else None
     if re.search(r"sub-?process|service-providers?", path) and (
@@ -3278,14 +3311,29 @@ def bounty_urls_from_security_txt(text: str) -> list[str]:
 
 
 def bounty_from_security_txt(text: str):
-    for url in bounty_urls_from_security_txt(text):
-        if re.search(
-            r"hackerone|bugcrowd|yeswehack|intigriti|bug-?bounty|bugbounty|"
-            r"responsible-?disclosure|vulnerability|bughunters|(?:^|/)(?:vdp|vrp|bounty)"
-            r"|vdp\.|bounty\.",
-            url, re.I,
-        ):
-            return url
+    """Policy/Contact/Bug Bounty HTTP URLs. Strip HTML tails. Hiring stays out."""
+    if not text:
+        return None
+    bounty_re = re.compile(
+        r"hackerone|bugcrowd|yeswehack|intigriti|bug-?bounty|bugbounty|\bbounty\b|"
+        r"responsible-?disclosure|vulnerabilit|bughunters|(?:^|/)(?:vdp|vrp|bounty)"
+        r"|vdp\.|bounty\.|/\bvdp\b|\bvdp/|psirt|security-disclosure|disclosure-policy",
+        re.I,
+    )
+    for pat in (SEC_POLICY, SEC_CONTACT):
+        for m in pat.finditer(text):
+            val = field_url(m.group(1))
+            if val.startswith("http") and bounty_re.search(val):
+                return val
+    for m in SEC_TXT_LINE.finditer(text):
+        field, raw = m.group(1).strip().lower(), m.group(2)
+        if field in SEC_TXT_SKIP_FIELDS:
+            continue
+        val = field_url(raw)
+        if not val.startswith("http"):
+            continue
+        if field in {"bug bounty", "bug-bounty", "bugbounty"} or bounty_re.search(val):
+            return val
     return None
 
 
@@ -5228,6 +5276,250 @@ def file_published_bounties() -> int:
         print(f"  filed {name}: {url}", flush=True)
     return 0
 
+SEC_EXPIRES = re.compile(r"(?im)^\s*Expires\s*:\s*(\S+)")
+
+SEC_CANONICAL = re.compile(r"(?im)^\s*Canonical\s*:\s*(\S+)")
+
+SEC_FIELD = re.compile(r"(?im)^\s*(Contact|Policy|Expires|Canonical)\s*:\s*\S+")
+
+def is_security_txt_path(url: str) -> bool:
+    """RFC 9116 lives at /.well-known/security.txt or /security.txt. Not /security."""
+    return "security.txt" in path_of(url or "").lower()
+
+def field_url(val: str) -> str:
+    """HTTP value from a security.txt field. Strip HTML tails. Do not invent."""
+    val = (val or "").strip()
+    val = re.sub(r"<[^>]+>.*$", "", val).strip()
+    val = val.rstrip(".,;)]>")
+    return val
+
+def company_path_token(company: dict) -> list[str]:
+    tokens = []
+    slug = (company.get("slug") or "").lower().replace("-", "")
+    if len(slug) >= 3:
+        tokens.append(slug)
+    host = host_of("https://" + (company.get("domain") or ""))
+    sld = host.split(".")[0] if host else ""
+    if len(sld) >= 3 and sld not in tokens:
+        tokens.append(sld)
+    name = re.sub(r"[^a-z0-9]+", "", (company.get("name") or "").lower())
+    if len(name) >= 3 and name not in tokens:
+        tokens.append(name)
+    return tokens
+
+def is_first_party_or_branded_bounty(url: str, company: dict) -> bool:
+    if not (url or "").startswith("http"):
+        return False
+    if is_first_party_url(url, company):
+        return True
+    if not is_bounty_platform_host(host_of(url)):
+        return False
+    path = path_of(url).lower().replace("-", "").replace("_", "")
+    return any(t in path for t in company_path_token(company))
+
+def accept_security_txt(url: str, rec: dict) -> str | None:
+    """Live 200 + RFC-shaped body + security.txt path. A /security page is not enough."""
+    if not rec.get("ok") or rec.get("status") != 200:
+        return None
+    final = rec.get("final_url") or url
+    raw = rec.get("raw_head") or rec.get("text") or ""
+    if not (is_security_txt_path(final) or is_security_txt_path(url)):
+        return None
+    if not is_valid_security_txt(raw, rec.get("ctype") or ""):
+        return None
+    if looks_dead(rec.get("title") or "", rec.get("text") or ""):
+        return None
+    if landed_on_home(url, final):
+        return None
+    if is_security_txt_path(final):
+        return final
+    if is_security_txt_path(url):
+        return url
+    return None
+
+def security_txt_probe_urls(company: dict, *, well_known_only: bool = False) -> list[str]:
+    out, seen = [], set()
+
+    def add(u: str) -> None:
+        key = u.lower()
+        if key not in seen:
+            seen.add(key)
+            out.append(u)
+
+    for host in hosts_for(company):
+        add(f"https://{host}/.well-known/security.txt")
+        if not host.startswith("www."):
+            add(f"https://www.{host}/.well-known/security.txt")
+        if well_known_only:
+            continue
+        add(f"https://{host}/security.txt")
+        if not host.startswith("www."):
+            add(f"https://www.{host}/security.txt")
+    return out
+
+def optional_links_from_security_txt(text: str, company: dict, links: dict) -> dict:
+    """Contact/Policy HTTP URLs already in the file, first-party or branded bounty host."""
+    extras = {}
+    if not links.get("bug_bounty"):
+        bounty = bounty_from_security_txt(text)
+        if bounty and is_first_party_or_branded_bounty(bounty, company):
+            extras["bug_bounty"] = bounty
+    if not links.get("security"):
+        for m in SEC_CONTACT.finditer(text or ""):
+            val = field_url(m.group(1))
+            if not val.startswith("http"):
+                continue
+            if not is_first_party_url(val, company):
+                continue
+            path = path_of(val).rstrip("/")
+            if path in {"", "/"}:
+                continue
+            if re.search(r"(contact-us|/contact)$|my-settings|login|signin", path, re.I):
+                continue
+            extras["security"] = val
+            break
+    return extras
+
+def disclosure_tier_for(row: dict, score: int) -> str:
+    was = ((row.get("disclosure") or {}).get("tier") or "silent")
+    if was == "silent" and not row.get("found"):
+        return "silent"
+    if score >= 90:
+        return "complete"
+    if score >= 70:
+        return "substantial"
+    if score >= 40:
+        return "on-file"
+    return "thin"
+
+def apply_security_txt_to_row(row: dict, url: str) -> bool:
+    """File the security.txt URL. +6 only when bounty had not already paid disclosure."""
+    links = dict(row.get("links") or {})
+    if links.get("security_txt"):
+        return False
+    links["security_txt"] = url
+    row["links"] = links
+    disc = dict(row.get("disclosure") or {})
+    factors = dict(disc.get("factors") or {})
+    if factors.get("disclosure") or links.get("bug_bounty"):
+        disc["factors"] = factors
+        row["disclosure"] = disc
+        return True
+    factors["disclosure"] = 6
+    score = min(100, int(disc.get("score") or 0) + 6)
+    disc["score"] = score
+    disc["tier"] = disclosure_tier_for(row, score)
+    disc["factors"] = factors
+    row["disclosure"] = disc
+    return True
+
+def apply_optional_txt_links(row: dict, extras: dict) -> None:
+    """Store first-party Contact/Policy URLs. Do not add a second disclosure point."""
+    if not extras:
+        return
+    links = dict(row.get("links") or {})
+    for key in ("bug_bounty", "security"):
+        url = extras.get(key)
+        if url and not links.get(key):
+            links[key] = url
+    row["links"] = links
+
+def file_published_security_txt() -> int:
+    """File RFC 9116 security.txt URLs already published on domains that had none."""
+    t0 = time.time()
+    src = SITE / "data" / "enriched.json"
+    if not src.exists():
+        src = DATA / "enriched.json"
+    payload = load_json(src, {})
+    companies = list(payload.get("companies") or [])
+    if not companies:
+        print("no companies in enriched.json", flush=True)
+        return 1
+    before = sum(1 for c in companies if (c.get("links") or {}).get("security_txt"))
+    gaps = [c for c in companies if c.get("domain") and not (c.get("links") or {}).get("security_txt")]
+    print(f"security.txt on file: {before}. Domains with none: {len(gaps)}", flush=True)
+
+    by_slug = {c["slug"]: c for c in companies}
+    accepted: dict[str, tuple[str, str]] = {}
+
+    def do_verify(job):
+        slug, url = job
+        try:
+            rec = fetch_uncached(url, PROBE_BODY)
+        except Exception:
+            rec = {"ok": False, "status": 0, "final_url": url, "title": "", "text": "", "raw_head": "", "ctype": ""}
+        return slug, url, rec
+
+    def take_hits(jobs: list[tuple[str, str]], label: str) -> None:
+        if not jobs:
+            return
+        print(f"{label}: {len(jobs)} URLs…", flush=True)
+        with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+            futs = [pool.submit(do_verify, job) for job in jobs]
+            done = 0
+            for fut in as_completed(futs):
+                slug, url, rec = fut.result()
+                done += 1
+                if done % 100 == 0 or done == len(futs):
+                    print(f"  {label} {done}/{len(futs)}", flush=True)
+                if slug in accepted:
+                    continue
+                row = by_slug.get(slug)
+                if not row:
+                    continue
+                filed = accept_security_txt(url, rec)
+                if not filed:
+                    continue
+                raw = rec.get("raw_head") or rec.get("text") or ""
+                accepted[slug] = (filed, raw)
+
+    wave1 = []
+    seen = set()
+    for c in gaps:
+        for url in security_txt_probe_urls(c, well_known_only=True):
+            key = (c["slug"], url.lower())
+            if key in seen:
+                continue
+            seen.add(key)
+            wave1.append((c["slug"], url))
+    take_hits(wave1, "Phase 1 well-known")
+
+    wave2 = []
+    for c in gaps:
+        if c["slug"] in accepted:
+            continue
+        for url in security_txt_probe_urls(c, well_known_only=False):
+            key = (c["slug"], url.lower())
+            if key in seen:
+                continue
+            seen.add(key)
+            wave2.append((c["slug"], url))
+    take_hits(wave2, "Phase 2 /security.txt")
+
+    filed: list[tuple[str, str]] = []
+    for slug, (url, raw) in sorted(accepted.items()):
+        row = by_slug[slug]
+        if apply_security_txt_to_row(row, url):
+            extras = optional_links_from_security_txt(raw, row, row.get("links") or {})
+            apply_optional_txt_links(row, extras)
+            filed.append((row.get("name") or slug, url))
+
+    generated = utc_now()
+    payload["generated_at"] = generated
+    payload["companies"] = companies
+    write_json(DATA / "enriched.json", payload)
+    write_json(SITE / "data" / "enriched.json", payload)
+    after = sum(1 for c in companies if (c.get("links") or {}).get("security_txt"))
+    print(f"Wrote {DATA / 'enriched.json'} and {SITE / 'data' / 'enriched.json'}", flush=True)
+    print(
+        f"checked={len(gaps)} filed={len(filed)} security.txt {before} → {after} "
+        f"in {time.time() - t0:.1f}s",
+        flush=True,
+    )
+    for name, url in filed:
+        print(f"  filed {name}: {url}", flush=True)
+    return 0
+
 if __name__ == "__main__":
     if "--named-processors" in sys.argv:
         raise SystemExit(file_named_from_cited())
@@ -5241,6 +5533,8 @@ if __name__ == "__main__":
         raise SystemExit(file_published_status())
     if "--file-bounties" in sys.argv:
         raise SystemExit(file_published_bounties())
+    if "--file-security-txt" in sys.argv:
+        raise SystemExit(file_published_security_txt())
     raise SystemExit(main())
 
 
