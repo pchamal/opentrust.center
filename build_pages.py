@@ -837,14 +837,14 @@ def mast(active: str, prefix: str) -> str:
     def link(href: str, word: str, key: str) -> str:
         cls = ' class="on"' if key == active else ""
         return f'<a href="{prefix}{href}"{cls}>{word}</a>'
-    nav_label = "Pages" if not active else "Register"
+    nav_label = "Pages" if not active else "Companies"
     return f"""  <a class="skip" href="#main">Skip to the record</a>
   <header class="mast">
     <a class="wordmark" href="{prefix}">opentrust<span class="wm-dot">.</span>center</a>
     <nav class="docket" aria-label="{nav_label}">
-      {link("", "Register", "register")}
-      {link("graph.html", "Subprocessors", "subprocessors")}
-      {link("attestations.html", "Marks", "marks")}
+      {link("", "Companies", "register")}
+      {link("graph.html", "Subprocessor Map", "subprocessors")}
+      {link("attestations.html", "Frameworks", "marks")}
     </nav>
   </header>"""
 
@@ -1010,7 +1010,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
 {mast("", "../")}
   <p class="issue">{escape(issue)}</p>
   <main class="file" id="main">
-    <p class="crumb"><a href="../">Register</a> / {escape(slug)}</p>
+    <p class="crumb"><a href="../">Companies</a> / {escape(slug)}</p>
     <section class="ident">
       <h1>{escape(name)}</h1>
       <p class="ident-meta">{escape(domain)}</p>
@@ -1043,7 +1043,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
   </main>
   <footer class="colo">
     <p>Disclosure rates the file, not the company. Empty rows print <i>not on file</i>. File tiers are public-file ratings, never company trust.</p>
-    <p><a href="../">Register</a> · <a href="../graph.html">Subprocessors</a> · <a href="../attestations.html">Marks</a></p>
+    <p><a href="../">Companies</a> · <a href="../graph.html">Subprocessor Map</a> · <a href="../attestations.html">Frameworks</a></p>
   </footer>
   <script type="module" src="../dossier.js"></script>
 </body>
