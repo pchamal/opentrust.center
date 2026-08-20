@@ -30,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
 </head>
-<body>
+<body class="register">
   <header class="mast">
     <a class="wordmark" href="./">opentrust.center</a>
     <nav class="docket" aria-label="instruments">
@@ -67,12 +67,11 @@
     <table class="reg" id="reg" hidden>
       <thead>
         <tr>
-          <th scope="col" data-sort="rank"><button type="button">#<span class="arr" hidden></span></button></th>
-          <th scope="col" data-sort="name"><button type="button">name<span class="arr" hidden></span></button></th>
-          <th scope="col" data-sort="domain"><button type="button">domain<span class="arr" hidden></span></button></th>
-          <th scope="col" data-sort="tier"><button type="button">tier<span class="arr" hidden></span></button></th>
-          <th scope="col" class="marks" data-sort="marks"><button type="button">marks<span class="arr" hidden></span></button></th>
-          <th scope="col" data-sort="probed"><button type="button">probed<span class="arr" hidden></span></button></th>
+          <th scope="col" data-sort="rank" aria-sort="none"><button type="button">#</button></th>
+          <th scope="col" data-sort="name" aria-sort="none"><button type="button">name</button></th>
+          <th scope="col" data-sort="domain" aria-sort="none"><button type="button">domain</button></th>
+          <th scope="col" data-sort="tier" aria-sort="none"><button type="button">tier</button></th>
+          <th scope="col" class="marks" data-sort="marks" aria-sort="none"><button type="button">marks</button></th>
         </tr>
       </thead>
       <tbody id="reg-body"></tbody>

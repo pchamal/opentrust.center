@@ -2,7 +2,6 @@ import {
   $,
   escapeHtml,
   fillIssue,
-  fmtDay,
   displayTier,
   tierClass,
   dataUrl,
@@ -17,14 +16,13 @@ import {
   echoWords,
 } from "./finder.js";
 
-const SORTS = new Set(["rank", "name", "domain", "tier", "marks", "probed"]);
+const SORTS = new Set(["rank", "name", "domain", "tier", "marks"]);
 const DEFAULT_DIR = {
   rank: "asc",
   name: "asc",
   domain: "asc",
   tier: "desc",
   marks: "desc",
-  probed: "desc",
 };
 const TIER_ORDER = {
   silent: 0,
@@ -33,6 +31,7 @@ const TIER_ORDER = {
   substantial: 3,
   complete: 4,
 };
+const SCAN_TIERS = ["complete", "substantial", "on-file", "thin", "silent"];
 
 const state = {
   rows: [],
@@ -82,13 +81,7 @@ export function marksCount(row) {
   return names.length + (stamp ? 1 : 0);
 }
 
-function probeTime(row, fallback) {
-  const iso = (row && row.probed_at) || fallback || "";
-  const t = iso ? Date.parse(iso) : NaN;
-  return Number.isNaN(t) ? 0 : t;
-}
-
-export function compareRows(a, b, key, generatedAt) {
+export function compareRows(a, b, key) {
   switch (key) {
     case "rank":
       return rankOf(a) - rankOf(b);
@@ -100,23 +93,38 @@ export function compareRows(a, b, key, generatedAt) {
       return (TIER_ORDER[(a && a.tier) || "silent"] || 0) - (TIER_ORDER[(b && b.tier) || "silent"] || 0);
     case "marks":
       return marksCount(a) - marksCount(b);
-    case "probed":
-      return probeTime(a, generatedAt) - probeTime(b, generatedAt);
     default:
       return rankOf(a) - rankOf(b);
   }
 }
 
-export function arrangeRows(rows, sort, dir, generatedAt) {
+export function arrangeRows(rows, sort, dir) {
   const key = normalizeSort(sort) || "rank";
   const sign = dir === "desc" ? -1 : 1;
   return rows.slice().sort((a, b) => {
-    const c = compareRows(a, b, key, generatedAt);
+    const c = compareRows(a, b, key);
     if (c) return c * sign;
     const r = rankOf(a) - rankOf(b);
     if (r) return r;
     return cmpText(a && a.name, b && b.name);
   });
+}
+
+/* Default first screen: zipper tiers so the meter is not a complete stripe. */
+export function scanRows(rows) {
+  const buckets = Object.fromEntries(SCAN_TIERS.map((t) => [t, []]));
+  for (const row of arrangeRows(rows, "rank", "asc")) {
+    const t = buckets[row && row.tier] ? row.tier : "silent";
+    buckets[t].push(row);
+  }
+  const out = [];
+  const depth = Math.max(0, ...SCAN_TIERS.map((t) => buckets[t].length));
+  for (let i = 0; i < depth; i++) {
+    for (const t of SCAN_TIERS) {
+      if (buckets[t][i]) out.push(buckets[t][i]);
+    }
+  }
+  return out;
 }
 
 function hay(row) {
@@ -159,7 +167,8 @@ function apply() {
     if (!q) return true;
     return hay(row).includes(q);
   });
-  return arrangeRows(found, state.sort, state.dir, state.generatedAt);
+  if (!state.sorted) return scanRows(found);
+  return arrangeRows(found, state.sort, state.dir);
 }
 
 function guessDomain(q) {
@@ -184,21 +193,42 @@ function fedrampMark(row) {
   return `<a class="fr-mark" href="${escapeHtml(url)}" target="_blank" rel="noopener">fedramp</a>`;
 }
 
-function marksCell(row) {
+function markLabel(a) {
+  return String((a && (a.short || a.name)) || "").toLowerCase();
+}
+
+function markPriority(a) {
+  const s = markLabel(a);
+  if (/^soc\s*2/.test(s)) return 0;
+  if (/^iso\s*27001/.test(s)) return 1;
+  if (/^pci/.test(s)) return 2;
+  if (/^hipaa/.test(s)) return 3;
+  return 20;
+}
+
+function namedMarks(row) {
+  const atts = ((row && row.attestations) || []).filter((a) => a && (a.name || a.short));
+  const names = (atts.length ? atts : ((row && row.certs) || []).map((name) => ({ name, id: null }))).slice();
+  names.sort((a, b) => {
+    const p = markPriority(a) - markPriority(b);
+    if (p) return p;
+    return markLabel(a).localeCompare(markLabel(b), undefined, { sensitivity: "base" });
+  });
+  return names;
+}
+
+export function marksCell(row) {
   const stamp = fedrampMark(row);
-  const atts = (row.attestations || []).filter((a) => a && (a.name || a.short));
-  let names = (atts.length ? atts : (row.certs || []).map((name) => ({ name, id: null })))
-    .slice()
-    .sort((a, b) => String(a.short || a.name || "").localeCompare(String(b.short || b.name || ""), undefined, { sensitivity: "base" }));
+  let names = namedMarks(row);
   if (stamp) names = names.filter((a) => !isFedrampCite(a));
   if (!names.length) {
     return stamp || `<span class="absent">not on file</span>`;
   }
   const head = names
     .slice(0, 3)
-    .map((a) => escapeHtml(String(a.short || a.name).toLowerCase()))
+    .map((a) => `<span class="mark-chip">${escapeHtml(markLabel(a))}</span>`)
     .join(" · ");
-  const extra = names.length > 3 ? ` · +${names.length - 3}` : "";
+  const extra = names.length > 3 ? ` · <span class="mark-more">+${names.length - 3}</span>` : "";
   const line = `<span class="mark-line">${head}${extra}</span>`;
   return stamp ? stamp + " · " + line : line;
 }
@@ -231,10 +261,6 @@ function paintHeaders() {
     const live = state.sorted && state.sort === key;
     th.classList.toggle("on", live);
     th.setAttribute("aria-sort", live ? (state.dir === "desc" ? "descending" : "ascending") : "none");
-    const arr = th.querySelector(".arr");
-    if (!arr) return;
-    arr.hidden = !live;
-    arr.textContent = live ? (state.dir === "desc" ? " ↓" : " ↑") : "";
   });
 }
 
@@ -331,13 +357,12 @@ function render() {
     .map((row) => {
       const n = row.rank == null ? "—" : String(row.rank).padStart(3, "0");
       const tier = displayTier(row.tier);
-      return `<tr data-slug="${escapeHtml(row.slug)}">
+      return `<tr class="folio" data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="open dossier: ${escapeHtml(row.name)}">
         <td class="num">${escapeHtml(n)}</td>
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${escapeHtml(row.name)}</a></td>
         <td>${escapeHtml(row.domain || "")}</td>
         <td class="${tierClass(row.tier)}">${fileMeterHtml(row)}${escapeHtml(tier)}</td>
         <td class="marks">${marksCell(row)}</td>
-        <td>${escapeHtml(fmtDay(row.probed_at || state.generatedAt))}</td>
       </tr>`;
     })
     .join("");

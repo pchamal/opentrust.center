@@ -7,6 +7,8 @@ import {
   clickSort,
   marksCount,
   arrangeRows,
+  scanRows,
+  marksCell,
 } from "../site/register.js";
 
 const data = JSON.parse(readFileSync(new URL("../site/data.json", import.meta.url), "utf8"));
@@ -140,14 +142,48 @@ const marksOk = byMarks.every((r, i) => {
 expect("marks is count high to low", marksOk);
 expect("marks count is a number", marksCount(byMarks[0]) > marksCount(byMarks[byMarks.length - 1]));
 
-const byProbed = arrangeRows(rows, "probed", "desc", data.generated_at);
-const probedOk = byProbed.every((r, i) => {
-  if (i === 0) return true;
-  const a = Date.parse(r.probed_at || data.generated_at || "") || 0;
-  const b = Date.parse(byProbed[i - 1].probed_at || data.generated_at || "") || 0;
-  return a <= b;
+expect("probed is not a sort key", normalizeSort("probed") === "");
+
+const scanned = scanRows(rows);
+const firstScreen = scanned.slice(0, 20);
+const screenTiers = new Set(firstScreen.map((r) => r.tier));
+const completeOnScreen = firstScreen.filter((r) => r.tier === "complete").length;
+expect("scan keeps every company", scanned.length === rows.length);
+expect("scan does not drop a slug", new Set(scanned.map((r) => r.slug)).size === rows.length);
+expect("first screen mixes tiers", screenTiers.size >= 4);
+expect("first screen still has complete", completeOnScreen >= 1);
+expect("first screen is not a complete stripe", completeOnScreen <= 8);
+expect("first screen has thin or on-file", firstScreen.some((r) => r.tier === "thin" || r.tier === "on-file"));
+expect("scan is not rank order", scanned[1] && scanned[1].rank !== 2);
+
+const indexHtml = readFileSync(new URL("../site/index.html", import.meta.url), "utf8");
+expect("register grid dropped probed", !/data-sort="probed"/.test(indexHtml) && !/>probed</.test(indexHtml));
+expect("register still files the meter on each row", /fileMeterHtml\(row\)/.test(registerSrc));
+expect("folio row is a dossier click-through", /class="folio"/.test(registerSrc));
+
+const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8");
+expect("sort caret is on the active header", css.includes('th[data-sort][aria-sort="ascending"] button::after') && css.includes('th[data-sort][aria-sort="descending"] button::after'));
+expect("meter boxes stay rust", /file-meter > span \{[\s\S]*border: 1px solid var\(--rust\)/.test(css));
+
+const buyer = marksCell({
+  attestations: [
+    { name: "CCPA", short: "CCPA" },
+    { name: "SOC 2 Type II", short: "SOC 2 Type II" },
+    { name: "ISO 27001", short: "ISO 27001" },
+    { name: "PCI DSS", short: "PCI DSS" },
+    { name: "GDPR", short: "GDPR" },
+  ],
 });
-expect("probed is by date", probedOk);
+expect("marks are clerk chips", buyer.includes('class="mark-chip">soc 2 type ii<') && buyer.includes(" · "));
+expect("buyer mark is named first", buyer.indexOf("soc 2") < buyer.indexOf("iso 27001"));
+expect("plus-n is quiet", buyer.includes('class="mark-more">+2<') && !buyer.includes('class="mark-chip">+2'));
+expect("plus-n does not hide soc 2", /mark-chip">soc 2/.test(buyer));
+
+const fed = marksCell({
+  fedramp: { marketplace: "https://marketplace.fedramp.gov/products/FR123" },
+  attestations: [{ name: "FedRAMP", id: "fedramp" }, { name: "SOC 2", short: "SOC 2" }],
+});
+expect("fedramp keeps marketplace underline", fed.includes('class="fr-mark"') && fed.includes("marketplace.fedramp.gov") && fed.includes(" · "));
 
 const complete = apply("/ complete");
 const completeByName = arrangeRows(complete, "name", "asc");
