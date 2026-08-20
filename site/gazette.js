@@ -25,6 +25,7 @@ const state = {
   lastTs: 0,
   raf: 0,
   geom: null,
+  land: [],
 };
 
 function geosOf(item) {
@@ -101,24 +102,6 @@ function regionAt(lng, lat) {
   return "international";
 }
 
-/* Printed land. Simplified continents, clerk ink. */
-const LAND = [
-  /* Americas */
-  [[-168, 71], [-141, 70], [-130, 55], [-125, 49], [-95, 49], [-66, 51], [-55, 47], [-67, 44], [-74, 40], [-76, 35], [-80, 25], [-97, 26], [-97, 16], [-87, 14], [-83, 9], [-77, 8], [-62, 10], [-35, -5], [-35, -22], [-40, -23], [-48, -28], [-53, -35], [-68, -55], [-76, -52], [-71, -18], [-81, -5], [-80, 8], [-106, 22], [-117, 32], [-124, 40], [-124, 48], [-130, 54], [-153, 59], [-166, 64], [-168, 71]],
-  /* Greenland */
-  [[-73, 78], [-20, 81], [-12, 70], [-44, 60], [-53, 67], [-68, 76], [-73, 78]],
-  /* Europe / Africa */
-  [[-10, 36], [-9, 43], [-8, 52], [0, 54], [5, 53], [8, 58], [12, 66], [25, 71], [32, 70], [40, 65], [40, 45], [36, 36], [32, 31], [34, 27], [43, 12], [51, 12], [43, -1], [40, -15], [32, -30], [20, -35], [18, -34], [12, -17], [9, 4], [0, 5], [-10, 6], [-17, 15], [-16, 21], [-10, 29], [-10, 36]],
-  /* UK */
-  [[-6, 50], [-5, 58], [-1, 58], [1, 52], [1, 51], [-5, 50], [-6, 50]],
-  /* Asia */
-  [[40, 65], [60, 70], [80, 72], [100, 70], [140, 70], [180, 65], [180, 8], [140, 8], [120, 5], [105, 2], [100, 8], [98, 22], [108, 21], [109, 12], [104, 1], [98, 8], [80, 6], [68, 23], [60, 25], [48, 25], [44, 40], [40, 45], [40, 65]],
-  /* Australia */
-  [[113, -22], [129, -14], [142, -11], [153, -28], [146, -39], [115, -35], [113, -22]],
-  /* NZ */
-  [[166, -41], [178, -37], [177, -47], [167, -47], [166, -41]],
-];
-
 function preferReduced() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
@@ -148,17 +131,106 @@ function lerpZ(a, b) {
   };
 }
 
-function clipFront(ring) {
+function token(name, fallback) {
+  const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  return v || fallback;
+}
+
+function ink() {
+  return {
+    land: token("--well", "#4a1e00"),
+    sea: token("--ground", "#331400"),
+    rust: token("--rust", "#993d00"),
+    flame: token("--flame", "#ff6600"),
+  };
+}
+
+/* Unwrap so a ring that crosses ±180 interpolates the short ocean, not the long way. */
+function unwrapRing(ring) {
   const out = [];
+  let off = 0;
+  for (let i = 0; i < ring.length; i++) {
+    const lng = ring[i][0];
+    const lat = ring[i][1];
+    if (i === 0) {
+      out.push([lng, lat]);
+      continue;
+    }
+    const prev = out[i - 1][0];
+    let x = lng + off;
+    if (x - prev > 180) off -= 360;
+    else if (prev - x > 180) off += 360;
+    out.push([lng + off, lat]);
+  }
+  return out;
+}
+
+/* Natural Earth 110m land, public domain. Vendored at ./data/ne-110m-land.json */
+function parseLand(fc) {
+  const polys = [];
+  for (const f of fc.features || []) {
+    const g = f.geometry;
+    if (!g) continue;
+    const parts = g.type === "Polygon" ? [g.coordinates] : g.type === "MultiPolygon" ? g.coordinates : [];
+    for (const part of parts) {
+      if (!part || !part.length) continue;
+      polys.push({
+        outer: unwrapRing(part[0]),
+        holes: part.slice(1).map(unwrapRing),
+      });
+    }
+  }
+  return polys;
+}
+
+/* Horizon chord → short limb arc so land meets the disk, not a flat cut. */
+function limbArc(a, b) {
+  const t0 = Math.atan2(a.y, a.x);
+  let d = Math.atan2(b.y, b.x) - t0;
+  if (d > Math.PI) d -= 2 * Math.PI;
+  if (d < -Math.PI) d += 2 * Math.PI;
+  const n = Math.max(1, Math.ceil(Math.abs(d) / (Math.PI / 18)));
+  const pts = [];
+  for (let i = 1; i < n; i++) {
+    const t = t0 + (d * i) / n;
+    pts.push({ x: Math.cos(t), y: Math.sin(t), z: 0 });
+  }
+  return pts;
+}
+
+function clipFront(ring) {
   const n = ring.length;
   const closed = n > 1 && ring[0][0] === ring[n - 1][0] && ring[0][1] === ring[n - 1][1];
   const count = closed ? n - 1 : n;
+  if (count < 2) return [];
+  const verts = [];
+  for (let i = 0; i < count; i++) verts.push(sph(ring[i][0], ring[i][1]));
+  let start = -1;
   for (let i = 0; i < count; i++) {
-    const a = sph(ring[i][0], ring[i][1]);
-    const nxt = ring[(i + 1) % count];
-    const b = sph(nxt[0], nxt[1]);
+    if (verts[i].z > 0) {
+      start = i;
+      break;
+    }
+  }
+  if (start < 0) return [];
+  const out = [];
+  let exit = null;
+  for (let k = 0; k < count; k++) {
+    const i = (start + k) % count;
+    const a = verts[i];
+    const b = verts[(i + 1) % count];
     if (a.z > 0) out.push(a);
-    if ((a.z > 0) !== (b.z > 0)) out.push(lerpZ(a, b));
+    if ((a.z > 0) !== (b.z > 0)) {
+      const h = lerpZ(a, b);
+      if (a.z > 0) {
+        out.push(h);
+        exit = h;
+      } else {
+        if (exit) out.push(...limbArc(exit, h));
+        out.push(h);
+        exit = null;
+      }
+    }
   }
   return out;
 }
@@ -233,7 +305,7 @@ function strokeFront(ctx, ring, cx, cy, R) {
 function strokeGraticule(ctx, cx, cy, R) {
   const step = 2;
   ctx.beginPath();
-  for (let lng = -180; lng < 180; lng += 15) {
+  for (let lng = -180; lng < 180; lng += 30) {
     let drawing = false;
     for (let lat = -90; lat <= 90; lat += step) {
       const p = sph(lng, lat);
@@ -248,7 +320,7 @@ function strokeGraticule(ctx, cx, cy, R) {
       } else ctx.lineTo(x, y);
     }
   }
-  for (let lat = -75; lat <= 75; lat += 15) {
+  for (let lat = -60; lat <= 60; lat += 30) {
     let drawing = false;
     for (let lng = -180; lng <= 180; lng += step) {
       const p = sph(lng, lat);
@@ -283,14 +355,15 @@ function drawMap() {
     canvas.style.height = h + "px";
   }
   const ctx = canvas.getContext("2d");
+  const color = ink();
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   ctx.clearRect(0, 0, w, h);
-  ctx.fillStyle = "#331400";
+  ctx.fillStyle = color.sea;
   ctx.fillRect(0, 0, w, h);
 
   ctx.beginPath();
   ctx.arc(cx, cy, R, 0, Math.PI * 2);
-  ctx.fillStyle = "#331400";
+  ctx.fillStyle = color.sea;
   ctx.fill();
 
   ctx.save();
@@ -298,28 +371,41 @@ function drawMap() {
   ctx.arc(cx, cy, R, 0, Math.PI * 2);
   ctx.clip();
 
-  ctx.fillStyle = "#4a1e00";
-  for (const ring of LAND) {
-    const pts = clipFront(ring);
-    if (pts.length < 3) continue;
+  ctx.fillStyle = color.land;
+  for (const poly of state.land) {
+    const outer = clipFront(poly.outer);
+    if (outer.length < 3) continue;
     ctx.beginPath();
-    pts.forEach((p, i) => {
+    outer.forEach((p, i) => {
       const [x, y] = toScreen(p, cx, cy, R);
       if (i === 0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
     });
     ctx.closePath();
-    ctx.fill();
+    for (const hole of poly.holes) {
+      const hp = clipFront(hole);
+      if (hp.length < 3) continue;
+      hp.forEach((p, i) => {
+        const [x, y] = toScreen(p, cx, cy, R);
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      });
+      ctx.closePath();
+    }
+    ctx.fill("evenodd");
   }
 
-  ctx.strokeStyle = "#993d00";
+  ctx.strokeStyle = color.rust;
   ctx.lineWidth = 1;
   ctx.globalAlpha = 0.55;
   strokeGraticule(ctx, cx, cy, R);
   ctx.globalAlpha = 1;
-  for (const ring of LAND) strokeFront(ctx, ring, cx, cy, R);
+  for (const poly of state.land) {
+    strokeFront(ctx, poly.outer, cx, cy, R);
+    for (const hole of poly.holes) strokeFront(ctx, hole, cx, cy, R);
+  }
 
-  ctx.fillStyle = "#ff6600";
+  ctx.fillStyle = color.flame;
   for (const item of state.items) {
     if (item.lat == null || item.lng == null) continue;
     const p = sph(item.lng, item.lat);
@@ -331,7 +417,7 @@ function drawMap() {
 
   ctx.beginPath();
   ctx.arc(cx, cy, R, 0, Math.PI * 2);
-  ctx.strokeStyle = "#993d00";
+  ctx.strokeStyle = color.rust;
   ctx.lineWidth = 1;
   ctx.stroke();
 }
@@ -460,16 +546,29 @@ function bind() {
 
 async function load() {
   bind();
+  const landP = fetch(dataUrl("./data/ne-110m-land.json"), { cache: "no-store" })
+    .then((r) => {
+      if (!r.ok) throw new Error("land");
+      return r.json();
+    })
+    .then((fc) => {
+      state.land = parseLand(fc);
+    })
+    .catch(() => {
+      state.land = [];
+    });
   try {
     const [gaz, reg] = await Promise.all([
       fetch(dataUrl("./data/attestations.json"), { cache: "no-store" }).then((r) => r.json()),
       fetch(dataUrl("./data.json"), { cache: "no-store" }).then((r) => r.json()),
+      landP,
     ]);
     state.items = (gaz.attestations || []).slice().sort((a, b) => String(a.name || "").localeCompare(String(b.name || ""), undefined, { sensitivity: "base" }));
     state.companies = reg.companies || [];
     fillIssue($("issue"), reg, `${state.items.length} marks`);
   } catch {
     state.items = [];
+    await landP;
   }
   renderBook();
   drawMap();
