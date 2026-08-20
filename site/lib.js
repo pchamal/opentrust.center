@@ -57,6 +57,17 @@ export function escapeHtml(s) {
     .replace(/"/g, "&quot;");
 }
 
+export function inkIcon(src, prefix = "./") {
+  const file = String(src || "").replace(/^\/+/, "").replace(/^favicons\//, "");
+  if (!file || file.includes("..") || file.includes("/") || file.includes("\\")) return "";
+  const href = `${prefix}favicons/${file}`;
+  return `<img class="ink-ico" src="${escapeHtml(href)}" alt="" width="12" height="12" decoding="async" onerror="this.remove()">`;
+}
+
+export function nameWithIcon(name, src, prefix = "./") {
+  return `${inkIcon(src, prefix)}${escapeHtml(name)}`;
+}
+
 export function hostOf(url) {
   try {
     return new URL(url).host.replace(/^www\./, "");

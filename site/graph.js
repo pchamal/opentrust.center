@@ -1,4 +1,4 @@
-import { $, escapeHtml, fillIssue, displayTier, dataUrl } from "./lib.js";
+import { $, escapeHtml, fillIssue, displayTier, dataUrl, nameWithIcon } from "./lib.js";
 
 const state = {
   data: null,
@@ -6,6 +6,7 @@ const state = {
   companies: new Map(),
   processors: [],
   focus: 0,
+  icons: { companies: {}, marks: {} },
 };
 
 function thinness(row) {
@@ -86,11 +87,15 @@ function normalizeEdges(wires, companies) {
       const to = e.to || e.processor_slug || e.processor;
       const node = nodes.get(to) || {};
       const slug = registerSlug(node, companies) || (companies.has(to) ? to : e.processor_slug || null);
+      const domain = (node.domain || (slug && companies.get(slug) && companies.get(slug).domain) || "")
+        .toLowerCase()
+        .replace(/^www\./, "");
       return {
         company: from,
         processor: processorDisplayName(e, node, to),
         processor_slug: slug,
         processor_id: to,
+        processor_domain: domain,
         source_url: e.source_url,
       };
     });
@@ -104,6 +109,7 @@ function rankProcessors(edges, companies) {
       by.set(key, {
         name: e.processor,
         slug: e.processor_slug || null,
+        domain: e.processor_domain || "",
         sources: new Set(),
         namers: [],
       });
@@ -111,6 +117,7 @@ function rankProcessors(edges, companies) {
     const rec = by.get(key);
     rec.sources.add(e.source_url);
     rec.namers.push({ company: e.company, source_url: e.source_url });
+    if (!rec.domain && e.processor_domain) rec.domain = e.processor_domain;
   }
   const rows = [];
   for (const rec of by.values()) {
@@ -121,6 +128,7 @@ function rankProcessors(edges, companies) {
     rows.push({
       name: rec.name,
       slug: rec.slug,
+      domain: rec.domain || (self && self.domain) || "",
       inRegister: Boolean(self),
       tier: self ? self.tier : null,
       exposure,
@@ -166,6 +174,14 @@ function hostOfSafe(url) {
   }
 }
 
+function iconForDomain(domain, row) {
+  if (row && row.favicon) return row.favicon;
+  const host = String(domain || (row && row.domain) || "")
+    .toLowerCase()
+    .replace(/^www\./, "");
+  return (state.icons.companies && state.icons.companies[host]) || "";
+}
+
 function namerLine(n) {
   const co = state.companies.get(n.company);
   const label = co ? co.name : n.company;
@@ -174,9 +190,10 @@ function namerLine(n) {
   const src = n.source_url
     ? ` <span class="muted">· <a href="${escapeHtml(n.source_url)}" rel="noopener noreferrer">${escapeHtml(host)}</a></span>`
     : "";
+  const named = nameWithIcon(label, iconForDomain(co && co.domain, co));
   return href
-    ? `<li><a href="${href}">${escapeHtml(label)}</a>${src}</li>`
-    : `<li>${escapeHtml(label)}${src}</li>`;
+    ? `<li><a href="${href}">${named}</a>${src}</li>`
+    : `<li>${named}${src}</li>`;
 }
 
 function renderStub() {
@@ -194,7 +211,8 @@ function renderStub() {
   const status = p.inRegister
     ? `<p class="ident-meta">on file · <a href="./c/${encodeURIComponent(p.slug)}.html">dossier</a></p>`
     : `<p class="ident-meta"><span class="absent">not in register</span></p>`;
-  el.innerHTML = `<h2>${escapeHtml(p.name)}</h2>
+  const self = p.slug ? state.companies.get(p.slug) : null;
+  el.innerHTML = `<h2>${nameWithIcon(p.name, iconForDomain(p.domain, self))}</h2>`
     ${status}
     <p class="ident-meta">exposure · ${p.exposure}</p>
     <p class="fig-sub">Who named them, as published.</p>
@@ -361,10 +379,14 @@ function revealFile() {
 async function load() {
   bind();
   try {
-    const [reg, wires] = await Promise.all([
+    const [reg, wires, icons] = await Promise.all([
       fetch(dataUrl("./data.json"), { cache: "no-store" }).then((r) => r.json()),
       fetch(dataUrl("./data/subprocessors.json"), { cache: "no-store" }).then((r) => (r.ok ? r.json() : { edges: [] })),
+      fetch(dataUrl("./favicons/index.json"), { cache: "no-store" })
+        .then((r) => (r.ok ? r.json() : { companies: {}, marks: {} }))
+        .catch(() => ({ companies: {}, marks: {} })),
     ]);
+    state.icons = icons && typeof icons === "object" ? icons : { companies: {}, marks: {} };
     state.data = reg;
     (reg.companies || []).forEach((c) => state.companies.set(c.slug, c));
     state.edges = normalizeEdges(wires, state.companies);

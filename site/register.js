@@ -6,6 +6,7 @@ import {
   displayFileState,
   tierClass,
   dataUrl,
+  nameWithIcon,
 } from "./lib.js";
 import {
   parseFinder,
@@ -398,7 +399,7 @@ function render() {
       const selected = state.selected === row.slug ? ' aria-selected="true"' : "";
       return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
         <td class="num">${escapeHtml(n)}</td>
-        <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${escapeHtml(row.name)}</a></td>
+        <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${nameWithIcon(row.name, row.favicon)}</a></td>
         <td class="domain">${escapeHtml(row.domain || "")}</td>
         <td class="${tierClass(row.tier)}">${escapeHtml(tier)}</td>
         <td class="marks">${marksCell(row)}</td>

@@ -171,6 +171,49 @@ def write_json(path: Path, payload) -> None:
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
 
 
+def load_favicon_index() -> dict:
+    raw = load_json(SITE / "favicons" / "index.json", {})
+    companies = raw.get("companies") if isinstance(raw, dict) else {}
+    marks = raw.get("marks") if isinstance(raw, dict) else {}
+    return {
+        "companies": companies if isinstance(companies, dict) else {},
+        "marks": marks if isinstance(marks, dict) else {},
+    }
+
+
+def favicon_file(name: str) -> str:
+    safe = str(name or "").replace("\\", "/").split("/")[-1]
+    if not safe or ".." in safe:
+        return ""
+    path = SITE / "favicons" / safe
+    if path.is_file() and path.stat().st_size > 20:
+        return safe
+    return ""
+
+
+def company_favicon(domain: str, index: dict | None = None) -> str:
+    host = (domain or "").strip().lower().removeprefix("www.")
+    idx = index if index is not None else load_favicon_index()
+    return favicon_file((idx.get("companies") or {}).get(host) or "")
+
+
+def mark_favicon(mark_id: str, index: dict | None = None) -> str:
+    mid = (mark_id or "").strip()
+    idx = index if index is not None else load_favicon_index()
+    return favicon_file((idx.get("marks") or {}).get(mid) or "")
+
+
+def ink_icon(src: str, prefix: str = "../") -> str:
+    file = favicon_file(src)
+    if not file:
+        return ""
+    href = f"{prefix}favicons/{file}"
+    return (
+        f'<img class="ink-ico" src="{escape(href)}" alt="" width="12" height="12" '
+        f'decoding="async" onerror="this.remove()">'
+    )
+
+
 def pretty_subprocessor_nodes(doc: dict) -> None:
     for node in doc.get("nodes") or []:
         name = str(node.get("name") or "").strip()
@@ -449,7 +492,15 @@ def register_slug_for(node: dict, by_slug: dict, by_domain: dict) -> str | None:
     return None
 
 
-def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_domain: dict, generated_at: str) -> dict:
+def enrich_company(
+    row: dict,
+    edges: list[dict],
+    nodes: dict,
+    by_slug: dict,
+    by_domain: dict,
+    generated_at: str,
+    favicons: dict | None = None,
+) -> dict:
     slug = row["slug"]
     links = row.get("links") or {}
     domain = row.get("domain") or ""
@@ -529,6 +580,9 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
             "http_status": (row.get("_crawl") or {}).get("http_status") or row.get("http_status"),
         },
     }
+    icon = company_favicon(domain, favicons)
+    if icon:
+        public["favicon"] = icon
     if fedramp:
         public["fedramp"] = fedramp
     return public
@@ -916,9 +970,12 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
         mark_list = (
             '<ul class="mark-list">'
             + "".join(
-                f'<li><a href="../attestations.html#{escape(a["id"] or "")}">{escape(a["name"])}</a></li>'
-                if a.get("id")
-                else f"<li>{escape(a['name'])}</li>"
+                (
+                    f'<li><a href="../attestations.html#{escape(a["id"] or "")}">'
+                    f'{ink_icon(mark_favicon(a.get("id") or ""), "../")}{escape(a["name"])}</a></li>'
+                    if a.get("id")
+                    else f"<li>{escape(a['name'])}</li>"
+                )
                 for a in atts
             )
             + "</ul>"
@@ -1012,7 +1069,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
   <main class="file" id="main">
     <p class="crumb"><a href="../">Companies</a> / {escape(slug)}</p>
     <section class="ident">
-      <h1>{escape(name)}</h1>
+      <h1>{ink_icon(row.get("favicon") or company_favicon(domain), "../")}{escape(name)}</h1>
       <p class="ident-meta">{escape(domain)}</p>
       <p class="ident-meta file-line">file <span class="sep">·</span> <span class="{file_cls}">{escape(tier)}</span></p>
       <p class="ident-meta">founded · {year_html}</p>
@@ -1173,8 +1230,9 @@ def main() -> int:
         if domain:
             by_domain[domain] = c["slug"]
 
+    favicons = load_favicon_index()
     public_companies = [
-        enrich_company(row, edges, nodes, by_slug, by_domain, generated_at)
+        enrich_company(row, edges, nodes, by_slug, by_domain, generated_at, favicons)
         for row in companies_in
     ]
     assign_file_ranks(public_companies)

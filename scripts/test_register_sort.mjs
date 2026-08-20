@@ -201,6 +201,7 @@ const buyer = marksCell({
   ],
 });
 expect("marks are clerk chips", buyer.includes('class="mark-chip">soc 2 type ii<') && buyer.includes(" · "));
+expect("marks cell has no icons", !buyer.includes("<img") && !buyer.includes("ink-ico"));
 expect("buyer mark is named first", buyer.indexOf("soc 2") < buyer.indexOf("iso 27001"));
 expect("marks have no plus-n", !/\+\d/.test(buyer) && !buyer.includes("mark-more"));
 expect("named marks that fit stay listed", /mark-chip">soc 2/.test(buyer) && buyer.includes("ccpa") && buyer.includes("gdpr"));
