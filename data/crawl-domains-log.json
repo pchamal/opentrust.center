@@ -1,711 +1,902 @@
 {
-  "generated_at": "2026-08-19T20:03:17Z",
-  "method": "wikidata-wbsearchentities + wbgetentities P856",
+  "generated_at": "2026-08-20T01:01:45Z",
+  "method": "wikidata-wbsearchentities + wbgetentities P856; enwiki titles -> P856",
   "user_agent": "opentrust.center/1.0 (+https://opentrust.center)",
-  "note": "hourly top-up: filled existing nulls + appended CMC software next ranks",
+  "note": "hourly top-up appended 87 verified P856; dropped 7 wrong matches",
   "cmc_list": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
   "counts": {
-    "existing_nulls": 138,
-    "filled_existing": 0,
-    "new_candidates_resolved_attempted": 180,
-    "appended": 63,
-    "skipped_dup_domain": 9,
-    "unresolved_new": 108
+    "dropped_bad_pending": 0,
+    "cmc_candidates": 123,
+    "wiki_candidates": 99,
+    "appended": 87,
+    "skipped_dup_domain": 19,
+    "unresolved_new": 115,
+    "by_source_url": {
+      "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/": 5,
+      "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies": 41,
+      "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue": 9,
+      "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue": 9,
+      "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies": 24
+    },
+    "dropped_wrong_p856": 7,
+    "cmc_wiki_title_filled": 6
   },
-  "filled_existing": [],
+  "dropped_bad_pending": [],
   "appended": [
     {
-      "name": "Keysight",
-      "slug": "keysight",
-      "domain": "keysight.com",
+      "name": "Text (LiveChat)",
+      "slug": "text-livechat",
+      "domain": "investor.text.com",
       "source": "companiesmarketcap-software",
       "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "priority": 3,
-      "qid": "Q17551096",
-      "reason": "close/prefix; same-domain-among-3",
-      "cmc_rank": 26
-    },
-    {
-      "name": "Kaspi.kz Joint Stock Company",
-      "slug": "kaspi-kz-joint-stock-company",
-      "domain": "kaspi.kz",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q106219885",
+      "qid": "Q6658155",
       "reason": "exact",
-      "cmc_rank": 47
+      "cmc_rank": 306
     },
     {
-      "name": "Zebra Technologies",
-      "slug": "zebra-technologies",
-      "domain": "zebra.com",
+      "name": "VERSES AI",
+      "slug": "verses-ai",
+      "domain": "verses.ai",
       "source": "companiesmarketcap-software",
       "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "priority": 3,
-      "qid": "Q2443609",
-      "reason": "exact",
-      "cmc_rank": 53
-    },
-    {
-      "name": "MiniMax Group",
-      "slug": "minimax-group",
-      "domain": "minimax.io",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q130263208",
-      "reason": "exact",
-      "cmc_rank": 69
-    },
-    {
-      "name": "Aurora Innovation",
-      "slug": "aurora-innovation",
-      "domain": "aurora.tech",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q101606525",
-      "reason": "exact",
-      "cmc_rank": 70
-    },
-    {
-      "name": "Compass",
-      "slug": "compass",
-      "domain": "compass.it",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q21190078",
-      "reason": "exact",
-      "cmc_rank": 83
-    },
-    {
-      "name": "Applied Digital",
-      "slug": "applied-digital",
-      "domain": "applieddigital.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q140561980",
+      "qid": "Q125450727",
       "reason": "close/prefix",
-      "cmc_rank": 92
+      "cmc_rank": 469
     },
     {
-      "name": "Mobileye",
-      "slug": "mobileye",
-      "domain": "mobileye.com",
+      "name": "Wildberries",
+      "slug": "wildberries",
+      "domain": "wildberries.ru",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q24933714",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Suning.com",
+      "slug": "suning-com",
+      "domain": "suning.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q1895661",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Ozon",
+      "slug": "ozon",
+      "domain": "ozon.ru",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q2365235",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Otto Group",
+      "slug": "otto-group",
+      "domain": "ottogroup.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q466688",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Shein",
+      "slug": "shein",
+      "domain": "shein.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q107377209",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Kwai",
+      "slug": "kwai",
+      "domain": "kuaishou.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q47015540",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Zalando",
+      "slug": "zalando",
+      "domain": "corporate.zalando.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q136570",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Chewy",
+      "slug": "chewy",
+      "domain": "chewy.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q28130158",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Carvana",
+      "slug": "carvana",
+      "domain": "carvana.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q16247191",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "ASOS.com",
+      "slug": "asos-com",
+      "domain": "asos.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q211951",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Twitter",
+      "slug": "twitter",
+      "domain": "x.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q918",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "wework",
+      "slug": "wework",
+      "domain": "wework.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q19995004",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Zoom Video",
+      "slug": "zoom-video",
+      "domain": "zoom.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q17460900",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Opendoor",
+      "slug": "opendoor",
+      "domain": "opendoor.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q96397546",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Beyond",
+      "slug": "beyond",
+      "domain": "bedbathandbeyond.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q3301958",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Travelport",
+      "slug": "travelport",
+      "domain": "travelport.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q7836092",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Wish",
+      "slug": "wish",
+      "domain": "wish.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q47796826",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "The Stars Group",
+      "slug": "the-stars-group",
+      "domain": "amaya.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q17167683",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Coolblue",
+      "slug": "coolblue",
+      "domain": "coolblue.nl",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q4992516",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Fanatics",
+      "slug": "fanatics",
+      "domain": "fanaticsinc.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q18150640",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Copart",
+      "slug": "copart",
+      "domain": "copart.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q16951448",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "CDK Global",
+      "slug": "cdk-global",
+      "domain": "cdkglobal.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q55454124",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Sina Corp",
+      "slug": "sina-corp",
+      "domain": "sina.com.cn",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q938668",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Newegg",
+      "slug": "newegg",
+      "domain": "newegg.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q10856243",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Shutterfly",
+      "slug": "shutterfly",
+      "domain": "shutterfly.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q7505672",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Zynga",
+      "slug": "zynga",
+      "domain": "zynga.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q245772",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "B2W",
+      "slug": "b2w",
+      "domain": "b2wdigital.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q2876669",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Grubhub",
+      "slug": "grubhub",
+      "domain": "grubhub.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q17019647",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Stitch Fix",
+      "slug": "stitch-fix",
+      "domain": "stitchfix.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q18385610",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Farfetch",
+      "slug": "farfetch",
+      "domain": "farfetch.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q18712957",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "J2 Global",
+      "slug": "j2-global",
+      "domain": "j2global.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q16997523",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "ANGI Homeservices Inc.",
+      "slug": "angi-homeservices-inc",
+      "domain": "angieslist.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q4763176",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Groupon",
+      "slug": "groupon",
+      "domain": "groupon.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q852787",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Vroom.com",
+      "slug": "vroom-com",
+      "domain": "vroom.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q23680003",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "VK",
+      "slug": "vk",
+      "domain": "vk.company",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q1885456",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Kaplan, Inc.",
+      "slug": "kaplan-inc",
+      "domain": "kaplan.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q3112947",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Endurance International Group",
+      "slug": "endurance-international-group",
+      "domain": "enduranceinternational.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q5376661",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "GoTo",
+      "slug": "goto",
+      "domain": "gotocompany.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q106914877",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "LogMeIn",
+      "slug": "logmein",
+      "domain": "goto.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q823303",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Blue Yonder",
+      "slug": "blue-yonder",
+      "domain": "blueyonder.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q6107934",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Craigslist",
+      "slug": "craigslist",
+      "domain": "craigslist.org",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "priority": 2,
+      "qid": "Q788500",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Samsung Electronics",
+      "slug": "samsung-electronics",
+      "domain": "samsung.com",
+      "source": "wikipedia-largest-tech-by-revenue",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
+      "priority": 2,
+      "qid": "Q20718",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Foxconn",
+      "slug": "foxconn",
+      "domain": "foxconn.com",
+      "source": "wikipedia-largest-tech-by-revenue",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
+      "priority": 2,
+      "qid": "Q463094",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Deutsche Telekom",
+      "slug": "deutsche-telekom",
+      "domain": "telekom.com",
+      "source": "wikipedia-largest-tech-by-revenue",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
+      "priority": 2,
+      "qid": "Q9396",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Sony",
+      "slug": "sony",
+      "domain": "sony.com",
+      "source": "wikipedia-largest-tech-by-revenue",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
+      "priority": 2,
+      "qid": "Q41187",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "TSMC",
+      "slug": "tsmc",
+      "domain": "tsmc.com",
+      "source": "wikipedia-largest-tech-by-revenue",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
+      "priority": 2,
+      "qid": "Q713418",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Hitachi",
+      "slug": "hitachi",
+      "domain": "hitachi.com",
+      "source": "wikipedia-largest-tech-by-revenue",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
+      "priority": 2,
+      "qid": "Q53238",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Lenovo",
+      "slug": "lenovo",
+      "domain": "lenovo.com",
+      "source": "wikipedia-largest-tech-by-revenue",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
+      "priority": 2,
+      "qid": "Q14799",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "LG Electronics",
+      "slug": "lg-electronics",
+      "domain": "lg.com",
+      "source": "wikipedia-largest-tech-by-revenue",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
+      "priority": 2,
+      "qid": "Q162345",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Cargill",
+      "slug": "cargill",
+      "domain": "cargill.com",
+      "source": "wikipedia-fortune-500",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
+      "priority": 2,
+      "qid": "Q1036056",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Koch",
+      "slug": "koch",
+      "domain": "kochinc.com",
+      "source": "wikipedia-fortune-500",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
+      "priority": 2,
+      "qid": "Q1496384",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Mars",
+      "slug": "mars",
+      "domain": "mars.com",
+      "source": "wikipedia-fortune-500",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
+      "priority": 2,
+      "qid": "Q695087",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "H-E-B Grocery Company",
+      "slug": "h-e-b-grocery-company",
+      "domain": "heb.com",
+      "source": "wikipedia-fortune-500",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
+      "priority": 2,
+      "qid": "Q830621",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Reyes Holdings",
+      "slug": "reyes-holdings",
+      "domain": "reyesholdings.com",
+      "source": "wikipedia-fortune-500",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
+      "priority": 2,
+      "qid": "Q728004",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Enterprise Mobility",
+      "slug": "enterprise-mobility",
+      "domain": "enterprisemobility.com",
+      "source": "wikipedia-fortune-500",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
+      "priority": 2,
+      "qid": "Q834054",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Fidelity Investments",
+      "slug": "fidelity-investments",
+      "domain": "fidelity.com",
+      "source": "wikipedia-fortune-500",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
+      "priority": 2,
+      "qid": "Q1411292",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Southern Glazer's Wine & Spirits",
+      "slug": "southern-glazer-s-wine-and-spirits",
+      "domain": "southernglazers.com",
+      "source": "wikipedia-fortune-500",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
+      "priority": 2,
+      "qid": "Q7570632",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Cox Enterprises",
+      "slug": "cox-enterprises",
+      "domain": "coxenterprises.com",
+      "source": "wikipedia-fortune-500",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
+      "priority": 2,
+      "qid": "Q1138249",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Ciena",
+      "slug": "ciena",
+      "domain": "ciena.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1091783",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Coherent Corp.",
+      "slug": "coherent-corp",
+      "domain": "coherent.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q15109887",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Corning Inc.",
+      "slug": "corning-inc",
+      "domain": "corning.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5842736",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "EchoStar",
+      "slug": "echostar",
+      "domain": "echostar.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1280748",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "First Solar",
+      "slug": "first-solar",
+      "domain": "firstsolar.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1138888",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Flex Ltd.",
+      "slug": "flex-ltd",
+      "domain": "flex.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1140680",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Fox Corporation",
+      "slug": "fox-corporation",
+      "domain": "foxcorporation.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q60238941",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Live Nation Entertainment",
+      "slug": "live-nation-entertainment",
+      "domain": "livenationentertainment.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1061903",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Marvell Technology",
+      "slug": "marvell-technology",
+      "domain": "marvell.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1347782",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Monolithic Power Systems",
+      "slug": "monolithic-power-systems",
+      "domain": "monolithicpower.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q22058448",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "News Corp",
+      "slug": "news-corp",
+      "domain": "newscorp.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q14289857",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "NXP Semiconductors",
+      "slug": "nxp-semiconductors",
+      "domain": "nxp.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1155668",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Omnicom Group",
+      "slug": "omnicom-group",
+      "domain": "omnicomgroup.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1519267",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Paramount Skydance Corporation",
+      "slug": "paramount-skydance-corporation",
+      "domain": "paramount.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q135485147",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Qnity Electronics",
+      "slug": "qnity-electronics",
+      "domain": "qnityelectronics.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q138685636",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Sandisk",
+      "slug": "sandisk",
+      "domain": "sandisk.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q260833",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Seagate Technology",
+      "slug": "seagate-technology",
+      "domain": "seagate.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q705392",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Skyworks Solutions",
+      "slug": "skyworks-solutions",
+      "domain": "skyworksinc.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q7538146",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "T-Mobile US",
+      "slug": "t-mobile-us",
+      "domain": "t-mobile.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q3511885",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "TE Connectivity",
+      "slug": "te-connectivity",
+      "domain": "te.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q663452",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Teledyne Technologies",
+      "slug": "teledyne-technologies",
+      "domain": "teledyne.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q7696127",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Teradyne",
+      "slug": "teradyne",
+      "domain": "teradyne.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q2404292",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "TKO Group Holdings",
+      "slug": "tko-group-holdings",
+      "domain": "tkogrp.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q120435068",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Warner Bros. Discovery",
+      "slug": "warner-bros-discovery",
+      "domain": "wbd.com",
+      "source": "wikipedia-largest-internet",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q107074885",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Schneider Electric",
+      "slug": "schneider-electric",
+      "domain": "se.com",
       "source": "companiesmarketcap-software",
       "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "priority": 3,
-      "qid": "Q2901365",
-      "reason": "exact",
-      "cmc_rank": 95
+      "qid": "Q49053",
+      "wiki_title": "Schneider Electric",
+      "reason": "enwiki-search-title P856"
     },
     {
-      "name": "Zeta Global",
-      "slug": "zeta-global",
-      "domain": "zetaglobal.com",
+      "name": "ePlus",
+      "slug": "eplus",
+      "domain": "eplus.com",
       "source": "companiesmarketcap-software",
       "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "priority": 3,
-      "qid": "Q8069710",
-      "reason": "exact",
-      "cmc_rank": 103
+      "qid": "Q16992684",
+      "wiki_title": "EPlus",
+      "reason": "enwiki-search-title P856"
     },
     {
-      "name": "Enphase Energy",
-      "slug": "enphase-energy",
-      "domain": "enphase.com",
+      "name": "Tose Software",
+      "slug": "tose-software",
+      "domain": "tose.co.jp",
       "source": "companiesmarketcap-software",
       "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "priority": 3,
-      "qid": "Q17012234",
-      "reason": "exact",
-      "cmc_rank": 121
-    },
-    {
-      "name": "Varonis Systems",
-      "slug": "varonis-systems",
-      "domain": "varonis.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q19903773",
-      "reason": "exact",
-      "cmc_rank": 123
-    },
-    {
-      "name": "Synaptics",
-      "slug": "synaptics",
-      "domain": "synaptics.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q1571490",
-      "reason": "exact; same-domain-among-2",
-      "cmc_rank": 133
-    },
-    {
-      "name": "OBIC Business Consultants",
-      "slug": "obic-business-consultants",
-      "domain": "obc.co.jp",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q11293433",
-      "reason": "exact",
-      "cmc_rank": 135
-    },
-    {
-      "name": "NextNav",
-      "slug": "nextnav",
-      "domain": "nextnav.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q23950198",
-      "reason": "exact",
-      "cmc_rank": 147
-    },
-    {
-      "name": "Digi International",
-      "slug": "digi-international",
-      "domain": "digi.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q5275716",
-      "reason": "exact",
-      "cmc_rank": 150
-    },
-    {
-      "name": "VusionGroup",
-      "slug": "vusiongroup",
-      "domain": "vusion.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q3499779",
-      "reason": "exact",
-      "cmc_rank": 157
-    },
-    {
-      "name": "Diebold Nixdorf",
-      "slug": "diebold-nixdorf",
-      "domain": "dieboldnixdorf.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q1220078",
-      "reason": "exact",
-      "cmc_rank": 165
-    },
-    {
-      "name": "Genius Sports",
-      "slug": "genius-sports",
-      "domain": "geniussports.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q60741157",
-      "reason": "exact",
-      "cmc_rank": 172
-    },
-    {
-      "name": "Porch Group",
-      "slug": "porch-group",
-      "domain": "porch.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q134298823",
-      "reason": "exact",
-      "cmc_rank": 178
-    },
-    {
-      "name": "PDF Solutions",
-      "slug": "pdf-solutions",
-      "domain": "pdf.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q7118809",
-      "reason": "exact",
-      "cmc_rank": 180
-    },
-    {
-      "name": "Omnicell",
-      "slug": "omnicell",
-      "domain": "omnicell.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q104481307",
-      "reason": "exact",
-      "cmc_rank": 194
-    },
-    {
-      "name": "One Software Technologies",
-      "slug": "one-software-technologies",
-      "domain": "one1.co.il",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q68814400",
-      "reason": "close/prefix",
-      "cmc_rank": 196
-    },
-    {
-      "name": "4DMedical Limited",
-      "slug": "4dmedical-limited",
-      "domain": "4dmedical.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q109626898",
-      "reason": "exact",
-      "cmc_rank": 197
-    },
-    {
-      "name": "freee K.K.",
-      "slug": "freee-k-k",
-      "domain": "freee.co.jp",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q18455557",
-      "reason": "exact",
-      "cmc_rank": 206
-    },
-    {
-      "name": "Lufax",
-      "slug": "lufax",
-      "domain": "lu.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q19840382",
-      "reason": "exact",
-      "cmc_rank": 208
-    },
-    {
-      "name": "innoscripta SE",
-      "slug": "innoscripta-se",
-      "domain": "innoscripta.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q121301213",
-      "reason": "exact",
-      "cmc_rank": 224
-    },
-    {
-      "name": "Ibotta",
-      "slug": "ibotta",
-      "domain": "ibotta.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q28133993",
-      "reason": "exact",
-      "cmc_rank": 228
-    },
-    {
-      "name": "Asseco Business Solutions",
-      "slug": "asseco-business-solutions",
-      "domain": "assecobs.pl",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q9161281",
-      "reason": "exact",
-      "cmc_rank": 244
-    },
-    {
-      "name": "3D Systems",
-      "slug": "3d-systems",
-      "domain": "3dsystems.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q4636301",
-      "reason": "exact; same-domain-among-2",
-      "cmc_rank": 271
-    },
-    {
-      "name": "Spire Global",
-      "slug": "spire-global",
-      "domain": "spire.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q19877982",
-      "reason": "exact",
-      "cmc_rank": 273
-    },
-    {
-      "name": "AMTD Digital",
-      "slug": "amtd-digital",
-      "domain": "amtdigital.net",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q113459125",
-      "reason": "exact",
-      "cmc_rank": 275
-    },
-    {
-      "name": "IVU Traffic Technologies",
-      "slug": "ivu-traffic-technologies",
-      "domain": "ivu.de",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q1655072",
-      "reason": "exact",
-      "cmc_rank": 278
-    },
-    {
-      "name": "CI&T",
-      "slug": "ci-and-t",
-      "domain": "ciandt.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q5119048",
-      "reason": "exact",
-      "cmc_rank": 285
-    },
-    {
-      "name": "Materialise NV",
-      "slug": "materialise-nv",
-      "domain": "materialise.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q6786571",
-      "reason": "exact",
-      "cmc_rank": 292
-    },
-    {
-      "name": "Bakkt Holdings",
-      "slug": "bakkt-holdings",
-      "domain": "bakkt.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q83768717",
-      "reason": "close/prefix",
-      "cmc_rank": 305
-    },
-    {
-      "name": "Xunlei",
-      "slug": "xunlei",
-      "domain": "xunlei.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q15915960",
-      "reason": "close/prefix",
-      "cmc_rank": 313
-    },
-    {
-      "name": "Verve Group SE",
-      "slug": "verve-group-se",
-      "domain": "verve.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q136764101",
-      "reason": "close/prefix",
-      "cmc_rank": 314
-    },
-    {
-      "name": "BrainChip",
-      "slug": "brainchip",
-      "domain": "brainchip.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q112775053",
-      "reason": "close/prefix+theme",
-      "cmc_rank": 332
-    },
-    {
-      "name": "Vecima Networks",
-      "slug": "vecima-networks",
-      "domain": "vecima.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q973510",
-      "reason": "exact",
-      "cmc_rank": 334
-    },
-    {
-      "name": "DUG Technology",
-      "slug": "dug-technology",
-      "domain": "dug.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q132803442",
-      "reason": "exact",
-      "cmc_rank": 346
-    },
-    {
-      "name": "Micro Systemation",
-      "slug": "micro-systemation",
-      "domain": "msab.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q10584019",
-      "reason": "exact",
-      "cmc_rank": 353
-    },
-    {
-      "name": "Easy Software",
-      "slug": "easy-software",
-      "domain": "easy-software.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q15807171",
-      "reason": "exact",
-      "cmc_rank": 354
-    },
-    {
-      "name": "Digimarc",
-      "slug": "digimarc",
-      "domain": "digimarc.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q5275736",
-      "reason": "exact",
-      "cmc_rank": 359
-    },
-    {
-      "name": "The Platform Group",
-      "slug": "the-platform-group",
-      "domain": "the-platform-group.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q136484066",
-      "reason": "exact",
-      "cmc_rank": 374
-    },
-    {
-      "name": "Thryv",
-      "slug": "thryv",
-      "domain": "thryv.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q14914829",
-      "reason": "close/prefix",
-      "cmc_rank": 383
-    },
-    {
-      "name": "Genasys",
-      "slug": "genasys",
-      "domain": "lradx.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q6459789",
-      "reason": "exact",
-      "cmc_rank": 389
-    },
-    {
-      "name": "Rekor Systems",
-      "slug": "rekor-systems",
-      "domain": "rekor.ai",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q138590035",
-      "reason": "exact",
-      "cmc_rank": 390
-    },
-    {
-      "name": "Freightos",
-      "slug": "freightos",
-      "domain": "freightos.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q15281574",
-      "reason": "exact",
-      "cmc_rank": 395
-    },
-    {
-      "name": "NFON AG",
-      "slug": "nfon-ag",
-      "domain": "nfon.net",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q15836691",
-      "reason": "close/prefix",
-      "cmc_rank": 398
-    },
-    {
-      "name": "Castellum",
-      "slug": "castellum",
-      "domain": "castellum.se",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q10443590",
-      "reason": "exact",
-      "cmc_rank": 411
-    },
-    {
-      "name": "3i Infotech",
-      "slug": "3i-infotech",
-      "domain": "3i-infotech.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q4636612",
-      "reason": "close/prefix",
-      "cmc_rank": 417
-    },
-    {
-      "name": "Gigas Hosting",
-      "slug": "gigas-hosting",
-      "domain": "gigas.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q117476483",
-      "reason": "exact",
-      "cmc_rank": 419
-    },
-    {
-      "name": "Aiforia Technologies Oyj",
-      "slug": "aiforia-technologies-oyj",
-      "domain": "aiforia.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q115678908",
-      "reason": "exact",
-      "cmc_rank": 420
-    },
-    {
-      "name": "Phunware",
-      "slug": "phunware",
-      "domain": "phunware.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q78203110",
-      "reason": "exact",
-      "cmc_rank": 424
-    },
-    {
-      "name": "Nippon Ichi Software",
-      "slug": "nippon-ichi-software",
-      "domain": "nippon1.co.jp",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q1143659",
-      "reason": "exact",
-      "cmc_rank": 426
-    },
-    {
-      "name": "Dye & Durham",
-      "slug": "dye-and-durham",
-      "domain": "dyedurham.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q110292031",
-      "reason": "close/prefix",
-      "cmc_rank": 427
-    },
-    {
-      "name": "Verimatrix",
-      "slug": "verimatrix",
-      "domain": "verimatrix.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q25022226",
-      "reason": "exact",
-      "cmc_rank": 429
-    },
-    {
-      "name": "LivePerson",
-      "slug": "liveperson",
-      "domain": "liveperson.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q6654568",
-      "reason": "close/prefix",
-      "cmc_rank": 430
-    },
-    {
-      "name": "System1",
-      "slug": "system1",
-      "domain": "system1.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q109312681",
-      "reason": "exact",
-      "cmc_rank": 441
-    },
-    {
-      "name": "Sphere 3D",
-      "slug": "sphere-3d",
-      "domain": "sphere3d.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q105375474",
-      "reason": "exact",
-      "cmc_rank": 445
-    },
-    {
-      "name": "Smith Micro Software",
-      "slug": "smith-micro-software",
-      "domain": "smithmicro.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q7545224",
-      "reason": "exact",
-      "cmc_rank": 447
-    },
-    {
-      "name": "Cyngn",
-      "slug": "cyngn",
-      "domain": "cyngn.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q21177770",
-      "reason": "close/prefix",
-      "cmc_rank": 448
-    },
-    {
-      "name": "Upland Software",
-      "slug": "upland-software",
-      "domain": "powersteeringsoftware.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q17090754",
-      "reason": "exact",
-      "cmc_rank": 452
+      "qid": "Q2271746",
+      "wiki_title": "Tose",
+      "reason": "enwiki-search-title P856"
     }
   ],
   "skipped_dup_domain": [
@@ -744,23 +935,53 @@
     {
       "name": "Linedata Services",
       "domain": "linedata.com"
+    },
+    {
+      "name": "Palantir Technologies",
+      "domain": "palantir.com"
+    },
+    {
+      "name": "Akamai Technologies",
+      "domain": "akamai.com"
+    },
+    {
+      "name": "Broadridge Financial Solutions",
+      "domain": "broadridge.com"
+    },
+    {
+      "name": "Citrix Systems",
+      "domain": "citrix.com"
+    },
+    {
+      "name": "Unity Technologies",
+      "domain": "unity.com"
+    },
+    {
+      "name": "Salesforce.com",
+      "domain": "salesforce.com"
+    },
+    {
+      "name": "Bloomberg L.P.",
+      "domain": "bloomberg.com"
+    },
+    {
+      "name": "Keysight Technologies",
+      "domain": "keysight.com"
+    },
+    {
+      "name": "Supermicro",
+      "domain": "supermicro.com"
+    },
+    {
+      "name": "Verizon",
+      "domain": "verizon.com"
     }
   ],
   "unresolved_new": [
     {
-      "name": "Alphabet (Google)",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
       "name": "Schneider Electric",
       "status": "skipped-ambiguous",
       "reason": "exact but competing orgs ['Q49053', 'Q58197391'] and empty description"
-    },
-    {
-      "name": "Strategy (MicroStrategy)",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
     },
     {
       "name": "Fair Isaac (FICO)",
@@ -773,22 +994,12 @@
       "reason": "no-exact-or-close-label; 1 org candidate Q7893816 Unity Technologies"
     },
     {
-      "name": "QXO, Inc.",
-      "status": "unresolved",
-      "reason": "no-exact-or-close-label; 1 org candidate Q138213880 QXO Building Products"
-    },
-    {
       "name": "Oracle Corp Japan",
       "status": "unresolved",
       "reason": "no-wikidata-hits"
     },
     {
       "name": "Mobility Global, Inc.",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Dave Inc.",
       "status": "unresolved",
       "reason": "no-wikidata-hits"
     },
@@ -811,11 +1022,6 @@
       "name": "ePlus",
       "status": "skipped-ambiguous",
       "reason": "several close/prefix matches: Q11291384 eplus Inc. -> eplus.jp; Q16992684 EPlus Inc -> eplus.com"
-    },
-    {
-      "name": "HBX Group International plc",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
     },
     {
       "name": "iFAST Corporation",
@@ -848,11 +1054,6 @@
       "reason": "no-wikidata-hits"
     },
     {
-      "name": "Catapult Group International",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
       "name": "Mensch und Maschine",
       "status": "unresolved",
       "reason": "no-org-with-official-website"
@@ -871,11 +1072,6 @@
       "name": "Weave Communications",
       "status": "unresolved",
       "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "MapmyIndia",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
     },
     {
       "name": "GPI S.p.A.",
@@ -918,11 +1114,6 @@
       "reason": "no-wikidata-hits"
     },
     {
-      "name": "Text (LiveChat)",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
       "name": "Duos Technologies Group",
       "status": "unresolved",
       "reason": "no-wikidata-hits"
@@ -958,17 +1149,7 @@
       "reason": "no-wikidata-hits"
     },
     {
-      "name": "Compugen",
-      "status": "skipped-ambiguous",
-      "reason": "several close/prefix matches: Q5157220 Compugen Ltd. -> cgen.com; Q2990895 Compugen Inc. -> compugen.com"
-    },
-    {
       "name": "Spok Holdings",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Perfect Corp.",
       "status": "unresolved",
       "reason": "no-wikidata-hits"
     },
@@ -979,11 +1160,6 @@
     },
     {
       "name": "Marti Technologies",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Cegedim SA",
       "status": "unresolved",
       "reason": "no-wikidata-hits"
     },
@@ -1008,11 +1184,6 @@
       "reason": "no-wikidata-hits"
     },
     {
-      "name": "MotorK",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
       "name": "SNGULAR",
       "status": "unresolved",
       "reason": "no-wikidata-hits"
@@ -1026,11 +1197,6 @@
       "name": "ALT5 Sigma",
       "status": "unresolved",
       "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Serko Limited",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
     },
     {
       "name": "EROAD Limited",
@@ -1058,6 +1224,11 @@
       "reason": "no-org-with-official-website"
     },
     {
+      "name": "Nerdy, Inc,",
+      "status": "unresolved",
+      "reason": "no-wikidata-hits"
+    },
+    {
       "name": "Microlise",
       "status": "unresolved",
       "reason": "no-wikidata-hits"
@@ -1068,7 +1239,7 @@
       "reason": "no-wikidata-hits"
     },
     {
-      "name": "Usio",
+      "name": "Forian",
       "status": "unresolved",
       "reason": "no-org-with-official-website"
     },
@@ -1078,22 +1249,7 @@
       "reason": "no-wikidata-hits"
     },
     {
-      "name": "Forian",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
       "name": "iHuman",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Intellicheck",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "3P Learning",
       "status": "unresolved",
       "reason": "no-org-with-official-website"
     },
@@ -1108,12 +1264,17 @@
       "reason": "no-wikidata-hits"
     },
     {
-      "name": "iLearningEngines",
+      "name": "Intellicheck",
       "status": "unresolved",
       "reason": "no-wikidata-hits"
     },
     {
-      "name": "Exasol AG",
+      "name": "3P Learning",
+      "status": "unresolved",
+      "reason": "no-org-with-official-website"
+    },
+    {
+      "name": "iLearningEngines",
       "status": "unresolved",
       "reason": "no-wikidata-hits"
     },
@@ -1153,19 +1314,9 @@
       "reason": "no-wikidata-hits"
     },
     {
-      "name": "Nerdy, Inc,",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
       "name": "VIDA Global Inc.",
       "status": "unresolved",
       "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Pulsar Group",
-      "status": "skipped-ambiguous",
-      "reason": "several exact matches: Q139571462 Pulsar group -> pulsartheatre.com; Q140686586 Pulsar Group -> pulsargroup.com"
     },
     {
       "name": "Mentice AB",
@@ -1176,11 +1327,6 @@
       "name": "Diginex",
       "status": "unresolved",
       "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "INTERSHOP Communications",
-      "status": "unresolved",
-      "reason": "no-exact-or-close-label; 1 org candidate Q896637 Intershop"
     },
     {
       "name": "Latch",
@@ -1273,11 +1419,6 @@
       "reason": "no-wikidata-hits"
     },
     {
-      "name": "Urgent.ly Inc.",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
       "name": "Global Mofy AI",
       "status": "unresolved",
       "reason": "no-wikidata-hits"
@@ -1286,1027 +1427,176 @@
       "name": "CISO Global",
       "status": "unresolved",
       "reason": "no-wikidata-hits"
+    },
+    {
+      "name": "Signing Day Sports",
+      "status": "unresolved",
+      "reason": "no-wikidata-hits"
+    },
+    {
+      "name": "authID",
+      "status": "unresolved",
+      "reason": "no-wikidata-hits"
+    },
+    {
+      "name": "Techstep ASA",
+      "status": "unresolved",
+      "reason": "no-org-with-official-website"
+    },
+    {
+      "name": "Orangekloud Technology",
+      "status": "unresolved",
+      "reason": "no-wikidata-hits"
+    },
+    {
+      "name": "Locafy",
+      "status": "unresolved",
+      "reason": "no-exact-or-close-label; 1 org candidate Q19874420 Hotfrog"
+    },
+    {
+      "name": "Treasure Global",
+      "status": "unresolved",
+      "reason": "no-org-with-official-website"
+    },
+    {
+      "name": "Lucas GC",
+      "status": "unresolved",
+      "reason": "no-org-with-official-website"
+    },
+    {
+      "name": "Cyabra, Inc.",
+      "status": "unresolved",
+      "reason": "no-wikidata-hits"
+    },
+    {
+      "name": "Cemtrex",
+      "status": "unresolved",
+      "reason": "no-wikidata-hits"
+    },
+    {
+      "name": "BIO-key International",
+      "status": "unresolved",
+      "reason": "no-wikidata-hits"
+    },
+    {
+      "name": "Foresight Autonomous Holdings",
+      "status": "unresolved",
+      "reason": "no-exact-or-close-label; 1 org candidate Q96574751 foresight automotive LTD"
+    },
+    {
+      "name": "Jet.AI",
+      "status": "unresolved",
+      "reason": "no-wikidata-hits"
+    },
+    {
+      "name": "G Medical Innovations",
+      "status": "unresolved",
+      "reason": "no-wikidata-hits"
+    },
+    {
+      "name": "Freight Technologies, Inc.",
+      "status": "unresolved",
+      "reason": "no-wikidata-hits"
+    },
+    {
+      "name": "Fintech Scion (FintechCashier)",
+      "status": "unresolved",
+      "reason": "no-wikidata-hits"
+    },
+    {
+      "name": "CXApp",
+      "status": "unresolved",
+      "reason": "no-wikidata-hits"
+    },
+    {
+      "name": "Remark Holdings",
+      "status": "unresolved",
+      "reason": "no-exact-or-close-label; 1 org candidate Q7311538 Remark Media"
+    },
+    {
+      "name": "Presto Automation",
+      "status": "unresolved",
+      "reason": "no-wikidata-hits"
+    },
+    {
+      "name": "Movella",
+      "status": "unresolved",
+      "reason": "no-org-with-official-website"
+    },
+    {
+      "name": "Bet365",
+      "status": "no-p856",
+      "reason": "Bet365"
+    },
+    {
+      "name": "Newtown, Pennsylvania",
+      "status": "no-p856",
+      "reason": "Newtown, Bucks County, Pennsylvania"
+    },
+    {
+      "name": "58.com",
+      "status": "no-p856",
+      "reason": ":zh:58\u540c\u57ce"
+    },
+    {
+      "name": "Carsome",
+      "status": "no-p856",
+      "reason": "Carsome"
+    },
+    {
+      "name": "Lumentum",
+      "status": "no-p856",
+      "reason": "Lumentum"
+    },
+    {
+      "name": "Qualcomm",
+      "status": "no-p856",
+      "reason": "Qualcomm"
     }
   ],
   "prior_counts": {
-    "total": 390,
-    "resolved": 252,
-    "unresolved": 134,
-    "skipped-ambiguous": 4
+    "existing_nulls": 138,
+    "filled_existing": 0,
+    "new_candidates_resolved_attempted": 180,
+    "appended": 63,
+    "skipped_dup_domain": 9,
+    "unresolved_new": 108
   },
-  "wiki_pass": {
-    "dropped_bad": [
-      "upland-software",
-      "castellum",
-      "compass",
-      "system1"
-    ],
-    "appended": [
-      {
-        "name": "Alphabet (Google)",
-        "slug": "alphabet-google",
-        "domain": "abc.xyz",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Alphabet Inc.",
-        "cmc_rank": 2
-      },
-      {
-        "name": "Strategy (MicroStrategy)",
-        "slug": "strategy-microstrategy",
-        "domain": "strategyand.pwc.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Strategy&",
-        "cmc_rank": 31
-      },
-      {
-        "name": "Amadeus IT Group",
-        "slug": "amadeus-it-group",
-        "domain": "corporate.amadeus.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Amadeus IT Group",
-        "cmc_rank": 39
-      },
-      {
-        "name": "Unity Software",
-        "slug": "unity-software",
-        "domain": "web.archive.org",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Unity (game engine)",
-        "cmc_rank": 44
-      },
-      {
-        "name": "QXO, Inc.",
-        "slug": "qxo-inc",
-        "domain": "qxo.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "QXO",
-        "cmc_rank": 60
-      },
-      {
-        "name": "Dave Inc.",
-        "slug": "dave-inc",
-        "domain": "dave.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Dave (company)",
-        "cmc_rank": 128
-      },
-      {
-        "name": "Calix",
-        "slug": "calix",
-        "domain": "miracalix.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Mira Calix",
-        "cmc_rank": 156
-      },
-      {
-        "name": "MapmyIndia",
-        "slug": "mapmyindia",
-        "domain": "mapmyindia.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "MapmyIndia",
-        "cmc_rank": 272
-      },
-      {
-        "name": "TROOPS, Inc.",
-        "slug": "troops-inc",
-        "domain": "csmonitor.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Snooper Troops",
-        "cmc_rank": 319
-      },
-      {
-        "name": "Perfect Corp.",
-        "slug": "perfect-corp",
-        "domain": "perfectcorp.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "YouCam Perfect",
-        "cmc_rank": 344
-      },
-      {
-        "name": "Marti Technologies",
-        "slug": "marti-technologies",
-        "domain": "marti.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Marti Group",
-        "cmc_rank": 355
-      },
-      {
-        "name": "Cegedim SA",
-        "slug": "cegedim-sa",
-        "domain": "cegedim.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Cegedim",
-        "cmc_rank": 356
-      },
-      {
-        "name": "MotorK",
-        "slug": "motork",
-        "domain": "motork.io",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "MotorK",
-        "cmc_rank": 370
-      },
-      {
-        "name": "Serko Limited",
-        "slug": "serko-limited",
-        "domain": "serko.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Serko",
-        "cmc_rank": 376
-      },
-      {
-        "name": "EROAD Limited",
-        "slug": "eroad-limited",
-        "domain": "eroadracing.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "FIM eRoad Racing World Cup",
-        "cmc_rank": 379
-      },
-      {
-        "name": "Usio",
-        "slug": "usio",
-        "domain": "usio.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Usio, Inc",
-        "cmc_rank": 397
-      },
-      {
-        "name": "iHuman",
-        "slug": "ihuman",
-        "domain": "zagrebdox.net",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "IHuman (film)",
-        "cmc_rank": 403
-      },
-      {
-        "name": "Exasol AG",
-        "slug": "exasol-ag",
-        "domain": "exasol.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Exasol",
-        "cmc_rank": 409
-      },
-      {
-        "name": "Pulsar Group",
-        "slug": "pulsar-group",
-        "domain": "pulsarplatform.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Pulsar (social listening platform)",
-        "cmc_rank": 423
-      },
-      {
-        "name": "INTERSHOP Communications",
-        "slug": "intershop-communications",
-        "domain": "intershop.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Intershop Communications AG",
-        "cmc_rank": 431
-      },
-      {
-        "name": "System1",
-        "slug": "system1",
-        "domain": "system1.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "System1",
-        "cmc_rank": 441
-      },
-      {
-        "name": "Avant Technologies Inc.",
-        "slug": "avant-technologies-inc",
-        "domain": "avant.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Avant (company)",
-        "cmc_rank": 443
-      },
-      {
-        "name": "SOS Limited",
-        "slug": "sos-limited",
-        "domain": "channel4.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Car SOS",
-        "cmc_rank": 446
-      },
-      {
-        "name": "The Glimpse Group",
-        "slug": "the-glimpse-group",
-        "domain": "roadrunnerrecords.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "A Warm Glimpse",
-        "cmc_rank": 450
-      },
-      {
-        "name": "Urgent.ly Inc.",
-        "slug": "urgent-ly-inc",
-        "domain": "geturgently.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Urgent.ly",
-        "cmc_rank": 455
-      },
-      {
-        "name": "SeaChange International",
-        "slug": "seachange-international",
-        "domain": "seachange.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "SeaChange International",
-        "cmc_rank": 458
-      },
-      {
-        "name": "Marin Software",
-        "slug": "marin-software",
-        "domain": "marinsoftware.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Marin Software",
-        "cmc_rank": 471
-      },
-      {
-        "name": "zSpace",
-        "slug": "zspace",
-        "domain": "zspace.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "ZSpace (company)",
-        "cmc_rank": 475
-      },
-      {
-        "name": "Xiao-I",
-        "slug": "xiao-i",
-        "domain": "xiaoi.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Xiao-i",
-        "cmc_rank": 476
-      },
-      {
-        "name": "Exela Technologies",
-        "slug": "exela-technologies",
-        "domain": "exelatech.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Exela Technologies",
-        "cmc_rank": 482
-      }
-    ],
-    "skipped_dup_domain": [
-      {
-        "name": "Guidewire Software",
-        "domain": "guidewire.com",
-        "title": "Guidewire Software"
-      },
-      {
-        "name": "Check Point Software",
-        "domain": "checkpoint.com",
-        "title": "Check Point"
-      },
-      {
-        "name": "Rackspace Technology",
-        "domain": "rackspace.com",
-        "title": "Rackspace Technology"
-      },
-      {
-        "name": "Cognyte Software",
-        "domain": "cognyte.com",
-        "title": "Cognyte"
-      },
-      {
-        "name": "Text (LiveChat)",
-        "domain": "web.archive.org",
-        "title": "Text (company)"
-      },
-      {
-        "name": "Coveo Solutions",
-        "domain": "coveo.com",
-        "title": "Coveo"
-      }
-    ],
-    "unresolved_count": 107,
-    "unresolved_sample": [
-      {
-        "name": "Schneider Electric",
-        "reason": "no-infobox-website [('Schneider Electric', None), ('APC by Schneider Electric', None)]",
-        "title": null
-      },
-      {
-        "name": "Automatic Data Processing",
-        "reason": "no-infobox-website [('Automatic data processing', None), ('Data processing', None), ('Convention for the Protection of Individuals with Regard to Automatic Processing of Personal Data', None)]",
-        "title": null
-      },
-      {
-        "name": "Fair Isaac (FICO)",
-        "reason": "no-close-wiki-title: FICO; Fico; Credit score in the United States",
-        "title": null
-      },
-      {
-        "name": "Compass",
-        "reason": "no-infobox-website [('Compass', None), ('Compass (disambiguation)', None), ('Points of the compass', None)]",
-        "title": null
-      },
-      {
-        "name": "Oracle Corp Japan",
-        "reason": "no-close-wiki-title: Oracle Corporation; Oracle Solaris; NS Solutions",
-        "title": null
-      },
-      {
-        "name": "Mobility Global, Inc.",
-        "reason": "no-close-wiki-title: Carfax, Inc.; S&P Global; Motorola Mobility",
-        "title": null
-      },
-      {
-        "name": "OVH Groupe",
-        "reason": "no-close-wiki-title: OVHcloud; List of Internet top-level domains; Scaleway",
-        "title": null
-      },
-      {
-        "name": "Rakus Co., Ltd.",
-        "reason": "no-close-wiki-title: Raku ware; Pine Jam; Pro Wrestling Noah",
-        "title": null
-      },
-      {
-        "name": "ePlus",
-        "reason": "no-infobox-website [('EPlus', None)]",
-        "title": null
-      },
-      {
-        "name": "HBX Group International plc",
-        "reason": "no-wiki-hits",
-        "title": null
-      },
-      {
-        "name": "Alkami Technology",
-        "reason": "no-close-wiki-title: Digital banking; McKinsey & Company",
-        "title": null
-      },
-      {
-        "name": "iFAST Corporation",
-        "reason": "no-close-wiki-title: Bob's; Supercat Fast Ferry Corporation; Paramount Skydance",
-        "title": null
-      },
-      {
-        "name": "Karooooo",
-        "reason": "no-close-wiki-title: Zak Calisto; Stephan von Huene",
-        "title": null
-      },
-      {
-        "name": "GigaCloud Technology",
-        "reason": "no-infobox-website [('GigaCloud Technology', None)]",
-        "title": null
-      },
-      {
-        "name": "Absci",
-        "reason": "no-close-wiki-title: ABS-201; Video Game History Foundation; Oregon Venture Fund",
-        "title": null
-      },
-      {
-        "name": "Pagaya Technologies",
-        "reason": "no-infobox-website [('Pagaya Technologies', None)]",
-        "title": null
-      },
-      {
-        "name": "BlackSky Technology",
-        "reason": "no-infobox-website [('BlackSky Technology Inc.', None)]",
-        "title": null
-      },
-      {
-        "name": "Catapult Group International",
-        "reason": "no-close-wiki-title: Catapult Sports; Electromagnetic catapult; Adir Shiffman",
-        "title": null
-      },
-      {
-        "name": "Mensch und Maschine",
-        "reason": "no-close-wiki-title: Sex machine; Thomas Rid; Total 11",
-        "title": null
-      },
-      {
-        "name": "Chrysos Corporation Limited",
-        "reason": "no-close-wiki-title: List of Honkai: Star Rail characters; Eurasia Drilling Company; Honkai: Star Rail",
-        "title": null
-      },
-      {
-        "name": "ODDITY Tech",
-        "reason": "no-close-wiki-title: Regent International Center; Traditions of the Georgia Institute of Technology; Il Makiage",
-        "title": null
-      },
-      {
-        "name": "Weave Communications",
-        "reason": "no-close-wiki-title: Companies listed on the New York Stock Exchange (W); Gaza Strip; Peter Thiel",
-        "title": null
-      },
-      {
-        "name": "GPI S.p.A.",
-        "reason": "no-close-wiki-title: Genuine progress indicator; List of S&P 600 companies; Lipid-anchored protein",
-        "title": null
-      },
-      {
-        "name": "Priority Technology Holdings",
-        "reason": "no-infobox-website [('Technology', None)]",
-        "title": null
-      },
-      {
-        "name": "Automated Systems Company KPSC",
-        "reason": "no-close-wiki-title: KSFM",
-        "title": null
-      },
-      {
-        "name": "Gorilla Technology",
-        "reason": "no-infobox-website [('Technology', None)]",
-        "title": null
-      },
-      {
-        "name": "Vista Group International",
-        "reason": "no-infobox-website [('Vista Group', None)]",
-        "title": null
-      },
-      {
-        "name": "Arqit Quantum",
-        "reason": "no-close-wiki-title: Manfredi Lefebvre d'Ovidio; David Williams (businessman, born 1969)",
-        "title": null
-      },
-      {
-        "name": "Blend Labs",
-        "reason": "no-close-wiki-title: ElevenLabs; Mercer Labs Museum of Art and Technology; Formation 8",
-        "title": null
-      },
-      {
-        "name": "Duos Technologies Group",
-        "reason": "no-close-wiki-title: Laid Back; Radeon; Vegas (duo)",
-        "title": null
-      },
-      {
-        "name": "SmartCraft ASA",
-        "reason": "no-close-wiki-title: 2026 ASA STARS National Tour; 2025 ASA STARS National Tour; Point of sail",
-        "title": null
-      },
-      {
-        "name": "Gentrack Group",
-        "reason": "no-close-wiki-title: S&P/NZX 50; List of companies listed on the New Zealand Exchange; Information technology industry in New Zealand",
-        "title": null
-      },
-      {
-        "name": "SmartRent",
-        "reason": "no-close-wiki-title: Fifth Wall (firm); Margaux (film); AppFolio",
-        "title": null
-      },
-      {
-        "name": "Median Technologies SA",
-        "reason": "no-close-wiki-title: Avax Technologies; United States; Adelaide",
-        "title": null
-      },
-      {
-        "name": "Linedata Services",
-        "reason": "no-close-wiki-title: CAC Small; Institut Montaigne; Ardian (company)",
-        "title": null
-      },
-      {
-        "name": "Compugen",
-        "reason": "ambiguous-hosts [('Compugen Ltd.', 'cgen.com'), ('Compugen Inc.', 'compugen.com')]",
-        "title": null
-      },
-      {
-        "name": "Spok Holdings",
-        "reason": "no-close-wiki-title: List of S&P 600 companies; Historical components of the S&P 600; Biotechnology",
-        "title": null
-      },
-      {
-        "name": "OPTiM",
-        "reason": "no-close-wiki-title: Tormenta Stadium; Dell OptiPlex; Iranian Journal of Numerical Analysis and Optimization",
-        "title": null
-      },
-      {
-        "name": "OptimizeRx",
-        "reason": "no-close-wiki-title: List of S&P 600 companies; Lexus RX; Radeon RX 9000 series",
-        "title": null
-      },
-      {
-        "name": "Quartix Technologies",
-        "reason": "no-wiki-hits",
-        "title": null
-      }
-    ]
-  },
-  "strict_wiki_pass": {
-    "dropped": [
-      "alphabet-google",
-      "amadeus-it-group",
-      "avant-technologies-inc",
-      "calix",
-      "eroad-limited",
-      "ihuman",
-      "marti-technologies",
-      "sos-limited",
-      "strategy-microstrategy",
-      "the-glimpse-group",
-      "troops-inc",
-      "unity-software"
-    ],
-    "appended": [
-      {
-        "name": "Oracle Corp Japan",
-        "slug": "oracle-corp-japan",
-        "domain": "sec.gov",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Oracle Corporation",
-        "cmc_rank": 99
-      },
-      {
-        "name": "GigaCloud Technology",
-        "slug": "gigacloud-technology",
-        "domain": "forbes.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "GigaCloud Technology",
-        "cmc_rank": 183
-      },
-      {
-        "name": "Catapult Group International",
-        "slug": "catapult-group-international",
-        "domain": "catapultsports.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Catapult Sports",
-        "cmc_rank": 239
-      },
-      {
-        "name": "Marti Technologies",
-        "slug": "marti-technologies",
-        "domain": "marti.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Marti Group",
-        "cmc_rank": 355
-      },
-      {
-        "name": "Avant Technologies Inc.",
-        "slug": "avant-technologies-inc",
-        "domain": "avant.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Avant (company)",
-        "cmc_rank": 443
-      }
-    ],
-    "skipped_dup": [
-      {
-        "name": "Amadeus IT Group",
-        "domain": "corporate.amadeus.com"
-      },
-      {
-        "name": "Guidewire Software",
-        "domain": "guidewire.com"
-      },
-      {
-        "name": "Check Point Software",
-        "domain": "checkpoint.com"
-      },
-      {
-        "name": "Pagaya Technologies",
-        "domain": "investor.pagaya.com"
-      },
-      {
-        "name": "Rackspace Technology",
-        "domain": "rackspace.com"
-      },
-      {
-        "name": "Cognyte Software",
-        "domain": "cognyte.com"
-      },
-      {
-        "name": "Coveo Solutions",
-        "domain": "coveo.com"
-      },
-      {
-        "name": "BloomZ",
-        "domain": "bigscience.huggingface.co"
-      }
-    ],
-    "unresolved_count": 113,
-    "unresolved_sample": [
-      {
-        "name": "Alphabet (Google)",
-        "reason": "no-company-infobox-website"
-      },
-      {
-        "name": "Schneider Electric",
-        "reason": "[('Schneider Electric', 'se.com'), ('Schneider Electric DMS', 'apr.gov.rs')]"
-      },
-      {
-        "name": "Automatic Data Processing",
-        "reason": "no-company-infobox-website"
-      },
-      {
-        "name": "Strategy (MicroStrategy)",
-        "reason": "no-company-infobox-website"
-      },
-      {
-        "name": "Fair Isaac (FICO)",
-        "reason": "no-strict-title FICO; Fico; Credit score in the United States; Earl Isaac"
-      },
-      {
-        "name": "Unity Software",
-        "reason": "no-company-infobox-website"
-      },
-      {
-        "name": "Compass",
-        "reason": "no-company-infobox-website"
-      },
-      {
-        "name": "Mobility Global, Inc.",
-        "reason": "no-strict-title Carfax, Inc.; S&P Global; Motorola Mobility; Bird Global"
-      },
-      {
-        "name": "OVH Groupe",
-        "reason": "no-strict-title OVHcloud; List of Internet top-level domains; Scaleway; Rennes"
-      },
-      {
-        "name": "Calix",
-        "reason": "[('Calix, Inc.', 'stockanalysis.com'), ('Calix Limited', 'calix.global')]"
-      },
-      {
-        "name": "Rakus Co., Ltd.",
-        "reason": "no-strict-title Raku ware; Pine Jam; Pro Wrestling Noah; Rakuraku Yamato"
-      },
-      {
-        "name": "ePlus",
-        "reason": "[('EPlus', 'finance.yahoo.com'), ('E-Plus', 'eplus-gruppe.de')]"
-      },
-      {
-        "name": "HBX Group International plc",
-        "reason": "no-strict-title List of airports in India; Bharat Anand; Tata Punch; Hepatitis B virus"
-      },
-      {
-        "name": "Alkami Technology",
-        "reason": "no-strict-title Digital banking; McKinsey & Company"
-      },
-      {
-        "name": "iFAST Corporation",
-        "reason": "no-strict-title Bob's; Supercat Fast Ferry Corporation; Paramount Skydance; Target Corporation"
-      },
-      {
-        "name": "Karooooo",
-        "reason": "no-strict-title Zak Calisto; Stephan von Huene"
-      },
-      {
-        "name": "Absci",
-        "reason": "no-strict-title ABS-201; Video Game History Foundation; Oregon Venture Fund; Regional Centre for Biotechnology"
-      },
-      {
-        "name": "BlackSky Technology",
-        "reason": "no-company-infobox-website"
-      },
-      {
-        "name": "Wiit S.p.A.",
-        "reason": "no-strict-title Illinois Institute of Technology; List of college radio stations in the United States; 2025 in hip-hop; List of airports by ICAO code: W"
-      },
-      {
-        "name": "Mensch und Maschine",
-        "reason": "no-strict-title Sex machine; Thomas Rid; Total 11; Arse Elektronika"
-      },
-      {
-        "name": "Chrysos Corporation Limited",
-        "reason": "no-strict-title List of Honkai: Star Rail characters; Eurasia Drilling Company; Honkai: Star Rail; Saint-Gobain"
-      },
-      {
-        "name": "ODDITY Tech",
-        "reason": "no-strict-title Regent International Center; Traditions of the Georgia Institute of Technology; Il Makiage; Shoaling and schooling"
-      },
-      {
-        "name": "Weave Communications",
-        "reason": "no-strict-title Companies listed on the New York Stock Exchange (W); Gaza Strip; Peter Thiel; Iran"
-      },
-      {
-        "name": "GPI S.p.A.",
-        "reason": "no-strict-title Genuine progress indicator; List of S&P 600 companies; Lipid-anchored protein; Cassa Depositi e Prestiti"
-      },
-      {
-        "name": "Priority Technology Holdings",
-        "reason": "no-strict-title Cynergy Data; Temasek Holdings; RadPad; Technology"
-      },
-      {
-        "name": "Automated Systems Company KPSC",
-        "reason": "no-strict-title KSFM"
-      },
-      {
-        "name": "Gorilla Technology",
-        "reason": "no-strict-title Snowflake (gorilla); Gorilla Glass; Technology; Grrr"
-      },
-      {
-        "name": "Vista Group International",
-        "reason": "[('Vista Group', 'nzx.com'), ('Vista Bank Group', 'vistabankgroup.com'), ('Vista Global', 'vistaglobal.com'), ('Vista Alegre (company)', 'myvistaalegre.com')]"
-      },
-      {
-        "name": "Arqit Quantum",
-        "reason": "no-strict-title Manfredi Lefebvre d'Ovidio; David Williams (businessman, born 1969)"
-      },
-      {
-        "name": "Blend Labs",
-        "reason": "no-strict-title ElevenLabs; Mercer Labs Museum of Art and Technology; Formation 8; California"
-      }
-    ]
-  },
-  "targeted_wiki": {
-    "appended": [
-      {
-        "name": "HBX Group International plc",
-        "slug": "hbx-group-international-plc",
-        "domain": "hbxgroup.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "HBX Group"
-      },
-      {
-        "name": "Compugen",
-        "slug": "compugen",
-        "domain": "cgen.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Compugen Ltd."
-      },
-      {
-        "name": "Compass",
-        "slug": "compass",
-        "domain": "compass.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Compass, Inc."
-      },
-      {
-        "name": "Strategy (MicroStrategy)",
-        "slug": "strategy-microstrategy",
-        "domain": "strategy.com",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "MicroStrategy"
-      },
-      {
-        "name": "Alphabet (Google)",
-        "slug": "alphabet-google",
-        "domain": "abc.xyz",
-        "source": "companiesmarketcap-software",
-        "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-        "priority": 3,
-        "wiki_title": "Alphabet Inc."
-      }
-    ],
-    "skipped": [
-      {
-        "name": "RaySearch Laboratories AB",
-        "why": "already-on-file"
-      },
-      {
-        "name": "NCC Group plc",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Agora, Inc.",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Nuix Limited",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Qoria Limited",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Dave Inc.",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Catapult Group International",
-        "why": "already-on-file"
-      },
-      {
-        "name": "WithSecure Oyj",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Text (LiveChat)",
-        "title": "LiveChat",
-        "domain": "livechat.com",
-        "why": "dup-domain"
-      },
-      {
-        "name": "Coveo Solutions",
-        "title": "Coveo",
-        "domain": "coveo.com",
-        "why": "dup-domain"
-      },
-      {
-        "name": "Digital Arts Inc.",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Shift Inc.",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Pinewood Technologies Group",
-        "why": "already-on-file"
-      },
-      {
-        "name": "GB Group (GBG)",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Lectra SA",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Iress Limited",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Zuken Inc.",
-        "why": "already-on-file"
-      },
-      {
-        "name": "MNTN, Inc.",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Tuya Inc.",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Cognyte Software",
-        "title": "Cognyte",
-        "domain": "cognyte.com",
-        "why": "dup-domain"
-      },
-      {
-        "name": "Kainos Group",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Megaport Limited",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Sopra Steria Group",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Box, Inc.",
-        "why": "already-on-file"
-      },
-      {
-        "name": "GMO internet group",
-        "why": "already-on-file"
-      },
-      {
-        "name": "NCR Voyix Corporation",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Vitec Software Group",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Securitize Corp.",
-        "why": "already-on-file"
-      },
-      {
-        "name": "M3, Inc",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Descartes Systems Group",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Nebius Group",
-        "why": "already-on-file"
-      },
-      {
-        "name": "SCSK Corporation",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Elastic NV",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Sage Group",
-        "why": "already-on-file"
-      },
-      {
-        "name": "Check Point Software",
-        "title": "Check Point",
-        "domain": "checkpoint.com",
-        "why": "dup-domain"
-      },
-      {
-        "name": "Guidewire Software",
-        "title": "Guidewire Software",
-        "domain": "guidewire.com",
-        "why": "dup-domain"
-      }
-    ],
-    "failed": [
-      "Schneider Electric",
-      "OVH Groupe",
-      "Calix",
-      "Rakus Co., Ltd.",
-      "ePlus",
-      "iFAST Corporation",
-      "Karooooo",
-      "Absci",
-      "BlackSky Technology",
-      "Mensch und Maschine",
-      "Chrysos Corporation Limited",
-      "ODDITY Tech",
-      "Weave Communications",
-      "GPI S.p.A.",
-      "Priority Technology Holdings",
-      "Gorilla Technology",
-      "Vista Group International",
-      "Arqit Quantum",
-      "Blend Labs",
-      "Duos Technologies Group",
-      "SmartCraft ASA",
-      "Gentrack Group",
-      "SmartRent",
-      "Median Technologies SA",
-      "Mobility Global, Inc.",
-      "TROOPS, Inc.",
-      "Automated Systems Company KSPC",
-      "Automated Systems Company KPSC",
-      "Wiit S.p.A.",
-      "Alkami Technology",
-      "Pagaya Technologies",
-      "Rackspace Technology",
-      "Linedata Services",
-      "Unity Software",
-      "Fair Isaac (FICO)",
-      "Amadeus IT Group",
-      "Automatic Data Processing",
-      "Oracle Corp Japan"
-    ]
-  }
+  "dropped_wrong_p856": [
+    {
+      "name": "Castellum",
+      "slug": "castellum",
+      "domain": "castellum.se"
+    },
+    {
+      "name": "Upland Software",
+      "slug": "upland-software",
+      "domain": "powersteeringsoftware.com"
+    },
+    {
+      "name": "BloomZ",
+      "slug": "bloomz",
+      "domain": "bloomz.com.mx"
+    },
+    {
+      "name": "Panasonic",
+      "slug": "panasonic",
+      "domain": "holdings.panasonic"
+    },
+    {
+      "name": "Marti Technologies",
+      "slug": "marti-technologies",
+      "domain": "martiag.ch"
+    },
+    {
+      "name": "Avant Technologies Inc.",
+      "slug": "avant-technologies-inc",
+      "domain": "readyforzero.com"
+    },
+    {
+      "name": "Treasure Global",
+      "slug": "treasure-global",
+      "domain": "ygfamily.com"
+    }
+  ]
 }
