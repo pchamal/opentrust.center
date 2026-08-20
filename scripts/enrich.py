@@ -431,6 +431,12 @@ def landed_on_home(requested: str, final_url: str) -> bool:
 
 
 def fetch_uncached(url: str, max_body: int) -> dict:
+    if not url or not str(url).strip().startswith("http") or ANNOTATED_URL_RE.search(url) or re.search(r"\s", url):
+        return {
+            "url": url, "ok": False, "status": 0, "final_url": url,
+            "title": "", "text": "", "meta": "", "hrefs": [], "ctype": "",
+            "fetched_at": utc_now(), "raw_head": "", "html": "",
+        }
     fetched = crawl.fetch(url, max_body=max_body)
     html = fetched.get("body") or ""
     title = crawl.extract_title(html) if html else ""
@@ -447,10 +453,14 @@ def fetch_uncached(url: str, max_body: int) -> dict:
         "ctype": (fetched.get("headers") or {}).get("content-type", ""),
         "fetched_at": utc_now(),
         "raw_head": "",
+        "html": "",
     }
     if "security.txt" in url.lower():
         rec["text"] = html[:8000]
         rec["raw_head"] = html[:4000]
+    elif re.search(r"sub-?process|service-providers?", url, re.I) or "<table" in html.lower():
+        rec["html"] = html[:PROCESSOR_BODY]
+        rec["text"] = strip_tags(html)[:80000]
     return rec
 
 
@@ -608,6 +618,317 @@ def extract_processors(text: str) -> list[str]:
             seen.add(pid)
             hits.append(pid)
     return hits
+
+
+PORTAL_PROCESSOR_IDS = {
+    "safebase", "safe-base", "vanta", "conveyor", "wolfia", "drata",
+    "securitypal", "secureframe", "whistic", "sprinto", "trustcloud", "vendict",
+}
+ITEM_UID_RE = re.compile(r"(?:[?&]|/)itemUid=|(?:[?&])itemName=", re.I)
+ANNOTATED_URL_RE = re.compile(r"\s+\(")
+TABLE_RE = re.compile(r"<table\b[^>]*>.*?</table>", re.I | re.S)
+TR_RE = re.compile(r"<tr\b[^>]*>.*?</tr>", re.I | re.S)
+CELL_RE = re.compile(r"<t[hd]\b[^>]*>.*?</t[hd]>", re.I | re.S)
+NAME_HEADER_RE = re.compile(
+    r"\b(name(?: of sub-?processors?)?|sub-?processors?|entity(?: name)?|"
+    r"third[- ]party(?: entity)?|vendor|provider|company|processor|"
+    r"organisation|organization|aws entity)\b",
+    re.I,
+)
+NOT_NAME_HEADER_RE = re.compile(
+    r"\b(location|country|region|purpose|description|processing|product|"
+    r"service\(s\)|data|securit|categor|nature)\b",
+    re.I,
+)
+LEGAL_SUFFIX_RE = re.compile(
+    r"\b(inc|incorporated|ltd|llc|gmbh|corp|corporation|pbc|plc|s\.?a\.?|"
+    r"b\.?v\.?|pty|limited|co|kg|oy|ab|ag|kk|nv)\b\.?",
+    re.I,
+)
+GEO_NAME_RE = re.compile(
+    r"^(united states|usa|u\.s\.a?\.?|uk|u\.k\.|united kingdom|ireland|"
+    r"germany|france|australia|canada|india|japan|brazil|global|worldwide|"
+    r"european union|europe|asia|emea|amer|apac|north america|south america|"
+    r"eu|eea|switzerland|netherlands|singapore|israel|sweden|spain|italy|"
+    r"belgium|finland|poland|austria|denmark|norway|new zealand|mexico|"
+    r"south korea|korea|taiwan|hong kong|uae|saudi arabia|usa\*?|"
+    r"usa, eu|uk \(.*)$",
+    re.I,
+)
+PURPOSE_LEAD_RE = re.compile(
+    r"^(personal data|prevention of|provision of|if |connectivity |"
+    r"automation and|routing and|streaming and|speech |text to |"
+    r"data storage|data analytics|scheduling and|outbound/|"
+    r"infrastructure provider|vendor for|transcription |"
+    r"phone numbers|system and event|operational monitoring|"
+    r"hosting and|all services?\b)",
+    re.I,
+)
+PRODUCTISH_RE = re.compile(
+    r"\b(programmable|campaigns|channel|flex|verify|engage|reports|"
+    r"whatsapp|applicable service|subject matter|nature and purpose|"
+    r"location\(s\) of processing|external links|sendgrid services|"
+    r"compliance reports|conversational intelligence|google rcs|"
+    r"email \(|cdp \()\b",
+    re.I,
+)
+HEADERISH_RE = re.compile(
+    r"^(applicable cloud products|nature and purpose|categories of|"
+    r"location of processing|security measures|user support|"
+    r"hosting and infrastructure|affiliates?$|third[- ]part|"
+    r"aws (entity|service|development entities)|entity$|name$|"
+    r"service provider|data privacy|data security|cdp\b)\b",
+    re.I,
+)
+PROVIDER_SECTION_RE = re.compile(r"(service )?providers$", re.I)
+SPLIT_CELL_RE = re.compile(r"\s*[—–-]{3,}\s*")
+COPY_SMALL_RE = re.compile(
+    r'<span class="copy-small">([^<]+)</span>',
+    re.I,
+)
+CSSISH_RE = re.compile(r"[{}]|font-family|padding:|min-width|--zds")
+
+
+def slugify_processor(name: str) -> str:
+    s = LEGAL_SUFFIX_RE.sub(" ", name or "")
+    s = re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
+    return s[:60]
+
+
+def cell_text(raw: str) -> str:
+    t = strip_tags(raw or "")
+    t = re.sub(r"[*†‡]+", "", t)
+    t = re.sub(r"\s+", " ", t).strip(" \t.,;:|")
+    return t
+
+
+def looks_like_css(s: str) -> bool:
+    return bool(CSSISH_RE.search(s or ""))
+
+
+def is_portal_processor(pid: str, name: str) -> bool:
+    blob = f"{pid} {name}".lower()
+    if pid in PORTAL_PROCESSOR_IDS:
+        return True
+    return bool(VENDOR_WORDS.search(blob))
+
+
+def is_self_processor(name: str, pid: str, company: dict) -> bool:
+    slug = company.get("slug") or ""
+    cname = (company.get("name") or "").strip().lower()
+    n = (name or "").strip().lower()
+    own = {slug}
+    if slug == "new-relic":
+        own.add("newrelic")
+    if slug == "amazon-web-services":
+        own.add("aws")
+    if pid in own:
+        return True
+    if cname and (n == cname or n.startswith(cname + " ") or n.startswith(cname + ",") or n.startswith(cname + ".")):
+        return True
+    ns = slugify_processor(name)
+    if ns and slug and (ns == slug or ns.startswith(slug + "-")):
+        return True
+    first = (cname.split() or [""])[0]
+    if first and len(first) >= 3 and n.startswith(first) and LEGAL_SUFFIX_RE.search(n):
+        return True
+    return False
+
+
+def looks_like_org_name(name: str) -> bool:
+    t = (name or "").strip()
+    if not t or looks_like_css(t):
+        return False
+    if len(t) < 2 or len(t) > 80:
+        return False
+    if GEO_NAME_RE.match(t):
+        return False
+    if PURPOSE_LEAD_RE.search(t) or PRODUCTISH_RE.search(t) or HEADERISH_RE.search(t):
+        return False
+    if t.lower() in {"name", "entity", "vendor", "provider", "subprocessor", "sub-processor", "location"}:
+        return False
+    if PROVIDER_SECTION_RE.search(t) and not LEGAL_SUFFIX_RE.search(t):
+        return False
+    words = t.split()
+    if len(words) > 8:
+        return False
+    if t.endswith(".") and not LEGAL_SUFFIX_RE.search(t):
+        return False
+    if not re.search(r"[A-Za-z]", t):
+        return False
+    return True
+
+
+def match_processor(name: str, register: dict[str, dict] | None = None) -> tuple[str, str]:
+    """Stable id plus the published name. Catalog when an alias hits; else slugify."""
+    published = cell_text(name)
+    for pid, catalog_name, _d, pats in PROC_COMPILED:
+        if any(p.search(published) for p in pats):
+            return pid, published
+    low = published.lower()
+    if register:
+        for slug, row in register.items():
+            cname = (row.get("name") or "").strip().lower()
+            if not cname:
+                continue
+            if low == cname or re.match(
+                re.escape(cname) + r"(,?\s+(inc|llc|ltd|gmbh|pbc|corp|limited)\b.*)?$",
+                low,
+                re.I,
+            ):
+                return slug, published
+    pid = slugify_processor(published) or re.sub(r"[^a-z0-9]+", "-", published.lower()).strip("-")
+    return pid, published
+
+
+def name_column_index(headers: list[str]) -> int:
+    for i, h in enumerate(headers):
+        if NAME_HEADER_RE.search(h) and not NOT_NAME_HEADER_RE.search(h):
+            return i
+    for i, h in enumerate(headers):
+        if re.fullmatch(r"(name|entity|sub-?processors?|vendor|provider|aws entity)s?", h.strip(), re.I):
+            return i
+    return 0
+
+
+def names_from_tables(html: str) -> list[str]:
+    found, seen = [], set()
+    for table in TABLE_RE.findall(html or ""):
+        rows = TR_RE.findall(table)
+        if not rows:
+            continue
+        header_cells = [cell_text(c) for c in CELL_RE.findall(rows[0])]
+        if header_cells and any(NAME_HEADER_RE.search(h) for h in header_cells):
+            col = name_column_index(header_cells)
+            data_rows = rows[1:]
+        elif header_cells and not looks_like_css(header_cells[0]) and looks_like_org_name(header_cells[0]):
+            col = 0
+            data_rows = rows
+        else:
+            col = 0
+            data_rows = rows[1:] if header_cells else rows
+        for row in data_rows:
+            cells = [cell_text(c) for c in CELL_RE.findall(row)]
+            if not cells:
+                continue
+            if len(cells) == 1 and not looks_like_org_name(cells[0]):
+                continue
+            raw = cells[col] if col < len(cells) else cells[0]
+            parts = [cell_text(p) for p in SPLIT_CELL_RE.split(raw)] if SPLIT_CELL_RE.search(raw) else [raw]
+            for part in parts:
+                catalog_hit = any(any(p.search(part) for p in pats) for _i, _n, _d, pats in PROC_COMPILED)
+                if not looks_like_org_name(part) and not catalog_hit:
+                    continue
+                key = part.lower()
+                if key not in seen:
+                    seen.add(key)
+                    found.append(part)
+    return found
+
+
+def names_from_labeled_spans(html: str) -> list[str]:
+    found, seen = [], set()
+    for raw in COPY_SMALL_RE.findall(html or ""):
+        name = cell_text(raw)
+        if not looks_like_org_name(name):
+            continue
+        if len(name.split()) > 4 and not LEGAL_SUFFIX_RE.search(name):
+            continue
+        key = name.lower()
+        if key not in seen:
+            seen.add(key)
+            found.append(name)
+    return found
+
+
+def cited_list_skip_reason(url: str, rec: dict, company: dict) -> str | None:
+    if not url or not str(url).strip().startswith("http"):
+        return "not-a-url"
+    if ANNOTATED_URL_RE.search(url):
+        return "annotated-url"
+    if ITEM_UID_RE.search(url) or ITEM_UID_RE.search(rec.get("final_url") or ""):
+        return "safebase-itemuid"
+    ctype = (rec.get("ctype") or "").lower()
+    if url.lower().endswith(".pdf") or "pdf" in ctype:
+        return "pdf"
+    if not rec.get("ok") or rec.get("status") != 200:
+        return "fetch-failed"
+    title, text = rec.get("title") or "", rec.get("text") or ""
+    if looks_like_login_wall(title, text) or looks_dead(title, text):
+        return "login-wall" if looks_like_login_wall(title, text) else "dead-page"
+    if not is_first_party_list_url(url, rec.get("final_url") or url, company):
+        return "not-first-party"
+    html = rec.get("html") or ""
+    if VENDOR_WORDS.search(title) and not TABLE_RE.search(html):
+        if len(text) < 3000 or "manifestPreload" in html or JS_JUNK.search(html[:4000]):
+            return "js-portal"
+    if "manifestPreload" in html and not TABLE_RE.search(html) and len(text) < 2000:
+        return "js-portal"
+    return None
+
+
+def is_first_party_list_url(url: str, final_url: str, company: dict) -> bool:
+    hosts = set(hosts_for(company))
+    regs = {registrable(h) for h in hosts}
+    for raw in (url, final_url):
+        h = host_of(raw)
+        if not h:
+            continue
+        if h in hosts or registrable(h) in regs:
+            return True
+        for known in hosts | regs:
+            if h.endswith("." + known):
+                return True
+    return False
+
+
+def published_processors_from_html(
+    html: str,
+    text: str,
+    company: dict,
+    register: dict[str, dict] | None = None,
+) -> list[tuple[str, str, str]]:
+    """Verbatim names from a first-party HTML list. Tables first; no invented edges."""
+    names = names_from_tables(html)
+    if not names:
+        names = names_from_labeled_spans(html)
+    if not names:
+        return []
+    out, seen = [], set()
+    for raw in names:
+        pid, published = match_processor(raw, register)
+        if not pid or not published:
+            continue
+        if is_portal_processor(pid, published):
+            continue
+        if is_self_processor(published, pid, company):
+            continue
+        if pid in seen:
+            continue
+        seen.add(pid)
+        out.append((pid, published, published))
+    return out
+
+
+def processors_from_company(
+    company: dict,
+    pages: dict,
+    links: dict,
+    register: dict[str, dict] | None = None,
+) -> list[tuple[str, str, str]]:
+    rec = pages.get("subprocessors")
+    url = links.get("subprocessors")
+    if not rec or not url:
+        return []
+    if not is_subprocessor_page(url, rec.get("title") or "", rec.get("text") or ""):
+        if not re.search(r"sub-?process|service-providers?", url, re.I):
+            return []
+    reason = cited_list_skip_reason(url, rec, company)
+    if reason:
+        return []
+    html = rec.get("html") or ""
+    text = rec.get("text") or ""
+    return published_processors_from_html(html, text, company, register)
 
 
 def is_subprocessor_page(url: str, title: str, text: str) -> bool:
@@ -1561,29 +1882,6 @@ def certs_from_pages(company: dict, pages: dict, links: dict) -> list[str]:
     return live
 
 
-def processors_from_company(company: dict, pages: dict, links: dict) -> list[tuple[str, str, str]]:
-    rec = pages.get("subprocessors")
-    url = links.get("subprocessors")
-    if not rec or not url:
-        return []
-    if not is_subprocessor_page(url, rec.get("title") or "", rec.get("text") or ""):
-        # still accept if the path itself is a subprocessor path and we classified it
-        if not re.search(r"sub-?process|service-providers?", url, re.I):
-            return []
-    text = rec.get("text") or ""
-    ids = extract_processors(text)
-    own = {company["slug"], "newrelic" if company["slug"] == "new-relic" else company["slug"]}
-    out = []
-    for pid in ids:
-        if pid == company["slug"] or pid in own:
-            continue
-        name = next((n for i, n, _d, _a in PROCESSORS if i == pid), pid)
-        # evidence: a short matching alias
-        ev = name
-        out.append((pid, name, ev))
-    return out
-
-
 def disclosure_factors(found: bool, certs: list[str], links: dict, founded_year) -> dict:
     factors = {}
     if found:
@@ -1659,7 +1957,7 @@ def write_log(path: Path, lines: list[str], stats: dict) -> None:
     body.append("")
     body.append("Certs were extracted from live trust/security HTML only. JavaScript-only portals often yield no cert tokens; those companies have an empty certs list rather than invented marks.")
     body.append("")
-    body.append("Subprocessor edges require a public first-party list URL. Names are normalized against a known processor catalog. Unlisted names are not guessed.")
+    body.append("Subprocessor edges require a public first-party list URL. Published HTML table names are filed verbatim with that source_url. Catalog aliases only normalize ids. SafeBase itemUid, JS-only, PDF, and login-walled lists stay empty.")
     body.append("")
     body.append("Portal host vendors (SafeBase, Vanta, Conveyor, Wolfia, Drata, SecurityPal) are not written into summaries.")
     body.append("")
@@ -1730,7 +2028,7 @@ def main() -> int:
             portal = True
 
         certs = certs_from_pages(c, pages, links)
-        procs = processors_from_company(c, pages, links)
+        procs = processors_from_company(c, pages, links, {x["slug"]: x for x in companies})
         year_src = years.get(c["slug"])
         founded_year = year_src[0] if year_src else None
         founded_source = year_src[1] if year_src else None
@@ -1826,7 +2124,161 @@ def main() -> int:
     return 0
 
 
+def has_filed_names(company: dict, named_from: set[str]) -> bool:
+    slug = company.get("slug") or ""
+    if slug in named_from:
+        return True
+    procs = company.get("subprocessors") or []
+    if not procs:
+        return False
+    if len(procs) == 1:
+        only = procs[0]
+        pid = only.get("id") if isinstance(only, dict) else only
+        if is_self_processor(str(only.get("name") if isinstance(only, dict) else only), str(pid or ""), company):
+            return False
+    return True
+
+
+def fetch_cited_processor_page(url: str) -> dict:
+    rec = fetch_uncached(url, max_body=PROCESSOR_BODY)
+    if not rec.get("html") and rec.get("ok"):
+        # fetch_uncached already filled html for list URLs; keep a copy if the
+        # path was unusual but the body is still a list.
+        rec["html"] = rec.get("html") or ""
+    return rec
+
+
+def file_named_from_cited() -> int:
+    """Fill empty Named processors tables from URLs already on the company file."""
+    t0 = time.time()
+    CACHE.mkdir(parents=True, exist_ok=True)
+    enr = load_json(DATA / "enriched.json", {})
+    subs = load_json(DATA / "subprocessors.json", {})
+    companies = list(enr.get("companies") or [])
+    register = {c["slug"]: c for c in companies if c.get("slug")}
+    edges = list(subs.get("edges") or [])
+    nodes = {n["id"]: n for n in (subs.get("nodes") or []) if n.get("id")}
+    named_from = {e.get("from") for e in edges if e.get("source_url") and e.get("from")}
+    existing_pairs = {(e.get("from"), e.get("to")) for e in edges}
+
+    hole = []
+    for c in companies:
+        url = (c.get("links") or {}).get("subprocessors") or ""
+        if url and not has_filed_names(c, named_from):
+            hole.append(c)
+
+    print(f"Cited lists with empty names: {len(hole)}", flush=True)
+    filled, skipped = [], []
+
+    def do_one(c):
+        url = (c.get("links") or {}).get("subprocessors") or ""
+        early = cited_list_skip_reason(
+            url,
+            {"ok": False, "status": 0, "final_url": url, "title": "", "text": "", "html": "", "ctype": ""},
+            c,
+        )
+        if early in {"not-a-url", "annotated-url", "safebase-itemuid", "pdf", "not-first-party"}:
+            return c["slug"], [], early
+        try:
+            rec = fetch_cited_processor_page(url)
+        except Exception:
+            return c["slug"], [], "fetch-failed"
+        reason = cited_list_skip_reason(url, rec, c)
+        if reason:
+            return c["slug"], [], reason
+        procs = processors_from_company(c, {"subprocessors": rec}, {"subprocessors": url}, register)
+        if not procs:
+            kind = "js-only" if not rec.get("html") or not TABLE_RE.search(rec.get("html") or "") else "no-published-names"
+            if names_from_labeled_spans(rec.get("html") or ""):
+                kind = "no-published-names"
+            return c["slug"], [], kind
+        return c["slug"], procs, None
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = {pool.submit(do_one, c): c for c in hole}
+        done = 0
+        for fut in as_completed(futs):
+            c = futs[fut]
+            slug, procs, reason = fut.result()
+            done += 1
+            if reason or not procs:
+                skipped.append((slug, reason or "no-published-names"))
+            else:
+                filled.append((slug, procs, (c.get("links") or {}).get("subprocessors")))
+            if done % 10 == 0 or done == len(futs):
+                print(f"  lists {done}/{len(futs)}", flush=True)
+
+    for slug, procs, src in filled:
+        row = register[slug]
+        row["subprocessors"] = [pid for pid, _n, _e in procs]
+        named_from.add(slug)
+        for pid, name, ev in procs:
+            if (slug, pid) in existing_pairs:
+                continue
+            edges.append({
+                "from": slug,
+                "to": pid,
+                "source_url": src,
+                "evidence": ev,
+            })
+            existing_pairs.add((slug, pid))
+            if pid not in nodes:
+                if pid in register:
+                    nodes[pid] = {
+                        "id": pid,
+                        "name": register[pid]["name"],
+                        "domain": register[pid].get("domain") or "",
+                        "kind": "company",
+                        "in_register": True,
+                    }
+                else:
+                    meta = next(((n, d) for i, n, d, _a in PROCESSORS if i == pid), None)
+                    nodes[pid] = {
+                        "id": pid,
+                        "name": meta[0] if meta else name,
+                        "domain": meta[1] if meta else "",
+                        "kind": "processor",
+                        "in_register": False,
+                    }
+
+    node_list = list(nodes.values())
+    # keep register companies that already had nodes
+    for c in companies:
+        if c["slug"] not in nodes:
+            nodes[c["slug"]] = {
+                "id": c["slug"],
+                "name": c["name"],
+                "domain": c.get("domain") or "",
+                "kind": "company",
+                "in_register": True,
+            }
+    node_list = list(nodes.values())
+
+    write_json(DATA / "enriched.json", enr)
+    write_json(SITE / "data" / "enriched.json", enr)
+    sub_out = {
+        "generated_at": subs.get("generated_at") or utc_now(),
+        "nodes": node_list,
+        "edges": edges,
+        "notes": subs.get("notes") or (
+            "Filed from public first-party subprocessor lists only. "
+            "This is not a complete supply chain. Login-gated lists are not on file."
+        ),
+    }
+    write_json(DATA / "subprocessors.json", sub_out)
+    write_json(SITE / "data" / "subprocessors.json", sub_out)
+
+    print(f"filled={len(filled)} skipped={len(skipped)} edges={len(edges)} in {time.time()-t0:.1f}s", flush=True)
+    for slug, procs, _src in sorted(filled):
+        print(f"  + {slug} {len(procs)}", flush=True)
+    for slug, reason in sorted(skipped):
+        print(f"  - {slug} {reason}", flush=True)
+    return 0
+
+
 if __name__ == "__main__":
+    if "--named-processors" in sys.argv:
+        raise SystemExit(file_named_from_cited())
     raise SystemExit(main())
 
 
