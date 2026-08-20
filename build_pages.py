@@ -212,10 +212,34 @@ def cert_key(name: str) -> str:
     return re.sub(r"\s+", " ", name.strip().lower())
 
 
+_ATTESTATION_IDS: dict[str, str] | None = None
+
+
+def attestation_id_book() -> dict[str, str]:
+    """Existing framework entries only. Do not invent a mark page."""
+    global _ATTESTATION_IDS
+    if _ATTESTATION_IDS is not None:
+        return _ATTESTATION_IDS
+    path = SITE / "data" / "attestations.json"
+    if not path.exists():
+        path = ROOT / "data" / "attestations.json"
+    book: dict[str, str] = {}
+    for item in load_json(path, {}).get("attestations") or []:
+        aid = str(item.get("id") or "").strip()
+        if not aid:
+            continue
+        for label in (aid, item.get("name"), item.get("short")):
+            key = cert_key(label or "")
+            if key and key not in book:
+                book[key] = aid
+    _ATTESTATION_IDS = book
+    return book
+
+
 def map_cert(name: str) -> dict:
     key = cert_key(name)
     weight = CERT_WEIGHT.get(key)
-    att_id = CERT_ID.get(key)
+    att_id = CERT_ID.get(key) or attestation_id_book().get(key)
     if "fedramp" in key:
         if "li-saas" in key or "li saas" in key:
             att_id = att_id or "fedramp-li-saas"
@@ -226,6 +250,42 @@ def map_cert(name: str) -> dict:
     if weight is None:
         weight = 4
     return {"id": att_id, "name": name, "weight": weight}
+
+
+def link_mark_words(text: str, attestations: list[dict], href_base: str = "../attestations.html") -> str:
+    """Link mark words that already have a framework entry. Words only."""
+    out = escape(text)
+    labels: list[tuple[str, str]] = []
+    seen: set[str] = set()
+    for a in attestations:
+        aid = str(a.get("id") or "").strip()
+        if not aid:
+            continue
+        for lab in (a.get("name"), a.get("short")):
+            t = str(lab or "").strip()
+            if t and t not in seen:
+                seen.add(t)
+                labels.append((t, aid))
+    labels.sort(key=lambda x: len(x[0]), reverse=True)
+    for lab, aid in labels:
+        needle = escape(lab)
+        if not needle:
+            continue
+        link = f'<a href="{escape(href_base)}#{escape(aid)}">{needle}</a>'
+        parts: list[str] = []
+        i = 0
+        while i < len(out):
+            j = out.find(needle, i)
+            if j < 0:
+                parts.append(out[i:])
+                break
+            before = out[:j]
+            in_link = before.rfind("<a ") > before.rfind("</a>")
+            parts.append(out[i:j])
+            parts.append(needle if in_link else link)
+            i = j + len(needle)
+        out = "".join(parts)
+    return out
 
 
 CLERK_KEEP = re.compile(r"^(Public trust center|Official page)\b", re.I)
@@ -991,7 +1051,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     if isinstance(sub, dict) and sub.get("url"):
         list_url = sub["url"]
     clerk = row.get("summary") or ""
-    clerk_html = f'<p class="clerk">{escape(clerk)}</p>' if clerk else ""
+    clerk_html = f'<p class="clerk">{link_mark_words(clerk, atts)}</p>' if clerk else ""
     outbound = (
         f'<a class="official" href="{escape(url)}" rel="noopener noreferrer">Official page</a>'
         if found and url

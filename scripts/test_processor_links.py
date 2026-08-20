@@ -8,7 +8,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from build_pages import processor_cell, processor_href, register_slug_for  # noqa: E402
+from build_pages import (  # noqa: E402
+    link_mark_words,
+    map_cert,
+    processor_cell,
+    processor_href,
+    register_slug_for,
+)
 
 
 def check(cond: bool, msg: str) -> None:
@@ -54,6 +60,23 @@ def main() -> int:
         register_slug_for({"id": "google-gemini", "name": "Google Gemini"}, by_slug, by_domain, by_name)
         is None,
         "do not invent a google-gemini dossier",
+    )
+    check(map_cert("DORA")["id"] == "dora", "dora has a framework entry")
+    check(map_cert("EU-US DPF")["id"] == "eu-us-dpf", "eu-us dpf has a framework entry")
+    check(map_cert("NIST 800-171")["id"] == "nist-800-171", "nist 800-171 has a framework entry")
+    check(map_cert("SOC 2")["id"] == "soc-2-type-ii", "soc 2 alias stays on the existing file")
+    check(map_cert("SLSA")["id"] is None, "do not invent a slsa page")
+    clerk = link_mark_words(
+        "On file: SOC 2 Type II, AIUC-1.",
+        [
+            {"name": "SOC 2 Type II", "id": "soc-2-type-ii"},
+            {"name": "AIUC-1", "id": "aiuc-1"},
+        ],
+    )
+    check(
+        'href="../attestations.html#soc-2-type-ii">SOC 2 Type II</a>' in clerk
+        and 'href="../attestations.html#aiuc-1">AIUC-1</a>' in clerk,
+        f"clerk links {clerk}",
     )
     print("ok")
     return 0
