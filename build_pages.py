@@ -745,6 +745,9 @@ def enrich_company(
         public["favicon"] = icon
     if fedramp:
         public["fedramp"] = fedramp
+    star = public_star(row.get("csa_star"))
+    if star:
+        public["csa_star"] = star
     stateramp = public_ramp(row.get("stateramp"), STATERAMP_MARKET)
     if stateramp:
         public["stateramp"] = stateramp
@@ -755,6 +758,7 @@ def enrich_company(
 
 
 FEDRAMP_MARKET = "https://www.fedramp.gov/marketplace/products/"
+STAR_REGISTRY = "https://cloudsecurityalliance.org/star/registry"
 STATERAMP_MARKET = "https://govramp.org/program-participants"
 TXRAMP_MARKET = "https://dir.texas.gov/resource-library-item/tx-ramp-certified-cloud-products"
 
@@ -929,6 +933,31 @@ def attach_fedramp_dump(companies: list[dict]) -> None:
         row["fedramp"] = merge_fedramp(row.get("fedramp"), dump)
 
 
+def public_star(raw) -> dict | None:
+    """Pass through a first-party STAR listing. Do not invent levels or dates."""
+    if not isinstance(raw, dict):
+        return None
+    products = []
+    for item in raw.get("products") or []:
+        offering = str(item.get("offering") or item.get("csp") or "").strip()
+        href = str(item.get("url") or "").strip()
+        if not offering or not href:
+            continue
+        listed = str(item.get("listed_since") or "").strip() or None
+        products.append({
+            "offering": offering,
+            "url": href,
+            "listed_since": listed,
+        })
+    if not products:
+        return None
+    return {
+        "marketplace": raw.get("marketplace") or STAR_REGISTRY,
+        "source": raw.get("source") or STAR_REGISTRY,
+        "products": products,
+    }
+
+
 def public_ramp(raw, default_url: str) -> dict | None:
     """Pass through a first-party listing dump. Do not invent offerings."""
     if not isinstance(raw, dict):
@@ -955,6 +984,33 @@ def public_ramp(raw, default_url: str) -> dict | None:
         "source": raw.get("source") or marketplace,
         "products": products,
     }
+
+
+def ensure_star_mark(row: dict) -> None:
+    """File the catalog mark when the STAR registry listed this CSP. Do not rescore."""
+    certs = [c for c in (row.get("certs") or []) if c]
+    if any(cert_key(c).startswith("csa star") for c in certs):
+        return
+    certs.append("CSA STAR")
+    row["certs"] = certs
+
+
+def attach_star_dump(companies: list[dict]) -> None:
+    path = SITE / "data" / "csa-star.json"
+    if not path.exists():
+        path = ROOT / "data" / "csa-star.json"
+    doc = load_json(path, {})
+    by_slug = {
+        rec["slug"]: rec
+        for rec in (doc.get("companies") or [])
+        if rec.get("slug")
+    }
+    for row in companies:
+        dump = by_slug.get(row.get("slug"))
+        if not dump:
+            continue
+        row["csa_star"] = dump
+        ensure_star_mark(row)
 
 
 def ensure_mark(row: dict, label: str) -> None:
@@ -1066,6 +1122,40 @@ def fedramp_block(row: dict, generated_at: str = "") -> str:
         "    </table>",
     ]
     return "\n".join(lines) + "\n"
+
+
+def star_block(row: dict) -> str:
+    """Clerk table for a matched STAR listing. Absent when the registry did not name this CSP."""
+    raw = row.get("csa_star") if isinstance(row.get("csa_star"), dict) else None
+    products = [
+        p for p in (raw or {}).get("products") or []
+        if str(p.get("offering") or p.get("csp") or "").strip()
+        and str(p.get("url") or "").strip()
+    ]
+    if not products:
+        return ""
+    rows = []
+    for p in products:
+        offering = str(p.get("offering") or p.get("csp") or "").strip()
+        href = str(p.get("url") or "").strip() or STAR_REGISTRY
+        rows.append(
+            f'<tr><td><a href="{escape(href)}">{escape(offering)}</a></td>'
+            f"{filed_cell('')}"
+            f"{filed_cell('')}"
+            f"{filed_cell(fmt_day(p.get('listed_since') or ''))}</tr>"
+        )
+    cite = (
+        f'Filed from the <a href="{escape(STAR_REGISTRY)}">CSA STAR Registry</a>'
+    )
+    return (
+        '    <p class="sec-kicker">CSA STAR</p>\n'
+        f'    <p class="src-line">{cite}.</p>\n'
+        '    <table class="inst filed">\n'
+        '      <thead><tr><th scope="col">Listing</th><th scope="col">Status</th>'
+        '<th scope="col">Level</th><th scope="col">Listed since</th></tr></thead>\n'
+        f'      <tbody>{"".join(rows)}</tbody>\n'
+        "    </table>\n"
+    )
 
 
 def ramp_block(row: dict, key: str, heading: str, cite_html: str, level_label: str) -> str:
@@ -1409,6 +1499,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     {gate}
 
 {fedramp_block(row, generated_at)}{ramp_extras(row)}
+{star_block(row)}
 
 {processors_block(procs, generated_at, list_url)}
 
@@ -1526,6 +1617,7 @@ def main() -> int:
     attach_fedramp_dump(companies_in)
     attach_ramp_dump(companies_in, "stateramp.json", "stateramp", "StateRAMP")
     attach_ramp_dump(companies_in, "txramp.json", "txramp", "TX-RAMP")
+    attach_star_dump(companies_in)
     generated_at = raw.get("generated_at") or ""
     sources = raw.get("sources") or [
         {"name": "Forbes Cloud 100 2025", "url": "https://www.forbes.com/lists/cloud100/"},
