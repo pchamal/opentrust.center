@@ -7,6 +7,7 @@ import json
 import re
 import sys
 import time
+from collections import deque
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from html.parser import HTMLParser
 from pathlib import Path
@@ -178,10 +179,204 @@ def image_from_bytes(data: bytes) -> Image.Image | None:
         return None
     if w > 64 or h > 64:
         im.thumbnail((64, 64), Image.Resampling.LANCZOS)
+    if stamp_reason(im):
+        return None
     return im
 
 
+def _alpha_mask(im: Image.Image, threshold: int = 32) -> tuple[list[list[bool]], int, int]:
+    rgba = im.convert("RGBA")
+    w, h = rgba.size
+    pix = rgba.load()
+    mask = [[pix[x, y][3] >= threshold for x in range(w)] for y in range(h)]
+    return mask, w, h
+
+
+def _components(mask: list[list[bool]], w: int, h: int) -> list[list[tuple[int, int]]]:
+    seen = [[False] * w for _ in range(h)]
+    comps: list[list[tuple[int, int]]] = []
+    min_size = max(4, int(w * h * 0.008))
+    for y in range(h):
+        for x in range(w):
+            if not mask[y][x] or seen[y][x]:
+                continue
+            q = deque([(x, y)])
+            seen[y][x] = True
+            cells: list[tuple[int, int]] = []
+            while q:
+                cx, cy = q.popleft()
+                cells.append((cx, cy))
+                for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                    nx, ny = cx + dx, cy + dy
+                    if 0 <= nx < w and 0 <= ny < h and mask[ny][nx] and not seen[ny][nx]:
+                        seen[ny][nx] = True
+                        q.append((nx, ny))
+            if len(cells) >= min_size:
+                comps.append(cells)
+    comps.sort(key=len, reverse=True)
+    return comps
+
+
+def _hole_count(mask: list[list[bool]], w: int, h: int) -> int:
+    seen = [[False] * w for _ in range(h)]
+    q: deque[tuple[int, int]] = deque()
+    for x in range(w):
+        for y in (0, h - 1):
+            if not mask[y][x] and not seen[y][x]:
+                seen[y][x] = True
+                q.append((x, y))
+    for y in range(h):
+        for x in (0, w - 1):
+            if not mask[y][x] and not seen[y][x]:
+                seen[y][x] = True
+                q.append((x, y))
+    while q:
+        x, y = q.popleft()
+        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < w and 0 <= ny < h and not mask[ny][nx] and not seen[ny][nx]:
+                seen[ny][nx] = True
+                q.append((nx, ny))
+    holes = 0
+    for y in range(h):
+        for x in range(w):
+            if mask[y][x] or seen[y][x]:
+                continue
+            holes += 1
+            qq = deque([(x, y)])
+            seen[y][x] = True
+            while qq:
+                cx, cy = qq.popleft()
+                for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                    nx, ny = cx + dx, cy + dy
+                    if 0 <= nx < w and 0 <= ny < h and not mask[ny][nx] and not seen[ny][nx]:
+                        seen[ny][nx] = True
+                        qq.append((nx, ny))
+    return holes
+
+
+def _convexity(cells: list[tuple[int, int]]) -> float:
+    if len(cells) < 8:
+        return 1.0
+    pts = sorted(set(cells))
+
+    def cross(o: tuple[int, int], a: tuple[int, int], b: tuple[int, int]) -> int:
+        return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+
+    lower: list[tuple[int, int]] = []
+    for p in pts:
+        while len(lower) >= 2 and cross(lower[-2], lower[-1], p) <= 0:
+            lower.pop()
+        lower.append(p)
+    upper: list[tuple[int, int]] = []
+    for p in reversed(pts):
+        while len(upper) >= 2 and cross(upper[-2], upper[-1], p) <= 0:
+            upper.pop()
+        upper.append(p)
+    hull = lower[:-1] + upper[:-1]
+    if len(hull) < 3:
+        return 1.0
+    area = 0
+    for i, (x1, y1) in enumerate(hull):
+        x2, y2 = hull[(i + 1) % len(hull)]
+        area += x1 * y2 - x2 * y1
+    area = abs(area) / 2
+    return len(cells) / area if area else 1.0
+
+
+def _circle_jaccard(mask: list[list[bool]], w: int, h: int) -> float:
+    ink = [(x, y) for y in range(h) for x in range(w) if mask[y][x]]
+    if not ink:
+        return 0.0
+    xs = [p[0] for p in ink]
+    ys = [p[1] for p in ink]
+    cx = (min(xs) + max(xs)) / 2
+    cy = (min(ys) + max(ys)) / 2
+    r = max(max(xs) - min(xs), max(ys) - min(ys)) / 2
+    if r < 1:
+        return 0.0
+    inter = 0
+    circ = 0
+    r2 = r * r
+    for y in range(h):
+        for x in range(w):
+            if (x - cx) ** 2 + (y - cy) ** 2 <= r2:
+                circ += 1
+                if mask[y][x]:
+                    inter += 1
+    union = circ + len(ink) - inter
+    return inter / union if union else 0.0
+
+
+def _letterish(aspect: float, fill_bbox: float) -> bool:
+    return 0.55 <= aspect <= 1.40 and 0.20 <= fill_bbox <= 0.70
+
+
+def stamp_reason(im: Image.Image) -> str:
+    """Why this bitmap must not emit after the 12px Ledger Black ink pass.
+
+    The CSS crush makes every opaque pixel the same ink. Only the alpha
+    silhouette remains. A filled square, disc, globe, letter tile, or
+    unreadable blob is a placeholder — missing = name only. When unsure,
+    reject. Empty string means the silhouette is distinctive enough.
+    """
+    try:
+        mask, w, h = _alpha_mask(im)
+    except Exception:
+        return "unreadable"
+    canvas = w * h
+    if w < 8 or h < 8 or canvas <= 0:
+        return "tiny"
+    ink_n = sum(sum(row) for row in mask)
+    ink_pct = ink_n / canvas
+    if ink_pct >= 0.72:
+        return "solid-fill"
+    jac = _circle_jaccard(mask, w, h)
+    if jac >= 0.82:
+        return "disc"
+    if min(w, h) <= 16 and ink_pct >= 0.50:
+        return "16px-blob"
+    comps = _components(mask, w, h)
+    if not comps:
+        return "empty"
+    if len(comps) == 1:
+        cells = comps[0]
+        xs = [p[0] for p in cells]
+        ys = [p[1] for p in cells]
+        bw = max(xs) - min(xs) + 1
+        bh = max(ys) - min(ys) + 1
+        aspect = bw / max(bh, 1)
+        fill_bbox = len(cells) / max(bw * bh, 1)
+        if fill_bbox >= 0.88:
+            return "solid-shape"
+        letter = _letterish(aspect, fill_bbox)
+        if letter and _hole_count(mask, w, h) >= 1:
+            return "letter-tile"
+        if letter and _convexity(cells) >= 0.85:
+            return "letter-tile"
+        if jac >= 0.75:
+            return "disc"
+    if len(comps) == 2:
+        main, dot = comps[0], comps[1]
+        if len(dot) < 0.12 * len(main):
+            xs = [p[0] for p in main]
+            ys = [p[1] for p in main]
+            bw = max(xs) - min(xs) + 1
+            bh = max(ys) - min(ys) + 1
+            aspect = bw / max(bh, 1)
+            fill_bbox = len(main) / max(bw * bh, 1)
+            if _letterish(aspect, fill_bbox):
+                return "letter-tile"
+    return ""
+
+
+def keep_mark(im: Image.Image) -> bool:
+    return not stamp_reason(im)
+
+
 def save_png(im: Image.Image, dest: Path) -> bool:
+    if stamp_reason(im):
+        return False
     dest.parent.mkdir(parents=True, exist_ok=True)
     tmp = dest.with_suffix(".tmp.png")
     try:
@@ -275,9 +470,23 @@ def write_index(company_ok: dict[str, str], mark_ok: dict[str, str]) -> None:
     (OUT / "index.json").write_text(json.dumps(payload, indent=2) + "\n")
 
 
+def existing_mark(path: Path) -> bool:
+    if not path.is_file() or path.stat().st_size <= 20:
+        return False
+    try:
+        im = Image.open(path)
+        im.load()
+    except Exception:
+        return False
+    if stamp_reason(im):
+        path.unlink(missing_ok=True)
+        return False
+    return True
+
+
 def job(kind: str, key: str, domain: str) -> tuple[str, str, str, bool]:
     dest = OUT / filename_for(domain)
-    if dest.exists() and dest.stat().st_size > 20:
+    if existing_mark(dest):
         return kind, key, domain, True
     try:
         im = collect_domain(domain)
@@ -288,8 +497,41 @@ def job(kind: str, key: str, domain: str) -> tuple[str, str, str, bool]:
         return kind, key, domain, False
 
 
+def rescan_vendored() -> tuple[int, int]:
+    """Drop stamps, discs, globes, letter tiles. Missing = name only."""
+    company_ok: dict[str, str] = {}
+    for domain in load_company_domains():
+        name = filename_for(domain)
+        if existing_mark(OUT / name):
+            company_ok[domain] = name
+    host_ok: set[str] = set()
+    for host in set(MARK_DOMAINS.values()):
+        name = filename_for(host)
+        if existing_mark(OUT / name):
+            host_ok.add(host)
+    mark_ok = {}
+    for mid, host in MARK_DOMAINS.items():
+        name = filename_for(host)
+        if host in host_ok or existing_mark(OUT / name):
+            mark_ok[mid] = name
+    # Sweep leftovers that are no longer indexed.
+    indexed = set(company_ok.values()) | set(mark_ok.values())
+    dropped = 0
+    for path in OUT.glob("*.png"):
+        if path.name in indexed:
+            continue
+        if not existing_mark(path):
+            dropped += 1
+    write_index(company_ok, mark_ok)
+    return len(company_ok), dropped
+
+
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
+    if "--rescan" in sys.argv:
+        kept, dropped = rescan_vendored()
+        print(f"rescan · {kept} company marks kept · stamps removed", flush=True)
+        return 0
     companies = load_company_domains()
     mark_domains = {mid: host for mid, host in MARK_DOMAINS.items() if host}
     unique_mark_hosts = sorted(set(mark_domains.values()))

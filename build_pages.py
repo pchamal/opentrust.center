@@ -181,12 +181,30 @@ def load_favicon_index() -> dict:
     }
 
 
+_STAMP_CACHE: dict[str, bool] = {}
+
+
+def _is_stamp_file(path: Path) -> bool:
+    key = str(path)
+    if key in _STAMP_CACHE:
+        return _STAMP_CACHE[key]
+    try:
+        from scripts.fetch_favicons import stamp_reason
+        from PIL import Image
+
+        reason = bool(stamp_reason(Image.open(path)))
+    except Exception:
+        reason = False
+    _STAMP_CACHE[key] = reason
+    return reason
+
+
 def favicon_file(name: str) -> str:
     safe = str(name or "").replace("\\", "/").split("/")[-1]
     if not safe or ".." in safe:
         return ""
     path = SITE / "favicons" / safe
-    if path.is_file() and path.stat().st_size > 20:
+    if path.is_file() and path.stat().st_size > 20 and not _is_stamp_file(path):
         return safe
     return ""
 
