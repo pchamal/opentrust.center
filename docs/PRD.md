@@ -38,9 +38,9 @@ The buyer is deciding whether this vendor can even enter the file.
 
 **Surface.** Register finder → dossier. Marks for “what is this stamp.”
 
-**Cites.** [SRC-NIST-SP-1305] [SRC-DORA] [SRC-NCSC-QUESTIONS] [SRC-CISA-SECURE-BY-DEMAND] [SRC-GDPR-28]
+**Cites.** SRC-NIST-SP-1305, SRC-DORA, SRC-NCSC-QUESTIONS, SRC-CISA-SECURE-BY-DEMAND, SRC-GDPR-28.
 
-NIST SP 1305 is the C-SCRM quick-start: identify suppliers, set requirements that match criticality, ask for evidence (self-attestation, standard, certification, inspection) before acquisition. DORA makes pre-contract risk, due diligence, and concentration a duty for in-scope financial entities. NCSC’s question set is the English of that homework (governance, incidents, network and data, offshoring, personal data, people, physical, testing, contracts). CISA Secure by Demand splits *product* security from the vendor’s *enterprise* security — a trust page that only talks ISMS has not answered the product question. GDPR 28 is the processor-contract floor, not a logo.
+NIST SP 1305 is the C-SCRM quick-start: identify suppliers, set requirements that match criticality, ask for evidence (self-attestation, standard, certification, inspection) before acquisition. DORA makes pre-contract risk, due diligence, and concentration a duty for in-scope financial entities. NCSC’s question set is the English of that homework (governance, incidents, network and data, offshoring, personal data, people, physical, testing, contracts). CISA Secure by Demand splits product security from the vendor’s enterprise security — a trust page that only talks ISMS has not answered the product question. GDPR 28 is the processor-contract floor, not a logo.
 
 ### Job 2 — Ongoing monitoring
 
@@ -52,7 +52,7 @@ The buyer already bought. They need to see whether the public file moved.
 
 **Surface.** Register issue line. Dossier “last probed.” Later: watch-when-the-file-changes (proposed, not built).
 
-**Cites.** [SRC-NIST-SP-1305] [SRC-DORA] [SRC-NCSC-CRITICALITY]
+**Cites.** SRC-NIST-SP-1305, SRC-DORA, SRC-NCSC-CRITICALITY.
 
 SP 1305 tells the acquirer to monitor supplier performance through the life of the relationship (GV.SC-03 / GV.SC-09). DORA requires ongoing ICT-third-party monitoring, not a one-time pack. NCSC says the evidence burden follows criticality — a silent row on a critical vendor is a different fact than a silent row on a low-impact tool.
 
@@ -60,15 +60,15 @@ SP 1305 tells the acquirer to monitor supplier performance through the life of t
 
 The buyer is planning for the day the vendor fails, is sold, or is exited.
 
-**On file.** Status page, if published. Named subprocessors (who else is in the blast radius). Public incident or status history only when the company published it. DPA clauses we can *see* (often none).
+**On file.** Status page, if published. Named subprocessors (who else is in the blast radius). Public incident or status history only when the company published it. DPA clauses we can see (often none).
 
 **Not on file.** RTO, RPO, substitutability scores, exit runbooks, escrow, data-return formats, joint incident roles. DORA register-of-information fields of this kind are buyer-private. Do not scrape them. Do not infer them from a status-page URL.
 
 **Surface.** Dossier instruments. Subprocessor graph for concentration. Print-this-file and watch-the-file are later instruments, not current capabilities.
 
-**Cites.** [SRC-NIST-SP-1305] [SRC-DORA] [SRC-DORA-TEMPLATES]
+**Cites.** SRC-NIST-SP-1305, SRC-DORA, SRC-DORA-TEMPLATES.
 
-SP 1305 puts suppliers inside incident planning, response, and recovery (GV.SC-08). DORA names transition and exit as first-class duties. The 2024 templates show the *shape* of a register of information. They do not authorize us to invent RTO/RPO on a public dossier.
+SP 1305 puts suppliers inside incident planning, response, and recovery (GV.SC-08). DORA names transition and exit as first-class duties. The 2024 templates show the shape of a register of information. They do not authorize us to invent RTO/RPO on a public dossier.
 
 ### Job 4 — Requirements that vary with criticality and data
 
@@ -76,17 +76,17 @@ The same vendor is not the same review twice. Criticality and data class change 
 
 **On file.** What the vendor published, at one depth, for every name. The five boxes and the mark list. Geography and industry of marks (the book). Product-security artifacts when they exist (security.txt, bounty, status) versus enterprise marks (ISO 27001, SOC 2).
 
-**Not on file.** *This buyer’s* criticality rating of *this* vendor. Data classification of the tenant. Target profiles per criticality tier (NIST’s method). We do not run the buyer’s C-SCRM program.
+**Not on file.** This buyer’s criticality rating of this vendor. Data classification of the tenant. Target profiles per criticality tier (NIST’s method). We do not run the buyer’s C-SCRM program.
 
 **Surface.** Register (same columns, different files). Marks filtered by geography / industry / kind. Finder tokens (`/ complete`, `/ fedramp moderate`).
 
-**Cites.** [SRC-NIST-SP-1305] [SRC-NCSC-CRITICALITY] [SRC-CISA-SECURE-BY-DEMAND]
+**Cites.** SRC-NIST-SP-1305, SRC-NCSC-CRITICALITY, SRC-CISA-SECURE-BY-DEMAND.
 
-SP 1305: robustness of supplier requirements corresponds to supplier criticality; Target Profiles are how a serious acquirer says that. NCSC: have confidence *in proportion*. CISA: do not let an enterprise SOC 2 stand in for product-security outcomes you should have contracted.
+SP 1305: robustness of supplier requirements corresponds to supplier criticality; Target Profiles are how a serious acquirer says that. NCSC: have confidence in proportion. CISA: do not let an enterprise SOC 2 stand in for product-security outcomes you should have contracted.
 
 ### Job 5 — Authorization boundary and the system as filed
 
-The buyer needs to know *what* was assessed: which system, which environment, which data flow.
+The buyer needs to know what was assessed: which system, which environment, which data flow.
 
 **On file.** Scope we can quote from a public page or a marketplace listing (service name, FedRAMP offering, region if stated). Instrument URLs. Clerk summary that does not invent a boundary.
 
@@ -94,7 +94,7 @@ The buyer needs to know *what* was assessed: which system, which environment, wh
 
 **Surface.** Dossier instruments and FedRAMP row. OSCAL is a future interchange, not a current import.
 
-**Cites.** [SRC-NIST-800-18R2] [SRC-OSCAL-LAYERS] [SRC-OSCAL-ASSESSMENT]
+**Cites.** SRC-NIST-800-18R2, SRC-OSCAL-LAYERS, SRC-OSCAL-ASSESSMENT.
 
 SP 800-18 Revision 2 is how a U.S. system owner writes the authorization boundary, components, environments, data flows, controls, and risk decisions. OSCAL is the machine-readable layering (catalog → profile → implementation → assessment). We cite them so we do not pretend a five-box meter is an SSP.
 
@@ -108,39 +108,39 @@ The buyer is under GDPR 28 (or a cousin). They need processor guarantees, a way 
 
 **Surface.** Dossier (DPA + named processors). `/graph` (exposure, source, file on the right).
 
-**Cites.** [SRC-GDPR-28]
+**Cites.** SRC-GDPR-28.
 
-Article 28 is the spine of the processor file: guarantees, onward processor authorization and notice, and assistance with information and audits. We file the *public traces* of those duties. We do not certify that Article 28 is met.
+Article 28 is the spine of the processor file: guarantees, onward processor authorization and notice, and assistance with information and audits. We file the public traces of those duties. We do not certify that Article 28 is met.
 
 ### Job 7 — How to read a mark
 
 The buyer is looking at a stamp and must not be lied to.
 
-**On file.** The mark book: kind (attestation / certification / authorization / regulation / framework / questionnaire / code of practice). ELI-5 then long form. Issuer. Geography. Related marks. Weight as a *disclosure* weight, not a security grade. CSA STAR as self-assessment versus independent. FedRAMP as marketplace lifecycle, “not a badge.” ISO named with version awareness. SOC 3 called general-use; SOC 2 treated as restricted-use unless a public SOC 3 exists.
+**On file.** The mark book: kind (attestation / certification / authorization / regulation / framework / questionnaire / code of practice). ELI-5 then long form. Issuer. Geography. Related marks. Weight as a disclosure weight, not a security grade. CSA STAR as self-assessment versus independent. FedRAMP as marketplace lifecycle, “not a badge.” ISO named with version awareness. SOC 3 called general-use; SOC 2 treated as restricted-use unless a public SOC 3 exists.
 
 **Not on file.** The report. The accreditation of the certification body on that engagement. A letter grade.
 
 **Surface.** `/attestations` (marks). Dossier attestation table. Register marks column.
 
-**Cites.** [SRC-AICPA-TSC] [SRC-AICPA-SOC3] [SRC-ISO-CERTIFICATION] [SRC-ISO-27001] [SRC-CSA-STAR]
+**Cites.** SRC-AICPA-TSC, SRC-AICPA-SOC3, SRC-ISO-CERTIFICATION, SRC-ISO-27001, SRC-CSA-STAR.
 
-TSC are the criteria *inside* a SOC 2 (security, availability, processing integrity, confidentiality, privacy). SOC 3 is the general-use cousin; a public SOC 3 is not a SOC 2. ISO does not certify organizations — accredited bodies do. ISO/IEC 27001 is a named, versioned standard, not a synonym for “has a certificate.” STAR Registry is where self-assessment and independent layers must be told apart.
+TSC are the criteria inside a SOC 2 (security, availability, processing integrity, confidentiality, privacy). SOC 3 is the general-use cousin; a public SOC 3 is not a SOC 2. ISO does not certify organizations — accredited bodies do. ISO/IEC 27001 is a named, versioned standard, not a synonym for “has a certificate.” STAR Registry is where self-assessment and independent layers must be told apart.
 
 ### Job 8 — Schema inspiration, not a scrape (DORA register of information)
 
-The EU templates show what a serious *buyer-side* register holds: service, countries, locations, criticality, RTO, RPO, substitutability, audit, exit, subcontractor rank.
+The EU templates show what a serious buyer-side register holds: service, countries, locations, criticality, RTO, RPO, substitutability, audit, exit, subcontractor rank.
 
-**On file.** Only the public shadows of that schema: service name, public country/region claims, named subcontractor / subprocessor rank as published, public audit *marks* (not the audit).
+**On file.** Only the public shadows of that schema: service name, public country/region claims, named subcontractor / subprocessor rank as published, public audit marks (not the audit).
 
-**Not on file.** The rest. Limitation on [SRC-DORA-TEMPLATES]: many of these fields are buyer-private and must not be presumed public.
+**Not on file.** The rest. Limitation on SRC-DORA-TEMPLATES: many of these fields are buyer-private and must not be presumed public.
 
 **Surface.** None as a DORA RoI. Do not add RTO/RPO columns to the register.
 
-**Cites.** [SRC-DORA-TEMPLATES]
+**Cites.** SRC-DORA-TEMPLATES.
 
 ### Build cite (not a buyer job)
 
-Extensionless canonical routes on the Worker follow [SRC-CLOUDFLARE-HTML]. That is plumbing. It is not a GRC job.
+Extensionless canonical routes on the Worker follow SRC-CLOUDFLARE-HTML. That is plumbing. It is not a GRC job.
 
 ---
 
