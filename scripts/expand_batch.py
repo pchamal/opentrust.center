@@ -228,29 +228,38 @@ def re_enrich_existing_found(limit: int | None = None) -> dict:
     gained_instrument = []
     new_edges = []
     print(f"Re-enriching {len(targets)} expand-found rows...", flush=True)
-    for i, row in enumerate(targets, 1):
-        slug = row["slug"]
+
+    def do_one(row):
         try:
-            updated = enrich.enrich_one(row, register=register)
+            return row["slug"], enrich.enrich_one(row, register=register), None
         except Exception as exc:
-            print(f"  fail {slug}: {exc}", flush=True)
-            continue
-        new_edges.extend(take_edges(updated))
-        idx = next((j for j, c in enumerate(enr["companies"]) if c["slug"] == slug), None)
-        if idx is None:
-            continue
-        enr["companies"][idx] = updated
-        register[slug] = updated
-        inst = enrich.instrument_links(updated)
-        if inst:
-            gained_instrument.append(slug)
-        print(
-            f"  {i}/{len(targets)} {slug:24} inst={list(inst)} "
-            f"certs={len(updated.get('certs') or [])} "
-            f"procs={len(updated.get('subprocessors') or [])} "
-            f"year={updated.get('founded_year') or '-'}",
-            flush=True,
-        )
+            return row["slug"], row, exc
+
+    done = 0
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = [pool.submit(do_one, row) for row in targets]
+        for fut in as_completed(futs):
+            slug, updated, exc = fut.result()
+            done += 1
+            if exc:
+                print(f"  fail {slug}: {exc}", flush=True)
+                continue
+            new_edges.extend(take_edges(updated))
+            idx = next((j for j, c in enumerate(enr["companies"]) if c["slug"] == slug), None)
+            if idx is None:
+                continue
+            enr["companies"][idx] = updated
+            register[slug] = updated
+            inst = enrich.instrument_links(updated)
+            if inst:
+                gained_instrument.append(slug)
+            print(
+                f"  {done}/{len(targets)} {slug:24} inst={list(inst)} "
+                f"certs={len(updated.get('certs') or [])} "
+                f"procs={len(updated.get('subprocessors') or [])} "
+                f"year={updated.get('founded_year') or '-'}",
+                flush=True,
+            )
     after_targets = [register[c["slug"]] for c in targets if c["slug"] in register]
     after = {
         "rows": len(after_targets),
