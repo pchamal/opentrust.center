@@ -409,8 +409,8 @@ expect("membership is 200 slugs", Object.keys(membership.slugs).length === 200);
 expect("AITI files are exactly the membership", files.length === 200 && files.every((r) => membership.slugs[r.slug]));
 expect("every AITI file has official homepage", files.every((r) => /^https?:\/\//.test(r.official_url || "")));
 expect("official homepage does not fill page", files.filter((r) => r.official_url && !pagesDoc.pages[r.slug]).every((r) => storedAiPageUrl(r) === "" && aiFileFlags(r).page === false));
-expect("Amazon homepage is not an AI page fill", storedAiPageUrl(bySlug.amazon) === "" && aiFileFlags(bySlug.amazon).page === false);
-expect("Google homepage is not an AI page fill", storedAiPageUrl(bySlug.google) === "" && aiFileFlags(bySlug.google).page === false);
+expect("Amazon homepage is not the AI page fill", storedAiPageUrl(bySlug.amazon) === pagesDoc.pages.amazon.url && storedAiPageUrl(bySlug.amazon) !== bySlug.amazon.official_url && storedAiPageUrl(bySlug.amazon).includes("responsible-ai"));
+expect("Google homepage is not the AI page fill", storedAiPageUrl(bySlug.google) === pagesDoc.pages.google.url && storedAiPageUrl(bySlug.google) !== bySlug.google.official_url && storedAiPageUrl(bySlug.google).includes("responsible-ai"));
 expect("Midjourney dossier homepage is a link", /<a class="official" href="https:\/\/www\.midjourney\.com\/?"/.test(midDossier));
 expect("default first names are clerk-dense", arranged.slice(0, 5).map((r) => r.name).join(" · ").length > 10);
 
