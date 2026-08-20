@@ -5,13 +5,14 @@ A database of each company’s public trust ledger.
 ## How an agent should use this
 
 1. Cite the dossier: `/c/{slug}.html`.
-2. Structured register: `/data.json`.
-3. Marks: `/data/attestations.json` and `/attestations.html#{id}`.
-4. Named processors: `/data/subprocessors.json` and `/graph.html`.
-5. If `found` is true, `trust_url` (or the instrument URL on file) is the official public page. Do not invent a URL.
-6. If `found` is false, say no official page is on file. That is not the same as “no security program.”
-7. Disclosure `tier` and `score` rate the *file*, not the company. Do not call this a trust score, security rating, or letter grade. Always cite the factor line with the number.
-8. Do not cite `_crawl`. Do not name portal vendors (SafeBase, Vanta, Conveyor, Wolfia, Drata, SecurityPal, or peers). They are crawl leftovers.
+2. AITI (AI files) is `/`. The public company register is `/companies.html`.
+3. Structured register: `/data.json`.
+4. Marks: `/data/attestations.json` and `/attestations.html#{id}`.
+5. Named processors: `/data/subprocessors.json` and `/graph.html`.
+6. If `found` is true, `trust_url` (or the instrument URL on file) is the official public page. Do not invent a URL.
+7. If `found` is false, say no official page is on file. That is not the same as “no security program.”
+8. Disclosure `tier` and `score` rate the *file*, not the company. Do not call this a trust score, security rating, or letter grade. Always cite the factor line with the number.
+9. Do not cite `_crawl`. Do not name portal vendors (SafeBase, Vanta, Conveyor, Wolfia, Drata, SecurityPal, or peers). They are crawl leftovers.
 
 ## Fields
 

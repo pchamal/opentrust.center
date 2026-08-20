@@ -670,6 +670,17 @@ a:hover img.ink-ico {
   color: var(--ot-graphite);
 }
 .ident .file-line { margin-top: 8px; }
+.ident .file-line .sep { color: var(--ot-graphite); }
+.ident .file-word {
+  font: inherit;
+  font-family: var(--ot-font-utility);
+  font-weight: 400;
+  color: var(--ot-graphite);
+}
+.ident .file-word.silent {
+  font-style: italic;
+  color: var(--ot-unknown-fg);
+}
 .ident .file-line .file-index { display: flex; }
 
 .mark-list {

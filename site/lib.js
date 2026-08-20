@@ -11,6 +11,69 @@ export const FILE_LABELS = {
   subprocessors: "subprocessors",
   years: "years",
 };
+export const AI_FILE_KEYS = ["page", "marks", "processors", "evals", "incidents"];
+export const AI_FILE_LABELS = {
+  page: "page",
+  marks: "marks",
+  processors: "processors",
+  evals: "evals",
+  incidents: "incidents",
+};
+export const AI_MARK_IDS = new Set(["aiuc-1", "iso-42001", "nist-ai-rmf", "eu-ai-act"]);
+export const AI_MARK_RE = /aiuc-?1|iso(?:\/iec)?[\s-]*42001|nist[\s-]*ai[\s-]*rmf|eu[\s-]*ai[\s-]*act/i;
+export const AI_PAGE_RE = /model-?card|system-?card|responsible-ai|ai-safety|ai-security/i;
+const VENDOR_HOST_RE = /(^|\.)(safebase\.(us|com)|vanta\.com|conveyor\.com|wolfia\.\w+|securitypal\.com|drata\.com|secureframe\.com|whistic\.com|sprinto\.com|trustcloud\.com)$/i;
+export const AI_PROCESSORS_RE = /model-processors|llm-processors|named-model/i;
+/* Model/API providers. Hosting (AWS, GCP, Azure, Snowflake) does not count. */
+export const AI_SYSTEM_PROCESSOR_SLUGS = new Set([
+  "openai",
+  "anthropic",
+  "cohere",
+  "mistral-ai",
+  "groq",
+  "fireworks-ai",
+  "together-ai",
+  "hugging-face",
+  "scale-ai",
+  "xai",
+  "perplexity-ai",
+  "elevenlabs",
+  "runway",
+  "fal-ai",
+]);
+const NOT_AI_SYSTEM_PROCESSOR_SLUGS = new Set([
+  "amazon-web-services",
+  "stripe",
+  "datadog",
+  "snowflake",
+  "cloudflare",
+  "microsoft",
+  "google",
+]);
+const AI_SYSTEM_PROCESSOR_NAME_RE =
+  /^(openai(?: opco(?: llc)?)?|anthropic(?: pbc)?|cohere|mistral(?: ai)?|groq|fireworks(?: ai(?: inc)?)?|together(?: ai)?|hugging face(?: inference)?|scale ai|xai|perplexity(?: ai)?|eleven ?labs|runway(?: ml)?|fal(?: ai)?|google gemini|vertex(?: ai)?|azure openai|amazon bedrock|openrouter|deepinfra|deepgram(?: inc)?|cartesia(?: ai(?: inc)?)?|baseten(?: labs(?: inc)?)?|kling(?: ai(?: pte ltd)?)?)$/i;
+const HOSTING_PROCESSOR_NAME_RE =
+  /^(amazon web services|aws|google cloud(?: platform)?|microsoft azure|azure|snowflake|datadog|stripe|google|microsoft)$/i;
+export const AI_EVALS_RE = /red-?team|(?:^|\/)evals?(?:\/|$)/i;
+export const AI_INCIDENTS_RE = /ai-incident|(?:^|\/)incidents?(?:\/|$)/i;
+/* AI product names already on the register that are not .ai / “AI” / AI-50. */
+export const AI_PRODUCT_SLUGS = new Set([
+  "midjourney",
+  "hugging-face",
+  "runway",
+  "glean",
+  "groq",
+  "abridge",
+  "openai",
+  "anthropic",
+  "anysphere",
+  "cohere",
+  "writer",
+  "elevenlabs",
+  "grammarly",
+  "harvey",
+  "synthesia",
+]);
 
 export function dataUrl(path) {
   const v = DATA_V ? encodeURIComponent(DATA_V) : "";
@@ -68,6 +131,216 @@ export function fileIndexHtml(row) {
     return `<span class="${cls}" aria-hidden="true"></span>`;
   }).join("");
   return `<span class="file-index" role="img" aria-label="${escapeHtml(c.spoken)}">${rules}</span>`;
+}
+
+function instrumentHref(row, key) {
+  const rec = row && row.instruments && row.instruments[key];
+  if (!rec) return "";
+  if (typeof rec === "string") return rec;
+  return (rec && rec.url) || "";
+}
+
+export function isFirstPartyUrl(url, domain) {
+  const host = hostOf(url).toLowerCase();
+  const own = String(domain || "")
+    .replace(/^www\./i, "")
+    .toLowerCase();
+  if (!host || !own) return false;
+  if (VENDOR_HOST_RE.test(host)) return false;
+  return host === own || host.endsWith("." + own);
+}
+
+function normalizeProcessorName(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[.,]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+export function isAiSystemProcessor(proc, ownerSlug) {
+  if (!proc) return false;
+  const slug = String(proc.slug || "").toLowerCase();
+  const owner = String(ownerSlug || "").toLowerCase();
+  if (slug && owner && slug === owner) return false;
+  if (slug && NOT_AI_SYSTEM_PROCESSOR_SLUGS.has(slug)) return false;
+  const name = normalizeProcessorName(proc.name || proc);
+  if (HOSTING_PROCESSOR_NAME_RE.test(name)) return false;
+  if (slug && AI_SYSTEM_PROCESSOR_SLUGS.has(slug)) return true;
+  return AI_SYSTEM_PROCESSOR_NAME_RE.test(name);
+}
+
+export function storedAiProcessors(row) {
+  const field = row && row.ai_processors;
+  const raw = Array.isArray(field) ? field : field && field.names;
+  if (!Array.isArray(raw) || !raw.length) return [];
+  const owner = row && row.slug;
+  const seen = new Set();
+  const out = [];
+  for (const item of raw) {
+    const name = typeof item === "string" ? item : item && item.name;
+    const slug = typeof item === "string" ? "" : (item && item.slug) || "";
+    const rec = { name: String(name || "").trim(), slug: String(slug || "") };
+    if (!rec.name) continue;
+    if (!isAiSystemProcessor(rec, owner)) continue;
+    const key = (rec.slug || rec.name).toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    if (item && item.source_url) rec.source_url = item.source_url;
+    out.push(rec);
+  }
+  return out;
+}
+
+export function storedAiPageUrl(row) {
+  const field = row && row.ai_page;
+  const fromField = typeof field === "string" ? field : field && field.url;
+  const url = fromField || instrumentHref(row, "ai") || "";
+  if (!url) return "";
+  if (!isFirstPartyUrl(url, row && row.domain)) return "";
+  return url;
+}
+
+function collectedUrls(row) {
+  const urls = [
+    row && row.trust_url,
+    row && row.final_url,
+    instrumentHref(row, "trust"),
+    instrumentHref(row, "security"),
+    instrumentHref(row, "privacy"),
+    instrumentHref(row, "dpa"),
+    instrumentHref(row, "subprocessors"),
+    instrumentHref(row, "status"),
+    instrumentHref(row, "bounty"),
+    instrumentHref(row, "evals"),
+    instrumentHref(row, "incidents"),
+    instrumentHref(row, "model_processors"),
+  ];
+  const extra = (row && row.processors) || [];
+  for (const p of extra) {
+    if (p && p.source_url) urls.push(p.source_url);
+  }
+  return urls.filter(Boolean);
+}
+
+export function isAiMarkLabel(value) {
+  const s = String(value || "").trim();
+  if (!s) return false;
+  const id = s.toLowerCase().replace(/[\s_]+/g, "-");
+  if (AI_MARK_IDS.has(id)) return true;
+  return AI_MARK_RE.test(s);
+}
+
+export function printedAiMarks(row) {
+  const seen = new Set();
+  const out = [];
+  const atts = ((row && row.attestations) || []).filter((a) => a && (a.name || a.short || a.id));
+  const names = atts.length
+    ? atts
+    : ((row && row.certs) || []).map((name) => ({ name, id: null }));
+  for (const a of names) {
+    const id = String((a && a.id) || "").toLowerCase();
+    const label = String((a && (a.short || a.name)) || "").trim();
+    if (!isAiMarkLabel(id) && !isAiMarkLabel(label)) continue;
+    const key = id || label.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push({
+      id: id || "",
+      name: label || id,
+      short: (a && a.short) || label || id,
+    });
+  }
+  return out;
+}
+
+export function hasPrintedAiMark(row) {
+  return printedAiMarks(row).length > 0;
+}
+
+function urlLooksAiPage(url) {
+  try {
+    const u = new URL(url);
+    const path = (u.pathname || "") + (u.search || "");
+    return AI_PAGE_RE.test(path);
+  } catch {
+    return AI_PAGE_RE.test(String(url || ""));
+  }
+}
+
+function urlLooksAiInstrument(url, re) {
+  try {
+    const u = new URL(url);
+    const path = (u.pathname || "") + (u.search || "");
+    return re.test(path);
+  } catch {
+    return re.test(String(url || ""));
+  }
+}
+
+export function isAiishNameOrDomain(row) {
+  const name = String((row && row.name) || "");
+  const domain = String((row && row.domain) || "").toLowerCase();
+  const slug = String((row && row.slug) || "").toLowerCase();
+  if (domain.endsWith(".ai")) return true;
+  if (/(^|[\s/])AI([\s,]|$)/.test(name) || /\bArtificial Intelligence\b/i.test(name)) return true;
+  if (slug.endsWith("-ai")) return true;
+  return false;
+}
+
+export function isAiFile(row) {
+  if (!row) return false;
+  if (hasPrintedAiMark(row)) return true;
+  if ((row.list || "") === "forbes-ai-50-2025") return true;
+  if (isAiishNameOrDomain(row)) return true;
+  if (AI_PRODUCT_SLUGS.has(String(row.slug || ""))) return true;
+  return false;
+}
+
+export function selectAiFiles(rows) {
+  return (rows || []).filter(isAiFile);
+}
+
+export function aiFileFlags(row) {
+  const urls = collectedUrls(row);
+  return {
+    page: !!storedAiPageUrl(row),
+    marks: hasPrintedAiMark(row),
+    processors: storedAiProcessors(row).length > 0,
+    evals: urls.some((u) => urlLooksAiInstrument(u, AI_EVALS_RE)),
+    incidents: urls.some((u) => urlLooksAiInstrument(u, AI_INCIDENTS_RE)),
+  };
+}
+
+export function aiFileCount(row) {
+  const flags = aiFileFlags(row);
+  return AI_FILE_KEYS.reduce((n, key) => n + (flags[key] ? 1 : 0), 0);
+}
+
+export function aiFileCoverage(row) {
+  const flags = aiFileFlags(row);
+  const n = aiFileCount(row);
+  const legend = "page · marks · processors · evals · incidents";
+  const on = AI_FILE_KEYS.filter((k) => flags[k]).map((k) => AI_FILE_LABELS[k]);
+  const spoken = on.length ? on.join(" · ") : "not on file";
+  return { n, legend, spoken, title: spoken };
+}
+
+export function aiFileIndexHtml(row) {
+  const flags = aiFileFlags(row);
+  const c = aiFileCoverage(row);
+  const rules = AI_FILE_KEYS.map((key) => {
+    const cls = flags[key] ? "file-rule on" : "file-rule";
+    return `<span class="${cls}" aria-hidden="true"></span>`;
+  }).join("");
+  return `<span class="file-index" role="img" aria-label="${escapeHtml(c.spoken)}">${rules}</span>`;
+}
+
+export function fillAitiIssue(el, data, n) {
+  if (!el || !data) return;
+  const day = fmtDay(data.generated_at);
+  const count = Number.isFinite(n) ? n : 0;
+  el.textContent = [`issue ${day}`, `${count} files`].filter(Boolean).join(" · ");
 }
 
 export function $(id) {

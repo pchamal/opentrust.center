@@ -2030,6 +2030,11 @@
           "url": "https://openai.com/index/bug-bounty-program/",
           "host": "openai.com",
           "seen": "2026-08-20"
+        },
+        "ai": {
+          "url": "https://cdn.openai.com/papers/gpt-4-system-card.pdf",
+          "host": "cdn.openai.com",
+          "seen": "2026-08-20"
         }
       },
       "processors": [
@@ -2159,6 +2164,11 @@
             "url": "https://www.fedramp.gov/marketplace/products/FR2533155773"
           }
         ]
+      },
+      "ai_page": {
+        "url": "https://cdn.openai.com/papers/gpt-4-system-card.pdf",
+        "host": "cdn.openai.com",
+        "seen": "2026-08-20"
       },
       "csa_star": {
         "marketplace": "https://cloudsecurityalliance.org/star/registry/openai",
@@ -4070,6 +4080,11 @@
           "url": "https://www.anthropic.com/responsible-disclosure-policy",
           "host": "anthropic.com",
           "seen": "2026-08-20"
+        },
+        "ai": {
+          "url": "https://www.anthropic.com/responsible-scaling-policy",
+          "host": "anthropic.com",
+          "seen": "2026-08-20"
         }
       },
       "processors": [
@@ -4208,6 +4223,22 @@
         "vendor": "vanta",
         "title": "Anthropic Trust Center",
         "http_status": null
+      },
+      "ai_page": {
+        "url": "https://www.anthropic.com/responsible-scaling-policy",
+        "host": "anthropic.com",
+        "seen": "2026-08-20"
+      },
+      "ai_processors": {
+        "names": [
+          {
+            "name": "ElevenLabs",
+            "slug": "elevenlabs",
+            "source_url": "https://trust.anthropic.com/subprocessors"
+          }
+        ],
+        "source_url": "https://trust.anthropic.com/subprocessors",
+        "via": "named-processors"
       },
       "csa_star": {
         "marketplace": "https://cloudsecurityalliance.org/star/registry/anthropic",
@@ -5019,6 +5050,32 @@
         "title": "Fin Trust Center",
         "http_status": null
       },
+      "ai_processors": {
+        "names": [
+          {
+            "name": "OpenAI",
+            "slug": "openai",
+            "source_url": "https://trust.intercom.com/subprocessors"
+          },
+          {
+            "name": "Anthropic",
+            "slug": "anthropic",
+            "source_url": "https://trust.intercom.com/subprocessors"
+          },
+          {
+            "name": "ElevenLabs",
+            "slug": "elevenlabs",
+            "source_url": "https://trust.intercom.com/subprocessors"
+          },
+          {
+            "name": "Cartesia AI Inc",
+            "slug": null,
+            "source_url": "https://trust.intercom.com/subprocessors"
+          }
+        ],
+        "source_url": "https://trust.intercom.com/subprocessors",
+        "via": "named-processors"
+      },
       "csa_star": {
         "marketplace": "https://cloudsecurityalliance.org/star/registry/intercom-inc",
         "source": "https://cloudsecurityalliance.org/star/registry",
@@ -5577,6 +5634,22 @@
         "vendor": "safebase",
         "title": "Webflow Trust Center",
         "http_status": null
+      },
+      "ai_processors": {
+        "names": [
+          {
+            "name": "Anthropic",
+            "slug": "anthropic",
+            "source_url": "https://webflow.com/legal/subprocessors"
+          },
+          {
+            "name": "OpenAI",
+            "slug": "openai",
+            "source_url": "https://webflow.com/legal/subprocessors"
+          }
+        ],
+        "source_url": "https://webflow.com/legal/subprocessors",
+        "via": "named-processors"
       },
       "list_rank": 64
     },
@@ -6158,6 +6231,22 @@
         "vendor": "vanta",
         "title": "Fireworks AI Trust Center",
         "http_status": null
+      },
+      "ai_processors": {
+        "names": [
+          {
+            "name": "Anthropic",
+            "slug": "anthropic",
+            "source_url": "https://trust.fireworks.ai/subprocessors"
+          },
+          {
+            "name": "OpenAI",
+            "slug": "openai",
+            "source_url": "https://trust.fireworks.ai/subprocessors"
+          }
+        ],
+        "source_url": "https://trust.fireworks.ai/subprocessors",
+        "via": "named-processors"
       },
       "list_rank": 84
     },
@@ -6980,7 +7069,12 @@
           "host": "status.synthesia.io",
           "seen": "2026-08-20"
         },
-        "bounty": null
+        "bounty": null,
+        "ai": {
+          "url": "https://www.synthesia.io/responsible-ai",
+          "host": "synthesia.io",
+          "seen": "2026-08-20"
+        }
       },
       "processors": [
         {
@@ -7052,6 +7146,27 @@
         "vendor": "vanta",
         "title": "Synthesia Trust Center",
         "http_status": null
+      },
+      "ai_page": {
+        "url": "https://www.synthesia.io/responsible-ai",
+        "host": "synthesia.io",
+        "seen": "2026-08-20"
+      },
+      "ai_processors": {
+        "names": [
+          {
+            "name": "OpenAI",
+            "slug": "openai",
+            "source_url": "https://www.synthesia.io/legal/subprocessors"
+          },
+          {
+            "name": "Anthropic",
+            "slug": "anthropic",
+            "source_url": "https://www.synthesia.io/legal/subprocessors"
+          }
+        ],
+        "source_url": "https://www.synthesia.io/legal/subprocessors",
+        "via": "named-processors"
       },
       "list_rank": 98
     },
@@ -8385,6 +8500,42 @@
           }
         ]
       },
+      "ai_processors": {
+        "names": [
+          {
+            "name": "Anthropic",
+            "slug": "anthropic",
+            "source_url": "https://compliance.elevenlabs.io/subprocessors"
+          },
+          {
+            "name": "OpenAI",
+            "slug": "openai",
+            "source_url": "https://compliance.elevenlabs.io/subprocessors"
+          },
+          {
+            "name": "xAI",
+            "slug": "xai",
+            "source_url": "https://compliance.elevenlabs.io/subprocessors"
+          },
+          {
+            "name": "Fal",
+            "slug": null,
+            "source_url": "https://compliance.elevenlabs.io/subprocessors"
+          },
+          {
+            "name": "Kling",
+            "slug": null,
+            "source_url": "https://compliance.elevenlabs.io/subprocessors"
+          },
+          {
+            "name": "Runway",
+            "slug": "runway",
+            "source_url": "https://compliance.elevenlabs.io/subprocessors"
+          }
+        ],
+        "source_url": "https://compliance.elevenlabs.io/subprocessors",
+        "via": "named-processors"
+      },
       "csa_star": {
         "marketplace": "https://cloudsecurityalliance.org/star/registry/eleven-labs-inc",
         "source": "https://cloudsecurityalliance.org/star/registry",
@@ -8667,6 +8818,11 @@
           "url": "https://www.automationanywhere.com/legal/vulnerability-disclosure-policy",
           "host": "automationanywhere.com",
           "seen": "2026-08-20"
+        },
+        "ai": {
+          "url": "https://www.automationanywhere.com/responsible-ai",
+          "host": "automationanywhere.com",
+          "seen": "2026-08-20"
         }
       },
       "processors": [],
@@ -8696,6 +8852,11 @@
         "vendor": "self_hosted",
         "title": "Trust Center | Automation Anywhere",
         "http_status": null
+      },
+      "ai_page": {
+        "url": "https://www.automationanywhere.com/responsible-ai",
+        "host": "automationanywhere.com",
+        "seen": "2026-08-20"
       },
       "csa_star": {
         "marketplace": "https://cloudsecurityalliance.org/star/registry/automation-anywhere",
@@ -9539,6 +9700,17 @@
         "vendor": "self_hosted",
         "title": "Trust Center",
         "http_status": null
+      },
+      "ai_processors": {
+        "names": [
+          {
+            "name": "OpenAI",
+            "slug": "openai",
+            "source_url": "https://www.workato.com/legal/sub-processors"
+          }
+        ],
+        "source_url": "https://www.workato.com/legal/sub-processors",
+        "via": "named-processors"
       },
       "list_rank": 61
     },
@@ -11084,6 +11256,42 @@
         "title": "Sierra Trust Center",
         "http_status": null
       },
+      "ai_processors": {
+        "names": [
+          {
+            "name": "Anthropic",
+            "slug": "anthropic",
+            "source_url": "https://trust.sierra.ai/subprocessors"
+          },
+          {
+            "name": "OpenAI",
+            "slug": "openai",
+            "source_url": "https://trust.sierra.ai/subprocessors"
+          },
+          {
+            "name": "Deepgram Inc",
+            "slug": null,
+            "source_url": "https://trust.sierra.ai/subprocessors"
+          },
+          {
+            "name": "Baseten Labs Inc",
+            "slug": null,
+            "source_url": "https://trust.sierra.ai/subprocessors"
+          },
+          {
+            "name": "Fireworks AI Inc",
+            "slug": null,
+            "source_url": "https://trust.sierra.ai/subprocessors"
+          },
+          {
+            "name": "ElevenLabs",
+            "slug": "elevenlabs",
+            "source_url": "https://trust.sierra.ai/subprocessors"
+          }
+        ],
+        "source_url": "https://trust.sierra.ai/subprocessors",
+        "via": "named-processors"
+      },
       "csa_star": {
         "marketplace": "https://cloudsecurityalliance.org/star/registry/sierra-technologies-inc",
         "source": "https://cloudsecurityalliance.org/star/registry",
@@ -11361,6 +11569,17 @@
         "vendor": "vanta",
         "title": "Clay Trust Center",
         "http_status": null
+      },
+      "ai_processors": {
+        "names": [
+          {
+            "name": "Anthropic",
+            "slug": "anthropic",
+            "source_url": "https://trust.clay.com/subprocessors"
+          }
+        ],
+        "source_url": "https://trust.clay.com/subprocessors",
+        "via": "named-processors"
       },
       "list_rank": 99
     },
@@ -11705,7 +11924,12 @@
           "seen": "2026-08-20"
         },
         "status": null,
-        "bounty": null
+        "bounty": null,
+        "ai": {
+          "url": "https://www.workday.com/en-us/artificial-intelligence/responsible-ai.html",
+          "host": "workday.com",
+          "seen": "2026-08-20"
+        }
       },
       "processors": [
         {
@@ -11775,6 +11999,11 @@
             "url": "https://www.fedramp.gov/marketplace/products/FR2103344623"
           }
         ]
+      },
+      "ai_page": {
+        "url": "https://www.workday.com/en-us/artificial-intelligence/responsible-ai.html",
+        "host": "workday.com",
+        "seen": "2026-08-20"
       },
       "csa_star": {
         "marketplace": "https://cloudsecurityalliance.org/star/registry/workday-inc",
@@ -12372,6 +12601,11 @@
           "url": "https://www.grammarly.com/blog/company/hackerone-bug-bounty-security/",
           "host": "grammarly.com",
           "seen": "2026-08-20"
+        },
+        "ai": {
+          "url": "https://www.grammarly.com/ai/responsible-ai",
+          "host": "grammarly.com",
+          "seen": "2026-08-20"
         }
       },
       "processors": [],
@@ -12401,6 +12635,11 @@
         "vendor": "self_hosted",
         "title": "The Grammarly User Trust Center | Security, Privacy, & Compliance",
         "http_status": null
+      },
+      "ai_page": {
+        "url": "https://www.grammarly.com/ai/responsible-ai",
+        "host": "grammarly.com",
+        "seen": "2026-08-20"
       },
       "csa_star": {
         "marketplace": "https://cloudsecurityalliance.org/star/registry/grammarly",
@@ -13313,7 +13552,12 @@
           "host": "status.cohere.com",
           "seen": "2026-08-20"
         },
-        "bounty": null
+        "bounty": null,
+        "ai": {
+          "url": "https://docs.cohere.com/docs/responsible-use",
+          "host": "docs.cohere.com",
+          "seen": "2026-08-20"
+        }
       },
       "processors": [],
       "disclosure": {
@@ -13342,6 +13586,11 @@
         "vendor": "secureframe",
         "title": "Cohere Inc | Trust Center",
         "http_status": null
+      },
+      "ai_page": {
+        "url": "https://docs.cohere.com/docs/responsible-use",
+        "host": "docs.cohere.com",
+        "seen": "2026-08-20"
       },
       "list_rank": null
     },
@@ -18119,6 +18368,42 @@
           }
         ]
       },
+      "ai_processors": {
+        "names": [
+          {
+            "name": "Fireworks",
+            "slug": "fireworks-ai",
+            "source_url": "https://trust.cursor.com/subprocessors"
+          },
+          {
+            "name": "OpenAI",
+            "slug": "openai",
+            "source_url": "https://trust.cursor.com/subprocessors"
+          },
+          {
+            "name": "Anthropic",
+            "slug": "anthropic",
+            "source_url": "https://trust.cursor.com/subprocessors"
+          },
+          {
+            "name": "Google Gemini",
+            "slug": null,
+            "source_url": "https://trust.cursor.com/subprocessors"
+          },
+          {
+            "name": "Baseten",
+            "slug": null,
+            "source_url": "https://trust.cursor.com/subprocessors"
+          },
+          {
+            "name": "Together",
+            "slug": "together-ai",
+            "source_url": "https://trust.cursor.com/subprocessors"
+          }
+        ],
+        "source_url": "https://trust.cursor.com/subprocessors",
+        "via": "named-processors"
+      },
       "list_rank": 8
     },
     {
@@ -18411,6 +18696,32 @@
         "vendor": "vanta",
         "title": "Together.ai Trust Center",
         "http_status": null
+      },
+      "ai_processors": {
+        "names": [
+          {
+            "name": "Anthropic",
+            "slug": "anthropic",
+            "source_url": "https://trust.together.ai/subprocessors"
+          },
+          {
+            "name": "OpenAI",
+            "slug": "openai",
+            "source_url": "https://trust.together.ai/subprocessors"
+          },
+          {
+            "name": "Openrouter",
+            "slug": null,
+            "source_url": "https://trust.together.ai/subprocessors"
+          },
+          {
+            "name": "Perplexity AI",
+            "slug": "perplexity-ai",
+            "source_url": "https://trust.together.ai/subprocessors"
+          }
+        ],
+        "source_url": "https://trust.together.ai/subprocessors",
+        "via": "named-processors"
       },
       "list_rank": 86
     },
@@ -23806,6 +24117,42 @@
         "title": "Runway Trust Center",
         "http_status": null
       },
+      "ai_processors": {
+        "names": [
+          {
+            "name": "OpenAI",
+            "slug": "openai",
+            "source_url": "https://runwayml.com/customer-subprocessors"
+          },
+          {
+            "name": "Anthropic",
+            "slug": "anthropic",
+            "source_url": "https://runwayml.com/customer-subprocessors"
+          },
+          {
+            "name": "ElevenLabs",
+            "slug": "elevenlabs",
+            "source_url": "https://runwayml.com/customer-subprocessors"
+          },
+          {
+            "name": "Cartesia AI",
+            "slug": null,
+            "source_url": "https://runwayml.com/customer-subprocessors"
+          },
+          {
+            "name": "Kling AI",
+            "slug": null,
+            "source_url": "https://runwayml.com/customer-subprocessors"
+          },
+          {
+            "name": "fal",
+            "slug": "fal-ai",
+            "source_url": "https://runwayml.com/customer-subprocessors"
+          }
+        ],
+        "source_url": "https://runwayml.com/customer-subprocessors",
+        "via": "cited-first-party-list"
+      },
       "list_rank": 83
     },
     {
@@ -24461,6 +24808,27 @@
         "vendor": "vanta",
         "title": "Stability AI Trust Center",
         "http_status": null
+      },
+      "ai_processors": {
+        "names": [
+          {
+            "name": "Openrouter",
+            "slug": null,
+            "source_url": "https://trust.stability.ai/subprocessors"
+          },
+          {
+            "name": "Mistral AI",
+            "slug": "mistral-ai",
+            "source_url": "https://trust.stability.ai/subprocessors"
+          },
+          {
+            "name": "Deepinfra",
+            "slug": null,
+            "source_url": "https://trust.stability.ai/subprocessors"
+          }
+        ],
+        "source_url": "https://trust.stability.ai/subprocessors",
+        "via": "named-processors"
       },
       "list_rank": null
     },

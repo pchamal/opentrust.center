@@ -1,0 +1,374 @@
+{
+  "generated_at": "2026-08-20T19:50:26Z",
+  "seen": "2026-08-20",
+  "rule": "Processors fills only when the company names, on a first-party public page, at least one AI system processor (a model/API provider). Stripe, Datadog, AWS-as-hosting, Snowflake, and bare Google/Microsoft/Azure do not count. No SafeBase, no login-walled portals, no invented names. When unsure, leave open.",
+  "method": "Conservative filter of named processors already on this register (site/data/subprocessors.json / company.processors). Plus names printed on a first-party subprocessor page already cited on the dossier (Runway). Filed AI pages were checked and did not clearly name model providers as processors. Trust-center shells and Cloudflare walls were left open.",
+  "count": 13,
+  "processors": {
+    "anthropic": {
+      "names": [
+        {
+          "name": "ElevenLabs",
+          "slug": "elevenlabs",
+          "source_url": "https://trust.anthropic.com/subprocessors"
+        }
+      ],
+      "source_url": "https://trust.anthropic.com/subprocessors",
+      "via": "named-processors"
+    },
+    "intercom": {
+      "names": [
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "source_url": "https://trust.intercom.com/subprocessors"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic",
+          "source_url": "https://trust.intercom.com/subprocessors"
+        },
+        {
+          "name": "ElevenLabs",
+          "slug": "elevenlabs",
+          "source_url": "https://trust.intercom.com/subprocessors"
+        },
+        {
+          "name": "Cartesia AI Inc",
+          "slug": null,
+          "source_url": "https://trust.intercom.com/subprocessors"
+        }
+      ],
+      "source_url": "https://trust.intercom.com/subprocessors",
+      "via": "named-processors"
+    },
+    "fireworks-ai": {
+      "names": [
+        {
+          "name": "Anthropic",
+          "slug": "anthropic",
+          "source_url": "https://trust.fireworks.ai/subprocessors"
+        },
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "source_url": "https://trust.fireworks.ai/subprocessors"
+        }
+      ],
+      "source_url": "https://trust.fireworks.ai/subprocessors",
+      "via": "named-processors"
+    },
+    "webflow": {
+      "names": [
+        {
+          "name": "Anthropic",
+          "slug": "anthropic",
+          "source_url": "https://webflow.com/legal/subprocessors"
+        },
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "source_url": "https://webflow.com/legal/subprocessors"
+        }
+      ],
+      "source_url": "https://webflow.com/legal/subprocessors",
+      "via": "named-processors"
+    },
+    "synthesia": {
+      "names": [
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "source_url": "https://www.synthesia.io/legal/subprocessors"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic",
+          "source_url": "https://www.synthesia.io/legal/subprocessors"
+        }
+      ],
+      "source_url": "https://www.synthesia.io/legal/subprocessors",
+      "via": "named-processors"
+    },
+    "elevenlabs": {
+      "names": [
+        {
+          "name": "Anthropic",
+          "slug": "anthropic",
+          "source_url": "https://compliance.elevenlabs.io/subprocessors"
+        },
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "source_url": "https://compliance.elevenlabs.io/subprocessors"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai",
+          "source_url": "https://compliance.elevenlabs.io/subprocessors"
+        },
+        {
+          "name": "Fal",
+          "slug": null,
+          "source_url": "https://compliance.elevenlabs.io/subprocessors"
+        },
+        {
+          "name": "Kling",
+          "slug": null,
+          "source_url": "https://compliance.elevenlabs.io/subprocessors"
+        },
+        {
+          "name": "Runway",
+          "slug": "runway",
+          "source_url": "https://compliance.elevenlabs.io/subprocessors"
+        }
+      ],
+      "source_url": "https://compliance.elevenlabs.io/subprocessors",
+      "via": "named-processors"
+    },
+    "workato": {
+      "names": [
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "source_url": "https://www.workato.com/legal/sub-processors"
+        }
+      ],
+      "source_url": "https://www.workato.com/legal/sub-processors",
+      "via": "named-processors"
+    },
+    "clay": {
+      "names": [
+        {
+          "name": "Anthropic",
+          "slug": "anthropic",
+          "source_url": "https://trust.clay.com/subprocessors"
+        }
+      ],
+      "source_url": "https://trust.clay.com/subprocessors",
+      "via": "named-processors"
+    },
+    "sierra": {
+      "names": [
+        {
+          "name": "Anthropic",
+          "slug": "anthropic",
+          "source_url": "https://trust.sierra.ai/subprocessors"
+        },
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "source_url": "https://trust.sierra.ai/subprocessors"
+        },
+        {
+          "name": "Deepgram Inc",
+          "slug": null,
+          "source_url": "https://trust.sierra.ai/subprocessors"
+        },
+        {
+          "name": "Baseten Labs Inc",
+          "slug": null,
+          "source_url": "https://trust.sierra.ai/subprocessors"
+        },
+        {
+          "name": "Fireworks AI Inc",
+          "slug": null,
+          "source_url": "https://trust.sierra.ai/subprocessors"
+        },
+        {
+          "name": "ElevenLabs",
+          "slug": "elevenlabs",
+          "source_url": "https://trust.sierra.ai/subprocessors"
+        }
+      ],
+      "source_url": "https://trust.sierra.ai/subprocessors",
+      "via": "named-processors"
+    },
+    "anysphere": {
+      "names": [
+        {
+          "name": "Fireworks",
+          "slug": "fireworks-ai",
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic",
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "Google Gemini",
+          "slug": null,
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "Baseten",
+          "slug": null,
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "Together",
+          "slug": "together-ai",
+          "source_url": "https://trust.cursor.com/subprocessors"
+        }
+      ],
+      "source_url": "https://trust.cursor.com/subprocessors",
+      "via": "named-processors"
+    },
+    "together-ai": {
+      "names": [
+        {
+          "name": "Anthropic",
+          "slug": "anthropic",
+          "source_url": "https://trust.together.ai/subprocessors"
+        },
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "source_url": "https://trust.together.ai/subprocessors"
+        },
+        {
+          "name": "Openrouter",
+          "slug": null,
+          "source_url": "https://trust.together.ai/subprocessors"
+        },
+        {
+          "name": "Perplexity AI",
+          "slug": "perplexity-ai",
+          "source_url": "https://trust.together.ai/subprocessors"
+        }
+      ],
+      "source_url": "https://trust.together.ai/subprocessors",
+      "via": "named-processors"
+    },
+    "stability-ai": {
+      "names": [
+        {
+          "name": "Openrouter",
+          "slug": null,
+          "source_url": "https://trust.stability.ai/subprocessors"
+        },
+        {
+          "name": "Mistral AI",
+          "slug": "mistral-ai",
+          "source_url": "https://trust.stability.ai/subprocessors"
+        },
+        {
+          "name": "Deepinfra",
+          "slug": null,
+          "source_url": "https://trust.stability.ai/subprocessors"
+        }
+      ],
+      "source_url": "https://trust.stability.ai/subprocessors",
+      "via": "named-processors"
+    },
+    "runway": {
+      "names": [
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "source_url": "https://runwayml.com/customer-subprocessors"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic",
+          "source_url": "https://runwayml.com/customer-subprocessors"
+        },
+        {
+          "name": "ElevenLabs",
+          "slug": "elevenlabs",
+          "source_url": "https://runwayml.com/customer-subprocessors"
+        },
+        {
+          "name": "Cartesia AI",
+          "slug": null,
+          "source_url": "https://runwayml.com/customer-subprocessors"
+        },
+        {
+          "name": "Kling AI",
+          "slug": null,
+          "source_url": "https://runwayml.com/customer-subprocessors"
+        },
+        {
+          "name": "fal",
+          "slug": "fal-ai",
+          "source_url": "https://runwayml.com/customer-subprocessors"
+        }
+      ],
+      "source_url": "https://runwayml.com/customer-subprocessors",
+      "via": "cited-first-party-list"
+    }
+  },
+  "rejected": [
+    {
+      "slug": "openai",
+      "reason": "Named subprocessors are hosting and SaaS (Microsoft, Google, AWS, Snowflake). Not model/API providers."
+    },
+    {
+      "slug": "writer",
+      "reason": "Named subprocessors are hosting (AWS, Google Cloud, Azure). No model/API provider named."
+    },
+    {
+      "slug": "midjourney",
+      "reason": "Subprocessor page returned Cloudflare 403. Leave open."
+    },
+    {
+      "slug": "harvey",
+      "reason": "Cited first-party list is a JS shell; names were not printed. Do not invent Together."
+    },
+    {
+      "slug": "miro",
+      "reason": "Trust center is vendor-hosted (Wolfia). Skip."
+    },
+    {
+      "note": "Bare Google, Microsoft, Azure, Google Cloud, AWS, Stripe, Datadog, and Snowflake never fill processors."
+    }
+  ],
+  "open": [
+    "postman",
+    "openai",
+    "harvey",
+    "vanta",
+    "writer",
+    "clickup",
+    "automation-anywhere",
+    "dialpad",
+    "gong",
+    "checkr",
+    "workday",
+    "grammarly",
+    "slack",
+    "scale-ai",
+    "cohere",
+    "dbt-labs",
+    "samsara",
+    "miro",
+    "groq",
+    "mistral-ai",
+    "uipath",
+    "abridge",
+    "glean",
+    "hugging-face",
+    "perplexity-ai",
+    "fal-ai",
+    "midjourney",
+    "xai",
+    "alphasense",
+    "abnormal-ai",
+    "sambanova",
+    "cerebras",
+    "photoroom",
+    "rekor-systems",
+    "character-ai",
+    "c3-ai",
+    "figure-ai",
+    "sakana-ai",
+    "verses-ai",
+    "world-labs"
+  ]
+}

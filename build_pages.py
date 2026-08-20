@@ -212,6 +212,56 @@ def load_json(path: Path, default):
     return json.loads(path.read_text())
 
 
+_AITI_PAGES = None
+
+
+def load_aiti_pages() -> dict:
+    """Curated first-party AI-page URLs. Do not invent."""
+    global _AITI_PAGES
+    if _AITI_PAGES is not None:
+        return _AITI_PAGES
+    doc = load_json(SITE / "data" / "aiti-pages.json", {})
+    pages = doc.get("pages") or {}
+    seen = doc.get("seen")
+    out = {}
+    for slug, rec in pages.items():
+        url = rec.get("url") if isinstance(rec, dict) else rec
+        if not url:
+            continue
+        host = rec.get("host") if isinstance(rec, dict) else ""
+        out[slug] = {
+            "url": url,
+            "host": host or host_of(url),
+            "seen": (rec.get("seen") if isinstance(rec, dict) else None) or seen,
+        }
+    _AITI_PAGES = out
+    return out
+
+
+_AITI_PROCESSORS = None
+
+
+def load_aiti_processors() -> dict:
+    """Curated first-party AI system processor names. Do not invent."""
+    global _AITI_PROCESSORS
+    if _AITI_PROCESSORS is not None:
+        return _AITI_PROCESSORS
+    doc = load_json(SITE / "data" / "aiti-processors.json", {})
+    recs = doc.get("processors") or {}
+    out = {}
+    for slug, rec in recs.items():
+        names = rec.get("names") if isinstance(rec, dict) else rec
+        if not names:
+            continue
+        out[slug] = {
+            "names": names,
+            "source_url": rec.get("source_url") if isinstance(rec, dict) else None,
+            "via": rec.get("via") if isinstance(rec, dict) else None,
+        }
+    _AITI_PROCESSORS = out
+    return out
+
+
 def write_json(path: Path, payload) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
@@ -745,6 +795,22 @@ def enrich_company(
         public["favicon"] = icon
     if fedramp:
         public["fedramp"] = fedramp
+    page = load_aiti_pages().get(slug)
+    if page and page.get("url"):
+        filed = {
+            "url": page["url"],
+            "host": display_host(page["url"], domain),
+            "seen": page.get("seen") or seen_date(generated_at),
+        }
+        public["ai_page"] = filed
+        public["instruments"]["ai"] = dict(filed)
+    ai_procs = load_aiti_processors().get(slug)
+    if ai_procs and ai_procs.get("names"):
+        public["ai_processors"] = {
+            "names": ai_procs["names"],
+            "source_url": ai_procs.get("source_url"),
+            "via": ai_procs.get("via"),
+        }
     star = public_star(row.get("csa_star"))
     if star:
         public["csa_star"] = star
@@ -1299,16 +1365,17 @@ def fedramp_spine(row: dict) -> str:
 
 
 def mast(active: str, prefix: str) -> str:
-    def link(href: str, word: str, key: str) -> str:
+    def link(href: str, word: str, key: str, title: str = "") -> str:
         cls = ' class="on"' if key == active else ""
-        return f'<a href="{prefix}{href}"{cls}>{word}</a>'
-    nav_label = "Pages" if not active else "Companies"
+        title_attr = f' title="{title}"' if title else ""
+        return f'<a href="{prefix}{href}"{cls}{title_attr}>{word}</a>'
     return f"""  <a class="skip" href="#main">Skip to the record</a>
   <header class="mast">
     <a class="wordmark" href="{prefix}">opentrust<span class="wm-dot">.</span>center</a>
-    <nav class="docket" aria-label="{nav_label}">
-      {link("", "Companies", "register")}
-      {link("graph.html", "Subprocessor Map", "subprocessors")}
+    <nav class="docket" aria-label="Pages">
+      {link("", "AITI", "aiti", "ayti")}
+      {link("companies.html", "Companies", "register")}
+      {link("graph.html", "Map", "subprocessors")}
       {link("attestations.html", "Standards", "marks")}
     </nav>
   </header>"""
@@ -1420,6 +1487,21 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
                 f'<tr><td>{escape(label)}</td><td><span class="absent">not on file</span></td><td>—</td></tr>'
             )
 
+    ai_rec = inst.get("ai") if isinstance(inst.get("ai"), dict) else None
+    if not (ai_rec and ai_rec.get("url")):
+        page = row.get("ai_page")
+        if isinstance(page, dict) and page.get("url"):
+            ai_rec = page
+        elif isinstance(page, str) and page:
+            ai_rec = {"url": page, "host": display_host(page, domain), "seen": seen_date(generated_at)}
+    if ai_rec and ai_rec.get("url"):
+        shown = ai_rec.get("host") or display_host(ai_rec["url"], domain)
+        seen = fmt_day((ai_rec.get("seen") or "") + "T00:00:00Z") if ai_rec.get("seen") else "—"
+        inst_rows.append(
+            f"<tr><td>AI page</td><td>{official_a(ai_rec['url'], shown)}</td>"
+            f"<td>{escape(seen)}</td></tr>"
+        )
+
     procs = row.get("processors") or []
     list_url = ""
     sub = inst.get("subprocessors")
@@ -1432,9 +1514,16 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
         if found and url
         else '<span class="absent">Official page · not on file</span>'
     )
+    ai_url = ""
+    if isinstance(inst.get("ai"), dict):
+        ai_url = inst["ai"].get("url") or ""
+    elif isinstance(row.get("ai_page"), dict):
+        ai_url = row["ai_page"].get("url") or ""
+    elif isinstance(row.get("ai_page"), str):
+        ai_url = row.get("ai_page") or ""
     need_gate = bool(found and url) or any(
         rec and rec.get("url") for rec in inst.values()
-    ) or any(p.get("source_url") for p in procs) or bool(list_url)
+    ) or any(p.get("source_url") for p in procs) or bool(list_url) or bool(ai_url)
     gate = GATE_HTML if need_gate else ""
     claim = f'<a class="perm" href="../claim.html?slug={escape(slug)}">Report a correction</a>'
     issue = dossier_issue_line(generated_at, slug)
@@ -1478,7 +1567,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
 {mast("", "../")}
   <p class="issue">{escape(issue)}</p>
   <main class="file" id="main">
-    <p class="crumb"><a href="../">Companies</a> / {escape(slug)}</p>
+    <p class="crumb"><a href="../companies.html">Companies</a> / {escape(slug)}</p>
     <section class="ident">
       <h1>{ink_icon(row.get("favicon") or company_favicon(domain), "../")}{escape(name)}</h1>
       <p class="ident-meta">{escape(domain)}</p>
@@ -1512,7 +1601,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
   </main>
   <footer class="colo">
     <p>Disclosure rates the file, not the company. Empty rows print <i>not on file</i>. File tiers are public-file ratings, never company trust.</p>
-    <p><a href="../">Companies</a> · <a href="../graph.html">Subprocessor Map</a> · <a href="../attestations.html">Standards</a></p>
+    <p><a href="../">AITI</a> · <a href="../companies.html">Companies</a> · <a href="../graph.html">Map</a> · <a href="../attestations.html">Standards</a></p>
   </footer>
   <script type="module" src="../dossier.js"></script>
 </body>
@@ -1693,6 +1782,7 @@ def main() -> int:
 
     urls = [
         f"{CANON}/",
+        f"{CANON}/companies.html",
         f"{CANON}/graph.html",
         f"{CANON}/attestations.html",
         f"{CANON}/brand.html",

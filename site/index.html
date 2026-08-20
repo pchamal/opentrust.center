@@ -3,25 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>opentrust.center — public trust ledger</title>
-  <meta name="description" content="A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not.">
+  <title>opentrust.center — AI files</title>
+  <meta name="description" content="The public file on AI systems. Not a trust score.">
   <meta name="theme-color" content="#0B1411">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://opentrust.center/">
-  <meta property="og:title" content="opentrust.center — public trust ledger">
-  <meta property="og:description" content="A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not.">
+  <meta property="og:title" content="opentrust.center — AI files">
+  <meta property="og:description" content="The public file on AI systems. Not a trust score.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://opentrust.center/">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="opentrust.center — public trust ledger">
-  <meta name="twitter:description" content="A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not.">
+  <meta name="twitter:title" content="opentrust.center — AI files">
+  <meta name="twitter:description" content="The public file on AI systems. Not a trust score.">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "opentrust.center",
     "url": "https://opentrust.center/",
-    "description": "A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not."
+    "description": "The public file on AI systems. Not a trust score."
   }
   </script>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
@@ -31,29 +31,30 @@
   <a class="skip" href="#main">Skip to the record</a>
   <header class="mast">
     <a class="wordmark" href="./">opentrust<span class="wm-dot">.</span>center</a>
-    <nav class="docket" aria-label="Companies">
-      <a href="./" class="on">Companies</a>
-      <a href="./graph.html">Subprocessor Map</a>
+    <nav class="docket" aria-label="Pages">
+      <a href="./" class="on" title="ayti">AITI</a>
+      <a href="./companies.html">Companies</a>
+      <a href="./graph.html">Map</a>
       <a href="./attestations.html">Standards</a>
     </nav>
   </header>
   <p class="issue" id="issue">issue —</p>
 
   <main class="canvas" id="main">
-    <h1 class="page-title">Public trust register</h1>
-    <p class="lede">A database of each company’s public trust ledger.</p>
+    <h1 class="page-title">AI files</h1>
+    <p class="lede">The public file on AI systems. Not a trust score.</p>
 
     <form class="finder" id="finder" role="search">
       <label>
-        <span class="sr-only">Find a company</span>
-        <input id="q" type="search" name="q" placeholder="/ stripe, fedramp moderate" autocomplete="off" spellcheck="false" autofocus>
+        <span class="sr-only">Find an AI file</span>
+        <input id="q" type="search" name="q" placeholder="/ cursor, aiuc-1" autocomplete="off" spellcheck="false" autofocus>
       </label>
       <button type="submit" class="finder-go">Find</button>
     </form>
 
     <p class="queryline" id="queryline" hidden></p>
     <p class="countline" id="countline"></p>
-    <p class="file-legend" id="file-legend" hidden>page · marks · DPA · subprocessors · years</p>
+    <p class="file-legend" id="file-legend">page · marks · processors · evals · incidents</p>
 
     <div id="miss" class="miss" hidden>
       <p class="miss-title" id="miss-title">Not in the index.</p>
@@ -69,16 +70,15 @@
     <table class="reg" id="reg" hidden>
       <thead>
         <tr>
-          <th scope="col" data-sort="rank" aria-sort="none"><button type="button">#</button></th>
-          <th scope="col" data-sort="name" aria-sort="none"><button type="button">Name</button></th>
-          <th scope="col" data-sort="domain" aria-sort="none"><button type="button">Domain</button></th>
-          <th scope="col" data-sort="tier" aria-sort="none"><button type="button">File</button></th>
-          <th scope="col" class="marks" data-sort="marks" aria-sort="none"><button type="button">Marks</button></th>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Domain</th>
+          <th scope="col">File</th>
+          <th scope="col" class="marks">Marks</th>
         </tr>
       </thead>
       <tbody id="reg-body"></tbody>
     </table>
-    <nav class="pager" id="pager" hidden aria-label="Companies pages"></nav>
 
     <div id="empty" class="empty" hidden>
       <p>No crawl data on file.</p>
@@ -86,11 +86,10 @@
   </main>
 
   <footer class="colo">
-    <p>We probe <code>trust.{domain}</code>, <code>security.{domain}</code>, and <code>/{trust,trust-center,security}</code>. Marks and named processors come from public HTML only. JS-only portals stay empty — we do not invent marks or processor names. A processor page is not a parsed name. Disclosure rates the file, not the company. Missing rows print <i>not on file</i>. FedRAMP marks are taken from the GSA marketplace, not the company's portal.</p>
-    <p>Source · <a href="https://www.forbes.com/lists/cloud100/">Forbes Cloud 100 2025</a> and a curated public-enterprise set.</p>
-    <p><a href="./">Companies</a> · <a href="./graph.html">Subprocessor Map</a> · <a href="./attestations.html">Standards</a> · <a href="./brand.html">specimen</a> · <a href="https://github.com/pchamal/opentrust.center">code</a> · outbound is human-gated. Documents stay on the company's domain.</p>
+    <p>AITI is the public file on AI systems, not a trust score. Marks print only when an AI mark is on the page. Page, processors, evals, and incidents stay open until a first-party AI-file instrument is on file. Missing rows print <i>not on file</i>.</p>
+    <p><a href="./">AITI</a> · <a href="./companies.html">Companies</a> · <a href="./graph.html">Map</a> · <a href="./attestations.html">Standards</a> · <a href="./brand.html">specimen</a> · <a href="https://github.com/pchamal/opentrust.center">code</a> · outbound is human-gated. Documents stay on the company's domain.</p>
   </footer>
 
-  <script type="module" src="./register.js"></script>
+  <script type="module" src="./aiti.js"></script>
 </body>
 </html>

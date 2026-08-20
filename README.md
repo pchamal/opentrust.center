@@ -10,10 +10,11 @@ The company’s own page stays authoritative. We file what is public. We do not 
 
 | URL | Job |
 |---|---|
-| `/` | Register — table of companies, disclosure tier |
+| `/` | AITI — the public file on AI systems |
+| `/companies.html` | Register — table of companies, disclosure tier |
 | `/c/{slug}.html` | Dossier — the file |
-| `/graph.html` | Processors — named subprocessors, as published |
-| `/attestations.html` | Attestations — book of marks |
+| `/graph.html` | Map — named subprocessors, as published |
+| `/attestations.html` | Standards — book of marks |
 | `/data.json` | Machine copy of the register (`_crawl` is not for citation) |
 | `/llms.txt` | Agent brief |
 
