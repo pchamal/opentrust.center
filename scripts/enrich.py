@@ -267,7 +267,12 @@ LINK_HINTS = (
     ("subprocessors", re.compile(r"sub-?process|service-providers?", re.I)),
     ("dpa", re.compile(r"data-?processing|(/|\.)dpa\b", re.I)),
     ("privacy", re.compile(r"privacy", re.I)),
-    ("status", re.compile(r"status", re.I)),
+    ("status", re.compile(
+        r"statuspage\.io|(?:^|[\./])status(?:[./]|$)|"
+        r"system-status|service-status|status-page|"
+        r"[-.]status(?:page)?\b|(?:^|[\./])status[-.]",
+        re.I,
+    )),
     ("bug_bounty", re.compile(
         r"bug-?bounty|responsible-?disclosure|vulnerability-?disclosure|"
         r"hackerone|bugcrowd|yeswehack|intigriti", re.I)),
@@ -285,7 +290,8 @@ SPECIAL_URLS = {
     ],
     "openai": [("https://status.openai.com", "status"),
                ("https://openai.com/policies/privacy-policy", "privacy")],
-    "notion": [("https://www.notion.so/help/subprocessors", "subprocessors")],
+    "notion": [("https://www.notion.so/help/subprocessors", "subprocessors"),
+               ("https://www.notion-status.com", "status")],
     "databricks": [("https://www.databricks.com/legal/subprocessors", "subprocessors"),
                    ("https://status.databricks.com", "status")],
     "slack": [("https://slack.com/trust/compliance/subprocessors", "subprocessors"),
@@ -304,7 +310,8 @@ SPECIAL_URLS = {
                    ("https://www.cloudflarestatus.com", "status")],
     "twilio": [("https://www.twilio.com/legal/sub-processors", "subprocessors")],
     "snowflake": [("https://www.snowflake.com/legal/snowflake-subprocessors/", "subprocessors")],
-    "zoom": [("https://www.zoom.com/en/trust/privacy/subprocessors/", "subprocessors")],
+    "zoom": [("https://www.zoom.com/en/trust/privacy/subprocessors/", "subprocessors"),
+             ("https://status.zoom.us", "status")],
     "docusign": [("https://www.docusign.com/legal/subprocessors", "subprocessors")],
     "box": [("https://www.box.com/legal/subprocessors", "subprocessors")],
     "hubspot": [("https://legal.hubspot.com/sub-processors-page", "subprocessors")],
@@ -313,10 +320,13 @@ SPECIAL_URLS = {
     "adobe": [("https://www.adobe.com/privacy/sub-processors.html", "subprocessors")],
     "workday": [("https://www.workday.com/en-us/legal/subprocessors.html", "subprocessors")],
     "1password": [("https://1password.com/legal/subprocessors", "subprocessors")],
-    "intercom": [("https://www.intercom.com/legal/subprocessors", "subprocessors")],
+    "intercom": [("https://www.intercom.com/legal/subprocessors", "subprocessors"),
+                 ("https://www.intercomstatus.com", "status")],
     "vercel": [("https://vercel.com/legal/dpa", "dpa"), ("https://www.vercel-status.com", "status")],
     "canva": [("https://www.canva.com/policies/subprocessors/", "subprocessors")],
     "microsoft": [("https://status.cloud.microsoft", "status")],
+    "shopify": [("https://www.shopifystatus.com", "status")],
+    "figma": [("https://status.figma.com", "status")],
 }
 
 
@@ -622,7 +632,403 @@ def is_valid_security_txt(text: str, ctype: str) -> bool:
     return bool(SEC_CONTACT.search(text) or re.search(r"(?im)^\s*Expires\s*:", text))
 
 
-def classify_probe(url: str, rec: dict):
+# First-party or first-party-branded status pages only. A Statuspage marketing
+# page, a tweet, a news article, or a portal-vendor login wall is not a status page.
+PORTAL_VENDOR_HOSTS = {
+    "safebase.io", "safebase.us", "safebase.com",
+    "conveyor.com", "conveyorhq.com",
+    "securitypal.com",
+    "whistic.com",
+    "secureframe.com",
+    "secureframetrust.com",
+    "sprinto.com",
+    "trust.site",
+    "vantatrust.com",
+    "drata.com",
+    "trustcloud.ai",
+    "wolfia.com",
+}
+STATUS_PLATFORM_SUFFIXES = (
+    ".statuspage.io",
+    ".instatus.com",
+    ".instatus.app",
+    ".betteruptime.com",
+    ".betterstack.com",
+    ".statuscast.com",
+    ".status.io",
+    ".statuspal.io",
+)
+STATUS_MARKETING_HOSTS = {
+    "statuspage.io",
+    "www.statuspage.io",
+    "instatus.com",
+    "www.instatus.com",
+    "betterstack.com",
+    "www.betterstack.com",
+    "betteruptime.com",
+    "www.betteruptime.com",
+    "status.io",
+    "www.status.io",
+    "statuspal.io",
+    "www.statuspal.io",
+}
+SOCIAL_NEWS_HOSTS = {
+    "twitter.com", "x.com", "t.co", "facebook.com", "linkedin.com",
+    "medium.com", "youtube.com", "youtu.be", "reddit.com",
+    "news.ycombinator.com", "techcrunch.com", "theverge.com", "wired.com",
+    "reuters.com", "bloomberg.com", "nytimes.com", "wsj.com", "forbes.com",
+    "cnn.com", "bbc.com", "bbc.co.uk", "theguardian.com", "cnbc.com",
+    "businessinsider.com", "zdnet.com", "theregister.com",
+}
+ITEM_UID_RE = re.compile(r"(?:[?&]|/)itemUid=|(?:[?&])itemName=", re.I)
+A_TAG_RE = re.compile(
+    r"""<a\b[^>]*href\s*=\s*['"]([^"'#]+)['"][^>]*>(.*?)</a>""",
+    re.I | re.S,
+)
+STATUS_PATH_RE = re.compile(
+    r"(?:^|/)(?:status|system-status|service-status|status-page)(?:/|$|\.html?)",
+    re.I,
+)
+STATUS_TITLE_RE = re.compile(
+    r"\b(?:status page|system status|service status|platform status|"
+    r"current status|incident status|status dashboard)\b",
+    re.I,
+)
+STATUS_LINK_TEXT_RE = re.compile(
+    r"\b(?:status page|system status|service status|platform status|"
+    r"current status|incident status)\b|\bstatus\b",
+    re.I,
+)
+STATUS_BODY_RE = re.compile(
+    r"\b(?:all systems operational|system status|service status|status page|"
+    r"current status|past incidents?|subscribe to updates|"
+    r"degraded performance|scheduled maintenance|"
+    r"operational|uptime|incident)\b",
+    re.I,
+)
+STATUS_MARKETING_RE = re.compile(
+    r"\b(?:create (?:a |your )?status page|statuspage pricing|"
+    r"get started with statuspage|atlassian statuspage|"
+    r"the (?:best )?status page (?:software|product|tool))\b",
+    re.I,
+)
+STATUS_URL_IN_HTML_RE = re.compile(
+    r"https?://(?:status\.[^\s\"'<>]+|[^\s\"'<>]+\.statuspage\.io|"
+    r"[^\s\"'<>]+-status\.[^\s\"'<>]+|[^\s\"'<>]+status\.[^\s\"'<>]+)",
+    re.I,
+)
+STOP_TOKENS = {
+    "inc", "llc", "ltd", "the", "and", "for", "com", "www", "app", "ai",
+    "io", "co", "net", "org", "corp", "group", "holdings", "company",
+    "software", "systems", "technologies", "technology", "labs", "lab",
+}
+
+
+def company_tokens(company: dict) -> set[str]:
+    out: set[str] = set()
+
+    def add(raw: str) -> None:
+        v = re.sub(r"[^a-z0-9]+", " ", (raw or "").lower()).strip()
+        if not v:
+            return
+        compact = v.replace(" ", "")
+        if len(compact) >= 3:
+            out.add(compact)
+        for part in v.split():
+            if part in STOP_TOKENS:
+                continue
+            if len(part) >= 3:
+                out.add(part)
+            if len(part) >= 4:
+                out.add(part.replace("-", ""))
+
+    add(company.get("slug") or "")
+    add(company.get("name") or "")
+    add(company.get("domain") or "")
+    for h in hosts_for(company):
+        add(h)
+        add(h.split(".")[0])
+    return {t for t in out if t and t not in STOP_TOKENS}
+
+
+def is_portal_vendor_host(url: str, company: dict | None) -> bool:
+    h = host_of(url)
+    if not h:
+        return False
+    own = set()
+    if company:
+        own = {registrable(x) for x in hosts_for(company)}
+        if company.get("domain"):
+            own.add(registrable(company["domain"]))
+        slug = (company.get("slug") or "").replace("-", "")
+        name = re.sub(r"[^a-z0-9]+", "", (company.get("name") or "").lower())
+        if slug and slug in h.replace("-", "").replace(".", ""):
+            if registrable(h) in own or h in {x.lower() for x in hosts_for(company)}:
+                return False
+        if name and len(name) >= 4 and registrable(h) in own:
+            return False
+        if registrable(h) in own or h in {x.lower() for x in hosts_for(company)}:
+            return False
+    reg = registrable(h)
+    if reg in PORTAL_VENDOR_HOSTS:
+        return True
+    return any(h.endswith("." + v) for v in PORTAL_VENDOR_HOSTS)
+
+
+def is_first_party_url(url: str, company: dict | None) -> bool:
+    if not company:
+        return False
+    if is_portal_vendor_host(url, company):
+        return False
+    hosts = set(hosts_for(company))
+    for raw in (company.get("trust_url"), company.get("final_url"), company.get("domain")):
+        if not raw:
+            continue
+        h = host_of(raw) if str(raw).startswith("http") else str(raw)
+        h = (h or "").lower().removeprefix("www.")
+        if h:
+            hosts.add(h)
+    regs = {registrable(x) for x in hosts if x}
+    h = host_of(url)
+    if not h:
+        return False
+    if h in hosts or registrable(h) in regs:
+        return True
+    return any(
+        h == known or h.endswith("." + known) or ("." in h and known.endswith("." + h))
+        for known in (hosts | regs)
+        if known
+    )
+
+
+def is_social_or_news(url: str) -> bool:
+    h = host_of(url)
+    if not h:
+        return False
+    if h in SOCIAL_NEWS_HOSTS:
+        return True
+    return any(h.endswith("." + n) for n in SOCIAL_NEWS_HOSTS)
+
+
+def is_statuspage_marketing_url(url: str) -> bool:
+    h = host_of(url)
+    path = path_of(url).lower()
+    if h in STATUS_MARKETING_HOSTS:
+        return True
+    if h in {"atlassian.com", "www.atlassian.com"} and "statuspage" in path:
+        return True
+    if h.endswith(".statuspage.io") and h.split(".")[0] in {"www", "meta", "manage", "api"}:
+        return True
+    return False
+
+
+def is_status_path(path: str) -> bool:
+    return bool(STATUS_PATH_RE.search(path or ""))
+
+
+def is_platform_status_host(host: str) -> bool:
+    h = (host or "").lower().removeprefix("www.")
+    if not h or h in STATUS_MARKETING_HOSTS:
+        return False
+    return any(h.endswith(suf) for suf in STATUS_PLATFORM_SUFFIXES)
+
+
+def status_host_matches_company(url: str, company: dict | None) -> bool:
+    if not company:
+        return False
+    if is_first_party_url(url, company):
+        return True
+    h = host_of(url)
+    tokens = company_tokens(company)
+    compact = re.sub(r"[^a-z0-9]", "", h)
+    if h.startswith("status."):
+        rest = h[7:]
+        return is_first_party_url("https://" + rest, company) or any(
+            t in re.sub(r"[^a-z0-9]", "", rest) for t in tokens if len(t) >= 4
+        )
+    for suf in STATUS_PLATFORM_SUFFIXES:
+        if h.endswith(suf):
+            sub = h[: -len(suf)].split(".")[-1]
+            sub_c = re.sub(r"[^a-z0-9]", "", sub)
+            return any(t == sub_c or t in sub_c or sub_c in t for t in tokens if len(t) >= 3)
+    if "status" in compact:
+        return any(len(t) >= 4 and t in compact for t in tokens)
+    return False
+
+
+def is_status_branded_host(url: str, company: dict | None) -> bool:
+    h = host_of(url)
+    if not h or is_statuspage_marketing_url(url):
+        return False
+    if h.startswith("status."):
+        return True
+    if is_platform_status_host(h):
+        return True
+    compact = re.sub(r"[^a-z0-9]", "", h)
+    if "status" in compact and company and status_host_matches_company(url, company):
+        return True
+    if company is None and re.search(r"status", h, re.I) and not is_social_or_news(url):
+        return bool(re.search(r"(^status\.)|(status$)|(-status\.)", h, re.I))
+    return False
+
+
+def title_looks_status(title: str) -> bool:
+    t = title or ""
+    if STATUS_TITLE_RE.search(t):
+        return True
+    return bool(re.search(r"\bstatus\b", t, re.I)) and not re.search(
+        r"\b(?:trust center|security center|privacy|login|sign in)\b", t, re.I
+    )
+
+
+def status_body_signals(title: str, text: str, path: str, host: str) -> bool:
+    blob = f"{title} {text[:8000]} {path} {host}"
+    return bool(STATUS_BODY_RE.search(blob))
+
+
+def classify_as_status(url: str, rec: dict, company: dict | None = None) -> bool:
+    """True only for a public first-party or first-party-branded status page."""
+    if not rec.get("ok") or rec.get("status") != 200:
+        return False
+    title, text = rec.get("title") or "", rec.get("text") or ""
+    final = rec.get("final_url") or url
+    if looks_dead(title, text) or looks_like_login_wall(title, text):
+        return False
+    if is_social_or_news(final) or is_social_or_news(url):
+        return False
+    if is_statuspage_marketing_url(final) or is_statuspage_marketing_url(url):
+        return False
+    if ITEM_UID_RE.search(final) or ITEM_UID_RE.search(url):
+        return False
+    if company and is_portal_vendor_host(final, company):
+        return False
+    host, path = host_of(final), path_of(final)
+    if STATUS_MARKETING_RE.search(f"{title} {text[:2500]}") and not is_status_branded_host(final, company):
+        return False
+    if landed_on_home(url, final) and not is_status_branded_host(final, company):
+        return False
+    req_host = host_of(url)
+    if req_host.startswith("status.") and host != req_host:
+        if not (is_status_branded_host(final, company) or is_status_path(path)):
+            return False
+    branded = is_status_branded_host(final, company)
+    first_party = is_first_party_url(final, company) if company else (
+        branded or host.startswith("status.") or is_status_path(path)
+    )
+    if company and branded and not status_host_matches_company(final, company):
+        # Linked AWS/Statuspage of someone else does not belong on this file.
+        if not (first_party or title_looks_status(title) and any(
+            t in re.sub(r"[^a-z0-9]", "", f"{title} {host}")
+            for t in company_tokens(company)
+            if len(t) >= 4
+        )):
+            return False
+    if not (branded or first_party or is_status_path(path)):
+        return False
+    if not (branded or first_party):
+        return False
+    signals = status_body_signals(title, text, path, host) or title_looks_status(title)
+    if branded and (signals or title_looks_status(title) or host.startswith("status.")):
+        if host.startswith("status.") and company and not status_host_matches_company(final, company):
+            return False
+        return bool(signals or title_looks_status(title) or (
+            host.startswith("status.") and first_party and not looks_dead(title, text)
+        ))
+    if first_party and is_status_path(path) and signals:
+        return True
+    if first_party and title_looks_status(title) and signals:
+        return True
+    return False
+
+
+def is_followable_status_href(href: str, company: dict | None) -> bool:
+    if not href or ITEM_UID_RE.search(href):
+        return False
+    if is_social_or_news(href) or is_statuspage_marketing_url(href):
+        return False
+    h = host_of(href)
+    if h.startswith("status."):
+        return True
+    if is_platform_status_host(h):
+        return True
+    if re.search(r"status", h, re.I) and (not company or status_host_matches_company(href, company)):
+        return True
+    if is_status_path(path_of(href)):
+        return bool(not company or is_first_party_url(href, company))
+    return False
+
+
+def is_filed_status_valid(url: str, company: dict | None) -> bool:
+    if not url:
+        return False
+    if ITEM_UID_RE.search(url) or is_social_or_news(url) or is_statuspage_marketing_url(url):
+        return False
+    if company and is_portal_vendor_host(url, company):
+        return False
+    h, path = host_of(url), path_of(url)
+    if is_status_branded_host(url, company) or is_status_path(path):
+        return True
+    if company and is_first_party_url(url, company) and re.search(r"status", url, re.I):
+        return True
+    return bool(h.startswith("status."))
+
+
+def extract_status_candidates(html: str, base: str, company: dict | None = None) -> list[str]:
+    """Hrefs and link text that point at a status page, not a tweet or portal item."""
+    out, seen = [], set()
+
+    def add(u: str) -> None:
+        u = (u or "").split("#")[0].strip()
+        if not u.startswith("http") or u.lower() in seen:
+            return
+        if ITEM_UID_RE.search(u) or is_social_or_news(u) or is_statuspage_marketing_url(u):
+            return
+        seen.add(u.lower())
+        out.append(u)
+
+    for href in extract_hrefs(html, base):
+        if is_followable_status_href(href, company) or STATUS_PATH_RE.search(href):
+            add(href)
+    for m in A_TAG_RE.finditer(html or ""):
+        raw, inner = m.group(1).strip(), strip_tags(m.group(2))
+        if raw.startswith(("javascript:", "mailto:", "tel:", "data:")):
+            continue
+        if STATUS_LINK_TEXT_RE.search(inner):
+            add(urljoin(base, raw))
+    for m in STATUS_URL_IN_HTML_RE.finditer(html or ""):
+        add(m.group(0).rstrip(").,;"))
+    return out[:40]
+
+
+def status_probe_urls_for(company: dict) -> list[str]:
+    pairs, seen = [], set()
+
+    def add(url: str) -> None:
+        u = (url or "").rstrip("/")
+        key = u.lower()
+        if u.startswith("http") and key not in seen:
+            seen.add(key)
+            pairs.append(u)
+
+    for domain in hosts_for(company)[:2]:
+        add(f"https://status.{domain}")
+        add(f"https://{domain}/status")
+        add(f"https://{domain}/system-status")
+        add(f"https://{domain}/service-status")
+        add(f"https://{domain}/status-page")
+        label = domain.split(".")[0]
+        if label and label not in STOP_TOKENS:
+            add(f"https://{label}.statuspage.io")
+    slug = (company.get("slug") or "").strip()
+    if slug and slug not in STOP_TOKENS:
+        add(f"https://{slug}.statuspage.io")
+    for url, hint in SPECIAL_URLS.get(company.get("slug") or "", []):
+        if hint == "status":
+            add(url)
+    return pairs
+
+
+def classify_probe(url: str, rec: dict, company: dict | None = None):
     if not rec.get("ok") or rec.get("status") != 200:
         return None
     title, text = rec.get("title") or "", rec.get("text") or ""
@@ -646,11 +1052,8 @@ def classify_probe(url: str, rec: dict):
     if re.search(r"(data-processing|/dpa\b|/dpa/)", path) or re.search(r"\bdpa\b", title, re.I):
         if re.search(r"data processing|sub-process|\bdpa\b", low):
             return "dpa"
-    if host.startswith("status.") or path.rstrip("/") == "/status" or re.search(
-        r"\b(status page|system status|service status)\b", title, re.I
-    ):
-        if re.search(r"status|uptime|incident|operational", low):
-            return "status"
+    if classify_as_status(url, rec, company):
+        return "status"
     if re.search(r"bug-?bounty|responsible-?disclosure|vulnerability-?disclosure", path) or re.search(
         r"\b(bug bounty|responsible disclosure|vulnerability disclosure)\b", title, re.I
     ):
@@ -692,6 +1095,12 @@ def probe_urls_for(company: dict) -> list[tuple[str, str]]:
         add(f"https://{domain}/data-processing-addendum", "dpa")
         add(f"https://status.{domain}", "status")
         add(f"https://{domain}/status", "status")
+        add(f"https://{domain}/system-status", "status")
+        add(f"https://{domain}/service-status", "status")
+        add(f"https://{domain}/status-page", "status")
+        label = domain.split(".")[0]
+        if label and label not in STOP_TOKENS:
+            add(f"https://{label}.statuspage.io", "status")
         add(f"https://{domain}/bug-bounty", "bug_bounty")
         add(f"https://{domain}/responsible-disclosure", "bug_bounty")
         add(f"https://{domain}/security/responsible-disclosure", "bug_bounty")
@@ -709,8 +1118,8 @@ def probe_urls_for(company: dict) -> list[tuple[str, str]]:
     return pairs
 
 
-def accept_link(kind: str, url: str, rec: dict) -> bool:
-    classified = classify_probe(url, rec)
+def accept_link(kind: str, url: str, rec: dict, company: dict | None = None) -> bool:
+    classified = classify_probe(url, rec, company)
     if classified == kind:
         return True
     if kind in {"trust", "security"} and rec.get("ok") and rec.get("status") == 200:
@@ -1015,8 +1424,8 @@ def probe_company(company: dict) -> dict:
         title, text = rec.get("title") or "", rec.get("text") or ""
         if looks_like_login_wall(title, text):
             continue
-        kind = classify_probe(url, rec)
-        if kind is None and hint in {"trust", "security"} and accept_link(hint, url, rec):
+        kind = classify_probe(url, rec, company)
+        if kind is None and hint in {"trust", "security"} and accept_link(hint, url, rec, company):
             kind = hint
         if kind and kind not in links:
             final = rec.get("final_url") or url
@@ -1024,29 +1433,44 @@ def probe_company(company: dict) -> dict:
             pages[kind] = rec
             extra_hits += 1
         if rec.get("ok") and rec.get("status") == 200 and hint == "trust" and "trust" not in links:
-            if accept_link("trust", url, rec) and not looks_like_login_wall(title, text):
+            if accept_link("trust", url, rec, company) and not looks_like_login_wall(title, text):
                 links["trust"] = rec.get("final_url") or url
                 pages["trust"] = rec
     # Follow obvious first-party instrument links from trust/security HTML.
     seed_pages = [pages[k] for k in ("trust", "security") if k in pages]
     for rec in seed_pages:
         base = rec.get("final_url") or ""
-        for href in rec.get("hrefs") or []:
+        extra = []
+        if rec.get("html"):
+            extra = extract_status_candidates(rec["html"], base, company)
+        hrefs = list(rec.get("hrefs") or []) + extra
+        for href in hrefs:
             hhost, rhost = host_of(href), host_of(base)
             if not hhost or not rhost:
                 continue
-            if registrable(hhost) != registrable(rhost) and not hhost.startswith("status."):
+            if (
+                registrable(hhost) != registrable(rhost)
+                and not is_followable_status_href(href, company)
+            ):
                 continue
             for kind, pat in LINK_HINTS:
                 if kind in links:
                     continue
-                if not pat.search(href):
+                if kind == "status":
+                    if not (pat.search(href) or href in extra or is_followable_status_href(href, company)):
+                        continue
+                elif not pat.search(href):
                     continue
                 sub = fetch_cached(href, max_body=TRUST_BODY if kind in {"trust", "security", "subprocessors"} else PROBE_BODY)
                 if looks_like_login_wall(sub.get("title") or "", sub.get("text") or ""):
                     continue
-                classified = classify_probe(href, sub)
-                if classified == kind or (kind in {"trust", "security"} and accept_link(kind, href, sub)):
+                if kind == "status":
+                    if classify_as_status(href, sub, company):
+                        links["status"] = sub.get("final_url") or href
+                        pages["status"] = sub
+                    continue
+                classified = classify_probe(href, sub, company)
+                if classified == kind or (kind in {"trust", "security"} and accept_link(kind, href, sub, company)):
                     links[kind] = sub.get("final_url") or href
                     pages[kind] = sub
                     break
@@ -1333,7 +1757,273 @@ def main() -> int:
     return 0
 
 
+def fetch_seed_page(url: str) -> dict:
+    fetched = crawl.fetch(url, max_body=TRUST_BODY)
+    html = fetched.get("body") or ""
+    title = crawl.extract_title(html) if html else ""
+    rec = {
+        "url": url,
+        "ok": bool(fetched.get("ok")),
+        "status": fetched.get("status") or 0,
+        "final_url": fetched.get("final_url") or url,
+        "title": title,
+        "text": strip_tags(html)[:30000] if html else "",
+        "meta": extract_meta_desc(html) if html else "",
+        "hrefs": extract_hrefs(html, fetched.get("final_url") or url) if html else [],
+        "ctype": (fetched.get("headers") or {}).get("content-type", ""),
+        "fetched_at": utc_now(),
+        "raw_head": html[:4000] if html else "",
+        "html": html,
+    }
+    return rec
+
+
+def _retier(row: dict, disc: dict, score: int) -> None:
+    if not row.get("found") and not (row.get("links") or {}).get("trust") and not (row.get("links") or {}).get("security"):
+        tier = "silent"
+    elif score >= 90:
+        tier = "complete"
+    elif score >= 70:
+        tier = "substantial"
+    elif score >= 40:
+        tier = "on-file"
+    else:
+        tier = "thin"
+    disc["score"] = min(100, max(0, score))
+    disc["tier"] = tier
+
+
+def apply_status_to_row(row: dict, url: str) -> bool:
+    """File a status URL and add the +6 factor. Leave other factors as they were."""
+    links = dict(row.get("links") or {})
+    prev = links.get("status")
+    if prev == url:
+        return False
+    links["status"] = url
+    row["links"] = links
+    disc = dict(row.get("disclosure") or {})
+    factors = dict(disc.get("factors") or {})
+    if not factors.get("status"):
+        factors["status"] = 6
+        _retier(row, disc, int(disc.get("score") or 0) + 6)
+        disc["factors"] = factors
+        row["disclosure"] = disc
+    else:
+        row["disclosure"] = disc
+    return prev != url
+
+
+def clear_status_from_row(row: dict) -> bool:
+    """Unfile a URL that is not a status page. Do not invent a replacement."""
+    links = dict(row.get("links") or {})
+    if not links.get("status"):
+        return False
+    links.pop("status", None)
+    row["links"] = links
+    disc = dict(row.get("disclosure") or {})
+    factors = dict(disc.get("factors") or {})
+    if factors.get("status"):
+        factors.pop("status", None)
+        _retier(row, disc, int(disc.get("score") or 0) - 6)
+        disc["factors"] = factors
+        row["disclosure"] = disc
+    return True
+
+
+def file_published_status() -> int:
+    """File first-party status URLs already published on pages that had none."""
+    t0 = time.time()
+    src = SITE / "data" / "enriched.json"
+    if not src.exists():
+        src = DATA / "enriched.json"
+    payload = load_json(src, {})
+    companies = list(payload.get("companies") or [])
+    if not companies:
+        print("no companies in enriched.json", flush=True)
+        return 1
+    before = sum(1 for c in companies if (c.get("links") or {}).get("status"))
+    invalid = [
+        c for c in companies
+        if (c.get("links") or {}).get("status")
+        and not is_filed_status_valid((c.get("links") or {}).get("status") or "", c)
+    ]
+    gaps = [
+        c for c in companies
+        if not (c.get("links") or {}).get("status")
+        or c in invalid
+    ]
+    print(
+        f"Status on file: {before}. Invalid filings: {len(invalid)}. "
+        f"Pages with no valid status URL: {len(gaps)}",
+        flush=True,
+    )
+
+    filed: list[tuple[str, str]] = []
+    cleared: list[str] = []
+    by_slug = {c["slug"]: c for c in companies}
+
+    def seed_urls(c: dict) -> list[str]:
+        links = c.get("links") or {}
+        out, seen = [], set()
+        for raw in (
+            c.get("trust_url"),
+            c.get("final_url"),
+            links.get("trust"),
+            links.get("security"),
+        ):
+            u = (raw or "").strip()
+            if u.startswith("http") and u.lower() not in seen:
+                seen.add(u.lower())
+                out.append(u)
+        return out
+
+    print(f"Phase 1: read {len(gaps)} found pages for a published status link…", flush=True)
+    candidates: dict[str, list[str]] = {}
+    seed_jobs = [(c["slug"], url) for c in gaps for url in seed_urls(c)]
+    pages_checked = 0
+
+    def do_seed(job):
+        slug, url = job
+        try:
+            return slug, fetch_seed_page(url)
+        except Exception:
+            return slug, {"ok": False, "status": 0, "hrefs": [], "html": "", "final_url": url}
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = [pool.submit(do_seed, job) for job in seed_jobs]
+        done = 0
+        for fut in as_completed(futs):
+            slug, rec = fut.result()
+            done += 1
+            if rec.get("ok"):
+                pages_checked += 1
+            if done % 40 == 0 or done == len(futs):
+                print(f"  seed {done}/{len(futs)}", flush=True)
+            row = by_slug.get(slug)
+            if not row:
+                continue
+            html = rec.get("html") or ""
+            base = rec.get("final_url") or rec.get("url") or ""
+            found = extract_status_candidates(html, base, row)
+            if rec.get("hrefs"):
+                for href in rec["hrefs"]:
+                    if is_followable_status_href(href, row) and href not in found:
+                        found.append(href)
+            if found:
+                bucket = candidates.setdefault(slug, [])
+                for u in found:
+                    if u not in bucket:
+                        bucket.append(u)
+
+    linked = len(candidates)
+    print(f"  pages already linking a status-shaped URL: {linked}", flush=True)
+    print(f"Phase 2: well-known first-party paths for remaining blanks…", flush=True)
+    for c in gaps:
+        extras = status_probe_urls_for(c)
+        bucket = candidates.setdefault(c["slug"], [])
+        for u in extras:
+            if u not in bucket:
+                bucket.append(u)
+
+    verify_jobs = []
+    seen_verify = set()
+    for slug, urls in candidates.items():
+        row = by_slug.get(slug)
+        if not row:
+            continue
+        for url in urls:
+            key = (slug, url.lower())
+            if key in seen_verify:
+                continue
+            if is_social_or_news(url) or is_statuspage_marketing_url(url) or ITEM_UID_RE.search(url):
+                continue
+            if not (
+                is_first_party_url(url, row)
+                or is_followable_status_href(url, row)
+                or is_status_branded_host(url, row)
+            ):
+                continue
+            seen_verify.add(key)
+            verify_jobs.append((slug, url))
+    print(f"Phase 3: verifying {len(verify_jobs)} candidate URLs…", flush=True)
+
+    def do_verify(job):
+        slug, url = job
+        try:
+            rec = fetch_uncached(url, PROBE_BODY)
+        except Exception:
+            rec = {"ok": False, "status": 0, "final_url": url, "title": "", "text": ""}
+        return slug, url, rec
+
+    accepted: dict[str, str] = {}
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = [pool.submit(do_verify, job) for job in verify_jobs]
+        done = 0
+        for fut in as_completed(futs):
+            slug, url, rec = fut.result()
+            done += 1
+            if done % 80 == 0 or done == len(futs):
+                print(f"  verify {done}/{len(futs)}", flush=True)
+            if slug in accepted:
+                continue
+            row = by_slug.get(slug)
+            if not row:
+                continue
+            final = rec.get("final_url") or url
+            if classify_as_status(url, rec, row):
+                accepted[slug] = final
+
+    checked = len(gaps)
+    for c in invalid:
+        slug = c["slug"]
+        if slug not in accepted:
+            if clear_status_from_row(c):
+                cleared.append(c.get("name") or slug)
+
+    for slug, url in sorted(accepted.items()):
+        row = by_slug[slug]
+        if apply_status_to_row(row, url):
+            filed.append((row.get("name") or slug, url))
+
+    generated = utc_now()
+    payload["generated_at"] = generated
+    payload["companies"] = companies
+    write_json(DATA / "enriched.json", payload)
+    write_json(SITE / "data" / "enriched.json", payload)
+    after = sum(1 for c in companies if (c.get("links") or {}).get("status"))
+    print(f"Wrote {DATA / 'enriched.json'} and {SITE / 'data' / 'enriched.json'}", flush=True)
+    print(
+        f"pages_checked={pages_checked} candidates={len(verify_jobs)} "
+        f"filed={len(filed)} cleared={len(cleared)} status {before} → {after} "
+        f"in {time.time() - t0:.1f}s",
+        flush=True,
+    )
+    for name, url in filed[:40]:
+        print(f"  filed {name}: {url}", flush=True)
+    if len(filed) > 40:
+        print(f"  … {len(filed) - 40} more", flush=True)
+    for name in cleared:
+        print(f"  cleared invalid status on {name}", flush=True)
+    # Stash a machine-readable summary for the PR report.
+    summary = {
+        "before": before,
+        "after": after,
+        "pages_checked": pages_checked,
+        "candidates_verified": len(verify_jobs),
+        "filed": [{"name": n, "url": u} for n, u in filed],
+        "cleared": cleared,
+        "linked_from_found_pages": linked,
+        "elapsed_s": round(time.time() - t0, 1),
+    }
+    write_json(DATA / "status-file-summary.json", summary)
+    print(f"Wrote {DATA / 'status-file-summary.json'}", flush=True)
+    return 0
+
+
 if __name__ == "__main__":
+    if "--file-status" in sys.argv:
+        raise SystemExit(file_published_status())
     raise SystemExit(main())
 
 
