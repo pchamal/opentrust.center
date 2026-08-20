@@ -151,11 +151,12 @@ The product. Modeled on a Companies House record.
 Always this order on the first screen. Empty rows still print italic `not on file`. Missing is inconclusive.
 
 1. Crumb: `register / {slug}`
-2. Identity: name in Source Serif 4, domain in Atkinson. Founded year + source (or `not on file`)
-3. File state: the word only (`silent` / `thin` / `on file` / `substantial` / `complete`). 2px Evidence Spine on that block. Not a badge. No coverage ratio.
-4. Instruments: a ruled table. Empty rows italic `not on file`.
-5. Marks: a list, not chips. What does not fit wraps below. No `+N`.
-6. Official outbound: a text link. Human-gated. No flame / teal fill button.
+2. Identity: name in Source Serif 4, domain in Atkinson, then `file · {state}` as one graphite clerk line. 2px Evidence Spine on the left of this block (name + domain + file line). Not a boxed file-state module. No disclaimer. No coverage ratio.
+3. Instruments: a ruled table. One instrument is one unit (label, host, date), then one rule. Empty rows italic `not on file`. Labels in Atkinson, including `subprocessors`.
+4. Marks: a list in Atkinson, same as instrument labels. Not chips. Not bold Source Serif. What does not fit wraps below. No `+N`.
+5. Official outbound: text link `Official page`. Human-gated. No flame / teal fill button.
+
+Dossier issue line: issue date and last probed. Do not print the register census.
 
 Below the fold: FedRAMP marketplace table, named processors, clerk summary, last probed, Report a correction, permalink.
 

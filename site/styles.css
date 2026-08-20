@@ -598,7 +598,14 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
 .crumb a { color: var(--ot-graphite); text-decoration: none; }
 .crumb a:hover { color: var(--ot-ledger-black); }
 
-.ident h1 {
+.ident {
+  margin: 0 0 28px;
+  padding: 0 0 0 16px;
+  border-left: var(--ot-spine) solid var(--ot-evidence-teal);
+  background: transparent;
+}
+.ident h1,
+.ident .ident-name {
   margin: 0 0 8px;
   font: var(--t-title);
   letter-spacing: -0.025em;
@@ -607,21 +614,20 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
 .ident-meta {
   margin: 0 0 4px;
   font: var(--t-meta);
+  font-family: var(--ot-font-utility);
+  font-weight: 400;
   color: var(--ot-graphite);
 }
-
-.file-state {
-  margin: 24px 0;
-  padding: 8px 0 8px 16px;
-  border-left: var(--ot-spine) solid var(--ot-evidence-teal);
+.ident .file-line { margin-top: 8px; }
+.ident .file-line .sep { color: var(--ot-graphite); }
+.ident .file-word {
+  font: inherit;
+  font-family: var(--ot-font-utility);
+  font-weight: 400;
+  color: var(--ot-graphite);
 }
-.file-state .state-word {
-  margin: 0;
-  font: var(--t-body);
-  color: var(--ot-ledger-black);
-}
-.file-state .state-word.silent {
-  font: italic 16px/24px var(--ot-font-utility);
+.ident .file-word.silent {
+  font-style: italic;
   color: var(--ot-unknown-fg);
 }
 
@@ -631,13 +637,22 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   list-style: none;
 }
 .mark-list li {
-  font: var(--t-body);
+  font: var(--t-data);
+  font-family: var(--ot-font-utility);
+  font-weight: 400;
+  letter-spacing: 0;
   color: var(--ot-ledger-black);
   padding: 6px 0;
   border-bottom: 1px solid var(--ot-rule);
   white-space: normal;
 }
-.mark-list a { color: var(--ot-ledger-black); }
+.mark-list a {
+  font: inherit;
+  font-family: var(--ot-font-utility);
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--ot-ledger-black);
+}
 .file .absent {
   font: italic 16px/24px var(--ot-font-utility);
   color: var(--ot-unknown-fg);
@@ -669,6 +684,8 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
 }
 .inst td {
   font: var(--t-data);
+  font-family: var(--ot-font-utility);
+  font-weight: 400;
   font-variant-numeric: tabular-nums;
   color: var(--ot-graphite);
   padding: 10px 12px 10px 0;
@@ -1113,7 +1130,6 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   .reg td.num { display: none; }
   .reg td.name { margin-bottom: 2px; }
   .dossier .file .ident,
-  .dossier .file .file-state,
   .dossier .file .fig-sub,
   .dossier .file .mark-list,
   .dossier .file .out,
@@ -1124,22 +1140,40 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
     width: 100%;
   }
   .dossier .file .inst,
-  .dossier .file .inst tbody,
-  .dossier .file .inst tr,
-  .dossier .file .inst td {
+  .dossier .file .inst tbody {
     display: block;
     width: 100%;
+    background: transparent;
   }
   .dossier .file .inst thead { display: none; }
   .dossier .file .inst tbody tr {
-    padding: 10px 0 10px 8px;
-    border-left: var(--ot-spine) solid transparent;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 12px;
+    row-gap: 0;
+    padding: 10px 0;
     border-bottom: 1px solid var(--ot-rule);
+    border-left: 0;
+    background: transparent;
   }
-  .dossier .file .inst tbody tr:hover {
-    border-left-color: var(--ot-evidence-teal);
+  .dossier .file .inst tbody tr:hover,
+  .dossier .file .inst tbody tr.on,
+  .dossier .file .inst tbody tr.selected {
+    background: transparent;
+    border-left: 0;
   }
-  .dossier .file .inst td:first-child { border-left: 0; padding-left: 0; }
+  .dossier .file .inst td,
+  .dossier .file .inst td:first-child {
+    display: inline;
+    width: auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font: var(--t-data);
+    font-family: var(--ot-font-utility);
+    font-weight: 400;
+  }
   .swatches { grid-template-columns: repeat(2, 1fr); }
 }
 

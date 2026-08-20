@@ -107,12 +107,15 @@ pages:
     org_name_primary: true
     name_font: Source Serif 4
     domain_font: Atkinson Hyperlegible Next
-    file_state: word only; silent / thin / on file / substantial / complete
-    file_state_spine: 2px Evidence Teal on the file-state block; not a badge
+    file_state: clerk line under domain; file · silent / thin / on file / substantial / complete
+    file_state_spine: 2px Evidence Teal on the left of the identity block; not a boxed module
+    no_file_disclaimer: true
     no_coverage_ratio: true
-    instruments: ruled table; empty rows italic not on file
-    marks: list not chips; overflow wraps below; no +N
-    outbound: text link; no flame or teal fill button
+    no_register_census_on_dossier: true
+    instruments: ruled table; one instrument is one unit then one rule; empty rows italic not on file
+    instrument_label_font: Atkinson Hyperlegible Next
+    marks: list in Atkinson, same as instrument labels; not chips; not editorial bold; overflow wraps below; no +N
+    outbound: Official page text link; no flame or teal fill button
     rate: the file, never the company
     status: claim / source / observation only
     no_ot_stamp_as_seal: true
@@ -131,7 +134,7 @@ voice:
   use: [observed, source, scope, unknown, not on file, last reviewed, public evidence]
   never: [trusted company, verified company, AI-powered, unlock, seamless, single source of truth]
   complete_without_scope: forbidden; file tier complete reads as public file complete
-  outbound: View source as a text link, never a filled button
+  outbound: Official page as a text link, never a filled button
 
 motion:
   easing: cubic-bezier(0.2, 0, 0, 1)

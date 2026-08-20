@@ -723,6 +723,13 @@ def cell(value: str | None, italic_if_empty: bool = True) -> str:
     return "—"
 
 
+def dossier_issue_line(generated_at: str, slug: str = "") -> str:
+    day = fmt_day(generated_at) or "—"
+    when = fmt_when(generated_at) or "—"
+    bits = [f"issue {day}", f"last probed {when}"]
+    return " · ".join(bits)
+
+
 def snapshot_line(generated_at: str, on_file: int, not_on: int, extra: str = "") -> str:
     day = fmt_day(generated_at) or "—"
     when = fmt_when(generated_at) or "—"
@@ -760,7 +767,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     url = row.get("trust_url") or ""
     disc = row["disclosure"]
     tier = display_file_tier(disc["tier"])
-    state_cls = "state-word silent" if disc["tier"] == "silent" else "state-word"
+    file_cls = "file-word silent" if disc["tier"] == "silent" else "file-word"
     title = f"{name} — opentrust.center"
     desc = "A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not."
     year = row.get("founded_year")
@@ -829,16 +836,16 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     clerk = row.get("summary") or ""
     clerk_html = f'<p class="clerk">{escape(clerk)}</p>' if clerk else ""
     outbound = (
-        f'<a class="official" href="{escape(url)}" rel="noopener noreferrer">View source</a>'
+        f'<a class="official" href="{escape(url)}" rel="noopener noreferrer">Official page</a>'
         if found and url
-        else '<span class="absent">View source · not on file</span>'
+        else '<span class="absent">Official page · not on file</span>'
     )
     need_gate = bool(found and url) or any(
         rec and rec.get("url") for rec in inst.values()
     ) or any(p.get("source_url") for p in procs)
     gate = GATE_HTML if need_gate else ""
     claim = f'<a class="perm" href="../claim.html?slug={escape(slug)}">Report a correction</a>'
-    issue = snapshot or f"issue · file c/{escape(slug)}"
+    issue = dossier_issue_line(generated_at, slug)
 
     about = {"@type": "Organization", "name": name}
     if domain:
@@ -883,12 +890,9 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     <section class="ident">
       <h1>{escape(name)}</h1>
       <p class="ident-meta">{escape(domain)}</p>
+      <p class="ident-meta file-line">file <span class="sep">·</span> <span class="{file_cls}">{escape(tier)}</span></p>
       <p class="ident-meta">founded · {year_html}</p>
     </section>
-    <section class="file-state" aria-label="File state">
-      <p class="{state_cls}">{escape(tier)}</p>
-    </section>
-    <p class="fig-sub">File rating, not a company trust badge. Missing private evidence is inconclusive.</p>
 
     <p class="sec-kicker">Instruments</p>
     <table class="inst">

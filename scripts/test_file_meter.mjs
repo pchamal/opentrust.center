@@ -40,10 +40,18 @@ expect("register has no More on this file", !src.includes("More on this file") &
 
 const dossier = readFileSync(new URL("../site/c/anysphere.html", import.meta.url), "utf8");
 expect("dossier names Cursor in the h1", /<h1>Cursor<\/h1>/.test(dossier));
-expect("dossier file state is the word only", dossier.includes('class="file-state"') && dossier.includes("substantial") && !dossier.includes("tier-label") && !dossier.includes('class="disclosure"'));
+expect("dossier file is a clerk line", dossier.includes("file") && dossier.includes("substantial") && dossier.includes('class="file-line"') && !dossier.includes("file-state") && !dossier.includes("tier-label") && !dossier.includes('class="disclosure"'));
+expect("dossier has no rating disclaimer", !dossier.includes("File rating, not a company trust badge") && !dossier.includes("not a company trust badge"));
 expect("dossier has no coverage ratio", !dossier.includes(" of 5") && !dossier.includes("public evidence located"));
+expect("dossier issue has no register census", !dossier.includes(" on file · ") && !dossier.includes(" not on file · last probed"));
 expect("dossier marks are a list", dossier.includes('class="mark-list"') && !dossier.includes("mark-chip") && !dossier.includes("+N"));
-expect("dossier outbound is a text link", dossier.includes('class="official"') && dossier.includes("View source") && !dossier.includes("go-out") && !dossier.includes("file-go"));
+expect("dossier outbound is Official page", dossier.includes('class="official"') && dossier.includes("Official page") && !dossier.includes("View source") && !dossier.includes("go-out") && !dossier.includes("file-go"));
 expect("dossier nav does not current Register", !dossier.includes('class="on"'));
 expect("dossier body is dossier", dossier.includes('class="dossier"'));
 expect("dossier empty rows stay italic not on file", dossier.includes('class="absent">not on file'));
+
+const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8");
+expect("identity block wears the spine", /\.ident \{[\s\S]*border-left: var\(--ot-spine\) solid var\(--ot-evidence-teal\)/.test(css));
+expect("no boxed file-state module", !css.includes(".file-state") && !css.includes(".state-word"));
+expect("marks stay Atkinson data", /\.mark-list li \{[\s\S]*font: var\(--t-data\)/.test(css) && /\.mark-list li \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css));
+expect("instrument cells stay Atkinson", /\.inst td \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css));
