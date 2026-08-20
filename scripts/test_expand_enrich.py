@@ -16,6 +16,7 @@ from enrich import (  # noqa: E402
     has_public_page,
     published_processors_from_cited,
     strip_tags,
+    website_matches,
 )
 
 
@@ -261,10 +262,27 @@ def test_enrich_one_lands_published_facts_only() -> None:
     check(not empty.get("_edges"), "itemUid has no edges")
 
 
+def test_year_needs_website_match() -> None:
+    """One-shot years cannot ride a loose title prefix (Manhattan / Sage Publishing)."""
+    check(
+        not website_matches(["https://en.wikipedia.org/wiki/Manhattan"], ["manh.com"]),
+        "borough page is not Manhattan Associates",
+    )
+    check(
+        not website_matches(["https://sagepub.com"], ["sage.com"]),
+        "Sage Publishing is not Sage Group",
+    )
+    check(
+        website_matches(["https://www.fico.com"], ["fico.com"]),
+        "FICO official site matches",
+    )
+
+
 def main() -> int:
     test_found_page_calls_enrich()
     test_walled_list_no_invented_names()
     test_enrich_one_lands_published_facts_only()
+    test_year_needs_website_match()
     print("ok")
     return 0
 

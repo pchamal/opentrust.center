@@ -1394,9 +1394,9 @@ def resolve_year_one(company: dict) -> tuple[int, str] | None:
         if "Q4167410" in p31:
             continue
         sites = parse_p856(claims)
-        web_ok = website_matches(sites, hosts)
-        name_ok = title_close(title, company.get("name") or "")
-        if not web_ok and not name_ok:
+        # One-shot search cannot use the loose title prefix (Manhattan / Sage Publishing).
+        # Official website must match the register domain.
+        if not website_matches(sites, hosts):
             continue
         source = "https://en.wikipedia.org/wiki/" + title.replace(" ", "_")
         return year, source
