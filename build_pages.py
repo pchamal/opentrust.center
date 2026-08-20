@@ -316,13 +316,28 @@ def file_flags(row: dict, disc: dict) -> dict:
     }
 
 
-def file_coverage_text(flags: dict) -> str:
-    """Text coverage with a denominator. Not a meter and not a score."""
-    n = sum(1 for k in FILE_METER_KEYS if flags.get(k))
-    return (
-        f"public evidence located in {n} of 5 checked categories "
-        "(page, marks, DPA, subprocessors, years)"
+FILE_METER_LABELS = {
+    "page": "page",
+    "marks": "marks",
+    "dpa": "DPA",
+    "subprocessors": "subprocessors",
+    "years": "years",
+}
+
+
+def file_count(flags: dict) -> int:
+    return sum(1 for k in FILE_METER_KEYS if flags.get(k))
+
+
+def file_index_html(flags: dict) -> str:
+    """Five short rules. Filled = on file. Open hairline = not on file. Not a score."""
+    on = [FILE_METER_LABELS[k] for k in FILE_METER_KEYS if flags.get(k)]
+    spoken = " · ".join(on) if on else "not on file"
+    rules = "".join(
+        f'<span class="file-rule{" on" if flags.get(k) else ""}" aria-hidden="true"></span>'
+        for k in FILE_METER_KEYS
     )
+    return f'<span class="file-index" role="img" aria-label="{escape(spoken)}">{rules}</span>'
 
 
 def factor_line(disc: dict) -> str:
@@ -900,8 +915,8 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     found = bool(row.get("found"))
     url = row.get("trust_url") or ""
     disc = row["disclosure"]
-    tier = display_file_tier(disc["tier"])
-    file_cls = "file-word silent" if disc["tier"] == "silent" else "file-word"
+    flags = row.get("file") or file_flags(row, disc)
+    file_html = file_index_html(flags)
     title = f"{name} — opentrust.center"
     desc = "A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not."
     year = row.get("founded_year")
@@ -1014,7 +1029,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     <section class="ident">
       <h1>{escape(name)}</h1>
       <p class="ident-meta">{escape(domain)}</p>
-      <p class="ident-meta file-line">file <span class="sep">·</span> <span class="{file_cls}">{escape(tier)}</span></p>
+      <p class="ident-meta file-line">{file_html}</p>
       <p class="ident-meta">founded · {year_html}</p>
     </section>
 

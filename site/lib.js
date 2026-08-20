@@ -4,6 +4,13 @@ export const GATE_KEY = "ot_human_v1";
 export const GATE_MS = 30 * 60 * 1000;
 export const DATA_V = "2026-08-20T02:59:49Z";
 export const FILE_KEYS = ["page", "marks", "dpa", "subprocessors", "years"];
+export const FILE_LABELS = {
+  page: "page",
+  marks: "marks",
+  dpa: "DPA",
+  subprocessors: "subprocessors",
+  years: "years",
+};
 
 export function dataUrl(path) {
   const v = DATA_V ? encodeURIComponent(DATA_V) : "";
@@ -31,18 +38,28 @@ export function fileFlags(row) {
   };
 }
 
-export function fileCoverage(row) {
+export function fileCount(row) {
   const flags = fileFlags(row);
-  const n = FILE_KEYS.filter((k) => flags[k]).length;
-  const den = `${n} of 5`;
-  const legend = "page, marks, DPA, subprocessors, years";
-  const sentence = `public evidence located in ${den} checked categories`;
-  return { n, den, legend, sentence, title: `${sentence} (${legend})` };
+  return FILE_KEYS.reduce((n, key) => n + (flags[key] ? 1 : 0), 0);
 }
 
-export function fileCoverageHtml(row) {
+export function fileCoverage(row) {
+  const flags = fileFlags(row);
+  const n = fileCount(row);
+  const legend = "page · marks · DPA · subprocessors · years";
+  const on = FILE_KEYS.filter((k) => flags[k]).map((k) => FILE_LABELS[k]);
+  const spoken = on.length ? on.join(" · ") : "not on file";
+  return { n, legend, spoken, title: spoken };
+}
+
+export function fileIndexHtml(row) {
+  const flags = fileFlags(row);
   const c = fileCoverage(row);
-  return `<span class="file-cov" title="${escapeHtml(c.title)}">${escapeHtml(c.den)}</span>`;
+  const rules = FILE_KEYS.map((key) => {
+    const cls = flags[key] ? "file-rule on" : "file-rule";
+    return `<span class="${cls}" aria-hidden="true"></span>`;
+  }).join("");
+  return `<span class="file-index" role="img" aria-label="${escapeHtml(c.spoken)}">${rules}</span>`;
 }
 
 export function $(id) {

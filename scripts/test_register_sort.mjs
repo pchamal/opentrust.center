@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { parseFinder } from "../site/finder.js";
-import { displayFileState, fillIssue } from "../site/lib.js";
+import { fileCount, fillIssue } from "../site/lib.js";
 import {
   normalizeSort,
   normalizeDir,
@@ -59,8 +59,8 @@ function apply(raw) {
 }
 
 expect("register is past 700", rows.length > 700);
-expect("file cell is the state word", /displayFileState\(row\.tier\)/.test(registerSrc) && !/fileCoverageHtml/.test(registerSrc));
-expect("file words stay short", displayFileState("complete") === "complete" && displayFileState("on-file") === "on file" && displayFileState("silent") === "silent");
+expect("file cell is the five-rule index", /fileIndexHtml\(row\)/.test(registerSrc) && !/fileCoverageHtml/.test(registerSrc) && !/displayFileState/.test(registerSrc));
+expect("file count is 0–5", fileCount({}) === 0 && fileCount({ file: { page: true, marks: true, dpa: true, subprocessors: true, years: true } }) === 5);
 
 expect("normalize #", normalizeSort("#") === "rank");
 expect("normalize junk", normalizeSort("score") === "");
@@ -78,7 +78,7 @@ expect("first click name is A–Z", firstName.sort === "name" && firstName.dir =
 expect("second click name is Z–A", clickSort(firstName, "name").dir === "desc");
 
 const firstTier = clickSort(idle, "tier");
-expect("first click File is silent to complete", firstTier.sort === "tier" && firstTier.dir === "asc");
+expect("first click File is 0 to 5", firstTier.sort === "tier" && firstTier.dir === "asc");
 expect("second click File reverses", clickSort(firstTier, "tier").dir === "desc");
 const firstMarks = clickSort(idle, "marks");
 expect("first click marks is high count", firstMarks.sort === "marks" && firstMarks.dir === "desc");
@@ -115,25 +115,20 @@ const domainOk = byDomain.every((r, i) => {
 expect("domain is case-insensitive alpha", domainOk);
 
 const byTier = arrangeRows(rows, "tier", "desc");
-const tierRank = { silent: 0, thin: 1, "on-file": 2, substantial: 3, complete: 4 };
-const tierOk = byTier.every((r, i) => {
+const fileOk = byTier.every((r, i) => {
   if (i === 0) return true;
-  return (tierRank[r.tier] || 0) <= (tierRank[byTier[i - 1].tier] || 0);
+  return fileCount(r) <= fileCount(byTier[i - 1]);
 });
-expect("tier uses disclosure order", tierOk);
-expect("tier high is complete", byTier[0].tier === "complete");
-expect("tier low is silent", byTier[byTier.length - 1].tier === "silent");
+expect("file sort uses 0–5 on file", fileOk);
+expect("file high is five instruments", fileCount(byTier[0]) === 5);
+expect("file low is empty", fileCount(byTier[byTier.length - 1]) === 0);
 
 const english = [...byTier].sort((a, b) => {
   const aw = a.tier === "on-file" ? "on file" : a.tier;
   const bw = b.tier === "on-file" ? "on file" : b.tier;
   return aw.localeCompare(bw);
 });
-const firstSubstantial = byTier.findIndex((r) => r.tier === "substantial");
-const firstOnFile = byTier.findIndex((r) => r.tier === "on-file");
-const englishSub = english.findIndex((r) => r.tier === "substantial");
-const englishOn = english.findIndex((r) => r.tier === "on-file");
-expect("tier is not English alpha", firstSubstantial < firstOnFile && englishOn < englishSub);
+expect("file sort is not English alpha", byTier[0].slug !== english[0].slug || byTier[1].slug !== english[1].slug);
 
 const byMarks = arrangeRows(rows, "marks", "desc");
 const marksOk = byMarks.every((r, i) => {
@@ -161,7 +156,7 @@ expect("first screen is not all silent", firstScreen.some((r) => r.tier !== "sil
 expect("first screen is not a complete stripe", firstScreen.some((r) => r.tier !== "complete"));
 expect("first screen is mixed files", firstTiers.size >= 3);
 expect("complete stays in the table", landing.some((r) => r.tier === "complete"));
-expect("file header still sorts the state", arrangeRows(rows, "tier", "asc")[0].tier === "silent" && arrangeRows(rows, "tier", "desc")[0].tier === "complete");
+expect("file header still sorts the state", fileCount(arrangeRows(rows, "tier", "asc")[0]) === 0 && fileCount(arrangeRows(rows, "tier", "desc")[0]) === 5);
 
 const indexHtml = readFileSync(new URL("../site/index.html", import.meta.url), "utf8");
 expect("register grid dropped probed", !/data-sort="probed"/.test(indexHtml) && !/>probed</.test(indexHtml));
