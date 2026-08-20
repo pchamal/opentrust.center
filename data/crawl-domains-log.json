@@ -1,1602 +1,1558 @@
 {
-  "generated_at": "2026-08-20T01:01:45Z",
+  "generated_at": "2026-08-20T02:57:48Z",
   "method": "wikidata-wbsearchentities + wbgetentities P856; enwiki titles -> P856",
   "user_agent": "opentrust.center/1.0 (+https://opentrust.center)",
-  "note": "hourly top-up appended 87 verified P856; dropped 7 wrong matches",
+  "note": "hourly top-up appended 150 verified P856; dropped 80 wrong/dup matches",
   "cmc_list": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
   "counts": {
-    "dropped_bad_pending": 0,
-    "cmc_candidates": 123,
-    "wiki_candidates": 99,
-    "appended": 87,
-    "skipped_dup_domain": 19,
-    "unresolved_new": 115,
+    "appended": 150,
+    "wiki_resolved": 351,
+    "cmc_resolved": 5,
+    "wiki_unresolved": 41,
+    "cmc_unresolved": 136,
+    "dropped_wrong_or_dup": 80,
     "by_source_url": {
-      "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/": 5,
-      "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies": 41,
-      "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue": 9,
-      "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue": 9,
-      "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies": 24
-    },
-    "dropped_wrong_p856": 7,
-    "cmc_wiki_title_filled": 6
+      "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies": 150
+    }
   },
-  "dropped_bad_pending": [],
   "appended": [
     {
-      "name": "Text (LiveChat)",
-      "slug": "text-livechat",
-      "domain": "investor.text.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q6658155",
-      "reason": "exact",
-      "cmc_rank": 306
-    },
-    {
-      "name": "VERSES AI",
-      "slug": "verses-ai",
-      "domain": "verses.ai",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q125450727",
-      "reason": "close/prefix",
-      "cmc_rank": 469
-    },
-    {
-      "name": "Wildberries",
-      "slug": "wildberries",
-      "domain": "wildberries.ru",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q24933714",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Suning.com",
-      "slug": "suning-com",
-      "domain": "suning.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q1895661",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Ozon",
-      "slug": "ozon",
-      "domain": "ozon.ru",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q2365235",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Otto Group",
-      "slug": "otto-group",
-      "domain": "ottogroup.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q466688",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Shein",
-      "slug": "shein",
-      "domain": "shein.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q107377209",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Kwai",
-      "slug": "kwai",
-      "domain": "kuaishou.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q47015540",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Zalando",
-      "slug": "zalando",
-      "domain": "corporate.zalando.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q136570",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Chewy",
-      "slug": "chewy",
-      "domain": "chewy.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q28130158",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Carvana",
-      "slug": "carvana",
-      "domain": "carvana.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q16247191",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "ASOS.com",
-      "slug": "asos-com",
-      "domain": "asos.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q211951",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Twitter",
-      "slug": "twitter",
-      "domain": "x.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q918",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "wework",
-      "slug": "wework",
-      "domain": "wework.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q19995004",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Zoom Video",
-      "slug": "zoom-video",
-      "domain": "zoom.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q17460900",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Opendoor",
-      "slug": "opendoor",
-      "domain": "opendoor.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q96397546",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Beyond",
-      "slug": "beyond",
-      "domain": "bedbathandbeyond.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q3301958",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Travelport",
-      "slug": "travelport",
-      "domain": "travelport.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q7836092",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Wish",
-      "slug": "wish",
-      "domain": "wish.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q47796826",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "The Stars Group",
-      "slug": "the-stars-group",
-      "domain": "amaya.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q17167683",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Coolblue",
-      "slug": "coolblue",
-      "domain": "coolblue.nl",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q4992516",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Fanatics",
-      "slug": "fanatics",
-      "domain": "fanaticsinc.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q18150640",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Copart",
-      "slug": "copart",
-      "domain": "copart.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q16951448",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "CDK Global",
-      "slug": "cdk-global",
-      "domain": "cdkglobal.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q55454124",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Sina Corp",
-      "slug": "sina-corp",
-      "domain": "sina.com.cn",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q938668",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Newegg",
-      "slug": "newegg",
-      "domain": "newegg.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q10856243",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Shutterfly",
-      "slug": "shutterfly",
-      "domain": "shutterfly.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q7505672",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Zynga",
-      "slug": "zynga",
-      "domain": "zynga.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q245772",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "B2W",
-      "slug": "b2w",
-      "domain": "b2wdigital.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q2876669",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Grubhub",
-      "slug": "grubhub",
-      "domain": "grubhub.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q17019647",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Stitch Fix",
-      "slug": "stitch-fix",
-      "domain": "stitchfix.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q18385610",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Farfetch",
-      "slug": "farfetch",
-      "domain": "farfetch.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q18712957",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "J2 Global",
-      "slug": "j2-global",
-      "domain": "j2global.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q16997523",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "ANGI Homeservices Inc.",
-      "slug": "angi-homeservices-inc",
-      "domain": "angieslist.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q4763176",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Groupon",
-      "slug": "groupon",
-      "domain": "groupon.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q852787",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Vroom.com",
-      "slug": "vroom-com",
-      "domain": "vroom.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q23680003",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "VK",
-      "slug": "vk",
-      "domain": "vk.company",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q1885456",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Kaplan, Inc.",
-      "slug": "kaplan-inc",
-      "domain": "kaplan.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q3112947",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Endurance International Group",
-      "slug": "endurance-international-group",
-      "domain": "enduranceinternational.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q5376661",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "GoTo",
-      "slug": "goto",
-      "domain": "gotocompany.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q106914877",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "LogMeIn",
-      "slug": "logmein",
-      "domain": "goto.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q823303",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Blue Yonder",
-      "slug": "blue-yonder",
-      "domain": "blueyonder.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q6107934",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Craigslist",
-      "slug": "craigslist",
-      "domain": "craigslist.org",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "priority": 2,
-      "qid": "Q788500",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Samsung Electronics",
-      "slug": "samsung-electronics",
-      "domain": "samsung.com",
-      "source": "wikipedia-largest-tech-by-revenue",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
-      "priority": 2,
-      "qid": "Q20718",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Foxconn",
-      "slug": "foxconn",
-      "domain": "foxconn.com",
-      "source": "wikipedia-largest-tech-by-revenue",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
-      "priority": 2,
-      "qid": "Q463094",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Deutsche Telekom",
-      "slug": "deutsche-telekom",
-      "domain": "telekom.com",
-      "source": "wikipedia-largest-tech-by-revenue",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
-      "priority": 2,
-      "qid": "Q9396",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Sony",
-      "slug": "sony",
-      "domain": "sony.com",
-      "source": "wikipedia-largest-tech-by-revenue",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
-      "priority": 2,
-      "qid": "Q41187",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "TSMC",
-      "slug": "tsmc",
-      "domain": "tsmc.com",
-      "source": "wikipedia-largest-tech-by-revenue",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
-      "priority": 2,
-      "qid": "Q713418",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Hitachi",
-      "slug": "hitachi",
-      "domain": "hitachi.com",
-      "source": "wikipedia-largest-tech-by-revenue",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
-      "priority": 2,
-      "qid": "Q53238",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Lenovo",
-      "slug": "lenovo",
-      "domain": "lenovo.com",
-      "source": "wikipedia-largest-tech-by-revenue",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
-      "priority": 2,
-      "qid": "Q14799",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "LG Electronics",
-      "slug": "lg-electronics",
-      "domain": "lg.com",
-      "source": "wikipedia-largest-tech-by-revenue",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
-      "priority": 2,
-      "qid": "Q162345",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Cargill",
-      "slug": "cargill",
-      "domain": "cargill.com",
-      "source": "wikipedia-fortune-500",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
-      "priority": 2,
-      "qid": "Q1036056",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Koch",
-      "slug": "koch",
-      "domain": "kochinc.com",
-      "source": "wikipedia-fortune-500",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
-      "priority": 2,
-      "qid": "Q1496384",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Mars",
-      "slug": "mars",
-      "domain": "mars.com",
-      "source": "wikipedia-fortune-500",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
-      "priority": 2,
-      "qid": "Q695087",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "H-E-B Grocery Company",
-      "slug": "h-e-b-grocery-company",
-      "domain": "heb.com",
-      "source": "wikipedia-fortune-500",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
-      "priority": 2,
-      "qid": "Q830621",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Reyes Holdings",
-      "slug": "reyes-holdings",
-      "domain": "reyesholdings.com",
-      "source": "wikipedia-fortune-500",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
-      "priority": 2,
-      "qid": "Q728004",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Enterprise Mobility",
-      "slug": "enterprise-mobility",
-      "domain": "enterprisemobility.com",
-      "source": "wikipedia-fortune-500",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
-      "priority": 2,
-      "qid": "Q834054",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Fidelity Investments",
-      "slug": "fidelity-investments",
-      "domain": "fidelity.com",
-      "source": "wikipedia-fortune-500",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
-      "priority": 2,
-      "qid": "Q1411292",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Southern Glazer's Wine & Spirits",
-      "slug": "southern-glazer-s-wine-and-spirits",
-      "domain": "southernglazers.com",
-      "source": "wikipedia-fortune-500",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
-      "priority": 2,
-      "qid": "Q7570632",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Cox Enterprises",
-      "slug": "cox-enterprises",
-      "domain": "coxenterprises.com",
-      "source": "wikipedia-fortune-500",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
-      "priority": 2,
-      "qid": "Q1138249",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Ciena",
-      "slug": "ciena",
-      "domain": "ciena.com",
+      "name": "3M",
+      "slug": "3m",
+      "domain": "3m.com",
       "source": "wikipedia-sp500-software",
       "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "priority": 2,
-      "qid": "Q1091783",
+      "qid": "Q159433",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Coherent Corp.",
-      "slug": "coherent-corp",
-      "domain": "coherent.com",
+      "name": "A. O. Smith",
+      "slug": "a-o-smith",
+      "domain": "aosmith.com",
       "source": "wikipedia-sp500-software",
       "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "priority": 2,
-      "qid": "Q15109887",
+      "qid": "Q4648219",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Corning Inc.",
-      "slug": "corning-inc",
-      "domain": "corning.com",
+      "name": "Abbott Laboratories",
+      "slug": "abbott-laboratories",
+      "domain": "abbott.com",
       "source": "wikipedia-sp500-software",
       "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "priority": 2,
-      "qid": "Q5842736",
+      "qid": "Q306764",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "EchoStar",
-      "slug": "echostar",
-      "domain": "echostar.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "priority": 2,
-      "qid": "Q1280748",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "First Solar",
-      "slug": "first-solar",
-      "domain": "firstsolar.com",
+      "name": "AES Corporation",
+      "slug": "aes-corporation",
+      "domain": "aes.com",
       "source": "wikipedia-sp500-software",
       "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "priority": 2,
-      "qid": "Q1138888",
+      "qid": "Q291508",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Flex Ltd.",
-      "slug": "flex-ltd",
-      "domain": "flex.com",
+      "name": "Aflac",
+      "slug": "aflac",
+      "domain": "aflac.com",
       "source": "wikipedia-sp500-software",
       "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "priority": 2,
-      "qid": "Q1140680",
+      "qid": "Q26311",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Fox Corporation",
-      "slug": "fox-corporation",
-      "domain": "foxcorporation.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "priority": 2,
-      "qid": "Q60238941",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Live Nation Entertainment",
-      "slug": "live-nation-entertainment",
-      "domain": "livenationentertainment.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "priority": 2,
-      "qid": "Q1061903",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Marvell Technology",
-      "slug": "marvell-technology",
-      "domain": "marvell.com",
+      "name": "Agilent Technologies",
+      "slug": "agilent-technologies",
+      "domain": "agilent.com",
       "source": "wikipedia-sp500-software",
       "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "priority": 2,
-      "qid": "Q1347782",
+      "qid": "Q393762",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Monolithic Power Systems",
-      "slug": "monolithic-power-systems",
-      "domain": "monolithicpower.com",
+      "name": "Air Products",
+      "slug": "air-products",
+      "domain": "airproducts.com",
       "source": "wikipedia-sp500-software",
       "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "priority": 2,
-      "qid": "Q22058448",
+      "qid": "Q407744",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "News Corp",
-      "slug": "news-corp",
-      "domain": "newscorp.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "priority": 2,
-      "qid": "Q14289857",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "NXP Semiconductors",
-      "slug": "nxp-semiconductors",
-      "domain": "nxp.com",
+      "name": "Albemarle Corporation",
+      "slug": "albemarle-corporation",
+      "domain": "albemarle.com",
       "source": "wikipedia-sp500-software",
       "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "priority": 2,
-      "qid": "Q1155668",
+      "qid": "Q127074",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Omnicom Group",
-      "slug": "omnicom-group",
-      "domain": "omnicomgroup.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "priority": 2,
-      "qid": "Q1519267",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Paramount Skydance Corporation",
-      "slug": "paramount-skydance-corporation",
-      "domain": "paramount.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "priority": 2,
-      "qid": "Q135485147",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Qnity Electronics",
-      "slug": "qnity-electronics",
-      "domain": "qnityelectronics.com",
+      "name": "Alexandria Real Estate Equities",
+      "slug": "alexandria-real-estate-equities",
+      "domain": "are.com",
       "source": "wikipedia-sp500-software",
       "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "priority": 2,
-      "qid": "Q138685636",
+      "qid": "Q48739877",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Sandisk",
-      "slug": "sandisk",
-      "domain": "sandisk.com",
+      "name": "Align Technology",
+      "slug": "align-technology",
+      "domain": "aligntech.com",
       "source": "wikipedia-sp500-software",
       "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "priority": 2,
-      "qid": "Q260833",
+      "qid": "Q30272258",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Seagate Technology",
-      "slug": "seagate-technology",
-      "domain": "seagate.com",
+      "name": "Allegion",
+      "slug": "allegion",
+      "domain": "allegion.com",
       "source": "wikipedia-sp500-software",
       "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "priority": 2,
-      "qid": "Q705392",
+      "qid": "Q16738121",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Skyworks Solutions",
-      "slug": "skyworks-solutions",
-      "domain": "skyworksinc.com",
+      "name": "Alliant Energy",
+      "slug": "alliant-energy",
+      "domain": "alliantenergy.com",
       "source": "wikipedia-sp500-software",
       "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "priority": 2,
-      "qid": "Q7538146",
+      "qid": "Q4732492",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "T-Mobile US",
-      "slug": "t-mobile-us",
-      "domain": "t-mobile.com",
-      "source": "wikipedia-largest-internet",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "priority": 2,
-      "qid": "Q3511885",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "TE Connectivity",
-      "slug": "te-connectivity",
-      "domain": "te.com",
+      "name": "Altria",
+      "slug": "altria",
+      "domain": "altria.com",
       "source": "wikipedia-sp500-software",
       "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "priority": 2,
-      "qid": "Q663452",
+      "qid": "Q445007",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Teledyne Technologies",
-      "slug": "teledyne-technologies",
-      "domain": "teledyne.com",
+      "name": "Amcor",
+      "slug": "amcor",
+      "domain": "amcor.com",
       "source": "wikipedia-sp500-software",
       "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "priority": 2,
-      "qid": "Q7696127",
+      "qid": "Q460307",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Teradyne",
-      "slug": "teradyne",
-      "domain": "teradyne.com",
+      "name": "Ameren",
+      "slug": "ameren",
+      "domain": "ameren.com",
       "source": "wikipedia-sp500-software",
       "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "priority": 2,
-      "qid": "Q2404292",
+      "qid": "Q462984",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "TKO Group Holdings",
-      "slug": "tko-group-holdings",
-      "domain": "tkogrp.com",
-      "source": "wikipedia-largest-internet",
+      "name": "American Electric Power",
+      "slug": "american-electric-power",
+      "domain": "aep.com",
+      "source": "wikipedia-sp500-software",
       "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "priority": 2,
-      "qid": "Q120435068",
+      "qid": "Q464092",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Warner Bros. Discovery",
-      "slug": "warner-bros-discovery",
-      "domain": "wbd.com",
-      "source": "wikipedia-largest-internet",
+      "name": "American International Group",
+      "slug": "american-international-group",
+      "domain": "aig.com",
+      "source": "wikipedia-sp500-software",
       "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "priority": 2,
-      "qid": "Q107074885",
+      "qid": "Q212235",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Schneider Electric",
-      "slug": "schneider-electric",
-      "domain": "se.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q49053",
-      "wiki_title": "Schneider Electric",
-      "reason": "enwiki-search-title P856"
+      "name": "American Tower",
+      "slug": "american-tower",
+      "domain": "americantower.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q4745263",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "ePlus",
-      "slug": "eplus",
-      "domain": "eplus.com",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q16992684",
-      "wiki_title": "EPlus",
-      "reason": "enwiki-search-title P856"
+      "name": "American Water Works",
+      "slug": "american-water-works",
+      "domain": "amwater.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q467238",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Tose Software",
-      "slug": "tose-software",
-      "domain": "tose.co.jp",
-      "source": "companiesmarketcap-software",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "priority": 3,
-      "qid": "Q2271746",
-      "wiki_title": "Tose",
-      "reason": "enwiki-search-title P856"
+      "name": "Ameriprise Financial",
+      "slug": "ameriprise-financial",
+      "domain": "ameriprise.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q2843129",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Ametek",
+      "slug": "ametek",
+      "domain": "ametek.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q470317",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Amgen",
+      "slug": "amgen",
+      "domain": "amgen.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q470517",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Aon plc",
+      "slug": "aon-plc",
+      "domain": "aon.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q739518",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "APA Corporation",
+      "slug": "apa-corporation",
+      "domain": "apachecorp.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q119991",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Apollo Global Management",
+      "slug": "apollo-global-management",
+      "domain": "apollo.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q619121",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Aptiv",
+      "slug": "aptiv",
+      "domain": "aptiv.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q643626",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Arch Capital Group",
+      "slug": "arch-capital-group",
+      "domain": "archcapgroup.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q28155430",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Ares Management",
+      "slug": "ares-management",
+      "domain": "aresmgmt.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q4789079",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Arthur J. Gallagher & Co.",
+      "slug": "arthur-j-gallagher-and-co",
+      "domain": "ajg.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q4799191",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Assurant",
+      "slug": "assurant",
+      "domain": "assurant.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q4810399",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Atmos Energy",
+      "slug": "atmos-energy",
+      "domain": "atmosenergy.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q4817084",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "AutoZone",
+      "slug": "autozone",
+      "domain": "autozone.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q4826087",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Avery Dennison",
+      "slug": "avery-dennison",
+      "domain": "averydennison.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q790650",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Axon Enterprise",
+      "slug": "axon-enterprise",
+      "domain": "axon.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q690604",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Baker Hughes",
+      "slug": "baker-hughes",
+      "domain": "bakerhughes.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q804353",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Ball Corporation",
+      "slug": "ball-corporation",
+      "domain": "ball.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q4034815",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Baxter International",
+      "slug": "baxter-international",
+      "domain": "baxter.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q761965",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Becton Dickinson",
+      "slug": "becton-dickinson",
+      "domain": "bd.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q813780",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Best Buy",
+      "slug": "best-buy",
+      "domain": "bestbuy.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q533415",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Bio-Techne",
+      "slug": "bio-techne",
+      "domain": "bio-techne.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q19873469",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Biogen",
+      "slug": "biogen",
+      "domain": "biogen.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q864338",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "BlackRock",
+      "slug": "blackrock",
+      "domain": "blackrock.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q219635",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Blackstone Inc.",
+      "slug": "blackstone-inc",
+      "domain": "blackstone.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q880942",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "BNY Mellon",
+      "slug": "bny-mellon",
+      "domain": "bnymellon.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q589288",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Boston Scientific",
+      "slug": "boston-scientific",
+      "domain": "bostonscientific.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q894585",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Brown & Brown",
+      "slug": "brown-and-brown",
+      "domain": "bbinsurance.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q4976010",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Brown\u2013Forman",
+      "slug": "brown-forman",
+      "domain": "brown-forman.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q392221",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Builders FirstSource",
+      "slug": "builders-firstsource",
+      "domain": "bldr.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q27686100",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Bunge Global",
+      "slug": "bunge-global",
+      "domain": "bunge.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1009458",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "BXP, Inc.",
+      "slug": "bxp-inc",
+      "domain": "bxp.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q4844439",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "C.H. Robinson",
+      "slug": "c-h-robinson",
+      "domain": "chrobinson.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q931200",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Camden Property Trust",
+      "slug": "camden-property-trust",
+      "domain": "camdenliving.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5025803",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Carnival Corporation",
+      "slug": "carnival-corporation",
+      "domain": "carnivalcorp.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1044059",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Carrier Global",
+      "slug": "carrier-global",
+      "domain": "corporate.carrier.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q731912",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Casey's",
+      "slug": "casey-s",
+      "domain": "caseys.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q2940968",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Cboe Global Markets",
+      "slug": "cboe-global-markets",
+      "domain": "cboe.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q30635731",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "CBRE Group",
+      "slug": "cbre-group",
+      "domain": "cbre.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1023013",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "CenterPoint Energy",
+      "slug": "centerpoint-energy",
+      "domain": "centerpointenergy.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1053560",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "CF Industries",
+      "slug": "cf-industries",
+      "domain": "cfindustries.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q905806",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Charles River Laboratories",
+      "slug": "charles-river-laboratories",
+      "domain": "criver.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5082076",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Charles Schwab Corporation",
+      "slug": "charles-schwab-corporation",
+      "domain": "schwab.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1066028",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Chipotle Mexican Grill",
+      "slug": "chipotle-mexican-grill",
+      "domain": "chipotle.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q465751",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Chubb Limited",
+      "slug": "chubb-limited",
+      "domain": "chubb.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1089060",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Church & Dwight",
+      "slug": "church-and-dwight",
+      "domain": "churchdwight.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5116536",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Cincinnati Financial",
+      "slug": "cincinnati-financial",
+      "domain": "cinfin.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5120253",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Cintas",
+      "slug": "cintas",
+      "domain": "cintas.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1092571",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Citizens Financial Group",
+      "slug": "citizens-financial-group",
+      "domain": "citizensbank.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5122694",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Clorox",
+      "slug": "clorox",
+      "domain": "thecloroxcompany.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q910368",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "CME Group",
+      "slug": "cme-group",
+      "domain": "cmegroup.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1023876",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "CMS Energy",
+      "slug": "cms-energy",
+      "domain": "cmsenergy.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5013012",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Colgate-Palmolive",
+      "slug": "colgate-palmolive",
+      "domain": "colgatepalmolive.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q609466",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Comfort Systems USA",
+      "slug": "comfort-systems-usa",
+      "domain": "comfortsystemsusa.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5151691",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Consolidated Edison",
+      "slug": "consolidated-edison",
+      "domain": "coned.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1127536",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Constellation Brands",
+      "slug": "constellation-brands",
+      "domain": "cbrands.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1128160",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Constellation Energy",
+      "slug": "constellation-energy",
+      "domain": "constellation.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q259195",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Cooper Companies (The)",
+      "slug": "cooper-companies-the",
+      "domain": "coopercos.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1129792",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Corteva",
+      "slug": "corteva",
+      "domain": "corteva.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q63197674",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "CRH plc",
+      "slug": "crh-plc",
+      "domain": "crh.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1053299",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Crown Castle",
+      "slug": "crown-castle",
+      "domain": "crowncastle.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5189320",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "CSX Corporation",
+      "slug": "csx-corporation",
+      "domain": "csx.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1024454",
+      "reason": "enwiki-title P856 (infobox nytimes.com dropped)"
+    },
+    {
+      "name": "Cummins",
+      "slug": "cummins",
+      "domain": "cummins.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q173476",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Danaher Corporation",
+      "slug": "danaher-corporation",
+      "domain": "danaher.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1159256",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Darden Restaurants",
+      "slug": "darden-restaurants",
+      "domain": "darden.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q742196",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "DaVita",
+      "slug": "davita",
+      "domain": "davita.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5207184",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Deckers Brands",
+      "slug": "deckers-brands",
+      "domain": "deckers.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1181953",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Devon Energy",
+      "slug": "devon-energy",
+      "domain": "devonenergy.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1206980",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Dexcom",
+      "slug": "dexcom",
+      "domain": "dexcom.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q15109865",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Diamondback Energy",
+      "slug": "diamondback-energy",
+      "domain": "diamondbackenergy.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q65091423",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Digital Realty",
+      "slug": "digital-realty",
+      "domain": "digitalrealty.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5275969",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Dollar General",
+      "slug": "dollar-general",
+      "domain": "dollargeneral.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q145168",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Dollar Tree",
+      "slug": "dollar-tree",
+      "domain": "dollartree.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5289230",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Dominion Energy",
+      "slug": "dominion-energy",
+      "domain": "dominionenergy.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q677464",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Domino's",
+      "slug": "domino-s",
+      "domain": "dominos.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q839466",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Dover Corporation",
+      "slug": "dover-corporation",
+      "domain": "dovercorporation.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q16974527",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Dow Inc.",
+      "slug": "dow-inc",
+      "domain": "dow.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q855639",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "D. R. Horton",
+      "slug": "d-r-horton",
+      "domain": "drhorton.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5203782",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "DTE Energy",
+      "slug": "dte-energy",
+      "domain": "dteenergy.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5206232",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Duke Energy",
+      "slug": "duke-energy",
+      "domain": "duke-energy.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1264404",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "DuPont",
+      "slug": "dupont",
+      "domain": "dupont.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q221062",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Eaton Corporation",
+      "slug": "eaton-corporation",
+      "domain": "eaton.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q48872",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Ecolab",
+      "slug": "ecolab",
+      "domain": "ecolab.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1282031",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Edison International",
+      "slug": "edison-international",
+      "domain": "edison.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q662095",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Edwards Lifesciences",
+      "slug": "edwards-lifesciences",
+      "domain": "edwardslifesciences.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q16966841",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Emcor",
+      "slug": "emcor",
+      "domain": "emcorgroup.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5370289",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Emerson Electric",
+      "slug": "emerson-electric",
+      "domain": "emerson.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1335585",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Entergy",
+      "slug": "entergy",
+      "domain": "entergy.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1344587",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "EOG Resources",
+      "slug": "eog-resources",
+      "domain": "eogresources.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1275577",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "EQT Corporation",
+      "slug": "eqt-corporation",
+      "domain": "eqt.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5323987",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Erie Indemnity",
+      "slug": "erie-indemnity",
+      "domain": "erieinsurance.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5388314",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Essex Property Trust",
+      "slug": "essex-property-trust",
+      "domain": "essexapartmenthomes.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q27964091",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Est\u00e9e Lauder Companies (The)",
+      "slug": "est-e-lauder-companies-the",
+      "domain": "elcompanies.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1260606",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Everest Group",
+      "slug": "everest-group",
+      "domain": "everestre.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1381973",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Evergy",
+      "slug": "evergy",
+      "domain": "evergy.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q7987107",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Eversource Energy",
+      "slug": "eversource-energy",
+      "domain": "eversource.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q3344199",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Exelon",
+      "slug": "exelon",
+      "domain": "exeloncorp.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1383669",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Expand Energy",
+      "slug": "expand-energy",
+      "domain": "chk.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q2962826",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Expeditors International",
+      "slug": "expeditors-international",
+      "domain": "expeditors.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1384324",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Extra Space Storage",
+      "slug": "extra-space-storage",
+      "domain": "extraspace.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5422162",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Fastenal",
+      "slug": "fastenal",
+      "domain": "fastenal.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q3067119",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Federal Realty Investment Trust",
+      "slug": "federal-realty-investment-trust",
+      "domain": "federalrealty.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q27988152",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Ferguson Enterprises",
+      "slug": "ferguson-enterprises",
+      "domain": "ferguson.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5444235",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Fidelity National Information Services",
+      "slug": "fidelity-national-information-services",
+      "domain": "fisglobal.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1411295",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Fifth Third Bancorp",
+      "slug": "fifth-third-bancorp",
+      "domain": "53.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1411810",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "FirstEnergy",
+      "slug": "firstenergy",
+      "domain": "firstenergycorp.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1419248",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Fortive",
+      "slug": "fortive",
+      "domain": "fortive.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q27919383",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Franklin Resources",
+      "slug": "franklin-resources",
+      "domain": "franklintempleton.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q744683",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Garmin",
+      "slug": "garmin",
+      "domain": "garmin.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q658789",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "GE Aerospace",
+      "slug": "ge-aerospace",
+      "domain": "geaerospace.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1485061",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "GE HealthCare",
+      "slug": "ge-healthcare",
+      "domain": "gehealthcare.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1152374",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "GE Vernova",
+      "slug": "ge-vernova",
+      "domain": "gevernova.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q118957699",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Generac",
+      "slug": "generac",
+      "domain": "generac.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5531627",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "General Mills",
+      "slug": "general-mills",
+      "domain": "generalmills.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q629998",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Genuine Parts Company",
+      "slug": "genuine-parts-company",
+      "domain": "genpt.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5533818",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Gilead Sciences",
+      "slug": "gilead-sciences",
+      "domain": "gilead.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q663596",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Globe Life",
+      "slug": "globe-life",
+      "domain": "torchmarkcorp.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q7825574",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Halliburton",
+      "slug": "halliburton",
+      "domain": "halliburton.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q656165",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Hartford (The)",
+      "slug": "hartford-the",
+      "domain": "thehartford.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q444110",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Hasbro",
+      "slug": "hasbro",
+      "domain": "shop.hasbro.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q501476",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Healthpeak Properties",
+      "slug": "healthpeak-properties",
+      "domain": "hcpi.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q16975567",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Henry Schein",
+      "slug": "henry-schein",
+      "domain": "henryschein.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q905086",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Hershey Company (The)",
+      "slug": "hershey-company-the",
+      "domain": "thehersheycompany.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1056637",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Hilton Worldwide",
+      "slug": "hilton-worldwide",
+      "domain": "hilton.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1057464",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Honeywell Aerospace",
+      "slug": "honeywell-aerospace",
+      "domain": "honeywellaerospace.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q5893992",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Honeywell Technologies",
+      "slug": "honeywell-technologies",
+      "domain": "honeywell.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q898208",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Hormel Foods",
+      "slug": "hormel-foods",
+      "domain": "hormel.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1454852",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Host Hotels & Resorts",
+      "slug": "host-hotels-and-resorts",
+      "domain": "hosthotels.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q1630559",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Howmet Aerospace",
+      "slug": "howmet-aerospace",
+      "domain": "howmet.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q25104597",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Hubbell Incorporated",
+      "slug": "hubbell-incorporated",
+      "domain": "hubbell.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q21036456",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Huntington Bancshares",
+      "slug": "huntington-bancshares",
+      "domain": "huntington.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q798819",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Huntington Ingalls Industries",
+      "slug": "huntington-ingalls-industries",
+      "domain": "hii.com",
+      "source": "wikipedia-sp500-software",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "priority": 2,
+      "qid": "Q7257522",
+      "reason": "enwiki-title P856"
     }
   ],
-  "skipped_dup_domain": [
-    {
-      "name": "Automatic Data Processing",
-      "domain": "adp.com"
-    },
-    {
-      "name": "Amadeus IT Group",
-      "domain": "amadeus.com"
-    },
-    {
-      "name": "Guidewire Software",
-      "domain": "guidewire.com"
-    },
-    {
-      "name": "Check Point Software",
-      "domain": "checkpoint.com"
-    },
-    {
-      "name": "Alkami Technology",
-      "domain": "alkami.com"
-    },
-    {
-      "name": "Pagaya Technologies",
-      "domain": "pagaya.com"
-    },
-    {
-      "name": "Rackspace Technology",
-      "domain": "rackspace.com"
-    },
-    {
-      "name": "Cognyte Software",
-      "domain": "cognyte.com"
-    },
-    {
-      "name": "Linedata Services",
-      "domain": "linedata.com"
-    },
-    {
-      "name": "Palantir Technologies",
-      "domain": "palantir.com"
-    },
-    {
-      "name": "Akamai Technologies",
-      "domain": "akamai.com"
-    },
-    {
-      "name": "Broadridge Financial Solutions",
-      "domain": "broadridge.com"
-    },
-    {
-      "name": "Citrix Systems",
-      "domain": "citrix.com"
-    },
-    {
-      "name": "Unity Technologies",
-      "domain": "unity.com"
-    },
-    {
-      "name": "Salesforce.com",
-      "domain": "salesforce.com"
-    },
-    {
-      "name": "Bloomberg L.P.",
-      "domain": "bloomberg.com"
-    },
-    {
-      "name": "Keysight Technologies",
-      "domain": "keysight.com"
-    },
-    {
-      "name": "Supermicro",
-      "domain": "supermicro.com"
-    },
-    {
-      "name": "Verizon",
-      "domain": "verizon.com"
-    }
-  ],
-  "unresolved_new": [
-    {
-      "name": "Schneider Electric",
-      "status": "skipped-ambiguous",
-      "reason": "exact but competing orgs ['Q49053', 'Q58197391'] and empty description"
-    },
-    {
-      "name": "Fair Isaac (FICO)",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Unity Software",
-      "status": "unresolved",
-      "reason": "no-exact-or-close-label; 1 org candidate Q7893816 Unity Technologies"
-    },
-    {
-      "name": "Oracle Corp Japan",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Mobility Global, Inc.",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "OVH Groupe",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Calix",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Rakus Co., Ltd.",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "ePlus",
-      "status": "skipped-ambiguous",
-      "reason": "several close/prefix matches: Q11291384 eplus Inc. -> eplus.jp; Q16992684 EPlus Inc -> eplus.com"
-    },
-    {
-      "name": "iFAST Corporation",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Karooooo",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "GigaCloud Technology",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Absci",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "BlackSky Technology",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Wiit S.p.A.",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Mensch und Maschine",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Chrysos Corporation Limited",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "ODDITY Tech",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Weave Communications",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "GPI S.p.A.",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Priority Technology Holdings",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Automated Systems Company KPSC",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Gorilla Technology",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Vista Group International",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Arqit Quantum",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Blend Labs",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "WithSecure Oyj",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Duos Technologies Group",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "SmartCraft ASA",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Coveo Solutions",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "TROOPS, Inc.",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Gentrack Group",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "SmartRent",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Median Technologies SA",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Spok Holdings",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Digia Oyj",
-      "status": "unresolved",
-      "reason": "no-exact-or-close-label; 1 org candidate Q369897 Digia"
-    },
-    {
-      "name": "Marti Technologies",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "OPTiM",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Admicom Oyj",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "OptimizeRx",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Quartix Technologies",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "SNGULAR",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "UNITED",
-      "status": "unresolved",
-      "reason": "no-exact-or-close-label; 1 org candidate Q174769 United Airlines"
-    },
-    {
-      "name": "ALT5 Sigma",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "EROAD Limited",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Synchronoss Technologies",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Allied Tecnologia",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Arab Sea Information Systems Company",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Micware Co., Ltd.",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Nerdy, Inc,",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Microlise",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Blackboxstocks",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Forian",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Thinkific Labs",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "iHuman",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Teads",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Where Food Comes From",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Intellicheck",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "3P Learning",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "iLearningEngines",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Agile Content",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Stem, Inc",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Marpai",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Sylogist",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "cyan AG",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Corero Network Security",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Celebrus Technologies",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "VIDA Global Inc.",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Mentice AB",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Diginex",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Latch",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Tose Software",
-      "status": "unresolved",
-      "reason": "no-exact-or-close-label; 1 org candidate Q2271746 Tose Co."
-    },
-    {
-      "name": "Growens S.p.A.",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Wedia SA",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Zenvia",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "BeLive Holdings",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "YOC AG",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "HUB Cyber Security",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "SIMPPLE",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Beamr Imaging",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Avant Technologies Inc.",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Witbe S.A.",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "SOS Limited",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "T Stamp Inc. (TrustStamp)",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "The Glimpse Group",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "WeTrade Group",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Alarum Technologies",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Maris Tech",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Global Mofy AI",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "CISO Global",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Signing Day Sports",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "authID",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Techstep ASA",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Orangekloud Technology",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Locafy",
-      "status": "unresolved",
-      "reason": "no-exact-or-close-label; 1 org candidate Q19874420 Hotfrog"
-    },
-    {
-      "name": "Treasure Global",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Lucas GC",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Cyabra, Inc.",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Cemtrex",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "BIO-key International",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Foresight Autonomous Holdings",
-      "status": "unresolved",
-      "reason": "no-exact-or-close-label; 1 org candidate Q96574751 foresight automotive LTD"
-    },
-    {
-      "name": "Jet.AI",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "G Medical Innovations",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Freight Technologies, Inc.",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Fintech Scion (FintechCashier)",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "CXApp",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Remark Holdings",
-      "status": "unresolved",
-      "reason": "no-exact-or-close-label; 1 org candidate Q7311538 Remark Media"
-    },
-    {
-      "name": "Presto Automation",
-      "status": "unresolved",
-      "reason": "no-wikidata-hits"
-    },
-    {
-      "name": "Movella",
-      "status": "unresolved",
-      "reason": "no-org-with-official-website"
-    },
-    {
-      "name": "Bet365",
-      "status": "no-p856",
-      "reason": "Bet365"
-    },
-    {
-      "name": "Newtown, Pennsylvania",
-      "status": "no-p856",
-      "reason": "Newtown, Bucks County, Pennsylvania"
-    },
-    {
-      "name": "58.com",
-      "status": "no-p856",
-      "reason": ":zh:58\u540c\u57ce"
-    },
-    {
-      "name": "Carsome",
-      "status": "no-p856",
-      "reason": "Carsome"
-    },
-    {
-      "name": "Lumentum",
-      "status": "no-p856",
-      "reason": "Lumentum"
-    },
-    {
-      "name": "Qualcomm",
-      "status": "no-p856",
-      "reason": "Qualcomm"
-    }
-  ],
-  "prior_counts": {
-    "existing_nulls": 138,
-    "filled_existing": 0,
-    "new_candidates_resolved_attempted": 180,
-    "appended": 63,
-    "skipped_dup_domain": 9,
-    "unresolved_new": 108
-  },
   "dropped_wrong_p856": [
+    {
+      "name": "Box, Inc.",
+      "slug": "box-inc",
+      "domain": "box.com",
+      "reason": "blocked-host"
+    },
+    {
+      "name": "Digital Arts Inc.",
+      "slug": "digital-arts-inc",
+      "domain": "daj.jp",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Nuix Limited",
+      "slug": "nuix-limited",
+      "domain": "nuix.com",
+      "reason": "blocked-host"
+    },
     {
       "name": "Castellum",
       "slug": "castellum",
-      "domain": "castellum.se"
+      "domain": "castellum.se",
+      "reason": "blocked-host"
     },
     {
       "name": "Upland Software",
       "slug": "upland-software",
-      "domain": "powersteeringsoftware.com"
+      "domain": "powersteeringsoftware.com",
+      "reason": "blocked-host"
     },
     {
       "name": "BloomZ",
       "slug": "bloomz",
-      "domain": "bloomz.com.mx"
-    },
-    {
-      "name": "Panasonic",
-      "slug": "panasonic",
-      "domain": "holdings.panasonic"
-    },
-    {
-      "name": "Marti Technologies",
-      "slug": "marti-technologies",
-      "domain": "martiag.ch"
-    },
-    {
-      "name": "Avant Technologies Inc.",
-      "slug": "avant-technologies-inc",
-      "domain": "readyforzero.com"
-    },
-    {
-      "name": "Treasure Global",
-      "slug": "treasure-global",
-      "domain": "ygfamily.com"
+      "domain": "bloomz.com.mx",
+      "reason": "blocked-host"
     }
   ]
 }
