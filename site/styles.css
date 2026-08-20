@@ -156,7 +156,7 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
   display: flex;
   align-items: stretch;
   height: 40px;
-  border: 1px solid var(--well);
+  border: var(--rule);
   background: rgba(51, 20, 0, 0.4);
 }
 .finder label { flex: 1; display: flex; }
@@ -174,9 +174,9 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
 .finder-go {
   appearance: none;
   background: transparent;
-  color: var(--mute);
+  color: var(--ink);
   border: 0;
-  border-left: 1px solid var(--well);
+  border-left: var(--rule);
   font: var(--t-kicker);
   letter-spacing: 0.12em;
   text-transform: lowercase;
@@ -225,12 +225,9 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
 }
 .queryline:not([hidden]) + .countline { margin-top: 8px; }
 
-/* Register chrome only. Fatigue is value: more mute, fewer rust outlines. */
+/* Register body ink recedes. Chrome stays rust. Names stay ink. */
 body.register { color: var(--mute); }
 body.register .finder input { color: var(--ink); }
-body.register .colo { border-top-color: var(--well); }
-body.register .miss,
-body.register .empty { border-color: var(--well); }
 
 /* ——— filters ——— */
 .filters {
@@ -272,7 +269,7 @@ body.register .empty { border-color: var(--well); }
   font: var(--t-kicker);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--mute);
+  color: var(--rust);
   text-align: left;
   font-weight: 500;
   padding: 8px 8px 8px 0;
@@ -296,15 +293,17 @@ body.register .empty { border-color: var(--well); }
 .reg th[data-sort] button::after {
   content: "";
   display: inline-block;
-  width: 0.85em;
-  font: var(--t-meta);
+  width: 1em;
+  margin-left: 0.25em;
+  font: var(--t-kicker);
+  font-family: var(--font-docket);
   letter-spacing: 0;
   text-transform: none;
-  color: var(--mute);
+  color: var(--rust);
   font-weight: 400;
 }
-.reg th[data-sort][aria-sort="ascending"] button::after { content: " ↑"; }
-.reg th[data-sort][aria-sort="descending"] button::after { content: " ↓"; }
+.reg th[data-sort][aria-sort="ascending"] button::after { content: "▴"; }
+.reg th[data-sort][aria-sort="descending"] button::after { content: "▾"; }
 .reg th[data-sort]:hover,
 .reg th[data-sort] button:hover { color: var(--ink); }
 .reg th.on {
@@ -315,11 +314,12 @@ body.register .empty { border-color: var(--well); }
   text-decoration-color: var(--rust);
   text-underline-offset: 3px;
 }
+.reg th.on button::after { color: var(--rust); }
 .reg td {
   font: var(--t-row);
   color: var(--mute);
   padding: 0 8px 0 0;
-  border-bottom: 1px solid var(--well);
+  border-bottom: var(--rule);
   height: 44px;
   vertical-align: middle;
   white-space: nowrap;
@@ -332,12 +332,11 @@ body.register .empty { border-color: var(--well); }
 }
 .reg td.name a {
   color: inherit;
-  text-decoration: underline;
-  text-decoration-color: var(--well);
-  text-underline-offset: 3px;
+  text-decoration: none;
 }
 .reg td.name a:hover {
   color: var(--ink);
+  text-decoration: underline;
   text-decoration-color: var(--rust);
 }
 .reg td.marks {
@@ -348,15 +347,11 @@ body.register .empty { border-color: var(--well); }
 .reg td.marks a { color: var(--mute); }
 .reg .mark-line { color: var(--mute); text-decoration: none; }
 .reg .mark-chip {
-  display: inline-block;
-  padding: 1px 5px;
-  border: 1px solid var(--well);
   color: var(--mute);
   font: inherit;
   letter-spacing: inherit;
-  vertical-align: baseline;
 }
-.reg .mark-more { color: var(--rust); }
+.reg .mark-more { color: var(--mute); }
 .reg td.num { color: var(--mute); width: 3.2em; }
 .reg tbody tr { cursor: pointer; }
 .reg tbody tr:hover { background: var(--well); }

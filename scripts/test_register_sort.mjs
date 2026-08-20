@@ -7,7 +7,7 @@ import {
   clickSort,
   marksCount,
   arrangeRows,
-  scanRows,
+  defaultRows,
   marksCell,
 } from "../site/register.js";
 
@@ -114,10 +114,10 @@ const domainOk = byDomain.every((r, i) => {
 expect("domain is case-insensitive alpha", domainOk);
 
 const byTier = arrangeRows(rows, "tier", "desc");
-const order = { silent: 0, thin: 1, "on-file": 2, substantial: 3, complete: 4 };
+const tierRank = { silent: 0, thin: 1, "on-file": 2, substantial: 3, complete: 4 };
 const tierOk = byTier.every((r, i) => {
   if (i === 0) return true;
-  return (order[r.tier] || 0) <= (order[byTier[i - 1].tier] || 0);
+  return (tierRank[r.tier] || 0) <= (tierRank[byTier[i - 1].tier] || 0);
 });
 expect("tier uses disclosure order", tierOk);
 expect("tier high is complete", byTier[0].tier === "complete");
@@ -144,17 +144,20 @@ expect("marks count is a number", marksCount(byMarks[0]) > marksCount(byMarks[by
 
 expect("probed is not a sort key", normalizeSort("probed") === "");
 
-const scanned = scanRows(rows);
-const firstScreen = scanned.slice(0, 20);
-const screenTiers = new Set(firstScreen.map((r) => r.tier));
-const completeOnScreen = firstScreen.filter((r) => r.tier === "complete").length;
-expect("scan keeps every company", scanned.length === rows.length);
-expect("scan does not drop a slug", new Set(scanned.map((r) => r.slug)).size === rows.length);
-expect("first screen mixes tiers", screenTiers.size >= 4);
-expect("first screen still has complete", completeOnScreen >= 1);
-expect("first screen is not a complete stripe", completeOnScreen <= 8);
-expect("first screen has thin or on-file", firstScreen.some((r) => r.tier === "thin" || r.tier === "on-file"));
-expect("scan is not rank order", scanned[1] && scanned[1].rank !== 2);
+const landing = defaultRows(rows);
+const firstScreen = landing.slice(0, 20);
+const order = ["silent", "thin", "on-file", "substantial", "complete"];
+const landingOk = landing.every((r, i) => {
+  if (i === 0) return true;
+  return order.indexOf(r.tier || "silent") >= order.indexOf(landing[i - 1].tier || "silent");
+});
+expect("default keeps every company", landing.length === rows.length);
+expect("default does not drop a slug", new Set(landing.map((r) => r.slug)).size === rows.length);
+expect("default order is silent thin on-file substantial complete", landingOk);
+expect("default opens on silent", landing[0].tier === "silent");
+expect("default ends on complete", landing[landing.length - 1].tier === "complete");
+expect("first screen is not a complete stripe", firstScreen.every((r) => r.tier !== "complete"));
+expect("complete stays in the table", landing.some((r) => r.tier === "complete"));
 
 const indexHtml = readFileSync(new URL("../site/index.html", import.meta.url), "utf8");
 expect("register grid dropped probed", !/data-sort="probed"/.test(indexHtml) && !/>probed</.test(indexHtml));
@@ -162,7 +165,10 @@ expect("register still files the meter on each row", /fileMeterHtml\(row\)/.test
 expect("folio row is a dossier click-through", /class="folio"/.test(registerSrc));
 
 const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8");
-expect("sort caret is on the active header", css.includes('th[data-sort][aria-sort="ascending"] button::after') && css.includes('th[data-sort][aria-sort="descending"] button::after'));
+expect("sort caret is plex rust triangles", css.includes('content: "▴"') && css.includes('content: "▾"') && /th\[data-sort\] button::after \{[\s\S]*font-family: var\(--font-docket\)/.test(css) && /th\[data-sort\] button::after \{[\s\S]*color: var\(--rust\)/.test(css));
+expect("headers stay rust", /\.reg th \{[\s\S]*color: var\(--rust\)/.test(css));
+expect("row ink is mute", /\.reg td \{[\s\S]*color: var\(--mute\)/.test(css) && /\.reg td\.num \{ color: var\(--mute\)/.test(css) && /\.reg td\.marks \{[\s\S]*color: var\(--mute\)/.test(css));
+expect("names stay ink", /\.reg td\.name \{[\s\S]*color: var\(--ink\)/.test(css));
 expect("meter boxes stay rust", /file-meter > span \{[\s\S]*border: 1px solid var\(--rust\)/.test(css));
 
 const buyer = marksCell({

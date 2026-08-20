@@ -31,7 +31,6 @@ const TIER_ORDER = {
   substantial: 3,
   complete: 4,
 };
-const SCAN_TIERS = ["complete", "substantial", "on-file", "thin", "silent"];
 
 const state = {
   rows: [],
@@ -110,21 +109,9 @@ export function arrangeRows(rows, sort, dir) {
   });
 }
 
-/* Default first screen: zipper tiers so the meter is not a complete stripe. */
-export function scanRows(rows) {
-  const buckets = Object.fromEntries(SCAN_TIERS.map((t) => [t, []]));
-  for (const row of arrangeRows(rows, "rank", "asc")) {
-    const t = buckets[row && row.tier] ? row.tier : "silent";
-    buckets[t].push(row);
-  }
-  const out = [];
-  const depth = Math.max(0, ...SCAN_TIERS.map((t) => buckets[t].length));
-  for (let i = 0; i < depth; i++) {
-    for (const t of SCAN_TIERS) {
-      if (buckets[t][i]) out.push(buckets[t][i]);
-    }
-  }
-  return out;
+/* Default: silent → thin → on file → substantial → complete. Files that need a look first. */
+export function defaultRows(rows) {
+  return arrangeRows(rows, "tier", "asc");
 }
 
 function hay(row) {
@@ -167,7 +154,7 @@ function apply() {
     if (!q) return true;
     return hay(row).includes(q);
   });
-  if (!state.sorted) return scanRows(found);
+  if (!state.sorted) return defaultRows(found);
   return arrangeRows(found, state.sort, state.dir);
 }
 
@@ -258,9 +245,11 @@ function paintHeaders() {
   const heads = document.querySelectorAll("#reg thead th[data-sort]");
   heads.forEach((th) => {
     const key = th.getAttribute("data-sort");
-    const live = state.sorted && state.sort === key;
+    const implicit = !state.sorted && key === "tier";
+    const live = implicit || (state.sorted && state.sort === key);
+    const dir = implicit ? "asc" : state.dir;
     th.classList.toggle("on", live);
-    th.setAttribute("aria-sort", live ? (state.dir === "desc" ? "descending" : "ascending") : "none");
+    th.setAttribute("aria-sort", live ? (dir === "desc" ? "descending" : "ascending") : "none");
   });
 }
 
