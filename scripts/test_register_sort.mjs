@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { parseFinder } from "../site/finder.js";
-import { fileMeterHtml } from "../site/lib.js";
+import { fileCoverageHtml } from "../site/lib.js";
 import {
   normalizeSort,
   normalizeDir,
@@ -59,10 +59,10 @@ function apply(raw) {
 }
 
 expect("register is past 700", rows.length > 700);
-expect("tier cell still files the five-box meter", /fileMeterHtml\(row\)/.test(registerSrc));
+expect("tier cell files coverage text", /fileCoverageHtml\(row\)/.test(registerSrc));
 expect(
-  "meter is five rust boxes",
-  (fileMeterHtml(rows[0]).match(/title="(?:page|marks|dpa|subprocessors|years)"/g) || []).length === 5,
+  "coverage is text with a denominator",
+  fileCoverageHtml(rows[0]).includes(" of 5") && !fileCoverageHtml(rows[0]).includes("file-meter"),
 );
 
 expect("normalize #", normalizeSort("#") === "rank");
@@ -164,7 +164,7 @@ expect("complete stays in the table", landing.some((r) => r.tier === "complete")
 
 const indexHtml = readFileSync(new URL("../site/index.html", import.meta.url), "utf8");
 expect("register grid dropped probed", !/data-sort="probed"/.test(indexHtml) && !/>probed</.test(indexHtml));
-expect("register still files the meter on each row", /fileMeterHtml\(row\)/.test(registerSrc));
+expect("register still files coverage on each row", /fileCoverageHtml\(row\)/.test(registerSrc));
 expect("folio row is a dossier click-through", /class="folio"/.test(registerSrc));
 
 const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8");
@@ -172,7 +172,7 @@ expect("sort caret is utility triangles", css.includes('content: "▴"') && css.
 expect("headers stay graphite", /\.reg th \{[\s\S]*color: var\(--ot-graphite\)/.test(css));
 expect("row ink is graphite", /\.reg td \{[\s\S]*color: var\(--ot-graphite\)/.test(css) && /\.reg td\.num \{ color: var\(--ot-graphite\)/.test(css) && /\.reg td\.marks,/.test(css));
 expect("names stay ledger black", /\.reg td\.name \{[\s\S]*color: var\(--ot-ledger-black\)/.test(css));
-expect("meter boxes use rule-strong and carbon", /file-meter > span \{[\s\S]*border: 1px solid var\(--ot-rule-strong\)/.test(css) && /file-meter > span\.on \{[\s\S]*background: var\(--ot-carbon\)/.test(css));
+expect("coverage is not a box meter", !css.includes(".file-meter") && css.includes(".file-cov"));
 expect("no rust leftover in css", !/#ff6600|#331400|#662900|#993[Dd]00|--flame|--espresso|--rust|--ember|--well/.test(css));
 expect("open record tokens are exact", css.includes("--ot-ledger-black: #0B1411") && css.includes("--ot-evidence-teal: #00685C") && css.includes("--ot-font-editorial: \"Source Serif 4\""));
 expect("pagination windows rows", pageCount(734) === 15 && windowRows(rows, 1).rows.length === PAGE_SIZE && windowRows(rows, 1).rows.length < rows.length);

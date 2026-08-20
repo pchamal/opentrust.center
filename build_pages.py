@@ -316,21 +316,12 @@ def file_flags(row: dict, disc: dict) -> dict:
     }
 
 
-def file_meter_html(flags: dict) -> str:
-    """Five-box file coverage. Not a health bar and not a company score."""
-    on_file = [k for k in FILE_METER_KEYS if flags.get(k)]
-    den = f"{len(on_file)} of 5"
-    legend = " · ".join(FILE_METER_KEYS)
-    listed = (" · ".join(on_file) + " on file") if on_file else "none on file"
-    aria = f"{legend} · {listed} · {den}"
-    boxes = []
-    for key in FILE_METER_KEYS:
-        cls = ' class="on"' if flags.get(key) else ""
-        boxes.append(f'<span{cls} title="{escape(key)}"></span>')
+def file_coverage_text(flags: dict) -> str:
+    """Text coverage with a denominator. Not a meter and not a score."""
+    n = sum(1 for k in FILE_METER_KEYS if flags.get(k))
     return (
-        f'<span class="file-meter" title="{escape(aria)}" aria-label="{escape(aria)}">'
-        + "".join(boxes)
-        + f'</span><span class="file-den">{escape(den)}</span>'
+        f"public evidence located in {n} of 5 checked categories "
+        "(page, marks, DPA, subprocessors, years)"
     )
 
 
@@ -773,8 +764,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     tier = display_file_tier(disc["tier"])
     tier_cls = "silent" if disc["tier"] == "silent" else ""
     flags = file_flags(row, disc)
-    covered = sum(1 for k in FILE_METER_KEYS if flags.get(k))
-    coverage_line = f"public evidence in {covered} of 5 file factors"
+    coverage_line = file_coverage_text(flags)
     title = f"{name} — opentrust.center"
     desc = "A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not."
     list_label = "cloud 100" if row.get("list") == "cloud100" else (row.get("list") or "not on file")
@@ -932,10 +922,8 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     </section>
     <div class="disclosure">
       <span class="tier-label {tier_cls}">{escape(tier)}</span>
-      {file_meter_html(flags)}
     </div>
-    <p class="file-legend">page · marks · DPA · subprocessors · years</p>
-    <p class="factor">{escape(coverage_line)} · {escape(factor_line(disc))}</p>
+    <p class="factor">{escape(coverage_line)}</p>
     <p class="fig-sub">File rating, not a company trust badge. Missing private evidence is inconclusive.</p>
 
     <p class="sec-kicker">Claims</p>

@@ -63,13 +63,15 @@ sins:
   - minimum type 13px data, 16px body
   - no invented certifications, scores, or evidence
   - no company trust badge
-  - no progress bar or score gauge
+  - no progress bar, score gauge, or five-box file meter
   - no bounce, shimmer, glow, typing dots, auto-rotating globe
 
 type:
   wordmark: lowercase Source Serif 4 600, tracking -0.025em; only the period before center is Evidence Teal
   names: Source Serif 4
+  page_titles: Atkinson Hyperlegible Next
   everything_else: Atkinson Hyperlegible Next; tabular-nums on data
+  teal_only: wordmark period, Evidence Spine, selected-row spine; never fill boxes, meters, or chrome
   case: sentence case for nav and buttons; uppercase only for SOC, ISO, DPA, IDs
   fonts: self-host WOFF2 in site/fonts/; font-display swap
 
@@ -92,7 +94,7 @@ pages:
     scope: A database of each company’s public trust ledger.
     columns: ["#", name, domain, file/tier, marks]
     no_probed_column: true
-    meter: five boxes for page, marks, DPA, subprocessors, years; denominator required; filled Carbon; outline Rule Strong
+    coverage: text with denominator; "public evidence located in N of 5 checked categories (page, marks, DPA, subprocessors, years)"; no boxes; no progress bar
     default_arrange: silent to complete
     pagination: required; do not mount all 700+ rows; no infinite scroll
     compact_max: 639px
@@ -102,6 +104,8 @@ pages:
     no_ot_stamp_as_seal: true
     nav_register_not_current: true
     coverage_denominator: true
+    coverage_is_text: true
+    no_file_meter_boxes: true
   graph:
     table_plus_inspector: 400px
     selected_row_spine: true

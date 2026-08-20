@@ -31,18 +31,18 @@ export function fileFlags(row) {
   };
 }
 
-export function fileMeterHtml(row) {
+export function fileCoverage(row) {
   const flags = fileFlags(row);
-  const on = FILE_KEYS.filter((k) => flags[k]);
-  const legend = FILE_KEYS.join(" · ");
-  const listed = on.length ? on.join(" · ") + " on file" : "none on file";
-  const den = `${on.length} of 5`;
-  const aria = `${legend} · ${listed} · ${den}`;
-  const boxes = FILE_KEYS.map((k) => {
-    const cls = flags[k] ? ' class="on"' : "";
-    return `<span${cls} title="${k}"></span>`;
-  }).join("");
-  return `<span class="file-meter" title="${escapeHtml(aria)}" aria-label="${escapeHtml(aria)}">${boxes}</span><span class="file-den">${den}</span>`;
+  const n = FILE_KEYS.filter((k) => flags[k]).length;
+  const den = `${n} of 5`;
+  const legend = "page, marks, DPA, subprocessors, years";
+  const sentence = `public evidence located in ${den} checked categories`;
+  return { n, den, legend, sentence, title: `${sentence} (${legend})` };
+}
+
+export function fileCoverageHtml(row) {
+  const c = fileCoverage(row);
+  return `<span class="file-cov" title="${escapeHtml(c.title)}">${escapeHtml(c.den)}</span>`;
 }
 
 export function $(id) {

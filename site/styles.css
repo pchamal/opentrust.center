@@ -128,6 +128,7 @@
   --t-body: 400 16px/24px var(--ot-font-utility);
   --t-name: 600 17px/22px var(--ot-font-editorial);
   --t-lede: 400 16px/24px var(--ot-font-utility);
+  --t-page: 600 28px/32px var(--ot-font-utility);
   --t-title: 600 28px/32px var(--ot-font-editorial);
   --t-wordmark: 600 20px/24px var(--ot-font-editorial);
 
@@ -160,7 +161,7 @@ a {
   text-decoration-color: var(--ot-rule-strong);
   text-underline-offset: 2px;
 }
-a:hover { text-decoration-color: var(--ot-evidence-teal); }
+a:hover { text-decoration-color: var(--ot-ledger-black); }
 
 :focus-visible {
   outline: 3px solid var(--ot-evidence-teal);
@@ -253,7 +254,7 @@ a:hover { text-decoration-color: var(--ot-evidence-teal); }
 
 .page-title {
   margin: 0 0 8px;
-  font: var(--t-title);
+  font: var(--t-page);
   letter-spacing: -0.025em;
   color: var(--ot-ledger-black);
 }
@@ -370,7 +371,7 @@ a:hover { text-decoration-color: var(--ot-evidence-teal); }
 .filters button.on,
 .facets button.on {
   color: var(--ot-ledger-black);
-  box-shadow: inset 0 -2px 0 var(--ot-evidence-teal);
+  box-shadow: inset 0 -2px 0 var(--ot-ledger-black);
 }
 
 /* ——— register table ——— */
@@ -415,7 +416,7 @@ a:hover { text-decoration-color: var(--ot-evidence-teal); }
 .reg th[data-sort]:hover,
 .reg th[data-sort] button:hover { color: var(--ot-ledger-black); }
 .reg th.on { color: var(--ot-ledger-black); }
-.reg th.on button::after { color: var(--ot-evidence-teal); }
+.reg th.on button::after { color: var(--ot-ledger-black); }
 .reg td {
   font: var(--t-data);
   font-variant-numeric: tabular-nums;
@@ -465,42 +466,27 @@ a:hover { text-decoration-color: var(--ot-evidence-teal); }
 }
 .reg .tier-silent,
 .reg .absent {
-  font: italic 16px/22px var(--ot-font-editorial);
+  font: italic 16px/22px var(--ot-font-utility);
   color: var(--ot-unknown-fg);
 }
 .reg .tier-word { font: var(--t-meta); color: var(--ot-graphite); }
-
-.file-meter {
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  margin-right: 8px;
-  vertical-align: middle;
-}
-.file-meter > span {
-  width: 8px;
-  height: 8px;
-  border: 1px solid var(--ot-rule-strong);
-  background: transparent;
-  flex: 0 0 8px;
-  display: block;
-}
-.file-meter > span.on {
-  background: var(--ot-carbon);
-  border-color: var(--ot-carbon);
-}
-.file-den {
+.reg .file-cov {
   font: var(--t-data);
   font-variant-numeric: tabular-nums;
   color: var(--ot-graphite);
   margin-right: 8px;
+}
+
+.file-cov {
+  font: var(--t-data);
+  font-variant-numeric: tabular-nums;
+  color: var(--ot-graphite);
 }
 .file-legend {
   margin: 0 0 12px;
   font: var(--t-meta);
   color: var(--ot-graphite);
 }
-.disclosure .file-meter { margin-left: 4px; margin-right: 0; }
 
 .fr-mark {
   font: var(--t-meta);
@@ -510,7 +496,7 @@ a:hover { text-decoration-color: var(--ot-evidence-teal); }
 }
 .fr-mark:hover {
   color: var(--ot-ledger-black);
-  text-decoration-color: var(--ot-evidence-teal);
+  text-decoration-color: var(--ot-ledger-black);
 }
 
 .pager {
@@ -553,7 +539,7 @@ a:hover { text-decoration-color: var(--ot-evidence-teal); }
 }
 .miss-title {
   margin: 0 0 8px;
-  font: var(--t-title);
+  font: var(--t-page);
   letter-spacing: -0.025em;
 }
 .miss .muted, .empty p { margin: 0; color: var(--ot-graphite); font: var(--t-body); }
@@ -679,10 +665,8 @@ a:hover { text-decoration-color: var(--ot-evidence-teal); }
   color: var(--ot-ledger-black);
 }
 .inst .absent {
-  font: italic 16px/22px var(--ot-font-editorial);
+  font: italic 16px/22px var(--ot-font-utility);
   color: var(--ot-unknown-fg);
-  background: var(--ot-unknown-bg);
-  padding: 0 4px;
 }
 
 .sem-source { color: var(--ot-source-fg); background: var(--ot-source-bg); padding: 0 4px; }
@@ -760,7 +744,7 @@ a:hover { text-decoration-color: var(--ot-evidence-teal); }
   background: transparent;
   color: var(--ot-ledger-black);
   border: 0;
-  border-bottom: 1px solid var(--ot-evidence-teal);
+  border-bottom: 1px solid var(--ot-rule-strong);
   font: var(--t-meta);
   padding: 10px 0;
   min-height: 44px;
@@ -830,10 +814,11 @@ a:hover { text-decoration-color: var(--ot-evidence-teal); }
 .turn-box {
   width: 14px;
   height: 14px;
-  border: 1px solid var(--ot-evidence-teal);
+  border: 1px solid var(--ot-rule-strong);
   flex: 0 0 14px;
+  background: var(--ot-sheet-white);
 }
-.turn input:checked + .turn-box { background: var(--ot-evidence-teal); }
+.turn input:checked + .turn-box { background: var(--ot-carbon); border-color: var(--ot-carbon); }
 .gate-status {
   margin: 8px 0 0;
   min-height: 1.2em;
@@ -902,7 +887,7 @@ a:hover { text-decoration-color: var(--ot-evidence-teal); }
   letter-spacing: -0.025em;
 }
 .stub .absent {
-  font: italic 16px/22px var(--ot-font-editorial);
+  font: italic 16px/22px var(--ot-font-utility);
   color: var(--ot-unknown-fg);
 }
 .stub .muted { color: var(--ot-graphite); }

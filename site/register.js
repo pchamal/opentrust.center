@@ -5,7 +5,7 @@ import {
   displayTier,
   tierClass,
   dataUrl,
-  fileMeterHtml,
+  fileCoverageHtml,
   fmtDay,
 } from "./lib.js";
 import {
@@ -395,7 +395,7 @@ function render() {
         <td class="num">${escapeHtml(n)}</td>
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${escapeHtml(row.name)}</a></td>
         <td class="domain">${escapeHtml(row.domain || "")}</td>
-        <td class="${tierClass(row.tier)}">${fileMeterHtml(row)}${escapeHtml(tier)}</td>
+        <td class="${tierClass(row.tier)}">${fileCoverageHtml(row)} <span class="tier-word">${escapeHtml(tier)}</span></td>
         <td class="marks">${marksCell(row)}</td>
         <td class="record-extra">
           <details>

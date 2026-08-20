@@ -76,7 +76,8 @@ Minimum: 13px data, 16px body.
 | `--t-body` | Utility | 16 / 24 | 0 | 400 | Findings, methodology, ELI-5 |
 | `--t-name` | Editorial | 17 / 22 | −0.02em | 600 | Register row name |
 | `--t-lede` | Utility | 16 / 24 | 0 | 400 | One-sentence scope |
-| `--t-title` | Editorial | 28 / 32 | −0.025em | 600 | Dossier / miss / page H1 |
+| `--t-page` | Utility | 28 / 32 | −0.025em | 600 | Page titles. Work text. |
+| `--t-title` | Editorial | 28 / 32 | −0.025em | 600 | Company / offering names only |
 | `--t-wordmark` | Editorial | 20 / 24 | −0.025em | 600 | Mast. Period only in Evidence Teal. |
 
 Wordmark is always `opentrust.center`, lowercase, Source Serif 4 600, tracking −0.025em. Color **only** the period before `center` in Evidence Teal. Other letters Ledger Black on light, Record White on the dark mast.
@@ -88,7 +89,7 @@ Exact tokens. No aliases. No leftover rust.
 | Token | Hex | Role |
 |---|---|---|
 | `--ot-ledger-black` | `#0B1411` | Binding. Mast. Ink on paper. |
-| `--ot-carbon` | `#17211D` | Filled meter boxes. Spine nodes with a source. |
+| `--ot-carbon` | `#17211D` | Spine nodes with a source. |
 | `--ot-record-white` | `#F8FAF9` | Page field. Type on the dark mast. |
 | `--ot-sheet-white` | `#FFFFFF` | Register table, dossier sheet |
 | `--ot-paper` | `#EDF2F0` | Snapshot line. Row hover. |
@@ -106,7 +107,7 @@ Exact tokens. No aliases. No leftover rust.
 
 `--ot-spine`: 2px. `--ot-radius-control`: 3px.
 
-Teal is at most **6%** of a routine view. No gradients. No second accent. No cards. No pills.
+Teal is at most **6%** of a routine view: the wordmark period, the Evidence Spine, and maybe a selected-row spine. Focus ring is the accessibility exception. Teal must not fill boxes, meters, or chrome. No gradients. No second accent. No cards. No pills.
 
 Retired (grep-delete, do not alias): `#ff6600`, `#331400`, `#662900`, `#993D00`, `--flame`, `--espresso`, `--rust`, `--ember`, `--well` as brown.
 
@@ -128,7 +129,7 @@ The **Evidence Spine** is the only signature device: 2px vertical Evidence Teal.
 - **Gutters:** 16 / 24 / 32 / 48.
 - **Search** is a ruled strip. No pill, no shadow, no icon.
 - **Register** is a table. Columns: `#` · name · domain · file · marks. No probed column. 52px rows, Rule bottoms. Hover Paper. Selected Index Wash + spine. Name is editorial and the loudest cell.
-- **Five-box meter** is **file coverage** (page, marks, DPA, subprocessors, years) with a denominator. Boxes: Rule Strong outlines; filled = Carbon, not teal. Not a health bar.
+- **Coverage is text** with a denominator: `public evidence located in N of 5 checked categories` (page, marks, DPA, subprocessors, years). Not squares that fill. Not a progress bar. Not a health bar. Teal does not fill boxes or chrome.
 - **Default arrange** is silent → complete so the first screen is not twenty identical completes.
 - **Pagination or windowing.** Do not mount all 700+ rows. No infinite scroll. Preserve query, sort, and count.
 - **Compact (≤639px):** each org is a ruled record (not a card): name, domain, file state, marks, date. Secondary fields in a disclosure.
@@ -151,7 +152,7 @@ Always this order. Empty sections still print `not on file`.
 
 1. Crumb: `register / {slug}`
 2. Identity: name (editorial), domain, list, founded year + source (or `not on file`)
-3. File coverage with denominator (public evidence in *N* of 5 file factors) + factor line
+3. File coverage as text with a denominator (`public evidence located in N of 5 checked categories`) — no boxes, no score
 4. Claim-by-claim on the Evidence Spine: attestations, FedRAMP, instruments, named processors. Each with source / date / scope when known
 5. Clerk summary: two sentences, or nothing. No vendor. No marketing reprint.
 6. Last probed
