@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { parseFinder } from "../site/finder.js";
+import { fileMeterHtml } from "../site/lib.js";
 import {
   normalizeSort,
   normalizeDir,
@@ -10,6 +11,7 @@ import {
 
 const data = JSON.parse(readFileSync(new URL("../site/data.json", import.meta.url), "utf8"));
 const rows = data.companies;
+const registerSrc = readFileSync(new URL("../site/register.js", import.meta.url), "utf8");
 
 function expect(name, cond) {
   if (!cond) {
@@ -50,6 +52,13 @@ function apply(raw) {
     return hay(row).includes(parsed.q);
   });
 }
+
+expect("register is past 700", rows.length > 700);
+expect("tier cell still files the five-box meter", /fileMeterHtml\(row\)/.test(registerSrc));
+expect(
+  "meter is five rust boxes",
+  (fileMeterHtml(rows[0]).match(/title="(?:page|marks|dpa|subprocessors|years)"/g) || []).length === 5,
+);
 
 expect("normalize #", normalizeSort("#") === "rank");
 expect("normalize junk", normalizeSort("score") === "");
