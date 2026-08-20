@@ -727,17 +727,66 @@ def is_official_year_source(url: str, company: dict) -> bool:
     return any(h.endswith("." + known) or known.endswith("." + h) for known in (hosts | regs) if known)
 
 
-def parse_official_founded_year(text: str):
+_OTHER_SUBJECT = re.compile(
+    r"\b(program|programs|alliance|survey|foundation|committee|initiative|"
+    r"award|partnership|subsidiary|division|campaign|academy|council|"
+    r"works council|employee participation|university|campus|school|"
+    r"college|scholarship)\b",
+    re.I,
+)
+
+
+def _window_about_this_company(window: str, company_name: str, structured: bool) -> bool:
+    if structured:
+        return True
+    w = window or ""
+    if _OTHER_SUBJECT.search(w):
+        return False
+    if re.search(r"\bco-founded\b", w, re.I):
+        core = _name_core(company_name) if company_name else ""
+        if not core or not re.search(
+            rf"\bco-founded\s+{re.escape(company_name)}"
+            rf"|{re.escape(company_name)}.{{0,40}}was\s+co-founded",
+            w,
+            re.I,
+        ):
+            return False
+    if re.search(r"\b(?:we are|is|are)\s+part of\b.{0,80}\b(?:founded|established)\b", w, re.I):
+        return False
+    core = _name_core(company_name) if company_name else ""
+    if core and core in _name_core(w):
+        return True
+    if re.search(r"\b(we|our company|our firm|our story|this company)\b", w, re.I):
+        return True
+    if re.search(r"\bthe company\b", w, re.I) and not re.search(
+        r"\b(?:selling|sold|left|joined|acquired|bought)\s+the company\b", w, re.I
+    ):
+        return True
+    # A year without this company’s name (or we/our) is not enough — partner
+    # hospitals and heritage footnotes stay off file.
+    return False
+
+
+def parse_official_founded_year(text: str, company_name: str = ""):
     """Return YYYY only from an explicit founded/established sentence or foundingDate."""
     if not text:
         return None
     cleaned = COPYRIGHT_SPAN.sub(" ", text)
     years = []
-    for pat in (OFFICIAL_FOUNDED, OFFICIAL_FOUNDED_REVERSE, YEAR_THEN_FOUNDED, FOUNDING_DATE_FIELD):
+    for pat, structured in (
+        (OFFICIAL_FOUNDED, False),
+        (OFFICIAL_FOUNDED_REVERSE, False),
+        (YEAR_THEN_FOUNDED, False),
+        (FOUNDING_DATE_FIELD, True),
+    ):
         for m in pat.finditer(cleaned):
             year = int(m.group(1))
-            if 1600 <= year <= NOW_YEAR:
-                years.append(year)
+            if not (1600 <= year <= NOW_YEAR):
+                continue
+            window = cleaned[max(0, m.start() - 90): m.end() + 90]
+            if not _window_about_this_company(window, company_name, structured):
+                continue
+            years.append(year)
     if not years:
         return None
     uniq = sorted(set(years))
@@ -797,7 +846,7 @@ def resolve_official_year(company: dict) -> tuple[int, str] | None:
         if not is_official_year_source(final, company):
             continue
         blob = " ".join(filter(None, [title, rec.get("meta") or "", text]))
-        year = parse_official_founded_year(blob)
+        year = parse_official_founded_year(blob, company.get("name") or "")
         if year:
             found.append((year, final))
         if len(jobs) >= 24:

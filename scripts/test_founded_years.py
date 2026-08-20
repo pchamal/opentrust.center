@@ -79,13 +79,13 @@ def test_official_site_only() -> None:
 
 
 def test_parse_founded_sentence() -> None:
-    check(parse_official_founded_year("Fivetran was founded in 2012 in Oakland.") == 2012, "founded in YYYY")
-    check(parse_official_founded_year("Established in January 1998.") == 1998, "established month YYYY")
-    check(parse_official_founded_year("Founded: 2014") == 2014, "founded colon year")
+    check(parse_official_founded_year("Fivetran was founded in 2012 in Oakland.", "Fivetran") == 2012, "founded in YYYY")
+    check(parse_official_founded_year("We were established in January 1998.") == 1998, "established month YYYY")
+    check(parse_official_founded_year("Acme Founded: 2014", "Acme") == 2014, "founded colon year")
     check(parse_official_founded_year('{"@type":"Organization","foundingDate":"2015-03-01"}') == 2015, "JSON-LD foundingDate")
     check(parse_official_founded_year("In 2016 the company was founded in New York.") == 2016, "reverse founded")
     check(
-        parse_official_founded_year("2012 Fivetran is founded out of Y Combinator") == 2012,
+        parse_official_founded_year("2012 Fivetran is founded out of Y Combinator", "Fivetran") == 2012,
         "timeline year-then-founded",
     )
     check(parse_official_founded_year("© 2024 Example Inc. All rights reserved.") is None, "copyright is not founding")
@@ -95,6 +95,76 @@ def test_parse_founded_sentence() -> None:
     check(
         parse_official_founded_year("Founded in 2012. Established in 2018.") is None,
         "conflicting founding years stay off file",
+    )
+    check(
+        parse_official_founded_year(
+            "In 2023, Align established programs with non-profit organizations.",
+            "Align Technology",
+        ) is None,
+        "established a program is not founding",
+    )
+    check(
+        parse_official_founded_year(
+            "Wipro’s US-based Black Alliance was established in 2020.",
+            "Wipro",
+        ) is None,
+        "an employee alliance is not founding",
+    )
+    check(
+        parse_official_founded_year(
+            "Established in 2015, zBeat is Zalando’s online survey.",
+            "Zalando",
+        ) is None,
+        "a survey is not founding",
+    )
+    check(
+        parse_official_founded_year(
+            "After selling the company in 2006, Huffman co-founded the travel company Hipmunk.",
+            "Reddit",
+        ) is None,
+        "co-founded another company is not Reddit’s year",
+    )
+    check(
+        parse_official_founded_year(
+            "New York, Newfoundland, and London Telegraph Co., founded in 1854 by Cyrus West Field.",
+            "Citigroup",
+        ) is None,
+        "another firm on a heritage page is not this company",
+    )
+    check(
+        parse_official_founded_year(
+            "1997 CBS Corporation is established, uniting CBS and Westinghouse.",
+            "Paramount Skydance Corporation",
+        ) is None,
+        "CBS on a history timeline is not Paramount",
+    )
+    check(
+        parse_official_founded_year(
+            "the new Mahindra University, a multi-disciplinary campus established in 2020.",
+            "Tech Mahindra",
+        ) is None,
+        "a university campus is not the company",
+    )
+    check(
+        parse_official_founded_year(
+            "Yonsei Cancer Center (South Korea) Established in 1969, Yonsei Cancer Center takes a leading role.",
+            "RaySearch Laboratories",
+        ) is None,
+        "a clinical partner is not this company",
+    )
+    check(
+        parse_official_founded_year(
+            "We are part of the Mahindra Group, founded in 1945, one of the largest groups.",
+            "Tech Mahindra",
+        ) is None,
+        "the parent group’s year is not this company’s year",
+    )
+    check(
+        parse_official_founded_year(
+            "Tech Mahindra is part of the Mahindra Group, founded in 1945, one of the largest groups.",
+            "Tech Mahindra",
+        ) is None,
+        "is part of the parent group is not this company’s year",
     )
 
 
