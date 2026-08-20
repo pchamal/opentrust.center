@@ -622,6 +622,32 @@ def official_a(url: str, text: str) -> str:
     )
 
 
+def cite_url(url: str) -> str:
+    """Host + path (+ query) so a source line cites the URL, not a slogan."""
+    try:
+        parsed = urlparse(url)
+        host = (parsed.hostname or "").lower().removeprefix("www.")
+        path = parsed.path or ""
+        if path == "/" and not parsed.query:
+            path = ""
+        query = f"?{parsed.query}" if parsed.query else ""
+        shown = f"{host}{path}{query}"
+        return shown or url
+    except Exception:
+        return url
+
+
+def source_cite(label: str, href: str | None = None) -> str:
+    text = escape(label)
+    if href:
+        return f'<a href="{escape(href)}">{text}</a>'
+    return text
+
+
+def source_line(parts: list[str]) -> str:
+    return f'<p class="src-line">{" · ".join(p for p in parts if p)}</p>'
+
+
 GATE_HTML = """<div class="gate" id="gate" hidden>
       <label class="turn">
         <input type="checkbox" id="gate-box">
@@ -632,19 +658,18 @@ GATE_HTML = """<div class="gate" id="gate" hidden>
     </div>"""
 
 
-def fedramp_block(row: dict) -> str:
+def fedramp_block(row: dict, generated_at: str = "") -> str:
     fed = row.get("fedramp") if isinstance(row.get("fedramp"), dict) else None
     products = [
         p for p in (fed or {}).get("products") or []
         if str(p.get("offering") or "").strip()
     ]
-    caption = (
-        f'<p class="fig-sub">Filed from the <a href="{escape(FEDRAMP_MARKET)}">'
-        f"FedRAMP Marketplace</a>. Not a badge.</p>"
-    )
-    highest = None
-    if products and fed:
-        highest = fed.get("highest") or fed.get("highest_authorized")
+    observed = fmt_day(generated_at)
+    caption = source_line([
+        "Source",
+        source_cite("FedRAMP Marketplace", FEDRAMP_MARKET),
+        escape(observed) if observed else "",
+    ])
     if products:
         rows = []
         for p in products:
@@ -654,7 +679,7 @@ def fedramp_block(row: dict) -> str:
             auth = fmt_day(p.get("auth_date") or "") or "—"
             href = str(p.get("url") or "").strip() or FEDRAMP_MARKET
             rows.append(
-                f'<tr><td class="mark"><a href="{escape(href)}">{escape(offering)}</a></td>'
+                f'<tr><td><a href="{escape(href)}">{escape(offering)}</a></td>'
                 f"<td>{escape(status)}</td>"
                 f"<td>{escape(level)}</td>"
                 f"<td>{escape(auth)}</td></tr>"
@@ -662,15 +687,54 @@ def fedramp_block(row: dict) -> str:
         body = "".join(rows)
     else:
         body = '<tr><td colspan="4"><span class="absent">not on file</span></td></tr>'
-    lines = ['    <p class="sec-kicker">FedRAMP</p>']
-    if highest:
-        lines.append(f'    <p class="ident-meta">highest authorized · {escape(highest)}</p>')
-    lines.append(f"    {caption}")
-    lines.append('    <table class="inst">')
-    lines.append('      <thead><tr><th scope="col">Offering</th><th scope="col">Status</th><th scope="col">Impact level</th><th scope="col">Auth date</th></tr></thead>')
-    lines.append(f"      <tbody>{body}</tbody>")
-    lines.append("    </table>")
+    lines = [
+        '    <p class="sec-kicker">FedRAMP</p>',
+        f"    {caption}",
+        '    <table class="inst">',
+        '      <thead><tr><th scope="col">Offering</th><th scope="col">Status</th><th scope="col">Impact level</th><th scope="col">Auth date</th></tr></thead>',
+        f"      <tbody>{body}</tbody>",
+        "    </table>",
+    ]
     return "\n".join(lines) + "\n"
+
+
+def processors_block(procs: list[dict], generated_at: str = "") -> str:
+    if procs:
+        proc_rows = "".join(
+            f'<tr><td>{escape(p["name"])}</td>'
+            + (
+                f'<td><a href="./{escape(p["slug"])}.html">{escape(p["slug"])}</a></td>'
+                if p.get("slug")
+                else '<td><span class="absent">not in register</span></td>'
+            )
+            + f'<td>{official_a(p["source_url"], host_of(p["source_url"]))}</td></tr>'
+            for p in procs
+        )
+        seen: list[str] = []
+        for p in procs:
+            url = str(p.get("source_url") or "").strip()
+            if url and url not in seen:
+                seen.append(url)
+        if seen:
+            observed = fmt_day(generated_at)
+            caption = "    " + source_line([
+                "Source",
+                *[source_cite(cite_url(url), url) for url in seen],
+                escape(observed) if observed else "",
+            ]) + "\n"
+        else:
+            caption = ""
+    else:
+        proc_rows = '<tr><td colspan="3"><span class="absent">not on file</span></td></tr>'
+        caption = ""
+    return (
+        '    <p class="sec-kicker">Named processors</p>\n'
+        f"{caption}"
+        '    <table class="inst">\n'
+        '      <thead><tr><th scope="col">Processor</th><th scope="col">In register</th><th scope="col">Source</th></tr></thead>\n'
+        f"      <tbody>{proc_rows}</tbody>\n"
+        "    </table>"
+    )
 
 
 def fedramp_spine(row: dict) -> str:
@@ -819,20 +883,6 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
             )
 
     procs = row.get("processors") or []
-    if procs:
-        proc_rows = "".join(
-            f'<tr><td>{escape(p["name"])}</td>'
-            + (
-                f'<td><a href="./{escape(p["slug"])}.html">{escape(p["slug"])}</a></td>'
-                if p.get("slug")
-                else '<td><span class="absent">not in register</span></td>'
-            )
-            + f'<td>{official_a(p["source_url"], host_of(p["source_url"]))}</td></tr>'
-            for p in procs
-        )
-    else:
-        proc_rows = '<tr><td colspan="3"><span class="absent">not on file</span></td></tr>'
-
     clerk = row.get("summary") or ""
     clerk_html = f'<p class="clerk">{escape(clerk)}</p>' if clerk else ""
     outbound = (
@@ -906,14 +956,9 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     <p class="out">{outbound}</p>
     {gate}
 
-{fedramp_block(row)}
+{fedramp_block(row, generated_at)}
 
-    <p class="sec-kicker">Named processors</p>
-    <p class="fig-sub">Filed from the company’s public list. Not a complete supply chain.</p>
-    <table class="inst">
-      <thead><tr><th scope="col">Processor</th><th scope="col">In register</th><th scope="col">Source</th></tr></thead>
-      <tbody>{proc_rows}</tbody>
-    </table>
+{processors_block(procs, generated_at)}
 
     {clerk_html}
     <p class="probe">last probed {escape(fmt_when(generated_at))}</p>

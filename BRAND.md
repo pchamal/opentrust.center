@@ -160,6 +160,10 @@ Dossier issue line: issue date and last probed. Do not print the register census
 
 Below the fold: FedRAMP marketplace table, named processors, clerk summary, last probed, Report a correction, permalink.
 
+FedRAMP is a clerk table, not a badge. Source line: `Source · FedRAMP Marketplace · observed date`. Do not say it is not a badge. Missing stays italic `not on file`.
+
+Named processors: cite the source URL when on file (`Source · {url} · observed date`). If not on file, italic `not on file` only. Do not apologize that the dossier list is not a complete supply chain.
+
 Do not render portal vendors. Keep `vendor` in crawl data only. Nav must not mark Register as current on a dossier. Rate the file, never the company.
 
 ### Processors

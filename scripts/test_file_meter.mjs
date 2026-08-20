@@ -49,9 +49,20 @@ expect("dossier outbound is Official page", dossier.includes('class="official"')
 expect("dossier nav does not current Register", !dossier.includes('class="on"'));
 expect("dossier body is dossier", dossier.includes('class="dossier"'));
 expect("dossier empty rows stay italic not on file", dossier.includes('class="absent">not on file'));
+expect("dossier FedRAMP cites marketplace, not a badge", dossier.includes("Source") && dossier.includes("FedRAMP Marketplace") && !dossier.includes("Not a badge") && !dossier.includes("not a badge"));
+expect("dossier processors missing have no supply-chain apology", !dossier.includes("Not a complete supply chain") && !dossier.includes("not a complete supply chain") && !dossier.includes("Filed from the company’s public list"));
+expect("dossier FedRAMP missing is italic not on file", /sec-kicker">FedRAMP[\s\S]*class="absent">not on file/.test(dossier));
+expect("dossier processors missing is italic not on file", /sec-kicker">Named processors[\s\S]*class="absent">not on file/.test(dossier));
+expect("dossier has no highest-authorized badge line", !dossier.includes("highest authorized"));
+
+const box = readFileSync(new URL("../site/c/box.html", import.meta.url), "utf8");
+expect("on-file FedRAMP is a table with marketplace link", box.includes("Source") && box.includes("FedRAMP Marketplace") && box.includes("fedramp.gov/marketplace") && box.includes("<table class=\"inst\">") && !box.includes("Not a badge") && !box.includes("highest authorized") && !box.includes('td class="mark"'));
+expect("on-file processors cite the source URL", box.includes("box.com/legal/subprocessors") && !box.includes("Not a complete supply chain") && !box.includes("Filed from the company’s public list"));
 
 const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8");
 expect("identity block wears the spine", /\.ident \{[\s\S]*border-left: var\(--ot-spine\) solid var\(--ot-evidence-teal\)/.test(css));
 expect("no boxed file-state module", !css.includes(".file-state") && !css.includes(".state-word"));
 expect("marks stay Atkinson data", /\.mark-list li \{[\s\S]*font: var\(--t-data\)/.test(css) && /\.mark-list li \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css));
 expect("instrument cells stay Atkinson", /\.inst td \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css));
+expect("Official page stays Atkinson", /\.out \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css) && /a\.official \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css));
+expect("Official page stays Atkinson on compact", /\.dossier \.file \.out a\.official \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css));

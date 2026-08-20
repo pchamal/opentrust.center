@@ -660,7 +660,14 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
 .out {
   margin: 24px 0 0;
   font: var(--t-body);
+  font-family: var(--ot-font-utility);
   color: var(--ot-ledger-black);
+}
+.out a,
+.out a.official,
+a.official {
+  font-family: var(--ot-font-utility);
+  font-weight: 400;
 }
 
 .sec-kicker {
@@ -876,6 +883,18 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
 .fig-sub {
   margin: 0 0 12px;
   font: var(--t-meta);
+  color: var(--ot-graphite);
+}
+.src-line {
+  margin: 0 0 12px;
+  font: var(--t-meta);
+  font-family: var(--ot-font-utility);
+  font-variant-numeric: tabular-nums;
+  color: var(--ot-graphite);
+}
+.src-line a {
+  font: inherit;
+  font-family: var(--ot-font-utility);
   color: var(--ot-graphite);
 }
 
@@ -1131,6 +1150,7 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   .reg td.name { margin-bottom: 2px; }
   .dossier .file .ident,
   .dossier .file .fig-sub,
+  .dossier .file .src-line,
   .dossier .file .mark-list,
   .dossier .file .out,
   .dossier .file .inst,
@@ -1138,6 +1158,13 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   .dossier .file .probe,
   .dossier .file .actions {
     width: 100%;
+  }
+  .dossier .file .out,
+  .dossier .file .out a,
+  .dossier .file .out a.official {
+    font: var(--t-body);
+    font-family: var(--ot-font-utility);
+    font-weight: 400;
   }
   .dossier .file .inst,
   .dossier .file .inst tbody {
