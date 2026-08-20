@@ -49,6 +49,79 @@ ABOUT_FOUNDED = re.compile(
     r"(?:january|february|march|april|may|june|july|august|september|"
     r"october|november|december)?\s*,?\s*(19[7-9]\d|20[0-2]\d)\b", re.I)
 
+# Official-site founding sentence. Wikipedia / news copy is not a source.
+_MONTH = (
+    r"(?:january|february|march|april|may|june|july|august|september|"
+    r"october|november|december)"
+)
+_YEAR_TOKEN = r"(1[6-9]\d{2}|20[0-2]\d)"
+OFFICIAL_FOUNDED = re.compile(
+    rf"""
+    \b(?:
+        (?:was\s+|were\s+|been\s+)?
+        (?:founded|established|incorporated)
+        (?:\s+(?:in|on))?
+        |
+        (?:year|date)\s+(?:founded|established|incorporated)
+        |
+        (?:founded|established|incorporated)\s*[:\-–—]\s*(?:year|date)?
+        |
+        founding\s+(?:year|date)
+        |
+        since\s+(?:our|its|the)\s+founding(?:\s+in)?
+        |
+        \best\.
+    )
+    \s*[:\-–—,]?\s*
+    (?:the\s+year\s+)?
+    (?:{_MONTH}\s+(?:\d{{1,2}}(?:st|nd|rd|th)?,?\s+)?)?
+    ({_YEAR_TOKEN})
+    \b
+    """,
+    re.I | re.X,
+)
+OFFICIAL_FOUNDED_REVERSE = re.compile(
+    rf"\bin\s+({_YEAR_TOKEN})\b[^.]{{0,80}}?\b(?:was\s+|were\s+)?(?:founded|established|incorporated)\b",
+    re.I,
+)
+FOUNDING_DATE_FIELD = re.compile(
+    rf"""(?:foundingDate|founding_date|dateFounded|yearFounded)\s*"?\s*[=:]\s*"?({_YEAR_TOKEN})""",
+    re.I,
+)
+COPYRIGHT_SPAN = re.compile(
+    r"(?:©|&copy;|copyright)\s*(?:©\s*)?(?:19|20)\d{2}(?:\s*[-–—]\s*(?:19|20)\d{2})?",
+    re.I,
+)
+NEWS_ARTICLE_PATH = re.compile(
+    r"/(?:press|news|newsroom|blog|media|articles?)/.+"
+    r"|/\d{4}/\d{1,2}/",
+    re.I,
+)
+THIRD_PARTY_YEAR_HOSTS = {
+    "wikipedia.org", "wikidata.org", "crunchbase.com", "techcrunch.com",
+    "bloomberg.com", "forbes.com", "reuters.com", "wsj.com", "nytimes.com",
+    "businesswire.com", "prnewswire.com", "yahoo.com", "linkedin.com",
+    "medium.com", "glassdoor.com", "pitchbook.com", "cbinsights.com",
+    "owler.com", "zoominfo.com", "tracxn.com", "dealroom.co",
+    "theinformation.com", "protocol.com", "venturebeat.com",
+}
+ABOUT_PATHS = (
+    "/about", "/about-us", "/about/company", "/about/us",
+    "/company", "/company/about", "/company/our-story",
+    "/our-story", "/our-company", "/who-we-are",
+    "/about/our-story", "/en/about", "/en/company",
+    "/press", "/newsroom", "/company/press",
+)
+ABOUT_HREF = re.compile(
+    r"/(?:about(?:-us)?|company|our-story|our-company|who-we-are|newsroom|press)(?:/|$)",
+    re.I,
+)
+_CORP_SUFFIX = re.compile(
+    r""",?\s+(?:inc\.?|llc|l\.l\.c\.?|ltd\.?|corp\.?|corporation|co\.?|"""
+    r"""plc|gmbh|s\.?a\.?|n\.?v\.?|ag|ab|oy|k\.?k\.?|limited|company)$""",
+    re.I,
+)
+
 CERT_RULES = [
     ("SOC 2 Type II", re.compile(r"\bSOC\s*2\s*Type\s*(?:II|2)\b", re.I), 10),
     ("SOC 2 Type I", re.compile(r"\bSOC\s*2\s*Type\s*(?:I|1)\b", re.I), 4),
@@ -569,14 +642,182 @@ def website_matches(urls: list[str], hosts: list[str]) -> bool:
     return False
 
 
+def _name_core(s: str) -> str:
+    s = re.sub(r"\s*\([^)]*\)\s*", " ", s or "")
+    s = _CORP_SUFFIX.sub("", s)
+    s = re.sub(r"[^\w\s&+.]", " ", s.lower())
+    return re.sub(r"\s+", " ", s).strip()
+
+
 def title_close(wiki_title: str, name: str) -> bool:
-    a = re.sub(r"\s*\([^)]*\)\s*", " ", wiki_title or "").strip().lower()
-    b = name.strip().lower()
-    if not a or not b:
-        return False
-    if a == b or a.startswith(b + ",") or a.startswith(b + " "):
+    """Exact core-name match only. 'Manhattan' is not Manhattan Associates."""
+    a, b = _name_core(wiki_title), _name_core(name)
+    return bool(a and b and a == b)
+
+
+def has_public_page(company: dict) -> bool:
+    links = company.get("links") or {}
+    return bool(
+        company.get("found")
+        or company.get("trust_url")
+        or links.get("trust")
+        or links.get("security")
+    )
+
+
+def has_official_domain(company: dict) -> bool:
+    return bool(hosts_for(company))
+
+
+def is_third_party_year_host(url: str) -> bool:
+    h = host_of(url)
+    if not h:
         return True
-    return b.startswith(a) and len(a) >= 4
+    return any(h == d or h.endswith("." + d) for d in THIRD_PARTY_YEAR_HOSTS)
+
+
+def is_news_article_url(url: str) -> bool:
+    path = path_of(url)
+    return bool(NEWS_ARTICLE_PATH.search(path))
+
+
+def is_official_year_source(url: str, company: dict) -> bool:
+    """A year source must be the company's own site. Wikipedia and news are not."""
+    if not url or not str(url).startswith("http"):
+        return False
+    if is_third_party_year_host(url):
+        return False
+    if is_news_article_url(url):
+        return False
+    hosts = set(hosts_for(company))
+    for raw in (company.get("trust_url"), company.get("final_url"), company.get("domain")):
+        if not raw:
+            continue
+        h = host_of(raw) if str(raw).startswith("http") else str(raw).lower().removeprefix("www.")
+        if h:
+            hosts.add(h)
+    if not hosts:
+        return False
+    h = host_of(url)
+    regs = {registrable(x) for x in hosts if x}
+    if h in hosts or registrable(h) in regs:
+        return True
+    return any(h.endswith("." + known) or known.endswith("." + h) for known in (hosts | regs) if known)
+
+
+def parse_official_founded_year(text: str):
+    """Return YYYY only from an explicit founded/established sentence or foundingDate."""
+    if not text:
+        return None
+    cleaned = COPYRIGHT_SPAN.sub(" ", text)
+    years = []
+    for pat in (OFFICIAL_FOUNDED, OFFICIAL_FOUNDED_REVERSE, FOUNDING_DATE_FIELD):
+        for m in pat.finditer(cleaned):
+            year = int(m.group(1))
+            if 1600 <= year <= NOW_YEAR:
+                years.append(year)
+    if not years:
+        return None
+    uniq = sorted(set(years))
+    if len(uniq) != 1:
+        return None
+    return uniq[0]
+
+
+def about_urls_for(company: dict) -> list[str]:
+    out, seen = [], set()
+
+    def add(url: str) -> None:
+        u = (url or "").split("#")[0].rstrip("/")
+        if not u.startswith("http"):
+            return
+        key = u.lower()
+        if key in seen:
+            return
+        seen.add(key)
+        out.append(u)
+
+    for domain in hosts_for(company)[:1]:
+        add(f"https://{domain}")
+        for path in ABOUT_PATHS:
+            add(f"https://{domain}{path}")
+    return out
+
+
+def year_follow_urls(rec: dict, company: dict) -> list[str]:
+    out = []
+    for href in rec.get("hrefs") or []:
+        if not ABOUT_HREF.search(path_of(href)):
+            continue
+        if is_news_article_url(href):
+            continue
+        if is_official_year_source(href, company):
+            out.append(href)
+    return out[:8]
+
+
+def resolve_official_year(company: dict) -> tuple[int, str] | None:
+    """File a year only when the company's own official website publishes one."""
+    jobs = about_urls_for(company)
+    seen = {u.lower() for u in jobs}
+    found: list[tuple[int, str]] = []
+    for url in jobs:
+        rec = fetch_cached(url, max_body=TRUST_BODY)
+        if not rec.get("ok") or rec.get("status") != 200:
+            continue
+        title, text = rec.get("title") or "", rec.get("text") or ""
+        if looks_dead(title, text):
+            continue
+        final = rec.get("final_url") or url
+        if not is_official_year_source(final, company):
+            continue
+        blob = " ".join(filter(None, [title, rec.get("meta") or "", text]))
+        year = parse_official_founded_year(blob)
+        if year:
+            found.append((year, final))
+        for extra in year_follow_urls(rec, company):
+            if extra.lower() in seen:
+                continue
+            seen.add(extra.lower())
+            jobs.append(extra)
+    if not found:
+        return None
+    years = {y for y, _s in found}
+    if len(years) != 1:
+        return None
+    year, source = found[0]
+    return year, source
+
+
+def apply_year_to_row(row: dict, year: int, source: str) -> bool:
+    """File a founded year and add the longevity factor. Leave other facts as they were."""
+    if row.get("founded_year"):
+        return False
+    if not is_official_year_source(source, row):
+        return False
+    row["founded_year"] = year
+    row["founded_source"] = source
+    disc = dict(row.get("disclosure") or {})
+    factors = dict(disc.get("factors") or {})
+    pts = min(10, (NOW_YEAR - int(year)) // 2)
+    if pts and not factors.get("longevity"):
+        factors["longevity"] = pts
+        score = min(100, int(disc.get("score") or 0) + pts)
+        if not (row.get("found") or (row.get("links") or {}).get("trust") or (row.get("links") or {}).get("security")):
+            tier = "silent"
+        elif score >= 90:
+            tier = "complete"
+        elif score >= 70:
+            tier = "substantial"
+        elif score >= 40:
+            tier = "on-file"
+        else:
+            tier = "thin"
+        disc["score"] = score
+        disc["tier"] = tier
+        disc["factors"] = factors
+        row["disclosure"] = disc
+    return True
 
 
 def extract_certs(blob: str) -> list[str]:
@@ -869,9 +1110,11 @@ def resolve_founding_years(companies: list[dict], log: list[str]) -> dict:
             name_ok = title_close(wiki_title, c["name"]) or title_close(label, c["name"])
             if "Q4167410" in p31:  # disambiguation
                 continue
-            if not web_ok and not name_ok:
+            # Title-only prefix hits (Manhattan / Sage Publishing) are not a source.
+            # Wikipedia is not enough unless the official website matches.
+            if not web_ok:
                 continue
-            if not web_ok and p31 and "Q5" in p31 and not (set(p31) & ORG_QIDS):
+            if not name_ok and p31 and "Q5" in p31 and not (set(p31) & ORG_QIDS):
                 continue
             source = f"https://www.wikidata.org/wiki/{qid}"
             enwiki = ((ent.get("sitelinks") or {}).get("enwiki") or {}).get("title")
@@ -925,8 +1168,7 @@ def resolve_founding_years(companies: list[dict], log: list[str]) -> dict:
             if "Q4167410" in p31:
                 continue
             web_ok = website_matches(sites, hosts)
-            name_ok = title_close(title, c["name"])
-            if not web_ok and not name_ok:
+            if not web_ok:
                 continue
             source = "https://en.wikipedia.org/wiki/" + title.replace(" ", "_")
             return c["slug"], year, source
@@ -941,46 +1183,7 @@ def resolve_founding_years(companies: list[dict], log: list[str]) -> dict:
             if i % 25 == 0 or i == len(futs):
                 print(f"  wiki search {i}/{len(futs)}", flush=True)
 
-    # Lead-extract year when Wikidata has no P571 but the Wikipedia page is the company.
-    still = [c for c in companies if c["slug"] not in by_slug]
-    print(f"  extract fallback for {len(still)}", flush=True)
-    year_lead = re.compile(
-        r"\b(?:founded|established|launched|incorporated|started)\s+"
-        r"(?:in\s+)?(?:the\s+year\s+)?"
-        r"(?:january|february|march|april|may|june|july|august|september|"
-        r"october|november|december)?\s*,?\s*(19[7-9]\d|20[0-2]\d)\b",
-        re.I,
-    )
-    for c in still:
-        titles = []
-        for raw in [c["name"], *WIKI_HINTS.get(c["slug"], [])]:
-            if raw not in titles:
-                titles.append(raw)
-        data = wiki_api({
-            "action": "query", "prop": "extracts|pageprops", "exintro": "1",
-            "explaintext": "1", "ppprop": "wikibase_item", "redirects": "1",
-            "titles": "|".join(titles[:4]), "format": "json",
-        })
-        if not data:
-            continue
-        hosts = hosts_for(c)
-        for page in ((data.get("query") or {}).get("pages") or {}).values():
-            if "missing" in page:
-                continue
-            title = page.get("title") or ""
-            extract = page.get("extract") or ""
-            if not title_close(title, c["name"]) and not title_close(title, (WIKI_HINTS.get(c["slug"]) or [""])[0]):
-                # still allow if extract names the company and a year
-                if c["name"].split()[0].lower() not in (extract[:400] or "").lower():
-                    continue
-            m = year_lead.search(extract[:600] if extract else "")
-            if not m:
-                continue
-            year = int(m.group(1))
-            if 1970 <= year <= NOW_YEAR:
-                source = "https://en.wikipedia.org/wiki/" + title.replace(" ", "_")
-                by_slug[c["slug"]] = (year, source)
-                break
+    # Wikipedia lead text is not a source. Official-site years are filed later.
     return by_slug
 
 
@@ -1160,7 +1363,7 @@ def write_log(path: Path, lines: list[str], stats: dict) -> None:
     body.append("")
     body.append("## Notes")
     body.append("")
-    body.append("Years come from Wikidata P571 after a Wikipedia title resolve, only when the official website matches the register domain or the title/label is an unambiguous close match. Ambiguous names without a website match were omitted.")
+    body.append("Years are filed only when the company’s own official website publishes a founded/established year. Wikipedia is a hint, kept only when Wikidata P856 matches the register domain. Title-only prefix matches are rejected. A news article is not a source.")
     body.append("")
     body.append("Well-known paths were GET-probed for every domain. A hit is HTTP 200 that is not a soft 404, parked page, login wall, or homepage bounce.")
     body.append("")
@@ -1185,12 +1388,32 @@ def main() -> int:
     print(f"Enriching {len(companies)} companies", flush=True)
     log: list[str] = []
 
-    print("A. Founding years (Wikipedia / Wikidata)", flush=True)
+    print("A. Founding years (official site; Wikipedia only if the official website matches)", flush=True)
     years = resolve_founding_years(companies, log)
+    print(f"  Wikipedia/Wikidata years with official-website match: {len(years)}/{len(companies)}", flush=True)
+    misses = [c for c in companies if c["slug"] not in years and has_official_domain(c)]
+    print(f"A2. Official about/company/press pages for {len(misses)} year-misses…", flush=True)
+
+    def do_official_year(c):
+        try:
+            return c["slug"], resolve_official_year(c)
+        except Exception:
+            return c["slug"], None
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = [pool.submit(do_official_year, c) for c in misses]
+        done = 0
+        for fut in as_completed(futs):
+            slug, hit = fut.result()
+            done += 1
+            if hit:
+                years[slug] = hit
+            if done % 25 == 0 or done == len(futs):
+                print(f"  official years {done}/{len(futs)}", flush=True)
     print(f"  verified years: {len(years)}/{len(companies)}", flush=True)
     for c in companies:
         if c["slug"] not in years:
-            log.append(f"year omitted ({c['slug']}): no verified Wikidata/Wikipedia match")
+            log.append(f"year omitted ({c['slug']}): no founded/established year on the official site")
 
     print("B. Well-known path probe", flush=True)
     probed: dict[str, dict] = {}
@@ -1333,7 +1556,73 @@ def main() -> int:
     return 0
 
 
+def file_published_years() -> int:
+    """File founded years already published on official sites, for rows that have none."""
+    t0 = time.time()
+    src = SITE / "data" / "enriched.json"
+    if not src.exists():
+        src = DATA / "enriched.json"
+    payload = load_json(src, {})
+    companies = list(payload.get("companies") or [])
+    if not companies:
+        print("no companies in enriched.json", flush=True)
+        return 1
+    before = sum(1 for c in companies if c.get("founded_year"))
+    gaps = [
+        c for c in companies
+        if not c.get("founded_year")
+        and (has_public_page(c) or has_official_domain(c))
+    ]
+    print(f"Years on file: {before}. Pages/domains with no year: {len(gaps)}", flush=True)
+
+    filed: list[tuple[str, int, str]] = []
+    checked = 0
+
+    def do_one(c):
+        try:
+            return c["slug"], resolve_official_year(c)
+        except Exception:
+            return c["slug"], None
+
+    by_slug = {c["slug"]: c for c in companies}
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = [pool.submit(do_one, c) for c in gaps]
+        done = 0
+        for fut in as_completed(futs):
+            slug, hit = fut.result()
+            done += 1
+            checked += 1
+            if done % 25 == 0 or done == len(futs):
+                print(f"  checked {done}/{len(futs)}", flush=True)
+            if not hit:
+                continue
+            year, source = hit
+            row = by_slug.get(slug)
+            if not row:
+                continue
+            if apply_year_to_row(row, year, source):
+                filed.append((row.get("name") or slug, year, source))
+
+    generated = utc_now()
+    payload["generated_at"] = generated
+    payload["companies"] = companies
+    write_json(DATA / "enriched.json", payload)
+    write_json(SITE / "data" / "enriched.json", payload)
+    after = sum(1 for c in companies if c.get("founded_year"))
+    print(f"Wrote {DATA / 'enriched.json'} and {SITE / 'data' / 'enriched.json'}", flush=True)
+    print(
+        f"checked={checked} filed={len(filed)} years {before} → {after} "
+        f"in {time.time() - t0:.1f}s",
+        flush=True,
+    )
+    for name, year, source in sorted(filed, key=lambda x: x[0].lower()):
+        print(f"  filed {name}: {year} · {source}", flush=True)
+    return 0
+
+
 if __name__ == "__main__":
+    if "--file-years" in sys.argv:
+        raise SystemExit(file_published_years())
     raise SystemExit(main())
 
 
