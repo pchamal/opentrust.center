@@ -708,6 +708,18 @@ a.official {
 .inst tbody tr.selected td:first-child {
   border-left-color: var(--ot-evidence-teal);
 }
+.inst.filed td:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+.inst.filed tbody tr:hover td:first-child,
+.inst.filed tbody tr.on td:first-child,
+.inst.filed tbody tr.selected td:first-child {
+  border-left: 0;
+}
+.inst.filed td {
+  white-space: normal;
+}
 .inst td.mark a { color: var(--ot-ledger-black); }
 .inst td.name {
   font: var(--t-name);

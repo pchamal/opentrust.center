@@ -622,30 +622,18 @@ def official_a(url: str, text: str) -> str:
     )
 
 
-def cite_url(url: str) -> str:
-    """Host + path (+ query) so a source line cites the URL, not a slogan."""
-    try:
-        parsed = urlparse(url)
-        host = (parsed.hostname or "").lower().removeprefix("www.")
-        path = parsed.path or ""
-        if path == "/" and not parsed.query:
-            path = ""
-        query = f"?{parsed.query}" if parsed.query else ""
-        shown = f"{host}{path}{query}"
-        return shown or url
-    except Exception:
-        return url
-
-
-def source_cite(label: str, href: str | None = None) -> str:
-    text = escape(label)
-    if href:
-        return f'<a href="{escape(href)}">{text}</a>'
-    return text
-
-
-def source_line(parts: list[str]) -> str:
-    return f'<p class="src-line">{" · ".join(p for p in parts if p)}</p>'
+def fedramp_status_word(status: str) -> str:
+    """Marketplace facts only: authorized, in process, ready, or not on file."""
+    s = re.sub(r"^fedramp\s+", "", (status or "").strip(), flags=re.I)
+    s = re.sub(r"^agency\s+", "", s, flags=re.I).strip()
+    if not s:
+        return ""
+    low = s.lower()
+    if "authoriz" in low:
+        return "authorized"
+    if "in process" in low or "in-process" in low:
+        return "in process"
+    return low
 
 
 GATE_HTML = """<div class="gate" id="gate" hidden>
@@ -664,33 +652,29 @@ def fedramp_block(row: dict, generated_at: str = "") -> str:
         p for p in (fed or {}).get("products") or []
         if str(p.get("offering") or "").strip()
     ]
-    observed = fmt_day(generated_at)
-    caption = source_line([
-        "Source",
-        source_cite("FedRAMP Marketplace", FEDRAMP_MARKET),
-        escape(observed) if observed else "",
-    ])
+    caption = (
+        f'<p class="src-line">Filed from the '
+        f'<a href="{escape(FEDRAMP_MARKET)}">FedRAMP Marketplace</a>.</p>'
+    )
     if products:
         rows = []
         for p in products:
             offering = str(p.get("offering") or "").strip()
-            status = str(p.get("status") or "").strip() or "—"
-            level = str(p.get("impact_level") or "").strip() or "—"
-            auth = fmt_day(p.get("auth_date") or "") or "—"
             href = str(p.get("url") or "").strip() or FEDRAMP_MARKET
             rows.append(
                 f'<tr><td><a href="{escape(href)}">{escape(offering)}</a></td>'
-                f"<td>{escape(status)}</td>"
-                f"<td>{escape(level)}</td>"
-                f"<td>{escape(auth)}</td></tr>"
+                f"<td>{cell(fedramp_status_word(p.get('status') or ''))}</td>"
+                f"<td>{cell(str(p.get('impact_level') or '').strip())}</td>"
+                f"<td>{cell(fmt_day(p.get('auth_date') or ''))}</td></tr>"
             )
         body = "".join(rows)
     else:
-        body = '<tr><td colspan="4"><span class="absent">not on file</span></td></tr>'
+        empty = cell(None)
+        body = f"<tr><td>{empty}</td><td>{empty}</td><td>{empty}</td><td>{empty}</td></tr>"
     lines = [
         '    <p class="sec-kicker">FedRAMP</p>',
         f"    {caption}",
-        '    <table class="inst">',
+        '    <table class="inst filed">',
         '      <thead><tr><th scope="col">Offering</th><th scope="col">Status</th><th scope="col">Impact level</th><th scope="col">Auth date</th></tr></thead>',
         f"      <tbody>{body}</tbody>",
         "    </table>",
@@ -700,38 +684,13 @@ def fedramp_block(row: dict, generated_at: str = "") -> str:
 
 def processors_block(procs: list[dict], generated_at: str = "") -> str:
     if procs:
-        proc_rows = "".join(
-            f'<tr><td>{escape(p["name"])}</td>'
-            + (
-                f'<td><a href="./{escape(p["slug"])}.html">{escape(p["slug"])}</a></td>'
-                if p.get("slug")
-                else '<td><span class="absent">not in register</span></td>'
-            )
-            + f'<td>{official_a(p["source_url"], host_of(p["source_url"]))}</td></tr>'
-            for p in procs
-        )
-        seen: list[str] = []
-        for p in procs:
-            url = str(p.get("source_url") or "").strip()
-            if url and url not in seen:
-                seen.append(url)
-        if seen:
-            observed = fmt_day(generated_at)
-            caption = "    " + source_line([
-                "Source",
-                *[source_cite(cite_url(url), url) for url in seen],
-                escape(observed) if observed else "",
-            ]) + "\n"
-        else:
-            caption = ""
+        proc_rows = "".join(f"<tr><td>{escape(p['name'])}</td></tr>" for p in procs)
     else:
-        proc_rows = '<tr><td colspan="3"><span class="absent">not on file</span></td></tr>'
-        caption = ""
+        proc_rows = f"<tr><td>{cell(None)}</td></tr>"
     return (
         '    <p class="sec-kicker">Named processors</p>\n'
-        f"{caption}"
-        '    <table class="inst">\n'
-        '      <thead><tr><th scope="col">Processor</th><th scope="col">In register</th><th scope="col">Source</th></tr></thead>\n'
+        '    <table class="inst filed">\n'
+        '      <thead><tr><th scope="col">Processor</th></tr></thead>\n'
         f"      <tbody>{proc_rows}</tbody>\n"
         "    </table>"
     )
