@@ -265,7 +265,13 @@ ORG_QIDS = {
 
 LINK_HINTS = (
     ("subprocessors", re.compile(r"sub-?process|service-providers?", re.I)),
-    ("dpa", re.compile(r"data-?processing|(/|\.)dpa\b", re.I)),
+    ("dpa", re.compile(
+        r"data[-_]?process(?:ing)?[-_]?(?:addendum|agreement|terms)|"
+        r"(?:/|\.)dpa\b|"
+        r"processor[-_](?:addendum|agreement|terms)|"
+        r"processing[-_](?:addendum|agreement)",
+        re.I,
+    )),
     ("privacy", re.compile(r"privacy", re.I)),
     ("status", re.compile(r"status", re.I)),
     ("bug_bounty", re.compile(
@@ -318,6 +324,85 @@ SPECIAL_URLS = {
     "canva": [("https://www.canva.com/policies/subprocessors/", "subprocessors")],
     "microsoft": [("https://status.cloud.microsoft", "status")],
 }
+
+# First-party DPA / processor-terms pages only. Privacy, cookies, and portal
+# hosts are not a DPA. Product pages that say "data processing" are not a DPA.
+PORTAL_VENDOR_HOSTS = {
+    "safebase.io", "safebase.us", "safebase.com",
+    "conveyor.com", "conveyorhq.com",
+    "securitypal.com",
+    "whistic.com",
+    "secureframe.com",
+    "secureframetrust.com",
+    "sprinto.com",
+    "trust.site",
+    "vantatrust.com",
+    "drata.com",
+    "trustcloud.ai",
+    "wolfia.com",
+}
+DPA_PATH_RE = re.compile(
+    r"(?:data[-_ ]?process(?:ing)?[-_ ]?(?:addendum|agreement|terms|annex)|"
+    r"(?:^|/)dpa(?:/|\.pdf|$|\?|-)|"
+    r"processor[-_ ](?:addendum|agreement|terms)|"
+    r"processing[-_ ](?:addendum|agreement)|"
+    r"gdpr[-_ ]?(?:dpa|addendum))",
+    re.I,
+)
+DPA_STRONG_PATH_RE = re.compile(
+    r"(?:data[-_ ]?process(?:ing)?[-_ ]?(?:addendum|agreement)|"
+    r"processor[-_ ](?:addendum|agreement|terms)|"
+    r"processing[-_ ](?:addendum|agreement)|"
+    r"dpa[-_ ]?(?:addendum|agreement))",
+    re.I,
+)
+DPA_TITLE_RE = re.compile(
+    r"\b(?:data[- ]processing[- ](?:addendum|agreement|terms|annex)|"
+    r"dpa(?:\s+addendum)?|"
+    r"processor[- ](?:terms|addendum|agreement)|"
+    r"processing[- ](?:addendum|agreement))\b",
+    re.I,
+)
+DPA_BODY_RE = re.compile(
+    r"\b(?:data[- ]processing[- ](?:addendum|agreement)|"
+    r"this dpa|"
+    r"article\s*28|"
+    r"standard contractual clauses|"
+    r"processor[- ](?:terms|addendum|agreement)|"
+    r"sub-?process(?:or|ing))\b",
+    re.I,
+)
+DPA_LINK_TEXT_RE = re.compile(
+    r"\b(?:data[- ]processing[- ](?:addendum|agreement|terms|annex)|"
+    r"dpa(?:\s+addendum)?|"
+    r"processor[- ](?:terms|addendum|agreement)|"
+    r"gdpr[- ](?:dpa|addendum))\b",
+    re.I,
+)
+A_TAG_RE = re.compile(
+    r"""<a\b[^>]*href\s*=\s*['"]([^"'#]+)['"][^>]*>(.*?)</a>""",
+    re.I | re.S,
+)
+ITEM_UID_RE = re.compile(r"(?:[?&]|/)itemUid=|(?:[?&])itemName=", re.I)
+DPA_WELL_KNOWN_PATHS = (
+    "/dpa",
+    "/legal/dpa",
+    "/legal/data-processing-addendum",
+    "/legal/data-processing-agreement",
+    "/data-processing-addendum",
+    "/data-processing-agreement",
+    "/policies/data-processing-addendum",
+    "/policies/data-processing-agreement",
+    "/policies/dpa",
+    "/terms/dpa",
+    "/company/dpa",
+    "/gdpr/dpa",
+    "/legal/gdpr/dpa",
+    "/privacy/dpa",
+    "/legal/processor-terms",
+    "/legal/data-processing",
+    "/data-processing",
+)
 
 
 def utc_now() -> str:
@@ -643,9 +728,8 @@ def classify_probe(url: str, rec: dict):
         is_subprocessor_page(final, title, text) or re.search(r"sub-?process", text[:6000], re.I)
     ):
         return "subprocessors"
-    if re.search(r"(data-processing|/dpa\b|/dpa/)", path) or re.search(r"\bdpa\b", title, re.I):
-        if re.search(r"data processing|sub-process|\bdpa\b", low):
-            return "dpa"
+    if classify_as_dpa(url, rec):
+        return "dpa"
     if host.startswith("status.") or path.rstrip("/") == "/status" or re.search(
         r"\b(status page|system status|service status)\b", title, re.I
     ):
@@ -689,7 +773,13 @@ def probe_urls_for(company: dict) -> list[tuple[str, str]]:
         add(f"https://{domain}/dpa", "dpa")
         add(f"https://{domain}/legal/dpa", "dpa")
         add(f"https://{domain}/legal/data-processing-addendum", "dpa")
+        add(f"https://{domain}/legal/data-processing-agreement", "dpa")
         add(f"https://{domain}/data-processing-addendum", "dpa")
+        add(f"https://{domain}/data-processing-agreement", "dpa")
+        add(f"https://{domain}/policies/data-processing-addendum", "dpa")
+        add(f"https://{domain}/policies/dpa", "dpa")
+        add(f"https://{domain}/terms/dpa", "dpa")
+        add(f"https://{domain}/company/dpa", "dpa")
         add(f"https://status.{domain}", "status")
         add(f"https://{domain}/status", "status")
         add(f"https://{domain}/bug-bounty", "bug_bounty")
@@ -1000,6 +1090,198 @@ def looks_like_login_wall(title: str, text: str) -> bool:
     return len(re.sub(r"\s+", " ", text or "")) < 600
 
 
+def path_is_privacy_or_cookie_only(path: str) -> bool:
+    p = (path or "").lower()
+    if DPA_PATH_RE.search(p):
+        return False
+    return bool(re.search(r"privacy|cookie", p))
+
+
+def path_is_product_page(path: str) -> bool:
+    p = (path or "").lower()
+    if re.search(r"/solutions/|/products/", p) and not re.search(
+        r"addendum|agreement|/dpa\b", p
+    ):
+        return True
+    return "data-processing-unit" in p
+
+
+def is_pdf_rec(url: str, rec: dict) -> bool:
+    ctype = (rec.get("ctype") or "").lower()
+    head = (rec.get("raw_head") or rec.get("text") or "")[:8]
+    return "pdf" in ctype or (url or "").lower().endswith(".pdf") or head.startswith("%PDF")
+
+
+def is_portal_vendor_host(url: str, company: dict) -> bool:
+    h = host_of(url)
+    if not h:
+        return False
+    own = {registrable(x) for x in hosts_for(company)}
+    if company.get("domain"):
+        own.add(registrable(company["domain"]))
+    reg = registrable(h)
+    if reg in own or h in own:
+        return False
+    if reg in PORTAL_VENDOR_HOSTS:
+        return True
+    return any(h.endswith("." + v) for v in PORTAL_VENDOR_HOSTS)
+
+
+def is_first_party_url(url: str, company: dict) -> bool:
+    if is_portal_vendor_host(url, company):
+        return False
+    hosts = set(hosts_for(company))
+    for raw in (company.get("trust_url"), company.get("final_url"), company.get("domain")):
+        h = host_of(raw) if raw and str(raw).startswith("http") else (raw or "")
+        h = (h or "").lower().removeprefix("www.")
+        if h:
+            hosts.add(h)
+    regs = {registrable(x) for x in hosts if x}
+    h = host_of(url)
+    if not h:
+        return False
+    if h in hosts or registrable(h) in regs:
+        return True
+    return any(h.endswith("." + known) or known.endswith("." + h) for known in (hosts | regs) if known)
+
+
+def extract_dpa_candidates(html: str, base: str) -> list[str]:
+    """Hrefs that look like a DPA, plus destinations whose link text names one."""
+    out, seen = [], set()
+
+    def add(u: str) -> None:
+        u = (u or "").split("#")[0].strip()
+        if not u.startswith("http") or u in seen:
+            return
+        if ITEM_UID_RE.search(u) and not DPA_PATH_RE.search(u):
+            return
+        seen.add(u)
+        out.append(u)
+
+    for href in extract_hrefs(html, base):
+        if DPA_PATH_RE.search(href):
+            add(href)
+    for m in A_TAG_RE.finditer(html or ""):
+        raw, inner = m.group(1).strip(), strip_tags(m.group(2))
+        if raw.startswith(("javascript:", "mailto:", "tel:", "data:")):
+            continue
+        if DPA_LINK_TEXT_RE.search(inner) or re.fullmatch(r"dpa", inner.strip(), re.I):
+            add(urljoin(base, raw))
+    return out[:40]
+
+
+def classify_as_dpa(url: str, rec: dict) -> bool:
+    """True only when this URL is a published DPA / processor-terms page or PDF."""
+    if not rec.get("ok") or rec.get("status") != 200:
+        return False
+    title, text = rec.get("title") or "", rec.get("text") or ""
+    final = rec.get("final_url") or url
+    if looks_dead(title, text) or looks_like_login_wall(title, text):
+        return False
+    if landed_on_home(url, final) and "status." not in host_of(url):
+        return False
+    path = path_of(final)
+    if path_is_product_page(path):
+        return False
+    if path_is_privacy_or_cookie_only(path) and not DPA_TITLE_RE.search(title):
+        return False
+    if ITEM_UID_RE.search(final) and not (DPA_PATH_RE.search(final) or DPA_TITLE_RE.search(title)):
+        return False
+    pdf = is_pdf_rec(final, rec)
+    strong = bool(DPA_STRONG_PATH_RE.search(path) or DPA_STRONG_PATH_RE.search(final))
+    weak = bool(re.search(r"(?:^|/)dpa(?:/|\.pdf|$|\?)", path, re.I) or DPA_PATH_RE.search(path))
+    title_hit = bool(DPA_TITLE_RE.search(title))
+    body_hit = bool(DPA_BODY_RE.search(text[:8000]) or DPA_TITLE_RE.search(text[:2000]))
+    if pdf:
+        return bool(strong or DPA_PATH_RE.search(path) or title_hit)
+    if strong and (title_hit or body_hit):
+        return True
+    if weak and body_hit:
+        return True
+    if title_hit and body_hit and not path_is_privacy_or_cookie_only(path):
+        return True
+    return False
+
+
+def dpa_probe_urls_for(company: dict) -> list[str]:
+    pairs, seen = [], set()
+
+    def add(url: str) -> None:
+        u = (url or "").rstrip("/")
+        key = u.lower()
+        if u.startswith("http") and key not in seen:
+            seen.add(key)
+            pairs.append(u)
+
+    for domain in hosts_for(company)[:2]:
+        for path in DPA_WELL_KNOWN_PATHS:
+            add(f"https://{domain}{path}")
+    for url, hint in SPECIAL_URLS.get(company.get("slug") or "", []):
+        if hint == "dpa":
+            add(url)
+    return pairs
+
+
+def apply_dpa_to_row(row: dict, url: str) -> bool:
+    """File a DPA URL and add the +8 factor. Leave other factors as they were."""
+    links = dict(row.get("links") or {})
+    if links.get("dpa"):
+        return False
+    links["dpa"] = url
+    row["links"] = links
+    disc = dict(row.get("disclosure") or {})
+    factors = dict(disc.get("factors") or {})
+    if not factors.get("dpa"):
+        factors["dpa"] = 8
+        score = min(100, int(disc.get("score") or 0) + 8)
+        if not row.get("found"):
+            tier = "silent"
+        elif score >= 90:
+            tier = "complete"
+        elif score >= 70:
+            tier = "substantial"
+        elif score >= 40:
+            tier = "on-file"
+        else:
+            tier = "thin"
+        disc["score"] = score
+        disc["tier"] = tier
+        disc["factors"] = factors
+        row["disclosure"] = disc
+    return True
+
+
+def has_public_page(company: dict) -> bool:
+    links = company.get("links") or {}
+    return bool(
+        company.get("found")
+        or company.get("trust_url")
+        or links.get("trust")
+        or links.get("security")
+    )
+
+
+def fetch_seed_page(url: str) -> dict:
+    fetched = crawl.fetch(url, max_body=TRUST_BODY)
+    html = fetched.get("body") or ""
+    title = crawl.extract_title(html) if html else ""
+    rec = {
+        "url": url,
+        "ok": bool(fetched.get("ok")),
+        "status": fetched.get("status") or 0,
+        "final_url": fetched.get("final_url") or url,
+        "title": title,
+        "text": strip_tags(html)[:30000] if html else "",
+        "meta": extract_meta_desc(html) if html else "",
+        "hrefs": extract_hrefs(html, fetched.get("final_url") or url) if html else [],
+        "ctype": (fetched.get("headers") or {}).get("content-type", ""),
+        "fetched_at": utc_now(),
+        "raw_head": html[:4000] if html else "",
+        "html": html,
+    }
+    return rec
+
+
 def probe_company(company: dict) -> dict:
     links: dict[str, str] = {}
     pages: dict[str, dict] = {}
@@ -1031,19 +1313,31 @@ def probe_company(company: dict) -> dict:
     seed_pages = [pages[k] for k in ("trust", "security") if k in pages]
     for rec in seed_pages:
         base = rec.get("final_url") or ""
-        for href in rec.get("hrefs") or []:
+        extra = []
+        if rec.get("html"):
+            extra = extract_dpa_candidates(rec["html"], base)
+        hrefs = list(rec.get("hrefs") or []) + extra
+        for href in hrefs:
             hhost, rhost = host_of(href), host_of(base)
             if not hhost or not rhost:
                 continue
-            if registrable(hhost) != registrable(rhost) and not hhost.startswith("status."):
+            if not is_first_party_url(href, company) and not hhost.startswith("status."):
                 continue
             for kind, pat in LINK_HINTS:
                 if kind in links:
                     continue
-                if not pat.search(href):
+                if kind == "dpa":
+                    if not (pat.search(href) or href in extra):
+                        continue
+                elif not pat.search(href):
                     continue
                 sub = fetch_cached(href, max_body=TRUST_BODY if kind in {"trust", "security", "subprocessors"} else PROBE_BODY)
                 if looks_like_login_wall(sub.get("title") or "", sub.get("text") or ""):
+                    continue
+                if kind == "dpa":
+                    if classify_as_dpa(href, sub) and is_first_party_url(sub.get("final_url") or href, company):
+                        links["dpa"] = sub.get("final_url") or href
+                        pages["dpa"] = sub
                     continue
                 classified = classify_probe(href, sub)
                 if classified == kind or (kind in {"trust", "security"} and accept_link(kind, href, sub)):
@@ -1333,7 +1627,168 @@ def main() -> int:
     return 0
 
 
+def file_published_dpas() -> int:
+    """File first-party DPA URLs already published on pages that had none."""
+    t0 = time.time()
+    src = SITE / "data" / "enriched.json"
+    if not src.exists():
+        src = DATA / "enriched.json"
+    payload = load_json(src, {})
+    companies = list(payload.get("companies") or [])
+    if not companies:
+        print("no companies in enriched.json", flush=True)
+        return 1
+    before = sum(1 for c in companies if (c.get("links") or {}).get("dpa"))
+    gaps = [c for c in companies if has_public_page(c) and not (c.get("links") or {}).get("dpa")]
+    print(f"DPA on file: {before}. Pages with no DPA URL: {len(gaps)}", flush=True)
+
+    filed: list[tuple[str, str]] = []
+    checked = 0
+    by_slug = {c["slug"]: c for c in companies}
+
+    def seed_urls(c: dict) -> list[str]:
+        links = c.get("links") or {}
+        out, seen = [], set()
+        for raw in (
+            c.get("trust_url"),
+            c.get("final_url"),
+            links.get("trust"),
+            links.get("security"),
+            links.get("privacy"),
+        ):
+            u = (raw or "").strip()
+            if u.startswith("http") and u.lower() not in seen:
+                seen.add(u.lower())
+                out.append(u)
+        return out
+
+    print(f"Phase 1: read {len(gaps)} found pages for a published DPA link…", flush=True)
+    candidates: dict[str, list[str]] = {}
+    seed_jobs = [(c["slug"], url) for c in gaps for url in seed_urls(c)]
+
+    def do_seed(job):
+        slug, url = job
+        try:
+            return slug, fetch_seed_page(url)
+        except Exception:
+            return slug, {"ok": False, "status": 0, "hrefs": [], "html": "", "final_url": url}
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = [pool.submit(do_seed, job) for job in seed_jobs]
+        done = 0
+        for fut in as_completed(futs):
+            slug, rec = fut.result()
+            done += 1
+            if done % 40 == 0 or done == len(futs):
+                print(f"  seed {done}/{len(futs)}", flush=True)
+            row = by_slug.get(slug)
+            if not row:
+                continue
+            html = rec.get("html") or ""
+            base = rec.get("final_url") or rec.get("url") or ""
+            found = extract_dpa_candidates(html, base)
+            if rec.get("hrefs"):
+                for href in rec["hrefs"]:
+                    if DPA_PATH_RE.search(href) and href not in found:
+                        found.append(href)
+            if found:
+                bucket = candidates.setdefault(slug, [])
+                for u in found:
+                    if u not in bucket:
+                        bucket.append(u)
+
+    need_probe = [c for c in gaps if c["slug"] not in candidates]
+    print(f"  pages already linking a DPA-shaped URL: {len(candidates)}", flush=True)
+    print(f"Phase 2: well-known first-party paths for {len(need_probe)} still blank…", flush=True)
+    for c in need_probe:
+        candidates[c["slug"]] = dpa_probe_urls_for(c)
+
+    verify_jobs = []
+    seen_verify = set()
+    for slug, urls in candidates.items():
+        row = by_slug.get(slug)
+        if not row:
+            continue
+        for url in urls:
+            key = (slug, url.lower())
+            if key in seen_verify:
+                continue
+            if not is_first_party_url(url, row):
+                continue
+            seen_verify.add(key)
+            verify_jobs.append((slug, url))
+    print(f"Phase 3: verifying {len(verify_jobs)} candidate URLs…", flush=True)
+
+    def do_verify(job):
+        slug, url = job
+        try:
+            rec = fetch_uncached(url, PROBE_BODY if not url.lower().endswith(".pdf") else TRUST_BODY)
+        except Exception:
+            rec = {"ok": False, "status": 0, "final_url": url, "title": "", "text": ""}
+        return slug, url, rec
+
+    accepted: dict[str, str] = {}
+
+    def take_hits(jobs: list[tuple[str, str]], label: str) -> None:
+        if not jobs:
+            return
+        print(f"{label}: {len(jobs)} URLs…", flush=True)
+        with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+            futs = [pool.submit(do_verify, job) for job in jobs]
+            done = 0
+            for fut in as_completed(futs):
+                slug, url, rec = fut.result()
+                done += 1
+                if done % 80 == 0 or done == len(futs):
+                    print(f"  {label} {done}/{len(futs)}", flush=True)
+                if slug in accepted:
+                    continue
+                row = by_slug.get(slug)
+                if not row:
+                    continue
+                final = rec.get("final_url") or url
+                if not is_first_party_url(final, row):
+                    continue
+                if classify_as_dpa(url, rec):
+                    accepted[slug] = final
+
+    take_hits(verify_jobs, "Phase 3")
+    still = [c for c in gaps if c["slug"] not in accepted]
+    fallback = []
+    seen_fb = set(seen_verify)
+    for c in still:
+        for url in dpa_probe_urls_for(c):
+            key = (c["slug"], url.lower())
+            if key in seen_fb:
+                continue
+            if not is_first_party_url(url, c):
+                continue
+            seen_fb.add(key)
+            fallback.append((c["slug"], url))
+    take_hits(fallback, "Phase 4 fallback paths")
+
+    checked = len(gaps)
+    for slug, url in sorted(accepted.items()):
+        row = by_slug[slug]
+        if apply_dpa_to_row(row, url):
+            filed.append((row.get("name") or slug, url))
+
+    generated = utc_now()
+    payload["generated_at"] = generated
+    payload["companies"] = companies
+    write_json(DATA / "enriched.json", payload)
+    write_json(SITE / "data" / "enriched.json", payload)
+    after = sum(1 for c in companies if (c.get("links") or {}).get("dpa"))
+    print(f"Wrote {DATA / 'enriched.json'} and {SITE / 'data' / 'enriched.json'}", flush=True)
+    print(f"checked={checked} filed={len(filed)} dpa {before} → {after} in {time.time() - t0:.1f}s", flush=True)
+    for name, url in filed:
+        print(f"  filed {name}: {url}", flush=True)
+    return 0
+
+
 if __name__ == "__main__":
+    if "--file-dpas" in sys.argv:
+        raise SystemExit(file_published_dpas())
     raise SystemExit(main())
 
 
