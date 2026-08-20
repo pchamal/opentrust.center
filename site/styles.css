@@ -225,6 +225,10 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
 }
 .queryline:not([hidden]) + .countline { margin-top: 8px; }
 
+/* Register body ink recedes. Chrome stays rust. Names stay ink. */
+body.register { color: var(--mute); }
+body.register .finder input { color: var(--ink); }
+
 /* ——— filters ——— */
 .filters {
   display: flex;
@@ -272,6 +276,7 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
   border-bottom: var(--rule);
   white-space: nowrap;
 }
+.reg th[data-sort] { cursor: pointer; }
 .reg th button {
   appearance: none;
   background: none;
@@ -285,7 +290,22 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
   cursor: pointer;
   border-radius: 0;
 }
-.reg th button:hover { color: var(--ink); }
+.reg th[data-sort] button::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  margin-left: 0.25em;
+  font: var(--t-kicker);
+  font-family: var(--font-docket);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--rust);
+  font-weight: 400;
+}
+.reg th[data-sort][aria-sort="ascending"] button::after { content: "▴"; }
+.reg th[data-sort][aria-sort="descending"] button::after { content: "▾"; }
+.reg th[data-sort]:hover,
+.reg th[data-sort] button:hover { color: var(--ink); }
 .reg th.on {
   color: var(--ink);
 }
@@ -294,13 +314,7 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
   text-decoration-color: var(--rust);
   text-underline-offset: 3px;
 }
-.reg th .arr {
-  font: var(--t-meta);
-  letter-spacing: 0;
-  text-transform: none;
-  color: var(--mute);
-  font-weight: 400;
-}
+.reg th.on button::after { color: var(--rust); }
 .reg td {
   font: var(--t-row);
   color: var(--mute);
@@ -332,9 +346,19 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
 }
 .reg td.marks a { color: var(--mute); }
 .reg .mark-line { color: var(--mute); text-decoration: none; }
-.reg td.num { color: var(--rust); width: 3.2em; }
+.reg .mark-chip {
+  color: var(--mute);
+  font: inherit;
+  letter-spacing: inherit;
+}
+.reg .mark-more { color: var(--mute); }
+.reg td.num { color: var(--mute); width: 3.2em; }
 .reg tbody tr { cursor: pointer; }
 .reg tbody tr:hover { background: var(--well); }
+.reg tbody tr.folio:focus-visible {
+  outline: 1px solid var(--rust);
+  outline-offset: -1px;
+}
 .reg .tier-silent,
 .reg .absent {
   font-family: var(--font-register);
@@ -342,7 +366,7 @@ a:hover { color: var(--ink); text-decoration-color: var(--rust); }
   font-size: 15px;
   color: var(--rust);
 }
-.reg .tier-word { font: var(--t-meta); color: var(--ink); letter-spacing: 0.02em; }
+.reg .tier-word { font: var(--t-meta); color: var(--mute); letter-spacing: 0.02em; }
 
 .file-meter {
   display: inline-flex;

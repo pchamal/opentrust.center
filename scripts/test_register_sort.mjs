@@ -7,6 +7,8 @@ import {
   clickSort,
   marksCount,
   arrangeRows,
+  defaultRows,
+  marksCell,
 } from "../site/register.js";
 
 const data = JSON.parse(readFileSync(new URL("../site/data.json", import.meta.url), "utf8"));
@@ -112,10 +114,10 @@ const domainOk = byDomain.every((r, i) => {
 expect("domain is case-insensitive alpha", domainOk);
 
 const byTier = arrangeRows(rows, "tier", "desc");
-const order = { silent: 0, thin: 1, "on-file": 2, substantial: 3, complete: 4 };
+const tierRank = { silent: 0, thin: 1, "on-file": 2, substantial: 3, complete: 4 };
 const tierOk = byTier.every((r, i) => {
   if (i === 0) return true;
-  return (order[r.tier] || 0) <= (order[byTier[i - 1].tier] || 0);
+  return (tierRank[r.tier] || 0) <= (tierRank[byTier[i - 1].tier] || 0);
 });
 expect("tier uses disclosure order", tierOk);
 expect("tier high is complete", byTier[0].tier === "complete");
@@ -140,14 +142,54 @@ const marksOk = byMarks.every((r, i) => {
 expect("marks is count high to low", marksOk);
 expect("marks count is a number", marksCount(byMarks[0]) > marksCount(byMarks[byMarks.length - 1]));
 
-const byProbed = arrangeRows(rows, "probed", "desc", data.generated_at);
-const probedOk = byProbed.every((r, i) => {
+expect("probed is not a sort key", normalizeSort("probed") === "");
+
+const landing = defaultRows(rows);
+const firstScreen = landing.slice(0, 20);
+const order = ["silent", "thin", "on-file", "substantial", "complete"];
+const landingOk = landing.every((r, i) => {
   if (i === 0) return true;
-  const a = Date.parse(r.probed_at || data.generated_at || "") || 0;
-  const b = Date.parse(byProbed[i - 1].probed_at || data.generated_at || "") || 0;
-  return a <= b;
+  return order.indexOf(r.tier || "silent") >= order.indexOf(landing[i - 1].tier || "silent");
 });
-expect("probed is by date", probedOk);
+expect("default keeps every company", landing.length === rows.length);
+expect("default does not drop a slug", new Set(landing.map((r) => r.slug)).size === rows.length);
+expect("default order is silent thin on-file substantial complete", landingOk);
+expect("default opens on silent", landing[0].tier === "silent");
+expect("default ends on complete", landing[landing.length - 1].tier === "complete");
+expect("first screen is not a complete stripe", firstScreen.every((r) => r.tier !== "complete"));
+expect("complete stays in the table", landing.some((r) => r.tier === "complete"));
+
+const indexHtml = readFileSync(new URL("../site/index.html", import.meta.url), "utf8");
+expect("register grid dropped probed", !/data-sort="probed"/.test(indexHtml) && !/>probed</.test(indexHtml));
+expect("register still files the meter on each row", /fileMeterHtml\(row\)/.test(registerSrc));
+expect("folio row is a dossier click-through", /class="folio"/.test(registerSrc));
+
+const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8");
+expect("sort caret is plex rust triangles", css.includes('content: "▴"') && css.includes('content: "▾"') && /th\[data-sort\] button::after \{[\s\S]*font-family: var\(--font-docket\)/.test(css) && /th\[data-sort\] button::after \{[\s\S]*color: var\(--rust\)/.test(css));
+expect("headers stay rust", /\.reg th \{[\s\S]*color: var\(--rust\)/.test(css));
+expect("row ink is mute", /\.reg td \{[\s\S]*color: var\(--mute\)/.test(css) && /\.reg td\.num \{ color: var\(--mute\)/.test(css) && /\.reg td\.marks \{[\s\S]*color: var\(--mute\)/.test(css));
+expect("names stay ink", /\.reg td\.name \{[\s\S]*color: var\(--ink\)/.test(css));
+expect("meter boxes stay rust", /file-meter > span \{[\s\S]*border: 1px solid var\(--rust\)/.test(css));
+
+const buyer = marksCell({
+  attestations: [
+    { name: "CCPA", short: "CCPA" },
+    { name: "SOC 2 Type II", short: "SOC 2 Type II" },
+    { name: "ISO 27001", short: "ISO 27001" },
+    { name: "PCI DSS", short: "PCI DSS" },
+    { name: "GDPR", short: "GDPR" },
+  ],
+});
+expect("marks are clerk chips", buyer.includes('class="mark-chip">soc 2 type ii<') && buyer.includes(" · "));
+expect("buyer mark is named first", buyer.indexOf("soc 2") < buyer.indexOf("iso 27001"));
+expect("plus-n is quiet", buyer.includes('class="mark-more">+2<') && !buyer.includes('class="mark-chip">+2'));
+expect("plus-n does not hide soc 2", /mark-chip">soc 2/.test(buyer));
+
+const fed = marksCell({
+  fedramp: { marketplace: "https://marketplace.fedramp.gov/products/FR123" },
+  attestations: [{ name: "FedRAMP", id: "fedramp" }, { name: "SOC 2", short: "SOC 2" }],
+});
+expect("fedramp keeps marketplace underline", fed.includes('class="fr-mark"') && fed.includes("marketplace.fedramp.gov") && fed.includes(" · "));
 
 const complete = apply("/ complete");
 const completeByName = arrangeRows(complete, "name", "asc");
