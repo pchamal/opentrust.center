@@ -212,10 +212,34 @@ def cert_key(name: str) -> str:
     return re.sub(r"\s+", " ", name.strip().lower())
 
 
+_ATTESTATION_IDS: dict[str, str] | None = None
+
+
+def attestation_id_book() -> dict[str, str]:
+    """Existing framework entries only. Do not invent a mark page."""
+    global _ATTESTATION_IDS
+    if _ATTESTATION_IDS is not None:
+        return _ATTESTATION_IDS
+    path = SITE / "data" / "attestations.json"
+    if not path.exists():
+        path = ROOT / "data" / "attestations.json"
+    book: dict[str, str] = {}
+    for item in load_json(path, {}).get("attestations") or []:
+        aid = str(item.get("id") or "").strip()
+        if not aid:
+            continue
+        for label in (aid, item.get("name"), item.get("short")):
+            key = cert_key(label or "")
+            if key and key not in book:
+                book[key] = aid
+    _ATTESTATION_IDS = book
+    return book
+
+
 def map_cert(name: str) -> dict:
     key = cert_key(name)
     weight = CERT_WEIGHT.get(key)
-    att_id = CERT_ID.get(key)
+    att_id = CERT_ID.get(key) or attestation_id_book().get(key)
     if "fedramp" in key:
         if "li-saas" in key or "li saas" in key:
             att_id = att_id or "fedramp-li-saas"
@@ -226,6 +250,42 @@ def map_cert(name: str) -> dict:
     if weight is None:
         weight = 4
     return {"id": att_id, "name": name, "weight": weight}
+
+
+def link_mark_words(text: str, attestations: list[dict], href_base: str = "../attestations.html") -> str:
+    """Link mark words that already have a framework entry. Words only."""
+    out = escape(text)
+    labels: list[tuple[str, str]] = []
+    seen: set[str] = set()
+    for a in attestations:
+        aid = str(a.get("id") or "").strip()
+        if not aid:
+            continue
+        for lab in (a.get("name"), a.get("short")):
+            t = str(lab or "").strip()
+            if t and t not in seen:
+                seen.add(t)
+                labels.append((t, aid))
+    labels.sort(key=lambda x: len(x[0]), reverse=True)
+    for lab, aid in labels:
+        needle = escape(lab)
+        if not needle:
+            continue
+        link = f'<a href="{escape(href_base)}#{escape(aid)}">{needle}</a>'
+        parts: list[str] = []
+        i = 0
+        while i < len(out):
+            j = out.find(needle, i)
+            if j < 0:
+                parts.append(out[i:])
+                break
+            before = out[:j]
+            in_link = before.rfind("<a ") > before.rfind("</a>")
+            parts.append(out[i:j])
+            parts.append(needle if in_link else link)
+            i = j + len(needle)
+        out = "".join(parts)
+    return out
 
 
 CLERK_KEEP = re.compile(r"^(Public trust center|Official page)\b", re.I)
@@ -468,17 +528,30 @@ def processor_display_name(edge: dict, node: dict, to: str) -> str:
     return humanize_processor_name(str(edge.get("processor") or to))
 
 
-def register_slug_for(node: dict, by_slug: dict, by_domain: dict) -> str | None:
+def register_slug_for(node: dict, by_slug: dict, by_domain: dict, by_name: dict | None = None) -> str | None:
+    """Reuse an existing dossier slug. Do not invent a page."""
     nid = node.get("id")
     if nid and nid in by_slug:
         return nid
     domain = (node.get("domain") or "").lower()
     if domain in by_domain:
         return by_domain[domain]
+    if by_name:
+        name = str(node.get("name") or "").strip().lower()
+        if name and name in by_name:
+            return by_name[name]
     return None
 
 
-def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_domain: dict, generated_at: str) -> dict:
+def enrich_company(
+    row: dict,
+    edges: list[dict],
+    nodes: dict,
+    by_slug: dict,
+    by_domain: dict,
+    generated_at: str,
+    by_name: dict | None = None,
+) -> dict:
     slug = row["slug"]
     links = row.get("links") or {}
     domain = row.get("domain") or ""
@@ -517,10 +590,11 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
         to = e.get("to") or e.get("processor_slug") or ""
         node = nodes.get(to) or {}
         name = processor_display_name(e, node, to)
-        proc_slug = register_slug_for(node, by_slug, by_domain)
+        proc_slug = register_slug_for(node, by_slug, by_domain, by_name)
         processors.append({
             "name": name,
             "slug": proc_slug,
+            "id": to or None,
             "source_url": e["source_url"],
         })
     if mine and not instruments.get("subprocessors"):
@@ -798,9 +872,28 @@ def fedramp_block(row: dict, generated_at: str = "") -> str:
     return "\n".join(lines) + "\n"
 
 
+def processor_href(p: dict) -> str | None:
+    """Dossier if on the register; else the map node. Never invent a page."""
+    slug = str(p.get("slug") or "").strip()
+    if slug:
+        return f"./{slug}.html"
+    nid = str(p.get("id") or "").strip()
+    if nid:
+        return f"../graph.html#p={nid}"
+    return None
+
+
+def processor_cell(p: dict) -> str:
+    name = escape(p["name"])
+    href = processor_href(p)
+    if href:
+        return f'<a href="{escape(href)}">{name}</a>'
+    return name
+
+
 def processors_block(procs: list[dict], generated_at: str = "", list_url: str = "") -> str:
     if procs:
-        proc_rows = "".join(f"<tr><td>{escape(p['name'])}</td></tr>" for p in procs)
+        proc_rows = "".join(f"<tr><td>{processor_cell(p)}</td></tr>" for p in procs)
         urls = []
         for p in procs:
             u = str(p.get("source_url") or "").strip()
@@ -987,7 +1080,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     if isinstance(sub, dict) and sub.get("url"):
         list_url = sub["url"]
     clerk = row.get("summary") or ""
-    clerk_html = f'<p class="clerk">{escape(clerk)}</p>' if clerk else ""
+    clerk_html = f'<p class="clerk">{link_mark_words(clerk, atts)}</p>' if clerk else ""
     outbound = (
         f'<a class="official" href="{escape(url)}" rel="noopener noreferrer">Official page</a>'
         if found and url
@@ -1197,13 +1290,17 @@ def main() -> int:
     nodes = {n["id"]: n for n in (edges_doc.get("nodes") or []) if n.get("id")}
     by_slug = {c["slug"]: c for c in companies_in if c.get("slug")}
     by_domain = {}
+    by_name = {}
     for c in companies_in:
         domain = (c.get("domain") or "").lower()
         if domain:
             by_domain[domain] = c["slug"]
+        name = str(c.get("name") or "").strip().lower()
+        if name and name not in by_name:
+            by_name[name] = c["slug"]
 
     public_companies = [
-        enrich_company(row, edges, nodes, by_slug, by_domain, generated_at)
+        enrich_company(row, edges, nodes, by_slug, by_domain, generated_at, by_name)
         for row in companies_in
     ]
     assign_file_ranks(public_companies)

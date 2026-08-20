@@ -128,6 +128,8 @@ expect("dossier has no coverage ratio", !dossier.includes(" of 5") && !dossier.i
 const issueLine = (dossier.match(/<p class="issue">([^<]+)/) || [])[1] || "";
 expect("dossier issue has no register census", !issueLine.includes(" on file · ") && !issueLine.includes(" not on file · last probed"));
 expect("dossier marks are a list", dossier.includes('class="mark-list"') && !dossier.includes("mark-chip") && !dossier.includes("+N"));
+expect("dossier clerk mark words are links", /<p class="clerk">[\s\S]*<a href="\.\.\/attestations.html#soc-2-type-ii">SOC 2 Type II<\/a>[\s\S]*<a href="\.\.\/attestations.html#aiuc-1">AIUC-1<\/a>/.test(dossier));
+expect("dossier clerk has no mark icons", !/<p class="clerk">[\s\S]*<(img|svg)/.test(dossier));
 expect("dossier outbound is Official page", dossier.includes('class="official"') && dossier.includes("Official page") && !dossier.includes("View source") && !dossier.includes("go-out") && !dossier.includes("file-go"));
 expect("dossier nav does not current Register", !dossier.includes('class="on"'));
 expect("dossier body is dossier", dossier.includes('class="dossier"'));
@@ -142,7 +144,38 @@ const cursorNames = [
   "Cloudflare", "Google Cloud Platform", "Together", "SpaceXAI", "WorkOS",
 ];
 const procChunk = dossier.split("Named processors")[1] || "";
-expect("anysphere processors are the published list", cursorNames.every((n) => procChunk.includes(n)) && cursorNames.join() === [...procChunk.matchAll(/<tr><td>([^<]+)<\/td><\/tr>/g)].map((m) => m[1]).join());
+const procCells = [...procChunk.matchAll(/<tr><td>(.*?)<\/td><\/tr>/g)].map((m) => m[1]);
+const procNames = procCells.map((cell) => cell.replace(/<[^>]+>/g, ""));
+expect("anysphere processors are the published list", cursorNames.every((n) => procChunk.includes(n)) && cursorNames.join() === procNames.join());
+const dossierHref = {
+  "Amazon Web Services": "./amazon-web-services.html",
+  Fireworks: "./fireworks-ai.html",
+  OpenAI: "./openai.html",
+  Anthropic: "./anthropic.html",
+  Datadog: "./datadog.html",
+  Databricks: "./databricks.html",
+  Vercel: "./vercel.html",
+  Cloudflare: "./cloudflare.html",
+  Together: "./together-ai.html",
+};
+const graphHref = {
+  "Google Gemini": "../graph.html#p=google-gemini",
+  Turbopuffer: "../graph.html#p=turbopuffer",
+  Exa: "../graph.html#p=exa",
+  Azure: "../graph.html#p=azure",
+  Baseten: "../graph.html#p=baseten-labs-inc",
+  "Google Cloud Platform": "../graph.html#p=gcp",
+  SpaceXAI: "../graph.html#p=spacexai",
+  WorkOS: "../graph.html#p=workos",
+};
+expect(
+  "anysphere processors that have a file are links",
+  procCells.every((cell, i) => {
+    const name = procNames[i];
+    const want = dossierHref[name] || graphHref[name];
+    return want && cell.includes(`href="${want}"`) && cell.includes(name);
+  }),
+);
 expect("anysphere processors cite the list", /Filed from[\s\S]*trust\.cursor\.com\/subprocessors/.test(procChunk) && !procChunk.includes("names not extracted") && !/<span class="absent">not on file/.test(procChunk.split("<p class=\"clerk\">")[0]));
 expect("anysphere processors are not Box names", !procChunk.includes("GitHub") && !procChunk.includes("New Relic"));
 expect("dossier has no highest-authorized badge line", !dossier.includes("highest authorized"));
@@ -162,6 +195,11 @@ expect("aws identity has no complete word", !awsIdent.includes("complete") && !a
 const box = readFileSync(new URL("../site/c/box.html", import.meta.url), "utf8");
 expect("on-file FedRAMP is a table with marketplace cite", box.includes("Filed from the") && box.includes("FedRAMP Marketplace") && box.includes("fedramp.gov/marketplace") && box.includes('class="inst filed"') && box.includes("authorized") && !box.includes("Not a badge") && !box.includes("highest authorized") && !box.includes('td class="mark"') && !box.includes("sem-source") && !box.includes("sem-conflict"));
 expect("on-file processors are published names", box.includes("GitHub") && box.includes("New Relic") && !box.includes("+N") && !box.includes("Not a complete supply chain") && /sec-kicker">Named processors[\s\S]*Filed from/.test(box));
+
+const vercel = readFileSync(new URL("../site/c/vercel.html", import.meta.url), "utf8");
+expect("vercel mark words with a file are links", vercel.includes('href="../attestations.html#dora">DORA</a>') && vercel.includes('href="../attestations.html#eu-us-dpf">EU-US DPF</a>') && vercel.includes('href="../attestations.html#nis2">NIS2</a>') && vercel.includes('href="../attestations.html#pipeda">PIPEDA</a>'));
+const chain = readFileSync(new URL("../site/c/chainguard.html", import.meta.url), "utf8");
+expect("mark without a file stays words", chain.includes("<li>SLSA</li>") && !chain.includes("attestations.html#slsa") && !chain.includes("<img"));
 
 const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8");
 expect("identity block wears the spine", /\.ident \{[\s\S]*border-left: var\(--ot-spine\) solid var\(--ot-evidence-teal\)/.test(css));

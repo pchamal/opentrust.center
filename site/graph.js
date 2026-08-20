@@ -471,6 +471,30 @@ function viewFromLocation() {
   return "list";
 }
 
+export function focusIdFromLocation(loc = window.location) {
+  const params = new URLSearchParams(loc.search || "");
+  const q = params.get("p");
+  if (q) return q;
+  const hash = String(loc.hash || "").replace(/^#/, "");
+  if (hash.startsWith("p=")) {
+    try {
+      return decodeURIComponent(hash.slice(2));
+    } catch {
+      return hash.slice(2);
+    }
+  }
+  return "";
+}
+
+function processorIndex(id) {
+  if (!id) return 0;
+  const key = String(id);
+  const i = state.processors.findIndex(
+    (p) => p.id === key || p.slug === key || p.name === key,
+  );
+  return i >= 0 ? i : 0;
+}
+
 function renderHoodLine() {
   const el = $("hood-line");
   const cap = $("fig-cap");
@@ -534,6 +558,15 @@ function fileProcessor(i) {
   renderStub();
   renderHoodLine();
   if (state.view === "map") drawMap();
+  const id = p.id || p.slug;
+  if (id && window.history && window.history.replaceState && state.view !== "map") {
+    const url = new URL(window.location.href);
+    url.searchParams.delete("p");
+    url.hash = "p=" + encodeURIComponent(id);
+    if (url.href !== window.location.href) {
+      window.history.replaceState(null, "", url);
+    }
+  }
   revealFile();
 }
 
@@ -591,6 +624,7 @@ function onMapUp(e) {
 
 function bind() {
   $("wire-body").addEventListener("click", (e) => {
+    if (e.target.closest("a")) return;
     const tr = e.target.closest("tr");
     if (!tr) return;
     const i = Number(tr.getAttribute("data-i"));
@@ -611,7 +645,19 @@ function bind() {
   canvas.addEventListener("pointercancel", () => {
     map.drag = null;
   });
-  window.addEventListener("hashchange", () => setView(viewFromLocation(), false));
+  window.addEventListener("hashchange", () => {
+    setView(viewFromLocation(), false);
+    const id = focusIdFromLocation();
+    if (!id) return;
+    const i = processorIndex(id);
+    if (i === state.focus) return;
+    state.focus = i;
+    map.focusKey = null;
+    renderTable();
+    renderStub();
+    renderHoodLine();
+    if (state.view === "map") drawMap();
+  });
   window.addEventListener("resize", () => {
     if (state.view === "map") drawMap();
   });
@@ -644,6 +690,7 @@ async function load() {
     (reg.companies || []).forEach((c) => state.companies.set(c.slug, c));
     state.edges = normalizeEdges(wires, state.companies);
     state.processors = rankProcessors(state.edges, state.companies);
+    state.focus = processorIndex(focusIdFromLocation());
     fillIssue($("issue"), reg);
   } catch {
     state.edges = [];

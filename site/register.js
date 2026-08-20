@@ -228,7 +228,13 @@ export function marksCell(row) {
     return stamp || `<span class="absent">not on file</span>`;
   }
   const line = names
-    .map((a) => `<span class="mark-chip">${escapeHtml(markLabel(a))}</span>`)
+    .map((a) => {
+      const label = escapeHtml(markLabel(a));
+      const id = String((a && a.id) || "").trim();
+      return id
+        ? `<a class="mark-chip" href="./attestations.html#${encodeURIComponent(id)}">${label}</a>`
+        : `<span class="mark-chip">${label}</span>`;
+    })
     .join(" · ");
   return stamp ? stamp + (line ? " · " + line : "") : `<span class="mark-line">${line}</span>`;
 }

@@ -207,6 +207,16 @@ expect("marks are clerk chips", buyer.includes('class="mark-chip">soc 2 type ii<
 expect("buyer mark is named first", buyer.indexOf("soc 2") < buyer.indexOf("iso 27001"));
 expect("marks have no plus-n", !/\+\d/.test(buyer) && !buyer.includes("mark-more"));
 expect("named marks that fit stay listed", /mark-chip">soc 2/.test(buyer) && buyer.includes("ccpa") && buyer.includes("gdpr"));
+const filedMarks = marksCell({
+  attestations: [{ name: "SOC 2 Type II", id: "soc-2-type-ii", short: "SOC 2 Type II" }],
+});
+expect(
+  "mark words go to the framework entry",
+  filedMarks.includes('href="./attestations.html#soc-2-type-ii"')
+    && filedMarks.includes("soc 2 type ii")
+    && !filedMarks.includes("<img")
+    && !filedMarks.includes("<svg"),
+);
 
 const fed = marksCell({
   fedramp: { marketplace: "https://marketplace.fedramp.gov/products/FR123" },
