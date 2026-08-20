@@ -251,3 +251,14 @@ grafana-labs, abnormal-ai, alphasense, checkr, talkdesk, fivetran, dialpad, ninj
 - `data/enriched.json`
 - `data/subprocessors.json`
 - `scripts/enrich.py` (repeatable; HTTP cache under `data/cache/http/`)
+
+## Marks pass
+
+Generated: 2026-08-20T17:37:17Z
+
+- pages checked: 423
+- new mark filings: 657
+- companies with ≥1 mark: 186 → 248
+- mark mentions: 975 → 1616
+
+First-party trust/security HTML only. Login walls and pages that name no mark stayed unchanged.
