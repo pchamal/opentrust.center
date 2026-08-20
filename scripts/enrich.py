@@ -320,6 +320,88 @@ SPECIAL_URLS = {
     "microsoft": [("https://status.cloud.microsoft", "status")],
 }
 
+_MONTH = (
+    r"(?:january|february|march|april|may|june|july|august|september|"
+    r"october|november|december)"
+)
+_YEAR_TOKEN = r"(1[6-9]\d{2}|20[0-2]\d)"
+OFFICIAL_FOUNDED = re.compile(
+    rf"""
+    \b(?:
+        (?:was\s+|were\s+|been\s+)?
+        (?:founded|established|incorporated)
+        (?:\s+(?:in|on))?
+        |
+        (?:year|date)\s+(?:founded|established|incorporated)
+        |
+        (?:founded|established|incorporated)\s*[:\-–—]\s*(?:year|date)?
+        |
+        founding\s+(?:year|date)
+        |
+        since\s+(?:our|its|the)\s+founding(?:\s+in)?
+        |
+        \best\.
+    )
+    \s*[:\-–—,]?\s*
+    (?:the\s+year\s+)?
+    (?:{_MONTH}\s+(?:\d{{1,2}}(?:st|nd|rd|th)?,?\s+)?)?
+    ({_YEAR_TOKEN})
+    \b
+    """,
+    re.I | re.X,
+)
+OFFICIAL_FOUNDED_REVERSE = re.compile(
+    rf"\bin\s+({_YEAR_TOKEN})\b[^.]{{0,80}}?\b(?:was\s+|were\s+)?(?:founded|established|incorporated)\b",
+    re.I,
+)
+# Timeline copy: "2012 Fivetran is founded out of Y Combinator"
+YEAR_THEN_FOUNDED = re.compile(
+    rf"(?:^|[^\d])({_YEAR_TOKEN})\s+(?:[A-Z][\w.&'-]*\s+){{0,8}}(?:is|was|were)\s+(?:founded|established|incorporated)\b",
+)
+FOUNDING_DATE_FIELD = re.compile(
+    rf"""(?:foundingDate|founding_date|dateFounded|yearFounded)\s*"?\s*[=:]\s*"?({_YEAR_TOKEN})""",
+    re.I,
+)
+COPYRIGHT_SPAN = re.compile(
+    r"(?:©|&copy;|copyright)\s*(?:©\s*)?(?:19|20)\d{2}(?:\s*[-–—]\s*(?:19|20)\d{2})?",
+    re.I,
+)
+NEWS_ARTICLE_PATH = re.compile(
+    r"/(?:press|news|newsroom|blog|media|articles?)/.+"
+    r"|/\d{4}/\d{1,2}/",
+    re.I,
+)
+THIRD_PARTY_YEAR_HOSTS = {
+    "wikipedia.org", "wikidata.org", "crunchbase.com", "techcrunch.com",
+    "bloomberg.com", "forbes.com", "reuters.com", "wsj.com", "nytimes.com",
+    "businesswire.com", "prnewswire.com", "yahoo.com", "linkedin.com",
+    "medium.com", "glassdoor.com", "pitchbook.com", "cbinsights.com",
+    "owler.com", "zoominfo.com", "tracxn.com", "dealroom.co",
+    "theinformation.com", "protocol.com", "venturebeat.com",
+}
+ABOUT_PATHS = (
+    "/about", "/about-us", "/about/company", "/about/us",
+    "/company", "/company/about", "/company/our-story",
+    "/our-story", "/our-company", "/who-we-are",
+    "/about/our-story", "/en/about", "/en/company",
+    "/press", "/newsroom", "/company/press",
+)
+ABOUT_HREF = re.compile(
+    r"/(?:about(?:-us)?|our-story|our-company|who-we-are|newsroom|press)(?:/|$)"
+    r"|/company(?:/(?:about|our-story|who-we-are|press))?/?$",
+    re.I,
+)
+YEAR_PAGE_SKIP = re.compile(
+    r"/(?:careers|jobs|login|signin|sign-up|signup|blog|customers|pricing|legal)(?:/|$)",
+    re.I,
+)
+_CORP_SUFFIX = re.compile(
+    r""",?\s+(?:inc\.?|llc|l\.l\.c\.?|ltd\.?|corp\.?|corporation|co\.?|"""
+    r"""plc|gmbh|s\.?a\.?|n\.?v\.?|ag|ab|oy|k\.?k\.?|limited|company)$""",
+    re.I,
+)
+
+
 # First-party DPA / processor-terms pages only. Privacy, cookies, and portal
 # hosts are not a DPA. Product pages that say "data processing" are not a DPA.
 PORTAL_VENDOR_HOSTS = {
@@ -665,14 +747,18 @@ def website_matches(urls: list[str], hosts: list[str]) -> bool:
     return False
 
 
+def _name_core(s: str) -> str:
+    s = re.sub(r"\s*\([^)]*\)\s*", " ", s or "")
+    s = _CORP_SUFFIX.sub("", s)
+    s = re.sub(r"[^\w\s&+.]", " ", s.lower())
+    return re.sub(r"\s+", " ", s).strip()
+
+
 def title_close(wiki_title: str, name: str) -> bool:
-    a = re.sub(r"\s*\([^)]*\)\s*", " ", wiki_title or "").strip().lower()
-    b = name.strip().lower()
-    if not a or not b:
-        return False
-    if a == b or a.startswith(b + ",") or a.startswith(b + " "):
-        return True
-    return b.startswith(a) and len(a) >= 4
+    """Exact core-name match only. 'Manhattan' is not Manhattan Associates."""
+    a, b = _name_core(wiki_title), _name_core(name)
+    return bool(a and b and a == b)
+
 
 
 def extract_certs(blob: str) -> list[str]:
@@ -2701,11 +2787,673 @@ def file_published_dpas() -> int:
         print(f"  filed {name}: {url}", flush=True)
     return 0
 
+def has_official_domain(company: dict) -> bool:
+    return bool(hosts_for(company))
+
+
+def is_third_party_year_host(url: str) -> bool:
+    h = host_of(url)
+    if not h:
+        return True
+    return any(h == d or h.endswith("." + d) for d in THIRD_PARTY_YEAR_HOSTS)
+
+
+def is_news_article_url(url: str) -> bool:
+    path = path_of(url)
+    return bool(NEWS_ARTICLE_PATH.search(path))
+
+
+def canon_source_url(url: str) -> str:
+    p = urlparse(url)
+    netloc = p.netloc.lower()
+    if netloc.endswith(":443") and (p.scheme or "https") == "https":
+        netloc = netloc[:-4]
+    if netloc.endswith(":80") and p.scheme == "http":
+        netloc = netloc[:-3]
+    path = (p.path or "/").rstrip("/") or "/"
+    return f"{p.scheme}://{netloc}{path}"
+
+
+def is_official_year_source(url: str, company: dict) -> bool:
+    """A year source must be the company's own site. Wikipedia and news are not."""
+    if not url or not str(url).startswith("http"):
+        return False
+    if is_third_party_year_host(url):
+        return False
+    if is_news_article_url(url):
+        return False
+    if YEAR_PAGE_SKIP.search(path_of(url)):
+        return False
+    hosts = set(hosts_for(company))
+    for raw in (company.get("trust_url"), company.get("final_url"), company.get("domain")):
+        if not raw:
+            continue
+        h = host_of(raw) if str(raw).startswith("http") else str(raw).lower().removeprefix("www.")
+        if h:
+            hosts.add(h)
+    if not hosts:
+        return False
+    h = host_of(url)
+    regs = {registrable(x) for x in hosts if x}
+    if h in hosts or registrable(h) in regs:
+        return True
+    return any(h.endswith("." + known) or known.endswith("." + h) for known in (hosts | regs) if known)
+
+
+_OTHER_SUBJECT = re.compile(
+    r"\b(program|programs|alliance|survey|foundation|committee|initiative|"
+    r"award|partnership|subsidiary|division|campaign|academy|council|"
+    r"works council|employee participation|university|campus|school|"
+    r"college|scholarship)\b",
+    re.I,
+)
+
+
+def _window_about_this_company(window: str, company_name: str, structured: bool) -> bool:
+    if structured:
+        return True
+    w = window or ""
+    if _OTHER_SUBJECT.search(w):
+        return False
+    if re.search(r"\bco-founded\b", w, re.I):
+        core = _name_core(company_name) if company_name else ""
+        if not core or not re.search(
+            rf"\bco-founded\s+{re.escape(company_name)}"
+            rf"|{re.escape(company_name)}.{{0,40}}was\s+co-founded",
+            w,
+            re.I,
+        ):
+            return False
+    if re.search(r"\b(?:we are|is|are)\s+part of\b.{0,80}\b(?:founded|established)\b", w, re.I):
+        return False
+    core = _name_core(company_name) if company_name else ""
+    if core and core in _name_core(w):
+        return True
+    if re.search(r"\b(we|our company|our firm|our story|this company)\b", w, re.I):
+        return True
+    if re.search(r"\bthe company\b", w, re.I) and not re.search(
+        r"\b(?:selling|sold|left|joined|acquired|bought)\s+the company\b", w, re.I
+    ):
+        return True
+    # A year without this company’s name (or we/our) is not enough — partner
+    # hospitals and heritage footnotes stay off file.
+    return False
+
+
+def parse_official_founded_year(text: str, company_name: str = ""):
+    """Return YYYY only from an explicit founded/established sentence or foundingDate."""
+    if not text:
+        return None
+    cleaned = COPYRIGHT_SPAN.sub(" ", text)
+    years = []
+    for pat, structured in (
+        (OFFICIAL_FOUNDED, False),
+        (OFFICIAL_FOUNDED_REVERSE, False),
+        (YEAR_THEN_FOUNDED, False),
+        (FOUNDING_DATE_FIELD, True),
+    ):
+        for m in pat.finditer(cleaned):
+            year = int(m.group(1))
+            if not (1600 <= year <= NOW_YEAR):
+                continue
+            window = cleaned[max(0, m.start() - 90): m.end() + 90]
+            if not _window_about_this_company(window, company_name, structured):
+                continue
+            years.append(year)
+    if not years:
+        return None
+    uniq = sorted(set(years))
+    if len(uniq) != 1:
+        return None
+    return uniq[0]
+
+
+def about_urls_for(company: dict) -> list[str]:
+    out, seen = [], set()
+
+    def add(url: str) -> None:
+        u = (url or "").split("#")[0].rstrip("/")
+        if not u.startswith("http"):
+            return
+        key = u.lower()
+        if key in seen:
+            return
+        seen.add(key)
+        out.append(u)
+
+    for domain in hosts_for(company)[:1]:
+        add(f"https://{domain}")
+        for path in ABOUT_PATHS:
+            add(f"https://{domain}{path}")
+    return out
+
+
+def year_follow_urls(rec: dict, company: dict) -> list[str]:
+    out = []
+    for href in rec.get("hrefs") or []:
+        if not ABOUT_HREF.search(path_of(href)):
+            continue
+        if is_news_article_url(href):
+            continue
+        if is_official_year_source(href, company):
+            out.append(href)
+    return out[:8]
+
+
+def resolve_official_year(company: dict) -> tuple[int, str] | None:
+    """File a year only when the company's own official website publishes one."""
+    jobs = about_urls_for(company)
+    seen = {u.lower() for u in jobs}
+    found: list[tuple[int, str]] = []
+    i = 0
+    while i < len(jobs) and i < 24:
+        url = jobs[i]
+        i += 1
+        rec = fetch_cached(url, max_body=TRUST_BODY)
+        if not rec.get("ok") or rec.get("status") != 200:
+            continue
+        title, text = rec.get("title") or "", rec.get("text") or ""
+        if looks_dead(title, text):
+            continue
+        final = rec.get("final_url") or url
+        if not is_official_year_source(final, company):
+            continue
+        blob = " ".join(filter(None, [title, rec.get("meta") or "", text]))
+        year = parse_official_founded_year(blob, company.get("name") or "")
+        if year:
+            found.append((year, final))
+        if len(jobs) >= 24:
+            continue
+        for extra in year_follow_urls(rec, company):
+            if extra.lower() in seen:
+                continue
+            seen.add(extra.lower())
+            jobs.append(extra)
+            if len(jobs) >= 24:
+                break
+    if not found:
+        return None
+    years = {y for y, _s in found}
+    if len(years) != 1:
+        return None
+    year, source = found[0]
+    return year, canon_source_url(source)
+
+
+def apply_year_to_row(row: dict, year: int, source: str) -> bool:
+    """File a founded year and add the longevity factor. Leave other facts as they were."""
+    if row.get("founded_year"):
+        return False
+    if not is_official_year_source(source, row):
+        return False
+    row["founded_year"] = year
+    row["founded_source"] = source
+    disc = dict(row.get("disclosure") or {})
+    factors = dict(disc.get("factors") or {})
+    pts = min(10, (NOW_YEAR - int(year)) // 2)
+    if pts and not factors.get("longevity"):
+        factors["longevity"] = pts
+        score = min(100, int(disc.get("score") or 0) + pts)
+        if not (row.get("found") or (row.get("links") or {}).get("trust") or (row.get("links") or {}).get("security")):
+            tier = "silent"
+        elif score >= 90:
+            tier = "complete"
+        elif score >= 70:
+            tier = "substantial"
+        elif score >= 40:
+            tier = "on-file"
+        else:
+            tier = "thin"
+        disc["score"] = score
+        disc["tier"] = tier
+        disc["factors"] = factors
+        row["disclosure"] = disc
+    return True
+
+
+def extract_certs(blob: str) -> list[str]:
+    if not blob:
+        return []
+    found, seen = [], set()
+    for name, pat, _w in CERT_RULES:
+        if name not in seen and pat.search(blob):
+            found.append(name)
+            seen.add(name)
+    out = []
+    for name in found:
+        supers = CERT_SUPERSEDE.get(name)
+        if supers and any(s in seen for s in supers):
+            continue
+        out.append(name)
+    return out
+
+
+def cert_score(certs: list[str]) -> int:
+    return min(40, sum(CERT_WEIGHT.get(c, 4) for c in certs))
+
+
+def extract_processors(text: str) -> list[str]:
+    hits, seen = [], set()
+    for pid, _n, _d, pats in PROC_COMPILED:
+        if any(p.search(text or "") for p in pats) and pid not in seen:
+            seen.add(pid)
+            hits.append(pid)
+    return hits
+
+
+def is_subprocessor_page(url: str, title: str, text: str) -> bool:
+    blob = f"{url} {title} {text[:5000]}".lower()
+    return bool(re.search(r"sub-?\s*process", blob))
+
+
+def is_valid_security_txt(text: str, ctype: str) -> bool:
+    if not text:
+        return False
+    if "html" in (ctype or "").lower() and "<html" in text.lower():
+        return False
+    return bool(SEC_CONTACT.search(text) or re.search(r"(?im)^\s*Expires\s*:", text))
+
+
+def classify_probe(url: str, rec: dict):
+    if not rec.get("ok") or rec.get("status") != 200:
+        return None
+    title, text = rec.get("title") or "", rec.get("text") or ""
+    final = rec.get("final_url") or url
+    if looks_dead(title, text):
+        return None
+    if landed_on_home(url, final) and "status." not in host_of(url):
+        return None
+    path, host = path_of(final).lower(), host_of(final)
+    low = f"{title} {text[:3500]} {path} {host}".lower()
+    if "session_sync" in (final or "").lower() or "/signin" in path or host.startswith("app."):
+        if "sub-process" in path or "subprocessor" in path:
+            return None
+    if "security.txt" in path:
+        raw = rec.get("raw_head") or text
+        return "security_txt" if is_valid_security_txt(raw, rec.get("ctype") or "") else None
+    if re.search(r"sub-?process|service-providers?", path) and (
+        is_subprocessor_page(final, title, text) or re.search(r"sub-?process", text[:6000], re.I)
+    ):
+        return "subprocessors"
+    if re.search(r"(data-processing|/dpa\b|/dpa/)", path) or re.search(r"\bdpa\b", title, re.I):
+        if re.search(r"data processing|sub-process|\bdpa\b", low):
+            return "dpa"
+    if host.startswith("status.") or path.rstrip("/") == "/status" or re.search(
+        r"\b(status page|system status|service status)\b", title, re.I
+    ):
+        if re.search(r"status|uptime|incident|operational", low):
+            return "status"
+    if re.search(r"bug-?bounty|responsible-?disclosure|vulnerability-?disclosure", path) or re.search(
+        r"\b(bug bounty|responsible disclosure|vulnerability disclosure)\b", title, re.I
+    ):
+        return "bug_bounty"
+    if "privacy" in path or re.search(r"privacy policy", title, re.I):
+        if "privacy" in low:
+            return "privacy"
+    if host.startswith("trust.") or "trust-center" in path or path.rstrip("/") in {"/trust", "/trust-center"}:
+        return "trust"
+    if host.startswith("security.") or path.rstrip("/") in {"/security", "/docs/security"}:
+        return "security"
+    return None
+
+
+def probe_urls_for(company: dict) -> list[tuple[str, str]]:
+    pairs, seen = [], set()
+
+    def add(url: str, hint: str) -> None:
+        u = url.rstrip("/")
+        key = u.lower()
+        if key not in seen:
+            seen.add(key)
+            pairs.append((u, hint))
+
+    for domain in hosts_for(company)[:2]:
+        add(f"https://{domain}/.well-known/security.txt", "security_txt")
+        add(f"https://{domain}/security.txt", "security_txt")
+        add(f"https://{domain}/privacy", "privacy")
+        add(f"https://{domain}/privacy-policy", "privacy")
+        add(f"https://{domain}/legal/privacy", "privacy")
+        add(f"https://{domain}/subprocessors", "subprocessors")
+        add(f"https://{domain}/sub-processors", "subprocessors")
+        add(f"https://{domain}/legal/subprocessors", "subprocessors")
+        add(f"https://{domain}/legal/sub-processors", "subprocessors")
+        add(f"https://{domain}/legal/service-providers", "subprocessors")
+        add(f"https://{domain}/dpa", "dpa")
+        add(f"https://{domain}/legal/dpa", "dpa")
+        add(f"https://{domain}/legal/data-processing-addendum", "dpa")
+        add(f"https://{domain}/data-processing-addendum", "dpa")
+        add(f"https://status.{domain}", "status")
+        add(f"https://{domain}/status", "status")
+        add(f"https://{domain}/bug-bounty", "bug_bounty")
+        add(f"https://{domain}/responsible-disclosure", "bug_bounty")
+        add(f"https://{domain}/security/responsible-disclosure", "bug_bounty")
+        add(f"https://{domain}/vulnerability-disclosure", "bug_bounty")
+        add(f"https://{domain}/security", "security")
+        add(f"https://{domain}/trust", "trust")
+    trust = company.get("trust_url") or ""
+    if trust:
+        th = host_of(trust)
+        if th:
+            add(f"https://{th}/subprocessors", "subprocessors")
+            add(f"https://{th}/sub-processors", "subprocessors")
+    for url, hint in SPECIAL_URLS.get(company["slug"], []):
+        add(url, hint)
+    return pairs
+
+
+def accept_link(kind: str, url: str, rec: dict) -> bool:
+    classified = classify_probe(url, rec)
+    if classified == kind:
+        return True
+    if kind in {"trust", "security"} and rec.get("ok") and rec.get("status") == 200:
+        if looks_dead(rec.get("title") or "", rec.get("text") or ""):
+            return False
+        return not landed_on_home(url, rec.get("final_url") or url)
+    return False
+
+
+def bounty_from_security_txt(text: str):
+    for pat in (SEC_POLICY, SEC_CONTACT):
+        for m in pat.finditer(text or ""):
+            val = m.group(1).strip()
+            if val.startswith("http") and re.search(
+                r"hackerone|bugcrowd|yeswehack|intigriti|bug-?bounty|responsible-?disclosure|vulnerability",
+                val, re.I,
+            ):
+                return val
+    return None
+
+
+def clerk_summary(found: bool, certs: list[str], old: str, page_text: str) -> str:
+    if VENDOR_WORDS.search(old or "") or JS_JUNK.search(old or ""):
+        old = ""
+    if not found:
+        return ""
+    if certs:
+        shown = ", ".join(certs[:8])
+        more = " and others" if len(certs) > 8 else ""
+        return f"Public trust center. On file: {shown}{more}."
+    if old and not VENDOR_WORDS.search(old) and not JS_JUNK.search(old) and 40 <= len(old) <= 280:
+        return re.sub(r"\s+", " ", old).strip()[:240]
+    if page_text and not VENDOR_WORDS.search(page_text) and not JS_JUNK.search(page_text):
+        m = re.search(r"([^.?!]{40,220}[.?!])", page_text)
+        if m and re.search(r"trust|security|privacy|compliance", m.group(1), re.I):
+            return m.group(1).strip()
+    return "Public trust center on file."
+
+
+def score_row(found: bool, certs: list[str], links: dict, founded_year):
+    score = 20 if found else 0
+    score += cert_score(certs)
+    if links.get("dpa"):
+        score += 8
+    if links.get("subprocessors"):
+        score += 8
+    if links.get("status"):
+        score += 6
+    if links.get("bug_bounty") or links.get("security_txt"):
+        score += 6
+    if links.get("privacy"):
+        score += 6
+    if founded_year:
+        score += min(10, (NOW_YEAR - founded_year) // 2)
+    score = min(100, score)
+    if not found:
+        return score, "silent"
+    if score >= 90:
+        return score, "complete"
+    if score >= 70:
+        return score, "substantial"
+    if score >= 40:
+        return score, "on-file"
+    return score, "thin"
+
+
+def chunked(items, n):
+    for i in range(0, len(items), n):
+        yield items[i:i + n]
+
+
+def clean_title(title: str, company_name: str = "") -> str:
+    t = VENDOR_TITLE_TAIL.sub("", title or "").strip()
+    t = re.sub(r"\s*[|\-–—]\s*Powered by \w+\s*$", "", t, flags=re.I)
+    t = re.sub(r"(?i)\s*[|\-–—]?\s*powered by\s+\w+", "", t).strip(" |:-")
+    vendors = {"vanta", "safebase", "conveyor", "wolfia", "drata", "securitypal", "secureframe", "whistic"}
+    low = t.lower().strip()
+    cname = (company_name or "").lower()
+    if low in vendors and low not in cname:
+        return ""
+    return t
+
+
+def resolve_founding_years(companies: list[dict], log: list[str]) -> dict:
+    title_to_slugs = defaultdict(list)
+    for c in companies:
+        titles = [c["name"], *WIKI_HINTS.get(c["slug"], [])]
+        seen = set()
+        for t in titles:
+            if t.lower() not in seen:
+                seen.add(t.lower())
+                title_to_slugs[t].append(c["slug"])
+    qid_by_title, title_canon = {}, {}
+    all_titles = list(title_to_slugs)
+    print(f"  Wikipedia titles to resolve: {len(all_titles)}", flush=True)
+    for batch in chunked(all_titles, 40):
+        data = wiki_api({
+            "action": "query", "prop": "pageprops", "ppprop": "wikibase_item",
+            "redirects": "1", "titles": "|".join(batch), "format": "json",
+        })
+        if not data:
+            log.append(f"Wikipedia batch failed for {batch[:2]}")
+            continue
+        q = data.get("query") or {}
+        normalized = {n["from"]: n["to"] for n in q.get("normalized") or []}
+        redirects = {n["from"]: n["to"] for n in q.get("redirects") or []}
+        resolved = {}
+        for page in (q.get("pages") or {}).values():
+            if "missing" not in page:
+                resolved[page.get("title", "")] = page
+        for asked in batch:
+            got = redirects.get(normalized.get(asked, asked), normalized.get(asked, asked))
+            page = resolved.get(got)
+            if not page:
+                continue
+            qid = (page.get("pageprops") or {}).get("wikibase_item")
+            if qid:
+                qid_by_title[asked] = qid
+                title_canon[asked] = page.get("title") or got
+    qids = sorted(set(qid_by_title.values()))
+    print(f"  Wikidata entities: {len(qids)}", flush=True)
+    entities = {}
+    for batch in chunked(qids, 40):
+        data = wikidata_api({
+            "action": "wbgetentities", "ids": "|".join(batch),
+            "props": "claims|labels|sitelinks", "languages": "en", "format": "json",
+        })
+        if not data:
+            log.append(f"Wikidata batch failed for {batch[:2]}")
+            continue
+        entities.update(data.get("entities") or {})
+
+    by_slug = {}
+    for c in companies:
+        hosts = hosts_for(c)
+        cands = []
+        titles = [c["name"], *WIKI_HINTS.get(c["slug"], [])]
+        seen = set()
+        for t in titles:
+            if t.lower() in seen:
+                continue
+            seen.add(t.lower())
+            qid = qid_by_title.get(t)
+            if not qid or qid not in entities or entities[qid].get("missing"):
+                continue
+            ent = entities[qid]
+            claims = ent.get("claims") or {}
+            year = parse_p571(claims)
+            if not year:
+                continue
+            sites = parse_p856(claims)
+            p31 = parse_p31(claims)
+            web_ok = website_matches(sites, hosts)
+            wiki_title = title_canon.get(t) or t
+            label = ((ent.get("labels") or {}).get("en") or {}).get("value") or ""
+            name_ok = title_close(wiki_title, c["name"]) or title_close(label, c["name"])
+            if "Q4167410" in p31:  # disambiguation
+                continue
+            # Title-only prefix hits (Manhattan / Sage Publishing) are not a source.
+            # Wikipedia is not enough unless the official website matches.
+            if not web_ok:
+                continue
+            if not name_ok and p31 and "Q5" in p31 and not (set(p31) & ORG_QIDS):
+                continue
+            source = f"https://www.wikidata.org/wiki/{qid}"
+            enwiki = ((ent.get("sitelinks") or {}).get("enwiki") or {}).get("title")
+            if enwiki:
+                source = "https://en.wikipedia.org/wiki/" + enwiki.replace(" ", "_")
+            cands.append((year, source, web_ok))
+        if cands:
+            cands.sort(key=lambda x: (not x[2], x[0]))
+            by_slug[c["slug"]] = (cands[0][0], cands[0][1])
+
+    misses = [c for c in companies if c["slug"] not in by_slug]
+    print(f"  title hits: {len(by_slug)}; search fallback for {len(misses)}", flush=True)
+
+    def search_one(c):
+        query = WIKI_HINTS.get(c["slug"], [c["name"]])[0]
+        data = wiki_api({
+            "action": "query", "list": "search", "srsearch": query,
+            "srlimit": "5", "format": "json",
+        })
+        if not data:
+            return c["slug"], None, None
+        hosts = hosts_for(c)
+        for hit in (data.get("query") or {}).get("search") or []:
+            title = hit.get("title") or ""
+            props = wiki_api({
+                "action": "query", "prop": "pageprops", "ppprop": "wikibase_item",
+                "titles": title, "format": "json",
+            })
+            if not props:
+                continue
+            qid = None
+            for page in ((props.get("query") or {}).get("pages") or {}).values():
+                qid = (page.get("pageprops") or {}).get("wikibase_item")
+                if qid:
+                    break
+            if not qid:
+                continue
+            entd = wikidata_api({
+                "action": "wbgetentities", "ids": qid,
+                "props": "claims|labels|sitelinks", "languages": "en", "format": "json",
+            })
+            if not entd:
+                continue
+            ent = (entd.get("entities") or {}).get(qid) or {}
+            claims = ent.get("claims") or {}
+            year = parse_p571(claims)
+            if not year:
+                continue
+            sites = parse_p856(claims)
+            p31 = parse_p31(claims)
+            if "Q4167410" in p31:
+                continue
+            web_ok = website_matches(sites, hosts)
+            if not web_ok:
+                continue
+            source = "https://en.wikipedia.org/wiki/" + title.replace(" ", "_")
+            return c["slug"], year, source
+        return c["slug"], None, None
+
+    with ThreadPoolExecutor(max_workers=WIKI_WORKERS) as pool:
+        futs = [pool.submit(search_one, c) for c in misses]
+        for i, fut in enumerate(as_completed(futs), 1):
+            slug, year, source = fut.result()
+            if year and source:
+                by_slug[slug] = (year, source)
+            if i % 25 == 0 or i == len(futs):
+                print(f"  wiki search {i}/{len(futs)}", flush=True)
+
+    # Wikipedia lead text is not a source. Official-site years are filed later.
+    return by_slug
+
+
+LOGIN_WALL = re.compile(
+    r"(please (?:log|sign) in|sign in to continue|login required|"
+    r"you (?:must|need to) (?:log|sign) in|authentication required)",
+    re.I,
+)
+
+def file_published_years() -> int:
+    """File founded years already published on official sites, for rows that have none."""
+    t0 = time.time()
+    src = SITE / "data" / "enriched.json"
+    if not src.exists():
+        src = DATA / "enriched.json"
+    payload = load_json(src, {})
+    companies = list(payload.get("companies") or [])
+    if not companies:
+        print("no companies in enriched.json", flush=True)
+        return 1
+    before = sum(1 for c in companies if c.get("founded_year"))
+    gaps = [
+        c for c in companies
+        if not c.get("founded_year")
+        and (has_public_page(c) or has_official_domain(c))
+    ]
+    print(f"Years on file: {before}. Pages/domains with no year: {len(gaps)}", flush=True)
+
+    filed: list[tuple[str, int, str]] = []
+    checked = 0
+
+    def do_one(c):
+        try:
+            return c["slug"], resolve_official_year(c)
+        except Exception:
+            return c["slug"], None
+
+    by_slug = {c["slug"]: c for c in companies}
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = [pool.submit(do_one, c) for c in gaps]
+        done = 0
+        for fut in as_completed(futs):
+            slug, hit = fut.result()
+            done += 1
+            checked += 1
+            if done % 25 == 0 or done == len(futs):
+                print(f"  checked {done}/{len(futs)}", flush=True)
+            if not hit:
+                continue
+            year, source = hit
+            row = by_slug.get(slug)
+            if not row:
+                continue
+            if apply_year_to_row(row, year, source):
+                filed.append((row.get("name") or slug, year, source))
+
+    generated = utc_now()
+    payload["generated_at"] = generated
+    payload["companies"] = companies
+    write_json(DATA / "enriched.json", payload)
+    write_json(SITE / "data" / "enriched.json", payload)
+    after = sum(1 for c in companies if c.get("founded_year"))
+    print(f"Wrote {DATA / 'enriched.json'} and {SITE / 'data' / 'enriched.json'}", flush=True)
+    print(
+        f"checked={checked} filed={len(filed)} years {before} → {after} "
+        f"in {time.time() - t0:.1f}s",
+        flush=True,
+    )
+    for name, year, source in sorted(filed, key=lambda x: x[0].lower()):
+        print(f"  filed {name}: {year} · {source}", flush=True)
+    return 0
+
 if __name__ == "__main__":
     if "--named-processors" in sys.argv:
         raise SystemExit(file_named_from_cited())
     if "--file-dpas" in sys.argv:
         raise SystemExit(file_published_dpas())
+    if "--file-years" in sys.argv:
+        raise SystemExit(file_published_years())
     raise SystemExit(main())
 
 
