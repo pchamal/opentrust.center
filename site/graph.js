@@ -1,4 +1,13 @@
-import { $, escapeHtml, fillIssue, displayTier, dataUrl } from "./lib.js";
+import { $, escapeHtml, fillIssue, displayTier, dataUrl, nameWithIcon } from "./lib.js";
+import { arrange, clickSort, cmpText, paintHeaders, TIER_ORDER } from "./sort.js";
+
+const SORT_DEFAULTS = {
+  name: "asc",
+  exposure: "desc",
+  file: "asc",
+  risk: "desc",
+  source: "asc",
+};
 
 const state = {
   data: null,
@@ -6,6 +15,11 @@ const state = {
   companies: new Map(),
   processors: [],
   focus: 0,
+  focusKey: "",
+  sort: "name",
+  dir: "asc",
+  view: "list",
+  icons: { companies: {}, marks: {} },
 };
 
 function thinness(row) {
@@ -86,24 +100,30 @@ function normalizeEdges(wires, companies) {
       const to = e.to || e.processor_slug || e.processor;
       const node = nodes.get(to) || {};
       const slug = registerSlug(node, companies) || (companies.has(to) ? to : e.processor_slug || null);
+      const domain = (node.domain || (slug && companies.get(slug) && companies.get(slug).domain) || "")
+        .toLowerCase()
+        .replace(/^www\./, "");
       return {
         company: from,
         processor: processorDisplayName(e, node, to),
         processor_slug: slug,
         processor_id: to,
+        processor_domain: domain,
         source_url: e.source_url,
       };
     });
 }
 
-function rankProcessors(edges, companies) {
+export function rankProcessors(edges, companies) {
   const by = new Map();
   for (const e of edges) {
     const key = e.processor_id || e.processor_slug || e.processor;
     if (!by.has(key)) {
       by.set(key, {
+        id: key,
         name: e.processor,
         slug: e.processor_slug || null,
+        domain: e.processor_domain || "",
         sources: new Set(),
         namers: [],
       });
@@ -111,6 +131,7 @@ function rankProcessors(edges, companies) {
     const rec = by.get(key);
     rec.sources.add(e.source_url);
     rec.namers.push({ company: e.company, source_url: e.source_url });
+    if (!rec.domain && e.processor_domain) rec.domain = e.processor_domain;
   }
   const rows = [];
   for (const rec of by.values()) {
@@ -119,8 +140,10 @@ function rankProcessors(edges, companies) {
     const t = thinness(self);
     const risk = exposure * (0.4 + 0.6 * t);
     rows.push({
+      id: rec.id || rec.slug || rec.name,
       name: rec.name,
       slug: rec.slug,
+      domain: rec.domain || (self && self.domain) || "",
       inRegister: Boolean(self),
       tier: self ? self.tier : null,
       exposure,
@@ -130,8 +153,51 @@ function rankProcessors(edges, companies) {
       namers: rec.namers,
     });
   }
-  rows.sort((a, b) => b.risk - a.risk || b.exposure - a.exposure || a.name.localeCompare(b.name));
   return rows;
+}
+
+export function sourceHost(p) {
+  const url = p && p.sources && p.sources[0];
+  return url ? hostOfSafe(url) : "";
+}
+
+function fileRank(p) {
+  if (!p || !p.inRegister) return -1;
+  const n = TIER_ORDER[p.tier];
+  return n == null ? -1 : n;
+}
+
+export function compareProcessors(a, b, key) {
+  switch (key) {
+    case "name":
+      return cmpText(a && a.name, b && b.name);
+    case "exposure":
+      return ((a && a.exposure) || 0) - ((b && b.exposure) || 0);
+    case "file":
+      return fileRank(a) - fileRank(b);
+    case "risk":
+      return ((a && a.risk) || 0) - ((b && b.risk) || 0) || ((a && a.exposure) || 0) - ((b && b.exposure) || 0);
+    case "source":
+      return cmpText(sourceHost(a), sourceHost(b));
+    default:
+      return cmpText(a && a.name, b && b.name);
+  }
+}
+
+export function arrangeProcessors(rows, sort, dir) {
+  return arrange(rows, sort || "name", dir || "asc", compareProcessors);
+}
+
+function syncFocus() {
+  if (!state.processors.length) {
+    state.focus = 0;
+    return;
+  }
+  const i = state.focusKey
+    ? state.processors.findIndex((p) => processorKey(p) === state.focusKey)
+    : -1;
+  state.focus = i >= 0 ? i : 0;
+  state.focusKey = processorKey(state.processors[state.focus]);
 }
 
 function renderTable() {
@@ -139,10 +205,13 @@ function renderTable() {
   if (!state.processors.length) {
     $("wire-table").hidden = true;
     $("empty-wires").hidden = false;
+    paintHeaders($("wire-table"), state.sort, state.dir);
     return;
   }
   $("wire-table").hidden = false;
   $("empty-wires").hidden = true;
+  syncFocus();
+  paintHeaders($("wire-table"), state.sort, state.dir);
   body.innerHTML = state.processors
     .map((p, i) => {
       const tier = p.inRegister ? displayTier(p.tier) : "not in register";
@@ -166,6 +235,14 @@ function hostOfSafe(url) {
   }
 }
 
+function iconForDomain(domain, row) {
+  if (row && row.favicon) return row.favicon;
+  const host = String(domain || (row && row.domain) || "")
+    .toLowerCase()
+    .replace(/^www\./, "");
+  return (state.icons.companies && state.icons.companies[host]) || "";
+}
+
 function namerLine(n) {
   const co = state.companies.get(n.company);
   const label = co ? co.name : n.company;
@@ -174,9 +251,10 @@ function namerLine(n) {
   const src = n.source_url
     ? ` <span class="muted">· <a href="${escapeHtml(n.source_url)}" rel="noopener noreferrer">${escapeHtml(host)}</a></span>`
     : "";
+  const named = nameWithIcon(label, iconForDomain(co && co.domain, co));
   return href
-    ? `<li><a href="${href}">${escapeHtml(label)}</a>${src}</li>`
-    : `<li>${escapeHtml(label)}${src}</li>`;
+    ? `<li><a href="${href}">${named}</a>${src}</li>`
+    : `<li>${named}${src}</li>`;
 }
 
 function renderStub() {
@@ -194,19 +272,195 @@ function renderStub() {
   const status = p.inRegister
     ? `<p class="ident-meta">on file · <a href="./c/${encodeURIComponent(p.slug)}.html">dossier</a></p>`
     : `<p class="ident-meta"><span class="absent">not in register</span></p>`;
-  el.innerHTML = `<h2>${escapeHtml(p.name)}</h2>
+  const self = p.slug ? state.companies.get(p.slug) : null;
+  el.innerHTML = `<h2>${nameWithIcon(p.name, iconForDomain(p.domain, self))}</h2>
     ${status}
     <p class="ident-meta">exposure · ${p.exposure}</p>
     <p class="fig-sub">Who named them, as published.</p>
     <ul class="guesses">${p.namers.map(namerLine).join("")}</ul>`;
 }
 
-function drawFig() {
+const map = {
+  nodes: [],
+  links: [],
+  screen: [],
+  yaw: 0,
+  pitch: 0,
+  focusKey: null,
+  drag: null,
+};
+
+const NEIGHBOR_OTHERS_CAP = 8;
+
+export function processorKey(p) {
+  return p && (p.id || p.slug || p.name);
+}
+
+function edgeProcessorId(e) {
+  return e.processor_id || e.processor_slug || e.processor;
+}
+
+export function neighborhoodOf(focus, edges, processors, companies) {
+  if (!focus) return { nodes: [], links: [], namers: 0, others: 0 };
+  const selectedId = processorKey(focus);
+  const namerSlugs = [];
+  const seenNamer = new Set();
+  for (const n of focus.namers || []) {
+    if (!n.company || seenNamer.has(n.company)) continue;
+    seenNamer.add(n.company);
+    namerSlugs.push(n.company);
+  }
+  const byProc = new Map((processors || []).map((p, i) => [processorKey(p), { p, i }]));
+  const otherVotes = new Map();
+  for (const e of edges || []) {
+    if (!seenNamer.has(e.company)) continue;
+    const pid = edgeProcessorId(e);
+    if (!pid || pid === selectedId) continue;
+    if (!otherVotes.has(pid)) otherVotes.set(pid, new Map());
+    const votes = otherVotes.get(pid);
+    votes.set(e.company, (votes.get(e.company) || 0) + 1);
+  }
+  const others = [...otherVotes.entries()]
+    .map(([id, votes]) => {
+      let count = 0;
+      for (const n of votes.values()) count += n;
+      return { id, count, rec: byProc.get(id) };
+    })
+    .sort((a, b) => b.count - a.count || String(a.id).localeCompare(String(b.id)))
+    .slice(0, NEIGHBOR_OTHERS_CAP);
+  const nodes = [];
+  const index = new Map();
+  function add(id, spec) {
+    if (index.has(id)) return index.get(id);
+    const n = { id, x: 0, y: 0, z: 0, ...spec };
+    index.set(id, n);
+    nodes.push(n);
+    return n;
+  }
+  const selectedNode = add(selectedId, {
+    kind: "processor",
+    role: "selected",
+    name: focus.name,
+    slug: focus.slug,
+    inRegister: focus.inRegister,
+    focus: byProc.has(selectedId) ? byProc.get(selectedId).i : null,
+  });
+  for (const o of others) {
+    const rec = o.rec;
+    add(o.id, {
+      kind: "processor",
+      role: "other",
+      name: rec ? rec.p.name : o.id,
+      slug: rec ? rec.p.slug : null,
+      inRegister: rec ? rec.p.inRegister : false,
+      focus: rec ? rec.i : null,
+      shared: o.count,
+    });
+  }
+  const links = [];
+  for (const o of others) {
+    const b = index.get(o.id);
+    if (selectedNode && b) links.push({ a: selectedNode, b });
+  }
+  return { nodes, links, namers: namerSlugs.length, others: others.length };
+}
+
+function placeNeighborhood(nodes) {
+  const selected = nodes.find((n) => n.role === "selected");
+  const others = nodes.filter((n) => n.role === "other");
+  if (selected) {
+    selected.x = 0;
+    selected.y = 0;
+    selected.z = 0;
+  }
+  others.forEach((n, i) => {
+    const a = -Math.PI / 2 + (2 * Math.PI * i) / Math.max(others.length, 1);
+    n.x = Math.cos(a) * 0.68;
+    n.y = Math.sin(a) * 0.68;
+    n.z = 0;
+  });
+}
+
+function compactPhone() {
+  return typeof window !== "undefined" && window.matchMedia("(max-width: 390px)").matches;
+}
+
+function graphShouldDraw(hood) {
+  if (!hood || !hood.nodes.length) return false;
+  if (compactPhone()) return false;
+  return true;
+}
+
+function ensureNeighborhood() {
+  const focus = selectedProcessor();
+  const key = focus ? processorKey(focus) : null;
+  if (map.focusKey === key && map.nodes.length) return;
+  const hood = neighborhoodOf(focus, state.edges, state.processors, state.companies);
+  placeNeighborhood(hood.nodes);
+  map.nodes = hood.nodes;
+  map.links = hood.links;
+  map.namers = hood.namers;
+  map.others = hood.others;
+  map.focusKey = key;
+  // 2D plate. prefers-reduced-motion: still. Drag still works.
+  if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    map.yaw = 0;
+    map.pitch = 0;
+  }
+}
+
+function projectNode(p, w, h) {
+  const cy = Math.cos(map.yaw);
+  const sy = Math.sin(map.yaw);
+  const cp = Math.cos(map.pitch);
+  const sp = Math.sin(map.pitch);
+  const x1 = p.x * cy - p.z * sy;
+  const z1 = p.x * sy + p.z * cy;
+  const y1 = p.y * cp - z1 * sp;
+  const z2 = p.y * sp + z1 * cp;
+  const persp = 3.4;
+  const s = persp / (persp + z2);
+  const R = Math.min(w, h) * 0.42;
+  return {
+    x: w / 2 + x1 * s * R,
+    y: h / 2 + y1 * s * R,
+    z: z2,
+    s,
+  };
+}
+
+function selectedProcessor() {
+  return state.focus != null ? state.processors[state.focus] : null;
+}
+
+function isSelectedNode(n) {
+  return n && n.role === "selected";
+}
+
+function setGraphVisible(on) {
+  const pane = $("wires-map");
+  if (pane) pane.setAttribute("data-graph", on ? "on" : "off");
+}
+
+function drawMap() {
   const canvas = $("fig1");
-  if (!canvas) return;
+  if (!canvas || state.view !== "map") return;
+  if (!state.processors.length) {
+    setGraphVisible(false);
+    return;
+  }
+  ensureNeighborhood();
+  const hood = { nodes: map.nodes, namers: map.namers, others: map.others };
+  const show = graphShouldDraw(hood);
+  setGraphVisible(show);
+  if (!show) {
+    map.screen = [];
+    return;
+  }
   const wrap = canvas.parentElement;
   const w = wrap.clientWidth;
   const h = wrap.clientHeight;
+  if (w < 8 || h < 8) return;
   const dpr = window.devicePixelRatio || 1;
   canvas.width = Math.floor(w * dpr);
   canvas.height = Math.floor(h * dpr);
@@ -214,87 +468,71 @@ function drawFig() {
   canvas.style.height = h + "px";
   const ctx = canvas.getContext("2d");
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  ctx.clearRect(0, 0, w, h);
-  if (!state.processors.length) return;
+  ctx.fillStyle = tokenColor("--ot-record-white", "#F8FAF9");
+  ctx.fillRect(0, 0, w, h);
 
-  const procs = state.processors;
-  const companies = [...new Set(state.edges.map((e) => e.company))]
-    .map((slug) => state.companies.get(slug))
-    .filter(Boolean);
+  const ink = tokenColor("--ot-ledger-black", "#0B1411");
+  const teal = tokenColor("--ot-evidence-teal", "#00685C");
 
-  const leftX = 48;
-  const rightX = w - 48;
-  const top = 28;
-  const bot = h - 28;
-  function stack(n, i) {
-    if (n <= 1) return (top + bot) / 2;
-    return top + ((bot - top) * i) / (n - 1);
-  }
+  map.screen = map.nodes.map((n) => {
+    const q = projectNode(n, w, h);
+    return { n, ...q };
+  });
+  map.screen.sort((a, b) => a.z - b.z);
 
-  const cPos = new Map();
-  companies.forEach((c, i) => cPos.set(c.slug, { x: leftX, y: stack(companies.length, i), row: c }));
-  const pPos = new Map();
-  procs.forEach((p, i) => pPos.set(p.slug || p.name, { x: rightX, y: stack(procs.length, i), row: p, i }));
-
+  const byId = new Map(map.screen.map((s) => [s.n.id, s]));
   ctx.lineWidth = 1;
-  const focused = state.focus != null ? state.processors[state.focus] : null;
-  const focusKey = focused ? focused.slug || focused.name : null;
-  if (focusKey) {
-    ctx.strokeStyle = tokenColor("--ot-evidence-teal", "#00685C");
-    for (const e of state.edges) {
-      const a = cPos.get(e.company);
-      const b = pPos.get(e.processor_slug || e.processor);
-      if (!a || !b) continue;
-      if ((e.processor_slug || e.processor) !== focusKey) continue;
-      ctx.beginPath();
-      ctx.moveTo(a.x + 4, a.y);
-      ctx.lineTo(b.x - 4, b.y);
-      ctx.stroke();
-    }
+  ctx.strokeStyle = ink;
+  ctx.beginPath();
+  for (const L of map.links) {
+    const a = byId.get(L.a.id);
+    const b = byId.get(L.b.id);
+    if (!a || !b) continue;
+    ctx.moveTo(a.x, a.y);
+    ctx.lineTo(b.x, b.y);
   }
+  ctx.stroke();
 
-  function square(x, y, fill, stroke) {
+  for (const s of map.screen) {
+    const selected = isSelectedNode(s.n);
+    const half = selected ? 5 : 3.5;
     ctx.beginPath();
-    ctx.rect(x - 3, y - 3, 6, 6);
-    if (fill) {
-      ctx.fillStyle = fill;
-      ctx.fill();
-    }
-    ctx.strokeStyle = stroke;
-    ctx.lineWidth = 1;
+    ctx.rect(s.x - half, s.y - half, half * 2, half * 2);
+    ctx.fillStyle = ink;
+    ctx.fill();
+    ctx.strokeStyle = selected ? teal : ink;
+    ctx.lineWidth = selected ? 2 : 1;
     ctx.stroke();
   }
 
-  const ink = tokenColor("--ot-ledger-black", "#0B1411");
-  const rule = tokenColor("--ot-rule-strong", "#70817A");
-  const index = tokenColor("--ot-evidence-teal", "#00685C");
-  const mute = tokenColor("--ot-graphite", "#51615B");
-  for (const { x, y } of cPos.values()) {
-    square(x, y, ink, rule);
-  }
-  for (const { x, y, row, i } of pPos.values()) {
-    const selected = state.focus === i;
-    if (row.inRegister) square(x, y, ink, selected ? index : rule);
-    else square(x, y, null, selected ? index : rule);
+  function placeLabel(text, x, y, font, color, prefer) {
+    ctx.font = font;
+    const tw = ctx.measureText(text).width;
+    let lx = x + 10;
+    let ly = y + 4;
+    if (prefer === "above") {
+      lx = x - tw / 2;
+      ly = y - 14;
+    } else {
+      const dx = x - w / 2;
+      const dy = y - h / 2;
+      const len = Math.hypot(dx, dy) || 1;
+      lx = x + (dx / len) * 16 - tw / 2;
+      ly = y + (dy / len) * 14 + 4;
+    }
+    if (lx + tw > w - 8) lx = w - 8 - tw;
+    if (lx < 8) lx = 8;
+    if (ly < 14) ly = y + 18;
+    if (ly > h - 6) ly = y - 10;
+    ctx.fillStyle = color;
+    ctx.fillText(text, lx, ly);
   }
 
-  ctx.font = "13px 'Atkinson Hyperlegible Next', Arial, system-ui, sans-serif";
-  const focus = state.focus != null ? state.processors[state.focus] : null;
-  if (focus) {
-    ctx.fillStyle = ink;
-    const pos = pPos.get(focus.slug || focus.name);
-    if (pos) ctx.fillText(focus.name, pos.x - 8 - ctx.measureText(focus.name).width, pos.y + 4);
-    for (const n of focus.namers) {
-      const c = cPos.get(n.company);
-      if (!c) continue;
-      ctx.fillStyle = mute;
-      ctx.fillText(c.row.name, c.x + 10, c.y + 4);
-    }
-  } else if (procs.length <= 16) {
-    ctx.fillStyle = mute;
-    for (const { x, y, row } of pPos.values()) {
-      ctx.fillText(row.name, x - 8 - ctx.measureText(row.name).width, y + 4);
-    }
+  const serif = "600 17px 'Source Serif 4', Georgia, 'Times New Roman', serif";
+  const utility = "13px 'Atkinson Hyperlegible Next', Arial, system-ui, sans-serif";
+  for (const s of map.screen) {
+    const selected = isSelectedNode(s.n);
+    placeLabel(s.n.name, s.x, s.y, selected ? serif : utility, ink, selected ? "above" : "out");
   }
 }
 
@@ -303,8 +541,182 @@ function tokenColor(name, fallback) {
   return v || fallback;
 }
 
+function viewFromLocation() {
+  const q = new URLSearchParams(location.search).get("view");
+  if (q === "map" || location.hash === "#map") return "map";
+  return "list";
+}
+
+export function focusIdFromLocation(loc = window.location) {
+  const params = new URLSearchParams(loc.search || "");
+  const q = params.get("p");
+  if (q) return q;
+  const hash = String(loc.hash || "").replace(/^#/, "");
+  if (hash.startsWith("p=")) {
+    try {
+      return decodeURIComponent(hash.slice(2));
+    } catch {
+      return hash.slice(2);
+    }
+  }
+  return "";
+}
+
+function processorIndex(id) {
+  if (!id) return 0;
+  const key = String(id);
+  const i = state.processors.findIndex(
+    (p) => p.id === key || p.slug === key || p.name === key,
+  );
+  return i >= 0 ? i : 0;
+}
+
+function renderHoodLine() {
+  const el = $("hood-line");
+  const cap = $("fig-cap");
+  const canvas = $("fig1");
+  const p = selectedProcessor();
+  if (cap) {
+    cap.textContent = p ? `Fig. 1 · Neighborhood of ${p.name}` : "Fig. 1 · Neighborhood";
+  }
+  if (canvas && p) canvas.setAttribute("aria-label", `Neighborhood of ${p.name}`);
+  if (!el) return;
+  if (state.view !== "map") {
+    el.hidden = true;
+    el.textContent = "";
+    return;
+  }
+  if (!p) {
+    el.hidden = true;
+    el.textContent = "";
+    return;
+  }
+  const n = new Set((p.namers || []).map((x) => x.company).filter(Boolean)).size;
+  el.hidden = false;
+  el.textContent = `neighborhood · ${p.name} · ${n} named`;
+}
+
+function setView(view, viaUser) {
+  state.view = view === "map" ? "map" : "list";
+  const grid = $("wires");
+  if (grid) grid.dataset.view = state.view;
+  const list = $("wires-list");
+  const mapPane = $("wires-map");
+  if (list) list.hidden = state.view !== "list";
+  if (mapPane) mapPane.hidden = state.view !== "map";
+  const listBtn = $("view-list");
+  const mapBtn = $("view-map");
+  if (listBtn) {
+    listBtn.classList.toggle("on", state.view === "list");
+    listBtn.setAttribute("aria-selected", state.view === "list" ? "true" : "false");
+  }
+  if (mapBtn) {
+    mapBtn.classList.toggle("on", state.view === "map");
+    mapBtn.setAttribute("aria-selected", state.view === "map" ? "true" : "false");
+  }
+  if (viaUser) {
+    if (state.view === "map") {
+      if (location.hash !== "#map") history.replaceState(null, "", "#map");
+    } else if (location.hash === "#map") {
+      history.replaceState(null, "", location.pathname + location.search);
+    }
+  }
+  renderHoodLine();
+  if (state.view === "map") requestAnimationFrame(drawMap);
+}
+
+function fileProcessor(i) {
+  const p = state.processors[i];
+  if (!p) return;
+  state.focus = i;
+  state.focusKey = processorKey(p);
+  map.focusKey = null;
+  renderTable();
+  renderStub();
+  renderHoodLine();
+  if (state.view === "map") drawMap();
+  const id = p.id || p.slug;
+  if (id && window.history && window.history.replaceState && state.view !== "map") {
+    const url = new URL(window.location.href);
+    url.searchParams.delete("p");
+    url.hash = "p=" + encodeURIComponent(id);
+    if (url.href !== window.location.href) {
+      window.history.replaceState(null, "", url);
+    }
+  }
+  revealFile();
+}
+
+function hitNode(sx, sy) {
+  let best = null;
+  let bestD = 16;
+  for (const s of map.screen) {
+    const d = Math.hypot(s.x - sx, s.y - sy);
+    if (d < bestD) {
+      bestD = d;
+      best = s.n;
+    }
+  }
+  return best;
+}
+
+function onMapPointer(e) {
+  if (e.button != null && e.button !== 0) return;
+  const canvas = $("fig1");
+  map.drag = {
+    x: e.clientX,
+    y: e.clientY,
+    yaw: map.yaw,
+    pitch: map.pitch,
+    moved: false,
+    id: e.pointerId,
+  };
+  if (canvas && e.pointerId != null) canvas.setPointerCapture(e.pointerId);
+}
+
+function onMapMove(e) {
+  if (!map.drag) return;
+  const dx = e.clientX - map.drag.x;
+  const dy = e.clientY - map.drag.y;
+  if (Math.abs(dx) + Math.abs(dy) > 4) map.drag.moved = true;
+  map.yaw = map.drag.yaw + dx * 0.008;
+  map.pitch = Math.max(-1.15, Math.min(1.15, map.drag.pitch + dy * 0.008));
+  drawMap();
+}
+
+function onMapUp(e) {
+  const drag = map.drag;
+  map.drag = null;
+  if (!drag || drag.moved) return;
+  const canvas = $("fig1");
+  const rect = canvas.getBoundingClientRect();
+  const n = hitNode(e.clientX - rect.left, e.clientY - rect.top);
+  if (!n) return;
+  if (n.kind === "company" && n.slug) {
+    window.location.href = `./c/${encodeURIComponent(n.slug)}.html`;
+    return;
+  }
+  if (n.kind === "processor" && n.focus != null) fileProcessor(n.focus);
+}
+
 function bind() {
+  const head = document.querySelector("#wire-table thead");
+  if (head) {
+    head.addEventListener("click", (e) => {
+      const th = e.target.closest("th[data-sort]");
+      if (!th) return;
+      const next = clickSort(state, th.getAttribute("data-sort"), SORT_DEFAULTS);
+      state.sort = next.sort;
+      state.dir = next.dir;
+      state.processors = arrangeProcessors(state.processors, state.sort, state.dir);
+      renderTable();
+      renderStub();
+      renderHoodLine();
+      if (state.view === "map") drawMap();
+    });
+  }
   $("wire-body").addEventListener("click", (e) => {
+    if (e.target.closest("a")) return;
     const tr = e.target.closest("tr");
     if (!tr) return;
     const i = Number(tr.getAttribute("data-i"));
@@ -314,41 +726,41 @@ function bind() {
       window.location.href = `./c/${encodeURIComponent(p.slug)}.html`;
       return;
     }
+    fileProcessor(i);
+  });
+  $("view-list").addEventListener("click", () => setView("list", true));
+  $("view-map").addEventListener("click", () => setView("map", true));
+  const canvas = $("fig1");
+  canvas.addEventListener("pointerdown", onMapPointer);
+  canvas.addEventListener("pointermove", onMapMove);
+  canvas.addEventListener("pointerup", onMapUp);
+  canvas.addEventListener("pointercancel", () => {
+    map.drag = null;
+  });
+  window.addEventListener("hashchange", () => {
+    setView(viewFromLocation(), false);
+    const id = focusIdFromLocation();
+    if (!id) return;
+    const i = processorIndex(id);
+    if (i === state.focus) return;
     state.focus = i;
+    map.focusKey = null;
     renderTable();
     renderStub();
-    drawFig();
-    revealFile();
+    renderHoodLine();
+    if (state.view === "map") drawMap();
   });
-  $("fig1").addEventListener("click", (e) => {
-    const canvas = e.currentTarget;
-    const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const w = rect.width;
-    const h = rect.height;
-    const procs = state.processors;
-    const top = 28;
-    const bot = h - 28;
-    const rightX = w - 48;
-    let hit = null;
-    procs.forEach((p, i) => {
-      const py = procs.length <= 1 ? (top + bot) / 2 : top + ((bot - top) * i) / (procs.length - 1);
-      if (Math.abs(x - rightX) < 16 && Math.abs(y - py) < 10) hit = i;
-    });
-    if (hit == null) return;
-    const p = procs[hit];
-    if (p.inRegister && p.slug && e.detail === 2) {
-      window.location.href = `./c/${encodeURIComponent(p.slug)}.html`;
-      return;
+  window.addEventListener("resize", () => {
+    if (state.view === "map") drawMap();
+  });
+  if (typeof ResizeObserver === "function") {
+    const field = canvas.parentElement;
+    if (field) {
+      new ResizeObserver(() => {
+        if (state.view === "map") drawMap();
+      }).observe(field);
     }
-    state.focus = hit;
-    renderTable();
-    renderStub();
-    drawFig();
-    revealFile();
-  });
-  window.addEventListener("resize", drawFig);
+  }
 }
 
 function revealFile() {
@@ -360,22 +772,33 @@ function revealFile() {
 
 async function load() {
   bind();
+  setView(viewFromLocation(), false);
   try {
-    const [reg, wires] = await Promise.all([
+    const [reg, wires, icons] = await Promise.all([
       fetch(dataUrl("./data.json"), { cache: "no-store" }).then((r) => r.json()),
       fetch(dataUrl("./data/subprocessors.json"), { cache: "no-store" }).then((r) => (r.ok ? r.json() : { edges: [] })),
+      fetch(dataUrl("./favicons/index.json"), { cache: "no-store" })
+        .then((r) => (r.ok ? r.json() : { companies: {}, marks: {} }))
+        .catch(() => ({ companies: {}, marks: {} })),
     ]);
+    state.icons = icons && typeof icons === "object" ? icons : { companies: {}, marks: {} };
     state.data = reg;
     (reg.companies || []).forEach((c) => state.companies.set(c.slug, c));
     state.edges = normalizeEdges(wires, state.companies);
-    state.processors = rankProcessors(state.edges, state.companies);
-    fillIssue($("issue"), reg, `${state.edges.length} edges`);
+    state.processors = arrangeProcessors(rankProcessors(state.edges, state.companies), state.sort, state.dir);
+    state.focus = processorIndex(focusIdFromLocation());
+    const focused = state.processors[state.focus];
+    if (focused) state.focusKey = processorKey(focused);
+    fillIssue($("issue"), reg);
   } catch {
     state.edges = [];
   }
   renderTable();
   renderStub();
-  drawFig();
+  renderHoodLine();
+  if (state.view === "map") drawMap();
 }
 
-load();
+if (typeof document !== "undefined" && document.getElementById("wire-body")) {
+  load();
+}
