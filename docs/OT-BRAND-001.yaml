@@ -1,0 +1,151 @@
+document_id: OT-BRAND-001
+title: Open Record
+version: 1.0.0
+status: implementing
+authority: Pukar authorized implementation. Production deploy is not authorized by this change.
+site: https://opentrust.center
+supersedes: rust / flame / espresso registrar (Newsreader + IBM Plex Mono)
+
+thesis: >
+  A civic evidence registry. Black binding, white paper, one mineral-teal index.
+  Serious without being severe. If the wordmark is removed the page must still
+  look like a public record, not an AI SaaS landing page.
+
+semantics:
+  rate: the file, never the company
+  missing_private_evidence: inconclusive
+  portal_vendor_names: never on a public surface
+  trust_score: never
+  tiers: [silent, thin, on file, substantial, complete]
+  tier_meaning: FILE ratings (public-file completeness), never company trust
+  complete_label: complete
+
+tokens:
+  --ot-ledger-black: "#0B1411"
+  --ot-carbon: "#17211D"
+  --ot-record-white: "#F8FAF9"
+  --ot-sheet-white: "#FFFFFF"
+  --ot-paper: "#EDF2F0"
+  --ot-graphite: "#51615B"
+  --ot-rule: "#CBD5D1"
+  --ot-rule-strong: "#70817A"
+  --ot-evidence-teal: "#00685C"
+  --ot-deep-teal: "#004E46"
+  --ot-index-wash: "#DDEFEA"
+  --ot-bright-teal: "#73D2C2"
+  --ot-source-fg: "#245E3A"
+  --ot-source-bg: "#E5F3EA"
+  --ot-attention-fg: "#835000"
+  --ot-attention-bg: "#FFF2D2"
+  --ot-conflict-fg: "#9A2D2A"
+  --ot-conflict-bg: "#FBE9E8"
+  --ot-unknown-fg: "#4F5F59"
+  --ot-unknown-bg: "#EDF1EF"
+  --ot-font-editorial: '"Source Serif 4", Georgia, "Times New Roman", serif'
+  --ot-font-utility: '"Atkinson Hyperlegible Next", "Atkinson Hyperlegible", Arial, system-ui, sans-serif'
+  --ot-spine: 2px
+  --ot-radius-control: 3px
+
+retired:
+  hex: ["#ff6600", "#331400", "#662900", "#993D00", "#993d00", "#cc5100"]
+  tokens: ["--flame", "--espresso", "--rust", "--ember", "--well"]
+  typefaces: ["Newsreader", "IBM Plex Mono", "Plex Mono", "Inter", "Manrope", "DM Sans", "Space Grotesk"]
+  note: Do not alias old tokens to new ones. Map by role.
+
+sins:
+  - no second accent
+  - no gradients
+  - no cards
+  - no pills
+  - no tiny monospace
+  - no Inter / Manrope / DM Sans / Space Grotesk
+  - teal at most 6 percent of a routine view
+  - minimum type 13px data, 16px body
+  - no invented certifications, scores, or evidence
+  - no company trust badge
+  - no progress bar, score gauge, or five-box file meter
+  - no bounce, shimmer, glow, typing dots, auto-rotating globe
+
+type:
+  wordmark: lowercase Source Serif 4 600, tracking -0.025em; only the period before center is Evidence Teal
+  names: Source Serif 4
+  page_titles: Atkinson Hyperlegible Next
+  everything_else: Atkinson Hyperlegible Next; tabular-nums on data
+  teal_only: wordmark period, 2px Evidence Spine, one active nav underline; mid-dot punctuation stays ink/mute; never fill boxes, meters, or chrome
+  case: sentence case for nav and buttons; uppercase only for SOC, ISO, DPA, IDs
+  fonts: self-host WOFF2 in site/fonts/; font-display swap
+
+identity:
+  open_index: 24x24; 2px teal vertical spine x=7 y=3-21; 2px black top rule x=7-20 y=7; 2px black bottom rule x=7-16 y=17
+  not: circle, shield, check, or vendor-status mark
+  masthead: 64px (56 mobile); Ledger Black; Record White type; nav center; active 1px Evidence Teal underline (chrome); no CTA
+  snapshot: Paper; 1px Rule bottom; issue date, on file / not on file counts, last probed; no ISO dataset stamp
+  wordmark_period: 2px Evidence Teal square; readable at 1440
+
+evidence_spine:
+  width: 2px
+  color: Evidence Teal
+  register_row: hover or selected; 2px spine at left edge only; no node; no full-row Index Wash
+  selected_row: 2px spine at left edge only
+  nodes: 7px squares; filled = source exists; outline = pending/unknown; split = conflict
+  every_node_has_text: true
+
+pages:
+  register:
+    h1: Public trust register
+    scope: A database of each company’s public trust ledger.
+    columns: ["#", name, domain, file/tier, marks]
+    no_probed_column: true
+    file_cell: state word only; silent / thin / on file / substantial / complete; italic on silent and not on file
+    no_n_of_5_on_register: true
+    default_arrange: last probed newest first
+    file_header_sort: silent to complete or reverse
+    pagination: required; do not mount all 700+ rows; no infinite scroll
+    compact_max: 639px
+    compact_no_more_on_this_file: true
+  dossier:
+    org_name_primary: true
+    name_font: Source Serif 4
+    domain_font: Atkinson Hyperlegible Next
+    file_state: clerk line under domain; file · silent / thin / on file / substantial / complete
+    file_state_spine: 2px Evidence Teal on the left of the identity block; not a boxed module
+    no_file_disclaimer: true
+    no_coverage_ratio: true
+    no_register_census_on_dossier: true
+    instruments: ruled table; one instrument is one unit then one rule; empty rows italic not on file
+    instrument_label_font: Atkinson Hyperlegible Next
+    marks: list in Atkinson, same as instrument labels; not chips; not editorial bold; overflow wraps below; no +N
+    outbound: Official page text link; no flame or teal fill button
+    rate: the file, never the company
+    status: claim / source / observation only
+    no_ot_stamp_as_seal: true
+    nav_register_not_current: true
+    no_file_meter_boxes: true
+  graph:
+    table_plus_inspector: 400px
+    selected_row_spine: true
+    risk_label: concentration × thin public file
+  marks:
+    list_primary: true
+    globe_no_auto_rotate: true
+    no_pill_farm: true
+
+voice:
+  use: [observed, source, scope, unknown, not on file, last reviewed, public evidence]
+  never: [trusted company, verified company, AI-powered, unlock, seamless, single source of truth]
+  complete_without_scope: forbidden; file tier complete reads as public file complete
+  outbound: Official page as a text link, never a filled button
+
+motion:
+  easing: cubic-bezier(0.2, 0, 0, 1)
+  max_ms: 220
+  reduced_motion: instant
+
+a11y:
+  wcag: 2.2 AA
+  focus: 3px Evidence Teal ring, 2px offset
+  skip_link: true
+  one_h1: true
+  tables: th with scope
+  touch: 44px
+  min_width: 320px no page overflow

@@ -1,30 +1,28 @@
 # opentrust.center brand law
 
-This is a **public register**, not a security product and not a luxury brand.
+**Open Record (OT-BRAND-001).** A public evidence register, not a security product and not a luxury brand.
 
-A GRC person or their agent comes here the way they open Companies House or EDGAR: to read the file and leave. We look like a clerk’s desk with three instruments on it. We do not look like Vanta, Linear, Stripe, VoltAgent’s marketing page, or a “dark gold thought leadership” template.
+A GRC person or their agent opens this site the way they open Companies House or EDGAR: to read the file and leave. The page is a civic record — black binding, white paper, one mineral-teal index. It is serious without being severe.
 
-If a screen could also sell a SaaS debit card, a GRC seat, or an AI agent platform, it is wrong. If it sits on beige newsprint, it is wrong. If the headline is painted flame, it is wrong.
+If the wordmark is removed, the page must still look like a public record. If a screen could also sell a SaaS seat, a debit card, or an AI agent platform, it is wrong.
 
-This file is law. Read it before any visual change. The audit that produced this revision is `docs/BRAND-AUDIT.md`. The product record is `docs/PRD.md`. If a screen disagrees with those two and this file, the screen is wrong.
+This file is law. The machine copy is `docs/OT-BRAND-001.yaml`. The product record is `docs/PRD.md`. Evidence semantics in the PRD outrank any visual preference: rate the file, not the company; missing private evidence is inconclusive; no portal-vendor names; no trust score.
 
 ## The one sentence
 
 A database of each company’s public trust ledger.
 
-We are no longer only a URL index. We file the public record (the dossier), the map of disclosed subprocessors (the processors), and the book of marks a buyer will meet (the attestations). The company’s own page stays authoritative. We still never look like a GRC SaaS.
+We file the public record (the dossier), the map of disclosed subprocessors, and the book of marks a buyer will meet. The company’s own page stays authoritative. Disclosure tiers (`silent` / `thin` / `on file` / `substantial` / `complete`) are **file ratings**, never company trust. The file tier `complete` reads as **public file complete**.
 
-The register is the database. Each dossier is that company’s public ledger (official pages, marks, DPA, subprocessors, years).
-
-Do not print “front pane of glass” on the site. That is an internal metaphor. Do not print “in one place.” The clerk already has a word: **on file**.
+Do not print “front pane of glass” on the site. Do not print “in one place.” The clerk already has a word: **on file**.
 
 ## How to make this agent better at design
 
-1. **This file is law.** Do not “freshen” it into SaaS.
-2. **Send 2–3 references you actually like** for *this* job (a gazette, a filing site, a newspaper, a good directory). They get appended under “References” below. Taste cannot be inferred from “make it nicer.”
+1. **This file is law.** Do not freshen it into SaaS.
+2. **Send 2–3 references you actually like** for *this* job (a gazette, a filing site, a newspaper, a good directory). They get appended under “References” below.
 3. **Mark what is fake.** After a pass, say the one thing that still feels like a template. It gets added to the no-list.
-4. **Do not ask for a moodboard.** Ask for a verdict: registrar, newspaper, or notary. We already picked registrar.
-5. **If you want a new color or typeface, change this file first** and say why the registrar metaphor broke. Do not sneak Geist “just for the app.”
+4. **If you want a new color or typeface, change this file first** and say why the public-record metaphor broke. Do not sneak Inter “just for the app.”
+5. **Do not alias retired tokens.** Map by role. Grep-delete rust / flame / espresso leftovers.
 
 ## Voice
 
@@ -32,217 +30,182 @@ Speak like the clerk who stamps the page.
 
 - Lowercase name always: `opentrust.center`
 - Short sentences. Numbers are facts, not flexes.
-- Company names in the register face. URLs, ranks, dates, ids in mono.
-- Allowed: found, missing, official, on file, not on file, last probed, silent, thin, substantial, complete, named, filed, cited, ledger.
-- Banned: empower, seamless, reimagine, next-gen, in one place, trust made simple, the future of GRC, unlock, delightful, trust score, security rating, powered by, front pane of glass (on-site), OpenTrust.
+- Company and offering names in the editorial face. Everything else in the utility face. Tabular numbers on data.
+- Sentence case for nav and buttons. Uppercase only for SOC, ISO, DPA, and IDs.
+- Use: observed, source, scope, unknown, not on file, last reviewed, public evidence, silent, thin, on file, substantial, public file complete, named, filed, ledger.
+- Never: trusted company, verified company, complete (without “complete for what”), AI-powered, unlock, seamless, single source of truth, empower, reimagine, next-gen, in one place, trust made simple, the future of GRC, delightful, trust score, security rating, powered by, OpenTrust.
 
-Hero copy is a finding aid, not a pitch.
+Buttons: **Open dossier**, **View source**, **Report a correction**. Not Get started / Unlock insights.
 
 | Surface | Aid | Deck |
 |---|---|---|
-| Register | A database of each company’s public trust ledger. | Attestations, instruments, years. Official page, or not. |
+| Register | A database of each company’s public trust ledger. | Public evidence, as filed. Official page, or not. |
 | Processors | Named subprocessors, as published. | Filed from public lists. Not a complete supply chain. |
 | Attestations | Marks a buyer will meet. | By geography and industry. ELI-5, then the long form. |
-
-Bad: “Find every trust center in one place.”
-Good: “A database of each company’s public trust ledger.”
 
 `<title>`: `opentrust.center — public trust ledger`
 Meta: `A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not.`
 
-Outbound: `open official page`. Never “Open SafeBase.” Never name the portal vendor on a public surface.
+Outbound: `View source`. Never “Open SafeBase.” Never name the portal vendor on a public surface.
 
-## Metaphor (use this, not gold coins, not a globe-from-orbit)
+## Metaphor
 
-**A gazette / registrar issue, with three instruments on one desk.**
+**A civic evidence registry.** Binding, paper, and one index mark. Horizontal rules, issue date, tabular names. Paper you could file. Not a coin, not a shield, not a check.
 
-The register is the index. The dossier is the file. The processors are a hairline map of names the file already gave us. The globe is a desk cartographic object for pointing at a region of marks. Horizontal rules, issue date, stamped mark, tabular names. Paper you could file. A seal that looks pressed in ink, not a 3D medallion.
+Nearby kin (steal posture, not pixels): Companies House *company records*, SEC EDGAR *filings*, Federal Register issues, London Gazette *notices*, a clerk’s desk.
 
-Nearby kin (steal posture, not pixels): London Gazette *notices*, Federal Register issues, Companies House *company records*, SEC EDGAR *filings*, Oxide’s console table and `Fig. n` habit, VoltAgent’s empty dark field.
-
-Not kin: Vanta, Drata, SafeBase, Notion, Linear, Stripe Press, VoltAgent’s “platform” homepage, “editorial dark mode” agency sites, Product Hunt WebGL globes, neon supply-chain graphs.
+Not kin: Vanta, Drata, SafeBase, Notion, Linear, Stripe Press, VoltAgent’s “platform” homepage, Product Hunt WebGL globes, neon supply-chain graphs, rust-flame “registrar” skins, beige newsprint luxury.
 
 ## Type
 
-Two faces only.
+Two faces only. Self-host WOFF2 in `site/fonts/`. `font-display: swap`. Prototype CDN only if self-host fails.
 
 | Role | Face | Use |
 |---|---|---|
-| Register | [Newsreader](https://fonts.google.com/specimen/Newsreader) | Company names, the wordmark, findings, ELI-5, dossier titles |
-| Docket | [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono) | ranks, domains, URLs, kickers, labels, dates, ids, code, table chrome |
+| Editorial | [Source Serif 4](https://fonts.google.com/specimen/Source+Serif+4) | Wordmark, company names, offering names, H1 |
+| Utility | [Atkinson Hyperlegible Next](https://fonts.google.com/specimen/Atkinson+Hyperlegible+Next) | Everything else. Tabular-nums on data. |
 
-Do not add IBM Plex Sans, Source Serif 4, Inter, Geist, Recoleta, Suisse, GT America, or “a nicer grotesque.” The old site used Source Serif + Plex Sans. That pairing is retired. It is the default “thoughtful AI” stack. It is still live on `/c/*` and must be burned down.
+Do not add Inter, Manrope, DM Sans, Space Grotesk, Newsreader, IBM Plex Mono, Geist, Recoleta, or “a nicer grotesque.” No tiny monospace.
 
-Names are slightly tight (−0.02 to −0.03em). Meta is small, tracked a little, never uppercase-for-style except 1-line kickers (`REGISTER`, `SUBPROCESSORS`, `ATTESTATIONS`, `ISSUE`) and table headers.
-
-### Product scale (px). Do not invent others.
+Minimum: 13px data, 16px body.
 
 | Token | Face | Size / line | Tracking | Weight | Use |
 |---|---|---|---|---|---|
-| `--t-kicker` | Plex Mono | 11 / 14 | 0.12em | 500 | Docket, issue line, uppercase headers |
-| `--t-meta` | Plex Mono | 12 / 16 | 0.02em | 400 | Domains, dates, factor lines, hosts |
-| `--t-row` | Plex Mono | 13 / 18 | 0 | 400 | Table cells that are not names |
-| `--t-body` | Newsreader | 16 / 24 | 0 | 400 | Findings, ELI-5, methodology |
-| `--t-name` | Newsreader | 17 / 22 | −0.02em | 500 | Register row name |
-| `--t-lede` | Newsreader | 20 / 26 | −0.02em | 400 | One-line finding aid (optional) |
-| `--t-title` | Newsreader | 28 / 32 | −0.03em | 500 | Dossier / entry / miss title |
-| `--t-wordmark` | Newsreader | 20 / 24 | −0.03em | 500 | Mast |
-| `--t-stamp` | Newsreader | 12 / 12 | 0 | 600 | `OT` in the ring |
-| `--t-figure` | Plex Mono | 11 / 14 | 0.08em | 400 | `Fig. 1 · …` |
+| `--t-data` | Utility | 13 / 18 | 0 | 400 | Table cells that are not names; tabular-nums |
+| `--t-meta` | Utility | 13 / 18 | 0 | 400 | Domains, dates, factor lines, snapshot |
+| `--t-body` | Utility | 16 / 24 | 0 | 400 | Findings, methodology, ELI-5 |
+| `--t-name` | Editorial | 17 / 22 | −0.02em | 600 | Register row name |
+| `--t-lede` | Utility | 16 / 24 | 0 | 400 | One-sentence scope |
+| `--t-page` | Utility | 28 / 32 | −0.025em | 600 | Page titles. Work text. |
+| `--t-title` | Editorial | 28 / 32 | −0.025em | 600 | Company / offering names only |
+| `--t-wordmark` | Editorial | 20 / 24 | −0.025em | 600 | Mast. Period only in Evidence Teal. |
 
-Product text never exceeds 28px. No 52px census. No 56px homepage display. The specimen may show 40px once, labeled `specimen — not product`.
-
-Italic Newsreader is absence: `not on file`, `silent`.
+Wordmark is always `opentrust.center`, lowercase, Source Serif 4 600, tracking −0.025em. Color **only** the period before `center` in Evidence Teal. Other letters Ledger Black on light, Record White on the dark mast.
 
 ## Color
 
-Pukar’s flame scale, sampled from the supplied swatches. Five steps, no beige. Flame is an accent, not a headline.
+Exact tokens. No aliases. No leftover rust.
 
 | Token | Hex | Role |
 |---|---|---|
-| `--flame` | `#ff6600` | stamp ring, outbound, current docket underline. Rare. |
-| `--ember` | `#cc5100` | hover of a flame object, secondary stamp |
-| `--rust` | `#993d00` | rules, kickers, `not on file`, table grid |
-| `--well` | `#662900` | row hover, figure well, globe land |
-| `--ground` | `#331400` | page. Always. |
+| `--ot-ledger-black` | `#0B1411` | Binding. Mast. Ink on paper. |
+| `--ot-carbon` | `#17211D` | Spine nodes with a source. |
+| `--ot-record-white` | `#F8FAF9` | Page field. Type on the dark mast. |
+| `--ot-sheet-white` | `#FFFFFF` | Register table, dossier sheet |
+| `--ot-paper` | `#EDF2F0` | Snapshot line. Row hover. |
+| `--ot-graphite` | `#51615B` | Meta, domain, marks, inactive nav |
+| `--ot-rule` | `#CBD5D1` | Hairline rules |
+| `--ot-rule-strong` | `#70817A` | Meter outlines, stronger rules |
+| `--ot-evidence-teal` | `#00685C` | Index. Spine. Focus ring. Wordmark period. Rare. |
+| `--ot-deep-teal` | `#004E46` | Hover of a teal object |
+| `--ot-index-wash` | `#DDEFEA` | Selected row / selected claim |
+| `--ot-bright-teal` | `#73D2C2` | Active nav rule on the dark mast only |
+| `--ot-source-fg` / `--ot-source-bg` | `#245E3A` / `#E5F3EA` | A source exists |
+| `--ot-attention-fg` / `--ot-attention-bg` | `#835000` / `#FFF2D2` | Needs a look |
+| `--ot-conflict-fg` / `--ot-conflict-bg` | `#9A2D2A` / `#FBE9E8` | Conflict |
+| `--ot-unknown-fg` / `--ot-unknown-bg` | `#4F5F59` / `#EDF1EF` | Unknown / not on file |
 
-Derived (washes of the scale, not a sixth brand color):
+`--ot-spine`: 2px. `--ot-radius-control`: 3px.
 
-| Token | Hex | Role |
-|---|---|---|
-| `--ink` | `#ffc091` | body and names. Washed flame. Not cream. |
-| `--mute` | `#e09a60` | meta, issue line, inactive docket |
-| `--hair` | `rgba(255, 192, 145, 0.06)` | grid, if any |
+Teal is at most **6%** of a routine view: the wordmark period, the 2px Evidence Spine, and one active nav underline. Mid-dot punctuation (`·`) stays ink or mute, never teal. Focus ring is the accessibility exception. Teal must not fill boxes, meters, or chrome. No gradients. No second accent. No cards. No pills.
 
-- Page is `--ground` `#331400`. Always. The live `#2a1408` is retired.
-- Body and names are `--ink` `#ffc091`. The live `#f4ebe0` and `#cbb49a` are beige and retired.
-- `--flame` appears at most three times on a screen: OT ring, docket underline, one outbound. Never paint the wordmark or every company name in it. That reads as a warning. The user already found full-flame headlines menacing.
-- Do not invert this into a light beige register. That direction is closed.
-- No gold. No navy. No mint. No gradient. No glow orb. No `#efe6d2`, `#f4ebe0`, `#cbb49a`, `#d4a24a`.
+Retired (grep-delete, do not alias): `#ff6600`, `#331400`, `#662900`, `#993D00`, `--flame`, `--espresso`, `--rust`, `--ember`, `--well` as brown.
 
-Links in running text: `--ink`, 1px `--rust` underline, hover `--flame`.
-Official outbound: `--flame` text, 1px `--flame` underline. Hover may fill `--flame` / `--ground`. That is the only fill-on-hover.
-Missing is `--rust`, italic Newsreader — not a gray pill.
+Unknown / not on file stay the unknown pair. Never green.
 
 ## Mark
 
-A dry **ink stamp**, not a coin.
+**Open Index.** Not a circle, not a shield, not a check. Do not put it on a vendor status. Do not use an OT stamp as a certification seal.
 
-- Circle, double ring, `OT` in Newsreader 12 / 600.
-- 28px. `--flame` on `--ground`, or reversed (`--ground` on a `--flame` block).
-- Slight irregularity is fine (as if the pad was dry). Drop shadows, metallic gradients, and skeuomorphic wax are not.
-- Never put the mark in a rounded app-icon squircle.
-- Never gold.
+24×24. 2px Evidence Teal vertical spine at x=7, y=3–21. 2px Ledger Black top rule x=7–20 y=7. 2px Ledger Black bottom rule x=7–16 y=17.
 
-Wordmark is always `opentrust.center` in Newsreader 20px, lowercase, no tracking out, no “OpenTrust.”
-
-The **disclosure stamp** on a dossier is this ring plus a tier word (`silent` `thin` `on file` `substantial` `complete`) and a factor line in mono. A number without the factor line is a lie. Never a letter grade. Never “trust score.” We rate the *file*, not the company.
+The **Evidence Spine** is the only signature device: 2px vertical Evidence Teal. Register hover / selected: spine only, at the left edge of the row. No square node, no pip, no period by the `#`. No Index Wash as a full-row fill — it blows the teal budget. Dossier chronology / claim list: spine with 7px square nodes (filled = source exists, outline = pending/unknown, split = conflict). Every node has text. Never a progress bar or score gauge.
 
 ## Layout
 
-High-taste staff-engineer product, not a magazine and not a SaaS marketing page.
-
-- **Canvas, not a sheet.** The page is one continuous `--ground` field to the edges (VoltAgent posture). No floating paper card. No centered “document.” No `.sheet` as a card.
-- **Surface:** optional 32px grid at `--hair`, only in figure wells. Grain at 0.06 or off. If you notice either, delete it. No glow orb, no mesh blob, no illustration.
-- **Docket mast:** 48px high, full width, hairline under. Wordmark left (20px). Instruments as words: `register` `subprocessors` `marks` (Plex Mono 11, tracking 0.12em). Active word: `--ink` + 1px `--flame` underline. OT ring right. No icons. No hamburger if the three words fit. No `Product` / `Docs` / `More`.
-- **Issue line** under the mast, Plex Mono 11:
-
-  `issue 18 Aug 2026 PT · 184 on file · 22 not on file · last probed 18 Aug 2026, 3:23 PM PT`
-
-  This replaces the 52px census. The census is banned.
-
-- **Search is a command strip:** 40px, hairline box, Plex Mono 13, `/ stripe, microsoft, soc 2`. No pill, no shadow, no icon.
-- **Register is a table.** Columns: `#` · name · domain · tier · marks · probed. One line, ~44px, rust hairline. No card, no summary paragraph, no vendor column, no badge pills.
-- **Filters** are a segmented hairline bar of *tiers* (and optionally list). Not vendor chips.
-- **Dossier is a page**, `/c/{slug}.html`, 720px measure. Not a drawer. Not a side panel pretending to be a file.
-- **Processors** and **attestations** sit on a 1200px measure. Figures have `Fig. n` captions.
-- Rhythm is 8px. Gutters 48px (24px on small screens). Radius 0 except the stamp.
+- **Paper field, black mast.** Record White page to the edges. Sheet White table. No floating card. No centered “document” that looks like a marketing sheet.
+- **Mast:** 64px (56px mobile), Ledger Black, Record White type. Wordmark left. Nav centered. Active = 1px Evidence Teal underline (chrome, not the signature). No CTA, no pills, no glow, no OT ring.
+- **Snapshot** under the mast: Paper, 1px Rule bottom, utility type. Issue date, on file / not on file counts, last probed. No ISO dataset stamp. Not a KPI strip.
+- **Gutters:** 16 / 24 / 32 / 48.
+- **Search** is a ruled strip. No pill, no shadow, no icon.
+- **Register** is a table. Columns: `#` · name · domain · file · marks. No probed column. 52px rows, Rule bottoms. Hover or selected: 2px Evidence Teal spine at the left edge only. Name is editorial and the loudest cell. Marks print the named marks that fit, with `·` separators. No `+N`.
+- **File cell** is the state word only: silent / thin / on file / substantial / complete. Italic on silent and not on file. No N of 5. Instrument count lives on the dossier.
+- **Default arrange** is last probed, newest first. File header still sorts silent → complete or reverse. First screen must not be twenty identical silents or completes.
+- **Pagination or windowing.** Do not mount all 700+ rows. No infinite scroll. Preserve query, sort, and count.
+- **Compact (≤639px):** each org is a ruled record (not a card): name, domain, file state, marks. The name is the link. No “More on this file.”
+- **Dossier** is a page, `/c/{slug}.html`. Org name is the H1. Status describes a claim, source, or observation — never a company trust badge.
+- Rhythm is 8px. Control radius 3px. Skip link. One H1. Tables with `th`/`scope`. Touch 44px. 320px: no page overflow.
 
 ## The three instruments
 
 ### Register
 
-Find a company. See the disclosure tier. Open the dossier.
+Find a company. See observed file state. Open the dossier.
 
-No hero. Finder, then the table. Miss state: `Not in the index.` plus unconfirmed guess paths in mono. Do not invent a live search backend in this issue.
+H1: `Public trust register`. One-sentence scope: `A database of each company’s public trust ledger.` Finder, then the table. Miss state: query summary, reset, request / correction path. No “no worries.” No cute empty.
 
 ### Dossier
 
-The product. Modeled on a Companies House record, not a SaaS drawer.
+The product. Modeled on a Companies House record.
 
-Always this order. Empty sections still print `not on file`.
+Always this order on the first screen. Empty rows still print italic `not on file`. Missing is inconclusive.
 
 1. Crumb: `register / {slug}`
-2. Identity: name 28px, domain, list, founded year + source (or `not on file`)
-3. Disclosure stamp + factor line
-4. Attestations table → `/attestations.html#{id}`
-5. Instruments table (trust, security, privacy, DPA, subprocessors, status, bounty / security.txt) — all seven rows, always
-6. Named processors table → processors
-7. Clerk summary: two sentences, or nothing. No vendor. No marketing reprint.
-8. Last probed
-9. `open official page` (human-gated, inline) + permalink (this page)
+2. Identity: name in Source Serif 4, domain in Atkinson, then `file · {state}` as one graphite clerk line. 2px Evidence Spine on the left of this block (name + domain + file line). Not a boxed file-state module. No disclaimer. No coverage ratio.
+3. Instruments: a ruled table. One instrument is one unit (label, host, date), then one rule. Empty rows italic `not on file`. Labels in Atkinson, including `subprocessors`.
+4. Marks: a list in Atkinson, same as instrument labels. Not chips. Not bold Source Serif. What does not fit wraps below. No `+N`.
+5. Official outbound: text link `Official page`. Human-gated. No flame / teal fill button.
 
-Do not render portal vendors. Keep `vendor` in crawl data only.
+Dossier issue line: issue date and last probed. Do not print the register census.
+
+Below the fold: FedRAMP marketplace table, named processors, clerk summary, last probed, Report a correction, permalink.
+
+Do not render portal vendors. Keep `vendor` in crawl data only. Nav must not mark Register as current on a dossier. Rate the file, never the company.
 
 ### Processors
 
-A processor instrument plus a ranked table. The table is the authority.
+A table plus a 400px inspector. The table is the authority.
 
 - Caption: `Fig. 1 · Named processors, as published`
 - Subcaption: `Filed from public subprocessor lists. This is not a complete supply chain.`
-- 2D. Hairline rust edges. Nodes are 5–7px squares, not orbs or logos.
-- Selected: 1px flame stroke, no halo.
-- No bloom, no particles, no neon, no idle physics, no 3D tilt, no community colors.
-- Risk is concentration × thin public file, per the PRD. Print the formula. Do not color rows red.
-- Edges without a first-party public `source_url` do not ship.
+- Selected row gets the spine.
+- Concentration is **exposure × thin public file**, per the PRD. Do not print RISK as a security grade.
+- Fig. 1 may stay if labels are readable and it is not a glowing hairball; otherwise drop the fan and keep the table.
 
 ### Attestations
 
-The book of marks. The globe is a pointer, not the product.
+The book of marks. The list is primary.
 
-- Caption: `Fig. 2 · Geography of marks`
-- Filters: geography, industry, kind — hairline bar
-- Every entry: name, kind, geography, industry, issuer, weight, ELI-5 (default), elaborate (instant toggle), related marks
-- Desk globe (canvas 2D orthographic sphere). No Three.js. No earth texture.
-  - 360px square well, rust hairline, on the desk (the page), not full-bleed
-  - Sea `--ground` disk, land `--well`, graticule `--rust` 15° or 30°, coast 1px rust, limb 1px rust
-  - Marks: 2–3px flame ticks. No pulse, no ping
-  - Slight axial tilt. Slow idle spin (~0.1 rad/s). Pause while dragging; resume after a beat. `prefers-reduced-motion`: still; drag still works. No zoom-from-space
-  - No bloom, no atmosphere, no starfield, no Blue Marble, no city lights, no clouds, no envmap, no wooden stand
-  - Click region → filter the book. Click tick → `#id`
+- One hairline facet row, or finder-style facets. Sentence case. No three-row pill farm.
+- Every entry: name, kind, geography, industry, issuer, weight, ELI-5 (default), elaborate, related marks
+- Globe, if it remains, is a secondary desk object. **No auto-rotate.** Drag still works. `prefers-reduced-motion`: still.
 
 ## Motion
 
-Almost none. The register does not bounce, fade-slide, or shimmer. Instant open. If you need a wait state, a mono line is enough: `checking…`
+Mechanical. ≤220ms. `cubic-bezier(0.2, 0, 0, 1)`. No bounce, shimmer, glow, typing dots, or auto-rotating globe. `prefers-reduced-motion`: instant.
 
-The human gate is a **stamp box** inline under the outbound (checkbox + “I am human”), not a Cloudflare cosplay and not a modal. ≤300ms. On pass: `verified · 30 min`. No “Before you leave.”
+## Accessibility
 
-Globe: slow idle spin; pause on drag. Processors: settle, then stop.
-
-## Imagery
-
-We do not use stock “locks on blue.” We do not generate hero illustrations. If an image exists, it is a scan, a stamp, a figure of our own instrument, or a screenshot of a real portal — captioned `Fig. n`.
-
-No logo clouds. No testimonial rails. No integration marquees.
+WCAG 2.2 AA. Focus: 3px Evidence Teal ring, 2px offset. Skip link. One H1. Tables with `th`/`scope`. Touch 44px. 320px: no page overflow.
 
 ## What this site must never look like
 
-- Beige, cream, newsprint, manila, or any light-paper register
-- Dark paper + gold foil + serif (the first look; also every “premium AI” landing page)
-- Cream ink (`#f4ebe0`) or beige mute (`#cbb49a`) on espresso (the second look’s leftover)
+- Rust / flame / espresso “registrar” skins
+- Beige luxury newsprint or dark-gold thought leadership
 - Inter / Geist, 8pt tracking, blur orbs, glass
-- Vanta mint, Drata navy, SafeBase purple, VoltAgent teal
+- Vanta mint, Drata navy, SafeBase purple, a second accent
 - Three feature columns with line icons
 - Gradient wordmarks
 - Rounded-xl card grids with badge pills
-- A marketing homepage above the register (lede + 52px census + vendor chips)
+- A marketing homepage above the register
 - A SaaS slide-over instead of a dossier
 - A product menu (`Platform`, `Docs`, `Resources`) instead of a docket
-- A Three.js glow globe (bloom, atmosphere, stars, auto-rotate, Blue Marble)
+- A Three.js glow globe (bloom, atmosphere, stars, auto-rotate)
 - A neon force-directed “risk graph”
 - Dashboard numbers ≥ 36px
-- Flame headlines or flame company names
+- Teal company names or teal-as-success
 - Portal-vendor chips or “powered by”
+- An OT stamp that reads as certification
 
 ## UI inventory
 
@@ -251,7 +214,7 @@ Build only these surfaces:
 - home register (`/`)
 - company dossier (`/c/{slug}.html`)
 - processors (`/graph.html`)
-- attestations + globe (`/attestations.html`, `#id` for an entry)
+- attestations (`/attestations.html`, `#id` for an entry)
 - processor stub (on processors, for names not in the register)
 - miss (not on file)
 - human stamp (inline)
@@ -263,18 +226,16 @@ No blog theme, no “platform” nav, no pricing chrome, no login, no marketing 
 
 ## References
 
-- Volta / VoltAgent *canvas*: continuous dark field, hairlines, no orb. https://voltagent.dev/ and https://volta.sh (field and command posture only — not VoltAgent’s platform pitch).
-- Oxide.computer: mono chrome, `Fig. n`, console as a table, nav as instruments. https://oxide.computer/
 - Companies House company record: labeled fields, tables, missing rows that still print. https://www.gov.uk/get-information-about-a-company
 - EDGAR search: filing as the object, tape of latest, precise form. https://www.sec.gov/edgar/search-and-access
 - Federal Register: issue identity (volume, number, date). https://www.federalregister.gov/
 - The Gazette *notice* (type, number, date, body) — not the current marketing homepage. https://www.thegazette.co.uk/
 
-Do not copy their CSS, green, teal, or GOV.UK blue.
+Do not copy their CSS, green, teal, or GOV.UK blue. Our one index color is Evidence Teal, used as an index, not as a theme.
 
 ## Change control
 
-If you want a new color or typeface, change this file first and say why the registrar metaphor broke. Do not sneak Geist “just for the app.”
+If you want a new color or typeface, change this file and `docs/OT-BRAND-001.yaml` first. Do not sneak Geist “just for the app.” Do not alias `--rust` to `--ot-rule`.
 
 After a visual pass, name the one fake thing that remains. Add it to the no-list.
 

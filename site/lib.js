@@ -31,17 +31,18 @@ export function fileFlags(row) {
   };
 }
 
-export function fileMeterHtml(row) {
+export function fileCoverage(row) {
   const flags = fileFlags(row);
-  const on = FILE_KEYS.filter((k) => flags[k]);
-  const legend = FILE_KEYS.join(" · ");
-  const listed = on.length ? on.join(" · ") + " on file" : "none on file";
-  const aria = `${legend} · ${listed}`;
-  const boxes = FILE_KEYS.map((k) => {
-    const cls = flags[k] ? ' class="on"' : "";
-    return `<span${cls} title="${k}"></span>`;
-  }).join("");
-  return `<span class="file-meter" title="${escapeHtml(aria)}" aria-label="${escapeHtml(aria)}">${boxes}</span>`;
+  const n = FILE_KEYS.filter((k) => flags[k]).length;
+  const den = `${n} of 5`;
+  const legend = "page, marks, DPA, subprocessors, years";
+  const sentence = `public evidence located in ${den} checked categories`;
+  return { n, den, legend, sentence, title: `${sentence} (${legend})` };
+}
+
+export function fileCoverageHtml(row) {
+  const c = fileCoverage(row);
+  return `<span class="file-cov" title="${escapeHtml(c.title)}">${escapeHtml(c.den)}</span>`;
 }
 
 export function $(id) {
@@ -188,7 +189,15 @@ export function fillIssue(el, data, extra) {
   const notOn = companies.length - onFile;
   const day = fmtDay(data.generated_at);
   const when = fmtWhen(data.generated_at);
-  el.textContent = `issue ${day} PT · ${onFile} on file · ${notOn} not on file · last probed ${when}${extra ? " · " + extra : ""}`;
+  el.textContent = [
+    `issue ${day}`,
+    `${onFile} on file`,
+    `${notOn} not on file`,
+    `last probed ${when}`,
+    extra || "",
+  ]
+    .filter(Boolean)
+    .join(" · ");
 }
 
 export function coverageLine(cov) {
@@ -221,5 +230,12 @@ export function tierClass(tier) {
 }
 
 export function displayTier(tier) {
-  return tier === "on-file" ? "on file" : tier || "silent";
+  if (tier === "on-file") return "on file";
+  if (tier === "complete") return "public file complete";
+  return tier || "silent";
+}
+
+export function displayFileState(tier) {
+  if (tier === "on-file") return "on file";
+  return tier || "silent";
 }

@@ -5,79 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>opentrust.center — public trust ledger</title>
   <meta name="description" content="A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not.">
-  <meta name="theme-color" content="#331400">
+  <meta name="theme-color" content="#0B1411">
   <link rel="canonical" href="https://opentrust.center/attestations.html">
   <meta property="og:title" content="opentrust.center — public trust ledger">
   <meta property="og:description" content="A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://opentrust.center/attestations.html">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23331400'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23ff6600' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23ff6600' stroke-width='1'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='Georgia,serif' font-size='16' font-weight='600' fill='%23ff6600'%3EOT%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+  <a class="skip" href="#main">Skip to the record</a>
   <header class="mast">
-    <a class="wordmark" href="./">opentrust.center</a>
-    <nav class="docket" aria-label="instruments">
-      <a href="./">register</a>
-      <a href="./graph.html">subprocessors</a>
-      <a href="./attestations.html" class="on">marks</a>
+    <a class="wordmark" href="./">opentrust<span class="wm-dot">.</span>center</a>
+    <nav class="docket" aria-label="Register">
+      <a href="./">Register</a>
+      <a href="./graph.html">Subprocessors</a>
+      <a href="./attestations.html" class="on">Marks</a>
     </nav>
-    <span class="stamp" aria-hidden="true">OT</span>
   </header>
   <p class="issue" id="issue">issue —</p>
 
-  <main class="canvas">
-    <p class="lede">Marks a buyer will meet.</p>
-    <p class="deck">By geography and industry. ELI-5, then the long form.</p>
+  <main class="canvas" id="main">
+    <h1 class="page-title">Marks a buyer will meet</h1>
+    <p class="lede">By geography and industry. ELI-5, then the long form.</p>
 
     <div class="gaz-grid">
       <div>
-        <p class="fig-cap">Fig. 2 · Geography of marks</p>
-        <p class="fig-sub">Drag to spin. Click a region to filter the book.</p>
-        <div class="map-well">
-          <canvas id="fig2" width="360" height="360" aria-label="Desk globe of marks"></canvas>
-        </div>
-      </div>
-      <div>
-        <div class="filters" id="geo-filters" aria-label="Geography">
-          <button type="button" data-geo="all" class="on">all</button>
-          <button type="button" data-geo="americas">americas</button>
-          <button type="button" data-geo="europe">europe</button>
-          <button type="button" data-geo="uk">uk</button>
-          <button type="button" data-geo="apac">apac</button>
-          <button type="button" data-geo="international">international</button>
-        </div>
-        <div class="filters" id="kind-filters" aria-label="Kind">
-          <button type="button" data-kind="all" class="on">all kinds</button>
-          <button type="button" data-kind="attestation">attestation</button>
-          <button type="button" data-kind="certification">certification</button>
-          <button type="button" data-kind="authorization">authorization</button>
-          <button type="button" data-kind="regulation">regulation</button>
-          <button type="button" data-kind="framework">framework</button>
-          <button type="button" data-kind="questionnaire">questionnaire</button>
-          <button type="button" data-kind="code-of-practice">code of practice</button>
-        </div>
-        <div class="filters" id="ind-filters" aria-label="Industry">
-          <button type="button" data-ind="all" class="on">all industries</button>
-          <button type="button" data-ind="cloud">cloud</button>
-          <button type="button" data-ind="public-sector">public sector</button>
-          <button type="button" data-ind="healthcare">healthcare</button>
-          <button type="button" data-ind="financial">financial</button>
-          <button type="button" data-ind="payments">payments</button>
-          <button type="button" data-ind="ai">ai</button>
+        <div class="facets" id="facets" aria-label="Mark facets">
+          <button type="button" data-geo="all" class="on">All places</button>
+          <button type="button" data-geo="americas">Americas</button>
+          <button type="button" data-geo="europe">Europe</button>
+          <button type="button" data-geo="uk">UK</button>
+          <button type="button" data-geo="apac">APAC</button>
+          <button type="button" data-geo="international">International</button>
+          <button type="button" data-kind="all" class="on">All kinds</button>
+          <button type="button" data-kind="attestation">Attestation</button>
+          <button type="button" data-kind="certification">Certification</button>
+          <button type="button" data-kind="authorization">Authorization</button>
+          <button type="button" data-kind="regulation">Regulation</button>
+          <button type="button" data-kind="framework">Framework</button>
+          <button type="button" data-kind="questionnaire">Questionnaire</button>
+          <button type="button" data-kind="code-of-practice">Code of practice</button>
+          <button type="button" data-ind="all" class="on">All industries</button>
+          <button type="button" data-ind="cloud">Cloud</button>
+          <button type="button" data-ind="public-sector">Public sector</button>
+          <button type="button" data-ind="healthcare">Healthcare</button>
+          <button type="button" data-ind="financial">Financial</button>
+          <button type="button" data-ind="payments">Payments</button>
+          <button type="button" data-ind="ai">AI</button>
         </div>
         <p class="countline" id="book-count"></p>
         <div id="book"></div>
       </div>
+      <aside>
+        <p class="fig-cap">Fig. 2 · Geography of marks</p>
+        <p class="fig-sub">Secondary desk object. Drag to turn. Click a region to filter the book. Does not rotate on its own.</p>
+        <div class="map-well">
+          <canvas id="fig2" width="280" height="280" aria-label="Desk globe of marks"></canvas>
+        </div>
+      </aside>
     </div>
   </main>
 
   <footer class="colo">
     <p>A finding aid. Listing a mark is not an endorsement and not legal advice. Verify the live certificate, Marketplace listing, or statute. A badge is not the report.</p>
-    <p><a href="./">register</a> · <a href="./brand.html">specimen</a> · <a href="https://github.com/pchamal/opentrust.center">code</a></p>
+    <p><a href="./">Register</a> · <a href="./brand.html">specimen</a> · <a href="https://github.com/pchamal/opentrust.center">code</a></p>
   </footer>
 
   <script type="module" src="./gazette.js"></script>

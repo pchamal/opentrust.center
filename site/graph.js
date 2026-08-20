@@ -147,7 +147,7 @@ function renderTable() {
     .map((p, i) => {
       const tier = p.inRegister ? displayTier(p.tier) : "not in register";
       const src = p.sources[0] ? hostOfSafe(p.sources[0]) : "not on file";
-      return `<tr data-i="${i}" class="${state.focus === i ? "on" : ""}">
+      return `<tr data-i="${i}" class="${state.focus === i ? "on selected" : ""}">
         <td class="name">${escapeHtml(p.name)}</td>
         <td>${p.exposure}</td>
         <td class="${p.inRegister ? "" : "absent"}">${escapeHtml(tier)}</td>
@@ -240,7 +240,7 @@ function drawFig() {
   const focused = state.focus != null ? state.processors[state.focus] : null;
   const focusKey = focused ? focused.slug || focused.name : null;
   if (focusKey) {
-    ctx.strokeStyle = "#cc5100";
+    ctx.strokeStyle = tokenColor("--ot-evidence-teal", "#00685C");
     for (const e of state.edges) {
       const a = cPos.get(e.company);
       const b = pPos.get(e.processor_slug || e.processor);
@@ -265,33 +265,42 @@ function drawFig() {
     ctx.stroke();
   }
 
+  const ink = tokenColor("--ot-ledger-black", "#0B1411");
+  const rule = tokenColor("--ot-rule-strong", "#70817A");
+  const index = tokenColor("--ot-evidence-teal", "#00685C");
+  const mute = tokenColor("--ot-graphite", "#51615B");
   for (const { x, y } of cPos.values()) {
-    square(x, y, "#ffc091", "#993d00");
+    square(x, y, ink, rule);
   }
   for (const { x, y, row, i } of pPos.values()) {
     const selected = state.focus === i;
-    if (row.inRegister) square(x, y, "#ffc091", selected ? "#cc5100" : "#993d00");
-    else square(x, y, null, selected ? "#cc5100" : "#993d00");
+    if (row.inRegister) square(x, y, ink, selected ? index : rule);
+    else square(x, y, null, selected ? index : rule);
   }
 
-  ctx.font = "11px 'IBM Plex Mono', ui-monospace, monospace";
+  ctx.font = "13px 'Atkinson Hyperlegible Next', Arial, system-ui, sans-serif";
   const focus = state.focus != null ? state.processors[state.focus] : null;
   if (focus) {
-    ctx.fillStyle = "#ffc091";
+    ctx.fillStyle = ink;
     const pos = pPos.get(focus.slug || focus.name);
     if (pos) ctx.fillText(focus.name, pos.x - 8 - ctx.measureText(focus.name).width, pos.y + 4);
     for (const n of focus.namers) {
       const c = cPos.get(n.company);
       if (!c) continue;
-      ctx.fillStyle = "#e09a60";
+      ctx.fillStyle = mute;
       ctx.fillText(c.row.name, c.x + 10, c.y + 4);
     }
   } else if (procs.length <= 16) {
-    ctx.fillStyle = "#e09a60";
+    ctx.fillStyle = mute;
     for (const { x, y, row } of pPos.values()) {
       ctx.fillText(row.name, x - 8 - ctx.measureText(row.name).width, y + 4);
     }
   }
+}
+
+function tokenColor(name, fallback) {
+  const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  return v || fallback;
 }
 
 function bind() {

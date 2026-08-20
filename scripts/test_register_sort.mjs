@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { parseFinder } from "../site/finder.js";
-import { fileMeterHtml } from "../site/lib.js";
+import { displayFileState, fillIssue } from "../site/lib.js";
 import {
   normalizeSort,
   normalizeDir,
@@ -9,6 +9,9 @@ import {
   arrangeRows,
   defaultRows,
   marksCell,
+  windowRows,
+  pageCount,
+  PAGE_SIZE,
 } from "../site/register.js";
 
 const data = JSON.parse(readFileSync(new URL("../site/data.json", import.meta.url), "utf8"));
@@ -56,11 +59,8 @@ function apply(raw) {
 }
 
 expect("register is past 700", rows.length > 700);
-expect("tier cell still files the five-box meter", /fileMeterHtml\(row\)/.test(registerSrc));
-expect(
-  "meter is five rust boxes",
-  (fileMeterHtml(rows[0]).match(/title="(?:page|marks|dpa|subprocessors|years)"/g) || []).length === 5,
-);
+expect("file cell is the state word", /displayFileState\(row\.tier\)/.test(registerSrc) && !/fileCoverageHtml/.test(registerSrc));
+expect("file words stay short", displayFileState("complete") === "complete" && displayFileState("on-file") === "on file" && displayFileState("silent") === "silent");
 
 expect("normalize #", normalizeSort("#") === "rank");
 expect("normalize junk", normalizeSort("score") === "");
@@ -78,7 +78,8 @@ expect("first click name is A–Z", firstName.sort === "name" && firstName.dir =
 expect("second click name is Z–A", clickSort(firstName, "name").dir === "desc");
 
 const firstTier = clickSort(idle, "tier");
-expect("first click tier is complete first", firstTier.sort === "tier" && firstTier.dir === "desc");
+expect("first click File is silent to complete", firstTier.sort === "tier" && firstTier.dir === "asc");
+expect("second click File reverses", clickSort(firstTier, "tier").dir === "desc");
 const firstMarks = clickSort(idle, "marks");
 expect("first click marks is high count", firstMarks.sort === "marks" && firstMarks.dir === "desc");
 
@@ -142,34 +143,53 @@ const marksOk = byMarks.every((r, i) => {
 expect("marks is count high to low", marksOk);
 expect("marks count is a number", marksCount(byMarks[0]) > marksCount(byMarks[byMarks.length - 1]));
 
-expect("probed is not a sort key", normalizeSort("probed") === "");
+expect("probed is the default arrange key", normalizeSort("probed") === "probed");
 
 const landing = defaultRows(rows);
 const firstScreen = landing.slice(0, 20);
-const order = ["silent", "thin", "on-file", "substantial", "complete"];
-const landingOk = landing.every((r, i) => {
+const firstTiers = new Set(firstScreen.map((r) => r.tier || "silent"));
+const probedOk = landing.every((r, i) => {
   if (i === 0) return true;
-  return order.indexOf(r.tier || "silent") >= order.indexOf(landing[i - 1].tier || "silent");
+  const a = Date.parse(landing[i - 1].probed_at || "") || 0;
+  const b = Date.parse(r.probed_at || "") || 0;
+  return a >= b;
 });
 expect("default keeps every company", landing.length === rows.length);
 expect("default does not drop a slug", new Set(landing.map((r) => r.slug)).size === rows.length);
-expect("default order is silent thin on-file substantial complete", landingOk);
-expect("default opens on silent", landing[0].tier === "silent");
-expect("default ends on complete", landing[landing.length - 1].tier === "complete");
-expect("first screen is not a complete stripe", firstScreen.every((r) => r.tier !== "complete"));
+expect("default is last probed newest first", probedOk);
+expect("first screen is not all silent", firstScreen.some((r) => r.tier !== "silent"));
+expect("first screen is not a complete stripe", firstScreen.some((r) => r.tier !== "complete"));
+expect("first screen is mixed files", firstTiers.size >= 3);
 expect("complete stays in the table", landing.some((r) => r.tier === "complete"));
+expect("file header still sorts the state", arrangeRows(rows, "tier", "asc")[0].tier === "silent" && arrangeRows(rows, "tier", "desc")[0].tier === "complete");
 
 const indexHtml = readFileSync(new URL("../site/index.html", import.meta.url), "utf8");
 expect("register grid dropped probed", !/data-sort="probed"/.test(indexHtml) && !/>probed</.test(indexHtml));
-expect("register still files the meter on each row", /fileMeterHtml\(row\)/.test(registerSrc));
+expect("register file cell has no coverage count", !/file-cov|fileCoverageHtml| of 5/.test(registerSrc));
+expect("register has no More on this file", !/More on this file|record-extra/.test(registerSrc));
 expect("folio row is a dossier click-through", /class="folio"/.test(registerSrc));
 
 const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8");
-expect("sort caret is plex rust triangles", css.includes('content: "▴"') && css.includes('content: "▾"') && /th\[data-sort\] button::after \{[\s\S]*font-family: var\(--font-docket\)/.test(css) && /th\[data-sort\] button::after \{[\s\S]*color: var\(--rust\)/.test(css));
-expect("headers stay rust", /\.reg th \{[\s\S]*color: var\(--rust\)/.test(css));
-expect("row ink is mute", /\.reg td \{[\s\S]*color: var\(--mute\)/.test(css) && /\.reg td\.num \{ color: var\(--mute\)/.test(css) && /\.reg td\.marks \{[\s\S]*color: var\(--mute\)/.test(css));
-expect("names stay ink", /\.reg td\.name \{[\s\S]*color: var\(--ink\)/.test(css));
-expect("meter boxes stay rust", /file-meter > span \{[\s\S]*border: 1px solid var\(--rust\)/.test(css));
+expect("sort caret is utility triangles", css.includes('content: "▴"') && css.includes('content: "▾"') && /th\[data-sort\] button::after \{[\s\S]*font: var\(--t-meta\)/.test(css) && /th\[data-sort\] button::after \{[\s\S]*color: var\(--ot-graphite\)/.test(css));
+expect("headers stay graphite", /\.reg th \{[\s\S]*color: var\(--ot-graphite\)/.test(css));
+expect("row ink is graphite", /\.reg td \{[\s\S]*color: var\(--ot-graphite\)/.test(css) && /\.reg td\.num \{ color: var\(--ot-graphite\)/.test(css) && /\.reg td\.marks,/.test(css));
+expect("names stay ledger black", /\.reg td\.name \{[\s\S]*color: var\(--ot-ledger-black\)/.test(css));
+expect("coverage is not on the register", !css.includes(".file-meter") && !css.includes(".file-cov"));
+expect("hover and selected share the spine", /tr\.folio:hover td\.num,[\s\S]*border-left-color: var\(--ot-evidence-teal\)/.test(css));
+expect("register row has no mint wash", !/\.reg tbody tr[\s\S]{0,80}--ot-index-wash/.test(css) && !/\.reg tbody tr[\s\S]{0,120}#DDEFEA/.test(css));
+expect("register row has no box-shadow pip", !/\.reg tbody tr[\s\S]{0,200}box-shadow: inset var\(--ot-spine\)/.test(css));
+expect("nav underline is 1px teal", /\.docket a \{[\s\S]*border-bottom: 1px solid transparent/.test(css) && /\.docket a\.on \{[\s\S]*border-bottom-color: var\(--ot-evidence-teal\)/.test(css));
+expect("wordmark period is a 2px square", /\.wordmark \.wm-dot::after \{[\s\S]*width: 2px;[\s\S]*height: 2px;[\s\S]*background: var\(--ot-evidence-teal\)/.test(css));
+
+const issue = { textContent: "" };
+fillIssue(issue, data);
+expect("issue line has no ISO stamp", !/20\d\d-\d\d-\d\dT/.test(issue.textContent) && !/dataset /.test(issue.textContent));
+expect("issue line keeps the clerk facts", /issue /.test(issue.textContent) && /on file/.test(issue.textContent) && /last probed/.test(issue.textContent));
+expect("no rust leftover in css", !/#ff6600|#331400|#662900|#993[Dd]00|--flame|--espresso|--rust|--ember|--well/.test(css));
+expect("open record tokens are exact", css.includes("--ot-ledger-black: #0B1411") && css.includes("--ot-evidence-teal: #00685C") && css.includes("--ot-font-editorial: \"Source Serif 4\""));
+expect("pagination windows rows", pageCount(734) === 15 && windowRows(rows, 1).rows.length === PAGE_SIZE && windowRows(rows, 1).rows.length < rows.length);
+expect("last page is a remainder", windowRows(rows, pageCount(rows.length)).rows.length === ((rows.length % PAGE_SIZE) || PAGE_SIZE));
+expect("window preserves order", windowRows(defaultRows(rows), 1).rows[0].slug === defaultRows(rows)[0].slug);
 
 const buyer = marksCell({
   attestations: [
@@ -182,8 +202,8 @@ const buyer = marksCell({
 });
 expect("marks are clerk chips", buyer.includes('class="mark-chip">soc 2 type ii<') && buyer.includes(" · "));
 expect("buyer mark is named first", buyer.indexOf("soc 2") < buyer.indexOf("iso 27001"));
-expect("plus-n is quiet", buyer.includes('class="mark-more">+2<') && !buyer.includes('class="mark-chip">+2'));
-expect("plus-n does not hide soc 2", /mark-chip">soc 2/.test(buyer));
+expect("marks have no plus-n", !/\+\d/.test(buyer) && !buyer.includes("mark-more"));
+expect("named marks that fit stay listed", /mark-chip">soc 2/.test(buyer) && buyer.includes("ccpa") && buyer.includes("gdpr"));
 
 const fed = marksCell({
   fedramp: { marketplace: "https://marketplace.fedramp.gov/products/FR123" },
