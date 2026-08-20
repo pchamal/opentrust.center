@@ -94,9 +94,27 @@ CURATED_TRY = {
     "mistral-ai": [
         "https://mistral.ai/news/our-approach-to-ai-safety",
         "https://mistral.ai/safety",
+        "https://legal.mistral.ai/terms/usage-policy",
     ],
     "xai": [
         "https://x.ai/safety",
+        "https://data.x.ai/2026-04-07-grok-4-20-model-card.pdf",
+    ],
+    "sap": [
+        "https://www.sap.com/products/artificial-intelligence/ai-ethics.html",
+    ],
+    "gitlab": [
+        "https://about.gitlab.com/ai-transparency-center/",
+    ],
+    "palo-alto-networks": [
+        "https://www.paloaltonetworks.com/legal-notices/trust-center/ai",
+    ],
+    "figma": [
+        "https://www.figma.com/ai/our-approach/",
+    ],
+    "vanta": [
+        "https://www.vanta.com/responsible-ai",
+        "https://www.vanta.com/resources/ai-principles",
     ],
     "hugging-face": [
         "https://huggingface.co/huggingface/blog/ethical-ai",
@@ -120,6 +138,7 @@ CURATED_TRY = {
     "writer": [
         "https://writer.com/responsible-ai",
         "https://writer.com/blog/responsible-ai",
+        "https://writer.com/legal/global-ai-regulation/",
     ],
     "synthesia": [
         "https://www.synthesia.io/responsible-ai",
@@ -127,6 +146,7 @@ CURATED_TRY = {
     ],
     "harvey": [
         "https://www.harvey.ai/responsible-ai",
+        "https://www.harvey.ai/legal/ai-policy",
     ],
     "workday": [
         "https://www.workday.com/en-us/why-workday/innovation/responsible-ai.html",
@@ -134,10 +154,12 @@ CURATED_TRY = {
     "slack": [
         "https://slack.com/trust/data-management/responsible-ai",
         "https://slack.com/trust/responsible-ai",
+        "https://slack.com/trust/ai-principles",
     ],
     "uipath": [
         "https://www.uipath.com/legal/trust-and-security/responsible-ai",
         "https://www.uipath.com/responsible-ai",
+        "https://www.uipath.com/ai/responsibility",
     ],
     "intercom": [
         "https://www.intercom.com/legal/responsible-ai",
@@ -145,9 +167,7 @@ CURATED_TRY = {
     ],
     "gong": [
         "https://www.gong.io/responsible-ai",
-    ],
-    "webflow": [
-        "https://webflow.com/legal/responsible-ai",
+        "https://www.gong.io/the-edge/responsible-ai-approach-at-gong/",
     ],
     "clickup": [
         "https://clickup.com/legal/responsible-ai",
@@ -157,15 +177,14 @@ CURATED_TRY = {
     ],
     "miro": [
         "https://miro.com/legal/responsible-ai/",
+        "https://miro.com/ai/principles/",
+        "https://miro.com/ai-trust/",
     ],
     "samsara": [
         "https://www.samsara.com/legal/responsible-ai",
     ],
     "workato": [
         "https://www.workato.com/legal/responsible-ai",
-    ],
-    "vanta": [
-        "https://www.vanta.com/responsible-ai",
     ],
     "anysphere": [
         "https://cursor.com/responsible-ai",
@@ -193,6 +212,10 @@ CURATED_TRY = {
         "https://runwayml.com/responsible-ai",
         "https://runwayml.com/safety",
     ],
+    "webflow": [
+        "https://webflow.com/legal/responsible-ai",
+        "https://webflow.com/ai/our-approach",
+    ],
     "sierra": [
         "https://sierra.ai/responsible-ai",
     ],
@@ -211,6 +234,7 @@ CURATED_TRY = {
     "dialpad": [
         "https://www.dialpad.com/legal/responsible-ai/",
         "https://www.dialpad.com/responsible-ai",
+        "https://www.dialpad.com/dialpad-ai/ai-principles/",
     ],
     "automation-anywhere": [
         "https://www.automationanywhere.com/responsible-ai",
