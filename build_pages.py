@@ -212,10 +212,34 @@ def cert_key(name: str) -> str:
     return re.sub(r"\s+", " ", name.strip().lower())
 
 
+_ATTESTATION_IDS: dict[str, str] | None = None
+
+
+def attestation_id_book() -> dict[str, str]:
+    """Existing framework entries only. Do not invent a mark page."""
+    global _ATTESTATION_IDS
+    if _ATTESTATION_IDS is not None:
+        return _ATTESTATION_IDS
+    path = SITE / "data" / "attestations.json"
+    if not path.exists():
+        path = ROOT / "data" / "attestations.json"
+    book: dict[str, str] = {}
+    for item in load_json(path, {}).get("attestations") or []:
+        aid = str(item.get("id") or "").strip()
+        if not aid:
+            continue
+        for label in (aid, item.get("name"), item.get("short")):
+            key = cert_key(label or "")
+            if key and key not in book:
+                book[key] = aid
+    _ATTESTATION_IDS = book
+    return book
+
+
 def map_cert(name: str) -> dict:
     key = cert_key(name)
     weight = CERT_WEIGHT.get(key)
-    att_id = CERT_ID.get(key)
+    att_id = CERT_ID.get(key) or attestation_id_book().get(key)
     if "fedramp" in key:
         if "li-saas" in key or "li saas" in key:
             att_id = att_id or "fedramp-li-saas"
@@ -226,6 +250,42 @@ def map_cert(name: str) -> dict:
     if weight is None:
         weight = 4
     return {"id": att_id, "name": name, "weight": weight}
+
+
+def link_mark_words(text: str, attestations: list[dict], href_base: str = "../attestations.html") -> str:
+    """Link mark words that already have a framework entry. Words only."""
+    out = escape(text)
+    labels: list[tuple[str, str]] = []
+    seen: set[str] = set()
+    for a in attestations:
+        aid = str(a.get("id") or "").strip()
+        if not aid:
+            continue
+        for lab in (a.get("name"), a.get("short")):
+            t = str(lab or "").strip()
+            if t and t not in seen:
+                seen.add(t)
+                labels.append((t, aid))
+    labels.sort(key=lambda x: len(x[0]), reverse=True)
+    for lab, aid in labels:
+        needle = escape(lab)
+        if not needle:
+            continue
+        link = f'<a href="{escape(href_base)}#{escape(aid)}">{needle}</a>'
+        parts: list[str] = []
+        i = 0
+        while i < len(out):
+            j = out.find(needle, i)
+            if j < 0:
+                parts.append(out[i:])
+                break
+            before = out[:j]
+            in_link = before.rfind("<a ") > before.rfind("</a>")
+            parts.append(out[i:j])
+            parts.append(needle if in_link else link)
+            i = j + len(needle)
+        out = "".join(parts)
+    return out
 
 
 CLERK_KEEP = re.compile(r"^(Public trust center|Official page)\b", re.I)
@@ -304,25 +364,54 @@ def filed_disclosure(row: dict) -> dict:
 FILE_METER_KEYS = ("page", "marks", "dpa", "subprocessors", "years")
 
 
-def file_flags(row: dict, disc: dict) -> dict:
-    """Five instruments a buyer can see. Not a score."""
-    f = disc.get("factors") or {}
+def _instrument_url(row: dict, key: str) -> bool:
+    rec = (row.get("instruments") or {}).get(key) or {}
+    return bool(isinstance(rec, dict) and rec.get("url"))
+
+
+def _named_marks_on_file(row: dict) -> bool:
+    atts = [a for a in (row.get("attestations") or []) if a and (a.get("name") or a.get("short"))]
+    certs = [c for c in (row.get("certs") or []) if c]
+    return bool(atts or certs or row.get("fedramp"))
+
+
+def file_flags(row: dict, disc: dict | None = None) -> dict:
+    """Bind each rule to that instrument on this row. Not a factor score."""
+    page = bool(row.get("found") and (row.get("trust_url") or row.get("final_url")))
+    if not page:
+        page = _instrument_url(row, "trust") or _instrument_url(row, "security")
+    procs = row.get("processors") or []
     return {
-        "page": bool(f.get("page")),
-        "marks": bool(f.get("marks") or row.get("certs") or row.get("attestations")),
-        "dpa": bool(f.get("dpa")),
-        "subprocessors": bool(f.get("processors") or f.get("subprocessors")),
-        "years": bool(row.get("founded_year") or f.get("years")),
+        "page": page,
+        "marks": _named_marks_on_file(row),
+        "dpa": _instrument_url(row, "dpa"),
+        "subprocessors": bool(procs) or _instrument_url(row, "subprocessors"),
+        "years": bool(row.get("founded_year")),
     }
 
 
-def file_coverage_text(flags: dict) -> str:
-    """Text coverage with a denominator. Not a meter and not a score."""
-    n = sum(1 for k in FILE_METER_KEYS if flags.get(k))
-    return (
-        f"public evidence located in {n} of 5 checked categories "
-        "(page, marks, DPA, subprocessors, years)"
+FILE_METER_LABELS = {
+    "page": "page",
+    "marks": "marks",
+    "dpa": "DPA",
+    "subprocessors": "subprocessors",
+    "years": "years",
+}
+
+
+def file_count(flags: dict) -> int:
+    return sum(1 for k in FILE_METER_KEYS if flags.get(k))
+
+
+def file_index_html(flags: dict) -> str:
+    """Five short rules. Filled = on file. Open hairline = not on file. Not a score."""
+    on = [FILE_METER_LABELS[k] for k in FILE_METER_KEYS if flags.get(k)]
+    spoken = " · ".join(on) if on else "not on file"
+    rules = "".join(
+        f'<span class="file-rule{" on" if flags.get(k) else ""}" aria-hidden="true"></span>'
+        for k in FILE_METER_KEYS
     )
+    return f'<span class="file-index" role="img" aria-label="{escape(spoken)}">{rules}</span>'
 
 
 def factor_line(disc: dict) -> str:
@@ -439,17 +528,30 @@ def processor_display_name(edge: dict, node: dict, to: str) -> str:
     return humanize_processor_name(str(edge.get("processor") or to))
 
 
-def register_slug_for(node: dict, by_slug: dict, by_domain: dict) -> str | None:
+def register_slug_for(node: dict, by_slug: dict, by_domain: dict, by_name: dict | None = None) -> str | None:
+    """Reuse an existing dossier slug. Do not invent a page."""
     nid = node.get("id")
     if nid and nid in by_slug:
         return nid
     domain = (node.get("domain") or "").lower()
     if domain in by_domain:
         return by_domain[domain]
+    if by_name:
+        name = str(node.get("name") or "").strip().lower()
+        if name and name in by_name:
+            return by_name[name]
     return None
 
 
-def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_domain: dict, generated_at: str) -> dict:
+def enrich_company(
+    row: dict,
+    edges: list[dict],
+    nodes: dict,
+    by_slug: dict,
+    by_domain: dict,
+    generated_at: str,
+    by_name: dict | None = None,
+) -> dict:
     slug = row["slug"]
     links = row.get("links") or {}
     domain = row.get("domain") or ""
@@ -488,10 +590,11 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
         to = e.get("to") or e.get("processor_slug") or ""
         node = nodes.get(to) or {}
         name = processor_display_name(e, node, to)
-        proc_slug = register_slug_for(node, by_slug, by_domain)
+        proc_slug = register_slug_for(node, by_slug, by_domain, by_name)
         processors.append({
             "name": name,
             "slug": proc_slug,
+            "id": to or None,
             "source_url": e["source_url"],
         })
     if mine and not instruments.get("subprocessors"):
@@ -522,12 +625,12 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
         "processors": processors,
         "disclosure": disc,
         "tier": disc["tier"],
-        "file": file_flags(row, disc),
-        "_crawl": {
-            "vendor": (row.get("_crawl") or {}).get("vendor") or (row.get("vendor") if found else None),
-            "title": scrub_title((row.get("_crawl") or {}).get("title") or row.get("title") or "", slug),
-            "http_status": (row.get("_crawl") or {}).get("http_status") or row.get("http_status"),
-        },
+    }
+    public["file"] = file_flags({**public, "fedramp": fedramp} if fedramp else public)
+    public["_crawl"] = {
+        "vendor": (row.get("_crawl") or {}).get("vendor") or (row.get("vendor") if found else None),
+        "title": scrub_title((row.get("_crawl") or {}).get("title") or row.get("title") or "", slug),
+        "http_status": (row.get("_crawl") or {}).get("http_status") or row.get("http_status"),
     }
     if fedramp:
         public["fedramp"] = fedramp
@@ -786,6 +889,25 @@ def fedramp_block(row: dict, generated_at: str = "") -> str:
     return "\n".join(lines) + "\n"
 
 
+def processor_href(p: dict) -> str | None:
+    """Dossier if on the register; else the map node. Never invent a page."""
+    slug = str(p.get("slug") or "").strip()
+    if slug:
+        return f"./{slug}.html"
+    nid = str(p.get("id") or "").strip()
+    if nid:
+        return f"../graph.html#p={nid}"
+    return None
+
+
+def processor_cell(p: dict) -> str:
+    name = escape(p["name"])
+    href = processor_href(p)
+    if href:
+        return f'<a href="{escape(href)}">{name}</a>'
+    return name
+
+
 def processors_block(procs: list[dict], generated_at: str = "", list_url: str = "") -> str:
     proc_head = (
         '    <table class="inst filed" data-table="processors">\n'
@@ -793,7 +915,7 @@ def processors_block(procs: list[dict], generated_at: str = "", list_url: str = 
     )
     if procs:
         named = sorted(procs, key=lambda p: str(p.get("name") or "").lower())
-        proc_rows = "".join(f"<tr><td>{escape(p['name'])}</td></tr>" for p in named)
+        proc_rows = "".join(f"<tr><td>{processor_cell(p)}</td></tr>" for p in named)
         urls = []
         for p in procs:
             u = str(p.get("source_url") or "").strip()
@@ -864,7 +986,7 @@ def mast(active: str, prefix: str) -> str:
     <nav class="docket" aria-label="{nav_label}">
       {link("", "Companies", "register")}
       {link("graph.html", "Subprocessor Map", "subprocessors")}
-      {link("attestations.html", "Frameworks", "marks")}
+      {link("attestations.html", "Standards", "marks")}
     </nav>
   </header>"""
 
@@ -920,8 +1042,8 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     found = bool(row.get("found"))
     url = row.get("trust_url") or ""
     disc = row["disclosure"]
-    tier = display_file_tier(disc["tier"])
-    file_cls = "file-word silent" if disc["tier"] == "silent" else "file-word"
+    flags = row.get("file") or file_flags(row, disc)
+    file_html = file_index_html(flags)
     title = f"{name} — opentrust.center"
     desc = "A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not."
     year = row.get("founded_year")
@@ -978,7 +1100,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     if isinstance(sub, dict) and sub.get("url"):
         list_url = sub["url"]
     clerk = row.get("summary") or ""
-    clerk_html = f'<p class="clerk">{escape(clerk)}</p>' if clerk else ""
+    clerk_html = f'<p class="clerk">{link_mark_words(clerk, atts)}</p>' if clerk else ""
     outbound = (
         f'<a class="official" href="{escape(url)}" rel="noopener noreferrer">Official page</a>'
         if found and url
@@ -1034,7 +1156,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     <section class="ident">
       <h1>{escape(name)}</h1>
       <p class="ident-meta">{escape(domain)}</p>
-      <p class="ident-meta file-line">file <span class="sep">·</span> <span class="{file_cls}">{escape(tier)}</span></p>
+      <p class="ident-meta file-line">{file_html}</p>
       <p class="ident-meta">founded · {year_html}</p>
     </section>
 
@@ -1063,7 +1185,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
   </main>
   <footer class="colo">
     <p>Disclosure rates the file, not the company. Empty rows print <i>not on file</i>. File tiers are public-file ratings, never company trust.</p>
-    <p><a href="../">Companies</a> · <a href="../graph.html">Subprocessor Map</a> · <a href="../attestations.html">Frameworks</a></p>
+    <p><a href="../">Companies</a> · <a href="../graph.html">Subprocessor Map</a> · <a href="../attestations.html">Standards</a></p>
   </footer>
   <script type="module" src="../dossier.js"></script>
 </body>
@@ -1188,13 +1310,17 @@ def main() -> int:
     nodes = {n["id"]: n for n in (edges_doc.get("nodes") or []) if n.get("id")}
     by_slug = {c["slug"]: c for c in companies_in if c.get("slug")}
     by_domain = {}
+    by_name = {}
     for c in companies_in:
         domain = (c.get("domain") or "").lower()
         if domain:
             by_domain[domain] = c["slug"]
+        name = str(c.get("name") or "").strip().lower()
+        if name and name not in by_name:
+            by_name[name] = c["slug"]
 
     public_companies = [
-        enrich_company(row, edges, nodes, by_slug, by_domain, generated_at)
+        enrich_company(row, edges, nodes, by_slug, by_domain, generated_at, by_name)
         for row in companies_in
     ]
     assign_file_ranks(public_companies)

@@ -63,7 +63,7 @@ expect("named processors sort by name in publisher", /sorted\(procs, key=lambda 
 expect("dossier binds clerk tables", /bindClerkTables/.test(dossierJs));
 expect("stripe instruments headers sort", /data-table="instruments"/.test(stripeHtml) && /data-sort="instrument"/.test(stripeHtml) && /data-sort="host"/.test(stripeHtml));
 expect("stripe fedramp headers sort", /data-table="fedramp"/.test(stripeHtml) && /data-sort="offering"/.test(stripeHtml));
-const stripeProcs = [...stripeHtml.match(/data-table="processors"[\s\S]*?<tbody>([\s\S]*?)<\/tbody>/)[1].matchAll(/<td>([^<]+)<\/td>/g)].map((m) => m[1]);
+const stripeProcs = [...stripeHtml.match(/data-table="processors"[\s\S]*?<tbody>([\s\S]*?)<\/tbody>/)[1].matchAll(/<td>(.*?)<\/td>/g)].map((m) => m[1].replace(/<[^>]+>/g, ""));
 expect("stripe named processors land A–Z", stripeProcs.length > 5 && stripeProcs[0] === "Adish" && stripeProcs.join("\0") === [...stripeProcs].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" })).join("\0"));
 expect("marks stay a list", /<ul class="mark-list">/.test(stripeHtml) && !/data-table="marks"/.test(stripeHtml));
 

@@ -1,16 +1,13 @@
 /* Finder tokens for the register. Clerk syntax, not a search product. */
 
-const TIERS = new Set(["silent", "thin", "on-file", "substantial", "complete"]);
+const TIERS = new Set(["on-file"]);
+const RETIRED_TIERS = new Set(["silent", "thin", "substantial", "complete"]);
 const LISTS = new Set(["cloud100", "enterprise"]);
 const FEDRAMP = new Set(["all", "any", "low", "moderate", "high"]);
 
 const EXACT = {
-  silent: { kind: "tier", value: "silent" },
-  thin: { kind: "tier", value: "thin" },
   "on file": { kind: "tier", value: "on-file" },
   "on-file": { kind: "tier", value: "on-file" },
-  substantial: { kind: "tier", value: "substantial" },
-  complete: { kind: "tier", value: "complete" },
   "cloud 100": { kind: "list", value: "cloud100" },
   cloud100: { kind: "list", value: "cloud100" },
   enterprise: { kind: "list", value: "enterprise" },
@@ -35,10 +32,6 @@ const PEEL = [
   { kind: "fedramp", value: "low", re: /\bfedramp\s+low\b/ },
   { kind: "fedramp", value: "high", re: /\bfedramp\s+high\b/ },
   { kind: "fedramp", value: "any", re: /\bfedramp\s+any\b/ },
-  { kind: "tier", value: "silent", re: /\bsilent\b/ },
-  { kind: "tier", value: "thin", re: /\bthin\b/ },
-  { kind: "tier", value: "substantial", re: /\bsubstantial\b/ },
-  { kind: "tier", value: "complete", re: /\bcomplete\b/ },
 ];
 
 function normClause(s) {
@@ -116,6 +109,7 @@ export function stripFinderToken(raw, kind) {
 export function normalizeTier(value) {
   const v = normClause(value).replace(/\s+/g, "-");
   if (v === "onfile") return "on-file";
+  if (RETIRED_TIERS.has(v)) return "all";
   return TIERS.has(v) ? v : "all";
 }
 
@@ -133,7 +127,7 @@ export function normalizeFedramp(value) {
 
 export function echoWords(filters) {
   const bits = [];
-  if (filters.tier && filters.tier !== "all") {
+  if (filters.tier && filters.tier !== "all" && !RETIRED_TIERS.has(filters.tier)) {
     bits.push({ kind: "tier", label: "tier " + (filters.tier === "on-file" ? "on file" : filters.tier) });
   }
   if (filters.list && filters.list !== "all") {

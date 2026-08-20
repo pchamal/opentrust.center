@@ -488,9 +488,31 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
 }
 .reg .tier-word { font: var(--t-meta); color: var(--ot-graphite); }
 .file-legend {
-  margin: 0 0 12px;
+  margin: 16px 0 8px;
   font: var(--t-meta);
   color: var(--ot-graphite);
+}
+.file-index {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 8px;
+  vertical-align: middle;
+}
+.file-rule {
+  display: block;
+  width: 12px;
+  height: 3px;
+  box-sizing: border-box;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--ot-ledger-black);
+  margin-top: 1px;
+}
+.file-rule.on {
+  margin-top: 0;
+  border: 0;
+  background: var(--ot-ledger-black);
 }
 
 .fr-mark {
@@ -619,17 +641,7 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   color: var(--ot-graphite);
 }
 .ident .file-line { margin-top: 8px; }
-.ident .file-line .sep { color: var(--ot-graphite); }
-.ident .file-word {
-  font: inherit;
-  font-family: var(--ot-font-utility);
-  font-weight: 400;
-  color: var(--ot-graphite);
-}
-.ident .file-word.silent {
-  font-style: italic;
-  color: var(--ot-unknown-fg);
-}
+.ident .file-line .file-index { display: flex; }
 
 .mark-list {
   margin: 0;
@@ -941,6 +953,39 @@ a.official {
   color: var(--ot-graphite);
 }
 
+/* ——— view words (list | map) ——— */
+.view-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 8px;
+  font: var(--t-meta);
+  color: var(--ot-ledger-black);
+}
+.view-toggle button {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  padding: 10px 0;
+  min-height: 44px;
+  font: inherit;
+  color: var(--ot-ledger-black);
+  cursor: pointer;
+}
+.view-toggle button:hover { color: var(--ot-ledger-black); }
+.view-toggle button.on {
+  color: var(--ot-ledger-black);
+  border-bottom-color: var(--ot-evidence-teal);
+}
+.view-toggle .sep { color: var(--ot-ledger-black); }
+.hood-line {
+  margin: 0 0 20px;
+  font: var(--t-meta);
+  color: var(--ot-graphite);
+}
+
 /* ——— wires ——— */
 .wires-grid {
   display: grid;
@@ -948,11 +993,26 @@ a.official {
   gap: 32px;
   align-items: start;
 }
+.wires-grid[data-view="map"] {
+  grid-template-columns: minmax(0, 1fr) 320px;
+}
 .wires-table { min-width: 0; }
 .wires-scroll { min-width: 0; overflow-x: auto; }
-.wires-table .inst { min-width: min(640px, 100%); }
+.wires-table .inst,
+.wires-table .inst thead,
+.wires-table .inst tbody,
+.wires-table .inst tr,
+.wires-table .inst th,
+.wires-table .inst td {
+  display: revert;
+}
+.wires-table .inst { display: table; min-width: min(640px, 100%); }
 .wires-table .inst tbody tr { cursor: pointer; }
 .wires-table .inst td:last-child { white-space: nowrap; }
+.wires-map { min-width: 0; }
+.wires-grid[data-view="list"] .wires-map { display: none; }
+.wires-grid[data-view="map"] .wires-table { display: none; }
+.wires-map[data-graph="off"] .fig-block { display: none; }
 .wires-fig {
   width: 400px;
   max-width: 100%;
@@ -960,6 +1020,7 @@ a.official {
   position: sticky;
   top: 16px;
 }
+.wires-grid[data-view="map"] .wires-fig { width: 320px; }
 .fig-well {
   width: 400px;
   max-width: 100%;
@@ -968,13 +1029,28 @@ a.official {
   border: 1px solid var(--ot-rule);
   position: relative;
 }
+.map-field {
+  width: 100%;
+  height: min(640px, 70vh);
+  min-height: 360px;
+  background: var(--ot-record-white);
+  border: 1px solid var(--ot-rule);
+  position: relative;
+}
 .fig-well canvas,
-.map-well canvas {
+.map-well canvas,
+.map-field canvas {
   display: block;
   width: 100%;
   height: 100%;
   background: transparent;
 }
+.map-field canvas {
+  background: var(--ot-record-white);
+  cursor: grab;
+  touch-action: none;
+}
+.map-field canvas:active { cursor: grabbing; }
 .formula {
   margin: 12px 0 0;
   font: var(--t-meta);
@@ -1128,7 +1204,8 @@ a.official {
 
 @media (max-width: 1100px) {
   :root { --gutter: var(--gutter-m); }
-  .wires-grid { grid-template-columns: 1fr; }
+  .wires-grid,
+  .wires-grid[data-view="map"] { grid-template-columns: 1fr; }
   .wires-scroll {
     max-height: 360px;
     overflow: auto;
@@ -1139,13 +1216,15 @@ a.official {
     top: 0;
     background: var(--ot-sheet-white);
   }
-  .wires-fig {
+  .wires-fig,
+  .wires-grid[data-view="map"] .wires-fig {
     width: auto;
     position: static;
     display: flex;
     flex-direction: column;
   }
-  .wires-fig .stub { order: -1; }
+  .wires-grid[data-view="list"] .wires-fig .stub { order: -1; }
+  .map-field { height: min(480px, 70vh); }
   .gaz-grid { grid-template-columns: 1fr; }
   .map-well { width: min(280px, 100%); max-width: 280px; height: auto; aspect-ratio: 1; }
 }
@@ -1255,6 +1334,18 @@ a.official {
     display: none;
   }
   .swatches { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 390px) {
+  .wires-table .inst { display: table; }
+  .wires-table .inst thead { display: table-header-group; }
+  .wires-table .inst tbody { display: table-row-group; }
+  .wires-table .inst tr { display: table-row; }
+  .wires-table .inst th,
+  .wires-table .inst td { display: table-cell; }
+  .wires-grid[data-view="map"] .wires-fig { order: -1; }
+  .wires-grid[data-view="map"] .fig-block,
+  .wires-grid[data-view="map"] .map-field { display: none; }
 }
 
 @media (max-width: 320px) {
