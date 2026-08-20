@@ -16,10 +16,13 @@ Clerk copy. Not a marketplace. Not legal advice.
 - **framework** — a control catalog you can map to. Not a cert.
 - **code-of-practice** — guidance or a contractual mechanism (ISO 27017/27018, SCCs).
 - **questionnaire** — SIG, CAIQ. Homework, not a mark.
+- **read** — one clerk sentence: what the mark is evidence of. Not a company score, and not a badge we issued.
 - **weight** — how much a *verified* public disclosure should move a score. FedRAMP 12, SOC 2 Type II 10, GDPR 3, Privacy Shield 0.
 - **retired** — do not score. Privacy Shield is the only retired row.
 
 Look up the live artifact. A badge is not the report.
+NIST SP 1305 tells the acquirer to ask for evidence (self-attestation, standard, certification, inspection) before acquisition.
+A listing here is not that evidence.
 
 ## By kind
 
@@ -118,10 +121,10 @@ Look up the live artifact. A badge is not the report.
 - **HITRUST** (4): hitrust-csf, hitrust-e1, hitrust-i1, hitrust-r2
 - **IRAP** (1): irap
 - **ISMAP** (1): ismap
-- **ISO** (9): iso-13485, iso-20000-1, iso-22301, iso-27001, iso-27017, iso-27018, iso-27701, iso-42001, iso-9001
+- **ISO** (9): iso-13485, iso-22301, iso-9001, iso-20000-1, iso-27001, iso-27017, iso-27018, iso-27701, iso-42001
 - **K-ISMS** (1): k-isms
 - **MTCS** (1): mtcs
-- **NIST** (4): nist-800-171, nist-800-53, nist-ai-rmf, nist-csf
+- **NIST** (4): nist-ai-rmf, nist-csf, nist-800-171, nist-800-53
 - **PCI** (3): pci-3ds, pci-dss, pci-ssf
 - **privacy-national** (4): lgpd, pdpa-sg, pdpa-th, pipeda
 - **questionnaires** (1): sig
