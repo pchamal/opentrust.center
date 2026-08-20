@@ -32,17 +32,24 @@
     <p class="lede">Named subprocessors, as published.</p>
     <p class="deck">Filed from public lists. Not a complete supply chain.</p>
 
-    <div class="wires-grid">
-      <div class="wires-table">
+    <nav class="view-toggle" role="tablist" aria-label="View">
+      <button type="button" role="tab" id="view-list" aria-controls="wires-list" aria-selected="true" class="on">list</button>
+      <span class="sep" aria-hidden="true">|</span>
+      <button type="button" role="tab" id="view-map" aria-controls="wires-map" aria-selected="false">map</button>
+    </nav>
+    <p class="clerk-line hood-line" id="hood-line" hidden></p>
+
+    <div class="wires-grid" id="wires" data-view="list">
+      <div class="wires-table" id="wires-list" role="tabpanel" aria-labelledby="view-list">
         <div class="wires-scroll">
           <table class="inst" id="wire-table" hidden>
             <thead>
               <tr>
-                <th scope="col">Processor</th>
-                <th scope="col">Exposure</th>
-                <th scope="col">Public file</th>
-                <th scope="col">Concentration</th>
-                <th scope="col">Source</th>
+                <th scope="col" data-sort="name" aria-sort="ascending"><button type="button">Processor</button></th>
+                <th scope="col" data-sort="exposure" aria-sort="none"><button type="button">Exposure</button></th>
+                <th scope="col" data-sort="file" aria-sort="none"><button type="button">Public file</button></th>
+                <th scope="col" data-sort="risk" aria-sort="none"><button type="button">Concentration</button></th>
+                <th scope="col" data-sort="source" aria-sort="none"><button type="button">Source</button></th>
               </tr>
             </thead>
             <tbody id="wire-body"></tbody>
@@ -51,14 +58,15 @@
         <p class="clerk-line" id="empty-wires" hidden>No public subprocessor lists filed yet.</p>
         <p class="formula">Concentration = exposure × (0.4 + 0.6 × thin public file). Thinness is 1 if silent, thin, or not in the register; else (100 − disclosure) / 100. This is concentration × a thin public file, not a security grade.</p>
       </div>
-      <div class="wires-fig">
-        <div class="fig-block">
-          <p class="fig-cap">Fig. 1 · Named processors, as published</p>
-          <p class="fig-sub">Filed from public subprocessor lists. This is not a complete supply chain.</p>
-          <div class="fig-well">
-            <canvas id="fig1" width="400" height="360" aria-label="Hairline map of named processors"></canvas>
+      <div class="wires-map" id="wires-map" role="tabpanel" aria-labelledby="view-map" hidden>
+        <div class="fig-block" id="fig-block">
+          <p class="fig-cap" id="fig-cap">Fig. 1 · Neighborhood</p>
+          <div class="map-field" id="map-field">
+            <canvas id="fig1" width="800" height="560" aria-label="Named processors, as published"></canvas>
           </div>
         </div>
+      </div>
+      <div class="wires-fig">
         <div class="stub" id="stub" hidden aria-live="polite"></div>
       </div>
     </div>

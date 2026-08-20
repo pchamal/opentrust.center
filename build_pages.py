@@ -24,11 +24,21 @@ CERT_WEIGHT = {
     "fedramp": 12,
     "fedramp high": 12,
     "fedramp moderate": 12,
+    "fedramp low": 12,
+    "fedramp 20x moderate": 12,
+    "fedramp 20x low": 12,
+    "fedramp li-saas": 12,
     "soc 2 type ii": 10,
     "iso 27001": 10,
     "pci dss": 8,
+    "pci 3ds": 7,
     "hitrust": 8,
+    "hitrust r2": 8,
+    "hitrust i1": 8,
+    "hitrust e1": 8,
     "cmmc": 8,
+    "cmmc l2": 8,
+    "cmmc l1": 6,
     "hipaa": 6,
     "iso 27701": 6,
     "iso 42001": 6,
@@ -36,23 +46,36 @@ CERT_WEIGHT = {
     "soc 2 type i": 4,
     "soc 2": 4,
     "soc 1 type ii": 4,
+    "soc 1 type i": 4,
     "soc 1": 4,
     "soc 3": 4,
     "iso 27017": 4,
     "iso 27018": 4,
     "iso 22301": 4,
     "iso 9001": 4,
+    "iso 20000-1": 4,
+    "iso 13485": 4,
     "csa star": 4,
     "tisax": 4,
     "irap": 4,
     "stateramp": 4,
+    "govramp": 9,
     "tx-ramp": 4,
     "cyber essentials": 4,
+    "cyber essentials plus": 6,
     "nist 800-53": 4,
+    "nist 800-171": 5,
     "nist csf": 4,
     "c5": 4,
     "ismap": 4,
     "sox": 4,
+    "eu-us dpf": 4,
+    "hds": 6,
+    "dora": 4,
+    "nis2": 4,
+    "pipeda": 3,
+    "lgpd": 3,
+    "fips 140-3": 6,
     "gdpr": 3,
     "ccpa": 3,
 }
@@ -61,10 +84,15 @@ CERT_ID = {
     "fedramp": "fedramp",
     "fedramp high": "fedramp",
     "fedramp moderate": "fedramp",
+    "fedramp low": "fedramp",
+    "fedramp 20x moderate": "fedramp",
+    "fedramp 20x low": "fedramp",
+    "fedramp li-saas": "fedramp-li-saas",
     "soc 2 type ii": "soc-2-type-ii",
     "soc 2 type i": "soc-2-type-i",
     "soc 2": "soc-2-type-ii",
     "soc 1 type ii": "soc-1-type-ii",
+    "soc 1 type i": "soc-1-type-i",
     "soc 1": "soc-1-type-ii",
     "soc 3": "soc-3",
     "iso 27001": "iso-27001",
@@ -75,24 +103,42 @@ CERT_ID = {
     "aiuc-1": "aiuc-1",
     "iso 22301": "iso-22301",
     "iso 9001": "iso-9001",
+    "iso 20000-1": "iso-20000-1",
+    "iso 13485": "iso-13485",
     "gdpr": "gdpr",
     "ccpa": "ccpa-cpra",
     "hipaa": "hipaa",
     "hitrust": "hitrust-csf",
+    "hitrust r2": "hitrust-r2",
+    "hitrust i1": "hitrust-i1",
+    "hitrust e1": "hitrust-e1",
     "pci dss": "pci-dss",
+    "pci 3ds": "pci-3ds",
     "csa star": "csa-star-l1",
     "nist": "nist-csf",
     "nist csf": "nist-csf",
     "nist 800-53": "nist-800-53",
+    "nist 800-171": "nist-800-171",
     "tisax": "tisax",
     "irap": "irap",
     "stateramp": "stateramp",
+    "govramp": "govramp",
     "tx-ramp": "tx-ramp",
     "cyber essentials": "cyber-essentials",
+    "cyber essentials plus": "cyber-essentials-plus",
     "cmmc": "cmmc-l2",
+    "cmmc l2": "cmmc-l2",
+    "cmmc l1": "cmmc-l1",
     "c5": "c5",
     "ismap": "ismap",
     "sox": "sox",
+    "eu-us dpf": "eu-us-dpf",
+    "hds": "hds",
+    "dora": "dora",
+    "nis2": "nis2",
+    "pipeda": "pipeda",
+    "lgpd": "lgpd",
+    "fips 140-3": "fips-140-3",
 }
 
 LINK_TO_INSTRUMENT = {
@@ -221,6 +267,67 @@ def write_json(path: Path, payload) -> None:
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
 
 
+def load_favicon_index() -> dict:
+    raw = load_json(SITE / "favicons" / "index.json", {})
+    companies = raw.get("companies") if isinstance(raw, dict) else {}
+    marks = raw.get("marks") if isinstance(raw, dict) else {}
+    return {
+        "companies": companies if isinstance(companies, dict) else {},
+        "marks": marks if isinstance(marks, dict) else {},
+    }
+
+
+_STAMP_CACHE: dict[str, bool] = {}
+
+
+def _is_stamp_file(path: Path) -> bool:
+    key = str(path)
+    if key in _STAMP_CACHE:
+        return _STAMP_CACHE[key]
+    try:
+        from scripts.fetch_favicons import stamp_reason
+        from PIL import Image
+
+        reason = bool(stamp_reason(Image.open(path)))
+    except Exception:
+        reason = False
+    _STAMP_CACHE[key] = reason
+    return reason
+
+
+def favicon_file(name: str) -> str:
+    safe = str(name or "").replace("\\", "/").split("/")[-1]
+    if not safe or ".." in safe:
+        return ""
+    path = SITE / "favicons" / safe
+    if path.is_file() and path.stat().st_size > 20 and not _is_stamp_file(path):
+        return safe
+    return ""
+
+
+def company_favicon(domain: str, index: dict | None = None) -> str:
+    host = (domain or "").strip().lower().removeprefix("www.")
+    idx = index if index is not None else load_favicon_index()
+    return favicon_file((idx.get("companies") or {}).get(host) or "")
+
+
+def mark_favicon(mark_id: str, index: dict | None = None) -> str:
+    mid = (mark_id or "").strip()
+    idx = index if index is not None else load_favicon_index()
+    return favicon_file((idx.get("marks") or {}).get(mid) or "")
+
+
+def ink_icon(src: str, prefix: str = "../") -> str:
+    file = favicon_file(src)
+    if not file:
+        return ""
+    href = f"{prefix}favicons/{file}"
+    return (
+        f'<img class="ink-ico" src="{escape(href)}" alt="" width="12" height="12" '
+        f'decoding="async" onerror="this.remove()">'
+    )
+
+
 def pretty_subprocessor_nodes(doc: dict) -> None:
     for node in doc.get("nodes") or []:
         name = str(node.get("name") or "").strip()
@@ -262,10 +369,34 @@ def cert_key(name: str) -> str:
     return re.sub(r"\s+", " ", name.strip().lower())
 
 
+_ATTESTATION_IDS: dict[str, str] | None = None
+
+
+def attestation_id_book() -> dict[str, str]:
+    """Existing framework entries only. Do not invent a mark page."""
+    global _ATTESTATION_IDS
+    if _ATTESTATION_IDS is not None:
+        return _ATTESTATION_IDS
+    path = SITE / "data" / "attestations.json"
+    if not path.exists():
+        path = ROOT / "data" / "attestations.json"
+    book: dict[str, str] = {}
+    for item in load_json(path, {}).get("attestations") or []:
+        aid = str(item.get("id") or "").strip()
+        if not aid:
+            continue
+        for label in (aid, item.get("name"), item.get("short")):
+            key = cert_key(label or "")
+            if key and key not in book:
+                book[key] = aid
+    _ATTESTATION_IDS = book
+    return book
+
+
 def map_cert(name: str) -> dict:
     key = cert_key(name)
     weight = CERT_WEIGHT.get(key)
-    att_id = CERT_ID.get(key)
+    att_id = CERT_ID.get(key) or attestation_id_book().get(key)
     if "fedramp" in key:
         if "li-saas" in key or "li saas" in key:
             att_id = att_id or "fedramp-li-saas"
@@ -276,6 +407,42 @@ def map_cert(name: str) -> dict:
     if weight is None:
         weight = 4
     return {"id": att_id, "name": name, "weight": weight}
+
+
+def link_mark_words(text: str, attestations: list[dict], href_base: str = "../attestations.html") -> str:
+    """Link mark words that already have a framework entry. Words only."""
+    out = escape(text)
+    labels: list[tuple[str, str]] = []
+    seen: set[str] = set()
+    for a in attestations:
+        aid = str(a.get("id") or "").strip()
+        if not aid:
+            continue
+        for lab in (a.get("name"), a.get("short")):
+            t = str(lab or "").strip()
+            if t and t not in seen:
+                seen.add(t)
+                labels.append((t, aid))
+    labels.sort(key=lambda x: len(x[0]), reverse=True)
+    for lab, aid in labels:
+        needle = escape(lab)
+        if not needle:
+            continue
+        link = f'<a href="{escape(href_base)}#{escape(aid)}">{needle}</a>'
+        parts: list[str] = []
+        i = 0
+        while i < len(out):
+            j = out.find(needle, i)
+            if j < 0:
+                parts.append(out[i:])
+                break
+            before = out[:j]
+            in_link = before.rfind("<a ") > before.rfind("</a>")
+            parts.append(out[i:j])
+            parts.append(needle if in_link else link)
+            i = j + len(needle)
+        out = "".join(parts)
+    return out
 
 
 CLERK_KEEP = re.compile(r"^(Public trust center|Official page)\b", re.I)
@@ -354,25 +521,54 @@ def filed_disclosure(row: dict) -> dict:
 FILE_METER_KEYS = ("page", "marks", "dpa", "subprocessors", "years")
 
 
-def file_flags(row: dict, disc: dict) -> dict:
-    """Five instruments a buyer can see. Not a score."""
-    f = disc.get("factors") or {}
+def _instrument_url(row: dict, key: str) -> bool:
+    rec = (row.get("instruments") or {}).get(key) or {}
+    return bool(isinstance(rec, dict) and rec.get("url"))
+
+
+def _named_marks_on_file(row: dict) -> bool:
+    atts = [a for a in (row.get("attestations") or []) if a and (a.get("name") or a.get("short"))]
+    certs = [c for c in (row.get("certs") or []) if c]
+    return bool(atts or certs or row.get("fedramp"))
+
+
+def file_flags(row: dict, disc: dict | None = None) -> dict:
+    """Bind each rule to that instrument on this row. Not a factor score."""
+    page = bool(row.get("found") and (row.get("trust_url") or row.get("final_url")))
+    if not page:
+        page = _instrument_url(row, "trust") or _instrument_url(row, "security")
+    procs = row.get("processors") or []
     return {
-        "page": bool(f.get("page")),
-        "marks": bool(f.get("marks") or row.get("certs") or row.get("attestations")),
-        "dpa": bool(f.get("dpa")),
-        "subprocessors": bool(f.get("processors") or f.get("subprocessors")),
-        "years": bool(row.get("founded_year") or f.get("years")),
+        "page": page,
+        "marks": _named_marks_on_file(row),
+        "dpa": _instrument_url(row, "dpa"),
+        "subprocessors": bool(procs) or _instrument_url(row, "subprocessors"),
+        "years": bool(row.get("founded_year")),
     }
 
 
-def file_coverage_text(flags: dict) -> str:
-    """Text coverage with a denominator. Not a meter and not a score."""
-    n = sum(1 for k in FILE_METER_KEYS if flags.get(k))
-    return (
-        f"public evidence located in {n} of 5 checked categories "
-        "(page, marks, DPA, subprocessors, years)"
+FILE_METER_LABELS = {
+    "page": "page",
+    "marks": "marks",
+    "dpa": "DPA",
+    "subprocessors": "subprocessors",
+    "years": "years",
+}
+
+
+def file_count(flags: dict) -> int:
+    return sum(1 for k in FILE_METER_KEYS if flags.get(k))
+
+
+def file_index_html(flags: dict) -> str:
+    """Five short rules. Filled = on file. Open hairline = not on file. Not a score."""
+    on = [FILE_METER_LABELS[k] for k in FILE_METER_KEYS if flags.get(k)]
+    spoken = " · ".join(on) if on else "not on file"
+    rules = "".join(
+        f'<span class="file-rule{" on" if flags.get(k) else ""}" aria-hidden="true"></span>'
+        for k in FILE_METER_KEYS
     )
+    return f'<span class="file-index" role="img" aria-label="{escape(spoken)}">{rules}</span>'
 
 
 def factor_line(disc: dict) -> str:
@@ -489,17 +685,31 @@ def processor_display_name(edge: dict, node: dict, to: str) -> str:
     return humanize_processor_name(str(edge.get("processor") or to))
 
 
-def register_slug_for(node: dict, by_slug: dict, by_domain: dict) -> str | None:
+def register_slug_for(node: dict, by_slug: dict, by_domain: dict, by_name: dict | None = None) -> str | None:
+    """Reuse an existing dossier slug. Do not invent a page."""
     nid = node.get("id")
     if nid and nid in by_slug:
         return nid
     domain = (node.get("domain") or "").lower()
     if domain in by_domain:
         return by_domain[domain]
+    if by_name:
+        name = str(node.get("name") or "").strip().lower()
+        if name and name in by_name:
+            return by_name[name]
     return None
 
 
-def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_domain: dict, generated_at: str) -> dict:
+def enrich_company(
+    row: dict,
+    edges: list[dict],
+    nodes: dict,
+    by_slug: dict,
+    by_domain: dict,
+    generated_at: str,
+    favicons: dict | None = None,
+    by_name: dict | None = None,
+) -> dict:
     slug = row["slug"]
     links = row.get("links") or {}
     domain = row.get("domain") or ""
@@ -538,10 +748,11 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
         to = e.get("to") or e.get("processor_slug") or ""
         node = nodes.get(to) or {}
         name = processor_display_name(e, node, to)
-        proc_slug = register_slug_for(node, by_slug, by_domain)
+        proc_slug = register_slug_for(node, by_slug, by_domain, by_name)
         processors.append({
             "name": name,
             "slug": proc_slug,
+            "id": to or None,
             "source_url": e["source_url"],
         })
     if mine and not instruments.get("subprocessors"):
@@ -572,13 +783,16 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
         "processors": processors,
         "disclosure": disc,
         "tier": disc["tier"],
-        "file": file_flags(row, disc),
-        "_crawl": {
-            "vendor": (row.get("_crawl") or {}).get("vendor") or (row.get("vendor") if found else None),
-            "title": scrub_title((row.get("_crawl") or {}).get("title") or row.get("title") or "", slug),
-            "http_status": (row.get("_crawl") or {}).get("http_status") or row.get("http_status"),
-        },
     }
+    public["file"] = file_flags({**public, "fedramp": fedramp} if fedramp else public)
+    public["_crawl"] = {
+        "vendor": (row.get("_crawl") or {}).get("vendor") or (row.get("vendor") if found else None),
+        "title": scrub_title((row.get("_crawl") or {}).get("title") or row.get("title") or "", slug),
+        "http_status": (row.get("_crawl") or {}).get("http_status") or row.get("http_status"),
+    }
+    icon = company_favicon(domain, favicons)
+    if icon:
+        public["favicon"] = icon
     if fedramp:
         public["fedramp"] = fedramp
     page = load_aiti_pages().get(slug)
@@ -597,10 +811,22 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
             "source_url": ai_procs.get("source_url"),
             "via": ai_procs.get("via"),
         }
+    star = public_star(row.get("csa_star"))
+    if star:
+        public["csa_star"] = star
+    stateramp = public_ramp(row.get("stateramp"), STATERAMP_MARKET)
+    if stateramp:
+        public["stateramp"] = stateramp
+    txramp = public_ramp(row.get("txramp"), TXRAMP_MARKET)
+    if txramp:
+        public["txramp"] = txramp
     return public
 
 
 FEDRAMP_MARKET = "https://www.fedramp.gov/marketplace/products/"
+STAR_REGISTRY = "https://cloudsecurityalliance.org/star/registry"
+STATERAMP_MARKET = "https://govramp.org/program-participants"
+TXRAMP_MARKET = "https://dir.texas.gov/resource-library-item/tx-ramp-certified-cloud-products"
 
 
 def product_market_url(item: dict) -> str:
@@ -715,6 +941,18 @@ def filed_cell(value: str | None) -> str:
     return f"<td>{text}</td>"
 
 
+def sort_th(key: str, label: str, default: str | None = None) -> str:
+    aria = "none"
+    if default == "asc":
+        aria = "ascending"
+    elif default == "desc":
+        aria = "descending"
+    return (
+        f'<th scope="col" data-sort="{escape(key)}" aria-sort="{aria}">'
+        f'<button type="button">{escape(label)}</button></th>'
+    )
+
+
 def keep_marketplace_product(item: dict) -> bool:
     """A marketplace listing with an offering is on file, authorized or not."""
     if not isinstance(item, dict):
@@ -759,6 +997,118 @@ def attach_fedramp_dump(companies: list[dict]) -> None:
         if not dump:
             continue
         row["fedramp"] = merge_fedramp(row.get("fedramp"), dump)
+
+
+def public_star(raw) -> dict | None:
+    """Pass through a first-party STAR listing. Do not invent levels or dates."""
+    if not isinstance(raw, dict):
+        return None
+    products = []
+    for item in raw.get("products") or []:
+        offering = str(item.get("offering") or item.get("csp") or "").strip()
+        href = str(item.get("url") or "").strip()
+        if not offering or not href:
+            continue
+        listed = str(item.get("listed_since") or "").strip() or None
+        products.append({
+            "offering": offering,
+            "url": href,
+            "listed_since": listed,
+        })
+    if not products:
+        return None
+    return {
+        "marketplace": raw.get("marketplace") or STAR_REGISTRY,
+        "source": raw.get("source") or STAR_REGISTRY,
+        "products": products,
+    }
+
+
+def public_ramp(raw, default_url: str) -> dict | None:
+    """Pass through a first-party listing dump. Do not invent offerings."""
+    if not isinstance(raw, dict):
+        return None
+    products = []
+    for item in raw.get("products") or []:
+        offering = str(item.get("offering") or "").strip()
+        if not offering:
+            continue
+        pid = str(item.get("id") or "").strip() or None
+        products.append({
+            "id": pid,
+            "offering": offering,
+            "status": str(item.get("status") or "").strip() or None,
+            "impact_level": str(item.get("impact_level") or item.get("level") or "").strip() or None,
+            "auth_date": item.get("auth_date") or None,
+            "url": str(item.get("url") or "").strip() or default_url,
+        })
+    if not products:
+        return None
+    marketplace = raw.get("marketplace") or default_url
+    return {
+        "marketplace": marketplace,
+        "source": raw.get("source") or marketplace,
+        "products": products,
+    }
+
+
+def ensure_star_mark(row: dict) -> None:
+    """File the catalog mark when the STAR registry listed this CSP. Do not rescore."""
+    certs = [c for c in (row.get("certs") or []) if c]
+    if any(cert_key(c).startswith("csa star") for c in certs):
+        return
+    certs.append("CSA STAR")
+    row["certs"] = certs
+
+
+def attach_star_dump(companies: list[dict]) -> None:
+    path = SITE / "data" / "csa-star.json"
+    if not path.exists():
+        path = ROOT / "data" / "csa-star.json"
+    doc = load_json(path, {})
+    by_slug = {
+        rec["slug"]: rec
+        for rec in (doc.get("companies") or [])
+        if rec.get("slug")
+    }
+    for row in companies:
+        dump = by_slug.get(row.get("slug"))
+        if not dump:
+            continue
+        row["csa_star"] = dump
+        ensure_star_mark(row)
+
+
+def ensure_mark(row: dict, label: str) -> None:
+    """File the catalog mark when the marketplace listed this CSP. Do not rescore."""
+    certs = [c for c in (row.get("certs") or []) if c]
+    keys = {cert_key(c) for c in certs}
+    if label == "StateRAMP" and ("stateramp" in keys or "govramp" in keys):
+        return
+    if label == "TX-RAMP" and ("tx-ramp" in keys or "txramp" in keys):
+        return
+    if cert_key(label) in keys:
+        return
+    certs.append(label)
+    row["certs"] = certs
+
+
+def attach_ramp_dump(companies: list[dict], filename: str, key: str, mark: str) -> None:
+    path = SITE / "data" / filename
+    if not path.exists():
+        path = ROOT / "data" / filename
+    doc = load_json(path, {})
+    by_slug = {
+        rec["slug"]: rec
+        for rec in (doc.get("companies") or [])
+        if rec.get("slug")
+    }
+    for row in companies:
+        dump = by_slug.get(row.get("slug"))
+        if not dump:
+            continue
+        row[key] = dump
+        ensure_mark(row, mark)
 
 
 def cite_url(url: str) -> str:
@@ -827,17 +1177,134 @@ def fedramp_block(row: dict, generated_at: str = "") -> str:
     lines = [
         '    <p class="sec-kicker">FedRAMP</p>',
         f"    {caption}",
-        '    <table class="inst filed">',
-        '      <thead><tr><th scope="col">Offering</th><th scope="col">Status</th><th scope="col">Impact level</th><th scope="col">Auth date</th></tr></thead>',
+        '    <table class="inst filed" data-table="fedramp">',
+        '      <thead><tr>'
+        + sort_th("offering", "Offering")
+        + sort_th("status", "Status")
+        + sort_th("impact", "Impact level")
+        + sort_th("date", "Auth date")
+        + "</tr></thead>",
         f"      <tbody>{body}</tbody>",
         "    </table>",
     ]
     return "\n".join(lines) + "\n"
 
 
+def star_block(row: dict) -> str:
+    """Clerk table for a matched STAR listing. Absent when the registry did not name this CSP."""
+    raw = row.get("csa_star") if isinstance(row.get("csa_star"), dict) else None
+    products = [
+        p for p in (raw or {}).get("products") or []
+        if str(p.get("offering") or p.get("csp") or "").strip()
+        and str(p.get("url") or "").strip()
+    ]
+    if not products:
+        return ""
+    rows = []
+    for p in products:
+        offering = str(p.get("offering") or p.get("csp") or "").strip()
+        href = str(p.get("url") or "").strip() or STAR_REGISTRY
+        rows.append(
+            f'<tr><td><a href="{escape(href)}">{escape(offering)}</a></td>'
+            f"{filed_cell('')}"
+            f"{filed_cell('')}"
+            f"{filed_cell(fmt_day(p.get('listed_since') or ''))}</tr>"
+        )
+    cite = (
+        f'Filed from the <a href="{escape(STAR_REGISTRY)}">CSA STAR Registry</a>'
+    )
+    return (
+        '    <p class="sec-kicker">CSA STAR</p>\n'
+        f'    <p class="src-line">{cite}.</p>\n'
+        '    <table class="inst filed">\n'
+        '      <thead><tr><th scope="col">Listing</th><th scope="col">Status</th>'
+        '<th scope="col">Level</th><th scope="col">Listed since</th></tr></thead>\n'
+        f'      <tbody>{"".join(rows)}</tbody>\n'
+        "    </table>\n"
+    )
+
+
+def ramp_block(row: dict, key: str, heading: str, cite_html: str, level_label: str) -> str:
+    """Clerk table for a matched listing. Absent on companies the marketplace did not name."""
+    raw = row.get(key) if isinstance(row.get(key), dict) else None
+    products = [
+        p for p in (raw or {}).get("products") or []
+        if str(p.get("offering") or "").strip()
+    ]
+    if not products:
+        return ""
+    market = str((raw or {}).get("marketplace") or "").strip()
+    rows = []
+    for p in products:
+        offering = str(p.get("offering") or "").strip()
+        href = str(p.get("url") or "").strip() or market
+        rows.append(
+            f'<tr><td><a href="{escape(href)}">{escape(offering)}</a></td>'
+            f"<td>{cell(str(p.get('status') or '').strip() or None)}</td>"
+            f"{filed_cell(str(p.get('impact_level') or p.get('level') or '').strip())}"
+            f"{filed_cell(fmt_day(p.get('auth_date') or ''))}</tr>"
+        )
+    return (
+        f'    <p class="sec-kicker">{escape(heading)}</p>\n'
+        f'    <p class="src-line">{cite_html}.</p>\n'
+        '    <table class="inst filed">\n'
+        f'      <thead><tr><th scope="col">Offering</th><th scope="col">Status</th>'
+        f'<th scope="col">{escape(level_label)}</th><th scope="col">Auth date</th></tr></thead>\n'
+        f'      <tbody>{"".join(rows)}</tbody>\n'
+        "    </table>\n"
+    )
+
+
+def stateramp_block(row: dict) -> str:
+    cite = (
+        f'Filed from the <a href="{escape(STATERAMP_MARKET)}">GovRAMP Authorized Product List</a>'
+        " · StateRAMP name, same program"
+    )
+    return ramp_block(row, "stateramp", "StateRAMP", cite, "Impact level")
+
+
+def txramp_block(row: dict) -> str:
+    cite = (
+        f'Filed from the <a href="{escape(TXRAMP_MARKET)}">TX-RAMP certified cloud products</a>'
+        " list"
+    )
+    return ramp_block(row, "txramp", "TX-RAMP", cite, "Level")
+
+
+def ramp_extras(row: dict) -> str:
+    parts = [block for block in (stateramp_block(row), txramp_block(row)) if block]
+    if not parts:
+        return ""
+    return "\n" + "\n".join(parts)
+
+
+def processor_href(p: dict) -> str | None:
+    """Dossier if on the register; else the map node. Never invent a page."""
+    slug = str(p.get("slug") or "").strip()
+    if slug:
+        return f"./{slug}.html"
+    nid = str(p.get("id") or "").strip()
+    if nid:
+        return f"../graph.html#p={nid}"
+    return None
+
+
+def processor_cell(p: dict) -> str:
+    name = escape(p["name"])
+    href = processor_href(p)
+    if href:
+        return f'<a href="{escape(href)}">{name}</a>'
+    return name
+
+
 def processors_block(procs: list[dict], generated_at: str = "", list_url: str = "") -> str:
+    proc_head = (
+        '    <table class="inst filed" data-table="processors">\n'
+        f'      <thead><tr>{sort_th("processor", "Processor", "asc")}</tr></thead>\n'
+    )
     if procs:
-        proc_rows = "".join(f"<tr><td>{escape(p['name'])}</td></tr>" for p in procs)
+        named = sorted(procs, key=lambda p: str(p.get("name") or "").lower())
+        proc_rows = "".join(f"<tr><td>{processor_cell(p)}</td></tr>" for p in named)
         urls = []
         for p in procs:
             u = str(p.get("source_url") or "").strip()
@@ -852,8 +1319,7 @@ def processors_block(procs: list[dict], generated_at: str = "", list_url: str = 
         return (
             '    <p class="sec-kicker">Named processors</p>\n'
             f"{cite}"
-            '    <table class="inst filed">\n'
-            '      <thead><tr><th scope="col">Processor</th></tr></thead>\n'
+            f"{proc_head}"
             f"      <tbody>{proc_rows}</tbody>\n"
             "    </table>"
         )
@@ -866,8 +1332,7 @@ def processors_block(procs: list[dict], generated_at: str = "", list_url: str = 
         )
     return (
         '    <p class="sec-kicker">Named processors</p>\n'
-        '    <table class="inst filed">\n'
-        '      <thead><tr><th scope="col">Processor</th></tr></thead>\n'
+        f"{proc_head}"
         f"      <tbody><tr><td>{cell(None)}</td></tr></tbody>\n"
         "    </table>"
     )
@@ -967,8 +1432,8 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     found = bool(row.get("found"))
     url = row.get("trust_url") or ""
     disc = row["disclosure"]
-    tier = display_file_tier(disc["tier"])
-    file_cls = "file-word silent" if disc["tier"] == "silent" else "file-word"
+    flags = row.get("file") or file_flags(row, disc)
+    file_html = file_index_html(flags)
     title = f"{name} — opentrust.center"
     desc = "A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not."
     year = row.get("founded_year")
@@ -983,9 +1448,12 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
         mark_list = (
             '<ul class="mark-list">'
             + "".join(
-                f'<li><a href="../attestations.html#{escape(a["id"] or "")}">{escape(a["name"])}</a></li>'
-                if a.get("id")
-                else f"<li>{escape(a['name'])}</li>"
+                (
+                    f'<li><a href="../attestations.html#{escape(a["id"] or "")}">'
+                    f'{ink_icon(mark_favicon(a.get("id") or ""), "../")}{escape(a["name"])}</a></li>'
+                    if a.get("id")
+                    else f"<li>{escape(a['name'])}</li>"
+                )
                 for a in atts
             )
             + "</ul>"
@@ -1040,7 +1508,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     if isinstance(sub, dict) and sub.get("url"):
         list_url = sub["url"]
     clerk = row.get("summary") or ""
-    clerk_html = f'<p class="clerk">{escape(clerk)}</p>' if clerk else ""
+    clerk_html = f'<p class="clerk">{link_mark_words(clerk, atts)}</p>' if clerk else ""
     outbound = (
         f'<a class="official" href="{escape(url)}" rel="noopener noreferrer">Official page</a>'
         if found and url
@@ -1101,15 +1569,15 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
   <main class="file" id="main">
     <p class="crumb"><a href="../companies.html">Companies</a> / {escape(slug)}</p>
     <section class="ident">
-      <h1>{escape(name)}</h1>
+      <h1>{ink_icon(row.get("favicon") or company_favicon(domain), "../")}{escape(name)}</h1>
       <p class="ident-meta">{escape(domain)}</p>
-      <p class="ident-meta file-line">file <span class="sep">·</span> <span class="{file_cls}">{escape(tier)}</span></p>
+      <p class="ident-meta file-line">{file_html}</p>
       <p class="ident-meta">founded · {year_html}</p>
     </section>
 
     <p class="sec-kicker">Instruments</p>
-    <table class="inst">
-      <thead><tr><th scope="col">Instrument</th><th scope="col">Host</th><th scope="col">Last seen</th></tr></thead>
+    <table class="inst" data-table="instruments">
+      <thead><tr>{sort_th("instrument", "Instrument")}{sort_th("host", "Host")}{sort_th("seen", "Last seen")}</tr></thead>
       <tbody>{"".join(inst_rows)}</tbody>
     </table>
 
@@ -1119,7 +1587,8 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     <p class="out">{outbound}</p>
     {gate}
 
-{fedramp_block(row, generated_at)}
+{fedramp_block(row, generated_at)}{ramp_extras(row)}
+{star_block(row)}
 
 {processors_block(procs, generated_at, list_url)}
 
@@ -1235,6 +1704,9 @@ def main() -> int:
     raw = load_json(src, {})
     companies_in = raw.get("companies") or []
     attach_fedramp_dump(companies_in)
+    attach_ramp_dump(companies_in, "stateramp.json", "stateramp", "StateRAMP")
+    attach_ramp_dump(companies_in, "txramp.json", "txramp", "TX-RAMP")
+    attach_star_dump(companies_in)
     generated_at = raw.get("generated_at") or ""
     sources = raw.get("sources") or [
         {"name": "Forbes Cloud 100 2025", "url": "https://www.forbes.com/lists/cloud100/"},
@@ -1257,13 +1729,18 @@ def main() -> int:
     nodes = {n["id"]: n for n in (edges_doc.get("nodes") or []) if n.get("id")}
     by_slug = {c["slug"]: c for c in companies_in if c.get("slug")}
     by_domain = {}
+    by_name = {}
     for c in companies_in:
         domain = (c.get("domain") or "").lower()
         if domain:
             by_domain[domain] = c["slug"]
+        name = str(c.get("name") or "").strip().lower()
+        if name and name not in by_name:
+            by_name[name] = c["slug"]
 
+    favicons = load_favicon_index()
     public_companies = [
-        enrich_company(row, edges, nodes, by_slug, by_domain, generated_at)
+        enrich_company(row, edges, nodes, by_slug, by_domain, generated_at, favicons, by_name)
         for row in companies_in
     ]
     assign_file_ranks(public_companies)

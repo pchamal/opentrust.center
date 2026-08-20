@@ -29,7 +29,15 @@
 
   <main class="canvas" id="main">
     <h1 class="page-title">Marks a buyer will meet</h1>
-    <p class="lede">By geography and industry. ELI-5, then the long form.</p>
+    <p class="lede">By geography and industry. How to read the mark, then ELI-5, then the long form.</p>
+
+    <form class="finder" id="finder" role="search">
+      <label>
+        <span class="sr-only">Find a mark</span>
+        <input id="q" type="search" name="q" placeholder="/ soc, fedramp, iso 27001" autocomplete="off" spellcheck="false">
+      </label>
+      <button type="submit" class="finder-go">Find</button>
+    </form>
 
     <div class="gaz-grid">
       <div>
@@ -57,6 +65,15 @@
           <button type="button" data-ind="ai">AI</button>
         </div>
         <p class="countline" id="book-count"></p>
+        <table class="inst" id="book-sort">
+          <thead>
+            <tr>
+              <th scope="col" data-sort="name" aria-sort="none"><button type="button">Name</button></th>
+              <th scope="col" data-sort="files" aria-sort="descending"><button type="button">Files</button></th>
+            </tr>
+          </thead>
+        </table>
+        <p class="absent" id="book-miss" hidden>not on file</p>
         <div id="book"></div>
       </div>
       <aside>

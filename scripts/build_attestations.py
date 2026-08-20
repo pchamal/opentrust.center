@@ -24,8 +24,16 @@ ALLOWED_KIND = {
 
 REQUIRED = [
     "id", "name", "short", "family", "kind", "geography", "industry",
-    "issuer", "eli5", "elaborate", "lat", "lng", "related", "weight",
+    "issuer", "eli5", "elaborate", "read", "lat", "lng", "related", "weight",
 ]
+
+BANNED_READ = (
+    "trusted",
+    "trust score",
+    "security rating",
+    "maturity index",
+    "maturity",
+)
 
 
 def load_module(name: str, path: Path):
@@ -53,9 +61,13 @@ def main() -> int:
         entries.extend(mod.ENTRIES)
     extra_mod = load_module("attestations_expand", ROOT / "attestations_expand.py")
     extra = extra_mod.EXTRA
+    read_mod = load_module("attestations_read", ROOT / "attestations_read.py")
+    readings = read_mod.READ
     for e in entries:
         if e["id"] in extra:
             e["elaborate"] = (e["elaborate"].rstrip() + extra[e["id"]]).strip()
+        if e["id"] in readings and "read" not in e:
+            e["read"] = readings[e["id"]]
 
     # Dedup by id, last wins
     by_id = {}
@@ -85,6 +97,20 @@ def main() -> int:
         sents = [x for x in eli.replace("?", ".").split(".") if x.strip()]
         if len(sents) < 2:
             warns.append(f"{e['id']} eli5 looks short ({len(sents)} sentences)")
+        read = (e.get("read") or "").strip()
+        if not read:
+            errors.append(f"{e['id']} missing read")
+        else:
+            if "not a company score" not in read.lower() or "not a badge we issued" not in read.lower():
+                errors.append(f"{e['id']} read must say not a company score and not a badge we issued")
+            if not read.endswith("."):
+                errors.append(f"{e['id']} read must be one sentence")
+            if read.count(".") != 1:
+                errors.append(f"{e['id']} read is not one sentence")
+            low = read.lower()
+            for bad in BANNED_READ:
+                if bad in low:
+                    errors.append(f"{e['id']} read has banned word {bad!r}")
         if not isinstance(e.get("geography"), list) or not e["geography"]:
             errors.append(f"{e['id']} geography")
         if not isinstance(e.get("industry"), list) or not e["industry"]:
@@ -116,6 +142,7 @@ def main() -> int:
             "issuer": e["issuer"],
             "eli5": e["eli5"],
             "elaborate": e["elaborate"],
+            "read": e["read"],
             "lat": float(e["lat"]),
             "lng": float(e["lng"]),
             "related": e["related"],
@@ -163,11 +190,16 @@ def main() -> int:
     }
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
+    payload = json.dumps(doc, indent=2, ensure_ascii=False) + "\n"
     out_json = OUT_DIR / "attestations.json"
-    out_json.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    out_json.write_text(payload, encoding="utf-8")
+    site_json = ROOT.parent / "site" / "data" / "attestations.json"
+    site_json.parent.mkdir(parents=True, exist_ok=True)
+    site_json.write_text(payload, encoding="utf-8")
 
     write_index(clean, OUT_DIR / "attestations-index.md")
     print(f"Wrote {len(clean)} entries -> {out_json}")
+    print(f"Wrote {len(clean)} entries -> {site_json}")
     return 0
 
 
@@ -216,10 +248,13 @@ def write_index(entries, path: Path) -> None:
         "- **framework** — a control catalog you can map to. Not a cert.",
         "- **code-of-practice** — guidance or a contractual mechanism (ISO 27017/27018, SCCs).",
         "- **questionnaire** — SIG, CAIQ. Homework, not a mark.",
+        "- **read** — one clerk sentence: what the mark is evidence of. Not a company score, and not a badge we issued.",
         "- **weight** — how much a *verified* public disclosure should move a score. FedRAMP 12, SOC 2 Type II 10, GDPR 3, Privacy Shield 0.",
         "- **retired** — do not score. Privacy Shield is the only retired row.",
         "",
         "Look up the live artifact. A badge is not the report.",
+        "NIST SP 1305 tells the acquirer to ask for evidence (self-attestation, standard, certification, inspection) before acquisition.",
+        "A listing here is not that evidence.",
         "",
     ]
     lines += table(kind, "By kind")

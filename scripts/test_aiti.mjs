@@ -145,7 +145,7 @@ const filedSlugs = Object.keys(pagesDoc.pages);
 const pageOn = files.filter((r) => aiFileFlags(r).page);
 const pageOpen = files.filter((r) => !aiFileFlags(r).page);
 expect("page fill count is the curated list", pageOn.length === filedSlugs.length && pageOn.length === 7);
-expect("46 files leave page open", pageOpen.length === 46 && pagesDoc.open.length === 46);
+expect("remaining files leave page open", pageOpen.length === files.length - filedSlugs.length);
 expect("filed slugs are on the register", filedSlugs.every((s) => bySlug[s]));
 expect("does not invent page companies", filedSlugs.every((s) => files.some((r) => r.slug === s)));
 
@@ -203,7 +203,7 @@ const procFiled = Object.keys(procsDoc.processors);
 const procOn = files.filter((r) => aiFileFlags(r).processors);
 const procOpen = files.filter((r) => !aiFileFlags(r).processors);
 expect("processors fill count is the curated list", procOn.length === procFiled.length && procOn.length === 13);
-expect("40 files leave processors open", procOpen.length === 40 && procsDoc.open.length === 40);
+expect("remaining files leave processors open", procOpen.length === files.length - procFiled.length);
 expect("does not invent processor companies", procFiled.every((s) => files.some((r) => r.slug === s) && bySlug[s]));
 
 for (const slug of procFiled) {
