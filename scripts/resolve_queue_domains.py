@@ -850,7 +850,7 @@ def expand_resolved(report: dict) -> dict:
     enr = load_json(ENRICHED, {"companies": []})
     have = {c["slug"] for c in enr.get("companies") or []}
     import subprocess
-    raw = subprocess.check_output(["git", "show", "HEAD:data/crawl-queue.json"], cwd=ROOT)
+    raw = subprocess.check_output(["git", "show", "main:data/crawl-queue.json"], cwd=ROOT)
     was_null = {c["slug"] for c in json.loads(raw).get("companies") or [] if not c.get("domain")}
     newly = [
         row for row in queue.get("companies") or []

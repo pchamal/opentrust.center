@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T05:49:05Z",
+  "generated_at": "2026-08-20T16:14:55Z",
   "nodes": [
     {
       "id": "openai",
@@ -1968,6 +1968,48 @@
       "name": "SpaceXAI",
       "kind": "subprocessor",
       "in_register": false
+    },
+    {
+      "id": "varonis",
+      "name": "Varonis",
+      "domain": "varonis.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "weave",
+      "name": "Weave",
+      "domain": "getweave.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "recaptcha",
+      "name": "Google reCAPTCHA",
+      "domain": "google.com",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "megaport",
+      "name": "Megaport",
+      "domain": "megaport.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "vertex",
+      "name": "Vertex",
+      "domain": "vertexinc.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "viant-technology",
+      "name": "Viant Technology",
+      "domain": "viantinc.com",
+      "kind": "company",
+      "in_register": true
     }
   ],
   "edges": [
@@ -4286,6 +4328,78 @@
       "to": "workos",
       "source_url": "https://trust.cursor.com/subprocessors",
       "evidence": "WorkOS"
+    },
+    {
+      "from": "varonis",
+      "to": "aws",
+      "source_url": "https://trust.varonis.com/subprocessors",
+      "evidence": "Amazon Web Services"
+    },
+    {
+      "from": "varonis",
+      "to": "azure",
+      "source_url": "https://trust.varonis.com/subprocessors",
+      "evidence": "Microsoft Azure"
+    },
+    {
+      "from": "varonis",
+      "to": "datadog",
+      "source_url": "https://trust.varonis.com/subprocessors",
+      "evidence": "Datadog"
+    },
+    {
+      "from": "varonis",
+      "to": "okta",
+      "source_url": "https://trust.varonis.com/subprocessors",
+      "evidence": "Okta"
+    },
+    {
+      "from": "varonis",
+      "to": "salesforce",
+      "source_url": "https://trust.varonis.com/subprocessors",
+      "evidence": "Salesforce"
+    },
+    {
+      "from": "varonis",
+      "to": "github",
+      "source_url": "https://trust.varonis.com/subprocessors",
+      "evidence": "GitHub"
+    },
+    {
+      "from": "weave",
+      "to": "recaptcha",
+      "source_url": "https://www.getweave.com/subprocessors/",
+      "evidence": "Google reCAPTCHA"
+    },
+    {
+      "from": "megaport",
+      "to": "netlify",
+      "source_url": "https://www.megaport.com/legal/subprocessors/",
+      "evidence": "Netlify"
+    },
+    {
+      "from": "vertex",
+      "to": "aws",
+      "source_url": "https://trust.vertexinc.com/subprocessors",
+      "evidence": "Amazon Web Services"
+    },
+    {
+      "from": "vertex",
+      "to": "github",
+      "source_url": "https://trust.vertexinc.com/subprocessors",
+      "evidence": "GitHub"
+    },
+    {
+      "from": "vertex",
+      "to": "sentry",
+      "source_url": "https://trust.vertexinc.com/subprocessors",
+      "evidence": "Sentry"
+    },
+    {
+      "from": "viant-technology",
+      "to": "sentry",
+      "source_url": "https://www.viantinc.com/agreements/policies/subprocessors/",
+      "evidence": "Sentry"
     }
   ],
   "notes": "Only public lists. Incomplete by nature. Login-walled app URLs omitted."
