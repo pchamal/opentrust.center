@@ -60,7 +60,38 @@ const cursorNames = [
   "Cloudflare", "Google Cloud Platform", "Together", "SpaceXAI", "WorkOS",
 ];
 const procChunk = dossier.split("Named processors")[1] || "";
-expect("anysphere processors are the published list", cursorNames.every((n) => procChunk.includes(n)) && cursorNames.join() === [...procChunk.matchAll(/<tr><td>([^<]+)<\/td><\/tr>/g)].map((m) => m[1]).join());
+const procCells = [...procChunk.matchAll(/<tr><td>(.*?)<\/td><\/tr>/g)].map((m) => m[1]);
+const procNames = procCells.map((cell) => cell.replace(/<[^>]+>/g, ""));
+expect("anysphere processors are the published list", cursorNames.every((n) => procChunk.includes(n)) && cursorNames.join() === procNames.join());
+const dossierHref = {
+  "Amazon Web Services": "./amazon-web-services.html",
+  Fireworks: "./fireworks-ai.html",
+  OpenAI: "./openai.html",
+  Anthropic: "./anthropic.html",
+  Datadog: "./datadog.html",
+  Databricks: "./databricks.html",
+  Vercel: "./vercel.html",
+  Cloudflare: "./cloudflare.html",
+  Together: "./together-ai.html",
+};
+const graphHref = {
+  "Google Gemini": "../graph.html#p=google-gemini",
+  Turbopuffer: "../graph.html#p=turbopuffer",
+  Exa: "../graph.html#p=exa",
+  Azure: "../graph.html#p=azure",
+  Baseten: "../graph.html#p=baseten-labs-inc",
+  "Google Cloud Platform": "../graph.html#p=gcp",
+  SpaceXAI: "../graph.html#p=spacexai",
+  WorkOS: "../graph.html#p=workos",
+};
+expect(
+  "anysphere processors that have a file are links",
+  procCells.every((cell, i) => {
+    const name = procNames[i];
+    const want = dossierHref[name] || graphHref[name];
+    return want && cell.includes(`href="${want}"`) && cell.includes(name);
+  }),
+);
 expect("anysphere processors cite the list", /Filed from[\s\S]*trust\.cursor\.com\/subprocessors/.test(procChunk) && !procChunk.includes("names not extracted") && !/<span class="absent">not on file/.test(procChunk.split("<p class=\"clerk\">")[0]));
 expect("anysphere processors are not Box names", !procChunk.includes("GitHub") && !procChunk.includes("New Relic"));
 expect("dossier has no highest-authorized badge line", !dossier.includes("highest authorized"));

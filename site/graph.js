@@ -119,6 +119,7 @@ function rankProcessors(edges, companies) {
     const t = thinness(self);
     const risk = exposure * (0.4 + 0.6 * t);
     rows.push({
+      id: key,
       name: rec.name,
       slug: rec.slug,
       inRegister: Boolean(self),
@@ -147,8 +148,11 @@ function renderTable() {
     .map((p, i) => {
       const tier = p.inRegister ? displayTier(p.tier) : "not in register";
       const src = p.sources[0] ? hostOfSafe(p.sources[0]) : "not on file";
+      const name = p.inRegister && p.slug
+        ? `<a href="./c/${encodeURIComponent(p.slug)}.html">${escapeHtml(p.name)}</a>`
+        : escapeHtml(p.name);
       return `<tr data-i="${i}" class="${state.focus === i ? "on selected" : ""}">
-        <td class="name">${escapeHtml(p.name)}</td>
+        <td class="name">${name}</td>
         <td>${p.exposure}</td>
         <td class="${p.inRegister ? "" : "absent"}">${escapeHtml(tier)}</td>
         <td>${p.risk.toFixed(1)}</td>
@@ -194,7 +198,10 @@ function renderStub() {
   const status = p.inRegister
     ? `<p class="ident-meta">on file · <a href="./c/${encodeURIComponent(p.slug)}.html">dossier</a></p>`
     : `<p class="ident-meta"><span class="absent">not in register</span></p>`;
-  el.innerHTML = `<h2>${escapeHtml(p.name)}</h2>
+  const title = p.inRegister && p.slug
+    ? `<a href="./c/${encodeURIComponent(p.slug)}.html">${escapeHtml(p.name)}</a>`
+    : escapeHtml(p.name);
+  el.innerHTML = `<h2>${title}</h2>
     ${status}
     <p class="ident-meta">exposure · ${p.exposure}</p>
     <p class="fig-sub">Who named them, as published.</p>
@@ -303,8 +310,55 @@ function tokenColor(name, fallback) {
   return v || fallback;
 }
 
+export function focusIdFromLocation(loc = window.location) {
+  const params = new URLSearchParams(loc.search || "");
+  const q = params.get("p");
+  if (q) return q;
+  const hash = String(loc.hash || "").replace(/^#/, "");
+  if (hash.startsWith("p=")) {
+    try {
+      return decodeURIComponent(hash.slice(2));
+    } catch {
+      return hash.slice(2);
+    }
+  }
+  return "";
+}
+
+function processorIndex(id) {
+  if (!id) return 0;
+  const key = String(id);
+  const i = state.processors.findIndex(
+    (p) => p.id === key || p.slug === key || p.name === key,
+  );
+  return i >= 0 ? i : 0;
+}
+
+function applyFocus(i) {
+  state.focus = i;
+  renderTable();
+  renderStub();
+  drawFig();
+}
+
+function selectProcessor(i, { reveal = false } = {}) {
+  applyFocus(i);
+  const p = state.processors[i];
+  const id = p && (p.id || p.slug);
+  if (id && window.history && window.history.replaceState) {
+    const url = new URL(window.location.href);
+    url.searchParams.delete("p");
+    url.hash = "p=" + encodeURIComponent(id);
+    if (url.href !== window.location.href) {
+      window.history.replaceState(null, "", url);
+    }
+  }
+  if (reveal) revealFile();
+}
+
 function bind() {
   $("wire-body").addEventListener("click", (e) => {
+    if (e.target.closest("a")) return;
     const tr = e.target.closest("tr");
     if (!tr) return;
     const i = Number(tr.getAttribute("data-i"));
@@ -314,11 +368,7 @@ function bind() {
       window.location.href = `./c/${encodeURIComponent(p.slug)}.html`;
       return;
     }
-    state.focus = i;
-    renderTable();
-    renderStub();
-    drawFig();
-    revealFile();
+    selectProcessor(i, { reveal: true });
   });
   $("fig1").addEventListener("click", (e) => {
     const canvas = e.currentTarget;
@@ -342,13 +392,12 @@ function bind() {
       window.location.href = `./c/${encodeURIComponent(p.slug)}.html`;
       return;
     }
-    state.focus = hit;
-    renderTable();
-    renderStub();
-    drawFig();
-    revealFile();
+    selectProcessor(hit, { reveal: true });
   });
   window.addEventListener("resize", drawFig);
+  window.addEventListener("hashchange", () => {
+    applyFocus(processorIndex(focusIdFromLocation()));
+  });
 }
 
 function revealFile() {
@@ -369,13 +418,14 @@ async function load() {
     (reg.companies || []).forEach((c) => state.companies.set(c.slug, c));
     state.edges = normalizeEdges(wires, state.companies);
     state.processors = rankProcessors(state.edges, state.companies);
+    state.focus = processorIndex(focusIdFromLocation());
     fillIssue($("issue"), reg, `${state.edges.length} edges`);
   } catch {
     state.edges = [];
   }
-  renderTable();
-  renderStub();
-  drawFig();
+  applyFocus(state.focus);
 }
 
-load();
+if (typeof document !== "undefined") {
+  load();
+}
