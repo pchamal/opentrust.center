@@ -92,6 +92,8 @@ CURATED_TRY = {
         "https://docs.cohere.com/docs/responsible-use",
     ],
     "mistral-ai": [
+        "https://legal.mistral.ai/",
+        "https://legal.mistral.ai/ai-governance/models",
         "https://mistral.ai/news/our-approach-to-ai-safety",
         "https://mistral.ai/safety",
         "https://legal.mistral.ai/terms/usage-policy",
@@ -188,6 +190,52 @@ CURATED_TRY = {
     ],
     "anysphere": [
         "https://cursor.com/responsible-ai",
+    ],
+    "microsoft": [
+        "https://www.microsoft.com/en-us/ai/responsible-ai",
+        "https://www.microsoft.com/en-us/ai/principles-and-approach",
+    ],
+    "google": [
+        "https://cloud.google.com/responsible-ai",
+    ],
+    "amazon": [
+        "https://aws.amazon.com/ai/responsible-ai/",
+        "https://aws.amazon.com/ai/responsible-ai/policy/",
+    ],
+    "ibm": [
+        "https://www.ibm.com/trust/responsible-technology",
+        "https://www.ibm.com/trust/responsible-ai",
+    ],
+    "nvidia": [
+        "https://www.nvidia.com/en-us/ai-trust-center/",
+        "https://www.nvidia.com/en-us/ai-trust-center/trustworthy-ai/",
+    ],
+    "meta": [
+        "https://ai.meta.com/static-resource/responsible-use-guide/",
+        "https://ai.meta.com/responsible-ai/",
+    ],
+    "ai21": [
+        "https://docs.ai21.com/docs/responsible-use-1",
+        "https://www.ai21.com/research/ai-code-of-conduct/",
+    ],
+    "allen-institute-for-ai": [
+        "https://allenai.org/responsible-use",
+        "https://allenai.org/research-principles",
+    ],
+    "bria-ai": [
+        "https://bria.ai/responsible-ai",
+    ],
+    "anam": [
+        "https://anam.ai/ai-governance",
+    ],
+    "creatify-ai": [
+        "https://creatify.ai/ai-ethics",
+    ],
+    "ellipsis-health": [
+        "https://ellipsishealth.com/ethical-ai/",
+    ],
+    "alex": [
+        "https://www.alex.com/ethical-ai",
     ],
     "midjourney": [
         "https://www.midjourney.com/responsible-ai",
