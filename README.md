@@ -10,7 +10,7 @@ The company’s own page stays authoritative. We file what is public. We do not 
 
 | URL | Job |
 |---|---|
-| `/` | AITI — the public file on AI systems |
+| `/` | AITI — AI Trust Index, the public file on AI systems |
 | `/companies.html` | Register — table of companies, disclosure tier |
 | `/c/{slug}.html` | Dossier — the file |
 | `/graph.html` | Map — named subprocessors, as published |

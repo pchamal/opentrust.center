@@ -8,6 +8,7 @@ import {
   hasPrintedAiMark,
   aiFileIndexHtml,
   aiFileCount,
+  printedUrl,
 } from "./lib.js";
 import { parseFinder, stripFinderToken, echoWords } from "./finder.js";
 
@@ -38,30 +39,48 @@ export function aiMarksCell(row) {
     return `<span class="absent">not on file</span>`;
   }
   const line = names
-    .map((a) => `<span class="mark-chip">${escapeHtml(String(a.short || a.name).toLowerCase())}</span>`)
+    .map((a) => {
+      const label = escapeHtml(String(a.short || a.name).toLowerCase());
+      const id = String((a && a.id) || "").trim();
+      return id
+        ? `<a class="mark-chip" href="./attestations.html#${encodeURIComponent(id)}">${label}</a>`
+        : `<span class="mark-chip">${label}</span>`;
+    })
     .join(" · ");
   return `<span class="mark-line">${line}</span>`;
 }
 
-/* Empty and thin files first so the first screen is not a filled podium. */
+/* Clerk default: name order. Mixed fills on the first screen. Not a complete-file strip. */
 export function defaultAiRows(rows) {
+  return (rows || []).slice().sort((a, b) => cmpText(a && a.name, b && b.name));
+}
+
+/* Finder clerk sort: how many of the five AI rules are on file. Not the default. */
+export function filledAiRows(rows) {
   return (rows || []).slice().sort((a, b) => {
-    const c = aiFileCount(a) - aiFileCount(b);
+    const c = aiFileCount(b) - aiFileCount(a);
     if (c) return c;
-    const silent = Number((a && a.tier) !== "silent") - Number((b && b.tier) !== "silent");
-    if (silent) return silent;
     return cmpText(a && a.name, b && b.name);
   });
 }
 
+function wantsFilledSort(raw) {
+  return /\bfilled\b/i.test(String(raw || ""));
+}
+
 function apply() {
   const parsed = parseFinder(state.q);
-  const q = parsed.q.trim().toLowerCase();
+  const filled = wantsFilledSort(state.q);
+  const q = parsed.q
+    .replace(/\bfilled\b/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
   const found = state.rows.filter((row) => {
     if (!q) return true;
     return hay(row).includes(q);
   });
-  return defaultAiRows(found);
+  return filled ? filledAiRows(found) : defaultAiRows(found);
 }
 
 function guessDomain(q) {
@@ -184,7 +203,7 @@ function render() {
       return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
         <td class="num">${escapeHtml(n)}</td>
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${escapeHtml(row.name)}</a></td>
-        <td class="domain">${escapeHtml(row.domain || "")}</td>
+        <td class="domain">${printedUrl(row.official_url || "", row.domain || "")}</td>
         <td class="file-cell">${aiFileIndexHtml(row)}</td>
         <td class="marks">${aiMarksCell(row)}</td>
       </tr>`;

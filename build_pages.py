@@ -238,6 +238,24 @@ def load_aiti_pages() -> dict:
     return out
 
 
+_AITI_MEMBERSHIP = None
+
+
+def load_aiti_membership() -> dict[str, list[str]]:
+    """Sourced list membership by slug. .ai TLD is not a source."""
+    global _AITI_MEMBERSHIP
+    if _AITI_MEMBERSHIP is not None:
+        return _AITI_MEMBERSHIP
+    doc = load_json(SITE / "data" / "aiti-membership.json", {})
+    slugs = doc.get("slugs") or {}
+    out = {}
+    for slug, lists in slugs.items():
+        if slug and lists:
+            out[str(slug)] = [str(x) for x in lists if x]
+    _AITI_MEMBERSHIP = out
+    return out
+
+
 _AITI_PROCESSORS = None
 
 
@@ -772,6 +790,7 @@ def enrich_company(
         "final_url": row.get("final_url") if found else None,
         "list": row.get("list") or "",
         "source": row.get("source") or "",
+        "source_url": row.get("source_url") or "",
         "probed": row.get("probed"),
         "probed_at": generated_at,
         "certs": certs,
@@ -804,6 +823,16 @@ def enrich_company(
         }
         public["ai_page"] = filed
         public["instruments"]["ai"] = dict(filed)
+    aiti_lists = list(row.get("aiti_lists") or []) or list(load_aiti_membership().get(slug) or [])
+    if aiti_lists:
+        public["aiti_lists"] = aiti_lists
+    official_url = (row.get("official_url") or "").strip()
+    if official_url.startswith(("http://", "https://")):
+        public["official_url"] = official_url
+    if not public.get("source_url"):
+        src = row.get("source") or ""
+        if isinstance(src, str) and src.startswith("http"):
+            public["source_url"] = src
     ai_procs = load_aiti_processors().get(slug)
     if ai_procs and ai_procs.get("names"):
         public["ai_processors"] = {
@@ -1521,15 +1550,20 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
         ai_url = row["ai_page"].get("url") or ""
     elif isinstance(row.get("ai_page"), str):
         ai_url = row.get("ai_page") or ""
+    official_home = (row.get("official_url") or "").strip()
+    if not official_home.startswith(("http://", "https://")):
+        official_home = ""
     need_gate = bool(found and url) or any(
         rec and rec.get("url") for rec in inst.values()
-    ) or any(p.get("source_url") for p in procs) or bool(list_url) or bool(ai_url)
+    ) or any(p.get("source_url") for p in procs) or bool(list_url) or bool(ai_url) or bool(official_home)
     gate = GATE_HTML if need_gate else ""
     claim = f'<a class="perm" href="../claim.html?slug={escape(slug)}">Report a correction</a>'
     issue = dossier_issue_line(generated_at, slug)
-
+    domain_html = official_a(official_home, domain) if official_home and domain else escape(domain)
     about = {"@type": "Organization", "name": name}
-    if domain:
+    if official_home:
+        about["url"] = official_home
+    elif domain:
         about["url"] = f"https://{domain}"
     ld = {
         "@context": "https://schema.org",
@@ -1570,7 +1604,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     <p class="crumb"><a href="../companies.html">Companies</a> / {escape(slug)}</p>
     <section class="ident">
       <h1>{ink_icon(row.get("favicon") or company_favicon(domain), "../")}{escape(name)}</h1>
-      <p class="ident-meta">{escape(domain)}</p>
+      <p class="ident-meta">{domain_html}</p>
       <p class="ident-meta file-line">{file_html}</p>
       <p class="ident-meta">founded · {year_html}</p>
     </section>

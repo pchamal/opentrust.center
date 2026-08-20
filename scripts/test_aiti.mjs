@@ -10,12 +10,15 @@ import {
   aiFileCount,
   fillAitiIssue,
   isAiFile,
+  isAiNamed,
+  isAiListMember,
+  printedUrl,
   storedAiPageUrl,
   isFirstPartyUrl,
   storedAiProcessors,
   isAiSystemProcessor,
 } from "../site/lib.js";
-import { aiMarksCell, defaultAiRows } from "../site/aiti.js";
+import { aiMarksCell, defaultAiRows, filledAiRows } from "../site/aiti.js";
 
 const data = JSON.parse(readFileSync(new URL("../site/data.json", import.meta.url), "utf8"));
 const bySlug = Object.fromEntries(data.companies.map((r) => [r.slug, r]));
@@ -52,10 +55,18 @@ expect("register keys stay untouched", FILE_KEYS.join(" ") === "page marks dpa s
 expect("AITI list is from the register", files.length > 0 && files.every((r) => data.companies.some((c) => c.slug === r.slug)));
 expect("does not invent companies", files.every((r) => r.slug && bySlug[r.slug]));
 expect("includes Midjourney", files.some((r) => r.slug === "midjourney"));
-expect("includes Character.AI", files.some((r) => r.slug === "character-ai"));
 expect("includes Cursor", files.some((r) => r.slug === "anysphere"));
-expect("includes AI-50", files.some((r) => r.list === "forbes-ai-50-2025"));
+expect("Character.AI is not in the verified universe", !files.some((r) => r.slug === "character-ai"));
+expect("Writer is not in the verified universe", !files.some((r) => r.slug === "writer"));
+expect("includes Forbes AI 50 2026", files.some((r) => (r.aiti_lists || []).includes("forbes-ai-50-2026") || r.list === "forbes-ai-50-2026"));
+expect("includes Brink", files.some((r) => (r.aiti_lists || []).includes("forbes-ai-50-brink-2026") || r.list === "forbes-ai-50-brink-2026"));
+expect("includes arena-org", files.some((r) => (r.aiti_lists || []).includes("arena-org")));
+expect("includes hugging-face-org", files.some((r) => (r.aiti_lists || []).includes("hugging-face-org")));
 expect("skips airlines", !files.some((r) => /airlines/i.test(r.name)));
+expect("skips Aviatrix-class TLD membership", !files.some((r) => r.slug === "aviatrix") && !files.some((r) => r.slug === "pinewood-technologies"));
+expect(".ai TLD is not enough", isAiFile({ name: "Aviatrix", slug: "aviatrix", domain: "aviatrix.ai" }) === false);
+expect("named AI is not membership", isAiNamed({ name: "Scale AI", slug: "scale-ai" }) === true && isAiFile({ name: "Scale AI", slug: "scale-ai" }) === false);
+expect("file count is the verified universe", files.length === 200);
 
 const mid = bySlug.midjourney;
 const midHtml = aiFileIndexHtml(mid);
@@ -91,9 +102,17 @@ expect("every AITI row binds marks to the Marks cell", true);
 const arranged = defaultAiRows(files);
 const first = arranged.slice(0, 16);
 const firstFilled = first.filter((r) => aiFileCount(r) > 0).length;
-expect("first screen is not a filled podium", firstFilled < first.length);
-expect("first screen includes an open file", first.some((r) => aiFileCount(r) === 0));
-expect("silent or Midjourney-class rows are present", arranged.some((r) => r.slug === "midjourney" || r.tier === "silent"));
+const firstOpen = first.filter((r) => aiFileCount(r) === 0).length;
+const names = arranged.map((r) => r.name);
+const byName = names.slice().sort((a, b) => String(a).localeCompare(String(b), undefined, { sensitivity: "base" }));
+expect("default order is clerk name", names.join("\0") === byName.join("\0"));
+expect("first screen is not a complete-file strip", firstFilled < first.length);
+expect("first screen includes an open file", firstOpen > 0);
+expect("first screen has mixed fills", firstFilled > 0 && firstOpen > 0);
+expect("silent or Midjourney-class rows stay in the file", arranged.some((r) => r.slug === "midjourney" || aiFileCount(r) === 0));
+const byFilled = filledAiRows(files);
+expect("finder filled sort uses the five rules", aiFileCount(byFilled[0]) >= aiFileCount(byFilled[byFilled.length - 1]));
+expect("finder filled sort is not the default", byFilled[0].slug !== arranged[0].slug || aiFileCount(arranged[0]) === aiFileCount(byFilled[0]));
 
 const issue = { textContent: "" };
 fillAitiIssue(issue, data, files.length);
@@ -114,10 +133,15 @@ expect("Companies is the active word on companies", activeWord(companiesHtml) ==
 expect("Map is the active word on graph", activeWord(graphHtml) === "Map");
 expect("Standards is the active word on attestations", activeWord(marksHtml) === "Standards");
 expect("docket links hit the signed routes", indexHtml.includes('href="./companies.html"') && indexHtml.includes('href="./graph.html"') && indexHtml.includes('href="./attestations.html"') && companiesHtml.includes('href="./"'));
-expect("H1 is AI files", /<h1 class="page-title">AI files<\/h1>/.test(indexHtml));
+expect("H1 is AI Trust Index", /<h1 class="page-title">AI Trust Index<\/h1>/.test(indexHtml));
+expect("product title is AI Trust Index", indexHtml.includes("opentrust.center — AI Trust Index"));
 expect("lede is the public file sentence", indexHtml.includes("The public file on AI systems. Not a trust score."));
-expect("no AI Trust Index as H1", !/<h1[^>]*>\s*AI Trust Index/i.test(indexHtml));
-expect("no stars medals or scores", !/★|☆|medal|0–100|0-100|trust score/i.test(aitiJs) && !indexHtml.includes("AI Trust Index"));
+expect("lede is unchanged", (indexHtml.match(/<p class="lede">The public file on AI systems\. Not a trust score\.<\/p>/g) || []).length === 1);
+expect("docket word stays AITI", activeWord(indexHtml) === "AITI");
+expect("no stars medals Elo or 0-100", !/★|☆|medal|0–100|0-100|\bElo\b|podium/i.test(aitiJs + indexHtml));
+expect("AITI table has no score column", !/>\s*Score\s*</i.test(indexHtml) && !aitiJs.includes("trust score") && !aitiJs.includes("score column") && !aitiJs.includes("aitiScore") && !aitiJs.includes("file score"));
+expect("AITI table has no rank column", !/>\s*Rank\s*</i.test(indexHtml) && !aitiJs.includes("who's ahead") && !aitiJs.includes("who’s ahead"));
+expect("AITI has no sixth number column", /<th scope="col">#<\/th>\s*<th scope="col">Name<\/th>\s*<th scope="col">Domain<\/th>\s*<th scope="col">File<\/th>\s*<th scope="col" class="marks">Marks<\/th>/.test(indexHtml));
 expect("AITI has no N of 5", !aitiJs.includes(" of 5") && !indexHtml.includes(" of 5"));
 expect("showing uses the AITI N", aitiJs.includes("showing ${rows.length} of ${n}"));
 expect("AITI does not paginate a second universe", !aitiJs.includes("PAGE_SIZE") && !indexHtml.includes("pager"));
@@ -138,16 +162,17 @@ expect("isAiFile is conservative", isAiFile(bySlug.stripe) === false && isAiFile
 expect("glyph count matches keys", (midHtml.match(/file-rule/g) || []).length === 5);
 
 const silent = files.filter((r) => aiFileCount(r) === 0);
-expect("silent AI rows exist", silent.length > 0 && silent.some((r) => r.slug === "midjourney" || r.slug === "character-ai"));
+expect("silent AI rows exist", silent.length > 0 && silent.some((r) => r.slug === "midjourney"));
 
 const pagesDoc = JSON.parse(readFileSync(new URL("../site/data/aiti-pages.json", import.meta.url), "utf8"));
 const filedSlugs = Object.keys(pagesDoc.pages);
+const aitiPageSlugs = filedSlugs.filter((s) => files.some((r) => r.slug === s));
 const pageOn = files.filter((r) => aiFileFlags(r).page);
 const pageOpen = files.filter((r) => !aiFileFlags(r).page);
-expect("page fill count is the curated list", pageOn.length === filedSlugs.length && pageOn.length === 18);
-expect("remaining files leave page open", pageOpen.length === files.length - filedSlugs.length);
+expect("AITI page fill is only curated pages on members", pageOn.length === aitiPageSlugs.length && pageOn.every((r) => aitiPageSlugs.includes(r.slug)));
+expect("remaining AITI files leave page open", pageOpen.length === files.length - aitiPageSlugs.length);
 expect("filed slugs are on the register", filedSlugs.every((s) => bySlug[s]));
-expect("does not invent page companies", filedSlugs.every((s) => files.some((r) => r.slug === s)));
+expect("does not invent AITI page companies", pageOn.every((r) => filedSlugs.includes(r.slug)));
 
 for (const slug of filedSlugs) {
   const row = bySlug[slug];
@@ -200,11 +225,12 @@ expect("Cursor marks bind unchanged", aiFileFlags(cursor).marks === true && rule
 
 const procsDoc = JSON.parse(readFileSync(new URL("../site/data/aiti-processors.json", import.meta.url), "utf8"));
 const procFiled = Object.keys(procsDoc.processors);
+const aitiProcSlugs = procFiled.filter((s) => files.some((r) => r.slug === s));
 const procOn = files.filter((r) => aiFileFlags(r).processors);
 const procOpen = files.filter((r) => !aiFileFlags(r).processors);
-expect("processors fill count is the curated list", procOn.length === procFiled.length && procOn.length === 13);
-expect("remaining files leave processors open", procOpen.length === files.length - procFiled.length);
-expect("does not invent processor companies", procFiled.every((s) => files.some((r) => r.slug === s) && bySlug[s]));
+expect("AITI processors fill is only curated names on members", procOn.length === aitiProcSlugs.length && procOn.every((r) => aitiProcSlugs.includes(r.slug)));
+expect("remaining AITI files leave processors open", procOpen.length === files.length - aitiProcSlugs.length);
+expect("does not invent AITI processor companies", procOn.every((r) => procFiled.includes(r.slug) && bySlug[r.slug]));
 
 for (const slug of procFiled) {
   const row = bySlug[slug];
@@ -260,8 +286,41 @@ expect("evals incidents stay uninvented", true);
 const cursorDossier = readFileSync(new URL("../site/c/anysphere.html", import.meta.url), "utf8");
 const midDossier = readFileSync(new URL("../site/c/midjourney.html", import.meta.url), "utf8");
 expect("open files do not grow an empty AI page row", !cursorDossier.includes(">AI page<") && !midDossier.includes(">AI page<"));
-expect("AITI table domain stays plain text", aitiJs.includes('<td class="domain">${escapeHtml(row.domain || "")}</td>'));
 expect("AITI table is not restyled with an official page chip", !aitiJs.includes("AI page") && !aitiJs.includes("ai_page"));
+expect("printed URL is an href", printedUrl("https://www.anthropic.com/responsible-scaling-policy", "anthropic.com").includes('href="https://www.anthropic.com/responsible-scaling-policy"'));
+expect("bare domain stays text", printedUrl("openai.com", "openai.com") === "openai.com");
+expect("AITI marks link to the framework", aitiJs.includes('href="./attestations.html#') && aitiJs.includes("mark-chip"));
+expect("AITI printed URLs use official homepage", aitiJs.includes("printedUrl(row.official_url"));
+
+const anthropicDossier = readFileSync(new URL("../site/c/anthropic.html", import.meta.url), "utf8");
+const aiPageUrl = storedAiPageUrl(bySlug.anthropic);
+expect("official AI page URL is a link", aiPageUrl && anthropicDossier.includes(`href="${aiPageUrl}"`) && /<a class="official" href="https:\/\/www\.anthropic\.com\/responsible-scaling-policy"/.test(anthropicDossier));
+
+const listsDoc = JSON.parse(readFileSync(new URL("../site/data/aiti-lists.json", import.meta.url), "utf8"));
+const membership = JSON.parse(readFileSync(new URL("../site/data/aiti-membership.json", import.meta.url), "utf8"));
+const added = membership.added || [];
+expect("new companies were sourced", added.length > 0);
+for (const rec of added) {
+  expect(`${rec.slug} has official domain`, !!rec.domain && !rec.domain.startsWith("."));
+  expect(`${rec.slug} has source_url`, /^https?:\/\//.test(rec.source_url || ""));
+  expect(`${rec.slug} is on the register`, !!bySlug[rec.slug]);
+  const row = bySlug[rec.slug];
+  expect(`${rec.slug} is an AITI file`, isAiFile(row) === true);
+  const flags = aiFileFlags(row);
+  if (flags.evals || flags.incidents) {
+    expect(`no invented evals/incidents on new ${rec.slug}`, false);
+  }
+}
+expect("Aviatrix is not list-sourced", !membership.slugs.aviatrix);
+expect("list member helper sees 2026", isAiListMember({ aiti_lists: ["forbes-ai-50-2026"] }) === true);
+expect("membership is 200 slugs", Object.keys(membership.slugs).length === 200);
+expect("AITI files are exactly the membership", files.length === 200 && files.every((r) => membership.slugs[r.slug]));
+expect("every AITI file has official homepage", files.every((r) => /^https?:\/\//.test(r.official_url || "")));
+expect("official homepage does not fill page", files.filter((r) => r.official_url && !pagesDoc.pages[r.slug]).every((r) => storedAiPageUrl(r) === "" && aiFileFlags(r).page === false));
+expect("Amazon homepage is not an AI page fill", storedAiPageUrl(bySlug.amazon) === "" && aiFileFlags(bySlug.amazon).page === false);
+expect("Google homepage is not an AI page fill", storedAiPageUrl(bySlug.google) === "" && aiFileFlags(bySlug.google).page === false);
+expect("Midjourney dossier homepage is a link", /<a class="official" href="https:\/\/www\.midjourney\.com\/?"/.test(midDossier));
+expect("default first names are clerk-dense", arranged.slice(0, 5).map((r) => r.name).join(" · ").length > 10);
 
 console.log("aiti files", files.length, "page", pageOn.length, "processors", procOn.length, "silent", silent.length);
 if (!process.exitCode) console.log("ok aiti");
