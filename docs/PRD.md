@@ -1,6 +1,6 @@
 # opentrust.center — product record
 
-Issue date: 2026-08-18
+Issue date: 2026-08-19
 Status: build from this
 Owner: Pukar Hamal
 Site: https://opentrust.center
@@ -16,7 +16,252 @@ A GRC or security person (or their agent) opens opentrust.center the way they op
 
 They do not want to know that Stripe’s portal is “powered by SafeBase.” They want to know what Stripe publishes: which attestations, which security and privacy pages, how long the firm has been operating, who they name as subprocessors, and whether that public file is thin or complete.
 
-We are the front pane of glass. The company’s own pages stay authoritative. We file what is public, rate the file, and show the wires between firms. We do not sell trust. We do not replace a questionnaire. We do not name the portal vendor.
+Those asks are buyer jobs already written in law and guidance. The spine below is that map. The company’s own pages stay authoritative. We file what is public, rate the file, and show the wires between firms. We do not sell trust. We do not replace a questionnaire. We do not name the portal vendor.
+
+One-liner: `A database of each company’s public trust ledger.`
+
+---
+
+## Buyer jobs (spine)
+
+The register serves these jobs. It is not a GRC workspace. It is not a questionnaire product.
+
+This register files **public** ledgers only. Buyer-private fields (RTO/RPO, exit plans, full audit rights, private SOC reports) must not be presumed on file. Missing private evidence is inconclusive, not a fail.
+
+### 1. Pre-contract due diligence
+
+SRC-NIST-SP-1305, SRC-DORA, SRC-NCSC-QUESTIONS, SRC-CISA-SECURE-BY-DEMAND, SRC-GDPR-28.
+
+Pre-contract risk and due diligence. Supplier questions on governance, incidents, network and data, offshoring, personal data, people, physical controls, testing, and contracts. Product security versus enterprise security. Processor guarantees.
+
+### 2. Ongoing monitoring
+
+SRC-NIST-SP-1305, SRC-DORA, SRC-NCSC-CRITICALITY.
+
+Monitoring after the file is first read. Evidence burden still follows criticality.
+
+### 3. Incident and termination / exit planning
+
+SRC-NIST-SP-1305, SRC-DORA, SRC-DORA-TEMPLATES.
+
+Incident planning, transition, and exit. SRC-DORA-TEMPLATES lists RTO, RPO, audit, exit, and subcontractor rank as register fields. Many of those fields are buyer-private and must not be presumed public. This register files **public** ledgers only.
+
+### 4. Requirements that vary with criticality and data
+
+SRC-NIST-SP-1305, SRC-NCSC-CRITICALITY, SRC-CISA-SECURE-BY-DEMAND.
+
+The evidence burden varies with supplier criticality and risk. Product-security outcomes are not the same as enterprise security.
+
+### 5. Authorization boundary, components, environments, data flows, controls, and risk decisions
+
+SRC-NIST-800-18R2, SRC-OSCAL-LAYERS, SRC-OSCAL-ASSESSMENT.
+
+The published shape of a system: boundary, components, environments, data flows, controls, and risk decisions. Machine-readable controls, implementation, and assessment architecture. Assessment plans, results, evidence, findings, and POA&M relationships.
+
+### 6. Processor guarantees, subprocessor change notice, information and audit support
+
+SRC-GDPR-28.
+
+What Article 28 asks a processor to show.
+
+### 7. How to read assurance
+
+SRC-AICPA-TSC, SRC-AICPA-SOC3, SRC-ISO-CERTIFICATION, SRC-ISO-27001, SRC-CSA-STAR.
+
+Security, availability, processing integrity, confidentiality, and privacy criteria. General-use versus restricted-use assurance material. ISO does not certify organizations; external certification bodies and accreditation are distinct. Precise standard naming and version awareness. Self-assessment versus independent certification or attestation.
+
+### 8. Register fields / relationship structure as schema inspiration only
+
+SRC-DORA-TEMPLATES.
+
+Service, countries, locations, criticality, RTO, RPO, substitutability, audit, exit, and subcontractor rank as schema inspiration. Limitation in the same breath: many of those fields are buyer-private and must not be presumed public. This register files **public** ledgers only.
+
+### Build cites
+
+Not a buyer job. Implementation note.
+
+**Extensionless canonical routes.** SRC-CLOUDFLARE-HTML.
+
+---
+
+## Cited authorities
+
+### SRC-NIST-SP-1305
+
+- Authority: NIST
+- Title: NIST Cybersecurity Framework 2.0: Quick-Start Guide for Cybersecurity Supply Chain Risk Management (C-SCRM) (NIST SP 1305)
+- URL: https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=958604
+- Used for: pre-contract due diligence; ongoing monitoring; incident and termination planning; requirements that vary with criticality and data
+
+### SRC-NIST-800-18R2
+
+- Authority: NIST
+- Title: NIST releases SP 800-18 Revision 2
+- URL: https://csrc.nist.gov/News/2026/nist-releases-sp-800-18r2
+- Used for: authorization boundary; components, environments, data flows, controls, and risk decisions
+
+### SRC-DORA
+
+- Authority: European Union
+- Title: Regulation (EU) 2022/2554, Digital Operational Resilience Act
+- URL: https://eur-lex.europa.eu/eli/reg/2022/2554/oj
+- Used for: pre-contract risk, due diligence, concentration, monitoring, transition, and exit
+
+### SRC-DORA-TEMPLATES
+
+- Authority: European Union
+- Title: Commission Implementing Regulation (EU) 2024/2956
+- URL: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX%3A32024R2956
+- Used for: register fields and relationship structure; service, countries, locations, criticality, RTO, RPO, substitutability, audit, exit, and subcontractor rank as schema inspiration
+- Limitation: Many of these are buyer-private and must not be presumed public.
+
+This register files **public** ledgers only. Buyer-private fields (RTO/RPO, exit plans, full audit rights, private SOC reports) must not be presumed on file. Missing private evidence is inconclusive, not a fail.
+
+### SRC-GDPR-28
+
+- Authority: European Union
+- Title: GDPR Article 28
+- URL: https://eur-lex.europa.eu/legal-content/EN/TXT/?qid=1590424137028&uri=CELEX%3A32016R0679
+- Used for: processor guarantees; subprocessor change notice; information and audit support
+
+### SRC-NCSC-QUESTIONS
+
+- Authority: UK National Cyber Security Centre
+- Title: Supplier assurance questions
+- URL: https://www.ncsc.gov.uk/guidance/supplier-assurance-questions
+- Used for: governance, incidents, network and data, offshoring, personal data, people, physical controls, testing, and contracts
+
+### SRC-NCSC-CRITICALITY
+
+- Authority: UK National Cyber Security Centre
+- Title: Supplier assurance: having confidence in your suppliers
+- URL: https://www.ncsc.gov.uk/blog-post/supplier-assurance-having-confidence-in-your-suppliers
+- Used for: varying the evidence burden with supplier criticality and risk
+
+### SRC-CISA-SECURE-BY-DEMAND
+
+- Authority: CISA
+- Title: Secure by Demand Guide
+- URL: https://www.cisa.gov/sites/default/files/2024-08/SecureByDemandGuide_080624_508c.pdf
+- Used for: product security versus enterprise security; procurement, contracting, and ongoing product-security outcomes
+
+### SRC-AICPA-TSC
+
+- Authority: AICPA and CIMA
+- Title: 2017 Trust Services Criteria with revised points of focus 2022
+- URL: https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+- Used for: security, availability, processing integrity, confidentiality, and privacy criteria
+
+### SRC-AICPA-SOC3
+
+- Authority: AICPA and CIMA
+- Title: SOC 3 information
+- URL: https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-3
+- Used for: general-use versus restricted-use assurance material
+
+### SRC-ISO-CERTIFICATION
+
+- Authority: ISO
+- Title: Certification
+- URL: https://www.iso.org/certification.html
+- Used for: ISO does not certify organizations; external certification bodies and accreditation distinction
+
+### SRC-ISO-27001
+
+- Authority: ISO
+- Title: ISO/IEC 27001
+- URL: https://www.iso.org/standard/27001
+- Used for: precise standard naming and version awareness
+
+### SRC-CSA-STAR
+
+- Authority: Cloud Security Alliance
+- Title: STAR Registry
+- URL: https://cloudsecurityalliance.org/star/
+- Used for: self-assessment versus independent certification or attestation
+
+### SRC-OSCAL-LAYERS
+
+- Authority: NIST
+- Title: OSCAL layers and models
+- URL: https://pages.nist.gov/OSCAL/learn/concepts/layer/
+- Used for: machine-readable controls, implementation, and assessment architecture
+
+### SRC-OSCAL-ASSESSMENT
+
+- Authority: NIST
+- Title: OSCAL assessment layer
+- URL: https://pages.nist.gov/OSCAL/learn/concepts/layer/assessment/
+- Used for: assessment plans, results, evidence, findings, and POA&M relationships
+
+### SRC-CLOUDFLARE-HTML
+
+- Authority: Cloudflare
+- Title: Workers static assets advanced HTML handling
+- URL: https://developers.cloudflare.com/workers/static-assets/routing/advanced/html-handling/
+- Used for: extensionless canonical route recommendation
+
+---
+
+## Observed product patterns (not law)
+
+These are observed product behavior, not authorities. We still hide portal-vendor names on the public site.
+
+This register files **public** ledgers only. Buyer-private fields (RTO/RPO, exit plans, full audit rights, private SOC reports) must not be presumed on file. Missing private evidence is inconclusive, not a fail.
+
+### PATTERN-VANTA
+
+- Title: Vanta Trust Center documentation
+- URL: https://help.vanta.com/en/articles/11345469-vanta-trust-center
+- Observed: public versus requestable evidence, updates, resources, subprocessors, and access workflows
+
+### PATTERN-DRATA-SAFEBASE
+
+- Title: Drata SafeBase integration for TPRM reviews
+- URL: https://help.drata.com/en/articles/14446304-safebase-integration-for-tprm-reviews
+- Observed: public-only evidence versus fuller private review; missing private evidence as inconclusive
+
+Missing private evidence is inconclusive, not a fail. This register files **public** ledgers only.
+
+### PATTERN-DRATA-REVIEW
+
+- Title: Drata security review
+- URL: https://help.drata.com/en/articles/14447644-conducting-a-security-review
+- Observed: criterion citations, overrides, follow-up questions, risks, and activity trail
+
+Buyer-private review trails, overrides, and full audit rights must not be presumed on file.
+
+### PATTERN-FEDRAMP
+
+- Title: FedRAMP Marketplace
+- URL: https://www.fedramp.gov/marketplace/
+- Observed: offering-level public lifecycle metadata with controlled authorization package access
+
+---
+
+## Live and repository sources
+
+As of the 2026-08-19 snapshot. Counts may change.
+
+- https://opentrust.center/
+- https://opentrust.center/c/openai
+- https://opentrust.center/c/wipro
+- https://opentrust.center/graph
+- https://opentrust.center/attestations
+- https://opentrust.center/claim?slug=openai
+- https://github.com/pchamal/opentrust.center
+
+---
+
+## Audit / spine limitations
+
+- Live audit was read-only; no correction form, GitHub issue, outbound evidence submission, or deployment was completed as part of that audit.
+- Responsive tests used browser emulation and screenshots, not a physical device lab.
+- Accessibility checks included DOM, contrast, focus, and keyboard-semantics inspection, not a complete assistive-technology certification.
+- Performance timings were a single lab observation, not field Core Web Vitals.
+- Live counts and dates are an observed 2026-08-19 snapshot and may change.
+- Future buyer workspace, monitoring, private evidence access, and incident features are proposed product architecture, not verified current capabilities.
+- The exact palette and spacing should be visually QA'd in implementation; token contrast was measured, but design quality still requires rendered review.
 
 ---
 
