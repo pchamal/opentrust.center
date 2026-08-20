@@ -144,7 +144,7 @@ const pagesDoc = JSON.parse(readFileSync(new URL("../site/data/aiti-pages.json",
 const filedSlugs = Object.keys(pagesDoc.pages);
 const pageOn = files.filter((r) => aiFileFlags(r).page);
 const pageOpen = files.filter((r) => !aiFileFlags(r).page);
-expect("page fill count is the curated list", pageOn.length === filedSlugs.length && pageOn.length === 7);
+expect("page fill count is the curated list", pageOn.length === filedSlugs.length && pageOn.length === 18);
 expect("remaining files leave page open", pageOpen.length === files.length - filedSlugs.length);
 expect("filed slugs are on the register", filedSlugs.every((s) => bySlug[s]));
 expect("does not invent page companies", filedSlugs.every((s) => files.some((r) => r.slug === s)));

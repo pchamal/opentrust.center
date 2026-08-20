@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-20T19:50:26Z",
+  "generated_at": "2026-08-20T21:40:00Z",
   "seen": "2026-08-20",
   "rule": "Page fills only from a stored first-party AI-page URL. The company's generic trust, privacy, or status page is not enough. No SafeBase, login-walled portals, or third-party directories. When unsure, leave the rule open. Do not invent processors, evals, incidents, companies, or URLs.",
   "method": "Conservative curated first-party list, checked by fetch (crawl.fetch, UA opentrust.center/1.0). A URL is filed only when HTTP 200 and the document is clearly an AI instrument on the company's own domain or an official docs/research/CDN subdomain they operate. Soft-404s, homepage bounces, Cloudflare/login walls, vendor hosts, and third-party org pages are rejected. Path guesses that returned 404 stay open.",
-  "count": 7,
+  "count": 18,
   "pages": {
     "anthropic": {
       "url": "https://www.anthropic.com/responsible-scaling-policy",
@@ -56,6 +56,86 @@
       "kind": "model-card",
       "via": "curated-first-party",
       "note": "Official docs subdomain. Page is the Command R/R+ model card."
+    },
+    "sap": {
+      "url": "https://www.sap.com/products/artificial-intelligence/ai-ethics.html",
+      "host": "sap.com",
+      "title": "Responsible AI | SAP",
+      "kind": "responsible-ai",
+      "via": "curated-first-party",
+      "note": "Official Responsible AI / AI ethics page. Global AI Ethics Policy document also exists; one URL is filed."
+    },
+    "gitlab": {
+      "url": "https://about.gitlab.com/ai-transparency-center/",
+      "host": "about.gitlab.com",
+      "title": "AI Transparency Center",
+      "kind": "ai-transparency",
+      "via": "curated-first-party"
+    },
+    "uipath": {
+      "url": "https://www.uipath.com/ai/responsibility",
+      "host": "uipath.com",
+      "title": "Responsible AI: Guiding Principles | UiPath",
+      "kind": "responsible-ai",
+      "via": "curated-first-party"
+    },
+    "slack": {
+      "url": "https://slack.com/trust/ai-principles",
+      "host": "slack.com",
+      "title": "AI Principles | Legal | Slack",
+      "kind": "ai-principles",
+      "via": "curated-first-party"
+    },
+    "palo-alto-networks": {
+      "url": "https://www.paloaltonetworks.com/legal-notices/trust-center/ai",
+      "host": "paloaltonetworks.com",
+      "title": "Responsible AI in Our Products - Palo Alto Networks",
+      "kind": "responsible-ai",
+      "via": "curated-first-party"
+    },
+    "harvey": {
+      "url": "https://www.harvey.ai/legal/ai-policy",
+      "host": "harvey.ai",
+      "title": "AI Policy | Harvey",
+      "kind": "ai-policy",
+      "via": "curated-first-party"
+    },
+    "xai": {
+      "url": "https://data.x.ai/2026-04-07-grok-4-20-model-card.pdf",
+      "host": "data.x.ai",
+      "title": "Grok 4.20 System Card",
+      "kind": "system-card",
+      "via": "curated-first-party",
+      "note": "HTML /safety returned Cloudflare 403. First-party data.x.ai system card is 200."
+    },
+    "writer": {
+      "url": "https://writer.com/legal/global-ai-regulation/",
+      "host": "writer.com",
+      "title": "WRITER’s approach to global AI regulation | Legal hub",
+      "kind": "ai-governance",
+      "via": "curated-first-party"
+    },
+    "dialpad": {
+      "url": "https://www.dialpad.com/dialpad-ai/ai-principles/",
+      "host": "dialpad.com",
+      "title": "Our AI Ethics Principles | Dialpad",
+      "kind": "ai-principles",
+      "via": "curated-first-party"
+    },
+    "miro": {
+      "url": "https://miro.com/ai/principles/",
+      "host": "miro.com",
+      "title": "AI principles",
+      "kind": "ai-principles",
+      "via": "curated-first-party"
+    },
+    "runway": {
+      "url": "https://runwayml.com/safety",
+      "host": "runwayml.com",
+      "title": "Safety | Runway",
+      "kind": "ai-safety",
+      "via": "curated-first-party",
+      "note": "Official AI safety page. Fetch 200; current redirect host is runway.com. Stored first-party runwayml.com URL."
     }
   },
   "rejected": [
@@ -77,7 +157,7 @@
     {
       "slug": "workato",
       "url": "https://www.workato.com/legal/responsible-ai",
-      "reason": "Homepage soft-404."
+      "reason": "HTTP 200 with homepage title; JS shell, not an AI page."
     },
     {
       "slug": "postman",
@@ -113,54 +193,172 @@
       "slug": "elevenlabs",
       "url": "https://elevenlabs.io/safety",
       "reason": "200 without a clear AI-instrument title or body in the fetch. When unsure, leave open."
+    },
+    {
+      "slug": "xai",
+      "url": "https://x.ai/safety",
+      "reason": "Cloudflare challenge (403). Filed the reachable first-party system card instead."
+    },
+    {
+      "slug": "mistral-ai",
+      "url": "https://mistral.ai/news/our-approach-to-ai-safety",
+      "reason": "Official news path 404."
+    },
+    {
+      "slug": "mistral-ai",
+      "url": "https://mistral.ai/safety",
+      "reason": "Official /safety path 404."
+    },
+    {
+      "slug": "mistral-ai",
+      "url": "https://legal.mistral.ai/terms/usage-policy",
+      "reason": "Usage policy / AUP. Not clearly a responsible-AI, model-card, or AI-safety instrument."
+    },
+    {
+      "slug": "c3-ai",
+      "url": "https://c3.ai/c3-agentic-ai-platform/ai/responsible-ai/",
+      "reason": "Homepage bounce to the product platform page."
+    },
+    {
+      "slug": "pegasystems",
+      "url": "https://www.pega.com/responsible-ai",
+      "reason": "Marketing guide titled as a 'what is responsible AI' explainer, not Pega's own AI instrument. When unsure, leave open."
+    },
+    {
+      "slug": "qualtrics",
+      "url": "https://www.qualtrics.com/platform/iso42001/",
+      "reason": "ISO 42001 marketing page. Marks stay on the marks rule; this is not an AI-page instrument."
+    },
+    {
+      "slug": "figma",
+      "url": "https://www.figma.com/ai/our-approach/",
+      "reason": "Product/data approach page for Figma AI. Not clearly a responsible-AI, model-card, or AI-safety instrument. When unsure, leave open."
+    },
+    {
+      "slug": "webflow",
+      "url": "https://webflow.com/ai/our-approach",
+      "reason": "Product approach page. Not clearly a responsible-AI instrument. When unsure, leave open."
+    },
+    {
+      "slug": "gong",
+      "url": "https://www.gong.io/the-edge/responsible-ai-approach-at-gong/",
+      "reason": "Blog post. When unsure, leave open."
+    },
+    {
+      "slug": "axon-enterprise",
+      "url": "https://www.axon.com/responsibility/responsible-innovation",
+      "reason": "Broader responsible-innovation / CSR page. Not clearly an AI instrument."
+    },
+    {
+      "slug": "uipath",
+      "url": "https://www.uipath.com/legal/trust-and-security/responsible-ai",
+      "reason": "Official path 404. Filed /ai/responsibility instead."
+    },
+    {
+      "slug": "dbt-labs",
+      "url": "https://www.getdbt.com/legal/responsible-ai",
+      "reason": "Official path 404."
+    },
+    {
+      "slug": "samsara",
+      "url": "https://www.samsara.com/legal/responsible-ai",
+      "reason": "Official path 404."
+    },
+    {
+      "slug": "checkr",
+      "url": "https://checkr.com/responsible-ai",
+      "reason": "Official path 404."
+    },
+    {
+      "slug": "intercom",
+      "url": "https://www.intercom.com/legal/responsible-ai",
+      "reason": "Official path 404."
+    },
+    {
+      "slug": "vanta",
+      "url": "https://www.vanta.com/resources/ai-principles",
+      "reason": "Official AI principles page is 200, but vanta.com is a vendor host in the first-party bind, so the stored URL cannot fill page. Leave open."
     }
   ],
   "open": [
     "postman",
     "intercom",
-    "fireworks-ai",
-    "harvey",
     "vanta",
     "webflow",
-    "writer",
+    "fireworks-ai",
     "clickup",
     "elevenlabs",
-    "dialpad",
+    "workato",
     "gong",
+    "figma",
+    "sierra",
     "checkr",
     "clay",
-    "sierra",
-    "workato",
-    "slack",
     "scale-ai",
     "dbt-labs",
     "samsara",
+    "datadog",
     "anysphere",
     "together-ai",
-    "miro",
     "groq",
     "mistral-ai",
-    "uipath",
-    "runway",
     "abridge",
     "stability-ai",
     "glean",
+    "pegasystems",
     "hugging-face",
-    "perplexity-ai",
     "fal-ai",
+    "perplexity-ai",
+    "qualtrics",
     "midjourney",
-    "xai",
     "alphasense",
+    "pinewood-technologies",
+    "browserstack",
+    "openevidence",
+    "flock-safety",
     "abnormal-ai",
+    "crowdstrike",
+    "cyberark",
+    "thinking-machine-labs",
+    "decagon",
     "sambanova",
+    "coactive-ai",
+    "crusoe",
+    "langchain",
+    "baseten",
+    "snorkel-ai",
+    "luminance",
+    "mimecast",
+    "veracode",
+    "ncino",
     "cerebras",
+    "axon-enterprise",
+    "csg-international",
+    "knowbe4",
+    "pagaya",
     "photoroom",
     "rekor-systems",
+    "t-mobile-us",
     "character-ai",
     "c3-ai",
+    "airship-ai",
+    "aviatrix",
+    "captions",
     "figure-ai",
+    "hebbia",
+    "pika",
+    "presight-ai",
     "sakana-ai",
+    "skild-ai",
+    "soundhound-ai",
+    "speak",
+    "stackblitz",
+    "suno",
+    "vannevar-labs",
+    "vectra-ai",
     "verses-ai",
-    "world-labs"
+    "windsurf",
+    "world-labs",
+    "z-ai"
   ]
 }
