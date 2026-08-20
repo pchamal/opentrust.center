@@ -963,6 +963,7 @@ a.official {
 .wires-map { min-width: 0; }
 .wires-grid[data-view="list"] .wires-map { display: none; }
 .wires-grid[data-view="map"] .wires-table { display: none; }
+.wires-map[data-graph="off"] .fig-block { display: none; }
 .wires-fig {
   width: 400px;
   max-width: 100%;
@@ -1286,10 +1287,14 @@ a.official {
   .wires-table .inst tr { display: table-row; }
   .wires-table .inst th,
   .wires-table .inst td { display: table-cell; }
+  .wires-grid[data-view="map"] .wires-fig { order: -1; }
   .map-field {
     display: block;
-    height: min(420px, 70vh);
+    height: min(360px, 56vh);
+    min-height: 240px;
   }
+  .wires-map[data-graph="off"] .fig-block,
+  .wires-map[data-graph="off"] .map-field { display: none; }
 }
 
 @media (max-width: 320px) {

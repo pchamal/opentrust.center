@@ -208,149 +208,180 @@ const map = {
   nodes: [],
   links: [],
   screen: [],
-  yaw: 0.4,
-  pitch: 0.22,
-  laid: false,
+  yaw: 0,
+  pitch: 0,
+  focusKey: null,
   drag: null,
 };
 
-function hash01(s) {
-  let h = 2166136261;
-  const str = String(s || "");
-  for (let i = 0; i < str.length; i++) {
-    h ^= str.charCodeAt(i);
-    h = Math.imul(h, 16777619);
-  }
-  return (h >>> 0) / 4294967296;
-}
+const NEIGHBOR_MAX = 40;
+const NEIGHBOR_OTHERS_CAP = 12;
+const COMPACT_NAMER_CAP = 12;
 
 function processorKey(p) {
-  return p.id || p.slug || p.name;
+  return p && (p.id || p.slug || p.name);
 }
 
-function buildNetwork() {
+function edgeProcessorId(e) {
+  return e.processor_id || e.processor_slug || e.processor;
+}
+
+export function neighborhoodOf(focus, edges, processors, companies) {
+  if (!focus) return { nodes: [], links: [], namers: 0, others: 0 };
+  const selectedId = processorKey(focus);
+  const namerSlugs = [];
+  const seenNamer = new Set();
+  for (const n of focus.namers || []) {
+    if (!n.company || seenNamer.has(n.company)) continue;
+    seenNamer.add(n.company);
+    namerSlugs.push(n.company);
+  }
+  const byProc = new Map((processors || []).map((p, i) => [processorKey(p), { p, i }]));
+  const otherVotes = new Map();
+  for (const e of edges || []) {
+    if (!seenNamer.has(e.company)) continue;
+    const pid = edgeProcessorId(e);
+    if (!pid || pid === selectedId) continue;
+    if (!otherVotes.has(pid)) otherVotes.set(pid, new Map());
+    const votes = otherVotes.get(pid);
+    votes.set(e.company, (votes.get(e.company) || 0) + 1);
+  }
+  let others = [...otherVotes.entries()]
+    .map(([id, votes]) => {
+      let count = 0;
+      let best = null;
+      let bestN = -1;
+      for (const [co, n] of votes) {
+        count += n;
+        if (n > bestN) {
+          best = co;
+          bestN = n;
+        }
+      }
+      return { id, count, best, rec: byProc.get(id) };
+    })
+    .sort((a, b) => b.count - a.count || String(a.id).localeCompare(String(b.id)));
+  const allFit = 1 + namerSlugs.length + others.length <= NEIGHBOR_MAX;
+  if (!allFit) {
+    others = others.filter((o) => o.count >= 2).slice(0, NEIGHBOR_OTHERS_CAP);
+  }
   const nodes = [];
   const index = new Map();
   function add(id, spec) {
     if (index.has(id)) return index.get(id);
-    const n = { id, vx: 0, vy: 0, vz: 0, x: 0, y: 0, z: 0, ...spec };
+    const n = { id, x: 0, y: 0, z: 0, ...spec };
     index.set(id, n);
     nodes.push(n);
     return n;
   }
-  state.processors.forEach((p, i) => {
-    add(processorKey(p), {
-      kind: "processor",
-      name: p.name,
-      slug: p.slug,
-      inRegister: p.inRegister,
-      exposure: p.exposure,
-      focus: i,
-    });
+  add(selectedId, {
+    kind: "processor",
+    role: "selected",
+    name: focus.name,
+    slug: focus.slug,
+    inRegister: focus.inRegister,
+    focus: byProc.has(selectedId) ? byProc.get(selectedId).i : null,
   });
-  for (const e of state.edges) {
-    const co = state.companies.get(e.company);
-    add("co:" + e.company, {
+  for (const slug of namerSlugs) {
+    const co = companies && companies.get ? companies.get(slug) : null;
+    add("co:" + slug, {
       kind: "company",
-      name: co ? co.name : e.company,
-      slug: e.company,
+      role: "namer",
+      name: co ? co.name : slug,
+      slug,
+    });
+  }
+  for (const o of others) {
+    const rec = o.rec;
+    add(o.id, {
+      kind: "processor",
+      role: "other",
+      name: rec ? rec.p.name : o.id,
+      slug: rec ? rec.p.slug : null,
+      inRegister: rec ? rec.p.inRegister : false,
+      focus: rec ? rec.i : null,
+      shared: o.count,
     });
   }
   const links = [];
-  for (const e of state.edges) {
-    const a = index.get("co:" + e.company);
-    const b = index.get(e.processor_id || e.processor_slug || e.processor);
-    if (!a || !b) continue;
-    links.push({ a, b });
+  const selectedNode = index.get(selectedId);
+  for (const slug of namerSlugs) {
+    const a = index.get("co:" + slug);
+    if (a && selectedNode) links.push({ a, b: selectedNode });
   }
-  return { nodes, links };
+  for (const o of others) {
+    const a = o.best ? index.get("co:" + o.best) : null;
+    const b = index.get(o.id);
+    if (a && b) links.push({ a, b });
+  }
+  return { nodes, links, namers: namerSlugs.length, others: others.length };
 }
 
-function layoutNetwork(nodes, links, ticks) {
-  const n = nodes.length;
-  if (!n) return;
-  for (let i = 0; i < n; i++) {
-    const a = hash01(nodes[i].id);
-    const b = hash01(nodes[i].id + "#");
-    const u = Math.acos(Math.min(1, Math.max(-1, 2 * a - 1)));
-    const v = 2 * Math.PI * b;
-    nodes[i].x = Math.sin(u) * Math.cos(v);
-    nodes[i].y = Math.sin(u) * Math.sin(v);
-    nodes[i].z = Math.cos(u);
-    nodes[i].vx = 0;
-    nodes[i].vy = 0;
-    nodes[i].vz = 0;
+function placeNeighborhood(nodes, links) {
+  const selected = nodes.find((n) => n.role === "selected");
+  const namers = nodes.filter((n) => n.role === "namer");
+  const others = nodes.filter((n) => n.role === "other");
+  if (selected) {
+    selected.x = 0;
+    selected.y = 0;
+    selected.z = 0;
   }
-  const kRep = 0.32;
-  const kSpring = 0.04;
-  const rest = 0.52;
-  const kCenter = 0.018;
-  const damp = 0.86;
-  for (let t = 0; t < ticks; t++) {
-    const alpha = 1 - t / ticks;
-    for (let i = 0; i < n; i++) {
-      for (let j = i + 1; j < n; j++) {
-        let dx = nodes[i].x - nodes[j].x;
-        let dy = nodes[i].y - nodes[j].y;
-        let dz = nodes[i].z - nodes[j].z;
-        const d2 = dx * dx + dy * dy + dz * dz + 0.02;
-        const f = (kRep * alpha) / d2;
-        dx *= f;
-        dy *= f;
-        dz *= f;
-        nodes[i].vx += dx;
-        nodes[i].vy += dy;
-        nodes[i].vz += dz;
-        nodes[j].vx -= dx;
-        nodes[j].vy -= dy;
-        nodes[j].vz -= dz;
-      }
-    }
+  namers.forEach((n, i) => {
+    const a = -Math.PI / 2 + (2 * Math.PI * i) / Math.max(namers.length, 1);
+    n.x = Math.cos(a) * 0.46;
+    n.y = Math.sin(a) * 0.46;
+    n.z = 0;
+    n.angle = a;
+  });
+  const byId = new Map(nodes.map((n) => [n.id, n]));
+  others.forEach((n, i) => {
+    const angles = [];
     for (const L of links) {
-      let dx = L.b.x - L.a.x;
-      let dy = L.b.y - L.a.y;
-      let dz = L.b.z - L.a.z;
-      const dist = Math.sqrt(dx * dx + dy * dy + dz * dz) + 1e-6;
-      const f = (dist - rest) * kSpring * alpha;
-      dx = (dx / dist) * f;
-      dy = (dy / dist) * f;
-      dz = (dz / dist) * f;
-      L.a.vx += dx;
-      L.a.vy += dy;
-      L.a.vz += dz;
-      L.b.vx -= dx;
-      L.b.vy -= dy;
-      L.b.vz -= dz;
+      if (L.b.id !== n.id) continue;
+      const co = byId.get(L.a.id);
+      if (co && typeof co.angle === "number") angles.push(co.angle);
     }
-    for (const p of nodes) {
-      p.vx += -p.x * kCenter;
-      p.vy += -p.y * kCenter;
-      p.vz += -p.z * kCenter;
-      p.vx *= damp;
-      p.vy *= damp;
-      p.vz *= damp;
-      p.x += p.vx;
-      p.y += p.vy;
-      p.z += p.vz;
+    let a;
+    if (angles.length) {
+      const cx = angles.reduce((s, x) => s + Math.cos(x), 0) / angles.length;
+      const cy = angles.reduce((s, x) => s + Math.sin(x), 0) / angles.length;
+      a = Math.atan2(cy, cx);
+    } else {
+      a = -Math.PI / 2 + (2 * Math.PI * i) / Math.max(others.length, 1);
     }
-  }
-  let max = 1e-6;
-  for (const p of nodes) max = Math.max(max, Math.hypot(p.x, p.y, p.z));
-  for (const p of nodes) {
-    p.x /= max;
-    p.y /= max;
-    p.z /= max;
-  }
+    a += (i % 2 === 0 ? -1 : 1) * 0.04 * Math.min(i, 6);
+    n.x = Math.cos(a) * 0.84;
+    n.y = Math.sin(a) * 0.84;
+    n.z = 0;
+  });
 }
 
-function ensureLayout() {
-  if (map.laid) return;
-  const net = buildNetwork();
-  map.nodes = net.nodes;
-  map.links = net.links;
-  // Compute once, then stop. prefers-reduced-motion: still. Drag still works.
-  layoutNetwork(map.nodes, map.links, 160);
-  map.laid = true;
+function compactPhone() {
+  return typeof window !== "undefined" && window.matchMedia("(max-width: 390px)").matches;
+}
+
+function graphShouldDraw(hood) {
+  if (!hood || !hood.nodes.length) return false;
+  if (compactPhone() && hood.namers > COMPACT_NAMER_CAP) return false;
+  return true;
+}
+
+function ensureNeighborhood() {
+  const focus = selectedProcessor();
+  const key = focus ? processorKey(focus) : null;
+  if (map.focusKey === key && map.nodes.length) return;
+  const hood = neighborhoodOf(focus, state.edges, state.processors, state.companies);
+  placeNeighborhood(hood.nodes, hood.links);
+  map.nodes = hood.nodes;
+  map.links = hood.links;
+  map.namers = hood.namers;
+  map.others = hood.others;
+  map.focusKey = key;
+  // 2D plate. prefers-reduced-motion: still. Drag still works.
+  if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    map.yaw = 0;
+    map.pitch = 0;
+  }
 }
 
 function projectNode(p, w, h) {
@@ -378,14 +409,29 @@ function selectedProcessor() {
 }
 
 function isSelectedNode(n) {
-  const focus = selectedProcessor();
-  if (!focus || n.kind !== "processor") return false;
-  return n.focus === state.focus;
+  return n && n.role === "selected";
+}
+
+function setGraphVisible(on) {
+  const pane = $("wires-map");
+  if (pane) pane.setAttribute("data-graph", on ? "on" : "off");
 }
 
 function drawMap() {
   const canvas = $("fig1");
   if (!canvas || state.view !== "map") return;
+  if (!state.processors.length) {
+    setGraphVisible(false);
+    return;
+  }
+  ensureNeighborhood();
+  const hood = { nodes: map.nodes, namers: map.namers, others: map.others };
+  const show = graphShouldDraw(hood);
+  setGraphVisible(show);
+  if (!show) {
+    map.screen = [];
+    return;
+  }
   const wrap = canvas.parentElement;
   const w = wrap.clientWidth;
   const h = wrap.clientHeight;
@@ -399,18 +445,10 @@ function drawMap() {
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   ctx.fillStyle = tokenColor("--ot-record-white", "#F8FAF9");
   ctx.fillRect(0, 0, w, h);
-  if (!state.processors.length) return;
-  ensureLayout();
 
   const ink = tokenColor("--ot-ledger-black", "#0B1411");
   const teal = tokenColor("--ot-evidence-teal", "#00685C");
   const mute = tokenColor("--ot-graphite", "#51615B");
-  const focus = selectedProcessor();
-  const named = new Set();
-  if (focus) {
-    named.add(processorKey(focus));
-    for (const n of focus.namers) named.add("co:" + n.company);
-  }
 
   map.screen = map.nodes.map((n) => {
     const q = projectNode(n, w, h);
@@ -433,8 +471,8 @@ function drawMap() {
 
   for (const s of map.screen) {
     const selected = isSelectedNode(s.n);
-    const half = s.n.kind === "processor" ? 3.5 : 2.5;
-    const fill = s.n.kind === "company" || s.n.inRegister;
+    const half = s.n.role === "selected" ? 5 : s.n.kind === "processor" ? 3.5 : 2.5;
+    const fill = s.n.kind === "company" || s.n.inRegister || s.n.role === "selected";
     ctx.beginPath();
     ctx.rect(s.x - half, s.y - half, half * 2, half * 2);
     if (fill) {
@@ -447,41 +485,54 @@ function drawMap() {
   }
 
   const placed = [];
-  function placeLabel(text, x, y, font, color) {
+  function placeLabel(text, x, y, font, color, prefer) {
     ctx.font = font;
     const tw = ctx.measureText(text).width;
-    let lx = x + 8;
+    let lx = x + 10;
     let ly = y + 4;
+    if (prefer === "above") {
+      lx = x - tw / 2;
+      ly = y - 12;
+    } else if (prefer === "out") {
+      const dx = x - w / 2;
+      const dy = y - h / 2;
+      const len = Math.hypot(dx, dy) || 1;
+      lx = x + (dx / len) * 16 - tw / 2;
+      ly = y + (dy / len) * 14 + 4;
+    }
     if (lx + tw > w - 8) lx = x - 8 - tw;
-    if (ly < 14) ly = y + 16;
-    if (ly > h - 6) ly = y - 8;
+    if (lx < 8) lx = 8;
+    if (ly < 14) ly = y + 18;
+    if (ly > h - 6) ly = y - 10;
     const box = { x: lx, y: ly - 12, w: tw, h: 16 };
     for (const p of placed) {
       if (box.x < p.x + p.w && box.x + box.w > p.x && box.y < p.y + p.h && box.y + box.h > p.y) {
-        return;
+        return false;
       }
     }
     placed.push(box);
     ctx.fillStyle = color;
     ctx.fillText(text, lx, ly);
+    return true;
   }
 
   const serif = "600 17px 'Source Serif 4', Georgia, 'Times New Roman', serif";
   const utility = "13px 'Atkinson Hyperlegible Next', Arial, system-ui, sans-serif";
-  const ambient = map.screen
-    .filter((s) => s.n.kind === "processor")
-    .sort((a, b) => (b.n.exposure || 0) - (a.n.exposure || 0))
-    .slice(0, 8);
-
-  if (focus) {
+  const phone = compactPhone();
+  const selected = map.screen.find((s) => s.n.role === "selected");
+  if (selected) placeLabel(selected.n.name, selected.x, selected.y, serif, ink, "above");
+  if (phone) return;
+  if (map.namers <= 14) {
     for (const s of map.screen) {
-      if (!named.has(s.n.id)) continue;
-      placeLabel(s.n.name, s.x, s.y, serif, ink);
+      if (s.n.role !== "namer") continue;
+      placeLabel(s.n.name, s.x, s.y, utility, mute, "out");
     }
-  } else {
-    for (const s of ambient) {
-      placeLabel(s.n.name, s.x, s.y, utility, mute);
-    }
+  }
+  const siblings = map.screen
+    .filter((s) => s.n.role === "other")
+    .sort((a, b) => (b.n.shared || 0) - (a.n.shared || 0));
+  for (const s of siblings.slice(0, 8)) {
+    placeLabel(s.n.name, s.x, s.y, utility, mute, "out");
   }
 }
 
@@ -528,6 +579,7 @@ function fileProcessor(i) {
   const p = state.processors[i];
   if (!p) return;
   state.focus = i;
+  map.focusKey = null;
   renderTable();
   renderStub();
   if (state.view === "map") drawMap();
@@ -650,4 +702,6 @@ async function load() {
   if (state.view === "map") drawMap();
 }
 
-load();
+if (typeof document !== "undefined" && document.getElementById("wire-body")) {
+  load();
+}

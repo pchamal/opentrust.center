@@ -174,12 +174,11 @@ List is the authority and the landing. Map is a second view.
 
 - Toggle: words `list` | `map`. Atkinson, ink, brief. Active: 1px Evidence Teal underline, same as nav. Not a pill.
 - List: the ranked table and the right-hand file. Selected row gets the spine.
-- Map: a light civic network on Record White. Ledger Black nodes and edges. Evidence Teal 2px on the selected node only. No dark canvas, glow, orbs, bloom, auto-rotate, or physics theater. Drag turns the settled desk object.
-- Caption: `Fig. 1 · Named processors, as published.`
-- Subcaption: `Filed from public lists. Not a complete supply chain.`
+- Map: one neighborhood, not the whole plate. Selected node at the center, the companies that named it, and processors those companies also named (one hop, cropped if the hop would be a hairball). Record White field. Ledger Black squares and hairlines. Evidence Teal 2px on the selected node only. 2D plate; drag-to-orbit allowed. No dark canvas, glow, orbs, bloom, auto-rotate, or physics theater.
+- Caption once: `Fig. 1 · Named processors, as published.` The page lede already states the limit. Do not repeat it above the figure.
 - Click a processor: the existing right-hand file. Click a company: `/c/{slug}`.
 - `prefers-reduced-motion`: still. Drag still works.
-- At 390: list stays a table; map stays a field.
+- At 390: the same one-hop if it stays readable; otherwise do not draw the graph. The “who named them” list is the authority on a phone.
 - Concentration is **exposure × thin public file**, per the PRD. Do not print RISK as a security grade. No risk coloring.
 
 ### Attestations
