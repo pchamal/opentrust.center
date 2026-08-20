@@ -235,6 +235,22 @@ class StatusClassifyTest(unittest.TestCase):
             text="All systems operational. Subscribe to updates.",
         ), {"slug": "visa", "name": "Visa", "domain": "visa.com", "aliases": []}))
 
+    def test_anthropic_owns_status_claude(self):
+        anthropic = {"slug": "anthropic", "name": "Anthropic", "domain": "anthropic.com", "aliases": []}
+        url = "https://status.claude.com/"
+        self.assertTrue(is_first_party_url(url, anthropic))
+        self.assertTrue(classify_as_status(url, rec(
+            url,
+            title="Claude Status",
+            text="All systems operational. Subscribe to updates. Past incidents.",
+        ), anthropic))
+        self.assertTrue(is_filed_status_valid(url, anthropic))
+
+    def test_first_party_cloud_service_status_path_stays_on_file(self):
+        sap = {"slug": "sap", "name": "SAP", "domain": "sap.com", "aliases": []}
+        url = "https://www.sap.com/about/trust-center/cloud-service-status.html"
+        self.assertTrue(is_filed_status_valid(url, sap))
+
     def test_vanta_owns_vanta_dot_com(self):
         vanta = {"slug": "vanta", "name": "Vanta", "domain": "vanta.com", "aliases": []}
         self.assertTrue(is_first_party_url("https://status.vanta.com", vanta))

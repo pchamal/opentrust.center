@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T16:50:15Z",
+  "generated_at": "2026-08-20T18:04:39Z",
   "companies": [
     {
       "rank": 1,
@@ -139,8 +139,8 @@
         "privacy": "https://www.anthropic.com/legal/privacy",
         "subprocessors": "https://trust.anthropic.com/subprocessors",
         "dpa": "https://www.anthropic.com/legal/data-processing-addendum",
-        "status": "https://status.claude.com/",
-        "bug_bounty": "https://www.anthropic.com/responsible-disclosure-policy"
+        "bug_bounty": "https://www.anthropic.com/responsible-disclosure-policy",
+        "status": "https://status.claude.com/"
       },
       "subprocessors": [
         "gcp",
@@ -170,10 +170,10 @@
           "marks": 40,
           "dpa": 8,
           "processors": 8,
-          "status": 6,
           "disclosure": 6,
           "privacy": 6,
-          "longevity": 2
+          "longevity": 2,
+          "status": 6
         }
       }
     },
@@ -381,11 +381,12 @@
         "security": "https://www.canva.com/security/",
         "subprocessors": "https://www.canva.com/policies/subprocessors/",
         "privacy": "https://www.canva.com/trust/privacy/",
-        "bug_bounty": "https://www.canva.com/security/bug-bounty/"
+        "bug_bounty": "https://www.canva.com/security/bug-bounty/",
+        "status": "https://www.canvastatus.com/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 81,
+        "score": 87,
         "tier": "substantial",
         "factors": {
           "portal": 20,
@@ -393,7 +394,8 @@
           "subprocessors": 8,
           "disclosure": 6,
           "privacy": 6,
-          "longevity": 6
+          "longevity": 6,
+          "status": 6
         }
       }
     },
@@ -673,18 +675,20 @@
         "trust": "https://trust.notion.com",
         "security_txt": "https://www.notion.so/.well-known/security.txt",
         "security": "https://www.notion.com/security",
-        "subprocessors": "https://trust.notion.com/subprocessors"
+        "subprocessors": "https://trust.notion.com/subprocessors",
+        "status": "https://www.notion-status.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 79,
+        "score": 85,
         "tier": "substantial",
         "factors": {
           "portal": 20,
           "certs": 40,
           "subprocessors": 8,
           "disclosure": 6,
-          "longevity": 5
+          "longevity": 5,
+          "status": 6
         }
       }
     },
@@ -766,21 +770,19 @@
       "links": {
         "trust": "https://trust.celonis.com",
         "privacy": "https://www.celonis.com/legal/privacy-notice",
-        "status": "https://trust.celonis.com/?itemName=documents&itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
         "security": "https://trust.celonis.com/?itemName=data_security&amp;source=click",
         "dpa": "https://trust.celonis.com/?itemName=documents&itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e",
         "subprocessors": "https://trust.celonis.com/?itemName=documents&itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 95,
-        "tier": "complete",
+        "score": 89,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
           "marks": 40,
           "dpa": 8,
           "processors": 8,
-          "status": 6,
           "privacy": 6,
           "longevity": 7
         }
@@ -1188,13 +1190,13 @@
         "CCPA"
       ],
       "links": {
-        "status": "https://security.attentive.com",
         "trust": "https://security.attentive.com",
         "privacy": "https://www.attentive.com/legal/privacy",
         "security": "https://www.attentive.com/legal/security",
         "dpa": "https://security.attentive.com/?itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e",
         "subprocessors": "https://security.attentive.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
-        "bug_bounty": "https://security.attentive.com/?itemUid=64c9680b-ef79-4c92-baa0-13b541954bef"
+        "bug_bounty": "https://security.attentive.com/?itemUid=64c9680b-ef79-4c92-baa0-13b541954bef",
+        "status": "https://attentive.statuspage.io"
       },
       "subprocessors": [],
       "disclosure": {
@@ -1205,10 +1207,10 @@
           "marks": 16,
           "dpa": 8,
           "processors": 8,
-          "status": 6,
           "disclosure": 6,
           "privacy": 6,
-          "longevity": 5
+          "longevity": 5,
+          "status": 6
         }
       },
       "founded_year": 2016,
@@ -1571,7 +1573,7 @@
         "privacy": "https://security.checkr.com/?itemUid=63f59def-eb18-4135-95a1-addeb7463801",
         "dpa": "https://checkr.com/legal/dpa",
         "bug_bounty": "https://security.checkr.com/?itemUid=64c9680b-ef79-4c92-baa0-13b541954bef",
-        "status": "https://security.checkr.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407"
+        "status": "https://checkr.statuspage.io"
       },
       "subprocessors": [],
       "disclosure": {
@@ -1581,9 +1583,9 @@
           "portal": 20,
           "marks": 40,
           "dpa": 8,
-          "status": 6,
           "disclosure": 6,
-          "privacy": 6
+          "privacy": 6,
+          "status": 6
         }
       }
     },
@@ -1684,7 +1686,7 @@
       "probed": 13,
       "source": "forbes-cloud-100-2025",
       "http_status": 200,
-      "summary": "Trust is in our DNA. Talkdesk CX Cloud\u2122 is a cloud native end-to-end global contact center solution trusted by over 1,800 businesses in 75 countries.",
+      "summary": "Trust is in our DNA. Talkdesk CX Cloud™ is a cloud native end-to-end global contact center solution trusted by over 1,800 businesses in 75 countries.",
       "list": "cloud100",
       "certs": [
         "FedRAMP Moderate"
@@ -1732,7 +1734,7 @@
           {
             "id": "FR2213647361",
             "fedramp_id": "FR2213647361",
-            "offering": "Talkdesk CX Cloud\u2122 Government Edition",
+            "offering": "Talkdesk CX Cloud™ Government Edition",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
             "auth_date": "2025-06-03",
@@ -1823,7 +1825,7 @@
         "privacy": "https://www.postman.com/privacy-policy",
         "subprocessors": "https://security.postman.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
         "dpa": "https://www.postman.com/dpa",
-        "status": "https://security.postman.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
+        "status": "https://status.postman.com",
         "bug_bounty": "https://www.postman.com/bug-bounty"
       },
       "subprocessors": [
@@ -1872,18 +1874,20 @@
         "security_txt": "https://www.zoho.com/.well-known/security.txt",
         "privacy": "https://www.zoho.com/privacy.html",
         "security": "https://www.zoho.com/security.html",
-        "bug_bounty": "https://bugbounty.zohocorp.com/bb/info"
+        "bug_bounty": "https://bugbounty.zohocorp.com/bb/info",
+        "status": "https://us.zohostatus.com/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 63,
+        "score": 69,
         "tier": "on-file",
         "factors": {
           "portal": 20,
           "certs": 21,
           "disclosure": 6,
           "privacy": 6,
-          "longevity": 10
+          "longevity": 10,
+          "status": 6
         }
       }
     },
@@ -2141,7 +2145,7 @@
         "trust": "https://trust.dialpad.com",
         "security_txt": "https://www.dialpad.com/.well-known/security.txt",
         "subprocessors": "https://trust.dialpad.com/?itemName=legal",
-        "status": "https://trust.dialpad.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
+        "status": "https://status.dialpad.com",
         "bug_bounty": "https://trust.dialpad.com/?itemUid=64c9680b-ef79-4c92-baa0-13b541954bef",
         "dpa": "https://trust.dialpad.com/?itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e"
       },
@@ -2552,7 +2556,7 @@
         "trust": "https://trust.clio.com",
         "security_txt": "https://www.clio.com/.well-known/security.txt",
         "privacy": "https://www.clio.com/privacy/",
-        "status": "https://trust.clio.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
+        "status": "https://status.clio.com",
         "bug_bounty": "https://www.clio.com/security/responsible-disclosure/",
         "security": "https://www.clio.com/security/",
         "subprocessors": "https://trust.clio.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
@@ -2586,7 +2590,7 @@
       "title": "Trust - NinjaOne",
       "probed": 13,
       "source": "forbes-cloud-100-2025",
-      "summary": "NinjaOne is committed to making our products accessible and user-friendly to everyone. That\u2019s why we\u2019ve partnered with a third-party to perform accessibility",
+      "summary": "NinjaOne is committed to making our products accessible and user-friendly to everyone. That’s why we’ve partnered with a third-party to perform accessibility",
       "list": "cloud100",
       "certs": [
         "FedRAMP Moderate"
@@ -2643,7 +2647,7 @@
           {
             "id": "FR2620841940",
             "fedramp_id": "FR2620841940",
-            "offering": "NinjaOne for Government \u2013 FedRAMP High",
+            "offering": "NinjaOne for Government – FedRAMP High",
             "status": "FedRAMP Ready",
             "impact_level": "High",
             "auth_date": null,
@@ -2727,7 +2731,7 @@
       "links": {
         "trust": "https://trust.lambda.ai",
         "security_txt": "https://lambdalabs.com/.well-known/security.txt",
-        "status": "https://trust.lambda.ai/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
+        "status": "https://status.lambda.ai/",
         "security": "https://trust.lambda.ai/?amp%3Bamp%3Bsource=click&amp;amp%3Bamp%3Bamp%3Bamp%3Bamp%3BitemUid=ebb9d0ce-15da-4d04-aadc-fe1cd5b827c6&amp;amp%3Bamp%3Bamp%3Bamp%3BitemName=awareness_training&amp;amp%3Bamp%3Bamp%3Bamp%3BitemUid=28da0a2c-3acb-4e37-990a-d887198867f9&amp;amp%3Bamp%3Bamp%3BitemName=legal&amp;amp%3Bamp%3BitemUid=722b9671-c0d5-4a19-a5f7-0ad8fd81307c&amp;amp%3BitemUid=6217dabc-952b-4163-b19b-8372a8de7d4d&amp;amp%3Bsource=click&amp;itemName=data_security&amp;source=click&amp;itemUid=747f7d10-7a80-45cd-99ca-49893533817c",
         "subprocessors": "https://trust.lambda.ai/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57"
       },
@@ -2773,7 +2777,7 @@
         "privacy": "https://www.brex.com/legal/privacy",
         "subprocessors": "https://trust-portal.brex.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
         "dpa": "https://trust-portal.brex.com/?itemName=legal",
-        "status": "https://trust-portal.brex.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
+        "status": "https://status.brex.com",
         "bug_bounty": "https://www.brex.com/trust/responsible-disclosure",
         "security": "https://trust-portal.brex.com/?itemName=data_security&amp;itemUid=2295dac0-4666-4503-8305-18da8472661f&amp;q_mailing_7U7YeR6GBr5VvcWGjXL7RVqNFLcCmQxKhaCJb=RpGi3Z7zndmuuFjehcbtESNWC1E4ykk63iuxs2C8g3zBBTkB33NYcZN5d&amp;source=click"
       },
@@ -3056,11 +3060,12 @@
         "trust": "https://www.hibob.com/privacy/security/",
         "security": "https://www.hibob.com/privacy/security/",
         "dpa": "https://www.hibob.com/privacy/data-processing-addendum/",
-        "subprocessors": "https://www.hibob.com/privacy/hibob-subsidiaries-and-sub-processors/"
+        "subprocessors": "https://www.hibob.com/privacy/hibob-subsidiaries-and-sub-processors/",
+        "status": "https://status.hibob.io/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 71,
+        "score": 77,
         "tier": "substantial",
         "factors": {
           "portal": 20,
@@ -3068,7 +3073,8 @@
           "dpa": 8,
           "processors": 8,
           "privacy": 6,
-          "longevity": 5
+          "longevity": 5,
+          "status": 6
         }
       }
     },
@@ -3084,7 +3090,7 @@
       "title": "Collibra trust center: Security and compliance commitment | Collibra",
       "probed": 13,
       "source": "forbes-cloud-100-2025",
-      "summary": "Explore Collibra\u2019s trust center for details on software security, infrastructure controls, compliance, training, and risk management practices.",
+      "summary": "Explore Collibra’s trust center for details on software security, infrastructure controls, compliance, training, and risk management practices.",
       "list": "cloud100",
       "certs": [
         "FedRAMP Moderate"
@@ -3165,17 +3171,15 @@
       "links": {
         "trust": "https://trust.abridge.com",
         "privacy": "https://www.abridge.com/privacy",
-        "status": "https://trust.abridge.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
         "security": "https://trust.abridge.com/?itemName=data_security&amp;source=click"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 64,
+        "score": 58,
         "tier": "on-file",
         "factors": {
           "portal": 20,
           "marks": 32,
-          "status": 6,
           "privacy": 6
         }
       }
@@ -3312,7 +3316,6 @@
       "list": "cloud100",
       "links": {
         "trust": "https://trust.komodohealth.com",
-        "status": "https://status.komodohealth.com/access/login",
         "subprocessors": "https://trust.komodohealth.com/subprocessors"
       },
       "subprocessors": [
@@ -3323,13 +3326,12 @@
         "newrelic"
       ],
       "disclosure": {
-        "score": 74,
-        "tier": "substantial",
+        "score": 68,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
           "certs": 40,
-          "subprocessors": 8,
-          "status": 6
+          "subprocessors": 8
         }
       }
     },
@@ -3712,11 +3714,12 @@
         "subprocessors": "https://www.browserstack.com:443/sub-processors",
         "security": "https://www.browserstack.com:443/security",
         "trust": "https://www.browserstack.com:443/trust",
-        "bug_bounty": "https://www.browserstack.com:443/vulnerability-disclosure-program"
+        "bug_bounty": "https://www.browserstack.com:443/vulnerability-disclosure-program",
+        "status": "https://status.browserstack.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 54,
+        "score": 60,
         "tier": "on-file",
         "factors": {
           "portal": 20,
@@ -3724,7 +3727,8 @@
           "subprocessors": 8,
           "disclosure": 6,
           "privacy": 6,
-          "longevity": 7
+          "longevity": 7,
+          "status": 6
         }
       }
     },
@@ -4150,7 +4154,7 @@
       "trust_url": "https://huggingface.co/docs/hub/en/security",
       "final_url": "https://huggingface.co/docs/hub/en/security",
       "vendor": "custom",
-      "title": "Security \u00b7 Hugging Face",
+      "title": "Security · Hugging Face",
       "probed": 18,
       "source": "forbes-cloud-100-2025",
       "http_status": 200,
@@ -4509,7 +4513,7 @@
         "privacy": "https://www.cyera.com/legal/privacy-policy",
         "dpa": "https://security.cyera.io/ (item: Master Services Agreement and Addendums, itemUid=9d9c6a4d-f335-4a92-ad43-ab4aae24bf0e)",
         "subprocessors": "https://security.cyera.io/ (item: Third Party Subprocessors, itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57)",
-        "status": "https://security.cyera.io/ (item: Status Monitoring, itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407)"
+        "status": "https://status.cyera.io"
       },
       "subprocessors": [
         "aws"
@@ -4522,9 +4526,9 @@
           "marks": 40,
           "dpa": 8,
           "processors": 8,
-          "status": 6,
           "privacy": 6,
-          "longevity": 3
+          "longevity": 3,
+          "status": 6
         }
       },
       "fedramp": {
@@ -4732,7 +4736,7 @@
         "status": "https://status.together.ai",
         "subprocessors": "https://trust.together.ai/subprocessors",
         "bug_bounty": "https://hackerone.com/together_ai",
-        "dpa": "https://trust.together.ai/resources (Data Processing Addendum \u2014 access request required)"
+        "dpa": "https://trust.together.ai/resources (Data Processing Addendum — access request required)"
       },
       "subprocessors": [
         "aws",
@@ -5714,18 +5718,20 @@
       ],
       "links": {
         "trust": "https://trust.akamai.com",
-        "subprocessors": "https://trust.akamai.com/subprocessors"
+        "subprocessors": "https://trust.akamai.com/subprocessors",
+        "status": "https://www.akamaistatus.com/"
       },
       "summary": "Public trust center on file.",
       "subprocessors": [],
       "disclosure": {
-        "score": 50,
+        "score": 56,
         "tier": "on-file",
         "factors": {
           "portal": 20,
           "marks": 12,
           "processors": 8,
-          "longevity": 10
+          "longevity": 10,
+          "status": 6
         }
       },
       "fedramp": {
@@ -6594,12 +6600,13 @@
         "privacy": "https://www.cloudflare.com/privacypolicy/",
         "security": "https://www.cloudflare.com/cybersecurity/",
         "subprocessors": "https://www.cloudflare.com/gdpr/subprocessors/",
-        "bug_bounty": "https://hackerone.com/cloudflare"
+        "bug_bounty": "https://hackerone.com/cloudflare",
+        "status": "https://www.cloudflarestatus.com/"
       },
       "summary": "Public trust center on file.",
       "subprocessors": [],
       "disclosure": {
-        "score": 60,
+        "score": 66,
         "tier": "on-file",
         "factors": {
           "portal": 20,
@@ -6607,7 +6614,8 @@
           "processors": 8,
           "disclosure": 6,
           "privacy": 6,
-          "longevity": 8
+          "longevity": 8,
+          "status": 6
         }
       },
       "fedramp": {
@@ -7298,7 +7306,8 @@
         "trust": "https://trust.dynatrace.com",
         "security_txt": "https://www.dynatrace.com/.well-known/security.txt",
         "privacy": "https://www.dynatrace.com/company/trust-center/privacy/",
-        "subprocessors": "https://trust.dynatrace.com/subprocessors"
+        "subprocessors": "https://trust.dynatrace.com/subprocessors",
+        "status": "https://dynatrace.status.io/"
       },
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 1, SOC 3, FedRAMP High, FedRAMP Moderate, HIPAA, PCI DSS, GDPR and others.",
       "subprocessors": [
@@ -7311,7 +7320,7 @@
         "zoom"
       ],
       "disclosure": {
-        "score": 90,
+        "score": 96,
         "tier": "complete",
         "factors": {
           "portal": 20,
@@ -7319,7 +7328,8 @@
           "processors": 8,
           "disclosure": 6,
           "privacy": 6,
-          "longevity": 10
+          "longevity": 10,
+          "status": 6
         }
       },
       "fedramp": {
@@ -7468,7 +7478,7 @@
         "subprocessors": "https://docs.fastly.com/products/sub-processors",
         "status": "https://www.fastlystatus.com/"
       },
-      "summary": "Learn more about Fastly\u2019s security and compliance, legal terms, privacy, and corporate values and ethics, please visit the resources.",
+      "summary": "Learn more about Fastly’s security and compliance, legal terms, privacy, and corporate values and ethics, please visit the resources.",
       "subprocessors": [],
       "disclosure": {
         "score": 55,
@@ -7517,20 +7527,22 @@
         "privacy": "https://www.figma.com/legal/privacy/",
         "subprocessors": "https://www.figma.com/sub-processors/",
         "security": "https://www.figma.com/security/",
-        "bug_bounty": "https://hackerone.com/figma"
+        "bug_bounty": "https://hackerone.com/figma",
+        "status": "https://status.figma.com"
       },
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, FedRAMP, HIPAA, GDPR, CCPA, TISAX, TX-RAMP and others.",
       "subprocessors": [],
       "disclosure": {
-        "score": 87,
-        "tier": "substantial",
+        "score": 93,
+        "tier": "complete",
         "factors": {
           "portal": 20,
           "marks": 40,
           "processors": 8,
           "disclosure": 6,
           "privacy": 6,
-          "longevity": 7
+          "longevity": 7,
+          "status": 6
         }
       },
       "fedramp": {
@@ -7674,7 +7686,7 @@
       "trust_url": "https://github.com/security",
       "final_url": "https://github.com/security",
       "vendor": "self_hosted",
-      "title": "GitHub Security \u00b7 GitHub",
+      "title": "GitHub Security · GitHub",
       "probed": 13,
       "source": "public-enterprise",
       "list": "enterprise",
@@ -7838,19 +7850,21 @@
         "trust": "https://cloud.google.com/compliance",
         "security_txt": "https://www.google.com/.well-known/security.txt",
         "security": "https://safety.google/safety/",
-        "privacy": "https://safety.google/intl/en_us/settings/privacy-settings/"
+        "privacy": "https://safety.google/intl/en_us/settings/privacy-settings/",
+        "status": "https://status.cloud.google.com"
       },
       "summary": "Discover Google Workspace and Google Cloud resources on regulatory compliance, certifications, and frameworks across regions and industries.",
       "subprocessors": [],
       "disclosure": {
-        "score": 54,
+        "score": 60,
         "tier": "on-file",
         "factors": {
           "portal": 20,
           "marks": 12,
           "disclosure": 6,
           "privacy": 6,
-          "longevity": 10
+          "longevity": 10,
+          "status": 6
         }
       },
       "fedramp": {
@@ -8674,18 +8688,20 @@
       "links": {
         "security": "https://www.netlify.com/security/",
         "trust": "https://trust-center.netlify-corp.com/",
-        "privacy": "https://www.netlify.com/privacy/"
+        "privacy": "https://www.netlify.com/privacy/",
+        "status": "https://www.netlifystatus.com/"
       },
       "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27018, HIPAA, PCI DSS, GDPR, CCPA.",
       "subprocessors": [],
       "disclosure": {
-        "score": 72,
+        "score": 78,
         "tier": "substantial",
         "factors": {
           "portal": 20,
           "certs": 40,
           "privacy": 6,
-          "longevity": 6
+          "longevity": 6,
+          "status": 6
         }
       }
     },
@@ -9136,7 +9152,7 @@
           {
             "id": "FR2315464863",
             "fedramp_id": "FR2315464863",
-            "offering": "Palantir Federal Cloud Service \u2013 Supporting Services (PFCS-SS)",
+            "offering": "Palantir Federal Cloud Service – Supporting Services (PFCS-SS)",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
             "auth_date": "2024-11-19",
@@ -9750,8 +9766,8 @@
         "security_txt": "https://www.sap.com/.well-known/security.txt",
         "privacy": "https://www.sap.com/about/legal/privacy.html",
         "security": "https://www.sap.com/about/trust-center/security.html",
-        "status": "https://www.sap.com/about/trust-center/cloud-service-status.html",
-        "bug_bounty": "https://www.sap.com/report-a-vulnerability"
+        "bug_bounty": "https://www.sap.com/report-a-vulnerability",
+        "status": "https://www.sap.com/about/trust-center/cloud-service-status.html"
       },
       "summary": "Learn about our security and data protection measures, regular compliance checks through internal reviews and audits, and availability of our cloud services worldwide.",
       "subprocessors": [],
@@ -9761,10 +9777,10 @@
         "factors": {
           "portal": 20,
           "marks": 12,
-          "status": 6,
           "disclosure": 6,
           "privacy": 6,
-          "longevity": 10
+          "longevity": 10,
+          "status": 6
         }
       },
       "fedramp": {
@@ -9798,7 +9814,7 @@
           {
             "id": "F1602257856",
             "fedramp_id": "F1602257856",
-            "offering": "DoD Cloud Intelligent Enterprise \u2013 DD-CIE",
+            "offering": "DoD Cloud Intelligent Enterprise – DD-CIE",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
             "auth_date": "2017-06-13",
@@ -10049,12 +10065,13 @@
         "security_txt": "https://www.shopify.com/.well-known/security.txt",
         "privacy": "https://www.shopify.com/legal/privacy",
         "dpa": "https://www.shopify.com/legal/dpa",
-        "bug_bounty": "https://hackerone.com/shopify"
+        "bug_bounty": "https://hackerone.com/shopify",
+        "status": "https://www.shopifystatus.com/"
       },
       "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, PCI DSS, GDPR, CCPA.",
       "subprocessors": [],
       "disclosure": {
-        "score": 78,
+        "score": 84,
         "tier": "substantial",
         "factors": {
           "portal": 20,
@@ -10062,7 +10079,8 @@
           "dpa": 8,
           "disclosure": 6,
           "privacy": 6,
-          "longevity": 10
+          "longevity": 10,
+          "status": 6
         }
       }
     },
@@ -11027,12 +11045,13 @@
         "subprocessors": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
         "security": "https://www.zoom.com/en/trust/security/?cms_guid=false",
         "trust": "https://www.zoom.com/en/trust/?cms_guid=false",
-        "bug_bounty": "https://www.zoom.com/en/trust/reporting-vulnerability/"
+        "bug_bounty": "https://www.zoom.com/en/trust/reporting-vulnerability/",
+        "status": "https://www.zoomstatus.com/"
       },
       "summary": "Work together from anywhere, with trust as the cornerstone.",
       "subprocessors": [],
       "disclosure": {
-        "score": 59,
+        "score": 65,
         "tier": "on-file",
         "factors": {
           "portal": 20,
@@ -11040,7 +11059,8 @@
           "processors": 8,
           "disclosure": 6,
           "privacy": 6,
-          "longevity": 7
+          "longevity": 7,
+          "status": 6
         }
       },
       "fedramp": {
@@ -11238,12 +11258,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "forbes-software-2025",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.ansys.com/acr"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -11500,14 +11524,16 @@
       "list": "forbes-software-2025",
       "certs": [],
       "links": {
-        "trust": "https://trust.ringcentral.com"
+        "trust": "https://trust.ringcentral.com",
+        "status": "https://status.ringcentral.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -11557,15 +11583,17 @@
         "TX-RAMP"
       ],
       "links": {
-        "trust": "https://trust.qualtrics.com"
+        "trust": "https://trust.qualtrics.com",
+        "status": "https://status.qualtrics.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 57,
+        "score": 63,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "marks": 37
+          "marks": 37,
+          "status": 6
         }
       },
       "fedramp": {
@@ -11642,20 +11670,22 @@
       "list": "public-software",
       "certs": [],
       "links": {
-        "trust": "https://trust.guidewire.com"
+        "trust": "https://trust.guidewire.com",
+        "status": "https://status.guidewire.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
     {
       "rank": 202,
-      "name": "Dassault Syst\u00e8mes",
+      "name": "Dassault Systèmes",
       "slug": "dassault-systemes",
       "domain": "3ds.com",
       "found": true,
@@ -11719,14 +11749,16 @@
       "list": "public-software",
       "certs": [],
       "links": {
-        "trust": "https://trustcenter.ncino.com"
+        "trust": "https://trustcenter.ncino.com",
+        "status": "https://status.ncino.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -11746,14 +11778,16 @@
       "list": "public-software",
       "certs": [],
       "links": {
-        "trust": "https://trust.zoominfo.com"
+        "trust": "https://trust.zoominfo.com",
+        "status": "https://status.zoominfo.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -11864,12 +11898,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "forbes-software-2025",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.gendigital.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -11887,12 +11925,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "public-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.nutanix.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -12154,12 +12196,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "public-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.ptc.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       },
       "fedramp": {
         "levels": [
@@ -12231,14 +12277,16 @@
       "list": "public-software",
       "certs": [],
       "links": {
-        "trust": "https://trustcenter.toasttab.com"
+        "trust": "https://trustcenter.toasttab.com",
+        "status": "https://status.toasttab.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -12284,12 +12332,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "public-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.opentext.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       },
       "fedramp": {
         "levels": [
@@ -12313,7 +12365,7 @@
           {
             "id": "F1301101857",
             "fedramp_id": "F1301101857",
-            "offering": "OpenText\u2122 Core Application Security (Fortify On Demand)",
+            "offering": "OpenText™ Core Application Security (Fortify On Demand)",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
             "auth_date": "2015-02-04",
@@ -12480,14 +12532,16 @@
       "list": "crn-security-100-2025",
       "certs": [],
       "links": {
-        "trust": "https://trust.bigid.com"
+        "trust": "https://trust.bigid.com",
+        "status": "https://status.bigid.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -12537,15 +12591,17 @@
         "ISO 27001"
       ],
       "links": {
-        "trust": "https://trust.sambanova.ai"
+        "trust": "https://trust.sambanova.ai",
+        "status": "https://status.sambanova.ai"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 40,
+        "score": 46,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "marks": 20
+          "marks": 20,
+          "status": 6
         }
       }
     },
@@ -12592,14 +12648,16 @@
       "list": "crn-security-100-2025",
       "certs": [],
       "links": {
-        "trust": "https://trust.eset.com"
+        "trust": "https://trust.eset.com",
+        "status": "https://status.eset.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -12619,14 +12677,16 @@
       "list": "crn-security-100-2025",
       "certs": [],
       "links": {
-        "trust": "https://trust.aquasec.com"
+        "trust": "https://trust.aquasec.com",
+        "status": "https://status.aquasec.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       },
       "fedramp": {
@@ -12884,14 +12944,16 @@
       "list": "crn-security-100-2025",
       "certs": [],
       "links": {
-        "trust": "https://trust.knowbe4.com"
+        "trust": "https://trust.knowbe4.com",
+        "status": "https://status.knowbe4.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       },
       "fedramp": {
@@ -12941,14 +13003,16 @@
       "list": "crn-security-100-2025",
       "certs": [],
       "links": {
-        "trust": "https://trust.infoblox.com"
+        "trust": "https://trust.infoblox.com",
+        "status": "https://status.infoblox.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       },
       "fedramp": {
@@ -12998,14 +13062,16 @@
       "list": "crn-security-100-2025",
       "certs": [],
       "links": {
-        "trust": "https://trust.mimecast.com"
+        "trust": "https://trust.mimecast.com",
+        "status": "https://status.mimecast.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       },
       "fedramp": {
@@ -13335,15 +13401,17 @@
         "TX-RAMP"
       ],
       "links": {
-        "trust": "https://security.redcanary.com"
+        "trust": "https://security.redcanary.com",
+        "status": "https://status.redcanary.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 60,
+        "score": 66,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "marks": 40
+          "marks": 40,
+          "status": 6
         }
       }
     },
@@ -13425,15 +13493,17 @@
         "TX-RAMP"
       ],
       "links": {
-        "trust": "https://trust.sumologic.com"
+        "trust": "https://trust.sumologic.com",
+        "status": "https://status.sumologic.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 60,
+        "score": 66,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "marks": 40
+          "marks": 40,
+          "status": 6
         }
       },
       "fedramp": {
@@ -13529,14 +13599,16 @@
       "list": "crn-security-100-2025",
       "certs": [],
       "links": {
-        "trust": "https://trust.veracode.com"
+        "trust": "https://trust.veracode.com",
+        "status": "https://status.veracode.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       },
       "fedramp": {
@@ -13609,14 +13681,16 @@
       "list": "crn-security-100-2025",
       "certs": [],
       "links": {
-        "trust": "https://trust.zerofox.com"
+        "trust": "https://trust.zerofox.com",
+        "status": "https://status.zerofox.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -13681,12 +13755,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "crn-security-100-2025",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.rubrik.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       },
       "fedramp": {
         "levels": [
@@ -13784,12 +13862,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "crn-security-100-2025",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.pingidentity.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -13836,7 +13918,7 @@
           {
             "id": "FR2102652499",
             "fedramp_id": "FR2102652499",
-            "offering": "RSA\u00ae ID Plus for Government",
+            "offering": "RSA® ID Plus for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
             "auth_date": "2022-04-26",
@@ -13925,12 +14007,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "crn-security-100-2025",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.watchguard.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -14057,14 +14143,16 @@
       "list": "bessemer-emcloud",
       "certs": [],
       "links": {
-        "trust": "https://trust.sprinklr.com"
+        "trust": "https://trust.sprinklr.com",
+        "status": "https://status.sprinklr.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -14084,14 +14172,16 @@
       "list": "bessemer-emcloud",
       "certs": [],
       "links": {
-        "trust": "https://trust.procore.com"
+        "trust": "https://trust.procore.com",
+        "status": "https://status.procore.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -14111,14 +14201,16 @@
       "list": "bessemer-emcloud",
       "certs": [],
       "links": {
-        "trust": "https://trust.spscommerce.com"
+        "trust": "https://trust.spscommerce.com",
+        "status": "https://status.spscommerce.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -14138,14 +14230,16 @@
       "list": "bessemer-emcloud",
       "certs": [],
       "links": {
-        "trust": "https://security.servicetitan.com"
+        "trust": "https://security.servicetitan.com",
+        "status": "https://status.servicetitan.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -14230,12 +14324,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "bessemer-emcloud",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.cellebrite.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -14253,12 +14351,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "bessemer-emcloud",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.workiva.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -14276,12 +14378,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "bessemer-emcloud",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.wix.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -14690,12 +14796,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.coinbase.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -14809,12 +14919,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://go.factset.com/status"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -14924,12 +15038,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.godaddy.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -15039,12 +15157,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.robinhood.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -15131,12 +15253,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.verisk.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -15257,12 +15383,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.ionq.co"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -15327,14 +15457,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://nebius.group/trust-center"
+        "trust": "https://nebius.group/trust-center",
+        "status": "https://status.nebius.com/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -15450,14 +15582,16 @@
       "list": "companiesmarketcap-tech",
       "certs": [],
       "links": {
-        "trust": "https://trust.cerebras.ai"
+        "trust": "https://trust.cerebras.ai",
+        "status": "https://status.cerebras.ai"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -15499,12 +15633,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.xero.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -15775,12 +15913,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.epicgames.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -16113,12 +16255,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://www.etsystatus.com/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -16136,12 +16282,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.klarna.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -16481,12 +16631,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-indian-it",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.tallysolutions.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -16693,14 +16847,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://admicom.fi/trust-center"
+        "trust": "https://admicom.fi/trust-center",
+        "status": "https://status.admicom.com/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -16927,14 +17083,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://trust.coveo.com"
+        "trust": "https://trust.coveo.com",
+        "status": "https://status.cloud.coveo.com/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -16960,15 +17118,17 @@
         "TX-RAMP"
       ],
       "links": {
-        "trust": "https://trust.blackbaud.com"
+        "trust": "https://trust.blackbaud.com",
+        "status": "https://status.blackbaud.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 51,
+        "score": 57,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "marks": 31
+          "marks": 31,
+          "status": 6
         }
       }
     },
@@ -17042,14 +17202,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://trust.audioeye.com"
+        "trust": "https://trust.audioeye.com",
+        "status": "https://status.audioeye.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -17187,12 +17349,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.d2l.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -17211,14 +17377,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://trust.expensify.com"
+        "trust": "https://trust.expensify.com",
+        "status": "https://status.expensify.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -17457,14 +17625,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://clarivate.com/trust-center"
+        "trust": "https://clarivate.com/trust-center",
+        "status": "https://status.clarivate.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -17530,14 +17700,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://trust.lightspeedhq.com"
+        "trust": "https://trust.lightspeedhq.com",
+        "status": "https://status.lightspeedhq.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -17583,12 +17755,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.kaltura.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -17635,15 +17811,17 @@
         "CCPA"
       ],
       "links": {
-        "trust": "https://trust.liveramp.com"
+        "trust": "https://trust.liveramp.com",
+        "status": "https://status.liveramp.com/\\"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 46,
+        "score": 52,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "marks": 26
+          "marks": 26,
+          "status": 6
         }
       }
     },
@@ -17662,12 +17840,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.f-secure.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -17731,12 +17913,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.livechat.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -17951,14 +18137,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://trustcenter.nuix.com"
+        "trust": "https://trustcenter.nuix.com",
+        "status": "https://status.nuix.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -17978,14 +18166,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://trust.pagaya.com"
+        "trust": "https://trust.pagaya.com",
+        "status": "https://pagaya.com/system-status"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -18040,15 +18230,17 @@
         "GDPR"
       ],
       "links": {
-        "trust": "https://trust.pega.com"
+        "trust": "https://trust.pega.com",
+        "status": "https://status.pega.net/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 60,
+        "score": 66,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "marks": 40
+          "marks": 40,
+          "status": 6
         }
       }
     },
@@ -18123,14 +18315,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://pexip.com/trust-center"
+        "trust": "https://pexip.com/trust-center",
+        "status": "https://status.pexip.com/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -18219,14 +18413,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://security.riskified.com"
+        "trust": "https://security.riskified.com",
+        "status": "https://status.riskified.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -18511,15 +18707,17 @@
         "CCPA"
       ],
       "links": {
-        "trust": "https://trust.sproutsocial.com"
+        "trust": "https://trust.sproutsocial.com",
+        "status": "https://www.sproutsocialstatus.com/index.html"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 60,
+        "score": 66,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "marks": 40
+          "marks": 40,
+          "status": 6
         }
       }
     },
@@ -18548,7 +18746,7 @@
     },
     {
       "rank": 449,
-      "name": "Schr\u00f6dinger",
+      "name": "Schrödinger",
       "slug": "schr-dinger",
       "domain": "schrodinger.com",
       "found": false,
@@ -18699,12 +18897,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.sophiagenetics.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -18815,14 +19017,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://compliance.teamviewer.com"
+        "trust": "https://compliance.teamviewer.com",
+        "status": "https://status.teamviewer.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -18911,14 +19115,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://trust.withsecure.com"
+        "trust": "https://trust.withsecure.com",
+        "status": "https://status.withsecure.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -18938,14 +19144,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://compliance.vtex.com"
+        "trust": "https://compliance.vtex.com",
+        "status": "https://status.vtex.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -19044,15 +19252,17 @@
         "GDPR"
       ],
       "links": {
-        "trust": "https://veritone.com/trust-center"
+        "trust": "https://veritone.com/trust-center",
+        "status": "https://status.veritone.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 23,
+        "score": 29,
         "tier": "thin",
         "factors": {
           "portal": 20,
-          "marks": 3
+          "marks": 3,
+          "status": 6
         }
       }
     },
@@ -19300,14 +19510,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://trust.digi.com"
+        "trust": "https://trust.digi.com",
+        "status": "https://status.digi.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -19395,12 +19607,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.minimax.io"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -19732,12 +19948,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.freee.co.jp"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -20077,12 +20297,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.spire.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -20123,12 +20347,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.thryv.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -20146,12 +20374,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.bakkt.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -20275,15 +20507,17 @@
         "GDPR"
       ],
       "links": {
-        "trust": "https://trust.liveperson.com"
+        "trust": "https://trust.liveperson.com",
+        "status": "https://status.liveperson.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 47,
+        "score": 53,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "marks": 27
+          "marks": 27,
+          "status": 6
         }
       }
     },
@@ -20348,12 +20582,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.freightos.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -20417,12 +20655,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.verimatrix.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -20766,12 +21008,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.exasol.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -20858,12 +21104,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.system1.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -21046,12 +21296,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.catapultsports.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -23531,12 +23785,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.ingrammicro.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -23628,15 +23886,17 @@
         "PCI DSS"
       ],
       "links": {
-        "trust": "https://trust.bamboohr.com"
+        "trust": "https://trust.bamboohr.com",
+        "status": "https://status.bamboohr.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 46,
+        "score": 52,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "marks": 26
+          "marks": 26,
+          "status": 6
         }
       }
     },
@@ -24047,14 +24307,16 @@
       "list": "wikipedia-largest-internet",
       "certs": [],
       "links": {
-        "trust": "https://trust.zoom.com"
+        "trust": "https://trust.zoom.com",
+        "status": "https://www.zoomstatus.com/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -24257,12 +24519,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.copart.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -24630,14 +24896,16 @@
       "list": "wikipedia-largest-internet",
       "certs": [],
       "links": {
-        "trust": "https://trust.goto.com"
+        "trust": "https://trust.goto.com",
+        "status": "https://status.goto.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "status": 6
         }
       }
     },
@@ -24748,12 +25016,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.shutterfly.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -26102,12 +26374,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.agilent.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -26944,7 +27220,7 @@
     },
     {
       "rank": 807,
-      "name": "Brown\u2013Forman",
+      "name": "Brown–Forman",
       "slug": "brown-forman",
       "domain": "brown-forman.com",
       "found": false,
@@ -27164,12 +27440,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://www.cboe.com/system-status"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {

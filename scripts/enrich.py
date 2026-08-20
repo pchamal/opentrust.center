@@ -290,6 +290,9 @@ SPECIAL_URLS = {
     ],
     "openai": [("https://status.openai.com", "status"),
                ("https://openai.com/policies/privacy-policy", "privacy")],
+    "anthropic": [("https://status.claude.com", "status")],
+    "attentive": [("https://attentive.statuspage.io", "status")],
+    "checkr": [("https://checkr.statuspage.io", "status")],
     "notion": [("https://www.notion.so/help/subprocessors", "subprocessors"),
                ("https://www.notion-status.com", "status")],
     "databricks": [("https://www.databricks.com/legal/subprocessors", "subprocessors"),
@@ -378,6 +381,7 @@ DOMAIN_ALIASES = {
     "1password.com": ["1password.io"],
     "alpha-sense.com": ["alpha-sense.com", "alphasense.com"],
     "x.ai": ["x.ai"],
+    "anthropic.com": ["claude.com"],
 }
 
 def hosts_for(company: dict) -> list[str]:
@@ -981,6 +985,7 @@ def is_followable_status_href(href: str, company: dict | None) -> bool:
 
 
 def is_filed_status_valid(url: str, company: dict | None) -> bool:
+    """Keep an already-filed URL only when it is still a status page, not a portal item."""
     if not url:
         return False
     if ITEM_UID_RE.search(url) or is_social_or_news(url) or is_statuspage_marketing_url(url):
@@ -990,11 +995,17 @@ def is_filed_status_valid(url: str, company: dict | None) -> bool:
     if company and is_portal_vendor_host(url, company):
         return False
     h, path = host_of(url), path_of(url)
-    if is_status_branded_host(url, company) or is_status_path(path):
-        return bool(not company or status_host_matches_company(url, company) or is_first_party_url(url, company))
-    if company and is_first_party_url(url, company) and is_status_path(path):
+    if h.startswith("status."):
         return True
-    return bool(h.startswith("status.") and (not company or status_host_matches_company(url, company)))
+    if is_platform_status_host(h):
+        return bool(not company or status_host_matches_company(url, company))
+    if re.search(r"status", h, re.I) and (
+        not company or status_host_matches_company(url, company) or is_first_party_url(url, company)
+    ):
+        return True
+    if company and is_first_party_url(url, company) and re.search(r"status", path, re.I):
+        return True
+    return is_status_path(path)
 
 
 def extract_status_candidates(html: str, base: str, company: dict | None = None) -> list[str]:
