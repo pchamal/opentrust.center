@@ -90,6 +90,20 @@ class DpaClassifyTest(unittest.TestCase):
             text="Please log in to view this document.",
         )))
 
+    def test_vendor_facing_dpa_is_not_customer_processor_terms(self):
+        url = "https://www.flocksafety.com/legal/vendor-dpa"
+        self.assertFalse(classify_as_dpa(url, rec(
+            url,
+            title="Vendor Data Processing Addendum",
+            text="This Vendor Data Processing Addendum applies to Flock vendors.",
+        )))
+        url2 = "https://www.bmc.com/legal/data-processing-addendum.html"
+        self.assertFalse(classify_as_dpa(url2, rec(
+            url2,
+            title="Previous DPA for BMC Vendors - BMC Software",
+            text="This previous DPA for BMC Vendors is provided for reference.",
+        )))
+
     def test_itemuid_without_dpa_name_is_not_filed(self):
         url = "https://trust.example.com/?itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e"
         self.assertFalse(classify_as_dpa(url, rec(

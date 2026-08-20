@@ -372,6 +372,11 @@ DPA_BODY_RE = re.compile(
     r"sub-?process(?:or|ing))\b",
     re.I,
 )
+VENDOR_FACING_DPA_RE = re.compile(
+    r"\b(?:for(?:\s+our)?\s+vendors?|vendor[- ]dpa|dpa for \w+ vendors?|"
+    r"supplier[- ](?:dpa|addendum)|previous dpa)\b",
+    re.I,
+)
 DPA_LINK_TEXT_RE = re.compile(
     r"\b(?:data[- ]processing[- ](?:addendum|agreement|terms|annex)|"
     r"dpa(?:\s+addendum)?|"
@@ -1182,6 +1187,8 @@ def classify_as_dpa(url: str, rec: dict) -> bool:
         return False
     path = path_of(final)
     if path_is_product_page(path):
+        return False
+    if VENDOR_FACING_DPA_RE.search(f"{title} {path} {text[:800]}"):
         return False
     if path_is_privacy_or_cookie_only(path) and not DPA_TITLE_RE.search(title):
         return False
