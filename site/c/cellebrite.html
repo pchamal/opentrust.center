@@ -38,14 +38,21 @@
     <p class="sec-kicker">Instruments</p>
     <table class="inst" data-table="instruments">
       <thead><tr><th scope="col" data-sort="instrument" aria-sort="none"><button type="button">Instrument</button></th><th scope="col" data-sort="host" aria-sort="none"><button type="button">Host</button></th><th scope="col" data-sort="seen" aria-sort="none"><button type="button">Last seen</button></th></tr></thead>
-      <tbody><tr><td>trust</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>security</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>privacy</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>DPA</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>subprocessors</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>status</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>bounty / security.txt</td><td><span class="absent">not on file</span></td><td>—</td></tr></tbody>
+      <tbody><tr><td>trust</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>security</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>privacy</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>DPA</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>subprocessors</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>status</td><td><a class="official" href="https://status.cellebrite.com" rel="noopener noreferrer">status.cellebrite.com</a></td><td>20 Aug 2026</td></tr><tr><td>bounty / security.txt</td><td><span class="absent">not on file</span></td><td>—</td></tr></tbody>
     </table>
 
     <p class="sec-kicker">Marks</p>
     <p class="absent">not on file</p>
 
     <p class="out"><span class="absent">Official page · not on file</span></p>
-    
+    <div class="gate" id="gate" hidden>
+      <label class="turn">
+        <input type="checkbox" id="gate-box">
+        <span class="turn-box" aria-hidden="true"></span>
+        <span>I am human</span>
+      </label>
+      <p class="gate-status" id="gate-status"></p>
+    </div>
 
     <p class="sec-kicker">FedRAMP</p>
     <p class="src-line">Filed from the <a href="https://www.fedramp.gov/marketplace/products/">FedRAMP Marketplace</a>.</p>
