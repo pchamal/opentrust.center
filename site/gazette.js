@@ -176,11 +176,15 @@ function renderBook() {
         : `<span class="absent">none in this index</span>`;
       const geo = (item.geography || []).join(" · ");
       const ind = (item.industry || []).join(" · ");
+      const read = item.read
+        ? `<p class="related">read · ${escapeHtml(item.read)}</p>`
+        : "";
       const markIco = inkIcon((state.icons.marks || {})[item.id]);
       return `<article class="entry" id="${escapeHtml(item.id)}">
         <h2>${markIco}${escapeHtml(item.name)}</h2>
         <p class="entry-meta">${escapeHtml(item.kind === "framework" ? "standard" : item.kind)} · ${escapeHtml(geo)} · ${escapeHtml(item.issuer)} · ${files} files</p>
         <p class="entry-meta">${escapeHtml(ind)}</p>
+        ${read}
         <p class="entry-body">${escapeHtml(body || "")}</p>
         <button type="button" class="depth" data-id="${escapeHtml(item.id)}">${deep ? "eli-5" : "elaborate"}</button>
         <p class="related">related · ${related || "—"}</p>
