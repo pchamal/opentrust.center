@@ -74,18 +74,52 @@ function humanizeProcessorName(s) {
   return t;
 }
 
-function looksLikeProcessorName(s) {
+const MONTH_NAME =
+  "january|february|march|april|may|june|july|august|september|october|november|december|jan|feb|mar|apr|jun|jul|aug|sep|sept|oct|nov|dec";
+const DATE_HEADER_RE = /^(date(?: of change)?|effective date)$/i;
+const DATE_NAME_RE = new RegExp(
+  `^(?:(?:19|20|21)\\d{2}|\\d{4}-\\d{2}-\\d{2}|\\d{1,2}[./]\\d{1,2}[./](?:\\d{2}|\\d{4})|\\d{1,2}[\\s.\\-]+(?:${MONTH_NAME})[\\s.\\-]+\\d{4}|(?:${MONTH_NAME})[\\s.\\-]+\\d{1,2},?[\\s.\\-]+\\d{4}|(?:${MONTH_NAME})[\\s.\\-]+\\d{4})$`,
+  "i",
+);
+
+export function looksLikeDateName(s) {
+  const t = String(s || "").replace(/\s+/g, " ").trim();
+  if (!t) return false;
+  if (DATE_HEADER_RE.test(t)) return true;
+  if (DATE_NAME_RE.test(t)) return true;
+  const spaced = t.replace(/[-_]+/g, " ");
+  return spaced !== t && DATE_NAME_RE.test(spaced);
+}
+
+export function looksLikeProcessorName(s) {
   const t = String(s || "").trim();
   if (!t) return false;
   if (/^listed on public/i.test(t)) return false;
   if (/listed on/i.test(t) || /\bpage\b/i.test(t)) return false;
+  if (looksLikeDateName(t)) return false;
   return true;
+}
+
+export function namedProcessors(rows) {
+  return (rows || []).filter(
+    (p) => p && !looksLikeDateName(p.name) && !looksLikeDateName(p.id) && !looksLikeDateName(p.slug),
+  );
+}
+
+export function defaultProcessorIndex(rows) {
+  const list = rows || [];
+  for (const key of ["aws", "amazon-web-services"]) {
+    const i = list.findIndex((p) => p && (p.id === key || p.slug === key));
+    if (i >= 0) return i;
+  }
+  const i = list.findIndex((p) => /amazon web services/i.test(String((p && p.name) || "")));
+  return i >= 0 ? i : 0;
 }
 
 function processorDisplayName(e, node, to) {
   const nodeName = node && node.name ? String(node.name).trim() : "";
   if (looksLikeProcessorName(nodeName)) return humanizeProcessorName(nodeName);
-  if (to) return humanizeProcessorName(to) || titleCaseSlug(to);
+  if (to && looksLikeProcessorName(to)) return humanizeProcessorName(to) || titleCaseSlug(to);
   const evidence = e && e.evidence ? String(e.evidence).trim() : "";
   if (looksLikeProcessorName(evidence)) return humanizeProcessorName(evidence);
   return humanizeProcessorName((e && e.processor) || to);
@@ -94,7 +128,12 @@ function processorDisplayName(e, node, to) {
 function normalizeEdges(wires, companies) {
   const nodes = new Map((wires.nodes || []).map((n) => [n.id, n]));
   return (wires.edges || [])
-    .filter((e) => e.source_url)
+    .filter((e) => {
+      if (!e.source_url) return false;
+      const to = e.to || e.processor_slug || e.processor;
+      const node = nodes.get(to) || {};
+      return !looksLikeDateName(node.name) && !looksLikeDateName(to) && !looksLikeDateName(e.evidence);
+    })
     .map((e) => {
       const from = e.from || e.company;
       const to = e.to || e.processor_slug || e.processor;
@@ -216,12 +255,12 @@ function renderTable() {
     .map((p, i) => {
       const tier = p.inRegister ? displayTier(p.tier) : "not in register";
       const src = p.sources[0] ? hostOfSafe(p.sources[0]) : "not on file";
-      return `<tr data-i="${i}" class="${state.focus === i ? "on selected" : ""}">
-        <td class="name">${escapeHtml(p.name)}</td>
-        <td>${p.exposure}</td>
-        <td class="${p.inRegister ? "" : "absent"}">${escapeHtml(tier)}</td>
-        <td>${p.risk.toFixed(1)}</td>
-        <td>${escapeHtml(src)}</td>
+      return `<tr data-i="${i}" class="folio${state.focus === i ? " on selected" : ""}">
+        <td class="name" data-label="Processor">${escapeHtml(p.name)}</td>
+        <td data-label="Exposure">${p.exposure}</td>
+        <td class="${p.inRegister ? "" : "absent"}" data-label="Public file">${escapeHtml(tier)}</td>
+        <td data-label="Concentration">${p.risk.toFixed(1)}</td>
+        <td data-label="Source">${escapeHtml(src)}</td>
       </tr>`;
     })
     .join("");
@@ -326,6 +365,10 @@ export function neighborhoodOf(focus, edges, processors, companies) {
       for (const n of votes.values()) count += n;
       return { id, count, rec: byProc.get(id) };
     })
+    .filter((o) => {
+      if (looksLikeDateName(o.id)) return false;
+      return !o.rec || !looksLikeDateName(o.rec.p && o.rec.p.name);
+    })
     .sort((a, b) => b.count - a.count || String(a.id).localeCompare(String(b.id)))
     .slice(0, NEIGHBOR_OTHERS_CAP);
   const nodes = [];
@@ -388,6 +431,8 @@ function compactPhone() {
 function graphShouldDraw(hood) {
   if (!hood || !hood.nodes.length) return false;
   if (compactPhone()) return false;
+  const focus = selectedProcessor();
+  if (focus && looksLikeDateName(focus.name)) return false;
   return true;
 }
 
@@ -563,12 +608,14 @@ export function focusIdFromLocation(loc = window.location) {
 }
 
 function processorIndex(id) {
-  if (!id) return 0;
+  const fallback = defaultProcessorIndex(state.processors);
+  if (!id) return fallback;
   const key = String(id);
+  if (looksLikeDateName(key)) return fallback;
   const i = state.processors.findIndex(
     (p) => p.id === key || p.slug === key || p.name === key,
   );
-  return i >= 0 ? i : 0;
+  return i >= 0 ? i : fallback;
 }
 
 function renderHoodLine() {
@@ -785,7 +832,11 @@ async function load() {
     state.data = reg;
     (reg.companies || []).forEach((c) => state.companies.set(c.slug, c));
     state.edges = normalizeEdges(wires, state.companies);
-    state.processors = arrangeProcessors(rankProcessors(state.edges, state.companies), state.sort, state.dir);
+    state.processors = arrangeProcessors(
+      namedProcessors(rankProcessors(state.edges, state.companies)),
+      state.sort,
+      state.dir,
+    );
     state.focus = processorIndex(focusIdFromLocation());
     const focused = state.processors[state.focus];
     if (focused) state.focusKey = processorKey(focused);

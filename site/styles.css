@@ -1398,15 +1398,68 @@ a.official {
 }
 
 @media (max-width: 390px) {
-  .wires-table .inst { display: table; }
-  .wires-table .inst thead { display: table-header-group; }
-  .wires-table .inst tbody { display: table-row-group; }
-  .wires-table .inst tr { display: table-row; }
+  .wires-scroll {
+    max-height: none;
+    overflow: visible;
+    overflow-x: hidden;
+    border-bottom: 0;
+  }
+  .wires-table .inst {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+  .wires-table .inst thead { display: none; }
+  .wires-table .inst tbody { display: block; width: 100%; }
+  .wires-table .inst tbody tr,
+  .wires-table .inst tbody tr.folio {
+    display: block;
+    height: auto;
+    padding: 12px 0 12px 8px;
+    border-left: var(--ot-spine) solid transparent;
+    border-bottom: 1px solid var(--ot-rule);
+    background: var(--ot-sheet-white);
+  }
+  .wires-table .inst tbody tr:hover,
+  .wires-table .inst tbody tr.on,
+  .wires-table .inst tbody tr.selected {
+    background: var(--ot-sheet-white);
+    border-left-color: var(--ot-evidence-teal);
+  }
+  .wires-table .inst tbody tr:hover td:first-child,
+  .wires-table .inst tbody tr.on td:first-child,
+  .wires-table .inst tbody tr.selected td:first-child {
+    border-left-color: transparent;
+  }
   .wires-table .inst th,
-  .wires-table .inst td { display: table-cell; }
+  .wires-table .inst td {
+    display: block;
+    height: auto;
+    width: 100%;
+    padding: 2px 0;
+    border-bottom: 0;
+    border-left: 0;
+    white-space: normal;
+  }
+  .wires-table .inst td:first-child,
+  .wires-table .inst td:last-child {
+    border-left: 0;
+    padding-left: 0;
+    white-space: normal;
+  }
+  .wires-table .inst td.name { margin-bottom: 2px; }
+  .wires-table .inst td[data-label]::before {
+    content: attr(data-label) " · ";
+    font: var(--t-meta);
+    color: var(--ot-graphite);
+  }
+  .wires-table .inst td.name[data-label]::before { content: none; }
   .wires-grid[data-view="map"] .wires-fig { order: -1; }
+  .wires-grid[data-view="map"] .wires-map,
   .wires-grid[data-view="map"] .fig-block,
-  .wires-grid[data-view="map"] .map-field { display: none; }
+  .wires-grid[data-view="map"] .map-field,
+  .wires-grid[data-view="map"] .map-field canvas,
+  .wires-grid[data-view="map"] #fig1 { display: none; }
 }
 
 @media (max-width: 320px) {
