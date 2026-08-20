@@ -8,7 +8,7 @@ import {
   hasPrintedAiMark,
   aiFileIndexHtml,
   aiFileCount,
-  printedUrl,
+  printedAitiUrl,
   nameWithIcon,
 } from "./lib.js";
 import { parseFinder, stripFinderToken, echoWords } from "./finder.js";
@@ -204,7 +204,7 @@ function render() {
       return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
         <td class="num">${escapeHtml(n)}</td>
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${nameWithIcon(row.name, row.favicon)}</a></td>
-        <td class="domain">${printedUrl(row.official_url || "", row.domain || "")}</td>
+        <td class="domain">${printedAitiUrl(row)}</td>
         <td class="file-cell">${aiFileIndexHtml(row)}</td>
         <td class="marks">${aiMarksCell(row)}</td>
       </tr>`;

@@ -3,19 +3,8 @@
   "seen": "2026-08-20",
   "rule": "Processors fills only when the company names, on a first-party public page, at least one AI system processor (a model/API provider). Stripe, Datadog, AWS-as-hosting, Snowflake, and bare Google/Microsoft/Azure do not count. No SafeBase, no login-walled portals, no invented names. When unsure, leave open.",
   "method": "Conservative filter of named processors already on this register (site/data/subprocessors.json / company.processors). Plus names printed on a first-party subprocessor page already cited on the dossier (Runway). Filed AI pages were checked and did not clearly name model providers as processors. Trust-center shells and Cloudflare walls were left open.",
-  "count": 13,
+  "count": 12,
   "processors": {
-    "anthropic": {
-      "names": [
-        {
-          "name": "ElevenLabs",
-          "slug": "elevenlabs",
-          "source_url": "https://trust.anthropic.com/subprocessors"
-        }
-      ],
-      "source_url": "https://trust.anthropic.com/subprocessors",
-      "via": "named-processors"
-    },
     "intercom": {
       "names": [
         {
@@ -322,6 +311,10 @@
       "reason": "Cited first-party list is a JS shell; names were not printed. Do not invent Together."
     },
     {
+      "slug": "anthropic",
+      "reason": "Subprocessor page is a Vanta JS shell; names were not printed to this crawler. Do not invent ElevenLabs."
+    },
+    {
       "slug": "miro",
       "reason": "Trust center is vendor-hosted (Wolfia). Skip."
     },
@@ -332,6 +325,7 @@
   "open": [
     "postman",
     "openai",
+    "anthropic",
     "harvey",
     "vanta",
     "writer",

@@ -16,6 +16,10 @@ def main() -> int:
     recs = doc.get("processors") or {}
     data = json.loads(DATA.read_text())
     by_slug = {c["slug"]: c for c in data["companies"]}
+    filed = set(recs)
+    for row in data["companies"]:
+        if row.get("slug") not in filed and "ai_processors" in row:
+            del row["ai_processors"]
     for slug, rec in recs.items():
         row = by_slug.get(slug)
         if not row:
