@@ -238,6 +238,24 @@ def load_aiti_pages() -> dict:
     return out
 
 
+_AITI_MEMBERSHIP = None
+
+
+def load_aiti_membership() -> dict[str, list[str]]:
+    """Sourced list membership by slug. .ai TLD is not a source."""
+    global _AITI_MEMBERSHIP
+    if _AITI_MEMBERSHIP is not None:
+        return _AITI_MEMBERSHIP
+    doc = load_json(SITE / "data" / "aiti-membership.json", {})
+    slugs = doc.get("slugs") or {}
+    out = {}
+    for slug, lists in slugs.items():
+        if slug and lists:
+            out[str(slug)] = [str(x) for x in lists if x]
+    _AITI_MEMBERSHIP = out
+    return out
+
+
 _AITI_PROCESSORS = None
 
 
@@ -772,6 +790,7 @@ def enrich_company(
         "final_url": row.get("final_url") if found else None,
         "list": row.get("list") or "",
         "source": row.get("source") or "",
+        "source_url": row.get("source_url") or "",
         "probed": row.get("probed"),
         "probed_at": generated_at,
         "certs": certs,
@@ -804,6 +823,13 @@ def enrich_company(
         }
         public["ai_page"] = filed
         public["instruments"]["ai"] = dict(filed)
+    aiti_lists = list(row.get("aiti_lists") or []) or list(load_aiti_membership().get(slug) or [])
+    if aiti_lists:
+        public["aiti_lists"] = aiti_lists
+    if not public.get("source_url"):
+        src = row.get("source") or ""
+        if isinstance(src, str) and src.startswith("http"):
+            public["source_url"] = src
     ai_procs = load_aiti_processors().get(slug)
     if ai_procs and ai_procs.get("names"):
         public["ai_processors"] = {

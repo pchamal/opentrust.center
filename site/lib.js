@@ -56,7 +56,7 @@ const HOSTING_PROCESSOR_NAME_RE =
   /^(amazon web services|aws|google cloud(?: platform)?|microsoft azure|azure|snowflake|datadog|stripe|google|microsoft)$/i;
 export const AI_EVALS_RE = /red-?team|(?:^|\/)evals?(?:\/|$)/i;
 export const AI_INCIDENTS_RE = /ai-incident|(?:^|\/)incidents?(?:\/|$)/i;
-/* AI product names already on the register that are not .ai / “AI” / AI-50. */
+/* AI product names already on the register. .ai TLD is not membership. */
 export const AI_PRODUCT_SLUGS = new Set([
   "midjourney",
   "hugging-face",
@@ -73,6 +73,24 @@ export const AI_PRODUCT_SLUGS = new Set([
   "grammarly",
   "harvey",
   "synthesia",
+  "xai",
+  "mistral-ai",
+  "character-ai",
+  "stability-ai",
+  "perplexity-ai",
+  "together-ai",
+  "fireworks-ai",
+  "fal-ai",
+  "sierra",
+  "pika",
+]);
+export const AI_LIST_IDS = new Set([
+  "forbes-ai-50-2025",
+  "forbes-ai-50-2026",
+  "forbes-ai-50-brink-2026",
+  "cb-insights-ai-100-2026",
+  "lmarena",
+  "openrouter",
 ]);
 
 export function dataUrl(path) {
@@ -278,23 +296,41 @@ function urlLooksAiInstrument(url, re) {
   }
 }
 
-export function isAiishNameOrDomain(row) {
+export function isAiNamed(row) {
   const name = String((row && row.name) || "");
-  const domain = String((row && row.domain) || "").toLowerCase();
   const slug = String((row && row.slug) || "").toLowerCase();
-  if (domain.endsWith(".ai")) return true;
-  if (/(^|[\s/])AI([\s,]|$)/.test(name) || /\bArtificial Intelligence\b/i.test(name)) return true;
+  if (/(^|[\s./])AI([\s,]|$)/.test(name) || /\bArtificial Intelligence\b/i.test(name)) return true;
   if (slug.endsWith("-ai")) return true;
+  return false;
+}
+
+/* Retired TLD heuristic. Aviatrix-class .ai hosts are not an AI file. */
+export function isAiishNameOrDomain(row) {
+  return isAiNamed(row);
+}
+
+export function isAiListMember(row) {
+  if (!row) return false;
+  if (AI_LIST_IDS.has(String(row.list || ""))) return true;
+  const lists = row.aiti_lists;
+  if (Array.isArray(lists) && lists.some((id) => AI_LIST_IDS.has(String(id || "")))) return true;
   return false;
 }
 
 export function isAiFile(row) {
   if (!row) return false;
   if (hasPrintedAiMark(row)) return true;
-  if ((row.list || "") === "forbes-ai-50-2025") return true;
-  if (isAiishNameOrDomain(row)) return true;
+  if (isAiListMember(row)) return true;
+  if (isAiNamed(row)) return true;
   if (AI_PRODUCT_SLUGS.has(String(row.slug || ""))) return true;
   return false;
+}
+
+export function printedUrl(url, text) {
+  const href = String(url || "").trim();
+  if (!/^https?:\/\//i.test(href)) return escapeHtml(text || href);
+  const label = text == null || text === "" ? href : text;
+  return `<a class="official" href="${escapeHtml(href)}" rel="noopener noreferrer">${escapeHtml(label)}</a>`;
 }
 
 export function selectAiFiles(rows) {

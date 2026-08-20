@@ -8,6 +8,7 @@ import {
   hasPrintedAiMark,
   aiFileIndexHtml,
   aiFileCount,
+  printedUrl,
 } from "./lib.js";
 import { parseFinder, stripFinderToken, echoWords } from "./finder.js";
 
@@ -38,12 +39,18 @@ export function aiMarksCell(row) {
     return `<span class="absent">not on file</span>`;
   }
   const line = names
-    .map((a) => `<span class="mark-chip">${escapeHtml(String(a.short || a.name).toLowerCase())}</span>`)
+    .map((a) => {
+      const label = escapeHtml(String(a.short || a.name).toLowerCase());
+      const id = String((a && a.id) || "").trim();
+      return id
+        ? `<a class="mark-chip" href="./attestations.html#${encodeURIComponent(id)}">${label}</a>`
+        : `<span class="mark-chip">${label}</span>`;
+    })
     .join(" · ");
   return `<span class="mark-line">${line}</span>`;
 }
 
-/* Empty and thin files first so the first screen is not a filled podium. */
+/* Empty and thin files first so the first screen is not a complete-file strip. */
 export function defaultAiRows(rows) {
   return (rows || []).slice().sort((a, b) => {
     const c = aiFileCount(a) - aiFileCount(b);
@@ -184,7 +191,7 @@ function render() {
       return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
         <td class="num">${escapeHtml(n)}</td>
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${escapeHtml(row.name)}</a></td>
-        <td class="domain">${escapeHtml(row.domain || "")}</td>
+        <td class="domain">${printedUrl(row.domain || "", row.domain || "")}</td>
         <td class="file-cell">${aiFileIndexHtml(row)}</td>
         <td class="marks">${aiMarksCell(row)}</td>
       </tr>`;

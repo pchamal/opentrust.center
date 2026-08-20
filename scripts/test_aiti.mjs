@@ -10,6 +10,9 @@ import {
   aiFileCount,
   fillAitiIssue,
   isAiFile,
+  isAiNamed,
+  isAiListMember,
+  printedUrl,
   storedAiPageUrl,
   isFirstPartyUrl,
   storedAiProcessors,
@@ -54,8 +57,13 @@ expect("does not invent companies", files.every((r) => r.slug && bySlug[r.slug])
 expect("includes Midjourney", files.some((r) => r.slug === "midjourney"));
 expect("includes Character.AI", files.some((r) => r.slug === "character-ai"));
 expect("includes Cursor", files.some((r) => r.slug === "anysphere"));
-expect("includes AI-50", files.some((r) => r.list === "forbes-ai-50-2025"));
+expect("includes AI-50 2025", files.some((r) => r.list === "forbes-ai-50-2025" || (r.aiti_lists || []).includes("forbes-ai-50-2025")));
+expect("includes Forbes AI 50 2026", files.some((r) => (r.aiti_lists || []).includes("forbes-ai-50-2026") || r.list === "forbes-ai-50-2026"));
+expect("includes Brink", files.some((r) => (r.aiti_lists || []).includes("forbes-ai-50-brink-2026") || r.list === "forbes-ai-50-brink-2026"));
 expect("skips airlines", !files.some((r) => /airlines/i.test(r.name)));
+expect("skips Aviatrix-class TLD membership", !files.some((r) => r.slug === "aviatrix") && !files.some((r) => r.slug === "pinewood-technologies"));
+expect(".ai TLD is not enough", isAiFile({ name: "Aviatrix", slug: "aviatrix", domain: "aviatrix.ai" }) === false);
+expect("named AI still files", isAiNamed({ name: "Scale AI", slug: "scale-ai" }) === true);
 
 const mid = bySlug.midjourney;
 const midHtml = aiFileIndexHtml(mid);
@@ -114,10 +122,14 @@ expect("Companies is the active word on companies", activeWord(companiesHtml) ==
 expect("Map is the active word on graph", activeWord(graphHtml) === "Map");
 expect("Standards is the active word on attestations", activeWord(marksHtml) === "Standards");
 expect("docket links hit the signed routes", indexHtml.includes('href="./companies.html"') && indexHtml.includes('href="./graph.html"') && indexHtml.includes('href="./attestations.html"') && companiesHtml.includes('href="./"'));
-expect("H1 is AI files", /<h1 class="page-title">AI files<\/h1>/.test(indexHtml));
+expect("H1 is AI Trust Index", /<h1 class="page-title">AI Trust Index<\/h1>/.test(indexHtml));
+expect("product title is AI Trust Index", indexHtml.includes("opentrust.center — AI Trust Index"));
 expect("lede is the public file sentence", indexHtml.includes("The public file on AI systems. Not a trust score."));
-expect("no AI Trust Index as H1", !/<h1[^>]*>\s*AI Trust Index/i.test(indexHtml));
-expect("no stars medals or scores", !/★|☆|medal|0–100|0-100|trust score/i.test(aitiJs) && !indexHtml.includes("AI Trust Index"));
+expect("lede is unchanged", (indexHtml.match(/<p class="lede">The public file on AI systems\. Not a trust score\.<\/p>/g) || []).length === 1);
+expect("docket word stays AITI", activeWord(indexHtml) === "AITI");
+expect("no stars medals Elo or 0-100", !/★|☆|medal|0–100|0-100|\bElo\b|podium/i.test(aitiJs + indexHtml));
+expect("AITI table has no score column", !/>\s*Score\s*</i.test(indexHtml) && !aitiJs.includes("trust score") && !aitiJs.includes("score column"));
+expect("AITI table has no rank column", !/>\s*Rank\s*</i.test(indexHtml) && !aitiJs.includes("who's ahead") && !aitiJs.includes("who’s ahead"));
 expect("AITI has no N of 5", !aitiJs.includes(" of 5") && !indexHtml.includes(" of 5"));
 expect("showing uses the AITI N", aitiJs.includes("showing ${rows.length} of ${n}"));
 expect("AITI does not paginate a second universe", !aitiJs.includes("PAGE_SIZE") && !indexHtml.includes("pager"));
@@ -260,8 +272,33 @@ expect("evals incidents stay uninvented", true);
 const cursorDossier = readFileSync(new URL("../site/c/anysphere.html", import.meta.url), "utf8");
 const midDossier = readFileSync(new URL("../site/c/midjourney.html", import.meta.url), "utf8");
 expect("open files do not grow an empty AI page row", !cursorDossier.includes(">AI page<") && !midDossier.includes(">AI page<"));
-expect("AITI table domain stays plain text", aitiJs.includes('<td class="domain">${escapeHtml(row.domain || "")}</td>'));
 expect("AITI table is not restyled with an official page chip", !aitiJs.includes("AI page") && !aitiJs.includes("ai_page"));
+expect("printed URL is an href", printedUrl("https://www.anthropic.com/responsible-scaling-policy", "anthropic.com").includes('href="https://www.anthropic.com/responsible-scaling-policy"'));
+expect("bare domain stays text", printedUrl("openai.com", "openai.com") === "openai.com");
+expect("AITI marks link to the framework", aitiJs.includes('href="./attestations.html#') && aitiJs.includes("mark-chip"));
+expect("AITI printed URLs use printedUrl", aitiJs.includes("printedUrl(row.domain"));
+
+const anthropicDossier = readFileSync(new URL("../site/c/anthropic.html", import.meta.url), "utf8");
+const aiPageUrl = storedAiPageUrl(bySlug.anthropic);
+expect("official AI page URL is a link", aiPageUrl && anthropicDossier.includes(`href="${aiPageUrl}"`) && /<a class="official" href="https:\/\/www\.anthropic\.com\/responsible-scaling-policy"/.test(anthropicDossier));
+
+const listsDoc = JSON.parse(readFileSync(new URL("../site/data/aiti-lists.json", import.meta.url), "utf8"));
+const membership = JSON.parse(readFileSync(new URL("../site/data/aiti-membership.json", import.meta.url), "utf8"));
+const added = membership.added || [];
+expect("new companies were sourced", added.length > 0);
+for (const rec of added) {
+  expect(`${rec.slug} has official domain`, !!rec.domain && !rec.domain.startsWith("."));
+  expect(`${rec.slug} has source_url`, /^https?:\/\//.test(rec.source_url || ""));
+  expect(`${rec.slug} is on the register`, !!bySlug[rec.slug]);
+  const row = bySlug[rec.slug];
+  expect(`${rec.slug} is an AITI file`, isAiFile(row) === true);
+  const flags = aiFileFlags(row);
+  if (flags.evals || flags.incidents) {
+    expect(`no invented evals/incidents on new ${rec.slug}`, false);
+  }
+}
+expect("Aviatrix is not list-sourced", !membership.slugs.aviatrix);
+expect("list member helper sees 2026", isAiListMember({ aiti_lists: ["forbes-ai-50-2026"] }) === true);
 
 console.log("aiti files", files.length, "page", pageOn.length, "processors", procOn.length, "silent", silent.length);
 if (!process.exitCode) console.log("ok aiti");

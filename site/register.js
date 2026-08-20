@@ -6,6 +6,7 @@ import {
   fileIndexHtml,
   dataUrl,
   nameWithIcon,
+  printedUrl,
 } from "./lib.js";
 import {
   parseFinder,
@@ -400,7 +401,7 @@ function render() {
       return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
         <td class="num">${escapeHtml(n)}</td>
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${nameWithIcon(row.name, row.favicon)}</a></td>
-        <td class="domain">${escapeHtml(row.domain || "")}</td>
+        <td class="domain">${printedUrl(row.domain || "", row.domain || "")}</td>
         <td class="file">${fileIndexHtml(row)}</td>
         <td class="marks">${marksCell(row)}</td>
       </tr>`;
