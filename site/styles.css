@@ -498,6 +498,23 @@ a:hover img.ink-ico {
 .reg .mark-line { color: var(--ot-graphite); text-decoration: none; }
 .reg .mark-chip { color: var(--ot-graphite); font: inherit; }
 .reg td.num { color: var(--ot-graphite); width: 3.2em; border-left: var(--ot-spine) solid transparent; }
+/* AITI # is type. No pip, disc, globe, or tile on the index. */
+body.aiti .reg td.num {
+  color: var(--ot-ledger-black);
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+body.aiti .reg td.domain a,
+body.aiti .reg td.marks a {
+  color: var(--ot-ledger-black);
+  text-decoration: none;
+}
+body.aiti .reg td.domain a:hover,
+body.aiti .reg td.marks a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--ot-rule-strong);
+}
 .reg tbody tr { cursor: pointer; }
 .reg tbody tr.folio:hover td.num,
 .reg tbody tr[aria-selected="true"] td.num,

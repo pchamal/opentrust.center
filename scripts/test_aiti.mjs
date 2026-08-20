@@ -291,6 +291,16 @@ expect("printed URL is an href", printedUrl("https://www.anthropic.com/responsib
 expect("bare domain stays text", printedUrl("openai.com", "openai.com") === "openai.com");
 expect("AITI marks link to the framework", aitiJs.includes('href="./attestations.html#') && aitiJs.includes("mark-chip"));
 expect("AITI printed URLs use official homepage", aitiJs.includes("printedUrl(row.official_url"));
+expect("AITI names use the icon helper", aitiJs.includes("nameWithIcon(row.name, row.favicon)"));
+expect("AITI # is the padded index only", /<td class="num">\$\{escapeHtml\(n\)\}<\/td>/.test(aitiJs) && !/<td class="num">[^<]*<img/.test(aitiJs));
+expect("AITI does not invent a globe or index placeholder", !aitiJs.includes("globe") && !aitiJs.includes("placeholder") && !aitiJs.includes("inkIcon("));
+expect("AITI body scopes the first-screen nibble", indexHtml.includes('class="register aiti"'));
+expect("AITI # is ledger black type", /body\.aiti \.reg td\.num \{[\s\S]*color: var\(--ot-ledger-black\)/.test(css));
+expect("AITI # has no pip tile or disc", /body\.aiti \.reg td\.num \{[\s\S]*background: none;[\s\S]*border-radius: 0;[\s\S]*box-shadow: none;/.test(css));
+expect("Companies # stays graphite", /\.reg td\.num \{ color: var\(--ot-graphite\)/.test(css));
+expect("AITI domain and marks are clerk ink", /body\.aiti \.reg td\.domain a,[\s\S]*color: var\(--ot-ledger-black\);[\s\S]*text-decoration: none;/.test(css));
+expect("AITI domain and marks hover is a 1px clerk rule", /body\.aiti \.reg td\.domain a:hover,[\s\S]*text-decoration: underline;[\s\S]*text-decoration-color: var\(--ot-rule-strong\)/.test(css));
+expect("AITI clerk hover matches Companies names", /\.reg td\.name a:hover \{[\s\S]*text-decoration: underline;[\s\S]*text-decoration-color: var\(--ot-rule-strong\)/.test(css));
 
 const anthropicDossier = readFileSync(new URL("../site/c/anthropic.html", import.meta.url), "utf8");
 const aiPageUrl = storedAiPageUrl(bySlug.anthropic);
