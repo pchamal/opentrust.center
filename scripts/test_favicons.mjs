@@ -55,6 +55,9 @@ expect("icon does not enlarge on hover", /img\.ink-ico:hover,[\s\S]*transform: n
 expect("no third palette token on the icon", !/--ot-[a-z-]+:/.test((css.match(/img\.ink-ico \{[\s\S]*?\n\}/) || [""])[0]));
 
 const indexHtml = readFileSync(new URL("../site/index.html", import.meta.url), "utf8");
+const docket = (indexHtml.match(/<nav class="docket"[\s\S]*?<\/nav>/) || [""])[0];
+expect("companies docket is Companies / Subprocessor Map / Standards", /Companies/.test(docket) && /Subprocessor Map/.test(docket) && />Standards</.test(docket));
+expect("docket word is Standards, not Frameworks", />Standards</.test(docket) && !/Frameworks/.test(docket));
 expect("nav has no company icons", !/class="docket"[\s\S]*ink-ico/.test(indexHtml));
 expect("file rules are still words", !indexHtml.includes("ink-ico"));
 
