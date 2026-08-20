@@ -69,19 +69,36 @@ function wantsFilledSort(raw) {
   return /\bfilled\b/i.test(String(raw || ""));
 }
 
-function apply() {
-  const parsed = parseFinder(state.q);
-  const filled = wantsFilledSort(state.q);
+/* One filter + one row render. Full table and finder share aiFileFlags. */
+export function filterAiRows(rows, rawQuery) {
+  const parsed = parseFinder(rawQuery);
+  const filled = wantsFilledSort(rawQuery);
   const q = parsed.q
     .replace(/\bfilled\b/gi, " ")
     .replace(/\s+/g, " ")
     .trim()
     .toLowerCase();
-  const found = state.rows.filter((row) => {
+  const found = (rows || []).filter((row) => {
     if (!q) return true;
     return hay(row).includes(q);
   });
   return filled ? filledAiRows(found) : defaultAiRows(found);
+}
+
+function apply() {
+  return filterAiRows(state.rows, state.q);
+}
+
+export function aitiRowHtml(row, i, selectedSlug) {
+  const n = String(i + 1).padStart(3, "0");
+  const selected = selectedSlug === row.slug ? ' aria-selected="true"' : "";
+  return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
+        <td class="num">${escapeHtml(n)}</td>
+        <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${nameWithIcon(row.name, row.favicon)}</a></td>
+        <td class="domain">${printedAitiUrl(row)}</td>
+        <td class="file-cell">${aiFileIndexHtml(row)}</td>
+        <td class="marks">${aiMarksCell(row)}</td>
+      </tr>`;
 }
 
 function guessDomain(q) {
@@ -197,19 +214,7 @@ function render() {
   if (actions) actions.hidden = true;
   table.hidden = false;
   const body = $("reg-body");
-  body.innerHTML = rows
-    .map((row, i) => {
-      const n = String(i + 1).padStart(3, "0");
-      const selected = state.selected === row.slug ? ' aria-selected="true"' : "";
-      return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
-        <td class="num">${escapeHtml(n)}</td>
-        <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${nameWithIcon(row.name, row.favicon)}</a></td>
-        <td class="domain">${printedAitiUrl(row)}</td>
-        <td class="file-cell">${aiFileIndexHtml(row)}</td>
-        <td class="marks">${aiMarksCell(row)}</td>
-      </tr>`;
-    })
-    .join("");
+  body.innerHTML = rows.map((row, i) => aitiRowHtml(row, i, state.selected)).join("");
 }
 
 function clearToken(kind) {
