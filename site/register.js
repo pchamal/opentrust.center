@@ -236,13 +236,10 @@ export function marksCell(row) {
   if (!names.length) {
     return stamp || `<span class="absent">not on file</span>`;
   }
-  const head = names
-    .slice(0, 3)
+  const line = names
     .map((a) => `<span class="mark-chip">${escapeHtml(markLabel(a))}</span>`)
     .join(" · ");
-  const extra = names.length > 3 ? ` · <span class="mark-more">+${names.length - 3}</span>` : "";
-  const line = `<span class="mark-line">${head}${extra}</span>`;
-  return stamp ? stamp + " · " + line : line;
+  return stamp ? stamp + (line ? " · " + line : "") : `<span class="mark-line">${line}</span>`;
 }
 
 function syncUrl() {

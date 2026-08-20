@@ -175,7 +175,9 @@ expect("headers stay graphite", /\.reg th \{[\s\S]*color: var\(--ot-graphite\)/.
 expect("row ink is graphite", /\.reg td \{[\s\S]*color: var\(--ot-graphite\)/.test(css) && /\.reg td\.num \{ color: var\(--ot-graphite\)/.test(css) && /\.reg td\.marks,/.test(css));
 expect("names stay ledger black", /\.reg td\.name \{[\s\S]*color: var\(--ot-ledger-black\)/.test(css));
 expect("coverage is not on the register", !css.includes(".file-meter") && !css.includes(".file-cov"));
-expect("hover and selected share the spine", /tbody tr\.folio:hover,[\s\S]*box-shadow: inset var\(--ot-spine\)/.test(css));
+expect("hover and selected share the spine", /tr\.folio:hover td\.num,[\s\S]*border-left-color: var\(--ot-evidence-teal\)/.test(css));
+expect("register row has no mint wash", !/\.reg tbody tr[\s\S]{0,80}--ot-index-wash/.test(css) && !/\.reg tbody tr[\s\S]{0,120}#DDEFEA/.test(css));
+expect("register row has no box-shadow pip", !/\.reg tbody tr[\s\S]{0,200}box-shadow: inset var\(--ot-spine\)/.test(css));
 expect("nav underline is 1px teal", /\.docket a \{[\s\S]*border-bottom: 1px solid transparent/.test(css) && /\.docket a\.on \{[\s\S]*border-bottom-color: var\(--ot-evidence-teal\)/.test(css));
 expect("wordmark period is a 2px square", /\.wordmark \.wm-dot::after \{[\s\S]*width: 2px;[\s\S]*height: 2px;[\s\S]*background: var\(--ot-evidence-teal\)/.test(css));
 
@@ -200,8 +202,8 @@ const buyer = marksCell({
 });
 expect("marks are clerk chips", buyer.includes('class="mark-chip">soc 2 type ii<') && buyer.includes(" · "));
 expect("buyer mark is named first", buyer.indexOf("soc 2") < buyer.indexOf("iso 27001"));
-expect("plus-n is quiet", buyer.includes('class="mark-more">+2<') && !buyer.includes('class="mark-chip">+2'));
-expect("plus-n does not hide soc 2", /mark-chip">soc 2/.test(buyer));
+expect("marks have no plus-n", !/\+\d/.test(buyer) && !buyer.includes("mark-more"));
+expect("named marks that fit stay listed", /mark-chip">soc 2/.test(buyer) && buyer.includes("ccpa") && buyer.includes("gdpr"));
 
 const fed = marksCell({
   fedramp: { marketplace: "https://marketplace.fedramp.gov/products/FR123" },

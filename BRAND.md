@@ -119,7 +119,7 @@ Unknown / not on file stay the unknown pair. Never green.
 
 24×24. 2px Evidence Teal vertical spine at x=7, y=3–21. 2px Ledger Black top rule x=7–20 y=7. 2px Ledger Black bottom rule x=7–16 y=17.
 
-The **Evidence Spine** is the only signature device: 2px vertical Evidence Teal. Selected register row: Index Wash + spine at the row start. Dossier chronology / claim list: spine with 7px square nodes (filled = source exists, outline = pending/unknown, split = conflict). Every node has text. Never a progress bar or score gauge.
+The **Evidence Spine** is the only signature device: 2px vertical Evidence Teal. Register hover / selected: spine only, at the left edge of the row. No square node, no pip, no period by the `#`. No Index Wash as a full-row fill — it blows the teal budget. Dossier chronology / claim list: spine with 7px square nodes (filled = source exists, outline = pending/unknown, split = conflict). Every node has text. Never a progress bar or score gauge.
 
 ## Layout
 
@@ -128,7 +128,7 @@ The **Evidence Spine** is the only signature device: 2px vertical Evidence Teal.
 - **Snapshot** under the mast: Paper, 1px Rule bottom, utility type. Issue date, on file / not on file counts, last probed. No ISO dataset stamp. Not a KPI strip.
 - **Gutters:** 16 / 24 / 32 / 48.
 - **Search** is a ruled strip. No pill, no shadow, no icon.
-- **Register** is a table. Columns: `#` · name · domain · file · marks. No probed column. 52px rows, Rule bottoms. Hover or selected: Index Wash + 2px Evidence Teal spine at the row start. Name is editorial and the loudest cell.
+- **Register** is a table. Columns: `#` · name · domain · file · marks. No probed column. 52px rows, Rule bottoms. Hover or selected: 2px Evidence Teal spine at the left edge only. Name is editorial and the loudest cell. Marks print the named marks that fit, with `·` separators. No `+N`.
 - **File cell** is the state word only: silent / thin / on file / substantial / complete. Italic on silent and not on file. No N of 5. Instrument count lives on the dossier.
 - **Default arrange** is last probed, newest first. File header still sorts silent → complete or reverse. First screen must not be twenty identical silents or completes.
 - **Pagination or windowing.** Do not mount all 700+ rows. No infinite scroll. Preserve query, sort, and count.
