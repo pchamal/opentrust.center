@@ -4,24 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>opentrust.center — AI Trust Index</title>
-  <meta name="description" content="The public file on AI systems. Not a trust score.">
+  <meta name="description" content="A file score on public AI disclosure. Not a security grade.">
   <meta name="theme-color" content="#0B1411">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://opentrust.center/">
   <meta property="og:title" content="opentrust.center — AI Trust Index">
-  <meta property="og:description" content="The public file on AI systems. Not a trust score.">
+  <meta property="og:description" content="A file score on public AI disclosure. Not a security grade.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://opentrust.center/">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="opentrust.center — AI Trust Index">
-  <meta name="twitter:description" content="The public file on AI systems. Not a trust score.">
+  <meta name="twitter:description" content="A file score on public AI disclosure. Not a security grade.">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "opentrust.center",
     "url": "https://opentrust.center/",
-    "description": "The public file on AI systems. Not a trust score."
+    "description": "A file score on public AI disclosure. Not a security grade."
   }
   </script>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
@@ -42,7 +42,7 @@
 
   <main class="canvas" id="main">
     <h1 class="page-title">AI Trust Index</h1>
-    <p class="lede">The public file on AI systems. Not a trust score.</p>
+    <p class="lede">A file score on public AI disclosure. Not a security grade.</p>
 
     <form class="finder" id="finder" role="search">
       <label>
@@ -70,11 +70,12 @@
     <table class="reg" id="reg" hidden>
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Domain</th>
-          <th scope="col">File</th>
-          <th scope="col" class="marks">Marks</th>
+          <th scope="col" data-sort="rank" aria-sort="none"><button type="button">#</button></th>
+          <th scope="col" data-sort="name" aria-sort="none"><button type="button">Name</button></th>
+          <th scope="col" data-sort="domain" aria-sort="none"><button type="button">Domain</button></th>
+          <th scope="col" data-sort="file" aria-sort="none"><button type="button">File</button></th>
+          <th scope="col" data-sort="score" aria-sort="descending"><button type="button">Score</button></th>
+          <th scope="col" class="marks" data-sort="marks" aria-sort="none"><button type="button">Marks</button></th>
         </tr>
       </thead>
       <tbody id="reg-body"></tbody>
@@ -86,7 +87,7 @@
   </main>
 
   <footer class="colo">
-    <p>AITI is the public file on AI systems, not a trust score. Marks print only when an AI mark is on the page. Page, processors, evals, and incidents stay open until a first-party AI-file instrument is on file. Missing rows print <i>not on file</i>.</p>
+    <p>Score is 0–100: 20 for each AI file rule on file (page · marks · processors · evals · incidents). It rates the public file, not the company. Marks print only when an AI mark is on the page. Page, processors, evals, and incidents stay open until a first-party AI-file instrument is on file. Missing rows print <i>not on file</i>.</p>
     <p><a href="./">AITI</a> · <a href="./companies.html">Companies</a> · <a href="./graph.html">Map</a> · <a href="./attestations.html">Standards</a> · <a href="./brand.html">specimen</a> · <a href="https://github.com/pchamal/opentrust.center">code</a> · outbound is human-gated. Documents stay on the company's domain.</p>
   </footer>
 

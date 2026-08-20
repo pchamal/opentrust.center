@@ -8,16 +8,29 @@ import {
   hasPrintedAiMark,
   aiFileIndexHtml,
   aiFileCount,
+  aitiScore,
   printedUrl,
   nameWithIcon,
 } from "./lib.js";
 import { parseFinder, stripFinderToken, echoWords } from "./finder.js";
+import { clickSort, paintHeaders } from "./sort.js";
+
+const SORT_DEFAULTS = {
+  rank: "desc",
+  name: "asc",
+  domain: "asc",
+  file: "asc",
+  score: "desc",
+  marks: "desc",
+};
 
 const state = {
   rows: [],
   generatedAt: null,
   q: "",
   selected: "",
+  sort: "score",
+  dir: "desc",
 };
 
 function cmpText(a, b) {
@@ -51,18 +64,42 @@ export function aiMarksCell(row) {
   return `<span class="mark-line">${line}</span>`;
 }
 
-/* Clerk default: name order. Mixed fills on the first screen. Not a complete-file strip. */
-export function defaultAiRows(rows) {
-  return (rows || []).slice().sort((a, b) => cmpText(a && a.name, b && b.name));
+export function compareAiRows(a, b, key) {
+  switch (key) {
+    case "score":
+    case "rank":
+      return aitiScore(a) - aitiScore(b);
+    case "file":
+      return aiFileCount(a) - aiFileCount(b);
+    case "name":
+      return cmpText(a && a.name, b && b.name);
+    case "domain":
+      return cmpText(a && a.domain, b && b.domain);
+    case "marks":
+      return printedAiMarks(a).length - printedAiMarks(b).length;
+    default:
+      return aitiScore(a) - aitiScore(b);
+  }
 }
 
-/* Finder clerk sort: how many of the five AI rules are on file. Not the default. */
-export function filledAiRows(rows) {
+export function arrangeAiRows(rows, sort, dir) {
+  const key = String(sort || "score");
+  const sign = dir === "desc" ? -1 : 1;
   return (rows || []).slice().sort((a, b) => {
-    const c = aiFileCount(b) - aiFileCount(a);
-    if (c) return c;
+    const c = compareAiRows(a, b, key);
+    if (c) return c * sign;
     return cmpText(a && a.name, b && b.name);
   });
+}
+
+/* Clerk default: file score high to low, then name. Finder is not required. */
+export function defaultAiRows(rows) {
+  return arrangeAiRows(rows, "score", "desc");
+}
+
+/* Finder clerk sort: same file score as the default arrange. */
+export function filledAiRows(rows) {
+  return arrangeAiRows(rows, "score", "desc");
 }
 
 function wantsFilledSort(raw) {
@@ -81,7 +118,8 @@ function apply() {
     if (!q) return true;
     return hay(row).includes(q);
   });
-  return filled ? filledAiRows(found) : defaultAiRows(found);
+  if (filled) return filledAiRows(found);
+  return arrangeAiRows(found, state.sort, state.dir);
 }
 
 function guessDomain(q) {
@@ -196,6 +234,7 @@ function render() {
   const actions = $("miss-actions");
   if (actions) actions.hidden = true;
   table.hidden = false;
+  paintHeaders(table, state.sort, state.dir);
   const body = $("reg-body");
   body.innerHTML = rows
     .map((row, i) => {
@@ -206,6 +245,7 @@ function render() {
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${nameWithIcon(row.name, row.favicon)}</a></td>
         <td class="domain">${printedUrl(row.official_url || "", row.domain || "")}</td>
         <td class="file-cell">${aiFileIndexHtml(row)}</td>
+        <td class="score">${escapeHtml(String(aitiScore(row)))}</td>
         <td class="marks">${aiMarksCell(row)}</td>
       </tr>`;
     })
@@ -244,6 +284,17 @@ function bind() {
       const btn = e.target.closest("button[data-clear]");
       if (!btn) return;
       clearToken(btn.getAttribute("data-clear"));
+    });
+  }
+  const head = document.querySelector("#reg thead");
+  if (head) {
+    head.addEventListener("click", (e) => {
+      const th = e.target.closest("th[data-sort]");
+      if (!th) return;
+      const next = clickSort(state, th.getAttribute("data-sort"), SORT_DEFAULTS);
+      state.sort = next.sort;
+      state.dir = next.dir;
+      render();
     });
   }
   $("reg-body").addEventListener("click", (e) => {

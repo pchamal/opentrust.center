@@ -349,6 +349,11 @@ export function aiFileCount(row) {
   return AI_FILE_KEYS.reduce((n, key) => n + (flags[key] ? 1 : 0), 0);
 }
 
+/* 20 points for each of the five AI file rules on file. Empty file is 0. Rates the file, not the company. */
+export function aitiScore(row) {
+  return aiFileCount(row) * 20;
+}
+
 export function aiFileCoverage(row) {
   const flags = aiFileFlags(row);
   const n = aiFileCount(row);

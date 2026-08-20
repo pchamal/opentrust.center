@@ -347,10 +347,27 @@ def ink_icon(src: str, prefix: str = "../") -> str:
 
 
 def pretty_subprocessor_nodes(doc: dict) -> None:
+    drop = set()
+    kept = []
     for node in doc.get("nodes") or []:
         name = str(node.get("name") or "").strip()
+        nid = str(node.get("id") or "").strip()
+        if looks_like_date_name(name) or looks_like_date_name(nid):
+            drop.add(nid)
+            continue
         if is_slug_case(name):
             node["name"] = title_case_slug(name)
+        kept.append(node)
+    doc["nodes"] = kept
+    if not drop:
+        return
+    doc["edges"] = [
+        e
+        for e in (doc.get("edges") or [])
+        if str(e.get("to") or e.get("processor") or "") not in drop
+        and not looks_like_date_name(e.get("evidence") or "")
+        and not looks_like_date_name(e.get("to") or "")
+    ]
 
 
 def stamp_data_v(generated_at: str) -> None:
@@ -678,14 +695,46 @@ def humanize_processor_name(s: str) -> str:
     return t
 
 
+MONTH_NAME = (
+    r"january|february|march|april|may|june|july|august|september|"
+    r"october|november|december|jan|feb|mar|apr|jun|jul|aug|sept?|oct|nov|dec"
+)
+DATE_HEADER_RE = re.compile(r"^(date(?: of change)?|effective date)$", re.I)
+DATE_NAME_RE = re.compile(
+    rf"^(?:(?:19|20|21)\d{{2}}|\d{{4}}-\d{{2}}-\d{{2}}|"
+    rf"\d{{1,2}}[./]\d{{1,2}}[./](?:\d{{2}}|\d{{4}})|"
+    rf"\d{{1,2}}[\s.\-]+(?:{MONTH_NAME})[\s.\-]+\d{{4}}|"
+    rf"(?:{MONTH_NAME})[\s.\-]+\d{{1,2}},?[\s.\-]+\d{{4}}|"
+    rf"(?:{MONTH_NAME})[\s.\-]+\d{{4}})$",
+    re.I,
+)
+
+
+def looks_like_date_name(name: str) -> bool:
+    """Calendar dates and date-column headers are not processor names."""
+    t = re.sub(r"\s+", " ", str(name or "").strip())
+    if not t:
+        return False
+    if DATE_HEADER_RE.match(t):
+        return True
+    if DATE_NAME_RE.match(t):
+        return True
+    spaced = re.sub(r"[-_]+", " ", t)
+    if spaced != t and DATE_NAME_RE.match(spaced):
+        return True
+    return False
+
+
 def looks_like_processor_name(s: str) -> bool:
-    """A filing note or page sentence is not a processor name."""
+    """A filing note, page sentence, or calendar date is not a processor name."""
     t = str(s or "").strip()
     if not t:
         return False
     if re.match(r"^listed on public", t, re.I):
         return False
     if re.search(r"listed on", t, re.I) or re.search(r"\bpage\b", t, re.I):
+        return False
+    if looks_like_date_name(t):
         return False
     return True
 
@@ -766,6 +815,8 @@ def enrich_company(
         to = e.get("to") or e.get("processor_slug") or ""
         node = nodes.get(to) or {}
         name = processor_display_name(e, node, to)
+        if looks_like_date_name(name) or looks_like_date_name(to):
+            continue
         proc_slug = register_slug_for(node, by_slug, by_domain, by_name)
         processors.append({
             "name": name,

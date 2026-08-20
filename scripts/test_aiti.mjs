@@ -9,6 +9,7 @@ import {
   aiFileIndexHtml,
   aiFileCount,
   fillAitiIssue,
+  aitiScore,
   isAiFile,
   isAiNamed,
   isAiListMember,
@@ -18,7 +19,8 @@ import {
   storedAiProcessors,
   isAiSystemProcessor,
 } from "../site/lib.js";
-import { aiMarksCell, defaultAiRows, filledAiRows } from "../site/aiti.js";
+import { aiMarksCell, defaultAiRows, filledAiRows, arrangeAiRows, compareAiRows } from "../site/aiti.js";
+import { clickSort } from "../site/sort.js";
 
 const data = JSON.parse(readFileSync(new URL("../site/data.json", import.meta.url), "utf8"));
 const bySlug = Object.fromEntries(data.companies.map((r) => [r.slug, r]));
@@ -101,18 +103,39 @@ expect("every AITI row binds marks to the Marks cell", true);
 
 const arranged = defaultAiRows(files);
 const first = arranged.slice(0, 16);
-const firstFilled = first.filter((r) => aiFileCount(r) > 0).length;
-const firstOpen = first.filter((r) => aiFileCount(r) === 0).length;
-const names = arranged.map((r) => r.name);
-const byName = names.slice().sort((a, b) => String(a).localeCompare(String(b), undefined, { sensitivity: "base" }));
-expect("default order is clerk name", names.join("\0") === byName.join("\0"));
-expect("first screen is not a complete-file strip", firstFilled < first.length);
-expect("first screen includes an open file", firstOpen > 0);
-expect("first screen has mixed fills", firstFilled > 0 && firstOpen > 0);
+const scoreOk = arranged.every((r, i) => {
+  if (i === 0) return true;
+  const prev = aitiScore(arranged[i - 1]);
+  const cur = aitiScore(r);
+  if (prev !== cur) return prev >= cur;
+  return String(arranged[i - 1].name || "").localeCompare(String(r.name || ""), undefined, { sensitivity: "base" }) <= 0;
+});
+expect("default order is score high to low then name", scoreOk);
+expect("default does not require filled", arranged.length === files.length);
+expect("first screen leads on file score", first.every((r) => aitiScore(r) >= aitiScore(arranged[arranged.length - 1])));
 expect("silent or Midjourney-class rows stay in the file", arranged.some((r) => r.slug === "midjourney" || aiFileCount(r) === 0));
+expect("empty file scores 0", aitiScore({}) === 0 && aitiScore(bySlug.midjourney) === 0);
+expect("score is 20 per on-file rule", files.every((r) => aitiScore(r) === aiFileCount(r) * 20 && aitiScore(r) >= 0 && aitiScore(r) <= 100));
+expect("score uses only the five rules", files.every((r) => aitiScore(r) % 20 === 0));
 const byFilled = filledAiRows(files);
 expect("finder filled sort uses the five rules", aiFileCount(byFilled[0]) >= aiFileCount(byFilled[byFilled.length - 1]));
-expect("finder filled sort is not the default", byFilled[0].slug !== arranged[0].slug || aiFileCount(arranged[0]) === aiFileCount(byFilled[0]));
+expect("finder filled matches the default arrange", byFilled.map((r) => r.slug).join() === arranged.map((r) => r.slug).join());
+const byName = arrangeAiRows(files, "name", "asc");
+const nameOk = byName.every((r, i) => {
+  if (i === 0) return true;
+  return String(r.name).localeCompare(byName[i - 1].name, undefined, { sensitivity: "base" }) >= 0;
+});
+expect("name header sorts A–Z", nameOk);
+expect("name sort is not the default", byName[0].slug !== arranged[0].slug || aitiScore(arranged[0]) === aitiScore(byName[0]));
+const nameFlip = arrangeAiRows(files, "name", "desc");
+expect("second name click is Z–A", nameFlip[0].name === byName[byName.length - 1].name);
+const idle = { sort: "score", dir: "desc" };
+expect("first click name is A–Z", clickSort(idle, "name", { name: "asc" }).dir === "asc");
+expect("second click name flips", clickSort({ sort: "name", dir: "asc" }, "name", { name: "asc" }).dir === "desc");
+expect("first click score stays high to low", clickSort({ sort: "name", dir: "asc" }, "score", { score: "desc" }).dir === "desc");
+expect("second click score flips", clickSort({ sort: "score", dir: "desc" }, "score", { score: "desc" }).dir === "asc");
+expect("equal scores fall through to name", compareAiRows({ name: "Zed" }, { name: "Aye" }, "score") === 0);
+expect("name compare is A–Z", compareAiRows({ name: "Aye" }, { name: "Zed" }, "name") < 0);
 
 const issue = { textContent: "" };
 fillAitiIssue(issue, data, files.length);
@@ -135,13 +158,16 @@ expect("Standards is the active word on attestations", activeWord(marksHtml) ===
 expect("docket links hit the signed routes", indexHtml.includes('href="./companies.html"') && indexHtml.includes('href="./graph.html"') && indexHtml.includes('href="./attestations.html"') && companiesHtml.includes('href="./"'));
 expect("H1 is AI Trust Index", /<h1 class="page-title">AI Trust Index<\/h1>/.test(indexHtml));
 expect("product title is AI Trust Index", indexHtml.includes("opentrust.center — AI Trust Index"));
-expect("lede is the public file sentence", indexHtml.includes("The public file on AI systems. Not a trust score."));
-expect("lede is unchanged", (indexHtml.match(/<p class="lede">The public file on AI systems\. Not a trust score\.<\/p>/g) || []).length === 1);
+expect("lede scores the file not the company", indexHtml.includes("A file score on public AI disclosure. Not a security grade."));
+expect("lede is one clerk sentence", (indexHtml.match(/<p class="lede">A file score on public AI disclosure\. Not a security grade\.<\/p>/g) || []).length === 1);
 expect("docket word stays AITI", activeWord(indexHtml) === "AITI");
-expect("no stars medals Elo or 0-100", !/★|☆|medal|0–100|0-100|\bElo\b|podium/i.test(aitiJs + indexHtml));
-expect("AITI table has no score column", !/>\s*Score\s*</i.test(indexHtml) && !aitiJs.includes("trust score") && !aitiJs.includes("score column") && !aitiJs.includes("aitiScore") && !aitiJs.includes("file score"));
+expect("no stars medals Elo or more-secure", !/★|☆|medal|\bElo\b|podium|more secure/i.test(aitiJs + indexHtml));
+expect("AITI table has a Score column", />Score</.test(indexHtml) && /data-sort="score"/.test(indexHtml));
+expect("AITI headers sort", /data-sort="rank"/.test(indexHtml) && /data-sort="name"/.test(indexHtml) && /data-sort="domain"/.test(indexHtml) && /data-sort="file"/.test(indexHtml) && /data-sort="marks"/.test(indexHtml));
+expect("default Score header is high to low", /data-sort="score" aria-sort="descending"/.test(indexHtml));
+expect("method note is 20 per rule", indexHtml.includes("Score is 0–100: 20 for each AI file rule on file") && indexHtml.includes("page · marks · processors · evals · incidents") && indexHtml.includes("rates the public file, not the company"));
 expect("AITI table has no rank column", !/>\s*Rank\s*</i.test(indexHtml) && !aitiJs.includes("who's ahead") && !aitiJs.includes("who’s ahead"));
-expect("AITI has no sixth number column", /<th scope="col">#<\/th>\s*<th scope="col">Name<\/th>\s*<th scope="col">Domain<\/th>\s*<th scope="col">File<\/th>\s*<th scope="col" class="marks">Marks<\/th>/.test(indexHtml));
+expect("AITI score sits after File", /data-sort="file"[\s\S]*data-sort="score"[\s\S]*data-sort="marks"/.test(indexHtml));
 expect("AITI has no N of 5", !aitiJs.includes(" of 5") && !indexHtml.includes(" of 5"));
 expect("showing uses the AITI N", aitiJs.includes("showing ${rows.length} of ${n}"));
 expect("AITI does not paginate a second universe", !aitiJs.includes("PAGE_SIZE") && !indexHtml.includes("pager"));
@@ -331,6 +357,8 @@ expect("Amazon homepage is not an AI page fill", storedAiPageUrl(bySlug.amazon) 
 expect("Google homepage is not an AI page fill", storedAiPageUrl(bySlug.google) === "" && aiFileFlags(bySlug.google).page === false);
 expect("Midjourney dossier homepage is a link", /<a class="official" href="https:\/\/www\.midjourney\.com\/?"/.test(midDossier));
 expect("default first names are clerk-dense", arranged.slice(0, 5).map((r) => r.name).join(" · ").length > 10);
+expect("AITI # is still the current-sort index", /<td class="num">\$\{escapeHtml\(n\)\}<\/td>/.test(aitiJs));
+expect("Score cell prints the file score", aitiJs.includes("aitiScore(row)") && /<td class="score">/.test(aitiJs));
 
 console.log("aiti files", files.length, "page", pageOn.length, "processors", procOn.length, "silent", silent.length);
 if (!process.exitCode) console.log("ok aiti");

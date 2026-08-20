@@ -61,6 +61,7 @@ const HEADER_KEYS = {
   "#": "rank",
   domain: "domain",
   marks: "marks",
+  score: "score",
 };
 
 export function headerKey(label) {
@@ -160,6 +161,7 @@ export function compareCellText(key, a, b) {
     case "risk":
     case "weight":
     case "rank":
+    case "score":
       return cmpNum(left, right);
     case "seen":
     case "date":

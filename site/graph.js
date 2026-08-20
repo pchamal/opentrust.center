@@ -74,18 +74,36 @@ function humanizeProcessorName(s) {
   return t;
 }
 
-function looksLikeProcessorName(s) {
+const MONTH_NAME =
+  "january|february|march|april|may|june|july|august|september|october|november|december|jan|feb|mar|apr|jun|jul|aug|sep|sept|oct|nov|dec";
+const DATE_HEADER_RE = /^(date(?: of change)?|effective date)$/i;
+const DATE_NAME_RE = new RegExp(
+  `^(?:(?:19|20|21)\\d{2}|\\d{4}-\\d{2}-\\d{2}|\\d{1,2}[./]\\d{1,2}[./](?:\\d{2}|\\d{4})|\\d{1,2}[\\s.\\-]+(?:${MONTH_NAME})[\\s.\\-]+\\d{4}|(?:${MONTH_NAME})[\\s.\\-]+\\d{1,2},?[\\s.\\-]+\\d{4}|(?:${MONTH_NAME})[\\s.\\-]+\\d{4})$`,
+  "i",
+);
+
+export function looksLikeDateName(s) {
+  const t = String(s || "").replace(/\s+/g, " ").trim();
+  if (!t) return false;
+  if (DATE_HEADER_RE.test(t)) return true;
+  if (DATE_NAME_RE.test(t)) return true;
+  const spaced = t.replace(/[-_]+/g, " ");
+  return spaced !== t && DATE_NAME_RE.test(spaced);
+}
+
+export function looksLikeProcessorName(s) {
   const t = String(s || "").trim();
   if (!t) return false;
   if (/^listed on public/i.test(t)) return false;
   if (/listed on/i.test(t) || /\bpage\b/i.test(t)) return false;
+  if (looksLikeDateName(t)) return false;
   return true;
 }
 
 function processorDisplayName(e, node, to) {
   const nodeName = node && node.name ? String(node.name).trim() : "";
   if (looksLikeProcessorName(nodeName)) return humanizeProcessorName(nodeName);
-  if (to) return humanizeProcessorName(to) || titleCaseSlug(to);
+  if (to && looksLikeProcessorName(to)) return humanizeProcessorName(to) || titleCaseSlug(to);
   const evidence = e && e.evidence ? String(e.evidence).trim() : "";
   if (looksLikeProcessorName(evidence)) return humanizeProcessorName(evidence);
   return humanizeProcessorName((e && e.processor) || to);
@@ -94,7 +112,12 @@ function processorDisplayName(e, node, to) {
 function normalizeEdges(wires, companies) {
   const nodes = new Map((wires.nodes || []).map((n) => [n.id, n]));
   return (wires.edges || [])
-    .filter((e) => e.source_url)
+    .filter((e) => {
+      if (!e.source_url) return false;
+      const to = e.to || e.processor_slug || e.processor;
+      const node = nodes.get(to) || {};
+      return !looksLikeDateName(node.name) && !looksLikeDateName(to) && !looksLikeDateName(e.evidence);
+    })
     .map((e) => {
       const from = e.from || e.company;
       const to = e.to || e.processor_slug || e.processor;
