@@ -72,6 +72,10 @@ def test_official_site_only() -> None:
     )
     check(is_news_article_url("https://www.fivetran.com/press/2023/series-d"), "dated press path is an article")
     check(not is_news_article_url("https://www.fivetran.com/press"), "press landing is not an article")
+    check(
+        not is_official_year_source("https://checkr.com/company/careers", company),
+        "careers is not about/company/press",
+    )
 
 
 def test_parse_founded_sentence() -> None:
@@ -80,6 +84,10 @@ def test_parse_founded_sentence() -> None:
     check(parse_official_founded_year("Founded: 2014") == 2014, "founded colon year")
     check(parse_official_founded_year('{"@type":"Organization","foundingDate":"2015-03-01"}') == 2015, "JSON-LD foundingDate")
     check(parse_official_founded_year("In 2016 the company was founded in New York.") == 2016, "reverse founded")
+    check(
+        parse_official_founded_year("2012 Fivetran is founded out of Y Combinator") == 2012,
+        "timeline year-then-founded",
+    )
     check(parse_official_founded_year("© 2024 Example Inc. All rights reserved.") is None, "copyright is not founding")
     check(parse_official_founded_year("Since 2020 we have offered SOC 2.") is None, "since YYYY alone is not founding")
     check(parse_official_founded_year("ISO/IEC 27001:2022 and SOC 2 Type II.") is None, "cert year is not founding")

@@ -84,6 +84,10 @@ OFFICIAL_FOUNDED_REVERSE = re.compile(
     rf"\bin\s+({_YEAR_TOKEN})\b[^.]{{0,80}}?\b(?:was\s+|were\s+)?(?:founded|established|incorporated)\b",
     re.I,
 )
+# Timeline copy: "2012 Fivetran is founded out of Y Combinator"
+YEAR_THEN_FOUNDED = re.compile(
+    rf"(?:^|[^\d])({_YEAR_TOKEN})\s+(?:[A-Z][\w.&'-]*\s+){{0,8}}(?:is|was|were)\s+(?:founded|established|incorporated)\b",
+)
 FOUNDING_DATE_FIELD = re.compile(
     rf"""(?:foundingDate|founding_date|dateFounded|yearFounded)\s*"?\s*[=:]\s*"?({_YEAR_TOKEN})""",
     re.I,
@@ -113,7 +117,12 @@ ABOUT_PATHS = (
     "/press", "/newsroom", "/company/press",
 )
 ABOUT_HREF = re.compile(
-    r"/(?:about(?:-us)?|company|our-story|our-company|who-we-are|newsroom|press)(?:/|$)",
+    r"/(?:about(?:-us)?|our-story|our-company|who-we-are|newsroom|press)(?:/|$)"
+    r"|/company(?:/(?:about|our-story|who-we-are|press))?/?$",
+    re.I,
+)
+YEAR_PAGE_SKIP = re.compile(
+    r"/(?:careers|jobs|login|signin|sign-up|signup|blog|customers|pricing|legal)(?:/|$)",
     re.I,
 )
 _CORP_SUFFIX = re.compile(
@@ -681,6 +690,17 @@ def is_news_article_url(url: str) -> bool:
     return bool(NEWS_ARTICLE_PATH.search(path))
 
 
+def canon_source_url(url: str) -> str:
+    p = urlparse(url)
+    netloc = p.netloc.lower()
+    if netloc.endswith(":443") and (p.scheme or "https") == "https":
+        netloc = netloc[:-4]
+    if netloc.endswith(":80") and p.scheme == "http":
+        netloc = netloc[:-3]
+    path = (p.path or "/").rstrip("/") or "/"
+    return f"{p.scheme}://{netloc}{path}"
+
+
 def is_official_year_source(url: str, company: dict) -> bool:
     """A year source must be the company's own site. Wikipedia and news are not."""
     if not url or not str(url).startswith("http"):
@@ -688,6 +708,8 @@ def is_official_year_source(url: str, company: dict) -> bool:
     if is_third_party_year_host(url):
         return False
     if is_news_article_url(url):
+        return False
+    if YEAR_PAGE_SKIP.search(path_of(url)):
         return False
     hosts = set(hosts_for(company))
     for raw in (company.get("trust_url"), company.get("final_url"), company.get("domain")):
@@ -711,7 +733,7 @@ def parse_official_founded_year(text: str):
         return None
     cleaned = COPYRIGHT_SPAN.sub(" ", text)
     years = []
-    for pat in (OFFICIAL_FOUNDED, OFFICIAL_FOUNDED_REVERSE, FOUNDING_DATE_FIELD):
+    for pat in (OFFICIAL_FOUNDED, OFFICIAL_FOUNDED_REVERSE, YEAR_THEN_FOUNDED, FOUNDING_DATE_FIELD):
         for m in pat.finditer(cleaned):
             year = int(m.group(1))
             if 1600 <= year <= NOW_YEAR:
@@ -786,7 +808,7 @@ def resolve_official_year(company: dict) -> tuple[int, str] | None:
     if len(years) != 1:
         return None
     year, source = found[0]
-    return year, source
+    return year, canon_source_url(source)
 
 
 def apply_year_to_row(row: dict, year: int, source: str) -> bool:
