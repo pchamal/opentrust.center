@@ -23,61 +23,14 @@ UA = "opentrust.center-favicon/1.0 (+https://opentrust.center/)"
 TIMEOUT = 12
 WORKERS = 16
 
-# Issuer sites that publish a real public icon. One domain per family.
-# Regulations without a first-party mark stay word-only.
+# First-party issuer marks only. Skip seals, ribbons, badges, and
+# wordmarks-in-a-circle — the word stays the authority.
 MARK_DOMAINS = {
-    "aiuc-1": "theaiuc.com",
-    "c5": "bsi.bund.de",
-    "caiq": "cloudsecurityalliance.org",
-    "cis-controls": "cisecurity.org",
     "cmmc-l1": "cyberab.org",
     "cmmc-l2": "cyberab.org",
-    "csa-ccm": "cloudsecurityalliance.org",
-    "csa-star-l1": "cloudsecurityalliance.org",
-    "csa-star-l2": "cloudsecurityalliance.org",
-    "cyber-essentials": "ncsc.gov.uk",
-    "cyber-essentials-plus": "ncsc.gov.uk",
-    "ens": "ccn-cert.cni.es",
-    "eu-us-dpf": "dataprivacyframework.gov",
-    "swiss-us-dpf": "dataprivacyframework.gov",
-    "fedramp": "fedramp.gov",
-    "fedramp-li-saas": "fedramp.gov",
-    "fips-140-3": "nist.gov",
-    "govramp": "govramp.org",
-    "stateramp": "govramp.org",
-    "hds": "esante.gouv.fr",
-    "hitrust-csf": "hitrustalliance.net",
-    "hitrust-e1": "hitrustalliance.net",
-    "hitrust-i1": "hitrustalliance.net",
-    "hitrust-r2": "hitrustalliance.net",
-    "irap": "cyber.gov.au",
-    "ismap": "ismap.go.jp",
-    "iso-13485": "iso.org",
-    "iso-22301": "iso.org",
-    "iso-9001": "iso.org",
-    "iso-20000-1": "iso.org",
-    "iso-27001": "iso.org",
-    "iso-27017": "iso.org",
-    "iso-27018": "iso.org",
-    "iso-27701": "iso.org",
-    "iso-42001": "iso.org",
     "k-isms": "kisa.or.kr",
     "mtcs": "imda.gov.sg",
-    "nist-ai-rmf": "nist.gov",
-    "nist-csf": "nist.gov",
-    "nist-800-171": "nist.gov",
-    "nist-800-53": "nist.gov",
-    "pci-3ds": "pcisecuritystandards.org",
-    "pci-dss": "pcisecuritystandards.org",
-    "pci-ssf": "pcisecuritystandards.org",
-    "soc-1-type-i": "aicpa-cima.com",
-    "soc-1-type-ii": "aicpa-cima.com",
-    "soc-2-type-i": "aicpa-cima.com",
-    "soc-2-type-ii": "aicpa-cima.com",
-    "soc-3": "aicpa-cima.com",
-    "soc-supply-chain": "aicpa-cima.com",
     "tisax": "enx.com",
-    "tx-ramp": "dir.texas.gov",
 }
 
 ICON_REL = re.compile(r"(?:^|\s)(?:shortcut\s+)?icon(?:\s|$)|apple-touch-icon", re.I)

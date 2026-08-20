@@ -48,8 +48,11 @@ expect("build never invents a seal", !buildSrc.includes("shield") && !buildSrc.i
 
 const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8");
 expect("icon is 12px ink", /img\.ink-ico \{[\s\S]*width: 12px;[\s\S]*height: 12px;/.test(css));
-expect("icon is desaturated", /img\.ink-ico \{[\s\S]*filter: grayscale\(1\) contrast\(1\.15\)/.test(css));
-expect("no third palette on the icon", !/ink-ico \{[\s\S]*#[0-9A-Fa-f]{3,8}/.test(css));
+expect("icon prints as ledger black ink", /img\.ink-ico \{[\s\S]*brightness\(0\) invert\(4%\) sepia\(29%\)/.test(css));
+expect("icon is not a grey wash", !/img\.ink-ico \{[\s\S]*filter: grayscale\(1\) contrast\(1\.15\)/.test(css));
+expect("name gap is 4px", /td\.name a \{[\s\S]*gap: 4px;/.test(css) && /h1 img\.ink-ico,[\s\S]*margin-right: 4px;/.test(css));
+expect("icon does not enlarge on hover", /img\.ink-ico:hover,[\s\S]*transform: none;/.test(css));
+expect("no third palette token on the icon", !/--ot-[a-z-]+:/.test((css.match(/img\.ink-ico \{[\s\S]*?\n\}/) || [""])[0]));
 
 const indexHtml = readFileSync(new URL("../site/index.html", import.meta.url), "utf8");
 expect("nav has no company icons", !/class="docket"[\s\S]*ink-ico/.test(indexHtml));
@@ -63,6 +66,26 @@ if (existsSync(indexPath)) {
   expect("a few company icons were vendored", companyHits.length >= 8 && files.length >= 8);
   expect("index only lists files on disk", companyHits.every((d) => files.includes(index.companies[d])));
   expect("no google s2 hotlink", !JSON.stringify(index).includes("google.com/s2"));
+  const markFiles = Object.values(index.marks || {});
+  const sealish = [
+    "aicpa-cima.com.png",
+    "pcisecuritystandards.org.png",
+    "fedramp.gov.png",
+    "nist.gov.png",
+    "hitrustalliance.net.png",
+    "cloudsecurityalliance.org.png",
+    "ncsc.gov.uk.png",
+    "bsi.bund.de.png",
+    "cisecurity.org.png",
+    "dataprivacyframework.gov.png",
+    "ismap.go.jp.png",
+  ];
+  expect("seal and circled wordmarks are not used as marks", !markFiles.some((f) => sealish.includes(f)));
+  const stripe = readFileSync(new URL("../site/c/stripe.html", import.meta.url), "utf8");
+  expect("stripe name can take a company icon", /<h1><img class="ink-ico"[^>]*>Stripe<\/h1>/.test(stripe));
+  expect("stripe framework words stay words", /attestations.html#soc-2-type-ii">SOC 2 Type II</.test(stripe) && !/attestations.html#soc-2-type-ii"><img/.test(stripe));
+  const fresh = readFileSync(new URL("../site/c/freshworks.html", import.meta.url), "utf8");
+  expect("missing company icon is name only", /<h1>Freshworks<\/h1>/.test(fresh));
 } else {
   expect("favicon index is present after fetch", false);
 }
