@@ -4,6 +4,7 @@ import {
   looksLikeDateName,
   looksLikeProcessorName,
   namedProcessors,
+  namerInk,
   neighborhoodOf,
 } from "../site/graph.js";
 
@@ -81,6 +82,12 @@ const mixed = [
 const named = namedProcessors(mixed);
 expect("date-shaped names drop from the map list", named.length === 2 && named.every((p) => !looksLikeDateName(p.name) && !looksLikeDateName(p.id)));
 expect("default neighborhood is AWS when on file", named[defaultProcessorIndex(named)].id === "aws");
+expect("claroty namer is name only", namerInk("claroty.com.png") === "" && namerInk("favicons/claroty.com.png") === "");
+expect("zscaler namer is name only", namerInk("zscaler.com.png") === "" && namerInk("favicons/zscaler.com.png") === "");
+expect("airtable namer may keep a mark", namerInk("airtable.com.png") === "airtable.com.png");
+expect("workday namer may keep a mark", namerInk("workday.com.png") === "workday.com.png");
+expect("who-named-them uses namerInk", js.includes("namerInk(iconForDomain") && js.includes("nameWithIcon(label"));
+expect("map list names stay name-only", /data-label="Processor">\$\{escapeHtml\(p\.name\)\}/.test(js));
 expect(
   "neighborhood skips date-shaped siblings",
   neighborhoodOf(

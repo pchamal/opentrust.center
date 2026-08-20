@@ -282,6 +282,20 @@ function iconForDomain(domain, row) {
   return (state.icons.companies && state.icons.companies[host]) || "";
 }
 
+/** Who-named-them list: same 12px ink rule as Companies. Seals / unreadable marks are name only. */
+export function namerInk(src) {
+  const file = String(src || "")
+    .replace(/^\/+/, "")
+    .replace(/^favicons\//, "")
+    .toLowerCase();
+  if (!file) return "";
+  // Claroty is a circular C / badge. At 12px the ink pass is a solid-fill seal.
+  if (file === "claroty.com.png") return "";
+  // Zscaler's swoosh exists, but at 12px it is not readable as Zscaler without the name.
+  if (file === "zscaler.com.png") return "";
+  return src;
+}
+
 function namerLine(n) {
   const co = state.companies.get(n.company);
   const label = co ? co.name : n.company;
@@ -290,7 +304,7 @@ function namerLine(n) {
   const src = n.source_url
     ? ` <span class="muted">· <a href="${escapeHtml(n.source_url)}" rel="noopener noreferrer">${escapeHtml(host)}</a></span>`
     : "";
-  const named = nameWithIcon(label, iconForDomain(co && co.domain, co));
+  const named = nameWithIcon(label, namerInk(iconForDomain(co && co.domain, co)));
   return href
     ? `<li><a href="${href}">${named}</a>${src}</li>`
     : `<li>${named}${src}</li>`;
