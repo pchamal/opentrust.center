@@ -21,6 +21,8 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 import crawl  # noqa: E402
+from marks import apply_supersede, extract_certs_from_html, mark_blob  # noqa: E402
+from merge_render import rescore  # noqa: E402
 
 DATA = ROOT / "data"
 CACHE = DATA / "cache"
@@ -3447,6 +3449,585 @@ def file_published_years() -> int:
         print(f"  filed {name}: {year} · {source}", flush=True)
     return 0
 
+def official_page_urls(company: dict) -> list[str]:
+    urls, seen = [], set()
+    candidates = [
+        company.get("trust_url"),
+        (company.get("links") or {}).get("trust"),
+        (company.get("links") or {}).get("security"),
+    ]
+    if company.get("found"):
+        candidates.append(company.get("final_url"))
+    for raw in candidates:
+        if not raw or not str(raw).startswith("http"):
+            continue
+        key = str(raw).rstrip("/").lower()
+        if key not in seen:
+            seen.add(key)
+            urls.append(str(raw).rstrip("/"))
+    return urls
+
+
+def marks_from_official_pages(company: dict) -> tuple[list[str], int]:
+    """Live first-party HTML only. Login walls and dead pages are not read."""
+    found: list[str] = []
+    checked = 0
+    for url in official_page_urls(company):
+        rec = fetch_cached(url, max_body=TRUST_BODY)
+        title, text = rec.get("title") or "", rec.get("text") or ""
+        if not rec.get("ok") or rec.get("status") != 200:
+            continue
+        if looks_dead(title, text) or looks_like_login_wall(title, text):
+            continue
+        checked += 1
+        html = rec.get("html") or ""
+        if not html:
+            fetched = crawl.fetch(url, max_body=TRUST_BODY)
+            html = fetched.get("body") or ""
+        blob = rec.get("mark_blob") or mark_blob(html, title, rec.get("meta") or "", text)
+        found.extend(extract_certs_from_html(html, text=blob))
+    return apply_supersede(found), checked
+
+
+def file_marks() -> int:
+    """Add marks named on the official page. Pages that name none stay unchanged."""
+    t0 = time.time()
+    CACHE.mkdir(parents=True, exist_ok=True)
+    payload = load_json(DATA / "enriched.json", {})
+    companies = payload.get("companies") or []
+    if not companies:
+        print("no companies in data/enriched.json", flush=True)
+        return 1
+
+    before_with = sum(1 for c in companies if c.get("certs"))
+    before_total = sum(len(c.get("certs") or []) for c in companies)
+    pages_checked = 0
+    new_filings = 0
+    samples: list[tuple[str, list[str]]] = []
+    targets = [c for c in companies if official_page_urls(c)]
+    print(f"Filing marks from {len(targets)} official pages ({len(companies)} on the register)", flush=True)
+
+    results: dict[str, tuple[list[str], int]] = {}
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = {pool.submit(marks_from_official_pages, c): c["slug"] for c in targets}
+        done = 0
+        for fut in as_completed(futs):
+            slug = futs[fut]
+            try:
+                results[slug] = fut.result()
+            except Exception as exc:
+                print(f"  skip {slug}: {exc}", flush=True)
+                results[slug] = ([], 0)
+            done += 1
+            if done % 25 == 0 or done == len(futs):
+                print(f"  read {done}/{len(futs)}", flush=True)
+
+    generated_at = utc_now()
+    for c in companies:
+        live, checked = results.get(c["slug"], ([], 0))
+        pages_checked += checked
+        if not live:
+            continue
+        old = [x for x in (c.get("certs") or []) if isinstance(x, str)]
+        merged = apply_supersede(old + [x for x in live if x not in old])
+        added = [x for x in merged if x not in old]
+        if not added:
+            continue
+        c["certs"] = merged
+        new_filings += len(added)
+        if c.get("found"):
+            shown = ", ".join(merged[:8])
+            more = " and others" if len(merged) > 8 else ""
+            c["summary"] = f"Public trust center. On file: {shown}{more}."
+        rescore(c)
+        samples.append((c["name"], added))
+
+    payload["generated_at"] = generated_at
+    payload["notes"] = (
+        payload.get("notes")
+        or "Public pages only. Incomplete by nature. No invented URLs, years, certs, or processors."
+    )
+    write_json(DATA / "enriched.json", payload)
+    write_json(SITE / "data" / "enriched.json", payload)
+
+    after_with = sum(1 for c in companies if c.get("certs"))
+    after_total = sum(len(c.get("certs") or []) for c in companies)
+    elapsed = round(time.time() - t0, 1)
+    print(f"Wrote {DATA / 'enriched.json'} and {SITE / 'data' / 'enriched.json'}", flush=True)
+    print(
+        f"pages_checked={pages_checked} new_filings={new_filings} "
+        f"companies_with_marks {before_with}->{after_with} "
+        f"mentions {before_total}->{after_total} in {elapsed}s",
+        flush=True,
+    )
+    for name, added in samples[:12]:
+        print(f"  {name}: +{', '.join(added)}", flush=True)
+
+    log_path = DATA / "enrichment-log.md"
+    if log_path.exists():
+        extra = [
+            "",
+            "## Marks pass",
+            "",
+            f"Generated: {generated_at}",
+            "",
+            f"- pages checked: {pages_checked}",
+            f"- new mark filings: {new_filings}",
+            f"- companies with ≥1 mark: {before_with} → {after_with}",
+            f"- mark mentions: {before_total} → {after_total}",
+            "",
+            "First-party trust/security HTML only. Login walls and pages that name no mark stayed unchanged.",
+            "",
+        ]
+        log_path.write_text(log_path.read_text() + "\n".join(extra))
+    return 0
+
+
+def run() -> int:
+    t0 = time.time()
+    (CACHE / "http").mkdir(parents=True, exist_ok=True)
+    log_notes: list[str] = []
+    companies = load_register()
+    print(f"Loaded {len(companies)} companies", flush=True)
+
+    prior_certs = {}
+    for c in companies:
+        blob = " ".join(filter(None, [c.get("title"), c.get("summary")]))
+        extracted = extract_certs(blob)
+        old = [x for x in (c.get("certs") or []) if isinstance(x, str)]
+        merged = []
+        for item in extracted + old:
+            if item not in merged:
+                merged.append(item)
+        if merged:
+            prior_certs[c["slug"]] = merged
+
+    print("Phase B: founding years via Wikipedia/Wikidata…", flush=True)
+    years = resolve_founding_years(companies, log_notes)
+    print(f"  verified founding years: {len(years)}", flush=True)
+
+    jobs, seen_job = [], set()
+    for c in companies:
+        for url, hint in probe_urls_for(c):
+            key = (c["slug"], url.lower())
+            if key in seen_job:
+                continue
+            seen_job.add(key)
+            jobs.append((c["slug"], url, hint))
+    print(f"Phase C: probing {len(jobs)} URLs with {WORKERS} workers…", flush=True)
+    probe_hits = defaultdict(dict)
+    fail_zero = 0
+
+    def do_probe(job):
+        slug, url, hint = job
+        return slug, url, hint, fetch_cached(url, max_body=PROBE_BODY)
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = [pool.submit(do_probe, job) for job in jobs]
+        done = 0
+        for fut in as_completed(futs):
+            slug, url, hint, rec = fut.result()
+            done += 1
+            if done % 250 == 0 or done == len(futs):
+                print(f"  probe {done}/{len(futs)}", flush=True)
+            if rec.get("status") == 0:
+                fail_zero += 1
+            if accept_link(hint, url, rec):
+                if hint not in probe_hits[slug]:
+                    probe_hits[slug][hint] = (rec.get("final_url") or url, rec)
+            else:
+                kind = classify_probe(url, rec)
+                if kind and kind not in probe_hits[slug]:
+                    probe_hits[slug][kind] = (rec.get("final_url") or url, rec)
+
+    trust_jobs = []
+    for c in companies:
+        url = c.get("trust_url") or c.get("final_url")
+        if c.get("found") and url:
+            trust_jobs.append((c["slug"], url))
+    print(f"Phase D: fetching {len(trust_jobs)} trust pages…", flush=True)
+    trust_pages = {}
+
+    def do_trust(job):
+        slug, url = job
+        return slug, fetch_cached(url, max_body=TRUST_BODY)
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = [pool.submit(do_trust, job) for job in trust_jobs]
+        done = 0
+        for fut in as_completed(futs):
+            slug, rec = fut.result()
+            trust_pages[slug] = rec
+            done += 1
+            if done % 40 == 0 or done == len(futs):
+                print(f"  trust {done}/{len(futs)}", flush=True)
+
+    follow, follow_seen = [], set(seen_job)
+    for c in companies:
+        rec = trust_pages.get(c["slug"])
+        if not rec:
+            continue
+        hosts = set(hosts_for(c))
+        th = host_of(c.get("trust_url") or "")
+        if th:
+            hosts.add(th)
+        for href in rec.get("hrefs") or []:
+            h = host_of(href)
+            first_party = any(h == x or h.endswith("." + x) or x.endswith("." + h) for x in hosts)
+            if not first_party and not re.search(r"status|hackerone|bugcrowd|security\.txt", href, re.I):
+                continue
+            kind = None
+            for name, pat in LINK_HINTS:
+                if pat.search(href):
+                    kind = name
+                    break
+            if not kind:
+                continue
+            clean = href.split("#")[0]
+            key = (c["slug"], clean.lower())
+            if key in follow_seen:
+                continue
+            follow_seen.add(key)
+            follow.append((c["slug"], clean, kind))
+    print(f"Phase E: following {len(follow)} discovered links…", flush=True)
+
+    def do_follow(job):
+        slug, url, hint = job
+        body = TRUST_BODY if hint == "subprocessors" else PROBE_BODY
+        return slug, url, hint, fetch_cached(url, max_body=body)
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = [pool.submit(do_follow, job) for job in follow]
+        done = 0
+        for fut in as_completed(futs):
+            slug, url, hint, rec = fut.result()
+            done += 1
+            if done % 80 == 0 or done == len(futs):
+                print(f"  follow {done}/{len(futs)}", flush=True)
+            if accept_link(hint, url, rec) and hint not in probe_hits[slug]:
+                probe_hits[slug][hint] = (rec.get("final_url") or url, rec)
+            else:
+                kind = classify_probe(url, rec)
+                if kind and kind not in probe_hits[slug]:
+                    probe_hits[slug][kind] = (rec.get("final_url") or url, rec)
+
+    # About-page years only when Wikidata missed and the sentence is explicit.
+    about_jobs = []
+    for c in companies:
+        if c["slug"] in years:
+            continue
+        for domain in hosts_for(c)[:1]:
+            about_jobs.append((c["slug"], f"https://{domain}/about"))
+            about_jobs.append((c["slug"], f"https://{domain}/about-us"))
+            about_jobs.append((c["slug"], f"https://{domain}/company"))
+    print(f"Phase E2: about pages for {len(about_jobs)//3} year-misses…", flush=True)
+
+    def do_about(job):
+        slug, url = job
+        return slug, url, fetch_cached(url, max_body=PROBE_BODY)
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = [pool.submit(do_about, job) for job in about_jobs]
+        for fut in as_completed(futs):
+            slug, url, rec = fut.result()
+            if slug in years:
+                continue
+            if not rec.get("ok") or rec.get("status") != 200:
+                continue
+            if looks_dead(rec.get("title") or "", rec.get("text") or ""):
+                continue
+            if landed_on_home(url, rec.get("final_url") or url):
+                continue
+            m = ABOUT_FOUNDED.search(rec.get("text") or "")
+            if m:
+                year = int(m.group(1))
+                if 1970 <= year <= NOW_YEAR:
+                    years[slug] = (year, rec.get("final_url") or url)
+
+    print("Phase F: assemble…", flush=True)
+    in_register = {c["slug"] for c in companies}
+    domain_to_slug = {}
+    for c in companies:
+        for h in hosts_for(c):
+            domain_to_slug[registrable(h)] = c["slug"]
+    proc_meta = {pid: (name, dom) for pid, name, dom, _a in PROCESSORS}
+
+    nodes = {}
+    edges = []
+    enriched = []
+    skipped_vendor_summaries = 0
+    retained_prior_certs = 0
+    year_skipped = []
+
+    for c in companies:
+        slug = c["slug"]
+        links = {}
+        hits = probe_hits.get(slug) or {}
+        for kind, (url, _rec) in hits.items():
+            if kind in {"trust", "security", "privacy", "dpa", "subprocessors",
+                        "status", "bug_bounty", "security_txt"} and url:
+                links[kind] = url
+
+        if c.get("found") and c.get("trust_url"):
+            links.setdefault("trust", c["trust_url"])
+            if "security" in (c.get("trust_url") or "").lower():
+                links.setdefault("security", c["trust_url"])
+
+        stxt = hits.get("security_txt")
+        if stxt and "bug_bounty" not in links:
+            bounty = bounty_from_security_txt(stxt[1].get("text") or stxt[1].get("raw_head") or "")
+            if bounty:
+                links["bug_bounty"] = bounty
+
+        cert_blob_parts = []
+        if c.get("title"):
+            cert_blob_parts.append(c["title"])
+        tpage = trust_pages.get(slug)
+        if tpage and tpage.get("ok") and tpage.get("status") == 200:
+            cert_blob_parts.append(tpage.get("mark_blob") or "")
+            cert_blob_parts.append(tpage.get("title") or "")
+            cert_blob_parts.append(tpage.get("meta") or "")
+            cert_blob_parts.append((tpage.get("text") or "")[:20000])
+        for kind in ("security", "trust"):
+            if kind in hits:
+                rec = hits[kind][1]
+                cert_blob_parts.append(rec.get("mark_blob") or "")
+                cert_blob_parts.append(rec.get("title") or "")
+                cert_blob_parts.append((rec.get("text") or "")[:12000])
+        certs = extract_certs(" ".join(cert_blob_parts))
+        if not certs and slug in prior_certs:
+            certs = list(prior_certs[slug])
+            retained_prior_certs += 1
+
+        founded_year, founded_source = None, None
+        if slug in years:
+            founded_year, founded_source = years[slug]
+        else:
+            year_skipped.append(c["name"])
+
+        procs = []
+        proc_source = None
+        if "subprocessors" in hits:
+            rec = hits["subprocessors"][1]
+            if is_subprocessor_page(hits["subprocessors"][0], rec.get("title") or "", rec.get("text") or ""):
+                procs = extract_processors(rec.get("text") or "")
+                proc_source = hits["subprocessors"][0]
+        if not procs and tpage:
+            text = tpage.get("text") or ""
+            m = re.search(r"sub-?processors?.{0,6000}", text, re.I)
+            if m:
+                section = m.group(0)
+                procs = extract_processors(section)
+                if procs:
+                    proc_source = tpage.get("final_url") or c.get("trust_url")
+
+        # do not list the company as its own subprocessor
+        procs = [p for p in procs if p != slug and p != "s3" and p != "cloudfront"]
+        # map cloudfront/s3 already excluded; aws stays if listed
+
+        old_sum = c.get("summary") or ""
+        if VENDOR_WORDS.search(old_sum) or VENDOR_WORDS.search(c.get("title") or ""):
+            if VENDOR_WORDS.search(old_sum):
+                skipped_vendor_summaries += 1
+        page_text = ""
+        if tpage and not VENDOR_WORDS.search(tpage.get("meta") or ""):
+            page_text = tpage.get("meta") or (tpage.get("text") or "")[:500]
+        summary = clerk_summary(bool(c.get("found")), certs, old_sum, page_text)
+
+        portal = bool(c.get("found")) or bool(links.get("trust") or links.get("security"))
+        score, tier = score_row(portal, certs, links, founded_year)
+        factors = disclosure_factors(portal, certs, links, founded_year)
+        proc_objs = []
+        for pid in procs:
+            pname = proc_meta.get(pid, (pid, ""))[0]
+            proc_objs.append({"id": pid, "name": pname})
+
+        row = {
+            "rank": c.get("rank"),
+            "name": c["name"],
+            "slug": slug,
+            "domain": c.get("domain"),
+            "found": bool(c.get("found")),
+            "trust_url": c.get("trust_url"),
+            "final_url": c.get("final_url"),
+            "vendor": c.get("vendor"),
+            "title": clean_title(c.get("title") or "", c.get("name") or ""),
+            "probed": c.get("probed"),
+            "source": c.get("source"),
+            "list": c.get("list"),
+            "certs": certs,
+            "links": links,
+            "summary": summary,
+            "subprocessors": proc_objs,
+            "disclosure": {"score": score, "tier": tier, "factors": factors},
+        }
+        if founded_year and founded_source:
+            row["founded_year"] = founded_year
+            row["founded_source"] = founded_source
+        enriched.append(row)
+
+        nodes[slug] = {
+            "id": slug,
+            "name": c["name"],
+            "domain": c.get("domain"),
+            "kind": "company",
+            "in_register": True,
+        }
+        if proc_source:
+            for pid in procs:
+                pname, pdom = proc_meta.get(pid, (pid, ""))
+                if pid not in nodes:
+                    nodes[pid] = {
+                        "id": pid,
+                        "name": pname,
+                        "domain": pdom,
+                        "kind": "company" if pid in in_register else "subprocessor",
+                        "in_register": pid in in_register,
+                    }
+                else:
+                    # already a register company
+                    pass
+                edges.append({
+                    "from": slug,
+                    "to": pid,
+                    "source_url": proc_source,
+                    "evidence": "listed on public subprocessors page",
+                })
+
+    generated = utc_now()
+    site_src = load_json(SITE / "data.json", {})
+    payload = {
+        "generated_at": generated,
+        "register_generated_at": site_src.get("generated_at"),
+        "sources": site_src.get("sources") or [],
+        "notes": "Public pages only. Incomplete by nature. No invented URLs, years, certs, or processors.",
+        "companies": enriched,
+    }
+    write_json(DATA / "enriched.json", payload)
+
+    graph = {
+        "generated_at": generated,
+        "nodes": sorted(nodes.values(), key=lambda n: (n["kind"] != "company", n["name"].lower())),
+        "edges": edges,
+        "notes": "Only public lists. Incomplete by nature.",
+    }
+    write_json(DATA / "subprocessors.json", graph)
+
+    n_years = sum(1 for r in enriched if r["founded_year"])
+    n_certs = sum(1 for r in enriched if r["certs"])
+    n_cert_mentions = sum(len(r["certs"]) for r in enriched)
+    n_edges = len(edges)
+    n_sub_cos = sum(1 for r in enriched if r["subprocessors"])
+    n_txt = sum(1 for r in enriched if r["links"].get("security_txt"))
+    n_dpa = sum(1 for r in enriched if r["links"].get("dpa"))
+    n_priv = sum(1 for r in enriched if r["links"].get("privacy"))
+    n_stat = sum(1 for r in enriched if r["links"].get("status"))
+    n_bug = sum(1 for r in enriched if r["links"].get("bug_bounty"))
+    n_sublink = sum(1 for r in enriched if r["links"].get("subprocessors"))
+    tiers = Counter(r["disclosure_tier"] for r in enriched)
+    top_proc = Counter(e["to"] for e in edges).most_common(15)
+    top_certs = Counter(c for r in enriched for c in r["certs"]).most_common(15)
+
+    year_rows = [
+        f"| {r['name']} | {r['founded_year']} | {r['founded_source']} |"
+        for r in enriched if r["founded_year"]
+    ]
+    miss_years = ", ".join(year_skipped) if year_skipped else "(none)"
+    proc_lines = "\n".join(f"| {pid} | {n} |" for pid, n in top_proc) or "| (none) | 0 |"
+    cert_lines = "\n".join(f"| {n} | {c} |" for n, c in top_certs) or "| (none) | 0 |"
+
+    md = f"""# Enrichment log
+
+Generated: {generated} (UTC). Box clock is UTC; Pacific is UTC-7.
+
+## Coverage
+
+| Fact | Count |
+|---|---|
+| Companies in register | {len(enriched)} |
+| Portals already on file | {sum(1 for r in enriched if r['found'])} |
+| Founding years verified | {n_years} |
+| Companies with ≥1 cert mention | {n_certs} |
+| Cert mentions (total) | {n_cert_mentions} |
+| Companies with a public subprocessor list we could read | {n_sub_cos} |
+| Subprocessor edges | {n_edges} |
+| security.txt (RFC-shaped, 200) | {n_txt} |
+| DPA link | {n_dpa} |
+| Privacy link | {n_priv} |
+| Status link | {n_stat} |
+| Bug bounty / disclosure link | {n_bug} |
+| Subprocessors link | {n_sublink} |
+| Probe attempts | {len(jobs)} |
+| Discovered-link follows | {len(follow)} |
+| Fetches that returned status 0 (timeout/DNS/TLS) | {fail_zero} |
+| Vendor-tainted summaries rewritten or cleared | {skipped_vendor_summaries} |
+| Cert lists retained from prior crawl (not re-seen on this pass) | {retained_prior_certs} |
+
+Elapsed: {time.time() - t0:.1f}s
+
+## Disclosure tiers
+
+| Tier | Count |
+|---|---|
+| silent | {tiers.get('silent', 0)} |
+| thin | {tiers.get('thin', 0)} |
+| on-file | {tiers.get('on-file', 0)} |
+| substantial | {tiers.get('substantial', 0)} |
+| complete | {tiers.get('complete', 0)} |
+
+## Method
+
+1. Seed certs from stored titles / prior crawl text (only strings already on file).
+2. Wikipedia `pageprops` + Wikidata `P571` / `P856`. A year is kept only when the official website matches the register domain, or the Wikipedia title matches the company name and the website does not contradict it. Source URL is the Wikipedia page when present, otherwise the Wikidata entity.
+3. Probe well-known first-party paths for every company (`security.txt`, `/privacy`, `/subprocessors`, `/legal/subprocessors`, `/dpa`, `status.{{domain}}`, disclosure paths, `/security`, `/trust`). Extra first-party variants for large vendors are candidates only — recorded after a 200 and a content check.
+4. Fetch each known `trust_url` and extract certs, hrefs, and any subprocessors section.
+5. Follow first-party (or status/bounty) hrefs that look like privacy / DPA / subprocessors / status / disclosure.
+6. About-page year fallback: only an explicit “founded/established … YYYY” sentence on `/about`, `/about-us`, or `/company`.
+7. Subprocessor names are taken from a page that is actually a subprocessor list (or a labeled section). Common processors are normalized to stable ids. An edge exists only when that name appeared on the page.
+8. Summaries are clerk voice. Vendor product names are stripped. If the old summary was portal marketing or script junk, it is replaced or left empty.
+9. Score: +20 portal, cert weights capped at 40, +8 DPA, +8 subprocessors link, +6 status, +6 bounty or security.txt, +6 privacy, +min(10, floor((2026-year)/2)). Tiers: silent (no portal), thin <40, on-file 40–69, substantial 70–89, complete 90+.
+
+What this is not: a complete crawl of every live page, a claim that missing facts do not exist, or a vendor-catalog. JS-only portals often hide certs and lists behind login or client rendering; those are omitted.
+
+## Top cert mentions
+
+| Certification | Companies |
+|---|---|
+{cert_lines}
+
+## Top subprocessors (public lists only)
+
+| Processor id | Edges |
+|---|---|
+{proc_lines}
+
+## Founding years
+
+| Company | Year | Source |
+|---|---|---|
+{chr(10).join(year_rows) if year_rows else '| (none) | | |'}
+
+## Years skipped (no verified source)
+
+{miss_years}
+
+## Notes from this run
+
+{chr(10).join('- ' + n for n in log_notes) if log_notes else '- No API batch failures recorded.'}
+
+## Outputs
+
+- `data/enriched.json`
+- `data/subprocessors.json`
+- `data/cache/http/` (URL cache so the script can be re-run without re-fetching)
+"""
+    (DATA / "enrichment-log.md").write_text(md)
+    print(f"Wrote data/enriched.json ({len(enriched)} companies)", flush=True)
+    print(f"Wrote data/subprocessors.json ({len(nodes)} nodes, {len(edges)} edges)", flush=True)
+    print(f"Wrote data/enrichment-log.md", flush=True)
+    print(f"Years={n_years} cert_cos={n_certs} edges={n_edges} in {time.time()-t0:.1f}s", flush=True)
+    return 0
+
 if __name__ == "__main__":
     if "--named-processors" in sys.argv:
         raise SystemExit(file_named_from_cited())
@@ -3454,6 +4035,8 @@ if __name__ == "__main__":
         raise SystemExit(file_published_dpas())
     if "--file-years" in sys.argv:
         raise SystemExit(file_published_years())
+    if "--file-marks" in sys.argv:
+        raise SystemExit(file_marks())
     raise SystemExit(main())
 
 

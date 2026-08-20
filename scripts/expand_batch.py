@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-import re
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
@@ -11,9 +10,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "scripts"))
 import crawl  # noqa: E402
 
 from merge_render import rescore, canon_cert  # noqa: E402
+from marks import extract_certs_from_html  # noqa: E402
 import enrich  # noqa: E402
 
 DATA = ROOT / "data"
@@ -24,28 +25,7 @@ SITE_ENRICHED = ROOT / "site" / "data" / "enriched.json"
 BATCH_SIZE = 40
 WORKERS = 12
 
-CERT_RES = [
-    (re.compile(r"\bSOC\s*2\s*Type\s*(?:II|2)\b", re.I), "SOC 2 Type II"),
-    (re.compile(r"\bSOC\s*3\b", re.I), "SOC 3"),
-    (re.compile(r"\bSOC\s*1\s*Type\s*(?:II|2)\b", re.I), "SOC 1 Type II"),
-    (re.compile(r"\bISO(?:/IEC)?\s*27001\b", re.I), "ISO 27001"),
-    (re.compile(r"\bISO(?:/IEC)?\s*27701\b", re.I), "ISO 27701"),
-    (re.compile(r"\bISO(?:/IEC)?\s*42001\b", re.I), "ISO 42001"),
-    (re.compile(r"\bAIUC-1\b", re.I), "AIUC-1"),
-    (re.compile(r"\bISO(?:/IEC)?\s*27017\b", re.I), "ISO 27017"),
-    (re.compile(r"\bISO(?:/IEC)?\s*27018\b", re.I), "ISO 27018"),
-    (re.compile(r"\bFedRAMP\s+High\b", re.I), "FedRAMP High"),
-    (re.compile(r"\bFedRAMP\b", re.I), "FedRAMP Moderate"),
-    (re.compile(r"\bHIPAA\b", re.I), "HIPAA"),
-    (re.compile(r"\bPCI[\s-]?DSS\b", re.I), "PCI DSS"),
-    (re.compile(r"\bHITRUST\b", re.I), "HITRUST"),
-    (re.compile(r"\bGDPR\b", re.I), "GDPR"),
-    (re.compile(r"\bCCPA\b|\bCPRA\b", re.I), "CCPA"),
-    (re.compile(r"\bCSA\s*STAR\b", re.I), "CSA STAR"),
-    (re.compile(r"\bTX-?RAMP\b", re.I), "TX-RAMP"),
-    (re.compile(r"\bCyber\s*Essentials\s*Plus\b", re.I), "Cyber Essentials Plus"),
-    (re.compile(r"\bCyber\s*Essentials\b", re.I), "Cyber Essentials"),
-]
+TRUST_BODY = 196608
 
 
 def load_json(path: Path, default):
@@ -60,15 +40,7 @@ def write_json(path: Path, obj) -> None:
 
 
 def extract_certs(html: str) -> list[str]:
-    if not html:
-        return []
-    out = []
-    for rx, name in CERT_RES:
-        if rx.search(html) and name not in out:
-            n = canon_cert(name) or name
-            if n and n not in out:
-                out.append(n)
-    return out
+    return extract_certs_from_html(html)
 
 
 def next_batch(queue: dict, state: dict, n: int) -> list[dict]:

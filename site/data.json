@@ -24,6 +24,7 @@
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
+        "CCPA",
         "CSA STAR",
         "GDPR",
         "ISO 27001",
@@ -37,6 +38,11 @@
         "VPAT"
       ],
       "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
         {
           "id": "csa-star-l1",
           "name": "CSA STAR",
@@ -187,9 +193,17 @@
         "FedRAMP Moderate",
         "GDPR",
         "HIPAA",
+        "HITRUST",
+        "IRAP",
         "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 9001",
         "PCI DSS",
-        "SOC 2"
+        "SOC 2",
+        "SOC 2 Type II",
+        "TISAX",
+        "TX-RAMP"
       ],
       "attestations": [
         {
@@ -213,9 +227,34 @@
           "weight": 6
         },
         {
+          "id": "hitrust-csf",
+          "name": "HITRUST",
+          "weight": 8
+        },
+        {
+          "id": "irap",
+          "name": "IRAP",
+          "weight": 4
+        },
+        {
           "id": "iso-27001",
           "name": "ISO 27001",
           "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "iso-9001",
+          "name": "ISO 9001",
+          "weight": 4
         },
         {
           "id": "pci-dss",
@@ -225,6 +264,21 @@
         {
           "id": "soc-2-type-ii",
           "name": "SOC 2",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "tisax",
+          "name": "TISAX",
+          "weight": 4
+        },
+        {
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
           "weight": 4
         }
       ],
@@ -502,6 +556,7 @@
         "Cyber Essentials",
         "Cyber Essentials Plus",
         "EU-US DPF",
+        "FedRAMP",
         "ISO 27001",
         "ISO 27701",
         "PCI DSS",
@@ -529,12 +584,17 @@
         {
           "id": "cyber-essentials-plus",
           "name": "Cyber Essentials Plus",
-          "weight": 4
+          "weight": 6
         },
         {
           "id": "eu-us-dpf",
           "name": "EU-US DPF",
           "weight": 4
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP",
+          "weight": 12
         },
         {
           "id": "iso-27001",
@@ -655,6 +715,7 @@
       "probed": 14,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
+        "CCPA",
         "GDPR",
         "HIPAA",
         "ISO 27001",
@@ -663,6 +724,11 @@
         "TX-RAMP"
       ],
       "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
         {
           "id": "gdpr",
           "name": "GDPR",
@@ -2034,7 +2100,7 @@
         {
           "id": "pipeda",
           "name": "PIPEDA",
-          "weight": 4
+          "weight": 3
         },
         {
           "id": "soc-2-type-ii",
@@ -2360,8 +2426,10 @@
       "certs": [
         "CCPA",
         "Cyber Essentials",
+        "EU-US DPF",
         "FedRAMP",
         "FedRAMP Moderate",
+        "FIPS 140-3",
         "GDPR",
         "ISO 27001",
         "ISO 27018",
@@ -2380,6 +2448,11 @@
           "weight": 4
         },
         {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
+        {
           "id": "fedramp",
           "name": "FedRAMP",
           "weight": 12
@@ -2388,6 +2461,11 @@
           "id": "fedramp",
           "name": "FedRAMP Moderate",
           "weight": 12
+        },
+        {
+          "id": "fips-140-3",
+          "name": "FIPS 140-3",
+          "weight": 6
         },
         {
           "id": "gdpr",
@@ -2829,12 +2907,23 @@
       "certs": [
         "C5",
         "CCPA",
+        "Cyber Essentials Plus",
+        "EU-US DPF",
         "FedRAMP",
         "FedRAMP High",
+        "FedRAMP Moderate",
         "GDPR",
+        "GovRAMP",
         "HIPAA",
         "IRAP",
         "ISMAP",
+        "ISO 22301",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27032",
+        "ISO 27701",
+        "ISO 42001",
         "PCI DSS",
         "SOC 2 Type II",
         "StateRAMP",
@@ -2852,6 +2941,16 @@
           "weight": 3
         },
         {
+          "id": "cyber-essentials-plus",
+          "name": "Cyber Essentials Plus",
+          "weight": 6
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
+        {
           "id": "fedramp",
           "name": "FedRAMP",
           "weight": 12
@@ -2862,9 +2961,19 @@
           "weight": 12
         },
         {
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
+        },
+        {
           "id": "gdpr",
           "name": "GDPR",
           "weight": 3
+        },
+        {
+          "id": "govramp",
+          "name": "GovRAMP",
+          "weight": 9
         },
         {
           "id": "hipaa",
@@ -2880,6 +2989,41 @@
           "id": "ismap",
           "name": "ISMAP",
           "weight": 4
+        },
+        {
+          "id": "iso-22301",
+          "name": "ISO 22301",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": null,
+          "name": "ISO 27032",
+          "weight": 4
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
         },
         {
           "id": "pci-dss",
@@ -3494,7 +3638,7 @@
         {
           "id": "nist-800-171",
           "name": "NIST 800-171",
-          "weight": 4
+          "weight": 5
         },
         {
           "id": "soc-2-type-ii",
@@ -4067,7 +4211,7 @@
         {
           "id": "cyber-essentials-plus",
           "name": "Cyber Essentials Plus",
-          "weight": 4
+          "weight": 6
         },
         {
           "id": "gdpr",
@@ -4230,7 +4374,7 @@
         {
           "id": "hds",
           "name": "HDS",
-          "weight": 4
+          "weight": 6
         },
         {
           "id": "hipaa",
@@ -5085,8 +5229,10 @@
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
+        "CCPA",
         "CMMC",
         "Cyber Essentials",
+        "DORA",
         "FedRAMP",
         "FedRAMP 20x Moderate",
         "GDPR",
@@ -5094,9 +5240,16 @@
         "HITRUST",
         "ISO 27001",
         "ISO 42001",
+        "NIS2",
+        "PCI DSS",
         "SOC 2 Type II"
       ],
       "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
         {
           "id": "cmmc-l2",
           "name": "CMMC",
@@ -5105,6 +5258,11 @@
         {
           "id": "cyber-essentials",
           "name": "Cyber Essentials",
+          "weight": 4
+        },
+        {
+          "id": "dora",
+          "name": "DORA",
           "weight": 4
         },
         {
@@ -5141,6 +5299,16 @@
           "id": "iso-42001",
           "name": "ISO 42001",
           "weight": 6
+        },
+        {
+          "id": "nis2",
+          "name": "NIS2",
+          "weight": 4
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
         },
         {
           "id": "soc-2-type-ii",
@@ -5518,6 +5686,7 @@
         "AIUC-1",
         "CCPA",
         "GDPR",
+        "IRAP",
         "ISO 27001",
         "ISO 27701",
         "ISO 42001",
@@ -5538,6 +5707,11 @@
           "id": "gdpr",
           "name": "GDPR",
           "weight": 3
+        },
+        {
+          "id": "irap",
+          "name": "IRAP",
+          "weight": 4
         },
         {
           "id": "iso-27001",
@@ -5722,6 +5896,9 @@
       "probed": 5,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
+        "CCPA",
+        "EU-US DPF",
+        "GDPR",
         "HIPAA",
         "ISO 27001",
         "ISO 27701",
@@ -5730,6 +5907,21 @@
         "SOC 2 Type II"
       ],
       "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
         {
           "id": "hipaa",
           "name": "HIPAA",
@@ -5933,7 +6125,7 @@
         {
           "id": "pipeda",
           "name": "PIPEDA",
-          "weight": 4
+          "weight": 3
         },
         {
           "id": "soc-1-type-ii",
@@ -6032,6 +6224,7 @@
       "certs": [
         "CCPA",
         "GDPR",
+        "HIPAA",
         "ISO 27001",
         "ISO 27017",
         "ISO 27018",
@@ -6053,6 +6246,11 @@
           "id": "gdpr",
           "name": "GDPR",
           "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
         },
         {
           "id": "iso-27001",
@@ -6082,7 +6280,7 @@
         {
           "id": "lgpd",
           "name": "LGPD",
-          "weight": 4
+          "weight": 3
         },
         {
           "id": "pci-dss",
@@ -7217,7 +7415,7 @@
         {
           "id": "cyber-essentials-plus",
           "name": "Cyber Essentials Plus",
-          "weight": 4
+          "weight": 6
         },
         {
           "id": "dora",
@@ -7232,7 +7430,7 @@
         {
           "id": "hds",
           "name": "HDS",
-          "weight": 4
+          "weight": 6
         },
         {
           "id": "hipaa",
@@ -7267,7 +7465,7 @@
         {
           "id": "lgpd",
           "name": "LGPD",
-          "weight": 4
+          "weight": 3
         },
         {
           "id": "pci-dss",
@@ -7819,8 +8017,12 @@
         "CSA STAR",
         "FedRAMP",
         "FedRAMP High",
+        "FedRAMP Moderate",
         "GDPR",
         "HIPAA",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
         "SOC 1",
         "SOC 2 Type II",
         "SOC 3",
@@ -7849,6 +8051,11 @@
           "weight": 12
         },
         {
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
+        },
+        {
           "id": "gdpr",
           "name": "GDPR",
           "weight": 3
@@ -7857,6 +8064,21 @@
           "id": "hipaa",
           "name": "HIPAA",
           "weight": 6
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
         },
         {
           "id": "soc-1-type-ii",
@@ -8192,7 +8414,7 @@
         {
           "id": "lgpd",
           "name": "LGPD",
-          "weight": 4
+          "weight": 3
         },
         {
           "id": "nist-csf",
@@ -8207,7 +8429,7 @@
         {
           "id": "pipeda",
           "name": "PIPEDA",
-          "weight": 4
+          "weight": 3
         },
         {
           "id": "soc-2-type-ii",
@@ -8538,6 +8760,8 @@
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
         "CCPA",
+        "CSA STAR",
+        "EU-US DPF",
         "GDPR",
         "HIPAA",
         "ISO 27001",
@@ -8553,6 +8777,16 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
         },
         {
           "id": "gdpr",
@@ -8870,6 +9104,8 @@
       "certs": [
         "CCPA",
         "CSA STAR",
+        "DORA",
+        "EU-US DPF",
         "FedRAMP Moderate",
         "GDPR",
         "HIPAA",
@@ -8877,6 +9113,7 @@
         "ISO 27017",
         "ISO 27018",
         "ISO 27701",
+        "NIS2",
         "SOC 2 Type I",
         "SOC 2 Type II",
         "SOC 3",
@@ -8891,6 +9128,16 @@
         {
           "id": "csa-star-l1",
           "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
           "weight": 4
         },
         {
@@ -8927,6 +9174,11 @@
           "id": "iso-27701",
           "name": "ISO 27701",
           "weight": 6
+        },
+        {
+          "id": "nis2",
+          "name": "NIS2",
+          "weight": 4
         },
         {
           "id": "soc-2-type-i",
@@ -9058,6 +9310,11 @@
         "GDPR",
         "HIPAA",
         "ISMAP",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27701",
+        "ISO 42001",
         "SOC 2 Type II",
         "SOC 3",
         "TISAX",
@@ -9098,6 +9355,31 @@
           "id": "ismap",
           "name": "ISMAP",
           "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
         },
         {
           "id": "soc-2-type-ii",
@@ -9955,7 +10237,7 @@
         {
           "id": "pipeda",
           "name": "PIPEDA",
-          "weight": 4
+          "weight": 3
         },
         {
           "id": "soc-1-type-ii",
@@ -10387,14 +10669,18 @@
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
         "CSA STAR",
+        "Cyber Essentials Plus",
         "FedRAMP",
         "FedRAMP Moderate",
         "GDPR",
         "IRAP",
         "ISO 27001",
         "ISO 27017",
+        "ISO 27018",
+        "ISO 27701",
         "ISO 42001",
         "SOC 1",
+        "SOC 1 Type II",
         "SOC 2 Type II",
         "SOC 3",
         "TISAX",
@@ -10405,6 +10691,11 @@
           "id": "csa-star-l1",
           "name": "CSA STAR",
           "weight": 4
+        },
+        {
+          "id": "cyber-essentials-plus",
+          "name": "Cyber Essentials Plus",
+          "weight": 6
         },
         {
           "id": "fedramp",
@@ -10437,6 +10728,16 @@
           "weight": 4
         },
         {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
           "id": "iso-42001",
           "name": "ISO 42001",
           "weight": 6
@@ -10444,6 +10745,11 @@
         {
           "id": "soc-1-type-ii",
           "name": "SOC 1",
+          "weight": 4
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
           "weight": 4
         },
         {
@@ -11005,6 +11311,8 @@
         "ISO 27018",
         "ISO 27701",
         "ISO 42001",
+        "NIST CSF",
+        "PCI DSS",
         "SOC 2",
         "SOC 3"
       ],
@@ -11033,6 +11341,16 @@
           "id": "iso-42001",
           "name": "ISO 42001",
           "weight": 6
+        },
+        {
+          "id": "nist-csf",
+          "name": "NIST CSF",
+          "weight": 4
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
         },
         {
           "id": "soc-2-type-ii",
@@ -11450,6 +11768,7 @@
       "certs": [
         "DORA",
         "GDPR",
+        "ISO 27001",
         "PCI 3DS",
         "PCI DSS",
         "SOC 1 Type II",
@@ -11468,9 +11787,14 @@
           "weight": 3
         },
         {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
           "id": "pci-3ds",
           "name": "PCI 3DS",
-          "weight": 4
+          "weight": 7
         },
         {
           "id": "pci-dss",
@@ -12393,10 +12717,16 @@
       "probed": 13,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
+        "DORA",
         "FedRAMP",
         "FedRAMP Moderate"
       ],
       "attestations": [
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP",
@@ -12583,16 +12913,34 @@
       "probed": 13,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
+        "EU-US DPF",
         "FedRAMP Moderate",
+        "GDPR",
+        "GovRAMP",
         "ISO 27001",
         "SOC 2 Type I",
         "TX-RAMP"
       ],
       "attestations": [
         {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
+        {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
           "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "govramp",
+          "name": "GovRAMP",
+          "weight": 9
         },
         {
           "id": "iso-27001",
@@ -13045,7 +13393,7 @@
         {
           "id": "pci-3ds",
           "name": "PCI 3DS",
-          "weight": 4
+          "weight": 7
         },
         {
           "id": "pci-dss",
@@ -13155,6 +13503,7 @@
         "HIPAA",
         "ISO 27001",
         "ISO 27701",
+        "NIS2",
         "SOC 2 Type II",
         "TISAX"
       ],
@@ -13188,6 +13537,11 @@
           "id": "iso-27701",
           "name": "ISO 27701",
           "weight": 6
+        },
+        {
+          "id": "nis2",
+          "name": "NIS2",
+          "weight": 4
         },
         {
           "id": "soc-2-type-ii",
@@ -13382,6 +13736,8 @@
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
+        "CCPA",
+        "EU-US DPF",
         "GDPR",
         "ISO 27001",
         "PCI DSS",
@@ -13389,6 +13745,16 @@
         "SOC 3"
       ],
       "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
         {
           "id": "gdpr",
           "name": "GDPR",
@@ -14072,6 +14438,7 @@
       "probed": 13,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
+        "CCPA",
         "CSA STAR",
         "Cyber Essentials",
         "FedRAMP",
@@ -14079,6 +14446,8 @@
         "HIPAA",
         "IRAP",
         "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
         "ISO 27701",
         "PCI DSS",
         "SOC 2 Type II",
@@ -14086,6 +14455,11 @@
         "TISAX"
       ],
       "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
         {
           "id": "csa-star-l1",
           "name": "CSA STAR",
@@ -14120,6 +14494,16 @@
           "id": "iso-27001",
           "name": "ISO 27001",
           "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
         },
         {
           "id": "iso-27701",
@@ -14258,12 +14642,24 @@
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
         "CCPA",
+        "CSA STAR",
+        "DORA",
+        "EU-US DPF",
         "FedRAMP",
         "GDPR",
         "HIPAA",
         "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27032",
+        "ISO 27701",
+        "LGPD",
+        "PIPEDA",
         "SOC 1",
+        "SOC 1 Type II",
         "SOC 2",
+        "SOC 2 Type II",
+        "SOC 3",
         "TX-RAMP"
       ],
       "attestations": [
@@ -14271,6 +14667,21 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
         },
         {
           "id": "fedramp",
@@ -14293,13 +14704,58 @@
           "weight": 10
         },
         {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": null,
+          "name": "ISO 27032",
+          "weight": 4
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "lgpd",
+          "name": "LGPD",
+          "weight": 3
+        },
+        {
+          "id": "pipeda",
+          "name": "PIPEDA",
+          "weight": 3
+        },
+        {
           "id": "soc-1-type-ii",
           "name": "SOC 1",
           "weight": 4
         },
         {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
           "id": "soc-2-type-ii",
           "name": "SOC 2",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
           "weight": 4
         },
         {
@@ -15506,13 +15962,109 @@
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
-        "FedRAMP High"
+        "CCPA",
+        "CSA STAR",
+        "DORA",
+        "EU-US DPF",
+        "FedRAMP High",
+        "GDPR",
+        "GovRAMP",
+        "HIPAA",
+        "IRAP",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27701",
+        "ISO 42001",
+        "PCI DSS",
+        "SOC 2 Type II",
+        "TISAX"
       ],
       "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
           "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "govramp",
+          "name": "GovRAMP",
+          "weight": 9
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "irap",
+          "name": "IRAP",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "tisax",
+          "name": "TISAX",
+          "weight": 4
         }
       ],
       "summary": "Public trust center on file.",
@@ -16521,13 +17073,73 @@
       "probed": 2,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
-        "FedRAMP Moderate"
+        "CCPA",
+        "CSA STAR",
+        "FedRAMP Moderate",
+        "GDPR",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 42001",
+        "PCI DSS",
+        "SOC 2",
+        "TISAX"
       ],
       "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
           "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        },
+        {
+          "id": "tisax",
+          "name": "TISAX",
+          "weight": 4
         }
       ],
       "summary": "Public trust center on file.",
@@ -17135,10 +17747,12 @@
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
         "CCPA",
+        "Cyber Essentials",
         "GDPR",
         "HIPAA",
         "HITRUST",
         "ISO 27001",
+        "ISO 27701",
         "PCI DSS",
         "SOC 1",
         "SOC 2"
@@ -17148,6 +17762,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "cyber-essentials",
+          "name": "Cyber Essentials",
+          "weight": 4
         },
         {
           "id": "gdpr",
@@ -17168,6 +17787,11 @@
           "id": "iso-27001",
           "name": "ISO 27001",
           "weight": 10
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
         },
         {
           "id": "pci-dss",
@@ -17466,6 +18090,8 @@
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
         "CCPA",
+        "DORA",
+        "EU-US DPF",
         "GDPR",
         "HIPAA",
         "ISO 27001",
@@ -17478,6 +18104,16 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
         },
         {
           "id": "gdpr",
@@ -19277,7 +19913,18 @@
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
         "AIUC-1",
-        "FedRAMP Moderate"
+        "Cyber Essentials Plus",
+        "FedRAMP Moderate",
+        "HIPAA",
+        "HITRUST",
+        "IRAP",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 42001",
+        "ISO 9001",
+        "SOC 1 Type II",
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
@@ -19286,9 +19933,64 @@
           "weight": 8
         },
         {
+          "id": "cyber-essentials-plus",
+          "name": "Cyber Essentials Plus",
+          "weight": 6
+        },
+        {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
           "weight": 12
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "hitrust-csf",
+          "name": "HITRUST",
+          "weight": 8
+        },
+        {
+          "id": "irap",
+          "name": "IRAP",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": "iso-9001",
+          "name": "ISO 9001",
+          "weight": 4
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center on file.",
@@ -19511,11 +20213,29 @@
       "probed": 13,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
+        "DORA",
+        "GDPR",
+        "HIPAA",
         "PCI DSS",
         "SOC 2 Type II",
         "SOC 3"
       ],
       "attestations": [
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
         {
           "id": "pci-dss",
           "name": "PCI DSS",
@@ -19612,10 +20332,28 @@
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
+        "CMMC",
+        "ISO 27001",
+        "SOC 2 Type I",
         "SOC 2 Type II",
         "TX-RAMP"
       ],
       "attestations": [
+        {
+          "id": "cmmc-l2",
+          "name": "CMMC",
+          "weight": 8
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "soc-2-type-i",
+          "name": "SOC 2 Type I",
+          "weight": 4
+        },
         {
           "id": "soc-2-type-ii",
           "name": "SOC 2 Type II",
@@ -20090,10 +20828,17 @@
       "probed": 2,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
+        "DORA",
         "FedRAMP High",
-        "GDPR"
+        "GDPR",
+        "NIS2"
       ],
       "attestations": [
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
@@ -20103,6 +20848,11 @@
           "id": "gdpr",
           "name": "GDPR",
           "weight": 3
+        },
+        {
+          "id": "nis2",
+          "name": "NIS2",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: GDPR.",
@@ -20864,7 +21614,8 @@
         "GDPR",
         "ISO 27001",
         "ISO 27017",
-        "ISO 27018"
+        "ISO 27018",
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
@@ -20886,6 +21637,11 @@
           "id": "iso-27018",
           "name": "ISO 27018",
           "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: ISO 27001, ISO 27017, ISO 27018, GDPR.",
@@ -21207,7 +21963,11 @@
         "CCPA",
         "FedRAMP Moderate",
         "GDPR",
-        "HIPAA"
+        "GovRAMP",
+        "HIPAA",
+        "ISO 27001",
+        "SOC 2 Type II",
+        "StateRAMP"
       ],
       "attestations": [
         {
@@ -21226,9 +21986,29 @@
           "weight": 3
         },
         {
+          "id": "govramp",
+          "name": "GovRAMP",
+          "weight": 9
+        },
+        {
           "id": "hipaa",
           "name": "HIPAA",
           "weight": 6
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "stateramp",
+          "name": "StateRAMP",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: HIPAA, GDPR, CCPA.",
@@ -21556,16 +22336,130 @@
       "probed": 3,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
-        "FedRAMP High"
+        "CSA STAR",
+        "Cyber Essentials Plus",
+        "EU-US DPF",
+        "FedRAMP High",
+        "FIPS 140-3",
+        "GDPR",
+        "HIPAA",
+        "HITRUST",
+        "IRAP",
+        "ISMAP",
+        "ISO 22301",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27701",
+        "NIST 800-53",
+        "PCI DSS",
+        "SOC 2 Type II",
+        "SOC 3",
+        "TISAX"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "cyber-essentials-plus",
+          "name": "Cyber Essentials Plus",
+          "weight": 6
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
           "weight": 12
+        },
+        {
+          "id": "fips-140-3",
+          "name": "FIPS 140-3",
+          "weight": 6
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "hitrust-csf",
+          "name": "HITRUST",
+          "weight": 8
+        },
+        {
+          "id": "irap",
+          "name": "IRAP",
+          "weight": 4
+        },
+        {
+          "id": "ismap",
+          "name": "ISMAP",
+          "weight": 4
+        },
+        {
+          "id": "iso-22301",
+          "name": "ISO 22301",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "nist-800-53",
+          "name": "NIST 800-53",
+          "weight": 4
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        },
+        {
+          "id": "tisax",
+          "name": "TISAX",
+          "weight": 4
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: FedRAMP High.",
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR, Cyber Essentials Plus, EU-US DPF, FedRAMP High, FIPS 140-3, GDPR +14.",
       "founded_year": 2008,
       "founded_source": "https://en.wikipedia.org/wiki/Zscaler",
       "instruments": {
@@ -21813,13 +22707,61 @@
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
-        "SOC 2 Type II"
+        "CCPA",
+        "Cyber Essentials Plus",
+        "FedRAMP Moderate",
+        "GovRAMP",
+        "ISO 27001",
+        "PCI DSS",
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "TX-RAMP"
       ],
       "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "cyber-essentials-plus",
+          "name": "Cyber Essentials Plus",
+          "weight": 6
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
+        },
+        {
+          "id": "govramp",
+          "name": "GovRAMP",
+          "weight": 9
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
         {
           "id": "soc-2-type-ii",
           "name": "SOC 2 Type II",
           "weight": 10
+        },
+        {
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: SOC 2 Type II.",
@@ -22021,16 +22963,28 @@
       "probed": 14,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
-        "FedRAMP Moderate"
+        "DORA",
+        "FedRAMP Moderate",
+        "ISO 42001"
       ],
       "attestations": [
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
           "weight": 12
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: FedRAMP Moderate.",
+      "summary": "Official page on file. Marks cited from public HTML: DORA, FedRAMP Moderate, ISO 42001.",
       "founded_year": 1972,
       "founded_source": "https://en.wikipedia.org/wiki/SAP",
       "instruments": {
@@ -22142,18 +23096,35 @@
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
+        "CSA STAR",
+        "Cyber Essentials Plus",
         "FedRAMP",
         "FedRAMP Moderate",
         "GDPR",
         "HIPAA",
         "HITRUST",
         "IRAP",
+        "ISO 22301",
+        "ISO 27001",
+        "ISO 42001",
+        "ISO 9001",
         "PCI DSS",
         "SOC 1",
+        "SOC 1 Type II",
         "SOC 2 Type II",
         "SOC 3"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "cyber-essentials-plus",
+          "name": "Cyber Essentials Plus",
+          "weight": 6
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP",
@@ -22185,6 +23156,26 @@
           "weight": 4
         },
         {
+          "id": "iso-22301",
+          "name": "ISO 22301",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": "iso-9001",
+          "name": "ISO 9001",
+          "weight": 4
+        },
+        {
           "id": "pci-dss",
           "name": "PCI DSS",
           "weight": 8
@@ -22192,6 +23183,11 @@
         {
           "id": "soc-1-type-ii",
           "name": "SOC 1",
+          "weight": 4
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
           "weight": 4
         },
         {
@@ -22725,6 +23721,7 @@
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
         "CCPA",
+        "EU-US DPF",
         "FedRAMP",
         "FedRAMP Moderate",
         "GDPR",
@@ -22739,6 +23736,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
         },
         {
           "id": "fedramp",
@@ -23187,8 +24189,13 @@
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
         "CCPA",
+        "CSA STAR",
+        "DORA",
         "GDPR",
         "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "NIS2",
         "SOC 2"
       ],
       "attestations": [
@@ -23196,6 +24203,16 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
         },
         {
           "id": "gdpr",
@@ -23206,6 +24223,21 @@
           "id": "iso-27001",
           "name": "ISO 27001",
           "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "nis2",
+          "name": "NIS2",
+          "weight": 4
         },
         {
           "id": "soc-2-type-ii",
@@ -23382,6 +24414,7 @@
       "certs": [
         "C5",
         "CSA STAR",
+        "EU-US DPF",
         "FedRAMP Moderate",
         "HIPAA",
         "IRAP",
@@ -23398,6 +24431,11 @@
         {
           "id": "csa-star-l1",
           "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
           "weight": 4
         },
         {
@@ -23634,6 +24672,7 @@
         "CCPA",
         "CSA STAR",
         "Cyber Essentials",
+        "DORA",
         "GDPR",
         "HIPAA",
         "ISO 27001",
@@ -23656,6 +24695,11 @@
         {
           "id": "cyber-essentials",
           "name": "Cyber Essentials",
+          "weight": 4
+        },
+        {
+          "id": "dora",
+          "name": "DORA",
           "weight": 4
         },
         {
@@ -24784,13 +25828,79 @@
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
-        "FedRAMP Moderate"
+        "CSA STAR",
+        "EU-US DPF",
+        "FedRAMP Moderate",
+        "GovRAMP",
+        "IRAP",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27701",
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "SOC 3"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
           "weight": 12
+        },
+        {
+          "id": "govramp",
+          "name": "GovRAMP",
+          "weight": 9
+        },
+        {
+          "id": "irap",
+          "name": "IRAP",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
         }
       ],
       "summary": "Public trust center on file.",
@@ -24986,13 +26096,115 @@
       "probed": 2,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
-        "FedRAMP High"
+        "CSA STAR",
+        "DORA",
+        "EU-US DPF",
+        "FedRAMP High",
+        "FedRAMP Moderate",
+        "GDPR",
+        "GovRAMP",
+        "HIPAA",
+        "IRAP",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "NIST 800-53",
+        "PCI DSS",
+        "SOC 1",
+        "SOC 2",
+        "SOC 3",
+        "TISAX"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
           "weight": 12
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "govramp",
+          "name": "GovRAMP",
+          "weight": 9
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "irap",
+          "name": "IRAP",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "nist-800-53",
+          "name": "NIST 800-53",
+          "weight": 4
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        },
+        {
+          "id": "tisax",
+          "name": "TISAX",
+          "weight": 4
         }
       ],
       "summary": "Public trust center on file.",
@@ -26363,16 +27575,70 @@
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
-        "FedRAMP High"
+        "CCPA",
+        "Cyber Essentials Plus",
+        "FedRAMP High",
+        "GDPR",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "PCI DSS",
+        "SOC 2 Type II",
+        "TX-RAMP"
       ],
       "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "cyber-essentials-plus",
+          "name": "Cyber Essentials Plus",
+          "weight": 6
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
           "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
+          "weight": 4
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: FedRAMP High.",
+      "summary": "Official page on file. Marks cited from public HTML: CCPA, Cyber Essentials Plus, FedRAMP High, GDPR, ISO 27001, ISO 27017 +4.",
       "founded_year": 2013,
       "founded_source": "https://en.wikipedia.org/wiki/SentinelOne",
       "instruments": {
@@ -26874,16 +28140,28 @@
       "probed": 14,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
+        "CCPA",
+        "EU-US DPF",
         "FedRAMP High"
       ],
       "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
           "weight": 12
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: FedRAMP High.",
+      "summary": "Official page on file. Marks cited from public HTML: CCPA, EU-US DPF, FedRAMP High.",
       "founded_year": 1911,
       "founded_source": "https://en.wikipedia.org/wiki/IBM",
       "instruments": {
@@ -27527,19 +28805,55 @@
       "probed": 13,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
+        "CCPA",
+        "CSA STAR",
         "GDPR",
-        "SOC 2"
+        "ISO 27001",
+        "ISO 27701",
+        "ISO 42001",
+        "SOC 2",
+        "SOC 2 Type II"
       ],
       "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "gdpr",
           "name": "GDPR",
           "weight": 3
         },
         {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
           "id": "soc-2-type-ii",
           "name": "SOC 2",
           "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
       "summary": "Public trust center. On file: SOC 2, GDPR.",
@@ -27744,9 +29058,27 @@
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
         "SOC 2 Type II"
       ],
       "attestations": [
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
         {
           "id": "soc-2-type-ii",
           "name": "SOC 2 Type II",
@@ -27947,7 +29279,7 @@
         {
           "id": "cyber-essentials-plus",
           "name": "Cyber Essentials Plus",
-          "weight": 4
+          "weight": 6
         },
         {
           "id": "gdpr",
@@ -28125,13 +29457,55 @@
       "probed": 2,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
-        "FedRAMP 20x Low"
+        "FedRAMP 20x Low",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27701",
+        "ISO 42001",
+        "SOC 2 Type II",
+        "TX-RAMP"
       ],
       "attestations": [
         {
           "id": "fedramp",
           "name": "FedRAMP 20x Low",
           "weight": 12
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
+          "weight": 4
         }
       ],
       "summary": "Public trust center on file.",
@@ -28236,13 +29610,97 @@
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
-        "FedRAMP Moderate"
+        "CCPA",
+        "CMMC",
+        "CSA STAR",
+        "Cyber Essentials Plus",
+        "DORA",
+        "FedRAMP Moderate",
+        "GDPR",
+        "GovRAMP",
+        "ISO 27001",
+        "ISO 27701",
+        "ISO 42001",
+        "NIS2",
+        "PIPEDA",
+        "SOC 2",
+        "TX-RAMP"
       ],
       "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "cmmc-l2",
+          "name": "CMMC",
+          "weight": 8
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "cyber-essentials-plus",
+          "name": "Cyber Essentials Plus",
+          "weight": 6
+        },
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
           "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "govramp",
+          "name": "GovRAMP",
+          "weight": 9
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": "nis2",
+          "name": "NIS2",
+          "weight": 4
+        },
+        {
+          "id": "pipeda",
+          "name": "PIPEDA",
+          "weight": 3
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        },
+        {
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
+          "weight": 4
         }
       ],
       "summary": "Public trust center on file.",
@@ -28396,13 +29854,91 @@
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
-        "FedRAMP High"
+        "CSA STAR",
+        "Cyber Essentials",
+        "DORA",
+        "EU-US DPF",
+        "FedRAMP High",
+        "GDPR",
+        "GovRAMP",
+        "ISO 22301",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 42001",
+        "PCI DSS",
+        "SOC 2",
+        "TISAX"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "cyber-essentials",
+          "name": "Cyber Essentials",
+          "weight": 4
+        },
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
           "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "govramp",
+          "name": "GovRAMP",
+          "weight": 9
+        },
+        {
+          "id": "iso-22301",
+          "name": "ISO 22301",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        },
+        {
+          "id": "tisax",
+          "name": "TISAX",
+          "weight": 4
         }
       ],
       "summary": "Public trust center on file.",
@@ -29334,12 +30870,108 @@
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
-        "ISMAP"
+        "CCPA",
+        "CSA STAR",
+        "Cyber Essentials Plus",
+        "FedRAMP High",
+        "GDPR",
+        "HIPAA",
+        "IRAP",
+        "ISMAP",
+        "ISO 22301",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 42001",
+        "ISO 9001",
+        "PCI DSS",
+        "SOC 2",
+        "SOC 3"
       ],
       "attestations": [
         {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "cyber-essentials-plus",
+          "name": "Cyber Essentials Plus",
+          "weight": 6
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP High",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "irap",
+          "name": "IRAP",
+          "weight": 4
+        },
+        {
           "id": "ismap",
           "name": "ISMAP",
+          "weight": 4
+        },
+        {
+          "id": "iso-22301",
+          "name": "ISO 22301",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": "iso-9001",
+          "name": "ISO 9001",
+          "weight": 4
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
           "weight": 4
         }
       ],
@@ -29820,7 +31452,9 @@
         "FedRAMP Moderate",
         "GDPR",
         "HIPAA",
+        "PCI DSS",
         "SOC 1",
+        "SOC 1 Type II",
         "SOC 2 Type II",
         "SOC 3"
       ],
@@ -29846,8 +31480,18 @@
           "weight": 6
         },
         {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
           "id": "soc-1-type-ii",
           "name": "SOC 1",
+          "weight": 4
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
           "weight": 4
         },
         {
@@ -30061,11 +31705,17 @@
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
+        "EU-US DPF",
         "PCI DSS",
         "SOC 1 Type II",
         "SOC 2 Type II"
       ],
       "attestations": [
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
         {
           "id": "pci-dss",
           "name": "PCI DSS",
@@ -30504,7 +32154,9 @@
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
         "HIPAA",
+        "ISO 27001",
         "PCI DSS",
+        "SOC 2 Type I",
         "SOC 2 Type II"
       ],
       "attestations": [
@@ -30514,9 +32166,19 @@
           "weight": 6
         },
         {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
           "id": "pci-dss",
           "name": "PCI DSS",
           "weight": 8
+        },
+        {
+          "id": "soc-2-type-i",
+          "name": "SOC 2 Type I",
+          "weight": 4
         },
         {
           "id": "soc-2-type-ii",
@@ -30665,13 +32327,73 @@
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
-        "FedRAMP"
+        "CSA STAR",
+        "EU-US DPF",
+        "FedRAMP",
+        "FedRAMP High",
+        "GDPR",
+        "ISO 22301",
+        "ISO 27001",
+        "PCI DSS",
+        "SOC 2",
+        "TISAX",
+        "TX-RAMP"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP",
           "weight": 12
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP High",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "iso-22301",
+          "name": "ISO 22301",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        },
+        {
+          "id": "tisax",
+          "name": "TISAX",
+          "weight": 4
+        },
+        {
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
+          "weight": 4
         }
       ],
       "summary": "Public trust center. On file: FedRAMP.",
@@ -32069,9 +33791,23 @@
       "source": "public-enterprise",
       "probed": 13,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "SOC 1",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: SOC 1, SOC 2 Type II.",
       "founded_year": 2006,
       "founded_source": "https://en.wikipedia.org/wiki/Bill.com",
       "instruments": {
@@ -32109,7 +33845,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": true
@@ -34223,9 +35959,17 @@
       "source": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
       "probed": 5,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "PCI DSS"
+      ],
+      "attestations": [
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: PCI DSS.",
       "founded_year": 1926,
       "founded_source": "https://en.wikipedia.org/wiki/Nationwide_Mutual_Insurance_Company",
       "instruments": {
@@ -34263,7 +36007,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": true
@@ -34855,9 +36599,89 @@
       "source": "https://en.wikipedia.org/wiki/Trimble_Inc.",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CMMC",
+        "Cyber Essentials Plus",
+        "GovRAMP",
+        "ISO 27001",
+        "ISO 27701",
+        "ISO 9001",
+        "NIST 800-171",
+        "SOC 1 Type I",
+        "SOC 1 Type II",
+        "SOC 2 Type I",
+        "SOC 2 Type II",
+        "SOC 3",
+        "TX-RAMP"
+      ],
+      "attestations": [
+        {
+          "id": "cmmc-l2",
+          "name": "CMMC",
+          "weight": 8
+        },
+        {
+          "id": "cyber-essentials-plus",
+          "name": "Cyber Essentials Plus",
+          "weight": 6
+        },
+        {
+          "id": "govramp",
+          "name": "GovRAMP",
+          "weight": 9
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "iso-9001",
+          "name": "ISO 9001",
+          "weight": 4
+        },
+        {
+          "id": "nist-800-171",
+          "name": "NIST 800-171",
+          "weight": 5
+        },
+        {
+          "id": "soc-1-type-i",
+          "name": "SOC 1 Type I",
+          "weight": 4
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-i",
+          "name": "SOC 2 Type I",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        },
+        {
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CMMC, Cyber Essentials Plus, GovRAMP, ISO 27001, ISO 27701, ISO 9001 +7.",
       "founded_year": 1978,
       "founded_source": "https://en.wikipedia.org/wiki/Trimble_Inc.",
       "instruments": {
@@ -34895,7 +36719,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": true
@@ -34983,9 +36807,17 @@
       "source": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
       "probed": 23,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "GDPR"
+      ],
+      "attestations": [
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: GDPR.",
       "founded_year": 1980,
       "founded_source": "https://en.wikipedia.org/wiki/BMC_Software",
       "instruments": {
@@ -35035,7 +36867,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": true,
         "subprocessors": false,
         "years": true
@@ -35059,9 +36891,23 @@
       "source": "https://en.wikipedia.org/wiki/List_of_the_largest_software_companies",
       "probed": 23,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "GDPR",
+        "ISO 27701"
+      ],
+      "attestations": [
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: GDPR, ISO 27701.",
       "founded_year": 1981,
       "founded_source": "https://en.wikipedia.org/wiki/Dassault_Systèmes",
       "instruments": {
@@ -35099,7 +36945,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": true
@@ -35123,9 +36969,29 @@
       "source": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CCPA",
+        "HIPAA",
+        "SOC 2"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CCPA, HIPAA, SOC 2.",
       "founded_year": 1982,
       "founded_source": "https://en.wikipedia.org/wiki/The_Cigna_Group",
       "instruments": {
@@ -35171,7 +37037,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": true
@@ -35195,9 +37061,53 @@
       "source": "https://en.wikipedia.org/wiki/List_of_Fortune_500_computer_software_and_information_companies",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CCPA",
+        "CMMC",
+        "HIPAA",
+        "ISO 27001",
+        "ISO 9001",
+        "PCI DSS",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "cmmc-l2",
+          "name": "CMMC",
+          "weight": 8
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-9001",
+          "name": "ISO 9001",
+          "weight": 4
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CCPA, CMMC, HIPAA, ISO 27001, ISO 9001, PCI DSS +1.",
       "founded_year": 1984,
       "founded_source": "https://en.wikipedia.org/wiki/CDW",
       "instruments": {
@@ -35243,7 +37153,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": true,
         "subprocessors": false,
         "years": true
@@ -35516,9 +37426,23 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 13,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CMMC",
+        "NIS2"
+      ],
+      "attestations": [
+        {
+          "id": "cmmc-l2",
+          "name": "CMMC",
+          "weight": 8
+        },
+        {
+          "id": "nis2",
+          "name": "NIS2",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CMMC, NIS2.",
       "founded_year": 1985,
       "founded_source": "https://en.wikipedia.org/wiki/Sophos",
       "instruments": {
@@ -35568,7 +37492,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": true,
         "subprocessors": false,
         "years": true
@@ -35592,9 +37516,41 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "Cyber Essentials Plus",
+        "GDPR",
+        "ISO 27001",
+        "SOC 1",
+        "SOC 2 Type I"
+      ],
+      "attestations": [
+        {
+          "id": "cyber-essentials-plus",
+          "name": "Cyber Essentials Plus",
+          "weight": 6
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-i",
+          "name": "SOC 2 Type I",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: Cyber Essentials Plus, GDPR, ISO 27001, SOC 1, SOC 2 Type I.",
       "founded_year": 1986,
       "founded_source": "https://en.wikipedia.org/wiki/Kainos",
       "instruments": {
@@ -35636,7 +37592,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": true
@@ -35724,9 +37680,53 @@
       "source": "https://cloudindex.bvp.com/companies",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "PCI DSS",
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "SOC 3"
+      ],
+      "attestations": [
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: ISO 27001, ISO 27017, ISO 27018, PCI DSS, SOC 1 Type II, SOC 2 Type II +1.",
       "founded_year": 1987,
       "founded_source": "https://en.wikipedia.org/wiki/SPS_Commerce",
       "instruments": {
@@ -35768,7 +37768,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": true
@@ -35911,9 +37911,23 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. Named processors filed from a first-party list.",
+      "certs": [
+        "FIPS 140-3",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "fips-140-3",
+          "name": "FIPS 140-3",
+          "weight": 6
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: FIPS 140-3, SOC 2 Type II.",
       "founded_year": 1991,
       "founded_source": "https://en.wikipedia.org/wiki/SonicWall",
       "instruments": {
@@ -36036,7 +38050,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": true,
         "years": true
@@ -36061,9 +38075,47 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "Cyber Essentials Plus",
+        "DORA",
+        "GDPR",
+        "ISO 27001",
+        "ISO 9001",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "cyber-essentials-plus",
+          "name": "Cyber Essentials Plus",
+          "weight": 6
+        },
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-9001",
+          "name": "ISO 9001",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: Cyber Essentials Plus, DORA, GDPR, ISO 27001, ISO 9001, SOC 2 Type II.",
       "founded_year": 1992,
       "founded_source": "https://en.wikipedia.org/wiki/ESET",
       "instruments": {
@@ -36105,7 +38157,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": true
@@ -36129,9 +38181,77 @@
       "source": "https://en.wikipedia.org/wiki/List_of_the_largest_software_companies",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CCPA",
+        "Cyber Essentials",
+        "DORA",
+        "FIPS 140-3",
+        "GDPR",
+        "HIPAA",
+        "ISO 27001",
+        "ISO 9001",
+        "PCI DSS",
+        "SOC 2 Type II",
+        "TX-RAMP"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "cyber-essentials",
+          "name": "Cyber Essentials",
+          "weight": 4
+        },
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
+        },
+        {
+          "id": "fips-140-3",
+          "name": "FIPS 140-3",
+          "weight": 6
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-9001",
+          "name": "ISO 9001",
+          "weight": 4
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CCPA, Cyber Essentials, DORA, FIPS 140-3, GDPR, HIPAA +5.",
       "founded_year": 1992,
       "founded_source": "https://en.wikipedia.org/wiki/NetApp",
       "instruments": {
@@ -36169,7 +38289,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": true
@@ -36478,9 +38598,29 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "ISO 27001",
+        "ISO 27701",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: ISO 27001, ISO 27701, SOC 2 Type II.",
       "founded_year": 1998,
       "founded_source": "https://en.wikipedia.org/wiki/ON24",
       "instruments": {
@@ -36518,7 +38658,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": true
@@ -36542,9 +38682,77 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CCPA",
+        "FedRAMP Moderate",
+        "GDPR",
+        "GovRAMP",
+        "HIPAA",
+        "IRAP",
+        "ISO 27001",
+        "NIST CSF",
+        "PCI DSS",
+        "SOC 2",
+        "SOC 3"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "govramp",
+          "name": "GovRAMP",
+          "weight": 9
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "irap",
+          "name": "IRAP",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "nist-csf",
+          "name": "NIST CSF",
+          "weight": 4
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CCPA, FedRAMP Moderate, GDPR, GovRAMP, HIPAA, IRAP +5.",
       "founded_year": 1999,
       "founded_source": "https://en.wikipedia.org/wiki/Infoblox",
       "instruments": {
@@ -36649,9 +38857,53 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 5,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "GDPR",
+        "IRAP",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "NIST CSF",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "irap",
+          "name": "IRAP",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "nist-csf",
+          "name": "NIST CSF",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: GDPR, IRAP, ISO 27001, ISO 27017, ISO 27018, NIST CSF +1.",
       "founded_year": 2000,
       "founded_source": "https://en.wikipedia.org/wiki/Nuix",
       "instruments": {
@@ -36697,7 +38949,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": true
@@ -36982,15 +39234,22 @@
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
+        "DORA",
         "GDPR",
         "HIPAA",
         "ISO 27001",
         "ISO 27017",
         "ISO 27018",
         "ISO 9001",
+        "NIS2",
         "SOC 2 Type II"
       ],
       "attestations": [
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
+        },
         {
           "id": "gdpr",
           "name": "GDPR",
@@ -37022,12 +39281,17 @@
           "weight": 4
         },
         {
+          "id": "nis2",
+          "name": "NIS2",
+          "weight": 4
+        },
+        {
           "id": "soc-2-type-ii",
           "name": "SOC 2 Type II",
           "weight": 10
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: GDPR, HIPAA, ISO 27001, ISO 27017, ISO 27018, ISO 9001 +1.",
+      "summary": "Official page on file. Marks cited from public HTML: DORA, GDPR, HIPAA, ISO 27001, ISO 27017, ISO 27018 +3.",
       "founded_year": 2001,
       "founded_source": "https://en.wikipedia.org/wiki/Bitdefender",
       "instruments": {
@@ -37240,7 +39504,8 @@
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
         "GDPR",
-        "HIPAA"
+        "HIPAA",
+        "NIS2"
       ],
       "attestations": [
         {
@@ -37252,9 +39517,14 @@
           "id": "hipaa",
           "name": "HIPAA",
           "weight": 6
+        },
+        {
+          "id": "nis2",
+          "name": "NIS2",
+          "weight": 4
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: GDPR, HIPAA.",
+      "summary": "Official page on file. Marks cited from public HTML: GDPR, HIPAA, NIS2.",
       "founded_year": 2003,
       "founded_source": "https://en.wikipedia.org/wiki/Acronis",
       "instruments": {
@@ -37388,9 +39658,77 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CCPA",
+        "Cyber Essentials Plus",
+        "GDPR",
+        "HIPAA",
+        "ISO 22301",
+        "ISO 27001",
+        "ISO 27701",
+        "ISO 42001",
+        "PIPEDA",
+        "SOC 2 Type II",
+        "TISAX"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "cyber-essentials-plus",
+          "name": "Cyber Essentials Plus",
+          "weight": 6
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "iso-22301",
+          "name": "ISO 22301",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": "pipeda",
+          "name": "PIPEDA",
+          "weight": 3
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "tisax",
+          "name": "TISAX",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CCPA, Cyber Essentials Plus, GDPR, HIPAA, ISO 22301, ISO 27001 +5.",
       "founded_year": 2003,
       "founded_source": "https://en.wikipedia.org/wiki/Mimecast",
       "instruments": {
@@ -37488,22 +39826,52 @@
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
+        "EU-US DPF",
         "FedRAMP",
-        "SOC 2"
+        "FedRAMP Moderate",
+        "ISO 27001",
+        "SOC 1 Type II",
+        "SOC 2",
+        "SOC 2 Type II"
       ],
       "attestations": [
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP",
           "weight": 12
         },
         {
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
           "id": "soc-2-type-ii",
           "name": "SOC 2",
           "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: FedRAMP, SOC 2.",
+      "summary": "Official page on file. Marks cited from public HTML: EU-US DPF, FedRAMP, FedRAMP Moderate, ISO 27001, SOC 1 Type II, SOC 2 +1.",
       "founded_year": 2003,
       "founded_source": "https://en.wikipedia.org/wiki/Procore",
       "instruments": {
@@ -37581,9 +39949,89 @@
       "source": "https://en.wikipedia.org/wiki/List_of_the_largest_software_companies",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CCPA",
+        "Cyber Essentials Plus",
+        "GDPR",
+        "HIPAA",
+        "HITRUST",
+        "ISO 22301",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "PIPEDA",
+        "SOC 2 Type I",
+        "SOC 2 Type II",
+        "SOC 3"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "cyber-essentials-plus",
+          "name": "Cyber Essentials Plus",
+          "weight": 6
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "hitrust-csf",
+          "name": "HITRUST",
+          "weight": 8
+        },
+        {
+          "id": "iso-22301",
+          "name": "ISO 22301",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "pipeda",
+          "name": "PIPEDA",
+          "weight": 3
+        },
+        {
+          "id": "soc-2-type-i",
+          "name": "SOC 2 Type I",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CCPA, Cyber Essentials Plus, GDPR, HIPAA, HITRUST, ISO 22301 +7.",
       "founded_year": 2003,
       "founded_source": "https://en.wikipedia.org/wiki/RingCentral",
       "instruments": {
@@ -37629,7 +40077,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": true,
         "subprocessors": false,
         "years": true
@@ -37653,9 +40101,23 @@
       "source": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "Cyber Essentials Plus",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "cyber-essentials-plus",
+          "name": "Cyber Essentials Plus",
+          "weight": 6
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: Cyber Essentials Plus, SOC 2 Type II.",
       "founded_year": 2004,
       "founded_source": "https://en.wikipedia.org/wiki/Arista_Networks",
       "instruments": {
@@ -37697,7 +40159,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": true
@@ -37724,12 +40186,15 @@
       "certs": [
         "CCPA",
         "CSA STAR",
+        "DORA",
         "GDPR",
         "HIPAA",
         "ISO 22301",
         "ISO 27001",
         "ISO 27018",
+        "ISO 27032",
         "ISO 27701",
+        "NIS2",
         "SOC 2 Type II",
         "SOC 3"
       ],
@@ -37742,6 +40207,11 @@
         {
           "id": "csa-star-l1",
           "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "dora",
+          "name": "DORA",
           "weight": 4
         },
         {
@@ -37770,9 +40240,19 @@
           "weight": 4
         },
         {
+          "id": null,
+          "name": "ISO 27032",
+          "weight": 4
+        },
+        {
           "id": "iso-27701",
           "name": "ISO 27701",
           "weight": 6
+        },
+        {
+          "id": "nis2",
+          "name": "NIS2",
+          "weight": 4
         },
         {
           "id": "soc-2-type-ii",
@@ -37785,7 +40265,7 @@
           "weight": 4
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: CCPA, CSA STAR, GDPR, HIPAA, ISO 22301, ISO 27001 +4.",
+      "summary": "Official page on file. Marks cited from public HTML: CCPA, CSA STAR, DORA, GDPR, HIPAA, ISO 22301 +7.",
       "founded_year": 2004,
       "founded_source": "https://en.wikipedia.org/wiki/Nebius_Group",
       "instruments": {
@@ -38175,9 +40655,53 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. Named processors filed from a first-party list.",
+      "certs": [
+        "FedRAMP Moderate",
+        "GDPR",
+        "GovRAMP",
+        "ISO 42001",
+        "NIST 800-53",
+        "SOC 2",
+        "TX-RAMP"
+      ],
+      "attestations": [
+        {
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "govramp",
+          "name": "GovRAMP",
+          "weight": 9
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": "nist-800-53",
+          "name": "NIST 800-53",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        },
+        {
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: FedRAMP Moderate, GDPR, GovRAMP, ISO 42001, NIST 800-53, SOC 2 +1.",
       "founded_year": 2006,
       "founded_source": "https://en.wikipedia.org/wiki/Veracode",
       "instruments": {
@@ -38350,9 +40874,41 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 5,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CCPA",
+        "GDPR",
+        "HIPAA",
+        "PCI DSS",
+        "SOC 2"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CCPA, GDPR, HIPAA, PCI DSS, SOC 2.",
       "founded_year": 2006,
       "founded_source": "https://en.wikipedia.org/wiki/Yext",
       "instruments": {
@@ -38398,7 +40954,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": true,
         "subprocessors": false,
         "years": true
@@ -38423,9 +40979,41 @@
       "source": "https://en.wikipedia.org/wiki/List_of_the_largest_software_companies",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR",
+        "HIPAA",
+        "HITRUST",
+        "ISO 27001",
+        "PCI DSS"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "hitrust-csf",
+          "name": "HITRUST",
+          "weight": 8
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR, HIPAA, HITRUST, ISO 27001, PCI DSS.",
       "founded_year": 2007,
       "founded_source": "https://en.wikipedia.org/wiki/Broadridge_Financial_Solutions",
       "instruments": {
@@ -38467,7 +41055,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": true
@@ -38491,9 +41079,47 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR",
+        "DORA",
+        "FedRAMP Moderate",
+        "HIPAA",
+        "SOC 2 Type II",
+        "SOC 3"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR, DORA, FedRAMP Moderate, HIPAA, SOC 2 Type II, SOC 3.",
       "founded_year": 2007,
       "founded_source": "https://en.wikipedia.org/wiki/ExtraHop_Networks",
       "instruments": {
@@ -38677,9 +41303,23 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "GDPR",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: GDPR, SOC 2 Type II.",
       "founded_year": 2008,
       "founded_source": "https://en.wikipedia.org/wiki/Zeta_Global",
       "instruments": {
@@ -38713,7 +41353,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": true
@@ -38801,9 +41441,101 @@
       "source": "https://cloudindex.bvp.com/companies",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CCPA",
+        "CSA STAR",
+        "Cyber Essentials",
+        "DORA",
+        "EU-US DPF",
+        "FedRAMP LI-SaaS",
+        "GDPR",
+        "HIPAA",
+        "ISO 27001",
+        "LGPD",
+        "PCI DSS",
+        "SOC 1",
+        "SOC 2",
+        "SOC 3",
+        "TISAX"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "cyber-essentials",
+          "name": "Cyber Essentials",
+          "weight": 4
+        },
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
+        {
+          "id": "fedramp-li-saas",
+          "name": "FedRAMP LI-SaaS",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "lgpd",
+          "name": "LGPD",
+          "weight": 3
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        },
+        {
+          "id": "tisax",
+          "name": "TISAX",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CCPA, CSA STAR, Cyber Essentials, DORA, EU-US DPF, FedRAMP LI-SaaS +9.",
       "founded_year": 2009,
       "founded_source": "https://en.wikipedia.org/wiki/Sprinklr",
       "instruments": {
@@ -38853,7 +41585,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": true,
         "years": true
@@ -39094,7 +41826,9 @@
         "C5",
         "CSA STAR",
         "Cyber Essentials",
+        "Cyber Essentials Plus",
         "FedRAMP Moderate",
+        "GovRAMP",
         "HITRUST",
         "IRAP",
         "ISMAP",
@@ -39123,9 +41857,19 @@
           "weight": 4
         },
         {
+          "id": "cyber-essentials-plus",
+          "name": "Cyber Essentials Plus",
+          "weight": 6
+        },
+        {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
           "weight": 12
+        },
+        {
+          "id": "govramp",
+          "name": "GovRAMP",
+          "weight": 9
         },
         {
           "id": "hitrust-csf",
@@ -39178,7 +41922,7 @@
           "weight": 4
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: C5, CSA STAR, Cyber Essentials, FedRAMP Moderate, HITRUST, IRAP +8.",
+      "summary": "Official page on file. Marks cited from public HTML: C5, CSA STAR, Cyber Essentials, Cyber Essentials Plus, FedRAMP Moderate, GovRAMP +10.",
       "founded_year": 2011,
       "founded_source": "https://en.wikipedia.org/wiki/Zoom_Communications",
       "instruments": {
@@ -39637,9 +42381,29 @@
       "source": "https://en.wikipedia.org/wiki/List_of_Fortune_500_computer_software_and_information_companies",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "PCI DSS",
+        "SOC 1 Type II",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: PCI DSS, SOC 1 Type II, SOC 2 Type II.",
       "founded_year": 2012,
       "founded_source": "https://en.wikipedia.org/wiki/DoorDash",
       "instruments": {
@@ -39677,7 +42441,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": true
@@ -39770,9 +42534,59 @@
       "source": "https://en.wikipedia.org/wiki/NCino",
       "probed": 5,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR",
+        "DORA",
+        "ISO 27001",
+        "ISO 42001",
+        "PCI DSS",
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "SOC 3"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR, DORA, ISO 27001, ISO 42001, PCI DSS, SOC 1 Type II +2.",
       "founded_year": 2012,
       "founded_source": "https://en.wikipedia.org/wiki/NCino",
       "instruments": {
@@ -39810,7 +42624,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": true
@@ -39834,9 +42648,65 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 2,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CCPA",
+        "EU-US DPF",
+        "GDPR",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "SOC 1",
+        "SOC 2",
+        "SOC 3"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CCPA, EU-US DPF, GDPR, ISO 27001, ISO 27017, ISO 27018 +3.",
       "founded_year": 2012,
       "founded_source": "https://en.wikipedia.org/wiki/Riskified",
       "instruments": {
@@ -39878,7 +42748,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": true
@@ -39903,9 +42773,41 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "FedRAMP Moderate",
+        "ISO 27001",
+        "ISO 27701",
+        "PCI DSS",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: FedRAMP Moderate, ISO 27001, ISO 27701, PCI DSS, SOC 2 Type II.",
       "founded_year": 2013,
       "founded_source": "https://en.wikipedia.org/wiki/Illumio",
       "instruments": {
@@ -40396,9 +43298,29 @@
       "source": "https://companiesmarketcap.com/tech/largest-tech-companies-by-market-cap/",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CCPA",
+        "GDPR",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CCPA, GDPR, SOC 2 Type II.",
       "founded_year": 2016,
       "founded_source": "https://en.wikipedia.org/wiki/Cerebras_Systems",
       "instruments": {
@@ -40444,7 +43366,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": true
@@ -40616,9 +43538,23 @@
       "source": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "NIST CSF",
+        "SOC 2"
+      ],
+      "attestations": [
+        {
+          "id": "nist-csf",
+          "name": "NIST CSF",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: NIST CSF, SOC 2.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -40652,7 +43588,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -40831,9 +43767,41 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR",
+        "HIPAA",
+        "PCI DSS",
+        "SOC 2 Type II",
+        "SOC 3"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR, HIPAA, PCI DSS, SOC 2 Type II, SOC 3.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -40875,7 +43843,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -40899,9 +43867,119 @@
       "source": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR",
+        "Cyber Essentials Plus",
+        "EU-US DPF",
+        "FedRAMP High",
+        "GDPR",
+        "HIPAA",
+        "IRAP",
+        "ISO 20000-1",
+        "ISO 22301",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27701",
+        "ISO 42001",
+        "ISO 9001",
+        "NIS2",
+        "SOC 2",
+        "TX-RAMP"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "cyber-essentials-plus",
+          "name": "Cyber Essentials Plus",
+          "weight": 6
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP High",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "irap",
+          "name": "IRAP",
+          "weight": 4
+        },
+        {
+          "id": "iso-20000-1",
+          "name": "ISO 20000-1",
+          "weight": 4
+        },
+        {
+          "id": "iso-22301",
+          "name": "ISO 22301",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": "iso-9001",
+          "name": "ISO 9001",
+          "weight": 4
+        },
+        {
+          "id": "nis2",
+          "name": "NIS2",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        },
+        {
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR, Cyber Essentials Plus, EU-US DPF, FedRAMP High, GDPR, HIPAA +12.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -40935,7 +44013,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -41529,9 +44607,53 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CCPA",
+        "CMMC",
+        "GDPR",
+        "HIPAA",
+        "ISO 9001",
+        "SOC 1 Type II",
+        "SOC 2"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "cmmc-l2",
+          "name": "CMMC",
+          "weight": 8
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "iso-9001",
+          "name": "ISO 9001",
+          "weight": 4
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CCPA, CMMC, GDPR, HIPAA, ISO 9001, SOC 1 Type II +1.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -41565,7 +44687,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -41729,9 +44851,17 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "ISO 27001"
+      ],
+      "attestations": [
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: ISO 27001.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -41777,7 +44907,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -41924,8 +45054,10 @@
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
         "C5",
+        "EU-US DPF",
         "GDPR",
         "ISO 27001",
+        "PIPEDA",
         "SOC 1 Type II",
         "SOC 2 Type II"
       ],
@@ -41933,6 +45065,11 @@
         {
           "id": "c5",
           "name": "C5",
+          "weight": 4
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
           "weight": 4
         },
         {
@@ -41946,6 +45083,11 @@
           "weight": 10
         },
         {
+          "id": "pipeda",
+          "name": "PIPEDA",
+          "weight": 3
+        },
+        {
           "id": "soc-1-type-ii",
           "name": "SOC 1 Type II",
           "weight": 4
@@ -41956,7 +45098,7 @@
           "weight": 10
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: C5, GDPR, ISO 27001, SOC 1 Type II, SOC 2 Type II.",
+      "summary": "Official page on file. Marks cited from public HTML: C5, EU-US DPF, GDPR, ISO 27001, PIPEDA, SOC 1 Type II +1.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -42024,7 +45166,16 @@
       "probed_at": "2026-08-20T20:56:39Z",
       "certs": [
         "CCPA",
+        "CSA STAR",
+        "Cyber Essentials",
+        "EU-US DPF",
         "FedRAMP Moderate",
+        "GDPR",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27701",
+        "ISO 42001",
         "SOC 2 Type II",
         "SOC 3"
       ],
@@ -42035,9 +45186,54 @@
           "weight": 3
         },
         {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "cyber-essentials",
+          "name": "Cyber Essentials",
+          "weight": 4
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
+        {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
           "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
         },
         {
           "id": "soc-2-type-ii",
@@ -42050,7 +45246,7 @@
           "weight": 4
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: CCPA, FedRAMP Moderate, SOC 2 Type II, SOC 3.",
+      "summary": "Official page on file. Marks cited from public HTML: CCPA, CSA STAR, Cyber Essentials, EU-US DPF, FedRAMP Moderate, GDPR +7.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -42219,9 +45415,23 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "GDPR",
+        "ISO 27001"
+      ],
+      "attestations": [
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: GDPR, ISO 27001.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -42255,7 +45465,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -42279,9 +45489,59 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "DORA",
+        "EU-US DPF",
+        "GDPR",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 9001",
+        "PCI DSS",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-9001",
+          "name": "ISO 9001",
+          "weight": 4
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: DORA, EU-US DPF, GDPR, ISO 27001, ISO 27017, ISO 9001 +2.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -42319,7 +45579,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -42343,9 +45603,77 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 5,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR",
+        "FedRAMP Moderate",
+        "GDPR",
+        "GovRAMP",
+        "IRAP",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27701",
+        "PCI DSS",
+        "SOC 2"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "govramp",
+          "name": "GovRAMP",
+          "weight": 9
+        },
+        {
+          "id": "irap",
+          "name": "IRAP",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR, FedRAMP Moderate, GDPR, GovRAMP, IRAP, ISO 27001 +5.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -42442,9 +45770,47 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CCPA",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 42001",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CCPA, ISO 27001, ISO 27017, ISO 27018, ISO 42001, SOC 2 Type II.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -42502,7 +45868,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": true,
         "subprocessors": true,
         "years": false
@@ -42586,9 +45952,23 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 13,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "GDPR",
+        "ISO 27001"
+      ],
+      "attestations": [
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: GDPR, ISO 27001.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -42642,7 +46022,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": true,
         "subprocessors": false,
         "years": false
@@ -42738,9 +46118,53 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 8,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CCPA",
+        "Cyber Essentials Plus",
+        "GDPR",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 9001"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "cyber-essentials-plus",
+          "name": "Cyber Essentials Plus",
+          "weight": 6
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "iso-9001",
+          "name": "ISO 9001",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CCPA, Cyber Essentials Plus, GDPR, ISO 27001, ISO 27017, ISO 27018 +1.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -42782,7 +46206,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -42960,9 +46384,41 @@
       "source": "https://en.wikipedia.org/wiki/Sage_Group",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "HIPAA",
+        "ISO 27001",
+        "PCI DSS",
+        "SOC 1 Type I",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-1-type-i",
+          "name": "SOC 1 Type I",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: HIPAA, ISO 27001, PCI DSS, SOC 1 Type I, SOC 2 Type II.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -43008,7 +46464,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -43092,9 +46548,47 @@
       "source": "https://cloudindex.bvp.com/companies",
       "probed": 2,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "ISO 27001",
+        "ISO 27018",
+        "ISO 27701",
+        "PCI DSS",
+        "SOC 1",
+        "SOC 2"
+      ],
+      "attestations": [
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: ISO 27001, ISO 27018, ISO 27701, PCI DSS, SOC 1, SOC 2.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -43144,7 +46638,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -43168,9 +46662,47 @@
       "source": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "probed": 2,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CCPA",
+        "ISO 27001",
+        "ISO 42001",
+        "PCI DSS",
+        "SOC 2",
+        "SOC 3"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CCPA, ISO 27001, ISO 42001, PCI DSS, SOC 2, SOC 3.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -43208,7 +46740,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -43433,9 +46965,14 @@
         "GDPR",
         "HIPAA",
         "ISO 27001",
+        "ISO 27701",
+        "LGPD",
         "PCI DSS",
+        "PIPEDA",
         "SOC 1",
-        "SOC 2"
+        "SOC 1 Type II",
+        "SOC 2",
+        "SOC 2 Type II"
       ],
       "attestations": [
         {
@@ -43459,9 +46996,24 @@
           "weight": 10
         },
         {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "lgpd",
+          "name": "LGPD",
+          "weight": 3
+        },
+        {
           "id": "pci-dss",
           "name": "PCI DSS",
           "weight": 8
+        },
+        {
+          "id": "pipeda",
+          "name": "PIPEDA",
+          "weight": 3
         },
         {
           "id": "soc-1-type-ii",
@@ -43469,12 +47021,22 @@
           "weight": 4
         },
         {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
           "id": "soc-2-type-ii",
           "name": "SOC 2",
           "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: CCPA, GDPR, HIPAA, ISO 27001, PCI DSS, SOC 1 +1.",
+      "summary": "Official page on file. Marks cited from public HTML: CCPA, GDPR, HIPAA, ISO 27001, ISO 27701, LGPD +6.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -43544,9 +47106,29 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 1,
       "probed_at": "2026-08-20T20:56:39Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "GDPR",
+        "ISO 27001",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: GDPR, ISO 27001, SOC 2 Type II.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -43588,7 +47170,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": true,
         "subprocessors": false,
         "years": false
@@ -86925,7 +90507,7 @@
   "coverage": {
     "companies": 1116,
     "years": 306,
-    "certs_companies": 216,
+    "certs_companies": 261,
     "edges": 1233,
     "top_processors": [
       {
