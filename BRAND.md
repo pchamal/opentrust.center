@@ -160,9 +160,9 @@ Dossier issue line: issue date and last probed. Do not print the register census
 
 Below the fold: FedRAMP marketplace table, named processors, clerk summary, last probed, Report a correction, permalink.
 
-FedRAMP: cite the marketplace (`Filed from the FedRAMP Marketplace`, linked). No “not a badge,” no “not a score,” no disclaimer. Ruled table: offering, status, impact, auth date. Empty cells italic `not on file`. Status words are facts (authorized, in process, not on file), not a color grade. Missing is inconclusive.
+FedRAMP: cite the marketplace (`Filed from the FedRAMP Marketplace`, linked). No “not a badge,” no “not a score,” no disclaimer. Ruled table: offering, status, impact, auth date. Empty cells italic `not on file`. Status words are facts (authorized, in process, not yet certified, not on file), not a color grade. Not-yet-certified / initial-implementation listings stay on file. A marketplace row is never four invented misses. Missing is inconclusive.
 
-Named processors: ruled table of names as published. Italic `not on file` if the list is absent. No smear sentences. No `+N`. What does not fit continues below. No graph, orbs, or risk coloring. Fig. 1 stays on `/graph`.
+Named processors: ruled table of names as published. If the list URL is on file and names were not extracted: `list on file · names not extracted` plus the source URL. Italic `not on file` only when the list itself is absent. Never a false miss. No smear sentences. No `+N`. What does not fit continues below. No graph, orbs, or risk coloring. Fig. 1 stays on `/graph`.
 
 Spine stays on the identity block only. Do not add a second spine on FedRAMP or named processors.
 

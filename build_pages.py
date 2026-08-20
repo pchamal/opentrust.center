@@ -562,11 +562,9 @@ def public_fedramp(raw) -> dict | None:
         return None
     products = []
     for item in raw.get("products") or []:
-        if not isinstance(item, dict):
+        if not keep_marketplace_product(item):
             continue
         offering = str(item.get("offering") or "").strip()
-        if not offering:
-            continue
         pid = str(item.get("id") or item.get("fedramp_id") or "").strip() or None
         products.append({
             "id": pid,
@@ -574,6 +572,8 @@ def public_fedramp(raw) -> dict | None:
             "status": str(item.get("status") or "").strip() or None,
             "impact_level": str(item.get("impact_level") or "").strip() or None,
             "auth_date": item.get("auth_date") or None,
+            "phase": str(item.get("phase") or raw.get("phase") or "").strip() or None,
+            "authorizations": item.get("authorizations") if item.get("authorizations") is not None else raw.get("authorizations"),
             "url": product_market_url(item),
         })
     if not products and not (raw.get("highest") or raw.get("highest_authorized")):
@@ -611,6 +611,8 @@ def public_fedramp(raw) -> dict | None:
         "in_process": in_process,
         "marketplace": marketplace or FEDRAMP_MARKET,
         "source": raw.get("source") or FEDRAMP_MARKET,
+        "phase": raw.get("phase") or next((p.get("phase") for p in products if p.get("phase")), None),
+        "authorizations": raw.get("authorizations") if raw.get("authorizations") is not None else next((p.get("authorizations") for p in products if p.get("authorizations") is not None), None),
         "products": products,
     }
 
@@ -623,17 +625,87 @@ def official_a(url: str, text: str) -> str:
 
 
 def fedramp_status_word(status: str) -> str:
-    """Marketplace facts only: authorized, in process, ready, or not on file."""
+    """Marketplace facts. Not-yet-certified stays on file; do not coerce to authorized."""
     s = re.sub(r"^fedramp\s+", "", (status or "").strip(), flags=re.I)
     s = re.sub(r"^agency\s+", "", s, flags=re.I).strip()
     if not s:
         return ""
     low = s.lower()
+    if "not yet certified" in low:
+        return "not yet certified"
     if "authoriz" in low:
         return "authorized"
     if "in process" in low or "in-process" in low:
         return "in process"
+    if "initial implementation" in low:
+        return "initial implementation"
     return low
+
+
+def filed_cell(value: str | None) -> str:
+    text = cell(value)
+    if not value:
+        return f'<td class="empty">{text}</td>'
+    return f"<td>{text}</td>"
+
+
+def keep_marketplace_product(item: dict) -> bool:
+    """A marketplace listing with an offering is on file, authorized or not."""
+    if not isinstance(item, dict):
+        return False
+    return bool(str(item.get("offering") or "").strip())
+
+
+def merge_fedramp(existing, dump) -> dict | None:
+    """Join the dump onto the file. Do not drop not-yet-certified rows."""
+    if not isinstance(dump, dict) or not dump:
+        return existing if isinstance(existing, dict) else None
+    if not isinstance(existing, dict) or not existing:
+        return dump
+    seen: dict[str, dict] = {}
+    for item in list(existing.get("products") or []) + list(dump.get("products") or []):
+        if not keep_marketplace_product(item):
+            continue
+        pid = str(item.get("id") or item.get("fedramp_id") or item.get("offering") or "").strip()
+        if pid not in seen:
+            seen[pid] = item
+        else:
+            seen[pid] = {**seen[pid], **item}
+    out = {**existing, **dump}
+    out["products"] = list(seen.values())
+    return out
+
+
+def attach_fedramp_dump(companies: list[dict]) -> None:
+    """Rematch marketplace rows by slug, including initial-implementation listings."""
+    path = SITE / "data" / "fedramp.json"
+    if not path.exists():
+        path = ROOT / "data" / "fedramp.json"
+    doc = load_json(path, {})
+    by_slug = {
+        rec["slug"]: rec
+        for rec in (doc.get("companies") or [])
+        if rec.get("slug")
+    }
+    for row in companies:
+        slug = row.get("slug")
+        dump = by_slug.get(slug)
+        if not dump:
+            continue
+        row["fedramp"] = merge_fedramp(row.get("fedramp"), dump)
+
+
+def cite_url(url: str) -> str:
+    try:
+        parsed = urlparse(url)
+        host = (parsed.hostname or "").lower().removeprefix("www.")
+        path = parsed.path or ""
+        if path == "/" and not parsed.query:
+            path = ""
+        query = f"?{parsed.query}" if parsed.query else ""
+        return f"{host}{path}{query}" or url
+    except Exception:
+        return url
 
 
 GATE_HTML = """<div class="gate" id="gate" hidden>
@@ -652,10 +724,26 @@ def fedramp_block(row: dict, generated_at: str = "") -> str:
         p for p in (fed or {}).get("products") or []
         if str(p.get("offering") or "").strip()
     ]
-    caption = (
-        f'<p class="src-line">Filed from the '
-        f'<a href="{escape(FEDRAMP_MARKET)}">FedRAMP Marketplace</a>.</p>'
+    extras = []
+    phase = ""
+    authz = None
+    if fed:
+        phase = str(fed.get("phase") or "").strip()
+        authz = fed.get("authorizations")
+        if products and not phase:
+            phase = str(products[0].get("phase") or "").strip()
+        if products and authz is None:
+            authz = products[0].get("authorizations")
+    if phase:
+        extras.append(escape(phase.lower()))
+    if authz is not None:
+        extras.append(f"authorizations {escape(str(authz))}")
+    cite = (
+        f'Filed from the <a href="{escape(FEDRAMP_MARKET)}">FedRAMP Marketplace</a>'
     )
+    if extras:
+        cite = cite + " · " + " · ".join(extras)
+    caption = f'<p class="src-line">{cite}.</p>'
     if products:
         rows = []
         for p in products:
@@ -664,13 +752,12 @@ def fedramp_block(row: dict, generated_at: str = "") -> str:
             rows.append(
                 f'<tr><td><a href="{escape(href)}">{escape(offering)}</a></td>'
                 f"<td>{cell(fedramp_status_word(p.get('status') or ''))}</td>"
-                f"<td>{cell(str(p.get('impact_level') or '').strip())}</td>"
-                f"<td>{cell(fmt_day(p.get('auth_date') or ''))}</td></tr>"
+                f"{filed_cell(str(p.get('impact_level') or '').strip())}"
+                f"{filed_cell(fmt_day(p.get('auth_date') or ''))}</tr>"
             )
         body = "".join(rows)
     else:
-        empty = cell(None)
-        body = f"<tr><td>{empty}</td><td>{empty}</td><td>{empty}</td><td>{empty}</td></tr>"
+        body = f"<tr><td colspan=\"4\">{cell(None)}</td></tr>"
     lines = [
         '    <p class="sec-kicker">FedRAMP</p>',
         f"    {caption}",
@@ -682,16 +769,28 @@ def fedramp_block(row: dict, generated_at: str = "") -> str:
     return "\n".join(lines) + "\n"
 
 
-def processors_block(procs: list[dict], generated_at: str = "") -> str:
+def processors_block(procs: list[dict], generated_at: str = "", list_url: str = "") -> str:
     if procs:
         proc_rows = "".join(f"<tr><td>{escape(p['name'])}</td></tr>" for p in procs)
-    else:
-        proc_rows = f"<tr><td>{cell(None)}</td></tr>"
+        return (
+            '    <p class="sec-kicker">Named processors</p>\n'
+            '    <table class="inst filed">\n'
+            '      <thead><tr><th scope="col">Processor</th></tr></thead>\n'
+            f"      <tbody>{proc_rows}</tbody>\n"
+            "    </table>"
+        )
+    if list_url:
+        shown = cite_url(list_url)
+        return (
+            '    <p class="sec-kicker">Named processors</p>\n'
+            f'    <p class="src-line">list on file · names not extracted · '
+            f'{official_a(list_url, shown)}</p>'
+        )
     return (
         '    <p class="sec-kicker">Named processors</p>\n'
         '    <table class="inst filed">\n'
         '      <thead><tr><th scope="col">Processor</th></tr></thead>\n'
-        f"      <tbody>{proc_rows}</tbody>\n"
+        f"      <tbody><tr><td>{cell(None)}</td></tr></tbody>\n"
         "    </table>"
     )
 
@@ -842,6 +941,10 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
             )
 
     procs = row.get("processors") or []
+    list_url = ""
+    sub = inst.get("subprocessors")
+    if isinstance(sub, dict) and sub.get("url"):
+        list_url = sub["url"]
     clerk = row.get("summary") or ""
     clerk_html = f'<p class="clerk">{escape(clerk)}</p>' if clerk else ""
     outbound = (
@@ -851,7 +954,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     )
     need_gate = bool(found and url) or any(
         rec and rec.get("url") for rec in inst.values()
-    ) or any(p.get("source_url") for p in procs)
+    ) or any(p.get("source_url") for p in procs) or bool(list_url)
     gate = GATE_HTML if need_gate else ""
     claim = f'<a class="perm" href="../claim.html?slug={escape(slug)}">Report a correction</a>'
     issue = dossier_issue_line(generated_at, slug)
@@ -917,7 +1020,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
 
 {fedramp_block(row, generated_at)}
 
-{processors_block(procs, generated_at)}
+{processors_block(procs, generated_at, list_url)}
 
     {clerk_html}
     <p class="probe">last probed {escape(fmt_when(generated_at))}</p>
@@ -1030,6 +1133,7 @@ def main() -> int:
         src = ROOT / "data" / "enriched.json"
     raw = load_json(src, {})
     companies_in = raw.get("companies") or []
+    attach_fedramp_dump(companies_in)
     generated_at = raw.get("generated_at") or ""
     sources = raw.get("sources") or [
         {"name": "Forbes Cloud 100 2025", "url": "https://www.forbes.com/lists/cloud100/"},
