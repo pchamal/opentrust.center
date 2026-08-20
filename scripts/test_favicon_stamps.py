@@ -48,10 +48,38 @@ def chevron() -> Image.Image:
     return im
 
 
+def three_peer_tiles() -> Image.Image:
+    im = Image.new("RGBA", (32, 32), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rectangle((10, 2, 20, 12), fill=(40, 40, 180, 255))
+    d.rectangle((2, 16, 12, 26), fill=(40, 40, 180, 255))
+    d.rectangle((18, 16, 28, 26), fill=(40, 40, 180, 255))
+    return im
+
+
+def wordmark_bar() -> Image.Image:
+    im = Image.new("RGBA", (48, 16), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rectangle((2, 3, 28, 13), fill=(0, 80, 180, 255))
+    d.rectangle((31, 3, 45, 13), fill=(0, 80, 180, 255))
+    return im
+
+
+def two_part_logo() -> Image.Image:
+    im = Image.new("RGBA", (32, 32), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.arc((4, 0, 28, 20), 200, 340, fill=(230, 120, 20, 255), width=3)
+    d.polygon([(6, 18), (10, 30), (14, 22), (18, 30), (22, 18), (16, 18), (14, 24), (12, 18)], fill=(20, 80, 180, 255))
+    return im
+
+
 expect("solid square is a stamp", bool(stamp_reason(solid_square())))
 expect("filled disc is a stamp", bool(stamp_reason(filled_disc())))
 expect("letter tile is a stamp", bool(stamp_reason(letter_a())))
 expect("chevron is a mark", stamp_reason(chevron()) == "")
+expect("three similar tiles are punctuation", bool(stamp_reason(three_peer_tiles())))
+expect("wordmark bar is punctuation", bool(stamp_reason(wordmark_bar())))
+expect("two-part logo is not punctuation", stamp_reason(two_part_logo()) == "")
 
 named_drop = [
     "1password.com.png",
@@ -61,11 +89,16 @@ named_drop = [
     "acronis.com.png",
     "aciworldwide.com.png",
     "admicom.fi.png",
+    "a10networks.com.png",
+    "3i-infotech.com.png",
+    "adobe.com.png",
 ]
 named_keep = [
     "accenture.com.png",
     "3dsystems.com.png",
-    "a10networks.com.png",
+    "airtable.com.png",
+    "airwallex.com.png",
+    "workday.com.png",
 ]
 mark_stamps = [
     "enx.com.png",

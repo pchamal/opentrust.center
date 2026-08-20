@@ -326,6 +326,49 @@ def _dominant_disc(comps: list[list[tuple[int, int]]], ink_n: int) -> bool:
     return 0.75 <= aspect <= 1.35 and fill_bbox >= 0.72 and conv >= 0.95
 
 
+def _similar_square_peers(comps: list[list[tuple[int, int]]]) -> bool:
+    """Three similar near-square tiles — punctuation, not a mark."""
+    if len(comps) != 3:
+        return False
+    sizes = [len(c) for c in comps]
+    if min(sizes) < 0.75 * max(sizes):
+        return False
+    for cells in comps:
+        aspect, _fill, _conv = _component_box(cells)
+        if not (0.75 <= aspect <= 1.35):
+            return False
+    return True
+
+
+def _union_box(comps: list[list[tuple[int, int]]]) -> tuple[float, float]:
+    cells = [p for c in comps for p in c]
+    if not cells:
+        return 1.0, 0.0
+    xs = [p[0] for p in cells]
+    ys = [p[1] for p in cells]
+    bw = max(xs) - min(xs) + 1
+    bh = max(ys) - min(ys) + 1
+    return bw / max(bh, 1), len(cells) / max(bw * bh, 1)
+
+
+def _wordmark_bar(comps: list[list[tuple[int, int]]]) -> bool:
+    """Wide/tall wordmark bar or stacked-bar equals-sign. Not a two-part logo."""
+    if not comps:
+        return False
+    aspect, fill = _union_box(comps)
+    if (aspect >= 2.2 or aspect <= 0.45) and fill >= 0.60:
+        return True
+    if len(comps) == 2:
+        a0, f0, _c0 = _component_box(comps[0])
+        a1, f1, _c1 = _component_box(comps[1])
+        n0, n1 = len(comps[0]), len(comps[1])
+        similar = min(n0, n1) >= 0.70 * max(n0, n1)
+        bars = a0 >= 2.0 and a1 >= 2.0 and f0 >= 0.55 and f1 >= 0.55
+        if similar and bars:
+            return True
+    return False
+
+
 def stamp_reason(im: Image.Image) -> str:
     """Why this bitmap must not emit after the 12px Ledger Black ink pass.
 
@@ -355,6 +398,10 @@ def stamp_reason(im: Image.Image) -> str:
         return "empty"
     if _dominant_disc(comps, ink_n):
         return "disc"
+    if _similar_square_peers(comps):
+        return "punctuation"
+    if _wordmark_bar(comps):
+        return "punctuation"
     if min(w, h) <= 32 and len(comps) >= 4:
         return "letter-tile"
     if len(comps) == 1:

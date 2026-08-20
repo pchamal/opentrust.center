@@ -95,7 +95,7 @@ if (existsSync(indexPath)) {
   expect("stripe framework words stay words", /attestations.html#soc-2-type-ii">SOC 2 Type II</.test(stripe) && !/attestations.html#soc-2-type-ii"><img/.test(stripe));
   const fresh = readFileSync(new URL("../site/c/freshworks.html", import.meta.url), "utf8");
   expect("missing company icon is name only", /<h1>Freshworks<\/h1>/.test(fresh));
-  const stamps = ["1password", "1spatial", "abnormal-ai", "abridge", "acronis", "aci-worldwide", "admicom"];
+  const stamps = ["1password", "1spatial", "abnormal-ai", "abridge", "acronis", "aci-worldwide", "admicom", "a10-networks", "3i-infotech", "adobe"];
   for (const slug of stamps) {
     const html = readFileSync(new URL(`../site/c/${slug}.html`, import.meta.url), "utf8");
     const h1 = (html.match(/<h1>[\s\S]*?<\/h1>/) || [""])[0];
@@ -106,11 +106,10 @@ if (existsSync(indexPath)) {
   const keep = [
     ["accenture", "Accenture"],
     ["3d-systems", "3D Systems"],
-    ["a10-networks", "A10 Networks"],
   ];
   for (const [slug, name] of keep) {
     const html = readFileSync(new URL(`../site/c/${slug}.html`, import.meta.url), "utf8");
-    expect(`${slug} may keep a distinctive mark`, new RegExp(`<h1>(<img class="ink-ico"[^>]*>)?${name}</h1>`).test(html));
+    expect(`${slug} keeps a distinctive mark`, new RegExp(`<h1><img class="ink-ico"[^>]*>${name}</h1>`).test(html));
   }
   const eight = readFileSync(new URL("../site/c/8x8.html", import.meta.url), "utf8");
   const abbvie = readFileSync(new URL("../site/c/abbvie.html", import.meta.url), "utf8");
