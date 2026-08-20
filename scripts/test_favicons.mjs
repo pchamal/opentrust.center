@@ -40,6 +40,8 @@ expect("processor table stays name-only", /<td class="name">\$\{escapeHtml\(p\.n
 const gazSrc = readFileSync(new URL("../site/gazette.js", import.meta.url), "utf8");
 expect("gazette title can take a mark icon", gazSrc.includes("markIco") && gazSrc.includes("inkIcon"));
 expect("gazette cited-by stays names", /\$\{escapeHtml\(c\.name\)\}/.test(gazSrc));
+expect("gazette h2 is inside one template", /<h2>\$\{markIco\}\$\{escapeHtml\(item\.name\)\}<\/h2>\s*<p class="entry-meta">/.test(gazSrc));
+expect("gazette has no stray h2 backtick", !/<h2>\$\{markIco\}\$\{escapeHtml\(item\.name\)\}<\/h2>`/.test(gazSrc));
 
 const buildSrc = readFileSync(new URL("../build_pages.py", import.meta.url), "utf8");
 expect("dossier h1 uses ink_icon", buildSrc.includes("ink_icon") && /<h1>\{ink_icon/.test(buildSrc));

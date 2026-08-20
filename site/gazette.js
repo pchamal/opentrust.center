@@ -82,7 +82,7 @@ function renderBook() {
       const ind = (item.industry || []).join(" · ");
       const markIco = inkIcon((state.icons.marks || {})[item.id]);
       return `<article class="entry" id="${escapeHtml(item.id)}">
-        <h2>${markIco}${escapeHtml(item.name)}</h2>`
+        <h2>${markIco}${escapeHtml(item.name)}</h2>
         <p class="entry-meta">${escapeHtml(item.kind)} · ${escapeHtml(geo)} · ${escapeHtml(item.issuer)} · weight ${item.weight}</p>
         <p class="entry-meta">${escapeHtml(ind)}</p>
         <p class="entry-body">${escapeHtml(body || "")}</p>
