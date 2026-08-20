@@ -73,6 +73,15 @@ class BountyClassifyTest(unittest.TestCase):
             text="Hacker-powered security. Find your next bounty.",
         ), STRIPE))
 
+    def test_hackerone_embed_uuid_is_not_a_program(self):
+        url = "https://hackerone.com/b21888db-e0d1-48cd-b61b-55aaa96600d4/embedded_submissions/new"
+        self.assertIsNone(bounty_platform_handle(url))
+        self.assertFalse(classify_as_bounty(url, rec(
+            url,
+            title="HackerOne",
+            text="HackerOne It looks like your JavaScript is disabled.",
+        ), {"slug": "notion", "name": "Notion", "domain": "notion.so", "aliases": []}, published=True))
+
     def test_hackerone_directory_is_not_a_program(self):
         url = "https://hackerone.com/directory"
         self.assertIsNone(bounty_platform_handle(url))
@@ -106,6 +115,50 @@ class BountyClassifyTest(unittest.TestCase):
             title="Databricks | HackerOne",
             text="This program is private. Sign in to view this program.",
         ), DATABRICKS))
+
+    def test_cve_dashboard_is_not_a_program(self):
+        url = "https://claroty.com/team82/disclosure-dashboard"
+        self.assertFalse(classify_as_bounty(url, rec(
+            url,
+            title="CPS Vulnerability Disclosure Dashboard | Claroty",
+            text="Track all vulnerabilities disclosed by Team82. CVE ID Vendor Product",
+        ), {"slug": "claroty", "name": "Claroty", "domain": "claroty.com", "aliases": []}))
+
+    def test_user_profile_is_not_a_program(self):
+        url = "https://huggingface.co/bugbounty"
+        self.assertFalse(classify_as_bounty(url, rec(
+            url,
+            title="bugbounty (bugbounty)",
+            text="Hugging Face user profile",
+        ), {"slug": "hugging-face", "name": "Hugging Face", "domain": "huggingface.co", "aliases": []}))
+
+    def test_vulnerability_reward_program_title(self):
+        url = "https://bughunters.google.com/about/rules/vrp"
+        self.assertTrue(classify_as_bounty(url, rec(
+            url,
+            title="Google and Alphabet Vulnerability Reward Program (VRP) Rules",
+            text="Report a vulnerability to Google Bug Hunters.",
+        ), {"slug": "google", "name": "Google", "domain": "google.com", "aliases": []}))
+
+    def test_security_txt_reads_bug_bounty_field(self):
+        from enrich import bounty_from_security_txt, bounty_urls_from_security_txt
+        txt = (
+            "Policy: https://www.databricks.com/trust\n"
+            "Contact: security@databricks.com\n"
+            "Bug Bounty: https://hackerone.com/databricks\n"
+        )
+        self.assertEqual(
+            bounty_from_security_txt(txt),
+            "https://hackerone.com/databricks",
+        )
+        self.assertIn("https://hackerone.com/databricks", bounty_urls_from_security_txt(txt))
+        google = (
+            "Contact: https://g.co/vulnz\n"
+            "Policy: https://g.co/vrp\n"
+            "Hiring: https://g.co/jobs\n"
+        )
+        self.assertEqual(bounty_from_security_txt(google), "https://g.co/vrp")
+        self.assertNotIn("https://g.co/jobs", bounty_urls_from_security_txt(google))
 
     def test_news_article_is_not_a_program(self):
         url = "https://www.grammarly.com/blog/company/hackerone-bug-bounty-security/"
