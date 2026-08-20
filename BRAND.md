@@ -176,7 +176,7 @@ List is the authority and the landing. Map is a second view.
 - List: the ranked table and the right-hand file. Selected row gets the spine.
 - Map: named nodes only. Selected processor at the center plus the labeled sibling processors those namers also named. Do not draw one anonymous square per namer — that is a score. Namers stay in the file. Record White field. Ledger Black squares and hairlines. Selected node: Ledger Black fill, 2px Evidence Teal stroke. No teal fill, no teal type on the name. 2D plate; drag-to-orbit allowed.
 - Clerk line under the tabs, map view: `neighborhood · {name} · {n} named`.
-- Caption once: `Fig. 1 · Named processors, as published.`
+- Caption once: `Fig. 1 · Neighborhood of {name}`.
 - Click a processor: the existing right-hand file. Click a company (in the file): `/c/{slug}`.
 - `prefers-reduced-motion`: still. Drag still works.
 - At 390: no figure. Clerk neighborhood line plus the “who named them” list.

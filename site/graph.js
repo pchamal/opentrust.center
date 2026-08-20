@@ -473,13 +473,19 @@ function viewFromLocation() {
 
 function renderHoodLine() {
   const el = $("hood-line");
+  const cap = $("fig-cap");
+  const canvas = $("fig1");
+  const p = selectedProcessor();
+  if (cap) {
+    cap.textContent = p ? `Fig. 1 · Neighborhood of ${p.name}` : "Fig. 1 · Neighborhood";
+  }
+  if (canvas && p) canvas.setAttribute("aria-label", `Neighborhood of ${p.name}`);
   if (!el) return;
   if (state.view !== "map") {
     el.hidden = true;
     el.textContent = "";
     return;
   }
-  const p = selectedProcessor();
   if (!p) {
     el.hidden = true;
     el.textContent = "";
@@ -638,7 +644,7 @@ async function load() {
     (reg.companies || []).forEach((c) => state.companies.set(c.slug, c));
     state.edges = normalizeEdges(wires, state.companies);
     state.processors = rankProcessors(state.edges, state.companies);
-    fillIssue($("issue"), reg, `${state.edges.length} edges`);
+    fillIssue($("issue"), reg);
   } catch {
     state.edges = [];
   }

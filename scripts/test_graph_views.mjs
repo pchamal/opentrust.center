@@ -21,15 +21,15 @@ expect("list and map are words", html.includes(">list</button>") && html.include
 expect("list is the landing", /id="view-list"[^>]*aria-selected="true"/.test(html) && /id="wires"[^>]*data-view="list"/.test(html));
 expect("list stays a table", html.includes('id="wire-table"') && html.includes("Concentration") && html.includes("not a security grade"));
 expect("clerk neighborhood line sits under the tabs", html.includes('id="hood-line"') && html.indexOf("view-toggle") < html.indexOf("hood-line") && js.includes("neighborhood · "));
-expect("Fig. 1 caption once", html.includes("Fig. 1 · Named processors, as published.") && html.includes("Filed from public lists. Not a complete supply chain."));
+expect("Fig. 1 names the neighborhood", js.includes("Fig. 1 · Neighborhood of ${p.name}") && html.includes('id="fig-cap"'));
 expect("390 stays the list", /@media \(max-width: 390px\) \{[\s\S]*data-view="map"[\s\S]*\.fig-block[\s\S]*display: none/.test(css) && js.includes("compactPhone") && js.includes("return false"));
 
 const toggle = css.slice(css.indexOf(".view-toggle"), css.indexOf(".wires-grid"));
 expect("toggle is Atkinson ink words", toggle.includes("var(--t-meta)") && toggle.includes("var(--ot-ledger-black)"));
-expect("active view is 1px teal underline", toggle.includes("border-bottom: 1px solid transparent") && toggle.includes("border-bottom-color: var(--ot-evidence-teal)"));
+expect("active view is 1px underline not teal type", toggle.includes("border-bottom: 1px solid transparent") && toggle.includes("border-bottom-color: var(--ot-evidence-teal)") && /\.view-toggle button\.on \{[\s\S]*color: var\(--ot-ledger-black\)/.test(toggle));
 expect("selected is ink fill teal stroke", js.includes("ctx.fillStyle = ink") && js.includes("selected ? teal : ink") && js.includes("selected ? 2 : 1") && /placeLabel\([\s\S]*ink/.test(js));
 expect("no teal type on the selected name", !js.includes("placeLabel") || !/placeLabel\([^)]*teal/.test(js));
-expect("issue line still counts edges", js.includes("${state.edges.length} edges"));
+expect("issue line has no edge count", js.includes("fillIssue($(\"issue\"), reg)") && !js.includes("${state.edges.length} edges"));
 expect("register first screen untouched", index.includes("Public trust register") && !index.includes("view-toggle"));
 expect("dossier identity untouched", dossier.includes('class="ident"') && dossier.includes("file-line"));
 
