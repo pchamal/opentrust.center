@@ -304,15 +304,29 @@ def filed_disclosure(row: dict) -> dict:
 FILE_METER_KEYS = ("page", "marks", "dpa", "subprocessors", "years")
 
 
-def file_flags(row: dict, disc: dict) -> dict:
-    """Five instruments a buyer can see. Not a score."""
-    f = disc.get("factors") or {}
+def _instrument_url(row: dict, key: str) -> bool:
+    rec = (row.get("instruments") or {}).get(key) or {}
+    return bool(isinstance(rec, dict) and rec.get("url"))
+
+
+def _named_marks_on_file(row: dict) -> bool:
+    atts = [a for a in (row.get("attestations") or []) if a and (a.get("name") or a.get("short"))]
+    certs = [c for c in (row.get("certs") or []) if c]
+    return bool(atts or certs or row.get("fedramp"))
+
+
+def file_flags(row: dict, disc: dict | None = None) -> dict:
+    """Bind each rule to that instrument on this row. Not a factor score."""
+    page = bool(row.get("found") and (row.get("trust_url") or row.get("final_url")))
+    if not page:
+        page = _instrument_url(row, "trust") or _instrument_url(row, "security")
+    procs = row.get("processors") or []
     return {
-        "page": bool(f.get("page")),
-        "marks": bool(f.get("marks") or row.get("certs") or row.get("attestations")),
-        "dpa": bool(f.get("dpa")),
-        "subprocessors": bool(f.get("processors") or f.get("subprocessors")),
-        "years": bool(row.get("founded_year") or f.get("years")),
+        "page": page,
+        "marks": _named_marks_on_file(row),
+        "dpa": _instrument_url(row, "dpa"),
+        "subprocessors": bool(procs) or _instrument_url(row, "subprocessors"),
+        "years": bool(row.get("founded_year")),
     }
 
 
@@ -537,12 +551,12 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
         "processors": processors,
         "disclosure": disc,
         "tier": disc["tier"],
-        "file": file_flags(row, disc),
-        "_crawl": {
-            "vendor": (row.get("_crawl") or {}).get("vendor") or (row.get("vendor") if found else None),
-            "title": scrub_title((row.get("_crawl") or {}).get("title") or row.get("title") or "", slug),
-            "http_status": (row.get("_crawl") or {}).get("http_status") or row.get("http_status"),
-        },
+    }
+    public["file"] = file_flags({**public, "fedramp": fedramp} if fedramp else public)
+    public["_crawl"] = {
+        "vendor": (row.get("_crawl") or {}).get("vendor") or (row.get("vendor") if found else None),
+        "title": scrub_title((row.get("_crawl") or {}).get("title") or row.get("title") or "", slug),
+        "http_status": (row.get("_crawl") or {}).get("http_status") or row.get("http_status"),
     }
     if fedramp:
         public["fedramp"] = fedramp

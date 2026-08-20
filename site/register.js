@@ -2,7 +2,6 @@ import {
   $,
   escapeHtml,
   fillIssue,
-  displayTier,
   fileCount,
   fileIndexHtml,
   dataUrl,
@@ -138,7 +137,7 @@ function hay(row) {
   const fed = fr
     ? ["fedramp", fr.highest, ...(fr.levels || []), ...(fr.raw_levels || [])].filter(Boolean).join(" ")
     : "";
-  return [row.name, row.domain, row.slug, row.tier, displayTier(row.tier), marks, att, fed]
+  return [row.name, row.domain, row.slug, marks, att, fed]
     .filter(Boolean)
     .join(" ")
     .toLowerCase();

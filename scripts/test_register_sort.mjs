@@ -34,8 +34,7 @@ function hay(row) {
   const fed = fr
     ? ["fedramp", fr.highest, ...(fr.levels || []), ...(fr.raw_levels || [])].filter(Boolean).join(" ")
     : "";
-  const tier = row.tier === "on-file" ? "on file" : row.tier || "silent";
-  return [row.name, row.domain, row.slug, row.tier, tier, marks, att, fed]
+  return [row.name, row.domain, row.slug, marks, att, fed]
     .filter(Boolean)
     .join(" ")
     .toLowerCase();
@@ -60,7 +59,13 @@ function apply(raw) {
 
 expect("register is past 700", rows.length > 700);
 expect("file cell is the five-rule index", /fileIndexHtml\(row\)/.test(registerSrc) && !/fileCoverageHtml/.test(registerSrc) && !/displayFileState/.test(registerSrc));
-expect("file count is 0–5", fileCount({}) === 0 && fileCount({ file: { page: true, marks: true, dpa: true, subprocessors: true, years: true } }) === 5);
+expect("file count is 0–5", fileCount({}) === 0 && fileCount({
+  found: true,
+  trust_url: "https://trust.example",
+  attestations: [{ name: "SOC 2" }],
+  instruments: { dpa: { url: "https://example/dpa" }, subprocessors: { url: "https://example/subs" } },
+  founded_year: 2011,
+}) === 5);
 
 expect("normalize #", normalizeSort("#") === "rank");
 expect("normalize junk", normalizeSort("score") === "");
@@ -209,10 +214,10 @@ const fed = marksCell({
 });
 expect("fedramp keeps marketplace underline", fed.includes('class="fr-mark"') && fed.includes("marketplace.fedramp.gov") && fed.includes(" · "));
 
-const complete = apply("/ complete");
-const completeByName = arrangeRows(complete, "name", "asc");
-expect("sort keeps finder set", completeByName.length === complete.length && completeByName.every((r) => r.tier === "complete"));
-expect("sorted finder is A–Z", completeByName[0].name.localeCompare(completeByName[completeByName.length - 1].name, undefined, { sensitivity: "base" }) < 0);
+const fedSet = apply("/ fedramp moderate");
+const fedByName = arrangeRows(fedSet, "name", "asc");
+expect("sort keeps finder set", fedByName.length === fedSet.length && fedByName.every((r) => (r.fedramp?.levels || []).map((x) => String(x).toLowerCase()).includes("moderate")));
+expect("sorted finder is A–Z", fedByName[0].name.localeCompare(fedByName[fedByName.length - 1].name, undefined, { sensitivity: "base" }) < 0);
 
 const stripe = apply("/ stripe");
 const stripeByDomain = arrangeRows(stripe, "domain", "asc");

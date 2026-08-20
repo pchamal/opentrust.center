@@ -1,5 +1,13 @@
 import { readFileSync } from "node:fs";
-import { FILE_KEYS, fileCount, fileCoverage, fileIndexHtml } from "../site/lib.js";
+import { FILE_KEYS, fileCount, fileCoverage, fileFlags, fileIndexHtml } from "../site/lib.js";
+import { marksCell } from "../site/register.js";
+
+const data = JSON.parse(readFileSync(new URL("../site/data.json", import.meta.url), "utf8"));
+const bySlug = Object.fromEntries(data.companies.map((r) => [r.slug, r]));
+
+function ruleOn(html) {
+  return [...html.matchAll(/class="file-rule(?: on)?"/g)].map((m) => m[0].includes(" on"));
+}
 
 function expect(name, cond) {
   if (!cond) {
@@ -23,17 +31,25 @@ expect("empty does not print N of 5", !empty.includes(" of 5") && !empty.include
 expect("empty is not a star", !empty.includes("star") && !empty.includes("★") && !empty.includes("☆"));
 expect("empty spoken is inconclusive", fileCoverage({}).spoken === "not on file");
 
-const full = fileIndexHtml({
-  file: { page: true, marks: true, dpa: true, subprocessors: true, years: true },
-});
+const fullRow = {
+  found: true,
+  trust_url: "https://trust.example",
+  attestations: [{ name: "SOC 2" }],
+  instruments: { dpa: { url: "https://example/dpa" }, subprocessors: { url: "https://example/subs" } },
+  founded_year: 2012,
+};
+const full = fileIndexHtml(fullRow);
 expect("full fills five rules", (full.match(/file-rule on/g) || []).length === 5);
 expect("full does not print N of 5", !full.includes(" of 5") && !full.includes("5 of 5"));
 expect("full is not a sixth score", !full.includes("trust maturity") && !full.includes("file · 5"));
-expect("full spoken is the instruments", fileCoverage({
-  file: { page: true, marks: true, dpa: true, subprocessors: true, years: true },
-}).spoken === "page · marks · DPA · subprocessors · years");
+expect("full spoken is the instruments", fileCoverage(fullRow).spoken === "page · marks · DPA · subprocessors · years");
 
-const mixedRow = { file: { page: true, marks: false, dpa: true, subprocessors: false, years: true } };
+const mixedRow = {
+  found: true,
+  trust_url: "https://trust.example",
+  instruments: { dpa: { url: "https://example/dpa" } },
+  founded_year: 2010,
+};
 const mixed = fileCoverage(mixedRow);
 const mixedHtml = fileIndexHtml(mixedRow);
 expect("mixed counts three", mixed.n === 3 && fileCount(mixedRow) === 3);
@@ -41,6 +57,43 @@ expect("mixed does not print the count", !mixedHtml.includes("3 of 5") && !mixed
 expect("mixed speaks instruments on file", mixed.spoken === "page · DPA · years");
 expect("mixed fills three rules", (mixedHtml.match(/file-rule on/g) || []).length === 3);
 expect("mixed keeps two open rules", (mixedHtml.match(/file-rule/g) || []).length - (mixedHtml.match(/file-rule on/g) || []).length === 2);
+expect("mixed binds DPA not the second slot", ruleOn(mixedHtml)[2] === true && ruleOn(mixedHtml)[1] === false);
+
+const staleFilled = {
+  found: true,
+  trust_url: "https://trust.8x8.com",
+  file: { page: true, marks: true, dpa: false, subprocessors: false, years: false },
+  disclosure: { factors: { page: 20, marks: 40 } },
+  certs: [],
+  attestations: [],
+};
+expect("stale factors.marks do not fill marks", fileFlags(staleFilled).marks === false && ruleOn(fileIndexHtml(staleFilled))[1] === false);
+expect("stale file.marks do not fill marks", fileFlags(staleFilled).page === true && ruleOn(fileIndexHtml(staleFilled))[0] === true);
+
+const staleEmpty = {
+  found: true,
+  trust_url: "https://trust.abridge.com",
+  file: { page: false, marks: false, dpa: false, subprocessors: false, years: false },
+  disclosure: { factors: { marks: 0 } },
+  attestations: [{ name: "SOC 2 Type II" }, { name: "HIPAA" }],
+};
+expect("named marks fill even if file.marks is false", fileFlags(staleEmpty).marks === true && ruleOn(fileIndexHtml(staleEmpty))[1] === true);
+
+const eight = bySlug["8x8"];
+const eightHtml = fileIndexHtml(eight);
+const eightMarks = marksCell(eight);
+expect("8x8 page is on file", eight.found && eight.trust_url && fileFlags(eight).page);
+expect("8x8 Marks cell is not on file", eightMarks.includes("not on file"));
+expect("8x8 marks rule is open", fileFlags(eight).marks === false && ruleOn(eightHtml)[1] === false);
+expect("8x8 does not fill first-N from thin", ruleOn(eightHtml)[0] === true && ruleOn(eightHtml).filter(Boolean).length === 1);
+
+const abridge = bySlug.abridge;
+const abridgeHtml = fileIndexHtml(abridge);
+const abridgeMarks = marksCell(abridge);
+expect("Abridge Marks cell lists names", /soc 2/.test(abridgeMarks) && abridgeMarks.includes("hipaa") && abridgeMarks.includes("ccpa") && abridgeMarks.includes("tx-ramp"));
+expect("Abridge marks rule is filled", fileFlags(abridge).marks === true && ruleOn(abridgeHtml)[1] === true);
+expect("Abridge is not five open hairlines", ruleOn(abridgeHtml).some(Boolean));
+expect("Abridge page stays filled", fileFlags(abridge).page === true && ruleOn(abridgeHtml)[0] === true);
 
 const src = readFileSync(new URL("../site/register.js", import.meta.url), "utf8");
 expect("register draws the file index", src.includes("fileIndexHtml"));
@@ -54,6 +107,11 @@ const indexHtml = readFileSync(new URL("../site/index.html", import.meta.url), "
 expect(
   "legend is once above the grid",
   indexHtml.includes('id="file-legend"') && indexHtml.includes("page · marks · DPA · subprocessors · years"),
+);
+expect(
+  "finder placeholder dropped old tier words",
+  indexHtml.includes('placeholder="/ stripe, fedramp moderate"') &&
+    !/placeholder="[^"]*\b(silent|thin|substantial|complete)\b/.test(indexHtml),
 );
 expect("legend is not a tooltip farm", !src.includes("title=") || !/file-rule[^>]*title=/.test(src));
 

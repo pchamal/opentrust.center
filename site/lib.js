@@ -18,23 +18,31 @@ export function dataUrl(path) {
   return path + (path.includes("?") ? "&" : "?") + "v=" + v;
 }
 
+function instrumentUrl(row, key) {
+  const rec = row && row.instruments && row.instruments[key];
+  return !!(rec && rec.url);
+}
+
+export function hasNamedMarks(row) {
+  const atts = ((row && row.attestations) || []).filter((a) => a && (a.name || a.short));
+  const certs = ((row && row.certs) || []).filter(Boolean);
+  if (atts.length || certs.length) return true;
+  return !!(row && row.fedramp);
+}
+
 export function fileFlags(row) {
-  if (row && row.file && typeof row.file === "object") {
-    return {
-      page: !!row.file.page,
-      marks: !!row.file.marks,
-      dpa: !!row.file.dpa,
-      subprocessors: !!row.file.subprocessors,
-      years: !!row.file.years,
-    };
-  }
-  const f = (row && row.disclosure && row.disclosure.factors) || (row && row.factors) || {};
+  const page = !!(
+    (row && row.found && (row.trust_url || row.final_url)) ||
+    instrumentUrl(row, "trust") ||
+    instrumentUrl(row, "security")
+  );
+  const procs = (row && row.processors) || [];
   return {
-    page: !!f.page,
-    marks: !!(f.marks || (row && row.certs && row.certs.length) || (row && row.attestations && row.attestations.length)),
-    dpa: !!f.dpa,
-    subprocessors: !!(f.processors || f.subprocessors),
-    years: !!(row && (row.founded_year || f.years)),
+    page,
+    marks: hasNamedMarks(row),
+    dpa: instrumentUrl(row, "dpa"),
+    subprocessors: procs.length > 0 || instrumentUrl(row, "subprocessors"),
+    years: !!(row && row.founded_year),
   };
 }
 
