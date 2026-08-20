@@ -2,7 +2,7 @@
 
 export const GATE_KEY = "ot_human_v1";
 export const GATE_MS = 30 * 60 * 1000;
-export const DATA_V = "2026-08-20T21:20:00Z";
+export const DATA_V = "2026-08-20T21:50:00Z";
 export const FILE_KEYS = ["page", "marks", "dpa", "subprocessors", "years"];
 export const AI_FILE_KEYS = ["page", "marks", "processors", "evals", "incidents"];
 export const AI_FILE_LABELS = {
@@ -17,6 +17,36 @@ export const AI_MARK_RE = /aiuc-?1|iso(?:\/iec)?[\s-]*42001|nist[\s-]*ai[\s-]*rm
 export const AI_PAGE_RE = /model-?card|system-?card|responsible-ai|ai-safety|ai-security/i;
 const VENDOR_HOST_RE = /(^|\.)(safebase\.(us|com)|vanta\.com|conveyor\.com|wolfia\.\w+|securitypal\.com|drata\.com|secureframe\.com|whistic\.com|sprinto\.com|trustcloud\.com)$/i;
 export const AI_PROCESSORS_RE = /model-processors|llm-processors|named-model/i;
+/* Model/API providers. Hosting (AWS, GCP, Azure, Snowflake) does not count. */
+export const AI_SYSTEM_PROCESSOR_SLUGS = new Set([
+  "openai",
+  "anthropic",
+  "cohere",
+  "mistral-ai",
+  "groq",
+  "fireworks-ai",
+  "together-ai",
+  "hugging-face",
+  "scale-ai",
+  "xai",
+  "perplexity-ai",
+  "elevenlabs",
+  "runway",
+  "fal-ai",
+]);
+const NOT_AI_SYSTEM_PROCESSOR_SLUGS = new Set([
+  "amazon-web-services",
+  "stripe",
+  "datadog",
+  "snowflake",
+  "cloudflare",
+  "microsoft",
+  "google",
+]);
+const AI_SYSTEM_PROCESSOR_NAME_RE =
+  /^(openai(?: opco(?: llc)?)?|anthropic(?: pbc)?|cohere|mistral(?: ai)?|groq|fireworks(?: ai(?: inc)?)?|together(?: ai)?|hugging face(?: inference)?|scale ai|xai|perplexity(?: ai)?|eleven ?labs|runway(?: ml)?|fal(?: ai)?|google gemini|vertex(?: ai)?|azure openai|amazon bedrock|openrouter|deepinfra|deepgram(?: inc)?|cartesia(?: ai(?: inc)?)?|baseten(?: labs(?: inc)?)?|kling(?: ai(?: pte ltd)?)?)$/i;
+const HOSTING_PROCESSOR_NAME_RE =
+  /^(amazon web services|aws|google cloud(?: platform)?|microsoft azure|azure|snowflake|datadog|stripe|google|microsoft)$/i;
 export const AI_EVALS_RE = /red-?team|(?:^|\/)evals?(?:\/|$)/i;
 export const AI_INCIDENTS_RE = /ai-incident|(?:^|\/)incidents?(?:\/|$)/i;
 /* AI product names already on the register that are not .ai / “AI” / AI-50. */
@@ -93,6 +123,48 @@ export function isFirstPartyUrl(url, domain) {
   if (!host || !own) return false;
   if (VENDOR_HOST_RE.test(host)) return false;
   return host === own || host.endsWith("." + own);
+}
+
+function normalizeProcessorName(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[.,]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+export function isAiSystemProcessor(proc, ownerSlug) {
+  if (!proc) return false;
+  const slug = String(proc.slug || "").toLowerCase();
+  const owner = String(ownerSlug || "").toLowerCase();
+  if (slug && owner && slug === owner) return false;
+  if (slug && NOT_AI_SYSTEM_PROCESSOR_SLUGS.has(slug)) return false;
+  const name = normalizeProcessorName(proc.name || proc);
+  if (HOSTING_PROCESSOR_NAME_RE.test(name)) return false;
+  if (slug && AI_SYSTEM_PROCESSOR_SLUGS.has(slug)) return true;
+  return AI_SYSTEM_PROCESSOR_NAME_RE.test(name);
+}
+
+export function storedAiProcessors(row) {
+  const field = row && row.ai_processors;
+  const raw = Array.isArray(field) ? field : field && field.names;
+  if (!Array.isArray(raw) || !raw.length) return [];
+  const owner = row && row.slug;
+  const seen = new Set();
+  const out = [];
+  for (const item of raw) {
+    const name = typeof item === "string" ? item : item && item.name;
+    const slug = typeof item === "string" ? "" : (item && item.slug) || "";
+    const rec = { name: String(name || "").trim(), slug: String(slug || "") };
+    if (!rec.name) continue;
+    if (!isAiSystemProcessor(rec, owner)) continue;
+    const key = (rec.slug || rec.name).toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    if (item && item.source_url) rec.source_url = item.source_url;
+    out.push(rec);
+  }
+  return out;
 }
 
 export function storedAiPageUrl(row) {
@@ -209,7 +281,7 @@ export function aiFileFlags(row) {
   return {
     page: !!storedAiPageUrl(row),
     marks: hasPrintedAiMark(row),
-    processors: urls.some((u) => urlLooksAiInstrument(u, AI_PROCESSORS_RE)),
+    processors: storedAiProcessors(row).length > 0,
     evals: urls.some((u) => urlLooksAiInstrument(u, AI_EVALS_RE)),
     incidents: urls.some((u) => urlLooksAiInstrument(u, AI_INCIDENTS_RE)),
   };

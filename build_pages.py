@@ -192,6 +192,30 @@ def load_aiti_pages() -> dict:
     return out
 
 
+_AITI_PROCESSORS = None
+
+
+def load_aiti_processors() -> dict:
+    """Curated first-party AI system processor names. Do not invent."""
+    global _AITI_PROCESSORS
+    if _AITI_PROCESSORS is not None:
+        return _AITI_PROCESSORS
+    doc = load_json(SITE / "data" / "aiti-processors.json", {})
+    recs = doc.get("processors") or {}
+    out = {}
+    for slug, rec in recs.items():
+        names = rec.get("names") if isinstance(rec, dict) else rec
+        if not names:
+            continue
+        out[slug] = {
+            "names": names,
+            "source_url": rec.get("source_url") if isinstance(rec, dict) else None,
+            "via": rec.get("via") if isinstance(rec, dict) else None,
+        }
+    _AITI_PROCESSORS = out
+    return out
+
+
 def write_json(path: Path, payload) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
@@ -566,6 +590,13 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
         }
         public["ai_page"] = filed
         public["instruments"]["ai"] = dict(filed)
+    ai_procs = load_aiti_processors().get(slug)
+    if ai_procs and ai_procs.get("names"):
+        public["ai_processors"] = {
+            "names": ai_procs["names"],
+            "source_url": ai_procs.get("source_url"),
+            "via": ai_procs.get("via"),
+        }
     return public
 
 

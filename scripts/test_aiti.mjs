@@ -12,6 +12,8 @@ import {
   isAiFile,
   storedAiPageUrl,
   isFirstPartyUrl,
+  storedAiProcessors,
+  isAiSystemProcessor,
 } from "../site/lib.js";
 import { aiMarksCell, defaultAiRows } from "../site/aiti.js";
 
@@ -196,13 +198,64 @@ expect(
 expect("Cursor page stays open", aiFileFlags(cursor).page === false && ruleOn(cursorHtml)[0] === false);
 expect("Cursor marks bind unchanged", aiFileFlags(cursor).marks === true && ruleOn(cursorHtml)[1] === true);
 
+const procsDoc = JSON.parse(readFileSync(new URL("../site/data/aiti-processors.json", import.meta.url), "utf8"));
+const procFiled = Object.keys(procsDoc.processors);
+const procOn = files.filter((r) => aiFileFlags(r).processors);
+const procOpen = files.filter((r) => !aiFileFlags(r).processors);
+expect("processors fill count is the curated list", procOn.length === procFiled.length && procOn.length === 13);
+expect("40 files leave processors open", procOpen.length === 40 && procsDoc.open.length === 40);
+expect("does not invent processor companies", procFiled.every((s) => files.some((r) => r.slug === s) && bySlug[s]));
+
+for (const slug of procFiled) {
+  const row = bySlug[slug];
+  const rec = procsDoc.processors[slug];
+  const stored = storedAiProcessors(row);
+  const flags = aiFileFlags(row);
+  const html = aiFileIndexHtml(row);
+  expect(`${slug} processors follow stored names`, stored.length === rec.names.length && stored.every((p, i) => p.name === rec.names[i].name));
+  expect(`${slug} processors rule is filled`, flags.processors === true && ruleOn(html)[2] === true);
+  expect(`${slug} stored names are AI system processors`, stored.every((p) => isAiSystemProcessor(p, slug)));
+  const dossierHtml = readFileSync(new URL(`../site/c/${slug}.html`, import.meta.url), "utf8");
+  const src = rec.source_url || "";
+  expect(`${slug} dossier cites the first-party list`, !src || dossierHtml.includes(src) || stored.some((p) => p.name && dossierHtml.includes(p.name)));
+}
+
+expect("Midjourney has no stored AI processors", storedAiProcessors(mid).length === 0);
+expect("Midjourney processors stay open", aiFileFlags(mid).processors === false);
+expect("Midjourney still all-open without a named AI processor", ruleOn(aiFileIndexHtml(mid)).every((on) => on === false) && aiFileCount(mid) === 0);
+
+expect("AWS hosting does not count", isAiSystemProcessor({ name: "Amazon Web Services", slug: "amazon-web-services" }) === false);
+expect("Stripe does not count", isAiSystemProcessor({ name: "Stripe", slug: "stripe" }) === false);
+expect("Datadog does not count", isAiSystemProcessor({ name: "Datadog", slug: "datadog" }) === false);
+expect("bare Google does not count", isAiSystemProcessor({ name: "Google", slug: "google" }) === false);
+expect("Azure hosting does not count", isAiSystemProcessor({ name: "Azure" }) === false);
+expect("OpenAI counts", isAiSystemProcessor({ name: "OpenAI", slug: "openai" }) === true);
+expect("Google Gemini counts", isAiSystemProcessor({ name: "Google Gemini" }) === true);
+expect(
+  "generic named hosting does not fill processors",
+  aiFileFlags({
+    slug: "example",
+    domain: "example.com",
+    processors: [{ name: "Amazon Web Services", slug: "amazon-web-services", source_url: "https://example.com/subprocessors" }],
+  }).processors === false,
+);
+expect(
+  "processors bind follows stored AI names",
+  aiFileFlags({ ...mid, ai_processors: { names: [{ name: "OpenAI", slug: "openai" }] } }).processors === true,
+);
+
+expect("page bind unchanged for Anthropic", aiFileFlags(bySlug.anthropic).page === true && storedAiPageUrl(bySlug.anthropic).includes("responsible-scaling-policy"));
+expect("page bind unchanged for Midjourney", aiFileFlags(mid).page === false);
+expect("Cursor processors filled and marks still bound", aiFileFlags(cursor).processors === true && aiFileFlags(cursor).marks === true && ruleOn(aiFileIndexHtml(cursor))[1] === true && ruleOn(aiFileIndexHtml(cursor))[2] === true);
+expect("Cursor page still open", aiFileFlags(cursor).page === false);
+
 for (const row of files) {
   const flags = aiFileFlags(row);
-  if (flags.processors || flags.evals || flags.incidents) {
-    expect(`no invented processors/evals/incidents on ${row.slug}`, false);
+  if (flags.evals || flags.incidents) {
+    expect(`no invented evals/incidents on ${row.slug}`, false);
   }
 }
-expect("processors evals incidents stay uninvented", true);
+expect("evals incidents stay uninvented", true);
 
 const cursorDossier = readFileSync(new URL("../site/c/anysphere.html", import.meta.url), "utf8");
 const midDossier = readFileSync(new URL("../site/c/midjourney.html", import.meta.url), "utf8");
@@ -210,5 +263,5 @@ expect("open files do not grow an empty AI page row", !cursorDossier.includes(">
 expect("AITI table domain stays plain text", aitiJs.includes('<td class="domain">${escapeHtml(row.domain || "")}</td>'));
 expect("AITI table is not restyled with an official page chip", !aitiJs.includes("AI page") && !aitiJs.includes("ai_page"));
 
-console.log("aiti files", files.length, "page", pageOn.length, "open", pageOpen.length, "silent", silent.length);
+console.log("aiti files", files.length, "page", pageOn.length, "processors", procOn.length, "silent", silent.length);
 if (!process.exitCode) console.log("ok aiti");
