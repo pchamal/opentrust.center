@@ -427,15 +427,15 @@ def looks_like_processor_name(s: str) -> bool:
 
 
 def processor_display_name(edge: dict, node: dict, to: str) -> str:
-    """Prefer the node name when it is already human. Slug-case names are title-cased, not invented."""
+    """Print the published name. Do not replace a filed string with a catalog label."""
+    evidence = str(edge.get("evidence") or edge.get("processor") or "").strip()
+    if looks_like_processor_name(evidence):
+        return humanize_processor_name(evidence)
     node_name = str(node.get("name") or "").strip()
     if looks_like_processor_name(node_name):
         return humanize_processor_name(node_name)
     if to:
         return humanize_processor_name(to) or title_case_slug(to)
-    evidence = str(edge.get("evidence") or "").strip()
-    if looks_like_processor_name(evidence):
-        return humanize_processor_name(evidence)
     return humanize_processor_name(str(edge.get("processor") or to))
 
 
@@ -772,8 +772,20 @@ def fedramp_block(row: dict, generated_at: str = "") -> str:
 def processors_block(procs: list[dict], generated_at: str = "", list_url: str = "") -> str:
     if procs:
         proc_rows = "".join(f"<tr><td>{escape(p['name'])}</td></tr>" for p in procs)
+        urls = []
+        for p in procs:
+            u = str(p.get("source_url") or "").strip()
+            if u and u not in urls:
+                urls.append(u)
+        if not urls and list_url:
+            urls.append(list_url)
+        cite = ""
+        if urls:
+            cites = " · ".join(official_a(u, cite_url(u)) for u in urls)
+            cite = f'    <p class="src-line">Filed from {cites}.</p>\n'
         return (
             '    <p class="sec-kicker">Named processors</p>\n'
+            f"{cite}"
             '    <table class="inst filed">\n'
             '      <thead><tr><th scope="col">Processor</th></tr></thead>\n'
             f"      <tbody>{proc_rows}</tbody>\n"

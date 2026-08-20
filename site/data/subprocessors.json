@@ -1950,6 +1950,24 @@
       "name": "Modal Labs Inc",
       "kind": "subprocessor",
       "in_register": false
+    },
+    {
+      "id": "google-gemini",
+      "name": "Google Gemini",
+      "kind": "subprocessor",
+      "in_register": false
+    },
+    {
+      "id": "exa",
+      "name": "Exa",
+      "kind": "subprocessor",
+      "in_register": false
+    },
+    {
+      "id": "spacexai",
+      "name": "SpaceXAI",
+      "kind": "subprocessor",
+      "in_register": false
     }
   ],
   "edges": [
@@ -4165,6 +4183,108 @@
       "from": "sierra",
       "to": "workos",
       "source_url": "https://trust.sierra.ai/subprocessors",
+      "evidence": "WorkOS"
+    },
+    {
+      "from": "anysphere",
+      "to": "aws",
+      "source_url": "https://trust.cursor.com/subprocessors",
+      "evidence": "Amazon Web Services"
+    },
+    {
+      "from": "anysphere",
+      "to": "fireworks-ai",
+      "source_url": "https://trust.cursor.com/subprocessors",
+      "evidence": "Fireworks"
+    },
+    {
+      "from": "anysphere",
+      "to": "openai",
+      "source_url": "https://trust.cursor.com/subprocessors",
+      "evidence": "OpenAI"
+    },
+    {
+      "from": "anysphere",
+      "to": "anthropic",
+      "source_url": "https://trust.cursor.com/subprocessors",
+      "evidence": "Anthropic"
+    },
+    {
+      "from": "anysphere",
+      "to": "google-gemini",
+      "source_url": "https://trust.cursor.com/subprocessors",
+      "evidence": "Google Gemini"
+    },
+    {
+      "from": "anysphere",
+      "to": "turbopuffer",
+      "source_url": "https://trust.cursor.com/subprocessors",
+      "evidence": "Turbopuffer"
+    },
+    {
+      "from": "anysphere",
+      "to": "exa",
+      "source_url": "https://trust.cursor.com/subprocessors",
+      "evidence": "Exa"
+    },
+    {
+      "from": "anysphere",
+      "to": "datadog",
+      "source_url": "https://trust.cursor.com/subprocessors",
+      "evidence": "Datadog"
+    },
+    {
+      "from": "anysphere",
+      "to": "databricks",
+      "source_url": "https://trust.cursor.com/subprocessors",
+      "evidence": "Databricks"
+    },
+    {
+      "from": "anysphere",
+      "to": "vercel",
+      "source_url": "https://trust.cursor.com/subprocessors",
+      "evidence": "Vercel"
+    },
+    {
+      "from": "anysphere",
+      "to": "azure",
+      "source_url": "https://trust.cursor.com/subprocessors",
+      "evidence": "Azure"
+    },
+    {
+      "from": "anysphere",
+      "to": "baseten-labs-inc",
+      "source_url": "https://trust.cursor.com/subprocessors",
+      "evidence": "Baseten"
+    },
+    {
+      "from": "anysphere",
+      "to": "cloudflare",
+      "source_url": "https://trust.cursor.com/subprocessors",
+      "evidence": "Cloudflare"
+    },
+    {
+      "from": "anysphere",
+      "to": "gcp",
+      "source_url": "https://trust.cursor.com/subprocessors",
+      "evidence": "Google Cloud Platform"
+    },
+    {
+      "from": "anysphere",
+      "to": "together-ai",
+      "source_url": "https://trust.cursor.com/subprocessors",
+      "evidence": "Together"
+    },
+    {
+      "from": "anysphere",
+      "to": "spacexai",
+      "source_url": "https://trust.cursor.com/subprocessors",
+      "evidence": "SpaceXAI"
+    },
+    {
+      "from": "anysphere",
+      "to": "workos",
+      "source_url": "https://trust.cursor.com/subprocessors",
       "evidence": "WorkOS"
     }
   ],

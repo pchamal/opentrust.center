@@ -54,14 +54,21 @@ expect("dossier FedRAMP cites marketplace, not a badge", dossier.includes("Filed
 expect("anysphere FedRAMP is the Cursor marketplace row", dossier.includes("FR2631054484") && /<a href="https:\/\/www\.fedramp\.gov\/marketplace\/products\/FR2631054484\/?">Cursor<\/a>/.test(dossier) && dossier.includes("not yet certified") && dossier.includes("initial implementation") && dossier.includes("authorizations 0"));
 expect("anysphere FedRAMP does not borrow Box words", !dossier.includes("authorized") && !dossier.includes(">High<") && !dossier.includes("25 Mar 2025") && !dossier.includes("Box Enterprise"));
 expect("anysphere FedRAMP is not four invented misses", !/<tr><td[^>]*>[\s\S]*not on file[\s\S]*not on file[\s\S]*not on file[\s\S]*not on file/.test(dossier.split('sec-kicker">FedRAMP')[1].split("Named processors")[0]));
-expect("anysphere processors are not a false miss", dossier.includes("list on file") && dossier.includes("names not extracted") && dossier.includes("trust.cursor.com/subprocessors") && !/sec-kicker">Named processors[\s\S]*class="absent">not on file/.test(dossier));
-expect("anysphere processors are not Box names", !dossier.includes("GitHub") && !dossier.includes("New Relic"));
+const cursorNames = [
+  "Amazon Web Services", "Fireworks", "OpenAI", "Anthropic", "Google Gemini",
+  "Turbopuffer", "Exa", "Datadog", "Databricks", "Vercel", "Azure", "Baseten",
+  "Cloudflare", "Google Cloud Platform", "Together", "SpaceXAI", "WorkOS",
+];
+const procChunk = dossier.split("Named processors")[1] || "";
+expect("anysphere processors are the published list", cursorNames.every((n) => procChunk.includes(n)) && cursorNames.join() === [...procChunk.matchAll(/<tr><td>([^<]+)<\/td><\/tr>/g)].map((m) => m[1]).join());
+expect("anysphere processors cite the list", /Filed from[\s\S]*trust\.cursor\.com\/subprocessors/.test(procChunk) && !procChunk.includes("names not extracted") && !/<span class="absent">not on file/.test(procChunk.split("<p class=\"clerk\">")[0]));
+expect("anysphere processors are not Box names", !procChunk.includes("GitHub") && !procChunk.includes("New Relic"));
 expect("dossier has no highest-authorized badge line", !dossier.includes("highest authorized"));
 expect("dossier below-fold tables have no spine class on identity", dossier.includes('class="inst filed"') && dossier.includes('class="ident"'));
 
 const box = readFileSync(new URL("../site/c/box.html", import.meta.url), "utf8");
 expect("on-file FedRAMP is a table with marketplace cite", box.includes("Filed from the") && box.includes("FedRAMP Marketplace") && box.includes("fedramp.gov/marketplace") && box.includes('class="inst filed"') && box.includes("authorized") && !box.includes("Not a badge") && !box.includes("highest authorized") && !box.includes('td class="mark"') && !box.includes("sem-source") && !box.includes("sem-conflict"));
-expect("on-file processors are published names", box.includes("GitHub") && box.includes("New Relic") && !box.includes("+N") && !box.includes("Not a complete supply chain") && !/sec-kicker">Named processors[\s\S]*src-line/.test(box));
+expect("on-file processors are published names", box.includes("GitHub") && box.includes("New Relic") && !box.includes("+N") && !box.includes("Not a complete supply chain") && /sec-kicker">Named processors[\s\S]*Filed from/.test(box));
 
 const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8");
 expect("identity block wears the spine", /\.ident \{[\s\S]*border-left: var\(--ot-spine\) solid var\(--ot-evidence-teal\)/.test(css));

@@ -12727,7 +12727,93 @@
           "seen": "2026-08-20"
         }
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "Amazon Web Services",
+          "slug": "amazon-web-services",
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "Fireworks",
+          "slug": "fireworks-ai",
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic",
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "Google Gemini",
+          "slug": null,
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "Turbopuffer",
+          "slug": null,
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "Exa",
+          "slug": null,
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "Datadog",
+          "slug": "datadog",
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "Databricks",
+          "slug": "databricks",
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "Vercel",
+          "slug": "vercel",
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "Azure",
+          "slug": null,
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "Baseten",
+          "slug": null,
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "Cloudflare",
+          "slug": "cloudflare",
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "Google Cloud Platform",
+          "slug": null,
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "Together",
+          "slug": "together-ai",
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "SpaceXAI",
+          "slug": null,
+          "source_url": "https://trust.cursor.com/subprocessors"
+        },
+        {
+          "name": "WorkOS",
+          "slug": null,
+          "source_url": "https://trust.cursor.com/subprocessors"
+        }
+      ],
       "disclosure": {
         "score": 74,
         "tier": "substantial",
@@ -57170,15 +57256,15 @@
     "companies": 743,
     "years": 146,
     "certs_companies": 186,
-    "edges": 369,
+    "edges": 386,
     "top_processors": [
       {
         "id": "aws",
-        "n": 36
+        "n": 37
       },
       {
         "id": "gcp",
-        "n": 16
+        "n": 17
       },
       {
         "id": "github",
