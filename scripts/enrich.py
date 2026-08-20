@@ -20,7 +20,10 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "scripts"))
 import crawl  # noqa: E402
+from marks import apply_supersede, extract_certs_from_html, mark_blob  # noqa: E402
+from merge_render import rescore  # noqa: E402
 
 DATA = ROOT / "data"
 CACHE = DATA / "cache"
@@ -434,6 +437,7 @@ def fetch_uncached(url: str, max_body: int) -> dict:
     html = fetched.get("body") or ""
     title = crawl.extract_title(html) if html else ""
     text = strip_tags(html)[:30000] if html else ""
+    meta = extract_meta_desc(html) if html else ""
     rec = {
         "url": url,
         "ok": bool(fetched.get("ok")),
@@ -441,11 +445,12 @@ def fetch_uncached(url: str, max_body: int) -> dict:
         "final_url": fetched.get("final_url") or url,
         "title": title,
         "text": text,
-        "meta": extract_meta_desc(html) if html else "",
+        "meta": meta,
         "hrefs": extract_hrefs(html, fetched.get("final_url") or url) if html else [],
         "ctype": (fetched.get("headers") or {}).get("content-type", ""),
         "fetched_at": utc_now(),
         "raw_head": "",
+        "mark_blob": mark_blob(html, title, meta, strip_tags(html)[:80000] if html else text),
     }
     if "security.txt" in url.lower():
         rec["text"] = html[:8000]
@@ -580,20 +585,7 @@ def title_close(wiki_title: str, name: str) -> bool:
 
 
 def extract_certs(blob: str) -> list[str]:
-    if not blob:
-        return []
-    found, seen = [], set()
-    for name, pat, _w in CERT_RULES:
-        if name not in seen and pat.search(blob):
-            found.append(name)
-            seen.add(name)
-    out = []
-    for name in found:
-        supers = CERT_SUPERSEDE.get(name)
-        if supers and any(s in seen for s in supers):
-            continue
-        out.append(name)
-    return out
+    return extract_certs_from_html("", text=blob)
 
 
 def cert_score(certs: list[str]) -> int:
@@ -1058,14 +1050,14 @@ def probe_company(company: dict) -> dict:
 
 
 def certs_from_pages(company: dict, pages: dict, links: dict) -> list[str]:
-    blobs = []
+    found: list[str] = []
     for key in ("trust", "security"):
         rec = pages.get(key)
-        if rec:
-            blobs.append(f"{rec.get('title') or ''} {rec.get('meta') or ''} {rec.get('text') or ''}")
-    # Prefer live extraction. Keep a prior cert only if the same token appears on a live page.
-    live = extract_certs(" \n ".join(blobs))
-    return live
+        if not rec:
+            continue
+        blob = rec.get("mark_blob") or f"{rec.get('title') or ''} {rec.get('meta') or ''} {rec.get('text') or ''}"
+        found.extend(extract_certs_from_html(rec.get("html") or "", text=blob))
+    return apply_supersede(found)
 
 
 def processors_from_company(company: dict, pages: dict, links: dict) -> list[tuple[str, str, str]]:
@@ -1333,8 +1325,134 @@ def main() -> int:
     return 0
 
 
-if __name__ == "__main__":
-    raise SystemExit(main())
+def official_page_urls(company: dict) -> list[str]:
+    urls, seen = [], set()
+    candidates = [
+        company.get("trust_url"),
+        (company.get("links") or {}).get("trust"),
+        (company.get("links") or {}).get("security"),
+    ]
+    if company.get("found"):
+        candidates.append(company.get("final_url"))
+    for raw in candidates:
+        if not raw or not str(raw).startswith("http"):
+            continue
+        key = str(raw).rstrip("/").lower()
+        if key not in seen:
+            seen.add(key)
+            urls.append(str(raw).rstrip("/"))
+    return urls
+
+
+def marks_from_official_pages(company: dict) -> tuple[list[str], int]:
+    """Live first-party HTML only. Login walls and dead pages are not read."""
+    found: list[str] = []
+    checked = 0
+    for url in official_page_urls(company):
+        rec = fetch_cached(url, max_body=TRUST_BODY)
+        title, text = rec.get("title") or "", rec.get("text") or ""
+        if not rec.get("ok") or rec.get("status") != 200:
+            continue
+        if looks_dead(title, text) or looks_like_login_wall(title, text):
+            continue
+        checked += 1
+        blob = rec.get("mark_blob") or f"{title} {rec.get('meta') or ''} {text}"
+        found.extend(extract_certs_from_html(rec.get("html") or "", text=blob))
+    return apply_supersede(found), checked
+
+
+def file_marks() -> int:
+    """Add marks named on the official page. Pages that name none stay unchanged."""
+    t0 = time.time()
+    CACHE.mkdir(parents=True, exist_ok=True)
+    payload = load_json(DATA / "enriched.json", {})
+    companies = payload.get("companies") or []
+    if not companies:
+        print("no companies in data/enriched.json", flush=True)
+        return 1
+
+    before_with = sum(1 for c in companies if c.get("certs"))
+    before_total = sum(len(c.get("certs") or []) for c in companies)
+    pages_checked = 0
+    new_filings = 0
+    samples: list[tuple[str, list[str]]] = []
+    targets = [c for c in companies if official_page_urls(c)]
+    print(f"Filing marks from {len(targets)} official pages ({len(companies)} on the register)", flush=True)
+
+    results: dict[str, tuple[list[str], int]] = {}
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = {pool.submit(marks_from_official_pages, c): c["slug"] for c in targets}
+        done = 0
+        for fut in as_completed(futs):
+            slug = futs[fut]
+            try:
+                results[slug] = fut.result()
+            except Exception as exc:
+                print(f"  skip {slug}: {exc}", flush=True)
+                results[slug] = ([], 0)
+            done += 1
+            if done % 25 == 0 or done == len(futs):
+                print(f"  read {done}/{len(futs)}", flush=True)
+
+    generated_at = utc_now()
+    for c in companies:
+        live, checked = results.get(c["slug"], ([], 0))
+        pages_checked += checked
+        if not live:
+            continue
+        old = [x for x in (c.get("certs") or []) if isinstance(x, str)]
+        merged = apply_supersede(old + [x for x in live if x not in old])
+        added = [x for x in merged if x not in old]
+        if not added:
+            continue
+        c["certs"] = merged
+        new_filings += len(added)
+        if c.get("found"):
+            shown = ", ".join(merged[:8])
+            more = " and others" if len(merged) > 8 else ""
+            c["summary"] = f"Public trust center. On file: {shown}{more}."
+        rescore(c)
+        samples.append((c["name"], added))
+
+    payload["generated_at"] = generated_at
+    payload["notes"] = (
+        payload.get("notes")
+        or "Public pages only. Incomplete by nature. No invented URLs, years, certs, or processors."
+    )
+    write_json(DATA / "enriched.json", payload)
+    write_json(SITE / "data" / "enriched.json", payload)
+
+    after_with = sum(1 for c in companies if c.get("certs"))
+    after_total = sum(len(c.get("certs") or []) for c in companies)
+    elapsed = round(time.time() - t0, 1)
+    print(f"Wrote {DATA / 'enriched.json'} and {SITE / 'data' / 'enriched.json'}", flush=True)
+    print(
+        f"pages_checked={pages_checked} new_filings={new_filings} "
+        f"companies_with_marks {before_with}->{after_with} "
+        f"mentions {before_total}->{after_total} in {elapsed}s",
+        flush=True,
+    )
+    for name, added in samples[:12]:
+        print(f"  {name}: +{', '.join(added)}", flush=True)
+
+    log_path = DATA / "enrichment-log.md"
+    if log_path.exists():
+        extra = [
+            "",
+            "## Marks pass",
+            "",
+            f"Generated: {generated_at}",
+            "",
+            f"- pages checked: {pages_checked}",
+            f"- new mark filings: {new_filings}",
+            f"- companies with ≥1 mark: {before_with} → {after_with}",
+            f"- mark mentions: {before_total} → {after_total}",
+            "",
+            "First-party trust/security HTML only. Login walls and pages that name no mark stayed unchanged.",
+            "",
+        ]
+        log_path.write_text(log_path.read_text() + "\n".join(extra))
+    return 0
 
 
 def run() -> int:
@@ -1538,13 +1656,16 @@ def run() -> int:
             cert_blob_parts.append(c["title"])
         tpage = trust_pages.get(slug)
         if tpage and tpage.get("ok") and tpage.get("status") == 200:
+            cert_blob_parts.append(tpage.get("mark_blob") or "")
             cert_blob_parts.append(tpage.get("title") or "")
             cert_blob_parts.append(tpage.get("meta") or "")
             cert_blob_parts.append((tpage.get("text") or "")[:20000])
         for kind in ("security", "trust"):
             if kind in hits:
-                cert_blob_parts.append(hits[kind][1].get("title") or "")
-                cert_blob_parts.append((hits[kind][1].get("text") or "")[:12000])
+                rec = hits[kind][1]
+                cert_blob_parts.append(rec.get("mark_blob") or "")
+                cert_blob_parts.append(rec.get("title") or "")
+                cert_blob_parts.append((rec.get("text") or "")[:12000])
         certs = extract_certs(" ".join(cert_blob_parts))
         if not certs and slug in prior_certs:
             certs = list(prior_certs[slug])
@@ -1781,4 +1902,9 @@ What this is not: a complete crawl of every live page, a claim that missing fact
 
 
 if __name__ == "__main__":
-    raise SystemExit(run())
+    mode = sys.argv[1] if len(sys.argv) > 1 else "--marks"
+    if mode in {"--full", "full"}:
+        raise SystemExit(run())
+    if mode in {"--probe", "probe"}:
+        raise SystemExit(main())
+    raise SystemExit(file_marks())
