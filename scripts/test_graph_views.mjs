@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { neighborhoodOf } from "../site/graph.js";
+import { neighborhoodOf, looksLikeDateName, looksLikeProcessorName } from "../site/graph.js";
 
 function expect(name, cond) {
   if (!cond) {
@@ -14,7 +14,9 @@ const html = readFileSync(new URL("../site/graph.html", import.meta.url), "utf8"
 const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8");
 const js = readFileSync(new URL("../site/graph.js", import.meta.url), "utf8");
 const index = readFileSync(new URL("../site/index.html", import.meta.url), "utf8");
+const companies = readFileSync(new URL("../site/companies.html", import.meta.url), "utf8");
 const dossier = readFileSync(new URL("../site/c/anysphere.html", import.meta.url), "utf8");
+const zoomHtml = readFileSync(new URL("../site/c/zoom.html", import.meta.url), "utf8");
 const wires = JSON.parse(readFileSync(new URL("../site/data/subprocessors.json", import.meta.url), "utf8"));
 
 expect("list and map are words", html.includes(">list</button>") && html.includes(">map</button>") && html.includes("|"));
@@ -30,7 +32,7 @@ expect("active view is 1px underline not teal type", toggle.includes("border-bot
 expect("selected is ink fill teal stroke", js.includes("ctx.fillStyle = ink") && js.includes("selected ? teal : ink") && js.includes("selected ? 2 : 1") && /placeLabel\([\s\S]*ink/.test(js));
 expect("no teal type on the selected name", !js.includes("placeLabel") || !/placeLabel\([^)]*teal/.test(js));
 expect("issue line has no edge count", js.includes("fillIssue($(\"issue\"), reg)") && !js.includes("${state.edges.length} edges"));
-expect("register first screen untouched", index.includes("Public trust register") && !index.includes("view-toggle"));
+expect("register first screen untouched", companies.includes("Public trust register") && !index.includes("view-toggle"));
 expect("dossier identity untouched", dossier.includes('class="ident"') && dossier.includes("file-line"));
 
 const edges = (wires.edges || [])
@@ -46,7 +48,7 @@ const processors = [...by.values()];
 const aws = processors.find((p) => p.id === "aws");
 aws.name = "Amazon Web Services";
 const hood = neighborhoodOf(aws, edges, processors, new Map());
-expect("aws namers stay a count not a ring", hood.namers === 37 && hood.nodes.filter((n) => n.role === "namer").length === 0);
+expect("aws namers stay a count not a ring", hood.namers === 71 && hood.nodes.filter((n) => n.role === "namer").length === 0);
 expect(
   "every plate node is named",
   hood.nodes.every((n) => n.name && n.role !== "namer") &&
@@ -55,4 +57,20 @@ expect(
     hood.nodes.length === 1 + hood.others,
 );
 expect("aws siblings are labeled processors", hood.nodes.filter((n) => n.role === "other").every((n) => n.name) && hood.others >= 6);
-expect("no anonymous ring", !hood.nodes.some((n) => n.role === "namer") && edges.length === 386);
+expect("29 April 2026 is not a processor name", looksLikeDateName("29 April 2026") && !looksLikeProcessorName("29 April 2026"));
+expect("01 April 2025 is not a processor name", looksLikeDateName("01 April 2025") && !looksLikeProcessorName("01 April 2025"));
+expect("ISO date is not a processor name", looksLikeDateName("2026-04-29") && !looksLikeProcessorName("2026-04-29"));
+expect("bare year is not a processor name", looksLikeDateName("2026") && !looksLikeProcessorName("2026"));
+expect("date slug is not a processor name", looksLikeDateName("29-april-2026") && !looksLikeProcessorName("29-april-2026"));
+expect("AWS still looks like a processor", looksLikeProcessorName("Amazon Web Services") && !looksLikeDateName("Amazon Web Services"));
+expect("OpenAI still looks like a processor", looksLikeProcessorName("OpenAI") && !looksLikeDateName("OpenAI"));
+expect(
+  "published graph has no date-shaped processor nodes",
+  !(wires.nodes || []).some((n) => looksLikeDateName(n && n.name) || looksLikeDateName(n && n.id)),
+);
+expect(
+  "published graph has no date-shaped processor edges",
+  !(wires.edges || []).some((e) => looksLikeDateName(e && e.to) || looksLikeDateName(e && e.evidence)),
+);
+expect("no anonymous ring", !hood.nodes.some((n) => n.role === "namer") && edges.length === 1186);
+expect("zoom dossier dropped date processors", !zoomHtml.includes("29 April 2026") && !zoomHtml.includes("Date of change") && zoomHtml.includes("Amazon Web Services"));

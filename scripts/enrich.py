@@ -903,7 +903,7 @@ NAME_HEADER_RE = re.compile(
 )
 NOT_NAME_HEADER_RE = re.compile(
     r"\b(location|country|region|purpose|description|processing|product|"
-    r"service\(s\)|data|securit|categor|nature)\b",
+    r"service\(s\)|data|securit|categor|nature|date|effective)\b",
     re.I,
 )
 LEGAL_SUFFIX_RE = re.compile(
@@ -972,6 +972,36 @@ def looks_like_css(s: str) -> bool:
     return bool(CSSISH_RE.search(s or ""))
 
 
+MONTH_NAME = (
+    r"january|february|march|april|may|june|july|august|september|"
+    r"october|november|december|jan|feb|mar|apr|jun|jul|aug|sept?|oct|nov|dec"
+)
+DATE_HEADER_RE = re.compile(r"^(date(?: of change)?|effective date)$", re.I)
+DATE_NAME_RE = re.compile(
+    rf"^(?:(?:19|20|21)\d{{2}}|\d{{4}}-\d{{2}}-\d{{2}}|"
+    rf"\d{{1,2}}[./]\d{{1,2}}[./](?:\d{{2}}|\d{{4}})|"
+    rf"\d{{1,2}}[\s.\-]+(?:{MONTH_NAME})[\s.\-]+\d{{4}}|"
+    rf"(?:{MONTH_NAME})[\s.\-]+\d{{1,2}},?[\s.\-]+\d{{4}}|"
+    rf"(?:{MONTH_NAME})[\s.\-]+\d{{4}})$",
+    re.I,
+)
+
+
+def looks_like_date_name(name: str) -> bool:
+    """Calendar dates and date-column headers are not processor names."""
+    t = re.sub(r"\s+", " ", (name or "").strip())
+    if not t:
+        return False
+    if DATE_HEADER_RE.match(t):
+        return True
+    if DATE_NAME_RE.match(t):
+        return True
+    spaced = re.sub(r"[-_]+", " ", t)
+    if spaced != t and DATE_NAME_RE.match(spaced):
+        return True
+    return False
+
+
 def is_portal_processor(pid: str, name: str) -> bool:
     blob = f"{pid} {name}".lower()
     if pid in PORTAL_PROCESSOR_IDS:
@@ -1003,7 +1033,7 @@ def is_self_processor(name: str, pid: str, company: dict) -> bool:
 
 def looks_like_org_name(name: str) -> bool:
     t = (name or "").strip()
-    if not t or looks_like_css(t):
+    if not t or looks_like_css(t) or looks_like_date_name(t):
         return False
     if len(t) < 2 or len(t) > 80:
         return False
@@ -1083,6 +1113,8 @@ def names_from_tables(html: str) -> list[str]:
             parts = [cell_text(p) for p in SPLIT_CELL_RE.split(raw)] if SPLIT_CELL_RE.search(raw) else [raw]
             for part in parts:
                 catalog_hit = any(any(p.search(part) for p in pats) for _i, _n, _d, pats in PROC_COMPILED)
+                if looks_like_date_name(part):
+                    continue
                 if not looks_like_org_name(part) and not catalog_hit:
                     continue
                 key = part.lower()
@@ -1164,6 +1196,8 @@ def published_processors_from_html(
     for raw in names:
         pid, published = match_processor(raw, register)
         if not pid or not published:
+            continue
+        if looks_like_date_name(published) or looks_like_date_name(pid):
             continue
         if is_portal_processor(pid, published):
             continue
@@ -1645,7 +1679,7 @@ NAME_HEADER_RE = re.compile(
 )
 NOT_NAME_HEADER_RE = re.compile(
     r"\b(location|country|region|purpose|description|processing|product|"
-    r"service\(s\)|data|securit|categor|nature)\b",
+    r"service\(s\)|data|securit|categor|nature|date|effective)\b",
     re.I,
 )
 LEGAL_SUFFIX_RE = re.compile(
@@ -1717,6 +1751,36 @@ def looks_like_css(s: str) -> bool:
     return bool(CSSISH_RE.search(s or ""))
 
 
+MONTH_NAME = (
+    r"january|february|march|april|may|june|july|august|september|"
+    r"october|november|december|jan|feb|mar|apr|jun|jul|aug|sept?|oct|nov|dec"
+)
+DATE_HEADER_RE = re.compile(r"^(date(?: of change)?|effective date)$", re.I)
+DATE_NAME_RE = re.compile(
+    rf"^(?:(?:19|20|21)\d{{2}}|\d{{4}}-\d{{2}}-\d{{2}}|"
+    rf"\d{{1,2}}[./]\d{{1,2}}[./](?:\d{{2}}|\d{{4}})|"
+    rf"\d{{1,2}}[\s.\-]+(?:{MONTH_NAME})[\s.\-]+\d{{4}}|"
+    rf"(?:{MONTH_NAME})[\s.\-]+\d{{1,2}},?[\s.\-]+\d{{4}}|"
+    rf"(?:{MONTH_NAME})[\s.\-]+\d{{4}})$",
+    re.I,
+)
+
+
+def looks_like_date_name(name: str) -> bool:
+    """Calendar dates and date-column headers are not processor names."""
+    t = re.sub(r"\s+", " ", (name or "").strip())
+    if not t:
+        return False
+    if DATE_HEADER_RE.match(t):
+        return True
+    if DATE_NAME_RE.match(t):
+        return True
+    spaced = re.sub(r"[-_]+", " ", t)
+    if spaced != t and DATE_NAME_RE.match(spaced):
+        return True
+    return False
+
+
 def is_portal_processor(pid: str, name: str) -> bool:
     blob = f"{pid} {name}".lower()
     if pid in PORTAL_PROCESSOR_IDS:
@@ -1748,7 +1812,7 @@ def is_self_processor(name: str, pid: str, company: dict) -> bool:
 
 def looks_like_org_name(name: str) -> bool:
     t = (name or "").strip()
-    if not t or looks_like_css(t):
+    if not t or looks_like_css(t) or looks_like_date_name(t):
         return False
     if len(t) < 2 or len(t) > 80:
         return False
@@ -1828,6 +1892,8 @@ def names_from_tables(html: str) -> list[str]:
             parts = [cell_text(p) for p in SPLIT_CELL_RE.split(raw)] if SPLIT_CELL_RE.search(raw) else [raw]
             for part in parts:
                 catalog_hit = any(any(p.search(part) for p in pats) for _i, _n, _d, pats in PROC_COMPILED)
+                if looks_like_date_name(part):
+                    continue
                 if not looks_like_org_name(part) and not catalog_hit:
                     continue
                 key = part.lower()
@@ -1909,6 +1975,8 @@ def published_processors_from_html(
     for raw in names:
         pid, published = match_processor(raw, register)
         if not pid or not published:
+            continue
+        if looks_like_date_name(published) or looks_like_date_name(pid):
             continue
         if is_portal_processor(pid, published):
             continue
@@ -2228,6 +2296,11 @@ def build_nodes_and_edges(companies: list[dict], edges_raw: list[dict]):
 
     for c in companies:
         add_node(c["slug"], c["name"], c["domain"], True, "company")
+    edges_raw = [
+        e for e in edges_raw
+        if not looks_like_date_name(e.get("to") or "")
+        and not looks_like_date_name(e.get("evidence") or "")
+    ]
     for e in edges_raw:
         pid = e["to"]
         if pid in register:

@@ -9,6 +9,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from build_pages import (  # noqa: E402
+    looks_like_date_name,
+    looks_like_processor_name,
     link_mark_words,
     map_cert,
     processor_cell,
@@ -78,6 +80,12 @@ def main() -> int:
         and 'href="../attestations.html#aiuc-1">AIUC-1</a>' in clerk,
         f"clerk links {clerk}",
     )
+    check(looks_like_date_name("29 April 2026"), "publisher rejects 29 April 2026")
+    check(looks_like_date_name("2026-04-29"), "publisher rejects ISO date")
+    check(looks_like_date_name("2025"), "publisher rejects a bare year")
+    check(not looks_like_processor_name("01 April 2025"), "date is not a processor name")
+    check(looks_like_processor_name("Amazon Web Services"), "AWS still looks like a processor")
+    check(not looks_like_date_name("OpenAI"), "OpenAI is not a date")
     print("ok")
     return 0
 
