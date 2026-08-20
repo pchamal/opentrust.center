@@ -24,15 +24,9 @@ UA = "opentrust.center-favicon/1.0 (+https://opentrust.center/)"
 TIMEOUT = 12
 WORKERS = 16
 
-# First-party issuer marks only. Skip seals, ribbons, badges, and
-# wordmarks-in-a-circle — the word stays the authority.
-MARK_DOMAINS = {
-    "cmmc-l1": "cyberab.org",
-    "cmmc-l2": "cyberab.org",
-    "k-isms": "kisa.or.kr",
-    "mtcs": "imda.gov.sg",
-    "tisax": "enx.com",
-}
+# Issuer homepage favicons are stamps after the ink pass (CMMC, K-ISMS,
+# MTCS, TISAX). The word stays the authority. Do not map marks here.
+MARK_DOMAINS: dict[str, str] = {}
 
 ICON_REL = re.compile(r"(?:^|\s)(?:shortcut\s+)?icon(?:\s|$)|apple-touch-icon", re.I)
 DATA_URI = re.compile(r"^data:", re.I)
@@ -312,6 +306,26 @@ def _letterish(aspect: float, fill_bbox: float) -> bool:
     return 0.55 <= aspect <= 1.40 and 0.20 <= fill_bbox <= 0.70
 
 
+def _component_box(cells: list[tuple[int, int]]) -> tuple[float, float, float]:
+    xs = [p[0] for p in cells]
+    ys = [p[1] for p in cells]
+    bw = max(xs) - min(xs) + 1
+    bh = max(ys) - min(ys) + 1
+    aspect = bw / max(bh, 1)
+    fill_bbox = len(cells) / max(bw * bh, 1)
+    return aspect, fill_bbox, _convexity(cells)
+
+
+def _dominant_disc(comps: list[list[tuple[int, int]]], ink_n: int) -> bool:
+    if not comps or ink_n <= 0:
+        return False
+    main = comps[0]
+    if len(main) < 0.5 * ink_n:
+        return False
+    aspect, fill_bbox, conv = _component_box(main)
+    return 0.75 <= aspect <= 1.35 and fill_bbox >= 0.72 and conv >= 0.95
+
+
 def stamp_reason(im: Image.Image) -> str:
     """Why this bitmap must not emit after the 12px Ledger Black ink pass.
 
@@ -339,6 +353,10 @@ def stamp_reason(im: Image.Image) -> str:
     comps = _components(mask, w, h)
     if not comps:
         return "empty"
+    if _dominant_disc(comps, ink_n):
+        return "disc"
+    if min(w, h) <= 32 and len(comps) >= 4:
+        return "letter-tile"
     if len(comps) == 1:
         cells = comps[0]
         xs = [p[0] for p in cells]
@@ -512,16 +530,15 @@ def rescan_vendored() -> tuple[int, int]:
     mark_ok = {}
     for mid, host in MARK_DOMAINS.items():
         name = filename_for(host)
-        if host in host_ok or existing_mark(OUT / name):
+        if host in host_ok and existing_mark(OUT / name):
             mark_ok[mid] = name
-    # Sweep leftovers that are no longer indexed.
     indexed = set(company_ok.values()) | set(mark_ok.values())
     dropped = 0
     for path in OUT.glob("*.png"):
-        if path.name in indexed:
+        if path.name in indexed and existing_mark(path):
             continue
-        if not existing_mark(path):
-            dropped += 1
+        path.unlink(missing_ok=True)
+        dropped += 1
     write_index(company_ok, mark_ok)
     return len(company_ok), dropped
 
@@ -564,9 +581,8 @@ def main() -> int:
     mark_ok = {}
     for mid, host in mark_domains.items():
         name = filename_for(host)
-        if host in host_ok or (OUT / name).exists():
+        if existing_mark(OUT / name):
             mark_ok[mid] = name
-            host_ok.add(host)
     write_index(company_ok, mark_ok)
     print(
         f"wrote {len(company_ok)} company icons, {len(mark_ok)} mark mappings "

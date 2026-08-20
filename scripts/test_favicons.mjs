@@ -86,6 +86,10 @@ if (existsSync(indexPath)) {
     "ismap.go.jp.png",
   ];
   expect("seal and circled wordmarks are not used as marks", !markFiles.some((f) => sealish.includes(f)));
+  const stampMarks = ["cmmc-l1", "cmmc-l2", "k-isms", "mtcs", "tisax"];
+  expect("stamp marks are not indexed", stampMarks.every((id) => !(index.marks || {})[id]));
+  const password = readFileSync(new URL("../site/c/1password.html", import.meta.url), "utf8");
+  expect("tisax is the word", /attestations.html#tisax">TISAX</.test(password) && !/attestations.html#tisax"><img/.test(password));
   const stripe = readFileSync(new URL("../site/c/stripe.html", import.meta.url), "utf8");
   expect("stripe stamp is name only", /<h1>Stripe<\/h1>/.test(stripe));
   expect("stripe framework words stay words", /attestations.html#soc-2-type-ii">SOC 2 Type II</.test(stripe) && !/attestations.html#soc-2-type-ii"><img/.test(stripe));

@@ -67,6 +67,12 @@ named_keep = [
     "3dsystems.com.png",
     "a10networks.com.png",
 ]
+mark_stamps = [
+    "enx.com.png",
+    "kisa.or.kr.png",
+    "imda.gov.sg.png",
+    "cyberab.org.png",
+]
 for name in named_drop:
     path = FAV / name
     if path.exists():
@@ -78,5 +84,11 @@ for name in named_keep:
     path = FAV / name
     expect(f"{name} still on disk", path.exists())
     expect(f"{name} is a mark", stamp_reason(Image.open(path)) == "")
+for name in mark_stamps:
+    path = FAV / name
+    if path.exists():
+        expect(f"{name} mark is rejected", bool(stamp_reason(Image.open(path))))
+    else:
+        expect(f"{name} mark is name-only", True)
 
 print("ok stamp filter")
