@@ -9,6 +9,9 @@ import {
   arrangeRows,
   defaultRows,
   marksCell,
+  windowRows,
+  pageCount,
+  PAGE_SIZE,
 } from "../site/register.js";
 
 const data = JSON.parse(readFileSync(new URL("../site/data.json", import.meta.url), "utf8"));
@@ -165,11 +168,16 @@ expect("register still files the meter on each row", /fileMeterHtml\(row\)/.test
 expect("folio row is a dossier click-through", /class="folio"/.test(registerSrc));
 
 const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8");
-expect("sort caret is plex rust triangles", css.includes('content: "▴"') && css.includes('content: "▾"') && /th\[data-sort\] button::after \{[\s\S]*font-family: var\(--font-docket\)/.test(css) && /th\[data-sort\] button::after \{[\s\S]*color: var\(--rust\)/.test(css));
-expect("headers stay rust", /\.reg th \{[\s\S]*color: var\(--rust\)/.test(css));
-expect("row ink is mute", /\.reg td \{[\s\S]*color: var\(--mute\)/.test(css) && /\.reg td\.num \{ color: var\(--mute\)/.test(css) && /\.reg td\.marks \{[\s\S]*color: var\(--mute\)/.test(css));
-expect("names stay ink", /\.reg td\.name \{[\s\S]*color: var\(--ink\)/.test(css));
-expect("meter boxes stay rust", /file-meter > span \{[\s\S]*border: 1px solid var\(--rust\)/.test(css));
+expect("sort caret is utility triangles", css.includes('content: "▴"') && css.includes('content: "▾"') && /th\[data-sort\] button::after \{[\s\S]*font: var\(--t-meta\)/.test(css) && /th\[data-sort\] button::after \{[\s\S]*color: var\(--ot-graphite\)/.test(css));
+expect("headers stay graphite", /\.reg th \{[\s\S]*color: var\(--ot-graphite\)/.test(css));
+expect("row ink is graphite", /\.reg td \{[\s\S]*color: var\(--ot-graphite\)/.test(css) && /\.reg td\.num \{ color: var\(--ot-graphite\)/.test(css) && /\.reg td\.marks,/.test(css));
+expect("names stay ledger black", /\.reg td\.name \{[\s\S]*color: var\(--ot-ledger-black\)/.test(css));
+expect("meter boxes use rule-strong and carbon", /file-meter > span \{[\s\S]*border: 1px solid var\(--ot-rule-strong\)/.test(css) && /file-meter > span\.on \{[\s\S]*background: var\(--ot-carbon\)/.test(css));
+expect("no rust leftover in css", !/#ff6600|#331400|#662900|#993[Dd]00|--flame|--espresso|--rust|--ember|--well/.test(css));
+expect("open record tokens are exact", css.includes("--ot-ledger-black: #0B1411") && css.includes("--ot-evidence-teal: #00685C") && css.includes("--ot-font-editorial: \"Source Serif 4\""));
+expect("pagination windows rows", pageCount(734) === 15 && windowRows(rows, 1).rows.length === PAGE_SIZE && windowRows(rows, 1).rows.length < rows.length);
+expect("last page is a remainder", windowRows(rows, pageCount(rows.length)).rows.length === ((rows.length % PAGE_SIZE) || PAGE_SIZE));
+expect("window preserves order", windowRows(defaultRows(rows), 1).rows[0].slug === defaultRows(rows)[0].slug);
 
 const buyer = marksCell({
   attestations: [

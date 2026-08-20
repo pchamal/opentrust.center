@@ -9,8 +9,6 @@ const GEO_GROUPS = {
 };
 
 const TILT = (15 * Math.PI) / 180;
-const SPIN = 0.1;
-const RESUME_MS = 1200;
 
 const state = {
   items: [],
@@ -102,10 +100,6 @@ function regionAt(lng, lat) {
   return "international";
 }
 
-function preferReduced() {
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
-
 function sph(lng, lat) {
   const λ = (lng * Math.PI) / 180 - state.rot;
   const φ = (lat * Math.PI) / 180;
@@ -138,10 +132,10 @@ function token(name, fallback) {
 
 function ink() {
   return {
-    land: token("--well", "#4a1e00"),
-    sea: token("--ground", "#331400"),
-    rust: token("--rust", "#993d00"),
-    flame: token("--flame", "#ff6600"),
+    land: token("--ot-paper", "#EDF2F0"),
+    sea: token("--ot-sheet-white", "#FFFFFF"),
+    rule: token("--ot-rule-strong", "#70817A"),
+    mark: token("--ot-carbon", "#17211D"),
   };
 }
 
@@ -395,7 +389,7 @@ function drawMap() {
     ctx.fill("evenodd");
   }
 
-  ctx.strokeStyle = color.rust;
+  ctx.strokeStyle = color.rule;
   ctx.lineWidth = 1;
   ctx.globalAlpha = 0.55;
   strokeGraticule(ctx, cx, cy, R);
@@ -405,7 +399,7 @@ function drawMap() {
     for (const hole of poly.holes) strokeFront(ctx, hole, cx, cy, R);
   }
 
-  ctx.fillStyle = color.flame;
+  ctx.fillStyle = color.mark;
   for (const item of state.items) {
     if (item.lat == null || item.lng == null) continue;
     const p = sph(item.lng, item.lat);
@@ -417,45 +411,17 @@ function drawMap() {
 
   ctx.beginPath();
   ctx.arc(cx, cy, R, 0, Math.PI * 2);
-  ctx.strokeStyle = color.rust;
+  ctx.strokeStyle = color.rule;
   ctx.lineWidth = 1;
   ctx.stroke();
 }
 
 function setGeo(geo) {
   state.geo = geo;
-  const legend = $("geo-legend");
-  if (legend) {
-    legend.querySelectorAll("button").forEach((b) => {
-      b.classList.toggle("on", b.getAttribute("data-geo") === geo);
-    });
-  }
-  const bar = $("geo-filters");
-  if (bar) {
-    bar.querySelectorAll("button").forEach((b) => {
-      b.classList.toggle("on", b.getAttribute("data-geo") === geo);
-    });
-  }
+  document.querySelectorAll("[data-geo]").forEach((b) => {
+    b.classList.toggle("on", b.getAttribute("data-geo") === geo);
+  });
   renderBook();
-}
-
-function tick(ts) {
-  if (!state.drag && !preferReduced() && ts >= state.resumeAt) {
-    const dt = state.lastTs ? (ts - state.lastTs) / 1000 : 0;
-    if (dt > 0 && dt < 0.25) {
-      state.rot += SPIN * dt;
-      drawMap();
-    }
-  }
-  state.lastTs = ts;
-  state.raf = requestAnimationFrame(tick);
-}
-
-function startSpin() {
-  if (state.raf) return;
-  if (preferReduced()) return;
-  state.lastTs = 0;
-  state.raf = requestAnimationFrame(tick);
 }
 
 function bind() {
@@ -471,17 +437,17 @@ function bind() {
   document.querySelectorAll("[data-geo]").forEach((btn) => {
     btn.addEventListener("click", () => setGeo(btn.getAttribute("data-geo")));
   });
-  $("kind-filters").querySelectorAll("button").forEach((btn) => {
+  document.querySelectorAll("[data-kind]").forEach((btn) => {
     btn.addEventListener("click", () => {
       state.kind = btn.getAttribute("data-kind");
-      $("kind-filters").querySelectorAll("button").forEach((b) => b.classList.toggle("on", b === btn));
+      document.querySelectorAll("[data-kind]").forEach((b) => b.classList.toggle("on", b === btn));
       renderBook();
     });
   });
-  $("ind-filters").querySelectorAll("button").forEach((btn) => {
+  document.querySelectorAll("[data-ind]").forEach((btn) => {
     btn.addEventListener("click", () => {
       state.industry = btn.getAttribute("data-ind");
-      $("ind-filters").querySelectorAll("button").forEach((b) => b.classList.toggle("on", b === btn));
+      document.querySelectorAll("[data-ind]").forEach((b) => b.classList.toggle("on", b === btn));
       renderBook();
     });
   });
@@ -502,8 +468,7 @@ function bind() {
   canvas.addEventListener("pointerup", (e) => {
     const drag = state.drag;
     state.drag = null;
-    state.resumeAt = performance.now() + RESUME_MS;
-    startSpin();
+    state.resumeAt = 0;
     if (!drag || drag.moved) return;
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -534,8 +499,7 @@ function bind() {
   });
   canvas.addEventListener("pointercancel", () => {
     state.drag = null;
-    state.resumeAt = performance.now() + RESUME_MS;
-    startSpin();
+    state.resumeAt = 0;
   });
   window.addEventListener("resize", drawMap);
   window.addEventListener("hashchange", () => {
@@ -572,7 +536,6 @@ async function load() {
   }
   renderBook();
   drawMap();
-  startSpin();
   if (location.hash) {
     const el = document.getElementById(location.hash.slice(1));
     if (el) el.scrollIntoView({ block: "start" });

@@ -36,12 +36,13 @@ export function fileMeterHtml(row) {
   const on = FILE_KEYS.filter((k) => flags[k]);
   const legend = FILE_KEYS.join(" · ");
   const listed = on.length ? on.join(" · ") + " on file" : "none on file";
-  const aria = `${legend} · ${listed}`;
+  const den = `${on.length} of 5`;
+  const aria = `${legend} · ${listed} · ${den}`;
   const boxes = FILE_KEYS.map((k) => {
     const cls = flags[k] ? ' class="on"' : "";
     return `<span${cls} title="${k}"></span>`;
   }).join("");
-  return `<span class="file-meter" title="${escapeHtml(aria)}" aria-label="${escapeHtml(aria)}">${boxes}</span>`;
+  return `<span class="file-meter" title="${escapeHtml(aria)}" aria-label="${escapeHtml(aria)}">${boxes}</span><span class="file-den">${den}</span>`;
 }
 
 export function $(id) {
@@ -188,7 +189,17 @@ export function fillIssue(el, data, extra) {
   const notOn = companies.length - onFile;
   const day = fmtDay(data.generated_at);
   const when = fmtWhen(data.generated_at);
-  el.textContent = `issue ${day} PT · ${onFile} on file · ${notOn} not on file · last probed ${when}${extra ? " · " + extra : ""}`;
+  const dataset = DATA_V ? `dataset ${DATA_V}` : "";
+  el.textContent = [
+    `issue ${day}`,
+    `${onFile} on file`,
+    `${notOn} not on file`,
+    `last probed ${when}`,
+    dataset,
+    extra || "",
+  ]
+    .filter(Boolean)
+    .join(" · ");
 }
 
 export function coverageLine(cov) {
@@ -221,5 +232,7 @@ export function tierClass(tier) {
 }
 
 export function displayTier(tier) {
-  return tier === "on-file" ? "on file" : tier || "silent";
+  if (tier === "on-file") return "on file";
+  if (tier === "complete") return "public file complete";
+  return tier || "silent";
 }

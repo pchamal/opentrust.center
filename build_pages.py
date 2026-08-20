@@ -108,20 +108,7 @@ LINK_TO_INSTRUMENT = {
 
 INSTRUMENTS = ("trust", "security", "privacy", "dpa", "subprocessors", "status", "bounty")
 
-FAVICON = (
-    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E"
-    "%3Crect width='64' height='64' fill='%23331400'/%3E"
-    "%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23ff6600' stroke-width='2'/%3E"
-    "%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23ff6600' stroke-width='1'/%3E"
-    "%3Ctext x='32' y='38' text-anchor='middle' font-family='Georgia,serif' "
-    "font-size='16' font-weight='600' fill='%23ff6600'%3EOT%3C/text%3E%3C/svg%3E"
-)
-
-FONTS = (
-    "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400"
-    "&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400"
-    "&display=swap"
-)
+FAVICON = "../favicon.svg"
 
 
 VENDOR_HOST_RE = re.compile(
@@ -330,11 +317,12 @@ def file_flags(row: dict, disc: dict) -> dict:
 
 
 def file_meter_html(flags: dict) -> str:
-    """Dossier stamp only. The register table is the tier word, no boxes."""
+    """Five-box file coverage. Not a health bar and not a company score."""
     on_file = [k for k in FILE_METER_KEYS if flags.get(k)]
+    den = f"{len(on_file)} of 5"
     legend = " · ".join(FILE_METER_KEYS)
     listed = (" · ".join(on_file) + " on file") if on_file else "none on file"
-    aria = f"{legend} · {listed}"
+    aria = f"{legend} · {listed} · {den}"
     boxes = []
     for key in FILE_METER_KEYS:
         cls = ' class="on"' if flags.get(key) else ""
@@ -342,7 +330,7 @@ def file_meter_html(flags: dict) -> str:
     return (
         f'<span class="file-meter" title="{escape(aria)}" aria-label="{escape(aria)}">'
         + "".join(boxes)
-        + "</span>"
+        + f'</span><span class="file-den">{escape(den)}</span>'
     )
 
 
@@ -683,29 +671,55 @@ def fedramp_block(row: dict) -> str:
         body = "".join(rows)
     else:
         body = '<tr><td colspan="4"><span class="absent">not on file</span></td></tr>'
-    lines = ['    <p class="sec-kicker">fedramp</p>']
+    lines = ['    <p class="sec-kicker">FedRAMP</p>']
     if highest:
         lines.append(f'    <p class="ident-meta">highest authorized · {escape(highest)}</p>')
     lines.append(f"    {caption}")
     lines.append('    <table class="inst">')
-    lines.append('      <thead><tr><th>offering</th><th>status</th><th>impact level</th><th>auth date</th></tr></thead>')
+    lines.append('      <thead><tr><th scope="col">Offering</th><th scope="col">Status</th><th scope="col">Impact level</th><th scope="col">Auth date</th></tr></thead>')
     lines.append(f"      <tbody>{body}</tbody>")
     lines.append("    </table>")
     return "\n".join(lines) + "\n"
 
 
+def fedramp_spine(row: dict) -> str:
+    fed = row.get("fedramp") if isinstance(row.get("fedramp"), dict) else None
+    products = [
+        p for p in (fed or {}).get("products") or []
+        if str(p.get("offering") or "").strip()
+    ]
+    if not products:
+        return spine_item("FedRAMP", "not on file · unknown · marketplace observation only", "unknown")
+    items = []
+    for p in products:
+        offering = str(p.get("offering") or "").strip()
+        status = str(p.get("status") or "").strip() or "unknown"
+        level = str(p.get("impact_level") or "").strip() or "unknown"
+        auth = fmt_day(p.get("auth_date") or "") or "date not on file"
+        href = str(p.get("url") or "").strip() or FEDRAMP_MARKET
+        items.append(
+            spine_item(
+                escape(offering),
+                f"FedRAMP marketplace · {escape(status)} · {escape(level)} · last reviewed {escape(auth)} · "
+                f'<a href="{escape(href)}">View source</a>',
+                "source",
+            )
+        )
+    return "".join(items)
+
+
 def mast(active: str, prefix: str) -> str:
-    def link(href: str, word: str) -> str:
-        cls = ' class="on"' if word == active else ""
+    def link(href: str, word: str, key: str) -> str:
+        cls = ' class="on"' if key == active else ""
         return f'<a href="{prefix}{href}"{cls}>{word}</a>'
-    return f"""  <header class="mast">
-    <a class="wordmark" href="{prefix}">opentrust.center</a>
-    <nav class="docket" aria-label="instruments">
-      {link("", "register")}
-      {link("graph.html", "subprocessors")}
-      {link("attestations.html", "marks")}
+    return f"""  <a class="skip" href="#main">Skip to the record</a>
+  <header class="mast">
+    <a class="wordmark" href="{prefix}">opentrust<span class="wm-dot">.</span>center</a>
+    <nav class="docket" aria-label="Register">
+      {link("", "Register", "register")}
+      {link("graph.html", "Subprocessors", "subprocessors")}
+      {link("attestations.html", "Marks", "marks")}
     </nav>
-    <span class="stamp" aria-hidden="true">OT</span>
   </header>"""
 
 
@@ -717,15 +731,50 @@ def cell(value: str | None, italic_if_empty: bool = True) -> str:
     return "—"
 
 
-def dossier_html(row: dict, generated_at: str) -> str:
+def snapshot_line(generated_at: str, on_file: int, not_on: int, extra: str = "") -> str:
+    day = fmt_day(generated_at) or "—"
+    when = fmt_when(generated_at) or "—"
+    bits = [
+        f"issue {day}",
+        f"{on_file} on file",
+        f"{not_on} not on file",
+        f"last probed {when}",
+        f"dataset {generated_at}" if generated_at else "",
+        extra,
+    ]
+    return " · ".join(b for b in bits if b)
+
+
+def spine_item(title: str, meta: str, kind: str = "source") -> str:
+    return (
+        f'<li class="spine-item {escape(kind)}">'
+        f'<span class="spine-node" aria-hidden="true"></span>'
+        f'<p class="claim-name">{title}</p>'
+        f'<p class="claim-meta">{meta}</p>'
+        f"</li>"
+    )
+
+
+def display_file_tier(tier: str) -> str:
+    if tier == "on-file":
+        return "on file"
+    if tier == "complete":
+        return "public file complete"
+    return tier or "silent"
+
+
+def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     name = row["name"]
     slug = row["slug"]
     domain = row.get("domain") or ""
     found = bool(row.get("found"))
     url = row.get("trust_url") or ""
     disc = row["disclosure"]
-    tier = "on file" if disc["tier"] == "on-file" else disc["tier"]
+    tier = display_file_tier(disc["tier"])
     tier_cls = "silent" if disc["tier"] == "silent" else ""
+    flags = file_flags(row, disc)
+    covered = sum(1 for k in FILE_METER_KEYS if flags.get(k))
+    coverage_line = f"public evidence in {covered} of 5 file factors"
     title = f"{name} — opentrust.center"
     desc = "A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not."
     list_label = "cloud 100" if row.get("list") == "cloud100" else (row.get("list") or "not on file")
@@ -740,21 +789,33 @@ def dossier_html(row: dict, generated_at: str) -> str:
     if atts:
         att_rows = "".join(
             f'<tr><td class="mark"><a href="../attestations.html#{escape(a["id"] or "")}">{escape(a["name"])}</a></td>'
-            f'<td>{escape("cited")}</td><td>{a["weight"]}</td></tr>'
+            f'<td><span class="sem-source">cited</span></td><td>{a["weight"]}</td></tr>'
             if a.get("id")
-            else f'<tr><td>{escape(a["name"])}</td><td>cited</td><td>{a["weight"]}</td></tr>'
+            else f'<tr><td>{escape(a["name"])}</td><td><span class="sem-source">cited</span></td><td>{a["weight"]}</td></tr>'
+            for a in atts
+        )
+        att_spine = "".join(
+            spine_item(
+                f'<a href="../attestations.html#{escape(a["id"] or "")}">{escape(a["name"])}</a>'
+                if a.get("id")
+                else escape(a["name"]),
+                f"observed on the public page · last reviewed {escape(fmt_day(generated_at) or '—')} · disclosure weight {a['weight']}",
+                "source",
+            )
             for a in atts
         )
     else:
         att_rows = '<tr><td colspan="3"><span class="absent">not on file</span></td></tr>'
+        att_spine = spine_item("Attestations", "not on file · unknown", "unknown")
 
     inst = row.get("instruments") or {}
     inst_rows = []
+    inst_spine = []
     labels = {
         "trust": "trust",
         "security": "security",
         "privacy": "privacy",
-        "dpa": "dpa",
+        "dpa": "DPA",
         "subprocessors": "subprocessors",
         "status": "status",
         "bounty": "bounty / security.txt",
@@ -764,14 +825,23 @@ def dossier_html(row: dict, generated_at: str) -> str:
         label = labels[key]
         if rec and rec.get("url"):
             shown = rec.get("host") or display_host(rec["url"], domain)
+            seen = fmt_day((rec.get("seen") or "") + "T00:00:00Z") if rec.get("seen") else "—"
             inst_rows.append(
                 f"<tr><td>{escape(label)}</td><td>{official_a(rec['url'], shown)}</td>"
-                f"<td>{escape(fmt_day((rec.get('seen') or '') + 'T00:00:00Z') if rec.get('seen') else '—')}</td></tr>"
+                f"<td>{escape(seen)}</td></tr>"
+            )
+            inst_spine.append(
+                spine_item(
+                    escape(label),
+                    f"source · {official_a(rec['url'], shown)} · last reviewed {escape(seen)}",
+                    "source",
+                )
             )
         else:
             inst_rows.append(
                 f'<tr><td>{escape(label)}</td><td><span class="absent">not on file</span></td><td>—</td></tr>'
             )
+            inst_spine.append(spine_item(escape(label), "not on file · unknown", "unknown"))
 
     procs = row.get("processors") or []
     if procs:
@@ -785,21 +855,35 @@ def dossier_html(row: dict, generated_at: str) -> str:
             + f'<td>{official_a(p["source_url"], host_of(p["source_url"]))}</td></tr>'
             for p in procs
         )
+        proc_spine = "".join(
+            spine_item(
+                escape(p["name"]),
+                (
+                    f"named on a public list · last reviewed {escape(fmt_day(generated_at) or '—')} · "
+                    + (f'<a href="./{escape(p["slug"])}.html">Open dossier</a> · ' if p.get("slug") else "not in register · ")
+                    + official_a(p["source_url"], host_of(p["source_url"]))
+                ),
+                "source",
+            )
+            for p in procs
+        )
     else:
         proc_rows = '<tr><td colspan="3"><span class="absent">not on file</span></td></tr>'
+        proc_spine = spine_item("Named processors", "not on file · unknown", "unknown")
 
     clerk = row.get("summary") or ""
     clerk_html = f'<p class="clerk">{escape(clerk)}</p>' if clerk else ""
     outbound = (
-        f'<button type="button" class="go-out" id="go-out" data-url="{escape(url)}">open official page</button>'
+        f'<button type="button" class="go-out" id="go-out" data-url="{escape(url)}">View source</button>'
         if found and url
-        else '<span class="absent">open official page · not on file</span>'
+        else '<span class="absent">View source · not on file</span>'
     )
     need_gate = bool(found and url) or any(
         rec and rec.get("url") for rec in inst.values()
     ) or any(p.get("source_url") for p in procs)
     gate = GATE_HTML if need_gate else ""
-    claim = f'<a class="perm" href="../claim.html?slug={escape(slug)}">claim or correct this file</a>'
+    claim = f'<a class="perm" href="../claim.html?slug={escape(slug)}">Report a correction</a>'
+    issue = snapshot or f"issue · file c/{escape(slug)}"
 
     about = {"@type": "Organization", "name": name}
     if domain:
@@ -831,49 +915,54 @@ def dossier_html(row: dict, generated_at: str) -> str:
   <meta property="og:description" content="{escape(desc)}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{CANON}/c/{escape(slug)}.html">
-  <meta name="theme-color" content="#331400">
+  <meta name="theme-color" content="#0B1411">
   <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
-  <link rel="icon" href="{FAVICON}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="{FONTS}" rel="stylesheet">
+  <link rel="icon" href="{FAVICON}" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-{mast("register", "../")}
-  <p class="issue">ISSUE · file c/{escape(slug)}</p>
-  <main class="file">
-    <p class="crumb"><a href="../">register</a> / {escape(slug)}</p>
+{mast("", "../")}
+  <p class="issue">{escape(issue)}</p>
+  <main class="file" id="main">
+    <p class="crumb"><a href="../">Register</a> / {escape(slug)}</p>
     <section class="ident">
       <h1>{escape(name)}</h1>
       <p class="ident-meta">{escape(domain)} · {escape(list_label)}</p>
       <p class="ident-meta">founded · {year_html}</p>
     </section>
     <div class="disclosure">
-      <span class="stamp" aria-hidden="true">OT</span>
       <span class="tier-label {tier_cls}">{escape(tier)}</span>
-      {file_meter_html(file_flags(row, disc))}
+      {file_meter_html(flags)}
     </div>
-    <p class="file-legend">page · marks · dpa · subprocessors · years</p>
-    <p class="factor">{escape(factor_line(disc))}</p>
+    <p class="file-legend">page · marks · DPA · subprocessors · years</p>
+    <p class="factor">{escape(coverage_line)} · {escape(factor_line(disc))}</p>
+    <p class="fig-sub">File rating, not a company trust badge. Missing private evidence is inconclusive.</p>
 
-    <p class="sec-kicker">attestations</p>
+    <p class="sec-kicker">Claims</p>
+    <ol class="spine">
+      {att_spine}
+      {fedramp_spine(row)}
+      {"".join(inst_spine)}
+      {proc_spine}
+    </ol>
+
+    <p class="sec-kicker">Attestations</p>
     <table class="inst">
-      <thead><tr><th>mark</th><th>on page</th><th>weight</th></tr></thead>
+      <thead><tr><th scope="col">Mark</th><th scope="col">On page</th><th scope="col">Weight</th></tr></thead>
       <tbody>{att_rows}</tbody>
     </table>
 
 {fedramp_block(row)}
-    <p class="sec-kicker">instruments</p>
+    <p class="sec-kicker">Instruments</p>
     <table class="inst">
-      <thead><tr><th>instrument</th><th>host</th><th>last seen</th></tr></thead>
+      <thead><tr><th scope="col">Instrument</th><th scope="col">Host</th><th scope="col">Last seen</th></tr></thead>
       <tbody>{"".join(inst_rows)}</tbody>
     </table>
 
-    <p class="sec-kicker">named processors</p>
+    <p class="sec-kicker">Named processors</p>
     <p class="fig-sub">Filed from the company’s public list. Not a complete supply chain.</p>
     <table class="inst">
-      <thead><tr><th>processor</th><th>in register</th><th>source</th></tr></thead>
+      <thead><tr><th scope="col">Processor</th><th scope="col">In register</th><th scope="col">Source</th></tr></thead>
       <tbody>{proc_rows}</tbody>
     </table>
 
@@ -883,12 +972,12 @@ def dossier_html(row: dict, generated_at: str) -> str:
       {outbound}
       {gate}
       {claim}
-      <a class="perm" href="./{escape(slug)}.html">permalink · c/{escape(slug)}</a>
+      <a class="perm" href="./{escape(slug)}.html">Permalink · c/{escape(slug)}</a>
     </div>
   </main>
   <footer class="colo">
-    <p>Disclosure rates the file, not the company. Empty rows print <i>not on file</i>.</p>
-    <p><a href="../">register</a> · <a href="../graph.html">subprocessors</a> · <a href="../attestations.html">marks</a></p>
+    <p>Disclosure rates the file, not the company. Empty rows print <i>not on file</i>. File tiers are public-file ratings, never company trust.</p>
+    <p><a href="../">Register</a> · <a href="../graph.html">Subprocessors</a> · <a href="../attestations.html">Marks</a></p>
   </footer>
   <script type="module" src="../dossier.js"></script>
 </body>
@@ -1033,6 +1122,11 @@ def main() -> int:
         "coverage": coverage,
     }
     (SITE / "data.json").write_text(json.dumps(public, indent=2, ensure_ascii=False) + "\n")
+    snapshot = snapshot_line(
+        generated_at,
+        public["found"],
+        public["total"] - public["found"],
+    )
 
     out = SITE / "c"
     if out.exists():
@@ -1042,7 +1136,10 @@ def main() -> int:
     taken = {row["slug"] for row in public_companies if row.get("slug")}
     extra_urls = []
     for row in public_companies:
-        (out / f"{row['slug']}.html").write_text(dossier_html(row, generated_at), encoding="utf-8")
+        (out / f"{row['slug']}.html").write_text(
+            dossier_html(row, generated_at, snapshot),
+            encoding="utf-8",
+        )
         for alias in dossier_aliases(row):
             if alias in taken:
                 continue

@@ -21,12 +21,14 @@ const emptyBoxes = empty.match(/<span(?: class="on")? title="/g) || [];
 expect("empty has five boxes", emptyBoxes.length === 5);
 expect("empty has no filled boxes", !empty.includes('class="on"'));
 expect("empty says none on file", empty.includes("none on file"));
+expect("empty prints 0 of 5", empty.includes("0 of 5"));
 
 const full = fileMeterHtml({
   file: { page: true, marks: true, dpa: true, subprocessors: true, years: true },
 });
 const filled = (full.match(/class="on"/g) || []).length;
 expect("full has five filled boxes", filled === 5);
+expect("full prints 5 of 5", full.includes("5 of 5"));
 expect("full does not invent a sixth box", (full.match(/<span(?: class="on")? title="/g) || []).length === 5);
 
 const mixed = fileMeterHtml({

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>opentrust.center — public trust ledger</title>
   <meta name="description" content="A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not.">
-  <meta name="theme-color" content="#331400">
+  <meta name="theme-color" content="#0B1411">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://opentrust.center/">
   <meta property="og:title" content="opentrust.center — public trust ledger">
@@ -24,31 +24,31 @@
     "description": "A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not."
   }
   </script>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23331400'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23ff6600' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23ff6600' stroke-width='1'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='Georgia,serif' font-size='16' font-weight='600' fill='%23ff6600'%3EOT%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body class="register">
+  <a class="skip" href="#main">Skip to the record</a>
   <header class="mast">
-    <a class="wordmark" href="./">opentrust.center</a>
-    <nav class="docket" aria-label="instruments">
-      <a href="./" class="on">register</a>
-      <a href="./graph.html">subprocessors</a>
-      <a href="./attestations.html">marks</a>
+    <a class="wordmark" href="./">opentrust<span class="wm-dot">.</span>center</a>
+    <nav class="docket" aria-label="Register">
+      <a href="./" class="on">Register</a>
+      <a href="./graph.html">Subprocessors</a>
+      <a href="./attestations.html">Marks</a>
     </nav>
-    <span class="stamp" aria-hidden="true">OT</span>
   </header>
   <p class="issue" id="issue">issue —</p>
 
-  <main class="canvas">
+  <main class="canvas" id="main">
+    <h1 class="page-title">Public trust register</h1>
+    <p class="lede">A database of each company’s public trust ledger.</p>
+
     <form class="finder" id="finder" role="search">
       <label>
         <span class="sr-only">Find a company</span>
         <input id="q" type="search" name="q" placeholder="/ stripe, complete, fedramp moderate" autocomplete="off" spellcheck="false" autofocus>
       </label>
-      <button type="submit" class="finder-go">go</button>
+      <button type="submit" class="finder-go">Find</button>
     </form>
 
     <p class="queryline" id="queryline" hidden></p>
@@ -59,8 +59,9 @@
       <p class="muted" id="miss-body"></p>
       <ul class="guesses" id="guesses"></ul>
       <div class="miss-actions" id="miss-actions" hidden>
-        <a class="miss-go" id="miss-look" target="_blank" rel="noopener">look for a trust page</a>
-        <a class="miss-go" id="miss-request" target="_blank" rel="noopener">request this company</a>
+        <button type="button" class="miss-go" id="miss-reset">Reset this query</button>
+        <a class="miss-go" id="miss-look" target="_blank" rel="noopener">View source paths</a>
+        <a class="miss-go" id="miss-request" target="_blank" rel="noopener">Report a correction</a>
       </div>
     </div>
 
@@ -68,22 +69,23 @@
       <thead>
         <tr>
           <th scope="col" data-sort="rank" aria-sort="none"><button type="button">#</button></th>
-          <th scope="col" data-sort="name" aria-sort="none"><button type="button">name</button></th>
-          <th scope="col" data-sort="domain" aria-sort="none"><button type="button">domain</button></th>
-          <th scope="col" data-sort="tier" aria-sort="ascending"><button type="button">tier</button></th>
-          <th scope="col" class="marks" data-sort="marks" aria-sort="none"><button type="button">marks</button></th>
+          <th scope="col" data-sort="name" aria-sort="none"><button type="button">Name</button></th>
+          <th scope="col" data-sort="domain" aria-sort="none"><button type="button">Domain</button></th>
+          <th scope="col" data-sort="tier" aria-sort="ascending"><button type="button">File</button></th>
+          <th scope="col" class="marks" data-sort="marks" aria-sort="none"><button type="button">Marks</button></th>
         </tr>
       </thead>
       <tbody id="reg-body"></tbody>
     </table>
+    <nav class="pager" id="pager" hidden aria-label="Register pages"></nav>
 
     <div id="empty" class="empty" hidden>
-      <p>No crawl data yet.</p>
+      <p>No crawl data on file.</p>
     </div>
   </main>
 
   <footer class="colo">
-    <p>We probe <code>trust.{domain}</code>, <code>security.{domain}</code>, and <code>/{trust,trust-center,security}</code>. Marks and named processors come from public HTML only. JS-only portals stay empty — we do not invent marks or processor names. A processor page is not a parsed name. Disclosure rates the file, not the company. Missing rows print <i>not on file</i>. FedRAMP marks are taken from the GSA marketplace, not the company's portal.</p>
+    <p>We probe <code>trust.{domain}</code>, <code>security.{domain}</code>, and <code>/{trust,trust-center,security}</code>. Marks and named processors come from public HTML only. JS-only portals stay empty — we do not invent marks or processor names. A processor page is not a parsed name. Disclosure rates the file, not the company. Missing rows print <i>not on file</i>. FedRAMP marks are taken from the GSA marketplace, not the company's portal. File tiers (silent / thin / on file / substantial / public file complete) rate the public file, never the company.</p>
     <p>Source · <a href="https://www.forbes.com/lists/cloud100/">Forbes Cloud 100 2025</a> and a curated public-enterprise set.</p>
     <p><a href="./brand.html">specimen</a> · <a href="https://github.com/pchamal/opentrust.center">code</a> · outbound is human-gated. Documents stay on the company's domain.</p>
   </footer>

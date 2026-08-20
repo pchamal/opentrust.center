@@ -5,67 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>opentrust.center — public trust ledger</title>
   <meta name="description" content="A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not.">
-  <meta name="theme-color" content="#331400">
+  <meta name="theme-color" content="#0B1411">
   <link rel="canonical" href="https://opentrust.center/claim.html">
   <meta property="og:title" content="opentrust.center — public trust ledger">
   <meta property="og:description" content="A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://opentrust.center/claim.html">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23331400'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23ff6600' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23ff6600' stroke-width='1'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='Georgia,serif' font-size='16' font-weight='600' fill='%23ff6600'%3EOT%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+  <a class="skip" href="#main">Skip to the record</a>
   <header class="mast">
-    <a class="wordmark" href="./">opentrust.center</a>
-    <nav class="docket" aria-label="instruments">
-      <a href="./">register</a>
-      <a href="./graph.html">subprocessors</a>
-      <a href="./attestations.html">marks</a>
+    <a class="wordmark" href="./">opentrust<span class="wm-dot">.</span>center</a>
+    <nav class="docket" aria-label="Register">
+      <a href="./">Register</a>
+      <a href="./graph.html">Subprocessors</a>
+      <a href="./attestations.html">Marks</a>
     </nav>
-    <span class="stamp" aria-hidden="true">OT</span>
   </header>
-  <p class="issue">ISSUE · claim</p>
+  <p class="issue">issue · claim</p>
 
-  <main class="file">
-    <p class="crumb"><a href="./">register</a> / claim</p>
+  <main class="file" id="main">
+    <p class="crumb"><a href="./">Register</a> / claim</p>
     <section class="ident">
-      <h1>claim or correct a file</h1>
+      <h1>Report a correction</h1>
     </section>
     <p class="clerk">An agent reads the issue, checks the public page, and files only what it can verify.</p>
     <p class="fig-sub">Proposed facts must already be on a first-party page. This opens a GitHub issue draft. Nothing is published until it is checked.</p>
 
     <form class="claim-form" id="claim" action="https://github.com/pchamal/opentrust.center/issues/new" method="get">
-      <label>name
+      <label>Name
         <input id="name" name="company" type="text" required autocomplete="organization">
       </label>
-      <label>email
+      <label>Email
         <input id="email" name="email" type="email" autocomplete="email">
       </label>
-      <label>role
+      <label>Role
         <select id="role" name="role">
           <option value="Company / official">Company / official</option>
           <option value="Reader / correction">Reader / correction</option>
           <option value="Prefer not to say">Prefer not to say</option>
         </select>
       </label>
-      <label>slug
+      <label>Slug
         <input id="slug" name="slug" type="text" required placeholder="openai" spellcheck="false" autocomplete="off">
       </label>
-      <label>proposed edits
+      <label>Proposed edits
         <textarea id="edits" name="edits" required placeholder="Marks, instruments, founding year, named processors. One fact per line."></textarea>
       </label>
-      <label>first-party source URLs
+      <label>First-party source URLs
         <textarea id="sources" name="sources" required placeholder="https://"></textarea>
       </label>
-      <button type="submit" class="file-go">file</button>
+      <button type="submit" class="file-go">Report a correction</button>
     </form>
   </main>
   <footer class="colo">
     <p>Disclosure rates the file, not the company. Empty rows print <i>not on file</i>.</p>
-    <p><a href="./">register</a> · <a href="./graph.html">subprocessors</a> · <a href="./attestations.html">marks</a></p>
+    <p><a href="./">Register</a> · <a href="./graph.html">Subprocessors</a> · <a href="./attestations.html">Marks</a></p>
   </footer>
   <script type="module" src="./claim.js"></script>
 </body>

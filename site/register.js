@@ -6,6 +6,7 @@ import {
   tierClass,
   dataUrl,
   fileMeterHtml,
+  fmtDay,
 } from "./lib.js";
 import {
   parseFinder,
@@ -17,6 +18,7 @@ import {
 } from "./finder.js";
 
 const SORTS = new Set(["rank", "name", "domain", "tier", "marks"]);
+export const PAGE_SIZE = 50;
 const DEFAULT_DIR = {
   rank: "asc",
   name: "asc",
@@ -40,6 +42,8 @@ const state = {
   sort: "rank",
   dir: "asc",
   sorted: false,
+  page: 1,
+  selected: "",
 };
 
 export function normalizeSort(value) {
@@ -112,6 +116,17 @@ export function arrangeRows(rows, sort, dir) {
 /* Default: silent → thin → on file → substantial → complete. Files that need a look first. */
 export function defaultRows(rows) {
   return arrangeRows(rows, "tier", "asc");
+}
+
+export function pageCount(total, size = PAGE_SIZE) {
+  return Math.max(1, Math.ceil((total || 0) / size));
+}
+
+export function windowRows(rows, page, size = PAGE_SIZE) {
+  const pages = pageCount(rows.length, size);
+  const p = Math.min(Math.max(1, page || 1), pages);
+  const start = (p - 1) * size;
+  return { page: p, pages, start, rows: rows.slice(start, start + size) };
 }
 
 function hay(row) {
@@ -233,6 +248,7 @@ function syncUrl() {
     params.set("sort", state.sort);
     params.set("dir", state.dir);
   }
+  if (state.page > 1) params.set("page", String(state.page));
   const qs = params.toString();
   const next = (qs ? "?" + qs : "") + window.location.hash;
   const path = window.location.pathname + next;
@@ -271,6 +287,26 @@ function renderEcho() {
     .join("");
 }
 
+function renderPager(shown, total) {
+  const el = $("pager");
+  if (!el) return;
+  if (!total) {
+    el.hidden = true;
+    el.innerHTML = "";
+    return;
+  }
+  const pages = pageCount(total);
+  if (state.page > pages) state.page = pages;
+  el.hidden = false;
+  const start = (state.page - 1) * PAGE_SIZE + 1;
+  const end = start + shown - 1;
+  el.innerHTML = `
+    <button type="button" data-page="prev" ${state.page <= 1 ? "disabled" : ""}>Previous</button>
+    <span>Page ${state.page} of ${pages} · ${start}–${end} of ${total}</span>
+    <button type="button" data-page="next" ${state.page >= pages ? "disabled" : ""}>Next</button>
+  `;
+}
+
 function render() {
   const rows = apply();
   const f = active();
@@ -280,6 +316,8 @@ function render() {
   const empty = $("empty");
   const miss = $("miss");
   const count = $("countline");
+  const windowed = windowRows(rows, state.page);
+  if (windowed.page !== state.page) state.page = windowed.page;
   count.textContent = state.rows.length
     ? `showing ${rows.length} of ${state.rows.length}`
     : "";
@@ -293,6 +331,7 @@ function render() {
     const actions = $("miss-actions");
     if (actions) actions.hidden = true;
     empty.hidden = false;
+    renderPager(0, 0);
     return;
   }
   empty.hidden = true;
@@ -300,11 +339,13 @@ function render() {
   if (typed && !rows.length) {
     table.hidden = true;
     miss.hidden = false;
+    renderPager(0, 0);
     $("miss-title").textContent = "Not in the index.";
     const domain = guessDomain(q);
-    $("miss-body").textContent = domain
-      ? "It is not in this index. If a page exists, it often lives on one of these paths — we have not confirmed them."
-      : "It is not in this index. A public page may still exist under an unusual URL.";
+    const asked = typed || q;
+    $("miss-body").textContent = asked
+      ? `No public file matches “${asked}”. Missing from this index is inconclusive — a page may exist under another URL.`
+      : "No public file matches this query." ;
     const guesses = domain
       ? [
           `https://trust.${domain}`,
@@ -342,16 +383,26 @@ function render() {
   if (actions) actions.hidden = true;
   table.hidden = false;
   const body = $("reg-body");
-  body.innerHTML = rows
+  const view = windowed.rows;
+  renderPager(view.length, rows.length);
+  body.innerHTML = view
     .map((row) => {
       const n = row.rank == null ? "—" : String(row.rank).padStart(3, "0");
       const tier = displayTier(row.tier);
-      return `<tr class="folio" data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="open dossier: ${escapeHtml(row.name)}">
+      const when = row.probed_at || row.probed || "";
+      const selected = state.selected === row.slug ? ' aria-selected="true"' : "";
+      return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
         <td class="num">${escapeHtml(n)}</td>
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${escapeHtml(row.name)}</a></td>
-        <td>${escapeHtml(row.domain || "")}</td>
+        <td class="domain">${escapeHtml(row.domain || "")}</td>
         <td class="${tierClass(row.tier)}">${fileMeterHtml(row)}${escapeHtml(tier)}</td>
         <td class="marks">${marksCell(row)}</td>
+        <td class="record-extra">
+          <details>
+            <summary>More on this file</summary>
+            <p># ${escapeHtml(n)} · last reviewed ${escapeHtml(when ? fmtDay(when) : "not on file")}</p>
+          </details>
+        </td>
       </tr>`;
     })
     .join("");
@@ -364,6 +415,16 @@ function clearToken(kind) {
   if (kind === "tier") state.url.tier = "all";
   if (kind === "list") state.url.list = "all";
   if (kind === "fedramp") state.url.fedramp = "all";
+  state.page = 1;
+  render();
+}
+
+function resetQuery() {
+  state.q = "";
+  state.url = { tier: "all", list: "all", fedramp: "all" };
+  state.page = 1;
+  const input = $("q");
+  if (input) input.value = "";
   render();
 }
 
@@ -371,12 +432,29 @@ function bind() {
   $("finder").addEventListener("submit", (e) => {
     e.preventDefault();
     state.q = $("q").value;
+    state.page = 1;
     render();
   });
   $("q").addEventListener("input", (e) => {
     state.q = e.target.value;
+    state.page = 1;
     render();
   });
+  const pager = $("pager");
+  if (pager) {
+    pager.addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-page]");
+      if (!btn || btn.disabled) return;
+      const pages = pageCount(apply().length);
+      if (btn.getAttribute("data-page") === "prev") state.page = Math.max(1, state.page - 1);
+      if (btn.getAttribute("data-page") === "next") state.page = Math.min(pages, state.page + 1);
+      render();
+      const table = $("reg");
+      if (table) table.scrollIntoView({ block: "start", behavior: "auto" });
+    });
+  }
+  const reset = $("miss-reset");
+  if (reset) reset.addEventListener("click", resetQuery);
   const echo = $("queryline");
   if (echo) {
     echo.addEventListener("click", (e) => {
@@ -394,15 +472,19 @@ function bind() {
       state.sort = next.sort;
       state.dir = next.dir;
       state.sorted = next.sorted;
+      state.page = 1;
       render();
     });
   }
   $("reg-body").addEventListener("click", (e) => {
-    if (e.target.closest("a")) return;
+    if (e.target.closest("a") || e.target.closest("details")) return;
     const tr = e.target.closest("tr");
     if (!tr) return;
     const slug = tr.getAttribute("data-slug");
-    if (slug) window.location.href = `./c/${encodeURIComponent(slug)}.html`;
+    if (slug) {
+      state.selected = slug;
+      window.location.href = `./c/${encodeURIComponent(slug)}.html`;
+    }
   });
   $("reg-body").addEventListener("keydown", (e) => {
     if (e.key !== "Enter") return;
@@ -439,6 +521,8 @@ async function load() {
     state.dir = normalizeDir(params.get("dir"), sort);
     state.sorted = true;
   }
+  const page = Number(params.get("page") || "1");
+  if (Number.isFinite(page) && page >= 1) state.page = Math.floor(page);
   try {
     const res = await fetch(dataUrl("./data.json"), { cache: "no-store" });
     if (!res.ok) throw new Error(String(res.status));
