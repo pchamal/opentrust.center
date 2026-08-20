@@ -163,7 +163,7 @@ expect("first screen is mixed files", firstTiers.size >= 3);
 expect("complete stays in the table", landing.some((r) => r.tier === "complete"));
 expect("file header still sorts the state", arrangeRows(rows, "tier", "asc")[0].tier === "silent" && arrangeRows(rows, "tier", "desc")[0].tier === "complete");
 
-const indexHtml = readFileSync(new URL("../site/index.html", import.meta.url), "utf8");
+const indexHtml = readFileSync(new URL("../site/companies.html", import.meta.url), "utf8");
 expect("register grid dropped probed", !/data-sort="probed"/.test(indexHtml) && !/>probed</.test(indexHtml));
 expect("register file cell has no coverage count", !/file-cov|fileCoverageHtml| of 5/.test(registerSrc));
 expect("register has no More on this file", !/More on this file|record-extra/.test(registerSrc));

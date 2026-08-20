@@ -492,6 +492,28 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   font: var(--t-meta);
   color: var(--ot-graphite);
 }
+.file-index {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 8px;
+  vertical-align: middle;
+}
+.file-rule {
+  display: block;
+  width: 12px;
+  height: 3px;
+  box-sizing: border-box;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--ot-ledger-black);
+  margin-top: 1px;
+}
+.file-rule.on {
+  margin-top: 0;
+  border: 0;
+  background: var(--ot-ledger-black);
+}
 
 .fr-mark {
   font: var(--t-meta);
@@ -630,6 +652,7 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   font-style: italic;
   color: var(--ot-unknown-fg);
 }
+.ident .file-line .file-index { display: flex; }
 
 .mark-list {
   margin: 0;

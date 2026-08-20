@@ -4,6 +4,38 @@ export const GATE_KEY = "ot_human_v1";
 export const GATE_MS = 30 * 60 * 1000;
 export const DATA_V = "2026-08-20T19:50:26Z";
 export const FILE_KEYS = ["page", "marks", "dpa", "subprocessors", "years"];
+export const AI_FILE_KEYS = ["page", "marks", "processors", "evals", "incidents"];
+export const AI_FILE_LABELS = {
+  page: "page",
+  marks: "marks",
+  processors: "processors",
+  evals: "evals",
+  incidents: "incidents",
+};
+export const AI_MARK_IDS = new Set(["aiuc-1", "iso-42001", "nist-ai-rmf", "eu-ai-act"]);
+export const AI_MARK_RE = /aiuc-?1|iso(?:\/iec)?[\s-]*42001|nist[\s-]*ai[\s-]*rmf|eu[\s-]*ai[\s-]*act/i;
+export const AI_PAGE_RE = /model-?card|system-?card|responsible-ai|ai-safety|ai-security/i;
+export const AI_PROCESSORS_RE = /model-processors|llm-processors|named-model/i;
+export const AI_EVALS_RE = /red-?team|(?:^|\/)evals?(?:\/|$)/i;
+export const AI_INCIDENTS_RE = /ai-incident|(?:^|\/)incidents?(?:\/|$)/i;
+/* AI product names already on the register that are not .ai / “AI” / AI-50. */
+export const AI_PRODUCT_SLUGS = new Set([
+  "midjourney",
+  "hugging-face",
+  "runway",
+  "glean",
+  "groq",
+  "abridge",
+  "openai",
+  "anthropic",
+  "anysphere",
+  "cohere",
+  "writer",
+  "elevenlabs",
+  "grammarly",
+  "harvey",
+  "synthesia",
+]);
 
 export function dataUrl(path) {
   const v = DATA_V ? encodeURIComponent(DATA_V) : "";
@@ -43,6 +75,155 @@ export function fileCoverage(row) {
 export function fileCoverageHtml(row) {
   const c = fileCoverage(row);
   return `<span class="file-cov" title="${escapeHtml(c.title)}">${escapeHtml(c.den)}</span>`;
+}
+
+function instrumentHref(row, key) {
+  const rec = row && row.instruments && row.instruments[key];
+  if (!rec) return "";
+  if (typeof rec === "string") return rec;
+  return (rec && rec.url) || "";
+}
+
+function collectedUrls(row) {
+  const urls = [
+    row && row.trust_url,
+    row && row.final_url,
+    instrumentHref(row, "trust"),
+    instrumentHref(row, "security"),
+    instrumentHref(row, "privacy"),
+    instrumentHref(row, "dpa"),
+    instrumentHref(row, "subprocessors"),
+    instrumentHref(row, "status"),
+    instrumentHref(row, "bounty"),
+    instrumentHref(row, "evals"),
+    instrumentHref(row, "incidents"),
+    instrumentHref(row, "model_processors"),
+  ];
+  const extra = (row && row.processors) || [];
+  for (const p of extra) {
+    if (p && p.source_url) urls.push(p.source_url);
+  }
+  return urls.filter(Boolean);
+}
+
+export function isAiMarkLabel(value) {
+  const s = String(value || "").trim();
+  if (!s) return false;
+  const id = s.toLowerCase().replace(/[\s_]+/g, "-");
+  if (AI_MARK_IDS.has(id)) return true;
+  return AI_MARK_RE.test(s);
+}
+
+export function printedAiMarks(row) {
+  const seen = new Set();
+  const out = [];
+  const atts = ((row && row.attestations) || []).filter((a) => a && (a.name || a.short || a.id));
+  const names = atts.length
+    ? atts
+    : ((row && row.certs) || []).map((name) => ({ name, id: null }));
+  for (const a of names) {
+    const id = String((a && a.id) || "").toLowerCase();
+    const label = String((a && (a.short || a.name)) || "").trim();
+    if (!isAiMarkLabel(id) && !isAiMarkLabel(label)) continue;
+    const key = id || label.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push({
+      id: id || "",
+      name: label || id,
+      short: (a && a.short) || label || id,
+    });
+  }
+  return out;
+}
+
+export function hasPrintedAiMark(row) {
+  return printedAiMarks(row).length > 0;
+}
+
+function urlLooksAiPage(url) {
+  try {
+    const u = new URL(url);
+    const path = (u.pathname || "") + (u.search || "");
+    return AI_PAGE_RE.test(path);
+  } catch {
+    return AI_PAGE_RE.test(String(url || ""));
+  }
+}
+
+function urlLooksAiInstrument(url, re) {
+  try {
+    const u = new URL(url);
+    const path = (u.pathname || "") + (u.search || "");
+    return re.test(path);
+  } catch {
+    return re.test(String(url || ""));
+  }
+}
+
+export function isAiishNameOrDomain(row) {
+  const name = String((row && row.name) || "");
+  const domain = String((row && row.domain) || "").toLowerCase();
+  const slug = String((row && row.slug) || "").toLowerCase();
+  if (domain.endsWith(".ai")) return true;
+  if (/(^|[\s/])AI([\s,]|$)/.test(name) || /\bArtificial Intelligence\b/i.test(name)) return true;
+  if (slug.endsWith("-ai")) return true;
+  return false;
+}
+
+export function isAiFile(row) {
+  if (!row) return false;
+  if (hasPrintedAiMark(row)) return true;
+  if ((row.list || "") === "forbes-ai-50-2025") return true;
+  if (isAiishNameOrDomain(row)) return true;
+  if (AI_PRODUCT_SLUGS.has(String(row.slug || ""))) return true;
+  return false;
+}
+
+export function selectAiFiles(rows) {
+  return (rows || []).filter(isAiFile);
+}
+
+export function aiFileFlags(row) {
+  const urls = collectedUrls(row);
+  return {
+    page: urls.some(urlLooksAiPage),
+    marks: hasPrintedAiMark(row),
+    processors: urls.some((u) => urlLooksAiInstrument(u, AI_PROCESSORS_RE)),
+    evals: urls.some((u) => urlLooksAiInstrument(u, AI_EVALS_RE)),
+    incidents: urls.some((u) => urlLooksAiInstrument(u, AI_INCIDENTS_RE)),
+  };
+}
+
+export function aiFileCount(row) {
+  const flags = aiFileFlags(row);
+  return AI_FILE_KEYS.reduce((n, key) => n + (flags[key] ? 1 : 0), 0);
+}
+
+export function aiFileCoverage(row) {
+  const flags = aiFileFlags(row);
+  const n = aiFileCount(row);
+  const legend = "page · marks · processors · evals · incidents";
+  const on = AI_FILE_KEYS.filter((k) => flags[k]).map((k) => AI_FILE_LABELS[k]);
+  const spoken = on.length ? on.join(" · ") : "not on file";
+  return { n, legend, spoken, title: spoken };
+}
+
+export function aiFileIndexHtml(row) {
+  const flags = aiFileFlags(row);
+  const c = aiFileCoverage(row);
+  const rules = AI_FILE_KEYS.map((key) => {
+    const cls = flags[key] ? "file-rule on" : "file-rule";
+    return `<span class="${cls}" aria-hidden="true"></span>`;
+  }).join("");
+  return `<span class="file-index" role="img" aria-label="${escapeHtml(c.spoken)}">${rules}</span>`;
+}
+
+export function fillAitiIssue(el, data, n) {
+  if (!el || !data) return;
+  const day = fmtDay(data.generated_at);
+  const count = Number.isFinite(n) ? n : 0;
+  el.textContent = [`issue ${day}`, `${count} files`].filter(Boolean).join(" · ");
 }
 
 export function $(id) {
