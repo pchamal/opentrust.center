@@ -188,6 +188,8 @@ export function isAiSystemProcessor(proc, ownerSlug) {
   return AI_SYSTEM_PROCESSOR_NAME_RE.test(name);
 }
 
+/* Named AI processors printed on a first-party public file.
+   Vanta/JS-shell names on row.processors do not fill. */
 export function storedAiProcessors(row) {
   const field = row && row.ai_processors;
   const raw = Array.isArray(field) ? field : field && field.names;
@@ -228,19 +230,9 @@ function storedAiInstrumentUrl(row, key) {
   return url;
 }
 
-/* AITI Domain: stored first-party AI page when on file, else the homepage. */
+/* AITI Domain: company domain, linked to the official homepage.
+   The stored AI page stays on the dossier; it does not replace this cell. */
 export function printedAitiUrl(row) {
-  const page = storedAiPageUrl(row);
-  if (page) {
-    let path = "";
-    try {
-      path = new URL(page).pathname.replace(/\/$/, "");
-    } catch {
-      path = "";
-    }
-    const label = (hostOf(page) + path) || page;
-    return printedUrl(page, label);
-  }
   return printedUrl((row && row.official_url) || "", (row && row.domain) || "");
 }
 

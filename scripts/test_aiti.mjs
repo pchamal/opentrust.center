@@ -20,7 +20,7 @@ import {
   isAiSystemProcessor,
   nameWithIcon,
 } from "../site/lib.js";
-import { aiMarksCell, defaultAiRows, filledAiRows } from "../site/aiti.js";
+import { aiMarksCell, defaultAiRows, filledAiRows, filterAiRows, aitiRowHtml } from "../site/aiti.js";
 
 const data = JSON.parse(readFileSync(new URL("../site/data.json", import.meta.url), "utf8"));
 const bySlug = Object.fromEntries(data.companies.map((r) => [r.slug, r]));
@@ -294,12 +294,61 @@ const anthropicOn = ruleOn(anthropicHtml);
 const anthropicMarks = aiMarksCell(anthropic);
 const anthropicFlags = aiFileFlags(anthropic);
 expect("Anthropic Marks cell prints iso 42001", anthropicMarks.includes("iso 42001"));
+expect(
+  "Anthropic marks print roman not italic",
+  anthropicMarks.includes("iso 42001") &&
+    !/<i[\s>]/.test(anthropicMarks) &&
+    !/font-style:\s*italic/.test(anthropicMarks) &&
+    !anthropicMarks.includes("absent"),
+);
 expect("Anthropic marks filled iff printed AI mark", anthropicFlags.marks === true && hasPrintedAiMark(anthropic) === true && anthropicOn[1] === true);
 expect("Anthropic page follows stored RSP URL", anthropicFlags.page === true && storedAiPageUrl(anthropic).includes("responsible-scaling-policy") && anthropicOn[0] === true);
-expect("Anthropic Domain prints the stored AI page URL", printedAitiUrl(anthropic).includes("https://www.anthropic.com/responsible-scaling-policy") && printedAitiUrl(anthropic).includes("responsible-scaling-policy"));
-expect("Anthropic processors stay open", anthropicFlags.processors === false && storedAiProcessors(anthropic).length === 0 && anthropicOn[2] === false);
+expect("Anthropic Domain prints anthropic.com", printedAitiUrl(anthropic).includes("https://www.anthropic.com/") && printedAitiUrl(anthropic).includes(">anthropic.com<") && !printedAitiUrl(anthropic).includes("responsible-scaling-policy"));
+expect("Anthropic processors stay open", anthropicFlags.processors === false && storedAiProcessors(anthropic).length === 0 && !anthropic.ai_processors && anthropicOn[2] === false);
+expect("Anthropic leftover ElevenLabs/Vanta bind does not fill processors", (anthropic.processors || []).some((p) => /elevenlabs/i.test(String((p && (p.name || p.slug)) || ""))) && storedAiProcessors(anthropic).length === 0 && anthropicFlags.processors === false);
+expect(
+  "row.processors names do not fill AITI processors",
+  aiFileFlags({
+    slug: "anthropic",
+    domain: "anthropic.com",
+    processors: [{ name: "ElevenLabs", slug: "elevenlabs", source_url: "https://trust.anthropic.com/subprocessors" }],
+  }).processors === false,
+);
 expect("Anthropic evals stay open", anthropicFlags.evals === false && anthropicOn[3] === false);
 expect("Anthropic incidents stay open", anthropicFlags.incidents === false && anthropicOn[4] === false);
+
+function domainCell(html) {
+  const m = String(html || "").match(/<td class="domain">([\s\S]*?)<\/td>/);
+  return m ? m[1] : "";
+}
+
+function fileCell(html) {
+  const m = String(html || "").match(/<td class="file-cell">([\s\S]*?)<\/td>/);
+  return m ? m[1] : "";
+}
+
+const defaultAnthropicHtml = aitiRowHtml(defaultAiRows(files).find((r) => r.slug === "anthropic"), 0);
+const finderAnthropicHtml = aitiRowHtml(filterAiRows(files, "anthropic").find((r) => r.slug === "anthropic"), 0);
+const defaultAnthropicOn = ruleOn(fileCell(defaultAnthropicHtml));
+const finderAnthropicOn = ruleOn(fileCell(finderAnthropicHtml));
+expect("finder anthropic is the same row", filterAiRows(files, "anthropic").some((r) => r.slug === "anthropic"));
+expect(
+  "Anthropic flags match in default and finder render",
+  defaultAnthropicOn.join(" ") === finderAnthropicOn.join(" ") &&
+    defaultAnthropicOn.join(" ") === "true true false false false",
+);
+expect("Anthropic File is page and marks only", anthropicFlags.page === true && anthropicFlags.marks === true && anthropicFlags.processors === false && anthropicFlags.evals === false && anthropicFlags.incidents === false);
+function hostText(html) {
+  return domainCell(html).replace(/<[^>]+>/g, "").trim();
+}
+expect(
+  "Anthropic Domain is anthropic.com in both views",
+  hostText(defaultAnthropicHtml) === "anthropic.com" &&
+    hostText(finderAnthropicHtml) === "anthropic.com" &&
+    !domainCell(defaultAnthropicHtml).includes("responsible-scaling-policy") &&
+    !domainCell(finderAnthropicHtml).includes("responsible-scaling-policy"),
+);
+expect("Midjourney finder render stays all-open", ruleOn(fileCell(aitiRowHtml(filterAiRows(files, "midjourney").find((r) => r.slug === "midjourney"), 0))).every((on) => on === false));
 expect("page bind unchanged for Midjourney", aiFileFlags(mid).page === false);
 expect("Cursor processors filled and marks still bound", aiFileFlags(cursor).processors === true && aiFileFlags(cursor).marks === true && ruleOn(aiFileIndexHtml(cursor))[1] === true && ruleOn(aiFileIndexHtml(cursor))[2] === true);
 expect("Cursor page still open", aiFileFlags(cursor).page === false);
@@ -319,8 +368,8 @@ expect("AITI table is not restyled with an official page chip", !aitiJs.includes
 expect("printed URL is an href", printedUrl("https://www.anthropic.com/responsible-scaling-policy", "anthropic.com").includes('href="https://www.anthropic.com/responsible-scaling-policy"'));
 expect("bare domain stays text", printedUrl("openai.com", "openai.com") === "openai.com");
 expect("AITI marks link to the framework", aitiJs.includes('href="./attestations.html#') && aitiJs.includes("mark-chip"));
-expect("AITI Domain prints stored AI page or homepage", aitiJs.includes("printedAitiUrl(row)"));
-expect("Midjourney Domain stays the homepage", printedAitiUrl(mid).includes("midjourney.com") && !printedAitiUrl(mid).includes("responsible"));
+expect("AITI Domain prints the company domain", aitiJs.includes("printedAitiUrl(row)") && aitiJs.includes("aitiRowHtml") && aitiJs.includes("filterAiRows"));
+expect("Midjourney Domain stays the homepage", printedAitiUrl(mid).includes("midjourney.com") && printedAitiUrl(mid).includes(">midjourney.com<") && !printedAitiUrl(mid).includes("responsible"));
 expect("AITI names use the icon helper", aitiJs.includes("nameWithIcon(row.name, row.favicon)"));
 expect("01.AI 12px mark is name only", !bySlug["01-ai"].favicon && !nameWithIcon(bySlug["01-ai"].name, bySlug["01-ai"].favicon).includes("ink-ico"));
 expect("finder example is aiuc-1", indexHtml.includes('placeholder="/ cursor, aiuc-1"') && !indexHtml.includes("aluc-1") && !aitiJs.includes("aluc-1"));
@@ -331,6 +380,7 @@ expect("AITI # is ledger black type", /body\.aiti \.reg td\.num \{[\s\S]*color: 
 expect("AITI # has no pip tile or disc", /body\.aiti \.reg td\.num \{[\s\S]*background: none;[\s\S]*border-radius: 0;[\s\S]*box-shadow: none;/.test(css));
 expect("Companies # stays graphite", /\.reg td\.num \{ color: var\(--ot-graphite\)/.test(css));
 expect("AITI domain and marks are clerk ink", /body\.aiti \.reg td\.domain a,[\s\S]*color: var\(--ot-ledger-black\);[\s\S]*text-decoration: none;/.test(css));
+expect("AITI printed marks stay roman", /body\.aiti \.reg td\.marks \.mark-line,[\s\S]*body\.aiti \.reg td\.marks \.mark-chip \{[\s\S]*font-style: normal;/.test(css));
 expect("AITI domain and marks hover is a 1px clerk rule", /body\.aiti \.reg td\.domain a:hover,[\s\S]*text-decoration: underline;[\s\S]*text-decoration-color: var\(--ot-rule-strong\)/.test(css));
 expect("AITI clerk hover matches Companies names", /\.reg td\.name a:hover \{[\s\S]*text-decoration: underline;[\s\S]*text-decoration-color: var\(--ot-rule-strong\)/.test(css));
 
