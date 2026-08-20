@@ -703,10 +703,11 @@ def mast(active: str, prefix: str) -> str:
     def link(href: str, word: str, key: str) -> str:
         cls = ' class="on"' if key == active else ""
         return f'<a href="{prefix}{href}"{cls}>{word}</a>'
+    nav_label = "Pages" if not active else "Register"
     return f"""  <a class="skip" href="#main">Skip to the record</a>
   <header class="mast">
     <a class="wordmark" href="{prefix}">opentrust<span class="wm-dot">.</span>center</a>
-    <nav class="docket" aria-label="Register">
+    <nav class="docket" aria-label="{nav_label}">
       {link("", "Register", "register")}
       {link("graph.html", "Subprocessors", "subprocessors")}
       {link("attestations.html", "Marks", "marks")}
@@ -730,7 +731,6 @@ def snapshot_line(generated_at: str, on_file: int, not_on: int, extra: str = "")
         f"{on_file} on file",
         f"{not_on} not on file",
         f"last probed {when}",
-        f"dataset {generated_at}" if generated_at else "",
         extra,
     ]
     return " · ".join(b for b in bits if b)
@@ -749,8 +749,6 @@ def spine_item(title: str, meta: str, kind: str = "source") -> str:
 def display_file_tier(tier: str) -> str:
     if tier == "on-file":
         return "on file"
-    if tier == "complete":
-        return "public file complete"
     return tier or "silent"
 
 
@@ -762,12 +760,9 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     url = row.get("trust_url") or ""
     disc = row["disclosure"]
     tier = display_file_tier(disc["tier"])
-    tier_cls = "silent" if disc["tier"] == "silent" else ""
-    flags = file_flags(row, disc)
-    coverage_line = file_coverage_text(flags)
+    state_cls = "state-word silent" if disc["tier"] == "silent" else "state-word"
     title = f"{name} — opentrust.center"
     desc = "A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not."
-    list_label = "cloud 100" if row.get("list") == "cloud100" else (row.get("list") or "not on file")
     year = row.get("founded_year")
     year_src = row.get("founded_source")
     if year:
@@ -777,30 +772,21 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
 
     atts = row.get("attestations") or []
     if atts:
-        att_rows = "".join(
-            f'<tr><td class="mark"><a href="../attestations.html#{escape(a["id"] or "")}">{escape(a["name"])}</a></td>'
-            f'<td><span class="sem-source">cited</span></td><td>{a["weight"]}</td></tr>'
-            if a.get("id")
-            else f'<tr><td>{escape(a["name"])}</td><td><span class="sem-source">cited</span></td><td>{a["weight"]}</td></tr>'
-            for a in atts
-        )
-        att_spine = "".join(
-            spine_item(
-                f'<a href="../attestations.html#{escape(a["id"] or "")}">{escape(a["name"])}</a>'
+        mark_list = (
+            '<ul class="mark-list">'
+            + "".join(
+                f'<li><a href="../attestations.html#{escape(a["id"] or "")}">{escape(a["name"])}</a></li>'
                 if a.get("id")
-                else escape(a["name"]),
-                f"observed on the public page · last reviewed {escape(fmt_day(generated_at) or '—')} · disclosure weight {a['weight']}",
-                "source",
+                else f"<li>{escape(a['name'])}</li>"
+                for a in atts
             )
-            for a in atts
+            + "</ul>"
         )
     else:
-        att_rows = '<tr><td colspan="3"><span class="absent">not on file</span></td></tr>'
-        att_spine = spine_item("Attestations", "not on file · unknown", "unknown")
+        mark_list = '<p class="absent">not on file</p>'
 
     inst = row.get("instruments") or {}
     inst_rows = []
-    inst_spine = []
     labels = {
         "trust": "trust",
         "security": "security",
@@ -820,18 +806,10 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
                 f"<tr><td>{escape(label)}</td><td>{official_a(rec['url'], shown)}</td>"
                 f"<td>{escape(seen)}</td></tr>"
             )
-            inst_spine.append(
-                spine_item(
-                    escape(label),
-                    f"source · {official_a(rec['url'], shown)} · last reviewed {escape(seen)}",
-                    "source",
-                )
-            )
         else:
             inst_rows.append(
                 f'<tr><td>{escape(label)}</td><td><span class="absent">not on file</span></td><td>—</td></tr>'
             )
-            inst_spine.append(spine_item(escape(label), "not on file · unknown", "unknown"))
 
     procs = row.get("processors") or []
     if procs:
@@ -845,26 +823,13 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
             + f'<td>{official_a(p["source_url"], host_of(p["source_url"]))}</td></tr>'
             for p in procs
         )
-        proc_spine = "".join(
-            spine_item(
-                escape(p["name"]),
-                (
-                    f"named on a public list · last reviewed {escape(fmt_day(generated_at) or '—')} · "
-                    + (f'<a href="./{escape(p["slug"])}.html">Open dossier</a> · ' if p.get("slug") else "not in register · ")
-                    + official_a(p["source_url"], host_of(p["source_url"]))
-                ),
-                "source",
-            )
-            for p in procs
-        )
     else:
         proc_rows = '<tr><td colspan="3"><span class="absent">not on file</span></td></tr>'
-        proc_spine = spine_item("Named processors", "not on file · unknown", "unknown")
 
     clerk = row.get("summary") or ""
     clerk_html = f'<p class="clerk">{escape(clerk)}</p>' if clerk else ""
     outbound = (
-        f'<button type="button" class="go-out" id="go-out" data-url="{escape(url)}">View source</button>'
+        f'<a class="official" href="{escape(url)}" rel="noopener noreferrer">View source</a>'
         if found and url
         else '<span class="absent">View source · not on file</span>'
     )
@@ -910,42 +875,34 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
   <link rel="icon" href="{FAVICON}" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="dossier">
 {mast("", "../")}
   <p class="issue">{escape(issue)}</p>
   <main class="file" id="main">
     <p class="crumb"><a href="../">Register</a> / {escape(slug)}</p>
     <section class="ident">
       <h1>{escape(name)}</h1>
-      <p class="ident-meta">{escape(domain)} · {escape(list_label)}</p>
+      <p class="ident-meta">{escape(domain)}</p>
       <p class="ident-meta">founded · {year_html}</p>
     </section>
-    <div class="disclosure">
-      <span class="tier-label {tier_cls}">{escape(tier)}</span>
-    </div>
-    <p class="factor">{escape(coverage_line)}</p>
+    <section class="file-state" aria-label="File state">
+      <p class="{state_cls}">{escape(tier)}</p>
+    </section>
     <p class="fig-sub">File rating, not a company trust badge. Missing private evidence is inconclusive.</p>
 
-    <p class="sec-kicker">Claims</p>
-    <ol class="spine">
-      {att_spine}
-      {fedramp_spine(row)}
-      {"".join(inst_spine)}
-      {proc_spine}
-    </ol>
-
-    <p class="sec-kicker">Attestations</p>
-    <table class="inst">
-      <thead><tr><th scope="col">Mark</th><th scope="col">On page</th><th scope="col">Weight</th></tr></thead>
-      <tbody>{att_rows}</tbody>
-    </table>
-
-{fedramp_block(row)}
     <p class="sec-kicker">Instruments</p>
     <table class="inst">
       <thead><tr><th scope="col">Instrument</th><th scope="col">Host</th><th scope="col">Last seen</th></tr></thead>
       <tbody>{"".join(inst_rows)}</tbody>
     </table>
+
+    <p class="sec-kicker">Marks</p>
+    {mark_list}
+
+    <p class="out">{outbound}</p>
+    {gate}
+
+{fedramp_block(row)}
 
     <p class="sec-kicker">Named processors</p>
     <p class="fig-sub">Filed from the company’s public list. Not a complete supply chain.</p>
@@ -957,8 +914,6 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     {clerk_html}
     <p class="probe">last probed {escape(fmt_when(generated_at))}</p>
     <div class="actions">
-      {outbound}
-      {gate}
       {claim}
       <a class="perm" href="./{escape(slug)}.html">Permalink · c/{escape(slug)}</a>
     </div>

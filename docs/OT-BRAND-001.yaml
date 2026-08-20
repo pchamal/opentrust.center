@@ -18,7 +18,7 @@ semantics:
   trust_score: never
   tiers: [silent, thin, on file, substantial, complete]
   tier_meaning: FILE ratings (public-file completeness), never company trust
-  complete_label: public file complete
+  complete_label: complete
 
 tokens:
   --ot-ledger-black: "#0B1411"
@@ -71,7 +71,7 @@ type:
   names: Source Serif 4
   page_titles: Atkinson Hyperlegible Next
   everything_else: Atkinson Hyperlegible Next; tabular-nums on data
-  teal_only: wordmark period, Evidence Spine, selected-row spine; never fill boxes, meters, or chrome
+  teal_only: wordmark period, 2px Evidence Spine, one active nav underline; mid-dot punctuation stays ink/mute; never fill boxes, meters, or chrome
   case: sentence case for nav and buttons; uppercase only for SOC, ISO, DPA, IDs
   fonts: self-host WOFF2 in site/fonts/; font-display swap
 
@@ -105,11 +105,18 @@ pages:
     compact_no_more_on_this_file: true
   dossier:
     org_name_primary: true
+    name_font: Source Serif 4
+    domain_font: Atkinson Hyperlegible Next
+    file_state: word only; silent / thin / on file / substantial / complete
+    file_state_spine: 2px Evidence Teal on the file-state block; not a badge
+    no_coverage_ratio: true
+    instruments: ruled table; empty rows italic not on file
+    marks: list not chips; overflow wraps below; no +N
+    outbound: text link; no flame or teal fill button
+    rate: the file, never the company
     status: claim / source / observation only
     no_ot_stamp_as_seal: true
     nav_register_not_current: true
-    coverage_denominator: true
-    coverage_is_text: true
     no_file_meter_boxes: true
   graph:
     table_plus_inspector: 400px
@@ -124,7 +131,7 @@ voice:
   use: [observed, source, scope, unknown, not on file, last reviewed, public evidence]
   never: [trusted company, verified company, AI-powered, unlock, seamless, single source of truth]
   complete_without_scope: forbidden; file tier complete reads as public file complete
-  buttons: [Open dossier, View source, Report a correction]
+  outbound: View source as a text link, never a filled button
 
 motion:
   easing: cubic-bezier(0.2, 0, 0, 1)

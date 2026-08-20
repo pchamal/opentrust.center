@@ -37,3 +37,13 @@ expect("register does not import fileCoverageHtml", !src.includes("fileCoverageH
 expect("register has no N of 5 markup", !src.includes("file-cov") && !src.includes("file-meter") && !src.includes(" of 5"));
 expect("register does not restyle the dossier stamp", !src.includes("disclosure"));
 expect("register has no More on this file", !src.includes("More on this file") && !src.includes("record-extra"));
+
+const dossier = readFileSync(new URL("../site/c/anysphere.html", import.meta.url), "utf8");
+expect("dossier names Cursor in the h1", /<h1>Cursor<\/h1>/.test(dossier));
+expect("dossier file state is the word only", dossier.includes('class="file-state"') && dossier.includes("substantial") && !dossier.includes("tier-label") && !dossier.includes('class="disclosure"'));
+expect("dossier has no coverage ratio", !dossier.includes(" of 5") && !dossier.includes("public evidence located"));
+expect("dossier marks are a list", dossier.includes('class="mark-list"') && !dossier.includes("mark-chip") && !dossier.includes("+N"));
+expect("dossier outbound is a text link", dossier.includes('class="official"') && dossier.includes("View source") && !dossier.includes("go-out") && !dossier.includes("file-go"));
+expect("dossier nav does not current Register", !dossier.includes('class="on"'));
+expect("dossier body is dossier", dossier.includes('class="dossier"'));
+expect("dossier empty rows stay italic not on file", dossier.includes('class="absent">not on file'));

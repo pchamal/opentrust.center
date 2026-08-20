@@ -348,7 +348,8 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   text-decoration: underline;
   text-decoration-color: var(--ot-rule-strong);
 }
-.queryline .sep { color: var(--ot-rule-strong); }
+.sep { color: var(--ot-graphite); }
+.queryline .sep { color: var(--ot-graphite); }
 .countline {
   margin: 12px 0 8px;
   font: var(--t-data);
@@ -609,24 +610,42 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   color: var(--ot-graphite);
 }
 
-.disclosure {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-  margin: 24px 0 8px;
+.file-state {
+  margin: 24px 0;
+  padding: 8px 0 8px 16px;
+  border-left: var(--ot-spine) solid var(--ot-evidence-teal);
 }
-.tier-label {
+.file-state .state-word {
+  margin: 0;
   font: var(--t-body);
   color: var(--ot-ledger-black);
 }
-.tier-label.silent,
-.tier-label.unknown { color: var(--ot-unknown-fg); }
-.factor {
-  margin: 0 0 24px;
-  font: var(--t-meta);
-  font-variant-numeric: tabular-nums;
-  color: var(--ot-graphite);
+.file-state .state-word.silent {
+  font: italic 16px/24px var(--ot-font-utility);
+  color: var(--ot-unknown-fg);
+}
+
+.mark-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.mark-list li {
+  font: var(--t-body);
+  color: var(--ot-ledger-black);
+  padding: 6px 0;
+  border-bottom: 1px solid var(--ot-rule);
+  white-space: normal;
+}
+.mark-list a { color: var(--ot-ledger-black); }
+.file .absent {
+  font: italic 16px/24px var(--ot-font-utility);
+  color: var(--ot-unknown-fg);
+}
+.out {
+  margin: 24px 0 0;
+  font: var(--t-body);
+  color: var(--ot-ledger-black);
 }
 
 .sec-kicker {
@@ -648,11 +667,6 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   padding: 8px 12px 8px 0;
   border-bottom: 1px solid var(--ot-rule);
 }
-.inst tbody tr.on,
-.inst tbody tr.selected {
-  background: var(--ot-index-wash);
-  box-shadow: inset var(--ot-spine) 0 0 0 var(--ot-evidence-teal);
-}
 .inst td {
   font: var(--t-data);
   font-variant-numeric: tabular-nums;
@@ -660,6 +674,15 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   padding: 10px 12px 10px 0;
   border-bottom: 1px solid var(--ot-rule);
   vertical-align: top;
+}
+.inst td:first-child {
+  border-left: var(--ot-spine) solid transparent;
+  padding-left: 8px;
+}
+.inst tbody tr:hover td:first-child,
+.inst tbody tr.on td:first-child,
+.inst tbody tr.selected td:first-child {
+  border-left-color: var(--ot-evidence-teal);
 }
 .inst td.mark a { color: var(--ot-ledger-black); }
 .inst td.name {
@@ -671,10 +694,10 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   color: var(--ot-unknown-fg);
 }
 
-.sem-source { color: var(--ot-source-fg); background: var(--ot-source-bg); padding: 0 4px; }
-.sem-unknown { color: var(--ot-unknown-fg); background: var(--ot-unknown-bg); padding: 0 4px; }
-.sem-attention { color: var(--ot-attention-fg); background: var(--ot-attention-bg); padding: 0 4px; }
-.sem-conflict { color: var(--ot-conflict-fg); background: var(--ot-conflict-bg); padding: 0 4px; }
+.sem-source { color: var(--ot-source-fg); }
+.sem-unknown { color: var(--ot-unknown-fg); font-style: italic; }
+.sem-attention { color: var(--ot-attention-fg); }
+.sem-conflict { color: var(--ot-conflict-fg); }
 
 .spine {
   position: relative;
@@ -754,7 +777,7 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   border-radius: 0;
 }
 .go-out:hover,
-.file-go:hover { background: var(--ot-index-wash); }
+.file-go:hover { background: transparent; text-decoration: underline; }
 .go-out[hidden] { display: none; }
 .perm {
   display: block;
@@ -1089,6 +1112,34 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   }
   .reg td.num { display: none; }
   .reg td.name { margin-bottom: 2px; }
+  .dossier .file .ident,
+  .dossier .file .file-state,
+  .dossier .file .fig-sub,
+  .dossier .file .mark-list,
+  .dossier .file .out,
+  .dossier .file .inst,
+  .dossier .file .clerk,
+  .dossier .file .probe,
+  .dossier .file .actions {
+    width: 100%;
+  }
+  .dossier .file .inst,
+  .dossier .file .inst tbody,
+  .dossier .file .inst tr,
+  .dossier .file .inst td {
+    display: block;
+    width: 100%;
+  }
+  .dossier .file .inst thead { display: none; }
+  .dossier .file .inst tbody tr {
+    padding: 10px 0 10px 8px;
+    border-left: var(--ot-spine) solid transparent;
+    border-bottom: 1px solid var(--ot-rule);
+  }
+  .dossier .file .inst tbody tr:hover {
+    border-left-color: var(--ot-evidence-teal);
+  }
+  .dossier .file .inst td:first-child { border-left: 0; padding-left: 0; }
   .swatches { grid-template-columns: repeat(2, 1fr); }
 }
 

@@ -107,7 +107,7 @@ Exact tokens. No aliases. No leftover rust.
 
 `--ot-spine`: 2px. `--ot-radius-control`: 3px.
 
-Teal is at most **6%** of a routine view: the wordmark period, the Evidence Spine, and maybe a selected-row spine. Focus ring is the accessibility exception. Teal must not fill boxes, meters, or chrome. No gradients. No second accent. No cards. No pills.
+Teal is at most **6%** of a routine view: the wordmark period, the 2px Evidence Spine, and one active nav underline. Mid-dot punctuation (`·`) stays ink or mute, never teal. Focus ring is the accessibility exception. Teal must not fill boxes, meters, or chrome. No gradients. No second accent. No cards. No pills.
 
 Retired (grep-delete, do not alias): `#ff6600`, `#331400`, `#662900`, `#993D00`, `--flame`, `--espresso`, `--rust`, `--ember`, `--well` as brown.
 
@@ -148,17 +148,18 @@ H1: `Public trust register`. One-sentence scope: `A database of each company’s
 
 The product. Modeled on a Companies House record.
 
-Always this order. Empty sections still print `not on file`.
+Always this order on the first screen. Empty rows still print italic `not on file`. Missing is inconclusive.
 
 1. Crumb: `register / {slug}`
-2. Identity: name (editorial), domain, list, founded year + source (or `not on file`)
-3. File coverage as text with a denominator (`public evidence located in N of 5 checked categories`) — no boxes, no score
-4. Claim-by-claim on the Evidence Spine: attestations, FedRAMP, instruments, named processors. Each with source / date / scope when known
-5. Clerk summary: two sentences, or nothing. No vendor. No marketing reprint.
-6. Last probed
-7. `View source` (human-gated, inline) + `Report a correction` + permalink
+2. Identity: name in Source Serif 4, domain in Atkinson. Founded year + source (or `not on file`)
+3. File state: the word only (`silent` / `thin` / `on file` / `substantial` / `complete`). 2px Evidence Spine on that block. Not a badge. No coverage ratio.
+4. Instruments: a ruled table. Empty rows italic `not on file`.
+5. Marks: a list, not chips. What does not fit wraps below. No `+N`.
+6. Official outbound: a text link. Human-gated. No flame / teal fill button.
 
-Do not render portal vendors. Keep `vendor` in crawl data only. Nav must not mark Register as current on a dossier.
+Below the fold: FedRAMP marketplace table, named processors, clerk summary, last probed, Report a correction, permalink.
+
+Do not render portal vendors. Keep `vendor` in crawl data only. Nav must not mark Register as current on a dossier. Rate the file, never the company.
 
 ### Processors
 
