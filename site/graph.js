@@ -612,6 +612,14 @@ function bind() {
   window.addEventListener("resize", () => {
     if (state.view === "map") drawMap();
   });
+  if (typeof ResizeObserver === "function") {
+    const field = canvas.parentElement;
+    if (field) {
+      new ResizeObserver(() => {
+        if (state.view === "map") drawMap();
+      }).observe(field);
+    }
+  }
 }
 
 function revealFile() {
