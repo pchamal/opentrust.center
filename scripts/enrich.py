@@ -450,7 +450,7 @@ def fetch_uncached(url: str, max_body: int) -> dict:
         "ctype": (fetched.get("headers") or {}).get("content-type", ""),
         "fetched_at": utc_now(),
         "raw_head": "",
-        "mark_blob": mark_blob(html, title, meta, strip_tags(html)[:80000] if html else text),
+        "mark_blob": mark_blob(html, title, meta, ""),
     }
     if "security.txt" in url.lower():
         rec["text"] = html[:8000]

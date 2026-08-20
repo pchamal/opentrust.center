@@ -205,12 +205,40 @@ ATTR_RE = re.compile(
 )
 OPEN_TO_RE = re.compile(r"(?i)^open to\s+(.+)$")
 TAG_RE = re.compile(r"<[^>]+>")
+SCRIPT_RE = re.compile(r"<script\b[^>]*>.*?(?:</script>|$)", re.I | re.S)
+STYLE_RE = re.compile(r"<style\b[^>]*>.*?(?:</style>|$)", re.I | re.S)
+# Conveyor / Vanta framework dictionaries (not the company's file).
+TAXONOMY_RE = re.compile(
+    r'\{[^{}]*"key"\s*:\s*"[^"]+"[^{}]*"label"\s*:\s*"[^"]+"[^{}]*\}',
+    re.I,
+)
+CATALOG_HINT = re.compile(r'"shortLabel"|"backgroundColor"|"referenceDataroomId"', re.I)
+
+
+def visible_text(html: str) -> str:
+    """Visible HTML only. Portal JS catalogs are not a hold."""
+    if not html:
+        return ""
+    cut = SCRIPT_RE.sub(" ", html)
+    cut = STYLE_RE.sub(" ", cut)
+    cut = TAXONOMY_RE.sub(" ", cut)
+    return unescape(re.sub(r"\s+", " ", TAG_RE.sub(" ", cut))).strip()
+
+
+def _looks_like_catalog(blob: str) -> bool:
+    if not blob:
+        return False
+    return len(CATALOG_HINT.findall(blob)) >= 4 or blob.count('"key"') >= 8
 
 
 def _norm(s: str) -> str:
     s = unescape(s or "")
     s = s.replace("&amp;", "&")
     s = re.sub(r"\s+", " ", s).strip().lower()
+    s = s.replace("_", " ").replace("-", " ")
+    s = re.sub(r"\bsoc\s*(\d)", r"soc \1", s)
+    s = re.sub(r"\biso\s*(\d)", r"iso \1", s)
+    s = re.sub(r"\s+", " ", s).strip()
     return s
 
 
@@ -264,16 +292,20 @@ def extract_certs_from_html(html: str, text: str = "") -> list[str]:
 
     blob = text or ""
     if html:
-        visible = unescape(re.sub(r"\s+", " ", TAG_RE.sub(" ", html))).strip()
         attrs = " ".join(ATTR_RE.findall(html))
-        blob = f"{blob} {visible} {attrs}".strip()
+        blob = f"{visible_text(html)} {attrs}".strip()
+        if text and not _looks_like_catalog(text):
+            blob = f"{text} {blob}".strip()
 
-    if blob:
+    if blob and not _looks_like_catalog(blob):
         for name, pat in MARK_PATTERNS:
             for m in pat.finditer(blob):
                 if _context_ok(blob, m.start(), m.end()):
                     add(name)
                     break
+    elif blob:
+        # Catalog payload: keep only document-card / badge labels already added.
+        pass
 
     order = {name: i for i, (name, _p) in enumerate(MARK_PATTERNS)}
     found.sort(key=lambda n: order.get(n, 999))
@@ -281,6 +313,10 @@ def extract_certs_from_html(html: str, text: str = "") -> list[str]:
 
 
 def mark_blob(html: str, title: str = "", meta: str = "", text: str = "") -> str:
-    """Text + attribute labels, for callers that already stripped tags."""
+    """Visible text + attribute labels. Script catalogs are omitted."""
     attrs = " ".join(ATTR_RE.findall(html or ""))
-    return " ".join(p for p in (title, meta, text, attrs) if p)
+    vis = visible_text(html) if html else ""
+    safe_text = text if text and not _looks_like_catalog(text) else ""
+    if _looks_like_catalog(vis):
+        vis = ""
+    return " ".join(p for p in (title, meta, safe_text, vis, attrs) if p)

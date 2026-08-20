@@ -30,6 +30,28 @@ HELP = """
 <p>Prepare for FedRAMP with our platform.</p>
 """
 
+CONVEYOR = """
+<title>Arctic Wolf Trust Center | Powered by Conveyor</title>
+<img alt="soc2-type-2" src="/b.png">
+<img alt="iso-27001" src="/i.png">
+<img alt="TX-RAMP" src="/t.png">
+<script>
+window.__catalog = {
+  "iso-13485":{"key":"iso-13485","label":"ISO 13485"},
+  "pipeda":{"key":"pipeda","label":"PIPEDA"},
+  "iso 27032":{"key":"iso 27032","label":"ISO 27032"}
+};
+</script>
+"""
+
+CONVEYOR_NAKED = """
+<title>Figma Trust Center | Powered by Conveyor</title>
+<p>Trust Center</p>
+{"id":"2e74f6c2-7abf-4c40-852c-a0aead25fe8a","key":"iso-13485","label":"ISO 13485","shortLabel":"ISO 13485","backgroundColor":"#021f59"}
+{"id":"x","key":"pipeda","label":"PIPEDA","shortLabel":"PIPEDA","backgroundColor":"#c33625"}
+{"id":"y","key":"iso 27032","label":"ISO 27032","shortLabel":"ISO 27032","backgroundColor":"#051"}
+"""
+
 PLAIN = """
 <h2>Certifications</h2>
 <ul>
@@ -54,6 +76,12 @@ def main() -> int:
         "plain list",
     )
     eq(extract_certs_from_html(""), [], "empty")
+    eq(
+        extract_certs_from_html(CONVEYOR),
+        ["SOC 2 Type II", "ISO 27001", "TX-RAMP"],
+        "conveyor catalog is not a hold",
+    )
+    eq(extract_certs_from_html(CONVEYOR_NAKED), [], "naked conveyor dictionary")
     print("ok")
     return 0
 
