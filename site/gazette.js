@@ -81,7 +81,7 @@ function renderBook() {
       const ind = (item.industry || []).join(" · ");
       return `<article class="entry" id="${escapeHtml(item.id)}">
         <h2>${escapeHtml(item.name)}</h2>
-        <p class="entry-meta">${escapeHtml(item.kind)} · ${escapeHtml(geo)} · ${escapeHtml(item.issuer)} · weight ${item.weight}</p>
+        <p class="entry-meta">${escapeHtml(item.kind === "framework" ? "standard" : item.kind)} · ${escapeHtml(geo)} · ${escapeHtml(item.issuer)} · weight ${item.weight}</p>
         <p class="entry-meta">${escapeHtml(ind)}</p>
         <p class="entry-body">${escapeHtml(body || "")}</p>
         <button type="button" class="depth" data-id="${escapeHtml(item.id)}">${deep ? "eli-5" : "elaborate"}</button>
