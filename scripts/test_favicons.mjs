@@ -35,7 +35,8 @@ expect("register does not invent a globe", !registerSrc.includes("globe") && !re
 
 const graphSrc = readFileSync(new URL("../site/graph.js", import.meta.url), "utf8");
 expect("map stub names can take an icon", graphSrc.includes("nameWithIcon(p.name") && graphSrc.includes("nameWithIcon(label"));
-expect("processor table stays name-only", /<td class="name">\$\{escapeHtml\(p\.name\)\}<\/td>/.test(graphSrc));
+expect("processor table stays name-only", /data-label="Processor">\$\{escapeHtml\(p\.name\)\}/.test(graphSrc));
+expect("who-named-them drops claroty and zscaler seals", graphSrc.includes('file === "claroty.com.png"') && graphSrc.includes('file === "zscaler.com.png"'));
 
 const gazSrc = readFileSync(new URL("../site/gazette.js", import.meta.url), "utf8");
 expect("gazette title can take a mark icon", gazSrc.includes("markIco") && gazSrc.includes("inkIcon"));
