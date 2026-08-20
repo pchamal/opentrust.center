@@ -129,10 +129,11 @@ The **Evidence Spine** is the only signature device: 2px vertical Evidence Teal.
 - **Gutters:** 16 / 24 / 32 / 48.
 - **Search** is a ruled strip. No pill, no shadow, no icon.
 - **Register** is a table. Columns: `#` · name · domain · file · marks. No probed column. 52px rows, Rule bottoms. Hover or selected: 2px Evidence Teal spine at the left edge only. Name is editorial and the loudest cell. Marks print the named marks that fit, with `·` separators. No `+N`.
-- **File cell** is the state word only: silent / thin / on file / substantial / complete. Italic on silent and not on file. No N of 5. Instrument count lives on the dossier.
-- **Default arrange** is last probed, newest first. File header still sorts silent → complete or reverse. First screen must not be twenty identical silents or completes.
+- **File cell** is five short rules, one per instrument, in this order: page · marks · DPA · subprocessors · years. On file = filled Ledger Black. Not on file = open hairline Ledger Black. Missing stays empty (inconclusive), not a red X and not a hollow fail. Evidence Teal does not fill the rules. No printed N of 5. No silent / thin / substantial / complete on the row. No stars. No “trust maturity index.”
+- **File legend** prints once above the grid: page · marks · DPA · subprocessors · years. Not a tooltip farm.
+- **Default arrange** is last probed, newest first. File header still sorts 0–5 instruments on file (or reverse). First screen must not be twenty identical empty files.
 - **Pagination or windowing.** Do not mount all 700+ rows. No infinite scroll. Preserve query, sort, and count.
-- **Compact (≤639px):** each org is a ruled record (not a card): name, domain, file state, marks. The name is the link. No “More on this file.”
+- **Compact (≤639px):** each org is a ruled record (not a card): name, domain, file index, marks. The name is the link. No “More on this file.”
 - **Dossier** is a page, `/c/{slug}.html`. Org name is the H1. Status describes a claim, source, or observation — never a company trust badge.
 - Rhythm is 8px. Control radius 3px. Skip link. One H1. Tables with `th`/`scope`. Touch 44px. 320px: no page overflow.
 
@@ -151,7 +152,7 @@ The product. Modeled on a Companies House record.
 Always this order on the first screen. Empty rows still print italic `not on file`. Missing is inconclusive.
 
 1. Crumb: `register / {slug}`
-2. Identity: name in Source Serif 4, domain in Atkinson, then `file · {state}` as one graphite clerk line. 2px Evidence Spine on the left of this block (name + domain + file line). Not a boxed file-state module. No disclaimer. No coverage ratio.
+2. Identity: name in Source Serif 4, domain in Atkinson, then the same five file rules under the domain. 2px Evidence Spine on the left of this block (name + domain + file line). Not a boxed file-state module. No disclaimer. No coverage ratio. No stars. No apology line.
 3. Instruments: a ruled table. One instrument is one unit (label, host, date), then one rule. Empty rows italic `not on file`. Labels in Atkinson, including `subprocessors`.
 4. Marks: a list in Atkinson, same as instrument labels. Not chips. Not bold Source Serif. What does not fit wraps below. No `+N`.
 5. Official outbound: text link `Official page`. Human-gated. No flame / teal fill button.

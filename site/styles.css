@@ -488,9 +488,31 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
 }
 .reg .tier-word { font: var(--t-meta); color: var(--ot-graphite); }
 .file-legend {
-  margin: 0 0 12px;
+  margin: 16px 0 8px;
   font: var(--t-meta);
   color: var(--ot-graphite);
+}
+.file-index {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 8px;
+  vertical-align: middle;
+}
+.file-rule {
+  display: block;
+  width: 12px;
+  height: 3px;
+  box-sizing: border-box;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--ot-ledger-black);
+  margin-top: 1px;
+}
+.file-rule.on {
+  margin-top: 0;
+  border: 0;
+  background: var(--ot-ledger-black);
 }
 
 .fr-mark {
@@ -619,17 +641,7 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   color: var(--ot-graphite);
 }
 .ident .file-line { margin-top: 8px; }
-.ident .file-line .sep { color: var(--ot-graphite); }
-.ident .file-word {
-  font: inherit;
-  font-family: var(--ot-font-utility);
-  font-weight: 400;
-  color: var(--ot-graphite);
-}
-.ident .file-word.silent {
-  font-style: italic;
-  color: var(--ot-unknown-fg);
-}
+.ident .file-line .file-index { display: flex; }
 
 .mark-list {
   margin: 0;

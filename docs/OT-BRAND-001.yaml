@@ -96,10 +96,11 @@ pages:
     scope: A database of each company’s public trust ledger.
     columns: ["#", name, domain, file/tier, marks]
     no_probed_column: true
-    file_cell: state word only; silent / thin / on file / substantial / complete; italic on silent and not on file
+    file_cell: five short rules; page, marks, DPA, subprocessors, years; filled Ledger Black on file; open hairline Ledger Black not on file; missing empty; no teal fill; no N of 5; no tier words; no stars
+    file_legend: page · marks · DPA · subprocessors · years; once above the grid
     no_n_of_5_on_register: true
     default_arrange: last probed newest first
-    file_header_sort: silent to complete or reverse
+    file_header_sort: 0 to 5 instruments on file or reverse
     pagination: required; do not mount all 700+ rows; no infinite scroll
     compact_max: 639px
     compact_no_more_on_this_file: true
@@ -107,7 +108,7 @@ pages:
     org_name_primary: true
     name_font: Source Serif 4
     domain_font: Atkinson Hyperlegible Next
-    file_state: clerk line under domain; file · silent / thin / on file / substantial / complete
+    file_state: five rules under domain; same index as the register; no tier words; no stars; no apology line
     file_state_spine: 2px Evidence Teal on the left of the identity block; not a boxed module
     no_file_disclaimer: true
     no_coverage_ratio: true

@@ -1,5 +1,13 @@
 import { readFileSync } from "node:fs";
-import { FILE_KEYS, fileCoverage, fileCoverageHtml } from "../site/lib.js";
+import { FILE_KEYS, fileCount, fileCoverage, fileFlags, fileIndexHtml } from "../site/lib.js";
+import { marksCell } from "../site/register.js";
+
+const data = JSON.parse(readFileSync(new URL("../site/data.json", import.meta.url), "utf8"));
+const bySlug = Object.fromEntries(data.companies.map((r) => [r.slug, r]));
+
+function ruleOn(html) {
+  return [...html.matchAll(/class="file-rule(?: on)?"/g)].map((m) => m[0].includes(" on"));
+}
 
 function expect(name, cond) {
   if (!cond) {
@@ -16,31 +24,105 @@ expect(
   FILE_KEYS.join(" ") === "page marks dpa subprocessors years",
 );
 
-const empty = fileCoverageHtml({});
-expect("empty has no boxes", !empty.includes("file-meter") && !empty.includes('class="on"'));
-expect("empty prints 0 of 5", empty.includes("0 of 5"));
-expect("empty sentence names the categories", fileCoverage({}).title.includes("checked categories"));
+const empty = fileIndexHtml({});
+expect("empty draws five rules", (empty.match(/file-rule/g) || []).length === 5);
+expect("empty has no filled rule", !empty.includes("file-rule on"));
+expect("empty does not print N of 5", !empty.includes(" of 5") && !empty.includes("0 of 5"));
+expect("empty is not a star", !empty.includes("star") && !empty.includes("★") && !empty.includes("☆"));
+expect("empty spoken is inconclusive", fileCoverage({}).spoken === "not on file");
 
-const full = fileCoverageHtml({
-  file: { page: true, marks: true, dpa: true, subprocessors: true, years: true },
-});
-expect("full prints 5 of 5", full.includes("5 of 5"));
-expect("full is text not squares", !full.includes("file-meter"));
+const fullRow = {
+  found: true,
+  trust_url: "https://trust.example",
+  attestations: [{ name: "SOC 2" }],
+  instruments: { dpa: { url: "https://example/dpa" }, subprocessors: { url: "https://example/subs" } },
+  founded_year: 2012,
+};
+const full = fileIndexHtml(fullRow);
+expect("full fills five rules", (full.match(/file-rule on/g) || []).length === 5);
+expect("full does not print N of 5", !full.includes(" of 5") && !full.includes("5 of 5"));
+expect("full is not a sixth score", !full.includes("trust maturity") && !full.includes("file · 5"));
+expect("full spoken is the instruments", fileCoverage(fullRow).spoken === "page · marks · DPA · subprocessors · years");
 
-const mixed = fileCoverage({
-  file: { page: true, marks: false, dpa: true, subprocessors: false, years: true },
-});
-expect("mixed counts three", mixed.n === 3 && mixed.den === "3 of 5");
+const mixedRow = {
+  found: true,
+  trust_url: "https://trust.example",
+  instruments: { dpa: { url: "https://example/dpa" } },
+  founded_year: 2010,
+};
+const mixed = fileCoverage(mixedRow);
+const mixedHtml = fileIndexHtml(mixedRow);
+expect("mixed counts three", mixed.n === 3 && fileCount(mixedRow) === 3);
+expect("mixed does not print the count", !mixedHtml.includes("3 of 5") && !mixedHtml.includes("file · 3"));
+expect("mixed speaks instruments on file", mixed.spoken === "page · DPA · years");
+expect("mixed fills three rules", (mixedHtml.match(/file-rule on/g) || []).length === 3);
+expect("mixed keeps two open rules", (mixedHtml.match(/file-rule/g) || []).length - (mixedHtml.match(/file-rule on/g) || []).length === 2);
+expect("mixed binds DPA not the second slot", ruleOn(mixedHtml)[2] === true && ruleOn(mixedHtml)[1] === false);
+
+const staleFilled = {
+  found: true,
+  trust_url: "https://trust.8x8.com",
+  file: { page: true, marks: true, dpa: false, subprocessors: false, years: false },
+  disclosure: { factors: { page: 20, marks: 40 } },
+  certs: [],
+  attestations: [],
+};
+expect("stale factors.marks do not fill marks", fileFlags(staleFilled).marks === false && ruleOn(fileIndexHtml(staleFilled))[1] === false);
+expect("stale file.marks do not fill marks", fileFlags(staleFilled).page === true && ruleOn(fileIndexHtml(staleFilled))[0] === true);
+
+const staleEmpty = {
+  found: true,
+  trust_url: "https://trust.abridge.com",
+  file: { page: false, marks: false, dpa: false, subprocessors: false, years: false },
+  disclosure: { factors: { marks: 0 } },
+  attestations: [{ name: "SOC 2 Type II" }, { name: "HIPAA" }],
+};
+expect("named marks fill even if file.marks is false", fileFlags(staleEmpty).marks === true && ruleOn(fileIndexHtml(staleEmpty))[1] === true);
+
+const eight = bySlug["8x8"];
+const eightHtml = fileIndexHtml(eight);
+const eightMarks = marksCell(eight);
+expect("8x8 page is on file", eight.found && eight.trust_url && fileFlags(eight).page);
+expect("8x8 Marks cell is not on file", eightMarks.includes("not on file"));
+expect("8x8 marks rule is open", fileFlags(eight).marks === false && ruleOn(eightHtml)[1] === false);
+expect("8x8 does not fill first-N from thin", ruleOn(eightHtml)[0] === true && ruleOn(eightHtml).filter(Boolean).length === 1);
+
+const abridge = bySlug.abridge;
+const abridgeHtml = fileIndexHtml(abridge);
+const abridgeMarks = marksCell(abridge);
+expect("Abridge Marks cell lists names", /soc 2/.test(abridgeMarks) && abridgeMarks.includes("hipaa") && abridgeMarks.includes("ccpa") && abridgeMarks.includes("tx-ramp"));
+expect("Abridge marks rule is filled", fileFlags(abridge).marks === true && ruleOn(abridgeHtml)[1] === true);
+expect("Abridge is not five open hairlines", ruleOn(abridgeHtml).some(Boolean));
+expect("Abridge page stays filled", fileFlags(abridge).page === true && ruleOn(abridgeHtml)[0] === true);
 
 const src = readFileSync(new URL("../site/register.js", import.meta.url), "utf8");
-expect("register does not import fileCoverageHtml", !src.includes("fileCoverageHtml"));
+expect("register draws the file index", src.includes("fileIndexHtml"));
 expect("register has no N of 5 markup", !src.includes("file-cov") && !src.includes("file-meter") && !src.includes(" of 5"));
+expect("register does not print tier words in the cell", !src.includes("displayFileState") && !src.includes("tierClass"));
+expect("register has no stars", !src.includes("★") && !src.includes("☆") && !src.includes("star-rating") && !src.includes("trust maturity"));
 expect("register does not restyle the dossier stamp", !src.includes("disclosure"));
 expect("register has no More on this file", !src.includes("More on this file") && !src.includes("record-extra"));
 
+const indexHtml = readFileSync(new URL("../site/index.html", import.meta.url), "utf8");
+expect(
+  "legend is once above the grid",
+  indexHtml.includes('id="file-legend"') && indexHtml.includes("page · marks · DPA · subprocessors · years"),
+);
+expect(
+  "finder placeholder dropped old tier words",
+  indexHtml.includes('placeholder="/ stripe, fedramp moderate"') &&
+    !/placeholder="[^"]*\b(silent|thin|substantial|complete)\b/.test(indexHtml),
+);
+expect("legend is not a tooltip farm", !src.includes("title=") || !/file-rule[^>]*title=/.test(src));
+
 const dossier = readFileSync(new URL("../site/c/anysphere.html", import.meta.url), "utf8");
 expect("dossier names Cursor in the h1", /<h1>Cursor<\/h1>/.test(dossier));
-expect("dossier file is a clerk line", dossier.includes("substantial") && dossier.includes("file-line") && dossier.includes("file-word") && !dossier.includes("file-state") && !dossier.includes("tier-label") && !dossier.includes('class="disclosure"'));
+expect(
+  "dossier file is five rules",
+  dossier.includes("file-index") && dossier.includes("file-rule on") && !dossier.includes("file-word") && !dossier.includes("file-state") && !dossier.includes("tier-label") && !dossier.includes('class="disclosure"'),
+);
+expect("dossier has no stars", !dossier.includes("star") && !dossier.includes("★") && !dossier.includes("☆"));
+expect("dossier has no trust maturity index", !dossier.includes("trust maturity") && !dossier.includes(" of 5"));
 expect("dossier has no rating disclaimer", !dossier.includes("File rating, not a company trust badge") && !dossier.includes("not a company trust badge"));
 expect("dossier has no coverage ratio", !dossier.includes(" of 5") && !dossier.includes("public evidence located"));
 const issueLine = (dossier.match(/<p class="issue">([^<]+)/) || [])[1] || "";
@@ -66,6 +148,17 @@ expect("anysphere processors are not Box names", !procChunk.includes("GitHub") &
 expect("dossier has no highest-authorized badge line", !dossier.includes("highest authorized"));
 expect("dossier below-fold tables have no spine class on identity", dossier.includes('class="inst filed"') && dossier.includes('class="ident"'));
 
+const ident = dossier.split('class="ident"')[1].split("</section>")[0];
+expect("cursor identity has five rules", (ident.match(/file-rule/g) || []).length === 5);
+expect("cursor identity fills the on-file instruments", (ident.match(/file-rule on/g) || []).length === 5);
+expect("cursor identity has no tier word", !/silent|thin|substantial|complete/.test(ident) && !ident.includes("file ·"));
+
+const aws = readFileSync(new URL("../site/c/amazon-web-services.html", import.meta.url), "utf8");
+const awsIdent = aws.split('class="ident"')[1].split("</section>")[0];
+expect("aws identity has five rules", (awsIdent.match(/file-rule/g) || []).length === 5);
+expect("aws DPA stays an open rule", (awsIdent.match(/file-rule on/g) || []).length === 4);
+expect("aws identity has no complete word", !awsIdent.includes("complete") && !awsIdent.includes("substantial") && !awsIdent.includes("file-word"));
+
 const box = readFileSync(new URL("../site/c/box.html", import.meta.url), "utf8");
 expect("on-file FedRAMP is a table with marketplace cite", box.includes("Filed from the") && box.includes("FedRAMP Marketplace") && box.includes("fedramp.gov/marketplace") && box.includes('class="inst filed"') && box.includes("authorized") && !box.includes("Not a badge") && !box.includes("highest authorized") && !box.includes('td class="mark"') && !box.includes("sem-source") && !box.includes("sem-conflict"));
 expect("on-file processors are published names", box.includes("GitHub") && box.includes("New Relic") && !box.includes("+N") && !box.includes("Not a complete supply chain") && /sec-kicker">Named processors[\s\S]*Filed from/.test(box));
@@ -73,6 +166,9 @@ expect("on-file processors are published names", box.includes("GitHub") && box.i
 const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8");
 expect("identity block wears the spine", /\.ident \{[\s\S]*border-left: var\(--ot-spine\) solid var\(--ot-evidence-teal\)/.test(css));
 expect("no boxed file-state module", !css.includes(".file-state") && !css.includes(".state-word"));
+expect("rules are ledger black", /\.file-rule \{[\s\S]*border-top: 1px solid var\(--ot-ledger-black\)/.test(css) && /\.file-rule\.on \{[\s\S]*background: var\(--ot-ledger-black\)/.test(css));
+expect("teal does not fill the rules", !/\.file-rule[\s\S]{0,80}--ot-evidence-teal/.test(css) && !/\.file-rule\.on[\s\S]{0,80}--ot-evidence-teal/.test(css));
+expect("no star styles", !css.includes("★") && !css.includes("☆") && !css.includes("star-rating") && !css.includes("trust-maturity"));
 expect("marks stay Atkinson data", /\.mark-list li \{[\s\S]*font: var\(--t-data\)/.test(css) && /\.mark-list li \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css));
 expect("instrument cells stay Atkinson", /\.inst td \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css));
 expect("Official page stays Atkinson", /\.out \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css) && /a\.official \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css));
