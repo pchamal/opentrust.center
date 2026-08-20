@@ -1,4 +1,5 @@
-import { $, escapeHtml, fillIssue, dataUrl } from "./lib.js";
+import { $, escapeHtml, fillIssue, dataUrl, inkIcon } from "./lib.js";
+import { arrange, clickSort, cmpText, paintHeaders } from "./sort.js";
 
 const GEO_GROUPS = {
   americas: ["US", "CA", "BR"],
@@ -10,12 +11,25 @@ const GEO_GROUPS = {
 
 const TILT = (15 * Math.PI) / 180;
 
+const SORT_DEFAULTS = {
+  name: "asc",
+  files: "desc",
+  kind: "asc",
+  geography: "asc",
+  issuer: "asc",
+  weight: "desc",
+  industry: "asc",
+};
+
 const state = {
   items: [],
   companies: [],
+  q: "",
   geo: "all",
   industry: "all",
   kind: "all",
+  sort: "files",
+  dir: "desc",
   depth: new Map(),
   rot: 0,
   drag: null,
@@ -24,13 +38,77 @@ const state = {
   raf: 0,
   geom: null,
   land: [],
+  icons: { companies: {}, marks: {} },
 };
+
+function markField(item, key) {
+  if (!item) return "";
+  if (key === "weight") return item.weight;
+  if (key === "files") return item.files;
+  if (key === "geography") return (item.geography || []).join(" ");
+  if (key === "industry") return (item.industry || []).join(" ");
+  return item[key] || "";
+}
+
+export function companyCitesMark(company, mark) {
+  if (!company || !mark) return false;
+  const id = mark.id;
+  if ((company.attestations || []).some((a) => a && a.id === id)) return true;
+  if (id === "fedramp" && company.fedramp) return true;
+  return (company.certs || []).some((name) => {
+    const att = (company.attestations || []).find((a) => a.name === name);
+    return att && att.id === id;
+  });
+}
+
+export function citeCount(companies, mark) {
+  return (companies || []).reduce((n, c) => n + (companyCitesMark(c, mark) ? 1 : 0), 0);
+}
+
+export function parseMarkQuery(raw) {
+  let s = String(raw || "").trim();
+  if (s.startsWith("/")) s = s.slice(1).trim();
+  return s
+    .toLowerCase()
+    .split(/[\s,]+/)
+    .filter(Boolean);
+}
+
+export function markHay(item) {
+  return [item && item.name, item && item.short, item && item.id]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+}
+
+export function markMatchesQuery(item, tokens) {
+  if (!tokens || !tokens.length) return true;
+  const hay = markHay(item);
+  return tokens.every((t) => hay.includes(t));
+}
+
+export function filterMarks(items, q) {
+  const tokens = parseMarkQuery(q);
+  return (items || []).filter((item) => markMatchesQuery(item, tokens));
+}
+
+export function compareMarks(a, b, key) {
+  if (key === "files" || key === "weight") {
+    return (Number(markField(a, key)) || 0) - (Number(markField(b, key)) || 0);
+  }
+  return cmpText(markField(a, key), markField(b, key));
+}
+
+export function arrangeMarks(rows, sort, dir) {
+  return arrange(rows, sort || "files", dir || "desc", compareMarks);
+}
 
 function geosOf(item) {
   return item.geography || [];
 }
 
 function matches(item) {
+  if (!markMatchesQuery(item, parseMarkQuery(state.q))) return false;
   if (state.kind !== "all" && item.kind !== state.kind) return false;
   if (state.industry !== "all") {
     const inds = item.industry || [];
@@ -47,19 +125,37 @@ function matches(item) {
 }
 
 function citedBy(id) {
-  return state.companies.filter((c) =>
-    (c.attestations || []).some((a) => a.id === id) ||
-    (c.certs || []).some((name) => {
-      const att = (c.attestations || []).find((a) => a.name === name);
-      return att && att.id === id;
-    })
-  );
+  const mark = state.items.find((x) => x.id === id) || { id };
+  return state.companies.filter((c) => companyCitesMark(c, mark));
+}
+
+function syncUrl() {
+  if (typeof window === "undefined") return;
+  const params = new URLSearchParams();
+  const q = state.q.trim();
+  if (q) params.set("q", q);
+  const qs = params.toString();
+  const next = (qs ? "?" + qs : "") + window.location.hash;
+  const path = window.location.pathname + next;
+  if (path !== window.location.pathname + window.location.search + window.location.hash) {
+    history.replaceState(null, "", path || window.location.pathname);
+  }
 }
 
 function renderBook() {
-  const rows = state.items.filter(matches).slice().sort((a, b) => String(a.name || "").localeCompare(String(b.name || ""), undefined, { sensitivity: "base" }));
+  const rows = arrangeMarks(state.items.filter(matches), state.sort, state.dir);
+  paintHeaders($("book-sort"), state.sort, state.dir);
   $("book-count").textContent = `showing ${rows.length} of ${state.items.length}`;
-  $("book").innerHTML = rows
+  syncUrl();
+  const miss = $("book-miss");
+  const book = $("book");
+  if (!rows.length) {
+    if (miss) miss.hidden = false;
+    if (book) book.innerHTML = "";
+    return;
+  }
+  if (miss) miss.hidden = true;
+  book.innerHTML = rows
     .map((item) => {
       const deep = state.depth.get(item.id) === "elaborate";
       const body = deep ? item.elaborate : item.eli5;
@@ -71,6 +167,7 @@ function renderBook() {
         })
         .join(" · ");
       const citers = citedBy(item.id);
+      const files = item.files != null ? item.files : citers.length;
       const citeLine = citers.length
         ? citers
             .slice(0, 8)
@@ -82,9 +179,10 @@ function renderBook() {
       const read = item.read
         ? `<p class="related">read · ${escapeHtml(item.read)}</p>`
         : "";
+      const markIco = inkIcon((state.icons.marks || {})[item.id]);
       return `<article class="entry" id="${escapeHtml(item.id)}">
-        <h2>${escapeHtml(item.name)}</h2>
-        <p class="entry-meta">${escapeHtml(item.kind === "framework" ? "standard" : item.kind)} · ${escapeHtml(geo)} · ${escapeHtml(item.issuer)} · weight ${item.weight}</p>
+        <h2>${markIco}${escapeHtml(item.name)}</h2>
+        <p class="entry-meta">${escapeHtml(item.kind === "framework" ? "standard" : item.kind)} · ${escapeHtml(geo)} · ${escapeHtml(item.issuer)} · ${files} files</p>
         <p class="entry-meta">${escapeHtml(ind)}</p>
         ${read}
         <p class="entry-body">${escapeHtml(body || "")}</p>
@@ -429,6 +527,30 @@ function setGeo(geo) {
 }
 
 function bind() {
+  const finder = $("finder");
+  const input = $("q");
+  if (finder && input) {
+    finder.addEventListener("submit", (e) => {
+      e.preventDefault();
+      state.q = input.value;
+      renderBook();
+    });
+    input.addEventListener("input", (e) => {
+      state.q = e.target.value;
+      renderBook();
+    });
+  }
+  const heads = $("book-sort");
+  if (heads) {
+    heads.addEventListener("click", (e) => {
+      const th = e.target.closest("th[data-sort]");
+      if (!th) return;
+      const next = clickSort(state, th.getAttribute("data-sort"), SORT_DEFAULTS);
+      state.sort = next.sort;
+      state.dir = next.dir;
+      renderBook();
+    });
+  }
   $("book").addEventListener("click", (e) => {
     const btn = e.target.closest(".depth");
     if (!btn) return;
@@ -526,14 +648,27 @@ async function load() {
       state.land = [];
     });
   try {
-    const [gaz, reg] = await Promise.all([
+    const [gaz, reg, icons] = await Promise.all([
       fetch(dataUrl("./data/attestations.json"), { cache: "no-store" }).then((r) => r.json()),
       fetch(dataUrl("./data.json"), { cache: "no-store" }).then((r) => r.json()),
+      fetch(dataUrl("./favicons/index.json"), { cache: "no-store" })
+        .then((r) => (r.ok ? r.json() : { companies: {}, marks: {} }))
+        .catch(() => ({ companies: {}, marks: {} })),
       landP,
     ]);
-    state.items = (gaz.attestations || []).slice().sort((a, b) => String(a.name || "").localeCompare(String(b.name || ""), undefined, { sensitivity: "base" }));
+    state.icons = icons && typeof icons === "object" ? icons : { companies: {}, marks: {} };
     state.companies = reg.companies || [];
+    state.items = (gaz.attestations || []).map((item) => ({
+      ...item,
+      files: citeCount(state.companies, item),
+    }));
     fillIssue($("issue"), reg, `${state.items.length} marks`);
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("q")) {
+      state.q = params.get("q");
+      const input = $("q");
+      if (input) input.value = state.q;
+    }
   } catch {
     state.items = [];
     await landP;
@@ -546,4 +681,6 @@ async function load() {
   }
 }
 
-load();
+if (typeof window !== "undefined") {
+  load();
+}
