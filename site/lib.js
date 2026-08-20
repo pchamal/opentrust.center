@@ -189,13 +189,11 @@ export function fillIssue(el, data, extra) {
   const notOn = companies.length - onFile;
   const day = fmtDay(data.generated_at);
   const when = fmtWhen(data.generated_at);
-  const dataset = DATA_V ? `dataset ${DATA_V}` : "";
   el.textContent = [
     `issue ${day}`,
     `${onFile} on file`,
     `${notOn} not on file`,
     `last probed ${when}`,
-    dataset,
     extra || "",
   ]
     .filter(Boolean)
@@ -234,5 +232,10 @@ export function tierClass(tier) {
 export function displayTier(tier) {
   if (tier === "on-file") return "on file";
   if (tier === "complete") return "public file complete";
+  return tier || "silent";
+}
+
+export function displayFileState(tier) {
+  if (tier === "on-file") return "on file";
   return tier || "silent";
 }

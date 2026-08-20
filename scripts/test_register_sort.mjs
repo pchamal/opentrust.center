@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { parseFinder } from "../site/finder.js";
-import { fileCoverageHtml } from "../site/lib.js";
+import { displayFileState, fillIssue } from "../site/lib.js";
 import {
   normalizeSort,
   normalizeDir,
@@ -59,11 +59,8 @@ function apply(raw) {
 }
 
 expect("register is past 700", rows.length > 700);
-expect("tier cell files coverage text", /fileCoverageHtml\(row\)/.test(registerSrc));
-expect(
-  "coverage is text with a denominator",
-  fileCoverageHtml(rows[0]).includes(" of 5") && !fileCoverageHtml(rows[0]).includes("file-meter"),
-);
+expect("file cell is the state word", /displayFileState\(row\.tier\)/.test(registerSrc) && !/fileCoverageHtml/.test(registerSrc));
+expect("file words stay short", displayFileState("complete") === "complete" && displayFileState("on-file") === "on file" && displayFileState("silent") === "silent");
 
 expect("normalize #", normalizeSort("#") === "rank");
 expect("normalize junk", normalizeSort("score") === "");
@@ -81,7 +78,8 @@ expect("first click name is A–Z", firstName.sort === "name" && firstName.dir =
 expect("second click name is Z–A", clickSort(firstName, "name").dir === "desc");
 
 const firstTier = clickSort(idle, "tier");
-expect("first click tier is complete first", firstTier.sort === "tier" && firstTier.dir === "desc");
+expect("first click File is silent to complete", firstTier.sort === "tier" && firstTier.dir === "asc");
+expect("second click File reverses", clickSort(firstTier, "tier").dir === "desc");
 const firstMarks = clickSort(idle, "marks");
 expect("first click marks is high count", firstMarks.sort === "marks" && firstMarks.dir === "desc");
 
@@ -145,26 +143,30 @@ const marksOk = byMarks.every((r, i) => {
 expect("marks is count high to low", marksOk);
 expect("marks count is a number", marksCount(byMarks[0]) > marksCount(byMarks[byMarks.length - 1]));
 
-expect("probed is not a sort key", normalizeSort("probed") === "");
+expect("probed is the default arrange key", normalizeSort("probed") === "probed");
 
 const landing = defaultRows(rows);
 const firstScreen = landing.slice(0, 20);
-const order = ["silent", "thin", "on-file", "substantial", "complete"];
-const landingOk = landing.every((r, i) => {
+const firstTiers = new Set(firstScreen.map((r) => r.tier || "silent"));
+const probedOk = landing.every((r, i) => {
   if (i === 0) return true;
-  return order.indexOf(r.tier || "silent") >= order.indexOf(landing[i - 1].tier || "silent");
+  const a = Date.parse(landing[i - 1].probed_at || "") || 0;
+  const b = Date.parse(r.probed_at || "") || 0;
+  return a >= b;
 });
 expect("default keeps every company", landing.length === rows.length);
 expect("default does not drop a slug", new Set(landing.map((r) => r.slug)).size === rows.length);
-expect("default order is silent thin on-file substantial complete", landingOk);
-expect("default opens on silent", landing[0].tier === "silent");
-expect("default ends on complete", landing[landing.length - 1].tier === "complete");
-expect("first screen is not a complete stripe", firstScreen.every((r) => r.tier !== "complete"));
+expect("default is last probed newest first", probedOk);
+expect("first screen is not all silent", firstScreen.some((r) => r.tier !== "silent"));
+expect("first screen is not a complete stripe", firstScreen.some((r) => r.tier !== "complete"));
+expect("first screen is mixed files", firstTiers.size >= 3);
 expect("complete stays in the table", landing.some((r) => r.tier === "complete"));
+expect("file header still sorts the state", arrangeRows(rows, "tier", "asc")[0].tier === "silent" && arrangeRows(rows, "tier", "desc")[0].tier === "complete");
 
 const indexHtml = readFileSync(new URL("../site/index.html", import.meta.url), "utf8");
 expect("register grid dropped probed", !/data-sort="probed"/.test(indexHtml) && !/>probed</.test(indexHtml));
-expect("register still files coverage on each row", /fileCoverageHtml\(row\)/.test(registerSrc));
+expect("register file cell has no coverage count", !/file-cov|fileCoverageHtml| of 5/.test(registerSrc));
+expect("register has no More on this file", !/More on this file|record-extra/.test(registerSrc));
 expect("folio row is a dossier click-through", /class="folio"/.test(registerSrc));
 
 const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8");
@@ -172,7 +174,15 @@ expect("sort caret is utility triangles", css.includes('content: "▴"') && css.
 expect("headers stay graphite", /\.reg th \{[\s\S]*color: var\(--ot-graphite\)/.test(css));
 expect("row ink is graphite", /\.reg td \{[\s\S]*color: var\(--ot-graphite\)/.test(css) && /\.reg td\.num \{ color: var\(--ot-graphite\)/.test(css) && /\.reg td\.marks,/.test(css));
 expect("names stay ledger black", /\.reg td\.name \{[\s\S]*color: var\(--ot-ledger-black\)/.test(css));
-expect("coverage is not a box meter", !css.includes(".file-meter") && css.includes(".file-cov"));
+expect("coverage is not on the register", !css.includes(".file-meter") && !css.includes(".file-cov"));
+expect("hover and selected share the spine", /tbody tr\.folio:hover,[\s\S]*box-shadow: inset var\(--ot-spine\)/.test(css));
+expect("nav underline is 1px teal", /\.docket a \{[\s\S]*border-bottom: 1px solid transparent/.test(css) && /\.docket a\.on \{[\s\S]*border-bottom-color: var\(--ot-evidence-teal\)/.test(css));
+expect("wordmark period is a 2px square", /\.wordmark \.wm-dot::after \{[\s\S]*width: 2px;[\s\S]*height: 2px;[\s\S]*background: var\(--ot-evidence-teal\)/.test(css));
+
+const issue = { textContent: "" };
+fillIssue(issue, data);
+expect("issue line has no ISO stamp", !/20\d\d-\d\d-\d\dT/.test(issue.textContent) && !/dataset /.test(issue.textContent));
+expect("issue line keeps the clerk facts", /issue /.test(issue.textContent) && /on file/.test(issue.textContent) && /last probed/.test(issue.textContent));
 expect("no rust leftover in css", !/#ff6600|#331400|#662900|#993[Dd]00|--flame|--espresso|--rust|--ember|--well/.test(css));
 expect("open record tokens are exact", css.includes("--ot-ledger-black: #0B1411") && css.includes("--ot-evidence-teal: #00685C") && css.includes("--ot-font-editorial: \"Source Serif 4\""));
 expect("pagination windows rows", pageCount(734) === 15 && windowRows(rows, 1).rows.length === PAGE_SIZE && windowRows(rows, 1).rows.length < rows.length);

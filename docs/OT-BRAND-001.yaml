@@ -78,12 +78,14 @@ type:
 identity:
   open_index: 24x24; 2px teal vertical spine x=7 y=3-21; 2px black top rule x=7-20 y=7; 2px black bottom rule x=7-16 y=17
   not: circle, shield, check, or vendor-status mark
-  masthead: 64px (56 mobile); Ledger Black; Record White type; nav center; active Bright Teal 2px bottom rule; no CTA
-  snapshot: Paper; 1px Rule bottom; issue date, on file / not on file counts, last probed, methodology/dataset version
+  masthead: 64px (56 mobile); Ledger Black; Record White type; nav center; active 1px Evidence Teal underline (chrome); no CTA
+  snapshot: Paper; 1px Rule bottom; issue date, on file / not on file counts, last probed; no ISO dataset stamp
+  wordmark_period: 2px Evidence Teal square; readable at 1440
 
 evidence_spine:
   width: 2px
   color: Evidence Teal
+  register_row: hover or selected; Index Wash plus 2px spine at left
   selected_row: Index Wash plus spine at row start
   nodes: 7px squares; filled = source exists; outline = pending/unknown; split = conflict
   every_node_has_text: true
@@ -94,10 +96,13 @@ pages:
     scope: A database of each company’s public trust ledger.
     columns: ["#", name, domain, file/tier, marks]
     no_probed_column: true
-    coverage: text with denominator; "public evidence located in N of 5 checked categories (page, marks, DPA, subprocessors, years)"; no boxes; no progress bar
-    default_arrange: silent to complete
+    file_cell: state word only; silent / thin / on file / substantial / complete; italic on silent and not on file
+    no_n_of_5_on_register: true
+    default_arrange: last probed newest first
+    file_header_sort: silent to complete or reverse
     pagination: required; do not mount all 700+ rows; no infinite scroll
     compact_max: 639px
+    compact_no_more_on_this_file: true
   dossier:
     org_name_primary: true
     status: claim / source / observation only

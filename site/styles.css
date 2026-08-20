@@ -208,7 +208,21 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   justify-self: start;
 }
 .wordmark:hover { color: var(--ot-record-white); text-decoration: none; }
-.wordmark .wm-dot { color: var(--ot-evidence-teal); }
+.wordmark .wm-dot {
+  color: transparent;
+  position: relative;
+  display: inline-block;
+}
+.wordmark .wm-dot::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2px;
+  height: 2px;
+  background: var(--ot-evidence-teal);
+  transform: translate(-50%, -35%);
+}
 .docket {
   display: flex;
   gap: 28px;
@@ -220,14 +234,14 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   color: var(--ot-record-white);
   text-decoration: none;
   padding: 12px 0 10px;
-  border-bottom: 2px solid transparent;
+  border-bottom: 1px solid transparent;
   min-height: 44px;
   display: inline-flex;
   align-items: center;
 }
 .docket a:hover { color: var(--ot-record-white); }
 .docket a.on {
-  border-bottom-color: var(--ot-bright-teal);
+  border-bottom-color: var(--ot-evidence-teal);
 }
 
 .issue {
@@ -452,17 +466,17 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
 .reg .mark-more { color: var(--ot-graphite); font: inherit; }
 .reg td.num { color: var(--ot-graphite); width: 3.2em; }
 .reg tbody tr { cursor: pointer; }
-.reg tbody tr:hover { background: var(--ot-paper); }
-.reg tbody tr.folio:focus-visible,
-.reg tbody tr.folio:focus-within {
-  outline: 3px solid var(--ot-evidence-teal);
-  outline-offset: 2px;
-}
+.reg tbody tr.folio:hover,
 .reg tbody tr[aria-selected="true"],
 .reg tbody tr.selected,
 .reg tbody tr.on {
   background: var(--ot-index-wash);
   box-shadow: inset var(--ot-spine) 0 0 0 var(--ot-evidence-teal);
+}
+.reg tbody tr.folio:focus-visible,
+.reg tbody tr.folio:focus-within {
+  outline: 3px solid var(--ot-evidence-teal);
+  outline-offset: 2px;
 }
 .reg .tier-silent,
 .reg .absent {
@@ -470,18 +484,6 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   color: var(--ot-unknown-fg);
 }
 .reg .tier-word { font: var(--t-meta); color: var(--ot-graphite); }
-.reg .file-cov {
-  font: var(--t-data);
-  font-variant-numeric: tabular-nums;
-  color: var(--ot-graphite);
-  margin-right: 8px;
-}
-
-.file-cov {
-  font: var(--t-data);
-  font-variant-numeric: tabular-nums;
-  color: var(--ot-graphite);
-}
 .file-legend {
   margin: 0 0 12px;
   font: var(--t-meta);
@@ -527,8 +529,6 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   border-color: var(--ot-rule);
   cursor: default;
 }
-
-.record-extra { display: none; }
 
 /* ——— miss / empty ——— */
 .miss, .empty {
@@ -1070,7 +1070,7 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
     border-bottom: 1px solid var(--ot-rule);
     background: var(--ot-sheet-white);
   }
-  .reg tbody tr.folio:hover { background: var(--ot-paper); }
+  .reg tbody tr.folio:hover,
   .reg tbody tr[aria-selected="true"],
   .reg tbody tr.selected,
   .reg tbody tr.on {
@@ -1086,18 +1086,6 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   }
   .reg td.num { display: none; }
   .reg td.name { margin-bottom: 2px; }
-  .record-extra {
-    display: block;
-    margin-top: 6px;
-  }
-  .record-extra summary {
-    font: var(--t-meta);
-    color: var(--ot-graphite);
-    cursor: pointer;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-  }
   .swatches { grid-template-columns: repeat(2, 1fr); }
 }
 

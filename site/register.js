@@ -3,10 +3,9 @@ import {
   escapeHtml,
   fillIssue,
   displayTier,
+  displayFileState,
   tierClass,
   dataUrl,
-  fileCoverageHtml,
-  fmtDay,
 } from "./lib.js";
 import {
   parseFinder,
@@ -17,14 +16,15 @@ import {
   echoWords,
 } from "./finder.js";
 
-const SORTS = new Set(["rank", "name", "domain", "tier", "marks"]);
+const SORTS = new Set(["rank", "name", "domain", "tier", "marks", "probed"]);
 export const PAGE_SIZE = 50;
 const DEFAULT_DIR = {
   rank: "asc",
   name: "asc",
   domain: "asc",
-  tier: "desc",
+  tier: "asc",
   marks: "desc",
+  probed: "desc",
 };
 const TIER_ORDER = {
   silent: 0,
@@ -96,26 +96,36 @@ export function compareRows(a, b, key) {
       return (TIER_ORDER[(a && a.tier) || "silent"] || 0) - (TIER_ORDER[(b && b.tier) || "silent"] || 0);
     case "marks":
       return marksCount(a) - marksCount(b);
+    case "probed":
+      return probedMs(a) - probedMs(b);
     default:
       return rankOf(a) - rankOf(b);
   }
 }
 
+function probedMs(row) {
+  const raw = row && (row.probed_at || "");
+  const t = Date.parse(raw);
+  return Number.isFinite(t) ? t : 0;
+}
+
 export function arrangeRows(rows, sort, dir) {
   const key = normalizeSort(sort) || "rank";
   const sign = dir === "desc" ? -1 : 1;
+  const nameTie = key === "probed";
   return rows.slice().sort((a, b) => {
     const c = compareRows(a, b, key);
     if (c) return c * sign;
+    if (nameTie) return cmpText(a && a.name, b && b.name);
     const r = rankOf(a) - rankOf(b);
     if (r) return r;
     return cmpText(a && a.name, b && b.name);
   });
 }
 
-/* Default: silent → thin → on file → substantial → complete. Files that need a look first. */
+/* Default: last probed, newest first. Name tie-break so a single crawl is not a silent or complete stripe. */
 export function defaultRows(rows) {
-  return arrangeRows(rows, "tier", "asc");
+  return arrangeRows(rows, "probed", "desc");
 }
 
 export function pageCount(total, size = PAGE_SIZE) {
@@ -261,9 +271,8 @@ function paintHeaders() {
   const heads = document.querySelectorAll("#reg thead th[data-sort]");
   heads.forEach((th) => {
     const key = th.getAttribute("data-sort");
-    const implicit = !state.sorted && key === "tier";
-    const live = implicit || (state.sorted && state.sort === key);
-    const dir = implicit ? "asc" : state.dir;
+    const live = state.sorted && state.sort === key;
+    const dir = state.dir;
     th.classList.toggle("on", live);
     th.setAttribute("aria-sort", live ? (dir === "desc" ? "descending" : "ascending") : "none");
   });
@@ -388,21 +397,14 @@ function render() {
   body.innerHTML = view
     .map((row) => {
       const n = row.rank == null ? "—" : String(row.rank).padStart(3, "0");
-      const tier = displayTier(row.tier);
-      const when = row.probed_at || row.probed || "";
+      const tier = displayFileState(row.tier);
       const selected = state.selected === row.slug ? ' aria-selected="true"' : "";
       return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
         <td class="num">${escapeHtml(n)}</td>
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${escapeHtml(row.name)}</a></td>
         <td class="domain">${escapeHtml(row.domain || "")}</td>
-        <td class="${tierClass(row.tier)}">${fileCoverageHtml(row)} <span class="tier-word">${escapeHtml(tier)}</span></td>
+        <td class="${tierClass(row.tier)}">${escapeHtml(tier)}</td>
         <td class="marks">${marksCell(row)}</td>
-        <td class="record-extra">
-          <details>
-            <summary>More on this file</summary>
-            <p># ${escapeHtml(n)} · last reviewed ${escapeHtml(when ? fmtDay(when) : "not on file")}</p>
-          </details>
-        </td>
       </tr>`;
     })
     .join("");

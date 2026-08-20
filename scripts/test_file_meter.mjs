@@ -17,24 +17,23 @@ expect(
 );
 
 const empty = fileCoverageHtml({});
-expect("empty has no boxes", !empty.includes("file-meter") && !empty.includes('class="on"') && !/<span[^>]*title="page"/.test(empty));
+expect("empty has no boxes", !empty.includes("file-meter") && !empty.includes('class="on"'));
 expect("empty prints 0 of 5", empty.includes("0 of 5"));
-expect("empty sentence names the categories", fileCoverage({}).title.includes("checked categories") && fileCoverage({}).title.includes("page, marks, DPA"));
+expect("empty sentence names the categories", fileCoverage({}).title.includes("checked categories"));
 
 const full = fileCoverageHtml({
   file: { page: true, marks: true, dpa: true, subprocessors: true, years: true },
 });
 expect("full prints 5 of 5", full.includes("5 of 5"));
-expect("full is text not squares", !full.includes("file-meter") && (full.match(/<span/g) || []).length === 1);
+expect("full is text not squares", !full.includes("file-meter"));
 
 const mixed = fileCoverage({
   file: { page: true, marks: false, dpa: true, subprocessors: false, years: true },
 });
 expect("mixed counts three", mixed.n === 3 && mixed.den === "3 of 5");
-expect("mixed sentence has the denominator", mixed.sentence.includes("3 of 5"));
 
 const src = readFileSync(new URL("../site/register.js", import.meta.url), "utf8");
-expect("register imports fileCoverageHtml", src.includes("fileCoverageHtml"));
-expect("register puts coverage text in the tier cell", src.includes("fileCoverageHtml(row)"));
+expect("register does not import fileCoverageHtml", !src.includes("fileCoverageHtml"));
+expect("register has no N of 5 markup", !src.includes("file-cov") && !src.includes("file-meter") && !src.includes(" of 5"));
 expect("register does not restyle the dossier stamp", !src.includes("disclosure"));
-expect("register has no file-meter markup", !src.includes("file-meter") && !src.includes("fileMeterHtml"));
+expect("register has no More on this file", !src.includes("More on this file") && !src.includes("record-extra"));

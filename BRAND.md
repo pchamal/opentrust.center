@@ -124,15 +124,15 @@ The **Evidence Spine** is the only signature device: 2px vertical Evidence Teal.
 ## Layout
 
 - **Paper field, black mast.** Record White page to the edges. Sheet White table. No floating card. No centered “document” that looks like a marketing sheet.
-- **Mast:** 64px (56px mobile), Ledger Black, Record White type. Wordmark left. Nav centered. Active = Bright Teal 2px bottom rule. No CTA, no pills, no glow, no OT ring.
-- **Snapshot** under the mast: Paper, 1px Rule bottom, utility type. Issue date, on file / not on file counts, last probed, methodology / dataset version. Not a KPI strip.
+- **Mast:** 64px (56px mobile), Ledger Black, Record White type. Wordmark left. Nav centered. Active = 1px Evidence Teal underline (chrome, not the signature). No CTA, no pills, no glow, no OT ring.
+- **Snapshot** under the mast: Paper, 1px Rule bottom, utility type. Issue date, on file / not on file counts, last probed. No ISO dataset stamp. Not a KPI strip.
 - **Gutters:** 16 / 24 / 32 / 48.
 - **Search** is a ruled strip. No pill, no shadow, no icon.
-- **Register** is a table. Columns: `#` · name · domain · file · marks. No probed column. 52px rows, Rule bottoms. Hover Paper. Selected Index Wash + spine. Name is editorial and the loudest cell.
-- **Coverage is text** with a denominator: `public evidence located in N of 5 checked categories` (page, marks, DPA, subprocessors, years). Not squares that fill. Not a progress bar. Not a health bar. Teal does not fill boxes or chrome.
-- **Default arrange** is silent → complete so the first screen is not twenty identical completes.
+- **Register** is a table. Columns: `#` · name · domain · file · marks. No probed column. 52px rows, Rule bottoms. Hover or selected: Index Wash + 2px Evidence Teal spine at the row start. Name is editorial and the loudest cell.
+- **File cell** is the state word only: silent / thin / on file / substantial / complete. Italic on silent and not on file. No N of 5. Instrument count lives on the dossier.
+- **Default arrange** is last probed, newest first. File header still sorts silent → complete or reverse. First screen must not be twenty identical silents or completes.
 - **Pagination or windowing.** Do not mount all 700+ rows. No infinite scroll. Preserve query, sort, and count.
-- **Compact (≤639px):** each org is a ruled record (not a card): name, domain, file state, marks, date. Secondary fields in a disclosure.
+- **Compact (≤639px):** each org is a ruled record (not a card): name, domain, file state, marks. The name is the link. No “More on this file.”
 - **Dossier** is a page, `/c/{slug}.html`. Org name is the H1. Status describes a claim, source, or observation — never a company trust badge.
 - Rhythm is 8px. Control radius 3px. Skip link. One H1. Tables with `th`/`scope`. Touch 44px. 320px: no page overflow.
 
