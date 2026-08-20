@@ -686,24 +686,42 @@ A_TAG_RE = re.compile(
     re.I | re.S,
 )
 STATUS_PATH_RE = re.compile(
-    r"(?:^|/)(?:status|system-status|service-status|status-page)(?:/|$|\.html?)",
+    r"^/(?:[a-z]{2}(?:-[a-z]{2})?/)?(?:status|system-status|service-status|status-page)(?:/|\.html?)?$",
     re.I,
 )
+STATUS_DEAD_PATH_RE = re.compile(
+    r"/(?:inactive|page-deleted|team-only|private-only|access/login|"
+    r"admin(?:/|$)|sessions?/sign[_-]?in|(?:sign[_-]?in|log[_-]?in)(?:/|$|\?))",
+    re.I,
+)
+STATUS_DEAD_BODY_RE = re.compile(
+    r"\b(?:this page is (?:currently )?inactive|page (?:has been )?deleted|"
+    r"no longer active|status page is inactive|this status page is (?:private|inactive)|"
+    r"team[- ]only|page deleted)\b",
+    re.I,
+)
+STATUS_GENERIC_PLATFORM_HOSTS = {
+    "corporate.statuspage.io",
+    "business.statuspage.io",
+    "meta.statuspage.io",
+    "manage.statuspage.io",
+    "api.statuspage.io",
+}
 STATUS_TITLE_RE = re.compile(
     r"\b(?:status page|system status|service status|platform status|"
-    r"current status|incident status|status dashboard)\b",
+    r"current status|incident status|status dashboard)\b|"
+    r"^\s*[\w .&'-]{2,40}\s+status\s*$",
     re.I,
 )
 STATUS_LINK_TEXT_RE = re.compile(
     r"\b(?:status page|system status|service status|platform status|"
-    r"current status|incident status)\b|\bstatus\b",
+    r"current status|incident status)\b",
     re.I,
 )
 STATUS_BODY_RE = re.compile(
     r"\b(?:all systems operational|system status|service status|status page|"
     r"current status|past incidents?|subscribe to updates|"
-    r"degraded performance|scheduled maintenance|"
-    r"operational|uptime|incident)\b",
+    r"degraded performance|scheduled maintenance)\b",
     re.I,
 )
 STATUS_MARKETING_RE = re.compile(
@@ -813,11 +831,11 @@ def is_social_or_news(url: str) -> bool:
 def is_statuspage_marketing_url(url: str) -> bool:
     h = host_of(url)
     path = path_of(url).lower()
-    if h in STATUS_MARKETING_HOSTS:
+    if h in STATUS_MARKETING_HOSTS or h in STATUS_GENERIC_PLATFORM_HOSTS:
         return True
     if h in {"atlassian.com", "www.atlassian.com"} and "statuspage" in path:
         return True
-    if h.endswith(".statuspage.io") and h.split(".")[0] in {"www", "meta", "manage", "api"}:
+    if h.endswith(".statuspage.io") and h.split(".")[0] in {"www", "meta", "manage", "api", "corporate", "business"}:
         return True
     return False
 
@@ -873,16 +891,14 @@ def is_status_branded_host(url: str, company: dict | None) -> bool:
 
 
 def title_looks_status(title: str) -> bool:
-    t = title or ""
-    if STATUS_TITLE_RE.search(t):
-        return True
-    return bool(re.search(r"\bstatus\b", t, re.I)) and not re.search(
-        r"\b(?:trust center|security center|privacy|login|sign in)\b", t, re.I
-    )
+    t = (title or "").strip()
+    if not t or re.search(r"\b(?:trust center|security center|privacy|login|sign in)\b", t, re.I):
+        return False
+    return bool(STATUS_TITLE_RE.search(t))
 
 
 def status_body_signals(title: str, text: str, path: str, host: str) -> bool:
-    blob = f"{title} {text[:8000]} {path} {host}"
+    blob = f"{title} {text[:8000]}"
     return bool(STATUS_BODY_RE.search(blob))
 
 
@@ -900,10 +916,16 @@ def classify_as_status(url: str, rec: dict, company: dict | None = None) -> bool
         return False
     if ITEM_UID_RE.search(final) or ITEM_UID_RE.search(url):
         return False
+    if STATUS_DEAD_PATH_RE.search(path_of(final)) or STATUS_DEAD_PATH_RE.search(path_of(url)):
+        return False
+    if STATUS_DEAD_BODY_RE.search(f"{title} {text[:4000]}"):
+        return False
     if company and is_portal_vendor_host(final, company):
         return False
     host, path = host_of(final), path_of(final)
-    if STATUS_MARKETING_RE.search(f"{title} {text[:2500]}") and not is_status_branded_host(final, company):
+    if STATUS_MARKETING_RE.search(f"{title} {text[:2500]}") and not (
+        is_status_branded_host(final, company) and status_body_signals(title, text, path, host)
+    ):
         return False
     if landed_on_home(url, final) and not is_status_branded_host(final, company):
         return False
@@ -915,34 +937,34 @@ def classify_as_status(url: str, rec: dict, company: dict | None = None) -> bool
     first_party = is_first_party_url(final, company) if company else (
         branded or host.startswith("status.") or is_status_path(path)
     )
-    if company and branded and not status_host_matches_company(final, company):
-        # Linked AWS/Statuspage of someone else does not belong on this file.
-        if not (first_party or title_looks_status(title) and any(
+    if company:
+        matches = status_host_matches_company(final, company)
+        titled_for_company = title_looks_status(title) and any(
             t in re.sub(r"[^a-z0-9]", "", f"{title} {host}")
             for t in company_tokens(company)
             if len(t) >= 4
-        )):
+        )
+        if branded and not (matches or first_party or titled_for_company):
             return False
-    if not (branded or first_party or is_status_path(path)):
-        return False
-    if not (branded or first_party):
-        return False
-    signals = status_body_signals(title, text, path, host) or title_looks_status(title)
-    if branded and (signals or title_looks_status(title) or host.startswith("status.")):
-        if host.startswith("status.") and company and not status_host_matches_company(final, company):
+        if not (branded or first_party):
             return False
-        return bool(signals or title_looks_status(title) or (
-            host.startswith("status.") and first_party and not looks_dead(title, text)
-        ))
-    if first_party and is_status_path(path) and signals:
+        if not (matches or first_party or titled_for_company):
+            return False
+    elif not (branded or first_party or is_status_path(path)):
+        return False
+    signals = status_body_signals(title, text, path, host)
+    titled = title_looks_status(title)
+    if branded and (signals or titled):
         return True
-    if first_party and title_looks_status(title) and signals:
+    if first_party and is_status_path(path) and (signals or titled):
+        return True
+    if first_party and titled and signals:
         return True
     return False
 
 
 def is_followable_status_href(href: str, company: dict | None) -> bool:
-    if not href or ITEM_UID_RE.search(href):
+    if not href or ITEM_UID_RE.search(href) or STATUS_DEAD_PATH_RE.search(path_of(href)):
         return False
     if is_social_or_news(href) or is_statuspage_marketing_url(href):
         return False
@@ -963,14 +985,16 @@ def is_filed_status_valid(url: str, company: dict | None) -> bool:
         return False
     if ITEM_UID_RE.search(url) or is_social_or_news(url) or is_statuspage_marketing_url(url):
         return False
+    if STATUS_DEAD_PATH_RE.search(path_of(url)):
+        return False
     if company and is_portal_vendor_host(url, company):
         return False
     h, path = host_of(url), path_of(url)
     if is_status_branded_host(url, company) or is_status_path(path):
+        return bool(not company or status_host_matches_company(url, company) or is_first_party_url(url, company))
+    if company and is_first_party_url(url, company) and is_status_path(path):
         return True
-    if company and is_first_party_url(url, company) and re.search(r"status", url, re.I):
-        return True
-    return bool(h.startswith("status."))
+    return bool(h.startswith("status.") and (not company or status_host_matches_company(url, company)))
 
 
 def extract_status_candidates(html: str, base: str, company: dict | None = None) -> list[str]:
@@ -1016,12 +1040,6 @@ def status_probe_urls_for(company: dict) -> list[str]:
         add(f"https://{domain}/system-status")
         add(f"https://{domain}/service-status")
         add(f"https://{domain}/status-page")
-        label = domain.split(".")[0]
-        if label and label not in STOP_TOKENS:
-            add(f"https://{label}.statuspage.io")
-    slug = (company.get("slug") or "").strip()
-    if slug and slug not in STOP_TOKENS:
-        add(f"https://{slug}.statuspage.io")
     for url, hint in SPECIAL_URLS.get(company.get("slug") or "", []):
         if hint == "status":
             add(url)
@@ -1098,9 +1116,6 @@ def probe_urls_for(company: dict) -> list[tuple[str, str]]:
         add(f"https://{domain}/system-status", "status")
         add(f"https://{domain}/service-status", "status")
         add(f"https://{domain}/status-page", "status")
-        label = domain.split(".")[0]
-        if label and label not in STOP_TOKENS:
-            add(f"https://{label}.statuspage.io", "status")
         add(f"https://{domain}/bug-bounty", "bug_bounty")
         add(f"https://{domain}/responsible-disclosure", "bug_bounty")
         add(f"https://{domain}/security/responsible-disclosure", "bug_bounty")
@@ -1793,6 +1808,22 @@ def _retier(row: dict, disc: dict, score: int) -> None:
     disc["tier"] = tier
 
 
+def status_url_rank(url: str, company: dict | None) -> tuple:
+    """Lower is better. Prefer status.{domain} over a hosted page."""
+    h, path = host_of(url), path_of(url)
+    if STATUS_DEAD_PATH_RE.search(path) or is_statuspage_marketing_url(url):
+        return (9, h)
+    if h.startswith("status.") and (not company or is_first_party_url(url, company)):
+        return (0, h)
+    if company and is_first_party_url(url, company) and is_status_path(path):
+        return (1, h)
+    if "statuspage.io" not in h and re.search(r"status", h, re.I):
+        return (2, h)
+    if is_platform_status_host(h):
+        return (3, h)
+    return (4, h)
+
+
 def apply_status_to_row(row: dict, url: str) -> bool:
     """File a status URL and add the +6 factor. Leave other factors as they were."""
     links = dict(row.get("links") or {})
@@ -1955,7 +1986,7 @@ def file_published_status() -> int:
             rec = {"ok": False, "status": 0, "final_url": url, "title": "", "text": ""}
         return slug, url, rec
 
-    accepted: dict[str, str] = {}
+    accepted: dict[str, list[str]] = {}
 
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
         futs = [pool.submit(do_verify, job) for job in verify_jobs]
@@ -1965,14 +1996,19 @@ def file_published_status() -> int:
             done += 1
             if done % 80 == 0 or done == len(futs):
                 print(f"  verify {done}/{len(futs)}", flush=True)
-            if slug in accepted:
-                continue
             row = by_slug.get(slug)
             if not row:
                 continue
             final = rec.get("final_url") or url
             if classify_as_status(url, rec, row):
-                accepted[slug] = final
+                accepted.setdefault(slug, []).append(final)
+
+    chosen: dict[str, str] = {}
+    for slug, urls in accepted.items():
+        row = by_slug.get(slug)
+        best = sorted(urls, key=lambda u: status_url_rank(u, row))[0]
+        chosen[slug] = best
+    accepted = chosen
 
     checked = len(gaps)
     for c in invalid:

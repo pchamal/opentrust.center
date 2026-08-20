@@ -196,6 +196,45 @@ class StatusClassifyTest(unittest.TestCase):
         self.assertNotIn("status", row["disclosure"]["factors"])
         self.assertEqual(row["disclosure"]["score"], 40)
 
+    def test_inactive_statuspage_is_not_filed(self):
+        url = "https://apple.statuspage.io/inactive"
+        self.assertFalse(classify_as_status(url, rec(
+            url,
+            title="Statuspage",
+            text="This page is currently inactive. Create a status page.",
+        ), {"slug": "apple", "name": "Apple", "domain": "apple.com", "aliases": []}))
+        self.assertFalse(is_filed_status_valid(url, {"slug": "apple", "name": "Apple", "domain": "apple.com", "aliases": []}))
+
+    def test_deleted_statuspage_is_not_filed(self):
+        url = "https://beyondtrust.statuspage.io/page-deleted"
+        self.assertFalse(is_filed_status_valid(url, {"slug": "beyondtrust", "name": "BeyondTrust", "domain": "beyondtrust.com", "aliases": []}))
+
+    def test_status_login_wall_path_is_not_filed(self):
+        url = "https://status.abridge.com/access/login"
+        self.assertFalse(classify_as_status(url, rec(
+            url,
+            title="Abridge Status",
+            text="Please log in to view this status page.",
+        ), {"slug": "abridge", "name": "Abridge", "domain": "abridge.com", "aliases": []}))
+        self.assertFalse(is_filed_status_valid(url, {"slug": "abridge", "name": "Abridge", "domain": "abridge.com", "aliases": []}))
+
+    def test_nested_non_status_path_is_not_filed(self):
+        url = "https://www.alliantenergy.com/ways-to-save/interruptible-program/status"
+        self.assertFalse(classify_as_status(url, rec(
+            url,
+            title="Interruptible program status",
+            text="Check the interruptible program status for your account.",
+        ), {"slug": "alliant-energy", "name": "Alliant Energy", "domain": "alliantenergy.com", "aliases": []}))
+
+    def test_generic_corporate_statuspage_is_not_filed(self):
+        url = "https://corporate.statuspage.io"
+        self.assertTrue(is_statuspage_marketing_url(url))
+        self.assertFalse(classify_as_status(url, rec(
+            url,
+            title="Corporate Status",
+            text="All systems operational. Subscribe to updates.",
+        ), {"slug": "visa", "name": "Visa", "domain": "visa.com", "aliases": []}))
+
     def test_vanta_owns_vanta_dot_com(self):
         vanta = {"slug": "vanta", "name": "Vanta", "domain": "vanta.com", "aliases": []}
         self.assertTrue(is_first_party_url("https://status.vanta.com", vanta))
