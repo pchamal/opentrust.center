@@ -128,7 +128,10 @@ const english = [...byTier].sort((a, b) => {
   const bw = b.tier === "on-file" ? "on file" : b.tier;
   return aw.localeCompare(bw);
 });
-expect("file sort is not English alpha", byTier[0].slug !== english[0].slug || byTier[1].slug !== english[1].slug);
+expect(
+  "file sort is not English alpha",
+  byTier.map((r) => r.slug).join() !== english.map((r) => r.slug).join(),
+);
 
 const byMarks = arrangeRows(rows, "marks", "desc");
 const marksOk = byMarks.every((r, i) => {

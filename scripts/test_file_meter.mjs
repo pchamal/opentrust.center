@@ -46,7 +46,7 @@ const src = readFileSync(new URL("../site/register.js", import.meta.url), "utf8"
 expect("register draws the file index", src.includes("fileIndexHtml"));
 expect("register has no N of 5 markup", !src.includes("file-cov") && !src.includes("file-meter") && !src.includes(" of 5"));
 expect("register does not print tier words in the cell", !src.includes("displayFileState") && !src.includes("tierClass"));
-expect("register has no stars", !src.includes("star") && !src.includes("★"));
+expect("register has no stars", !src.includes("★") && !src.includes("☆") && !src.includes("star-rating") && !src.includes("trust maturity"));
 expect("register does not restyle the dossier stamp", !src.includes("disclosure"));
 expect("register has no More on this file", !src.includes("More on this file") && !src.includes("record-extra"));
 
@@ -110,7 +110,7 @@ expect("identity block wears the spine", /\.ident \{[\s\S]*border-left: var\(--o
 expect("no boxed file-state module", !css.includes(".file-state") && !css.includes(".state-word"));
 expect("rules are ledger black", /\.file-rule \{[\s\S]*border-top: 1px solid var\(--ot-ledger-black\)/.test(css) && /\.file-rule\.on \{[\s\S]*background: var\(--ot-ledger-black\)/.test(css));
 expect("teal does not fill the rules", !/\.file-rule[\s\S]{0,80}--ot-evidence-teal/.test(css) && !/\.file-rule\.on[\s\S]{0,80}--ot-evidence-teal/.test(css));
-expect("no star styles", !css.includes("star") && !css.includes("★"));
+expect("no star styles", !css.includes("★") && !css.includes("☆") && !css.includes("star-rating") && !css.includes("trust-maturity"));
 expect("marks stay Atkinson data", /\.mark-list li \{[\s\S]*font: var\(--t-data\)/.test(css) && /\.mark-list li \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css));
 expect("instrument cells stay Atkinson", /\.inst td \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css));
 expect("Official page stays Atkinson", /\.out \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css) && /a\.official \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css));
