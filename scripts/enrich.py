@@ -783,7 +783,10 @@ def resolve_official_year(company: dict) -> tuple[int, str] | None:
     jobs = about_urls_for(company)
     seen = {u.lower() for u in jobs}
     found: list[tuple[int, str]] = []
-    for url in jobs:
+    i = 0
+    while i < len(jobs) and i < 24:
+        url = jobs[i]
+        i += 1
         rec = fetch_cached(url, max_body=TRUST_BODY)
         if not rec.get("ok") or rec.get("status") != 200:
             continue
@@ -797,11 +800,15 @@ def resolve_official_year(company: dict) -> tuple[int, str] | None:
         year = parse_official_founded_year(blob)
         if year:
             found.append((year, final))
+        if len(jobs) >= 24:
+            continue
         for extra in year_follow_urls(rec, company):
             if extra.lower() in seen:
                 continue
             seen.add(extra.lower())
             jobs.append(extra)
+            if len(jobs) >= 24:
+                break
     if not found:
         return None
     years = {y for y, _s in found}
