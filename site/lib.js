@@ -219,6 +219,31 @@ export function storedAiPageUrl(row) {
   return url;
 }
 
+function storedAiInstrumentUrl(row, key) {
+  const field = row && row[`ai_${key}`];
+  const fromField = typeof field === "string" ? field : field && field.url;
+  const url = fromField || instrumentHref(row, key) || "";
+  if (!url) return "";
+  if (!isFirstPartyUrl(url, row && row.domain)) return "";
+  return url;
+}
+
+/* AITI Domain: stored first-party AI page when on file, else the homepage. */
+export function printedAitiUrl(row) {
+  const page = storedAiPageUrl(row);
+  if (page) {
+    let path = "";
+    try {
+      path = new URL(page).pathname.replace(/\/$/, "");
+    } catch {
+      path = "";
+    }
+    const label = (hostOf(page) + path) || page;
+    return printedUrl(page, label);
+  }
+  return printedUrl((row && row.official_url) || "", (row && row.domain) || "");
+}
+
 function collectedUrls(row) {
   const urls = [
     row && row.trust_url,
@@ -334,13 +359,12 @@ export function selectAiFiles(rows) {
 }
 
 export function aiFileFlags(row) {
-  const urls = collectedUrls(row);
   return {
     page: !!storedAiPageUrl(row),
     marks: hasPrintedAiMark(row),
     processors: storedAiProcessors(row).length > 0,
-    evals: urls.some((u) => urlLooksAiInstrument(u, AI_EVALS_RE)),
-    incidents: urls.some((u) => urlLooksAiInstrument(u, AI_INCIDENTS_RE)),
+    evals: !!storedAiInstrumentUrl(row, "evals"),
+    incidents: !!storedAiInstrumentUrl(row, "incidents"),
   };
 }
 
