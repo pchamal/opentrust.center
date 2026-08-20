@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T17:50:48Z",
+  "generated_at": "2026-08-20T18:39:20Z",
   "companies": [
     {
       "rank": 1,
@@ -1657,17 +1657,20 @@
       "links": {
         "trust": "https://plaid.securitypal.com",
         "status": "https://status.plaid.com",
-        "security": "https://plaid.com/trust-safety/"
+        "security": "https://plaid.com/trust-safety/",
+        "security_txt": "https://plaid.com/.well-known/security.txt",
+        "bug_bounty": "https://hackerone.com/plaid"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 58,
+        "score": 64,
         "tier": "on-file",
         "factors": {
           "portal": 20,
           "certs": 26,
           "status": 6,
-          "longevity": 6
+          "longevity": 6,
+          "disclosure": 6
         }
       }
     },
@@ -1684,7 +1687,7 @@
       "probed": 13,
       "source": "forbes-cloud-100-2025",
       "http_status": 200,
-      "summary": "Trust is in our DNA. Talkdesk CX Cloud\u2122 is a cloud native end-to-end global contact center solution trusted by over 1,800 businesses in 75 countries.",
+      "summary": "Trust is in our DNA. Talkdesk CX Cloud™ is a cloud native end-to-end global contact center solution trusted by over 1,800 businesses in 75 countries.",
       "list": "cloud100",
       "certs": [
         "FedRAMP Moderate"
@@ -1732,7 +1735,7 @@
           {
             "id": "FR2213647361",
             "fedramp_id": "FR2213647361",
-            "offering": "Talkdesk CX Cloud\u2122 Government Edition",
+            "offering": "Talkdesk CX Cloud™ Government Edition",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
             "auth_date": "2025-06-03",
@@ -2586,7 +2589,7 @@
       "title": "Trust - NinjaOne",
       "probed": 13,
       "source": "forbes-cloud-100-2025",
-      "summary": "NinjaOne is committed to making our products accessible and user-friendly to everyone. That\u2019s why we\u2019ve partnered with a third-party to perform accessibility",
+      "summary": "NinjaOne is committed to making our products accessible and user-friendly to everyone. That’s why we’ve partnered with a third-party to perform accessibility",
       "list": "cloud100",
       "certs": [
         "FedRAMP Moderate"
@@ -2643,7 +2646,7 @@
           {
             "id": "FR2620841940",
             "fedramp_id": "FR2620841940",
-            "offering": "NinjaOne for Government \u2013 FedRAMP High",
+            "offering": "NinjaOne for Government – FedRAMP High",
             "status": "FedRAMP Ready",
             "impact_level": "High",
             "auth_date": null,
@@ -3084,7 +3087,7 @@
       "title": "Collibra trust center: Security and compliance commitment | Collibra",
       "probed": 13,
       "source": "forbes-cloud-100-2025",
-      "summary": "Explore Collibra\u2019s trust center for details on software security, infrastructure controls, compliance, training, and risk management practices.",
+      "summary": "Explore Collibra’s trust center for details on software security, infrastructure controls, compliance, training, and risk management practices.",
       "list": "cloud100",
       "certs": [
         "FedRAMP Moderate"
@@ -4124,20 +4127,22 @@
       "links": {
         "status": "https://status.deepl.com",
         "trust": "https://trust.deepl.com",
-        "subprocessors": "https://deepl.safebase.us/?itemUid=82474471-b25f-4d71-aab2-0756c754ec3b (List of engaged third sub-processors in Early Access Programs)"
+        "subprocessors": "https://deepl.safebase.us/?itemUid=82474471-b25f-4d71-aab2-0756c754ec3b (List of engaged third sub-processors in Early Access Programs)",
+        "security_txt": "https://www.deepl.com/.well-known/security.txt"
       },
       "subprocessors": [
         "aws"
       ],
       "disclosure": {
-        "score": 73,
+        "score": 79,
         "tier": "substantial",
         "factors": {
           "portal": 20,
           "marks": 35,
           "processors": 8,
           "status": 6,
-          "longevity": 4
+          "longevity": 4,
+          "disclosure": 6
         }
       }
     },
@@ -4150,7 +4155,7 @@
       "trust_url": "https://huggingface.co/docs/hub/en/security",
       "final_url": "https://huggingface.co/docs/hub/en/security",
       "vendor": "custom",
-      "title": "Security \u00b7 Hugging Face",
+      "title": "Security · Hugging Face",
       "probed": 18,
       "source": "forbes-cloud-100-2025",
       "http_status": 200,
@@ -4373,7 +4378,8 @@
         "dpa": "https://elevenlabs.io/dpa",
         "status": "https://status.elevenlabs.io",
         "subprocessors": "https://compliance.elevenlabs.io/subprocessors",
-        "trust": "https://trust.elevenlabs.io"
+        "trust": "https://trust.elevenlabs.io",
+        "security_txt": "https://elevenlabs.io/.well-known/security.txt"
       },
       "subprocessors": [
         "gcp",
@@ -4406,7 +4412,7 @@
         "plain"
       ],
       "disclosure": {
-        "score": 90,
+        "score": 96,
         "tier": "complete",
         "factors": {
           "portal": 20,
@@ -4415,7 +4421,8 @@
           "processors": 8,
           "status": 6,
           "privacy": 6,
-          "longevity": 2
+          "longevity": 2,
+          "disclosure": 6
         }
       },
       "founded_year": 2022,
@@ -4732,7 +4739,7 @@
         "status": "https://status.together.ai",
         "subprocessors": "https://trust.together.ai/subprocessors",
         "bug_bounty": "https://hackerone.com/together_ai",
-        "dpa": "https://trust.together.ai/resources (Data Processing Addendum \u2014 access request required)"
+        "dpa": "https://trust.together.ai/resources (Data Processing Addendum — access request required)"
       },
       "subprocessors": [
         "aws",
@@ -7468,7 +7475,7 @@
         "subprocessors": "https://docs.fastly.com/products/sub-processors",
         "status": "https://www.fastlystatus.com/"
       },
-      "summary": "Learn more about Fastly\u2019s security and compliance, legal terms, privacy, and corporate values and ethics, please visit the resources.",
+      "summary": "Learn more about Fastly’s security and compliance, legal terms, privacy, and corporate values and ethics, please visit the resources.",
       "subprocessors": [],
       "disclosure": {
         "score": 55,
@@ -7674,7 +7681,7 @@
       "trust_url": "https://github.com/security",
       "final_url": "https://github.com/security",
       "vendor": "self_hosted",
-      "title": "GitHub Security \u00b7 GitHub",
+      "title": "GitHub Security · GitHub",
       "probed": 13,
       "source": "public-enterprise",
       "list": "enterprise",
@@ -8307,17 +8314,21 @@
       "certs": [],
       "links": {
         "trust": "https://transparency.meta.com/policies",
-        "privacy": "https://www.facebook.com/privacy/policy/"
+        "privacy": "https://www.facebook.com/privacy/policy/",
+        "security_txt": "https://www.facebook.com/.well-known/security.txt",
+        "bug_bounty": "https://bugbounty.meta.com/",
+        "security": "https://www.facebook.com/whitehat/report/"
       },
       "summary": "Public trust center on file.",
       "subprocessors": [],
       "disclosure": {
-        "score": 36,
-        "tier": "thin",
+        "score": 42,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
           "privacy": 6,
-          "longevity": 10
+          "longevity": 10,
+          "disclosure": 6
         }
       }
     },
@@ -8345,20 +8356,23 @@
         "trust": "https://www.microsoft.com/en-us/trust-center",
         "subprocessors": "https://trust.microsoft.com/subprocessors",
         "status": "https://status.cloud.microsoft",
-        "privacy": "https://www.microsoft.com/en-us/trust-center/privacy"
+        "privacy": "https://www.microsoft.com/en-us/trust-center/privacy",
+        "security_txt": "https://www.microsoft.com/.well-known/security.txt",
+        "bug_bounty": "https://msrc.microsoft.com/report/vulnerability/new"
       },
       "summary": "Public trust center. On file: GDPR.",
       "subprocessors": [],
       "disclosure": {
-        "score": 65,
-        "tier": "on-file",
+        "score": 71,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
           "marks": 15,
           "processors": 8,
           "status": 6,
           "privacy": 6,
-          "longevity": 10
+          "longevity": 10,
+          "disclosure": 6
         }
       },
       "fedramp": {
@@ -8499,12 +8513,14 @@
         "dpa": "https://mixpanel.com/legal/dpa/",
         "privacy": "https://mixpanel.com/legal/privacy-policy/",
         "status": "https://www.mixpanelstatus.com/",
-        "trust": "https://trust.mixpanel.com"
+        "trust": "https://trust.mixpanel.com",
+        "security_txt": "https://mixpanel.com/.well-known/security.txt",
+        "bug_bounty": "https://hackerone.com/mixpanel"
       },
       "summary": "Public trust center on file.",
       "subprocessors": [],
       "disclosure": {
-        "score": 56,
+        "score": 62,
         "tier": "on-file",
         "factors": {
           "portal": 20,
@@ -8512,7 +8528,8 @@
           "processors": 8,
           "status": 6,
           "privacy": 6,
-          "longevity": 8
+          "longevity": 8,
+          "disclosure": 6
         }
       }
     },
@@ -8592,7 +8609,8 @@
         "bug_bounty": "https://www.mongodb.com/company/contact/mongodb-vulnerability-disclosure-policy",
         "trust": "https://www.mongodb.com/products/platform/trust",
         "subprocessors": "https://trust.mongodb.com/subprocessors",
-        "security": "https://www.mongodb.com/products/capabilities/security"
+        "security": "https://www.mongodb.com/products/capabilities/security",
+        "security_txt": "https://www.mongodb.com/.well-known/security.txt"
       },
       "summary": "Public trust center. On file: SOC 2, ISO 27001, FedRAMP, HIPAA, PCI DSS, GDPR.",
       "subprocessors": [
@@ -9136,7 +9154,7 @@
           {
             "id": "FR2315464863",
             "fedramp_id": "FR2315464863",
-            "offering": "Palantir Federal Cloud Service \u2013 Supporting Services (PFCS-SS)",
+            "offering": "Palantir Federal Cloud Service – Supporting Services (PFCS-SS)",
             "status": "FedRAMP Authorized",
             "impact_level": "High",
             "auth_date": "2024-11-19",
@@ -9495,12 +9513,13 @@
         "subprocessors": "https://www.rapid7.com/legal/subprocessors/",
         "dpa": "https://www.rapid7.com/legal/dpa/",
         "status": "https://status.rapid7.com",
-        "security": "https://www.rapid7.com/security/"
+        "security": "https://www.rapid7.com/security/",
+        "security_txt": "https://www.rapid7.com/.well-known/security.txt"
       },
       "summary": "Rapid7 is on a mission to drive the secops movement into the future, and we take that to heart with our holistic approach to security.",
       "subprocessors": [],
       "disclosure": {
-        "score": 70,
+        "score": 76,
         "tier": "substantial",
         "factors": {
           "portal": 20,
@@ -9509,7 +9528,8 @@
           "processors": 8,
           "status": 6,
           "privacy": 6,
-          "longevity": 10
+          "longevity": 10,
+          "disclosure": 6
         }
       },
       "founded_year": 2000,
@@ -9798,7 +9818,7 @@
           {
             "id": "F1602257856",
             "fedramp_id": "F1602257856",
-            "offering": "DoD Cloud Intelligent Enterprise \u2013 DD-CIE",
+            "offering": "DoD Cloud Intelligent Enterprise – DD-CIE",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
             "auth_date": "2017-06-13",
@@ -11557,15 +11577,19 @@
         "TX-RAMP"
       ],
       "links": {
-        "trust": "https://trust.qualtrics.com"
+        "trust": "https://trust.qualtrics.com",
+        "security_txt": "https://www.qualtrics.com/.well-known/security.txt",
+        "bug_bounty": "https://www.qualtrics.com/platform/security/vulnerability-disclosure/",
+        "security": "https://www.qualtrics.com/platform/security/vulnerability-disclosure/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 57,
+        "score": 63,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "marks": 37
+          "marks": 37,
+          "disclosure": 6
         }
       },
       "fedramp": {
@@ -11615,14 +11639,16 @@
       "list": "public-software",
       "certs": [],
       "links": {
-        "trust": "https://trust.sage.com"
+        "trust": "https://trust.sage.com",
+        "security_txt": "https://sage.com/.well-known/security.txt"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -11655,7 +11681,7 @@
     },
     {
       "rank": 202,
-      "name": "Dassault Syst\u00e8mes",
+      "name": "Dassault Systèmes",
       "slug": "dassault-systemes",
       "domain": "3ds.com",
       "found": true,
@@ -11796,14 +11822,16 @@
       "list": "forbes-software-2025",
       "certs": [],
       "links": {
-        "trust": "https://citrix.com/trust"
+        "trust": "https://citrix.com/trust",
+        "security_txt": "https://www.citrix.com/security.txt"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       },
       "fedramp": {
@@ -11864,12 +11892,18 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "forbes-software-2025",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.gendigital.com/security.txt",
+        "bug_bounty": "https://gendigital.com/contact-us/report-a-vulnerability/",
+        "security": "https://gendigital.com/contact-us/report-a-vulnerability/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -11938,14 +11972,17 @@
       "list": "public-software",
       "certs": [],
       "links": {
-        "trust": "https://trust.teradata.com"
+        "trust": "https://trust.teradata.com",
+        "security_txt": "https://www.teradata.com/.well-known/security.txt",
+        "bug_bounty": "https://www.teradata.com/trust-security-center/data-security/vulnerability-disclosure-policy"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -11971,15 +12008,19 @@
         "GDPR"
       ],
       "links": {
-        "trust": "https://trustcenter.manh.com"
+        "trust": "https://trustcenter.manh.com",
+        "security_txt": "https://www.manh.com/security.txt",
+        "bug_bounty": "https://www.manh.com/trust-center/report-a-security-vulnerability",
+        "security": "https://www.manh.com/trust-center/report-a-security-vulnerability"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 47,
+        "score": 53,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "marks": 27
+          "marks": 27,
+          "disclosure": 6
         }
       },
       "fedramp": {
@@ -12028,12 +12069,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "public-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.informatica.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       },
       "fedramp": {
         "levels": [
@@ -12105,14 +12150,17 @@
       "list": "public-software",
       "certs": [],
       "links": {
-        "trust": "https://trust.paylocity.com"
+        "trust": "https://trust.paylocity.com",
+        "security_txt": "https://www.paylocity.com/.well-known/security.txt",
+        "bug_bounty": "https://www.paylocity.com/vulnerabilitydisclosure/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -12284,12 +12332,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "public-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.opentext.com/.well-known/security.txt",
+        "security": "https://www.opentext.com/about/security-acknowledgements"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       },
       "fedramp": {
         "levels": [
@@ -12313,7 +12366,7 @@
           {
             "id": "F1301101857",
             "fedramp_id": "F1301101857",
-            "offering": "OpenText\u2122 Core Application Security (Fortify On Demand)",
+            "offering": "OpenText™ Core Application Security (Fortify On Demand)",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
             "auth_date": "2015-02-04",
@@ -12480,14 +12533,17 @@
       "list": "crn-security-100-2025",
       "certs": [],
       "links": {
-        "trust": "https://trust.bigid.com"
+        "trust": "https://trust.bigid.com",
+        "security_txt": "https://bigid.com/.well-known/security.txt",
+        "bug_bounty": "https://bigid.com/vulnerability-disclosure-policy/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -12507,14 +12563,17 @@
       "list": "crn-security-100-2025",
       "certs": [],
       "links": {
-        "trust": "https://trust.bitdefender.com"
+        "trust": "https://trust.bitdefender.com",
+        "security_txt": "https://bitdefender.com/.well-known/security.txt",
+        "bug_bounty": "https://www.bitdefender.com/site/view/bug-bounty.html"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -12742,15 +12801,18 @@
         "TX-RAMP"
       ],
       "links": {
-        "trust": "https://trust.darktrace.com"
+        "trust": "https://trust.darktrace.com",
+        "security_txt": "https://darktrace.com/.well-known/security.txt",
+        "bug_bounty": "https://www.darktrace.com/en/legal/vulnerability-disclosure-policy"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 60,
+        "score": 66,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "marks": 40
+          "marks": 40,
+          "disclosure": 6
         }
       },
       "fedramp": {
@@ -12800,14 +12862,17 @@
       "list": "crn-security-100-2025",
       "certs": [],
       "links": {
-        "trust": "https://trust.gigamon.com"
+        "trust": "https://trust.gigamon.com",
+        "security_txt": "https://www.gigamon.com/.well-known/security.txt",
+        "security": "https://www.gigamon.com/security-disclosure.html"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -12827,14 +12892,17 @@
       "list": "crn-security-100-2025",
       "certs": [],
       "links": {
-        "trust": "https://trust.illumio.com"
+        "trust": "https://trust.illumio.com",
+        "security_txt": "https://assets-global.website-files.com/63cdb40b25368837c04197b3/655be342e2fdebdf92e28290_security.txt",
+        "bug_bounty": "https://www.illumio.com/legal/responsible-disclosure-policy"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       },
       "fedramp": {
@@ -12998,14 +13066,18 @@
       "list": "crn-security-100-2025",
       "certs": [],
       "links": {
-        "trust": "https://trust.mimecast.com"
+        "trust": "https://trust.mimecast.com",
+        "security_txt": "https://www.mimecast.com/.well-known/security.txt",
+        "bug_bounty": "https://www.mimecast.com/responsible-disclosure/",
+        "security": "https://www.mimecast.com/responsible-disclosure/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       },
       "fedramp": {
@@ -13055,14 +13127,16 @@
       "list": "crn-security-100-2025",
       "certs": [],
       "links": {
-        "trust": "https://trustcenter.orca.security"
+        "trust": "https://trustcenter.orca.security",
+        "security_txt": "https://orca.security/.well-known/security.txt"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       },
       "fedramp": {
@@ -13135,14 +13209,16 @@
       "list": "crn-security-100-2025",
       "certs": [],
       "links": {
-        "trust": "https://beyondtrust.com/trust-center"
+        "trust": "https://beyondtrust.com/trust-center",
+        "security_txt": "https://www.beyondtrust.com/.well-known/security.txt"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       },
       "fedramp": {
@@ -13215,14 +13291,17 @@
       "list": "crn-security-100-2025",
       "certs": [],
       "links": {
-        "trust": "https://acronis.com/trust-center"
+        "trust": "https://acronis.com/trust-center",
+        "security_txt": "https://www.acronis.com/.well-known/security.txt",
+        "bug_bounty": "https://hackerone.com/acronis/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -13362,12 +13441,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "crn-security-100-2025",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.f5.com/.well-known/security.txt",
+        "security": "https://my.f5.com/manage/s/article/K4602#proc1"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       },
       "fedramp": {
         "levels": [
@@ -13482,12 +13566,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "forbes-ai-50-2025",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://sakana.ai/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -13505,12 +13593,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "crn-security-100-2025",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.malwarebytes.com/.well-known/security.txt",
+        "security": "https://www.malwarebytes.com/secure/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -13658,12 +13751,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "bessemer-emcloud",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.alkami.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -13758,14 +13855,16 @@
       "list": "crn-security-100-2025",
       "certs": [],
       "links": {
-        "trust": "https://trust.sophos.com"
+        "trust": "https://trust.sophos.com",
+        "security_txt": "https://www.sophos.com/.well-known/security.txt"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -13784,12 +13883,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "crn-security-100-2025",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://download.pingidentity.com/public/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -13836,7 +13939,7 @@
           {
             "id": "FR2102652499",
             "fedramp_id": "FR2102652499",
-            "offering": "RSA\u00ae ID Plus for Government",
+            "offering": "RSA® ID Plus for Government",
             "status": "FedRAMP Authorized",
             "impact_level": "Moderate",
             "auth_date": "2022-04-26",
@@ -13925,12 +14028,18 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "crn-security-100-2025",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.watchguard.com/.well-known/security.txt",
+        "bug_bounty": "https://www.watchguard.com/wgrd-psirt/responsible-disclosure-policy",
+        "security": "https://www.watchguard.com/wgrd-psirt/report-vulnerability"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -13948,12 +14057,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "crn-security-100-2025",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.trendmicro.com/.well-known/security.txt",
+        "bug_bounty": "https://www.trendmicro.com/vulnerability"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       },
       "fedramp": {
         "levels": [
@@ -14057,14 +14171,17 @@
       "list": "bessemer-emcloud",
       "certs": [],
       "links": {
-        "trust": "https://trust.sprinklr.com"
+        "trust": "https://trust.sprinklr.com",
+        "security_txt": "https://www.sprinklr.com/.well-known/security.txt",
+        "bug_bounty": "https://www.sprinklr.com/responsible-disclosure/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -14138,14 +14255,16 @@
       "list": "bessemer-emcloud",
       "certs": [],
       "links": {
-        "trust": "https://security.servicetitan.com"
+        "trust": "https://security.servicetitan.com",
+        "security_txt": "https://www.servicetitan.com/.well-known/security.txt"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -14176,15 +14295,19 @@
         "Cyber Essentials"
       ],
       "links": {
-        "trust": "https://trustcenter.five9.com"
+        "trust": "https://trustcenter.five9.com",
+        "security_txt": "https://www.five9.com/.well-known/security.txt",
+        "security": "https://www.five9.com/trust/vdp",
+        "bug_bounty": "https://www.five9.com/trust/vdp"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 60,
+        "score": 66,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "marks": 40
+          "marks": 40,
+          "disclosure": 6
         }
       }
     },
@@ -14276,12 +14399,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "bessemer-emcloud",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.wix.com/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -14299,12 +14426,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500-tech",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.airbnb.com/.well-known/security.txt",
+        "bug_bounty": "https://hackerone.com/airbnb#overview"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -14475,12 +14607,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500-tech",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.coupang.com/.well-known/security.txt",
+        "bug_bounty": "https://www.coupang.com/np/policies/vdp"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -14521,12 +14658,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "bessemer-emcloud",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://jfrog.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -14690,12 +14831,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.coinbase.com/.well-known/security.txt",
+        "bug_bounty": "https://hackerone.com/coinbase"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -14924,12 +15070,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.godaddy.com/security.txt",
+        "bug_bounty": "https://www.godaddy.com/help/coordinated-vulnerability-disclosure-27884"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -14947,12 +15098,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500-tech",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.hp.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -15039,12 +15194,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.robinhood.com/.well-known/security.txt",
+        "bug_bounty": "https://hackerone.com/robinhood"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -15062,12 +15222,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.netflix.com/.well-known/security.txt",
+        "bug_bounty": "https://hackerone.com/netflix"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -15085,12 +15250,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://amadeus.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -15327,14 +15496,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://nebius.group/trust-center"
+        "trust": "https://nebius.group/trust-center",
+        "security_txt": "https://nebius.com/.well-known/security.txt"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -15353,12 +15524,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.rackspace.com:443/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -15376,12 +15551,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://wisetechglobal.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -15522,12 +15701,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-tech",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.mercadolibre.com/security.txt",
+        "bug_bounty": "https://hackerone.com/mercadolibre"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -15660,12 +15844,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-tech-by-revenue",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://securitybulletin.huawei.com/.well-known/security.txt",
+        "bug_bounty": "https://www.huawei.com/cn/psirt/vul-response-process"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -15706,12 +15895,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-tech",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.spotify.com/.well-known/security.txt",
+        "bug_bounty": "https://www.spotify.com/bounty"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -15729,12 +15923,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.bloomberg.com/.well-known/security.txt",
+        "bug_bounty": "https://www.bloomberg.com/responsible-disclosure"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -15775,12 +15974,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.epicgames.com:443/.well-known/security.txt",
+        "bug_bounty": "https://hackerone.com/epicgames"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -15917,12 +16121,18 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.nucleussoftware.com/.well-known/security.txt",
+        "bug_bounty": "https://www.nucleussoftware.com/responsible-disclosure/",
+        "security": "https://www.nucleussoftware.com/responsible-disclosure/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -16014,14 +16224,17 @@
       "list": "wikipedia-largest-internet",
       "certs": [],
       "links": {
-        "trust": "https://instacart.safebase.us"
+        "trust": "https://instacart.safebase.us",
+        "security_txt": "https://www.instacart.com/.well-known/security.txt",
+        "bug_bounty": "https://hackerone.com/instacart"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -16067,12 +16280,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.flexport.com/.well-known/security.txt",
+        "bug_bounty": "https://hackerone.com/flexport_vdp"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -16113,12 +16331,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.etsy.com/.well-known/security.txt",
+        "bug_bounty": "https://bugcrowd.com/etsy"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -16228,12 +16451,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.yahooinc.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -16320,12 +16547,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://grab.com/.well-known/security.txt",
+        "bug_bounty": "https://hackerone.com/grab?view_policy=true"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -16389,12 +16621,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://yandex.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -16600,12 +16836,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-indian-it",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.wipro.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -16834,12 +17074,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.atoss.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -16927,14 +17171,17 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://trust.coveo.com"
+        "trust": "https://trust.coveo.com",
+        "security_txt": "https://www.coveo.com:443/.well-known/security.txt",
+        "bug_bounty": "https://app.intigriti.com/programs/coveo/coveovulnerabilitydisclosureprogram/preview/detail"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -17211,14 +17458,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://trust.expensify.com"
+        "trust": "https://trust.expensify.com",
+        "security_txt": "https://www.expensify.com/security.txt"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -17662,12 +17911,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.f-secure.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -17754,12 +18007,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.fabasoft.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -17801,14 +18058,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://kinaxis.com/trust-center"
+        "trust": "https://kinaxis.com/trust-center",
+        "security_txt": "https://www.kinaxis.com/.well-known/security.txt"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -17924,14 +18183,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://trust.netscout.com"
+        "trust": "https://trust.netscout.com",
+        "security_txt": "https://www.netscout.com/.well-known/security.txt"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -17951,14 +18212,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://trustcenter.nuix.com"
+        "trust": "https://trustcenter.nuix.com",
+        "security_txt": "https://www.nuix.com/.well-known/security.txt"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -18123,14 +18386,17 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://pexip.com/trust-center"
+        "trust": "https://pexip.com/trust-center",
+        "security_txt": "https://www.pexip.com/hubfs/.well-known/security.txt",
+        "bug_bounty": "https://www.pexip.com/trust-center/vulnerability-disclosure"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -18337,12 +18603,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://opera.com/.well-known/security.txt",
+        "bug_bounty": "https://bugcrowd.com/opera"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -18548,7 +18819,7 @@
     },
     {
       "rank": 449,
-      "name": "Schr\u00f6dinger",
+      "name": "Schrödinger",
       "slug": "schr-dinger",
       "domain": "schrodinger.com",
       "found": false,
@@ -18815,14 +19086,17 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://compliance.teamviewer.com"
+        "trust": "https://compliance.teamviewer.com",
+        "security_txt": "https://www.teamviewer.com/.well-known/security.txt",
+        "bug_bounty": "https://yeswehack.com/programs/teamviewer-bounty-program"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -18938,14 +19212,17 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://compliance.vtex.com"
+        "trust": "https://compliance.vtex.com",
+        "security_txt": "https://www.vtex.com/.well-known/security.txt",
+        "bug_bounty": "https://vtex.com/.well-known/security-disclosure-policy.txt"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -19071,12 +19348,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.unisys.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -19094,12 +19375,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.truecaller.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -19556,12 +19841,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://porch.com/.well-known/security.txt",
+        "bug_bounty": "https://porch.com/responsible-disclosure"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -19630,14 +19920,16 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "trust": "https://dieboldnixdorf.com/security"
+        "trust": "https://dieboldnixdorf.com/security",
+        "security_txt": "https://www.dieboldnixdorf.com/security.txt"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -19870,12 +20162,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://assecobs.pl/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -20275,15 +20571,19 @@
         "GDPR"
       ],
       "links": {
-        "trust": "https://trust.liveperson.com"
+        "trust": "https://trust.liveperson.com",
+        "security_txt": "https://www.liveperson.com/security.txt",
+        "bug_bounty": "https://www.liveperson.com/policies/vulnerability-disclosure-policy/",
+        "security": "https://www.liveperson.com/policies/vulnerability-disclosure-policy/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 47,
+        "score": 53,
         "tier": "on-file",
         "factors": {
           "portal": 20,
-          "marks": 27
+          "marks": 27,
+          "disclosure": 6
         }
       }
     },
@@ -20766,12 +21066,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.exasol.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -21000,12 +21304,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.compass.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -21230,12 +21538,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.stonex.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -21253,12 +21565,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.intershop.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -21322,12 +21638,18 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.walmart.com/.well-known/security.txt",
+        "bug_bounty": "https://corporate.walmart.com/article/responsible-disclosure-policy",
+        "security": "https://corporate.walmart.com/article/responsible-disclosure-policy"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -21464,12 +21786,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.amazon.com/.well-known/security.txt",
+        "bug_bounty": "https://hackerone.com/amazonvrp"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -21487,12 +21814,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.unitedhealthgroup.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -21510,12 +21841,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.capitalone.com/security.txt",
+        "bug_bounty": "https://www.capitalone.com/digital/responsible-disclosure/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -21556,12 +21892,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://mckcvd.blob.core.windows.net/cvd/Security.txt",
+        "bug_bounty": "https://www.mckesson.com/cybersecurity/coordinated-vulnerability-disclosure/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -21951,12 +22292,18 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.facebook.com/.well-known/security.txt",
+        "bug_bounty": "https://bugbounty.meta.com/",
+        "security": "https://www.facebook.com/whitehat/report/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -21974,12 +22321,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.humana.com/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -22066,12 +22417,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.statefarm.com/.well-known/security.txt",
+        "bug_bounty": "https://www.statefarm.com/customer-care/privacy-security/security/vulnerability-disclosure-policy"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -22231,12 +22587,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.kroger.com/.well-known/security.txt",
+        "bug_bounty": "https://bugcrowd.com/kroger-vdp"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -22346,12 +22707,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.pg.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -22438,12 +22803,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.boeing.com/security.txt",
+        "bug_bounty": "https://www.boeing.com/vulnerabilitydisclosure"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -22507,12 +22877,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.hcahealthcare.com/.well-known/security.txt",
+        "bug_bounty": "https://www.hcahealthcare.com/legal/responsible-disclosure"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -22787,12 +23162,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.tjx.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -22994,12 +23373,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.intel.com/.well-known/security.txt",
+        "bug_bounty": "https://www.intel.com/content/www/us/en/security-center/vulnerability-handling-guidelines.html"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -23087,14 +23471,17 @@
       "list": "wikipedia-fortune-500",
       "certs": [],
       "links": {
-        "trust": "https://trust.cisco.com"
+        "trust": "https://trust.cisco.com",
+        "security_txt": "https://www.cisco.com/.well-known/security.txt",
+        "bug_bounty": "https://sec.cloudapps.cisco.com/security/center/resources/security_vulnerability_policy.html"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -23462,12 +23849,18 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.ti.com/.well-known/security.txt",
+        "security": "https://www.ti.com/support-quality/quality-policies-procedures/report-product-security-vulnerabilities.html",
+        "bug_bounty": "https://www.ti.com/support-quality/quality-policies-procedures/report-product-security-vulnerabilities.html"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -23485,12 +23878,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.usaa.com/.well-known/security.txt",
+        "bug_bounty": "https://bugcrowd.com/usaa"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -23747,12 +24145,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.wayfair.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -24047,14 +24449,18 @@
       "list": "wikipedia-largest-internet",
       "certs": [],
       "links": {
-        "trust": "https://trust.zoom.com"
+        "trust": "https://trust.zoom.com",
+        "security_txt": "https://zoom.us/.well-known/security.txt",
+        "bug_bounty": "https://www.zoom.com/en/trust/reporting-vulnerability/",
+        "security": "https://www.zoom.com/en/trust/vulnerability-disclosure/submit-vulnerability-report"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -24073,12 +24479,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.chewy.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -24165,12 +24575,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://x.com/.well-known/security.txt",
+        "bug_bounty": "https://hackerone.com/twitter"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -24326,12 +24741,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.coolblue.nl/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -24349,12 +24768,18 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.newegg.com/.well-known/security.txt",
+        "bug_bounty": "https://kb.newegg.com/knowledge-base/newegg-vulnerability-disclosure-policy/",
+        "security": "https://kb.newegg.com/knowledge-base/newegg-vulnerability-disclosure-policy/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -24537,12 +24962,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.ozon.ru/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -24702,12 +25131,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.angi.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -24771,12 +25204,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://craigslist.org/.well-known/security.txt",
+        "security": "https://www.craigslist.org/contact?step=form&reqType=security"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -24886,12 +25324,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-internet",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.farfetch.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -25350,12 +25792,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-tech-by-revenue",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.telekom.com/.well-known/security.txt",
+        "bug_bounty": "https://www.telekom.com/bugbounty"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -25983,12 +26430,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.se.com/.well-known/security.txt",
+        "bug_bounty": "https://www.se.com/ww/en/work/support/cybersecurity/vulnerability-policy.jsp"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -26007,14 +26459,17 @@
       "list": "wikipedia-sp500-software",
       "certs": [],
       "links": {
-        "trust": "https://trust.allegion.com"
+        "trust": "https://trust.allegion.com",
+        "security_txt": "https://www.allegion.com/.well-known/security.txt",
+        "bug_bounty": "https://hackerone.com/allegion"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 26,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "disclosure": 6
         }
       }
     },
@@ -26079,12 +26534,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.ameren.com/-/media/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -26286,12 +26745,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://amwater.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -26750,12 +27213,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.aon.com/.well-known/security.txt",
+        "bug_bounty": "https://hackerone.com/aon?view_policy=true"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -26944,7 +27412,7 @@
     },
     {
       "rank": 807,
-      "name": "Brown\u2013Forman",
+      "name": "Brown–Forman",
       "slug": "brown-forman",
       "domain": "brown-forman.com",
       "found": false,
@@ -27352,12 +27820,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://s26.q4cdn.com/888045447/files/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -27467,12 +27939,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.cinfin.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -27891,12 +28367,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://deckers.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -27983,12 +28463,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.dollartree.com/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -28075,12 +28559,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.drhorton.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {
@@ -28167,12 +28655,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security_txt": "https://www.dow.com/.well-known/security.txt"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "disclosure": 6
+        }
       }
     },
     {

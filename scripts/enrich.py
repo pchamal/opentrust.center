@@ -377,6 +377,7 @@ DOMAIN_ALIASES = {
     "1password.com": ["1password.io"],
     "alpha-sense.com": ["alpha-sense.com", "alphasense.com"],
     "x.ai": ["x.ai"],
+    "meta.com": ["facebook.com"],
 }
 
 def hosts_for(company: dict) -> list[str]:
@@ -633,7 +634,10 @@ def is_valid_security_txt(text: str, ctype: str) -> bool:
     if not text or not str(text).strip():
         return False
     head = str(text)[:8000]
-    low = head.lower()
+    stripped = head.lstrip()
+    low = stripped.lower()
+    if low.startswith("<script") or low.startswith("(function"):
+        return False
     htmlish = "<html" in low or "<!doctype html" in low
     if htmlish and ("<body" in low or "<nav" in low or "<header" in low):
         return False
@@ -740,12 +744,22 @@ def accept_link(kind: str, url: str, rec: dict) -> bool:
     return False
 
 
+def field_url(val: str) -> str:
+    """HTTP value from a security.txt field. Strip HTML tails. Do not invent."""
+    val = (val or "").strip()
+    val = re.sub(r"<[^>]+>.*$", "", val).strip()
+    val = val.rstrip(".,;)]>")
+    return val
+
+
 def bounty_from_security_txt(text: str):
     for pat in (SEC_POLICY, SEC_CONTACT):
         for m in pat.finditer(text or ""):
-            val = m.group(1).strip()
+            val = field_url(m.group(1))
             if val.startswith("http") and re.search(
-                r"hackerone|bugcrowd|yeswehack|intigriti|bug-?bounty|responsible-?disclosure|vulnerability",
+                r"hackerone|bugcrowd|yeswehack|intigriti|bug-?bounty|\bbounty\b|"
+                r"responsible-?disclosure|vulnerabilit|/\bvdp\b|\bvdp/|psirt|"
+                r"security-disclosure|disclosure-policy",
                 val, re.I,
             ):
                 return val
@@ -844,20 +858,17 @@ def optional_links_from_security_txt(text: str, company: dict, links: dict) -> d
         bounty = bounty_from_security_txt(text)
         if bounty and is_first_party_or_branded_bounty(bounty, company):
             extras["bug_bounty"] = bounty
-        else:
-            for m in SEC_POLICY.finditer(text or ""):
-                val = m.group(1).strip()
-                if val.startswith("http") and is_first_party_or_branded_bounty(val, company):
-                    extras["bug_bounty"] = val
-                    break
     if not links.get("security"):
         for m in SEC_CONTACT.finditer(text or ""):
-            val = m.group(1).strip()
+            val = field_url(m.group(1))
             if not val.startswith("http"):
                 continue
             if not is_first_party_url(val, company):
                 continue
-            if path_of(val).rstrip("/") in {"", "/"}:
+            path = path_of(val).rstrip("/")
+            if path in {"", "/"}:
+                continue
+            if re.search(r"(contact-us|/contact)$|my-settings|login|signin", path, re.I):
                 continue
             extras["security"] = val
             break

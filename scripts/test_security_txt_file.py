@@ -59,6 +59,12 @@ class SecurityTxtParseTest(unittest.TestCase):
             "Canonical: https://ex.com/.well-known/security.txt\n", "text/plain"
         ))
 
+    def test_js_challenge_is_not_security_txt(self):
+        js = '<script type="text/javascript">Contact: fake</script>'
+        self.assertFalse(is_valid_security_txt(js, "text/plain"))
+        url = "https://www.meta.com/.well-known/security.txt"
+        self.assertIsNone(accept_security_txt(url, rec(url, text=js, ctype="text/plain")))
+
     def test_html_security_page_is_not_security_txt(self):
         html = "<!doctype html><html><body><h1>Security</h1><p>Contact us.</p></body></html>"
         self.assertFalse(is_valid_security_txt(html, "text/html"))
@@ -143,6 +149,19 @@ class SecurityTxtScoreTest(unittest.TestCase):
 
 
 class OptionalLinksTest(unittest.TestCase):
+    def test_trust_center_policy_is_not_bounty(self):
+        extras = optional_links_from_security_txt(
+            "Policy: https://www.sage.com/en-gb/trust-security/\nContact: mailto:security@sage.com\n",
+            {"slug": "sage", "name": "Sage", "domain": "sage.com", "aliases": []},
+            {},
+        )
+        self.assertNotIn("bug_bounty", extras)
+
+    def test_html_tail_stripped_from_policy(self):
+        from enrich import bounty_from_security_txt
+        text = "Policy: https://hackerone.com/godaddy<br/>\nContact: mailto:security@godaddy.com\n"
+        self.assertEqual(bounty_from_security_txt(text), "https://hackerone.com/godaddy")
+
     def test_mailto_contact_is_not_filed(self):
         extras = optional_links_from_security_txt(
             "Contact: mailto:security@microsoft.com\nPolicy: https://www.microsoft.com/msrc\n",
