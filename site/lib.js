@@ -85,12 +85,12 @@ export const AI_PRODUCT_SLUGS = new Set([
   "pika",
 ]);
 export const AI_LIST_IDS = new Set([
-  "forbes-ai-50-2025",
   "forbes-ai-50-2026",
   "forbes-ai-50-brink-2026",
   "cb-insights-ai-100-2026",
-  "lmarena",
-  "openrouter",
+  "arena-org",
+  "openrouter-provider",
+  "hugging-face-org",
 ]);
 
 export function dataUrl(path) {
@@ -319,11 +319,7 @@ export function isAiListMember(row) {
 
 export function isAiFile(row) {
   if (!row) return false;
-  if (hasPrintedAiMark(row)) return true;
-  if (isAiListMember(row)) return true;
-  if (isAiNamed(row)) return true;
-  if (AI_PRODUCT_SLUGS.has(String(row.slug || ""))) return true;
-  return false;
+  return isAiListMember(row);
 }
 
 export function printedUrl(url, text) {

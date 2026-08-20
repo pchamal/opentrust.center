@@ -826,6 +826,9 @@ def enrich_company(
     aiti_lists = list(row.get("aiti_lists") or []) or list(load_aiti_membership().get(slug) or [])
     if aiti_lists:
         public["aiti_lists"] = aiti_lists
+    official_url = (row.get("official_url") or "").strip()
+    if official_url.startswith(("http://", "https://")):
+        public["official_url"] = official_url
     if not public.get("source_url"):
         src = row.get("source") or ""
         if isinstance(src, str) and src.startswith("http"):
@@ -1547,15 +1550,20 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
         ai_url = row["ai_page"].get("url") or ""
     elif isinstance(row.get("ai_page"), str):
         ai_url = row.get("ai_page") or ""
+    official_home = (row.get("official_url") or "").strip()
+    if not official_home.startswith(("http://", "https://")):
+        official_home = ""
     need_gate = bool(found and url) or any(
         rec and rec.get("url") for rec in inst.values()
-    ) or any(p.get("source_url") for p in procs) or bool(list_url) or bool(ai_url)
+    ) or any(p.get("source_url") for p in procs) or bool(list_url) or bool(ai_url) or bool(official_home)
     gate = GATE_HTML if need_gate else ""
     claim = f'<a class="perm" href="../claim.html?slug={escape(slug)}">Report a correction</a>'
     issue = dossier_issue_line(generated_at, slug)
-
+    domain_html = official_a(official_home, domain) if official_home and domain else escape(domain)
     about = {"@type": "Organization", "name": name}
-    if domain:
+    if official_home:
+        about["url"] = official_home
+    elif domain:
         about["url"] = f"https://{domain}"
     ld = {
         "@context": "https://schema.org",
@@ -1596,7 +1604,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     <p class="crumb"><a href="../companies.html">Companies</a> / {escape(slug)}</p>
     <section class="ident">
       <h1>{ink_icon(row.get("favicon") or company_favicon(domain), "../")}{escape(name)}</h1>
-      <p class="ident-meta">{escape(domain)}</p>
+      <p class="ident-meta">{domain_html}</p>
       <p class="ident-meta file-line">{file_html}</p>
       <p class="ident-meta">founded · {year_html}</p>
     </section>
