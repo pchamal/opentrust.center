@@ -36,8 +36,8 @@
     </section>
 
     <p class="sec-kicker">Instruments</p>
-    <table class="inst">
-      <thead><tr><th scope="col">Instrument</th><th scope="col">Host</th><th scope="col">Last seen</th></tr></thead>
+    <table class="inst" data-table="instruments">
+      <thead><tr><th scope="col" data-sort="instrument" aria-sort="none"><button type="button">Instrument</button></th><th scope="col" data-sort="host" aria-sort="none"><button type="button">Host</button></th><th scope="col" data-sort="seen" aria-sort="none"><button type="button">Last seen</button></th></tr></thead>
       <tbody><tr><td>trust</td><td><a class="official" href="https://cloud.google.com/compliance" rel="noopener noreferrer">cloud.google.com</a></td><td>20 Aug 2026</td></tr><tr><td>security</td><td><a class="official" href="https://safety.google/safety/" rel="noopener noreferrer">safety.google</a></td><td>20 Aug 2026</td></tr><tr><td>privacy</td><td><a class="official" href="https://safety.google/intl/en_us/settings/privacy-settings/" rel="noopener noreferrer">safety.google</a></td><td>20 Aug 2026</td></tr><tr><td>DPA</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>subprocessors</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>status</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>bounty / security.txt</td><td><a class="official" href="https://www.google.com/.well-known/security.txt" rel="noopener noreferrer">google.com</a></td><td>20 Aug 2026</td></tr></tbody>
     </table>
 
@@ -56,15 +56,15 @@
 
     <p class="sec-kicker">FedRAMP</p>
     <p class="src-line">Filed from the <a href="https://www.fedramp.gov/marketplace/products/">FedRAMP Marketplace</a>.</p>
-    <table class="inst filed">
-      <thead><tr><th scope="col">Offering</th><th scope="col">Status</th><th scope="col">Impact level</th><th scope="col">Auth date</th></tr></thead>
+    <table class="inst filed" data-table="fedramp">
+      <thead><tr><th scope="col" data-sort="offering" aria-sort="none"><button type="button">Offering</button></th><th scope="col" data-sort="status" aria-sort="none"><button type="button">Status</button></th><th scope="col" data-sort="impact" aria-sort="none"><button type="button">Impact level</button></th><th scope="col" data-sort="date" aria-sort="none"><button type="button">Auth date</button></th></tr></thead>
       <tbody><tr><td><a href="https://www.fedramp.gov/marketplace/products/FR2604952026">Gemini for Government</a></td><td>authorized</td><td>20x Low</td><td>21 Jan 2026</td></tr><tr><td><a href="https://www.fedramp.gov/marketplace/products/FR1805751477">Google Services (Google Cloud Platform Products and underlying Infrastructure)</a></td><td>authorized</td><td>High</td><td>4 Dec 2019</td></tr><tr><td><a href="https://www.fedramp.gov/marketplace/products/F1206081364">Google Workspace</a></td><td>authorized</td><td>High</td><td>28 Oct 2021</td></tr><tr><td><a href="https://www.fedramp.gov/marketplace/products/FR2405153785">Google Cloud VMware Engine (GCVE)</a></td><td>ready</td><td>High</td><td class="empty"><span class="absent">not on file</span></td></tr></tbody>
     </table>
 
 
     <p class="sec-kicker">Named processors</p>
-    <table class="inst filed">
-      <thead><tr><th scope="col">Processor</th></tr></thead>
+    <table class="inst filed" data-table="processors">
+      <thead><tr><th scope="col" data-sort="processor" aria-sort="ascending"><button type="button">Processor</button></th></tr></thead>
       <tbody><tr><td><span class="absent">not on file</span></td></tr></tbody>
     </table>
 

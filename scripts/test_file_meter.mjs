@@ -146,7 +146,12 @@ const cursorNames = [
 const procChunk = dossier.split("Named processors")[1] || "";
 const procCells = [...procChunk.matchAll(/<tr><td>(.*?)<\/td><\/tr>/g)].map((m) => m[1]);
 const procNames = procCells.map((cell) => cell.replace(/<[^>]+>/g, ""));
-expect("anysphere processors are the published list", cursorNames.every((n) => procChunk.includes(n)) && cursorNames.join() === procNames.join());
+expect(
+  "anysphere processors are the published list",
+  cursorNames.every((n) => procChunk.includes(n)) &&
+    procNames.length === cursorNames.length &&
+    procNames.join() === [...procNames].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" })).join(),
+);
 const dossierHref = {
   "Amazon Web Services": "./amazon-web-services.html",
   Fireworks: "./fireworks-ai.html",
