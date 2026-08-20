@@ -269,8 +269,11 @@ LINK_HINTS = (
     ("privacy", re.compile(r"privacy", re.I)),
     ("status", re.compile(r"status", re.I)),
     ("bug_bounty", re.compile(
-        r"bug-?bounty|responsible-?disclosure|vulnerability-?disclosure|"
-        r"hackerone|bugcrowd|yeswehack|intigriti", re.I)),
+        r"bug-?bounty|bugbounty|responsible-?disclosure|"
+        r"vulnerability-?disclosure|vulnerability-?report|"
+        r"report-a-vulnerability|hackerone|bugcrowd|yeswehack|intigriti|"
+        r"whitehat|coordinated-disclosure|/vdp\b|security/vulnerability",
+        re.I)),
     ("security_txt", re.compile(r"security\.txt", re.I)),
     ("security", re.compile(r"security", re.I)),
     ("trust", re.compile(r"trust", re.I)),
@@ -318,6 +321,99 @@ SPECIAL_URLS = {
     "canva": [("https://www.canva.com/policies/subprocessors/", "subprocessors")],
     "microsoft": [("https://status.cloud.microsoft", "status")],
 }
+
+# First-party VDP / bounty paths. Platform hosts are accepted only when the
+# page is that company's program, not a directory or marketing page.
+BOUNTY_WELL_KNOWN_PATHS = (
+    "/bug-bounty",
+    "/bugbounty",
+    "/security/bug-bounty",
+    "/responsible-disclosure",
+    "/security/responsible-disclosure",
+    "/responsible-disclosure-policy",
+    "/security/responsible-disclosure-policy",
+    "/vulnerability-disclosure",
+    "/security/vulnerability-disclosure",
+    "/security/vulnerability",
+    "/vulnerability-disclosure-policy",
+    "/vulnerability-reporting",
+    "/report-a-vulnerability",
+    "/security/report-a-vulnerability",
+    "/legal/vulnerability-disclosure-policy",
+    "/security/vulnerability-disclosure-policy",
+    "/legal/responsible-disclosure",
+    "/policies/vulnerability-disclosure",
+    "/security/vdp",
+    "/vdp",
+)
+BOUNTY_PATH_RE = re.compile(
+    r"(?:bug-?bounty|bugbounty|responsible-?disclosure|"
+    r"vulnerability-?disclosure|vulnerability-?report|"
+    r"report-a-vulnerability|report[-_]vulnerabilit|"
+    r"vulnerability-reporting|coordinated-disclosure|"
+    r"security-disclosure|white[-_]?hat|"
+    r"/security/vulnerability(?:/|$|\?)|"
+    r"(?:^|/)vdp(?:/|$|\?))",
+    re.I,
+)
+BOUNTY_TITLE_RE = re.compile(
+    r"\b(?:bug\s*bounty|responsible\s*disclosure|vulnerability\s*disclosure|"
+    r"vulnerability\s*reporting|report\s+a\s+vulnerabilit|"
+    r"coordinated\s*disclosure|security\s*disclosure(?:\s+policy)?|"
+    r"vulnerability\s*disclosure\s*policy|\bvdp\b)\b",
+    re.I,
+)
+BOUNTY_BODY_RE = re.compile(
+    r"\b(?:report\s+(?:a\s+)?(?:security\s+)?vulnerabilit|"
+    r"bug\s*bounty|responsible\s*disclosure|coordinated\s*disclosure|"
+    r"submit\s+a\s+report|security\s+researchers?|"
+    r"vulnerability\s*disclosure|out\s+of\s+scope)\b",
+    re.I,
+)
+BOUNTY_LINK_TEXT_RE = re.compile(
+    r"\b(?:bug\s*bounty|responsible\s*disclosure|vulnerability\s*disclosure|"
+    r"report\s+a\s+vulnerabilit|vulnerability\s*reporting|"
+    r"security\s+researchers?|coordinated\s*disclosure|\bvdp\b)\b",
+    re.I,
+)
+BOUNTY_NEWS_PATH_RE = re.compile(r"/(?:blog|news|press|stories)/", re.I)
+BOUNTY_ITEM_UID_RE = re.compile(r"(?:[?&]|/)itemUid=", re.I)
+A_TAG_RE = re.compile(
+    r"""<a\b[^>]*href\s*=\s*['"]([^"'#]+)['"][^>]*>(.*?)</a>""",
+    re.I | re.S,
+)
+BOUNTY_PLATFORM_HOSTS = {
+    "hackerone.com",
+    "bugcrowd.com",
+    "tracker.bugcrowd.com",
+    "yeswehack.com",
+    "intigriti.com",
+    "app.intigriti.com",
+}
+H1_RESERVED = {
+    "hackers", "directory", "opportunities", "hacktivity", "blog", "about",
+    "signin", "login", "users", "reports", "jobs", "enterprise", "product",
+    "solutions", "resources", "partners", "press", "security", "privacy",
+    "terms", "contact", "support", "docs", "api", "changelog", "leaderboard",
+    "programs", "companies", "researchers", "overview", "pricing",
+    "customers", "platform",
+}
+BUGCROWD_RESERVED = {
+    "crowd", "programs", "blog", "about", "login", "signup", "resources",
+    "customers", "enterprise", "researchers", "jobs", "pricing", "partners",
+    "platform", "why-bugcrowd", "contact",
+}
+BOUNTY_PRIVATE_RE = re.compile(
+    r"(this program is private|sign in to view this program|"
+    r"you must be invited|program is not public)",
+    re.I,
+)
+BOUNTY_MARKETING_RE = re.compile(
+    r"(hacker-powered security|bug bounty platform|the (?:#1 |leading )?"
+    r"(?:bug bounty|crowdsourced security) platform|"
+    r"find your next (?:program|bounty))",
+    re.I,
+)
 
 
 def utc_now() -> str:
@@ -651,9 +747,7 @@ def classify_probe(url: str, rec: dict):
     ):
         if re.search(r"status|uptime|incident|operational", low):
             return "status"
-    if re.search(r"bug-?bounty|responsible-?disclosure|vulnerability-?disclosure", path) or re.search(
-        r"\b(bug bounty|responsible disclosure|vulnerability disclosure)\b", title, re.I
-    ):
+    if classify_as_bounty(url, rec):
         return "bug_bounty"
     if "privacy" in path or re.search(r"privacy policy", title, re.I):
         if "privacy" in low:
@@ -692,10 +786,8 @@ def probe_urls_for(company: dict) -> list[tuple[str, str]]:
         add(f"https://{domain}/data-processing-addendum", "dpa")
         add(f"https://status.{domain}", "status")
         add(f"https://{domain}/status", "status")
-        add(f"https://{domain}/bug-bounty", "bug_bounty")
-        add(f"https://{domain}/responsible-disclosure", "bug_bounty")
-        add(f"https://{domain}/security/responsible-disclosure", "bug_bounty")
-        add(f"https://{domain}/vulnerability-disclosure", "bug_bounty")
+        for path in BOUNTY_WELL_KNOWN_PATHS:
+            add(f"https://{domain}{path}", "bug_bounty")
         add(f"https://{domain}/security", "security")
         add(f"https://{domain}/trust", "trust")
     trust = company.get("trust_url") or ""
@@ -1000,6 +1092,246 @@ def looks_like_login_wall(title: str, text: str) -> bool:
     return len(re.sub(r"\s+", " ", text or "")) < 600
 
 
+def is_bounty_platform_host(host: str) -> bool:
+    h = (host or "").lower().removeprefix("www.")
+    return h in BOUNTY_PLATFORM_HOSTS
+
+
+def bounty_platform_handle(url: str) -> str | None:
+    """Program handle on a first-party-branded platform page, or None."""
+    host = host_of(url)
+    path = path_of(url).rstrip("/")
+    parts = [p for p in path.split("/") if p]
+    if host == "hackerone.com":
+        if not parts or parts[0].lower() in H1_RESERVED:
+            return None
+        return parts[0]
+    if host in {"bugcrowd.com", "tracker.bugcrowd.com"}:
+        if not parts:
+            return None
+        if parts[0].lower() == "engagements" and len(parts) >= 2:
+            return parts[1]
+        if parts[0].lower() in BUGCROWD_RESERVED:
+            return None
+        return parts[0]
+    if host == "yeswehack.com":
+        if len(parts) >= 2 and parts[0].lower() == "programs":
+            return parts[1]
+        return None
+    if host in {"intigriti.com", "app.intigriti.com"}:
+        if host == "app.intigriti.com" and len(parts) >= 2:
+            return parts[0]
+        if parts and parts[0].lower() == "programs" and len(parts) >= 2:
+            return parts[1]
+        return None
+    return None
+
+
+def _norm_name(s: str) -> str:
+    t = re.sub(r"\b(inc|llc|ltd|corp|corporation|company|the|com)\b", " ", (s or "").lower())
+    return re.sub(r"[^a-z0-9]+", " ", t).strip()
+
+
+def bounty_page_names_company(title: str, text: str, company: dict, handle: str | None) -> bool:
+    """True when the program page is clearly this company's, not a namesake."""
+    name = company.get("name") or ""
+    slug = (company.get("slug") or "").lower()
+    domain = (company.get("domain") or "").lower()
+    stem = domain.split(".")[0] if domain else ""
+    title_n = _norm_name(title)
+    blob_n = _norm_name(f"{title} {text[:2500]}")
+    name_n = _norm_name(name)
+    handle_n = _norm_name(handle or "")
+    if name_n and name_n in title_n:
+        return True
+    if name_n and len(name_n) >= 5 and name_n in blob_n:
+        return True
+    tokens = [t for t in name_n.split() if len(t) >= 4]
+    if tokens and all(t in title_n for t in tokens):
+        return True
+    candidates = {slug, stem}
+    for raw in company.get("aliases") or []:
+        h = host_of(raw) if str(raw).startswith("http") else str(raw or "").lower()
+        h = h.removeprefix("www.").split("/")[0]
+        if h:
+            candidates.add(h.split(".")[0])
+    candidates.discard("")
+    if handle and (handle.lower() in candidates or (handle_n and handle_n == name_n)):
+        return True
+    if slug and slug.replace("-", " ") in title_n:
+        return True
+    # Short names (Box, Snap) need the handle or the title, not a body mention.
+    if name_n and len(name_n) < 5:
+        return bool(re.search(rf"\b{re.escape(name_n)}\b", title_n))
+    return False
+
+
+def classify_as_bounty(url: str, rec: dict, company: dict | None = None) -> bool:
+    """True only for a public first-party VDP / branded platform program page."""
+    if not rec.get("ok") or rec.get("status") != 200:
+        return False
+    title, text = rec.get("title") or "", rec.get("text") or ""
+    final = rec.get("final_url") or url
+    if looks_dead(title, text) or looks_like_login_wall(title, text):
+        return False
+    if BOUNTY_PRIVATE_RE.search(f"{title} {text[:1500]}"):
+        return False
+    if landed_on_home(url, final) and "status." not in host_of(url):
+        return False
+    path = path_of(final)
+    host = host_of(final)
+    if BOUNTY_NEWS_PATH_RE.search(path) or BOUNTY_NEWS_PATH_RE.search(urlparse(final).path or ""):
+        return False
+    if BOUNTY_ITEM_UID_RE.search(final) and not BOUNTY_PATH_RE.search(final):
+        return False
+    if is_bounty_platform_host(host):
+        handle = bounty_platform_handle(final)
+        if not handle:
+            return False
+        if BOUNTY_MARKETING_RE.search(f"{title} {text[:1200]}"):
+            return False
+        titled = bool(BOUNTY_TITLE_RE.search(title) or re.search(
+            r"\b(?:hackerone|bugcrowd|yeswehack|intigriti)\b", title, re.I
+        ))
+        bodied = bool(BOUNTY_BODY_RE.search(text[:8000]) or BOUNTY_TITLE_RE.search(text[:2000]))
+        if not (titled or bodied):
+            return False
+        if company and not bounty_page_names_company(title, text, company, handle):
+            return False
+        return True
+    if BOUNTY_MARKETING_RE.search(title) and is_bounty_platform_host(host):
+        return False
+    path_hit = bool(BOUNTY_PATH_RE.search(path) or BOUNTY_PATH_RE.search(final))
+    title_hit = bool(BOUNTY_TITLE_RE.search(title))
+    body_hit = bool(BOUNTY_BODY_RE.search(text[:8000]) or BOUNTY_TITLE_RE.search(text[:2000]))
+    generic = path.rstrip("/") in {"/security", "/trust", "/docs/security"} or (
+        host.startswith("security.") and path.rstrip("/") in {"", "/"}
+    )
+    if generic and not (title_hit and body_hit):
+        return False
+    if path_hit and (title_hit or body_hit):
+        return True
+    if title_hit and body_hit and not generic:
+        return True
+    return False
+
+
+def extract_bounty_candidates(html: str, base: str) -> list[str]:
+    """Hrefs that look like a VDP or branded platform program, plus named links."""
+    out, seen = [], set()
+
+    def add(u: str) -> None:
+        u = (u or "").split("#")[0].strip()
+        if not u.startswith("http") or u in seen:
+            return
+        if BOUNTY_ITEM_UID_RE.search(u) and not BOUNTY_PATH_RE.search(u):
+            return
+        seen.add(u)
+        out.append(u)
+
+    for href in extract_hrefs(html, base):
+        host = host_of(href)
+        if BOUNTY_PATH_RE.search(href) or is_bounty_platform_host(host):
+            if is_bounty_platform_host(host) and not bounty_platform_handle(href):
+                continue
+            add(href)
+    for m in A_TAG_RE.finditer(html or ""):
+        raw, inner = m.group(1).strip(), strip_tags(m.group(2))
+        if raw.startswith(("javascript:", "mailto:", "tel:", "data:")):
+            continue
+        if BOUNTY_LINK_TEXT_RE.search(inner):
+            add(urljoin(base, raw))
+    return out[:40]
+
+
+def bounty_probe_urls_for(company: dict) -> list[str]:
+    pairs, seen = [], set()
+
+    def add(url: str) -> None:
+        u = (url or "").rstrip("/")
+        key = u.lower()
+        if u.startswith("http") and key not in seen:
+            seen.add(key)
+            pairs.append(u)
+
+    for domain in hosts_for(company)[:2]:
+        for path in BOUNTY_WELL_KNOWN_PATHS:
+            add(f"https://{domain}{path}")
+        add(f"https://security.{domain}/responsible-disclosure")
+        add(f"https://security.{domain}/vulnerability-disclosure")
+        add(f"https://security.{domain}/vulnerability")
+    for url, hint in SPECIAL_URLS.get(company.get("slug") or "", []):
+        if hint == "bug_bounty":
+            add(url)
+    return pairs
+
+
+def apply_bounty_to_row(row: dict, url: str) -> bool:
+    """File a bounty / VDP URL. +6 only when security.txt had not already paid it."""
+    links = dict(row.get("links") or {})
+    if links.get("bug_bounty"):
+        return False
+    links["bug_bounty"] = url
+    row["links"] = links
+    disc = dict(row.get("disclosure") or {})
+    factors = dict(disc.get("factors") or {})
+    if factors.get("disclosure") or links.get("security_txt"):
+        disc["factors"] = factors
+        row["disclosure"] = disc
+        return True
+    factors["disclosure"] = 6
+    score = min(100, int(disc.get("score") or 0) + 6)
+    if not row.get("found"):
+        tier = "silent"
+    elif score >= 90:
+        tier = "complete"
+    elif score >= 70:
+        tier = "substantial"
+    elif score >= 40:
+        tier = "on-file"
+    else:
+        tier = "thin"
+    disc["score"] = score
+    disc["tier"] = tier
+    disc["factors"] = factors
+    row["disclosure"] = disc
+    return True
+
+
+def has_public_page(company: dict) -> bool:
+    links = company.get("links") or {}
+    return bool(
+        company.get("found")
+        or company.get("trust_url")
+        or links.get("trust")
+        or links.get("security")
+    )
+
+
+def fetch_seed_page(url: str) -> dict:
+    fetched = crawl.fetch(url, max_body=TRUST_BODY)
+    html = fetched.get("body") or ""
+    title = crawl.extract_title(html) if html else ""
+    rec = {
+        "url": url,
+        "ok": bool(fetched.get("ok")),
+        "status": fetched.get("status") or 0,
+        "final_url": fetched.get("final_url") or url,
+        "title": title,
+        "text": strip_tags(html)[:30000] if html else "",
+        "meta": extract_meta_desc(html) if html else "",
+        "hrefs": extract_hrefs(html, fetched.get("final_url") or url) if html else [],
+        "ctype": (fetched.get("headers") or {}).get("content-type", ""),
+        "fetched_at": utc_now(),
+        "raw_head": html[:4000] if html else "",
+        "html": html,
+    }
+    if "security.txt" in url.lower():
+        rec["text"] = html[:8000]
+        rec["raw_head"] = html[:4000]
+    return rec
+
+
 def probe_company(company: dict) -> dict:
     links: dict[str, str] = {}
     pages: dict[str, dict] = {}
@@ -1027,23 +1359,35 @@ def probe_company(company: dict) -> dict:
             if accept_link("trust", url, rec) and not looks_like_login_wall(title, text):
                 links["trust"] = rec.get("final_url") or url
                 pages["trust"] = rec
-    # Follow obvious first-party instrument links from trust/security HTML.
+    # Follow obvious instrument links from trust/security HTML.
+    # Bounty platforms are first-party-branded program pages, not portal vendors.
     seed_pages = [pages[k] for k in ("trust", "security") if k in pages]
     for rec in seed_pages:
         base = rec.get("final_url") or ""
-        for href in rec.get("hrefs") or []:
+        extra = extract_bounty_candidates(rec.get("html") or "", base) if rec.get("html") else []
+        hrefs = list(rec.get("hrefs") or []) + extra
+        for href in hrefs:
             hhost, rhost = host_of(href), host_of(base)
             if not hhost or not rhost:
                 continue
-            if registrable(hhost) != registrable(rhost) and not hhost.startswith("status."):
+            same = registrable(hhost) == registrable(rhost)
+            if not same and not hhost.startswith("status.") and not is_bounty_platform_host(hhost):
                 continue
             for kind, pat in LINK_HINTS:
                 if kind in links:
                     continue
-                if not pat.search(href):
+                if kind == "bug_bounty":
+                    if not (pat.search(href) or href in extra):
+                        continue
+                elif not pat.search(href):
                     continue
                 sub = fetch_cached(href, max_body=TRUST_BODY if kind in {"trust", "security", "subprocessors"} else PROBE_BODY)
                 if looks_like_login_wall(sub.get("title") or "", sub.get("text") or ""):
+                    continue
+                if kind == "bug_bounty":
+                    if classify_as_bounty(href, sub, company):
+                        links["bug_bounty"] = sub.get("final_url") or href
+                        pages["bug_bounty"] = sub
                     continue
                 classified = classify_probe(href, sub)
                 if classified == kind or (kind in {"trust", "security"} and accept_link(kind, href, sub)):
@@ -1053,7 +1397,15 @@ def probe_company(company: dict) -> dict:
     if "security_txt" in pages:
         bounty = bounty_from_security_txt(pages["security_txt"].get("raw_head") or pages["security_txt"].get("text") or "")
         if bounty and "bug_bounty" not in links:
-            links["bug_bounty"] = bounty
+            rec = fetch_cached(bounty, max_body=PROBE_BODY)
+            if classify_as_bounty(bounty, rec, company):
+                links["bug_bounty"] = rec.get("final_url") or bounty
+            elif is_bounty_platform_host(host_of(bounty)) or BOUNTY_PATH_RE.search(bounty):
+                # security.txt already named a program URL; keep it if live.
+                if rec.get("ok") and rec.get("status") == 200 and not looks_like_login_wall(
+                    rec.get("title") or "", rec.get("text") or ""
+                ):
+                    links["bug_bounty"] = rec.get("final_url") or bounty
     return {"links": links, "pages": pages, "probed": extra_hits}
 
 
@@ -1333,7 +1685,179 @@ def main() -> int:
     return 0
 
 
+def file_published_bounties() -> int:
+    """File first-party VDP / branded platform program URLs that were published but not stored."""
+    t0 = time.time()
+    src = SITE / "data" / "enriched.json"
+    if not src.exists():
+        src = DATA / "enriched.json"
+    payload = load_json(src, {})
+    companies = list(payload.get("companies") or [])
+    if not companies:
+        print("no companies in enriched.json", flush=True)
+        return 1
+    before = sum(1 for c in companies if (c.get("links") or {}).get("bug_bounty"))
+    gaps = [c for c in companies if has_public_page(c) and not (c.get("links") or {}).get("bug_bounty")]
+    print(f"Bounty on file: {before}. Pages with no bounty URL: {len(gaps)}", flush=True)
+
+    filed: list[tuple[str, str]] = []
+    by_slug = {c["slug"]: c for c in companies}
+
+    def seed_urls(c: dict) -> list[str]:
+        links = c.get("links") or {}
+        out, seen = [], set()
+        for raw in (
+            c.get("trust_url"),
+            c.get("final_url"),
+            links.get("trust"),
+            links.get("security"),
+            links.get("security_txt"),
+        ):
+            u = (raw or "").strip()
+            if u.startswith("http") and u.lower() not in seen:
+                seen.add(u.lower())
+                out.append(u)
+        return out
+
+    print(f"Phase 1: read {len(gaps)} found pages for a published program link…", flush=True)
+    candidates: dict[str, list[str]] = {}
+    seed_jobs = [(c["slug"], url) for c in gaps for url in seed_urls(c)]
+
+    def do_seed(job):
+        slug, url = job
+        try:
+            return slug, fetch_seed_page(url)
+        except Exception:
+            return slug, {"ok": False, "status": 0, "hrefs": [], "html": "", "final_url": url, "text": "", "raw_head": ""}
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = [pool.submit(do_seed, job) for job in seed_jobs]
+        done = 0
+        for fut in as_completed(futs):
+            slug, rec = fut.result()
+            done += 1
+            if done % 40 == 0 or done == len(futs):
+                print(f"  seed {done}/{len(futs)}", flush=True)
+            row = by_slug.get(slug)
+            if not row:
+                continue
+            html = rec.get("html") or ""
+            base = rec.get("final_url") or rec.get("url") or ""
+            found = extract_bounty_candidates(html, base)
+            if rec.get("hrefs"):
+                for href in rec["hrefs"]:
+                    host = host_of(href)
+                    if (BOUNTY_PATH_RE.search(href) or is_bounty_platform_host(host)) and href not in found:
+                        if is_bounty_platform_host(host) and not bounty_platform_handle(href):
+                            continue
+                        found.append(href)
+            if "security.txt" in (rec.get("url") or "").lower() or "security.txt" in (base or "").lower():
+                named = bounty_from_security_txt(rec.get("raw_head") or rec.get("text") or "")
+                if named and named not in found:
+                    found.append(named)
+            if found:
+                bucket = candidates.setdefault(slug, [])
+                for u in found:
+                    if u not in bucket:
+                        bucket.append(u)
+
+    need_probe = [c for c in gaps if c["slug"] not in candidates]
+    print(f"  pages already linking a program-shaped URL: {len(candidates)}", flush=True)
+    print(f"Phase 2: well-known first-party paths for {len(need_probe)} still blank…", flush=True)
+    for c in need_probe:
+        candidates[c["slug"]] = bounty_probe_urls_for(c)
+
+    verify_jobs = []
+    seen_verify = set()
+    for slug, urls in candidates.items():
+        row = by_slug.get(slug)
+        if not row:
+            continue
+        for url in urls:
+            key = (slug, url.lower())
+            if key in seen_verify:
+                continue
+            host = host_of(url)
+            if not is_bounty_platform_host(host):
+                # first-party only for guessed paths
+                own = {registrable(h) for h in hosts_for(row)}
+                th = host_of(row.get("trust_url") or "")
+                if th:
+                    own.add(registrable(th))
+                if registrable(host) not in own and not any(
+                    host.endswith("." + h) or h.endswith("." + host) for h in own if host and h
+                ):
+                    continue
+            seen_verify.add(key)
+            verify_jobs.append((slug, url))
+    print(f"Phase 3: verifying {len(verify_jobs)} candidate URLs…", flush=True)
+
+    def do_verify(job):
+        slug, url = job
+        try:
+            rec = fetch_uncached(url, PROBE_BODY)
+        except Exception:
+            rec = {"ok": False, "status": 0, "final_url": url, "title": "", "text": ""}
+        return slug, url, rec
+
+    accepted: dict[str, str] = {}
+
+    def take_hits(jobs: list[tuple[str, str]], label: str) -> None:
+        if not jobs:
+            return
+        print(f"{label}: {len(jobs)} URLs…", flush=True)
+        with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+            futs = [pool.submit(do_verify, job) for job in jobs]
+            done = 0
+            for fut in as_completed(futs):
+                slug, url, rec = fut.result()
+                done += 1
+                if done % 80 == 0 or done == len(futs):
+                    print(f"  {label} {done}/{len(futs)}", flush=True)
+                if slug in accepted:
+                    continue
+                row = by_slug.get(slug)
+                if not row:
+                    continue
+                final = rec.get("final_url") or url
+                if classify_as_bounty(url, rec, row):
+                    accepted[slug] = final
+
+    take_hits(verify_jobs, "Phase 3")
+    still = [c for c in gaps if c["slug"] not in accepted]
+    fallback = []
+    seen_fb = set(seen_verify)
+    for c in still:
+        for url in bounty_probe_urls_for(c):
+            key = (c["slug"], url.lower())
+            if key in seen_fb:
+                continue
+            seen_fb.add(key)
+            fallback.append((c["slug"], url))
+    take_hits(fallback, "Phase 4 fallback paths")
+
+    checked = len(gaps)
+    for slug, url in sorted(accepted.items()):
+        row = by_slug[slug]
+        if apply_bounty_to_row(row, url):
+            filed.append((row.get("name") or slug, url))
+
+    generated = utc_now()
+    payload["generated_at"] = generated
+    payload["companies"] = companies
+    write_json(DATA / "enriched.json", payload)
+    write_json(SITE / "data" / "enriched.json", payload)
+    after = sum(1 for c in companies if (c.get("links") or {}).get("bug_bounty"))
+    print(f"Wrote {DATA / 'enriched.json'} and {SITE / 'data' / 'enriched.json'}", flush=True)
+    print(f"checked={checked} filed={len(filed)} bounty {before} → {after} in {time.time() - t0:.1f}s", flush=True)
+    for name, url in filed:
+        print(f"  filed {name}: {url}", flush=True)
+    return 0
+
+
 if __name__ == "__main__":
+    if "--file-bounties" in sys.argv:
+        raise SystemExit(file_published_bounties())
     raise SystemExit(main())
 
 
