@@ -46,6 +46,8 @@ TWILIO_SPANS = """
 <p><span class="copy-small">USA</span></p>
 <p><span class="copy-small">Programmable Voice</span></p>
 <p><span class="copy-small">Microsoft Azure</span></p>
+<p><span class="copy-small">Email (SendGrid)</span></p>
+<p><span class="copy-small">Amazon Bedrock</span></p>
 </body></html>
 """
 
@@ -75,7 +77,12 @@ def main() -> int:
     airtable = {"slug": "airtable", "name": "Airtable", "domain": "airtable.com"}
     twilio = {"slug": "twilio", "name": "Twilio", "domain": "twilio.com"}
     algolia = {"slug": "algolia", "name": "Algolia", "domain": "algolia.com"}
-    register = {"airtable": airtable, "twilio": twilio, "algolia": algolia}
+    register = {
+        "airtable": airtable,
+        "twilio": twilio,
+        "algolia": algolia,
+        "amazon": {"slug": "amazon", "name": "Amazon", "domain": "amazon.com"},
+    }
 
     url = "https://www.airtable.com/company/subprocessors"
     filed = processors_from_company(
@@ -111,6 +118,9 @@ def main() -> int:
     check(not any("Personal data" in n for n in twilio_names), f"no purpose sentence: {twilio_names}")
     check(not any(n == "USA" for n in twilio_names), f"no geo: {twilio_names}")
     check(not any("Programmable" in n for n in twilio_names), f"no product: {twilio_names}")
+    check(not any("SendGrid" in n or i == "sendgrid" for i, n, _e in twilio_filed), f"no email product: {twilio_filed}")
+    check(not any(i == "amazon" for i, n, _e in twilio_filed), f"bedrock is not the Amazon retailer: {twilio_filed}")
+    check(any("Bedrock" in n for n in twilio_names), f"bedrock filed as published: {twilio_names}")
 
     wall = "https://security.attentive.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57"
     check(
@@ -126,6 +136,11 @@ def main() -> int:
     check(
         processors_from_company(algolia, {"subprocessors": vanta_rec}, {"subprocessors": vanta_url}, register) == [],
         "js-only listed names stay empty",
+    )
+    dropbox = "https://trust.dropbox.com/ (Legal > Sub-processors item)"
+    check(
+        cited_list_skip_reason(dropbox, rec(dropbox, "", "Dropbox"), {"slug": "dropbox", "name": "Dropbox", "domain": "dropbox.com"}) == "annotated-url",
+        "annotated URL stays empty",
     )
     pdf = "https://assets.confluent.io/m/227f69dc22168130/original/list.pdf"
     check(

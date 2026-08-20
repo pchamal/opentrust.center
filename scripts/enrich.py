@@ -431,6 +431,12 @@ def landed_on_home(requested: str, final_url: str) -> bool:
 
 
 def fetch_uncached(url: str, max_body: int) -> dict:
+    if not url or not str(url).strip().startswith("http") or ANNOTATED_URL_RE.search(url) or re.search(r"\s", url):
+        return {
+            "url": url, "ok": False, "status": 0, "final_url": url,
+            "title": "", "text": "", "meta": "", "hrefs": [], "ctype": "",
+            "fetched_at": utc_now(), "raw_head": "", "html": "",
+        }
     fetched = crawl.fetch(url, max_body=max_body)
     html = fetched.get("body") or ""
     title = crawl.extract_title(html) if html else ""
@@ -662,7 +668,8 @@ PRODUCTISH_RE = re.compile(
     r"\b(programmable|campaigns|channel|flex|verify|engage|reports|"
     r"whatsapp|applicable service|subject matter|nature and purpose|"
     r"location\(s\) of processing|external links|sendgrid services|"
-    r"compliance reports|conversational intelligence|google rcs)\b",
+    r"compliance reports|conversational intelligence|google rcs|"
+    r"email \(|cdp \()\b",
     re.I,
 )
 HEADERISH_RE = re.compile(
@@ -670,7 +677,7 @@ HEADERISH_RE = re.compile(
     r"location of processing|security measures|user support|"
     r"hosting and infrastructure|affiliates?$|third[- ]part|"
     r"aws (entity|service|development entities)|entity$|name$|"
-    r"service provider)\b",
+    r"service provider|data privacy|data security|cdp\b)\b",
     re.I,
 )
 PROVIDER_SECTION_RE = re.compile(r"(service )?providers$", re.I)
@@ -762,7 +769,13 @@ def match_processor(name: str, register: dict[str, dict] | None = None) -> tuple
     if register:
         for slug, row in register.items():
             cname = (row.get("name") or "").strip().lower()
-            if cname and (low == cname or low.startswith(cname + ",") or low.startswith(cname + " ")):
+            if not cname:
+                continue
+            if low == cname or re.match(
+                re.escape(cname) + r"(,?\s+(inc|llc|ltd|gmbh|pbc|corp|limited)\b.*)?$",
+                low,
+                re.I,
+            ):
                 return slug, published
     pid = slugify_processor(published) or re.sub(r"[^a-z0-9]+", "-", published.lower()).strip("-")
     return pid, published
@@ -841,8 +854,8 @@ def cited_list_skip_reason(url: str, rec: dict, company: dict) -> str | None:
     if not rec.get("ok") or rec.get("status") != 200:
         return "fetch-failed"
     title, text = rec.get("title") or "", rec.get("text") or ""
-    if looks_like_login_wall(title, text):
-        return "login-wall"
+    if looks_like_login_wall(title, text) or looks_dead(title, text):
+        return "login-wall" if looks_like_login_wall(title, text) else "dead-page"
     if not is_first_party_list_url(url, rec.get("final_url") or url, company):
         return "not-first-party"
     html = rec.get("html") or ""
@@ -880,11 +893,7 @@ def published_processors_from_html(
     if not names:
         names = names_from_labeled_spans(html)
     if not names:
-        # last resort: catalog aliases that actually appear in the list text
-        names = []
-        for pid, catalog_name, _d, pats in PROC_COMPILED:
-            if any(p.search(text or "") for p in pats):
-                names.append(catalog_name)
+        return []
     out, seen = [], set()
     for raw in names:
         pid, published = match_processor(raw, register)
@@ -1671,7 +1680,17 @@ def file_named_from_cited() -> int:
 
     def do_one(c):
         url = (c.get("links") or {}).get("subprocessors") or ""
-        rec = fetch_cited_processor_page(url)
+        early = cited_list_skip_reason(
+            url,
+            {"ok": False, "status": 0, "final_url": url, "title": "", "text": "", "html": "", "ctype": ""},
+            c,
+        )
+        if early in {"not-a-url", "annotated-url", "safebase-itemuid", "pdf", "not-first-party"}:
+            return c["slug"], [], early
+        try:
+            rec = fetch_cited_processor_page(url)
+        except Exception:
+            return c["slug"], [], "fetch-failed"
         reason = cited_list_skip_reason(url, rec, c)
         if reason:
             return c["slug"], [], reason
