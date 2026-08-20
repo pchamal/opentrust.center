@@ -1,4 +1,4 @@
-import { $, escapeHtml, fillIssue, dataUrl } from "./lib.js";
+import { $, escapeHtml, fillIssue, dataUrl, inkIcon } from "./lib.js";
 import { arrange, clickSort, cmpText, paintHeaders } from "./sort.js";
 
 const GEO_GROUPS = {
@@ -38,6 +38,7 @@ const state = {
   raf: 0,
   geom: null,
   land: [],
+  icons: { companies: {}, marks: {} },
 };
 
 function markField(item, key) {
@@ -175,8 +176,9 @@ function renderBook() {
         : `<span class="absent">none in this index</span>`;
       const geo = (item.geography || []).join(" · ");
       const ind = (item.industry || []).join(" · ");
+      const markIco = inkIcon((state.icons.marks || {})[item.id]);
       return `<article class="entry" id="${escapeHtml(item.id)}">
-        <h2>${escapeHtml(item.name)}</h2>
+        <h2>${markIco}${escapeHtml(item.name)}</h2>
         <p class="entry-meta">${escapeHtml(item.kind === "framework" ? "standard" : item.kind)} · ${escapeHtml(geo)} · ${escapeHtml(item.issuer)} · ${files} files</p>
         <p class="entry-meta">${escapeHtml(ind)}</p>
         <p class="entry-body">${escapeHtml(body || "")}</p>
@@ -642,11 +644,15 @@ async function load() {
       state.land = [];
     });
   try {
-    const [gaz, reg] = await Promise.all([
+    const [gaz, reg, icons] = await Promise.all([
       fetch(dataUrl("./data/attestations.json"), { cache: "no-store" }).then((r) => r.json()),
       fetch(dataUrl("./data.json"), { cache: "no-store" }).then((r) => r.json()),
+      fetch(dataUrl("./favicons/index.json"), { cache: "no-store" })
+        .then((r) => (r.ok ? r.json() : { companies: {}, marks: {} }))
+        .catch(() => ({ companies: {}, marks: {} })),
       landP,
     ]);
+    state.icons = icons && typeof icons === "object" ? icons : { companies: {}, marks: {} };
     state.companies = reg.companies || [];
     state.items = (gaz.attestations || []).map((item) => ({
       ...item,
