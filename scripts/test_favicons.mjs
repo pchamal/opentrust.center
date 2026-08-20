@@ -30,7 +30,7 @@ expect("marks cell is not a chip pile of icons", !marks.includes("ink-ico") && !
 
 const registerSrc = readFileSync(new URL("../site/register.js", import.meta.url), "utf8");
 expect("register names use the icon helper", registerSrc.includes("nameWithIcon(row.name, row.favicon)"));
-expect("register file cell has no icon", /displayFileState\(row\.tier\)/.test(registerSrc) && !/inkIcon\(.*tier/.test(registerSrc));
+expect("register file cell has no icon", /fileIndexHtml\(row\)/.test(registerSrc) && !/inkIcon\(.*tier/.test(registerSrc));
 expect("register does not invent a globe", !registerSrc.includes("globe") && !registerSrc.includes("placeholder"));
 
 const graphSrc = readFileSync(new URL("../site/graph.js", import.meta.url), "utf8");

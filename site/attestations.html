@@ -30,6 +30,14 @@
     <h1 class="page-title">Marks a buyer will meet</h1>
     <p class="lede">By geography and industry. ELI-5, then the long form.</p>
 
+    <form class="finder" id="finder" role="search">
+      <label>
+        <span class="sr-only">Find a mark</span>
+        <input id="q" type="search" name="q" placeholder="/ soc, fedramp, iso 27001" autocomplete="off" spellcheck="false">
+      </label>
+      <button type="submit" class="finder-go">Find</button>
+    </form>
+
     <div class="gaz-grid">
       <div>
         <div class="facets" id="facets" aria-label="Mark facets">
@@ -44,7 +52,7 @@
           <button type="button" data-kind="certification">Certification</button>
           <button type="button" data-kind="authorization">Authorization</button>
           <button type="button" data-kind="regulation">Regulation</button>
-          <button type="button" data-kind="framework">Framework</button>
+          <button type="button" data-kind="framework">Standard</button>
           <button type="button" data-kind="questionnaire">Questionnaire</button>
           <button type="button" data-kind="code-of-practice">Code of practice</button>
           <button type="button" data-ind="all" class="on">All industries</button>
@@ -56,6 +64,15 @@
           <button type="button" data-ind="ai">AI</button>
         </div>
         <p class="countline" id="book-count"></p>
+        <table class="inst" id="book-sort">
+          <thead>
+            <tr>
+              <th scope="col" data-sort="name" aria-sort="none"><button type="button">Name</button></th>
+              <th scope="col" data-sort="files" aria-sort="descending"><button type="button">Files</button></th>
+            </tr>
+          </thead>
+        </table>
+        <p class="absent" id="book-miss" hidden>not on file</p>
         <div id="book"></div>
       </div>
       <aside>
@@ -70,7 +87,7 @@
 
   <footer class="colo">
     <p>A finding aid. Listing a mark is not an endorsement and not legal advice. Verify the live certificate, Marketplace listing, or statute. A badge is not the report.</p>
-    <p><a href="./">Companies</a> · <a href="./brand.html">specimen</a> · <a href="https://github.com/pchamal/opentrust.center">code</a></p>
+    <p><a href="./">Companies</a> · <a href="./graph.html">Subprocessor Map</a> · <a href="./attestations.html">Standards</a> · <a href="./brand.html">specimen</a> · <a href="https://github.com/pchamal/opentrust.center">code</a></p>
   </footer>
 
   <script type="module" src="./gazette.js"></script>
