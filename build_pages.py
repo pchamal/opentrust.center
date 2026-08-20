@@ -531,10 +531,18 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
     }
     if fedramp:
         public["fedramp"] = fedramp
+    stateramp = public_ramp(row.get("stateramp"), STATERAMP_MARKET)
+    if stateramp:
+        public["stateramp"] = stateramp
+    txramp = public_ramp(row.get("txramp"), TXRAMP_MARKET)
+    if txramp:
+        public["txramp"] = txramp
     return public
 
 
 FEDRAMP_MARKET = "https://www.fedramp.gov/marketplace/products/"
+STATERAMP_MARKET = "https://govramp.org/program-participants"
+TXRAMP_MARKET = "https://dir.texas.gov/resource-library-item/tx-ramp-certified-cloud-products"
 
 
 def product_market_url(item: dict) -> str:
@@ -695,6 +703,66 @@ def attach_fedramp_dump(companies: list[dict]) -> None:
         row["fedramp"] = merge_fedramp(row.get("fedramp"), dump)
 
 
+def public_ramp(raw, default_url: str) -> dict | None:
+    """Pass through a first-party listing dump. Do not invent offerings."""
+    if not isinstance(raw, dict):
+        return None
+    products = []
+    for item in raw.get("products") or []:
+        offering = str(item.get("offering") or "").strip()
+        if not offering:
+            continue
+        pid = str(item.get("id") or "").strip() or None
+        products.append({
+            "id": pid,
+            "offering": offering,
+            "status": str(item.get("status") or "").strip() or None,
+            "impact_level": str(item.get("impact_level") or item.get("level") or "").strip() or None,
+            "auth_date": item.get("auth_date") or None,
+            "url": str(item.get("url") or "").strip() or default_url,
+        })
+    if not products:
+        return None
+    marketplace = raw.get("marketplace") or default_url
+    return {
+        "marketplace": marketplace,
+        "source": raw.get("source") or marketplace,
+        "products": products,
+    }
+
+
+def ensure_mark(row: dict, label: str) -> None:
+    """File the catalog mark when the marketplace listed this CSP. Do not rescore."""
+    certs = [c for c in (row.get("certs") or []) if c]
+    keys = {cert_key(c) for c in certs}
+    if label == "StateRAMP" and ("stateramp" in keys or "govramp" in keys):
+        return
+    if label == "TX-RAMP" and ("tx-ramp" in keys or "txramp" in keys):
+        return
+    if cert_key(label) in keys:
+        return
+    certs.append(label)
+    row["certs"] = certs
+
+
+def attach_ramp_dump(companies: list[dict], filename: str, key: str, mark: str) -> None:
+    path = SITE / "data" / filename
+    if not path.exists():
+        path = ROOT / "data" / filename
+    doc = load_json(path, {})
+    by_slug = {
+        rec["slug"]: rec
+        for rec in (doc.get("companies") or [])
+        if rec.get("slug")
+    }
+    for row in companies:
+        dump = by_slug.get(row.get("slug"))
+        if not dump:
+            continue
+        row[key] = dump
+        ensure_mark(row, mark)
+
+
 def cite_url(url: str) -> str:
     try:
         parsed = urlparse(url)
@@ -767,6 +835,60 @@ def fedramp_block(row: dict, generated_at: str = "") -> str:
         "    </table>",
     ]
     return "\n".join(lines) + "\n"
+
+
+def ramp_block(row: dict, key: str, heading: str, cite_html: str, level_label: str) -> str:
+    """Clerk table for a matched listing. Absent on companies the marketplace did not name."""
+    raw = row.get(key) if isinstance(row.get(key), dict) else None
+    products = [
+        p for p in (raw or {}).get("products") or []
+        if str(p.get("offering") or "").strip()
+    ]
+    if not products:
+        return ""
+    market = str((raw or {}).get("marketplace") or "").strip()
+    rows = []
+    for p in products:
+        offering = str(p.get("offering") or "").strip()
+        href = str(p.get("url") or "").strip() or market
+        rows.append(
+            f'<tr><td><a href="{escape(href)}">{escape(offering)}</a></td>'
+            f"<td>{cell(str(p.get('status') or '').strip() or None)}</td>"
+            f"{filed_cell(str(p.get('impact_level') or p.get('level') or '').strip())}"
+            f"{filed_cell(fmt_day(p.get('auth_date') or ''))}</tr>"
+        )
+    return (
+        f'    <p class="sec-kicker">{escape(heading)}</p>\n'
+        f'    <p class="src-line">{cite_html}.</p>\n'
+        '    <table class="inst filed">\n'
+        f'      <thead><tr><th scope="col">Offering</th><th scope="col">Status</th>'
+        f'<th scope="col">{escape(level_label)}</th><th scope="col">Auth date</th></tr></thead>\n'
+        f'      <tbody>{"".join(rows)}</tbody>\n'
+        "    </table>\n"
+    )
+
+
+def stateramp_block(row: dict) -> str:
+    cite = (
+        f'Filed from the <a href="{escape(STATERAMP_MARKET)}">GovRAMP Authorized Product List</a>'
+        " · StateRAMP name, same program"
+    )
+    return ramp_block(row, "stateramp", "StateRAMP", cite, "Impact level")
+
+
+def txramp_block(row: dict) -> str:
+    cite = (
+        f'Filed from the <a href="{escape(TXRAMP_MARKET)}">TX-RAMP certified cloud products</a>'
+        " list"
+    )
+    return ramp_block(row, "txramp", "TX-RAMP", cite, "Level")
+
+
+def ramp_extras(row: dict) -> str:
+    parts = [block for block in (stateramp_block(row), txramp_block(row)) if block]
+    if not parts:
+        return ""
+    return "\n" + "\n".join(parts)
 
 
 def processors_block(procs: list[dict], generated_at: str = "", list_url: str = "") -> str:
@@ -1030,7 +1152,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     <p class="out">{outbound}</p>
     {gate}
 
-{fedramp_block(row, generated_at)}
+{fedramp_block(row, generated_at)}{ramp_extras(row)}
 
 {processors_block(procs, generated_at, list_url)}
 
@@ -1146,6 +1268,8 @@ def main() -> int:
     raw = load_json(src, {})
     companies_in = raw.get("companies") or []
     attach_fedramp_dump(companies_in)
+    attach_ramp_dump(companies_in, "stateramp.json", "stateramp", "StateRAMP")
+    attach_ramp_dump(companies_in, "txramp.json", "txramp", "TX-RAMP")
     generated_at = raw.get("generated_at") or ""
     sources = raw.get("sources") or [
         {"name": "Forbes Cloud 100 2025", "url": "https://www.forbes.com/lists/cloud100/"},
