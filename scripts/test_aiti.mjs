@@ -294,6 +294,13 @@ const anthropicOn = ruleOn(anthropicHtml);
 const anthropicMarks = aiMarksCell(anthropic);
 const anthropicFlags = aiFileFlags(anthropic);
 expect("Anthropic Marks cell prints iso 42001", anthropicMarks.includes("iso 42001"));
+expect(
+  "Anthropic marks print roman not italic",
+  anthropicMarks.includes("iso 42001") &&
+    !/<i[\s>]/.test(anthropicMarks) &&
+    !/font-style:\s*italic/.test(anthropicMarks) &&
+    !anthropicMarks.includes("absent"),
+);
 expect("Anthropic marks filled iff printed AI mark", anthropicFlags.marks === true && hasPrintedAiMark(anthropic) === true && anthropicOn[1] === true);
 expect("Anthropic page follows stored RSP URL", anthropicFlags.page === true && storedAiPageUrl(anthropic).includes("responsible-scaling-policy") && anthropicOn[0] === true);
 expect("Anthropic Domain prints anthropic.com", printedAitiUrl(anthropic).includes("https://www.anthropic.com/") && printedAitiUrl(anthropic).includes(">anthropic.com<") && !printedAitiUrl(anthropic).includes("responsible-scaling-policy"));
@@ -331,10 +338,13 @@ expect(
     defaultAnthropicOn.join(" ") === "true true false false false",
 );
 expect("Anthropic File is page and marks only", anthropicFlags.page === true && anthropicFlags.marks === true && anthropicFlags.processors === false && anthropicFlags.evals === false && anthropicFlags.incidents === false);
+function hostText(html) {
+  return domainCell(html).replace(/<[^>]+>/g, "").trim();
+}
 expect(
   "Anthropic Domain is anthropic.com in both views",
-  domainCell(defaultAnthropicHtml).includes(">anthropic.com<") &&
-    domainCell(finderAnthropicHtml).includes(">anthropic.com<") &&
+  hostText(defaultAnthropicHtml) === "anthropic.com" &&
+    hostText(finderAnthropicHtml) === "anthropic.com" &&
     !domainCell(defaultAnthropicHtml).includes("responsible-scaling-policy") &&
     !domainCell(finderAnthropicHtml).includes("responsible-scaling-policy"),
 );
@@ -370,6 +380,7 @@ expect("AITI # is ledger black type", /body\.aiti \.reg td\.num \{[\s\S]*color: 
 expect("AITI # has no pip tile or disc", /body\.aiti \.reg td\.num \{[\s\S]*background: none;[\s\S]*border-radius: 0;[\s\S]*box-shadow: none;/.test(css));
 expect("Companies # stays graphite", /\.reg td\.num \{ color: var\(--ot-graphite\)/.test(css));
 expect("AITI domain and marks are clerk ink", /body\.aiti \.reg td\.domain a,[\s\S]*color: var\(--ot-ledger-black\);[\s\S]*text-decoration: none;/.test(css));
+expect("AITI printed marks stay roman", /body\.aiti \.reg td\.marks \.mark-line,[\s\S]*body\.aiti \.reg td\.marks \.mark-chip \{[\s\S]*font-style: normal;/.test(css));
 expect("AITI domain and marks hover is a 1px clerk rule", /body\.aiti \.reg td\.domain a:hover,[\s\S]*text-decoration: underline;[\s\S]*text-decoration-color: var\(--ot-rule-strong\)/.test(css));
 expect("AITI clerk hover matches Companies names", /\.reg td\.name a:hover \{[\s\S]*text-decoration: underline;[\s\S]*text-decoration-color: var\(--ot-rule-strong\)/.test(css));
 
