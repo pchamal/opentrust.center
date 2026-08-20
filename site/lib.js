@@ -2,7 +2,7 @@
 
 export const GATE_KEY = "ot_human_v1";
 export const GATE_MS = 30 * 60 * 1000;
-export const DATA_V = "2026-08-20T19:50:26Z";
+export const DATA_V = "2026-08-20T21:20:00Z";
 export const FILE_KEYS = ["page", "marks", "dpa", "subprocessors", "years"];
 export const AI_FILE_KEYS = ["page", "marks", "processors", "evals", "incidents"];
 export const AI_FILE_LABELS = {
@@ -15,6 +15,7 @@ export const AI_FILE_LABELS = {
 export const AI_MARK_IDS = new Set(["aiuc-1", "iso-42001", "nist-ai-rmf", "eu-ai-act"]);
 export const AI_MARK_RE = /aiuc-?1|iso(?:\/iec)?[\s-]*42001|nist[\s-]*ai[\s-]*rmf|eu[\s-]*ai[\s-]*act/i;
 export const AI_PAGE_RE = /model-?card|system-?card|responsible-ai|ai-safety|ai-security/i;
+const VENDOR_HOST_RE = /(^|\.)(safebase\.(us|com)|vanta\.com|conveyor\.com|wolfia\.\w+|securitypal\.com|drata\.com|secureframe\.com|whistic\.com|sprinto\.com|trustcloud\.com)$/i;
 export const AI_PROCESSORS_RE = /model-processors|llm-processors|named-model/i;
 export const AI_EVALS_RE = /red-?team|(?:^|\/)evals?(?:\/|$)/i;
 export const AI_INCIDENTS_RE = /ai-incident|(?:^|\/)incidents?(?:\/|$)/i;
@@ -82,6 +83,25 @@ function instrumentHref(row, key) {
   if (!rec) return "";
   if (typeof rec === "string") return rec;
   return (rec && rec.url) || "";
+}
+
+export function isFirstPartyUrl(url, domain) {
+  const host = hostOf(url).toLowerCase();
+  const own = String(domain || "")
+    .replace(/^www\./i, "")
+    .toLowerCase();
+  if (!host || !own) return false;
+  if (VENDOR_HOST_RE.test(host)) return false;
+  return host === own || host.endsWith("." + own);
+}
+
+export function storedAiPageUrl(row) {
+  const field = row && row.ai_page;
+  const fromField = typeof field === "string" ? field : field && field.url;
+  const url = fromField || instrumentHref(row, "ai") || "";
+  if (!url) return "";
+  if (!isFirstPartyUrl(url, row && row.domain)) return "";
+  return url;
 }
 
 function collectedUrls(row) {
@@ -187,7 +207,7 @@ export function selectAiFiles(rows) {
 export function aiFileFlags(row) {
   const urls = collectedUrls(row);
   return {
-    page: urls.some(urlLooksAiPage),
+    page: !!storedAiPageUrl(row),
     marks: hasPrintedAiMark(row),
     processors: urls.some((u) => urlLooksAiInstrument(u, AI_PROCESSORS_RE)),
     evals: urls.some((u) => urlLooksAiInstrument(u, AI_EVALS_RE)),

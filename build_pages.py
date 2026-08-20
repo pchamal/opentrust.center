@@ -166,6 +166,32 @@ def load_json(path: Path, default):
     return json.loads(path.read_text())
 
 
+_AITI_PAGES = None
+
+
+def load_aiti_pages() -> dict:
+    """Curated first-party AI-page URLs. Do not invent."""
+    global _AITI_PAGES
+    if _AITI_PAGES is not None:
+        return _AITI_PAGES
+    doc = load_json(SITE / "data" / "aiti-pages.json", {})
+    pages = doc.get("pages") or {}
+    seen = doc.get("seen")
+    out = {}
+    for slug, rec in pages.items():
+        url = rec.get("url") if isinstance(rec, dict) else rec
+        if not url:
+            continue
+        host = rec.get("host") if isinstance(rec, dict) else ""
+        out[slug] = {
+            "url": url,
+            "host": host or host_of(url),
+            "seen": (rec.get("seen") if isinstance(rec, dict) else None) or seen,
+        }
+    _AITI_PAGES = out
+    return out
+
+
 def write_json(path: Path, payload) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
@@ -531,6 +557,15 @@ def enrich_company(row: dict, edges: list[dict], nodes: dict, by_slug: dict, by_
     }
     if fedramp:
         public["fedramp"] = fedramp
+    page = load_aiti_pages().get(slug)
+    if page and page.get("url"):
+        filed = {
+            "url": page["url"],
+            "host": display_host(page["url"], domain),
+            "seen": page.get("seen") or seen_date(generated_at),
+        }
+        public["ai_page"] = filed
+        public["instruments"]["ai"] = dict(filed)
     return public
 
 
@@ -953,6 +988,21 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
                 f'<tr><td>{escape(label)}</td><td><span class="absent">not on file</span></td><td>—</td></tr>'
             )
 
+    ai_rec = inst.get("ai") if isinstance(inst.get("ai"), dict) else None
+    if not (ai_rec and ai_rec.get("url")):
+        page = row.get("ai_page")
+        if isinstance(page, dict) and page.get("url"):
+            ai_rec = page
+        elif isinstance(page, str) and page:
+            ai_rec = {"url": page, "host": display_host(page, domain), "seen": seen_date(generated_at)}
+    if ai_rec and ai_rec.get("url"):
+        shown = ai_rec.get("host") or display_host(ai_rec["url"], domain)
+        seen = fmt_day((ai_rec.get("seen") or "") + "T00:00:00Z") if ai_rec.get("seen") else "—"
+        inst_rows.append(
+            f"<tr><td>AI page</td><td>{official_a(ai_rec['url'], shown)}</td>"
+            f"<td>{escape(seen)}</td></tr>"
+        )
+
     procs = row.get("processors") or []
     list_url = ""
     sub = inst.get("subprocessors")
@@ -965,9 +1015,16 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
         if found and url
         else '<span class="absent">Official page · not on file</span>'
     )
+    ai_url = ""
+    if isinstance(inst.get("ai"), dict):
+        ai_url = inst["ai"].get("url") or ""
+    elif isinstance(row.get("ai_page"), dict):
+        ai_url = row["ai_page"].get("url") or ""
+    elif isinstance(row.get("ai_page"), str):
+        ai_url = row.get("ai_page") or ""
     need_gate = bool(found and url) or any(
         rec and rec.get("url") for rec in inst.values()
-    ) or any(p.get("source_url") for p in procs) or bool(list_url)
+    ) or any(p.get("source_url") for p in procs) or bool(list_url) or bool(ai_url)
     gate = GATE_HTML if need_gate else ""
     claim = f'<a class="perm" href="../claim.html?slug={escape(slug)}">Report a correction</a>'
     issue = dossier_issue_line(generated_at, slug)

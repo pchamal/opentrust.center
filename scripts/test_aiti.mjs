@@ -10,6 +10,8 @@ import {
   aiFileCount,
   fillAitiIssue,
   isAiFile,
+  storedAiPageUrl,
+  isFirstPartyUrl,
 } from "../site/lib.js";
 import { aiMarksCell, defaultAiRows } from "../site/aiti.js";
 
@@ -136,5 +138,77 @@ expect("glyph count matches keys", (midHtml.match(/file-rule/g) || []).length ==
 const silent = files.filter((r) => aiFileCount(r) === 0);
 expect("silent AI rows exist", silent.length > 0 && silent.some((r) => r.slug === "midjourney" || r.slug === "character-ai"));
 
-console.log("aiti files", files.length, "silent", silent.length);
+const pagesDoc = JSON.parse(readFileSync(new URL("../site/data/aiti-pages.json", import.meta.url), "utf8"));
+const filedSlugs = Object.keys(pagesDoc.pages);
+const pageOn = files.filter((r) => aiFileFlags(r).page);
+const pageOpen = files.filter((r) => !aiFileFlags(r).page);
+expect("page fill count is the curated list", pageOn.length === filedSlugs.length && pageOn.length === 7);
+expect("46 files leave page open", pageOpen.length === 46 && pagesDoc.open.length === 46);
+expect("filed slugs are on the register", filedSlugs.every((s) => bySlug[s]));
+expect("does not invent page companies", filedSlugs.every((s) => files.some((r) => r.slug === s)));
+
+for (const slug of filedSlugs) {
+  const row = bySlug[slug];
+  const rec = pagesDoc.pages[slug];
+  const flags = aiFileFlags(row);
+  const html = aiFileIndexHtml(row);
+  expect(`${slug} page follows the stored URL`, storedAiPageUrl(row) === rec.url);
+  expect(`${slug} page rule is filled`, flags.page === true && ruleOn(html)[0] === true);
+  expect(`${slug} URL is first-party`, isFirstPartyUrl(rec.url, row.domain) === true);
+  const dossierHtml = readFileSync(new URL(`../site/c/${slug}.html`, import.meta.url), "utf8");
+  expect(`${slug} dossier reaches the URL`, dossierHtml.includes(rec.url) && dossierHtml.includes(">AI page<") && dossierHtml.includes('class="official"'));
+}
+
+expect("Midjourney has no stored AI page", storedAiPageUrl(mid) === "");
+expect("Midjourney page stays open", aiFileFlags(mid).page === false);
+expect("Midjourney still all-open without an official AI page", ruleOn(midHtml).every((on) => on === false) && aiFileCount(mid) === 0);
+
+expect(
+  "generic trust URL does not fill page",
+  aiFileFlags({
+    slug: "openai",
+    domain: "openai.com",
+    trust_url: "https://trust.openai.com",
+    instruments: { trust: { url: "https://trust.openai.com" } },
+  }).page === false,
+);
+expect(
+  "path guess on a security URL does not fill page",
+  aiFileFlags({
+    slug: "example",
+    domain: "example.com",
+    instruments: { security: { url: "https://example.com/responsible-ai" } },
+  }).page === false,
+);
+expect(
+  "SafeBase does not fill page",
+  storedAiPageUrl({ slug: "example", domain: "example.com", ai_page: { url: "https://example.safebase.us/responsible-ai" } }) === "",
+);
+expect(
+  "third-party host does not fill page",
+  storedAiPageUrl({ slug: "anthropic", domain: "anthropic.com", ai_page: { url: "https://example.com/responsible-ai" } }) === "",
+);
+expect(
+  "page bind follows a stored first-party URL",
+  aiFileFlags({ ...mid, ai_page: { url: "https://www.midjourney.com/responsible-ai" } }).page === true,
+);
+
+expect("Cursor page stays open", aiFileFlags(cursor).page === false && ruleOn(cursorHtml)[0] === false);
+expect("Cursor marks bind unchanged", aiFileFlags(cursor).marks === true && ruleOn(cursorHtml)[1] === true);
+
+for (const row of files) {
+  const flags = aiFileFlags(row);
+  if (flags.processors || flags.evals || flags.incidents) {
+    expect(`no invented processors/evals/incidents on ${row.slug}`, false);
+  }
+}
+expect("processors evals incidents stay uninvented", true);
+
+const cursorDossier = readFileSync(new URL("../site/c/anysphere.html", import.meta.url), "utf8");
+const midDossier = readFileSync(new URL("../site/c/midjourney.html", import.meta.url), "utf8");
+expect("open files do not grow an empty AI page row", !cursorDossier.includes(">AI page<") && !midDossier.includes(">AI page<"));
+expect("AITI table domain stays plain text", aitiJs.includes('<td class="domain">${escapeHtml(row.domain || "")}</td>'));
+expect("AITI table is not restyled with an official page chip", !aitiJs.includes("AI page") && !aitiJs.includes("ai_page"));
+
+console.log("aiti files", files.length, "page", pageOn.length, "open", pageOpen.length, "silent", silent.length);
 if (!process.exitCode) console.log("ok aiti");
