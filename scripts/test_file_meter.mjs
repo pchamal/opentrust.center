@@ -40,7 +40,7 @@ expect("register has no More on this file", !src.includes("More on this file") &
 
 const dossier = readFileSync(new URL("../site/c/anysphere.html", import.meta.url), "utf8");
 expect("dossier names Cursor in the h1", /<h1>Cursor<\/h1>/.test(dossier));
-expect("dossier file is a clerk line", dossier.includes("file") && dossier.includes("substantial") && dossier.includes('class="file-line"') && !dossier.includes("file-state") && !dossier.includes("tier-label") && !dossier.includes('class="disclosure"'));
+expect("dossier file is a clerk line", dossier.includes("substantial") && dossier.includes("file-line") && dossier.includes("file-word") && !dossier.includes("file-state") && !dossier.includes("tier-label") && !dossier.includes('class="disclosure"'));
 expect("dossier has no rating disclaimer", !dossier.includes("File rating, not a company trust badge") && !dossier.includes("not a company trust badge"));
 expect("dossier has no coverage ratio", !dossier.includes(" of 5") && !dossier.includes("public evidence located"));
 expect("dossier issue has no register census", !dossier.includes(" on file · ") && !dossier.includes(" not on file · last probed"));
