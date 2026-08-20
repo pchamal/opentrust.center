@@ -844,7 +844,7 @@ def mast(active: str, prefix: str) -> str:
     <nav class="docket" aria-label="{nav_label}">
       {link("", "Companies", "register")}
       {link("graph.html", "Subprocessor Map", "subprocessors")}
-      {link("attestations.html", "Frameworks", "marks")}
+      {link("attestations.html", "Standards", "marks")}
     </nav>
   </header>"""
 
@@ -1043,7 +1043,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
   </main>
   <footer class="colo">
     <p>Disclosure rates the file, not the company. Empty rows print <i>not on file</i>. File tiers are public-file ratings, never company trust.</p>
-    <p><a href="../">Companies</a> · <a href="../graph.html">Subprocessor Map</a> · <a href="../attestations.html">Frameworks</a></p>
+    <p><a href="../">Companies</a> · <a href="../graph.html">Subprocessor Map</a> · <a href="../attestations.html">Standards</a></p>
   </footer>
   <script type="module" src="../dossier.js"></script>
 </body>
