@@ -174,11 +174,12 @@ List is the authority and the landing. Map is a second view.
 
 - Toggle: words `list` | `map`. Atkinson, ink, brief. Active: 1px Evidence Teal underline, same as nav. Not a pill.
 - List: the ranked table and the right-hand file. Selected row gets the spine.
-- Map: one neighborhood, not the whole plate. Selected node at the center, the companies that named it, and processors those companies also named (one hop, cropped if the hop would be a hairball). Record White field. Ledger Black squares and hairlines. Evidence Teal 2px on the selected node only. 2D plate; drag-to-orbit allowed. No dark canvas, glow, orbs, bloom, auto-rotate, or physics theater.
-- Caption once: `Fig. 1 · Named processors, as published.` The page lede already states the limit. Do not repeat it above the figure.
-- Click a processor: the existing right-hand file. Click a company: `/c/{slug}`.
+- Map: named nodes only. Selected processor at the center plus the labeled sibling processors those namers also named. Do not draw one anonymous square per namer — that is a score. Namers stay in the file. Record White field. Ledger Black squares and hairlines. Selected node: Ledger Black fill, 2px Evidence Teal stroke. No teal fill, no teal type on the name. 2D plate; drag-to-orbit allowed.
+- Clerk line under the tabs, map view: `neighborhood · {name} · {n} named`.
+- Caption once: `Fig. 1 · Named processors, as published.`
+- Click a processor: the existing right-hand file. Click a company (in the file): `/c/{slug}`.
 - `prefers-reduced-motion`: still. Drag still works.
-- At 390: the same one-hop if it stays readable; otherwise do not draw the graph. The “who named them” list is the authority on a phone.
+- At 390: no figure. Clerk neighborhood line plus the “who named them” list.
 - Concentration is **exposure × thin public file**, per the PRD. Do not print RISK as a security grade. No risk coloring.
 
 ### Attestations

@@ -214,9 +214,7 @@ const map = {
   drag: null,
 };
 
-const NEIGHBOR_MAX = 40;
-const NEIGHBOR_OTHERS_CAP = 12;
-const COMPACT_NAMER_CAP = 12;
+const NEIGHBOR_OTHERS_CAP = 8;
 
 function processorKey(p) {
   return p && (p.id || p.slug || p.name);
@@ -246,25 +244,14 @@ export function neighborhoodOf(focus, edges, processors, companies) {
     const votes = otherVotes.get(pid);
     votes.set(e.company, (votes.get(e.company) || 0) + 1);
   }
-  let others = [...otherVotes.entries()]
+  const others = [...otherVotes.entries()]
     .map(([id, votes]) => {
       let count = 0;
-      let best = null;
-      let bestN = -1;
-      for (const [co, n] of votes) {
-        count += n;
-        if (n > bestN) {
-          best = co;
-          bestN = n;
-        }
-      }
-      return { id, count, best, rec: byProc.get(id) };
+      for (const n of votes.values()) count += n;
+      return { id, count, rec: byProc.get(id) };
     })
-    .sort((a, b) => b.count - a.count || String(a.id).localeCompare(String(b.id)));
-  const allFit = 1 + namerSlugs.length + others.length <= NEIGHBOR_MAX;
-  if (!allFit) {
-    others = others.filter((o) => o.count >= 2).slice(0, NEIGHBOR_OTHERS_CAP);
-  }
+    .sort((a, b) => b.count - a.count || String(a.id).localeCompare(String(b.id)))
+    .slice(0, NEIGHBOR_OTHERS_CAP);
   const nodes = [];
   const index = new Map();
   function add(id, spec) {
@@ -274,7 +261,7 @@ export function neighborhoodOf(focus, edges, processors, companies) {
     nodes.push(n);
     return n;
   }
-  add(selectedId, {
+  const selectedNode = add(selectedId, {
     kind: "processor",
     role: "selected",
     name: focus.name,
@@ -282,15 +269,6 @@ export function neighborhoodOf(focus, edges, processors, companies) {
     inRegister: focus.inRegister,
     focus: byProc.has(selectedId) ? byProc.get(selectedId).i : null,
   });
-  for (const slug of namerSlugs) {
-    const co = companies && companies.get ? companies.get(slug) : null;
-    add("co:" + slug, {
-      kind: "company",
-      role: "namer",
-      name: co ? co.name : slug,
-      slug,
-    });
-  }
   for (const o of others) {
     const rec = o.rec;
     add(o.id, {
@@ -304,54 +282,25 @@ export function neighborhoodOf(focus, edges, processors, companies) {
     });
   }
   const links = [];
-  const selectedNode = index.get(selectedId);
-  for (const slug of namerSlugs) {
-    const a = index.get("co:" + slug);
-    if (a && selectedNode) links.push({ a, b: selectedNode });
-  }
   for (const o of others) {
-    const a = o.best ? index.get("co:" + o.best) : null;
     const b = index.get(o.id);
-    if (a && b) links.push({ a, b });
+    if (selectedNode && b) links.push({ a: selectedNode, b });
   }
   return { nodes, links, namers: namerSlugs.length, others: others.length };
 }
 
-function placeNeighborhood(nodes, links) {
+function placeNeighborhood(nodes) {
   const selected = nodes.find((n) => n.role === "selected");
-  const namers = nodes.filter((n) => n.role === "namer");
   const others = nodes.filter((n) => n.role === "other");
   if (selected) {
     selected.x = 0;
     selected.y = 0;
     selected.z = 0;
   }
-  namers.forEach((n, i) => {
-    const a = -Math.PI / 2 + (2 * Math.PI * i) / Math.max(namers.length, 1);
-    n.x = Math.cos(a) * 0.46;
-    n.y = Math.sin(a) * 0.46;
-    n.z = 0;
-    n.angle = a;
-  });
-  const byId = new Map(nodes.map((n) => [n.id, n]));
   others.forEach((n, i) => {
-    const angles = [];
-    for (const L of links) {
-      if (L.b.id !== n.id) continue;
-      const co = byId.get(L.a.id);
-      if (co && typeof co.angle === "number") angles.push(co.angle);
-    }
-    let a;
-    if (angles.length) {
-      const cx = angles.reduce((s, x) => s + Math.cos(x), 0) / angles.length;
-      const cy = angles.reduce((s, x) => s + Math.sin(x), 0) / angles.length;
-      a = Math.atan2(cy, cx);
-    } else {
-      a = -Math.PI / 2 + (2 * Math.PI * i) / Math.max(others.length, 1);
-    }
-    a += (i % 2 === 0 ? -1 : 1) * 0.04 * Math.min(i, 6);
-    n.x = Math.cos(a) * 0.84;
-    n.y = Math.sin(a) * 0.84;
+    const a = -Math.PI / 2 + (2 * Math.PI * i) / Math.max(others.length, 1);
+    n.x = Math.cos(a) * 0.68;
+    n.y = Math.sin(a) * 0.68;
     n.z = 0;
   });
 }
@@ -362,7 +311,7 @@ function compactPhone() {
 
 function graphShouldDraw(hood) {
   if (!hood || !hood.nodes.length) return false;
-  if (compactPhone() && hood.namers > COMPACT_NAMER_CAP) return false;
+  if (compactPhone()) return false;
   return true;
 }
 
@@ -371,7 +320,7 @@ function ensureNeighborhood() {
   const key = focus ? processorKey(focus) : null;
   if (map.focusKey === key && map.nodes.length) return;
   const hood = neighborhoodOf(focus, state.edges, state.processors, state.companies);
-  placeNeighborhood(hood.nodes, hood.links);
+  placeNeighborhood(hood.nodes);
   map.nodes = hood.nodes;
   map.links = hood.links;
   map.namers = hood.namers;
@@ -448,7 +397,6 @@ function drawMap() {
 
   const ink = tokenColor("--ot-ledger-black", "#0B1411");
   const teal = tokenColor("--ot-evidence-teal", "#00685C");
-  const mute = tokenColor("--ot-graphite", "#51615B");
 
   map.screen = map.nodes.map((n) => {
     const q = projectNode(n, w, h);
@@ -471,20 +419,16 @@ function drawMap() {
 
   for (const s of map.screen) {
     const selected = isSelectedNode(s.n);
-    const half = s.n.role === "selected" ? 5 : s.n.kind === "processor" ? 3.5 : 2.5;
-    const fill = s.n.kind === "company" || s.n.inRegister || s.n.role === "selected";
+    const half = selected ? 5 : 3.5;
     ctx.beginPath();
     ctx.rect(s.x - half, s.y - half, half * 2, half * 2);
-    if (fill) {
-      ctx.fillStyle = ink;
-      ctx.fill();
-    }
+    ctx.fillStyle = ink;
+    ctx.fill();
     ctx.strokeStyle = selected ? teal : ink;
     ctx.lineWidth = selected ? 2 : 1;
     ctx.stroke();
   }
 
-  const placed = [];
   function placeLabel(text, x, y, font, color, prefer) {
     ctx.font = font;
     const tw = ctx.measureText(text).width;
@@ -492,47 +436,27 @@ function drawMap() {
     let ly = y + 4;
     if (prefer === "above") {
       lx = x - tw / 2;
-      ly = y - 12;
-    } else if (prefer === "out") {
+      ly = y - 14;
+    } else {
       const dx = x - w / 2;
       const dy = y - h / 2;
       const len = Math.hypot(dx, dy) || 1;
       lx = x + (dx / len) * 16 - tw / 2;
       ly = y + (dy / len) * 14 + 4;
     }
-    if (lx + tw > w - 8) lx = x - 8 - tw;
+    if (lx + tw > w - 8) lx = w - 8 - tw;
     if (lx < 8) lx = 8;
     if (ly < 14) ly = y + 18;
     if (ly > h - 6) ly = y - 10;
-    const box = { x: lx, y: ly - 12, w: tw, h: 16 };
-    for (const p of placed) {
-      if (box.x < p.x + p.w && box.x + box.w > p.x && box.y < p.y + p.h && box.y + box.h > p.y) {
-        return false;
-      }
-    }
-    placed.push(box);
     ctx.fillStyle = color;
     ctx.fillText(text, lx, ly);
-    return true;
   }
 
   const serif = "600 17px 'Source Serif 4', Georgia, 'Times New Roman', serif";
   const utility = "13px 'Atkinson Hyperlegible Next', Arial, system-ui, sans-serif";
-  const phone = compactPhone();
-  const selected = map.screen.find((s) => s.n.role === "selected");
-  if (selected) placeLabel(selected.n.name, selected.x, selected.y, serif, ink, "above");
-  if (phone) return;
-  if (map.namers <= 14) {
-    for (const s of map.screen) {
-      if (s.n.role !== "namer") continue;
-      placeLabel(s.n.name, s.x, s.y, utility, mute, "out");
-    }
-  }
-  const siblings = map.screen
-    .filter((s) => s.n.role === "other")
-    .sort((a, b) => (b.n.shared || 0) - (a.n.shared || 0));
-  for (const s of siblings.slice(0, 8)) {
-    placeLabel(s.n.name, s.x, s.y, utility, mute, "out");
+  for (const s of map.screen) {
+    const selected = isSelectedNode(s.n);
+    placeLabel(s.n.name, s.x, s.y, selected ? serif : utility, ink, selected ? "above" : "out");
   }
 }
 
@@ -545,6 +469,25 @@ function viewFromLocation() {
   const q = new URLSearchParams(location.search).get("view");
   if (q === "map" || location.hash === "#map") return "map";
   return "list";
+}
+
+function renderHoodLine() {
+  const el = $("hood-line");
+  if (!el) return;
+  if (state.view !== "map") {
+    el.hidden = true;
+    el.textContent = "";
+    return;
+  }
+  const p = selectedProcessor();
+  if (!p) {
+    el.hidden = true;
+    el.textContent = "";
+    return;
+  }
+  const n = new Set((p.namers || []).map((x) => x.company).filter(Boolean)).size;
+  el.hidden = false;
+  el.textContent = `neighborhood · ${p.name} · ${n} named`;
 }
 
 function setView(view, viaUser) {
@@ -572,6 +515,7 @@ function setView(view, viaUser) {
       history.replaceState(null, "", location.pathname + location.search);
     }
   }
+  renderHoodLine();
   if (state.view === "map") requestAnimationFrame(drawMap);
 }
 
@@ -582,6 +526,7 @@ function fileProcessor(i) {
   map.focusKey = null;
   renderTable();
   renderStub();
+  renderHoodLine();
   if (state.view === "map") drawMap();
   revealFile();
 }
@@ -699,6 +644,7 @@ async function load() {
   }
   renderTable();
   renderStub();
+  renderHoodLine();
   if (state.view === "map") drawMap();
 }
 

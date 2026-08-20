@@ -915,7 +915,7 @@ a.official {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin: 0 0 24px;
+  margin: 0 0 8px;
   font: var(--t-meta);
   color: var(--ot-ledger-black);
 }
@@ -936,6 +936,11 @@ a.official {
   border-bottom-color: var(--ot-evidence-teal);
 }
 .view-toggle .sep { color: var(--ot-ledger-black); }
+.hood-line {
+  margin: 0 0 20px;
+  font: var(--t-meta);
+  color: var(--ot-graphite);
+}
 
 /* ——— wires ——— */
 .wires-grid {
@@ -1288,13 +1293,8 @@ a.official {
   .wires-table .inst th,
   .wires-table .inst td { display: table-cell; }
   .wires-grid[data-view="map"] .wires-fig { order: -1; }
-  .map-field {
-    display: block;
-    height: min(360px, 56vh);
-    min-height: 240px;
-  }
-  .wires-map[data-graph="off"] .fig-block,
-  .wires-map[data-graph="off"] .map-field { display: none; }
+  .wires-grid[data-view="map"] .fig-block,
+  .wires-grid[data-view="map"] .map-field { display: none; }
 }
 
 @media (max-width: 320px) {
