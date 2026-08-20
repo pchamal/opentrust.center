@@ -182,6 +182,7 @@
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP",
         "FedRAMP Moderate",
         "GDPR",
@@ -191,6 +192,11 @@
         "SOC 2"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP",
@@ -345,6 +351,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2122150307"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/mongodb",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "MongoDB, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/mongodb",
+            "listed_since": "2019-03-12"
           }
         ]
       },
@@ -634,6 +651,17 @@
         "title": "Freshworks Trust Center",
         "http_status": null
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/freshworks-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Freshworks Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/freshworks-inc",
+            "listed_since": "2019-02-11"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -913,6 +941,17 @@
         "vendor": "safebase",
         "title": "Postman Customer Trust Portal",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/postman-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Postman, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/postman-inc",
+            "listed_since": "2022-06-28"
+          }
+        ]
       },
       "list_rank": 32
     },
@@ -1198,6 +1237,7 @@
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
         "CCPA",
+        "CSA STAR",
         "FedRAMP",
         "GDPR",
         "HIPAA",
@@ -1216,6 +1256,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "fedramp",
@@ -1345,6 +1390,17 @@
         "vendor": "conveyor",
         "title": "Cato Networks Trust Center",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/cato-networks",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Cato Networks",
+            "url": "https://cloudsecurityalliance.org/star/registry/cato-networks",
+            "listed_since": "2017-08-08"
+          }
+        ]
       },
       "list_rank": 81
     },
@@ -1494,6 +1550,17 @@
         "vendor": "safebase",
         "title": "Navan Trust Center",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/navan-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Navan Inc",
+            "url": "https://cloudsecurityalliance.org/star/registry/navan-inc",
+            "listed_since": "2025-04-22"
+          }
+        ]
       },
       "list_rank": 7
     },
@@ -1750,6 +1817,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2533155773"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/openai",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "OpenAI",
+            "url": "https://cloudsecurityalliance.org/star/registry/openai",
+            "listed_since": "2024-04-09"
           }
         ]
       },
@@ -2135,6 +2213,7 @@
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
         "CCPA",
+        "CSA STAR",
         "Cyber Essentials",
         "FedRAMP",
         "FedRAMP Moderate",
@@ -2149,6 +2228,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "cyber-essentials",
@@ -2279,6 +2363,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2110342613"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/tanium-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Tanium Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/tanium-inc",
+            "listed_since": "2021-07-13"
           }
         ]
       },
@@ -2429,6 +2524,7 @@
       "certs": [
         "C5",
         "CCPA",
+        "CSA STAR",
         "FedRAMP",
         "FedRAMP High",
         "GDPR",
@@ -2450,6 +2546,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "fedramp",
@@ -2616,6 +2717,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/palo-alto-networks",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Palo Alto Networks",
+            "url": "https://cloudsecurityalliance.org/star/registry/palo-alto-networks",
+            "listed_since": "2020-07-16"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -2632,6 +2744,7 @@
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
         "CCPA",
+        "CSA STAR",
         "FedRAMP",
         "FedRAMP Low",
         "ISO 27001",
@@ -2645,6 +2758,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "fedramp",
@@ -2770,6 +2888,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2310974411"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/pagerduty",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "PagerDuty",
+            "url": "https://cloudsecurityalliance.org/star/registry/pagerduty",
+            "listed_since": "2016-10-14"
           }
         ]
       },
@@ -3012,6 +3141,17 @@
         "title": "Anthropic Trust Center",
         "http_status": null
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/anthropic",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Anthropic, PBC",
+            "url": "https://cloudsecurityalliance.org/star/registry/anthropic",
+            "listed_since": "2025-10-21"
+          }
+        ]
+      },
       "list_rank": 2
     },
     {
@@ -3190,6 +3330,17 @@
         "title": "Dropbox Security & Compliance Trust Center",
         "http_status": null
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/dropbox-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Dropbox, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/dropbox-inc",
+            "listed_since": "2016-02-11"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -3352,6 +3503,17 @@
         "title": "Trust - AppsFlyer",
         "http_status": 200
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/appsflyer",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "AppsFlyer",
+            "url": "https://cloudsecurityalliance.org/star/registry/appsflyer",
+            "listed_since": "2019-01-07"
+          }
+        ]
+      },
       "list_rank": 58
     },
     {
@@ -3505,6 +3667,17 @@
         "vendor": "safebase",
         "title": "Celonis Trust Center",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/celonis",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Celonis",
+            "url": "https://cloudsecurityalliance.org/star/registry/celonis",
+            "listed_since": "2019-11-06"
+          }
+        ]
       },
       "list_rank": 12
     },
@@ -3724,6 +3897,17 @@
         "vendor": "vanta",
         "title": "Fin Trust Center",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/intercom-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Intercom, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/intercom-inc",
+            "listed_since": "2016-07-06"
+          }
+        ]
       },
       "list_rank": 53
     },
@@ -4327,6 +4511,7 @@
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
         "CMMC",
+        "CSA STAR",
         "Cyber Essentials",
         "FedRAMP",
         "FedRAMP 20x Moderate",
@@ -4342,6 +4527,11 @@
           "id": "cmmc-l2",
           "name": "CMMC",
           "weight": 8
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "cyber-essentials",
@@ -4493,6 +4683,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2525556241"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/vanta",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Vanta",
+            "url": "https://cloudsecurityalliance.org/star/registry/vanta",
+            "listed_since": "2023-09-07"
           }
         ]
       },
@@ -5348,6 +5549,7 @@
       "certs": [
         "C5",
         "CCPA",
+        "CSA STAR",
         "EU-US DPF",
         "GDPR",
         "HIPAA",
@@ -5365,6 +5567,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": null,
@@ -5494,6 +5701,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/cyera-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Cyera Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/cyera-inc",
+            "listed_since": "2023-12-06"
+          }
+        ]
+      },
       "list_rank": 82
     },
     {
@@ -5510,6 +5728,7 @@
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
         "CCPA",
+        "CSA STAR",
         "FedRAMP High",
         "FedRAMP Moderate",
         "GDPR",
@@ -5528,6 +5747,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "fedramp",
@@ -5706,6 +5930,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2016131254"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/dynatrace",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Dynatrace",
+            "url": "https://cloudsecurityalliance.org/star/registry/dynatrace",
+            "listed_since": "2020-09-13"
           }
         ]
       },
@@ -6183,6 +6418,17 @@
         "title": "ElevenLabs Trust Center",
         "http_status": null
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/eleven-labs-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Eleven Labs Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/eleven-labs-inc",
+            "listed_since": "2025-08-04"
+          }
+        ]
+      },
       "list_rank": 80
     },
     {
@@ -6346,6 +6592,7 @@
       "probed": 18,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "Cyber Essentials",
         "GDPR",
         "HIPAA",
@@ -6356,6 +6603,11 @@
         "ISO 9001"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "cyber-essentials",
           "name": "Cyber Essentials",
@@ -6456,6 +6708,17 @@
         "vendor": "self_hosted",
         "title": "Trust Center | Automation Anywhere",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/automation-anywhere",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Automation Anywhere",
+            "url": "https://cloudsecurityalliance.org/star/registry/automation-anywhere",
+            "listed_since": "2021-06-03"
+          }
+        ]
       },
       "list_rank": 41
     },
@@ -6637,6 +6900,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/F1607197917"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/splunk-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Splunk, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/splunk-inc",
+            "listed_since": "2023-06-21"
           }
         ]
       },
@@ -7156,6 +7430,17 @@
         "title": "Dialpad Trust Center",
         "http_status": null
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/dialpad-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Dialpad, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/dialpad-inc",
+            "listed_since": "2019-09-11"
+          }
+        ]
+      },
       "list_rank": 38
     },
     {
@@ -7172,6 +7457,7 @@
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
         "CCPA",
+        "CSA STAR",
         "GDPR",
         "HIPAA",
         "ISO 27001",
@@ -7187,6 +7473,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "gdpr",
@@ -7298,6 +7589,17 @@
         "title": "Gong Trust Center",
         "http_status": null
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/gong",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Gong",
+            "url": "https://cloudsecurityalliance.org/star/registry/gong",
+            "listed_since": "2023-08-30"
+          }
+        ]
+      },
       "list_rank": 52
     },
     {
@@ -7314,6 +7616,7 @@
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
         "CCPA",
+        "CSA STAR",
         "EU-US DPF",
         "GDPR",
         "HIPAA",
@@ -7326,6 +7629,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": null,
@@ -7438,6 +7746,17 @@
         "vendor": "vanta",
         "title": "Pendo Trust Center",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/pendo-io",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Pendo.io",
+            "url": "https://cloudsecurityalliance.org/star/registry/pendo-io",
+            "listed_since": "2019-09-10"
+          }
+        ]
       },
       "list_rank": 62
     },
@@ -7622,6 +7941,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/asana-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Asana, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/asana-inc",
+            "listed_since": "2022-08-13"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -7639,6 +7969,7 @@
       "certs": [
         "C5",
         "CCPA",
+        "CSA STAR",
         "FedRAMP",
         "FedRAMP Moderate",
         "GDPR",
@@ -7659,6 +7990,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "fedramp",
@@ -7793,6 +8129,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/figma",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Figma",
+            "url": "https://cloudsecurityalliance.org/star/registry/figma",
+            "listed_since": "2022-04-13"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -7910,6 +8257,17 @@
         "vendor": "self_hosted",
         "title": "Calendly - Trust Center",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/calendly-llc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Calendly LLC",
+            "url": "https://cloudsecurityalliance.org/star/registry/calendly-llc",
+            "listed_since": "2022-08-19"
+          }
+        ]
       },
       "list_rank": 59
     },
@@ -8498,6 +8856,17 @@
         "title": "Sierra Trust Center",
         "http_status": null
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/sierra-technologies-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Sierra Technologies, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/sierra-technologies-inc",
+            "listed_since": "2025-04-03"
+          }
+        ]
+      },
       "list_rank": 92
     },
     {
@@ -8688,6 +9057,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/workday-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Workday Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/workday-inc",
+            "listed_since": "2024-02-26"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -8828,6 +9208,7 @@
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "ISO 27001",
         "ISO 27017",
         "ISO 27018",
@@ -8837,6 +9218,11 @@
         "SOC 3"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "iso-27001",
           "name": "ISO 27001",
@@ -8932,6 +9318,17 @@
         "vendor": "self_hosted",
         "title": "The Grammarly User Trust Center | Security, Privacy, & Compliance",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/grammarly",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Grammarly",
+            "url": "https://cloudsecurityalliance.org/star/registry/grammarly",
+            "listed_since": "2020-11-04"
+          }
+        ]
       },
       "list_rank": 11
     },
@@ -9163,6 +9560,7 @@
       "certs": [
         "C5",
         "CCPA",
+        "CSA STAR",
         "GDPR",
         "ISO 27001",
         "ISO 27017",
@@ -9178,6 +9576,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "gdpr",
@@ -9255,6 +9658,17 @@
         "vendor": "vanta",
         "title": "Algolia Trust Center",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/algolia-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Algolia, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/algolia-inc",
+            "listed_since": "2017-11-13"
+          }
+        ]
       },
       "list_rank": 74
     },
@@ -9791,10 +10205,16 @@
       "probed": 14,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP",
         "FedRAMP Moderate"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP",
@@ -9893,6 +10313,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/atlassian",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Atlassian",
+            "url": "https://cloudsecurityalliance.org/star/registry/atlassian",
+            "listed_since": "2018-03-19"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -9908,10 +10339,16 @@
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP",
         "FedRAMP Moderate"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP",
@@ -10075,6 +10512,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/proofpoint-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Proofpoint, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/proofpoint-inc",
+            "listed_since": "2022-04-13"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -10230,11 +10678,17 @@
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP LI-SaaS",
         "GDPR",
         "SOC 2"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp-li-saas",
           "name": "FedRAMP LI-SaaS",
@@ -10341,6 +10795,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR1812058188"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/github-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "GitHub, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/github-inc",
+            "listed_since": "2018-05-30"
           }
         ]
       },
@@ -10694,6 +11159,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2323961436"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/claroty",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Claroty",
+            "url": "https://cloudsecurityalliance.org/star/registry/claroty",
+            "listed_since": "2026-03-11"
           }
         ]
       },
@@ -11312,6 +11788,7 @@
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
         "CCPA",
+        "CSA STAR",
         "FedRAMP",
         "GDPR",
         "HIPAA",
@@ -11325,6 +11802,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "fedramp",
@@ -11417,6 +11899,17 @@
         "vendor": "safebase",
         "title": "monday.com security compliance hub",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/monday-com",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "monday.com",
+            "url": "https://cloudsecurityalliance.org/star/registry/monday-com",
+            "listed_since": "2020-01-30"
+          }
+        ]
       },
       "list_rank": null
     },
@@ -11992,6 +12485,17 @@
         "title": "Security And Privacy | Papaya Global",
         "http_status": 200
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/papaya-global",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Papaya Global",
+            "url": "https://cloudsecurityalliance.org/star/registry/papaya-global",
+            "listed_since": "2022-08-08"
+          }
+        ]
+      },
       "list_rank": 93
     },
     {
@@ -12237,6 +12741,17 @@
         "vendor": "safebase",
         "title": "Fortinet Trust Resource Center",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/fortinet",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Fortinet",
+            "url": "https://cloudsecurityalliance.org/star/registry/fortinet",
+            "listed_since": "2022-12-15"
+          }
+        ]
       },
       "list_rank": null
     },
@@ -12553,9 +13068,15 @@
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP High"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
@@ -12654,6 +13175,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2023864279A"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/datadog",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Datadog",
+            "url": "https://cloudsecurityalliance.org/star/registry/datadog",
+            "listed_since": "2018-04-03"
           }
         ]
       },
@@ -13424,9 +13956,15 @@
       "probed": 2,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP Moderate"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
@@ -13525,6 +14063,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2411959145"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/gitlab",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "GitLab",
+            "url": "https://cloudsecurityalliance.org/star/registry/gitlab",
+            "listed_since": "2020-04-13"
           }
         ]
       },
@@ -13995,6 +14544,7 @@
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
         "CCPA",
+        "CSA STAR",
         "GDPR",
         "HIPAA",
         "HITRUST",
@@ -14008,6 +14558,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "gdpr",
@@ -14100,6 +14655,17 @@
         "vendor": "safebase",
         "title": "Fivetran Trust Center",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/fivetran-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Fivetran Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/fivetran-inc",
+            "listed_since": "2023-10-12"
+          }
+        ]
       },
       "list_rank": 36
     },
@@ -14267,10 +14833,16 @@
       "probed": 14,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP Moderate",
         "GDPR"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
@@ -14465,6 +15037,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/adobe",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Adobe",
+            "url": "https://cloudsecurityalliance.org/star/registry/adobe",
+            "listed_since": "2020-07-20"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -14576,6 +15159,7 @@
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "GDPR",
         "HITRUST",
         "ISO 27001",
@@ -14589,6 +15173,11 @@
         "TX-RAMP"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "gdpr",
           "name": "GDPR",
@@ -14697,6 +15286,17 @@
         "title": "OneTrust Trust Center",
         "http_status": null
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/onetrust",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "OneTrust",
+            "url": "https://cloudsecurityalliance.org/star/registry/onetrust",
+            "listed_since": "2021-07-28"
+          }
+        ]
+      },
       "list_rank": 28
     },
     {
@@ -14712,16 +15312,22 @@
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP Moderate"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
           "weight": 12
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: FedRAMP Moderate.",
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR, FedRAMP Moderate.",
       "founded_year": 2000,
       "founded_source": "https://en.wikipedia.org/wiki/Rapid7,_Inc.",
       "instruments": {
@@ -14812,6 +15418,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/rapid7",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Rapid7",
+            "url": "https://cloudsecurityalliance.org/star/registry/rapid7",
+            "listed_since": "2026-05-27"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -14827,12 +15444,18 @@
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "GDPR",
         "ISO 27001",
         "ISO 42001",
         "SOC 2 Type II"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "gdpr",
           "name": "GDPR",
@@ -14905,6 +15528,17 @@
         "vendor": "wolfia",
         "title": "Miro Trust Center - ISO 42001, ISO 27001, SOC 2 Type II",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/realtimeboard-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Realtimeboard Inc. (dba Miro)",
+            "url": "https://cloudsecurityalliance.org/star/registry/realtimeboard-inc",
+            "listed_since": "2018-06-10"
+          }
+        ]
       },
       "list_rank": 18
     },
@@ -15161,16 +15795,22 @@
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP Moderate"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
           "weight": 12
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: FedRAMP Moderate.",
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR, FedRAMP Moderate.",
       "founded_year": 2002,
       "founded_source": "https://en.wikipedia.org/wiki/Tenable,_Inc.",
       "instruments": {
@@ -15271,6 +15911,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/tenable-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Tenable, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/tenable-inc",
+            "listed_since": "2018-05-20"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -15287,6 +15938,7 @@
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
         "AIUC-1",
+        "CSA STAR",
         "FedRAMP Moderate"
       ],
       "attestations": [
@@ -15294,6 +15946,11 @@
           "id": "aiuc-1",
           "name": "AIUC-1",
           "weight": 8
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "fedramp",
@@ -15388,6 +16045,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/uipath",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "UiPath",
+            "url": "https://cloudsecurityalliance.org/star/registry/uipath",
+            "listed_since": "2026-02-26"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -15403,16 +16071,22 @@
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP Moderate"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
           "weight": 12
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: FedRAMP Moderate.",
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR, FedRAMP Moderate.",
       "founded_year": 2008,
       "founded_source": "https://en.wikipedia.org/wiki/New_Relic",
       "instruments": {
@@ -15505,6 +16179,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/new-relic",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "New Relic",
+            "url": "https://cloudsecurityalliance.org/star/registry/new-relic",
+            "listed_since": "2020-06-16"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -15520,11 +16205,17 @@
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "PCI DSS",
         "SOC 2 Type II",
         "SOC 3"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "pci-dss",
           "name": "PCI DSS",
@@ -15600,6 +16291,17 @@
         "vendor": "self_hosted",
         "title": "Trust Platform | DigitalOcean",
         "http_status": 200
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/digitalocean",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "DigitalOcean",
+            "url": "https://cloudsecurityalliance.org/star/registry/digitalocean",
+            "listed_since": "2021-01-24"
+          }
+        ]
       },
       "list_rank": null
     },
@@ -15721,10 +16423,16 @@
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP LI-SaaS",
         "GDPR"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp-li-saas",
           "name": "FedRAMP LI-SaaS",
@@ -15822,6 +16530,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR1821856903"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/zendesk",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Zendesk",
+            "url": "https://cloudsecurityalliance.org/star/registry/zendesk",
+            "listed_since": "2014-03-25"
           }
         ]
       },
@@ -15964,10 +16683,16 @@
       "probed": 2,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP High",
         "GDPR"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
@@ -16108,6 +16833,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/microsoft",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Microsoft",
+            "url": "https://cloudsecurityalliance.org/star/registry/microsoft",
+            "listed_since": "2016-04-05"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -16123,9 +16859,15 @@
       "probed": 2,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP High"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
@@ -16242,6 +16984,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR1809360202A"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/snowflake",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Snowflake",
+            "url": "https://cloudsecurityalliance.org/star/registry/snowflake",
+            "listed_since": "2022-11-01"
           }
         ]
       },
@@ -16680,10 +17433,16 @@
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP High",
         "GDPR"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
@@ -16779,6 +17538,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2003061248"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/salesforce-com-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Salesforce.com, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/salesforce-com-inc",
+            "listed_since": "2016-03-13"
           }
         ]
       },
@@ -17143,16 +17913,22 @@
       "probed": 3,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP High"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
           "weight": 12
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: FedRAMP High.",
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR, FedRAMP High.",
       "founded_year": 2008,
       "founded_source": "https://en.wikipedia.org/wiki/Zscaler",
       "instruments": {
@@ -17279,6 +18055,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR1720454205"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/zscaler",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Zscaler",
+            "url": "https://cloudsecurityalliance.org/star/registry/zscaler",
+            "listed_since": "2019-06-18"
           }
         ]
       },
@@ -17600,16 +18387,22 @@
       "probed": 14,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP Moderate"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
           "weight": 12
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: FedRAMP Moderate.",
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR, FedRAMP Moderate.",
       "founded_year": 1972,
       "founded_source": "https://en.wikipedia.org/wiki/SAP",
       "instruments": {
@@ -17706,6 +18499,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/sap",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "SAP",
+            "url": "https://cloudsecurityalliance.org/star/registry/sap",
+            "listed_since": "2016-06-25"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -17721,9 +18525,15 @@
       "probed": 14,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP High"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
@@ -17817,6 +18627,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/cloudflare-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Cloudflare, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/cloudflare-inc",
+            "listed_since": "2022-12-28"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -17832,9 +18653,15 @@
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "GDPR"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "gdpr",
           "name": "GDPR",
@@ -17908,6 +18735,17 @@
         "vendor": "self_hosted",
         "title": "Trust Center",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/deel",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Deel",
+            "url": "https://cloudsecurityalliance.org/star/registry/deel",
+            "listed_since": "2024-09-17"
+          }
+        ]
       },
       "list_rank": 9
     },
@@ -18043,6 +18881,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2401047002"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/axonius",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Axonius",
+            "url": "https://cloudsecurityalliance.org/star/registry/axonius",
+            "listed_since": "2024-03-05"
           }
         ]
       },
@@ -18321,6 +19170,7 @@
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
         "CCPA",
+        "CSA STAR",
         "GDPR",
         "ISO 27001",
         "SOC 2"
@@ -18330,6 +19180,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "gdpr",
@@ -18406,6 +19261,17 @@
         "vendor": "safebase",
         "title": "Harness Trust Center",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/harness",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Harness",
+            "url": "https://cloudsecurityalliance.org/star/registry/harness",
+            "listed_since": "2021-12-20"
+          }
+        ]
       },
       "list_rank": 77
     },
@@ -18533,6 +19399,7 @@
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP Moderate",
         "GDPR",
         "HIPAA",
@@ -18542,6 +19409,11 @@
         "SOC 3"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
@@ -18621,6 +19493,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/pegasystems",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Pegasystems",
+            "url": "https://cloudsecurityalliance.org/star/registry/pegasystems",
+            "listed_since": "2019-11-14"
+          }
+        ]
       },
       "list_rank": 428
     },
@@ -18736,6 +19619,17 @@
         "title": "",
         "http_status": null
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/red-canary",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Red Canary",
+            "url": "https://cloudsecurityalliance.org/star/registry/red-canary",
+            "listed_since": "2024-02-26"
+          }
+        ]
+      },
       "list_rank": 244
     },
     {
@@ -18752,6 +19646,7 @@
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
         "CCPA",
+        "CSA STAR",
         "FedRAMP Moderate",
         "GDPR",
         "HIPAA",
@@ -18764,6 +19659,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "fedramp",
@@ -18840,6 +19740,17 @@
         "title": "",
         "http_status": null
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/sprout-social",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Sprout Social",
+            "url": "https://cloudsecurityalliance.org/star/registry/sprout-social",
+            "listed_since": "2018-12-19"
+          }
+        ]
+      },
       "list_rank": 447
     },
     {
@@ -18856,6 +19767,7 @@
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
         "CCPA",
+        "CSA STAR",
         "FedRAMP Moderate",
         "GDPR",
         "HIPAA",
@@ -18869,6 +19781,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "fedramp",
@@ -18974,6 +19891,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR1918740338"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/sumo-logic-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Sumo Logic, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/sumo-logic-inc",
+            "listed_since": "2015-12-08"
           }
         ]
       },
@@ -19105,6 +20033,17 @@
         "title": "",
         "http_status": null
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/varonis-systems-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Varonis Systems, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/varonis-systems-inc",
+            "listed_since": "2022-05-16"
+          }
+        ]
+      },
       "list_rank": 477
     },
     {
@@ -19231,16 +20170,22 @@
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP High"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
           "weight": 12
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: FedRAMP High.",
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR, FedRAMP High.",
       "founded_year": 2012,
       "founded_source": "https://en.wikipedia.org/wiki/Netskope",
       "instruments": {
@@ -19320,6 +20265,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2105946715"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/netskope",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Netskope",
+            "url": "https://cloudsecurityalliance.org/star/registry/netskope",
+            "listed_since": "2016-04-07"
           }
         ]
       },
@@ -19607,9 +20563,15 @@
       "probed": 2,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP High"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
@@ -19712,6 +20674,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2131856836"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/okta-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Okta Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/okta-inc",
+            "listed_since": "2013-03-28"
           }
         ]
       },
@@ -19818,9 +20791,15 @@
       "probed": 9,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP 20x Moderate"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP 20x Moderate",
@@ -19907,6 +20886,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2409863458XL"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/confluent-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Confluent, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/confluent-inc",
+            "listed_since": "2020-08-12"
           }
         ]
       },
@@ -20017,6 +21007,7 @@
       "certs": [
         "C5",
         "CCPA",
+        "CSA STAR",
         "GDPR",
         "SOC 1 Type II"
       ],
@@ -20030,6 +21021,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "gdpr",
@@ -20101,6 +21097,17 @@
         "vendor": "whistic",
         "title": "Rippling",
         "http_status": 200
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/people-center-inc-dba-rippling",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "People Center Inc DBA Rippling",
+            "url": "https://cloudsecurityalliance.org/star/registry/people-center-inc-dba-rippling",
+            "listed_since": "2023-04-23"
+          }
+        ]
       },
       "list_rank": 16
     },
@@ -20232,16 +21239,22 @@
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP Moderate"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
           "weight": 12
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: FedRAMP Moderate.",
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR, FedRAMP Moderate.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -20325,6 +21338,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR1706403967"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/collibra",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Collibra",
+            "url": "https://cloudsecurityalliance.org/star/registry/collibra",
+            "listed_since": "2021-06-03"
           }
         ]
       },
@@ -20498,9 +21522,15 @@
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP Moderate"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
@@ -20594,6 +21624,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/sailpoint-technologies",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "SailPoint Technologies",
+            "url": "https://cloudsecurityalliance.org/star/registry/sailpoint-technologies",
+            "listed_since": "2019-08-27"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -20609,16 +21650,22 @@
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP Moderate"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
           "weight": 12
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: FedRAMP Moderate.",
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR, FedRAMP Moderate.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -20709,6 +21756,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/talkdesk-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Talkdesk Inc",
+            "url": "https://cloudsecurityalliance.org/star/registry/talkdesk-inc",
+            "listed_since": "2018-09-24"
+          }
+        ]
+      },
       "list_rank": 30
     },
     {
@@ -20724,11 +21782,17 @@
       "probed": 9,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "GDPR",
         "ISO 27001",
         "SOC 2"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "gdpr",
           "name": "GDPR",
@@ -20805,6 +21869,17 @@
         "title": "MaintainX Trust Center",
         "http_status": null
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/maintainx",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "MaintainX",
+            "url": "https://cloudsecurityalliance.org/star/registry/maintainx",
+            "listed_since": "2026-03-05"
+          }
+        ]
+      },
       "list_rank": 79
     },
     {
@@ -20821,6 +21896,7 @@
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
         "CCPA",
+        "CSA STAR",
         "FedRAMP Moderate",
         "GDPR",
         "HITRUST",
@@ -20832,6 +21908,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "fedramp",
@@ -20930,6 +22011,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/qualtrics",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Qualtrics",
+            "url": "https://cloudsecurityalliance.org/star/registry/qualtrics",
+            "listed_since": "2020-12-02"
+          }
+        ]
+      },
       "list_rank": 199
     },
     {
@@ -20944,8 +22036,16 @@
       "source": "public-enterprise",
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "Public trust center on file.",
       "founded_year": 2009,
       "founded_source": "https://en.wikipedia.org/wiki/Mixpanel",
@@ -20996,7 +22096,7 @@
       "tier": "on-file",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": true,
         "subprocessors": true,
         "years": true
@@ -21005,6 +22105,17 @@
         "vendor": "vanta",
         "title": "Mixpanel Trust Center",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/mixpanel-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Mixpanel, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/mixpanel-inc",
+            "listed_since": "2020-03-24"
+          }
+        ]
       },
       "list_rank": null
     },
@@ -21021,16 +22132,22 @@
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP High"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
           "weight": 12
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: FedRAMP High.",
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR, FedRAMP High.",
       "founded_year": 2013,
       "founded_source": "https://en.wikipedia.org/wiki/SentinelOne",
       "instruments": {
@@ -21114,6 +22231,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR1919071020A"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/sentinelone",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "SentinelOne",
+            "url": "https://cloudsecurityalliance.org/star/registry/sentinelone",
+            "listed_since": "2022-12-21"
           }
         ]
       },
@@ -21295,8 +22423,16 @@
       "source": "public-enterprise",
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "Public trust center on file.",
       "founded_year": 2023,
       "founded_source": "https://en.wikipedia.org/wiki/SpaceXAI",
@@ -21355,7 +22491,7 @@
       "tier": "on-file",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": true,
         "subprocessors": true,
         "years": true
@@ -21389,6 +22525,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2618542150"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/xai",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "xAI",
+            "url": "https://cloudsecurityalliance.org/star/registry/xai",
+            "listed_since": "2026-01-19"
           }
         ]
       },
@@ -21501,16 +22648,22 @@
       "probed": 14,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP High"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
           "weight": 12
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: FedRAMP High.",
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR, FedRAMP High.",
       "founded_year": 1911,
       "founded_source": "https://en.wikipedia.org/wiki/IBM",
       "instruments": {
@@ -21686,6 +22839,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/ibm-cloud",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "IBM Cloud",
+            "url": "https://cloudsecurityalliance.org/star/registry/ibm-cloud",
+            "listed_since": "2017-10-16"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -21701,16 +22865,22 @@
       "probed": 14,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP High"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
           "weight": 12
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: FedRAMP High.",
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR, FedRAMP High.",
       "founded_year": 1998,
       "founded_source": "https://en.wikipedia.org/wiki/Google",
       "instruments": {
@@ -21825,6 +22995,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/google",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Google",
+            "url": "https://cloudsecurityalliance.org/star/registry/google",
+            "listed_since": "2017-02-21"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -21840,9 +23021,15 @@
       "probed": 14,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP Moderate"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
@@ -21938,6 +23125,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/docusign-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Docusign, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/docusign-inc",
+            "listed_since": "2019-02-25"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -21953,9 +23151,15 @@
       "probed": 14,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP High"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
@@ -22056,6 +23260,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/box",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Box",
+            "url": "https://cloudsecurityalliance.org/star/registry/box",
+            "listed_since": "2018-01-26"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -22071,10 +23286,16 @@
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "GDPR",
         "SOC 2"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "gdpr",
           "name": "GDPR",
@@ -22145,6 +23366,17 @@
         "vendor": "self_hosted",
         "title": "Trust Center | BrowserStack",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/browserstack-limited",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "BrowserStack Limited",
+            "url": "https://cloudsecurityalliance.org/star/registry/browserstack-limited",
+            "listed_since": "2022-02-10"
+          }
+        ]
       },
       "list_rank": 67
     },
@@ -22417,6 +23649,17 @@
         "title": "Odoo Security",
         "http_status": 200
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/odoo",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Odoo",
+            "url": "https://cloudsecurityalliance.org/star/registry/odoo",
+            "listed_since": "2020-07-27"
+          }
+        ]
+      },
       "list_rank": 85
     },
     {
@@ -22543,9 +23786,15 @@
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP Moderate"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
@@ -22639,6 +23888,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/abnormal-ai",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Abnormal AI",
+            "url": "https://cloudsecurityalliance.org/star/registry/abnormal-ai",
+            "listed_since": "2023-01-25"
+          }
+        ]
+      },
       "list_rank": 19
     },
     {
@@ -22654,9 +23914,15 @@
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP High"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
@@ -22756,6 +24022,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/crowdstrike-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "CrowdStrike, Inc",
+            "url": "https://cloudsecurityalliance.org/star/registry/crowdstrike-inc",
+            "listed_since": "2017-02-28"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -22772,6 +24049,7 @@
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
         "CCPA",
+        "CSA STAR",
         "GDPR",
         "HIPAA",
         "SOC 2 Type II",
@@ -22782,6 +24060,11 @@
           "id": "ccpa-cpra",
           "name": "CCPA",
           "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
           "id": "gdpr",
@@ -22847,6 +24130,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/blackbaud",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Blackbaud",
+            "url": "https://cloudsecurityalliance.org/star/registry/blackbaud",
+            "listed_since": "2019-10-09"
+          }
+        ]
       },
       "list_rank": 385
     },
@@ -23548,9 +24842,15 @@
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "ISMAP"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "ismap",
           "name": "ISMAP",
@@ -23650,6 +24950,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/cyberark",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "CyberArk",
+            "url": "https://cloudsecurityalliance.org/star/registry/cyberark",
+            "listed_since": "2021-05-19"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -23665,9 +24976,15 @@
       "probed": 9,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP High"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
@@ -23760,6 +25077,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2434554673"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/palantir-technologies-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Palantir Technologies Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/palantir-technologies-inc",
+            "listed_since": "2022-06-06"
           }
         ]
       },
@@ -24309,9 +25637,15 @@
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP",
@@ -24373,6 +25707,17 @@
         "vendor": "safebase",
         "title": "Grafana Labs Trust Center",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/grafana",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Grafana Labs",
+            "url": "https://cloudsecurityalliance.org/star/registry/grafana",
+            "listed_since": "2020-12-22"
+          }
+        ]
       },
       "list_rank": 13
     },
@@ -24632,16 +25977,22 @@
       "probed": 2,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP High"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
           "weight": 12
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: FedRAMP High.",
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR, FedRAMP High.",
       "founded_year": 2004,
       "founded_source": "https://en.wikipedia.org/wiki/ServiceNow",
       "instruments": {
@@ -24709,6 +26060,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/F1305072116"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/servicenow",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "ServiceNow",
+            "url": "https://cloudsecurityalliance.org/star/registry/servicenow",
+            "listed_since": "2019-02-27"
           }
         ]
       },
@@ -24830,9 +26192,15 @@
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP High"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
@@ -24927,6 +26295,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2231052341"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/qualys-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Qualys, Inc",
+            "url": "https://cloudsecurityalliance.org/star/registry/qualys-inc",
+            "listed_since": "2019-05-19"
           }
         ]
       },
@@ -25219,9 +26598,15 @@
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "GDPR"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "gdpr",
           "name": "GDPR",
@@ -25280,6 +26665,17 @@
         "title": "Trust &#8211; Forter",
         "http_status": 200
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/forter",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Forter",
+            "url": "https://cloudsecurityalliance.org/star/registry/forter",
+            "listed_since": "2022-03-18"
+          }
+        ]
+      },
       "list_rank": 65
     },
     {
@@ -25295,9 +26691,15 @@
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP Moderate"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
@@ -25347,6 +26749,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/avepoint",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "AvePoint",
+            "url": "https://cloudsecurityalliance.org/star/registry/avepoint",
+            "listed_since": "2017-03-29"
+          }
+        ]
       },
       "list_rank": 276
     },
@@ -25499,9 +26912,15 @@
       "probed": 14,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP High"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP High",
@@ -25637,6 +27056,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/oracle-corporation",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Oracle America, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/oracle-corporation",
+            "listed_since": "2019-01-15"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -25652,9 +27082,15 @@
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
       "certs": [
+        "CSA STAR",
         "FedRAMP Moderate"
       ],
       "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
         {
           "id": "fedramp",
           "name": "FedRAMP Moderate",
@@ -25728,6 +27164,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/coupa-software",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Coupa Software",
+            "url": "https://cloudsecurityalliance.org/star/registry/coupa-software",
+            "listed_since": "2017-08-21"
+          }
+        ]
+      },
       "list_rank": null
     },
     {
@@ -25742,9 +27189,17 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -25778,7 +27233,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -25787,6 +27242,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/8x8-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "8x8, Inc",
+            "url": "https://cloudsecurityalliance.org/star/registry/8x8-inc",
+            "listed_since": "2018-07-04"
+          }
+        ]
       },
       "list_rank": 368
     },
@@ -25802,9 +27268,17 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -25838,7 +27312,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -25847,6 +27321,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/acronis-international-gmbh",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Acronis International GmbH",
+            "url": "https://cloudsecurityalliance.org/star/registry/acronis-international-gmbh",
+            "listed_since": "2020-05-05"
+          }
+        ]
       },
       "list_rank": 241
     },
@@ -25982,9 +27467,17 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -26018,7 +27511,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -26055,6 +27548,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/aqua-security-ltd",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Aqua Security Ltd",
+            "url": "https://cloudsecurityalliance.org/star/registry/aqua-security-ltd",
+            "listed_since": "2025-01-20"
+          }
+        ]
+      },
       "list_rank": 229
     },
     {
@@ -26069,9 +27573,17 @@
       "source": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -26105,7 +27617,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -26114,6 +27626,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/arista-networks",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Arista Networks",
+            "url": "https://cloudsecurityalliance.org/star/registry/arista-networks",
+            "listed_since": "2021-11-18"
+          }
+        ]
       },
       "list_rank": 284
     },
@@ -26189,9 +27712,17 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -26225,7 +27756,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -26234,6 +27765,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/audioeye-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "AudioEye, Inc",
+            "url": "https://cloudsecurityalliance.org/star/registry/audioeye-inc",
+            "listed_since": "2026-04-02"
+          }
+        ]
       },
       "list_rank": 388
     },
@@ -26524,9 +28066,17 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -26560,7 +28110,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -26569,6 +28119,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/bigid",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "BigID",
+            "url": "https://cloudsecurityalliance.org/star/registry/bigid",
+            "listed_since": "2022-08-12"
+          }
+        ]
       },
       "list_rank": 224
     },
@@ -26944,9 +28505,17 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -26980,7 +28549,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -27014,6 +28583,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2514624801"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/checkmarx",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Checkmarx",
+            "url": "https://cloudsecurityalliance.org/star/registry/checkmarx",
+            "listed_since": "2020-06-19"
           }
         ]
       },
@@ -27091,9 +28671,17 @@
       "source": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
       "probed": 23,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -27127,7 +28715,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -27136,6 +28724,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/cisco-systems",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Cisco Systems, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/cisco-systems",
+            "listed_since": "2020-10-08"
+          }
+        ]
       },
       "list_rank": 641
     },
@@ -27250,9 +28849,17 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -27286,7 +28893,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -27295,6 +28902,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/clarivate",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Clarivate™",
+            "url": "https://cloudsecurityalliance.org/star/registry/clarivate",
+            "listed_since": "2024-08-19"
+          }
+        ]
       },
       "list_rank": 405
     },
@@ -27310,9 +28928,17 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -27346,7 +28972,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -27355,6 +28981,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/commvault-system-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Commvault System Inc",
+            "url": "https://cloudsecurityalliance.org/star/registry/commvault-system-inc",
+            "listed_since": "2025-07-18"
+          }
+        ]
       },
       "list_rank": 387
     },
@@ -27370,9 +29007,17 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -27406,7 +29051,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -27415,6 +29060,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/coveo",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Coveo",
+            "url": "https://cloudsecurityalliance.org/star/registry/coveo",
+            "listed_since": "2018-08-13"
+          }
+        ]
       },
       "list_rank": 384
     },
@@ -27490,9 +29146,17 @@
       "source": "https://en.wikipedia.org/wiki/List_of_the_largest_software_companies",
       "probed": 23,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -27526,7 +29190,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -27535,6 +29199,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/dassault-systemes",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Dassault Systèmes",
+            "url": "https://cloudsecurityalliance.org/star/registry/dassault-systemes",
+            "listed_since": "2026-02-16"
+          }
+        ]
       },
       "list_rank": 202
     },
@@ -27794,9 +29469,17 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 23,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -27830,7 +29513,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -27839,6 +29522,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/donnelley-financial-solutions",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Donnelley Financial Solutions",
+            "url": "https://cloudsecurityalliance.org/star/registry/donnelley-financial-solutions",
+            "listed_since": "2025-12-18"
+          }
+        ]
       },
       "list_rank": 404
     },
@@ -28158,9 +29852,17 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -28194,7 +29896,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -28231,6 +29933,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/extrahop",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "ExtraHop",
+            "url": "https://cloudsecurityalliance.org/star/registry/extrahop",
+            "listed_since": "2020-09-23"
+          }
+        ]
+      },
       "list_rank": 230
     },
     {
@@ -28245,9 +29958,17 @@
       "source": "https://en.wikipedia.org/wiki/FICO",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -28281,7 +30002,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -28290,6 +30011,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/fico",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "FICO",
+            "url": "https://cloudsecurityalliance.org/star/registry/fico",
+            "listed_since": "2022-08-19"
+          }
+        ]
       },
       "list_rank": 220
     },
@@ -28704,9 +30436,17 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -28740,7 +30480,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -28774,6 +30514,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2017257053"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/infoblox-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Infoblox Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/infoblox-inc",
+            "listed_since": "2022-03-18"
           }
         ]
       },
@@ -28971,9 +30722,17 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -29007,7 +30766,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -29016,6 +30775,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/kinaxis",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Kinaxis",
+            "url": "https://cloudsecurityalliance.org/star/registry/kinaxis",
+            "listed_since": "2019-02-15"
+          }
+        ]
       },
       "list_rank": 419
     },
@@ -29031,9 +30801,17 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -29067,7 +30845,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -29101,6 +30879,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2201340492"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/knowbe4-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "KnowBe4 Inc",
+            "url": "https://cloudsecurityalliance.org/star/registry/knowbe4-inc",
+            "listed_since": "2018-12-11"
           }
         ]
       },
@@ -29482,9 +31271,17 @@
       "source": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -29518,7 +31315,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -29527,6 +31324,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/logmein",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "LogMeIn",
+            "url": "https://cloudsecurityalliance.org/star/registry/logmein",
+            "listed_since": "2020-12-21"
+          }
+        ]
       },
       "list_rank": 707
     },
@@ -29602,9 +31410,17 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -29638,7 +31454,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -29672,6 +31488,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR1910758409"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/mimecast",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Mimecast",
+            "url": "https://cloudsecurityalliance.org/star/registry/mimecast",
+            "listed_since": "2015-09-28"
           }
         ]
       },
@@ -29869,9 +31696,17 @@
       "source": "https://en.wikipedia.org/wiki/List_of_the_largest_software_companies",
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -29905,7 +31740,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -29914,6 +31749,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/netapp",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "NetApp",
+            "url": "https://cloudsecurityalliance.org/star/registry/netapp",
+            "listed_since": "2023-04-11"
+          }
+        ]
       },
       "list_rank": 190
     },
@@ -30109,9 +31955,17 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 5,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -30145,7 +31999,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -30179,6 +32033,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2301844932"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/orca-security",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Orca Security",
+            "url": "https://cloudsecurityalliance.org/star/registry/orca-security",
+            "listed_since": "2023-05-29"
           }
         ]
       },
@@ -30316,9 +32181,17 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -30352,7 +32225,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -30361,6 +32234,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/pexip-as",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Pexip AS",
+            "url": "https://cloudsecurityalliance.org/star/registry/pexip-as",
+            "listed_since": "2021-12-15"
+          }
+        ]
       },
       "list_rank": 431
     },
@@ -31172,9 +33056,17 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -31208,7 +33100,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -31217,6 +33109,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/sophos",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Sophos",
+            "url": "https://cloudsecurityalliance.org/star/registry/sophos",
+            "listed_since": "2026-06-01"
+          }
+        ]
       },
       "list_rank": 256
     },
@@ -31232,9 +33135,17 @@
       "source": "https://cloudindex.bvp.com/companies",
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -31268,7 +33179,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -31277,6 +33188,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/sprinklr",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Sprinklr",
+            "url": "https://cloudsecurityalliance.org/star/registry/sprinklr",
+            "listed_since": "2026-08-13"
+          }
+        ]
       },
       "list_rank": 264
     },
@@ -31416,9 +33338,17 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -31452,7 +33382,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -31461,6 +33391,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/teamviewer",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "TeamViewer",
+            "url": "https://cloudsecurityalliance.org/star/registry/teamviewer",
+            "listed_since": "2024-03-05"
+          }
+        ]
       },
       "list_rank": 460
     },
@@ -32287,9 +34228,17 @@
       "source": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -32323,7 +34272,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -32332,6 +34281,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/zoom-video-communications-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Zoom Video Communications, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/zoom-video-communications-inc",
+            "listed_since": "2017-01-23"
+          }
+        ]
       },
       "list_rank": 682
     },
@@ -32347,9 +34307,17 @@
       "source": "https://en.wikipedia.org/wiki/ZoomInfo",
       "probed": 1,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -32383,7 +34351,7 @@
       "tier": "thin",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -32392,6 +34360,17 @@
         "vendor": "unknown",
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/zoominfo-technologies-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "ZoomInfo Technologies Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/zoominfo-technologies-inc",
+            "listed_since": "2023-12-19"
+          }
+        ]
       },
       "list_rank": 205
     },
@@ -32407,8 +34386,16 @@
       "source": "public-enterprise",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": 2012,
       "founded_source": "https://en.wikipedia.org/wiki/HashiCorp",
@@ -32443,7 +34430,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": true
@@ -32452,6 +34439,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/hashicorp-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "HashiCorp Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/hashicorp-inc",
+            "listed_since": "2022-04-08"
+          }
+        ]
       },
       "list_rank": null
     },
@@ -33091,8 +35089,16 @@
       "source": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -33123,7 +35129,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -33132,6 +35138,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/accenture-plc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Accenture Plc",
+            "url": "https://cloudsecurityalliance.org/star/registry/accenture-plc",
+            "listed_since": "2017-03-22"
+          }
+        ]
       },
       "list_rank": 297
     },
@@ -33427,8 +35444,16 @@
       "source": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "probed": 23,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -33459,7 +35484,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -33468,6 +35493,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/agilent-technologies",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Agilent Technologies",
+            "url": "https://cloudsecurityalliance.org/star/registry/agilent-technologies",
+            "listed_since": "2021-05-19"
+          }
+        ]
       },
       "list_rank": 770
     },
@@ -33931,8 +35967,16 @@
       "source": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
       "probed": 18,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -33963,7 +36007,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -33972,6 +36016,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/alibaba-cloud",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Alibaba Cloud",
+            "url": "https://cloudsecurityalliance.org/star/registry/alibaba-cloud",
+            "listed_since": "2024-02-25"
+          }
+        ]
       },
       "list_rank": 326
     },
@@ -34379,8 +36434,16 @@
       "source": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -34411,7 +36474,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -34420,6 +36483,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/amazon",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Amazon",
+            "url": "https://cloudsecurityalliance.org/star/registry/amazon",
+            "listed_since": "2020-11-06"
+          }
+        ]
       },
       "list_rank": 571
     },
@@ -34491,8 +36565,16 @@
       "source": "https://en.wikipedia.org/wiki/List_of_the_largest_software_companies",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -34523,7 +36605,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -34532,6 +36614,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/amdocs-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Amdocs, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/amdocs-inc",
+            "listed_since": "2023-12-06"
+          }
+        ]
       },
       "list_rank": 203
     },
@@ -35331,8 +37424,16 @@
       "source": "https://en.wikipedia.org/wiki/List_of_the_largest_software_companies",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -35363,7 +37464,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -35372,6 +37473,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/ansys-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Ansys, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/ansys-inc",
+            "listed_since": "2022-03-02"
+          }
+        ]
       },
       "list_rank": 186
     },
@@ -37123,8 +39235,16 @@
       "source": "https://en.wikipedia.org/wiki/Bentley_Systems",
       "probed": 23,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -37155,7 +39275,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -37189,6 +39309,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2221456469"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/bentley-systems",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Bentley Systems",
+            "url": "https://cloudsecurityalliance.org/star/registry/bentley-systems",
+            "listed_since": "2017-12-04"
           }
         ]
       },
@@ -38718,8 +40849,16 @@
       "source": "https://cloudindex.bvp.com/companies",
       "probed": 23,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -38750,7 +40889,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -38759,6 +40898,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/c3-ai",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "C3 AI",
+            "url": "https://cloudsecurityalliance.org/star/registry/c3-ai",
+            "listed_since": "2025-11-04"
+          }
+        ]
       },
       "list_rank": 277
     },
@@ -40454,8 +42604,16 @@
       "source": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -40486,7 +42644,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -40495,6 +42653,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/ciena",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Ciena",
+            "url": "https://cloudsecurityalliance.org/star/registry/ciena",
+            "listed_since": "2026-06-29"
+          }
+        ]
       },
       "list_rank": 735
     },
@@ -44598,8 +46767,16 @@
       "source": "https://en.wikipedia.org/wiki/List_of_Fortune_500_computer_software_and_information_companies",
       "probed": 23,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -44630,7 +46807,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -44639,6 +46816,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/dxc-technology",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "DXC Technology",
+            "url": "https://cloudsecurityalliance.org/star/registry/dxc-technology",
+            "listed_since": "2017-10-06"
+          }
+        ]
       },
       "list_rank": 285
     },
@@ -45046,8 +47234,16 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -45078,7 +47274,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -45087,6 +47283,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/egain-corporation",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "eGain Corporation",
+            "url": "https://cloudsecurityalliance.org/star/registry/egain-corporation",
+            "listed_since": "2017-08-11"
+          }
+        ]
       },
       "list_rank": 396
     },
@@ -45886,8 +48093,16 @@
       "source": "https://en.wikipedia.org/wiki/List_of_the_largest_software_companies",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -45918,7 +48133,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -45927,6 +48142,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/epam",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "EPAM",
+            "url": "https://cloudsecurityalliance.org/star/registry/epam",
+            "listed_since": "2021-03-19"
+          }
+        ]
       },
       "list_rank": 198
     },
@@ -46054,8 +48280,16 @@
       "source": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -46086,7 +48320,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -46095,6 +48329,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/equinix",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Equinix",
+            "url": "https://cloudsecurityalliance.org/star/registry/equinix",
+            "listed_since": "2020-10-14"
+          }
+        ]
       },
       "list_rank": 291
     },
@@ -47006,8 +49251,16 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -47038,7 +49291,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -47075,6 +49328,17 @@
           }
         ]
       },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/f5-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "F5, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/f5-inc",
+            "listed_since": "2025-02-24"
+          }
+        ]
+      },
       "list_rank": 245
     },
     {
@@ -47089,8 +49353,16 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -47121,7 +49393,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -47130,6 +49402,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/fabasoft-ag",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Fabasoft AG",
+            "url": "https://cloudsecurityalliance.org/star/registry/fabasoft-ag",
+            "listed_since": "2024-02-26"
+          }
+        ]
       },
       "list_rank": 417
     },
@@ -47985,8 +50268,16 @@
       "source": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "probed": 23,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -48017,7 +50308,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -48026,6 +50317,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/flex-corp",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "flex Corp.",
+            "url": "https://cloudsecurityalliance.org/star/registry/flex-corp",
+            "listed_since": "2022-01-10"
+          }
+        ]
       },
       "list_rank": 742
     },
@@ -50393,8 +52695,16 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 23,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -50425,7 +52735,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -50434,6 +52744,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/hewlett-packard-enterprise",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Hewlett-Packard Enterprise",
+            "url": "https://cloudsecurityalliance.org/star/registry/hewlett-packard-enterprise",
+            "listed_since": "2013-10-24"
+          }
+        ]
       },
       "list_rank": 262
     },
@@ -50617,8 +52938,16 @@
       "source": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -50649,7 +52978,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -50658,6 +52987,27 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/huawei-services-hong-kong-co-limited",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Huawei Services (Hong Kong) Co., Limited",
+            "url": "https://cloudsecurityalliance.org/star/registry/huawei-services-hong-kong-co-limited",
+            "listed_since": "2020-03-29"
+          },
+          {
+            "offering": "Huawei Software Technologies",
+            "url": "https://cloudsecurityalliance.org/star/registry/huawei-software-technologies",
+            "listed_since": "2015-06-15"
+          },
+          {
+            "offering": "Huawei Technologies Co., Ltd.",
+            "url": "https://cloudsecurityalliance.org/star/registry/huawei-technologies-co-ltd",
+            "listed_since": "2021-12-12"
+          }
+        ]
       },
       "list_rank": 330
     },
@@ -50785,8 +53135,16 @@
       "source": "https://en.wikipedia.org/wiki/Informatica",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -50817,7 +53175,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -50851,6 +53209,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2029331613"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/informatica",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Informatica",
+            "url": "https://cloudsecurityalliance.org/star/registry/informatica",
+            "listed_since": "2021-06-03"
           }
         ]
       },
@@ -51596,8 +53965,16 @@
       "source": "https://cloudindex.bvp.com/companies",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -51628,7 +54005,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -51637,6 +54014,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/jfrog",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "JFrog",
+            "url": "https://cloudsecurityalliance.org/star/registry/jfrog",
+            "listed_since": "2024-06-02"
+          }
+        ]
       },
       "list_rank": 282
     },
@@ -51820,8 +54208,16 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -51852,7 +54248,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -51861,6 +54257,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/kaltura",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Kaltura",
+            "url": "https://cloudsecurityalliance.org/star/registry/kaltura",
+            "listed_since": "2021-06-04"
+          }
+        ]
       },
       "list_rank": 410
     },
@@ -52044,8 +54451,16 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -52076,7 +54491,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -52085,6 +54500,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/kingsoft-cloud-network-technology-co-ltd",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Kingsoft Cloud Network Technology Co., Ltd.",
+            "url": "https://cloudsecurityalliance.org/star/registry/kingsoft-cloud-network-technology-co-ltd",
+            "listed_since": "2026-08-20"
+          }
+        ]
       },
       "list_rank": 415
     },
@@ -52604,8 +55030,16 @@
       "source": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -52636,7 +55070,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -52645,6 +55079,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/lenovo",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Lenovo",
+            "url": "https://cloudsecurityalliance.org/star/registry/lenovo",
+            "listed_since": "2022-05-01"
+          }
+        ]
       },
       "list_rank": 724
     },
@@ -52940,8 +55385,16 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -52972,7 +55425,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -52981,6 +55434,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/livechat-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "LiveChat, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/livechat-inc",
+            "listed_since": "2019-03-27"
+          }
+        ]
       },
       "list_rank": 416
     },
@@ -55012,8 +57476,16 @@
       "source": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
       "probed": 18,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -55044,7 +57516,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -55053,6 +57525,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/naver-business-platform-corp",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "NAVER Cloud Corp.",
+            "url": "https://cloudsecurityalliance.org/star/registry/naver-business-platform-corp",
+            "listed_since": "2017-02-09"
+          }
+        ]
       },
       "list_rank": 353
     },
@@ -55180,8 +57663,16 @@
       "source": "https://companiesmarketcap.com/tech/largest-tech-companies-by-market-cap/",
       "probed": 18,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -55212,7 +57703,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -55221,6 +57712,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/netease-hangzhou-network-co-ltd",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "NetEase (Hangzhou) Network Co., Ltd.",
+            "url": "https://cloudsecurityalliance.org/star/registry/netease-hangzhou-network-co-ltd",
+            "listed_since": "2023-10-30"
+          }
+        ]
       },
       "list_rank": 334
     },
@@ -55740,8 +58242,16 @@
       "source": "https://en.wikipedia.org/wiki/Nutanix",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -55772,7 +58282,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -55781,6 +58291,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/nutanix-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Nutanix, Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/nutanix-inc",
+            "listed_since": "2021-07-29"
+          }
+        ]
       },
       "list_rank": 209
     },
@@ -56132,8 +58653,16 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -56164,7 +58693,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -56173,6 +58702,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/onespan-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "OneSpan Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/onespan-inc",
+            "listed_since": "2023-02-20"
+          }
+        ]
       },
       "list_rank": 432
     },
@@ -56244,8 +58784,16 @@
       "source": "https://en.wikipedia.org/wiki/OpenText",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -56276,7 +58824,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -56330,6 +58878,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2215946050"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/opentext",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "OpenText",
+            "url": "https://cloudsecurityalliance.org/star/registry/opentext",
+            "listed_since": "2024-12-17"
           }
         ]
       },
@@ -57075,8 +59634,16 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 18,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -57107,7 +59674,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -57116,6 +59683,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/ping-identity",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Ping Identity",
+            "url": "https://cloudsecurityalliance.org/star/registry/ping-identity",
+            "listed_since": "2021-12-28"
+          }
+        ]
       },
       "list_rank": 257
     },
@@ -57187,8 +59765,16 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -57219,7 +59805,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -57228,6 +59814,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/planisware",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Planisware",
+            "url": "https://cloudsecurityalliance.org/star/registry/planisware",
+            "listed_since": "2024-05-29"
+          }
+        ]
       },
       "list_rank": 439
     },
@@ -58502,8 +61099,16 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 23,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -58534,7 +61139,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -58568,6 +61173,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2102652499"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/rsa-security-llc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "RSA Security LLC",
+            "url": "https://cloudsecurityalliance.org/star/registry/rsa-security-llc",
+            "listed_since": "2017-04-24"
           }
         ]
       },
@@ -58641,8 +61257,16 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -58673,7 +61297,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -58707,6 +61331,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2234256499"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/rubrik",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Rubrik",
+            "url": "https://cloudsecurityalliance.org/star/registry/rubrik",
+            "listed_since": "2024-11-20"
           }
         ]
       },
@@ -58948,8 +61583,16 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 23,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -58980,7 +61623,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -58989,6 +61632,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/schneider-electric-china-co-ltd",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Schneider Electric (China) Co., Ltd.",
+            "url": "https://cloudsecurityalliance.org/star/registry/schneider-electric-china-co-ltd",
+            "listed_since": "2018-08-01"
+          }
+        ]
       },
       "list_rank": 765
     },
@@ -59396,8 +62050,16 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -59428,7 +62090,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -59437,6 +62099,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/semrush-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Semrush Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/semrush-inc",
+            "listed_since": "2025-02-19"
+          }
+        ]
       },
       "list_rank": 441
     },
@@ -60236,8 +62909,16 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 18,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -60268,7 +62949,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -60277,6 +62958,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/sophia-genetics",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "SOPHiA GENETICS",
+            "url": "https://cloudsecurityalliance.org/star/registry/sophia-genetics",
+            "listed_since": "2020-02-07"
+          }
+        ]
       },
       "list_rank": 455
     },
@@ -60572,8 +63264,16 @@
       "source": "https://en.wikipedia.org/wiki/List_of_the_largest_software_companies",
       "probed": 23,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -60604,7 +63304,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -60613,6 +63313,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/ss-c-technologies-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "SS&C Technologies, Inc",
+            "url": "https://cloudsecurityalliance.org/star/registry/ss-c-technologies-inc",
+            "listed_since": "2024-04-08"
+          }
+        ]
       },
       "list_rank": 214
     },
@@ -60852,8 +63563,16 @@
       "source": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
       "probed": 23,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -60884,7 +63603,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -60893,6 +63612,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/suning-com-group-co-ltd",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Suning.com Group Co., Ltd",
+            "url": "https://cloudsecurityalliance.org/star/registry/suning-com-group-co-ltd",
+            "listed_since": "2019-03-13"
+          }
+        ]
       },
       "list_rank": 701
     },
@@ -61076,8 +63806,16 @@
       "source": "https://en.wikipedia.org/wiki/List_of_the_largest_software_companies",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -61108,7 +63846,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -61117,6 +63855,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/synopsys-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Synopsys Inc.",
+            "url": "https://cloudsecurityalliance.org/star/registry/synopsys-inc",
+            "listed_since": "2021-07-29"
+          }
+        ]
       },
       "list_rank": 185
     },
@@ -61412,8 +64161,16 @@
       "source": "https://en.wikipedia.org/wiki/List_of_Indian_IT_companies",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -61444,7 +64201,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -61453,6 +64210,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/tata-consultancy-services-ltd",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Tata Consultancy Services Ltd",
+            "url": "https://cloudsecurityalliance.org/star/registry/tata-consultancy-services-ltd",
+            "listed_since": "2020-07-31"
+          }
+        ]
       },
       "list_rank": 364
     },
@@ -61468,8 +64236,16 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 18,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -61500,7 +64276,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -61509,6 +64285,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/tata-elxsi",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Tata Elxsi",
+            "url": "https://cloudsecurityalliance.org/star/registry/tata-elxsi",
+            "listed_since": "2024-09-18"
+          }
+        ]
       },
       "list_rank": 458
     },
@@ -62028,8 +64815,16 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 18,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -62060,7 +64855,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -62069,6 +64864,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/thales-dis-cpl-canada-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Thales",
+            "url": "https://cloudsecurityalliance.org/star/registry/thales-dis-cpl-canada-inc",
+            "listed_since": "2020-08-06"
+          }
+        ]
       },
       "list_rank": 255
     },
@@ -62851,8 +65657,16 @@
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
       "probed": 18,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -62883,7 +65697,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -62927,6 +65741,17 @@
             "phase": null,
             "authorizations": null,
             "url": "https://www.fedramp.gov/marketplace/products/FR2226228379"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/trend-micro-incorporated",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Trend Micro Incorporated",
+            "url": "https://cloudsecurityalliance.org/star/registry/trend-micro-incorporated",
+            "listed_since": "2021-12-26"
           }
         ]
       },
@@ -65455,8 +68280,16 @@
       "source": "https://cloudindex.bvp.com/companies",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -65487,7 +68320,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -65496,6 +68329,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/workiva",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Workiva",
+            "url": "https://cloudsecurityalliance.org/star/registry/workiva",
+            "listed_since": "2024-07-01"
+          }
+        ]
       },
       "list_rank": 271
     },
@@ -65791,8 +68635,16 @@
       "source": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -65823,7 +68675,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -65832,6 +68684,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/yandex-cloud",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Yandex.Cloud",
+            "url": "https://cloudsecurityalliance.org/star/registry/yandex-cloud",
+            "listed_since": "2021-08-29"
+          }
+        ]
       },
       "list_rank": 361
     },
@@ -65847,8 +68710,16 @@
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
       "probed": 13,
       "probed_at": "2026-08-20T18:59:21Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "CSA STAR"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -65879,7 +68750,7 @@
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -65888,6 +68759,17 @@
         "vendor": null,
         "title": "",
         "http_status": null
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/yonyou-network-co-ltd",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "YONYOU NETWORK CO., LTD.",
+            "url": "https://cloudsecurityalliance.org/star/registry/yonyou-network-co-ltd",
+            "listed_since": "2021-06-20"
+          }
+        ]
       },
       "list_rank": 478
     },
@@ -66289,7 +69171,7 @@
   "coverage": {
     "companies": 903,
     "years": 146,
-    "certs_companies": 187,
+    "certs_companies": 264,
     "edges": 386,
     "top_processors": [
       {
