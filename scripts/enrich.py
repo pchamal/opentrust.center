@@ -353,14 +353,46 @@ DPA_PATH_RE = re.compile(
     re.I,
 )
 PRIVACY_STRONG_PATH_RE = re.compile(
-    r"privacy[-_ ]?(?:policy|notice|statement)(?:\b|/|\.html|\.htm|\.pdf|$)",
+    r"privacy[-_ ]?(?:policy|notice|statement|disclosures?)(?![-_]generator)",
     re.I,
 )
 PRIVACY_EXACT_PATH_RE = re.compile(
     r"(?:^|/)(?:legal|policies|policy|company|about|docs|help)?"
-    r"(?:/en(?:-[a-z]{2})?)?/privacy(?:/|\.html|\.htm|\.pdf|$)",
+    r"(?:/en(?:-[a-z]{2})?)?/privacy(?:\.(?:html|htm|pdf)|/?)$",
     re.I,
 )
+PRIVACY_REJECT_PATH_RE = re.compile(
+    r"(?:cookie-?notice|cookie-?settings|cookie-?preferences|"
+    r"privacy-policy-generator|"
+    r"terms-of-sale|"
+    r"careers-privacy|/careers/|"
+    r"privacy-notice-us-employees|[-_/]employees(?:[-_/]|$)|"
+    r"workforce-privacy|candidate-privacy|candidates?-privacy|"
+    r"impersonation|fraud-alert|"
+    r"international-data-transfer|"
+    r"consumer-health-data|/chd[-_/]|[-_/]chd(?:[-_/]|$)|"
+    r"ccpa-privacy-notice|"
+    r"california-privacy-notice|"
+    r"session_sync|"
+    r"/contact/?$)",
+    re.I,
+)
+PRIVACY_DOC_LEAF_RE = re.compile(
+    r"^(?:(?:global|online|website|group|external)[-_])?"
+    r"(?:privacy(?:[-_](?:policy|notice|statement|practices))?|"
+    r"privacypolicy|privacynotice|privacystatement|confidential)"
+    r"(?:[-_](?:en|us|uk|english|global|riders-order-recipients|english))?$",
+    re.I,
+)
+LOCALE_LEAF_RE = re.compile(
+    r"^(?:en|us|uk|de|fr|es|it|nl|jp|ja|zh|pt|english|"
+    r"en-[a-z]{2}|[a-z]{2}-[a-z]{2})$",
+    re.I,
+)
+DISALLOWED_PRIVACY_LEAVES = {
+    "contact", "cookies", "cookie-notice", "cookie-policy", "cookie-settings",
+    "generator", "terms-of-sale", "terms-of-use", "terms",
+}
 PRIVACY_TITLE_RE = re.compile(
     r"\bprivacy[- ](?:policy|notice|statement)\b",
     re.I,
@@ -1170,9 +1202,41 @@ def path_is_dpa(path: str) -> bool:
 
 def path_is_cookie_only(path: str) -> bool:
     p = path or ""
-    if PRIVACY_STRONG_PATH_RE.search(p):
+    leaf = _privacy_leaf(p)
+    if "cookie" in leaf and "privacy" not in leaf:
+        return True
+    if COOKIE_ONLY_PATH_RE.search(p) and not PRIVACY_DOC_LEAF_RE.search(leaf):
+        return True
+    return False
+
+
+def _privacy_leaf(path: str) -> str:
+    parts = [p for p in (path or "").lower().split("/") if p]
+    if not parts:
+        return ""
+    leaf = re.sub(r"\.(html?|pdf|aspx)$", "", parts[-1].split("?")[0])
+    if LOCALE_LEAF_RE.match(leaf) and len(parts) >= 2:
+        return re.sub(r"\.(html?|pdf|aspx)$", "", parts[-2].split("?")[0])
+    return leaf
+
+
+def path_is_privacy_document(path: str) -> bool:
+    leaf = _privacy_leaf(path)
+    if not leaf or leaf in DISALLOWED_PRIVACY_LEAVES:
         return False
-    return bool(COOKIE_ONLY_PATH_RE.search(p))
+    if "generator" in leaf or ("cookie" in leaf and "privacy" not in leaf):
+        return False
+    if leaf == "legal" and PRIVACY_CENTER_LEGAL_RE.search(path or ""):
+        return True
+    parts = [p for p in (path or "").lower().split("/") if p]
+    if leaf in {"policy", "notice", "statement"} and any(p == "privacy" for p in parts[:-1]):
+        return True
+    if PRIVACY_DOC_LEAF_RE.search(leaf) or PRIVACY_STRONG_PATH_RE.search(leaf):
+        return True
+    if any(PRIVACY_STRONG_PATH_RE.search(p) and "generator" not in p for p in parts):
+        if re.match(r"^(?:n-\w+|[-_]|id\w+)$", leaf):
+            return True
+    return False
 
 
 def path_is_news(path: str) -> bool:
@@ -1199,13 +1263,11 @@ def extract_privacy_candidates(html: str, base: str) -> list[str]:
             return
         if path_is_privacy_center_marketing(path):
             return
+        if PRIVACY_REJECT_PATH_RE.search(path) or PRIVACY_REJECT_PATH_RE.search(u):
+            return
         if NOT_PRIVACY_INSTRUMENT_RE.search(path) and not PRIVACY_STRONG_PATH_RE.search(path):
             return
-        if not (
-            PRIVACY_STRONG_PATH_RE.search(u)
-            or PRIVACY_EXACT_PATH_RE.search(path)
-            or re.search(r"/privacy(?:/|\.html|\.pdf|$)", path, re.I)
-        ):
+        if not path_is_privacy_document(path) and not PRIVACY_EXACT_PATH_RE.search(path):
             return
         seen.add(u)
         out.append(u)
@@ -1233,6 +1295,12 @@ def classify_as_privacy(url: str, rec: dict) -> bool:
         return False
     if is_cmp_vendor_host(final):
         return False
+    if host_of(final).startswith("app."):
+        return False
+    h = host_of(final)
+    privacy_host = h.startswith("privacy.") or h.startswith("privacypolicy.")
+    if PRIVACY_REJECT_PATH_RE.search(final) or PRIVACY_REJECT_PATH_RE.search(url):
+        return False
     path = path_of(final)
     blob = f"{title} {path} {text[:2000]}"
     if path_is_dpa(path) and not PRIVACY_STRONG_PATH_RE.search(path):
@@ -1248,9 +1316,15 @@ def classify_as_privacy(url: str, rec: dict) -> bool:
     if re.search(r"\b(?:cookie (?:policy|settings|preferences)|manage cookies)\b", title, re.I):
         if not PRIVACY_TITLE_RE.search(title):
             return False
+    if (
+        not path_is_privacy_document(path)
+        and not PRIVACY_EXACT_PATH_RE.search(path)
+        and not privacy_host
+    ):
+        return False
     pdf = is_pdf_rec(final, rec)
-    strong = bool(PRIVACY_STRONG_PATH_RE.search(path) or PRIVACY_STRONG_PATH_RE.search(final))
-    exact = bool(PRIVACY_EXACT_PATH_RE.search(path))
+    strong = bool(path_is_privacy_document(path) and PRIVACY_STRONG_PATH_RE.search(_privacy_leaf(path)))
+    exact = bool(PRIVACY_EXACT_PATH_RE.search(path) or _privacy_leaf(path) in {"privacy", "confidential"})
     title_hit = bool(PRIVACY_TITLE_RE.search(title))
     body_hit = bool(PRIVACY_BODY_RE.search(text[:8000]) or PRIVACY_TITLE_RE.search(text[:2500]))
     if pdf:
@@ -1259,12 +1333,14 @@ def classify_as_privacy(url: str, rec: dict) -> bool:
         return True
     if exact and (title_hit or body_hit):
         return True
-    if title_hit and body_hit and not path_is_cookie_only(path) and not path_is_dpa(path):
+    if title_hit and body_hit and (path_is_privacy_document(path) or privacy_host):
+        return True
+    if privacy_host and (title_hit or body_hit) and path in {"/", ""}:
         return True
     return False
 
 
-def privacy_probe_urls_for(company: dict, *, core_only: bool = False) -> list[str]:
+def privacy_probe_urls_for(company: dict, *, core_only: bool = False, legal_only: bool = False) -> list[str]:
     pairs, seen = [], set()
 
     def add(url: str) -> None:
@@ -1274,8 +1350,20 @@ def privacy_probe_urls_for(company: dict, *, core_only: bool = False) -> list[st
             seen.add(key)
             pairs.append(u)
 
-    paths = PRIVACY_WELL_KNOWN_PATHS[:4] if core_only else PRIVACY_WELL_KNOWN_PATHS
-    for domain in hosts_for(company)[:2]:
+    if legal_only:
+        paths = (
+            "/legal/privacy",
+            "/legal/privacy-policy",
+            "/legal/privacy-notice",
+            "/legal/privacy-statement",
+            "/policies/privacy",
+            "/policies/privacy-policy",
+        )
+    elif core_only:
+        paths = PRIVACY_WELL_KNOWN_PATHS[:4]
+    else:
+        paths = PRIVACY_WELL_KNOWN_PATHS
+    for domain in hosts_for(company)[:1]:
         for path in paths:
             add(f"https://{domain}{path}")
             if not domain.startswith("www."):
@@ -1298,6 +1386,35 @@ def apply_privacy_to_row(row: dict, url: str) -> bool:
     if not factors.get("privacy"):
         factors["privacy"] = 6
         score = min(100, int(disc.get("score") or 0) + 6)
+        if not row.get("found"):
+            tier = "silent"
+        elif score >= 90:
+            tier = "complete"
+        elif score >= 70:
+            tier = "substantial"
+        elif score >= 40:
+            tier = "on-file"
+        else:
+            tier = "thin"
+        disc["score"] = score
+        disc["tier"] = tier
+        disc["factors"] = factors
+        row["disclosure"] = disc
+    return True
+
+
+def unfile_privacy_from_row(row: dict) -> bool:
+    """Remove a privacy URL and the +6 factor. Leave other factors as they were."""
+    links = dict(row.get("links") or {})
+    if not links.get("privacy"):
+        return False
+    links.pop("privacy", None)
+    row["links"] = links
+    disc = dict(row.get("disclosure") or {})
+    factors = dict(disc.get("factors") or {})
+    if factors.get("privacy"):
+        factors.pop("privacy", None)
+        score = max(0, int(disc.get("score") or 0) - 6)
         if not row.get("found"):
             tier = "silent"
         elif score >= 90:
@@ -1819,7 +1936,7 @@ def file_published_privacy() -> int:
     fallback = []
     seen_fb = set(seen_verify)
     for c in still:
-        for url in privacy_probe_urls_for(c, core_only=False):
+        for url in privacy_probe_urls_for(c, legal_only=True):
             key = (c["slug"], url.lower())
             if key in seen_fb:
                 continue

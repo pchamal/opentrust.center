@@ -19,6 +19,9 @@ from enrich import (
     path_is_dpa,
     path_is_news,
     path_is_privacy_center_marketing,
+    path_is_privacy_document,
+    path_of,
+    unfile_privacy_from_row,
 )
 
 
@@ -175,6 +178,62 @@ class PrivacyClassifyTest(unittest.TestCase):
         self.assertNotIn("https://example.com/legal/terms", got)
         self.assertNotIn("https://example.com/cookies", got)
         self.assertNotIn("https://example.com/blog/privacy-policy", got)
+
+    def test_nested_cookie_notice_is_rejected(self):
+        url = "https://www.cdw.com/content/cdw/en/terms-conditions/privacy-notice/cookie-notice.html"
+        self.assertTrue(path_is_cookie_only(path_of(url)))
+        self.assertFalse(classify_as_privacy(url, rec(
+            url, title="Cookie Notice", text=POLICY,
+        )))
+
+    def test_generator_product_is_not_the_policy(self):
+        url = "https://www.livechat.com/privacy-policy-generator/"
+        self.assertFalse(path_is_privacy_document("/privacy-policy-generator/"))
+        self.assertFalse(classify_as_privacy(url, rec(
+            url, title="Privacy Policy Generator", text=POLICY,
+        )))
+
+    def test_careers_and_employee_notices_are_not_filed(self):
+        url = "https://www.boozallen.com/tools/footer-navigation/careers-privacy-policy.html"
+        self.assertFalse(classify_as_privacy(url, rec(
+            url, title="Careers Privacy Policy", text=POLICY,
+        )))
+
+    def test_app_host_is_not_filed(self):
+        url = "https://app.notion.com/space/privacy-policy?session_sync_attempted=1"
+        self.assertFalse(classify_as_privacy(url, rec(
+            url, title="Privacy Policy", text=POLICY,
+        )))
+
+    def test_privacy_statement_leaf_is_the_policy(self):
+        url = "https://www.extrahop.com/privacy/statement"
+        self.assertTrue(path_is_privacy_document("/privacy/statement"))
+        self.assertTrue(classify_as_privacy(url, rec(
+            url, title="Privacy Statement", text=POLICY,
+        )))
+
+    def test_privacy_subdirectory_must_be_the_policy(self):
+        url = "https://www.cintas.com/privacy/cintas-impersonation-fraud-alert/"
+        self.assertFalse(path_is_privacy_document("/privacy/cintas-impersonation-fraud-alert/"))
+        self.assertFalse(classify_as_privacy(url, rec(
+            url, title="Fraud alert", text=POLICY,
+        )))
+
+    def test_unfile_privacy_restores_score(self):
+        row = {
+            "found": True,
+            "links": {"dpa": "https://example.com/legal/dpa", "privacy": "https://example.com/bad"},
+            "disclosure": {
+                "score": 60,
+                "tier": "on-file",
+                "factors": {"page": 20, "marks": 10, "dpa": 8, "privacy": 6, "years": 16},
+            },
+        }
+        self.assertTrue(unfile_privacy_from_row(row))
+        self.assertNotIn("privacy", row["links"])
+        self.assertEqual(row["links"]["dpa"], "https://example.com/legal/dpa")
+        self.assertNotIn("privacy", row["disclosure"]["factors"])
+        self.assertEqual(row["disclosure"]["score"], 54)
 
     def test_apply_privacy_adds_six_and_leaves_other_factors(self):
         row = {
