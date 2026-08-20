@@ -689,6 +689,37 @@ a.official {
   padding: 8px 12px 8px 0;
   border-bottom: 1px solid var(--ot-rule);
 }
+.inst th[data-sort] { cursor: pointer; }
+.inst th button {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border-radius: 0;
+  min-height: 44px;
+}
+.inst th[data-sort] button::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  margin-left: 0.25em;
+  font: var(--t-meta);
+  color: var(--ot-graphite);
+}
+.inst th[data-sort][aria-sort="ascending"] button::after { content: "▴"; }
+.inst th[data-sort][aria-sort="descending"] button::after { content: "▾"; }
+.inst th[data-sort]:hover,
+.inst th[data-sort] button:hover { color: var(--ot-ledger-black); }
+.inst th.on { color: var(--ot-ledger-black); border-bottom-color: var(--ot-ledger-black); }
+.inst th.on button::after { color: var(--ot-ledger-black); }
+#book-sort {
+  margin: 0 0 8px;
+}
+#book-sort th { white-space: nowrap; }
 .inst td {
   font: var(--t-data);
   font-family: var(--ot-font-utility);

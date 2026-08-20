@@ -1,4 +1,5 @@
 import { $, escapeHtml, fillIssue, dataUrl } from "./lib.js";
+import { arrange, clickSort, cmpText, paintHeaders } from "./sort.js";
 
 const GEO_GROUPS = {
   americas: ["US", "CA", "BR"],
@@ -10,12 +11,23 @@ const GEO_GROUPS = {
 
 const TILT = (15 * Math.PI) / 180;
 
+const SORT_DEFAULTS = {
+  name: "asc",
+  kind: "asc",
+  geography: "asc",
+  issuer: "asc",
+  weight: "desc",
+  industry: "asc",
+};
+
 const state = {
   items: [],
   companies: [],
   geo: "all",
   industry: "all",
   kind: "all",
+  sort: "name",
+  dir: "asc",
   depth: new Map(),
   rot: 0,
   drag: null,
@@ -25,6 +37,23 @@ const state = {
   geom: null,
   land: [],
 };
+
+function markField(item, key) {
+  if (!item) return "";
+  if (key === "weight") return item.weight;
+  if (key === "geography") return (item.geography || []).join(" ");
+  if (key === "industry") return (item.industry || []).join(" ");
+  return item[key] || "";
+}
+
+export function compareMarks(a, b, key) {
+  if (key === "weight") return (Number(a && a.weight) || 0) - (Number(b && b.weight) || 0);
+  return cmpText(markField(a, key), markField(b, key));
+}
+
+export function arrangeMarks(rows, sort, dir) {
+  return arrange(rows, sort || "name", dir || "asc", compareMarks);
+}
 
 function geosOf(item) {
   return item.geography || [];
@@ -57,7 +86,8 @@ function citedBy(id) {
 }
 
 function renderBook() {
-  const rows = state.items.filter(matches).slice().sort((a, b) => String(a.name || "").localeCompare(String(b.name || ""), undefined, { sensitivity: "base" }));
+  const rows = arrangeMarks(state.items.filter(matches), state.sort, state.dir);
+  paintHeaders($("book-sort"), state.sort, state.dir);
   $("book-count").textContent = `showing ${rows.length} of ${state.items.length}`;
   $("book").innerHTML = rows
     .map((item) => {
@@ -425,6 +455,17 @@ function setGeo(geo) {
 }
 
 function bind() {
+  const heads = $("book-sort");
+  if (heads) {
+    heads.addEventListener("click", (e) => {
+      const th = e.target.closest("th[data-sort]");
+      if (!th) return;
+      const next = clickSort(state, th.getAttribute("data-sort"), SORT_DEFAULTS);
+      state.sort = next.sort;
+      state.dir = next.dir;
+      renderBook();
+    });
+  }
   $("book").addEventListener("click", (e) => {
     const btn = e.target.closest(".depth");
     if (!btn) return;
@@ -542,4 +583,6 @@ async function load() {
   }
 }
 
-load();
+if (typeof window !== "undefined") {
+  load();
+}

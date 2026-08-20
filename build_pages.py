@@ -649,6 +649,18 @@ def filed_cell(value: str | None) -> str:
     return f"<td>{text}</td>"
 
 
+def sort_th(key: str, label: str, default: str | None = None) -> str:
+    aria = "none"
+    if default == "asc":
+        aria = "ascending"
+    elif default == "desc":
+        aria = "descending"
+    return (
+        f'<th scope="col" data-sort="{escape(key)}" aria-sort="{aria}">'
+        f'<button type="button">{escape(label)}</button></th>'
+    )
+
+
 def keep_marketplace_product(item: dict) -> bool:
     """A marketplace listing with an offering is on file, authorized or not."""
     if not isinstance(item, dict):
@@ -761,8 +773,13 @@ def fedramp_block(row: dict, generated_at: str = "") -> str:
     lines = [
         '    <p class="sec-kicker">FedRAMP</p>',
         f"    {caption}",
-        '    <table class="inst filed">',
-        '      <thead><tr><th scope="col">Offering</th><th scope="col">Status</th><th scope="col">Impact level</th><th scope="col">Auth date</th></tr></thead>',
+        '    <table class="inst filed" data-table="fedramp">',
+        '      <thead><tr>'
+        + sort_th("offering", "Offering")
+        + sort_th("status", "Status")
+        + sort_th("impact", "Impact level")
+        + sort_th("date", "Auth date")
+        + "</tr></thead>",
         f"      <tbody>{body}</tbody>",
         "    </table>",
     ]
@@ -770,8 +787,13 @@ def fedramp_block(row: dict, generated_at: str = "") -> str:
 
 
 def processors_block(procs: list[dict], generated_at: str = "", list_url: str = "") -> str:
+    proc_head = (
+        '    <table class="inst filed" data-table="processors">\n'
+        f'      <thead><tr>{sort_th("processor", "Processor", "asc")}</tr></thead>\n'
+    )
     if procs:
-        proc_rows = "".join(f"<tr><td>{escape(p['name'])}</td></tr>" for p in procs)
+        named = sorted(procs, key=lambda p: str(p.get("name") or "").lower())
+        proc_rows = "".join(f"<tr><td>{escape(p['name'])}</td></tr>" for p in named)
         urls = []
         for p in procs:
             u = str(p.get("source_url") or "").strip()
@@ -786,8 +808,7 @@ def processors_block(procs: list[dict], generated_at: str = "", list_url: str = 
         return (
             '    <p class="sec-kicker">Named processors</p>\n'
             f"{cite}"
-            '    <table class="inst filed">\n'
-            '      <thead><tr><th scope="col">Processor</th></tr></thead>\n'
+            f"{proc_head}"
             f"      <tbody>{proc_rows}</tbody>\n"
             "    </table>"
         )
@@ -800,8 +821,7 @@ def processors_block(procs: list[dict], generated_at: str = "", list_url: str = 
         )
     return (
         '    <p class="sec-kicker">Named processors</p>\n'
-        '    <table class="inst filed">\n'
-        '      <thead><tr><th scope="col">Processor</th></tr></thead>\n'
+        f"{proc_head}"
         f"      <tbody><tr><td>{cell(None)}</td></tr></tbody>\n"
         "    </table>"
     )
@@ -1019,8 +1039,8 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     </section>
 
     <p class="sec-kicker">Instruments</p>
-    <table class="inst">
-      <thead><tr><th scope="col">Instrument</th><th scope="col">Host</th><th scope="col">Last seen</th></tr></thead>
+    <table class="inst" data-table="instruments">
+      <thead><tr>{sort_th("instrument", "Instrument")}{sort_th("host", "Host")}{sort_th("seen", "Last seen")}</tr></thead>
       <tbody>{"".join(inst_rows)}</tbody>
     </table>
 

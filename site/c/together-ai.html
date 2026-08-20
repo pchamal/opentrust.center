@@ -36,8 +36,8 @@
     </section>
 
     <p class="sec-kicker">Instruments</p>
-    <table class="inst">
-      <thead><tr><th scope="col">Instrument</th><th scope="col">Host</th><th scope="col">Last seen</th></tr></thead>
+    <table class="inst" data-table="instruments">
+      <thead><tr><th scope="col" data-sort="instrument" aria-sort="none"><button type="button">Instrument</button></th><th scope="col" data-sort="host" aria-sort="none"><button type="button">Host</button></th><th scope="col" data-sort="seen" aria-sort="none"><button type="button">Last seen</button></th></tr></thead>
       <tbody><tr><td>trust</td><td><a class="official" href="https://trust.together.ai" rel="noopener noreferrer">trust.together.ai</a></td><td>20 Aug 2026</td></tr><tr><td>security</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>privacy</td><td><a class="official" href="https://www.together.ai/privacy" rel="noopener noreferrer">together.ai</a></td><td>20 Aug 2026</td></tr><tr><td>DPA</td><td><a class="official" href="https://trust.together.ai/resources (Data Processing Addendum — access request required)" rel="noopener noreferrer">trust.together.ai</a></td><td>20 Aug 2026</td></tr><tr><td>subprocessors</td><td><a class="official" href="https://trust.together.ai/subprocessors" rel="noopener noreferrer">trust.together.ai</a></td><td>20 Aug 2026</td></tr><tr><td>status</td><td><a class="official" href="https://status.together.ai" rel="noopener noreferrer">status.together.ai</a></td><td>20 Aug 2026</td></tr><tr><td>bounty / security.txt</td><td><a class="official" href="https://hackerone.com/together_ai" rel="noopener noreferrer">hackerone.com</a></td><td>20 Aug 2026</td></tr></tbody>
     </table>
 
@@ -56,17 +56,17 @@
 
     <p class="sec-kicker">FedRAMP</p>
     <p class="src-line">Filed from the <a href="https://www.fedramp.gov/marketplace/products/">FedRAMP Marketplace</a>.</p>
-    <table class="inst filed">
-      <thead><tr><th scope="col">Offering</th><th scope="col">Status</th><th scope="col">Impact level</th><th scope="col">Auth date</th></tr></thead>
+    <table class="inst filed" data-table="fedramp">
+      <thead><tr><th scope="col" data-sort="offering" aria-sort="none"><button type="button">Offering</button></th><th scope="col" data-sort="status" aria-sort="none"><button type="button">Status</button></th><th scope="col" data-sort="impact" aria-sort="none"><button type="button">Impact level</button></th><th scope="col" data-sort="date" aria-sort="none"><button type="button">Auth date</button></th></tr></thead>
       <tbody><tr><td colspan="4"><span class="absent">not on file</span></td></tr></tbody>
     </table>
 
 
     <p class="sec-kicker">Named processors</p>
     <p class="src-line">Filed from <a class="official" href="https://trust.together.ai/subprocessors" rel="noopener noreferrer">trust.together.ai/subprocessors</a>.</p>
-    <table class="inst filed">
-      <thead><tr><th scope="col">Processor</th></tr></thead>
-      <tbody><tr><td>Amazon Web Services</td></tr><tr><td>Google</td></tr><tr><td>Okta</td></tr><tr><td>Stripe</td></tr><tr><td>5C AI Group Inc</td></tr><tr><td>Applied Digital</td></tr><tr><td>Clusterpower</td></tr><tr><td>Crusoe Cloud</td></tr><tr><td>Hypertec</td></tr><tr><td>Iren</td></tr><tr><td>Massed Compute</td></tr><tr><td>Northern Data Group</td></tr><tr><td>Oracle Cloud</td></tr><tr><td>Ori Industries</td></tr><tr><td>Voltage Park</td></tr><tr><td>Vultr</td></tr><tr><td>Pylon</td></tr><tr><td>Salesforce</td></tr><tr><td>Slack</td></tr><tr><td>Zoom</td></tr><tr><td>Amplitude</td></tr><tr><td>Anthropic</td></tr><tr><td>Calendly</td></tr><tr><td>Cloudflare</td></tr><tr><td>DocuSign</td></tr><tr><td>Dropbox</td></tr><tr><td>Gong</td></tr><tr><td>MongoDB</td></tr><tr><td>OpenAI</td></tr><tr><td>Openrouter</td></tr><tr><td>Perplexity AI</td></tr><tr><td>Snowflake</td></tr><tr><td>Twilio</td></tr></tbody>
+    <table class="inst filed" data-table="processors">
+      <thead><tr><th scope="col" data-sort="processor" aria-sort="ascending"><button type="button">Processor</button></th></tr></thead>
+      <tbody><tr><td>5C AI Group Inc</td></tr><tr><td>Amazon Web Services</td></tr><tr><td>Amplitude</td></tr><tr><td>Anthropic</td></tr><tr><td>Applied Digital</td></tr><tr><td>Calendly</td></tr><tr><td>Cloudflare</td></tr><tr><td>Clusterpower</td></tr><tr><td>Crusoe Cloud</td></tr><tr><td>DocuSign</td></tr><tr><td>Dropbox</td></tr><tr><td>Gong</td></tr><tr><td>Google</td></tr><tr><td>Hypertec</td></tr><tr><td>Iren</td></tr><tr><td>Massed Compute</td></tr><tr><td>MongoDB</td></tr><tr><td>Northern Data Group</td></tr><tr><td>Okta</td></tr><tr><td>OpenAI</td></tr><tr><td>Openrouter</td></tr><tr><td>Oracle Cloud</td></tr><tr><td>Ori Industries</td></tr><tr><td>Perplexity AI</td></tr><tr><td>Pylon</td></tr><tr><td>Salesforce</td></tr><tr><td>Slack</td></tr><tr><td>Snowflake</td></tr><tr><td>Stripe</td></tr><tr><td>Twilio</td></tr><tr><td>Voltage Park</td></tr><tr><td>Vultr</td></tr><tr><td>Zoom</td></tr></tbody>
     </table>
 
     <p class="clerk">Public trust center. On file: SOC 2 Type II, ISO 27001.</p>

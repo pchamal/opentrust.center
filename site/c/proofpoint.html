@@ -36,8 +36,8 @@
     </section>
 
     <p class="sec-kicker">Instruments</p>
-    <table class="inst">
-      <thead><tr><th scope="col">Instrument</th><th scope="col">Host</th><th scope="col">Last seen</th></tr></thead>
+    <table class="inst" data-table="instruments">
+      <thead><tr><th scope="col" data-sort="instrument" aria-sort="none"><button type="button">Instrument</button></th><th scope="col" data-sort="host" aria-sort="none"><button type="button">Host</button></th><th scope="col" data-sort="seen" aria-sort="none"><button type="button">Last seen</button></th></tr></thead>
       <tbody><tr><td>trust</td><td><a class="official" href="https://www.proofpoint.com/us/legal/trust" rel="noopener noreferrer">proofpoint.com</a></td><td>20 Aug 2026</td></tr><tr><td>security</td><td><a class="official" href="https://www.proofpoint.com/us/security" rel="noopener noreferrer">proofpoint.com</a></td><td>20 Aug 2026</td></tr><tr><td>privacy</td><td><a class="official" href="https://www.proofpoint.com/us/legal/privacy-policy" rel="noopener noreferrer">proofpoint.com</a></td><td>20 Aug 2026</td></tr><tr><td>DPA</td><td><a class="official" href="https://www.proofpoint.com/us/legal/trust/dpa" rel="noopener noreferrer">proofpoint.com</a></td><td>20 Aug 2026</td></tr><tr><td>subprocessors</td><td><a class="official" href="https://www.proofpoint.com/us/legal/trust/subprocessors" rel="noopener noreferrer">proofpoint.com</a></td><td>20 Aug 2026</td></tr><tr><td>status</td><td><span class="absent">not on file</span></td><td>—</td></tr><tr><td>bounty / security.txt</td><td><a class="official" href="https://www.proofpoint.com/us/security/vulnerability-disclosure-policy" rel="noopener noreferrer">proofpoint.com</a></td><td>20 Aug 2026</td></tr></tbody>
     </table>
 
@@ -56,17 +56,17 @@
 
     <p class="sec-kicker">FedRAMP</p>
     <p class="src-line">Filed from the <a href="https://www.fedramp.gov/marketplace/products/">FedRAMP Marketplace</a>.</p>
-    <table class="inst filed">
-      <thead><tr><th scope="col">Offering</th><th scope="col">Status</th><th scope="col">Impact level</th><th scope="col">Auth date</th></tr></thead>
+    <table class="inst filed" data-table="fedramp">
+      <thead><tr><th scope="col" data-sort="offering" aria-sort="none"><button type="button">Offering</button></th><th scope="col" data-sort="status" aria-sort="none"><button type="button">Status</button></th><th scope="col" data-sort="impact" aria-sort="none"><button type="button">Impact level</button></th><th scope="col" data-sort="date" aria-sort="none"><button type="button">Auth date</button></th></tr></thead>
       <tbody><tr><td><a href="https://www.fedramp.gov/marketplace/products/F1304222071">Proofpoint Email Archive</a></td><td>authorized</td><td>Moderate</td><td>23 Nov 2016</td></tr><tr><td><a href="https://www.fedramp.gov/marketplace/products/FR1819168894">Proofpoint Targeted Attack Protection</a></td><td>authorized</td><td>Moderate</td><td>15 Jan 2020</td></tr><tr><td><a href="https://www.fedramp.gov/marketplace/products/FR1720461312">Proofpoint Email and Information Protection Service</a></td><td>authorized</td><td>Moderate</td><td>15 Jan 2020</td></tr></tbody>
     </table>
 
 
     <p class="sec-kicker">Named processors</p>
     <p class="src-line">Filed from <a class="official" href="https://www.proofpoint.com/us/legal/trust/subprocessors" rel="noopener noreferrer">proofpoint.com/us/legal/trust/subprocessors</a>.</p>
-    <table class="inst filed">
-      <thead><tr><th scope="col">Processor</th></tr></thead>
-      <tbody><tr><td>Amazon Web Services</td></tr><tr><td>Google Cloud</td></tr><tr><td>Microsoft Azure</td></tr><tr><td>SendGrid</td></tr><tr><td>Snowflake</td></tr><tr><td>Auth0</td></tr><tr><td>Splunk</td></tr><tr><td>Pendo</td></tr></tbody>
+    <table class="inst filed" data-table="processors">
+      <thead><tr><th scope="col" data-sort="processor" aria-sort="ascending"><button type="button">Processor</button></th></tr></thead>
+      <tbody><tr><td>Amazon Web Services</td></tr><tr><td>Auth0</td></tr><tr><td>Google Cloud</td></tr><tr><td>Microsoft Azure</td></tr><tr><td>Pendo</td></tr><tr><td>SendGrid</td></tr><tr><td>Snowflake</td></tr><tr><td>Splunk</td></tr></tbody>
     </table>
 
     <p class="clerk">Public trust center. On file: FedRAMP.</p>

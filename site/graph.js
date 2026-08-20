@@ -1,4 +1,13 @@
 import { $, escapeHtml, fillIssue, displayTier, dataUrl } from "./lib.js";
+import { arrange, clickSort, cmpText, paintHeaders, TIER_ORDER } from "./sort.js";
+
+const SORT_DEFAULTS = {
+  name: "asc",
+  exposure: "desc",
+  file: "asc",
+  risk: "desc",
+  source: "asc",
+};
 
 const state = {
   data: null,
@@ -6,6 +15,9 @@ const state = {
   companies: new Map(),
   processors: [],
   focus: 0,
+  focusKey: "",
+  sort: "name",
+  dir: "asc",
 };
 
 function thinness(row) {
@@ -96,7 +108,7 @@ function normalizeEdges(wires, companies) {
     });
 }
 
-function rankProcessors(edges, companies) {
+export function rankProcessors(edges, companies) {
   const by = new Map();
   for (const e of edges) {
     const key = e.processor_id || e.processor_slug || e.processor;
@@ -130,8 +142,55 @@ function rankProcessors(edges, companies) {
       namers: rec.namers,
     });
   }
-  rows.sort((a, b) => b.risk - a.risk || b.exposure - a.exposure || a.name.localeCompare(b.name));
   return rows;
+}
+
+export function processorKey(p) {
+  return (p && (p.slug || p.name)) || "";
+}
+
+export function sourceHost(p) {
+  const url = p && p.sources && p.sources[0];
+  return url ? hostOfSafe(url) : "";
+}
+
+function fileRank(p) {
+  if (!p || !p.inRegister) return -1;
+  const n = TIER_ORDER[p.tier];
+  return n == null ? -1 : n;
+}
+
+export function compareProcessors(a, b, key) {
+  switch (key) {
+    case "name":
+      return cmpText(a && a.name, b && b.name);
+    case "exposure":
+      return ((a && a.exposure) || 0) - ((b && b.exposure) || 0);
+    case "file":
+      return fileRank(a) - fileRank(b);
+    case "risk":
+      return ((a && a.risk) || 0) - ((b && b.risk) || 0) || ((a && a.exposure) || 0) - ((b && b.exposure) || 0);
+    case "source":
+      return cmpText(sourceHost(a), sourceHost(b));
+    default:
+      return cmpText(a && a.name, b && b.name);
+  }
+}
+
+export function arrangeProcessors(rows, sort, dir) {
+  return arrange(rows, sort || "name", dir || "asc", compareProcessors);
+}
+
+function syncFocus() {
+  if (!state.processors.length) {
+    state.focus = 0;
+    return;
+  }
+  const i = state.focusKey
+    ? state.processors.findIndex((p) => processorKey(p) === state.focusKey)
+    : -1;
+  state.focus = i >= 0 ? i : 0;
+  state.focusKey = processorKey(state.processors[state.focus]);
 }
 
 function renderTable() {
@@ -139,10 +198,13 @@ function renderTable() {
   if (!state.processors.length) {
     $("wire-table").hidden = true;
     $("empty-wires").hidden = false;
+    paintHeaders($("wire-table"), state.sort, state.dir);
     return;
   }
   $("wire-table").hidden = false;
   $("empty-wires").hidden = true;
+  syncFocus();
+  paintHeaders($("wire-table"), state.sort, state.dir);
   body.innerHTML = state.processors
     .map((p, i) => {
       const tier = p.inRegister ? displayTier(p.tier) : "not in register";
@@ -304,6 +366,20 @@ function tokenColor(name, fallback) {
 }
 
 function bind() {
+  const head = document.querySelector("#wire-table thead");
+  if (head) {
+    head.addEventListener("click", (e) => {
+      const th = e.target.closest("th[data-sort]");
+      if (!th) return;
+      const next = clickSort(state, th.getAttribute("data-sort"), SORT_DEFAULTS);
+      state.sort = next.sort;
+      state.dir = next.dir;
+      state.processors = arrangeProcessors(state.processors, state.sort, state.dir);
+      renderTable();
+      renderStub();
+      drawFig();
+    });
+  }
   $("wire-body").addEventListener("click", (e) => {
     const tr = e.target.closest("tr");
     if (!tr) return;
@@ -315,6 +391,7 @@ function bind() {
       return;
     }
     state.focus = i;
+    state.focusKey = processorKey(p);
     renderTable();
     renderStub();
     drawFig();
@@ -343,6 +420,7 @@ function bind() {
       return;
     }
     state.focus = hit;
+    state.focusKey = processorKey(p);
     renderTable();
     renderStub();
     drawFig();
@@ -368,7 +446,7 @@ async function load() {
     state.data = reg;
     (reg.companies || []).forEach((c) => state.companies.set(c.slug, c));
     state.edges = normalizeEdges(wires, state.companies);
-    state.processors = rankProcessors(state.edges, state.companies);
+    state.processors = arrangeProcessors(rankProcessors(state.edges, state.companies), state.sort, state.dir);
     fillIssue($("issue"), reg, `${state.edges.length} edges`);
   } catch {
     state.edges = [];
@@ -378,4 +456,6 @@ async function load() {
   drawFig();
 }
 
-load();
+if (typeof window !== "undefined") {
+  load();
+}
