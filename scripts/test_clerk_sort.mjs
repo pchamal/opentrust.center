@@ -9,7 +9,7 @@ import {
   parseClerkDate,
 } from "../site/sort.js";
 import { arrangeProcessors, compareProcessors } from "../site/graph.js";
-import { arrangeMarks, compareMarks } from "../site/gazette.js";
+import { arrangeMarks, citeCount, compareMarks, filterMarks, parseMarkQuery } from "../site/gazette.js";
 import { arrangeRows, clickSort as registerClick, normalizeSort } from "../site/register.js";
 
 const graphHtml = readFileSync(new URL("../site/graph.html", import.meta.url), "utf8");
@@ -87,15 +87,38 @@ const inst = [
 const byInst = arrange(inst, "name", "asc", (a, b) => cmpText(a.name, b.name));
 expect("instruments can arrange A–Z", byInst[0].name === "DPA" && byInst[1].name === "status");
 
-const marks = [
-  { name: "SOC 2 Type II", kind: "attestation", geography: ["US"], issuer: "AICPA", weight: 10, industry: ["cloud"] },
-  { name: "FedRAMP", kind: "authorization", geography: ["US"], issuer: "GSA", weight: 12, industry: ["public-sector"] },
-];
-expect("frameworks default A–Z", arrangeMarks(marks, "name", "asc")[0].name === "FedRAMP");
-expect("frameworks weight high first", arrangeMarks(marks, "weight", "desc")[0].name === "FedRAMP");
-expect("frameworks kind compare", compareMarks(marks[0], marks[1], "kind") < 0);
-expect("frameworks list has sort headers", /id="book-sort"/.test(attestHtml) && /data-sort="name"/.test(attestHtml) && /data-sort="kind"/.test(attestHtml));
+const gaz = JSON.parse(readFileSync(new URL("../site/data/attestations.json", import.meta.url), "utf8"));
+const marks = (gaz.attestations || []).map((item) => ({
+  ...item,
+  files: citeCount(data.companies, item),
+}));
+const byFiles = arrangeMarks(marks, "files", "desc");
+const byName = arrangeMarks(marks, "name", "asc");
+expect("frameworks landing is popularity", byFiles[0].files >= byFiles[1].files && byFiles[0].files > byFiles[byFiles.length - 1].files);
+expect("frameworks land SOC 2 first", /soc\s*2/i.test(byFiles[0].name));
+expect("frameworks land FedRAMP in the high-count head", byFiles.slice(0, 3).some((r) => /fedramp/i.test(r.name)));
+expect("frameworks popularity tie-breaks A–Z", byFiles.every((r, i) => {
+  if (i === 0) return true;
+  const prev = byFiles[i - 1];
+  if (prev.files !== r.files) return prev.files >= r.files;
+  return String(prev.name).localeCompare(String(r.name), undefined, { sensitivity: "base" }) <= 0;
+}));
+expect("frameworks Name click is A–Z", byName[0].name.localeCompare(byName[byName.length - 1].name, undefined, { sensitivity: "base" }) < 0 && byName[0].id !== byFiles[0].id);
+expect("frameworks Files click returns popularity", clickSort({ sort: "name", dir: "asc" }, "files", { files: "desc" }).sort === "files" && clickSort({ sort: "name", dir: "asc" }, "files", { files: "desc" }).dir === "desc");
+expect("frameworks Files compare", compareMarks(byFiles[0], byFiles[byFiles.length - 1], "files") > 0);
+const soc = filterMarks(marks, "soc");
+expect("frameworks soc tokens parse", parseMarkQuery("/ soc, 2").join(" ") === "soc 2");
+expect("frameworks typing soc filters", soc.length > 0 && soc.length < marks.length && soc.every((r) => markHayOk(r, "soc")));
+expect("frameworks empty query invents nothing", filterMarks(marks, "zzzz-not-a-filed-mark").length === 0);
+expect("frameworks finder is the quiet input", /id="finder"/.test(attestHtml) && /id="q"/.test(attestHtml) && /Find a mark/.test(attestHtml));
+expect("frameworks miss is italic not on file", /id="book-miss"/.test(attestHtml) && /not on file/.test(attestHtml));
+expect("frameworks list has Name and Files", /id="book-sort"/.test(attestHtml) && /data-sort="name"/.test(attestHtml) && /data-sort="files"/.test(attestHtml) && /aria-sort="descending"/.test(attestHtml));
 expect("frameworks globe stays a canvas", /<canvas id="fig2"/.test(attestHtml));
+expect("frameworks has no seal icons", !/framework-icon|mark-seal|badge-svg/.test(attestHtml) && !/framework-icon|mark-seal/.test(css));
+
+function markHayOk(item, token) {
+  return [item.name, item.short, item.id].filter(Boolean).join(" ").toLowerCase().includes(token);
+}
 
 const rows = data.companies;
 expect("register File sort still 0–5 internal order", arrangeRows(rows, "tier", "asc")[0].tier === "silent" && arrangeRows(rows, "tier", "desc")[0].tier === "complete");

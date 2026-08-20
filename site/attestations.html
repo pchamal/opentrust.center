@@ -30,6 +30,14 @@
     <h1 class="page-title">Marks a buyer will meet</h1>
     <p class="lede">By geography and industry. ELI-5, then the long form.</p>
 
+    <form class="finder" id="finder" role="search">
+      <label>
+        <span class="sr-only">Find a mark</span>
+        <input id="q" type="search" name="q" placeholder="/ soc, fedramp, iso 27001" autocomplete="off" spellcheck="false">
+      </label>
+      <button type="submit" class="finder-go">Find</button>
+    </form>
+
     <div class="gaz-grid">
       <div>
         <div class="facets" id="facets" aria-label="Mark facets">
@@ -59,15 +67,12 @@
         <table class="inst" id="book-sort">
           <thead>
             <tr>
-              <th scope="col" data-sort="name" aria-sort="ascending"><button type="button">Name</button></th>
-              <th scope="col" data-sort="kind" aria-sort="none"><button type="button">Kind</button></th>
-              <th scope="col" data-sort="geography" aria-sort="none"><button type="button">Geography</button></th>
-              <th scope="col" data-sort="issuer" aria-sort="none"><button type="button">Issuer</button></th>
-              <th scope="col" data-sort="weight" aria-sort="none"><button type="button">Weight</button></th>
-              <th scope="col" data-sort="industry" aria-sort="none"><button type="button">Industry</button></th>
+              <th scope="col" data-sort="name" aria-sort="none"><button type="button">Name</button></th>
+              <th scope="col" data-sort="files" aria-sort="descending"><button type="button">Files</button></th>
             </tr>
           </thead>
         </table>
+        <p class="absent" id="book-miss" hidden>not on file</p>
         <div id="book"></div>
       </div>
       <aside>

@@ -55,6 +55,8 @@ const HEADER_KEYS = {
   geography: "geography",
   issuer: "issuer",
   weight: "weight",
+  files: "files",
+  count: "files",
   industry: "industry",
   "#": "rank",
   domain: "domain",
