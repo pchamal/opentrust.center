@@ -11,8 +11,7 @@ function hay(row) {
   const fed = fr
     ? ["fedramp", fr.highest, ...(fr.levels || []), ...(fr.raw_levels || [])].filter(Boolean).join(" ")
     : "";
-  const tier = row.tier === "on-file" ? "on file" : row.tier || "silent";
-  return [row.name, row.domain, row.slug, row.tier, tier, marks, att, fed]
+  return [row.name, row.domain, row.slug, marks, att, fed]
     .filter(Boolean)
     .join(" ")
     .toLowerCase();
@@ -52,8 +51,8 @@ function expect(name, cond) {
 }
 
 const complete = apply("/ complete");
-expect("complete is a subset", complete.length > 0 && complete.length < rows.length);
-expect("complete rows only", complete.every((r) => r.tier === "complete"));
+expect("complete is ordinary text", complete.every((r) => hay(r).includes("complete")));
+expect("complete is not a tier token", parseFinder("/ complete").tier === "all");
 
 const cloud = apply("/ cloud 100");
 expect("cloud 100", cloud.length > 0 && cloud.every((r) => r.list === "cloud100"));
@@ -64,8 +63,8 @@ expect("fedramp moderate", fr.length > 0 && fr.every((r) => (r.fedramp?.levels |
 const stripe = apply("/ stripe");
 expect("stripe name", stripe.some((r) => r.slug === "stripe"));
 
-const mixed = apply("/ stripe, complete, fedramp moderate");
-expect("mixed is stripe-shaped", mixed.every((r) => r.tier === "complete" && r.fedramp));
+const mixed = apply("/ stripe, fedramp moderate");
+expect("mixed is stripe-shaped", mixed.every((r) => /stripe/i.test(r.name) && r.fedramp));
 
 const fromUrl = apply("", { fedramp: "high" });
 expect("?fedramp=high", fromUrl.length > 0 && fromUrl.every((r) => (r.fedramp?.levels || []).map((x) => String(x).toLowerCase()).includes("high")));
@@ -73,4 +72,4 @@ expect("?fedramp=high", fromUrl.length > 0 && fromUrl.every((r) => (r.fedramp?.l
 const hpe = apply("hewlett packard enterprise");
 expect("HPE is not an enterprise-list token", hpe.some((r) => /hewlett/i.test(r.name)));
 
-console.log("rows", rows.length, "complete", complete.length, "cloud100", cloud.length, "fedramp moderate", fr.length);
+console.log("rows", rows.length, "cloud100", cloud.length, "fedramp moderate", fr.length);

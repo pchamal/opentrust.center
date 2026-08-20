@@ -2,8 +2,15 @@
 
 export const GATE_KEY = "ot_human_v1";
 export const GATE_MS = 30 * 60 * 1000;
-export const DATA_V = "2026-08-20T17:37:17Z";
+export const DATA_V = "2026-08-20T20:56:39Z";
 export const FILE_KEYS = ["page", "marks", "dpa", "subprocessors", "years"];
+export const FILE_LABELS = {
+  page: "page",
+  marks: "marks",
+  dpa: "DPA",
+  subprocessors: "subprocessors",
+  years: "years",
+};
 
 export function dataUrl(path) {
   const v = DATA_V ? encodeURIComponent(DATA_V) : "";
@@ -11,38 +18,56 @@ export function dataUrl(path) {
   return path + (path.includes("?") ? "&" : "?") + "v=" + v;
 }
 
+function instrumentUrl(row, key) {
+  const rec = row && row.instruments && row.instruments[key];
+  return !!(rec && rec.url);
+}
+
+export function hasNamedMarks(row) {
+  const atts = ((row && row.attestations) || []).filter((a) => a && (a.name || a.short));
+  const certs = ((row && row.certs) || []).filter(Boolean);
+  if (atts.length || certs.length) return true;
+  return !!(row && row.fedramp);
+}
+
 export function fileFlags(row) {
-  if (row && row.file && typeof row.file === "object") {
-    return {
-      page: !!row.file.page,
-      marks: !!row.file.marks,
-      dpa: !!row.file.dpa,
-      subprocessors: !!row.file.subprocessors,
-      years: !!row.file.years,
-    };
-  }
-  const f = (row && row.disclosure && row.disclosure.factors) || (row && row.factors) || {};
+  const page = !!(
+    (row && row.found && (row.trust_url || row.final_url)) ||
+    instrumentUrl(row, "trust") ||
+    instrumentUrl(row, "security")
+  );
+  const procs = (row && row.processors) || [];
   return {
-    page: !!f.page,
-    marks: !!(f.marks || (row && row.certs && row.certs.length) || (row && row.attestations && row.attestations.length)),
-    dpa: !!f.dpa,
-    subprocessors: !!(f.processors || f.subprocessors),
-    years: !!(row && (row.founded_year || f.years)),
+    page,
+    marks: hasNamedMarks(row),
+    dpa: instrumentUrl(row, "dpa"),
+    subprocessors: procs.length > 0 || instrumentUrl(row, "subprocessors"),
+    years: !!(row && row.founded_year),
   };
+}
+
+export function fileCount(row) {
+  const flags = fileFlags(row);
+  return FILE_KEYS.reduce((n, key) => n + (flags[key] ? 1 : 0), 0);
 }
 
 export function fileCoverage(row) {
   const flags = fileFlags(row);
-  const n = FILE_KEYS.filter((k) => flags[k]).length;
-  const den = `${n} of 5`;
-  const legend = "page, marks, DPA, subprocessors, years";
-  const sentence = `public evidence located in ${den} checked categories`;
-  return { n, den, legend, sentence, title: `${sentence} (${legend})` };
+  const n = fileCount(row);
+  const legend = "page · marks · DPA · subprocessors · years";
+  const on = FILE_KEYS.filter((k) => flags[k]).map((k) => FILE_LABELS[k]);
+  const spoken = on.length ? on.join(" · ") : "not on file";
+  return { n, legend, spoken, title: spoken };
 }
 
-export function fileCoverageHtml(row) {
+export function fileIndexHtml(row) {
+  const flags = fileFlags(row);
   const c = fileCoverage(row);
-  return `<span class="file-cov" title="${escapeHtml(c.title)}">${escapeHtml(c.den)}</span>`;
+  const rules = FILE_KEYS.map((key) => {
+    const cls = flags[key] ? "file-rule on" : "file-rule";
+    return `<span class="${cls}" aria-hidden="true"></span>`;
+  }).join("");
+  return `<span class="file-index" role="img" aria-label="${escapeHtml(c.spoken)}">${rules}</span>`;
 }
 
 export function $(id) {
@@ -55,6 +80,17 @@ export function escapeHtml(s) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+export function inkIcon(src, prefix = "./") {
+  const file = String(src || "").replace(/^\/+/, "").replace(/^favicons\//, "");
+  if (!file || file.includes("..") || file.includes("/") || file.includes("\\")) return "";
+  const href = `${prefix}favicons/${file}`;
+  return `<img class="ink-ico" src="${escapeHtml(href)}" alt="" width="12" height="12" decoding="async" onerror="this.remove()">`;
+}
+
+export function nameWithIcon(name, src, prefix = "./") {
+  return `${inkIcon(src, prefix)}${escapeHtml(name)}`;
 }
 
 export function hostOf(url) {
