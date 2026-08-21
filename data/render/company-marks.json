@@ -1,94 +1,128 @@
 {
-  "generated_at": "2026-08-21T16:54:54Z",
-  "rule": "The 3 companies that gained a public trust URL in the 2026-08-21 16:54 expand. Marks fill only when a live first-party page names the instrument. Login walls, soft-404s, homepage bounces, PDFs, itemUids, and another company's trust center stay open. Substantial files were skipped.",
+  "generated_at": "2026-08-21T18:02:56Z",
+  "rule": "The 7 companies added in the 2026-08-21 18:02 CRN expand. Marks fill only when a live first-party page names a real cert (SOC / ISO / FedRAMP / PCI / CSA STAR / etc.). Regulation-only GDPR/CCPA lists, login walls, soft-404s, homepage bounces, PDFs, JS shells, and portal hosts stay open. Companies with no stored first-party trust / security / privacy URL stay open.",
   "batch": [
-    "medallia",
-    "mindbody-inc",
-    "mindfire-inc"
+    "dashlane",
+    "vulncheck",
+    "recorded-future",
+    "blackberry",
+    "reflectiz",
+    "secureworks",
+    "juniper-networks"
   ],
-  "marks_filed": [
+  "marks_filed": [],
+  "stayed_open": [
     {
-      "slug": "medallia",
-      "name": "Medallia",
-      "url": "https://trust.medallia.com",
-      "added": [
-        "SOC 2",
-        "ISO 27001",
-        "ISO 27017",
-        "ISO 27018",
-        "ISO 27701",
-        "ISO 42001",
-        "FedRAMP High",
-        "HITRUST",
-        "PCI DSS",
-        "HIPAA",
-        "CSA STAR",
-        "GDPR",
-        "CCPA"
-      ],
-      "certs": [
-        "SOC 2",
-        "ISO 27001",
-        "ISO 27017",
-        "ISO 27018",
-        "ISO 27701",
-        "ISO 42001",
-        "FedRAMP High",
-        "HITRUST",
-        "PCI DSS",
-        "HIPAA",
-        "CSA STAR",
-        "GDPR",
-        "CCPA"
-      ]
+      "slug": "dashlane",
+      "name": "Dashlane",
+      "rule": "marks",
+      "thin": false
     },
     {
-      "slug": "mindbody-inc",
-      "name": "Mindbody Inc.",
-      "url": "https://www.mindbodyonline.com/company/legal/security-policy",
-      "added": [
-        "HITRUST",
-        "PCI DSS",
-        "EU-US DPF",
-        "GDPR"
-      ],
-      "certs": [
-        "HITRUST",
-        "PCI DSS",
-        "EU-US DPF",
-        "GDPR"
-      ]
+      "slug": "vulncheck",
+      "name": "VulnCheck",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "recorded-future",
+      "name": "Recorded Future",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "blackberry",
+      "name": "BlackBerry",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "reflectiz",
+      "name": "Reflectiz",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "secureworks",
+      "name": "Secureworks",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "juniper-networks",
+      "name": "Juniper Networks",
+      "rule": "marks",
+      "thin": false
     }
   ],
-  "stayed_open": [],
   "rejected": [
     {
-      "slug": "medallia",
-      "url": "https://www.medallia.com/security/",
-      "final": "https://www.medallia.com/security/",
-      "reason": "http-403",
+      "slug": "dashlane",
+      "url": "https://trust.dashlane.com",
+      "final": "https://trust.dashlane.com",
+      "reason": "js-shell-no-named-marks",
+      "kind": "trust"
+    },
+    {
+      "slug": "dashlane",
+      "url": "https://www.dashlane.com/security",
+      "final": "https://www.dashlane.com/security",
+      "reason": "no-named-marks",
       "kind": "security"
     },
     {
-      "slug": "medallia",
-      "url": "https://www.medallia.com/wp-content/uploads/2025/05/Medallia-Subprocessor-List-2025.v.1.03.pdf",
-      "final": "https://www.medallia.com/wp-content/uploads/2025/05/Medallia-Subprocessor-List-2025.v.1.03.pdf",
-      "reason": "http-403",
+      "slug": "dashlane",
+      "url": "https://www.dashlane.com/privacy",
+      "final": "https://www.dashlane.com/privacy",
+      "reason": "regulation-only",
+      "kind": "privacy",
+      "seen": [
+        "GDPR",
+        "CCPA"
+      ]
+    },
+    {
+      "slug": "dashlane",
+      "url": "https://trust.dashlane.com/subprocessors",
+      "final": "https://trust.dashlane.com/subprocessors",
+      "reason": "js-shell-no-named-marks",
       "kind": "subprocessors"
     },
     {
-      "slug": "medallia",
-      "url": "https://www.medallia.com/legal/privacy-policy/",
-      "final": "https://www.medallia.com/legal/privacy-policy/",
-      "reason": "http-403",
-      "kind": "privacy"
+      "slug": "vulncheck",
+      "url": "",
+      "reason": "no-stored-first-party-url",
+      "kind": "marks"
     },
     {
-      "slug": "mindbody-inc",
-      "url": "https://security.mindbodyonline.com",
-      "final": "https://trust.playlist.com/",
-      "reason": "other-company-trust-center",
-      "kind": "trust"
+      "slug": "recorded-future",
+      "url": "",
+      "reason": "no-stored-first-party-url",
+      "kind": "marks"
+    },
+    {
+      "slug": "blackberry",
+      "url": "",
+      "reason": "no-stored-first-party-url",
+      "kind": "marks"
+    },
+    {
+      "slug": "reflectiz",
+      "url": "",
+      "reason": "no-stored-first-party-url",
+      "kind": "marks"
+    },
+    {
+      "slug": "secureworks",
+      "url": "",
+      "reason": "no-stored-first-party-url",
+      "kind": "marks"
+    },
+    {
+      "slug": "juniper-networks",
+      "url": "",
+      "reason": "no-stored-first-party-url",
+      "kind": "marks"
     }
   ]
 }
