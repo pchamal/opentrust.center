@@ -68,7 +68,9 @@ def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]
     rows = [by_pub[s] for s in wanted if s in by_pub] if wanted else public_rows
     picked = []
     for row in rows:
-        if not row.get("found"):
+        # Register walk stays on-file (trust portal found). Requested slugs
+        # may be silent: a first-party about page can still name a year.
+        if not wanted and not row.get("found"):
             continue
         slug = row.get("slug") or ""
         if slug in skip:
