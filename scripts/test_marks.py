@@ -71,6 +71,16 @@ PLAIN = """
 <img alt="FedRAMP Moderate" src="/badges/fedramp-moderate.svg">
 """
 
+ALIGNED = """
+<p>Our cloud security practices aligned to major industry security frameworks including NIST CSF and ISO 27001.</p>
+<h2>Compliance</h2>
+<ul>
+  <li>ISO/IEC 27001</li>
+  <li>Cyber Essentials</li>
+  <li>ISO 9001:2015</li>
+</ul>
+"""
+
 
 def main() -> int:
     eq(
@@ -95,6 +105,11 @@ def main() -> int:
         extract_certs_from_html(CMMC_GUIDE),
         ["SOC 2 Type II", "GDPR", "CCPA"],
         "cmmc resource is not a hold",
+    )
+    eq(
+        extract_certs_from_html(ALIGNED),
+        ["ISO 27001", "ISO 9001", "Cyber Essentials"],
+        "aligned-to is not a hold",
     )
     print("ok")
     return 0
