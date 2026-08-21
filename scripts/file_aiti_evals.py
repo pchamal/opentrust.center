@@ -80,20 +80,36 @@ EVAL_TRY = {
     "ibm": [
         "https://www.ibm.com/docs/en/watsonx/w-and-w/2.1.0?topic=models-granite-30-2b-instruct-model-card",
         "https://www.ibm.com/granite/docs/models/granite",
+        "https://www.ibm.com/docs/en/cloud-paks/cp-data/4.8.x?topic=models-granite-13b-chat-v2-model-card",
     ],
     "meta": [
         "https://llama.meta.com/docs/model-cards-and-prompt-formats/meta-LLaMA-3/",
         "https://ai.meta.com/static-resource/meta-llama-3-model-card",
         "https://ai.meta.com/research/publications/the-llama-3-herd-of-models/",
+        "https://www.llama.com/docs/model-cards-and-prompt-formats/llama4/",
     ],
     "google": [
         "https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models",
+        "https://deepmind.google/models/model-cards/",
+        "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Pro-Model-Card.pdf",
     ],
     "microsoft": [
         "https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/openai/transparency-note",
+        "https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/P4TechReport.pdf",
     ],
     "amazon": [
         "https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html",
+        "https://docs.aws.amazon.com/ai/responsible-ai/nova-micro-lite-pro/overview.html",
+    ],
+    "deepseek": [
+        "https://fe-static.deepseek.com/chat/transparency/deepseek-v3.2-model-card-0414-CN.pdf",
+    ],
+    "nvidia": [
+        "https://build.nvidia.com/nvidia/nemotron-3-ultra-550b-a55b/modelcard",
+        "https://developer.nvidia.com/topics/ai/nemotron",
+    ],
+    "apple": [
+        "https://machinelearning.apple.com/research/apple-foundation-models-tech-report-2025",
     ],
     "mistral-ai": [
         "https://docs.mistral.ai/models",
@@ -103,6 +119,14 @@ EVAL_TRY = {
     ],
     "allen-institute-for-ai": [
         "https://allenai.org/olmo",
+    ],
+    "salesforce": [
+        "https://compliance.salesforce.com/categories/salesforce-owned-model-cards",
+        "https://help.salesforce.com/s/articleView?id=mktg.mktg_einstein_model_card_eef.htm&language=en_US&type=5",
+        "https://developer.salesforce.com/docs/analytics/einstein-vision-language/guide/einstein-ocr-model-card.html",
+    ],
+    "gitlab": [
+        "https://about.gitlab.com/direction/ai-powered/ai_framework/ai_evaluation/foundation_models/",
     ],
 }
 

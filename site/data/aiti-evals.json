@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-21T00:50:00Z",
+  "generated_at": "2026-08-21T23:50:00Z",
   "seen": "2026-08-21",
   "rule": "Evals fills only from a stored first-party URL that is clearly a published evaluation of the company's AI system: a model card or system card with eval tables, an official eval report, or a first-party safety evals page. A generic research blog or marketing benchmarks page is not enough. No SafeBase, login walls, third-party leaderboards, or invented URLs. When unsure, leave open. Anthropic stays open unless a real stored first-party instrument already exists.",
-  "method": "Conservative bind to first-party instruments already stored on this register (system cards filed as AITI pages) after a fetch-check (HTTP 200, not soft-404, not homepage bounce, not login wall). Path guesses, product catalogs, responsible-use policies, and research landing pages were rejected.",
-  "count": 2,
+  "method": "Conservative fetch-check of stored AITI pages that look like system/model cards, plus first-party URLs actually found on the companies' own hosts. A page fills only when HTTP 200 and the document is a model/system card with eval tables, an official eval report, or a first-party safety-evals page. JS shells, prompt-format docs, RAI service cards, research tech-report landings, product catalogs, and model cards without eval tables stay open. Hypothesis that stored AITI pages would newly fill evals is mostly discarded: DeepSeek and Cohere stored model-card pages do not show eval tables to this crawler.",
+  "count": 3,
   "evals": {
     "openai": {
       "url": "https://cdn.openai.com/papers/gpt-4-system-card.pdf",
@@ -20,6 +20,15 @@
       "kind": "system-card",
       "via": "stored-first-party",
       "note": "Already stored as the AITI page instrument. First-party data.x.ai model/system card. Fetch 200 application/pdf."
+    },
+    "ibm": {
+      "url": "https://www.ibm.com/docs/en/cloud-paks/cp-data/4.8.x?topic=models-granite-13b-chat-v2-model-card",
+      "host": "ibm.com",
+      "title": "IBM granite-13b-chat-v2 model card",
+      "kind": "model-card",
+      "via": "fetch-checked-first-party",
+      "seen": "2026-08-21",
+      "note": "Official IBM Docs model card. Fetch 200. Body prints an MMLU (5-shot) / MT-Bench table (57 / 6.92). Earlier watsonx and Granite-family docs were intended-use or marketing pages without eval tables."
     }
   },
   "rejected": [
@@ -66,12 +75,62 @@
     {
       "slug": "ibm",
       "url": "https://www.ibm.com/docs/en/watsonx/w-and-w/2.1.0?topic=models-granite-30-2b-instruct-model-card",
-      "reason": "Titled model card, but fetched body is intended-use/docs without eval tables. When unsure, leave open."
+      "reason": "Titled model card, but fetched body is intended-use/docs without eval tables. Filed the Cloud Pak granite-13b-chat-v2 model card instead."
     },
     {
       "slug": "ibm",
       "url": "https://www.ibm.com/granite/docs/models/granite",
-      "reason": "Product docs for the Granite family with marketing benchmark mentions. Not an official eval report."
+      "reason": "Product docs for the Granite family with marketing benchmark mentions. Not an official eval report. Filed the granite-13b-chat-v2 model card instead."
+    },
+    {
+      "slug": "cohere",
+      "url": "https://docs.cohere.com/docs/responsible-use",
+      "reason": "Title is Command R/R+ Model Card, but this crawler fetch is a JS/docs shell without eval tables. Prior responsible-use rejection stands."
+    },
+    {
+      "slug": "deepseek",
+      "url": "https://fe-static.deepseek.com/chat/transparency/deepseek-v3.2-model-card-0414-CN.pdf",
+      "reason": "Stored first-party CDN model card is 200 application/pdf. Extracted body is architecture / intended-use / license tables, not eval tables. When unsure, leave evals open. Page bind stays."
+    },
+    {
+      "slug": "nvidia",
+      "url": "https://build.nvidia.com/nvidia/nemotron-3-ultra-550b-a55b/modelcard",
+      "reason": "HTTP 200 Next.js NIM shell. Title is a product model page, not a model card with eval tables in this crawler fetch."
+    },
+    {
+      "slug": "nvidia",
+      "url": "https://developer.nvidia.com/topics/ai/nemotron",
+      "reason": "Nemotron product catalog. Linked Cosmos system card lives on nvdam.widen.net, which is not first-party for nvidia.com."
+    },
+    {
+      "slug": "amazon",
+      "url": "https://docs.aws.amazon.com/ai/responsible-ai/nova-micro-lite-pro/overview.html",
+      "reason": "AWS AI Service Card. Intended-use / evaluation-methodology instrument, not a model card with eval result tables."
+    },
+    {
+      "slug": "google",
+      "url": "https://deepmind.google/models/model-cards/",
+      "reason": "Live DeepMind model-cards index, but deepmind.google is not first-party for google.com."
+    },
+    {
+      "slug": "google",
+      "url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Pro-Model-Card.pdf",
+      "reason": "Gemini 3 Pro model card PDF is 200, but storage.googleapis.com is not first-party for google.com."
+    },
+    {
+      "slug": "meta",
+      "url": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama4/",
+      "reason": "Redirects to developer.meta.com prompt-format docs. JS/JSON-LD shell; no eval tables in this crawler fetch. llama.com is also not first-party for meta.com."
+    },
+    {
+      "slug": "microsoft",
+      "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/P4TechReport.pdf",
+      "reason": "Phi-4 technical report PDF is 200. A research tech report is not a model/system card or official eval report. When unsure, leave open."
+    },
+    {
+      "slug": "apple",
+      "url": "https://machinelearning.apple.com/research/apple-foundation-models-tech-report-2025",
+      "reason": "First-party research tech-report landing page. Not a dedicated model/system card with eval tables. Prior page rejection stands."
     },
     {
       "slug": "meta",
@@ -122,6 +181,26 @@
       "slug": "hugging-face",
       "url": "https://huggingface.co/docs/hub/model-cards",
       "reason": "Hub product docs for writing model cards, not Hugging Face's own eval instrument."
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://compliance.salesforce.com/categories/salesforce-owned-model-cards",
+      "reason": "HTTP 200 Nuxt compliance-portal shell. Item documents use opaque IDs (a00Kd…). Portal/JS shells and itemUid cards do not fill."
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://help.salesforce.com/s/articleView?id=mktg.mktg_einstein_model_card_eef.htm&language=en_US&type=5",
+      "reason": "HTTP 200 Salesforce Help shell titled Salesforce Help. No eval tables in this crawler fetch."
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://developer.salesforce.com/docs/analytics/einstein-vision-language/guide/einstein-ocr-model-card.html",
+      "reason": "HTML 403 to this crawler. Not filed."
+    },
+    {
+      "slug": "gitlab",
+      "url": "https://about.gitlab.com/direction/ai-powered/ai_framework/ai_evaluation/foundation_models/",
+      "reason": "Direction page bounced to /whats-new/. Not a published eval of GitLab's AI system. Transparency Center stays the page bind."
     }
   ],
   "open": [
@@ -212,7 +291,6 @@
     "heygen",
     "hugging-face",
     "humans-and",
-    "ibm",
     "inception",
     "incountry",
     "inflection",
