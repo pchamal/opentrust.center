@@ -280,6 +280,58 @@ def load_aiti_processors() -> dict:
     return out
 
 
+_AITI_EVALS = None
+
+
+def load_aiti_evals() -> dict:
+    """Curated first-party AI eval URLs. Do not invent."""
+    global _AITI_EVALS
+    if _AITI_EVALS is not None:
+        return _AITI_EVALS
+    doc = load_json(SITE / "data" / "aiti-evals.json", {})
+    recs = doc.get("evals") or {}
+    seen = doc.get("seen")
+    out = {}
+    for slug, rec in recs.items():
+        url = rec.get("url") if isinstance(rec, dict) else rec
+        if not url:
+            continue
+        host = rec.get("host") if isinstance(rec, dict) else ""
+        out[slug] = {
+            "url": url,
+            "host": host or host_of(url),
+            "seen": (rec.get("seen") if isinstance(rec, dict) else None) or seen,
+        }
+    _AITI_EVALS = out
+    return out
+
+
+_AITI_INCIDENTS = None
+
+
+def load_aiti_incidents() -> dict:
+    """Curated first-party AI incident URLs. Do not invent."""
+    global _AITI_INCIDENTS
+    if _AITI_INCIDENTS is not None:
+        return _AITI_INCIDENTS
+    doc = load_json(SITE / "data" / "aiti-incidents.json", {})
+    recs = doc.get("incidents") or {}
+    seen = doc.get("seen")
+    out = {}
+    for slug, rec in recs.items():
+        url = rec.get("url") if isinstance(rec, dict) else rec
+        if not url:
+            continue
+        host = rec.get("host") if isinstance(rec, dict) else ""
+        out[slug] = {
+            "url": url,
+            "host": host or host_of(url),
+            "seen": (rec.get("seen") if isinstance(rec, dict) else None) or seen,
+        }
+    _AITI_INCIDENTS = out
+    return out
+
+
 def write_json(path: Path, payload) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
@@ -889,6 +941,24 @@ def enrich_company(
             "source_url": ai_procs.get("source_url"),
             "via": ai_procs.get("via"),
         }
+    evals = load_aiti_evals().get(slug)
+    if evals and evals.get("url"):
+        filed = {
+            "url": evals["url"],
+            "host": display_host(evals["url"], domain),
+            "seen": evals.get("seen") or seen_date(generated_at),
+        }
+        public["ai_evals"] = filed
+        public["instruments"]["evals"] = dict(filed)
+    incidents = load_aiti_incidents().get(slug)
+    if incidents and incidents.get("url"):
+        filed = {
+            "url": incidents["url"],
+            "host": display_host(incidents["url"], domain),
+            "seen": incidents.get("seen") or seen_date(generated_at),
+        }
+        public["ai_incidents"] = filed
+        public["instruments"]["incidents"] = dict(filed)
     star = public_star(row.get("csa_star"))
     if star:
         public["csa_star"] = star
@@ -1579,6 +1649,25 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
             f"<tr><td>AI page</td><td>{official_a(ai_rec['url'], shown)}</td>"
             f"<td>{escape(seen)}</td></tr>"
         )
+
+    def extra_ai_instrument(key: str, field: str, label: str) -> None:
+        rec = inst.get(key) if isinstance(inst.get(key), dict) else None
+        if not (rec and rec.get("url")):
+            extra = row.get(field)
+            if isinstance(extra, dict) and extra.get("url"):
+                rec = extra
+            elif isinstance(extra, str) and extra:
+                rec = {"url": extra, "host": display_host(extra, domain), "seen": seen_date(generated_at)}
+        if rec and rec.get("url"):
+            shown = rec.get("host") or display_host(rec["url"], domain)
+            seen = fmt_day((rec.get("seen") or "") + "T00:00:00Z") if rec.get("seen") else "—"
+            inst_rows.append(
+                f"<tr><td>{escape(label)}</td><td>{official_a(rec['url'], shown)}</td>"
+                f"<td>{escape(seen)}</td></tr>"
+            )
+
+    extra_ai_instrument("evals", "ai_evals", "AI evals")
+    extra_ai_instrument("incidents", "ai_incidents", "AI incidents")
 
     procs = row.get("processors") or []
     list_url = ""

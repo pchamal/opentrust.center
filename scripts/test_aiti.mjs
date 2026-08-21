@@ -15,6 +15,8 @@ import {
   printedUrl,
   printedAitiUrl,
   storedAiPageUrl,
+  storedAiEvalsUrl,
+  storedAiIncidentsUrl,
   isFirstPartyUrl,
   storedAiProcessors,
   isAiSystemProcessor,
@@ -360,13 +362,88 @@ expect("Databricks page and marks binds stay open", aiFileFlags(bySlug.databrick
 expect("Glean page and marks binds stay open", aiFileFlags(bySlug.glean).page === false && aiFileFlags(bySlug.glean).marks === false);
 expect("leftover date names do not fill processors", aiFileFlags({ slug: "zoom", domain: "zoom.com", processors: [{ name: "01 April 2025" }] }).processors === false);
 
+const evalsDoc = JSON.parse(readFileSync(new URL("../site/data/aiti-evals.json", import.meta.url), "utf8"));
+const incidentsDoc = JSON.parse(readFileSync(new URL("../site/data/aiti-incidents.json", import.meta.url), "utf8"));
+const evalFiled = Object.keys(evalsDoc.evals || {});
+const incidentFiled = Object.keys(incidentsDoc.incidents || {});
+const aitiEvalSlugs = evalFiled.filter((s) => files.some((r) => r.slug === s));
+const aitiIncidentSlugs = incidentFiled.filter((s) => files.some((r) => r.slug === s));
+const evalOn = files.filter((r) => aiFileFlags(r).evals);
+const evalOpen = files.filter((r) => !aiFileFlags(r).evals);
+const incidentOn = files.filter((r) => aiFileFlags(r).incidents);
+const incidentOpen = files.filter((r) => !aiFileFlags(r).incidents);
+expect("AITI evals fill is only curated URLs on members", evalOn.length === aitiEvalSlugs.length && evalOn.every((r) => aitiEvalSlugs.includes(r.slug)));
+expect("remaining AITI files leave evals open", evalOpen.length === files.length - aitiEvalSlugs.length);
+expect("does not invent AITI eval companies", evalOn.every((r) => evalFiled.includes(r.slug) && bySlug[r.slug]));
+expect("AITI incidents fill is only curated URLs on members", incidentOn.length === aitiIncidentSlugs.length && incidentOn.every((r) => aitiIncidentSlugs.includes(r.slug)));
+expect("remaining AITI files leave incidents open", incidentOpen.length === files.length - aitiIncidentSlugs.length);
+expect("does not invent AITI incident companies", incidentOn.every((r) => incidentFiled.includes(r.slug) && bySlug[r.slug]));
+
+for (const slug of evalFiled) {
+  const row = bySlug[slug];
+  const rec = evalsDoc.evals[slug];
+  const flags = aiFileFlags(row);
+  const html = aiFileIndexHtml(row);
+  expect(`${slug} evals follow the stored URL`, storedAiEvalsUrl(row) === rec.url);
+  expect(`${slug} evals rule is filled`, flags.evals === true && ruleOn(html)[3] === true);
+  expect(`${slug} evals URL is first-party`, isFirstPartyUrl(rec.url, row.domain) === true);
+  const dossierHtml = readFileSync(new URL(`../site/c/${slug}.html`, import.meta.url), "utf8");
+  expect(`${slug} dossier reaches the evals URL`, dossierHtml.includes(rec.url) && dossierHtml.includes(">AI evals<") && dossierHtml.includes('class="official"'));
+}
+
+for (const slug of incidentFiled) {
+  const row = bySlug[slug];
+  const rec = incidentsDoc.incidents[slug];
+  const flags = aiFileFlags(row);
+  const html = aiFileIndexHtml(row);
+  expect(`${slug} incidents follow the stored URL`, storedAiIncidentsUrl(row) === rec.url);
+  expect(`${slug} incidents rule is filled`, flags.incidents === true && ruleOn(html)[4] === true);
+  expect(`${slug} incidents URL is first-party`, isFirstPartyUrl(rec.url, row.domain) === true);
+  const dossierHtml = readFileSync(new URL(`../site/c/${slug}.html`, import.meta.url), "utf8");
+  expect(`${slug} dossier reaches the incidents URL`, dossierHtml.includes(rec.url) && dossierHtml.includes(">AI incidents<") && dossierHtml.includes('class="official"'));
+}
+
+expect("OpenAI evals follow the stored system card", storedAiEvalsUrl(bySlug.openai) === evalsDoc.evals.openai.url && aiFileFlags(bySlug.openai).evals === true);
+expect("xAI evals follow the stored model card", storedAiEvalsUrl(bySlug.xai) === evalsDoc.evals.xai.url && aiFileFlags(bySlug.xai).evals === true);
+expect("OpenAI page bind unchanged", storedAiPageUrl(bySlug.openai) === pagesDoc.pages.openai.url && aiFileFlags(bySlug.openai).page === true);
+expect("xAI page bind unchanged", storedAiPageUrl(bySlug.xai) === pagesDoc.pages.xai.url && aiFileFlags(bySlug.xai).page === true);
+
+expect(
+  "third-party evals URL does not fill",
+  storedAiEvalsUrl({ slug: "openai", domain: "openai.com", ai_evals: { url: "https://example.com/evals" } }) === "",
+);
+expect(
+  "SafeBase evals URL does not fill",
+  storedAiEvalsUrl({ slug: "example", domain: "example.com", ai_evals: { url: "https://example.safebase.us/evals" } }) === "",
+);
+expect(
+  "evals bind follows a stored first-party URL",
+  aiFileFlags({ ...mid, ai_evals: { url: "https://www.midjourney.com/system-card" } }).evals === true,
+);
+expect(
+  "incidents bind follows a stored first-party URL",
+  aiFileFlags({ ...mid, ai_incidents: { url: "https://www.midjourney.com/ai-incidents" } }).incidents === true,
+);
+expect(
+  "AIID does not fill incidents",
+  storedAiIncidentsUrl({ slug: "openai", domain: "openai.com", ai_incidents: { url: "https://incidentdatabase.ai/entities/openai" } }) === "",
+);
+
+expect("Midjourney has no stored AI evals", storedAiEvalsUrl(mid) === "");
+expect("Midjourney has no stored AI incidents", storedAiIncidentsUrl(mid) === "");
+expect("Midjourney evals stay open", aiFileFlags(mid).evals === false);
+expect("Midjourney incidents stay open", aiFileFlags(mid).incidents === false);
+
 for (const row of files) {
   const flags = aiFileFlags(row);
-  if (flags.evals || flags.incidents) {
-    expect(`no invented evals/incidents on ${row.slug}`, false);
+  if (flags.evals && !evalsDoc.evals[row.slug]) {
+    expect(`evals only from store on ${row.slug}`, false);
+  }
+  if (flags.incidents && !incidentsDoc.incidents[row.slug]) {
+    expect(`incidents only from store on ${row.slug}`, false);
   }
 }
-expect("evals incidents stay uninvented", true);
+expect("evals incidents follow stored URLs only", true);
 
 const cursorDossier = readFileSync(new URL("../site/c/anysphere.html", import.meta.url), "utf8");
 const midDossier = readFileSync(new URL("../site/c/midjourney.html", import.meta.url), "utf8");
@@ -406,8 +483,11 @@ for (const rec of added) {
   const row = bySlug[rec.slug];
   expect(`${rec.slug} is an AITI file`, isAiFile(row) === true);
   const flags = aiFileFlags(row);
-  if (flags.evals || flags.incidents) {
-    expect(`no invented evals/incidents on new ${rec.slug}`, false);
+  if (flags.evals && !evalsDoc.evals[rec.slug]) {
+    expect(`no invented evals on new ${rec.slug}`, false);
+  }
+  if (flags.incidents && !incidentsDoc.incidents[rec.slug]) {
+    expect(`no invented incidents on new ${rec.slug}`, false);
   }
 }
 expect("Aviatrix is not list-sourced", !membership.slugs.aviatrix);
@@ -421,5 +501,5 @@ expect("Google homepage is not the AI page fill", storedAiPageUrl(bySlug.google)
 expect("Midjourney dossier homepage is a link", /<a class="official" href="https:\/\/www\.midjourney\.com\/?"/.test(midDossier));
 expect("default first names are clerk-dense", arranged.slice(0, 5).map((r) => r.name).join(" · ").length > 10);
 
-console.log("aiti files", files.length, "page", pageOn.length, "processors", procOn.length, "silent", silent.length);
+console.log("aiti files", files.length, "page", pageOn.length, "processors", procOn.length, "evals", evalOn.length, "incidents", incidentOn.length, "silent", silent.length);
 if (!process.exitCode) console.log("ok aiti");
