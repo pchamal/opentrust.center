@@ -27,6 +27,18 @@ ENRICHED = SITE / "data" / "enriched.json"
 REPORT = DATA / "render" / "company-marks.json"
 BATCH = 40
 WORKERS = 12
+# Newly expanded companies that just got a public trust URL. Prefer them
+# when the marks File-glyph rule is still open. Substantial files stay skipped.
+PREFER_SLUGS = {
+    "enterprisedb",
+    "extensis",
+    "epic-systems",
+    "certinia",
+    "forcepoint",
+    "floqast",
+    "genesys",
+    "greenhouse-software",
+}
 
 # Regulation-only lists stay thin. Real certs (SOC / ISO / FedRAMP / …) fill out.
 REG_MARKS = {"GDPR", "CCPA", "DORA", "NIS2", "PIPEDA", "LGPD"}
@@ -34,7 +46,7 @@ COMPLIANCE_URL_RE = re.compile(
     r"(trust|security|compliance|certif|attestation|assurance)",
     re.I,
 )
-ITEM_UID_RE = re.compile(r"(?:[?&]|/)itemUid=|(?:[?&])itemName=", re.I)
+ITEM_UID_RE = re.compile(r"itemUid=|itemName=", re.I)
 ASSET_URL_RE = re.compile(r"\.(?:ico|png|jpe?g|gif|svg|webp|css|js|woff2?|map)(?:\?|$)", re.I)
 
 
@@ -156,7 +168,10 @@ def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]
             "candidates": cands,
         }
         (thin_rows if on_file else open_rows).append(rec)
-    return (open_rows + thin_rows)[:BATCH]
+    pool = open_rows + thin_rows
+    preferred = [rec for rec in pool if rec["slug"] in PREFER_SLUGS]
+    rest = [rec for rec in pool if rec["slug"] not in PREFER_SLUGS]
+    return (preferred + rest)[:BATCH]
 
 
 def fetch_page(url: str) -> dict:
