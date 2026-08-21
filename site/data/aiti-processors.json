@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-21T00:20:00Z",
+  "generated_at": "2026-08-21T17:20:00Z",
   "seen": "2026-08-21",
   "rule": "Processors fills only when the company names, on a first-party public page, at least one AI system processor (a model/API provider). Stripe, Datadog, AWS-as-hosting, Snowflake, and bare Google/Microsoft/Azure do not count. No SafeBase, no login-walled portals, no invented names, no date-shaped strings. When unsure, leave open.",
-  "method": "Conservative filter of named AI processors already on this register (site/data/aiti-processors.json and dossier named processors that are labs/model hosts/inference). First-party legal lists already cited on the dossier (Runway, Databricks, Glean) fill. Vanta/SafeBase JS shells, leftover row.processors names, generic SaaS, and calendar dates do not. Trust-center shells and Cloudflare walls stay open.",
-  "count": 14,
+  "method": "Fetch-check of first-party public lists. Processors fill only when the HTML prints organization names of AI system processors (model/API providers). Harvey's legal table now prints names (PR 45 left it open as a JS shell). Replit, Reevo, and World Labs first-party tables print names. Trust-center JS shells, homepage bounces, hosting/SaaS-only tables, leftover row.processors names, and Cloudflare walls do not fill. Anthropic stays open. Midjourney stays all-open. ISO 27001 / SOC 2 are not processor names.",
+  "count": 18,
   "processors": {
     "intercom": {
       "names": [
@@ -343,6 +343,100 @@
       ],
       "source_url": "https://www.glean.com/legal/subprocessors",
       "via": "named-processors"
+    },
+    "harvey": {
+      "names": [
+        {
+          "name": "OpenAI, LLC",
+          "slug": "openai",
+          "source_url": "https://www.harvey.ai/legal/subprocessors"
+        },
+        {
+          "name": "Anthropic, PBC",
+          "slug": "anthropic",
+          "source_url": "https://www.harvey.ai/legal/subprocessors"
+        },
+        {
+          "name": "ElevenLabs Inc",
+          "slug": "elevenlabs",
+          "source_url": "https://www.harvey.ai/legal/subprocessors"
+        },
+        {
+          "name": "Mistral AI SAS",
+          "slug": "mistral-ai",
+          "source_url": "https://www.harvey.ai/legal/subprocessors"
+        },
+        {
+          "name": "Baseten Labs, Inc",
+          "slug": null,
+          "source_url": "https://www.harvey.ai/legal/subprocessors"
+        },
+        {
+          "name": "Fireworks.ai, Inc",
+          "slug": "fireworks-ai",
+          "source_url": "https://www.harvey.ai/legal/subprocessors"
+        }
+      ],
+      "source_url": "https://www.harvey.ai/legal/subprocessors",
+      "via": "cited-first-party-list"
+    },
+    "replit": {
+      "names": [
+        {
+          "name": "Anthropic",
+          "slug": "anthropic",
+          "source_url": "https://replit.com/subprocessors"
+        },
+        {
+          "name": "Baseten",
+          "slug": "baseten",
+          "source_url": "https://replit.com/subprocessors"
+        },
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "source_url": "https://replit.com/subprocessors"
+        },
+        {
+          "name": "OpenRouter",
+          "slug": null,
+          "source_url": "https://replit.com/subprocessors"
+        }
+      ],
+      "source_url": "https://replit.com/subprocessors",
+      "via": "named-processors"
+    },
+    "reevo": {
+      "names": [
+        {
+          "name": "Anthropic",
+          "slug": "anthropic",
+          "source_url": "https://reevo.ai/subprocessors"
+        },
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "source_url": "https://reevo.ai/subprocessors"
+        },
+        {
+          "name": "OpenRouter",
+          "slug": null,
+          "source_url": "https://reevo.ai/subprocessors"
+        }
+      ],
+      "source_url": "https://reevo.ai/subprocessors",
+      "via": "named-processors"
+    },
+    "world-labs": {
+      "names": [
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "source_url": "https://www.worldlabs.ai/subprocessors"
+        }
+      ],
+      "source_url": "https://www.worldlabs.ai/subprocessors",
+      "via": "named-processors"
     }
   },
   "rejected": [
@@ -359,29 +453,84 @@
       "reason": "Subprocessor page returned Cloudflare 403. Leave open."
     },
     {
-      "slug": "harvey",
-      "reason": "Cited first-party list is a JS shell; names were not printed. Do not invent Together."
-    },
-    {
       "slug": "anthropic",
-      "reason": "Subprocessor page is a Vanta JS shell; names were not printed to this crawler. Do not invent ElevenLabs."
-    },
-    {
-      "slug": "miro",
-      "reason": "Trust center is vendor-hosted (Wolfia). Skip."
+      "reason": "Anthropic AITI bind stays signed: page · marks filled, processors / evals / incidents open. Do not fill."
     },
     {
       "slug": "mercor",
-      "reason": "Subprocessor page is a Vanta JS shell; names were not printed. Do not invent OpenAI from the leftover row.processors bind."
+      "reason": "Subprocessor page is a JS shell; names were not printed. Do not invent OpenAI from the leftover row.processors bind."
     },
     {
-      "note": "Bare Google, Microsoft, Azure, Google Cloud, AWS, Stripe, Datadog, and Snowflake never fill processors. Date-shaped strings (01 April 2025) are not processors."
+      "slug": "miro",
+      "reason": "Trust center is vendor-hosted. Skip."
+    },
+    {
+      "slug": "cyera",
+      "reason": "Cited list is a vendor-portal item, not a first-party printed table."
+    },
+    {
+      "slug": "groq",
+      "reason": "Printed names are hosting and SaaS (Google Cloud, Stripe, Cloudflare). No model/API provider named."
+    },
+    {
+      "slug": "mistral-ai",
+      "reason": "Printed names are hosting and identity (Microsoft, Google, Ory). Mistral Compute is self, not a third-party AI processor."
+    },
+    {
+      "slug": "fal-ai",
+      "reason": "Printed names are hosting and SaaS (GCP, AWS, Datadog, Stripe). No model/API provider named."
+    },
+    {
+      "slug": "coreweave",
+      "reason": "Printed names are GitHub and Sentry. Not model/API providers."
+    },
+    {
+      "slug": "superblocks",
+      "reason": "First-party table names AWS, GCP, and Snowflake as LLM hosts. Bare hosting does not fill processors."
+    },
+    {
+      "slug": "friendliai",
+      "reason": "First-party table is hosting and SaaS only. OpenRouter was not a table row."
+    },
+    {
+      "slug": "seekr",
+      "reason": "First-party table is hosting, analytics, and SaaS only."
+    },
+    {
+      "slug": "digitalocean",
+      "reason": "First-party table is hosting and SaaS only."
+    },
+    {
+      "slug": "lovable",
+      "reason": "Subprocessors title is a JS shell; organization names were not printed."
+    },
+    {
+      "slug": "reflection",
+      "reason": "Legal path is a JS shell; organization names were not printed."
+    },
+    {
+      "slug": "recraft",
+      "reason": "Subprocessors title is a JS shell; Kling was not printed in a table."
+    },
+    {
+      "slug": "eliseai",
+      "reason": "Subprocessors title is a JS shell; names were not printed."
+    },
+    {
+      "slug": "humans-and",
+      "reason": "Legal path bounced to the homepage. Not a named-processor list."
+    },
+    {
+      "slug": "geordie-ai",
+      "reason": "Legal path bounced to the product homepage. Not a named-processor list."
+    },
+    {
+      "note": "Bare Google, Microsoft, Azure, Google Cloud, AWS, Stripe, Datadog, and Snowflake never fill processors. Date-shaped strings are not processors. ISO 27001 / SOC 2 are not processor names."
     }
   ],
   "open": [
     "openai",
     "anthropic",
-    "harvey",
     "cyera",
     "cohere",
     "notion",
@@ -528,10 +677,8 @@
     "questflow",
     "raspberry-ai",
     "recraft",
-    "reevo",
     "reflection",
     "reka",
-    "replit",
     "resolve-ai",
     "rhino-federated-computing",
     "ricursive-intelligence",
@@ -565,7 +712,6 @@
     "wan-ai",
     "wispr-flow",
     "worktrace-ai",
-    "world-labs",
     "xiaomi",
     "z-ai"
   ]
