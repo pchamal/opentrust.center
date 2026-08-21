@@ -9,6 +9,7 @@ import {
   aiFileIndexHtml,
   aiFileCount,
   aiFileOnWords,
+  fileScore,
   fillAitiIssue,
   isAiFile,
   isAiNamed,
@@ -189,6 +190,11 @@ expect("AITI has no N of 5", !aitiJs.includes(" of 5") && !indexHtml.includes(" 
 expect("showing uses the AITI N", aitiJs.includes("showing ${rows.length} of ${n}"));
 expect("AITI does not paginate a second universe", !aitiJs.includes("PAGE_SIZE") && !indexHtml.includes("pager"));
 expect("legend is the AI five", indexHtml.includes("page · marks · processors · evals · incidents"));
+expect(
+  "method line is once under the legend",
+  /id="file-legend">page · marks · processors · evals · incidents<\/p>\s*<p class="file-method" id="file-method">20 for each instrument on file\. 100 is five\. This rates the file, not the company\.<\/p>/.test(indexHtml) &&
+    (indexHtml.match(/20 for each instrument on file\. 100 is five\. This rates the file, not the company\./g) || []).length === 1,
+);
 expect("wordmark unchanged", /<a class="wordmark" href="\.\/">opentrust<span class="wm-dot">\.<\/span>center<\/a>/.test(indexHtml));
 
 expect("rules are ledger black", /\.file-rule \{[\s\S]*border-top: 1px solid var\(--ot-ledger-black\)/.test(css) && /\.file-rule\.on \{[\s\S]*background: var\(--ot-ledger-black\)/.test(css));
@@ -382,11 +388,15 @@ expect(
 );
 expect("Anthropic File is page and marks only", anthropicFlags.page === true && anthropicFlags.marks === true && anthropicFlags.processors === false && anthropicFlags.evals === false && anthropicFlags.incidents === false);
 expect("Anthropic count is 2", aiFileCount(anthropic) === 2 && aiFileOnWords(anthropic) === "2 on file");
+expect("fileScore is count times 20", fileScore(0) === 0 && fileScore(2) === 40 && fileScore(3) === 60 && fileScore(5) === 100);
 expect(
-  "Anthropic File prints 2",
-  /<span class="file-num">2<\/span>/.test(fileCell(defaultAnthropicHtml)) &&
-    /<span class="file-num">2<\/span>/.test(fileCell(finderAnthropicHtml)) &&
-    /<span class="file-num">2<\/span>/.test(fileCell(aitiRowHtml(anthropic, 0))) &&
+  "Anthropic File prints 40",
+  /<span class="file-num">40<\/span>/.test(fileCell(defaultAnthropicHtml)) &&
+    /<span class="file-num">40<\/span>/.test(fileCell(finderAnthropicHtml)) &&
+    /<span class="file-num">40<\/span>/.test(fileCell(aitiRowHtml(anthropic, 0))) &&
+    !/<span class="file-num">2<\/span>/.test(fileCell(defaultAnthropicHtml)) &&
+    !fileCell(defaultAnthropicHtml).includes("40/100") &&
+    !fileCell(defaultAnthropicHtml).includes("40%") &&
     !/\d+ on file/.test(fileCell(defaultAnthropicHtml)) &&
     !fileCell(finderAnthropicHtml).includes("2 on file") &&
     !fileCell(defaultAnthropicHtml).includes("file-on"),
@@ -395,7 +405,7 @@ expect("Anthropic numeral is left of the rules", /file-num[\s\S]*file-index[\s\S
 expect("Midjourney File prints 0", /<span class="file-num">0<\/span>/.test(fileCell(aitiRowHtml(mid, 0))) && !/\d+ on file/.test(fileCell(aitiRowHtml(mid, 0))) && !fileCell(aitiRowHtml(mid, 0)).includes("file-on"));
 expect("every row prints the file numeral", files.every((r) => {
   const cell = fileCell(aitiRowHtml(r, 0));
-  return cell.includes(`<span class="file-num">${aiFileCount(r)}</span>`) && !/\d+ on file/.test(cell) && !cell.includes("file-on");
+  return cell.includes(`<span class="file-num">${fileScore(aiFileCount(r))}</span>`) && !/\d+ on file/.test(cell) && !cell.includes("file-on");
 }));
 expect("caption is not a score name", !aitiJs.includes("aitiScore") && !aitiJs.includes("trust index") && !aitiJs.includes("maturity") && !aitiJs.includes("Arena") && !indexHtml.includes(">Score<"));
 function hostText(html) {
@@ -465,15 +475,15 @@ expect("OpenAI page bind unchanged", storedAiPageUrl(bySlug.openai) === pagesDoc
 expect("xAI page bind unchanged", storedAiPageUrl(bySlug.xai) === pagesDoc.pages.xai.url && aiFileFlags(bySlug.xai).page === true);
 
 const openai = bySlug.openai;
-expect("OpenAI File is 3", aiFileCount(openai) === 3 && /<span class="file-num">3<\/span>/.test(fileCell(aitiRowHtml(openai, 0))));
-expect("OpenAI File has no on-file words", !/\d+ on file/.test(fileCell(aitiRowHtml(openai, 0))) && !fileCell(aitiRowHtml(openai, 0)).includes("file-on"));
+expect("OpenAI File is 3", aiFileCount(openai) === 3 && /<span class="file-num">60<\/span>/.test(fileCell(aitiRowHtml(openai, 0))));
+expect("OpenAI File has no on-file words", !/\d+ on file/.test(fileCell(aitiRowHtml(openai, 0))) && !fileCell(aitiRowHtml(openai, 0)).includes("file-on") && !fileCell(aitiRowHtml(openai, 0)).includes("60%") && !fileCell(aitiRowHtml(openai, 0)).includes("60/100"));
 
 const runway = bySlug.runway;
 const runwayFlags = aiFileFlags(runway);
 const runwayMarks = aiMarksCell(runway);
 const runwayHtml = aitiRowHtml(runway, 0);
 expect("Runway File is page and processors", runwayFlags.page === true && runwayFlags.processors === true && runwayFlags.marks === false && runwayFlags.evals === false && runwayFlags.incidents === false);
-expect("Runway File prints 2", aiFileCount(runway) === 2 && /<span class="file-num">2<\/span>/.test(fileCell(runwayHtml)) && !/\d+ on file/.test(fileCell(runwayHtml)));
+expect("Runway File prints 40", aiFileCount(runway) === 2 && /<span class="file-num">40<\/span>/.test(fileCell(runwayHtml)) && !/<span class="file-num">2<\/span>/.test(fileCell(runwayHtml)) && !/\d+ on file/.test(fileCell(runwayHtml)));
 expect("Runway Marks stays italic not on file", runwayMarks.includes("not on file") && runwayMarks.includes("absent"));
 
 const aitiDefaults = { name: "asc", host: "asc", file: "desc", marks: "asc" };
@@ -607,6 +617,16 @@ expect("AITI body scopes the first-screen nibble", indexHtml.includes('class="re
 expect("AITI File numeral is Source Serif Ledger Black", /body\.aiti \.reg td\.file-cell \.file-num \{[\s\S]*font: var\(--t-name\)[\s\S]*color: var\(--ot-ledger-black\)/.test(css));
 expect("AITI File numeral has no teal", !/body\.aiti \.reg td\.file-cell \.file-num \{[\s\S]{0,180}--ot-evidence-teal/.test(css));
 expect("390 stacks the File numeral above the rules", /@media \(max-width: 390px\) \{[\s\S]*body\.aiti \.reg td\.file-cell \.file-num \{[\s\S]*display: block/.test(css));
+expect(
+  "method line is Atkinson issue size Ledger Black",
+  /\.file-method \{[\s\S]*font: var\(--t-data\)[\s\S]*color: var\(--ot-ledger-black\)/.test(css),
+);
+expect(
+  "method line is not a card",
+  !/\.file-method \{[\s\S]{0,160}background:/.test(css) &&
+    !/\.file-method \{[\s\S]{0,160}border:/.test(css) &&
+    !/\.file-method \{[\s\S]{0,160}box-shadow:/.test(css),
+);
 expect("AITI domain and marks are clerk ink", /body\.aiti \.reg td\.domain a,[\s\S]*color: var\(--ot-ledger-black\);[\s\S]*text-decoration: none;/.test(css));
 expect("AITI printed marks stay roman", /body\.aiti \.reg td\.marks \.mark-line,[\s\S]*body\.aiti \.reg td\.marks \.mark-chip \{[\s\S]*font-style: normal;/.test(css));
 const regOn = (css.match(/\.reg th\.on \{[^}]+\}/) || [""])[0];

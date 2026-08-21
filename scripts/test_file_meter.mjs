@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
-import { FILE_KEYS, fileCount, fileCoverage, fileFlags, fileIndexHtml } from "../site/lib.js";
-import { marksCell } from "../site/register.js";
+import { FILE_KEYS, fileCount, fileCoverage, fileFlags, fileIndexHtml, fileScore } from "../site/lib.js";
+import { marksCell, registerRowHtml } from "../site/register.js";
 
 const data = JSON.parse(readFileSync(new URL("../site/data.json", import.meta.url), "utf8"));
 const bySlug = Object.fromEntries(data.companies.map((r) => [r.slug, r]));
@@ -105,10 +105,60 @@ expect("register has no More on this file", !src.includes("More on this file") &
 
 const indexHtml = readFileSync(new URL("../site/index.html", import.meta.url), "utf8");
 const companiesHtml = readFileSync(new URL("../site/companies.html", import.meta.url), "utf8");
+function registerFileCell(html) {
+  const m = String(html || "").match(/<td class="file">([\s\S]*?)<\/td>/);
+  return m ? m[1] : "";
+}
+
 expect(
   "legend is once above the grid",
   indexHtml.includes('id="file-legend"') && indexHtml.includes("page · marks · processors · evals · incidents"),
 );
+expect(
+  "register legend is the five Companies rules",
+  companiesHtml.includes('id="file-legend"') && companiesHtml.includes("page · marks · DPA · subprocessors · years"),
+);
+expect(
+  "register method line is once under the legend",
+  /id="file-legend">page · marks · DPA · subprocessors · years<\/p>\s*<p class="file-method" id="file-method">20 for each instrument on file\. 100 is five\. This rates the file, not the company\.<\/p>/.test(companiesHtml) &&
+    (companiesHtml.match(/20 for each instrument on file\. 100 is five\. This rates the file, not the company\./g) || []).length === 1,
+);
+
+const onePass = bySlug["1password"];
+const onePassCell = registerFileCell(registerRowHtml(onePass));
+expect("1Password count is five", fileCount(onePass) === 5 && fileScore(fileCount(onePass)) === 100);
+expect(
+  "1Password File prints 100",
+  /<span class="file-num">100<\/span>/.test(onePassCell) &&
+    /file-num[\s\S]*file-index[\s\S]*file-rule/.test(onePassCell) &&
+    !onePassCell.includes("100/100") &&
+    !onePassCell.includes("100%") &&
+    !/\d+ on file/.test(onePassCell),
+);
+
+const twoFilled = {
+  slug: "two-filled",
+  name: "Two",
+  domain: "two.example",
+  found: true,
+  trust_url: "https://trust.two.example",
+  founded_year: 2014,
+};
+const twoCell = registerFileCell(registerRowHtml(twoFilled));
+expect("two-filled count is two", fileCount(twoFilled) === 2 && fileScore(2) === 40);
+expect(
+  "two-filled File prints 40",
+  /<span class="file-num">40<\/span>/.test(twoCell) &&
+    !/<span class="file-num">2<\/span>/.test(twoCell) &&
+    !twoCell.includes("40/100") &&
+    !twoCell.includes("40%"),
+);
+
+const silentCell = registerFileCell(registerRowHtml({ slug: "silent", name: "Silent", domain: "silent.example" }));
+expect("silent File prints 0", /<span class="file-num">0<\/span>/.test(silentCell) && fileCount({}) === 0);
+
+expect("register has no Score header", !/>\s*Score\s*</i.test(companiesHtml) && (companiesHtml.match(/<th /g) || []).length === 4);
+expect("register File header stays File", /<button type="button">File<\/button>/.test(companiesHtml));
 expect(
   "finder placeholder dropped old tier words",
   companiesHtml.includes('placeholder="/ stripe, complete, fedramp moderate"') &&

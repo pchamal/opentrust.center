@@ -132,6 +132,11 @@ export function fileCount(row) {
   return FILE_KEYS.reduce((n, key) => n + (flags[key] ? 1 : 0), 0);
 }
 
+/* One instrument on file is 20. Five is 100. No weights. */
+export function fileScore(n) {
+  return n * 20;
+}
+
 export function fileCoverage(row) {
   const flags = fileFlags(row);
   const n = fileCount(row);

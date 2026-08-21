@@ -4,6 +4,7 @@ import {
   fillIssue,
   fileCount,
   fileIndexHtml,
+  fileScore,
   dataUrl,
   nameWithIcon,
   printedUrl,
@@ -268,6 +269,17 @@ export function marksCell(row) {
   return stamp ? stamp + (line ? " · " + line : "") : `<span class="mark-line">${line}</span>`;
 }
 
+export function registerRowHtml(row, selectedSlug) {
+  const selected = selectedSlug === row.slug ? ' aria-selected="true"' : "";
+  const n = String(fileScore(fileCount(row)));
+  return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
+        <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${nameWithIcon(row.name, row.favicon)}</a></td>
+        <td class="domain">${printedUrl(row.domain || "", row.domain || "")}</td>
+        <td class="file"><span class="file-num">${escapeHtml(n)}</span>${fileIndexHtml(row)}</td>
+        <td class="marks">${marksCell(row)}</td>
+      </tr>`;
+}
+
 function syncUrl() {
   const f = active();
   const params = new URLSearchParams();
@@ -358,9 +370,11 @@ function render() {
   syncUrl();
 
   const legend = $("file-legend");
+  const method = $("file-method");
   if (!state.rows.length) {
     table.hidden = true;
     if (legend) legend.hidden = true;
+    if (method) method.hidden = true;
     miss.hidden = true;
     const actions = $("miss-actions");
     if (actions) actions.hidden = true;
@@ -373,6 +387,7 @@ function render() {
   if (typed && !rows.length) {
     table.hidden = true;
     if (legend) legend.hidden = true;
+    if (method) method.hidden = true;
     miss.hidden = false;
     renderPager(0, 0);
     $("miss-title").textContent = "Not in the index.";
@@ -418,20 +433,11 @@ function render() {
   if (actions) actions.hidden = true;
   table.hidden = false;
   if (legend) legend.hidden = false;
+  if (method) method.hidden = false;
   const body = $("reg-body");
   const view = windowed.rows;
   renderPager(view.length, rows.length);
-  body.innerHTML = view
-    .map((row) => {
-      const selected = state.selected === row.slug ? ' aria-selected="true"' : "";
-      return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
-        <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${nameWithIcon(row.name, row.favicon)}</a></td>
-        <td class="domain">${printedUrl(row.domain || "", row.domain || "")}</td>
-        <td class="file">${fileIndexHtml(row)}</td>
-        <td class="marks">${marksCell(row)}</td>
-      </tr>`;
-    })
-    .join("");
+  body.innerHTML = view.map((row) => registerRowHtml(row, state.selected)).join("");
 }
 
 function clearToken(kind) {

@@ -527,6 +527,11 @@ body.aiti .reg td.marks a:hover {
   font: var(--t-meta);
   color: var(--ot-graphite);
 }
+.file-method {
+  margin: 0 0 8px;
+  font: var(--t-data);
+  color: var(--ot-ledger-black);
+}
 .file-index {
   display: inline-flex;
   align-items: center;
@@ -550,6 +555,13 @@ body.aiti .reg td.marks a:hover {
   background: var(--ot-ledger-black);
 }
 body.aiti .reg td.file-cell .file-num {
+  font: var(--t-name);
+  color: var(--ot-ledger-black);
+  font-style: normal;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.reg td.file .file-num {
   font: var(--t-name);
   color: var(--ot-ledger-black);
   font-style: normal;
@@ -1402,6 +1414,11 @@ a.official {
 
 @media (max-width: 390px) {
   body.aiti .reg td.file-cell .file-num {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 4px;
+  }
+  .reg td.file .file-num {
     display: block;
     margin-right: 0;
     margin-bottom: 4px;
