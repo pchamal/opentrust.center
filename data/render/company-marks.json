@@ -1,88 +1,206 @@
 {
-  "generated_at": "2026-08-21T19:08:11Z",
-  "rule": "The 6 CRN-expand companies that stayed silent in 8fa1da8. Marks fill only when a newly filed first-party page names the instrument. Third-party PCI mentions, transfer-mechanism DPF, product hubs, and non-first-party hosts stay open.",
+  "generated_at": "2026-08-21T19:01:01Z",
+  "rule": "The 6 companies that gained a public trust URL in expand 30a3e388 (register 1653 last_hits). Marks fill only when a live first-party page names a real hold. Regulation-only GDPR/CCPA as rights, third-party processor PCI, DPF as a transfer mechanism among SCCs, login walls, soft-404s, 403s, JS shells, itemUids, and portal hosts stay open. Another company's privacy statement is not this company's marks file.",
   "batch": [
-    "vulncheck",
-    "recorded-future",
-    "blackberry",
-    "reflectiz",
-    "secureworks",
-    "juniper-networks"
+    "bugcrowd",
+    "crossbeam-systems",
+    "druva",
+    "fluid-attacks",
+    "datto",
+    "hackerone"
   ],
   "marks_filed": [
     {
-      "slug": "recorded-future",
-      "name": "Recorded Future",
-      "url": "https://www.recordedfuture.com/legal/privacy-policy",
+      "slug": "bugcrowd",
+      "name": "Bugcrowd",
+      "url": "https://trust.bugcrowd.com",
       "added": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "ISO 27001",
+        "ISO 27018",
+        "FedRAMP Moderate",
+        "CSA STAR",
+        "Cyber Essentials Plus",
+        "NIST 800-53"
+      ],
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "ISO 27001",
+        "ISO 27018",
+        "FedRAMP Moderate",
+        "CSA STAR",
+        "Cyber Essentials Plus",
+        "NIST 800-53"
+      ]
+    },
+    {
+      "slug": "crossbeam-systems",
+      "name": "Crossbeam Systems",
+      "url": "https://trust.crossbeam.com",
+      "added": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27701",
+        "PCI DSS",
+        "GDPR",
+        "CCPA",
         "EU-US DPF"
       ],
       "certs": [
+        "ISO 27001",
+        "ISO 27701",
+        "PCI DSS",
+        "GDPR",
+        "CCPA",
+        "SOC 2 Type II",
         "EU-US DPF"
       ]
     },
     {
-      "slug": "blackberry",
-      "name": "BlackBerry",
-      "url": "https://www.blackberry.com/en/legal/privacy-notice",
+      "slug": "druva",
+      "name": "Druva",
+      "url": "https://security.druva.com",
       "added": [
-        "SOC 2 Type II"
+        "SOC 2",
+        "ISO 27001",
+        "FedRAMP Moderate",
+        "PCI DSS",
+        "HIPAA",
+        "CSA STAR",
+        "GovRAMP",
+        "NIST 800-171",
+        "IRAP",
+        "GDPR",
+        "CCPA"
       ],
       "certs": [
-        "SOC 2 Type II"
+        "SOC 2",
+        "ISO 27001",
+        "FedRAMP Moderate",
+        "PCI DSS",
+        "HIPAA",
+        "CSA STAR",
+        "GovRAMP",
+        "NIST 800-171",
+        "IRAP",
+        "GDPR",
+        "CCPA"
+      ]
+    },
+    {
+      "slug": "hackerone",
+      "name": "HackerOne",
+      "url": "https://hackerone.com/trust",
+      "added": [
+        "EU-US DPF",
+        "Cyber Essentials Plus"
+      ],
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 2 Type I",
+        "ISO 27001",
+        "ISO 27701",
+        "FedRAMP",
+        "PCI DSS",
+        "GDPR",
+        "CCPA",
+        "EU-US DPF",
+        "Cyber Essentials Plus"
       ]
     }
   ],
   "stayed_open": [
     {
-      "slug": "vulncheck",
-      "name": "VulnCheck",
+      "slug": "fluid-attacks",
+      "name": "Fluid Attacks",
       "rule": "marks",
       "thin": false
     },
     {
-      "slug": "reflectiz",
-      "name": "Reflectiz",
-      "rule": "marks",
-      "thin": false
-    },
-    {
-      "slug": "secureworks",
-      "name": "Secureworks",
-      "rule": "marks",
-      "thin": false
-    },
-    {
-      "slug": "juniper-networks",
-      "name": "Juniper Networks",
+      "slug": "datto",
+      "name": "Datto",
       "rule": "marks",
       "thin": false
     }
   ],
   "rejected": [
     {
-      "slug": "vulncheck",
-      "url": "https://www.vulncheck.com/privacy",
-      "reason": "eu-us-dpf-is-transfer-mechanism-not-self-cert",
-      "kind": "marks"
+      "slug": "bugcrowd",
+      "url": "https://bugcrowd.com/h/privacy",
+      "final": "https://bugcrowd.com/h/privacy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
     },
     {
-      "slug": "blackberry",
-      "url": "https://www.blackberry.com/en/legal/privacy-notice",
-      "reason": "pci-dss-names-third-party-processors-not-hold",
-      "kind": "marks"
+      "slug": "bugcrowd",
+      "url": "https://bugcrowd.com/h/security",
+      "final": "https://bugcrowd.com/h/security",
+      "reason": "no-named-marks",
+      "kind": "security"
     },
     {
-      "slug": "recorded-future",
-      "url": "https://www.recordedfuture.com/legal/privacy-policy",
-      "reason": "regulation-only-gdpr-ccpa",
-      "kind": "marks"
+      "slug": "bugcrowd",
+      "url": "https://bugcrowd.com/h/legal/subprocessors",
+      "final": "https://bugcrowd.com/h/legal/subprocessors",
+      "reason": "no-named-marks",
+      "kind": "subprocessors"
     },
     {
-      "slug": "blackberry",
-      "url": "https://www.blackberry.com/en/legal/privacy-notice",
-      "reason": "regulation-only-gdpr-ccpa-pipeda",
-      "kind": "marks"
+      "slug": "fluid-attacks",
+      "url": "https://fluidattacks.com/privacy",
+      "final": "https://fluidattacks.com/privacy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "datto",
+      "url": "https://trust.kaseya.com/",
+      "final": "https://trust.kaseya.com/",
+      "reason": "no-named-marks",
+      "kind": "final_url"
+    },
+    {
+      "slug": "datto",
+      "url": "https://datto.com/trust",
+      "final": "https://datto.com/trust",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "fluid-attacks",
+      "url": "https://trust.fluidattacks.tech/subprocessors",
+      "final": "https://trust.fluidattacks.tech/subprocessors",
+      "reason": "no-named-marks",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "fluid-attacks",
+      "url": "https://trust.fluidattacks.tech/",
+      "final": "https://trust.fluidattacks.tech/",
+      "reason": "no-named-marks",
+      "kind": "final_url"
+    },
+    {
+      "slug": "fluid-attacks",
+      "url": "https://trust.fluidattacks.com",
+      "final": "https://trust.fluidattacks.tech/",
+      "reason": "no-named-marks",
+      "kind": "trust"
+    },
+    {
+      "slug": "datto",
+      "url": "https://www.kaseya.com/legal/kaseya-privacy-statement/",
+      "final": "https://www.kaseya.com/legal/kaseya-privacy-statement/",
+      "reason": "other-company-privacy",
+      "kind": "privacy",
+      "seen": [
+        "EU-US DPF",
+        "GDPR",
+        "CCPA",
+        "LGPD"
+      ]
     }
   ]
 }
