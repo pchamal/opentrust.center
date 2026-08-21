@@ -69,7 +69,7 @@ expect(
     hood.nodes.length === 1 + hood.others,
 );
 expect("aws siblings are labeled processors", hood.nodes.filter((n) => n.role === "other").every((n) => n.name) && hood.others >= 6);
-expect("no anonymous ring", !hood.nodes.some((n) => n.role === "namer") && edges.length === 1233);
+expect("no anonymous ring", !hood.nodes.some((n) => n.role === "namer") && edges.length === 1186);
 expect("01 April 2025 is not a processor name", looksLikeDateName("01 April 2025") && !looksLikeProcessorName("01 April 2025"));
 expect("29 April 2026 is not a processor name", looksLikeDateName("29 April 2026") && !looksLikeProcessorName("29 April 2026"));
 expect("date slug is not a processor name", looksLikeDateName("01-april-2025") && !looksLikeProcessorName("01-april-2025"));
@@ -97,3 +97,5 @@ expect(
     new Map(),
   ).nodes.every((n) => !looksLikeDateName(n.name) && !looksLikeDateName(n.id)),
 );
+const zoomHtml = readFileSync(new URL("../site/c/zoom.html", import.meta.url), "utf8");
+expect("zoom dossier dropped date-shaped processors", !zoomHtml.includes("01 April 2025") && !zoomHtml.includes("29 April 2026") && zoomHtml.includes("Amazon Web Services"));
