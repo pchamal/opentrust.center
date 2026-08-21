@@ -1,218 +1,648 @@
 {
-  "generated_at": "2026-08-21T21:00:56Z",
+  "generated_at": "2026-08-21T21:53:12Z",
   "rule": "Next ~40 on-file companies whose DPA or subprocessors rule was open and who already had a first-party public URL. DPA fills only from a real first-party DPA. Named subprocessors fill only from a printed first-party list of organization names. Dates, JS shells, login walls, and portal hosts stay open.",
   "batch": [
-    "trusona"
+    "zerotier",
+    "cloudbees",
+    "cognite",
+    "deputy",
+    "alibaba-cloud",
+    "diligent-corporation"
   ],
-  "dpa_filed": [],
+  "dpa_filed": [
+    {
+      "slug": "cloudbees",
+      "name": "CloudBees",
+      "url": "https://docs.cloudbees.com/docs/cloudbees-common/latest/data-processing-agreement/"
+    }
+  ],
   "subprocessors_filed": [],
   "stayed_open": [
     {
-      "slug": "trusona",
-      "name": "Trusona",
+      "slug": "cognite",
+      "name": "Cognite",
       "rule": "dpa"
     },
     {
-      "slug": "trusona",
-      "name": "Trusona",
+      "slug": "cognite",
+      "name": "Cognite",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "name": "Alibaba Cloud",
+      "rule": "dpa"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "name": "Alibaba Cloud",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "diligent-corporation",
+      "name": "Diligent Corporation",
+      "rule": "dpa"
+    },
+    {
+      "slug": "diligent-corporation",
+      "name": "Diligent Corporation",
       "rule": "subprocessors"
     }
   ],
   "rejected": [
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/company/dpa",
-      "final": "https://trusona.com/company/dpa",
+      "slug": "cognite",
+      "url": "https://cognite.com/dpa",
+      "final": "https://cognite.com/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/gdpr/dpa",
-      "final": "https://trusona.com/gdpr/dpa",
+      "slug": "cognite",
+      "url": "https://cognite.com/data-processing-addendum",
+      "final": "https://cognite.com/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/policies/data-processing-agreement",
-      "final": "https://trusona.com/policies/data-processing-agreement",
+      "slug": "cognite",
+      "url": "https://cognite.com/policies/data-processing-addendum",
+      "final": "https://cognite.com/policies/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/legal/data-processing-addendum",
-      "final": "https://trusona.com/legal/data-processing-addendum",
+      "slug": "cognite",
+      "url": "https://cognite.com/data-processing-agreement",
+      "final": "https://cognite.com/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/data-processing-agreement",
-      "final": "https://trusona.com/data-processing-agreement",
+      "slug": "cognite",
+      "url": "https://cognite.com/gdpr/dpa",
+      "final": "https://cognite.com/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/legal/data-processing-agreement",
-      "final": "https://trusona.com/legal/data-processing-agreement",
+      "slug": "cognite",
+      "url": "https://cognite.com/policies/data-processing-agreement",
+      "final": "https://cognite.com/policies/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/legal/dpa",
-      "final": "https://trusona.com/legal/dpa",
+      "slug": "cognite",
+      "url": "https://cognite.com/legal/data-processing-addendum",
+      "final": "https://cognite.com/legal/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/terms/dpa",
-      "final": "https://trusona.com/terms/dpa",
+      "slug": "cognite",
+      "url": "https://cognite.com/legal/dpa",
+      "final": "https://cognite.com/legal/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/policies/dpa",
-      "final": "https://trusona.com/policies/dpa",
+      "slug": "cognite",
+      "url": "https://cognite.com/legal/gdpr/dpa",
+      "final": "https://cognite.com/legal/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/data-processing-addendum",
-      "final": "https://trusona.com/data-processing-addendum",
+      "slug": "cognite",
+      "url": "https://cognite.com/privacy/dpa",
+      "final": "https://cognite.com/privacy/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/dpa",
-      "final": "https://trusona.com/dpa",
+      "slug": "cognite",
+      "url": "https://cognite.com/legal/processor-terms",
+      "final": "https://cognite.com/legal/processor-terms",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/policies/data-processing-addendum",
-      "final": "https://trusona.com/policies/data-processing-addendum",
+      "slug": "cognite",
+      "url": "https://cognite.com/terms/dpa",
+      "final": "https://cognite.com/terms/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/legal/data-processing",
-      "final": "https://trusona.com/legal/data-processing",
+      "slug": "cognite",
+      "url": "https://cognite.com/legal/data-processing-agreement",
+      "final": "https://cognite.com/legal/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/legal/gdpr/dpa",
-      "final": "https://trusona.com/legal/gdpr/dpa",
+      "slug": "cognite",
+      "url": "https://cognite.com/policies/dpa",
+      "final": "https://cognite.com/policies/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/privacy/dpa",
-      "final": "https://trusona.com/privacy/dpa",
+      "slug": "cognite",
+      "url": "https://cognite.com/legal/data-processing",
+      "final": "https://cognite.com/legal/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/legal/processor-terms",
-      "final": "https://trusona.com/legal/processor-terms",
+      "slug": "cognite",
+      "url": "https://cognite.com/data-processing",
+      "final": "https://cognite.com/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/data-processing",
-      "final": "https://trusona.com/data-processing",
+      "slug": "cognite",
+      "url": "https://cognite.com/company/dpa",
+      "final": "https://cognite.com/company/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "trusona",
-      "url": "https://trust.trusona.com/sub-processors",
-      "final": "https://trust.trusona.com/sub-processors",
-      "reason": "fetch-failed",
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/dpa",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/legal/dpa",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/legal/data-processing-agreement",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/legal/data-processing-addendum",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/data-processing-agreement",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/data-processing-addendum",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/dpa",
+      "final": "https://diligent.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/legal/dpa",
+      "final": "https://diligent.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/legal/data-processing-addendum",
+      "final": "https://diligent.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/privacy/dpa",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/data-processing-addendum",
+      "final": "https://www.diligent.com/cdn/files/33u1mixi/production/107139ab4f9d5180dc3c5e16bf58bf0609f6c6b9.pdf",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/legal/data-processing-agreement",
+      "final": "https://diligent.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/legal/data-processing",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/policies/data-processing-addendum",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/data-processing-agreement",
+      "final": "https://diligent.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/policies/data-processing-agreement",
+      "final": "https://diligent.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/policies/data-processing-agreement",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/policies/dpa",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/gdpr/dpa",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/company/dpa",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/policies/dpa",
+      "final": "https://diligent.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/policies/data-processing-addendum",
+      "final": "https://diligent.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/terms/dpa",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/terms/dpa",
+      "final": "https://diligent.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/legal/gdpr/dpa",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/legal/processor-terms",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/data-processing",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/legal/processor-terms",
+      "final": "https://diligent.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/privacy/dpa",
+      "final": "https://diligent.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/company/dpa",
+      "final": "https://diligent.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/legal/gdpr/dpa",
+      "final": "https://diligent.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/legal/data-processing",
+      "final": "https://diligent.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/gdpr/dpa",
+      "final": "https://diligent.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/data-processing",
+      "final": "https://diligent.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zerotier",
+      "url": "https://trust.zerotier.com/subprocessors",
+      "final": "https://trust.zerotier.com/subprocessors",
+      "reason": "js-portal",
       "kind": "subprocessors"
     },
     {
-      "slug": "trusona",
-      "url": "https://trust.trusona.com/subprocessors",
-      "final": "https://trust.trusona.com/",
+      "slug": "cognite",
+      "url": "https://trust.cognite.com/subprocessors",
+      "final": "https://trust.cognite.com/",
       "reason": "safebase-itemuid",
       "kind": "subprocessors"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/company/subprocessors",
-      "final": "https://trusona.com/company/subprocessors",
+      "slug": "cognite",
+      "url": "https://trust.cognite.com/sub-processors",
+      "final": "https://trust.cognite.com/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/subprocessors",
-      "final": "https://trusona.com/subprocessors",
+      "slug": "cloudbees",
+      "url": "https://trust.cloudbees.com/subprocessors",
+      "final": "https://trust.cloudbees.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deputy",
+      "url": "https://www.deputy.com/subprocessors",
+      "final": "https://www.deputy.com/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cognite",
+      "url": "https://cognite.com/sub-processors",
+      "final": "https://cognite.com/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/sub-processors",
-      "final": "https://trusona.com/sub-processors",
+      "slug": "cognite",
+      "url": "https://cognite.com/legal/subprocessors",
+      "final": "https://cognite.com/legal/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/privacy/subprocessors",
-      "final": "https://trusona.com/privacy/subprocessors",
+      "slug": "cognite",
+      "url": "https://cognite.com/subprocessors",
+      "final": "https://cognite.com/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/legal/service-providers",
-      "final": "https://trusona.com/legal/service-providers",
+      "slug": "cognite",
+      "url": "https://cognite.com/legal/sub-processors",
+      "final": "https://cognite.com/legal/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/trust/subprocessors",
-      "final": "https://trusona.com/trust/subprocessors",
+      "slug": "cognite",
+      "url": "https://cognite.com/legal/service-providers",
+      "final": "https://cognite.com/legal/service-providers",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/legal/subprocessors",
-      "final": "https://trusona.com/legal/subprocessors",
+      "slug": "cognite",
+      "url": "https://cognite.com/privacy/subprocessors",
+      "final": "https://cognite.com/privacy/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/legal/sub-processors-page",
-      "final": "https://trusona.com/legal/sub-processors-page",
+      "slug": "cognite",
+      "url": "https://cognite.com/company/subprocessors",
+      "final": "https://cognite.com/company/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "trusona",
-      "url": "https://trusona.com/legal/sub-processors",
-      "final": "https://trusona.com/legal/sub-processors",
+      "slug": "cognite",
+      "url": "https://cognite.com/legal/sub-processors-page",
+      "final": "https://cognite.com/legal/sub-processors-page",
       "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/subprocessors",
+      "final": "https://diligent.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cognite",
+      "url": "https://cognite.com/trust/subprocessors",
+      "final": "https://cognite.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/sub-processors",
+      "final": "https://diligent.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/legal/subprocessors",
+      "final": "https://diligent.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/legal/sub-processors",
+      "final": "https://diligent.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/legal/service-providers",
+      "final": "https://diligent.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/subprocessors",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/sub-processors",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/legal/sub-processors",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://trust.diligent.com/subprocessors",
+      "final": "https://trust.diligent.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/trust/subprocessors",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/privacy/subprocessors",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://trust.diligent.com/sub-processors",
+      "final": "https://trust.diligent.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/legal/subprocessors",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/legal/service-providers",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/trust/subprocessors",
+      "final": "https://diligent.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/company/subprocessors",
+      "final": "https://diligent.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/legal/sub-processors-page",
+      "final": "https://diligent.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://diligent.com/privacy/subprocessors",
+      "final": "https://diligent.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/company/subprocessors",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/legal/sub-processors-page",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "no-printed-names",
       "kind": "subprocessors"
     }
   ]
