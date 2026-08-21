@@ -27,17 +27,51 @@ ENRICHED = SITE / "data" / "enriched.json"
 REPORT = DATA / "render" / "company-marks.json"
 BATCH = 40
 WORKERS = 12
-# Newly expanded companies that just got a public trust URL. Prefer them
-# when the marks File-glyph rule is still open. Substantial files stay skipped.
-PREFER_SLUGS = {
-    "enterprisedb",
-    "extensis",
-    "epic-systems",
-    "certinia",
-    "forcepoint",
-    "floqast",
-    "genesys",
-    "greenhouse-software",
+# Companies already attempted in PRs 49 and 50. Do not retry this cut.
+# The live report holds the immediately previous batch (PR 50); PR 49 is listed
+# here because that report was overwritten.
+PRIOR_ATTEMPTED = {
+    # PR 49
+    "datalogics",
+    "guild",
+    "classranked",
+    "midjourney",
+    "fastly",
+    "aerospike",
+    "intuit",
+    "daon-inc",
+    "avid-technology",
+    "paypal",
+    "chartbeat",
+    "boomi-lp",
+    "cs-disco",
+    "viant-technology",
+    "calm",
+    "caspio",
+    "thinking-machine-labs",
+    "decagon",
+    "nvidia",
+    "brave-software",
+    "apple",
+    "cleo-communications",
+    "eab",
+    "salt-security",
+    "bettercloud",
+    "activeops",
+    "airship",
+    "bluevoyant",
+    "corelight",
+    "megaport",
+    "deltek",
+    "athenahealth",
+    "deepwatch",
+    "american-megatrends",
+    "accesso-technology",
+    "meta",
+    "aptitude-software",
+    "crusoe",
+    "docebo",
+    "energycap",
 }
 
 # Regulation-only lists stay thin. Real certs (SOC / ISO / FedRAMP / …) fill out.
@@ -136,7 +170,9 @@ def first_party_candidates(public: dict, enr: dict) -> list[tuple[str, str]]:
 
 
 def previous_batch() -> set[str]:
-    return {slug for slug in (load_json(REPORT, {}).get("batch") or []) if slug}
+    prior = {slug for slug in (load_json(REPORT, {}).get("batch") or []) if slug}
+    prior.update(PRIOR_ATTEMPTED)
+    return prior
 
 
 def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]:
@@ -168,10 +204,7 @@ def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]
             "candidates": cands,
         }
         (thin_rows if on_file else open_rows).append(rec)
-    pool = open_rows + thin_rows
-    preferred = [rec for rec in pool if rec["slug"] in PREFER_SLUGS]
-    rest = [rec for rec in pool if rec["slug"] not in PREFER_SLUGS]
-    return (preferred + rest)[:BATCH]
+    return (open_rows + thin_rows)[:BATCH]
 
 
 def fetch_page(url: str) -> dict:

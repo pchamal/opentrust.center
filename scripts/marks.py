@@ -190,6 +190,9 @@ CMMC_NOISE = re.compile(
     re.I,
 )
 
+# “Aligned to ISO 27001” is a mapping claim, not a named hold.
+ALIGNED_TO = re.compile(r"aligned\s+to", re.I)
+
 # Sales / homework language — the company is not stating it holds the mark.
 HELP_YOU = re.compile(
     r"(help(?:s|ing)? you (?:get|achieve|earn|obtain|prepare|automate)|"
@@ -278,7 +281,7 @@ def apply_supersede(names: list[str]) -> list[str]:
 
 def _context_ok(blob: str, start: int, end: int) -> bool:
     window = blob[max(0, start - 90): min(len(blob), end + 90)]
-    if HELP_YOU.search(window) or CMMC_NOISE.search(window):
+    if HELP_YOU.search(window) or CMMC_NOISE.search(window) or ALIGNED_TO.search(window):
         return False
     return True
 
