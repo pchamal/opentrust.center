@@ -27,9 +27,9 @@ ENRICHED = SITE / "data" / "enriched.json"
 REPORT = DATA / "render" / "company-marks.json"
 BATCH = 40
 WORKERS = 12
-# Companies already attempted in PRs 49, 50, and 51. Do not retry this cut.
-# The live report holds the immediately previous batch; older PRs are listed
-# here because those reports were overwritten.
+# Companies already attempted in PRs 49, 50, 51, and 58. Do not retry this cut.
+# The live report holds the expand increment; older PRs are listed here because
+# those reports were overwritten.
 PRIOR_ATTEMPTED = {
     # PR 49
     "datalogics",
@@ -154,6 +154,35 @@ PRIOR_ATTEMPTED = {
     "fico",
     "leidos",
     "teradata",
+    # PR 58
+    "imperva",
+    "idrive-inc",
+    "insightly",
+    "honeybook",
+    "icims",
+    "homebase",
+    "inbenta",
+    "instabase",
+    "hyland-software",
+    "bmc-software",
+    "beyondtrust",
+    "8x8",
+    "citrix",
+    "zoominfo",
+    "blackline",
+    "logmein",
+    "coveo",
+    "teamviewer",
+    "checkmarx",
+    "zeta-global",
+    "cerebras",
+    "admicom",
+    "aqua-security",
+    "dexcom",
+    "gigamon",
+    "lime-technologies",
+    "malwarebytes",
+    "watchguard",
 }
 
 # Regulation-only lists stay thin. Real certs (SOC / ISO / FedRAMP / …) fill out.
@@ -232,7 +261,7 @@ def first_party_candidates(public: dict, enr: dict) -> list[tuple[str, str]]:
             return
         path = enrich.path_of(u)
         host = enrich.host_of(u)
-        if kind not in {"trust", "security", "trust_url", "enr_trust"}:
+        if kind not in {"trust", "security", "trust_url", "enr_trust", "privacy", "dpa", "subprocessors"}:
             # final_url / extra links must themselves be a trust or compliance page
             if not COMPLIANCE_URL_RE.search(f"{host} {path}"):
                 return
@@ -240,15 +269,22 @@ def first_party_candidates(public: dict, enr: dict) -> list[tuple[str, str]]:
         out.append((kind, u))
 
     links = enr.get("links") or {}
-    for kind in ("trust", "security"):
+    kinds = ("trust", "security")
+    extra_kinds = ("privacy", "dpa", "subprocessors") if requested_slugs() else ()
+    for kind in (*kinds, *extra_kinds):
         add(kind, links.get(kind) or "")
     add("trust_url", public.get("trust_url") or "")
     add("enr_trust", enr.get("trust_url") or "")
     add("final_url", public.get("final_url") or "")
     add("enr_final", enr.get("final_url") or "")
-    for key in ("trust", "security"):
+    for key in (*kinds, *extra_kinds):
         add(key, instrument_url(public, key))
     return out
+
+
+def requested_slugs() -> list[str]:
+    """Optional argv slugs. Empty means the next ~40 open/thin files."""
+    return [a.strip() for a in sys.argv[1:] if a.strip() and not a.startswith("-")]
 
 
 def previous_batch() -> set[str]:
@@ -258,9 +294,12 @@ def previous_batch() -> set[str]:
 
 
 def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]:
-    skip = previous_batch()
+    wanted = requested_slugs()
+    skip = set() if wanted else previous_batch()
+    by_pub = {row.get("slug"): row for row in public_rows if row.get("slug")}
+    rows = [by_pub[s] for s in wanted if s in by_pub] if wanted else public_rows
     open_rows, thin_rows = [], []
-    for row in public_rows:
+    for row in rows:
         if not row.get("found"):
             continue
         slug = row.get("slug") or ""
@@ -286,6 +325,8 @@ def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]
             "candidates": cands,
         }
         (thin_rows if on_file else open_rows).append(rec)
+    if wanted:
+        return open_rows + thin_rows
     return (open_rows + thin_rows)[:BATCH]
 
 
