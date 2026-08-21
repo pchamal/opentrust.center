@@ -1,1197 +1,490 @@
 {
-  "generated_at": "2026-08-21T20:58:18Z",
-  "method": "enwiki titles -> wikidata P856; no invented domains",
+  "generated_at": "2026-08-21T22:55:49Z",
+  "method": "wikidata-wbsearchentities + wbgetentities P856; enwiki titles -> P856",
   "user_agent": "opentrust.center/1.0 (+https://opentrust.center)",
-  "note": "hourly top-up appended 108 verified P856 from CRN Security 100 2023 leftover + Wikipedia Category:Cloud computing providers (and further unused software categories if needed); dropped Cynet Japan / LightSpin Technologies false P856; CMC software page 6+ empty; did not repeat exhausted lists or S&P 500",
+  "note": "hourly top-up appended 55 verified P856 from Wikipedia Category:Software as a Service (SaaS) companies + Category:Cloud applications (and further unused software categories if needed); Category:Cloud computing companies empty; List of SaaS/cloud companies missing; did not repeat exhausted lists (cloud providers, CRN, CMC, S&P 500)",
   "counts": {
-    "appended": 108,
-    "resolved_this_pass": 105,
-    "unresolved": 93,
-    "dropped_wrong_or_dup": 27,
+    "appended": 43,
+    "resolved": 55,
+    "unresolved": 95,
+    "dropped_wrong_or_dup": 15,
     "by_source": {
-      "wikipedia-cloud-computing-providers": 105
+      "wikipedia-saas-companies": 2,
+      "wikipedia-cloud-applications": 41
     },
     "by_source_url": {
-      "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers": 105
-    }
+      "https://en.wikipedia.org/wiki/Category:Software_as_a_Service_(SaaS)_companies": 2,
+      "https://en.wikipedia.org/wiki/Category:Cloud_applications": 41
+    },
+    "dropped_product_not_company": 12
   },
   "appended": [
     {
-      "name": "VMware",
-      "slug": "vmware",
-      "domain": "vmware.com",
-      "source": "crn-security-100-2023",
-      "source_url": "https://www.crn.com/news/security/the-20-coolest-endpoint-and-managed-security-companies-of-2023-the-security-100",
-      "priority": 1,
-      "qid": "Q11407",
-      "reason": "exact"
-    },
-    {
-      "name": "BitSight",
-      "slug": "bitsight",
-      "domain": "bitsight.com",
-      "source": "crn-security-100-2023",
-      "source_url": "https://www.crn.com/news/security/the-20-coolest-risk-threat-intelligence-and-security-operations-companies-of-2023-the-security-100",
-      "priority": 1,
-      "qid": "Q65121483",
-      "reason": "exact"
-    },
-    {
-      "name": "iboss",
-      "slug": "iboss",
-      "domain": "iboss.com",
-      "source": "crn-security-100-2023",
-      "source_url": "https://www.crn.com/news/security/the-20-coolest-web-application-and-email-security-companies-of-2023-the-security-100",
-      "priority": 1,
-      "qid": "Q138789659",
-      "reason": "exact"
-    },
-    {
-      "name": "Advania",
-      "slug": "advania",
-      "domain": "advania.is",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q4686399",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Alibaba Cloud",
-      "slug": "alibaba-cloud",
-      "domain": "alibabacloud.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q17062154",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Apcera",
-      "slug": "apcera",
-      "domain": "apcera.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q28403794",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Apigee",
-      "slug": "apigee",
-      "domain": "apigee.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q28155573",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Appirio",
-      "slug": "appirio",
-      "domain": "appirio.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q4781090",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Aptum Technologies",
-      "slug": "aptum-technologies",
-      "domain": "aptum.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q28130069",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Basho Technologies",
-      "slug": "basho-technologies",
-      "domain": "basho.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q4866898",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "BioBam Bioinformatics",
-      "slug": "biobam-bioinformatics",
-      "domain": "biobam.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q25052491",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Bitdeer",
-      "slug": "bitdeer",
-      "domain": "bitdeer.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q133042901",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Buildium",
-      "slug": "buildium",
-      "domain": "buildium.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q30642393",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Bytemark",
-      "slug": "bytemark",
-      "domain": "bytemark.co.uk",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q18159731",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "CallidusCloud",
-      "slug": "calliduscloud",
-      "domain": "calliduscloud.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q15211487",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Cegid",
-      "slug": "cegid",
-      "domain": "cegid.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q1052684",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Cirrascale Cloud Services",
-      "slug": "cirrascale-cloud-services",
-      "domain": "cirrascale.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q7920901",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "CITIC Telecom CPC",
-      "slug": "citic-telecom-cpc",
-      "domain": "citictel-cpc.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q15941420",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Cloud Elements",
-      "slug": "cloud-elements",
-      "domain": "cloud-elements.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q17003466",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Cloudant",
-      "slug": "cloudant",
-      "domain": "cloudant.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q5135721",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "CloudBees",
-      "slug": "cloudbees",
-      "domain": "cloudbees.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q16827155",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "CloudBolt",
-      "slug": "cloudbolt",
-      "domain": "cloudbolt.io",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q43785791",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "CloudShare",
-      "slug": "cloudshare",
-      "domain": "cloudshare.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q5135620",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Cognite",
-      "slug": "cognite",
-      "domain": "cognite.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q56408456",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Cycle Computing",
-      "slug": "cycle-computing",
-      "domain": "cyclecomputing.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q16953455",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "DBGallery",
-      "slug": "dbgallery",
-      "domain": "dbgallery.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q5204398",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Deputy",
-      "slug": "deputy",
-      "domain": "deputy.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q137217040",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Diligent Corporation",
-      "slug": "diligent-corporation",
-      "domain": "diligent.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q22907813",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Epos Now",
-      "slug": "epos-now",
-      "domain": "eposnow.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q22908200",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "EVS Broadcast Equipment",
-      "slug": "evs-broadcast-equipment",
-      "domain": "evs.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q693594",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "GigaSpaces",
-      "slug": "gigaspaces",
-      "domain": "gigaspaces.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q16840077",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Gigya",
-      "slug": "gigya",
-      "domain": "gigya.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q5560364",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Global Relay",
-      "slug": "global-relay",
-      "domain": "globalrelay.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q5570591",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "GreenButton",
-      "slug": "greenbutton",
-      "domain": "greenbutton.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q5602200",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "GXS Inc.",
-      "slug": "gxs-inc",
-      "domain": "gxs.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q5515077",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Halogen Software",
-      "slug": "halogen-software",
-      "domain": "halogensoftware.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q22679541",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "HCentive",
-      "slug": "hcentive",
-      "domain": "hcentive.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q16957859",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Heroku",
-      "slug": "heroku",
-      "domain": "heroku.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q2350702",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "HyTrust",
-      "slug": "hytrust",
-      "domain": "hytrust.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q16996214",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Iland",
-      "slug": "iland",
-      "domain": "iland.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q5997076",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Instart",
-      "slug": "instart",
-      "domain": "instartlogic.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q19880602",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Jelastic",
-      "slug": "jelastic",
-      "domain": "jelastic.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q17059982",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Jobvite",
-      "slug": "jobvite",
-      "domain": "jobvite.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q25025033",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Kronos Incorporated",
-      "slug": "kronos-incorporated",
-      "domain": "kronos.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q6438960",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "LeanIX",
-      "slug": "leanix",
-      "domain": "leanix.net",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q23680004",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Linode",
-      "slug": "linode",
-      "domain": "linode.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q6554704",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "LiveTiles",
-      "slug": "livetiles",
-      "domain": "livetilesglobal.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q43083498",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Logicworks",
-      "slug": "logicworks",
-      "domain": "logicworks.net",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q6667516",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Lunavi",
-      "slug": "lunavi",
-      "domain": "lunavi.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q16840997",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Media Temple",
-      "slug": "media-temple",
-      "domain": "mediatemple.net",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q6805556",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Mirantis",
-      "slug": "mirantis",
-      "domain": "mirantis.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q19903458",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "MLab",
-      "slug": "mlab",
-      "domain": "mlab.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q17081723",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "MuleSoft",
-      "slug": "mulesoft",
-      "domain": "mulesoft.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q6933868",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "NetSuite",
-      "slug": "netsuite",
-      "domain": "netsuite.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q4045248",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Ninefold",
-      "slug": "ninefold",
-      "domain": "ninefold.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q7038478",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Openbravo",
-      "slug": "openbravo",
-      "domain": "openbravo.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q1418609",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "OpenCube Technologies",
-      "slug": "opencube-technologies",
-      "domain": "opencubetech.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q3353107",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "OpenIO",
-      "slug": "openio",
-      "domain": "openio.io",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q30348631",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "OpSource",
-      "slug": "opsource",
-      "domain": "opsource.net",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q7095489",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Orbitera",
-      "slug": "orbitera",
-      "domain": "orbitera.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q54958895",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "OrionVM",
-      "slug": "orionvm",
-      "domain": "orionvm.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q17019761",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Outsourcery",
-      "slug": "outsourcery",
-      "domain": "outsourcery.co.uk",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q7113024",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "OutSystems",
-      "slug": "outsystems",
-      "domain": "outsystems.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q7111411",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Pando Networks",
-      "slug": "pando-networks",
-      "domain": "pandonetworks.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q7130684",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Panzura",
-      "slug": "panzura",
-      "domain": "panzura.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "priority": 2,
-      "qid": "Q17073942",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Perforce",
-      "slug": "perforce",
-      "domain": "perforce.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Booksy",
+      "slug": "booksy",
+      "domain": "booksy.com",
+      "source": "wikipedia-saas-companies",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_as_a_Service_(SaaS)_companies",
       "priority": 2,
-      "qid": "Q20063746",
+      "qid": "Q138604040",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Perspecsys",
-      "slug": "perspecsys",
-      "domain": "perspecsys.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "HappyOrNot",
+      "slug": "happyornot",
+      "domain": "happy-or-not.com",
+      "source": "wikipedia-saas-companies",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_as_a_Service_(SaaS)_companies",
       "priority": 2,
-      "qid": "Q7170740",
+      "qid": "Q48972993",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Phase2 International",
-      "slug": "phase2-international",
-      "domain": "phase2.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "24SevenOffice",
+      "slug": "24sevenoffice",
+      "domain": "24sevenoffice.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q7180912",
+      "qid": "Q217247",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "PSSC Labs",
-      "slug": "pssc-labs",
-      "domain": "pssclabs.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Act! LLC",
+      "slug": "act-llc",
+      "domain": "act.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q17086036",
+      "qid": "Q121632178",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "QC Ware",
-      "slug": "qc-ware",
-      "domain": "qcware.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "ActiveCampaign",
+      "slug": "activecampaign",
+      "domain": "activecampaign.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q47520088",
+      "qid": "Q65063411",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Red Hat",
-      "slug": "red-hat",
-      "domain": "redhat.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Aventri",
+      "slug": "aventri",
+      "domain": "aventri.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q485593",
+      "qid": "Q25303120",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Redis",
-      "slug": "redis",
-      "domain": "redislabs.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Bitcasa",
+      "slug": "bitcasa",
+      "domain": "bitcasa.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q17086822",
+      "qid": "Q4189715",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Revel Systems",
-      "slug": "revel-systems",
-      "domain": "revelsystems.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Bitium",
+      "slug": "bitium",
+      "domain": "bitium.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q7317797",
+      "qid": "Q20313350",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "RightScale",
-      "slug": "rightscale",
-      "domain": "rightscale.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Bunchball",
+      "slug": "bunchball",
+      "domain": "bunchball.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q7333472",
+      "qid": "Q4997443",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Scaleway",
-      "slug": "scaleway",
-      "domain": "scaleway.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Carasent",
+      "slug": "carasent",
+      "domain": "carasent.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q3352745",
+      "qid": "Q4781778",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Scalr",
-      "slug": "scalr",
-      "domain": "scalr.net",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "CatalogIt",
+      "slug": "catalogit",
+      "domain": "catalogit.app",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q911439",
+      "qid": "Q123501404",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Schwarz Digits",
-      "slug": "schwarz-digits",
-      "domain": "schwarz-digits.de",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "ClearSlide",
+      "slug": "clearslide",
+      "domain": "clearslide.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q135479320",
+      "qid": "Q17008020",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "ShopKeep",
-      "slug": "shopkeep",
-      "domain": "shopkeep.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "CloudMe",
+      "slug": "cloudme",
+      "domain": "cloudme.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q7501091",
+      "qid": "Q5135619",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Sinch AB",
-      "slug": "sinch-ab",
-      "domain": "sinch.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Comm100",
+      "slug": "comm100",
+      "domain": "comm100.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q22077794",
+      "qid": "Q16249381",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "SkySilk Cloud Services",
-      "slug": "skysilk-cloud-services",
-      "domain": "skysilk.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Creately",
+      "slug": "creately",
+      "domain": "creately.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q105550168",
+      "qid": "Q104841340",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Skytap",
-      "slug": "skytap",
-      "domain": "skytap.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Evergage",
+      "slug": "evergage",
+      "domain": "evergage.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q16950076",
+      "qid": "Q4781774",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "SmartBear Software",
-      "slug": "smartbear-software",
-      "domain": "smartbear.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "FreshBooks",
+      "slug": "freshbooks",
+      "domain": "freshbooks.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q28406315",
+      "qid": "Q5502916",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "SnapLogic",
-      "slug": "snaplogic",
-      "domain": "snaplogic.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "HighQ",
+      "slug": "highq",
+      "domain": "highq.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q7547240",
+      "qid": "Q17055173",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Snappii",
-      "slug": "snappii",
-      "domain": "snappii.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Huddle",
+      "slug": "huddle",
+      "domain": "huddle.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q24913514",
+      "qid": "Q5928319",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Sqrrl",
-      "slug": "sqrrl",
-      "domain": "sqrrl.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Kampyle",
+      "slug": "kampyle",
+      "domain": "kampyle.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q7581878",
+      "qid": "Q6359546",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Stratoscale",
-      "slug": "stratoscale",
-      "domain": "stratoscale.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Kiteworks",
+      "slug": "kiteworks",
+      "domain": "kiteworks.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q22671178",
+      "qid": "Q4672313",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Sun Microsystems",
-      "slug": "sun-microsystems",
-      "domain": "sun.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Lanyon Solutions",
+      "slug": "lanyon-solutions",
+      "domain": "lanyon.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q14647",
+      "qid": "Q20714454",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "SurveyMonkey",
-      "slug": "surveymonkey",
-      "domain": "surveymonkey.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Mailchimp",
+      "slug": "mailchimp",
+      "domain": "mailchimp.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q162852",
+      "qid": "Q6735673",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "T-Systems",
-      "slug": "t-systems",
-      "domain": "t-systems.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Mailgun",
+      "slug": "mailgun",
+      "domain": "mailgun.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q565423",
+      "qid": "Q105539224",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Tencent Cloud",
-      "slug": "tencent-cloud",
-      "domain": "cloud.tencent.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Marq",
+      "slug": "marq",
+      "domain": "marq.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q17500218",
+      "qid": "Q17067898",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "TradeGecko",
-      "slug": "tradegecko",
-      "domain": "tradegecko.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Monaca",
+      "slug": "monaca",
+      "domain": "monaca.io",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q17054602",
+      "qid": "Q22095753",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Turbonomic",
-      "slug": "turbonomic",
-      "domain": "turbonomic.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "MRI Software",
+      "slug": "mri-software",
+      "domain": "mrisoftware.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q18357721",
+      "qid": "Q6717496",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "UKCloud",
-      "slug": "ukcloud",
-      "domain": "ukcloud.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Phorest",
+      "slug": "phorest",
+      "domain": "phorest.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q28402745",
+      "qid": "Q7187385",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "UKFast",
-      "slug": "ukfast",
-      "domain": "ukfast.co.uk",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Pidoco",
+      "slug": "pidoco",
+      "domain": "pidoco.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q7864768",
+      "qid": "Q7191304",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "UKG",
-      "slug": "ukg",
-      "domain": "ukg.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Placetel",
+      "slug": "placetel",
+      "domain": "placetel.de",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q98785197",
+      "qid": "Q104655598",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Ultimate Software",
-      "slug": "ultimate-software",
-      "domain": "ultimatesoftware.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Planview",
+      "slug": "planview",
+      "domain": "planview.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q7880250",
+      "qid": "Q19903554",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Univa",
-      "slug": "univa",
-      "domain": "univa.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Powtoon",
+      "slug": "powtoon",
+      "domain": "powtoon.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q7893845",
+      "qid": "Q7235924",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Uptake",
-      "slug": "uptake",
-      "domain": "uptake.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Proven",
+      "slug": "proven",
+      "domain": "proven.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q25210869",
+      "qid": "Q17076673",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Virtustream",
-      "slug": "virtustream",
-      "domain": "virtustream.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "QuickSchools.com",
+      "slug": "quickschools-com",
+      "domain": "quickschools.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q7935251",
+      "qid": "Q7271673",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Visma Solutions",
-      "slug": "visma-solutions",
-      "domain": "visma.fi",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Really Simple Systems",
+      "slug": "really-simple-systems",
+      "domain": "reallysimplesystems.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q13419364",
+      "qid": "Q7301317",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Wercker",
-      "slug": "wercker",
-      "domain": "wercker.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Recruitee",
+      "slug": "recruitee",
+      "domain": "recruitee.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q24910875",
+      "qid": "Q28135088",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Wolfram Research",
-      "slug": "wolfram-research",
-      "domain": "wolfram.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Showcase Workshop",
+      "slug": "showcase-workshop",
+      "domain": "showcaseworkshop.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q1367937",
+      "qid": "Q24998541",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Xactly Corporation",
-      "slug": "xactly-corporation",
-      "domain": "xactlycorp.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Soluto",
+      "slug": "soluto",
+      "domain": "soluto.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q17091687",
+      "qid": "Q7558986",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Xeround",
-      "slug": "xeround",
-      "domain": "xeround.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Syncdocs",
+      "slug": "syncdocs",
+      "domain": "syncdocs.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q8043897",
+      "qid": "Q7662089",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Yottaa",
-      "slug": "yottaa",
-      "domain": "yottaa.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Tresorit",
+      "slug": "tresorit",
+      "domain": "tresorit.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q22059610",
+      "qid": "Q14624883",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Yottabyte LLC",
-      "slug": "yottabyte-llc",
-      "domain": "yottabyte.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Typeform",
+      "slug": "typeform",
+      "domain": "typeform.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q18390424",
+      "qid": "Q24910393",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Zetta",
-      "slug": "zetta",
-      "domain": "zetta.net",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "Wiliot",
+      "slug": "wiliot",
+      "domain": "wiliot.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q17103085",
+      "qid": "Q60642552",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Zuora",
-      "slug": "zuora",
-      "domain": "zuora.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "name": "ZipBooks",
+      "slug": "zipbooks",
+      "domain": "zipbooks.com",
+      "source": "wikipedia-cloud-applications",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
       "priority": 2,
-      "qid": "Q8075320",
+      "qid": "Q23680029",
       "reason": "enwiki-title P856"
     }
   ],
   "dropped_wrong_p856": [
     {
-      "name": "Data Processing Iran Co.",
-      "slug": "data-processing-iran-co",
-      "domain": "dpi.ir",
+      "name": "BigCouch",
+      "slug": "bigcouch",
+      "domain": "bigcouch.cloudant.com",
       "reason": "implausible-p856"
     },
     {
-      "name": "DataStax",
-      "slug": "datastax",
-      "domain": "datastax.com",
+      "name": "BigMachines",
+      "slug": "bigmachines",
+      "domain": "oracle.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "DIET",
+      "slug": "diet",
+      "domain": "graal.ens-lyon.fr",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Fruux",
+      "slug": "fruux",
+      "domain": "fruux.com",
       "reason": "blocked-host"
     },
     {
-      "name": "Demandware",
-      "slug": "demandware",
-      "domain": "salesforce.com",
+      "name": "MSP360",
+      "slug": "msp360",
+      "domain": "cloudberrylab.com",
       "reason": "implausible-p856"
     },
     {
-      "name": "Firebase",
-      "slug": "firebase",
-      "domain": "firebase.google.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Fujitsu",
-      "slug": "fujitsu",
-      "domain": "global.fujitsu",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "GreenQloud",
-      "slug": "greenqloud",
-      "domain": "qstack.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Hewlett-Packard",
-      "slug": "hewlett-packard",
-      "domain": "hp.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Itochu Techno-Solutions",
-      "slug": "itochu-techno-solutions",
-      "domain": "ctc-g.co.jp",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Korea Internet Neutral Exchange",
-      "slug": "korea-internet-neutral-exchange",
-      "domain": "kinx.net",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "KVH Co. Ltd.",
-      "slug": "kvh-co-ltd",
-      "domain": "kvhasia.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Link Motion Inc",
-      "slug": "link-motion-inc",
-      "domain": "en.nq.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Mainsoft",
-      "slug": "mainsoft",
-      "domain": "harmon.ie",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Medidata Solutions",
-      "slug": "medidata-solutions",
-      "domain": "3ds.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "NS Solutions",
-      "slug": "ns-solutions",
-      "domain": "nssol.nipponsteel.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Plex Systems",
-      "slug": "plex-systems",
-      "domain": "plex.com",
-      "reason": "blocked-host"
-    },
-    {
-      "name": "Quanta Cloud Technology",
-      "slug": "quanta-cloud-technology",
-      "domain": "qct.io",
+      "name": "Nsite Software",
+      "slug": "nsite-software",
+      "domain": "ondemand.com",
       "reason": "implausible-p856"
     },
     {
@@ -1201,513 +494,656 @@
       "reason": "implausible-p856"
     },
     {
-      "name": "SAP Cloud Infrastructure",
-      "slug": "sap-cloud-infrastructure",
-      "domain": "openstack.org",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Servage AB",
-      "slug": "servage-ab",
-      "domain": "servagegroup.se",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "ServiceMax",
-      "slug": "servicemax",
-      "domain": "servicemax.com",
-      "reason": "blocked-host"
-    },
-    {
-      "name": "TOA Technologies",
-      "slug": "toa-technologies",
-      "domain": "oracle.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "THG Ingenuity Cloud Services",
-      "slug": "thg-ingenuity-cloud-services",
-      "domain": "uk2group.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Versive",
-      "slug": "versive",
-      "domain": "contextrelevant.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Cirata",
-      "slug": "cirata",
-      "domain": "wandisco.com",
+      "name": "Wave Financial",
+      "slug": "wave-financial",
+      "domain": "waveapps.com",
       "reason": "implausible-p856"
     }
   ],
   "unresolved": [
     {
-      "name": "Cynet",
-      "slug": "cynet",
-      "reason": "no-theme desc=Wikimedia disambiguation page"
+      "name": "Bitrise",
+      "slug": "bitrise",
+      "reason": "not-org no-org p31=[] desc=platform for mobile application development",
+      "status": null
     },
     {
-      "name": "OPSWAT",
-      "slug": "opswat",
-      "reason": "no-p856"
+      "name": "Responsly",
+      "slug": "responsly",
+      "reason": "not-org no-org p31=['Q7397'] desc=online survey platform",
+      "status": null
     },
     {
-      "name": "Fortra",
-      "slug": "fortra",
-      "reason": "no-p856"
+      "name": "Animaker",
+      "slug": "animaker",
+      "reason": "no-wikidata-item",
+      "status": null
     },
     {
-      "name": "Immuta",
-      "slug": "immuta",
-      "reason": "no-p856"
+      "name": "ANY.RUN",
+      "slug": "any-run",
+      "reason": "not-org no-org p31=['Q7397'] desc=cybersecurity malware",
+      "status": null
     },
     {
-      "name": "Versa Networks",
-      "slug": "versa-networks",
-      "reason": "no-wikidata-item"
+      "name": "Aplos Software",
+      "slug": "aplos-software",
+      "reason": "no-p856",
+      "status": null
     },
     {
-      "name": "Cado Security",
-      "slug": "cado-security",
-      "reason": "no-wikidata-item"
+      "name": "AppSheet",
+      "slug": "appsheet",
+      "reason": "not-org no-org p31=['Q7397'] desc=No-code development platform",
+      "status": null
     },
     {
-      "name": "Contrast Security",
-      "slug": "contrast-security",
-      "reason": "no-wikidata-item"
+      "name": "Backend as a service",
+      "slug": "backend-as-a-service",
+      "reason": "not-org no-org p31=[] desc=model for providing web app and mobile app developers with a way to link their applications to backend cloud storage and APIs",
+      "status": null
     },
     {
-      "name": "Lacework",
-      "slug": "lacework",
-      "reason": "no-theme desc=openwork fabric, patterned with open holes in the work, made by machine or by hand"
+      "name": "Benchmark Email",
+      "slug": "benchmark-email",
+      "reason": "no-p856",
+      "status": null
     },
     {
-      "name": "Talon Cyber Security",
-      "slug": "talon-cyber-security",
-      "reason": "no-p856"
+      "name": "BlackSpider Technologies Limited",
+      "slug": "blackspider-technologies-limited",
+      "reason": "no-p856",
+      "status": null
     },
     {
-      "name": "Varmour",
-      "slug": "varmour",
-      "reason": "no-wikidata-item"
-    },
-    {
-      "name": "Adobe Experience Cloud",
-      "slug": "adobe-experience-cloud",
-      "reason": "not-org no-org p31=['Q1143070'] desc=collection of integrated online marketing and Web analytics products by Adobe Systems"
-    },
-    {
-      "name": "Amazon Drive",
-      "slug": "amazon-drive",
-      "reason": "not-org no-org p31=['Q1343205'] desc=file hosting service offered by Amazon to consumers"
-    },
-    {
-      "name": "Amazon Elastic Compute Cloud",
-      "slug": "amazon-elastic-compute-cloud",
-      "reason": "not-org no-org p31=['Q483639', 'Q1346018'] desc=Amazon cloud computing platform"
-    },
-    {
-      "name": "Amazon ElastiCache",
-      "slug": "amazon-elasticache",
-      "reason": "not-org no-org p31=['Q1254596'] desc=cloud-based service"
-    },
-    {
-      "name": "Application Networks",
-      "slug": "application-networks",
-      "reason": "no-p856"
-    },
-    {
-      "name": "Aptana",
-      "slug": "aptana",
-      "reason": "not-org no-org p31=['Q341'] desc=text editor"
-    },
-    {
-      "name": "Artmotion",
-      "slug": "artmotion",
-      "reason": "no-p856"
-    },
-    {
-      "name": "ATI Global",
-      "slug": "ati-global",
-      "reason": "no-p856"
-    },
-    {
-      "name": "Autonomy Corporation",
-      "slug": "autonomy-corporation",
-      "reason": "no-p856"
-    },
-    {
-      "name": "Azure Data Lake",
-      "slug": "azure-data-lake",
-      "reason": "not-org no-org p31=['Q483639'] desc=scalable data storage and analytics service"
-    },
-    {
-      "name": "Azure Stream Analytics",
-      "slug": "azure-stream-analytics",
-      "reason": "not-org no-org p31=[] desc=serverless scalable complex event processing engine by Microsoft"
-    },
-    {
-      "name": "Azure Web Apps",
-      "slug": "azure-web-apps",
-      "reason": "not-org no-org p31=['Q483639', 'Q7397'] desc=ASEAN Games phil. sched for men tennis"
-    },
-    {
-      "name": "BitFuFu",
-      "slug": "bitfufu",
-      "reason": "no-p856"
+      "name": "Blockchain as a service",
+      "slug": "blockchain-as-a-service",
+      "reason": "not-org no-org p31=['Q17155032'] desc=",
+      "status": null
     },
     {
       "name": "Booker Software",
       "slug": "booker-software",
-      "reason": "no-p856"
+      "reason": "no-p856",
+      "status": null
     },
     {
-      "name": "Bracket Computing",
-      "slug": "bracket-computing",
-      "reason": "not-org no-org p31=[] desc="
+      "name": "The Business Cloud",
+      "slug": "the-business-cloud",
+      "reason": "not-org no-org p31=[] desc=application programming interface",
+      "status": null
     },
     {
-      "name": "Citrix Cloud",
-      "slug": "citrix-cloud",
-      "reason": "not-org no-org p31=['Q7397'] desc=cloud management service"
+      "name": "Business intelligence 2.0",
+      "slug": "business-intelligence-2-0",
+      "reason": "not-org no-org p31=[] desc=",
+      "status": null
     },
     {
-      "name": "Citrix Virtual Desktops",
-      "slug": "citrix-virtual-desktops",
-      "reason": "not-org no-org p31=['Q7397'] desc=desktop virtualization product"
+      "name": "CallFire",
+      "slug": "callfire",
+      "reason": "not-org no-org p31=[] desc=cloud telephony services provider",
+      "status": null
     },
     {
-      "name": "ClickPost",
-      "slug": "clickpost",
-      "reason": "no-p856"
+      "name": "Clesh",
+      "slug": "clesh",
+      "reason": "not-org no-org p31=['Q1373429'] desc=cloud-based video editing platform",
+      "status": null
     },
     {
-      "name": "Cloud broker",
-      "slug": "cloud-broker",
-      "reason": "not-org no-org p31=[] desc=cloud business entity"
+      "name": "Cloud",
+      "slug": "cloud",
+      "reason": "not-org no-org p31=['Q9135'] desc=browser-based operating system",
+      "status": null
     },
     {
-      "name": "Cloud Foundry",
-      "slug": "cloud-foundry",
-      "reason": "not-org no-org p31=['Q341', 'Q483639'] desc=open source, multi-cloud application platform as a service"
+      "name": "Cloud access security broker",
+      "slug": "cloud-access-security-broker",
+      "reason": "no-p856",
+      "status": null
     },
     {
-      "name": "Cloud28+",
-      "slug": "cloud28plus",
-      "reason": "not-org no-org p31=['Q37654'] desc=cloud computing services marketplace"
+      "name": "Cloudian",
+      "slug": "cloudian",
+      "reason": "no-p856",
+      "status": null
     },
     {
-      "name": "CloudEndure",
-      "slug": "cloudendure",
-      "reason": "no-p856"
-    },
-    {
-      "name": "Coda Project",
-      "slug": "coda-project",
-      "reason": "not-org no-org p31=['Q474157'] desc=cloud-based document editor that blends word-processing with spreadsheet and database functionality"
+      "name": "Cloudike",
+      "slug": "cloudike",
+      "reason": "not-org no-org p31=['Q7397'] desc=brandable file storage platform",
+      "status": null
     },
     {
       "name": "Conga Corporation",
       "slug": "conga-corporation",
-      "reason": "no-p856"
+      "reason": "no-p856",
+      "status": null
     },
     {
-      "name": "Content Guru",
-      "slug": "content-guru",
-      "reason": "no-p856"
+      "name": "Cryptee",
+      "slug": "cryptee",
+      "reason": "not-org no-org p31=[] desc=document and image storage service",
+      "status": null
     },
     {
-      "name": "CopperEgg",
-      "slug": "copperegg",
-      "reason": "no-p856"
+      "name": "Database of Molecular Motions",
+      "slug": "database-of-molecular-motions",
+      "reason": "not-org no-org p31=['Q7251500', 'Q1254596', 'Q4117139'] desc=describes the motions that occur in proteins and other macromolecules",
+      "status": null
     },
     {
-      "name": "DealHub",
-      "slug": "dealhub",
-      "reason": "no-p856"
+      "name": "Deltacloud",
+      "slug": "deltacloud",
+      "reason": "not-org no-org p31=['Q188860'] desc=application programming interface",
+      "status": null
     },
     {
-      "name": "Deutsche B\u00f6rse Cloud Exchange AG",
-      "slug": "deutsche-b-rse-cloud-exchange-ag",
-      "reason": "no-p856"
+      "name": "Dropbox Carousel",
+      "slug": "dropbox-carousel",
+      "reason": "not-org no-org p31=['Q7397'] desc=azlaan",
+      "status": null
     },
     {
-      "name": "Dimension Data",
-      "slug": "dimension-data",
-      "reason": "no-p856"
+      "name": "Dropmyemail",
+      "slug": "dropmyemail",
+      "reason": "not-org no-org p31=['Q7397'] desc=E-mail backup service",
+      "status": null
     },
     {
-      "name": "DriveNets",
-      "slug": "drivenets",
-      "reason": "no-p856"
+      "name": "EKool",
+      "slug": "ekool",
+      "reason": "not-org no-org p31=['Q121182'] desc=Estonian school management system",
+      "status": null
     },
     {
-      "name": "EdgeUno",
-      "slug": "edgeuno",
-      "reason": "no-p856"
+      "name": "EthosCE",
+      "slug": "ethosce",
+      "reason": "not-org no-org p31=['Q7397'] desc=healthcare-related learning management system",
+      "status": null
     },
     {
-      "name": "ElasticHosts",
-      "slug": "elastichosts",
-      "reason": "no-p856"
+      "name": "Exchange Online Protection",
+      "slug": "exchange-online-protection",
+      "reason": "not-org no-org p31=[] desc=email filtering service, part of Microsoft's Exchange Online family",
+      "status": null
     },
     {
-      "name": "Enomaly",
-      "slug": "enomaly",
-      "reason": "no-p856"
+      "name": "Filecoin",
+      "slug": "filecoin",
+      "reason": "not-org no-org p31=['Q13479982', 'Q85927965', 'Q7397'] desc=open-source, public cryptocurrency and digital payment system with a blockchain-based cooperative digital storage and data retrieval method",
+      "status": null
     },
     {
-      "name": "Enstratius",
-      "slug": "enstratius",
-      "reason": "not-org no-org p31=['Q7397'] desc=cloud computing infrastructure management platform"
+      "name": "Freshservice",
+      "slug": "freshservice",
+      "reason": "no-p856",
+      "status": null
     },
     {
-      "name": "Enterprise file synchronization and sharing",
-      "slug": "enterprise-file-synchronization-and-sharing",
-      "reason": "no-p856"
+      "name": "Google Cloud Connect",
+      "slug": "google-cloud-connect",
+      "reason": "not-org no-org p31=['Q7397'] desc=cloud computing plug-in for Microsoft Office",
+      "status": null
     },
     {
-      "name": "FUJITSU Cloud IaaS Trusted Public S5",
-      "slug": "fujitsu-cloud-iaas-trusted-public-s5",
-      "reason": "not-org no-org p31=['Q7397'] desc=cloud computing platform"
+      "name": "Google Fusion Tables",
+      "slug": "google-fusion-tables",
+      "reason": "not-org no-org p31=['Q35127'] desc=data management web service",
+      "status": null
     },
     {
-      "name": "Gcore",
-      "slug": "gcore",
-      "reason": "not-org no-org p31=['Q1346018', 'Q72588'] desc=cloud service provider"
+      "name": "Google Photos",
+      "slug": "google-photos",
+      "reason": "not-org no-org p31=['Q914359'] desc=photo storage service developed by Google",
+      "status": null
     },
     {
-      "name": "Google Cloud Platform",
-      "slug": "google-cloud-platform",
-      "reason": "not-org no-org p31=['Q1153767', 'Q1346018', 'Q241317', 'Q117350903'] desc=cloud-based services and infrastructure from Google"
+      "name": "Hospitable",
+      "slug": "hospitable",
+      "reason": "no-p856",
+      "status": null
     },
     {
-      "name": "Google Cloud Storage",
-      "slug": "google-cloud-storage",
-      "reason": "not-org no-org p31=['Q914359', 'Q1346018'] desc=cloud storage service offered by Google's Cloud Platform"
+      "name": "HP ConvergedSystem",
+      "slug": "hp-convergedsystem",
+      "reason": "not-org no-org p31=[] desc=portfolio of system-based products",
+      "status": null
     },
     {
-      "name": "Google Compute Engine",
-      "slug": "google-compute-engine",
-      "reason": "not-org no-org p31=['Q483639', 'Q1346018'] desc=compute service used to run virtual machines offered by Google Cloud"
+      "name": "Huawei Mobile Services",
+      "slug": "huawei-mobile-services",
+      "reason": "not-org no-org p31=['Q7397'] desc=proprietary background service and API package for Android devices from Huawei, created to replace GMS",
+      "status": null
     },
     {
-      "name": "HP Business Service Automation",
-      "slug": "hp-business-service-automation",
-      "reason": "no-p856"
+      "name": "ICloud",
+      "slug": "icloud",
+      "reason": "not-org no-org p31=['Q914359', 'Q166142', 'Q4379965', 'Q167270', 'Q1343205'] desc=cloud storage and cloud computing system",
+      "status": null
     },
     {
-      "name": "HP Cloud Service Automation Software",
-      "slug": "hp-cloud-service-automation-software",
-      "reason": "no-p856"
+      "name": "Immunet",
+      "slug": "immunet",
+      "reason": "not-org no-org p31=['Q93249', 'Q218616'] desc=",
+      "status": null
     },
     {
-      "name": "HP Information Management Software",
-      "slug": "hp-information-management-software",
-      "reason": "not-org no-org p31=['Q7397'] desc="
+      "name": "InstantTV",
+      "slug": "instanttv",
+      "reason": "not-org no-org p31=['Q7397'] desc=",
+      "status": null
     },
     {
-      "name": "HP IT Management Software",
-      "slug": "hp-it-management-software",
-      "reason": "no-p856"
+      "name": "Jira Studio",
+      "slug": "jira-studio",
+      "reason": "not-org no-org p31=['Q1254596'] desc=",
+      "status": null
     },
     {
-      "name": "HP Network Management Center",
-      "slug": "hp-network-management-center",
-      "reason": "no-p856"
+      "name": "KSuite",
+      "slug": "ksuite",
+      "reason": "not-org no-org p31=['Q35127'] desc=Swiss cloud services with a focus on privacy",
+      "status": null
     },
     {
-      "name": "Hybrid Web Cluster",
-      "slug": "hybrid-web-cluster",
-      "reason": "not-org no-org p31=['Q7397'] desc="
+      "name": "Likewise, Inc.",
+      "slug": "likewise-inc",
+      "reason": "no-p856",
+      "status": null
     },
     {
-      "name": "K2view",
-      "slug": "k2view",
-      "reason": "no-p856"
+      "name": "Limnu",
+      "slug": "limnu",
+      "reason": "not-org no-org p31=['Q7397'] desc=online whiteboarding app",
+      "status": null
     },
     {
-      "name": "Kaavo",
-      "slug": "kaavo",
-      "reason": "no-p856"
+      "name": "Livedrive",
+      "slug": "livedrive",
+      "reason": "not-org no-org p31=['Q7397'] desc=",
+      "status": null
     },
     {
-      "name": "Keynote Systems",
-      "slug": "keynote-systems",
-      "reason": "no-p856"
+      "name": "Logging as a service",
+      "slug": "logging-as-a-service",
+      "reason": "not-org no-org p31=[] desc=IT architectural model for centrally ingesting and collecting any type of log files coming from any given source or location",
+      "status": null
     },
     {
-      "name": "Logistaas",
-      "slug": "logistaas",
-      "reason": "no-p856"
+      "name": "LotusFlare",
+      "slug": "lotusflare",
+      "reason": "no-p856",
+      "status": null
     },
     {
-      "name": "Lunacloud",
-      "slug": "lunacloud",
-      "reason": "no-p856"
+      "name": "Mailjet",
+      "slug": "mailjet",
+      "reason": "not-org no-org p31=['Q43229'] desc=Email Services Provider",
+      "status": null
     },
     {
-      "name": "MotherDuck",
-      "slug": "motherduck",
-      "reason": "not-org no-org p31=['Q7397'] desc=cloud analytics platform"
+      "name": "MarioNet split web browser",
+      "slug": "marionet-split-web-browser",
+      "reason": "not-org no-org p31=[] desc=",
+      "status": null
     },
     {
-      "name": "Nebula",
-      "slug": "nebula",
-      "reason": "no-p856"
+      "name": "MashApps",
+      "slug": "mashapps",
+      "reason": "not-org no-org p31=[] desc=Process-centric cloud application",
+      "status": null
     },
     {
-      "name": "OnApp",
-      "slug": "onapp",
-      "reason": "not-org no-org p31=['Q7397'] desc=Cloud platform"
+      "name": "Microsoft Bookings",
+      "slug": "microsoft-bookings",
+      "reason": "not-org no-org p31=['Q35127'] desc=Scheduling tool and is part of the Microsoft Office family of products",
+      "status": null
     },
     {
-      "name": "Oracle Cloud",
-      "slug": "oracle-cloud",
-      "reason": "not-org no-org p31=['Q1153767', 'Q1346018', 'Q1254596', 'Q241317'] desc=cloud computing platform"
+      "name": "MinIO",
+      "slug": "minio",
+      "reason": "not-org no-org p31=['Q506883', 'Q118171'] desc=cloud storage server compatible with Amazon S3",
+      "status": null
     },
     {
-      "name": "Oracle Cloud Platform",
-      "slug": "oracle-cloud-platform",
-      "reason": "not-org no-org p31=['Q483639', 'Q1153767'] desc=Platform as a Service"
+      "name": "Mozilla Skywriter",
+      "slug": "mozilla-skywriter",
+      "reason": "not-org no-org p31=['Q1330336', 'Q522972', 'Q506883'] desc=JavaScript source code editor",
+      "status": null
     },
     {
-      "name": "Qstack",
-      "slug": "qstack",
-      "reason": "not-org no-org p31=['Q7397'] desc="
+      "name": "My Phone",
+      "slug": "my-phone",
+      "reason": "not-org no-org p31=['Q7397', 'Q166142'] desc=an online service with a companion mobile client application that provides a free mobile phone backup solution",
+      "status": null
     },
     {
-      "name": "RPath",
-      "slug": "rpath",
-      "reason": "no-p856"
+      "name": "My Windows Phone",
+      "slug": "my-windows-phone",
+      "reason": "not-org no-org p31=['Q7397'] desc=companion service for Windows Phone devices",
+      "status": null
+    },
+    {
+      "name": "N8n",
+      "slug": "n8n",
+      "reason": "not-org no-org p31=['Q7397'] desc=low-code automation tool",
+      "status": null
+    },
+    {
+      "name": "NetScaler",
+      "slug": "netscaler",
+      "reason": "not-org no-org p31=[] desc=Line of networking products",
+      "status": null
+    },
+    {
+      "name": "Nomulus",
+      "slug": "nomulus",
+      "reason": "not-org no-org p31=['Q7397'] desc=domain registry",
+      "status": null
+    },
+    {
+      "name": "Norton Zone",
+      "slug": "norton-zone",
+      "reason": "not-org no-org p31=['Q7397'] desc=",
+      "status": null
+    },
+    {
+      "name": "OpenEMIS",
+      "slug": "openemis",
+      "reason": "not-org no-org p31=['Q341'] desc=",
+      "status": null
+    },
+    {
+      "name": "OpenSaaS",
+      "slug": "opensaas",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Oracle Exalogic",
+      "slug": "oracle-exalogic",
+      "reason": "not-org no-org p31=[] desc=computer appliance by Oracle Corporation",
+      "status": null
+    },
+    {
+      "name": "Payments as a service",
+      "slug": "payments-as-a-service",
+      "reason": "not-org no-org p31=[] desc=",
+      "status": null
+    },
+    {
+      "name": "Piktochart",
+      "slug": "piktochart",
+      "reason": "not-org no-org p31=['Q7397'] desc=web-based graphic design tool",
+      "status": null
+    },
+    {
+      "name": "Pixlr",
+      "slug": "pixlr",
+      "reason": "not-org no-org p31=['Q868410', 'Q35127'] desc=Cloud-based image editing suite",
+      "status": null
+    },
+    {
+      "name": "Planon",
+      "slug": "planon",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "PlayCanvas",
+      "slug": "playcanvas",
+      "reason": "not-org no-org p31=['Q341', 'Q193564', 'Q139498754'] desc=2013 game engine",
+      "status": null
+    },
+    {
+      "name": "Polestar Xeus",
+      "slug": "polestar-xeus",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Postini",
+      "slug": "postini",
+      "reason": "not-org no-org p31=['Q7397'] desc=discontinued American e-mail security service",
+      "status": null
+    },
+    {
+      "name": "Pyrus",
+      "slug": "pyrus",
+      "reason": "not-org no-org p31=['Q7397'] desc=cloud-based workflow automation system",
+      "status": null
+    },
+    {
+      "name": "Riak",
+      "slug": "riak",
+      "reason": "not-org no-org p31=['Q506883', 'Q20706915'] desc=Distributed NoSQL key-value data store",
+      "status": null
+    },
+    {
+      "name": "Rublon",
+      "slug": "rublon",
+      "reason": "not-org no-org p31=['Q7397'] desc=two-factor authentication system",
+      "status": null
+    },
+    {
+      "name": "Runa",
+      "slug": "runa",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "RushTera",
+      "slug": "rushtera",
+      "reason": "not-org no-org p31=[] desc=",
+      "status": null
     },
     {
       "name": "Safe Swiss Cloud",
       "slug": "safe-swiss-cloud",
-      "reason": "no-p856"
+      "reason": "no-p856",
+      "status": null
     },
     {
-      "name": "SAP BTP",
-      "slug": "sap-btp",
-      "reason": "not-org no-org p31=['Q35127'] desc=platform as a service by SAP"
+      "name": "SAP Anywhere",
+      "slug": "sap-anywhere",
+      "reason": "no-p856",
+      "status": null
     },
     {
-      "name": "ShareFile",
-      "slug": "sharefile",
-      "reason": "no-p856"
+      "name": "SAP StreamWork",
+      "slug": "sap-streamwork",
+      "reason": "not-org no-org p31=['Q7397'] desc=",
+      "status": null
     },
     {
-      "name": "Sixa",
-      "slug": "sixa",
-      "reason": "no-p856"
+      "name": "SecureSafe",
+      "slug": "securesafe",
+      "reason": "not-org no-org p31=['Q1281199'] desc=",
+      "status": null
     },
     {
-      "name": "SoftLayer",
-      "slug": "softlayer",
-      "reason": "not-org no-org p31=['Q1153767', 'Q241317'] desc=a set of cloud computing services offered by IBM"
+      "name": "Simpro",
+      "slug": "simpro",
+      "reason": "no-p856",
+      "status": null
     },
     {
-      "name": "StackPath",
-      "slug": "stackpath",
-      "reason": "no-p856"
+      "name": "SlideRocket",
+      "slug": "sliderocket",
+      "reason": "not-org no-org p31=['Q7397'] desc=online presentation platform",
+      "status": null
     },
     {
-      "name": "Summit",
-      "slug": "summit",
-      "reason": "no-p856"
+      "name": "Snapforce CRM",
+      "slug": "snapforce-crm",
+      "reason": "not-org no-org p31=['Q7397'] desc=",
+      "status": null
     },
     {
-      "name": "Sun Cloud",
-      "slug": "sun-cloud",
-      "reason": "not-org no-org p31=[] desc=discontinued on-demand Cloud computing service operated"
+      "name": "Splitwise",
+      "slug": "splitwise",
+      "reason": "not-org no-org p31=['Q620615', 'Q189210'] desc=mobile app to split expenses",
+      "status": null
     },
     {
-      "name": "SynfiniWay",
-      "slug": "synfiniway",
-      "reason": "not-org no-org p31=['Q7397'] desc="
+      "name": "Sqoop",
+      "slug": "sqoop",
+      "reason": "not-org no-org p31=['Q341'] desc=command-line interface application",
+      "status": null
     },
     {
-      "name": "T Cloud Public",
-      "slug": "t-cloud-public",
-      "reason": "not-org no-org p31=['Q1210425'] desc="
+      "name": "Stickers as a Service",
+      "slug": "stickers-as-a-service",
+      "reason": "no-p856",
+      "status": null
     },
     {
-      "name": "Techila Grid",
-      "slug": "techila-grid",
-      "reason": "not-org no-org p31=['Q7397'] desc="
+      "name": "Style Jukebox",
+      "slug": "style-jukebox",
+      "reason": "not-org no-org p31=['Q240795'] desc=hi-fi high-resolution audio cloud music streaming and storage player",
+      "status": null
     },
     {
-      "name": "Turbot",
-      "slug": "turbot",
-      "reason": "no-p856"
+      "name": "SwissTransfer",
+      "slug": "swisstransfer",
+      "reason": "not-org no-org p31=['Q35127'] desc=Swiss cloud services with a focus on privacy",
+      "status": null
     },
     {
-      "name": "Umbrellar",
-      "slug": "umbrellar",
-      "reason": "no-p856"
+      "name": "Transmit Security",
+      "slug": "transmit-security",
+      "reason": "no-p856",
+      "status": null
     },
     {
-      "name": "Virtual Computing Environment",
-      "slug": "virtual-computing-environment",
-      "reason": "no-p856"
+      "name": "Web 2.0",
+      "slug": "web-2-0",
+      "reason": "not-org no-org p31=['Q1514415'] desc=World Wide Web sites that use technology beyond the static pages of earlier Web sites",
+      "status": null
     },
     {
-      "name": "VCloud Air",
-      "slug": "vcloud-air",
-      "reason": "not-org no-org p31=['Q483639', 'Q1346018'] desc=public cloud computing service"
+      "name": "WeVideo",
+      "slug": "wevideo",
+      "reason": "not-org no-org p31=['Q1373429'] desc=video editing platform",
+      "status": null
     },
     {
-      "name": "VDIworks",
-      "slug": "vdiworks",
-      "reason": "no-p856"
+      "name": "Whatfix",
+      "slug": "whatfix",
+      "reason": "no-p856",
+      "status": null
     },
     {
-      "name": "Videoloft",
-      "slug": "videoloft",
-      "reason": "no-p856"
+      "name": "While You Were Out",
+      "slug": "while-you-were-out",
+      "reason": "not-org no-org p31=['Q166142'] desc=Cloud application",
+      "status": null
     },
     {
-      "name": "Visual Risk",
-      "slug": "visual-risk",
-      "reason": "no-p856"
+      "name": "WORKetc",
+      "slug": "worketc",
+      "reason": "no-p856",
+      "status": null
     },
     {
-      "name": "Vultr",
-      "slug": "vultr",
-      "reason": "no-p856"
+      "name": "Yandex Disk",
+      "slug": "yandex-disk",
+      "reason": "not-org no-org p31=['Q914359', 'Q193424', 'Q483639'] desc=cloud service created by Yandex",
+      "status": null
     },
     {
-      "name": "WaveMaker",
-      "slug": "wavemaker",
-      "reason": "not-org no-org p31=['Q1330336', 'Q341'] desc=low-code programming platform"
+      "name": "YNAB",
+      "slug": "ynab",
+      "reason": "not-org no-org p31=['Q7397', 'Q620615', 'Q189210'] desc=American multi-platform personal budgeting program",
+      "status": null
     },
     {
-      "name": "Westcoast Limited",
-      "slug": "westcoast-limited",
-      "reason": "no-p856"
+      "name": "Ziggeo",
+      "slug": "ziggeo",
+      "reason": "no-p856",
+      "status": null
     },
     {
-      "name": "Widen Enterprises",
-      "slug": "widen-enterprises",
-      "reason": "not-org no-org p31=[] desc=American technology business"
+      "name": "Zoho CRM",
+      "slug": "zoho-crm",
+      "reason": "no-p856",
+      "status": null
+    }
+  ],
+  "dropped_product_not_company": [
+    {
+      "name": "Apache Storm",
+      "slug": "apache-storm",
+      "domain": "storm.apache.org",
+      "reason": "not-company-p31-or-product"
     },
     {
-      "name": "Yandex Cloud",
-      "slug": "yandex-cloud",
-      "reason": "not-org no-org p31=['Q1153767', 'Q1346018'] desc=cloud platform developed by Yandex"
+      "name": "ClamAV",
+      "slug": "clamav",
+      "domain": "clamav.net",
+      "reason": "not-company-p31-or-product"
     },
     {
-      "name": "Zettabox",
-      "slug": "zettabox",
-      "reason": "not-org no-org p31=[] desc=online cloud storage and team-sharing tool"
+      "name": "Fatpaint",
+      "slug": "fatpaint",
+      "domain": "fatpaint.com",
+      "reason": "not-company-p31-or-product"
     },
     {
-      "name": "Zoho Office Suite",
-      "slug": "zoho-office-suite",
-      "reason": "not-org no-org p31=['Q207170', 'Q19967801', 'Q95988573'] desc=email, cloud storage, collaboration tools, hardware, administration, social media and other business apps"
+      "name": "Google Drawings",
+      "slug": "google-drawings",
+      "domain": "docs.google.com",
+      "reason": "not-company-p31-or-product"
+    },
+    {
+      "name": "LotusLive",
+      "slug": "lotuslive",
+      "domain": "lotuslive.com",
+      "reason": "not-company-p31-or-product"
+    },
+    {
+      "name": "MindTouch",
+      "slug": "mindtouch",
+      "domain": "success.mindtouch.com",
+      "reason": "not-company-p31-or-product"
+    },
+    {
+      "name": "MobileMe",
+      "slug": "mobileme",
+      "domain": "me.com",
+      "reason": "not-company-p31-or-product"
+    },
+    {
+      "name": "Penpot",
+      "slug": "penpot",
+      "domain": "penpot.app",
+      "reason": "not-company-p31-or-product"
+    },
+    {
+      "name": "Rclone",
+      "slug": "rclone",
+      "domain": "rclone.org",
+      "reason": "not-company-p31-or-product"
+    },
+    {
+      "name": "SAP Business ByDesign",
+      "slug": "sap-business-bydesign",
+      "domain": "go.sap.com",
+      "reason": "not-company-p31-or-product"
+    },
+    {
+      "name": "SparkleShare",
+      "slug": "sparkleshare",
+      "domain": "sparkleshare.org",
+      "reason": "not-company-p31-or-product"
+    },
+    {
+      "name": "Symantec Operations Readiness Tools",
+      "slug": "symantec-operations-readiness-tools",
+      "domain": "sort.symantec.com",
+      "reason": "not-company-p31-or-product"
     }
   ]
 }
