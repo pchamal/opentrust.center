@@ -1,1318 +1,1143 @@
 {
-  "generated_at": "2026-08-21T18:55:52Z",
+  "generated_at": "2026-08-21T20:58:18Z",
   "method": "enwiki titles -> wikidata P856; no invented domains",
   "user_agent": "opentrust.center/1.0 (+https://opentrust.center)",
-  "note": "hourly top-up appended 128 verified P856 from Wikipedia List of computer security companies + Category:Computer security companies + Category:Computer security software companies; did not repeat largest-software/Indian IT/CMC/Forbes AI 50/EMCLOUD/CRN 2024+2026 or S&P 500",
+  "note": "hourly top-up appended 108 verified P856 from CRN Security 100 2023 leftover + Wikipedia Category:Cloud computing providers (and further unused software categories if needed); dropped Cynet Japan / LightSpin Technologies false P856; CMC software page 6+ empty; did not repeat exhausted lists or S&P 500",
   "counts": {
-    "appended": 128,
-    "resolved": 128,
-    "unresolved": 48,
-    "dropped_wrong_or_dup": 23,
+    "appended": 108,
+    "resolved_this_pass": 105,
+    "unresolved": 93,
+    "dropped_wrong_or_dup": 27,
+    "by_source": {
+      "wikipedia-cloud-computing-providers": 105
+    },
     "by_source_url": {
-      "https://en.wikipedia.org/wiki/List_of_computer_security_companies": 70,
-      "https://en.wikipedia.org/wiki/Category:Computer_security_companies": 14,
-      "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies": 44
+      "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers": 105
     }
   },
   "appended": [
     {
-      "name": "Absolute Security",
-      "slug": "absolute-security",
-      "domain": "absolute.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
+      "name": "VMware",
+      "slug": "vmware",
+      "domain": "vmware.com",
+      "source": "crn-security-100-2023",
+      "source_url": "https://www.crn.com/news/security/the-20-coolest-endpoint-and-managed-security-companies-of-2023-the-security-100",
       "priority": 1,
-      "qid": "Q22906139",
-      "reason": "enwiki-title P856"
+      "qid": "Q11407",
+      "reason": "exact"
     },
     {
-      "name": "ADF Solutions",
-      "slug": "adf-solutions",
-      "domain": "adfsolutions.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
+      "name": "BitSight",
+      "slug": "bitsight",
+      "domain": "bitsight.com",
+      "source": "crn-security-100-2023",
+      "source_url": "https://www.crn.com/news/security/the-20-coolest-risk-threat-intelligence-and-security-operations-companies-of-2023-the-security-100",
       "priority": 1,
-      "qid": "Q16203587",
-      "reason": "enwiki-title P856"
+      "qid": "Q65121483",
+      "reason": "exact"
     },
     {
-      "name": "Altor Networks",
-      "slug": "altor-networks",
-      "domain": "altornetworks.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
+      "name": "iboss",
+      "slug": "iboss",
+      "domain": "iboss.com",
+      "source": "crn-security-100-2023",
+      "source_url": "https://www.crn.com/news/security/the-20-coolest-web-application-and-email-security-companies-of-2023-the-security-100",
       "priority": 1,
-      "qid": "Q4736957",
-      "reason": "enwiki-title P856"
+      "qid": "Q138789659",
+      "reason": "exact"
     },
     {
-      "name": "Anonymizer",
-      "slug": "anonymizer",
-      "domain": "anonymizer.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q4770034",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "AuthenTec",
-      "slug": "authentec",
-      "domain": "authentec.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q16835875",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "BlueTalon",
-      "slug": "bluetalon",
-      "domain": "bluetalon.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q22682019",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Bromium",
-      "slug": "bromium",
-      "domain": "bromium.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q4973660",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Bugcrowd",
-      "slug": "bugcrowd",
-      "domain": "bugcrowd.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q92546048",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Canon IT Solutions",
-      "slug": "canon-it-solutions",
-      "domain": "canon-its.co.jp",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q17190699",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Chronicle Security",
-      "slug": "chronicle-security",
-      "domain": "chronicle.security",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q47492446",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Clavister",
-      "slug": "clavister",
-      "domain": "clavister.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q27971470",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Columbitech",
-      "slug": "columbitech",
-      "domain": "columbitech.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q5149972",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Comodo Cybersecurity",
-      "slug": "comodo-cybersecurity",
-      "domain": "comodo.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q1985340",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Core Security Technologies",
-      "slug": "core-security-technologies",
-      "domain": "coresecurity.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q2331997",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Credant Technologies",
-      "slug": "credant-technologies",
-      "domain": "credant.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q5183680",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "CronLab",
-      "slug": "cronlab",
-      "domain": "cronlab.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q5187684",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Crossbeam Systems",
-      "slug": "crossbeam-systems",
-      "domain": "crossbeam.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q5188509",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Cryptek",
-      "slug": "cryptek",
-      "domain": "cryptek.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q5190757",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Cybereason",
-      "slug": "cybereason",
-      "domain": "cybereason.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q28407257",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "CyberHound",
-      "slug": "cyberhound",
-      "domain": "cyberhound.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q6998794",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Cylance",
-      "slug": "cylance",
-      "domain": "cylance.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q26308599",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Dasient",
-      "slug": "dasient",
-      "domain": "dasient.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q5226777",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Datto",
-      "slug": "datto",
-      "domain": "datto.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q56274731",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Deep Instinct",
-      "slug": "deep-instinct",
-      "domain": "deepinstinct.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q46996034",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Druva",
-      "slug": "druva",
-      "domain": "druva.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q96376660",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Finjan Holdings",
-      "slug": "finjan-holdings",
-      "domain": "finjan.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q5450419",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Fluid Attacks",
-      "slug": "fluid-attacks",
-      "domain": "fluidattacks.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q136702090",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Guardian Analytics",
-      "slug": "guardian-analytics",
-      "domain": "guardiananalytics.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q5614030",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "HackerOne",
-      "slug": "hackerone",
-      "domain": "hackerone.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q22022648",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "HBGary",
-      "slug": "hbgary",
-      "domain": "hbgary.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q5629027",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Impermium",
-      "slug": "impermium",
-      "domain": "impermium.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q16996721",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Imprivata",
-      "slug": "imprivata",
-      "domain": "imprivata.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q1660402",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "InfoSec Institute",
-      "slug": "infosec-institute",
-      "domain": "infosecinstitute.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q30639573",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Infysec",
-      "slug": "infysec",
-      "domain": "infysec.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q60752720",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "JAL Infotec",
-      "slug": "jal-infotec",
-      "domain": "jalinfotec.co.jp",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q11225288",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Kaspersky Lab",
-      "slug": "kaspersky-lab",
-      "domain": "kaspersky.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q489943",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Lastline",
-      "slug": "lastline",
-      "domain": "lastline.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q22906283",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Loggly",
-      "slug": "loggly",
-      "domain": "loggly.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q18636383",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "LogLogic",
-      "slug": "loglogic",
-      "domain": "loglogic.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q6666770",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "LogRhythm",
-      "slug": "logrhythm",
-      "domain": "logrhythm.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q6666779",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Mitsui Knowledge Industry",
-      "slug": "mitsui-knowledge-industry",
-      "domain": "mki.co.jp",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q11354273",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Mocana",
-      "slug": "mocana",
-      "domain": "mocana.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q17081568",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "NEC",
-      "slug": "nec",
-      "domain": "nec.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q219203",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Netcraft",
-      "slug": "netcraft",
-      "domain": "netcraft.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q681027",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Nomura Research Institute",
-      "slug": "nomura-research-institute",
-      "domain": "nri.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q4922632",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "NowSecure",
-      "slug": "nowsecure",
-      "domain": "nowsecure.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q19359741",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "OneLogin",
-      "slug": "onelogin",
-      "domain": "onelogin.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q7092382",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Optenet",
-      "slug": "optenet",
-      "domain": "optenet.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q7098776",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Optiv",
-      "slug": "optiv",
-      "domain": "optiv.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q5454472",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Penta Security",
-      "slug": "penta-security",
-      "domain": "pentasecurity.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q5930964",
-      "reason": "enwiki-title P856 (en)"
-    },
-    {
-      "name": "Pine64",
-      "slug": "pine64",
-      "domain": "pine64.org",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q28132320",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "PrivateCore",
-      "slug": "privatecore",
-      "domain": "privatecore.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q17083483",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Prolexic Technologies",
-      "slug": "prolexic-technologies",
-      "domain": "prolexic.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q7249597",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "RiskIQ",
-      "slug": "riskiq",
-      "domain": "riskiq.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q18390481",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Secunet Security Networks",
-      "slug": "secunet-security-networks",
-      "domain": "secunet.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q2264056",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Sendio",
-      "slug": "sendio",
-      "domain": "sendio.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q7450238",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Sony Global Solutions",
-      "slug": "sony-global-solutions",
-      "domain": "sonyglobalsolutions.jp",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q39055966",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Stonesoft Corporation",
-      "slug": "stonesoft-corporation",
-      "domain": "stonesoft.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q3499735",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Synack",
-      "slug": "synack",
-      "domain": "synack.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q30637385",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "ThreatConnect",
-      "slug": "threatconnect",
-      "domain": "threatconnect.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q28406748",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "TitanFile",
-      "slug": "titanfile",
-      "domain": "titanfile.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q7809718",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Tiversa",
-      "slug": "tiversa",
-      "domain": "tiversa.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q75191318",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Trusteer",
-      "slug": "trusteer",
-      "domain": "trusteer.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q7848207",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Tufin",
-      "slug": "tufin",
-      "domain": "tufin.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q7851506",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Uniadex",
-      "slug": "uniadex",
-      "domain": "uniadex.co.jp",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q11345638",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Venafi",
-      "slug": "venafi",
-      "domain": "venafi.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q7919535",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "VMware Carbon Black",
-      "slug": "vmware-carbon-black",
-      "domain": "carbonblack.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q18208141",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Web Sheriff",
-      "slug": "web-sheriff",
-      "domain": "websheriff.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q7978541",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "YesWeHack",
-      "slug": "yeswehack",
-      "domain": "yeswehack.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q90356068",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Zerodium",
-      "slug": "zerodium",
-      "domain": "zerodium.com",
-      "source": "wikipedia-computer-security",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "priority": 1,
-      "qid": "Q24907649",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Deflect.ca",
-      "slug": "deflect-ca",
-      "domain": "deflect.ca",
-      "source": "wikipedia-computer-security-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_companies",
+      "name": "Advania",
+      "slug": "advania",
+      "domain": "advania.is",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q105200110",
+      "qid": "Q4686399",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Glow",
-      "slug": "glow",
-      "domain": "glow.io",
-      "source": "wikipedia-computer-security-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_companies",
+      "name": "Alibaba Cloud",
+      "slug": "alibaba-cloud",
+      "domain": "alibabacloud.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q140735612",
+      "qid": "Q17062154",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Group-IB",
-      "slug": "group-ib",
-      "domain": "group-ib.com",
-      "source": "wikipedia-computer-security-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_companies",
+      "name": "Apcera",
+      "slug": "apcera",
+      "domain": "apcera.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q16471828",
+      "qid": "Q28403794",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Identiv",
-      "slug": "identiv",
-      "domain": "identiv.com",
-      "source": "wikipedia-computer-security-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_companies",
+      "name": "Apigee",
+      "slug": "apigee",
+      "domain": "apigee.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q115921723",
+      "qid": "Q28155573",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Kerio Technologies",
-      "slug": "kerio-technologies",
-      "domain": "kerio.com",
-      "source": "wikipedia-computer-security-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_companies",
+      "name": "Appirio",
+      "slug": "appirio",
+      "domain": "appirio.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q2083648",
+      "qid": "Q4781090",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Mandiant",
-      "slug": "mandiant",
-      "domain": "mandiant.com",
-      "source": "wikipedia-computer-security-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_companies",
+      "name": "Aptum Technologies",
+      "slug": "aptum-technologies",
+      "domain": "aptum.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q5220519",
+      "qid": "Q28130069",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Nyotron",
-      "slug": "nyotron",
-      "domain": "nyotron.com",
-      "source": "wikipedia-computer-security-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_companies",
+      "name": "Basho Technologies",
+      "slug": "basho-technologies",
+      "domain": "basho.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q64684667",
+      "qid": "Q4866898",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Panorays",
-      "slug": "panorays",
-      "domain": "panorays.com",
-      "source": "wikipedia-computer-security-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_companies",
+      "name": "BioBam Bioinformatics",
+      "slug": "biobam-bioinformatics",
+      "domain": "biobam.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q106623691",
+      "qid": "Q25052491",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "PC Tools",
-      "slug": "pc-tools",
-      "domain": "pctools.com",
-      "source": "wikipedia-computer-security-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_companies",
+      "name": "Bitdeer",
+      "slug": "bitdeer",
+      "domain": "bitdeer.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q653798",
+      "qid": "Q133042901",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Pentera",
-      "slug": "pentera",
-      "domain": "pentera.io",
-      "source": "wikipedia-computer-security-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_companies",
+      "name": "Buildium",
+      "slug": "buildium",
+      "domain": "buildium.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q110539510",
+      "qid": "Q30642393",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "ScanSafe",
-      "slug": "scansafe",
-      "domain": "scansafe.com",
-      "source": "wikipedia-computer-security-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_companies",
+      "name": "Bytemark",
+      "slug": "bytemark",
+      "domain": "bytemark.co.uk",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q7429884",
+      "qid": "Q18159731",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Stormshield",
-      "slug": "stormshield",
-      "domain": "stormshield.com",
-      "source": "wikipedia-computer-security-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_companies",
+      "name": "CallidusCloud",
+      "slug": "calliduscloud",
+      "domain": "calliduscloud.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q28493630",
+      "qid": "Q15211487",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Trusona",
-      "slug": "trusona",
-      "domain": "trusona.com",
-      "source": "wikipedia-computer-security-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_companies",
+      "name": "Cegid",
+      "slug": "cegid",
+      "domain": "cegid.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q55636256",
+      "qid": "Q1052684",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Vupen",
-      "slug": "vupen",
-      "domain": "vupen.com",
-      "source": "wikipedia-computer-security-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_companies",
+      "name": "Cirrascale Cloud Services",
+      "slug": "cirrascale-cloud-services",
+      "domain": "cirrascale.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q14506486",
+      "qid": "Q7920901",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Aladdin Knowledge Systems",
-      "slug": "aladdin-knowledge-systems",
-      "domain": "aladdin.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "CITIC Telecom CPC",
+      "slug": "citic-telecom-cpc",
+      "domain": "citictel-cpc.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q2916067",
+      "qid": "Q15941420",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Anomali",
-      "slug": "anomali",
-      "domain": "anomali.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Cloud Elements",
+      "slug": "cloud-elements",
+      "domain": "cloud-elements.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q55604020",
+      "qid": "Q17003466",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Arxan Technologies",
-      "slug": "arxan-technologies",
-      "domain": "arxan.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Cloudant",
+      "slug": "cloudant",
+      "domain": "cloudant.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q4802566",
+      "qid": "Q5135721",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Avast",
-      "slug": "avast",
-      "domain": "avast.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "CloudBees",
+      "slug": "cloudbees",
+      "domain": "cloudbees.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q2247432",
+      "qid": "Q16827155",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "AVG Technologies",
-      "slug": "avg-technologies",
-      "domain": "avg.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "CloudBolt",
+      "slug": "cloudbolt",
+      "domain": "cloudbolt.io",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q2266483",
+      "qid": "Q43785791",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Avira",
-      "slug": "avira",
-      "domain": "avira.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "CloudShare",
+      "slug": "cloudshare",
+      "domain": "cloudshare.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q468381",
+      "qid": "Q5135620",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Blue Coat Systems",
-      "slug": "blue-coat-systems",
-      "domain": "bluecoat.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Cognite",
+      "slug": "cognite",
+      "domain": "cognite.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q4928982",
+      "qid": "Q56408456",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Cyber Intelligence House",
-      "slug": "cyber-intelligence-house",
-      "domain": "cyberintelligencehouse.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Cycle Computing",
+      "slug": "cycle-computing",
+      "domain": "cyclecomputing.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q60756354",
+      "qid": "Q16953455",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "DataGravity",
-      "slug": "datagravity",
-      "domain": "datagravity.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "DBGallery",
+      "slug": "dbgallery",
+      "domain": "dbgallery.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q48813611",
+      "qid": "Q5204398",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "DB Networks",
-      "slug": "db-networks",
-      "domain": "dbnetworks.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Deputy",
+      "slug": "deputy",
+      "domain": "deputy.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q16829033",
+      "qid": "Q137217040",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Dr.Web",
-      "slug": "dr-web",
-      "domain": "drweb.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Diligent Corporation",
+      "slug": "diligent-corporation",
+      "domain": "diligent.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q1233894",
+      "qid": "Q22907813",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "E-Boks",
-      "slug": "e-boks",
-      "domain": "e-boks.dk",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Epos Now",
+      "slug": "epos-now",
+      "domain": "eposnow.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q11966322",
+      "qid": "Q22908200",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Egress Software",
-      "slug": "egress-software",
-      "domain": "egress.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "EVS Broadcast Equipment",
+      "slug": "evs-broadcast-equipment",
+      "domain": "evs.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q15917389",
+      "qid": "Q693594",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "ElcomSoft",
-      "slug": "elcomsoft",
-      "domain": "elcomsoft.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "GigaSpaces",
+      "slug": "gigaspaces",
+      "domain": "gigaspaces.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q5353861",
+      "qid": "Q16840077",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Endace",
-      "slug": "endace",
-      "domain": "endace.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Gigya",
+      "slug": "gigya",
+      "domain": "gigya.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q5375922",
+      "qid": "Q5560364",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Grayshift",
-      "slug": "grayshift",
-      "domain": "grayshift.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Global Relay",
+      "slug": "global-relay",
+      "domain": "globalrelay.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q82481868",
+      "qid": "Q5570591",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Guidance Software",
-      "slug": "guidance-software",
-      "domain": "guidancesoftware.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "GreenButton",
+      "slug": "greenbutton",
+      "domain": "greenbutton.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q5615400",
+      "qid": "Q5602200",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "ISheriff",
-      "slug": "isheriff",
-      "domain": "isheriff.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "GXS Inc.",
+      "slug": "gxs-inc",
+      "domain": "gxs.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q6080078",
+      "qid": "Q5515077",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Kape Technologies",
-      "slug": "kape-technologies",
-      "domain": "kape.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Halogen Software",
+      "slug": "halogen-software",
+      "domain": "halogensoftware.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q98928488",
+      "qid": "Q22679541",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Lavasoft",
-      "slug": "lavasoft",
-      "domain": "lavasoft.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "HCentive",
+      "slug": "hcentive",
+      "domain": "hcentive.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q2743805",
+      "qid": "Q16957859",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Messaging Architects",
-      "slug": "messaging-architects",
-      "domain": "messagingarchitects.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Heroku",
+      "slug": "heroku",
+      "domain": "heroku.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q6821825",
+      "qid": "Q2350702",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Namogoo",
-      "slug": "namogoo",
-      "domain": "namogoo.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "HyTrust",
+      "slug": "hytrust",
+      "domain": "hytrust.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q19843235",
+      "qid": "Q16996214",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Narus Inc.",
-      "slug": "narus-inc",
-      "domain": "narus.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Iland",
+      "slug": "iland",
+      "domain": "iland.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q647506",
+      "qid": "Q5997076",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "NeoAccel",
-      "slug": "neoaccel",
-      "domain": "neoaccel.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Instart",
+      "slug": "instart",
+      "domain": "instartlogic.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q6991817",
+      "qid": "Q19880602",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Norman Safeground",
-      "slug": "norman-safeground",
-      "domain": "norman.no",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Jelastic",
+      "slug": "jelastic",
+      "domain": "jelastic.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q17091958",
+      "qid": "Q17059982",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "OneID",
-      "slug": "oneid",
-      "domain": "oneid.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Jobvite",
+      "slug": "jobvite",
+      "domain": "jobvite.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q18357290",
+      "qid": "Q25025033",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Panda Security",
-      "slug": "panda-security",
-      "domain": "pandasecurity.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Kronos Incorporated",
+      "slug": "kronos-incorporated",
+      "domain": "kronos.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q666869",
+      "qid": "Q6438960",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Perimeter 81",
-      "slug": "perimeter-81",
-      "domain": "perimeter81.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "LeanIX",
+      "slug": "leanix",
+      "domain": "leanix.net",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q96398827",
+      "qid": "Q23680004",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Safelayer Secure Communications",
-      "slug": "safelayer-secure-communications",
-      "domain": "safelayer.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Linode",
+      "slug": "linode",
+      "domain": "linode.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q3821299",
+      "qid": "Q6554704",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "SafeNet",
-      "slug": "safenet",
-      "domain": "safenet-inc.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "LiveTiles",
+      "slug": "livetiles",
+      "domain": "livetilesglobal.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q631043",
+      "qid": "Q43083498",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Sandstorm Enterprises",
-      "slug": "sandstorm-enterprises",
-      "domain": "sandstorm.net",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Logicworks",
+      "slug": "logicworks",
+      "domain": "logicworks.net",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q7416969",
+      "qid": "Q6667516",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Secure Computing Corporation",
-      "slug": "secure-computing-corporation",
-      "domain": "securecomputing.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Lunavi",
+      "slug": "lunavi",
+      "domain": "lunavi.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q1799203",
+      "qid": "Q16840997",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Sentrigo",
-      "slug": "sentrigo",
-      "domain": "sentrigo.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Media Temple",
+      "slug": "media-temple",
+      "domain": "mediatemple.net",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q7451386",
+      "qid": "Q6805556",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Shavlik Technologies",
-      "slug": "shavlik-technologies",
-      "domain": "shavlik.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Mirantis",
+      "slug": "mirantis",
+      "domain": "mirantis.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q7491119",
+      "qid": "Q19903458",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Sourcefire",
-      "slug": "sourcefire",
-      "domain": "sourcefire.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "MLab",
+      "slug": "mlab",
+      "domain": "mlab.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q1813510",
+      "qid": "Q17081723",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Tripwire",
-      "slug": "tripwire",
-      "domain": "tripwire.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "MuleSoft",
+      "slug": "mulesoft",
+      "domain": "mulesoft.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q7843909",
+      "qid": "Q6933868",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Trustwave Holdings",
-      "slug": "trustwave-holdings",
-      "domain": "trustwave.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "NetSuite",
+      "slug": "netsuite",
+      "domain": "netsuite.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q7848231",
+      "qid": "Q4045248",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Uniloc",
-      "slug": "uniloc",
-      "domain": "uniloc.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Ninefold",
+      "slug": "ninefold",
+      "domain": "ninefold.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q17040127",
+      "qid": "Q7038478",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Veriato",
-      "slug": "veriato",
-      "domain": "veriato.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Openbravo",
+      "slug": "openbravo",
+      "domain": "openbravo.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q7575149",
+      "qid": "Q1418609",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Vyatta",
-      "slug": "vyatta",
-      "domain": "vyatta.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "OpenCube Technologies",
+      "slug": "opencube-technologies",
+      "domain": "opencubetech.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q1267596",
+      "qid": "Q3353107",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Webroot",
-      "slug": "webroot",
-      "domain": "webroot.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "OpenIO",
+      "slug": "openio",
+      "domain": "openio.io",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q4845397",
+      "qid": "Q30348631",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Zeobit",
-      "slug": "zeobit",
-      "domain": "zeobit.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "OpSource",
+      "slug": "opsource",
+      "domain": "opsource.net",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q8069272",
+      "qid": "Q7095489",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "ZeroTier",
-      "slug": "zerotier",
-      "domain": "zerotier.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "Orbitera",
+      "slug": "orbitera",
+      "domain": "orbitera.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q60787691",
+      "qid": "Q54958895",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Zimperium",
-      "slug": "zimperium",
-      "domain": "zimperium.com",
-      "source": "wikipedia-computer-security-software",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_security_software_companies",
+      "name": "OrionVM",
+      "slug": "orionvm",
+      "domain": "orionvm.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "priority": 2,
-      "qid": "Q8072203",
+      "qid": "Q17019761",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Outsourcery",
+      "slug": "outsourcery",
+      "domain": "outsourcery.co.uk",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q7113024",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "OutSystems",
+      "slug": "outsystems",
+      "domain": "outsystems.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q7111411",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Pando Networks",
+      "slug": "pando-networks",
+      "domain": "pandonetworks.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q7130684",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Panzura",
+      "slug": "panzura",
+      "domain": "panzura.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q17073942",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Perforce",
+      "slug": "perforce",
+      "domain": "perforce.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q20063746",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Perspecsys",
+      "slug": "perspecsys",
+      "domain": "perspecsys.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q7170740",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Phase2 International",
+      "slug": "phase2-international",
+      "domain": "phase2.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q7180912",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "PSSC Labs",
+      "slug": "pssc-labs",
+      "domain": "pssclabs.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q17086036",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "QC Ware",
+      "slug": "qc-ware",
+      "domain": "qcware.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q47520088",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Red Hat",
+      "slug": "red-hat",
+      "domain": "redhat.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q485593",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Redis",
+      "slug": "redis",
+      "domain": "redislabs.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q17086822",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Revel Systems",
+      "slug": "revel-systems",
+      "domain": "revelsystems.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q7317797",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "RightScale",
+      "slug": "rightscale",
+      "domain": "rightscale.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q7333472",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Scaleway",
+      "slug": "scaleway",
+      "domain": "scaleway.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q3352745",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Scalr",
+      "slug": "scalr",
+      "domain": "scalr.net",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q911439",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Schwarz Digits",
+      "slug": "schwarz-digits",
+      "domain": "schwarz-digits.de",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q135479320",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "ShopKeep",
+      "slug": "shopkeep",
+      "domain": "shopkeep.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q7501091",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Sinch AB",
+      "slug": "sinch-ab",
+      "domain": "sinch.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q22077794",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "SkySilk Cloud Services",
+      "slug": "skysilk-cloud-services",
+      "domain": "skysilk.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q105550168",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Skytap",
+      "slug": "skytap",
+      "domain": "skytap.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q16950076",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "SmartBear Software",
+      "slug": "smartbear-software",
+      "domain": "smartbear.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q28406315",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "SnapLogic",
+      "slug": "snaplogic",
+      "domain": "snaplogic.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q7547240",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Snappii",
+      "slug": "snappii",
+      "domain": "snappii.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q24913514",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Sqrrl",
+      "slug": "sqrrl",
+      "domain": "sqrrl.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q7581878",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Stratoscale",
+      "slug": "stratoscale",
+      "domain": "stratoscale.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q22671178",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Sun Microsystems",
+      "slug": "sun-microsystems",
+      "domain": "sun.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q14647",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "SurveyMonkey",
+      "slug": "surveymonkey",
+      "domain": "surveymonkey.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q162852",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "T-Systems",
+      "slug": "t-systems",
+      "domain": "t-systems.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q565423",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Tencent Cloud",
+      "slug": "tencent-cloud",
+      "domain": "cloud.tencent.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q17500218",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "TradeGecko",
+      "slug": "tradegecko",
+      "domain": "tradegecko.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q17054602",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Turbonomic",
+      "slug": "turbonomic",
+      "domain": "turbonomic.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q18357721",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "UKCloud",
+      "slug": "ukcloud",
+      "domain": "ukcloud.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q28402745",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "UKFast",
+      "slug": "ukfast",
+      "domain": "ukfast.co.uk",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q7864768",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "UKG",
+      "slug": "ukg",
+      "domain": "ukg.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q98785197",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Ultimate Software",
+      "slug": "ultimate-software",
+      "domain": "ultimatesoftware.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q7880250",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Univa",
+      "slug": "univa",
+      "domain": "univa.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q7893845",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Uptake",
+      "slug": "uptake",
+      "domain": "uptake.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q25210869",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Virtustream",
+      "slug": "virtustream",
+      "domain": "virtustream.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q7935251",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Visma Solutions",
+      "slug": "visma-solutions",
+      "domain": "visma.fi",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q13419364",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Wercker",
+      "slug": "wercker",
+      "domain": "wercker.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q24910875",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Wolfram Research",
+      "slug": "wolfram-research",
+      "domain": "wolfram.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q1367937",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Xactly Corporation",
+      "slug": "xactly-corporation",
+      "domain": "xactlycorp.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q17091687",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Xeround",
+      "slug": "xeround",
+      "domain": "xeround.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q8043897",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Yottaa",
+      "slug": "yottaa",
+      "domain": "yottaa.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q22059610",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Yottabyte LLC",
+      "slug": "yottabyte-llc",
+      "domain": "yottabyte.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q18390424",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Zetta",
+      "slug": "zetta",
+      "domain": "zetta.net",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q17103085",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Zuora",
+      "slug": "zuora",
+      "domain": "zuora.com",
+      "source": "wikipedia-cloud-computing-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
+      "priority": 2,
+      "qid": "Q8075320",
       "reason": "enwiki-title P856"
     }
   ],
   "dropped_wrong_p856": [
     {
-      "name": "G Data CyberDefense",
-      "slug": "g-data-cyberdefense",
-      "domain": "gdatasoftware.com",
+      "name": "Data Processing Iran Co.",
+      "slug": "data-processing-iran-co",
+      "domain": "dpi.ir",
       "reason": "implausible-p856"
     },
     {
-      "name": "General Dynamics Mission Systems",
-      "slug": "general-dynamics-mission-systems",
-      "domain": "gdmissionsystems.com",
+      "name": "DataStax",
+      "slug": "datastax",
+      "domain": "datastax.com",
+      "reason": "blocked-host"
+    },
+    {
+      "name": "Demandware",
+      "slug": "demandware",
+      "domain": "salesforce.com",
       "reason": "implausible-p856"
     },
     {
-      "name": "IID",
-      "slug": "iid",
-      "domain": "internetidentity.com",
+      "name": "Firebase",
+      "slug": "firebase",
+      "domain": "firebase.google.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Fujitsu",
+      "slug": "fujitsu",
+      "domain": "global.fujitsu",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "GreenQloud",
+      "slug": "greenqloud",
+      "domain": "qstack.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Hewlett-Packard",
+      "slug": "hewlett-packard",
+      "domain": "hp.com",
       "reason": "implausible-p856"
     },
     {
@@ -1322,27 +1147,33 @@
       "reason": "implausible-p856"
     },
     {
-      "name": "Librem",
-      "slug": "librem",
-      "domain": "puri.sm",
+      "name": "Korea Internet Neutral Exchange",
+      "slug": "korea-internet-neutral-exchange",
+      "domain": "kinx.net",
       "reason": "implausible-p856"
     },
     {
-      "name": "NetScreen Technologies",
-      "slug": "netscreen-technologies",
-      "domain": "juniper.net",
+      "name": "KVH Co. Ltd.",
+      "slug": "kvh-co-ltd",
+      "domain": "kvhasia.com",
       "reason": "implausible-p856"
     },
     {
-      "name": "Netwitness",
-      "slug": "netwitness",
-      "domain": "emc.com",
+      "name": "Link Motion Inc",
+      "slug": "link-motion-inc",
+      "domain": "en.nq.com",
       "reason": "implausible-p856"
     },
     {
-      "name": "NitroSecurity",
-      "slug": "nitrosecurity",
-      "domain": "mcafee.com",
+      "name": "Mainsoft",
+      "slug": "mainsoft",
+      "domain": "harmon.ie",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Medidata Solutions",
+      "slug": "medidata-solutions",
+      "domain": "3ds.com",
       "reason": "implausible-p856"
     },
     {
@@ -1352,372 +1183,531 @@
       "reason": "implausible-p856"
     },
     {
-      "name": "Xetron",
-      "slug": "xetron",
-      "domain": "meetngc.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "ArcSight",
-      "slug": "arcsight",
-      "domain": "software.microfocus.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Cheetah Mobile",
-      "slug": "cheetah-mobile",
-      "domain": "cmcm.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Clarified Networks",
-      "slug": "clarified-networks",
-      "domain": "synopsys.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Codenomicon",
-      "slug": "codenomicon",
-      "domain": "synopsys.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "FRISK Software International",
-      "slug": "frisk-software-international",
-      "domain": "f-prot.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "INCA Internet",
-      "slug": "inca-internet",
-      "domain": "nprotect.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Lumension Security",
-      "slug": "lumension-security",
-      "domain": "ivanti.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Micro Focus Enterprise Security Products",
-      "slug": "micro-focus-enterprise-security-products",
-      "domain": "www8.hp.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Retina-X Studios",
-      "slug": "retina-x-studios",
-      "domain": "retinax.com",
+      "name": "Plex Systems",
+      "slug": "plex-systems",
+      "domain": "plex.com",
       "reason": "blocked-host"
     },
     {
-      "name": "SpectorSoft",
-      "slug": "spectorsoft",
-      "domain": "veriato.com",
+      "name": "Quanta Cloud Technology",
+      "slug": "quanta-cloud-technology",
+      "domain": "qct.io",
       "reason": "implausible-p856"
     },
     {
-      "name": "Utimaco Atalla",
-      "slug": "utimaco-atalla",
-      "domain": "www8.hp.com",
+      "name": "RightNow Technologies",
+      "slug": "rightnow-technologies",
+      "domain": "oracle.com",
       "reason": "implausible-p856"
     },
     {
-      "name": "Xcitium",
-      "slug": "xcitium",
-      "domain": "comodo.com",
+      "name": "SAP Cloud Infrastructure",
+      "slug": "sap-cloud-infrastructure",
+      "domain": "openstack.org",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Servage AB",
+      "slug": "servage-ab",
+      "domain": "servagegroup.se",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "ServiceMax",
+      "slug": "servicemax",
+      "domain": "servicemax.com",
+      "reason": "blocked-host"
+    },
+    {
+      "name": "TOA Technologies",
+      "slug": "toa-technologies",
+      "domain": "oracle.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "THG Ingenuity Cloud Services",
+      "slug": "thg-ingenuity-cloud-services",
+      "domain": "uk2group.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Versive",
+      "slug": "versive",
+      "domain": "contextrelevant.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Cirata",
+      "slug": "cirata",
+      "domain": "wandisco.com",
       "reason": "implausible-p856"
     }
   ],
   "unresolved": [
     {
-      "name": "Aikido Security",
-      "slug": "aikido-security",
-      "reason": "no-p856",
-      "qid": "Q139587498"
-    },
-    {
-      "name": "Critical Start",
-      "slug": "critical-start",
-      "reason": "no-p856",
-      "qid": "Q85754604"
-    },
-    {
-      "name": "CyberTrust",
-      "slug": "cybertrust",
-      "reason": "no-p856",
-      "qid": "Q5197864"
-    },
-    {
       "name": "Cynet",
       "slug": "cynet",
-      "reason": "no-p856",
-      "qid": "Q85754915"
+      "reason": "no-theme desc=Wikimedia disambiguation page"
     },
     {
-      "name": "Cyveillance",
-      "slug": "cyveillance",
-      "reason": "no-p856",
-      "qid": "Q5201421"
-    },
-    {
-      "name": "Emsisoft",
-      "slug": "emsisoft",
-      "reason": "no-p856",
-      "qid": "Q105821169"
-    },
-    {
-      "name": "ESafe",
-      "slug": "esafe",
-      "reason": "no-p856",
-      "qid": "Q5324403"
-    },
-    {
-      "name": "ImmuniWeb",
-      "slug": "immuniweb",
-      "reason": "no-p856",
-      "qid": "Q112056666"
-    },
-    {
-      "name": "InterWorking Labs",
-      "slug": "interworking-labs",
-      "reason": "no-p856",
-      "qid": "Q6045028"
-    },
-    {
-      "name": "IOActive",
-      "slug": "ioactive",
-      "reason": "no-p856",
-      "qid": "Q65081165"
-    },
-    {
-      "name": "Mile2",
-      "slug": "mile2",
-      "reason": "no-wikidata-item",
-      "qid": null
-    },
-    {
-      "name": "Nexor",
-      "slug": "nexor",
-      "reason": "no-p856",
-      "qid": "Q17091730"
-    },
-    {
-      "name": "SQ1 Security",
-      "slug": "sq1-security",
-      "reason": "no-wikidata-item",
-      "qid": null
-    },
-    {
-      "name": "World Informatix Cyber Security",
-      "slug": "world-informatix-cyber-security",
-      "reason": "not-org no-org p31=['Q2727213', 'Q24910170'] desc=heist via the SWIFT network from a Bangladesh Bank account at the Federal Reserve Bank of New York",
-      "qid": "Q23048209"
-    },
-    {
-      "name": "ANY.RUN",
-      "slug": "any-run",
-      "reason": "not-org no-org p31=['Q7397'] desc=cybersecurity malware",
-      "qid": "Q131345223"
-    },
-    {
-      "name": "Cloaked",
-      "slug": "cloaked",
-      "reason": "no-wikidata-item",
-      "qid": null
-    },
-    {
-      "name": "Cribl.io",
-      "slug": "cribl-io",
-      "reason": "no-p856",
-      "qid": "Q126810855"
-    },
-    {
-      "name": "Cyberint",
-      "slug": "cyberint",
-      "reason": "no-p856",
-      "qid": "Q136593501"
-    },
-    {
-      "name": "CYSEC",
-      "slug": "cysec",
-      "reason": "no-wikidata-item",
-      "qid": null
-    },
-    {
-      "name": "Ekco Cloud",
-      "slug": "ekco-cloud",
-      "reason": "no-p856",
-      "qid": "Q130471966"
+      "name": "OPSWAT",
+      "slug": "opswat",
+      "reason": "no-p856"
     },
     {
       "name": "Fortra",
       "slug": "fortra",
-      "reason": "no-p856",
-      "qid": "Q126177969"
-    },
-    {
-      "name": "Heimdal",
-      "slug": "heimdal",
-      "reason": "no-p856",
-      "qid": "Q137189583"
-    },
-    {
-      "name": "Hudson Rock",
-      "slug": "hudson-rock",
-      "reason": "no-p856",
-      "qid": "Q134360367"
-    },
-    {
-      "name": "HUMAN Security",
-      "slug": "human-security",
-      "reason": "no-wikidata-item",
-      "qid": null
-    },
-    {
-      "name": "Intrusion Inc.",
-      "slug": "intrusion-inc",
-      "reason": "no-p856",
-      "qid": "Q134500672"
-    },
-    {
-      "name": "ReliaQuest",
-      "slug": "reliaquest",
-      "reason": "no-p856",
-      "qid": "Q123451710"
-    },
-    {
-      "name": "Remedio",
-      "slug": "remedio",
-      "reason": "no-p856",
-      "qid": "Q138529319"
-    },
-    {
-      "name": "SafeWeb",
-      "slug": "safeweb",
-      "reason": "no-p856",
-      "qid": "Q138605478"
-    },
-    {
-      "name": "Teldat",
-      "slug": "teldat",
-      "reason": "no-p856",
-      "qid": "Q139962493"
-    },
-    {
-      "name": "Veriti",
-      "slug": "veriti",
-      "reason": "no-p856",
-      "qid": "Q137393012"
-    },
-    {
-      "name": "@stake",
-      "slug": "stake",
-      "reason": "no-p856",
-      "qid": "Q4646765"
-    },
-    {
-      "name": "Echoworx",
-      "slug": "echoworx",
-      "reason": "no-p856",
-      "qid": "Q5332838"
-    },
-    {
-      "name": "ExpressVPN",
-      "slug": "expressvpn",
-      "reason": "not-org no-org p31=['Q56240391'] desc=virtual private network provider",
-      "qid": "Q48812033"
-    },
-    {
-      "name": "GadgetTrak",
-      "slug": "gadgettrak",
-      "reason": "no-p856",
-      "qid": "Q16993904"
-    },
-    {
-      "name": "Hoxhunt",
-      "slug": "hoxhunt",
-      "reason": "no-p856",
-      "qid": "Q126372869"
+      "reason": "no-p856"
     },
     {
       "name": "Immuta",
       "slug": "immuta",
-      "reason": "no-p856",
-      "qid": "Q118995962"
+      "reason": "no-p856"
     },
     {
-      "name": "Mitro",
-      "slug": "mitro",
-      "reason": "not-org no-org p31=['Q341', 'Q1281199'] desc=Password manager",
-      "qid": "Q17069463"
+      "name": "Versa Networks",
+      "slug": "versa-networks",
+      "reason": "no-wikidata-item"
     },
     {
-      "name": "Mushroom Networks",
-      "slug": "mushroom-networks",
-      "reason": "no-p856",
-      "qid": "Q6941307"
+      "name": "Cado Security",
+      "slug": "cado-security",
+      "reason": "no-wikidata-item"
     },
     {
-      "name": "Ntrepid",
-      "slug": "ntrepid",
-      "reason": "no-p856",
-      "qid": "Q7067652"
+      "name": "Contrast Security",
+      "slug": "contrast-security",
+      "reason": "no-wikidata-item"
     },
     {
-      "name": "Raz-Lee",
-      "slug": "raz-lee",
-      "reason": "no-p856",
-      "qid": "Q7299430"
+      "name": "Lacework",
+      "slug": "lacework",
+      "reason": "no-theme desc=openwork fabric, patterned with open holes in the work, made by machine or by hand"
     },
     {
-      "name": "SAINT Corporation",
-      "slug": "saint-corporation",
-      "reason": "not-org no-org p31=['Q7397'] desc=tool for scanning for and exploiting computer network security vulnerabilities",
-      "qid": "Q7388582"
+      "name": "Talon Cyber Security",
+      "slug": "talon-cyber-security",
+      "reason": "no-p856"
     },
     {
-      "name": "Sanctum Inc.",
-      "slug": "sanctum-inc",
-      "reason": "no-p856",
-      "qid": "Q28452058"
+      "name": "Varmour",
+      "slug": "varmour",
+      "reason": "no-wikidata-item"
     },
     {
-      "name": "SecureWare",
-      "slug": "secureware",
-      "reason": "no-p856",
-      "qid": "Q7444828"
+      "name": "Adobe Experience Cloud",
+      "slug": "adobe-experience-cloud",
+      "reason": "not-org no-org p31=['Q1143070'] desc=collection of integrated online marketing and Web analytics products by Adobe Systems"
     },
     {
-      "name": "StrongDM",
-      "slug": "strongdm",
-      "reason": "no-p856",
-      "qid": "Q116443510"
+      "name": "Amazon Drive",
+      "slug": "amazon-drive",
+      "reason": "not-org no-org p31=['Q1343205'] desc=file hosting service offered by Amazon to consumers"
     },
     {
-      "name": "Transmit Security",
-      "slug": "transmit-security",
-      "reason": "no-p856",
-      "qid": "Q110878844"
+      "name": "Amazon Elastic Compute Cloud",
+      "slug": "amazon-elastic-compute-cloud",
+      "reason": "not-org no-org p31=['Q483639', 'Q1346018'] desc=Amazon cloud computing platform"
     },
     {
-      "name": "Trusted Information Systems",
-      "slug": "trusted-information-systems",
-      "reason": "no-p856",
-      "qid": "Q7848182"
+      "name": "Amazon ElastiCache",
+      "slug": "amazon-elasticache",
+      "reason": "not-org no-org p31=['Q1254596'] desc=cloud-based service"
     },
     {
-      "name": "Videntifier",
-      "slug": "videntifier",
-      "reason": "no-p856",
-      "qid": "Q13228840"
+      "name": "Application Networks",
+      "slug": "application-networks",
+      "reason": "no-p856"
     },
     {
-      "name": "WWDSI",
-      "slug": "wwdsi",
-      "reason": "not-org no-org p31=['Q7397'] desc=tool for scanning for and exploiting computer network security vulnerabilities",
-      "qid": "Q7388582"
+      "name": "Aptana",
+      "slug": "aptana",
+      "reason": "not-org no-org p31=['Q341'] desc=text editor"
+    },
+    {
+      "name": "Artmotion",
+      "slug": "artmotion",
+      "reason": "no-p856"
+    },
+    {
+      "name": "ATI Global",
+      "slug": "ati-global",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Autonomy Corporation",
+      "slug": "autonomy-corporation",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Azure Data Lake",
+      "slug": "azure-data-lake",
+      "reason": "not-org no-org p31=['Q483639'] desc=scalable data storage and analytics service"
+    },
+    {
+      "name": "Azure Stream Analytics",
+      "slug": "azure-stream-analytics",
+      "reason": "not-org no-org p31=[] desc=serverless scalable complex event processing engine by Microsoft"
+    },
+    {
+      "name": "Azure Web Apps",
+      "slug": "azure-web-apps",
+      "reason": "not-org no-org p31=['Q483639', 'Q7397'] desc=ASEAN Games phil. sched for men tennis"
+    },
+    {
+      "name": "BitFuFu",
+      "slug": "bitfufu",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Booker Software",
+      "slug": "booker-software",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Bracket Computing",
+      "slug": "bracket-computing",
+      "reason": "not-org no-org p31=[] desc="
+    },
+    {
+      "name": "Citrix Cloud",
+      "slug": "citrix-cloud",
+      "reason": "not-org no-org p31=['Q7397'] desc=cloud management service"
+    },
+    {
+      "name": "Citrix Virtual Desktops",
+      "slug": "citrix-virtual-desktops",
+      "reason": "not-org no-org p31=['Q7397'] desc=desktop virtualization product"
+    },
+    {
+      "name": "ClickPost",
+      "slug": "clickpost",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Cloud broker",
+      "slug": "cloud-broker",
+      "reason": "not-org no-org p31=[] desc=cloud business entity"
+    },
+    {
+      "name": "Cloud Foundry",
+      "slug": "cloud-foundry",
+      "reason": "not-org no-org p31=['Q341', 'Q483639'] desc=open source, multi-cloud application platform as a service"
+    },
+    {
+      "name": "Cloud28+",
+      "slug": "cloud28plus",
+      "reason": "not-org no-org p31=['Q37654'] desc=cloud computing services marketplace"
+    },
+    {
+      "name": "CloudEndure",
+      "slug": "cloudendure",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Coda Project",
+      "slug": "coda-project",
+      "reason": "not-org no-org p31=['Q474157'] desc=cloud-based document editor that blends word-processing with spreadsheet and database functionality"
+    },
+    {
+      "name": "Conga Corporation",
+      "slug": "conga-corporation",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Content Guru",
+      "slug": "content-guru",
+      "reason": "no-p856"
+    },
+    {
+      "name": "CopperEgg",
+      "slug": "copperegg",
+      "reason": "no-p856"
+    },
+    {
+      "name": "DealHub",
+      "slug": "dealhub",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Deutsche B\u00f6rse Cloud Exchange AG",
+      "slug": "deutsche-b-rse-cloud-exchange-ag",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Dimension Data",
+      "slug": "dimension-data",
+      "reason": "no-p856"
+    },
+    {
+      "name": "DriveNets",
+      "slug": "drivenets",
+      "reason": "no-p856"
+    },
+    {
+      "name": "EdgeUno",
+      "slug": "edgeuno",
+      "reason": "no-p856"
+    },
+    {
+      "name": "ElasticHosts",
+      "slug": "elastichosts",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Enomaly",
+      "slug": "enomaly",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Enstratius",
+      "slug": "enstratius",
+      "reason": "not-org no-org p31=['Q7397'] desc=cloud computing infrastructure management platform"
+    },
+    {
+      "name": "Enterprise file synchronization and sharing",
+      "slug": "enterprise-file-synchronization-and-sharing",
+      "reason": "no-p856"
+    },
+    {
+      "name": "FUJITSU Cloud IaaS Trusted Public S5",
+      "slug": "fujitsu-cloud-iaas-trusted-public-s5",
+      "reason": "not-org no-org p31=['Q7397'] desc=cloud computing platform"
+    },
+    {
+      "name": "Gcore",
+      "slug": "gcore",
+      "reason": "not-org no-org p31=['Q1346018', 'Q72588'] desc=cloud service provider"
+    },
+    {
+      "name": "Google Cloud Platform",
+      "slug": "google-cloud-platform",
+      "reason": "not-org no-org p31=['Q1153767', 'Q1346018', 'Q241317', 'Q117350903'] desc=cloud-based services and infrastructure from Google"
+    },
+    {
+      "name": "Google Cloud Storage",
+      "slug": "google-cloud-storage",
+      "reason": "not-org no-org p31=['Q914359', 'Q1346018'] desc=cloud storage service offered by Google's Cloud Platform"
+    },
+    {
+      "name": "Google Compute Engine",
+      "slug": "google-compute-engine",
+      "reason": "not-org no-org p31=['Q483639', 'Q1346018'] desc=compute service used to run virtual machines offered by Google Cloud"
+    },
+    {
+      "name": "HP Business Service Automation",
+      "slug": "hp-business-service-automation",
+      "reason": "no-p856"
+    },
+    {
+      "name": "HP Cloud Service Automation Software",
+      "slug": "hp-cloud-service-automation-software",
+      "reason": "no-p856"
+    },
+    {
+      "name": "HP Information Management Software",
+      "slug": "hp-information-management-software",
+      "reason": "not-org no-org p31=['Q7397'] desc="
+    },
+    {
+      "name": "HP IT Management Software",
+      "slug": "hp-it-management-software",
+      "reason": "no-p856"
+    },
+    {
+      "name": "HP Network Management Center",
+      "slug": "hp-network-management-center",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Hybrid Web Cluster",
+      "slug": "hybrid-web-cluster",
+      "reason": "not-org no-org p31=['Q7397'] desc="
+    },
+    {
+      "name": "K2view",
+      "slug": "k2view",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Kaavo",
+      "slug": "kaavo",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Keynote Systems",
+      "slug": "keynote-systems",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Logistaas",
+      "slug": "logistaas",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Lunacloud",
+      "slug": "lunacloud",
+      "reason": "no-p856"
+    },
+    {
+      "name": "MotherDuck",
+      "slug": "motherduck",
+      "reason": "not-org no-org p31=['Q7397'] desc=cloud analytics platform"
+    },
+    {
+      "name": "Nebula",
+      "slug": "nebula",
+      "reason": "no-p856"
+    },
+    {
+      "name": "OnApp",
+      "slug": "onapp",
+      "reason": "not-org no-org p31=['Q7397'] desc=Cloud platform"
+    },
+    {
+      "name": "Oracle Cloud",
+      "slug": "oracle-cloud",
+      "reason": "not-org no-org p31=['Q1153767', 'Q1346018', 'Q1254596', 'Q241317'] desc=cloud computing platform"
+    },
+    {
+      "name": "Oracle Cloud Platform",
+      "slug": "oracle-cloud-platform",
+      "reason": "not-org no-org p31=['Q483639', 'Q1153767'] desc=Platform as a Service"
+    },
+    {
+      "name": "Qstack",
+      "slug": "qstack",
+      "reason": "not-org no-org p31=['Q7397'] desc="
+    },
+    {
+      "name": "RPath",
+      "slug": "rpath",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Safe Swiss Cloud",
+      "slug": "safe-swiss-cloud",
+      "reason": "no-p856"
+    },
+    {
+      "name": "SAP BTP",
+      "slug": "sap-btp",
+      "reason": "not-org no-org p31=['Q35127'] desc=platform as a service by SAP"
+    },
+    {
+      "name": "ShareFile",
+      "slug": "sharefile",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Sixa",
+      "slug": "sixa",
+      "reason": "no-p856"
+    },
+    {
+      "name": "SoftLayer",
+      "slug": "softlayer",
+      "reason": "not-org no-org p31=['Q1153767', 'Q241317'] desc=a set of cloud computing services offered by IBM"
+    },
+    {
+      "name": "StackPath",
+      "slug": "stackpath",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Summit",
+      "slug": "summit",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Sun Cloud",
+      "slug": "sun-cloud",
+      "reason": "not-org no-org p31=[] desc=discontinued on-demand Cloud computing service operated"
+    },
+    {
+      "name": "SynfiniWay",
+      "slug": "synfiniway",
+      "reason": "not-org no-org p31=['Q7397'] desc="
+    },
+    {
+      "name": "T Cloud Public",
+      "slug": "t-cloud-public",
+      "reason": "not-org no-org p31=['Q1210425'] desc="
+    },
+    {
+      "name": "Techila Grid",
+      "slug": "techila-grid",
+      "reason": "not-org no-org p31=['Q7397'] desc="
+    },
+    {
+      "name": "Turbot",
+      "slug": "turbot",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Umbrellar",
+      "slug": "umbrellar",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Virtual Computing Environment",
+      "slug": "virtual-computing-environment",
+      "reason": "no-p856"
+    },
+    {
+      "name": "VCloud Air",
+      "slug": "vcloud-air",
+      "reason": "not-org no-org p31=['Q483639', 'Q1346018'] desc=public cloud computing service"
+    },
+    {
+      "name": "VDIworks",
+      "slug": "vdiworks",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Videoloft",
+      "slug": "videoloft",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Visual Risk",
+      "slug": "visual-risk",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Vultr",
+      "slug": "vultr",
+      "reason": "no-p856"
+    },
+    {
+      "name": "WaveMaker",
+      "slug": "wavemaker",
+      "reason": "not-org no-org p31=['Q1330336', 'Q341'] desc=low-code programming platform"
+    },
+    {
+      "name": "Westcoast Limited",
+      "slug": "westcoast-limited",
+      "reason": "no-p856"
+    },
+    {
+      "name": "Widen Enterprises",
+      "slug": "widen-enterprises",
+      "reason": "not-org no-org p31=[] desc=American technology business"
+    },
+    {
+      "name": "Yandex Cloud",
+      "slug": "yandex-cloud",
+      "reason": "not-org no-org p31=['Q1153767', 'Q1346018'] desc=cloud platform developed by Yandex"
+    },
+    {
+      "name": "Zettabox",
+      "slug": "zettabox",
+      "reason": "not-org no-org p31=[] desc=online cloud storage and team-sharing tool"
+    },
+    {
+      "name": "Zoho Office Suite",
+      "slug": "zoho-office-suite",
+      "reason": "not-org no-org p31=['Q207170', 'Q19967801', 'Q95988573'] desc=email, cloud storage, collaboration tools, hardware, administration, social media and other business apps"
     }
   ]
 }
