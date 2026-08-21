@@ -1,150 +1,206 @@
 {
-  "generated_at": "2026-08-21T16:06:08Z",
+  "generated_at": "2026-08-21T18:02:01Z",
   "method": "wikidata-wbsearchentities + wbgetentities P856; enwiki titles -> P856",
   "user_agent": "opentrust.center/1.0 (+https://opentrust.center)",
-  "note": "hourly top-up appended 11 verified P856 from Wikipedia largest software + Indian IT + remaining CMC software; did not repeat S&P 500 (ended at Zoetis)",
-  "cmc_list": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
+  "note": "hourly top-up appended 7 verified P856 from CRN Security 100 leftover (2024 remaining + 2026 new); Forbes AI 50 2026 and EMCLOUD/WCLD already on file; did not repeat Wikipedia software/Indian IT/CMC or S&P 500",
   "counts": {
-    "appended": 11,
-    "wiki_resolved": 11,
-    "cmc_resolved": 0,
-    "wiki_unresolved": 3,
-    "cmc_unresolved": 106,
-    "dropped_wrong_or_dup": 18,
+    "appended": 7,
+    "resolved": 7,
+    "unresolved": 18,
+    "dropped_wrong_or_dup": 1,
     "by_source_url": {
-      "https://en.wikipedia.org/wiki/List_of_Indian_IT_companies": 11
+      "https://www.crn.com/news/security/2024/2024-security-100": 4,
+      "https://www.crn.com/news/security/2026/the-2026-security-100": 3
     }
   },
   "appended": [
     {
-      "name": "NTT Data Payment Services",
-      "slug": "ntt-data-payment-services",
-      "domain": "atomtech.in",
-      "source": "wikipedia-indian-it",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_Indian_IT_companies",
-      "priority": 2,
-      "qid": "Q4817227",
-      "reason": "enwiki-title P856"
+      "name": "BlackBerry",
+      "slug": "blackberry",
+      "domain": "blackberry.com",
+      "source": "crn-security-100-2024",
+      "source_url": "https://www.crn.com/news/security/2024/2024-security-100",
+      "priority": 1,
+      "qid": "Q502121",
+      "reason": "exact"
     },
     {
-      "name": "Collabera",
-      "slug": "collabera",
-      "domain": "collabera.com",
-      "source": "wikipedia-indian-it",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_Indian_IT_companies",
-      "priority": 2,
-      "qid": "Q5145789",
-      "reason": "enwiki-title P856"
+      "name": "Secureworks",
+      "slug": "secureworks",
+      "domain": "secureworks.com",
+      "source": "crn-security-100-2024",
+      "source_url": "https://www.crn.com/news/security/2024/2024-security-100",
+      "priority": 1,
+      "qid": "Q7444830",
+      "reason": "close/prefix"
     },
     {
-      "name": "Firstsource",
-      "slug": "firstsource",
-      "domain": "firstsource.com",
-      "source": "wikipedia-indian-it",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_Indian_IT_companies",
-      "priority": 2,
-      "qid": "Q5454288",
-      "reason": "enwiki-title P856"
+      "name": "Juniper Networks",
+      "slug": "juniper-networks",
+      "domain": "juniper.net",
+      "source": "crn-security-100-2024",
+      "source_url": "https://www.crn.com/news/security/2024/2024-security-100",
+      "priority": 1,
+      "qid": "Q1049080",
+      "reason": "exact"
     },
     {
-      "name": "Godrej Infotech",
-      "slug": "godrej-infotech",
-      "domain": "godrejandboyce.com",
-      "source": "wikipedia-indian-it",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_Indian_IT_companies",
-      "priority": 2,
-      "qid": "Q17053670",
-      "reason": "enwiki-title P856"
+      "name": "Recorded Future",
+      "slug": "recorded-future",
+      "domain": "recordedfuture.com",
+      "source": "crn-security-100-2024",
+      "source_url": "https://www.crn.com/news/security/2024/2024-security-100",
+      "priority": 1,
+      "qid": "Q7302875",
+      "reason": "exact"
     },
     {
-      "name": "HSBC Technology India",
-      "slug": "hsbc-technology-india",
-      "domain": "hsbc.com",
-      "source": "wikipedia-indian-it",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_Indian_IT_companies",
-      "priority": 2,
-      "qid": "Q5635876",
-      "reason": "enwiki-title P856"
+      "name": "Dashlane",
+      "slug": "dashlane",
+      "domain": "dashlane.com",
+      "source": "crn-security-100-2026",
+      "source_url": "https://www.crn.com/news/security/2026/the-2026-security-100",
+      "priority": 1,
+      "qid": "Q18149120",
+      "reason": "exact"
     },
     {
-      "name": "Lumen Technologies",
-      "slug": "lumen-technologies",
-      "domain": "lumen.com",
-      "source": "wikipedia-indian-it",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_Indian_IT_companies",
-      "priority": 2,
-      "qid": "Q5063092",
-      "reason": "enwiki-title P856"
+      "name": "VulnCheck",
+      "slug": "vulncheck",
+      "domain": "vulncheck.com",
+      "source": "crn-security-100-2026",
+      "source_url": "https://www.crn.com/news/security/2026/the-2026-security-100",
+      "priority": 1,
+      "qid": "Q139850069",
+      "reason": "exact"
     },
     {
-      "name": "Microland",
-      "slug": "microland",
-      "domain": "microland.com",
-      "source": "wikipedia-indian-it",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_Indian_IT_companies",
-      "priority": 2,
-      "qid": "Q6839605",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Rediff.com",
-      "slug": "rediff-com",
-      "domain": "rediff.com",
-      "source": "wikipedia-indian-it",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_Indian_IT_companies",
-      "priority": 2,
-      "qid": "Q140676",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "EVRY India",
-      "slug": "evry-india",
-      "domain": "evry.com",
-      "source": "wikipedia-indian-it",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_Indian_IT_companies",
-      "priority": 2,
-      "qid": "Q1760838",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Tata Interactive Systems",
-      "slug": "tata-interactive-systems",
-      "domain": "mpsinteractive.com",
-      "source": "wikipedia-indian-it",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_Indian_IT_companies",
-      "priority": 2,
-      "qid": "Q971560",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "WNS Global Services",
-      "slug": "wns-global-services",
-      "domain": "wns.com",
-      "source": "wikipedia-indian-it",
-      "source_url": "https://en.wikipedia.org/wiki/List_of_Indian_IT_companies",
-      "priority": 2,
-      "qid": "Q7953597",
-      "reason": "enwiki-title P856"
+      "name": "Reflectiz",
+      "slug": "reflectiz",
+      "domain": "reflectiz.com",
+      "source": "crn-security-100-2026",
+      "source_url": "https://www.crn.com/news/security/2026/the-2026-security-100",
+      "priority": 1,
+      "qid": "Q47103483",
+      "reason": "exact"
     }
   ],
   "dropped_wrong_p856": [
     {
-      "name": "Castellum",
-      "slug": "castellum",
-      "domain": "castellum.se",
+      "name": "Zero Networks",
+      "slug": "zero-networks",
+      "domain": "zero-n.jp",
       "reason": "blocked-host"
+    }
+  ],
+  "unresolved": [
+    {
+      "name": "Adlumin",
+      "slug": "adlumin",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
     },
     {
-      "name": "Upland Software",
-      "slug": "upland-software",
-      "domain": "powersteeringsoftware.com",
-      "reason": "blocked-host"
+      "name": "Infima Cybersecurity",
+      "slug": "infima-cybersecurity",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
     },
     {
-      "name": "BloomZ",
-      "slug": "bloomz",
-      "domain": "bloomz.com.mx",
-      "reason": "blocked-host"
+      "name": "Contrast Security",
+      "slug": "contrast-security",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "name": "Lacework",
+      "slug": "lacework",
+      "reason": "no-org-with-official-website",
+      "status": "unresolved"
+    },
+    {
+      "name": "Noname Security",
+      "slug": "noname-security",
+      "reason": "no-exact-or-close-label; 1 org candidate Q110137883 Noname Gate",
+      "status": "unresolved"
+    },
+    {
+      "name": "Coro",
+      "slug": "coro",
+      "reason": "no-org-with-official-website",
+      "status": "unresolved"
+    },
+    {
+      "name": "ThreatDown",
+      "slug": "threatdown",
+      "reason": "wiki-sitelink no-p856 org=False no-org p31=[] desc=television series segments",
+      "status": null
+    },
+    {
+      "name": "Keyfactor",
+      "slug": "keyfactor",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "name": "Sectigo",
+      "slug": "sectigo",
+      "reason": "no-exact-or-close-label; 1 org candidate Q1985340 Comodo Group",
+      "status": "unresolved"
+    },
+    {
+      "name": "Sentra",
+      "slug": "sentra",
+      "reason": "no-exact-or-close-label; 1 org candidate Q96100241 Sentra Food Indonesia",
+      "status": "unresolved"
+    },
+    {
+      "name": "Meter",
+      "slug": "meter",
+      "reason": "no-org-with-official-website",
+      "status": "unresolved"
+    },
+    {
+      "name": "Nozomi Networks",
+      "slug": "nozomi-networks",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "name": "Todyl",
+      "slug": "todyl",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "name": "Zero Networks",
+      "slug": "zero-networks",
+      "reason": "exact",
+      "status": "resolved"
+    },
+    {
+      "name": "Cavelo",
+      "slug": "cavelo",
+      "reason": "no-org-with-official-website",
+      "status": "unresolved"
+    },
+    {
+      "name": "Galactic Advisors",
+      "slug": "galactic-advisors",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "name": "Apiiro",
+      "slug": "apiiro",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "name": "Upwind",
+      "slug": "upwind",
+      "reason": "no-org-with-official-website",
+      "status": "unresolved"
     }
   ]
 }
