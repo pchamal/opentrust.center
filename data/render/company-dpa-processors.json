@@ -1,721 +1,482 @@
 {
-  "generated_at": "2026-08-21T19:01:01Z",
-  "rule": "The 6 companies that gained a public trust URL in expand 30a3e388 (register 1653 last_hits). DPA fills only from a real first-party DPA. Named subprocessors fill only from a printed first-party list of organization names. Dates, JS shells, login walls, itemUids, 403/404, and portal hosts stay open. A stored list URL with no printed names does not invent processors.",
+  "generated_at": "2026-08-21T19:55:28Z",
+  "rule": "The 4 companies that gained a public trust URL in expand c04c652d8 (register 1693 last_hits). DPA fills only from a real first-party DPA. Named subprocessors fill only from a printed first-party list of organization names. Dates, JS shells, 403/404, login walls, itemUids, and portal hosts stay open. A stored list URL with no printed names does not invent processors.",
   "batch": [
-    "bugcrowd",
-    "crossbeam-systems",
-    "druva",
-    "fluid-attacks",
-    "datto",
-    "hackerone"
+    "netcraft",
+    "synack",
+    "pentera",
+    "panorays"
   ],
   "dpa_filed": [],
-  "subprocessors_filed": [
-    {
-      "slug": "crossbeam-systems",
-      "name": "Crossbeam Systems",
-      "url": "https://www.crossbeam.com/legal/subprocessors",
-      "names": [
-        "Amazon Web Services",
-        "Confluent, Inc",
-        "Datadog, Inc",
-        "Dash0",
-        "MongoDB Atlas (MongoDB, Inc.)",
-        "OpenAI, L.L.C",
-        "Reveal SAS",
-        "Sendgrid",
-        "Snowflake",
-        "Tray.ai",
-        "Anthropic, PBC",
-        "Google Cloud Platform"
-      ]
-    }
-  ],
+  "subprocessors_filed": [],
   "stayed_open": [
     {
-      "slug": "bugcrowd",
-      "name": "Bugcrowd",
+      "slug": "netcraft",
+      "name": "Netcraft",
       "rule": "dpa"
     },
     {
-      "slug": "druva",
-      "name": "Druva",
+      "slug": "pentera",
+      "name": "Pentera",
       "rule": "dpa"
     },
     {
-      "slug": "druva",
-      "name": "Druva",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "fluid-attacks",
-      "name": "Fluid Attacks",
+      "slug": "panorays",
+      "name": "Panorays",
       "rule": "dpa"
     },
     {
-      "slug": "datto",
-      "name": "Datto",
-      "rule": "dpa"
-    },
-    {
-      "slug": "datto",
-      "name": "Datto",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "hackerone",
-      "name": "HackerOne",
-      "rule": "dpa"
-    },
-    {
-      "slug": "hackerone",
-      "name": "HackerOne",
+      "slug": "panorays",
+      "name": "Panorays",
       "rule": "subprocessors"
     }
   ],
   "rejected": [
     {
-      "slug": "bugcrowd",
-      "url": "https://bugcrowd.com/terms/dpa",
-      "final": "https://bugcrowd.com/terms/dpa",
+      "slug": "synack",
+      "url": "https://www.synack.com/data-processing-addendum/",
+      "reason": "seed-not-live",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netcraft",
+      "url": "https://netcraft.com/dpa",
+      "final": "https://netcraft.com/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "bugcrowd",
-      "url": "https://bugcrowd.com/dpa",
-      "final": "https://bugcrowd.com/dpa",
+      "slug": "netcraft",
+      "url": "https://netcraft.com/data-processing-addendum",
+      "final": "https://netcraft.com/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "bugcrowd",
-      "url": "https://bugcrowd.com/policies/data-processing-addendum",
-      "final": "https://bugcrowd.com/policies/data-processing-addendum",
+      "slug": "netcraft",
+      "url": "https://netcraft.com/company/dpa",
+      "final": "https://netcraft.com/company/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "bugcrowd",
-      "url": "https://bugcrowd.com/data-processing-addendum",
-      "final": "https://bugcrowd.com/data-processing-addendum",
+      "slug": "netcraft",
+      "url": "https://netcraft.com/policies/data-processing-addendum",
+      "final": "https://netcraft.com/policies/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "bugcrowd",
-      "url": "https://bugcrowd.com/policies/data-processing-agreement",
-      "final": "https://bugcrowd.com/policies/data-processing-agreement",
+      "slug": "netcraft",
+      "url": "https://netcraft.com/policies/data-processing-agreement",
+      "final": "https://netcraft.com/policies/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "bugcrowd",
-      "url": "https://bugcrowd.com/data-processing-agreement",
-      "final": "https://bugcrowd.com/data-processing-agreement",
+      "slug": "netcraft",
+      "url": "https://netcraft.com/legal/data-processing-agreement",
+      "final": "https://netcraft.com/legal/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "bugcrowd",
-      "url": "https://bugcrowd.com/gdpr/dpa",
-      "final": "https://bugcrowd.com/gdpr/dpa",
+      "slug": "netcraft",
+      "url": "https://netcraft.com/gdpr/dpa",
+      "final": "https://netcraft.com/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "bugcrowd",
-      "url": "https://bugcrowd.com/company/dpa",
-      "final": "https://bugcrowd.com/company/dpa",
+      "slug": "netcraft",
+      "url": "https://netcraft.com/legal/data-processing-addendum",
+      "final": "https://netcraft.com/legal/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "bugcrowd",
-      "url": "https://bugcrowd.com/policies/dpa",
-      "final": "https://bugcrowd.com/policies/dpa",
+      "slug": "netcraft",
+      "url": "https://netcraft.com/data-processing-agreement",
+      "final": "https://netcraft.com/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "fluid-attacks",
-      "url": "https://fluidattacks.com/legal/dpa",
-      "final": "https://fluidattacks.com/legal/dpa",
+      "slug": "netcraft",
+      "url": "https://netcraft.com/terms/dpa",
+      "final": "https://netcraft.com/terms/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "bugcrowd",
-      "url": "https://bugcrowd.com/legal/data-processing-agreement",
-      "final": "https://bugcrowd.com/h/legal/data-processing-agreement",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "fluid-attacks",
-      "url": "https://fluidattacks.com/legal/data-processing-addendum",
-      "final": "https://fluidattacks.com/legal/data-processing-addendum",
+      "slug": "netcraft",
+      "url": "https://netcraft.com/policies/dpa",
+      "final": "https://netcraft.com/policies/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "fluid-attacks",
-      "url": "https://fluidattacks.com/dpa",
-      "final": "https://fluidattacks.com/dpa",
+      "slug": "netcraft",
+      "url": "https://netcraft.com/legal/dpa",
+      "final": "https://netcraft.com/legal/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "bugcrowd",
-      "url": "https://bugcrowd.com/legal/data-processing-addendum",
-      "final": "https://bugcrowd.com/h/legal/data-processing-addendum",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "bugcrowd",
-      "url": "https://bugcrowd.com/data-processing",
-      "final": "https://bugcrowd.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "fluid-attacks",
-      "url": "https://fluidattacks.com/legal/data-processing-agreement",
-      "final": "https://fluidattacks.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "fluid-attacks",
-      "url": "https://fluidattacks.com/policies/data-processing-agreement",
-      "final": "https://fluidattacks.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "fluid-attacks",
-      "url": "https://fluidattacks.com/policies/data-processing-addendum",
-      "final": "https://fluidattacks.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "fluid-attacks",
-      "url": "https://fluidattacks.com/data-processing-addendum",
-      "final": "https://fluidattacks.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "fluid-attacks",
-      "url": "https://fluidattacks.com/policies/dpa",
-      "final": "https://fluidattacks.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "fluid-attacks",
-      "url": "https://fluidattacks.com/company/dpa",
-      "final": "https://fluidattacks.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "fluid-attacks",
-      "url": "https://fluidattacks.com/data-processing-agreement",
-      "final": "https://fluidattacks.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "fluid-attacks",
-      "url": "https://fluidattacks.com/legal/gdpr/dpa",
-      "final": "https://fluidattacks.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "fluid-attacks",
-      "url": "https://fluidattacks.com/terms/dpa",
-      "final": "https://fluidattacks.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "druva",
-      "url": "https://www.druva.com/msa",
-      "final": "https://www.druva.com/msa",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "fluid-attacks",
-      "url": "https://fluidattacks.com/legal/processor-terms",
-      "final": "https://fluidattacks.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "bugcrowd",
-      "url": "https://bugcrowd.com/privacy/dpa",
-      "final": "https://bugcrowd.com/h/privacy/dpa",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "bugcrowd",
-      "url": "https://bugcrowd.com/legal/data-processing",
-      "final": "https://bugcrowd.com/h/legal/data-processing",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "fluid-attacks",
-      "url": "https://fluidattacks.com/legal/data-processing",
-      "final": "https://fluidattacks.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "fluid-attacks",
-      "url": "https://fluidattacks.com/gdpr/dpa",
-      "final": "https://fluidattacks.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "fluid-attacks",
-      "url": "https://fluidattacks.com/privacy/dpa",
-      "final": "https://fluidattacks.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datto",
-      "url": "https://datto.com/dpa",
-      "final": "https://datto.com/dpa",
+      "slug": "pentera",
+      "url": "https://pentera.io/legal/dpa",
+      "final": "https://pentera.io/legal/dpa",
       "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "datto",
-      "url": "https://datto.com/legal/dpa",
-      "final": "https://datto.com/legal/dpa",
+      "slug": "pentera",
+      "url": "https://pentera.io/dpa",
+      "final": "https://pentera.io/dpa",
       "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "bugcrowd",
-      "url": "https://bugcrowd.com/legal/processor-terms",
-      "final": "https://bugcrowd.com/h/legal/processor-terms",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "fluid-attacks",
-      "url": "https://fluidattacks.com/data-processing",
-      "final": "https://fluidattacks.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datto",
-      "url": "https://datto.com/legal/data-processing-addendum",
-      "final": "https://datto.com/legal/data-processing-addendum",
+      "slug": "pentera",
+      "url": "https://pentera.io/legal/data-processing-addendum",
+      "final": "https://pentera.io/legal/data-processing-addendum",
       "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "bugcrowd",
-      "url": "https://bugcrowd.com/legal/gdpr/dpa",
-      "final": "https://bugcrowd.com/h/legal/gdpr/dpa",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datto",
-      "url": "https://datto.com/legal/data-processing-agreement",
-      "final": "https://datto.com/legal/data-processing-agreement",
+      "slug": "pentera",
+      "url": "https://pentera.io/data-processing-addendum",
+      "final": "https://pentera.io/data-processing-addendum",
       "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "datto",
-      "url": "https://datto.com/data-processing-addendum",
-      "final": "https://datto.com/data-processing-addendum",
+      "slug": "pentera",
+      "url": "https://pentera.io/data-processing-agreement",
+      "final": "https://pentera.io/data-processing-agreement",
       "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "datto",
-      "url": "https://datto.com/data-processing-agreement",
-      "final": "https://datto.com/data-processing-agreement",
+      "slug": "pentera",
+      "url": "https://pentera.io/legal/data-processing-agreement",
+      "final": "https://pentera.io/legal/data-processing-agreement",
       "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "datto",
-      "url": "https://datto.com/policies/data-processing-addendum",
-      "final": "https://datto.com/policies/data-processing-addendum",
+      "slug": "pentera",
+      "url": "https://pentera.io/terms/dpa",
+      "final": "https://pentera.io/terms/dpa",
       "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "datto",
-      "url": "https://datto.com/policies/data-processing-agreement",
-      "final": "https://datto.com/policies/data-processing-agreement",
+      "slug": "pentera",
+      "url": "https://pentera.io/policies/dpa",
+      "final": "https://pentera.io/policies/dpa",
       "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "datto",
-      "url": "https://datto.com/company/dpa",
-      "final": "https://datto.com/company/dpa",
+      "slug": "pentera",
+      "url": "https://pentera.io/policies/data-processing-agreement",
+      "final": "https://pentera.io/policies/data-processing-agreement",
       "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "datto",
-      "url": "https://datto.com/terms/dpa",
-      "final": "https://datto.com/terms/dpa",
+      "slug": "pentera",
+      "url": "https://pentera.io/gdpr/dpa",
+      "final": "https://pentera.io/gdpr/dpa",
       "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "datto",
-      "url": "https://datto.com/policies/dpa",
-      "final": "https://datto.com/policies/dpa",
+      "slug": "pentera",
+      "url": "https://pentera.io/policies/data-processing-addendum",
+      "final": "https://pentera.io/policies/data-processing-addendum",
       "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "datto",
-      "url": "https://datto.com/privacy/dpa",
-      "final": "https://datto.com/privacy/dpa",
+      "slug": "pentera",
+      "url": "https://pentera.io/privacy/dpa",
+      "final": "https://pentera.io/privacy/dpa",
       "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "datto",
-      "url": "https://datto.com/legal/processor-terms",
-      "final": "https://datto.com/legal/processor-terms",
+      "slug": "pentera",
+      "url": "https://pentera.io/legal/gdpr/dpa",
+      "final": "https://pentera.io/legal/gdpr/dpa",
       "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "datto",
-      "url": "https://datto.com/legal/data-processing",
-      "final": "https://datto.com/legal/data-processing",
+      "slug": "pentera",
+      "url": "https://pentera.io/company/dpa",
+      "final": "https://pentera.io/company/dpa",
       "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "datto",
-      "url": "https://datto.com/data-processing",
-      "final": "https://datto.com/data-processing",
+      "slug": "pentera",
+      "url": "https://pentera.io/legal/data-processing",
+      "final": "https://pentera.io/legal/data-processing",
       "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "datto",
-      "url": "https://datto.com/gdpr/dpa",
-      "final": "https://datto.com/gdpr/dpa",
+      "slug": "pentera",
+      "url": "https://pentera.io/legal/processor-terms",
+      "final": "https://pentera.io/legal/processor-terms",
       "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "datto",
-      "url": "https://datto.com/legal/gdpr/dpa",
-      "final": "https://datto.com/legal/gdpr/dpa",
+      "slug": "pentera",
+      "url": "https://pentera.io/data-processing",
+      "final": "https://pentera.io/data-processing",
       "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/dpa",
-      "final": "https://hackerone.com/dpa",
+      "slug": "panorays",
+      "url": "https://panorays.com/dpa",
+      "final": "https://panorays.com/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "panorays",
+      "url": "https://panorays.com/legal/data-processing-addendum",
+      "final": "https://panorays.com/legal/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "panorays",
+      "url": "https://panorays.com/legal/data-processing-agreement",
+      "final": "https://panorays.com/legal/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netcraft",
+      "url": "https://netcraft.com/legal/processor-terms",
+      "final": "https://netcraft.com/legal/processor-terms",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/legal/data-processing-addendum",
-      "final": "https://hackerone.com/legal/data-processing-addendum",
+      "slug": "netcraft",
+      "url": "https://netcraft.com/privacy/dpa",
+      "final": "https://netcraft.com/privacy/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "bugcrowd",
-      "url": "https://bugcrowd.com/legal/dpa",
-      "final": "https://www.bugcrowd.com/wp-content/uploads/2026/05/BugcrowdDPAforCUSTOMERS.pdf",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/legal/data-processing-agreement",
-      "final": "https://hackerone.com/legal/data-processing-agreement",
+      "slug": "netcraft",
+      "url": "https://netcraft.com/legal/data-processing",
+      "final": "https://netcraft.com/legal/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/data-processing-agreement",
-      "final": "https://hackerone.com/data-processing-agreement",
+      "slug": "panorays",
+      "url": "https://panorays.com/data-processing-addendum",
+      "final": "https://panorays.com/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "panorays",
+      "url": "https://panorays.com/data-processing-agreement",
+      "final": "https://panorays.com/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "panorays",
+      "url": "https://panorays.com/policies/data-processing-addendum",
+      "final": "https://panorays.com/policies/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "panorays",
+      "url": "https://panorays.com/legal/dpa",
+      "final": "https://panorays.com/legal/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "panorays",
+      "url": "https://panorays.com/terms/dpa",
+      "final": "https://panorays.com/terms/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "panorays",
+      "url": "https://panorays.com/policies/dpa",
+      "final": "https://panorays.com/policies/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "panorays",
+      "url": "https://panorays.com/policies/data-processing-agreement",
+      "final": "https://panorays.com/policies/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "panorays",
+      "url": "https://panorays.com/company/dpa",
+      "final": "https://panorays.com/company/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netcraft",
+      "url": "https://netcraft.com/data-processing",
+      "final": "https://netcraft.com/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/legal/dpa",
-      "final": "https://hackerone.com/legal/dpa",
+      "slug": "panorays",
+      "url": "https://panorays.com/legal/gdpr/dpa",
+      "final": "https://panorays.com/legal/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "panorays",
+      "url": "https://panorays.com/privacy/dpa",
+      "final": "https://panorays.com/privacy/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "panorays",
+      "url": "https://panorays.com/gdpr/dpa",
+      "final": "https://panorays.com/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "panorays",
+      "url": "https://panorays.com/legal/data-processing",
+      "final": "https://panorays.com/legal/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "panorays",
+      "url": "https://panorays.com/data-processing",
+      "final": "https://panorays.com/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netcraft",
+      "url": "https://netcraft.com/legal/gdpr/dpa",
+      "final": "https://netcraft.com/legal/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/data-processing-addendum",
-      "final": "https://hackerone.com/data-processing-addendum",
-      "reason": "http-404",
+      "slug": "panorays",
+      "url": "https://panorays.com/legal/processor-terms",
+      "final": "https://panorays.com/legal/processor-terms",
+      "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/gdpr/dpa",
-      "final": "https://hackerone.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/policies/dpa",
-      "final": "https://hackerone.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/legal/gdpr/dpa",
-      "final": "https://hackerone.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/terms/dpa",
-      "final": "https://hackerone.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/legal/processor-terms",
-      "final": "https://hackerone.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/privacy/dpa",
-      "final": "https://hackerone.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/legal/data-processing",
-      "final": "https://hackerone.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/data-processing",
-      "final": "https://hackerone.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/company/dpa",
-      "final": "https://hackerone.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/policies/data-processing-agreement",
-      "final": "https://hackerone.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/policies/data-processing-addendum",
-      "final": "https://hackerone.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "druva",
-      "url": "https://partneracademy.druva.com/page/managed-service-providers",
-      "final": "https://partneracademy.druva.com/page/managed-service-providers",
+      "slug": "panorays",
+      "url": "https://panorays.com/sub-processors",
+      "final": "https://panorays.com/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "datto",
-      "url": "https://datto.com/legal/sub-processors",
-      "final": "https://datto.com/legal/sub-processors",
+      "slug": "panorays",
+      "url": "https://panorays.com/subprocessors",
+      "final": "https://panorays.com/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "fluid-attacks",
-      "url": "https://trust.fluidattacks.tech/subprocessors",
-      "final": "https://trust.fluidattacks.tech/subprocessors",
-      "reason": "not-first-party",
+      "slug": "panorays",
+      "url": "https://panorays.com/privacy/subprocessors",
+      "final": "https://panorays.com/privacy/subprocessors",
+      "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "bugcrowd",
-      "url": "https://bugcrowd.com/h/legal/subprocessors",
-      "final": "https://bugcrowd.com/h/legal/subprocessors",
+      "slug": "panorays",
+      "url": "https://panorays.com/legal/subprocessors",
+      "final": "https://panorays.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "panorays",
+      "url": "https://panorays.com/company/subprocessors",
+      "final": "https://panorays.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "panorays",
+      "url": "https://panorays.com/legal/sub-processors-page",
+      "final": "https://panorays.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "panorays",
+      "url": "https://panorays.com/trust/subprocessors",
+      "final": "https://panorays.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "panorays",
+      "url": "https://panorays.com/legal/service-providers",
+      "final": "https://panorays.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "panorays",
+      "url": "https://panorays.com/legal/sub-processors",
+      "final": "https://panorays.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "pentera",
+      "url": "https://trust.pentera.io/subprocessors",
+      "final": "https://trust.pentera.io/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "synack",
+      "url": "https://trustcenter.synack.com/subprocessors",
+      "final": "https://trustcenter.synack.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "netcraft",
+      "url": "https://trust.netcraft.com/subprocessors",
+      "final": "https://trust.netcraft.com/subprocessors",
       "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "datto",
-      "url": "https://datto.com/sub-processors",
-      "final": "https://datto.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "datto",
-      "url": "https://datto.com/subprocessors",
-      "final": "https://datto.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "datto",
-      "url": "https://datto.com/legal/service-providers",
-      "final": "https://datto.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "datto",
-      "url": "https://datto.com/legal/subprocessors",
-      "final": "https://datto.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "datto",
-      "url": "https://datto.com/privacy/subprocessors",
-      "final": "https://datto.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/sub-processors",
-      "final": "https://hackerone.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "datto",
-      "url": "https://datto.com/legal/sub-processors-page",
-      "final": "https://datto.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "datto",
-      "url": "https://datto.com/company/subprocessors",
-      "final": "https://datto.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "datto",
-      "url": "https://datto.com/trust/subprocessors",
-      "final": "https://datto.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "druva",
-      "url": "https://www.druva.com/partners/managed-service-program",
-      "final": "https://www.druva.com/partners/managed-service-program",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/legal/subprocessors",
-      "final": "https://hackerone.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "druva",
-      "url": "https://www.druva.com/partners/managed-service-program/msp-partner-program",
-      "final": "https://www.druva.com/partners/managed-service-program/msp-partner-program",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/legal/sub-processors",
-      "final": "https://hackerone.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/legal/service-providers",
-      "final": "https://hackerone.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/company/subprocessors",
-      "final": "https://hackerone.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/trust/subprocessors",
-      "final": "https://hackerone.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/legal/sub-processors-page",
-      "final": "https://hackerone.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/subprocessors",
-      "final": "https://hackerone.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "hackerone",
-      "url": "https://hackerone.com/privacy/subprocessors",
-      "final": "https://hackerone.com/privacy/subprocessors",
-      "reason": "fetch-failed",
       "kind": "subprocessors"
     }
   ]
