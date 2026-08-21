@@ -1,22 +1,158 @@
 {
-  "generated_at": "2026-08-21T21:00:56Z",
+  "generated_at": "2026-08-21T21:53:12Z",
   "rule": "Next ~40 on-file companies whose marks File-glyph rule was open or thin and who already had a first-party trust / privacy / security URL. Marks fill only when that live page names the company's own hold. Regulation mentions (GDPR/CCPA as rights) and DPF as a transfer mechanism among SCCs stay open. Login walls, soft-404s, homepage bounces, PDFs, JS shells, and portal hosts stay open. Substantial files were skipped.",
   "batch": [
-    "trusona"
+    "zerotier",
+    "deputy",
+    "alibaba-cloud",
+    "diligent-corporation"
   ],
   "marks_filed": [
     {
-      "slug": "trusona",
-      "name": "Trusona",
-      "url": "https://trust.trusona.com",
+      "slug": "deputy",
+      "name": "Deputy",
+      "url": "https://trust.deputy.com",
       "added": [
-        "SOC 2 Type I"
+        "SOC 2 Type II",
+        "ISO 27001",
+        "Cyber Essentials",
+        "TX-RAMP"
       ],
       "certs": [
-        "SOC 2 Type I"
+        "SOC 2 Type II",
+        "ISO 27001",
+        "Cyber Essentials",
+        "TX-RAMP"
+      ]
+    },
+    {
+      "slug": "diligent-corporation",
+      "name": "Diligent Corporation",
+      "url": "https://trust.diligent.com",
+      "added": [
+        "SOC 2",
+        "SOC 1",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "HIPAA",
+        "TX-RAMP",
+        "IRAP",
+        "GDPR",
+        "CCPA"
+      ],
+      "certs": [
+        "SOC 2",
+        "SOC 1",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "HIPAA",
+        "TX-RAMP",
+        "IRAP",
+        "GDPR",
+        "CCPA"
       ]
     }
   ],
-  "stayed_open": [],
-  "rejected": []
+  "stayed_open": [
+    {
+      "slug": "zerotier",
+      "name": "ZeroTier",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "alibaba-cloud",
+      "name": "Alibaba Cloud",
+      "rule": "marks",
+      "thin": false
+    }
+  ],
+  "rejected": [
+    {
+      "slug": "deputy",
+      "url": "https://www.deputy.com/security",
+      "final": "https://www.deputy.com/security",
+      "reason": "no-named-marks",
+      "kind": "security"
+    },
+    {
+      "slug": "deputy",
+      "url": "https://www.deputy.com/legal/privacy",
+      "final": "https://www.deputy.com/legal/privacy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "deputy",
+      "url": "https://www.deputy.com/subprocessors",
+      "final": "https://www.deputy.com/subprocessors",
+      "reason": "no-named-marks",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deputy",
+      "url": "https://www.deputy.com/dpa",
+      "final": "https://www.deputy.com/dpa",
+      "reason": "no-named-marks",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zerotier",
+      "url": "https://www.zerotier.com/dpa/",
+      "final": "https://www.zerotier.com/dpa/",
+      "reason": "regulation-only",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zerotier",
+      "url": "https://www.zerotier.com/privacy-policy/",
+      "final": "https://www.zerotier.com/privacy-policy/",
+      "reason": "regulation-only",
+      "kind": "privacy"
+    },
+    {
+      "slug": "diligent-corporation",
+      "url": "https://www.diligent.com/legal/privacy",
+      "final": "https://www.diligent.com/legal/privacy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "zerotier",
+      "url": "https://trust.zerotier.com",
+      "final": "https://trust.zerotier.com",
+      "reason": "no-named-marks",
+      "kind": "trust"
+    },
+    {
+      "slug": "zerotier",
+      "url": "https://trust.zerotier.com/subprocessors",
+      "final": "https://trust.zerotier.com/subprocessors",
+      "reason": "no-named-marks",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
+      "reason": "no-named-marks",
+      "kind": "security"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://www.alibabacloud.com/en/trust-center?_p_lc=1",
+      "final": "https://www.alibabacloud.com/en/trust-center?_p_lc=1",
+      "reason": "no-named-marks",
+      "kind": "final_url"
+    },
+    {
+      "slug": "alibaba-cloud",
+      "url": "https://alibabacloud.com/trust-center",
+      "final": "https://www.alibabacloud.com/en/trust-center?_p_lc=1",
+      "reason": "no-named-marks",
+      "kind": "trust"
+    }
+  ]
 }
