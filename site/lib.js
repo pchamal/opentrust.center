@@ -499,7 +499,7 @@ export function markHuman() {
 
 function makeGate(doc) {
   const gate = doc.createElement("div");
-  gate.className = "gate gate-inline";
+  gate.className = "gate";
   gate.id = "gate";
   gate.hidden = true;
   const label = doc.createElement("label");
@@ -520,28 +520,29 @@ function makeGate(doc) {
   return gate;
 }
 
+function takeGate(doc) {
+  const leftover = doc && doc.getElementById("gate");
+  if (leftover && leftover.parentNode) leftover.remove();
+  return leftover || (doc && makeGate(doc));
+}
+
 export function placeGate(gate, after) {
   if (!gate || !after) return;
-  gate.classList.add("gate-inline");
   after.after(gate);
   gate.hidden = false;
+}
+
+export function shutGate(gate) {
+  if (gate) gate.hidden = true;
 }
 
 export function attachGate({ button, box, status, url } = {}) {
   const doc = globalThis.document;
   let pending = url || (button && button.dataset.url) || "";
-  let gate = (box && box.closest(".gate")) || (doc && doc.getElementById("gate"));
+  let gate = takeGate(doc) || (box && box.closest(".gate"));
   if (!gate && doc) gate = makeGate(doc);
-  if (!box && gate) box = gate.querySelector("#gate-box");
-  if (!status && gate) status = gate.querySelector("#gate-status");
-
-  function showVerified() {
-    if (status) status.textContent = "verified · 30 min";
-    if (box) {
-      box.checked = true;
-      box.disabled = true;
-    }
-  }
+  box = (gate && gate.querySelector("#gate-box")) || box;
+  status = (gate && gate.querySelector("#gate-status")) || status;
 
   function go(href) {
     if (href) globalThis.window.open(href, "_blank", "noopener,noreferrer");
@@ -550,6 +551,7 @@ export function attachGate({ button, box, status, url } = {}) {
   function requestStamp(href, after) {
     pending = href || pending;
     if (humanOk()) {
+      shutGate(gate);
       go(pending);
       return;
     }
@@ -587,8 +589,13 @@ export function attachGate({ button, box, status, url } = {}) {
       if (status) status.textContent = "checking…";
       setTimeout(() => {
         markHuman();
-        showVerified();
+        if (status) status.textContent = "verified · 30 min";
+        if (box) {
+          box.checked = true;
+          box.disabled = true;
+        }
         go(pending);
+        shutGate(gate);
       }, 250);
     });
   }

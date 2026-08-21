@@ -80,6 +80,11 @@ function el(tag, attrs = {}, kids = []) {
     addEventListener(type, fn) {
       (node.listeners[type] ||= []).push(fn);
     },
+    remove() {
+      if (!node.parentNode) return;
+      node.parentNode.childNodes = node.parentNode.childNodes.filter((c) => c !== node);
+      node.parentNode = null;
+    },
   };
   node.append(...kids);
   return node;
@@ -198,32 +203,31 @@ attachGate({
   status: gate.querySelector("#gate-status"),
 });
 
-expect("page-level gate stays hidden until a click", gate.hidden === true && gate.parentNode === footer);
+expect("footer leftover is detached on attach", gate.hidden === true && footer.childNodes.includes(gate) === false && gate.parentNode == null);
 
 const evA = click(a);
 expect("official click A prevents default", evA.defaultPrevented === true);
-expect("stamp sits after A in the same cell", a.parentNode === cellA && a.parentNode === gate.parentNode && cellA.childNodes[1] === gate);
-expect("stamp is revealed next to A", gate.hidden === false && gate.classList.contains("gate-inline"));
-expect("footer no longer holds the stamp", footer.childNodes.includes(gate) === false);
+expect("unfurl sits under A in the same column", a.parentNode === cellA && a.parentNode === gate.parentNode && cellA.childNodes[1] === gate);
+expect("unfurl is a clerk line, not beside the link", gate.hidden === false && !gate.classList.contains("gate-inline"));
+expect("footer no longer holds a second checkbox", footer.childNodes.includes(gate) === false);
 
 click(b);
-expect("stamp moved after B", b.parentNode === cellB && cellB.childNodes[1] === gate && gate.hidden === false);
-expect("A no longer neighbors the stamp", cellA.childNodes.includes(gate) === false && cellA.childNodes.length === 1);
+expect("unfurl moved under B", b.parentNode === cellB && cellB.childNodes[1] === gate && gate.hidden === false);
+expect("A no longer neighbors the unfurl", cellA.childNodes.includes(gate) === false && cellA.childNodes.length === 1);
 
 const box = gate.querySelector("#gate-box");
 const status = gate.querySelector("#gate-status");
 box.checked = true;
 change(box);
 await new Promise((r) => setTimeout(r, 300));
-expect("stamp prints verified · 30 min", status.textContent === "verified · 30 min");
+expect("status still uses verified · 30 min", status.textContent === "verified · 30 min");
 expect("first open is the pending B url", opened[0] && opened[0].href === "https://b.example/trust" && opened[0].target === "_blank" && opened[0].features === "noopener,noreferrer");
+expect("unfurl stays shut after the session is live", gate.hidden === true);
 
 const before = opened.length;
-const hiddenBefore = gate.hidden;
 click(c);
 expect("after stamp the next official click opens", opened.length === before + 1 && opened[1].href === "https://c.example/trust");
-expect("after stamp the box is not moved onto C", cellB.childNodes.includes(gate) === true && c.parentNode.childNodes.includes(gate) === false);
-expect("after stamp the box is not re-shown on C", hiddenBefore === gate.hidden);
+expect("after stamp the unfurl is not opened on C", gate.hidden === true && c.parentNode.childNodes.includes(gate) === false);
 
 const pages = readFileSync(new URL("../build_pages.py", import.meta.url), "utf8");
 const lib = readFileSync(new URL("../site/lib.js", import.meta.url), "utf8");
@@ -234,13 +238,17 @@ const indexHtml = readFileSync(new URL("../site/index.html", import.meta.url), "
 const companiesHtml = readFileSync(new URL("../site/companies.html", import.meta.url), "utf8");
 const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8");
 
-expect("publisher no longer injects the page-level gate", !pages.includes("{gate}"));
-expect("clerk words stay I am human", lib.includes("I am human") && pages.includes("I am human"));
+expect("publisher deleted GATE_HTML", !pages.includes("GATE_HTML") && !pages.includes("{gate}") && !pages.includes('id="gate"'));
+expect("clerk words stay I am human", lib.includes("I am human") && lib.includes("verified · 30 min"));
 expect("dossier is still the only attachGate caller", dossierJs.includes("attachGate()") && !aitiJs.includes("attachGate") && !registerJs.includes("attachGate"));
 expect("AITI first screen stays ungated", !indexHtml.includes('src="./dossier.js"') && !indexHtml.includes("gate-box"));
 expect("Register first screen stays ungated", !companiesHtml.includes('src="./dossier.js"') && !companiesHtml.includes("gate-box"));
-expect("inline stamp drops the footer rule", /\.gate\.gate-inline \{[\s\S]*?border-top:\s*0/.test(css) && /\.gate\.gate-inline \{[\s\S]*?padding:\s*0/.test(css));
-expect("FedRAMP block is not restyled by the inline stamp", !/fedramp[^{]*\{[^}]*gate-inline/.test(css));
+expect("unfurl is a block clerk line under the link", /\.gate \{[\s\S]*?display:\s*block/.test(css) && /\.gate \{[\s\S]*?border-top:\s*1px solid var\(--ot-rule\)/.test(css));
+expect("beside-the-link card is gone", !css.includes("gate-inline") && !/\.gate \{[\s\S]*?inline-flex/.test(css));
+const gateBlock = (css.match(/\.gate \{[^}]+\}/) || [""])[0];
+expect("unfurl is not a sheet overlay or second spine", gateBlock.includes("display: block") && !/position:\s*fixed|z-index|--ot-spine/.test(gateBlock));
+expect("390 keeps the unfurl under the link", /@media \(max-width: 390px\)[\s\S]*\.dossier \.file \.gate \{[\s\S]*display:\s*block/.test(css));
+expect("FedRAMP block is not restyled by the gate", !/fedramp[^{]*\{[^}]*\.gate/.test(css));
 expect("no 0–100 remake", !/0–100|0-100/.test(indexHtml + aitiJs));
 expect("AITI docket stays AITI Register Subprocessors Standards", /<nav class="docket"[^>]*>[\s\S]*?>AITI<\/a>[\s\S]*?>Register<\/a>[\s\S]*?>Subprocessors<\/a>[\s\S]*?>Standards<\/a>/.test(indexHtml));
 
@@ -248,7 +256,7 @@ const loose = el("div", {}, [el("a", { class: "official", href: "https://x.examp
 const link = loose.childNodes[0];
 const g2 = loose.childNodes[1];
 placeGate(g2, link);
-expect("placeGate re-parents after the link", loose.childNodes[0] === link && loose.childNodes[1] === g2 && g2.hidden === false && g2.classList.contains("gate-inline"));
+expect("placeGate puts the clerk line under the link", loose.childNodes[0] === link && loose.childNodes[1] === g2 && g2.hidden === false && !g2.classList.contains("gate-inline"));
 
 const createdRoot = el("main", {}, [
   el("td", {}, [el("a", { class: "official", href: "https://made.example" })]),
@@ -258,9 +266,9 @@ attachGate();
 const madeLink = createdRoot.childNodes[0].childNodes[0];
 click(madeLink);
 const made = globalThis.document.getElementById("gate");
-expect("missing page gate is created next to the link", made && made.parentNode === madeLink.parentNode && madeLink.parentNode.childNodes[1] === made && made.hidden === false);
-expect("created stamp still says I am human", made.querySelector("#gate-box") && [...made.childNodes].some((n) => n.childNodes.some((c) => c.textContent === "I am human")));
-expect("created stamp does not open until checked", createdOpen.length === 0);
+expect("missing page gate is created under the link", made && made.parentNode === madeLink.parentNode && madeLink.parentNode.childNodes[1] === made && made.hidden === false);
+expect("created unfurl still says I am human", made.querySelector("#gate-box") && [...made.childNodes].some((n) => n.childNodes.some((c) => c.textContent === "I am human")));
+expect("created unfurl does not open until checked", createdOpen.length === 0);
 
 markHuman();
 expect("session key stays ot_human_v1", globalThis.sessionStorage.getItem(GATE_KEY));

@@ -1272,18 +1272,6 @@ def cite_url(url: str) -> str:
         return url
 
 
-# Clerk copy for the human stamp. attachGate builds and re-parents the live node
-# next to the clicked official link; do not inject this under the outbound line.
-GATE_HTML = """<div class="gate" id="gate" hidden>
-      <label class="turn">
-        <input type="checkbox" id="gate-box">
-        <span class="turn-box" aria-hidden="true"></span>
-        <span>I am human</span>
-      </label>
-      <p class="gate-status" id="gate-status"></p>
-    </div>"""
-
-
 def fedramp_block(row: dict, generated_at: str = "") -> str:
     fed = row.get("fedramp") if isinstance(row.get("fedramp"), dict) else None
     products = [

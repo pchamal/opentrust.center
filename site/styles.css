@@ -966,30 +966,33 @@ a.official {
 .claim-form select { appearance: none; }
 
 .gate {
-  margin-top: 12px;
-  padding: 12px 0 0;
+  display: block;
+  width: 100%;
+  margin: 6px 0 0;
+  padding: 6px 0 0;
   border-top: 1px solid var(--ot-rule);
-  max-width: 28em;
+  max-width: none;
+  color: var(--ot-ledger-black);
+  font: var(--t-data);
+  font-family: var(--ot-font-utility);
+  background: none;
+  box-shadow: none;
 }
 .gate[hidden] { display: none !important; }
-.gate.gate-inline {
-  display: inline-flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 0 0 0 0.5em;
+.gate .turn {
+  border: 0;
   padding: 0;
-  border-top: 0;
-  max-width: none;
-  vertical-align: middle;
-}
-.gate.gate-inline[hidden] { display: none !important; }
-.gate.gate-inline .turn {
   min-height: 0;
-  padding: 2px 6px;
+  color: var(--ot-ledger-black);
+  font: inherit;
+  font-family: var(--ot-font-utility);
+  background: none;
+  box-shadow: none;
 }
-.gate.gate-inline .gate-status {
-  margin: 0;
+.gate .gate-status {
+  margin: 4px 0 0;
+  color: var(--ot-ledger-black);
+  font: inherit;
 }
 .turn {
   display: flex;
@@ -1486,6 +1489,11 @@ a.official {
   .wires-grid[data-view="map"] .map-field,
   .wires-grid[data-view="map"] .map-field canvas,
   .wires-grid[data-view="map"] #fig1 { display: none; }
+  .dossier .file .gate {
+    display: block;
+    width: 100%;
+    position: static;
+  }
 }
 
 @media (max-width: 320px) {
