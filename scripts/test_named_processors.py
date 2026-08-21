@@ -172,6 +172,7 @@ def main() -> int:
     check(not looks_like_date_name("OpenAI"), "OpenAI is not a date")
     check(not looks_like_date_name("Twilio"), "Twilio is not a date")
     check(not looks_like_org_name("29 April 2026"), "date fails org name")
+    check(not looks_like_org_name("AUS"), "AUS is a geo not a processor")
     check(looks_like_org_name("Amazon Web Services, Inc"), "real org still files")
 
     zoom_dates = """

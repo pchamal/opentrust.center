@@ -60,7 +60,7 @@ const processors = [...by.values()];
 const aws = processors.find((p) => p.id === "aws");
 aws.name = "Amazon Web Services";
 const hood = neighborhoodOf(aws, edges, processors, new Map());
-expect("aws namers stay a count not a ring", hood.namers === 71 && hood.nodes.filter((n) => n.role === "namer").length === 0);
+expect("aws namers stay a count not a ring", hood.namers === 74 && hood.nodes.filter((n) => n.role === "namer").length === 0);
 expect(
   "every plate node is named",
   hood.nodes.every((n) => n.name && n.role !== "namer") &&
@@ -69,7 +69,7 @@ expect(
     hood.nodes.length === 1 + hood.others,
 );
 expect("aws siblings are labeled processors", hood.nodes.filter((n) => n.role === "other").every((n) => n.name) && hood.others >= 6);
-expect("no anonymous ring", !hood.nodes.some((n) => n.role === "namer") && edges.length === 1186);
+expect("no anonymous ring", !hood.nodes.some((n) => n.role === "namer") && edges.length === 1301);
 expect("01 April 2025 is not a processor name", looksLikeDateName("01 April 2025") && !looksLikeProcessorName("01 April 2025"));
 expect("29 April 2026 is not a processor name", looksLikeDateName("29 April 2026") && !looksLikeProcessorName("29 April 2026"));
 expect("date slug is not a processor name", looksLikeDateName("01-april-2025") && !looksLikeProcessorName("01-april-2025"));
