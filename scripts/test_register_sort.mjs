@@ -169,6 +169,20 @@ expect(
     /<button type="button">File<\/button>/.test(indexHtml) &&
     /<button type="button">Marks<\/button>/.test(indexHtml),
 );
+function registerHeads(html) {
+  const block = ((html.match(/<table class="reg" id="reg"[\s\S]*?<thead>([\s\S]*?)<\/thead>/) || [])[1] || "");
+  return [...block.matchAll(/<th\b([^>]*)>([\s\S]*?)<\/th>/g)].map((m) => ({
+    attrs: m[1],
+    word: ((m[2].match(/<button[^>]*>([^<]*)<\/button>/) || [])[1] || "").trim(),
+    classes: (((m[1].match(/\bclass="([^"]*)"/) || [])[1] || "").split(/\s+/).filter(Boolean)),
+  }));
+}
+const heads = registerHeads(indexHtml);
+expect(
+  "first paint only Company has the active underline",
+  heads.filter((h) => h.classes.includes("on")).map((h) => h.word).join(" ") === "Company",
+);
+expect("first paint File is a plain word", heads.find((h) => h.word === "File") && !heads.find((h) => h.word === "File").classes.includes("on"));
 expect("register file cell has no coverage count", !/file-cov|fileCoverageHtml| of 5/.test(registerSrc));
 expect("register has no More on this file", !/More on this file|record-extra/.test(registerSrc));
 expect("folio row is a dossier click-through", /class="folio"/.test(registerSrc));

@@ -8,6 +8,7 @@ import {
   hasPrintedAiMark,
   aiFileIndexHtml,
   aiFileCount,
+  fileScore,
   printedAitiUrl,
   nameWithIcon,
 } from "./lib.js";
@@ -141,7 +142,7 @@ function apply() {
 
 export function aitiRowHtml(row, i, selectedSlug) {
   const selected = selectedSlug === row.slug ? ' aria-selected="true"' : "";
-  const n = String(aiFileCount(row));
+  const n = String(fileScore(aiFileCount(row)));
   return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${nameWithIcon(row.name, row.favicon)}</a></td>
         <td class="domain">${printedAitiUrl(row)}</td>
