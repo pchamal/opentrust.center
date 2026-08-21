@@ -972,6 +972,25 @@ a.official {
   max-width: 28em;
 }
 .gate[hidden] { display: none !important; }
+.gate.gate-inline {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 0 0.5em;
+  padding: 0;
+  border-top: 0;
+  max-width: none;
+  vertical-align: middle;
+}
+.gate.gate-inline[hidden] { display: none !important; }
+.gate.gate-inline .turn {
+  min-height: 0;
+  padding: 2px 6px;
+}
+.gate.gate-inline .gate-status {
+  margin: 0;
+}
 .turn {
   display: flex;
   align-items: center;
