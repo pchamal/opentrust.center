@@ -44362,7 +44362,11 @@
           "host": "blackbaud.com",
           "seen": "2026-08-21"
         },
-        "dpa": null,
+        "dpa": {
+          "url": "https://www.blackbaud.com/wp-content/uploads/2023/06/data-processing-addendum.pdf",
+          "host": "blackbaud.com",
+          "seen": "2026-08-21"
+        },
         "subprocessors": {
           "url": "https://trust.blackbaud.com/subprocessors",
           "host": "trust.blackbaud.com",
@@ -44381,12 +44385,12 @@
       },
       "processors": [],
       "disclosure": {
-        "score": 51,
+        "score": 59,
         "tier": "on-file",
         "factors": {
           "page": 20,
           "marks": 31,
-          "dpa": 0,
+          "dpa": 8,
           "processors": 0,
           "status": 0,
           "bounty": 0,
@@ -44398,7 +44402,7 @@
       "file": {
         "page": true,
         "marks": true,
-        "dpa": false,
+        "dpa": true,
         "subprocessors": true,
         "years": false
       },
@@ -47186,7 +47190,11 @@
           "host": "calm.com",
           "seen": "2026-08-21"
         },
-        "dpa": null,
+        "dpa": {
+          "url": "https://www.calm.com/data-processing-agreement",
+          "host": "calm.com",
+          "seen": "2026-08-21"
+        },
         "subprocessors": {
           "url": "https://trust.calm.com/subprocessors",
           "host": "trust.calm.com",
@@ -47201,12 +47209,12 @@
       },
       "processors": [],
       "disclosure": {
-        "score": 47,
+        "score": 55,
         "tier": "on-file",
         "factors": {
           "page": 20,
           "marks": 0,
-          "dpa": 0,
+          "dpa": 8,
           "processors": 8,
           "status": 6,
           "bounty": 0,
@@ -47218,7 +47226,7 @@
       "file": {
         "page": true,
         "marks": false,
-        "dpa": false,
+        "dpa": true,
         "subprocessors": true,
         "years": true
       },
@@ -142762,7 +142770,7 @@
     ],
     "links": {
       "security_txt": 248,
-      "dpa": 144,
+      "dpa": 146,
       "privacy": 610,
       "status": 311,
       "bug_bounty": 204,
