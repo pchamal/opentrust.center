@@ -2,848 +2,5050 @@
   "generated_at": "2026-08-21T00:52:53Z",
   "rule": "Next ~40 on-file companies whose DPA or subprocessors rule was open and who already had a first-party public URL. DPA fills only from a real first-party DPA. Named subprocessors fill only from a printed first-party list of organization names. Dates, JS shells, login walls, and portal hosts stay open.",
   "batch": [
-    "palo-alto-networks",
-    "dropbox",
-    "motive",
-    "clickup",
-    "alteryx",
-    "cvent",
-    "dynatrace",
-    "amazon-web-services",
-    "cloudera",
-    "automation-anywhere",
-    "splunk",
-    "asana",
-    "calendly",
-    "dataiku",
-    "sierra",
-    "checkr",
-    "varonis",
-    "workday",
-    "grammarly",
-    "slack",
-    "airwallex",
-    "clickhouse",
-    "scale-ai",
-    "cohere",
-    "infor",
-    "automattic",
-    "checkout",
-    "canva",
-    "hubspot",
-    "vertex",
-    "elastic",
-    "monday",
-    "samsara",
-    "notion",
-    "shopify",
-    "carta",
-    "papaya-global",
-    "lambda",
-    "cornerstone-ondemand",
-    "fortinet"
+    "amplitude",
+    "block",
+    "chainguard",
+    "komodo-health",
+    "deepl",
+    "unity",
+    "fivetran",
+    "netlify",
+    "island",
+    "saviynt",
+    "adobe",
+    "azul-systems",
+    "miro",
+    "bench-accounting",
+    "tenable",
+    "uipath",
+    "new-relic",
+    "digitalocean",
+    "zendesk",
+    "benchling",
+    "nice",
+    "microsoft",
+    "adeptia",
+    "runway",
+    "abridge",
+    "zoho",
+    "salesforce",
+    "stability-ai",
+    "caplinked",
+    "cohesity",
+    "glean",
+    "gusto",
+    "sap",
+    "sumo-logic",
+    "harness",
+    "axonius",
+    "five9",
+    "zoom",
+    "netskope",
+    "cisco"
   ],
   "dpa_filed": [
     {
-      "slug": "cvent",
-      "name": "Cvent",
-      "url": "https://www.cvent.com/en/data-processing-addendum"
+      "slug": "miro",
+      "name": "Miro",
+      "url": "https://miro.com/legal/customer-data-processing-addendum/"
     },
     {
-      "slug": "vertex",
-      "name": "Vertex",
-      "url": "https://www.vertexinc.com/legal/data-processing-addendum"
+      "slug": "unity",
+      "name": "Unity",
+      "url": "https://unity.com/legal/unity-data-processing-addendum-dpa"
     }
   ],
   "subprocessors_filed": [
     {
-      "slug": "checkr",
-      "name": "Checkr",
-      "url": "https://checkr.com/legal/sub-processor-list",
+      "slug": "amplitude",
+      "name": "Amplitude",
+      "url": "https://www.amplitude.com/subprocessor-list",
       "names": [
-        "Ada",
-        "Amazon Web Services ('AWS')",
-        "Amplitude",
-        "Atlassian",
-        "Auth0",
-        "Confluent",
-        "CloudKarafka",
-        "Datadog",
-        "Dovetail",
-        "Filestack",
-        "Fivetran",
-        "GitHub",
-        "Gitlab",
+        "Amazon Web Services",
+        "Datadog, Inc",
+        "Google, LLC",
+        "OpenAI, LLC",
+        "Snowflake Computing, Inc",
+        "Wiz, Inc",
+        "Fivetran Inc",
+        "MongoDB, Inc",
+        "Microsoft Azure"
+      ]
+    },
+    {
+      "slug": "benchling",
+      "name": "Benchling",
+      "url": "https://www.benchling.com/subprocessors",
+      "names": [
+        "Amazon Web Services, Inc",
+        "DataDog",
         "Google",
-        "Looker",
-        "Mailgun",
-        "Middesk",
-        "Mulesoft",
-        "MongoDB Atlas",
-        "Pendo",
-        "Proofpoint",
-        "Sendgrid",
+        "OpenAI",
+        "Segment",
         "Sentry",
-        "Slack",
         "Snowflake",
-        "Stripe",
-        "SupportNinja",
-        "Talkdesk",
-        "TokenX",
-        "TransUnion Canada",
-        "Tugboat Logic",
-        "Twilio",
-        "User Testing",
-        "Workato",
-        "Yoti",
         "Zendesk"
       ]
     },
     {
-      "slug": "clickup",
-      "name": "ClickUp",
-      "url": "https://clickup.com/terms/dpa/subprocessors",
+      "slug": "digitalocean",
+      "name": "DigitalOcean",
+      "url": "https://www.digitalocean.com/trust/subprocessors",
       "names": [
         "Amazon Web Services",
-        "Amplitude",
-        "APILayer",
-        "Artie",
-        "Avalara",
-        "Braintree",
-        "Census",
-        "Chameleon",
-        "Daily",
-        "Datadog",
-        "EXA",
-        "Flatfile",
-        "Functional Software, Inc. - Sentry",
-        "Google Firebase, Google Analytics, Google Gemini",
-        "Iterable",
-        "Nylas",
-        "Oracle Netsuite",
-        "Readme",
-        "Recall",
-        "Relyance AI",
-        "Segment",
-        "Similarweb",
-        "Singular Lab, Inc",
-        "SlashNext",
-        "Snowflake",
-        "Stripe",
-        "strongDM",
-        "Tableau",
-        "Turbopuffer Inc",
+        "Cloudflare",
+        "Traversal",
+        "BlogVault",
+        "Immunify360",
+        "Telesign",
         "Twilio",
-        "Upwind",
-        "Nodedata",
-        "Vertex",
-        "Wistia, Inc",
-        "Anthropic",
-        "AssemblyAI",
-        "Baseten",
-        "Brave",
-        "Browserbase",
-        "Foundry Labs, Inc",
-        "Kling 3.0",
-        "Microsoft Azure AI Foundry",
-        "OpenAI",
-        "Seedance 2.0",
-        "Vercel",
-        "Canny",
-        "Maven AGI",
-        "Salesforce",
-        "Zendesk",
-        "PDF.co",
-        "Skilljar for ClickUp University",
-        "Workato for ClickUp Professional Services"
-      ]
-    },
-    {
-      "slug": "monday",
-      "name": "monday.com",
-      "url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/",
-      "names": [
-        "Amazon Web Services EMEA SARL",
-        "Google Cloud EMEA Limited",
-        "Redis Labs, Ltd",
-        "Cloudflare, Inc",
-        "WorkCanvas, WorkAssests",
-        "Twilio Inc. (SendGrid)",
-        "Mailgun Technologies, Inc",
-        "Coralogix, Inc",
-        "Cloudinary Ltd",
-        "Fortinet, Inc",
-        "Functional Software, Inc. dba Sentry",
-        "Datadog, Inc",
-        "Microsoft Corp",
-        "EON.io Ltd",
-        "Nebius Inc",
-        "Snowflake Computing Netherlands B.V",
-        "OpenAI, L.L.C",
-        "LangChain Inc",
-        "AlphaAI Technologies Inc. dba Tavily",
-        "Hyperdoc Inc. (Recall.ai)",
-        "Anthropic PBC",
-        "dbt Labs, Inc",
-        "Exa Labs, Inc",
-        "Superpowered Labs Inc dba Vapi",
-        "Lakera AI AG",
-        "Transactel International Services Limited d/b/a TELUS International",
-        "Foundever Operating Corporation Limited"
+        "WPRemote",
+        "Aiven",
+        "Exa Labs, Inc. (Public Preview)",
+        "Google (GCP)",
+        "MongoDB",
+        "Oracle",
+        "Wasabi",
+        "VAST",
+        "Brainstormforce Astra",
+        "DNS Made Easy",
+        "Elastic Email",
+        "Elegant Themes",
+        "Linode",
+        "Mail Chimp",
+        "PayPal",
+        "Rackspace, Inc",
+        "Sendgrid",
+        "Stripe",
+        "Vultr"
       ]
     }
   ],
   "stayed_open": [
     {
-      "slug": "palo-alto-networks",
-      "name": "Palo Alto Networks",
+      "slug": "block",
+      "name": "Block",
       "rule": "dpa"
     },
     {
-      "slug": "dropbox",
-      "name": "Dropbox",
-      "rule": "dpa"
-    },
-    {
-      "slug": "motive",
-      "name": "Motive",
-      "rule": "dpa"
-    },
-    {
-      "slug": "alteryx",
-      "name": "Alteryx",
-      "rule": "dpa"
-    },
-    {
-      "slug": "dynatrace",
-      "name": "Dynatrace",
-      "rule": "dpa"
-    },
-    {
-      "slug": "amazon-web-services",
-      "name": "Amazon Web Services",
-      "rule": "dpa"
-    },
-    {
-      "slug": "cloudera",
-      "name": "Cloudera",
-      "rule": "dpa"
-    },
-    {
-      "slug": "automation-anywhere",
-      "name": "Automation Anywhere",
+      "slug": "block",
+      "name": "Block",
       "rule": "subprocessors"
     },
     {
-      "slug": "splunk",
-      "name": "Splunk",
+      "slug": "chainguard",
+      "name": "Chainguard",
+      "rule": "dpa"
+    },
+    {
+      "slug": "komodo-health",
+      "name": "Komodo Health",
+      "rule": "dpa"
+    },
+    {
+      "slug": "deepl",
+      "name": "DeepL",
+      "rule": "dpa"
+    },
+    {
+      "slug": "fivetran",
+      "name": "Fivetran",
       "rule": "subprocessors"
     },
     {
-      "slug": "asana",
-      "name": "Asana",
+      "slug": "netlify",
+      "name": "Netlify",
       "rule": "dpa"
     },
     {
-      "slug": "asana",
-      "name": "Asana",
+      "slug": "netlify",
+      "name": "Netlify",
       "rule": "subprocessors"
     },
     {
-      "slug": "calendly",
-      "name": "Calendly",
+      "slug": "island",
+      "name": "Island",
+      "rule": "dpa"
+    },
+    {
+      "slug": "island",
+      "name": "Island",
       "rule": "subprocessors"
     },
     {
-      "slug": "dataiku",
-      "name": "Dataiku",
+      "slug": "saviynt",
+      "name": "Saviynt",
+      "rule": "dpa"
+    },
+    {
+      "slug": "saviynt",
+      "name": "Saviynt",
       "rule": "subprocessors"
     },
     {
-      "slug": "sierra",
-      "name": "Sierra",
+      "slug": "adobe",
+      "name": "Adobe",
       "rule": "dpa"
     },
     {
-      "slug": "varonis",
-      "name": "Varonis",
+      "slug": "azul-systems",
+      "name": "Azul Systems",
       "rule": "dpa"
     },
     {
-      "slug": "workday",
-      "name": "Workday",
+      "slug": "bench-accounting",
+      "name": "Bench Accounting",
       "rule": "dpa"
     },
     {
-      "slug": "grammarly",
-      "name": "Grammarly",
+      "slug": "tenable",
+      "name": "Tenable",
       "rule": "dpa"
     },
     {
-      "slug": "grammarly",
-      "name": "Grammarly",
+      "slug": "uipath",
+      "name": "UiPath",
+      "rule": "dpa"
+    },
+    {
+      "slug": "uipath",
+      "name": "UiPath",
       "rule": "subprocessors"
     },
     {
-      "slug": "slack",
-      "name": "Slack",
+      "slug": "new-relic",
+      "name": "New Relic",
       "rule": "dpa"
     },
     {
-      "slug": "slack",
-      "name": "Slack",
+      "slug": "zendesk",
+      "name": "Zendesk",
       "rule": "subprocessors"
     },
     {
-      "slug": "airwallex",
-      "name": "Airwallex",
+      "slug": "benchling",
+      "name": "Benchling",
       "rule": "dpa"
     },
     {
-      "slug": "airwallex",
-      "name": "Airwallex",
+      "slug": "nice",
+      "name": "NICE",
+      "rule": "dpa"
+    },
+    {
+      "slug": "nice",
+      "name": "NICE",
       "rule": "subprocessors"
     },
     {
-      "slug": "clickhouse",
-      "name": "ClickHouse",
+      "slug": "microsoft",
+      "name": "Microsoft",
       "rule": "dpa"
     },
     {
-      "slug": "clickhouse",
-      "name": "ClickHouse",
+      "slug": "adeptia",
+      "name": "Adeptia",
+      "rule": "dpa"
+    },
+    {
+      "slug": "adeptia",
+      "name": "Adeptia",
       "rule": "subprocessors"
     },
     {
-      "slug": "scale-ai",
-      "name": "Scale AI",
+      "slug": "runway",
+      "name": "Runway",
       "rule": "dpa"
     },
     {
-      "slug": "cohere",
-      "name": "Cohere",
+      "slug": "abridge",
+      "name": "Abridge",
       "rule": "dpa"
     },
     {
-      "slug": "infor",
-      "name": "Infor",
-      "rule": "dpa"
-    },
-    {
-      "slug": "infor",
-      "name": "Infor",
+      "slug": "abridge",
+      "name": "Abridge",
       "rule": "subprocessors"
     },
     {
-      "slug": "automattic",
-      "name": "Automattic",
+      "slug": "zoho",
+      "name": "Zoho",
       "rule": "dpa"
     },
     {
-      "slug": "checkout",
-      "name": "Checkout.com",
-      "rule": "dpa"
-    },
-    {
-      "slug": "canva",
-      "name": "Canva",
-      "rule": "dpa"
-    },
-    {
-      "slug": "hubspot",
-      "name": "HubSpot",
-      "rule": "dpa"
-    },
-    {
-      "slug": "elastic",
-      "name": "Elastic",
-      "rule": "dpa"
-    },
-    {
-      "slug": "elastic",
-      "name": "Elastic",
+      "slug": "zoho",
+      "name": "Zoho",
       "rule": "subprocessors"
     },
     {
-      "slug": "samsara",
-      "name": "Samsara",
+      "slug": "salesforce",
+      "name": "Salesforce",
       "rule": "dpa"
     },
     {
-      "slug": "notion",
-      "name": "Notion",
-      "rule": "dpa"
-    },
-    {
-      "slug": "shopify",
-      "name": "Shopify",
+      "slug": "salesforce",
+      "name": "Salesforce",
       "rule": "subprocessors"
     },
     {
-      "slug": "carta",
-      "name": "Carta",
+      "slug": "stability-ai",
+      "name": "Stability AI",
       "rule": "dpa"
     },
     {
-      "slug": "papaya-global",
-      "name": "Papaya Global",
+      "slug": "caplinked",
+      "name": "CapLinked",
       "rule": "dpa"
     },
     {
-      "slug": "papaya-global",
-      "name": "Papaya Global",
+      "slug": "cohesity",
+      "name": "Cohesity",
+      "rule": "dpa"
+    },
+    {
+      "slug": "cohesity",
+      "name": "Cohesity",
       "rule": "subprocessors"
     },
     {
-      "slug": "lambda",
-      "name": "Lambda",
+      "slug": "glean",
+      "name": "Glean",
       "rule": "dpa"
     },
     {
-      "slug": "cornerstone-ondemand",
-      "name": "Cornerstone OnDemand",
+      "slug": "gusto",
+      "name": "Gusto",
       "rule": "dpa"
     },
     {
-      "slug": "cornerstone-ondemand",
-      "name": "Cornerstone OnDemand",
+      "slug": "sap",
+      "name": "SAP",
+      "rule": "dpa"
+    },
+    {
+      "slug": "sap",
+      "name": "SAP",
       "rule": "subprocessors"
     },
     {
-      "slug": "fortinet",
-      "name": "Fortinet",
+      "slug": "sumo-logic",
+      "name": "Sumo Logic",
       "rule": "dpa"
     },
     {
-      "slug": "fortinet",
-      "name": "Fortinet",
+      "slug": "harness",
+      "name": "Harness",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "axonius",
+      "name": "Axonius",
+      "rule": "dpa"
+    },
+    {
+      "slug": "axonius",
+      "name": "Axonius",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "five9",
+      "name": "Five9",
+      "rule": "dpa"
+    },
+    {
+      "slug": "five9",
+      "name": "Five9",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "zoom",
+      "name": "Zoom",
+      "rule": "dpa"
+    },
+    {
+      "slug": "netskope",
+      "name": "Netskope",
+      "rule": "dpa"
+    },
+    {
+      "slug": "cisco",
+      "name": "Cisco",
+      "rule": "dpa"
+    },
+    {
+      "slug": "cisco",
+      "name": "Cisco",
       "rule": "subprocessors"
     }
   ],
   "rejected": [
     {
-      "slug": "dropbox",
-      "kind": "subprocessors",
+      "slug": "runway",
+      "url": "https://runwayml.com/customer-subprocessors",
       "reason": "seed-not-live",
-      "url": "https://trust.dropbox.com/ (Legal > Sub-processors item)",
-      "n": 1
+      "kind": "subprocessors"
     },
     {
-      "slug": "alteryx",
-      "kind": "subprocessors",
-      "reason": "seed-not-live",
-      "url": "https://www.alteryx.com/wp-content/uploads/media/legal/list-of-subprocessors.pdf",
-      "n": 1
-    },
-    {
-      "slug": "canva",
-      "kind": "subprocessors",
-      "reason": "seed-not-live",
-      "url": "https://www.canva.com/policies/subprocessors/",
-      "n": 1
-    },
-    {
-      "slug": "carta",
-      "kind": "subprocessors",
-      "reason": "seed-not-live",
-      "url": "https://carta.com/legal/privacy/sub-processors/",
-      "n": 1
-    },
-    {
-      "slug": "palo-alto-networks",
-      "kind": "dpa",
+      "slug": "block",
+      "url": "https://block.xyz/terms/dpa",
+      "final": "https://block.xyz/terms/dpa",
       "reason": "http-404",
-      "url": "https://paloaltonetworks.com/data-processing-agreement",
-      "n": 17
+      "kind": "dpa"
     },
     {
-      "slug": "dropbox",
-      "kind": "dpa",
+      "slug": "block",
+      "url": "https://block.xyz/policies/data-processing-addendum",
+      "final": "https://block.xyz/policies/data-processing-addendum",
       "reason": "http-404",
-      "url": "https://dropbox.com/legal/dpa",
-      "n": 17
+      "kind": "dpa"
     },
     {
-      "slug": "motive",
-      "kind": "dpa",
+      "slug": "block",
+      "url": "https://block.xyz/policies/data-processing-agreement",
+      "final": "https://block.xyz/policies/data-processing-agreement",
       "reason": "http-404",
-      "url": "https://gomotive.com/legal/data-processing-agreement",
-      "n": 17
+      "kind": "dpa"
     },
     {
-      "slug": "alteryx",
-      "kind": "dpa",
+      "slug": "block",
+      "url": "https://block.xyz/policies/dpa",
+      "final": "https://block.xyz/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/gdpr/dpa",
+      "final": "https://block.xyz/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/legal/data-processing-agreement",
+      "final": "https://block.xyz/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/legal/data-processing-addendum",
+      "final": "https://block.xyz/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/dpa",
+      "final": "https://block.xyz/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/data-processing-agreement",
+      "final": "https://block.xyz/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/company/dpa",
+      "final": "https://block.xyz/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/legal/gdpr/dpa",
+      "final": "https://block.xyz/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/legal/dpa",
+      "final": "https://block.xyz/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/data-processing-addendum",
+      "final": "https://block.xyz/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/legal/data-processing",
+      "final": "https://block.xyz/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/privacy/dpa",
+      "final": "https://block.xyz/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/legal/processor-terms",
+      "final": "https://block.xyz/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "chainguard",
+      "url": "https://chainguard.dev/data-processing-addendum",
+      "final": "https://chainguard.dev/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "chainguard",
+      "url": "https://chainguard.dev/terms/dpa",
+      "final": "https://chainguard.dev/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "chainguard",
+      "url": "https://chainguard.dev/legal/data-processing-addendum",
+      "final": "https://chainguard.dev/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "chainguard",
+      "url": "https://chainguard.dev/company/dpa",
+      "final": "https://chainguard.dev/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "chainguard",
+      "url": "https://chainguard.dev/policies/data-processing-agreement",
+      "final": "https://chainguard.dev/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "chainguard",
+      "url": "https://chainguard.dev/dpa",
+      "final": "https://chainguard.dev/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "chainguard",
+      "url": "https://chainguard.dev/data-processing-agreement",
+      "final": "https://chainguard.dev/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "chainguard",
+      "url": "https://chainguard.dev/policies/data-processing-addendum",
+      "final": "https://chainguard.dev/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "chainguard",
+      "url": "https://chainguard.dev/gdpr/dpa",
+      "final": "https://chainguard.dev/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "chainguard",
+      "url": "https://chainguard.dev/policies/dpa",
+      "final": "https://chainguard.dev/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "chainguard",
+      "url": "https://chainguard.dev/legal/data-processing-agreement",
+      "final": "https://chainguard.dev/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/data-processing",
+      "final": "https://block.xyz/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "chainguard",
+      "url": "https://chainguard.dev/privacy/dpa",
+      "final": "https://chainguard.dev/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "komodo-health",
+      "url": "https://komodohealth.com/legal/data-processing-addendum",
+      "final": "https://komodohealth.com/legal/data-processing-addendum",
       "reason": "http-403",
-      "url": "https://alteryx.com/legal/dpa",
-      "n": 17
+      "kind": "dpa"
     },
     {
-      "slug": "cvent",
-      "kind": "dpa",
-      "reason": "http-404",
-      "url": "https://cvent.com/legal/data-processing-addendum",
-      "n": 4
-    },
-    {
-      "slug": "cvent",
-      "kind": "dpa",
-      "reason": "not-a-dpa",
-      "url": "https://cvent.com/dpa",
-      "n": 1
-    },
-    {
-      "slug": "dynatrace",
-      "kind": "dpa",
-      "reason": "http-404",
-      "url": "https://dynatrace.com/legal/dpa",
-      "n": 17
-    },
-    {
-      "slug": "amazon-web-services",
-      "kind": "dpa",
-      "reason": "http-404",
-      "url": "https://aws.amazon.com/dpa",
-      "n": 17
-    },
-    {
-      "slug": "cloudera",
-      "kind": "dpa",
-      "reason": "http-404",
-      "url": "https://cloudera.com/legal/dpa",
-      "n": 17
-    },
-    {
-      "slug": "asana",
-      "kind": "dpa",
-      "reason": "http-404",
-      "url": "https://asana.com/legal/dpa",
-      "n": 17
-    },
-    {
-      "slug": "sierra",
-      "kind": "dpa",
-      "reason": "http-404",
-      "url": "https://sierra.ai/dpa",
-      "n": 17
-    },
-    {
-      "slug": "varonis",
-      "kind": "dpa",
-      "reason": "not-a-dpa",
-      "url": "https://www.varonis.com/hubfs/Website_Reboot/Policies/Data%20Protection%20Addendum%20for%20SaaS%20Clients.pdf?hsLang=en",
-      "n": 1
-    },
-    {
-      "slug": "workday",
-      "kind": "dpa",
-      "reason": "http-404",
-      "url": "https://workday.com/dpa",
-      "n": 17
-    },
-    {
-      "slug": "grammarly",
-      "kind": "dpa",
-      "reason": "http-404",
-      "url": "https://grammarly.com/dpa",
-      "n": 17
-    },
-    {
-      "slug": "slack",
-      "kind": "dpa",
-      "reason": "http-404",
-      "url": "https://slack.com/blog/news/slack-updates-data-processing-addendum?from=trust&amp;utm_medium=promo",
-      "n": 1
-    },
-    {
-      "slug": "airwallex",
-      "kind": "dpa",
-      "reason": "http-404",
-      "url": "https://airwallex.com/dpa",
-      "n": 17
-    },
-    {
-      "slug": "clickhouse",
-      "kind": "dpa",
-      "reason": "not-a-dpa",
-      "url": "https://clickhouse.com/data-processing-addendum",
-      "n": 3
-    },
-    {
-      "slug": "clickhouse",
-      "kind": "dpa",
-      "reason": "http-404",
-      "url": "https://clickhouse.com/legal/dpa",
-      "n": 14
-    },
-    {
-      "slug": "scale-ai",
-      "kind": "dpa",
-      "reason": "http-404",
-      "url": "https://scale.com/dpa",
-      "n": 17
-    },
-    {
-      "slug": "cohere",
-      "kind": "dpa",
-      "reason": "http-404",
-      "url": "https://cohere.com/dpa",
-      "n": 17
-    },
-    {
-      "slug": "infor",
-      "kind": "dpa",
-      "reason": "http-404",
-      "url": "https://infor.com/legal/data-processing-addendum",
-      "n": 17
-    },
-    {
-      "slug": "automattic",
-      "kind": "dpa",
-      "reason": "http-404",
-      "url": "https://automattic.com/dpa",
-      "n": 17
-    },
-    {
-      "slug": "checkout",
-      "kind": "dpa",
-      "reason": "http-404",
-      "url": "https://checkout.com/dpa",
-      "n": 17
-    },
-    {
-      "slug": "canva",
-      "kind": "dpa",
+      "slug": "komodo-health",
+      "url": "https://komodohealth.com/legal/data-processing-agreement",
+      "final": "https://komodohealth.com/legal/data-processing-agreement",
       "reason": "http-403",
-      "url": "https://canva.com/dpa",
-      "n": 17
+      "kind": "dpa"
     },
     {
-      "slug": "hubspot",
-      "kind": "dpa",
-      "reason": "http-404",
-      "url": "https://hubspot.com/legal/dpa",
-      "n": 17
-    },
-    {
-      "slug": "elastic",
-      "kind": "dpa",
-      "reason": "http-404",
-      "url": "https://elastic.co/legal/dpa",
-      "n": 17
-    },
-    {
-      "slug": "notion",
-      "kind": "dpa",
-      "reason": "http-404",
-      "url": "https://notion.so/legal/dpa",
-      "n": 13
-    },
-    {
-      "slug": "carta",
-      "kind": "dpa",
+      "slug": "komodo-health",
+      "url": "https://komodohealth.com/dpa",
+      "final": "https://komodohealth.com/dpa",
       "reason": "http-403",
-      "url": "https://carta.com/legal/dpa",
-      "n": 17
+      "kind": "dpa"
     },
     {
-      "slug": "notion",
-      "kind": "dpa",
-      "reason": "not-a-dpa",
-      "url": "https://notion.so/dpa",
-      "n": 4
-    },
-    {
-      "slug": "papaya-global",
-      "kind": "dpa",
+      "slug": "komodo-health",
+      "url": "https://komodohealth.com/data-processing-agreement",
+      "final": "https://komodohealth.com/data-processing-agreement",
       "reason": "http-403",
-      "url": "https://papayaglobal.com/legal/dpa",
-      "n": 17
+      "kind": "dpa"
     },
     {
-      "slug": "lambda",
-      "kind": "dpa",
+      "slug": "komodo-health",
+      "url": "https://komodohealth.com/data-processing-addendum",
+      "final": "https://komodohealth.com/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "komodo-health",
+      "url": "https://komodohealth.com/legal/dpa",
+      "final": "https://komodohealth.com/legal/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "chainguard",
+      "url": "https://chainguard.dev/legal/data-processing",
+      "final": "https://chainguard.dev/legal/data-processing",
       "reason": "http-404",
-      "url": "https://lambdalabs.com/legal/data-processing-addendum",
-      "n": 17
+      "kind": "dpa"
     },
     {
-      "slug": "cornerstone-ondemand",
-      "kind": "dpa",
+      "slug": "chainguard",
+      "url": "https://chainguard.dev/data-processing",
+      "final": "https://chainguard.dev/data-processing",
       "reason": "http-404",
-      "url": "https://cornerstoneondemand.com/dpa",
-      "n": 17
+      "kind": "dpa"
     },
     {
-      "slug": "samsara",
-      "kind": "dpa",
+      "slug": "komodo-health",
+      "url": "https://komodohealth.com/policies/data-processing-addendum",
+      "final": "https://komodohealth.com/policies/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "komodo-health",
+      "url": "https://komodohealth.com/policies/data-processing-agreement",
+      "final": "https://komodohealth.com/policies/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "komodo-health",
+      "url": "https://komodohealth.com/company/dpa",
+      "final": "https://komodohealth.com/company/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "komodo-health",
+      "url": "https://komodohealth.com/gdpr/dpa",
+      "final": "https://komodohealth.com/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "komodo-health",
+      "url": "https://komodohealth.com/terms/dpa",
+      "final": "https://komodohealth.com/terms/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "komodo-health",
+      "url": "https://komodohealth.com/policies/dpa",
+      "final": "https://komodohealth.com/policies/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "komodo-health",
+      "url": "https://komodohealth.com/privacy/dpa",
+      "final": "https://komodohealth.com/privacy/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "chainguard",
+      "url": "https://chainguard.dev/legal/gdpr/dpa",
+      "final": "https://chainguard.dev/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "komodo-health",
+      "url": "https://komodohealth.com/legal/processor-terms",
+      "final": "https://komodohealth.com/legal/processor-terms",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "komodo-health",
+      "url": "https://komodohealth.com/legal/gdpr/dpa",
+      "final": "https://komodohealth.com/legal/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "komodo-health",
+      "url": "https://komodohealth.com/legal/data-processing",
+      "final": "https://komodohealth.com/legal/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "komodo-health",
+      "url": "https://komodohealth.com/data-processing",
+      "final": "https://komodohealth.com/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "chainguard",
+      "url": "https://chainguard.dev/legal/processor-terms",
+      "final": "https://chainguard.dev/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "chainguard",
+      "url": "https://chainguard.dev/legal/dpa",
+      "final": "https://chainguard.dev/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "deepl",
+      "url": "https://deepl.com/policies/data-processing-agreement",
+      "final": "https://deepl.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "deepl",
+      "url": "https://deepl.com/legal/dpa",
+      "final": "https://deepl.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "deepl",
+      "url": "https://deepl.com/data-processing-agreement",
+      "final": "https://deepl.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "deepl",
+      "url": "https://deepl.com/data-processing-addendum",
+      "final": "https://deepl.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "deepl",
+      "url": "https://deepl.com/legal/data-processing-addendum",
+      "final": "https://deepl.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "deepl",
+      "url": "https://deepl.com/legal/data-processing-agreement",
+      "final": "https://deepl.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "deepl",
+      "url": "https://deepl.com/gdpr/dpa",
+      "final": "https://deepl.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "deepl",
+      "url": "https://deepl.com/dpa",
+      "final": "https://deepl.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "deepl",
+      "url": "https://deepl.com/terms/dpa",
+      "final": "https://deepl.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "deepl",
+      "url": "https://deepl.com/company/dpa",
+      "final": "https://deepl.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "deepl",
+      "url": "https://deepl.com/policies/data-processing-addendum",
+      "final": "https://deepl.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "deepl",
+      "url": "https://deepl.com/policies/dpa",
+      "final": "https://deepl.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "island",
+      "url": "https://island.io/dpa",
+      "final": "https://island.io/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netlify",
+      "url": "https://www.netlify.com/pdf/netlify-dpa.pdf",
+      "final": "https://www.netlify.com/pdf/netlify-dpa.pdf",
       "reason": "not-a-dpa",
-      "url": "https://www.samsara.com/legal/data-protection-addendum",
-      "n": 1
+      "kind": "dpa"
     },
     {
-      "slug": "fortinet",
-      "kind": "dpa",
+      "slug": "deepl",
+      "url": "https://deepl.com/privacy/dpa",
+      "final": "https://deepl.com/privacy/dpa",
       "reason": "http-404",
-      "url": "https://fortinet.com/legal/data-processing-agreement",
-      "n": 17
+      "kind": "dpa"
     },
     {
-      "slug": "splunk",
-      "kind": "subprocessors",
+      "slug": "deepl",
+      "url": "https://deepl.com/legal/data-processing",
+      "final": "https://deepl.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "island",
+      "url": "https://island.io/data-processing-addendum",
+      "final": "https://island.io/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "deepl",
+      "url": "https://deepl.com/data-processing",
+      "final": "https://deepl.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "deepl",
+      "url": "https://deepl.com/legal/gdpr/dpa",
+      "final": "https://deepl.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "deepl",
+      "url": "https://deepl.com/legal/processor-terms",
+      "final": "https://deepl.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "island",
+      "url": "https://island.io/data-processing-agreement",
+      "final": "https://island.io/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "island",
+      "url": "https://island.io/policies/data-processing-addendum",
+      "final": "https://island.io/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "island",
+      "url": "https://island.io/policies/data-processing-agreement",
+      "final": "https://island.io/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "island",
+      "url": "https://island.io/terms/dpa",
+      "final": "https://island.io/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "island",
+      "url": "https://island.io/company/dpa",
+      "final": "https://island.io/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "island",
+      "url": "https://island.io/policies/dpa",
+      "final": "https://island.io/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "island",
+      "url": "https://island.io/gdpr/dpa",
+      "final": "https://island.io/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "island",
+      "url": "https://island.io/legal/gdpr/dpa",
+      "final": "https://island.io/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "island",
+      "url": "https://island.io/privacy/dpa",
+      "final": "https://island.io/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "island",
+      "url": "https://island.io/legal/data-processing-agreement",
+      "final": "https://island.io/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "saviynt",
+      "url": "https://trust.saviynt.com/",
+      "final": "https://trust.saviynt.com/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "island",
+      "url": "https://island.io/legal/data-processing-addendum",
+      "final": "https://island.io/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "island",
+      "url": "https://island.io/legal/dpa",
+      "final": "https://island.io/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "island",
+      "url": "https://island.io/data-processing",
+      "final": "https://island.io/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "adobe",
+      "url": "https://www.adobe.com/uk/legal/terms/enterprise-licensing/data-protection.html",
+      "final": "https://www.adobe.com/uk/legal/terms/enterprise-licensing/data-protection.html",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "island",
+      "url": "https://island.io/legal/processor-terms",
+      "final": "https://island.io/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "island",
+      "url": "https://island.io/legal/data-processing",
+      "final": "https://island.io/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "azul-systems",
+      "url": "https://azul.com/gdpr/dpa",
+      "final": "https://azul.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "azul-systems",
+      "url": "https://azul.com/policies/data-processing-agreement",
+      "final": "https://azul.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "azul-systems",
+      "url": "https://azul.com/legal/data-processing-addendum",
+      "final": "https://azul.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "azul-systems",
+      "url": "https://azul.com/policies/data-processing-addendum",
+      "final": "https://azul.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "azul-systems",
+      "url": "https://azul.com/data-processing-addendum",
+      "final": "https://azul.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "azul-systems",
+      "url": "https://azul.com/legal/dpa",
+      "final": "https://azul.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bench-accounting",
+      "url": "https://bench.co/dpa",
+      "final": "https://bench.co/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "azul-systems",
+      "url": "https://azul.com/data-processing-agreement",
+      "final": "https://azul.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bench-accounting",
+      "url": "https://bench.co/legal/data-processing-addendum",
+      "final": "https://bench.co/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bench-accounting",
+      "url": "https://bench.co/legal/dpa",
+      "final": "https://bench.co/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "azul-systems",
+      "url": "https://azul.com/legal/data-processing-agreement",
+      "final": "https://azul.com/legal/data-processing-agreement",
+      "reason": "http-0",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bench-accounting",
+      "url": "https://bench.co/data-processing-addendum",
+      "final": "https://bench.co/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bench-accounting",
+      "url": "https://bench.co/legal/data-processing-agreement",
+      "final": "https://bench.co/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bench-accounting",
+      "url": "https://bench.co/policies/data-processing-addendum",
+      "final": "https://bench.co/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bench-accounting",
+      "url": "https://bench.co/data-processing-agreement",
+      "final": "https://bench.co/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bench-accounting",
+      "url": "https://bench.co/policies/data-processing-agreement",
+      "final": "https://bench.co/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bench-accounting",
+      "url": "https://bench.co/policies/dpa",
+      "final": "https://bench.co/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bench-accounting",
+      "url": "https://bench.co/terms/dpa",
+      "final": "https://bench.co/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bench-accounting",
+      "url": "https://bench.co/company/dpa",
+      "final": "https://bench.co/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bench-accounting",
+      "url": "https://bench.co/gdpr/dpa",
+      "final": "https://bench.co/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bench-accounting",
+      "url": "https://bench.co/legal/gdpr/dpa",
+      "final": "https://bench.co/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bench-accounting",
+      "url": "https://bench.co/privacy/dpa",
+      "final": "https://bench.co/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "azul-systems",
+      "url": "https://azul.com/company/dpa",
+      "final": "https://azul.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bench-accounting",
+      "url": "https://bench.co/legal/processor-terms",
+      "final": "https://bench.co/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "azul-systems",
+      "url": "https://azul.com/dpa",
+      "final": "https://azul.com/dpa",
+      "reason": "http-0",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bench-accounting",
+      "url": "https://bench.co/legal/data-processing",
+      "final": "https://bench.co/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bench-accounting",
+      "url": "https://bench.co/data-processing",
+      "final": "https://bench.co/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tenable",
+      "url": "https://tenable.com/dpa",
+      "final": "https://tenable.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tenable",
+      "url": "https://tenable.com/legal/dpa",
+      "final": "https://tenable.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "azul-systems",
+      "url": "https://azul.com/terms/dpa",
+      "final": "https://azul.com/terms/dpa",
+      "reason": "http-0",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tenable",
+      "url": "https://tenable.com/legal/data-processing-agreement",
+      "final": "https://tenable.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tenable",
+      "url": "https://tenable.com/data-processing-addendum",
+      "final": "https://tenable.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tenable",
+      "url": "https://tenable.com/legal/data-processing-addendum",
+      "final": "https://tenable.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tenable",
+      "url": "https://tenable.com/policies/data-processing-addendum",
+      "final": "https://www.tenable.com/solutions/cloud-security",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tenable",
+      "url": "https://tenable.com/policies/data-processing-agreement",
+      "final": "https://www.tenable.com/solutions/cloud-security",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tenable",
+      "url": "https://tenable.com/data-processing-agreement",
+      "final": "https://tenable.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tenable",
+      "url": "https://tenable.com/policies/dpa",
+      "final": "https://www.tenable.com/solutions/cloud-security",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tenable",
+      "url": "https://tenable.com/terms/dpa",
+      "final": "https://tenable.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tenable",
+      "url": "https://tenable.com/company/dpa",
+      "final": "https://tenable.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tenable",
+      "url": "https://tenable.com/legal/gdpr/dpa",
+      "final": "https://tenable.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tenable",
+      "url": "https://tenable.com/privacy/dpa",
+      "final": "https://tenable.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tenable",
+      "url": "https://tenable.com/gdpr/dpa",
+      "final": "https://tenable.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tenable",
+      "url": "https://tenable.com/legal/processor-terms",
+      "final": "https://tenable.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/legal/data-processing-addendum",
+      "final": "https://uipath.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tenable",
+      "url": "https://tenable.com/legal/data-processing",
+      "final": "https://tenable.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/dpa",
+      "final": "https://uipath.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/legal/dpa",
+      "final": "https://uipath.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tenable",
+      "url": "https://tenable.com/data-processing",
+      "final": "https://tenable.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/legal/data-processing-agreement",
+      "final": "https://uipath.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/policies/data-processing-addendum",
+      "final": "https://uipath.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/data-processing-agreement",
+      "final": "https://uipath.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/policies/data-processing-agreement",
+      "final": "https://uipath.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/policies/dpa",
+      "final": "https://uipath.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/data-processing-addendum",
+      "final": "https://uipath.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "azul-systems",
+      "url": "https://azul.com/policies/dpa",
+      "final": "https://azul.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/company/dpa",
+      "final": "https://uipath.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/gdpr/dpa",
+      "final": "https://uipath.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/legal/gdpr/dpa",
+      "final": "https://uipath.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/terms/dpa",
+      "final": "https://uipath.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/legal/processor-terms",
+      "final": "https://uipath.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/legal/data-processing",
+      "final": "https://uipath.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/privacy/dpa",
+      "final": "https://uipath.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/data-processing",
+      "final": "https://uipath.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "new-relic",
+      "url": "https://newrelic.com/data-processing-addendum",
+      "final": "https://newrelic.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "new-relic",
+      "url": "https://newrelic.com/legal/data-processing-agreement",
+      "final": "https://newrelic.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "new-relic",
+      "url": "https://newrelic.com/legal/dpa",
+      "final": "https://newrelic.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "new-relic",
+      "url": "https://newrelic.com/dpa",
+      "final": "https://newrelic.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "new-relic",
+      "url": "https://newrelic.com/legal/data-processing-addendum",
+      "final": "https://newrelic.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "new-relic",
+      "url": "https://newrelic.com/data-processing-agreement",
+      "final": "https://newrelic.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "new-relic",
+      "url": "https://newrelic.com/policies/data-processing-addendum",
+      "final": "https://newrelic.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "new-relic",
+      "url": "https://newrelic.com/company/dpa",
+      "final": "https://newrelic.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "new-relic",
+      "url": "https://newrelic.com/legal/gdpr/dpa",
+      "final": "https://newrelic.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "new-relic",
+      "url": "https://newrelic.com/policies/dpa",
+      "final": "https://newrelic.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "new-relic",
+      "url": "https://newrelic.com/terms/dpa",
+      "final": "https://newrelic.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "new-relic",
+      "url": "https://newrelic.com/gdpr/dpa",
+      "final": "https://newrelic.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "new-relic",
+      "url": "https://newrelic.com/policies/data-processing-agreement",
+      "final": "https://newrelic.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "new-relic",
+      "url": "https://newrelic.com/privacy/dpa",
+      "final": "https://newrelic.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "new-relic",
+      "url": "https://newrelic.com/legal/processor-terms",
+      "final": "https://newrelic.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "new-relic",
+      "url": "https://newrelic.com/data-processing",
+      "final": "https://newrelic.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "new-relic",
+      "url": "https://newrelic.com/legal/data-processing",
+      "final": "https://newrelic.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "benchling",
+      "url": "https://benchling.com/legal/data-processing-addendum",
+      "final": "https://benchling.com/signin/welcome?next=/legal/data-processing-addendum/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "benchling",
+      "url": "https://benchling.com/dpa",
+      "final": "https://benchling.com/signin/welcome?next=/dpa/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "benchling",
+      "url": "https://benchling.com/legal/dpa",
+      "final": "https://benchling.com/signin/welcome?next=/legal/dpa/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "benchling",
+      "url": "https://benchling.com/legal/data-processing-agreement",
+      "final": "https://benchling.com/signin/welcome?next=/legal/data-processing-agreement/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "benchling",
+      "url": "https://benchling.com/data-processing-addendum",
+      "final": "https://benchling.com/signin/welcome?next=/data-processing-addendum/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "benchling",
+      "url": "https://benchling.com/data-processing-agreement",
+      "final": "https://benchling.com/signin/welcome?next=/data-processing-agreement/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "benchling",
+      "url": "https://benchling.com/policies/data-processing-addendum",
+      "final": "https://benchling.com/signin/welcome?next=/policies/data-processing-addendum/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "benchling",
+      "url": "https://benchling.com/policies/data-processing-agreement",
+      "final": "https://benchling.com/signin/welcome?next=/policies/data-processing-agreement/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "benchling",
+      "url": "https://benchling.com/policies/dpa",
+      "final": "https://benchling.com/signin/welcome?next=/policies/dpa/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "benchling",
+      "url": "https://benchling.com/terms/dpa",
+      "final": "https://benchling.com/signin/welcome?next=/terms/dpa/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "benchling",
+      "url": "https://benchling.com/company/dpa",
+      "final": "https://benchling.com/signin/welcome?next=/company/dpa/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "benchling",
+      "url": "https://benchling.com/legal/gdpr/dpa",
+      "final": "https://benchling.com/signin/welcome?next=/legal/gdpr/dpa/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "benchling",
+      "url": "https://benchling.com/gdpr/dpa",
+      "final": "https://benchling.com/signin/welcome?next=/gdpr/dpa/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "benchling",
+      "url": "https://benchling.com/privacy/dpa",
+      "final": "https://benchling.com/signin/welcome?next=/privacy/dpa/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "benchling",
+      "url": "https://benchling.com/legal/processor-terms",
+      "final": "https://benchling.com/signin/welcome?next=/legal/processor-terms/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "benchling",
+      "url": "https://benchling.com/legal/data-processing",
+      "final": "https://benchling.com/signin/welcome?next=/legal/data-processing/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "benchling",
+      "url": "https://benchling.com/data-processing",
+      "final": "https://benchling.com/signin/welcome?next=/data-processing/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/dpa",
+      "final": "https://nice.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/legal/data-processing-addendum",
+      "final": "https://nice.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/data-processing-addendum",
+      "final": "https://nice.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/legal/dpa",
+      "final": "https://nice.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/data-processing-agreement",
+      "final": "https://nice.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "azul-systems",
+      "url": "https://azul.com/privacy/dpa",
+      "final": "https://azul.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "azul-systems",
+      "url": "https://azul.com/legal/processor-terms",
+      "final": "https://azul.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "azul-systems",
+      "url": "https://azul.com/legal/gdpr/dpa",
+      "final": "https://azul.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/legal/data-processing-agreement",
+      "final": "https://nice.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "azul-systems",
+      "url": "https://azul.com/data-processing",
+      "final": "https://azul.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/policies/data-processing-addendum",
+      "final": "https://nice.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/policies/data-processing-agreement",
+      "final": "https://nice.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/company/dpa",
+      "final": "https://nice.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/terms/dpa",
+      "final": "https://nice.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "microsoft",
+      "url": "https://microsoft.com/dpa",
+      "final": "https://microsoft.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/gdpr/dpa",
+      "final": "https://nice.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "microsoft",
+      "url": "https://microsoft.com/data-processing-addendum",
+      "final": "https://microsoft.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "azul-systems",
+      "url": "https://azul.com/legal/data-processing",
+      "final": "https://azul.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "microsoft",
+      "url": "https://microsoft.com/legal/data-processing-agreement",
+      "final": "https://microsoft.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "microsoft",
+      "url": "https://microsoft.com/legal/dpa",
+      "final": "https://microsoft.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "microsoft",
+      "url": "https://microsoft.com/legal/data-processing-addendum",
+      "final": "https://microsoft.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "microsoft",
+      "url": "https://microsoft.com/data-processing-agreement",
+      "final": "https://microsoft.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "microsoft",
+      "url": "https://microsoft.com/policies/dpa",
+      "final": "https://microsoft.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "microsoft",
+      "url": "https://microsoft.com/policies/data-processing-addendum",
+      "final": "https://microsoft.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "microsoft",
+      "url": "https://microsoft.com/terms/dpa",
+      "final": "https://microsoft.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/legal/gdpr/dpa",
+      "final": "https://nice.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/privacy/dpa",
+      "final": "https://nice.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "microsoft",
+      "url": "https://microsoft.com/company/dpa",
+      "final": "https://microsoft.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/policies/dpa",
+      "final": "https://nice.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/dpa",
+      "final": "https://adeptia.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/legal/dpa",
+      "final": "https://adeptia.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "microsoft",
+      "url": "https://microsoft.com/legal/processor-terms",
+      "final": "https://microsoft.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "microsoft",
+      "url": "https://microsoft.com/legal/gdpr/dpa",
+      "final": "https://microsoft.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "microsoft",
+      "url": "https://microsoft.com/data-processing",
+      "final": "https://microsoft.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/legal/processor-terms",
+      "final": "https://nice.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/legal/data-processing-addendum",
+      "final": "https://adeptia.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "microsoft",
+      "url": "https://microsoft.com/legal/data-processing",
+      "final": "https://microsoft.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/data-processing-addendum",
+      "final": "https://adeptia.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/legal/data-processing-agreement",
+      "final": "https://adeptia.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "microsoft",
+      "url": "https://microsoft.com/privacy/dpa",
+      "final": "https://microsoft.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/policies/data-processing-addendum",
+      "final": "https://adeptia.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/policies/dpa",
+      "final": "https://adeptia.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/company/dpa",
+      "final": "https://adeptia.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "microsoft",
+      "url": "https://microsoft.com/gdpr/dpa",
+      "final": "https://www.microsoft.com/en-us/trust-center/privacy/gdpr-overview",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/legal/data-processing",
+      "final": "https://nice.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/data-processing-agreement",
+      "final": "https://adeptia.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/legal/gdpr/dpa",
+      "final": "https://adeptia.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/privacy/dpa",
+      "final": "https://adeptia.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/gdpr/dpa",
+      "final": "https://adeptia.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "microsoft",
+      "url": "https://microsoft.com/policies/data-processing-agreement",
+      "final": "https://microsoft.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/data-processing",
+      "final": "https://nice.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "runway",
+      "url": "https://runwayml.com/dpa",
+      "final": "https://runwayml.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/legal/processor-terms",
+      "final": "https://adeptia.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/policies/data-processing-agreement",
+      "final": "https://adeptia.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/terms/dpa",
+      "final": "https://adeptia.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/legal/data-processing",
+      "final": "https://adeptia.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/data-processing",
+      "final": "https://adeptia.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "runway",
+      "url": "https://runwayml.com/data-processing-addendum",
+      "final": "https://runwayml.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "runway",
+      "url": "https://runwayml.com/legal/dpa",
+      "final": "https://runwayml.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "runway",
+      "url": "https://runwayml.com/data-processing-agreement",
+      "final": "https://runwayml.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "runway",
+      "url": "https://runwayml.com/policies/data-processing-agreement",
+      "final": "https://runwayml.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "runway",
+      "url": "https://runwayml.com/company/dpa",
+      "final": "https://runwayml.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "runway",
+      "url": "https://runwayml.com/legal/data-processing",
+      "final": "https://runwayml.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "runway",
+      "url": "https://runwayml.com/privacy/dpa",
+      "final": "https://runwayml.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "runway",
+      "url": "https://runwayml.com/data-processing",
+      "final": "https://runwayml.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/dpa",
+      "final": "https://abridge.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/legal/dpa",
+      "final": "https://abridge.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/legal/data-processing-addendum",
+      "final": "https://abridge.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/legal/data-processing-agreement",
+      "final": "https://abridge.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/data-processing-addendum",
+      "final": "https://abridge.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "runway",
+      "url": "https://runwayml.com/legal/data-processing-addendum",
+      "final": "https://runwayml.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "runway",
+      "url": "https://runwayml.com/legal/data-processing-agreement",
+      "final": "https://runwayml.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "runway",
+      "url": "https://runwayml.com/policies/data-processing-addendum",
+      "final": "https://runwayml.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/data-processing-agreement",
+      "final": "https://abridge.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/policies/data-processing-addendum",
+      "final": "https://abridge.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/policies/data-processing-agreement",
+      "final": "https://abridge.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/policies/dpa",
+      "final": "https://abridge.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "runway",
+      "url": "https://runwayml.com/terms/dpa",
+      "final": "https://runwayml.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "runway",
+      "url": "https://runwayml.com/policies/dpa",
+      "final": "https://runwayml.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/terms/dpa",
+      "final": "https://abridge.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/company/dpa",
+      "final": "https://abridge.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/gdpr/dpa",
+      "final": "https://abridge.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/privacy/dpa",
+      "final": "https://abridge.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "runway",
+      "url": "https://runwayml.com/legal/gdpr/dpa",
+      "final": "https://runwayml.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/legal/data-processing",
+      "final": "https://abridge.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/legal/processor-terms",
+      "final": "https://abridge.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/data-processing",
+      "final": "https://abridge.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoho",
+      "url": "https://zoho.com/legal/dpa",
+      "final": "https://zoho.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoho",
+      "url": "https://zoho.com/legal/data-processing-agreement",
+      "final": "https://zoho.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoho",
+      "url": "https://zoho.com/dpa",
+      "final": "https://zoho.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoho",
+      "url": "https://zoho.com/legal/data-processing-addendum",
+      "final": "https://zoho.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "runway",
+      "url": "https://runwayml.com/legal/processor-terms",
+      "final": "https://runwayml.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/legal/gdpr/dpa",
+      "final": "https://abridge.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoho",
+      "url": "https://zoho.com/data-processing-agreement",
+      "final": "https://zoho.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoho",
+      "url": "https://zoho.com/data-processing-addendum",
+      "final": "https://zoho.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoho",
+      "url": "https://zoho.com/policies/dpa",
+      "final": "https://zoho.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoho",
+      "url": "https://zoho.com/policies/data-processing-agreement",
+      "final": "https://zoho.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "runway",
+      "url": "https://runwayml.com/gdpr/dpa",
+      "final": "https://runwayml.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoho",
+      "url": "https://zoho.com/policies/data-processing-addendum",
+      "final": "https://zoho.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoho",
+      "url": "https://zoho.com/terms/dpa",
+      "final": "https://zoho.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoho",
+      "url": "https://zoho.com/legal/gdpr/dpa",
+      "final": "https://zoho.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoho",
+      "url": "https://zoho.com/gdpr/dpa",
+      "final": "https://zoho.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoho",
+      "url": "https://zoho.com/company/dpa",
+      "final": "https://zoho.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoho",
+      "url": "https://zoho.com/legal/processor-terms",
+      "final": "https://zoho.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoho",
+      "url": "https://zoho.com/data-processing",
+      "final": "https://zoho.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoho",
+      "url": "https://zoho.com/legal/data-processing",
+      "final": "https://zoho.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoho",
+      "url": "https://zoho.com/privacy/dpa",
+      "final": "https://zoho.com/privacy/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/data-processing-addendum",
+      "final": "https://salesforce.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/policies/data-processing-agreement",
+      "final": "https://salesforce.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/policies/data-processing-addendum",
+      "final": "https://salesforce.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/data-processing-agreement",
+      "final": "https://salesforce.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/legal/dpa",
+      "final": "https://salesforce.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/policies/dpa",
+      "final": "https://salesforce.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/legal/data-processing-agreement",
+      "final": "https://salesforce.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/legal/data-processing-addendum",
+      "final": "https://salesforce.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/gdpr/dpa",
+      "final": "https://salesforce.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/company/dpa",
+      "final": "https://salesforce.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/dpa",
+      "final": "https://stability.ai/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/legal/dpa",
+      "final": "https://stability.ai/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/legal/data-processing-addendum",
+      "final": "https://stability.ai/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/legal/data-processing-agreement",
+      "final": "https://stability.ai/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/terms/dpa",
+      "final": "https://salesforce.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/data-processing-addendum",
+      "final": "https://stability.ai/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/data-processing-agreement",
+      "final": "https://stability.ai/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/dpa",
+      "final": "https://salesforce.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/policies/data-processing-addendum",
+      "final": "https://stability.ai/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/policies/data-processing-agreement",
+      "final": "https://stability.ai/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/policies/dpa",
+      "final": "https://stability.ai/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/terms/dpa",
+      "final": "https://stability.ai/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/company/dpa",
+      "final": "https://stability.ai/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/legal/gdpr/dpa",
+      "final": "https://stability.ai/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/gdpr/dpa",
+      "final": "https://stability.ai/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/privacy/dpa",
+      "final": "https://stability.ai/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/legal/processor-terms",
+      "final": "https://stability.ai/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/legal/data-processing",
+      "final": "https://stability.ai/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/data-processing",
+      "final": "https://stability.ai/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/legal/gdpr/dpa",
+      "final": "https://salesforce.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/privacy/dpa",
+      "final": "https://salesforce.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/legal/data-processing",
+      "final": "https://salesforce.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/data-processing",
+      "final": "https://salesforce.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/legal/processor-terms",
+      "final": "https://salesforce.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "caplinked",
+      "url": "https://caplinked.com/legal/dpa",
+      "final": "https://www.caplinked.com/",
+      "reason": "homepage-bounce",
+      "kind": "dpa"
+    },
+    {
+      "slug": "caplinked",
+      "url": "https://caplinked.com/data-processing-addendum",
+      "final": "https://www.caplinked.com/",
+      "reason": "homepage-bounce",
+      "kind": "dpa"
+    },
+    {
+      "slug": "caplinked",
+      "url": "https://caplinked.com/legal/data-processing-agreement",
+      "final": "https://www.caplinked.com/",
+      "reason": "homepage-bounce",
+      "kind": "dpa"
+    },
+    {
+      "slug": "caplinked",
+      "url": "https://caplinked.com/legal/data-processing-addendum",
+      "final": "https://www.caplinked.com/",
+      "reason": "homepage-bounce",
+      "kind": "dpa"
+    },
+    {
+      "slug": "caplinked",
+      "url": "https://caplinked.com/dpa",
+      "final": "https://www.caplinked.com/",
+      "reason": "homepage-bounce",
+      "kind": "dpa"
+    },
+    {
+      "slug": "caplinked",
+      "url": "https://caplinked.com/data-processing-agreement",
+      "final": "https://www.caplinked.com/",
+      "reason": "homepage-bounce",
+      "kind": "dpa"
+    },
+    {
+      "slug": "caplinked",
+      "url": "https://caplinked.com/policies/data-processing-addendum",
+      "final": "https://www.caplinked.com/",
+      "reason": "homepage-bounce",
+      "kind": "dpa"
+    },
+    {
+      "slug": "caplinked",
+      "url": "https://caplinked.com/policies/data-processing-agreement",
+      "final": "https://www.caplinked.com/",
+      "reason": "homepage-bounce",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cohesity",
+      "url": "https://cohesity.com/legal/data-processing-addendum",
+      "final": "https://cohesity.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "caplinked",
+      "url": "https://caplinked.com/policies/dpa",
+      "final": "https://www.caplinked.com/",
+      "reason": "homepage-bounce",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cohesity",
+      "url": "https://cohesity.com/legal/dpa",
+      "final": "https://cohesity.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "caplinked",
+      "url": "https://caplinked.com/terms/dpa",
+      "final": "https://www.caplinked.com/",
+      "reason": "homepage-bounce",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cohesity",
+      "url": "https://cohesity.com/dpa",
+      "final": "https://cohesity.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cohesity",
+      "url": "https://cohesity.com/legal/data-processing-agreement",
+      "final": "https://cohesity.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cohesity",
+      "url": "https://cohesity.com/data-processing-agreement",
+      "final": "https://cohesity.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cohesity",
+      "url": "https://cohesity.com/data-processing-addendum",
+      "final": "https://cohesity.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cohesity",
+      "url": "https://cohesity.com/policies/data-processing-addendum",
+      "final": "https://cohesity.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cohesity",
+      "url": "https://cohesity.com/policies/data-processing-agreement",
+      "final": "https://cohesity.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cohesity",
+      "url": "https://cohesity.com/gdpr/dpa",
+      "final": "https://cohesity.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cohesity",
+      "url": "https://cohesity.com/policies/dpa",
+      "final": "https://cohesity.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cohesity",
+      "url": "https://cohesity.com/terms/dpa",
+      "final": "https://cohesity.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cohesity",
+      "url": "https://cohesity.com/company/dpa",
+      "final": "https://cohesity.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cohesity",
+      "url": "https://cohesity.com/legal/gdpr/dpa",
+      "final": "https://cohesity.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "caplinked",
+      "url": "https://caplinked.com/gdpr/dpa",
+      "final": "https://www.caplinked.com/",
+      "reason": "homepage-bounce",
+      "kind": "dpa"
+    },
+    {
+      "slug": "caplinked",
+      "url": "https://caplinked.com/company/dpa",
+      "final": "https://www.caplinked.com/",
+      "reason": "homepage-bounce",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cohesity",
+      "url": "https://cohesity.com/data-processing",
+      "final": "https://cohesity.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cohesity",
+      "url": "https://cohesity.com/privacy/dpa",
+      "final": "https://cohesity.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cohesity",
+      "url": "https://cohesity.com/legal/processor-terms",
+      "final": "https://cohesity.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cohesity",
+      "url": "https://cohesity.com/legal/data-processing",
+      "final": "https://cohesity.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "glean",
+      "url": "https://glean.com/dpa",
+      "final": "https://glean.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "glean",
+      "url": "https://glean.com/legal/data-processing-addendum",
+      "final": "https://glean.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "glean",
+      "url": "https://glean.com/data-processing-addendum",
+      "final": "https://glean.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "glean",
+      "url": "https://glean.com/legal/data-processing-agreement",
+      "final": "https://glean.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "glean",
+      "url": "https://glean.com/data-processing-agreement",
+      "final": "https://glean.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "glean",
+      "url": "https://glean.com/legal/dpa",
+      "final": "https://assets.glean.com/marketing/Legal/Glean%20Technologies%2C%20Inc.%20DPA%20Mar%206%202026%20(Online).pdf",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "glean",
+      "url": "https://glean.com/policies/data-processing-addendum",
+      "final": "https://glean.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "glean",
+      "url": "https://glean.com/policies/data-processing-agreement",
+      "final": "https://glean.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "glean",
+      "url": "https://glean.com/policies/dpa",
+      "final": "https://glean.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "glean",
+      "url": "https://glean.com/terms/dpa",
+      "final": "https://glean.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "glean",
+      "url": "https://glean.com/company/dpa",
+      "final": "https://glean.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "glean",
+      "url": "https://glean.com/gdpr/dpa",
+      "final": "https://glean.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "gusto",
+      "url": "https://gusto.com/legal/dpa",
+      "final": "https://gusto.com/legal/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "gusto",
+      "url": "https://gusto.com/dpa",
+      "final": "https://gusto.com/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "gusto",
+      "url": "https://gusto.com/legal/data-processing-agreement",
+      "final": "https://gusto.com/legal/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "gusto",
+      "url": "https://gusto.com/legal/data-processing-addendum",
+      "final": "https://gusto.com/legal/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "gusto",
+      "url": "https://gusto.com/data-processing-addendum",
+      "final": "https://gusto.com/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "gusto",
+      "url": "https://gusto.com/data-processing-agreement",
+      "final": "https://gusto.com/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "gusto",
+      "url": "https://gusto.com/policies/data-processing-addendum",
+      "final": "https://gusto.com/policies/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "gusto",
+      "url": "https://gusto.com/policies/data-processing-agreement",
+      "final": "https://gusto.com/policies/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "gusto",
+      "url": "https://gusto.com/policies/dpa",
+      "final": "https://gusto.com/policies/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "glean",
+      "url": "https://glean.com/privacy/dpa",
+      "final": "https://glean.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "gusto",
+      "url": "https://gusto.com/terms/dpa",
+      "final": "https://gusto.com/terms/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "glean",
+      "url": "https://glean.com/legal/processor-terms",
+      "final": "https://glean.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "glean",
+      "url": "https://glean.com/legal/gdpr/dpa",
+      "final": "https://glean.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "gusto",
+      "url": "https://gusto.com/company/dpa",
+      "final": "https://gusto.com/company/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "caplinked",
+      "url": "https://caplinked.com/legal/processor-terms",
+      "final": "https://www.caplinked.com/",
+      "reason": "homepage-bounce",
+      "kind": "dpa"
+    },
+    {
+      "slug": "caplinked",
+      "url": "https://caplinked.com/legal/gdpr/dpa",
+      "final": "https://www.caplinked.com/",
+      "reason": "homepage-bounce",
+      "kind": "dpa"
+    },
+    {
+      "slug": "gusto",
+      "url": "https://gusto.com/gdpr/dpa",
+      "final": "https://gusto.com/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "gusto",
+      "url": "https://gusto.com/legal/gdpr/dpa",
+      "final": "https://gusto.com/legal/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "caplinked",
+      "url": "https://caplinked.com/legal/data-processing",
+      "final": "https://www.caplinked.com/",
+      "reason": "homepage-bounce",
+      "kind": "dpa"
+    },
+    {
+      "slug": "gusto",
+      "url": "https://gusto.com/privacy/dpa",
+      "final": "https://gusto.com/privacy/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "gusto",
+      "url": "https://gusto.com/legal/data-processing",
+      "final": "https://gusto.com/legal/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "gusto",
+      "url": "https://gusto.com/legal/processor-terms",
+      "final": "https://gusto.com/legal/processor-terms",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "gusto",
+      "url": "https://gusto.com/data-processing",
+      "final": "https://gusto.com/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "caplinked",
+      "url": "https://caplinked.com/privacy/dpa",
+      "final": "https://www.caplinked.com/",
+      "reason": "homepage-bounce",
+      "kind": "dpa"
+    },
+    {
+      "slug": "glean",
+      "url": "https://glean.com/legal/data-processing",
+      "final": "https://glean.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "glean",
+      "url": "https://glean.com/data-processing",
+      "final": "https://glean.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "caplinked",
+      "url": "https://caplinked.com/data-processing",
+      "final": "https://www.caplinked.com/",
+      "reason": "homepage-bounce",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/data-processing-addendum",
+      "final": "https://sap.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/legal/dpa",
+      "final": "https://sap.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/legal/data-processing-agreement",
+      "final": "https://sap.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/policies/data-processing-agreement",
+      "final": "https://sap.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/terms/dpa",
+      "final": "https://sap.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/dpa",
+      "final": "https://sap.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/company/dpa",
+      "final": "https://sap.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/policies/data-processing-addendum",
+      "final": "https://sap.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/policies/dpa",
+      "final": "https://sap.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/data-processing-agreement",
+      "final": "https://sap.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/legal/data-processing-addendum",
+      "final": "https://sap.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/legal/processor-terms",
+      "final": "https://sap.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/legal/data-processing",
+      "final": "https://sap.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/legal/gdpr/dpa",
+      "final": "https://sap.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/privacy/dpa",
+      "final": "https://www.sap.com/about/legal/privacy.html",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/data-processing",
+      "final": "https://sap.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/gdpr/dpa",
+      "final": "https://sap.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sumo-logic",
+      "url": "https://sumologic.com/legal/data-processing-agreement",
+      "final": "https://sumologic.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sumo-logic",
+      "url": "https://sumologic.com/legal/dpa",
+      "final": "https://sumologic.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sumo-logic",
+      "url": "https://sumologic.com/policies/dpa",
+      "final": "https://sumologic.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sumo-logic",
+      "url": "https://sumologic.com/policies/data-processing-agreement",
+      "final": "https://sumologic.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sumo-logic",
+      "url": "https://sumologic.com/legal/data-processing-addendum",
+      "final": "https://sumologic.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sumo-logic",
+      "url": "https://sumologic.com/terms/dpa",
+      "final": "https://sumologic.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/dpa",
+      "final": "https://axonius.com/dpa",
+      "reason": "http-429",
+      "kind": "dpa"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/legal/dpa",
+      "final": "https://axonius.com/legal/dpa",
+      "reason": "http-429",
+      "kind": "dpa"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/legal/data-processing-addendum",
+      "final": "https://axonius.com/legal/data-processing-addendum",
+      "reason": "http-429",
+      "kind": "dpa"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/legal/data-processing-agreement",
+      "final": "https://axonius.com/legal/data-processing-agreement",
+      "reason": "http-429",
+      "kind": "dpa"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/data-processing-addendum",
+      "final": "https://axonius.com/data-processing-addendum",
+      "reason": "http-429",
+      "kind": "dpa"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/data-processing-agreement",
+      "final": "https://axonius.com/data-processing-agreement",
+      "reason": "http-429",
+      "kind": "dpa"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/policies/data-processing-addendum",
+      "final": "https://axonius.com/policies/data-processing-addendum",
+      "reason": "http-429",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sumo-logic",
+      "url": "https://sumologic.com/legal/gdpr/dpa",
+      "final": "https://sumologic.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/policies/data-processing-agreement",
+      "final": "https://axonius.com/policies/data-processing-agreement",
+      "reason": "http-429",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sumo-logic",
+      "url": "https://sumologic.com/dpa",
+      "final": "https://sumologic.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/policies/dpa",
+      "final": "https://axonius.com/policies/dpa",
+      "reason": "http-429",
+      "kind": "dpa"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/gdpr/dpa",
+      "final": "https://axonius.com/gdpr/dpa",
+      "reason": "http-429",
+      "kind": "dpa"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/terms/dpa",
+      "final": "https://axonius.com/terms/dpa",
+      "reason": "http-429",
+      "kind": "dpa"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/company/dpa",
+      "final": "https://axonius.com/company/dpa",
+      "reason": "http-429",
+      "kind": "dpa"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/legal/gdpr/dpa",
+      "final": "https://axonius.com/legal/gdpr/dpa",
+      "reason": "http-429",
+      "kind": "dpa"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/legal/processor-terms",
+      "final": "https://axonius.com/legal/processor-terms",
+      "reason": "http-429",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sumo-logic",
+      "url": "https://sumologic.com/policies/data-processing-addendum",
+      "final": "https://sumologic.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/legal/data-processing",
+      "final": "https://axonius.com/legal/data-processing",
+      "reason": "http-429",
+      "kind": "dpa"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/privacy/dpa",
+      "final": "https://axonius.com/privacy/dpa",
+      "reason": "http-429",
+      "kind": "dpa"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/data-processing",
+      "final": "https://axonius.com/data-processing",
+      "reason": "http-429",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sumo-logic",
+      "url": "https://sumologic.com/data-processing-addendum",
+      "final": "https://sumologic.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sumo-logic",
+      "url": "https://sumologic.com/company/dpa",
+      "final": "https://sumologic.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sumo-logic",
+      "url": "https://sumologic.com/data-processing-agreement",
+      "final": "https://sumologic.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sumo-logic",
+      "url": "https://sumologic.com/gdpr/dpa",
+      "final": "https://sumologic.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sumo-logic",
+      "url": "https://sumologic.com/legal/data-processing",
+      "final": "https://sumologic.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sumo-logic",
+      "url": "https://sumologic.com/privacy/dpa",
+      "final": "https://sumologic.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sumo-logic",
+      "url": "https://sumologic.com/legal/processor-terms",
+      "final": "https://sumologic.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/legal/data-processing-addendum",
+      "final": "https://five9.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/data-processing-agreement",
+      "final": "https://five9.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/data-processing-addendum",
+      "final": "https://five9.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/dpa",
+      "final": "https://five9.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sumo-logic",
+      "url": "https://sumologic.com/data-processing",
+      "final": "https://sumologic.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/policies/data-processing-agreement",
+      "final": "https://five9.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/policies/data-processing-addendum",
+      "final": "https://five9.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/legal/dpa",
+      "final": "https://five9.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.us/dpa",
+      "final": "https://zoom.us/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/legal/data-processing-agreement",
+      "final": "https://five9.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.us/legal/dpa",
+      "final": "https://zoom.us/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.us/legal/data-processing-addendum",
+      "final": "https://zoom.us/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/terms/dpa",
+      "final": "https://five9.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.us/legal/data-processing-agreement",
+      "final": "https://zoom.us/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.us/data-processing-addendum",
+      "final": "https://zoom.us/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.us/data-processing-agreement",
+      "final": "https://zoom.us/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.us/policies/data-processing-addendum",
+      "final": "https://zoom.us/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/policies/dpa",
+      "final": "https://five9.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.us/policies/data-processing-agreement",
+      "final": "https://zoom.us/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.us/policies/dpa",
+      "final": "https://zoom.us/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.us/terms/dpa",
+      "final": "https://zoom.us/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.us/company/dpa",
+      "final": "https://zoom.us/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.us/gdpr/dpa",
+      "final": "https://zoom.us/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.us/legal/gdpr/dpa",
+      "final": "https://zoom.us/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.us/privacy/dpa",
+      "final": "https://zoom.us/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.us/legal/processor-terms",
+      "final": "https://zoom.us/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.us/legal/data-processing",
+      "final": "https://zoom.us/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.com/dpa",
+      "final": "https://zoom.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.com/legal/dpa",
+      "final": "https://zoom.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.com/legal/data-processing-addendum",
+      "final": "https://zoom.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.com/legal/data-processing-agreement",
+      "final": "https://zoom.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/gdpr/dpa",
+      "final": "https://five9.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.com/data-processing-agreement",
+      "final": "https://zoom.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/privacy/dpa",
+      "final": "https://five9.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.com/data-processing-addendum",
+      "final": "https://zoom.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.com/policies/data-processing-addendum",
+      "final": "https://zoom.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/company/dpa",
+      "final": "https://five9.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/legal/gdpr/dpa",
+      "final": "https://five9.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.com/policies/data-processing-agreement",
+      "final": "https://zoom.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.com/terms/dpa",
+      "final": "https://zoom.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.com/policies/dpa",
+      "final": "https://zoom.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.com/gdpr/dpa",
+      "final": "https://zoom.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/legal/data-processing",
+      "final": "https://five9.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.com/company/dpa",
+      "final": "https://zoom.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.com/legal/gdpr/dpa",
+      "final": "https://zoom.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.com/legal/processor-terms",
+      "final": "https://zoom.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.com/privacy/dpa",
+      "final": "https://zoom.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.com/legal/data-processing",
+      "final": "https://zoom.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netskope",
+      "url": "https://netskope.com/policies/data-processing-addendum",
+      "final": "https://netskope.com/policies/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netskope",
+      "url": "https://netskope.com/policies/data-processing-agreement",
+      "final": "https://netskope.com/policies/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netskope",
+      "url": "https://netskope.com/dpa",
+      "final": "https://netskope.com/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netskope",
+      "url": "https://netskope.com/data-processing-addendum",
+      "final": "https://netskope.com/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netskope",
+      "url": "https://netskope.com/data-processing-agreement",
+      "final": "https://netskope.com/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netskope",
+      "url": "https://netskope.com/legal/data-processing-addendum",
+      "final": "https://netskope.com/legal/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netskope",
+      "url": "https://netskope.com/legal/data-processing-agreement",
+      "final": "https://netskope.com/legal/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netskope",
+      "url": "https://netskope.com/legal/dpa",
+      "final": "https://netskope.com/legal/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netskope",
+      "url": "https://netskope.com/company/dpa",
+      "final": "https://netskope.com/company/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netskope",
+      "url": "https://netskope.com/policies/dpa",
+      "final": "https://netskope.com/policies/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netskope",
+      "url": "https://netskope.com/privacy/dpa",
+      "final": "https://netskope.com/privacy/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netskope",
+      "url": "https://netskope.com/gdpr/dpa",
+      "final": "https://netskope.com/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netskope",
+      "url": "https://netskope.com/legal/gdpr/dpa",
+      "final": "https://netskope.com/legal/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netskope",
+      "url": "https://netskope.com/legal/processor-terms",
+      "final": "https://netskope.com/legal/processor-terms",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netskope",
+      "url": "https://netskope.com/terms/dpa",
+      "final": "https://netskope.com/terms/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netskope",
+      "url": "https://netskope.com/data-processing",
+      "final": "https://netskope.com/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/legal/processor-terms",
+      "final": "https://five9.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.us/data-processing",
+      "final": "https://zoom.us/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cisco",
+      "url": "https://cisco.com/dpa",
+      "final": "https://cisco.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/data-processing",
+      "final": "https://five9.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cisco",
+      "url": "https://cisco.com/legal/data-processing-agreement",
+      "final": "https://cisco.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cisco",
+      "url": "https://cisco.com/policies/data-processing-addendum",
+      "final": "https://cisco.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cisco",
+      "url": "https://cisco.com/policies/data-processing-agreement",
+      "final": "https://cisco.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cisco",
+      "url": "https://cisco.com/legal/data-processing-addendum",
+      "final": "https://cisco.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cisco",
+      "url": "https://cisco.com/data-processing-addendum",
+      "final": "https://cisco.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cisco",
+      "url": "https://cisco.com/data-processing-agreement",
+      "final": "https://cisco.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cisco",
+      "url": "https://cisco.com/policies/dpa",
+      "final": "https://cisco.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zoom",
+      "url": "https://zoom.com/data-processing",
+      "final": "https://zoom.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cisco",
+      "url": "https://cisco.com/company/dpa",
+      "final": "https://cisco.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cisco",
+      "url": "https://cisco.com/legal/dpa",
+      "final": "https://cisco.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cisco",
+      "url": "https://cisco.com/legal/gdpr/dpa",
+      "final": "https://cisco.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cisco",
+      "url": "https://cisco.com/gdpr/dpa",
+      "final": "https://cisco.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cisco",
+      "url": "https://cisco.com/terms/dpa",
+      "final": "https://cisco.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cisco",
+      "url": "https://cisco.com/legal/processor-terms",
+      "final": "https://cisco.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cisco",
+      "url": "https://cisco.com/legal/data-processing",
+      "final": "https://cisco.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cisco",
+      "url": "https://cisco.com/privacy/dpa",
+      "final": "https://cisco.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "cisco",
+      "url": "https://cisco.com/data-processing",
+      "final": "https://cisco.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "netskope",
+      "url": "https://netskope.com/legal/data-processing",
+      "final": "https://netskope.com/legal/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/privacy/subprocessors",
+      "final": "https://block.xyz/privacy/subprocessors",
       "reason": "fetch-failed",
-      "url": "https://splunk.com/subprocessors",
-      "n": 9
+      "kind": "subprocessors"
     },
     {
-      "slug": "splunk",
-      "kind": "subprocessors",
-      "reason": "js-portal",
-      "url": "https://trust.splunk.com/subprocessors",
-      "n": 2
-    },
-    {
-      "slug": "asana",
-      "kind": "subprocessors",
+      "slug": "block",
+      "url": "https://block.xyz/sub-processors",
+      "final": "https://block.xyz/sub-processors",
       "reason": "fetch-failed",
-      "url": "https://asana.com/subprocessors",
-      "n": 10
+      "kind": "subprocessors"
     },
     {
-      "slug": "asana",
-      "kind": "subprocessors",
+      "slug": "block",
+      "url": "https://block.xyz/trust/subprocessors",
+      "final": "https://block.xyz/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/company/subprocessors",
+      "final": "https://block.xyz/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/legal/sub-processors-page",
+      "final": "https://block.xyz/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "fivetran",
+      "url": "https://fivetran.com/subprocessors",
+      "final": "https://fivetran.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/subprocessors",
+      "final": "https://block.xyz/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "fivetran",
+      "url": "https://fivetran.com/sub-processors",
+      "final": "https://fivetran.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "fivetran",
+      "url": "https://fivetran.com/legal/subprocessors",
+      "final": "https://fivetran.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "fivetran",
+      "url": "https://fivetran.com/legal/sub-processors",
+      "final": "https://fivetran.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "fivetran",
+      "url": "https://fivetran.com/legal/service-providers",
+      "final": "https://fivetran.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "fivetran",
+      "url": "https://fivetran.com/company/subprocessors",
+      "final": "https://fivetran.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "fivetran",
+      "url": "https://fivetran.com/privacy/subprocessors",
+      "final": "https://fivetran.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/legal/service-providers",
+      "final": "https://block.xyz/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/legal/subprocessors",
+      "final": "https://block.xyz/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "fivetran",
+      "url": "https://fivetran.com/legal/sub-processors-page",
+      "final": "https://fivetran.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "fivetran",
+      "url": "https://fivetran.com/trust/subprocessors",
+      "final": "https://fivetran.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "block",
+      "url": "https://block.xyz/legal/sub-processors",
+      "final": "https://block.xyz/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "fivetran",
+      "url": "https://trust.fivetran.com/sub-processors",
+      "final": "https://trust.fivetran.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "netlify",
+      "url": "https://netlify.com/legal/sub-processors",
+      "final": "https://netlify.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "netlify",
+      "url": "https://netlify.com/privacy/subprocessors",
+      "final": "https://netlify.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "fivetran",
+      "url": "https://trust.fivetran.com/subprocessors",
+      "final": "https://trust.fivetran.com/",
       "reason": "safebase-itemuid",
-      "url": "https://security.asana.com/subprocessors",
-      "n": 1
+      "kind": "subprocessors"
     },
     {
-      "slug": "calendly",
-      "kind": "subprocessors",
+      "slug": "netlify",
+      "url": "https://netlify.com/legal/service-providers",
+      "final": "https://netlify.com/legal/service-providers",
       "reason": "fetch-failed",
-      "url": "https://calendly.com/subprocessors",
-      "n": 9
+      "kind": "subprocessors"
     },
     {
-      "slug": "dataiku",
-      "kind": "subprocessors",
+      "slug": "netlify",
+      "url": "https://netlify.com/company/subprocessors",
+      "final": "https://netlify.com/company/subprocessors",
       "reason": "fetch-failed",
-      "url": "https://dataiku.com/subprocessors",
-      "n": 9
+      "kind": "subprocessors"
     },
     {
-      "slug": "automation-anywhere",
-      "kind": "subprocessors",
+      "slug": "netlify",
+      "url": "https://netlify.com/sub-processors",
+      "final": "https://netlify.com/sub-processors",
       "reason": "fetch-failed",
-      "url": "https://automationanywhere.com/privacy/subprocessors",
-      "n": 9
+      "kind": "subprocessors"
     },
     {
-      "slug": "grammarly",
-      "kind": "subprocessors",
-      "reason": "fetch-failed",
-      "url": "https://grammarly.com/subprocessors",
-      "n": 9
-    },
-    {
-      "slug": "airwallex",
-      "kind": "subprocessors",
-      "reason": "fetch-failed",
-      "url": "https://airwallex.com/subprocessors",
-      "n": 10
-    },
-    {
-      "slug": "slack",
-      "kind": "subprocessors",
-      "reason": "pdf",
-      "url": "https://slack.com/slack-subprocessors",
-      "n": 1
-    },
-    {
-      "slug": "airwallex",
-      "kind": "subprocessors",
-      "reason": "safebase-itemuid",
-      "url": "https://security.airwallex.com/subprocessors",
-      "n": 1
-    },
-    {
-      "slug": "clickhouse",
-      "kind": "subprocessors",
+      "slug": "island",
+      "url": "https://www.island.io/partners/cloud-service-providers",
+      "final": "https://www.island.io/partners/cloud-service-providers",
       "reason": "no-printed-names",
-      "url": "https://clickhouse.com/legal/agreements/subprocessors",
-      "n": 1
+      "kind": "subprocessors"
     },
     {
-      "slug": "infor",
-      "kind": "subprocessors",
-      "reason": "fetch-failed",
-      "url": "https://trust.infor.com/subprocessors",
-      "n": 11
-    },
-    {
-      "slug": "elastic",
-      "kind": "subprocessors",
-      "reason": "fetch-failed",
-      "url": "https://elastic.co/subprocessors",
-      "n": 9
-    },
-    {
-      "slug": "monday",
-      "kind": "subprocessors",
+      "slug": "netlify",
+      "url": "https://netlify.com/legal/subprocessors",
+      "final": "https://trust-center.netlify-corp.com/",
       "reason": "safebase-itemuid",
-      "url": "https://trust.monday.com/",
-      "n": 1
+      "kind": "subprocessors"
     },
     {
-      "slug": "shopify",
-      "kind": "subprocessors",
+      "slug": "block",
+      "url": "https://trust.squareup.com/sub-processors",
+      "final": "https://trust.squareup.com/sub-processors",
       "reason": "fetch-failed",
-      "url": "https://shopify.com/subprocessors",
-      "n": 9
+      "kind": "subprocessors"
     },
     {
-      "slug": "papaya-global",
-      "kind": "subprocessors",
+      "slug": "block",
+      "url": "https://trust.squareup.com/subprocessors",
+      "final": "https://trust.squareup.com/subprocessors",
       "reason": "fetch-failed",
-      "url": "https://papayaglobal.com/subprocessors",
-      "n": 9
+      "kind": "subprocessors"
     },
     {
-      "slug": "cornerstone-ondemand",
-      "kind": "subprocessors",
-      "reason": "fetch-failed",
-      "url": "https://cornerstoneondemand.com/sub-processors",
-      "n": 10
-    },
-    {
-      "slug": "cornerstone-ondemand",
-      "kind": "subprocessors",
+      "slug": "netlify",
+      "url": "https://trust.netlify.com/subprocessors",
+      "final": "https://trust-center.netlify-corp.com/",
       "reason": "safebase-itemuid",
-      "url": "https://trustcenter.cornerstoneondemand.com/subprocessors",
-      "n": 1
+      "kind": "subprocessors"
     },
     {
-      "slug": "fortinet",
-      "kind": "subprocessors",
+      "slug": "saviynt",
+      "url": "https://saviynt.com/sub-processors",
+      "final": "https://saviynt.com/sub-processors",
       "reason": "fetch-failed",
-      "url": "https://trust.fortinet.com/sub-processors",
-      "n": 10
+      "kind": "subprocessors"
     },
     {
-      "slug": "fortinet",
-      "kind": "subprocessors",
+      "slug": "saviynt",
+      "url": "https://saviynt.com/subprocessors",
+      "final": "https://saviynt.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "saviynt",
+      "url": "https://saviynt.com/legal/subprocessors",
+      "final": "https://saviynt.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "saviynt",
+      "url": "https://saviynt.com/legal/sub-processors",
+      "final": "https://saviynt.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "saviynt",
+      "url": "https://saviynt.com/privacy/subprocessors",
+      "final": "https://saviynt.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "saviynt",
+      "url": "https://saviynt.com/legal/service-providers",
+      "final": "https://saviynt.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "saviynt",
+      "url": "https://saviynt.com/company/subprocessors",
+      "final": "https://saviynt.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "saviynt",
+      "url": "https://saviynt.com/trust/subprocessors",
+      "final": "https://saviynt.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "saviynt",
+      "url": "https://trust.saviynt.com/sub-processors",
+      "final": "https://trust.saviynt.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "saviynt",
+      "url": "https://trust.saviynt.com/subprocessors",
+      "final": "https://trust.saviynt.com/",
       "reason": "safebase-itemuid",
-      "url": "https://trust.fortinet.com/subprocessors",
-      "n": 1
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "saviynt",
+      "url": "https://saviynt.com/legal/sub-processors-page",
+      "final": "https://saviynt.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "netlify",
+      "url": "https://netlify.com/legal/sub-processors-page",
+      "final": "https://netlify.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "netlify",
+      "url": "https://netlify.com/trust/subprocessors",
+      "final": "https://netlify.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/legal/subprocessors",
+      "final": "https://uipath.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://trust.uipath.com/subprocessors",
+      "final": "https://trust.uipath.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/legal/service-providers",
+      "final": "https://uipath.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/company/subprocessors",
+      "final": "https://uipath.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://trust.uipath.com/sub-processors",
+      "final": "https://trust.uipath.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/legal/sub-processors",
+      "final": "https://uipath.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zendesk",
+      "url": "https://zensai.com/dpa/subprocessors/",
+      "final": "https://zensai.com/dpa/subprocessors/",
+      "reason": "not-first-party",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/legal/sub-processors-page",
+      "final": "https://uipath.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/subprocessors",
+      "final": "https://uipath.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/sub-processors",
+      "final": "https://uipath.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/privacy/subprocessors",
+      "final": "https://uipath.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/legal/sub-processors",
+      "final": "https://nice.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "uipath",
+      "url": "https://uipath.com/trust/subprocessors",
+      "final": "https://uipath.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/subprocessors",
+      "final": "https://nice.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/sub-processors",
+      "final": "https://nice.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/legal/service-providers",
+      "final": "https://nice.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/legal/subprocessors",
+      "final": "https://nice.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/subprocessors",
+      "final": "https://adeptia.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/sub-processors",
+      "final": "https://adeptia.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/legal/subprocessors",
+      "final": "https://adeptia.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/legal/sub-processors",
+      "final": "https://adeptia.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/legal/service-providers",
+      "final": "https://adeptia.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://security.adeptia.com/subprocessors",
+      "final": "https://security.adeptia.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/company/subprocessors",
+      "final": "https://adeptia.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/privacy/subprocessors",
+      "final": "https://adeptia.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/trust/subprocessors",
+      "final": "https://adeptia.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://security.adeptia.com/sub-processors",
+      "final": "https://security.adeptia.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "adeptia",
+      "url": "https://adeptia.com/legal/sub-processors-page",
+      "final": "https://adeptia.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/legal/subprocessors",
+      "final": "https://abridge.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/sub-processors",
+      "final": "https://abridge.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/legal/sub-processors",
+      "final": "https://abridge.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/subprocessors",
+      "final": "https://abridge.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/legal/service-providers",
+      "final": "https://abridge.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://trust.abridge.com/sub-processors",
+      "final": "https://trust.abridge.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/company/subprocessors",
+      "final": "https://abridge.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/privacy/subprocessors",
+      "final": "https://abridge.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/trust/subprocessors",
+      "final": "https://abridge.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://abridge.com/legal/sub-processors-page",
+      "final": "https://abridge.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zoho",
+      "url": "https://www.zoho.com/privacy/sub-processors.html",
+      "final": "https://www.zoho.com/privacy/sub-processors.html",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "netlify",
+      "url": "https://trust.netlify.com/sub-processors",
+      "final": "https://trust.netlify.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "netlify",
+      "url": "https://netlify.com/subprocessors",
+      "final": "https://netlify.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "abridge",
+      "url": "https://trust.abridge.com/subprocessors",
+      "final": "https://trust.abridge.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/privacy/subprocessors",
+      "final": "https://nice.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/company/subprocessors",
+      "final": "https://salesforce.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/subprocessors",
+      "final": "https://salesforce.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/sub-processors",
+      "final": "https://salesforce.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/legal/sub-processors",
+      "final": "https://salesforce.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/legal/sub-processors-page",
+      "final": "https://nice.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/legal/service-providers",
+      "final": "https://salesforce.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/trust/subprocessors",
+      "final": "https://nice.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://trust.salesforce.com/sub-processors",
+      "final": "https://trust.salesforce.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "nice",
+      "url": "https://nice.com/company/subprocessors",
+      "final": "https://nice.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/privacy/subprocessors",
+      "final": "https://salesforce.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/legal/subprocessors",
+      "final": "https://salesforce.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://trust.salesforce.com/subprocessors",
+      "final": "https://trust.salesforce.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cohesity",
+      "url": "https://www.cohesity.com/partners/service-providers/",
+      "final": "https://www.cohesity.com/partners/service-providers/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/trust/subprocessors",
+      "final": "https://trust.salesforce.com/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://www.salesforce.com/company/legal/infrastructure-and-subprocessors",
+      "final": "https://www.salesforce.com/company/legal/infrastructure-and-subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/legal/subprocessors",
+      "final": "https://sap.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/subprocessors",
+      "final": "https://axonius.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/sub-processors",
+      "final": "https://axonius.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/legal/subprocessors",
+      "final": "https://axonius.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/subprocessors",
+      "final": "https://sap.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/legal/sub-processors",
+      "final": "https://axonius.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/legal/service-providers",
+      "final": "https://axonius.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/privacy/subprocessors",
+      "final": "https://axonius.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/company/subprocessors",
+      "final": "https://axonius.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/trust/subprocessors",
+      "final": "https://axonius.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/legal/sub-processors",
+      "final": "https://sap.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://axonius.com/legal/sub-processors-page",
+      "final": "https://axonius.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://trust.axonius.com/sub-processors",
+      "final": "https://trust.axonius.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/legal/service-providers",
+      "final": "https://sap.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/privacy/subprocessors",
+      "final": "https://www.sap.com/about/legal/privacy.html",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "harness",
+      "url": "https://www.harness.io/legal/subprocessors",
+      "final": "https://trust.harness.io/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "axonius",
+      "url": "https://trust.axonius.com/subprocessors",
+      "final": "https://trust.axonius.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/legal/sub-processors-page",
+      "final": "https://sap.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/sub-processors",
+      "final": "https://sap.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/trust/subprocessors",
+      "final": "https://sap.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "sap",
+      "url": "https://sap.com/company/subprocessors",
+      "final": "https://sap.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salesforce",
+      "url": "https://salesforce.com/legal/sub-processors-page",
+      "final": "https://salesforce.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "five9",
+      "url": "https://trustcenter.five9.com/subprocessors",
+      "final": "https://trustcenter.five9.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "five9",
+      "url": "https://trustcenter.five9.com/sub-processors",
+      "final": "https://trustcenter.five9.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "harness",
+      "url": "https://harness.io/legal/subprocessors",
+      "final": "https://trust.harness.io/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/sub-processors",
+      "final": "https://five9.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/legal/subprocessors",
+      "final": "https://five9.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/subprocessors",
+      "final": "https://five9.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/legal/sub-processors-page",
+      "final": "https://five9.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/trust/subprocessors",
+      "final": "https://five9.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/company/subprocessors",
+      "final": "https://five9.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cisco",
+      "url": "https://www.cisco.com/c/dam/en_us/about/doing_business/trust-center/docs/cisco-third-party-cloud-security-infographic.pdf",
+      "final": "https://www.cisco.com/c/dam/en_us/about/doing_business/trust-center/docs/cisco-third-party-cloud-security-infographic.pdf",
+      "reason": "pdf",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/legal/service-providers",
+      "final": "https://five9.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/legal/sub-processors",
+      "final": "https://five9.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "five9",
+      "url": "https://five9.com/privacy/subprocessors",
+      "final": "https://five9.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     }
-  ],
-  "rejected_counts": {
-    "seed-not-live": 4,
-    "http-404": 25,
-    "http-403": 4,
-    "not-a-dpa": 5,
-    "fetch-failed": 13,
-    "js-portal": 1,
-    "safebase-itemuid": 4,
-    "pdf": 1,
-    "no-printed-names": 2
-  }
+  ]
 }

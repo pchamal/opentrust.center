@@ -14569,6 +14569,162 @@
     },
     {
       "rank": 61,
+      "name": "Amplitude",
+      "slug": "amplitude",
+      "domain": "amplitude.com",
+      "found": true,
+      "trust_url": "https://trust.amplitude.com",
+      "final_url": "https://trust.amplitude.com",
+      "list": "enterprise",
+      "source": "public-enterprise",
+      "source_url": "",
+      "probed": 1,
+      "probed_at": "2026-08-21T00:52:53Z",
+      "certs": [
+        "ISO 27001",
+        "SOC 1 Type II",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 1 Type II, ISO 27001.",
+      "founded_year": 2014,
+      "founded_source": "https://en.wikipedia.org/wiki/Amplitude,_Inc.",
+      "instruments": {
+        "trust": {
+          "url": "https://trust.amplitude.com",
+          "host": "trust.amplitude.com",
+          "seen": "2026-08-21"
+        },
+        "security": null,
+        "privacy": {
+          "url": "https://amplitude.com/privacy",
+          "host": "amplitude.com",
+          "seen": "2026-08-21"
+        },
+        "dpa": {
+          "url": "https://amplitude.com/dpa",
+          "host": "amplitude.com",
+          "seen": "2026-08-21"
+        },
+        "subprocessors": {
+          "url": "https://www.amplitude.com/subprocessor-list",
+          "host": "amplitude.com",
+          "seen": "2026-08-21"
+        },
+        "status": {
+          "url": "https://status.amplitude.com",
+          "host": "status.amplitude.com",
+          "seen": "2026-08-21"
+        },
+        "bounty": {
+          "url": "https://tracker.bugcrowd.com/amplitude",
+          "host": "tracker.bugcrowd.com",
+          "seen": "2026-08-21"
+        }
+      },
+      "processors": [
+        {
+          "name": "Amazon Web Services",
+          "slug": "amazon-web-services",
+          "id": "aws",
+          "source_url": "https://www.amplitude.com/subprocessor-list"
+        },
+        {
+          "name": "Datadog, Inc",
+          "slug": "datadog",
+          "id": "datadog",
+          "source_url": "https://www.amplitude.com/subprocessor-list"
+        },
+        {
+          "name": "Google, LLC",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://www.amplitude.com/subprocessor-list"
+        },
+        {
+          "name": "OpenAI, LLC",
+          "slug": "openai",
+          "id": "openai",
+          "source_url": "https://www.amplitude.com/subprocessor-list"
+        },
+        {
+          "name": "Snowflake Computing, Inc",
+          "slug": "snowflake",
+          "id": "snowflake",
+          "source_url": "https://www.amplitude.com/subprocessor-list"
+        },
+        {
+          "name": "Wiz, Inc",
+          "slug": "wiz",
+          "id": "wiz",
+          "source_url": "https://www.amplitude.com/subprocessor-list"
+        },
+        {
+          "name": "Fivetran Inc",
+          "slug": "fivetran",
+          "id": "fivetran",
+          "source_url": "https://www.amplitude.com/subprocessor-list"
+        },
+        {
+          "name": "MongoDB, Inc",
+          "slug": "mongodb",
+          "id": "mongodb",
+          "source_url": "https://www.amplitude.com/subprocessor-list"
+        },
+        {
+          "name": "Microsoft Azure",
+          "slug": null,
+          "id": "azure",
+          "source_url": "https://www.amplitude.com/subprocessor-list"
+        }
+      ],
+      "disclosure": {
+        "score": 84,
+        "tier": "substantial",
+        "factors": {
+          "page": 20,
+          "marks": 24,
+          "dpa": 8,
+          "processors": 8,
+          "status": 6,
+          "bounty": 6,
+          "privacy": 6,
+          "years": 6
+        }
+      },
+      "tier": "substantial",
+      "file": {
+        "page": true,
+        "marks": true,
+        "dpa": true,
+        "subprocessors": true,
+        "years": true
+      },
+      "_crawl": {
+        "vendor": "wolfia",
+        "title": "Amplitude Trust Center - SOC 2 Type II, SOC 1 Type II",
+        "http_status": null
+      },
+      "list_rank": null
+    },
+    {
+      "rank": 62,
       "name": "Algolia",
       "slug": "algolia",
       "domain": "algolia.com",
@@ -14700,7 +14856,7 @@
       "list_rank": 74
     },
     {
-      "rank": 62,
+      "rank": 63,
       "name": "Airwallex",
       "slug": "airwallex",
       "domain": "airwallex.com",
@@ -14828,7 +14984,7 @@
       "list_rank": 45
     },
     {
-      "rank": 63,
+      "rank": 64,
       "name": "ClickHouse",
       "slug": "clickhouse",
       "domain": "clickhouse.com",
@@ -14961,7 +15117,7 @@
       "list_rank": 72
     },
     {
-      "rank": 64,
+      "rank": 65,
       "name": "Scale AI",
       "slug": "scale-ai",
       "domain": "scale.com",
@@ -15134,7 +15290,7 @@
       "list_rank": null
     },
     {
-      "rank": 65,
+      "rank": 66,
       "name": "Cohere",
       "slug": "cohere",
       "domain": "cohere.com",
@@ -15269,7 +15425,7 @@
       "list_rank": null
     },
     {
-      "rank": 66,
+      "rank": 67,
       "name": "Atlassian",
       "slug": "atlassian",
       "domain": "atlassian.com",
@@ -15629,7 +15785,7 @@
       "list_rank": null
     },
     {
-      "rank": 67,
+      "rank": 68,
       "name": "Infor",
       "slug": "infor",
       "domain": "infor.com",
@@ -15752,7 +15908,7 @@
       "list_rank": 794
     },
     {
-      "rank": 68,
+      "rank": 69,
       "name": "Proofpoint",
       "slug": "proofpoint",
       "domain": "proofpoint.com",
@@ -16070,7 +16226,7 @@
       "list_rank": null
     },
     {
-      "rank": 69,
+      "rank": 70,
       "name": "Automattic",
       "slug": "automattic",
       "domain": "automattic.com",
@@ -16246,7 +16402,7 @@
       "list_rank": 71
     },
     {
-      "rank": 70,
+      "rank": 71,
       "name": "GitHub",
       "slug": "github",
       "domain": "github.com",
@@ -16570,7 +16726,7 @@
       "list_rank": null
     },
     {
-      "rank": 71,
+      "rank": 72,
       "name": "Checkout.com",
       "slug": "checkout",
       "domain": "checkout.com",
@@ -16712,7 +16868,7 @@
       "list_rank": 40
     },
     {
-      "rank": 72,
+      "rank": 73,
       "name": "Claroty",
       "slug": "claroty",
       "domain": "claroty.com",
@@ -16963,7 +17119,7 @@
       "list_rank": 96
     },
     {
-      "rank": 73,
+      "rank": 74,
       "name": "Canva",
       "slug": "canva",
       "domain": "canva.com",
@@ -17088,7 +17244,113 @@
       "list_rank": 5
     },
     {
-      "rank": 74,
+      "rank": 75,
+      "name": "Unity",
+      "slug": "unity",
+      "domain": "unity.com",
+      "found": true,
+      "trust_url": "https://trust.unity.com",
+      "final_url": "https://trust.unity.com",
+      "list": "enterprise",
+      "source": "public-enterprise",
+      "source_url": "",
+      "probed": 1,
+      "probed_at": "2026-08-21T00:52:53Z",
+      "certs": [
+        "ISO 9001",
+        "PCI DSS",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "iso-9001",
+          "name": "ISO 9001",
+          "weight": 4
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 9001, PCI DSS.",
+      "founded_year": 2004,
+      "founded_source": "https://en.wikipedia.org/wiki/Unity_Technologies",
+      "instruments": {
+        "trust": {
+          "url": "https://trust.unity.com",
+          "host": "trust.unity.com",
+          "seen": "2026-08-21"
+        },
+        "security": {
+          "url": "https://unity.com/security",
+          "host": "unity.com",
+          "seen": "2026-08-21"
+        },
+        "privacy": {
+          "url": "https://unity.com/legal/developer-privacy-policy",
+          "host": "unity.com",
+          "seen": "2026-08-21"
+        },
+        "dpa": {
+          "url": "https://unity.com/legal/unity-data-processing-addendum-dpa",
+          "host": "unity.com",
+          "seen": "2026-08-21"
+        },
+        "subprocessors": {
+          "url": "https://unity.com/legal/subprocessors",
+          "host": "unity.com",
+          "seen": "2026-08-21"
+        },
+        "status": {
+          "url": "https://status.unity.com",
+          "host": "status.unity.com",
+          "seen": "2026-08-21"
+        },
+        "bounty": {
+          "url": "https://bugcrowd.com/engagements/unity",
+          "host": "bugcrowd.com",
+          "seen": "2026-08-21"
+        }
+      },
+      "processors": [],
+      "disclosure": {
+        "score": 80,
+        "tier": "substantial",
+        "factors": {
+          "page": 20,
+          "marks": 22,
+          "dpa": 8,
+          "processors": 8,
+          "status": 6,
+          "bounty": 0,
+          "privacy": 6,
+          "years": 10
+        }
+      },
+      "tier": "substantial",
+      "file": {
+        "page": true,
+        "marks": true,
+        "dpa": true,
+        "subprocessors": true,
+        "years": true
+      },
+      "_crawl": {
+        "vendor": "conveyor",
+        "title": "Unity Trust Center",
+        "http_status": null
+      },
+      "favicon": "unity.com.png",
+      "list_rank": null
+    },
+    {
+      "rank": 76,
       "name": "HubSpot",
       "slug": "hubspot",
       "domain": "hubspot.com",
@@ -17226,7 +17488,7 @@
       "list_rank": null
     },
     {
-      "rank": 75,
+      "rank": 77,
       "name": "dbt Labs",
       "slug": "dbt-labs",
       "domain": "getdbt.com",
@@ -17412,7 +17674,7 @@
       "list_rank": 87
     },
     {
-      "rank": 76,
+      "rank": 78,
       "name": "Weave",
       "slug": "weave",
       "domain": "getweave.com",
@@ -17524,7 +17786,7 @@
       "list_rank": 785
     },
     {
-      "rank": 77,
+      "rank": 79,
       "name": "Elastic",
       "slug": "elastic",
       "domain": "elastic.co",
@@ -17756,7 +18018,7 @@
       "list_rank": null
     },
     {
-      "rank": 78,
+      "rank": 80,
       "name": "Samsara",
       "slug": "samsara",
       "domain": "samsara.com",
@@ -17868,7 +18130,7 @@
       "list_rank": null
     },
     {
-      "rank": 79,
+      "rank": 81,
       "name": "Notion",
       "slug": "notion",
       "domain": "notion.so",
@@ -18005,7 +18267,7 @@
       "list_rank": 10
     },
     {
-      "rank": 80,
+      "rank": 82,
       "name": "Shopify",
       "slug": "shopify",
       "domain": "shopify.com",
@@ -18118,7 +18380,137 @@
       "list_rank": null
     },
     {
-      "rank": 81,
+      "rank": 83,
+      "name": "Miro",
+      "slug": "miro",
+      "domain": "miro.com",
+      "found": true,
+      "trust_url": "https://trust.miro.com",
+      "final_url": "https://trust.miro.com",
+      "list": "cloud100",
+      "source": "forbes-cloud-100-2025",
+      "source_url": "",
+      "probed": 1,
+      "probed_at": "2026-08-21T00:52:53Z",
+      "certs": [
+        "CSA STAR",
+        "GDPR",
+        "ISO 27001",
+        "ISO 42001",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 42001, GDPR.",
+      "founded_year": 2011,
+      "founded_source": "https://en.wikipedia.org/wiki/Miro_(collaboration_platform)",
+      "instruments": {
+        "trust": {
+          "url": "https://trust.miro.com",
+          "host": "trust.miro.com",
+          "seen": "2026-08-21"
+        },
+        "security": null,
+        "privacy": {
+          "url": "https://miro.com/legal/privacy-policy/",
+          "host": "miro.com",
+          "seen": "2026-08-21"
+        },
+        "dpa": {
+          "url": "https://miro.com/legal/customer-data-processing-addendum/",
+          "host": "miro.com",
+          "seen": "2026-08-21"
+        },
+        "subprocessors": {
+          "url": "https://trust.miro.com/subprocessors",
+          "host": "trust.miro.com",
+          "seen": "2026-08-21"
+        },
+        "status": {
+          "url": "https://status.miro.com",
+          "host": "status.miro.com",
+          "seen": "2026-08-21"
+        },
+        "bounty": null,
+        "ai": {
+          "url": "https://miro.com/ai/principles/",
+          "host": "miro.com",
+          "seen": "2026-08-20"
+        }
+      },
+      "processors": [],
+      "disclosure": {
+        "score": 78,
+        "tier": "substantial",
+        "factors": {
+          "page": 20,
+          "marks": 29,
+          "dpa": 8,
+          "processors": 8,
+          "status": 6,
+          "bounty": 0,
+          "privacy": 0,
+          "years": 7
+        }
+      },
+      "tier": "substantial",
+      "file": {
+        "page": true,
+        "marks": true,
+        "dpa": true,
+        "subprocessors": true,
+        "years": true
+      },
+      "_crawl": {
+        "vendor": "wolfia",
+        "title": "Miro Trust Center - ISO 42001, ISO 27001, SOC 2 Type II",
+        "http_status": null
+      },
+      "ai_page": {
+        "url": "https://miro.com/ai/principles/",
+        "host": "miro.com",
+        "seen": "2026-08-20"
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/realtimeboard-inc",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Realtimeboard Inc. (dba Miro)",
+            "url": "https://cloudsecurityalliance.org/star/registry/realtimeboard-inc",
+            "listed_since": "2018-06-10"
+          }
+        ]
+      },
+      "list_rank": 18
+    },
+    {
+      "rank": 84,
       "name": "Carta",
       "slug": "carta",
       "domain": "carta.com",
@@ -18231,7 +18623,7 @@
       "list_rank": 31
     },
     {
-      "rank": 82,
+      "rank": 85,
       "name": "Papaya Global",
       "slug": "papaya-global",
       "domain": "papayaglobal.com",
@@ -18359,7 +18751,7 @@
       "list_rank": 93
     },
     {
-      "rank": 83,
+      "rank": 86,
       "name": "Lambda",
       "slug": "lambda",
       "domain": "lambdalabs.com",
@@ -18478,7 +18870,7 @@
       "list_rank": 49
     },
     {
-      "rank": 84,
+      "rank": 87,
       "name": "Cornerstone OnDemand",
       "slug": "cornerstone-ondemand",
       "domain": "cornerstoneondemand.com",
@@ -18611,7 +19003,7 @@
       "list_rank": 1404
     },
     {
-      "rank": 85,
+      "rank": 88,
       "name": "Fortinet",
       "slug": "fortinet",
       "domain": "fortinet.com",
@@ -18811,85 +19203,274 @@
       "list_rank": null
     },
     {
-      "rank": 86,
-      "name": "Amplitude",
-      "slug": "amplitude",
-      "domain": "amplitude.com",
+      "rank": 89,
+      "name": "DigitalOcean",
+      "slug": "digitalocean",
+      "domain": "digitalocean.com",
       "found": true,
-      "trust_url": "https://trust.amplitude.com",
-      "final_url": "https://trust.amplitude.com",
+      "trust_url": "https://www.digitalocean.com/trust",
+      "final_url": "https://www.digitalocean.com/trust",
       "list": "enterprise",
       "source": "public-enterprise",
       "source_url": "",
-      "probed": 1,
+      "probed": 13,
       "probed_at": "2026-08-21T00:52:53Z",
       "certs": [
-        "ISO 27001",
-        "SOC 1 Type II",
-        "SOC 2 Type II"
+        "CSA STAR",
+        "DORA",
+        "GDPR",
+        "HIPAA",
+        "PCI DSS",
+        "SOC 2 Type II",
+        "SOC 3"
       ],
       "attestations": [
         {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
         },
         {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1 Type II",
+          "id": "dora",
+          "name": "DORA",
           "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
         },
         {
           "id": "soc-2-type-ii",
           "name": "SOC 2 Type II",
           "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
         }
       ],
-      "summary": "Public trust center. On file: SOC 2 Type II, SOC 1 Type II, ISO 27001.",
-      "founded_year": 2014,
-      "founded_source": "https://en.wikipedia.org/wiki/Amplitude,_Inc.",
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, PCI DSS.",
+      "founded_year": 2011,
+      "founded_source": "https://en.wikipedia.org/wiki/DigitalOcean",
       "instruments": {
         "trust": {
-          "url": "https://trust.amplitude.com",
-          "host": "trust.amplitude.com",
+          "url": "https://www.digitalocean.com/trust",
+          "host": "digitalocean.com",
           "seen": "2026-08-21"
         },
-        "security": null,
+        "security": {
+          "url": "https://www.digitalocean.com/security",
+          "host": "digitalocean.com",
+          "seen": "2026-08-21"
+        },
         "privacy": {
-          "url": "https://amplitude.com/privacy",
-          "host": "amplitude.com",
+          "url": "https://www.digitalocean.com/legal/privacy-policy",
+          "host": "digitalocean.com",
           "seen": "2026-08-21"
         },
         "dpa": {
-          "url": "https://amplitude.com/dpa",
-          "host": "amplitude.com",
+          "url": "https://www.digitalocean.com/legal/data-processing-agreement",
+          "host": "digitalocean.com",
           "seen": "2026-08-21"
         },
-        "subprocessors": null,
+        "subprocessors": {
+          "url": "https://www.digitalocean.com/trust/subprocessors",
+          "host": "digitalocean.com",
+          "seen": "2026-08-21"
+        },
         "status": {
-          "url": "https://status.amplitude.com",
-          "host": "status.amplitude.com",
+          "url": "https://status.digitalocean.com/",
+          "host": "status.digitalocean.com",
           "seen": "2026-08-21"
         },
         "bounty": {
-          "url": "https://tracker.bugcrowd.com/amplitude",
-          "host": "tracker.bugcrowd.com",
+          "url": "https://app.intigriti.com/programs/digitalocean/digitalocean",
+          "host": "app.intigriti.com",
           "seen": "2026-08-21"
         }
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "Amazon Web Services",
+          "slug": "amazon-web-services",
+          "id": "aws",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "Cloudflare",
+          "slug": "cloudflare",
+          "id": "cloudflare",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "Traversal",
+          "slug": null,
+          "id": "traversal",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "BlogVault",
+          "slug": null,
+          "id": "blogvault",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "Immunify360",
+          "slug": null,
+          "id": "immunify360",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "Telesign",
+          "slug": null,
+          "id": "telesign",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "Twilio",
+          "slug": "twilio",
+          "id": "twilio",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "WPRemote",
+          "slug": null,
+          "id": "wpremote",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "Aiven",
+          "slug": null,
+          "id": "aiven",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "Exa Labs, Inc. (Public Preview)",
+          "slug": null,
+          "id": "exa-labs-public-preview",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "Google (GCP)",
+          "slug": null,
+          "id": "gcp",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "MongoDB",
+          "slug": "mongodb",
+          "id": "mongodb",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "Oracle",
+          "slug": "oracle",
+          "id": "oracle",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "Wasabi",
+          "slug": null,
+          "id": "wasabi",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "VAST",
+          "slug": null,
+          "id": "vast",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "Brainstormforce Astra",
+          "slug": null,
+          "id": "brainstormforce-astra",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "DNS Made Easy",
+          "slug": null,
+          "id": "dns-made-easy",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "Elastic Email",
+          "slug": null,
+          "id": "elastic-email",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "Elegant Themes",
+          "slug": null,
+          "id": "elegant-themes",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "Linode",
+          "slug": null,
+          "id": "linode",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "Mail Chimp",
+          "slug": null,
+          "id": "mail-chimp",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "PayPal",
+          "slug": "paypal",
+          "id": "paypal",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "Rackspace, Inc",
+          "slug": "rackspace",
+          "id": "rackspace",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "Sendgrid",
+          "slug": null,
+          "id": "sendgrid",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "Stripe",
+          "slug": "stripe",
+          "id": "stripe",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        },
+        {
+          "name": "Vultr",
+          "slug": null,
+          "id": "vultr",
+          "source_url": "https://www.digitalocean.com/trust/subprocessors"
+        }
+      ],
       "disclosure": {
-        "score": 76,
+        "score": 75,
         "tier": "substantial",
         "factors": {
           "page": 20,
-          "marks": 24,
-          "dpa": 8,
-          "processors": 0,
+          "marks": 22,
+          "dpa": 0,
+          "processors": 8,
           "status": 6,
           "bounty": 6,
           "privacy": 6,
-          "years": 6
+          "years": 7
         }
       },
       "tier": "substantial",
@@ -18897,18 +19478,34 @@
         "page": true,
         "marks": true,
         "dpa": true,
-        "subprocessors": false,
+        "subprocessors": true,
         "years": true
       },
       "_crawl": {
-        "vendor": "wolfia",
-        "title": "Amplitude Trust Center - SOC 2 Type II, SOC 1 Type II",
-        "http_status": null
+        "vendor": "self_hosted",
+        "title": "Trust Platform | DigitalOcean",
+        "http_status": 200
+      },
+      "favicon": "digitalocean.com.png",
+      "aiti_lists": [
+        "openrouter-provider"
+      ],
+      "official_url": "https://www.digitalocean.com/",
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/digitalocean",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "DigitalOcean",
+            "url": "https://cloudsecurityalliance.org/star/registry/digitalocean",
+            "listed_since": "2021-01-24"
+          }
+        ]
       },
       "list_rank": null
     },
     {
-      "rank": 87,
+      "rank": 90,
       "name": "Attentive",
       "slug": "attentive",
       "domain": "attentive.com",
@@ -19013,7 +19610,7 @@
       "list_rank": 20
     },
     {
-      "rank": 88,
+      "rank": 91,
       "name": "Block",
       "slug": "block",
       "domain": "block.xyz",
@@ -19115,7 +19712,7 @@
       "list_rank": null
     },
     {
-      "rank": 89,
+      "rank": 92,
       "name": "Datadog",
       "slug": "datadog",
       "domain": "datadoghq.com",
@@ -19461,7 +20058,7 @@
       "list_rank": null
     },
     {
-      "rank": 90,
+      "rank": 93,
       "name": "Chainguard",
       "slug": "chainguard",
       "domain": "chainguard.dev",
@@ -19605,7 +20202,7 @@
       "list_rank": 97
     },
     {
-      "rank": 91,
+      "rank": 94,
       "name": "Cursor",
       "slug": "anysphere",
       "domain": "cursor.com",
@@ -19870,7 +20467,7 @@
       "list_rank": 8
     },
     {
-      "rank": 92,
+      "rank": 95,
       "name": "Together AI",
       "slug": "together-ai",
       "domain": "together.ai",
@@ -20194,7 +20791,185 @@
       "list_rank": 86
     },
     {
-      "rank": 93,
+      "rank": 96,
+      "name": "Benchling",
+      "slug": "benchling",
+      "domain": "benchling.com",
+      "found": true,
+      "trust_url": "https://securitytrust.benchling.com/",
+      "final_url": "https://securitytrust.benchling.com/",
+      "list": "cloud100",
+      "source": "forbes-cloud-100-2025",
+      "source_url": "",
+      "probed": 13,
+      "probed_at": "2026-08-21T00:52:53Z",
+      "certs": [
+        "CCPA",
+        "EU-US DPF",
+        "GDPR",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 9001",
+        "NIS2",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "iso-9001",
+          "name": "ISO 9001",
+          "weight": 4
+        },
+        {
+          "id": "nis2",
+          "name": "NIS2",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27018, GDPR, EU-US DPF +3.",
+      "founded_year": null,
+      "founded_source": null,
+      "instruments": {
+        "trust": {
+          "url": "https://securitytrust.benchling.com",
+          "host": "securitytrust.benchling.com",
+          "seen": "2026-08-21"
+        },
+        "security": {
+          "url": "https://benchling.com/signin/welcome?next=/security/",
+          "host": "benchling.com",
+          "seen": "2026-08-21"
+        },
+        "privacy": {
+          "url": "https://www.benchling.com/privacy",
+          "host": "benchling.com",
+          "seen": "2026-08-21"
+        },
+        "dpa": null,
+        "subprocessors": {
+          "url": "https://www.benchling.com/subprocessors",
+          "host": "benchling.com",
+          "seen": "2026-08-21"
+        },
+        "status": null,
+        "bounty": null
+      },
+      "processors": [
+        {
+          "name": "Amazon Web Services, Inc",
+          "slug": "amazon-web-services",
+          "id": "aws",
+          "source_url": "https://www.benchling.com/subprocessors"
+        },
+        {
+          "name": "DataDog",
+          "slug": "datadog",
+          "id": "datadog",
+          "source_url": "https://www.benchling.com/subprocessors"
+        },
+        {
+          "name": "Google",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://www.benchling.com/subprocessors"
+        },
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "id": "openai",
+          "source_url": "https://www.benchling.com/subprocessors"
+        },
+        {
+          "name": "Segment",
+          "slug": null,
+          "id": "segment",
+          "source_url": "https://www.benchling.com/subprocessors"
+        },
+        {
+          "name": "Sentry",
+          "slug": null,
+          "id": "sentry",
+          "source_url": "https://www.benchling.com/subprocessors"
+        },
+        {
+          "name": "Snowflake",
+          "slug": "snowflake",
+          "id": "snowflake",
+          "source_url": "https://www.benchling.com/subprocessors"
+        },
+        {
+          "name": "Zendesk",
+          "slug": "zendesk",
+          "id": "zendesk",
+          "source_url": "https://www.benchling.com/subprocessors"
+        }
+      ],
+      "disclosure": {
+        "score": 74,
+        "tier": "substantial",
+        "factors": {
+          "page": 20,
+          "marks": 40,
+          "dpa": 0,
+          "processors": 8,
+          "status": 0,
+          "bounty": 0,
+          "privacy": 6,
+          "years": 0
+        }
+      },
+      "tier": "substantial",
+      "file": {
+        "page": true,
+        "marks": true,
+        "dpa": false,
+        "subprocessors": true,
+        "years": false
+      },
+      "_crawl": {
+        "vendor": "safebase",
+        "title": "Benchling Security Center",
+        "http_status": 200
+      },
+      "list_rank": 66
+    },
+    {
+      "rank": 97,
       "name": "Komodo Health",
       "slug": "komodo-health",
       "domain": "komodohealth.com",
@@ -20350,7 +21125,7 @@
       "list_rank": 60
     },
     {
-      "rank": 94,
+      "rank": 98,
       "name": "GitLab",
       "slug": "gitlab",
       "domain": "gitlab.com",
@@ -20881,7 +21656,7 @@
       "list_rank": null
     },
     {
-      "rank": 95,
+      "rank": 99,
       "name": "DeepL",
       "slug": "deepl",
       "domain": "deepl.com",
@@ -20997,109 +21772,7 @@
       "list_rank": 75
     },
     {
-      "rank": 96,
-      "name": "Unity",
-      "slug": "unity",
-      "domain": "unity.com",
-      "found": true,
-      "trust_url": "https://trust.unity.com",
-      "final_url": "https://trust.unity.com",
-      "list": "enterprise",
-      "source": "public-enterprise",
-      "source_url": "",
-      "probed": 1,
-      "probed_at": "2026-08-21T00:52:53Z",
-      "certs": [
-        "ISO 9001",
-        "PCI DSS",
-        "SOC 2 Type II"
-      ],
-      "attestations": [
-        {
-          "id": "iso-9001",
-          "name": "ISO 9001",
-          "weight": 4
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
-        },
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        }
-      ],
-      "summary": "Public trust center. On file: SOC 2 Type II, ISO 9001, PCI DSS.",
-      "founded_year": 2004,
-      "founded_source": "https://en.wikipedia.org/wiki/Unity_Technologies",
-      "instruments": {
-        "trust": {
-          "url": "https://trust.unity.com",
-          "host": "trust.unity.com",
-          "seen": "2026-08-21"
-        },
-        "security": {
-          "url": "https://unity.com/security",
-          "host": "unity.com",
-          "seen": "2026-08-21"
-        },
-        "privacy": {
-          "url": "https://unity.com/legal/developer-privacy-policy",
-          "host": "unity.com",
-          "seen": "2026-08-21"
-        },
-        "dpa": null,
-        "subprocessors": {
-          "url": "https://unity.com/legal/subprocessors",
-          "host": "unity.com",
-          "seen": "2026-08-21"
-        },
-        "status": {
-          "url": "https://status.unity.com",
-          "host": "status.unity.com",
-          "seen": "2026-08-21"
-        },
-        "bounty": {
-          "url": "https://bugcrowd.com/engagements/unity",
-          "host": "bugcrowd.com",
-          "seen": "2026-08-21"
-        }
-      },
-      "processors": [],
-      "disclosure": {
-        "score": 72,
-        "tier": "substantial",
-        "factors": {
-          "page": 20,
-          "marks": 22,
-          "dpa": 0,
-          "processors": 8,
-          "status": 6,
-          "bounty": 0,
-          "privacy": 6,
-          "years": 10
-        }
-      },
-      "tier": "substantial",
-      "file": {
-        "page": true,
-        "marks": true,
-        "dpa": false,
-        "subprocessors": true,
-        "years": true
-      },
-      "_crawl": {
-        "vendor": "conveyor",
-        "title": "Unity Trust Center",
-        "http_status": null
-      },
-      "favicon": "unity.com.png",
-      "list_rank": null
-    },
-    {
-      "rank": 97,
+      "rank": 100,
       "name": "Fivetran",
       "slug": "fivetran",
       "domain": "fivetran.com",
@@ -21255,7 +21928,7 @@
       "list_rank": 36
     },
     {
-      "rank": 98,
+      "rank": 101,
       "name": "Databricks",
       "slug": "databricks",
       "domain": "databricks.com",
@@ -21501,7 +22174,7 @@
       "list_rank": 4
     },
     {
-      "rank": 99,
+      "rank": 102,
       "name": "Netlify",
       "slug": "netlify",
       "domain": "netlify.com",
@@ -21630,7 +22303,7 @@
       "list_rank": null
     },
     {
-      "rank": 100,
+      "rank": 103,
       "name": "Island",
       "slug": "island",
       "domain": "island.io",
@@ -21796,7 +22469,7 @@
       "list_rank": 78
     },
     {
-      "rank": 101,
+      "rank": 104,
       "name": "Saviynt",
       "slug": "saviynt",
       "domain": "saviynt.com",
@@ -21913,7 +22586,7 @@
       "list_rank": 778
     },
     {
-      "rank": 102,
+      "rank": 105,
       "name": "Adobe",
       "slug": "adobe",
       "domain": "adobe.com",
@@ -22200,7 +22873,7 @@
       "list_rank": null
     },
     {
-      "rank": 103,
+      "rank": 106,
       "name": "HiBob",
       "slug": "hibob",
       "domain": "hibob.com",
@@ -22500,7 +23173,7 @@
       "list_rank": 55
     },
     {
-      "rank": 104,
+      "rank": 107,
       "name": "OneTrust",
       "slug": "onetrust",
       "domain": "onetrust.com",
@@ -22668,7 +23341,7 @@
       "list_rank": 28
     },
     {
-      "rank": 105,
+      "rank": 108,
       "name": "Rapid7",
       "slug": "rapid7",
       "domain": "rapid7.com",
@@ -23039,7 +23712,7 @@
       "list_rank": null
     },
     {
-      "rank": 106,
+      "rank": 109,
       "name": "Azul Systems",
       "slug": "azul-systems",
       "domain": "azul.com",
@@ -23126,133 +23799,7 @@
       "list_rank": 1344
     },
     {
-      "rank": 107,
-      "name": "Miro",
-      "slug": "miro",
-      "domain": "miro.com",
-      "found": true,
-      "trust_url": "https://trust.miro.com",
-      "final_url": "https://trust.miro.com",
-      "list": "cloud100",
-      "source": "forbes-cloud-100-2025",
-      "source_url": "",
-      "probed": 1,
-      "probed_at": "2026-08-21T00:52:53Z",
-      "certs": [
-        "CSA STAR",
-        "GDPR",
-        "ISO 27001",
-        "ISO 42001",
-        "SOC 2 Type II"
-      ],
-      "attestations": [
-        {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
-          "weight": 4
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
-        },
-        {
-          "id": "iso-42001",
-          "name": "ISO 42001",
-          "weight": 6
-        },
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        }
-      ],
-      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 42001, GDPR.",
-      "founded_year": 2011,
-      "founded_source": "https://en.wikipedia.org/wiki/Miro_(collaboration_platform)",
-      "instruments": {
-        "trust": {
-          "url": "https://trust.miro.com",
-          "host": "trust.miro.com",
-          "seen": "2026-08-21"
-        },
-        "security": null,
-        "privacy": {
-          "url": "https://miro.com/legal/privacy-policy/",
-          "host": "miro.com",
-          "seen": "2026-08-21"
-        },
-        "dpa": null,
-        "subprocessors": {
-          "url": "https://trust.miro.com/subprocessors",
-          "host": "trust.miro.com",
-          "seen": "2026-08-21"
-        },
-        "status": {
-          "url": "https://status.miro.com",
-          "host": "status.miro.com",
-          "seen": "2026-08-21"
-        },
-        "bounty": null,
-        "ai": {
-          "url": "https://miro.com/ai/principles/",
-          "host": "miro.com",
-          "seen": "2026-08-20"
-        }
-      },
-      "processors": [],
-      "disclosure": {
-        "score": 70,
-        "tier": "substantial",
-        "factors": {
-          "page": 20,
-          "marks": 29,
-          "dpa": 0,
-          "processors": 8,
-          "status": 6,
-          "bounty": 0,
-          "privacy": 0,
-          "years": 7
-        }
-      },
-      "tier": "substantial",
-      "file": {
-        "page": true,
-        "marks": true,
-        "dpa": false,
-        "subprocessors": true,
-        "years": true
-      },
-      "_crawl": {
-        "vendor": "wolfia",
-        "title": "Miro Trust Center - ISO 42001, ISO 27001, SOC 2 Type II",
-        "http_status": null
-      },
-      "ai_page": {
-        "url": "https://miro.com/ai/principles/",
-        "host": "miro.com",
-        "seen": "2026-08-20"
-      },
-      "csa_star": {
-        "marketplace": "https://cloudsecurityalliance.org/star/registry/realtimeboard-inc",
-        "source": "https://cloudsecurityalliance.org/star/registry",
-        "products": [
-          {
-            "offering": "Realtimeboard Inc. (dba Miro)",
-            "url": "https://cloudsecurityalliance.org/star/registry/realtimeboard-inc",
-            "listed_since": "2018-06-10"
-          }
-        ]
-      },
-      "list_rank": 18
-    },
-    {
-      "rank": 108,
+      "rank": 110,
       "name": "Groq",
       "slug": "groq",
       "domain": "groq.com",
@@ -23386,7 +23933,7 @@
       "list_rank": null
     },
     {
-      "rank": 109,
+      "rank": 111,
       "name": "Mistral AI",
       "slug": "mistral-ai",
       "domain": "mistral.ai",
@@ -23528,7 +24075,7 @@
       "list_rank": null
     },
     {
-      "rank": 110,
+      "rank": 112,
       "name": "Bench Accounting",
       "slug": "bench-accounting",
       "domain": "bench.co",
@@ -23627,7 +24174,7 @@
       "list_rank": 1352
     },
     {
-      "rank": 111,
+      "rank": 113,
       "name": "Tenable",
       "slug": "tenable",
       "domain": "tenable.com",
@@ -23826,7 +24373,7 @@
       "list_rank": null
     },
     {
-      "rank": 112,
+      "rank": 114,
       "name": "UiPath",
       "slug": "uipath",
       "domain": "uipath.com",
@@ -24077,7 +24624,7 @@
       "list_rank": null
     },
     {
-      "rank": 113,
+      "rank": 115,
       "name": "New Relic",
       "slug": "new-relic",
       "domain": "newrelic.com",
@@ -24233,148 +24780,7 @@
       "list_rank": null
     },
     {
-      "rank": 114,
-      "name": "DigitalOcean",
-      "slug": "digitalocean",
-      "domain": "digitalocean.com",
-      "found": true,
-      "trust_url": "https://www.digitalocean.com/trust",
-      "final_url": "https://www.digitalocean.com/trust",
-      "list": "enterprise",
-      "source": "public-enterprise",
-      "source_url": "",
-      "probed": 13,
-      "probed_at": "2026-08-21T00:52:53Z",
-      "certs": [
-        "CSA STAR",
-        "DORA",
-        "GDPR",
-        "HIPAA",
-        "PCI DSS",
-        "SOC 2 Type II",
-        "SOC 3"
-      ],
-      "attestations": [
-        {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
-          "weight": 4
-        },
-        {
-          "id": "dora",
-          "name": "DORA",
-          "weight": 4
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
-        },
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
-        }
-      ],
-      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, PCI DSS.",
-      "founded_year": 2011,
-      "founded_source": "https://en.wikipedia.org/wiki/DigitalOcean",
-      "instruments": {
-        "trust": {
-          "url": "https://www.digitalocean.com/trust",
-          "host": "digitalocean.com",
-          "seen": "2026-08-21"
-        },
-        "security": {
-          "url": "https://www.digitalocean.com/security",
-          "host": "digitalocean.com",
-          "seen": "2026-08-21"
-        },
-        "privacy": {
-          "url": "https://www.digitalocean.com/legal/privacy-policy",
-          "host": "digitalocean.com",
-          "seen": "2026-08-21"
-        },
-        "dpa": {
-          "url": "https://www.digitalocean.com/legal/data-processing-agreement",
-          "host": "digitalocean.com",
-          "seen": "2026-08-21"
-        },
-        "subprocessors": null,
-        "status": {
-          "url": "https://status.digitalocean.com/",
-          "host": "status.digitalocean.com",
-          "seen": "2026-08-21"
-        },
-        "bounty": {
-          "url": "https://app.intigriti.com/programs/digitalocean/digitalocean",
-          "host": "app.intigriti.com",
-          "seen": "2026-08-21"
-        }
-      },
-      "processors": [],
-      "disclosure": {
-        "score": 67,
-        "tier": "on-file",
-        "factors": {
-          "page": 20,
-          "marks": 22,
-          "dpa": 0,
-          "processors": 0,
-          "status": 6,
-          "bounty": 6,
-          "privacy": 6,
-          "years": 7
-        }
-      },
-      "tier": "on-file",
-      "file": {
-        "page": true,
-        "marks": true,
-        "dpa": true,
-        "subprocessors": false,
-        "years": true
-      },
-      "_crawl": {
-        "vendor": "self_hosted",
-        "title": "Trust Platform | DigitalOcean",
-        "http_status": 200
-      },
-      "favicon": "digitalocean.com.png",
-      "aiti_lists": [
-        "openrouter-provider"
-      ],
-      "official_url": "https://www.digitalocean.com/",
-      "csa_star": {
-        "marketplace": "https://cloudsecurityalliance.org/star/registry/digitalocean",
-        "source": "https://cloudsecurityalliance.org/star/registry",
-        "products": [
-          {
-            "offering": "DigitalOcean",
-            "url": "https://cloudsecurityalliance.org/star/registry/digitalocean",
-            "listed_since": "2021-01-24"
-          }
-        ]
-      },
-      "list_rank": null
-    },
-    {
-      "rank": 115,
+      "rank": 116,
       "name": "Arctic Wolf",
       "slug": "arctic-wolf",
       "domain": "arcticwolf.com",
@@ -24518,7 +24924,7 @@
       "list_rank": 22
     },
     {
-      "rank": 116,
+      "rank": 117,
       "name": "Zendesk",
       "slug": "zendesk",
       "domain": "zendesk.com",
@@ -24673,131 +25079,6 @@
         ]
       },
       "list_rank": null
-    },
-    {
-      "rank": 117,
-      "name": "Benchling",
-      "slug": "benchling",
-      "domain": "benchling.com",
-      "found": true,
-      "trust_url": "https://securitytrust.benchling.com/",
-      "final_url": "https://securitytrust.benchling.com/",
-      "list": "cloud100",
-      "source": "forbes-cloud-100-2025",
-      "source_url": "",
-      "probed": 13,
-      "probed_at": "2026-08-21T00:52:53Z",
-      "certs": [
-        "CCPA",
-        "EU-US DPF",
-        "GDPR",
-        "ISO 27001",
-        "ISO 27017",
-        "ISO 27018",
-        "ISO 9001",
-        "NIS2",
-        "SOC 2 Type II"
-      ],
-      "attestations": [
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": "eu-us-dpf",
-          "name": "EU-US DPF",
-          "weight": 4
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
-        },
-        {
-          "id": "iso-27017",
-          "name": "ISO 27017",
-          "weight": 4
-        },
-        {
-          "id": "iso-27018",
-          "name": "ISO 27018",
-          "weight": 4
-        },
-        {
-          "id": "iso-9001",
-          "name": "ISO 9001",
-          "weight": 4
-        },
-        {
-          "id": "nis2",
-          "name": "NIS2",
-          "weight": 4
-        },
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        }
-      ],
-      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27018, GDPR, EU-US DPF +3.",
-      "founded_year": null,
-      "founded_source": null,
-      "instruments": {
-        "trust": {
-          "url": "https://securitytrust.benchling.com",
-          "host": "securitytrust.benchling.com",
-          "seen": "2026-08-21"
-        },
-        "security": {
-          "url": "https://benchling.com/signin/welcome?next=/security/",
-          "host": "benchling.com",
-          "seen": "2026-08-21"
-        },
-        "privacy": {
-          "url": "https://www.benchling.com/privacy",
-          "host": "benchling.com",
-          "seen": "2026-08-21"
-        },
-        "dpa": null,
-        "subprocessors": null,
-        "status": null,
-        "bounty": null
-      },
-      "processors": [],
-      "disclosure": {
-        "score": 66,
-        "tier": "on-file",
-        "factors": {
-          "page": 20,
-          "marks": 40,
-          "dpa": 0,
-          "processors": 0,
-          "status": 0,
-          "bounty": 0,
-          "privacy": 6,
-          "years": 0
-        }
-      },
-      "tier": "on-file",
-      "file": {
-        "page": true,
-        "marks": true,
-        "dpa": false,
-        "subprocessors": false,
-        "years": false
-      },
-      "_crawl": {
-        "vendor": "safebase",
-        "title": "Benchling Security Center",
-        "http_status": 200
-      },
-      "list_rank": 66
     },
     {
       "rank": 118,
@@ -124837,34 +125118,34 @@
     "companies": 1461,
     "years": 331,
     "certs_companies": 367,
-    "edges": 1301,
+    "edges": 1344,
     "top_processors": [
       {
         "id": "aws",
-        "n": 74
+        "n": 77
       },
       {
         "id": "twilio",
-        "n": 34
+        "n": 35
       },
       {
         "id": "openai",
-        "n": 32
+        "n": 34
       }
     ],
     "links": {
       "security_txt": 230,
-      "dpa": 126,
+      "dpa": 128,
       "privacy": 562,
       "status": 278,
       "bug_bounty": 187,
-      "subprocessors": 199
+      "subprocessors": 202
     },
     "tiers": {
       "silent": 1084,
       "thin": 147,
-      "on-file": 120,
-      "substantial": 72,
+      "on-file": 118,
+      "substantial": 74,
       "complete": 38
     }
   }
