@@ -72,12 +72,20 @@ def first_party_candidates(public: dict, enr: dict) -> list[tuple[str, str]]:
     return out
 
 
+def previous_batch() -> set[str]:
+    """Skip companies already attempted on the last increment. Do not retry them."""
+    return {slug for slug in (load_json(REPORT, {}).get("batch") or []) if slug}
+
+
 def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]:
+    skip = previous_batch()
     picked = []
     for row in public_rows:
         if not row.get("found"):
             continue
         slug = row.get("slug") or ""
+        if slug in skip:
+            continue
         enr = enr_by.get(slug)
         if not enr:
             continue

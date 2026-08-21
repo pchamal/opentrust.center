@@ -959,7 +959,8 @@ HEADERISH_RE = re.compile(
     r"location of processing|security measures|user support|"
     r"hosting and infrastructure|affiliates?$|third[- ]part|"
     r"aws (entity|service|development entities)|entity$|name$|"
-    r"service provider|data privacy|data security|cdp\b)\b",
+    r"service provider|data privacy|data security|cdp\b|"
+    r"data center services)\b",
     re.I,
 )
 PROVIDER_SECTION_RE = re.compile(r"(service )?providers$", re.I)
@@ -1733,7 +1734,8 @@ HEADERISH_RE = re.compile(
     r"location of processing|security measures|user support|"
     r"hosting and infrastructure|affiliates?$|third[- ]part|"
     r"aws (entity|service|development entities)|entity$|name$|"
-    r"service provider|data privacy|data security|cdp\b)\b",
+    r"service provider|data privacy|data security|cdp\b|"
+    r"data center services)\b",
     re.I,
 )
 PROVIDER_SECTION_RE = re.compile(r"(service )?providers$", re.I)
