@@ -497,34 +497,65 @@ export function markHuman() {
   }
 }
 
-export function attachGate({ button, box, status, url }) {
+function makeGate(doc) {
+  const gate = doc.createElement("div");
+  gate.className = "gate";
+  gate.id = "gate";
+  gate.hidden = true;
+  const label = doc.createElement("label");
+  label.className = "turn";
+  const input = doc.createElement("input");
+  input.type = "checkbox";
+  input.id = "gate-box";
+  const turnBox = doc.createElement("span");
+  turnBox.className = "turn-box";
+  turnBox.setAttribute("aria-hidden", "true");
+  const words = doc.createElement("span");
+  words.textContent = "I am human";
+  const status = doc.createElement("p");
+  status.className = "gate-status";
+  status.id = "gate-status";
+  label.append(input, turnBox, words);
+  gate.append(label, status);
+  return gate;
+}
+
+function takeGate(doc) {
+  const leftover = doc && doc.getElementById("gate");
+  if (leftover && leftover.parentNode) leftover.remove();
+  return leftover || (doc && makeGate(doc));
+}
+
+export function placeGate(gate, after) {
+  if (!gate || !after) return;
+  after.after(gate);
+  gate.hidden = false;
+}
+
+export function shutGate(gate) {
+  if (gate) gate.hidden = true;
+}
+
+export function attachGate({ button, box, status, url } = {}) {
+  const doc = globalThis.document;
   let pending = url || (button && button.dataset.url) || "";
-
-  function reveal() {
-    const gate = box && box.closest(".gate");
-    if (gate) gate.hidden = false;
-  }
-
-  function showVerified() {
-    reveal();
-    if (status) status.textContent = "verified · 30 min";
-    if (box) {
-      box.checked = true;
-      box.disabled = true;
-    }
-  }
+  let gate = takeGate(doc) || (box && box.closest(".gate"));
+  if (!gate && doc) gate = makeGate(doc);
+  box = (gate && gate.querySelector("#gate-box")) || box;
+  status = (gate && gate.querySelector("#gate-status")) || status;
 
   function go(href) {
-    if (href) window.open(href, "_blank", "noopener,noreferrer");
+    if (href) globalThis.window.open(href, "_blank", "noopener,noreferrer");
   }
 
-  function requestStamp(href) {
+  function requestStamp(href, after) {
     pending = href || pending;
     if (humanOk()) {
+      shutGate(gate);
       go(pending);
       return;
     }
-    reveal();
+    placeGate(gate, after || button);
     if (status) status.textContent = "";
     if (box) {
       box.checked = false;
@@ -532,25 +563,25 @@ export function attachGate({ button, box, status, url }) {
     }
   }
 
-  if (humanOk()) showVerified();
-
   if (button) {
     const href = url || button.dataset.url || "";
     if (!href) {
       button.hidden = true;
     } else {
       button.hidden = false;
-      button.addEventListener("click", () => requestStamp(href));
+      button.addEventListener("click", () => requestStamp(href, button));
     }
   }
 
-  document.querySelectorAll("a.official").forEach((a) => {
-    a.addEventListener("click", (e) => {
-      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-      e.preventDefault();
-      requestStamp(a.getAttribute("href") || a.href);
+  if (doc) {
+    doc.querySelectorAll("a.official").forEach((a) => {
+      a.addEventListener("click", (e) => {
+        if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        e.preventDefault();
+        requestStamp(a.getAttribute("href") || a.href, a);
+      });
     });
-  });
+  }
 
   if (box) {
     box.addEventListener("change", (e) => {
@@ -558,8 +589,13 @@ export function attachGate({ button, box, status, url }) {
       if (status) status.textContent = "checking…";
       setTimeout(() => {
         markHuman();
-        showVerified();
+        if (status) status.textContent = "verified · 30 min";
+        if (box) {
+          box.checked = true;
+          box.disabled = true;
+        }
         go(pending);
+        shutGate(gate);
       }, 250);
     });
   }

@@ -1272,16 +1272,6 @@ def cite_url(url: str) -> str:
         return url
 
 
-GATE_HTML = """<div class="gate" id="gate" hidden>
-      <label class="turn">
-        <input type="checkbox" id="gate-box">
-        <span class="turn-box" aria-hidden="true"></span>
-        <span>I am human</span>
-      </label>
-      <p class="gate-status" id="gate-status"></p>
-    </div>"""
-
-
 def fedramp_block(row: dict, generated_at: str = "") -> str:
     fed = row.get("fedramp") if isinstance(row.get("fedramp"), dict) else None
     products = [
@@ -1691,10 +1681,6 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     official_home = (row.get("official_url") or "").strip()
     if not official_home.startswith(("http://", "https://")):
         official_home = ""
-    need_gate = bool(found and url) or any(
-        rec and rec.get("url") for rec in inst.values()
-    ) or any(p.get("source_url") for p in procs) or bool(list_url) or bool(ai_url) or bool(official_home)
-    gate = GATE_HTML if need_gate else ""
     claim = f'<a class="perm" href="../claim.html?slug={escape(slug)}">Report a correction</a>'
     issue = dossier_issue_line(generated_at, slug)
     domain_html = official_a(official_home, domain) if official_home and domain else escape(domain)
@@ -1757,7 +1743,6 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     {mark_list}
 
     <p class="out">{outbound}</p>
-    {gate}
 
 {fedramp_block(row, generated_at)}{ramp_extras(row)}
 {star_block(row)}
