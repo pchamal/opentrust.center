@@ -244,6 +244,14 @@ function storedAiInstrumentUrl(row, key) {
   return url;
 }
 
+export function storedAiEvalsUrl(row) {
+  return storedAiInstrumentUrl(row, "evals");
+}
+
+export function storedAiIncidentsUrl(row) {
+  return storedAiInstrumentUrl(row, "incidents");
+}
+
 /* AITI Domain: company domain, linked to the official homepage.
    The stored AI page stays on the dossier; it does not replace this cell. */
 export function printedAitiUrl(row) {
