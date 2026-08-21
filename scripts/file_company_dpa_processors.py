@@ -24,10 +24,11 @@ ENRICHED = SITE / "data" / "enriched.json"
 REPORT = DATA / "render" / "company-dpa-processors.json"
 BATCH = 40
 WORKERS = 12
-# Companies already attempted in PRs 47 and 57. Do not retry this cut.
-# The live report holds the expand increment; older PRs are listed here because
-# those reports were overwritten.
+# Companies already attempted in earlier DPA/subprocessor cuts. Do not retry.
+# The live report holds the last expand increment; older PRs are listed here
+# because those reports were overwritten.
 PRIOR_ATTEMPTED = {
+    # PR 47
     "palo-alto-networks",
     "dropbox",
     "motive",
@@ -68,6 +69,47 @@ PRIOR_ATTEMPTED = {
     "lambda",
     "cornerstone-ondemand",
     "fortinet",
+    # PR 48
+    "amplitude",
+    "block",
+    "chainguard",
+    "komodo-health",
+    "deepl",
+    "unity",
+    "fivetran",
+    "netlify",
+    "island",
+    "saviynt",
+    "adobe",
+    "azul-systems",
+    "miro",
+    "bench-accounting",
+    "tenable",
+    "uipath",
+    "new-relic",
+    "digitalocean",
+    "zendesk",
+    "benchling",
+    "nice",
+    "microsoft",
+    "adeptia",
+    "runway",
+    "abridge",
+    "zoho",
+    "salesforce",
+    "stability-ai",
+    "caplinked",
+    "cohesity",
+    "glean",
+    "gusto",
+    "sap",
+    "sumo-logic",
+    "harness",
+    "axonius",
+    "five9",
+    "zoom",
+    "netskope",
+    "cisco",
     # PR 57
     "instructure",
     "greenhouse-software",
@@ -109,6 +151,41 @@ PRIOR_ATTEMPTED = {
     "google",
     "docusign",
     "box",
+    # PR 60 morning expand
+    "jamf",
+    "jw-player",
+    "ivanti",
+    "kajabi",
+    "kaseya",
+    "kentik",
+    "litera",
+    "lusha",
+    "lilt",
+    # PR 62
+    "medallia",
+    "mindbody-inc",
+    "mindfire-inc",
+    # PR 64
+    "dashlane",
+    # PR 65 CRN six
+    "vulncheck",
+    "recorded-future",
+    "blackberry",
+    "reflectiz",
+    "secureworks",
+    "juniper-networks",
+    # PR 66 19:01 expand (also the live report batch)
+    "bugcrowd",
+    "crossbeam-systems",
+    "druva",
+    "fluid-attacks",
+    "datto",
+    "hackerone",
+    # PR 68 19:55 expand — JS shells / 403s, nothing to file
+    "netcraft",
+    "synack",
+    "pentera",
+    "panorays",
 }
 
 
