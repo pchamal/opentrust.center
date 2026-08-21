@@ -9024,6 +9024,230 @@
       "domain": "",
       "kind": "processor",
       "in_register": false
+    },
+    {
+      "id": "astronomer",
+      "name": "Astronomer, Inc",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "jamf",
+      "name": "Jamf",
+      "domain": "jamf.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "elastic-io",
+      "name": "Elastic.io GmbH",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "pmg-net",
+      "name": "PMG.net",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "the-rocket-science-group",
+      "name": "The Rocket Science Group, LLC",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "wizy-io",
+      "name": "Wizy.io",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "data-jar",
+      "name": "Data Jar Ltd",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "healthcast",
+      "name": "Healthcast, Inc",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "identity-automation-lp",
+      "name": "Identity Automation, LP",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "zecops-israel",
+      "name": "ZecOps Israel Ltd",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "jw-player",
+      "name": "JW Player",
+      "domain": "jwplayer.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "stitch",
+      "name": "Stitch",
+      "domain": "stitchdata.com",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "oracle-cloud-infrastructure-oci",
+      "name": "Oracle Cloud Infrastructure (OCI)",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "kentik",
+      "name": "Kentik",
+      "domain": "kentik.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "deft",
+      "name": "Deft",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "domo",
+      "name": "Domo",
+      "domain": "domo.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "lever",
+      "name": "Lever",
+      "domain": "lever.co",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "stackone",
+      "name": "StackOne",
+      "domain": "stackone.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "captionhub",
+      "name": "CaptionHub",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "lilt",
+      "name": "Lilt",
+      "domain": "lilt.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "chorus",
+      "name": "Chorus",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "cognism",
+      "name": "Cognism",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "eztitles",
+      "name": "EZTitles",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "front",
+      "name": "Front",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "hightouch",
+      "name": "Hightouch",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "linkedin-sales-navigator",
+      "name": "LinkedIn Sales Navigator",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "microsoft-office",
+      "name": "Microsoft Office",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "netsuite",
+      "name": "Netsuite",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "payoneer",
+      "name": "Payoneer",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "retool",
+      "name": "Retool",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "tabs",
+      "name": "Tabs",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "wso2-asgardeo",
+      "name": "WSO2/Asgardeo",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
     }
   ],
   "edges": [
@@ -17090,6 +17314,444 @@
       "to": "vultr",
       "source_url": "https://www.digitalocean.com/trust/subprocessors",
       "evidence": "Vultr"
+    },
+    {
+      "from": "jamf",
+      "to": "aws",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "Amazon Web Services, Inc"
+    },
+    {
+      "from": "jamf",
+      "to": "astronomer",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "Astronomer, Inc"
+    },
+    {
+      "from": "jamf",
+      "to": "auth0",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "Auth0, Inc"
+    },
+    {
+      "from": "jamf",
+      "to": "clickhouse",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "Clickhouse, Inc"
+    },
+    {
+      "from": "jamf",
+      "to": "elastic-io",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "Elastic.io GmbH"
+    },
+    {
+      "from": "jamf",
+      "to": "gainsight",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "Gainsight, Inc"
+    },
+    {
+      "from": "jamf",
+      "to": "google",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "Google, LLC"
+    },
+    {
+      "from": "jamf",
+      "to": "microsoft",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "Microsoft Corporation"
+    },
+    {
+      "from": "jamf",
+      "to": "mongodb",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "MongoDB, Inc"
+    },
+    {
+      "from": "jamf",
+      "to": "onesignal",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "OneSignal, Inc"
+    },
+    {
+      "from": "jamf",
+      "to": "pmg-net",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "PMG.net"
+    },
+    {
+      "from": "jamf",
+      "to": "tableau",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "Tableau Software, LLC"
+    },
+    {
+      "from": "jamf",
+      "to": "the-rocket-science-group",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "The Rocket Science Group, LLC"
+    },
+    {
+      "from": "jamf",
+      "to": "twilio",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "Twilio, Inc"
+    },
+    {
+      "from": "jamf",
+      "to": "wizy-io",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "Wizy.io"
+    },
+    {
+      "from": "jamf",
+      "to": "intercom",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "Intercom, Inc"
+    },
+    {
+      "from": "jamf",
+      "to": "zoom",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "Zoom Video Communications, Inc"
+    },
+    {
+      "from": "jamf",
+      "to": "data-jar",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "Data Jar Ltd"
+    },
+    {
+      "from": "jamf",
+      "to": "healthcast",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "Healthcast, Inc"
+    },
+    {
+      "from": "jamf",
+      "to": "identity-automation-lp",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "Identity Automation, LP"
+    },
+    {
+      "from": "jamf",
+      "to": "zecops-israel",
+      "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
+      "evidence": "ZecOps Israel Ltd"
+    },
+    {
+      "from": "kentik",
+      "to": "aws",
+      "source_url": "https://www.kentik.com/legal/subprocessors/",
+      "evidence": "Amazon (AWS)"
+    },
+    {
+      "from": "kentik",
+      "to": "gcp",
+      "source_url": "https://www.kentik.com/legal/subprocessors/",
+      "evidence": "Google Cloud Platform (GCP)"
+    },
+    {
+      "from": "kentik",
+      "to": "azure",
+      "source_url": "https://www.kentik.com/legal/subprocessors/",
+      "evidence": "Microsoft Azure"
+    },
+    {
+      "from": "kentik",
+      "to": "oracle-cloud-infrastructure-oci",
+      "source_url": "https://www.kentik.com/legal/subprocessors/",
+      "evidence": "Oracle Cloud Infrastructure (OCI)"
+    },
+    {
+      "from": "kentik",
+      "to": "pagerduty",
+      "source_url": "https://www.kentik.com/legal/subprocessors/",
+      "evidence": "PagerDuty"
+    },
+    {
+      "from": "kentik",
+      "to": "pendo",
+      "source_url": "https://www.kentik.com/legal/subprocessors/",
+      "evidence": "Pendo"
+    },
+    {
+      "from": "kentik",
+      "to": "sendgrid",
+      "source_url": "https://www.kentik.com/legal/subprocessors/",
+      "evidence": "Sendgrid"
+    },
+    {
+      "from": "kentik",
+      "to": "openai",
+      "source_url": "https://www.kentik.com/legal/subprocessors/",
+      "evidence": "OpenAI"
+    },
+    {
+      "from": "kentik",
+      "to": "anthropic",
+      "source_url": "https://www.kentik.com/legal/subprocessors/",
+      "evidence": "Anthropic"
+    },
+    {
+      "from": "kentik",
+      "to": "zendesk",
+      "source_url": "https://www.kentik.com/legal/subprocessors/",
+      "evidence": "Zendesk"
+    },
+    {
+      "from": "kentik",
+      "to": "google-workspace",
+      "source_url": "https://www.kentik.com/legal/subprocessors/",
+      "evidence": "Google Workspace"
+    },
+    {
+      "from": "kentik",
+      "to": "slack",
+      "source_url": "https://www.kentik.com/legal/subprocessors/",
+      "evidence": "Slack"
+    },
+    {
+      "from": "kentik",
+      "to": "salesforce",
+      "source_url": "https://www.kentik.com/legal/subprocessors/",
+      "evidence": "Salesforce"
+    },
+    {
+      "from": "kentik",
+      "to": "atlassian",
+      "source_url": "https://www.kentik.com/legal/subprocessors/",
+      "evidence": "Atlassian (Jira)"
+    },
+    {
+      "from": "kentik",
+      "to": "deft",
+      "source_url": "https://www.kentik.com/legal/subprocessors/",
+      "evidence": "Deft"
+    },
+    {
+      "from": "kentik",
+      "to": "equinix",
+      "source_url": "https://www.kentik.com/legal/subprocessors/",
+      "evidence": "Equinix"
+    },
+    {
+      "from": "kentik",
+      "to": "databank",
+      "source_url": "https://www.kentik.com/legal/subprocessors/",
+      "evidence": "Databank"
+    },
+    {
+      "from": "lilt",
+      "to": "adobe",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Adobe"
+    },
+    {
+      "from": "lilt",
+      "to": "atlassian",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Atlassian"
+    },
+    {
+      "from": "lilt",
+      "to": "bill",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Bill"
+    },
+    {
+      "from": "lilt",
+      "to": "captionhub",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "CaptionHub"
+    },
+    {
+      "from": "lilt",
+      "to": "chorus",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Chorus"
+    },
+    {
+      "from": "lilt",
+      "to": "clickhouse",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Clickhouse"
+    },
+    {
+      "from": "lilt",
+      "to": "cognism",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Cognism"
+    },
+    {
+      "from": "lilt",
+      "to": "datadog",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "DataDog"
+    },
+    {
+      "from": "lilt",
+      "to": "elevenlabs",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "ElevenLabs"
+    },
+    {
+      "from": "lilt",
+      "to": "eztitles",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "EZTitles"
+    },
+    {
+      "from": "lilt",
+      "to": "fivetran",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Fivetran"
+    },
+    {
+      "from": "lilt",
+      "to": "front",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Front"
+    },
+    {
+      "from": "lilt",
+      "to": "fullstory",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Fullstory"
+    },
+    {
+      "from": "lilt",
+      "to": "sentry",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Functional Software (Sentry)"
+    },
+    {
+      "from": "lilt",
+      "to": "github",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "GitHub"
+    },
+    {
+      "from": "lilt",
+      "to": "gcp",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Google Cloud Platform"
+    },
+    {
+      "from": "lilt",
+      "to": "google-workspace",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Google Workspace"
+    },
+    {
+      "from": "lilt",
+      "to": "hightouch",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Hightouch"
+    },
+    {
+      "from": "lilt",
+      "to": "hubspot",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Hubspot"
+    },
+    {
+      "from": "lilt",
+      "to": "linkedin-sales-navigator",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "LinkedIn Sales Navigator"
+    },
+    {
+      "from": "lilt",
+      "to": "azure",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Microsoft Azure"
+    },
+    {
+      "from": "lilt",
+      "to": "microsoft-office",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Microsoft Office"
+    },
+    {
+      "from": "lilt",
+      "to": "netsuite",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Netsuite"
+    },
+    {
+      "from": "lilt",
+      "to": "notion",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Notion"
+    },
+    {
+      "from": "lilt",
+      "to": "payoneer",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Payoneer"
+    },
+    {
+      "from": "lilt",
+      "to": "retool",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Retool"
+    },
+    {
+      "from": "lilt",
+      "to": "salesforce",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Salesforce"
+    },
+    {
+      "from": "lilt",
+      "to": "sendgrid",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "SendGrid"
+    },
+    {
+      "from": "lilt",
+      "to": "sendsafely",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "SendSafely"
+    },
+    {
+      "from": "lilt",
+      "to": "slack",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Slack"
+    },
+    {
+      "from": "lilt",
+      "to": "stitch",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Stitch"
+    },
+    {
+      "from": "lilt",
+      "to": "tabs",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Tabs"
+    },
+    {
+      "from": "lilt",
+      "to": "wiz",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Wiz"
+    },
+    {
+      "from": "lilt",
+      "to": "workato",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "Workato"
+    },
+    {
+      "from": "lilt",
+      "to": "wso2-asgardeo",
+      "source_url": "https://lilt.com/legal/lilt-subprocessors",
+      "evidence": "WSO2/Asgardeo"
     }
   ],
   "notes": "Only public lists. Incomplete by nature. Login-walled app URLs omitted."

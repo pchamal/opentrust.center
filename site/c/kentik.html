@@ -11,7 +11,7 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://opentrust.center/c/kentik.html">
   <meta name="theme-color" content="#0B1411">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Kentik — opentrust.center", "description": "A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not.", "url": "https://opentrust.center/c/kentik.html", "isPartOf": {"@type": "WebSite", "name": "opentrust.center", "url": "https://opentrust.center/"}, "about": {"@type": "Organization", "name": "Kentik", "url": "https://kentik.com"}, "significantLink": "https://trust.kentik.com"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Kentik — opentrust.center", "description": "A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not.", "url": "https://opentrust.center/c/kentik.html", "isPartOf": {"@type": "WebSite", "name": "opentrust.center", "url": "https://opentrust.center/"}, "about": {"@type": "Organization", "name": "Kentik", "url": "https://kentik.com", "hasCredential": ["EU-US DPF", "GDPR", "SOC 2"]}, "significantLink": "https://trust.kentik.com"}</script>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css">
 </head>
@@ -32,7 +32,7 @@
     <section class="ident">
       <h1>Kentik</h1>
       <p class="ident-meta">kentik.com</p>
-      <p class="ident-meta file-line"><span class="file-index" role="img" aria-label="page · subprocessors"><span class="file-rule on" aria-hidden="true"></span><span class="file-rule" aria-hidden="true"></span><span class="file-rule" aria-hidden="true"></span><span class="file-rule on" aria-hidden="true"></span><span class="file-rule" aria-hidden="true"></span></span></p>
+      <p class="ident-meta file-line"><span class="file-index" role="img" aria-label="page · marks · subprocessors"><span class="file-rule on" aria-hidden="true"></span><span class="file-rule on" aria-hidden="true"></span><span class="file-rule" aria-hidden="true"></span><span class="file-rule on" aria-hidden="true"></span><span class="file-rule" aria-hidden="true"></span></span></p>
       <p class="ident-meta">founded · <span class="absent">not on file</span></p>
     </section>
 
@@ -43,7 +43,7 @@
     </table>
 
     <p class="sec-kicker">Marks</p>
-    <p class="absent">not on file</p>
+    <ul class="mark-list"><li><a href="../attestations.html#eu-us-dpf">EU-US DPF</a></li><li><a href="../attestations.html#gdpr">GDPR</a></li><li><a href="../attestations.html#soc-2-type-ii">SOC 2</a></li></ul>
 
     <p class="out"><a class="official" href="https://trust.kentik.com" rel="noopener noreferrer">Official page</a></p>
 
@@ -57,9 +57,13 @@
 
 
     <p class="sec-kicker">Named processors</p>
-    <p class="src-line">list on file · names not extracted · <a class="official" href="https://www.kentik.com/legal/subprocessors/" rel="noopener noreferrer">kentik.com/legal/subprocessors/</a></p>
+    <p class="src-line">Filed from <a class="official" href="https://www.kentik.com/legal/subprocessors/" rel="noopener noreferrer">kentik.com/legal/subprocessors/</a>.</p>
+    <table class="inst filed" data-table="processors">
+      <thead><tr><th scope="col" data-sort="processor" aria-sort="ascending"><button type="button">Processor</button></th></tr></thead>
+      <tbody><tr><td><a href="./amazon-web-services.html">Amazon (AWS)</a></td></tr><tr><td><a href="./anthropic.html">Anthropic</a></td></tr><tr><td><a href="./atlassian.html">Atlassian (Jira)</a></td></tr><tr><td><a href="../graph.html#p=databank">Databank</a></td></tr><tr><td><a href="../graph.html#p=deft">Deft</a></td></tr><tr><td><a href="./equinix.html">Equinix</a></td></tr><tr><td><a href="../graph.html#p=gcp">Google Cloud Platform (GCP)</a></td></tr><tr><td><a href="../graph.html#p=google-workspace">Google Workspace</a></td></tr><tr><td><a href="../graph.html#p=azure">Microsoft Azure</a></td></tr><tr><td><a href="./openai.html">OpenAI</a></td></tr><tr><td><a href="../graph.html#p=oracle-cloud-infrastructure-oci">Oracle Cloud Infrastructure (OCI)</a></td></tr><tr><td><a href="./pagerduty.html">PagerDuty</a></td></tr><tr><td><a href="./pendo.html">Pendo</a></td></tr><tr><td><a href="./salesforce.html">Salesforce</a></td></tr><tr><td><a href="../graph.html#p=sendgrid">Sendgrid</a></td></tr><tr><td><a href="./slack.html">Slack</a></td></tr><tr><td><a href="./zendesk.html">Zendesk</a></td></tr></tbody>
+    </table>
 
-    <p class="clerk">Official page on file. No marks extracted from the public HTML.</p>
+    <p class="clerk">Official page on file. Marks cited from public HTML: <a href="../attestations.html#eu-us-dpf">EU-US DPF</a>, <a href="../attestations.html#gdpr">GDPR</a>, <a href="../attestations.html#soc-2-type-ii">SOC 2</a>.</p>
     <p class="probe">last probed 21 Aug 2026, 9:12 AM PT</p>
     <div class="actions">
       <a class="perm" href="../claim.html?slug=kentik">Report a correction</a>

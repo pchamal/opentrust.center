@@ -24,9 +24,9 @@ ENRICHED = SITE / "data" / "enriched.json"
 REPORT = DATA / "render" / "company-dpa-processors.json"
 BATCH = 40
 WORKERS = 12
-# Companies already attempted in PR 47. Do not retry this cut.
-# The live report holds the immediately previous batch (PR 48); PR 47 is listed
-# here because that report was overwritten.
+# Companies already attempted in PRs 47 and 57. Do not retry this cut.
+# The live report holds the expand increment; older PRs are listed here because
+# those reports were overwritten.
 PRIOR_ATTEMPTED = {
     "palo-alto-networks",
     "dropbox",
@@ -68,6 +68,47 @@ PRIOR_ATTEMPTED = {
     "lambda",
     "cornerstone-ondemand",
     "fortinet",
+    # PR 57
+    "instructure",
+    "greenhouse-software",
+    "imply-data",
+    "daon-inc",
+    "cleo-communications",
+    "forcepoint",
+    "enterprisedb",
+    "expel",
+    "megaport",
+    "hackerearth",
+    "baseten",
+    "wiz",
+    "doubleverify",
+    "deepwatch",
+    "safebreach",
+    "accesso-technology",
+    "afiniti",
+    "abbyy",
+    "armis",
+    "eab",
+    "sailpoint",
+    "okta",
+    "plaid",
+    "confluent",
+    "hugging-face",
+    "rippling",
+    "perplexity-ai",
+    "collibra",
+    "ironscales",
+    "talkdesk",
+    "qualtrics",
+    "maintainx",
+    "canto-software",
+    "sentinelone",
+    "alphasense",
+    "ibm",
+    "pinewood-technologies",
+    "google",
+    "docusign",
+    "box",
 }
 
 
@@ -117,6 +158,11 @@ def first_party_candidates(public: dict, enr: dict) -> list[tuple[str, str]]:
     return out
 
 
+def requested_slugs() -> list[str]:
+    """Optional argv slugs. Empty means the next ~40 open DPA/subprocessor files."""
+    return [a.strip() for a in sys.argv[1:] if a.strip() and not a.startswith("-")]
+
+
 def previous_batch() -> set[str]:
     """Skip companies already attempted on the last increment. Do not retry them."""
     prior = {slug for slug in (load_json(REPORT, {}).get("batch") or []) if slug}
@@ -125,9 +171,12 @@ def previous_batch() -> set[str]:
 
 
 def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]:
-    skip = previous_batch()
+    wanted = requested_slugs()
+    skip = set() if wanted else previous_batch()
+    by_pub = {row.get("slug"): row for row in public_rows if row.get("slug")}
+    rows = [by_pub[s] for s in wanted if s in by_pub] if wanted else public_rows
     picked = []
-    for row in public_rows:
+    for row in rows:
         if not row.get("found"):
             continue
         slug = row.get("slug") or ""
@@ -137,7 +186,11 @@ def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]
         if not enr:
             continue
         dpa_open = not instrument_url(row, "dpa")
-        sub_open = not (row.get("processors") or instrument_url(row, "subprocessors"))
+        # Named-list increment: a stored URL with no printed names is still open.
+        if wanted:
+            sub_open = not (row.get("processors") or [])
+        else:
+            sub_open = not (row.get("processors") or instrument_url(row, "subprocessors"))
         if not (dpa_open or sub_open):
             continue
         cands = first_party_candidates(row, enr)
@@ -150,7 +203,7 @@ def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]
             "sub_open": sub_open,
             "candidates": cands,
         })
-        if len(picked) >= BATCH:
+        if not wanted and len(picked) >= BATCH:
             break
     return picked
 
