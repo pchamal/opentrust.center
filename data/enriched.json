@@ -51834,9 +51834,18 @@
       "title": "",
       "probed": 6,
       "source": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, SOC 3, ISO 27001, ISO 27018, FedRAMP Moderate, CSA STAR +2.",
       "list": "wikipedia-computer-security",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "ISO 27001",
+        "ISO 27018",
+        "FedRAMP Moderate",
+        "CSA STAR",
+        "Cyber Essentials Plus",
+        "NIST 800-53"
+      ],
       "links": {
         "trust": "https://trust.bugcrowd.com",
         "security_txt": "https://bugcrowd.com/.well-known/security.txt",
@@ -51847,14 +51856,15 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 47,
-        "tier": "on-file",
+        "score": 87,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
           "subprocessors": 8,
           "disclosure": 6,
           "privacy": 6,
-          "longevity": 7
+          "longevity": 7,
+          "marks": 40
         }
       },
       "founded_year": 2011,
@@ -51964,9 +51974,17 @@
       "title": "",
       "probed": 5,
       "source": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: ISO 27001, ISO 27701, PCI DSS, GDPR, CCPA, SOC 2 Type II +1.",
       "list": "wikipedia-computer-security",
-      "certs": [],
+      "certs": [
+        "ISO 27001",
+        "ISO 27701",
+        "PCI DSS",
+        "GDPR",
+        "CCPA",
+        "SOC 2 Type II",
+        "EU-US DPF"
+      ],
       "links": {
         "trust": "https://trust.crossbeam.com",
         "security": "https://security.crossbeam.com/",
@@ -51975,17 +51993,31 @@
         "dpa": "https://www.crossbeam.com/legal/dpa",
         "status": "https://status.crossbeam.com"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "confluent",
+        "datadog",
+        "dash0",
+        "mongodb",
+        "openai",
+        "reveal-sas",
+        "sendgrid",
+        "snowflake",
+        "tray-ai",
+        "anthropic",
+        "gcp"
+      ],
       "disclosure": {
-        "score": 58,
-        "tier": "on-file",
+        "score": 98,
+        "tier": "complete",
         "factors": {
           "portal": 20,
           "dpa": 8,
           "subprocessors": 8,
           "status": 6,
           "privacy": 6,
-          "longevity": 10
+          "longevity": 10,
+          "marks": 40
         }
       },
       "founded_year": 1999,
@@ -52164,9 +52196,21 @@
       "title": "",
       "probed": 2,
       "source": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2, ISO 27001, FedRAMP Moderate, PCI DSS, HIPAA, CSA STAR +5.",
       "list": "wikipedia-computer-security",
-      "certs": [],
+      "certs": [
+        "SOC 2",
+        "ISO 27001",
+        "FedRAMP Moderate",
+        "PCI DSS",
+        "HIPAA",
+        "CSA STAR",
+        "GovRAMP",
+        "NIST 800-171",
+        "IRAP",
+        "GDPR",
+        "CCPA"
+      ],
       "links": {
         "trust": "https://security.druva.com",
         "security": "https://security.druva.com",
@@ -52174,12 +52218,13 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 35,
-        "tier": "thin",
+        "score": 75,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
           "privacy": 6,
-          "longevity": 9
+          "longevity": 9,
+          "marks": 40
         }
       },
       "founded_year": 2008,
@@ -52335,7 +52380,7 @@
       "title": "",
       "probed": 6,
       "source": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "summary": "Public trust center. On file: SOC 2 Type II, SOC 2 Type I, ISO 27001, ISO 27701, FedRAMP, PCI DSS, GDPR, CCPA and others.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, SOC 2 Type I, ISO 27001, ISO 27701, FedRAMP, PCI DSS +4.",
       "list": "wikipedia-computer-security",
       "certs": [
         "SOC 2 Type II",
@@ -52346,7 +52391,8 @@
         "PCI DSS",
         "GDPR",
         "CCPA",
-        "Cyber Essentials"
+        "EU-US DPF",
+        "Cyber Essentials Plus"
       ],
       "links": {
         "trust": "https://hackerone.com/trust",
@@ -52357,14 +52403,15 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 79,
-        "tier": "substantial",
+        "score": 100,
+        "tier": "complete",
         "factors": {
           "portal": 20,
           "certs": 40,
           "disclosure": 6,
           "privacy": 6,
-          "longevity": 7
+          "longevity": 7,
+          "marks": 40
         }
       },
       "founded_year": 2012,

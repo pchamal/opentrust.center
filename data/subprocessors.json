@@ -9353,6 +9353,34 @@
       "domain": "",
       "kind": "processor",
       "in_register": false
+    },
+    {
+      "id": "dash0",
+      "name": "Dash0",
+      "domain": "dash0.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "crossbeam-systems",
+      "name": "Crossbeam Systems",
+      "domain": "crossbeam.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "reveal-sas",
+      "name": "Reveal SAS",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "tray-ai",
+      "name": "Tray.ai",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
     }
   ],
   "edges": [
@@ -18079,6 +18107,78 @@
       "to": "zoom",
       "source_url": "https://www.dashlane.com/privacy/subprocessors",
       "evidence": "Zoom Video Communications, Inc"
+    },
+    {
+      "from": "crossbeam-systems",
+      "to": "aws",
+      "source_url": "https://www.crossbeam.com/legal/subprocessors",
+      "evidence": "Amazon Web Services"
+    },
+    {
+      "from": "crossbeam-systems",
+      "to": "confluent",
+      "source_url": "https://www.crossbeam.com/legal/subprocessors",
+      "evidence": "Confluent, Inc"
+    },
+    {
+      "from": "crossbeam-systems",
+      "to": "datadog",
+      "source_url": "https://www.crossbeam.com/legal/subprocessors",
+      "evidence": "Datadog, Inc"
+    },
+    {
+      "from": "crossbeam-systems",
+      "to": "dash0",
+      "source_url": "https://www.crossbeam.com/legal/subprocessors",
+      "evidence": "Dash0"
+    },
+    {
+      "from": "crossbeam-systems",
+      "to": "mongodb",
+      "source_url": "https://www.crossbeam.com/legal/subprocessors",
+      "evidence": "MongoDB Atlas (MongoDB, Inc.)"
+    },
+    {
+      "from": "crossbeam-systems",
+      "to": "openai",
+      "source_url": "https://www.crossbeam.com/legal/subprocessors",
+      "evidence": "OpenAI, L.L.C"
+    },
+    {
+      "from": "crossbeam-systems",
+      "to": "reveal-sas",
+      "source_url": "https://www.crossbeam.com/legal/subprocessors",
+      "evidence": "Reveal SAS"
+    },
+    {
+      "from": "crossbeam-systems",
+      "to": "sendgrid",
+      "source_url": "https://www.crossbeam.com/legal/subprocessors",
+      "evidence": "Sendgrid"
+    },
+    {
+      "from": "crossbeam-systems",
+      "to": "snowflake",
+      "source_url": "https://www.crossbeam.com/legal/subprocessors",
+      "evidence": "Snowflake"
+    },
+    {
+      "from": "crossbeam-systems",
+      "to": "tray-ai",
+      "source_url": "https://www.crossbeam.com/legal/subprocessors",
+      "evidence": "Tray.ai"
+    },
+    {
+      "from": "crossbeam-systems",
+      "to": "anthropic",
+      "source_url": "https://www.crossbeam.com/legal/subprocessors",
+      "evidence": "Anthropic, PBC"
+    },
+    {
+      "from": "crossbeam-systems",
+      "to": "gcp",
+      "source_url": "https://www.crossbeam.com/legal/subprocessors",
+      "evidence": "Google Cloud Platform"
     }
   ],
   "notes": "Only public lists. Incomplete by nature. Login-walled app URLs omitted."
