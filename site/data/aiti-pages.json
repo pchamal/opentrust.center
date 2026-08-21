@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-20T23:50:00Z",
+  "generated_at": "2026-08-21T15:50:00Z",
   "seen": "2026-08-20",
   "rule": "Page fills only from a stored first-party AI-page URL. The company's generic trust, privacy, or status page is not enough. No SafeBase, login-walled portals, or third-party directories. When unsure, leave the rule open. Do not invent processors, evals, incidents, companies, or URLs.",
   "method": "Conservative curated first-party list, checked by fetch (crawl.fetch, UA opentrust.center/1.0). A URL is filed only when HTTP 200 and the document is clearly an AI instrument on the company's own domain or an official docs/research/CDN subdomain they operate. Soft-404s, homepage bounces, Cloudflare/login walls, vendor hosts, and third-party org pages are rejected. Path guesses that returned 404 stay open.",
-  "count": 32,
+  "count": 36,
   "pages": {
     "anthropic": {
       "url": "https://www.anthropic.com/responsible-scaling-policy",
@@ -238,6 +238,42 @@
       "title": "Ethical AI | Alex AI",
       "kind": "ethical-ai",
       "via": "curated-first-party"
+    },
+    "tencent": {
+      "url": "https://www.tencent.com/our-actions/social/tencent-responsible-ai-principles/",
+      "host": "tencent.com",
+      "title": "Tencent Responsible AI Principles",
+      "kind": "responsible-ai",
+      "via": "curated-first-party",
+      "seen": "2026-08-21",
+      "note": "Official five-principle Responsible AI instrument. Fetch 200 with the principles in the document body."
+    },
+    "heygen": {
+      "url": "https://www.heygen.com/trust-and-safety",
+      "host": "heygen.com",
+      "title": "AI Ethics and Trust with Video Generation | HeyGen",
+      "kind": "ai-ethics",
+      "via": "curated-first-party",
+      "seen": "2026-08-21",
+      "note": "Official AI ethics / AI safety page. Fetch 200 with ethical-AI principles in the body. /ethics was a JS shell."
+    },
+    "xiaomi": {
+      "url": "https://trust.mi.com/pdf/Xiaomi_Trustworthy_AI_White_Paper_2021_EN.pdf",
+      "host": "trust.mi.com",
+      "title": "Xiaomi Trustworthy AI White Paper",
+      "kind": "responsible-ai",
+      "via": "curated-first-party",
+      "seen": "2026-08-21",
+      "note": "First-party Trustworthy AI white paper on trust.mi.com. Fetch 200. Sets Xiaomi's four Trustworthy AI principles."
+    },
+    "deepseek": {
+      "url": "https://fe-static.deepseek.com/chat/transparency/deepseek-v3.2-model-card-0414-CN.pdf",
+      "host": "fe-static.deepseek.com",
+      "title": "DeepSeek V3.2 Model Card",
+      "kind": "model-card",
+      "via": "curated-first-party",
+      "seen": "2026-08-21",
+      "note": "First-party CDN model card is 200. The English algorithm-disclosure page is training-method documentation, not filed."
     }
   },
   "rejected": [
@@ -425,6 +461,81 @@
       "slug": "meta",
       "url": "https://ai.meta.com/responsible-ai/",
       "reason": "Redirects to a 2024 Connect blog post. Filed the reachable first-party Responsible Use Guide instead."
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/responsible-ai-principles/",
+      "reason": "HTTP 200 Gatsby shell. The Responsible AI principles text is only in a meta tag, not an instrument body. Leave open."
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/trust-hub/responsible-ai/",
+      "reason": "HTTP 200 JS shell. No instrument body in the fetch. Leave open."
+    },
+    {
+      "slug": "inflection",
+      "url": "https://inflection.ai/frontier-safety",
+      "reason": "HTTP 200 Framer shell titled Frontier Safety. No instrument body in the fetch. Leave open."
+    },
+    {
+      "slug": "inflection",
+      "url": "https://inflection.ai/safety",
+      "reason": "Redirects to /frontier-safety, which is a JS shell. Leave open."
+    },
+    {
+      "slug": "elevenlabs",
+      "url": "https://elevenlabs.io/ai-transparency",
+      "reason": "HTTP 200 JS shell with no instrument title or body in the fetch. Leave open."
+    },
+    {
+      "slug": "elevenlabs",
+      "url": "https://elevenlabs.io/safety",
+      "reason": "Still a JS shell to this crawler. Prior rejection stands."
+    },
+    {
+      "slug": "bytedance",
+      "url": "https://seed.bytedance.com/en/direction/responsible_ai",
+      "reason": "HTTP 200 JS shell titled Seed-Responsible AI. No instrument body in the fetch. Leave open."
+    },
+    {
+      "slug": "bytedance",
+      "url": "https://seed.bytedance.com/transparency",
+      "reason": "HTTP 200 JS shell. No instrument body in the fetch. Leave open."
+    },
+    {
+      "slug": "groq",
+      "url": "https://console.groq.com/docs/legal/ai-policy",
+      "reason": "Acceptable Use Policy with a Responsible AI title. AUP, not Groq's own RAI / model-card instrument. When unsure, leave open."
+    },
+    {
+      "slug": "apple",
+      "url": "https://machinelearning.apple.com/research/apple-foundation-models-tech-report-2025",
+      "reason": "First-party research tech-report page, not a dedicated responsible-AI, system-card, or model-card instrument. When unsure, leave open."
+    },
+    {
+      "slug": "notion",
+      "url": "https://www.notion.com/help/ai-safety",
+      "reason": "Help article titled AI safety, but the stored domain is notion.so and the fetch is notion.com, so the first-party bind cannot fill page."
+    },
+    {
+      "slug": "deepseek",
+      "url": "https://cdn.deepseek.com/policies/en-US/model-algorithm-disclosure.html",
+      "reason": "Model mechanism / training-methods disclosure. Not clearly a responsible-AI, model-card, or AI-safety instrument. Filed the first-party model card instead."
+    },
+    {
+      "slug": "heygen",
+      "url": "https://www.heygen.com/ethics",
+      "reason": "HTTP 200 JS shell. Filed /trust-and-safety, which has the AI ethics instrument body."
+    },
+    {
+      "slug": "sambanova",
+      "url": "https://sambanova.ai/blog/responsible-ai",
+      "reason": "Blog post. When unsure, leave open."
+    },
+    {
+      "slug": "databricks",
+      "url": "https://www.databricks.com/trust/responsibleAI",
+      "reason": "HTTP 200 CSS/JS shell. The fetch does not include an instrument body. Prior Unity AI Gateway product-docs rejection also stands. Leave open."
     }
   ],
   "open": [
@@ -496,7 +607,6 @@
     "deepgram",
     "deepinfra",
     "deepjudge",
-    "deepseek",
     "depthfirst",
     "e2b",
     "elicit",
@@ -513,7 +623,6 @@
     "geordie-ai",
     "giga",
     "gravis-robotics",
-    "heygen",
     "humans-and",
     "inception",
     "incountry",
@@ -593,7 +702,6 @@
     "suno",
     "superblocks",
     "surge-ai",
-    "tencent",
     "tenstorrent",
     "the-bot-company",
     "tollbit",
@@ -605,7 +713,6 @@
     "wispr-flow",
     "worktrace-ai",
     "world-labs",
-    "xiaomi",
     "z-ai"
   ]
 }
