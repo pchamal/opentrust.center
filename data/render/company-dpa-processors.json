@@ -1,633 +1,327 @@
 {
-  "generated_at": "2026-08-21T16:54:54Z",
-  "rule": "The 3 companies that gained a public trust URL in the 2026-08-21 16:54 expand. DPA fills only from a real first-party DPA. Named subprocessors fill only from a printed first-party list of organization names. Dates, JS shells, login walls, itemUids, PDFs, 403s, and portal hosts stay open.",
+  "generated_at": "2026-08-21T18:02:56Z",
+  "rule": "The 7 companies added in the 2026-08-21 18:02 CRN expand. DPA fills only from a real first-party DPA. Named subprocessors fill only from a printed first-party list of organization names. Dates, JS shells, login walls, itemUids, and portal hosts stay open. Companies with no stored first-party trust / security / privacy URL stay open.",
   "batch": [
-    "medallia",
-    "mindbody-inc",
-    "mindfire-inc"
+    "dashlane",
+    "vulncheck",
+    "recorded-future",
+    "blackberry",
+    "reflectiz",
+    "secureworks",
+    "juniper-networks"
   ],
-  "dpa_filed": [],
-  "subprocessors_filed": [],
+  "dpa_filed": [
+    {
+      "slug": "dashlane",
+      "name": "Dashlane",
+      "url": "https://www.dashlane.com/terms/business/dpa"
+    }
+  ],
+  "subprocessors_filed": [
+    {
+      "slug": "dashlane",
+      "name": "Dashlane",
+      "url": "https://www.dashlane.com/privacy/subprocessors",
+      "names": [
+        "Amazon WebServices, Inc. (AWS)",
+        "Ada Support, Inc",
+        "Intersections, LLC",
+        "Sendgrid, Inc",
+        "Spycloud, Inc",
+        "Vonage, Inc",
+        "ZenDesk, Inc",
+        "Checkout Ltd",
+        "Paypal, Inc",
+        "ProcessOut, Inc",
+        "Stripe, Inc",
+        "Adjust, Inc",
+        "Google, Inc",
+        "Functional Software, Inc. d/b/a Sentry",
+        "Enterpret, Inc",
+        "Great Question, Inc",
+        "Braze, Inc",
+        "Calendly, LLC",
+        "Gong.io Ltd",
+        "LeanData, Inc",
+        "Marketo, Inc",
+        "Qualified.com, Inc",
+        "Rattle Software",
+        "Salesforce.com, Inc",
+        "Sprout Social",
+        "Vitally, Inc",
+        "Wingify",
+        "ZoomInfo, Inc",
+        "Bill.com, LLC",
+        "Cloudflare, Inc",
+        "Docusign, Inc",
+        "Greenhouse",
+        "LinkedIn Corporation",
+        "Netsuite, Inc",
+        "Pennylane, SAS",
+        "Slack, Inc",
+        "Zoom Video Communications, Inc"
+      ]
+    }
+  ],
   "stayed_open": [
     {
-      "slug": "medallia",
-      "name": "Medallia",
+      "slug": "vulncheck",
+      "name": "VulnCheck",
       "rule": "dpa"
     },
     {
-      "slug": "mindbody-inc",
-      "name": "Mindbody Inc.",
-      "rule": "dpa"
-    },
-    {
-      "slug": "mindbody-inc",
-      "name": "Mindbody Inc.",
+      "slug": "vulncheck",
+      "name": "VulnCheck",
       "rule": "subprocessors"
     },
     {
-      "slug": "mindfire-inc",
-      "name": "MindFire, Inc",
+      "slug": "recorded-future",
+      "name": "Recorded Future",
       "rule": "dpa"
     },
     {
-      "slug": "mindfire-inc",
-      "name": "MindFire, Inc",
+      "slug": "recorded-future",
+      "name": "Recorded Future",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "blackberry",
+      "name": "BlackBerry",
+      "rule": "dpa"
+    },
+    {
+      "slug": "blackberry",
+      "name": "BlackBerry",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "reflectiz",
+      "name": "Reflectiz",
+      "rule": "dpa"
+    },
+    {
+      "slug": "reflectiz",
+      "name": "Reflectiz",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "secureworks",
+      "name": "Secureworks",
+      "rule": "dpa"
+    },
+    {
+      "slug": "secureworks",
+      "name": "Secureworks",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "juniper-networks",
+      "name": "Juniper Networks",
+      "rule": "dpa"
+    },
+    {
+      "slug": "juniper-networks",
+      "name": "Juniper Networks",
       "rule": "subprocessors"
     }
   ],
   "rejected": [
     {
-      "slug": "medallia",
-      "url": "https://www.medallia.com/wp-content/uploads/2025/05/Medallia-Subprocessor-List-2025.v.1.03.pdf",
-      "reason": "seed-not-live",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "medallia",
-      "url": "https://medallia.com/legal/dpa",
-      "final": "https://medallia.com/legal/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "medallia",
-      "url": "https://medallia.com/data-processing-agreement",
-      "final": "https://medallia.com/data-processing-agreement",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "medallia",
-      "url": "https://medallia.com/data-processing-addendum",
-      "final": "https://medallia.com/data-processing-addendum",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "medallia",
-      "url": "https://medallia.com/policies/data-processing-addendum",
-      "final": "https://medallia.com/policies/data-processing-addendum",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "medallia",
-      "url": "https://medallia.com/company/dpa",
-      "final": "https://medallia.com/company/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "medallia",
-      "url": "https://medallia.com/policies/data-processing-agreement",
-      "final": "https://medallia.com/policies/data-processing-agreement",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "medallia",
-      "url": "https://medallia.com/terms/dpa",
-      "final": "https://medallia.com/terms/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "medallia",
-      "url": "https://medallia.com/gdpr/dpa",
-      "final": "https://medallia.com/gdpr/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "medallia",
-      "url": "https://medallia.com/dpa",
-      "final": "https://medallia.com/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "medallia",
-      "url": "https://medallia.com/policies/dpa",
-      "final": "https://medallia.com/policies/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "medallia",
-      "url": "https://medallia.com/legal/data-processing-agreement",
-      "final": "https://medallia.com/legal/data-processing-agreement",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "medallia",
-      "url": "https://medallia.com/legal/data-processing-addendum",
-      "final": "https://medallia.com/legal/data-processing-addendum",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "medallia",
-      "url": "https://medallia.com/privacy/dpa",
-      "final": "https://medallia.com/privacy/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "medallia",
-      "url": "https://medallia.com/legal/processor-terms",
-      "final": "https://medallia.com/legal/processor-terms",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "medallia",
-      "url": "https://medallia.com/data-processing",
-      "final": "https://medallia.com/data-processing",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/legal/dpa",
-      "final": "https://mindbodyonline.com/legal/dpa",
+      "slug": "dashlane",
+      "url": "https://dashlane.com/dpa",
+      "final": "https://dashlane.com/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/dpa",
-      "final": "https://mindbodyonline.com/dpa",
+      "slug": "dashlane",
+      "url": "https://dashlane.com/data-processing-addendum",
+      "final": "https://dashlane.com/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "medallia",
-      "url": "https://medallia.com/legal/gdpr/dpa",
-      "final": "https://medallia.com/legal/gdpr/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "medallia",
-      "url": "https://medallia.com/legal/data-processing",
-      "final": "https://medallia.com/legal/data-processing",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/legal/data-processing-addendum",
-      "final": "https://mindbodyonline.com/legal/data-processing-addendum",
+      "slug": "dashlane",
+      "url": "https://dashlane.com/legal/dpa",
+      "final": "https://dashlane.com/legal/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/data-processing-agreement",
-      "final": "https://mindbodyonline.com/data-processing-agreement",
+      "slug": "dashlane",
+      "url": "https://dashlane.com/gdpr/dpa",
+      "final": "https://dashlane.com/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/policies/data-processing-addendum",
-      "final": "https://mindbodyonline.com/policies/data-processing-addendum",
+      "slug": "dashlane",
+      "url": "https://dashlane.com/data-processing-agreement",
+      "final": "https://dashlane.com/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/data-processing-addendum",
-      "final": "https://mindbodyonline.com/data-processing-addendum",
+      "slug": "dashlane",
+      "url": "https://dashlane.com/policies/dpa",
+      "final": "https://dashlane.com/policies/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/policies/data-processing-agreement",
-      "final": "https://mindbodyonline.com/policies/data-processing-agreement",
+      "slug": "dashlane",
+      "url": "https://dashlane.com/terms/dpa",
+      "final": "https://dashlane.com/terms/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/legal/data-processing-agreement",
-      "final": "https://mindbodyonline.com/legal/data-processing-agreement",
+      "slug": "dashlane",
+      "url": "https://dashlane.com/policies/data-processing-addendum",
+      "final": "https://dashlane.com/policies/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/dpa",
-      "final": "https://mindfireinc.com/dpa",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/legal/data-processing-addendum",
-      "final": "https://mindfireinc.com/legal/data-processing-addendum",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/terms/dpa",
-      "final": "https://mindbodyonline.com/terms/dpa",
+      "slug": "dashlane",
+      "url": "https://dashlane.com/legal/gdpr/dpa",
+      "final": "https://dashlane.com/legal/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/legal/dpa",
-      "final": "https://mindfireinc.com/legal/dpa",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/company/dpa",
-      "final": "https://mindbodyonline.com/company/dpa",
+      "slug": "dashlane",
+      "url": "https://dashlane.com/legal/processor-terms",
+      "final": "https://dashlane.com/legal/processor-terms",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/policies/dpa",
-      "final": "https://mindbodyonline.com/policies/dpa",
+      "slug": "dashlane",
+      "url": "https://dashlane.com/legal/data-processing",
+      "final": "https://dashlane.com/legal/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/data-processing-addendum",
-      "final": "https://mindfireinc.com/data-processing-addendum",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/data-processing-agreement",
-      "final": "https://mindfireinc.com/data-processing-agreement",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/legal/data-processing-agreement",
-      "final": "https://mindfireinc.com/legal/data-processing-agreement",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/policies/data-processing-addendum",
-      "final": "https://mindfireinc.com/policies/data-processing-addendum",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/privacy/dpa",
-      "final": "https://mindbodyonline.com/privacy/dpa",
+      "slug": "dashlane",
+      "url": "https://dashlane.com/data-processing",
+      "final": "https://dashlane.com/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/policies/data-processing-agreement",
-      "final": "https://mindfireinc.com/policies/data-processing-agreement",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/legal/gdpr/dpa",
-      "final": "https://mindbodyonline.com/legal/gdpr/dpa",
+      "slug": "dashlane",
+      "url": "https://dashlane.com/legal/data-processing-agreement",
+      "final": "https://dashlane.com/legal/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/gdpr/dpa",
-      "final": "https://mindbodyonline.com/gdpr/dpa",
+      "slug": "dashlane",
+      "url": "https://dashlane.com/policies/data-processing-agreement",
+      "final": "https://dashlane.com/policies/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/policies/dpa",
-      "final": "https://mindfireinc.com/policies/dpa",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/terms/dpa",
-      "final": "https://mindfireinc.com/terms/dpa",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/company/dpa",
-      "final": "https://mindfireinc.com/company/dpa",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/gdpr/dpa",
-      "final": "https://mindfireinc.com/gdpr/dpa",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/legal/gdpr/dpa",
-      "final": "https://mindfireinc.com/legal/gdpr/dpa",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/privacy/dpa",
-      "final": "https://mindfireinc.com/privacy/dpa",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/legal/processor-terms",
-      "final": "https://mindfireinc.com/legal/processor-terms",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/legal/data-processing",
-      "final": "https://mindfireinc.com/legal/data-processing",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/legal/processor-terms",
-      "final": "https://mindbodyonline.com/legal/processor-terms",
+      "slug": "dashlane",
+      "url": "https://dashlane.com/privacy/dpa",
+      "final": "https://dashlane.com/privacy/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/data-processing",
-      "final": "https://mindfireinc.com/data-processing",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/legal/data-processing",
-      "final": "https://mindbodyonline.com/legal/data-processing",
+      "slug": "dashlane",
+      "url": "https://dashlane.com/company/dpa",
+      "final": "https://dashlane.com/company/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/data-processing",
-      "final": "https://mindbodyonline.com/data-processing",
-      "reason": "http-404",
+      "slug": "dashlane",
+      "url": "https://dashlane.com/legal/data-processing-addendum",
+      "final": "https://dashlane.com/legal/data-processing-addendum",
+      "reason": "http-0",
       "kind": "dpa"
     },
     {
-      "slug": "medallia",
-      "url": "https://medallia.com/legal/subprocessors",
-      "final": "https://medallia.com/legal/subprocessors",
-      "reason": "fetch-failed",
+      "slug": "dashlane",
+      "url": "https://trust.dashlane.com/subprocessors",
+      "final": "https://trust.dashlane.com/subprocessors",
+      "reason": "js-portal",
       "kind": "subprocessors"
     },
     {
-      "slug": "medallia",
-      "url": "https://medallia.com/company/subprocessors",
-      "final": "https://medallia.com/company/subprocessors",
-      "reason": "fetch-failed",
+      "slug": "vulncheck",
+      "url": "",
+      "reason": "no-stored-first-party-url",
+      "kind": "dpa"
+    },
+    {
+      "slug": "vulncheck",
+      "url": "",
+      "reason": "no-stored-first-party-url",
       "kind": "subprocessors"
     },
     {
-      "slug": "medallia",
-      "url": "https://medallia.com/subprocessors",
-      "final": "https://medallia.com/subprocessors",
-      "reason": "fetch-failed",
+      "slug": "recorded-future",
+      "url": "",
+      "reason": "no-stored-first-party-url",
+      "kind": "dpa"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "",
+      "reason": "no-stored-first-party-url",
       "kind": "subprocessors"
     },
     {
-      "slug": "medallia",
-      "url": "https://medallia.com/legal/sub-processors-page",
-      "final": "https://medallia.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
+      "slug": "blackberry",
+      "url": "",
+      "reason": "no-stored-first-party-url",
+      "kind": "dpa"
+    },
+    {
+      "slug": "blackberry",
+      "url": "",
+      "reason": "no-stored-first-party-url",
       "kind": "subprocessors"
     },
     {
-      "slug": "medallia",
-      "url": "https://medallia.com/legal/sub-processors",
-      "final": "https://medallia.com/legal/sub-processors",
-      "reason": "fetch-failed",
+      "slug": "reflectiz",
+      "url": "",
+      "reason": "no-stored-first-party-url",
+      "kind": "dpa"
+    },
+    {
+      "slug": "reflectiz",
+      "url": "",
+      "reason": "no-stored-first-party-url",
       "kind": "subprocessors"
     },
     {
-      "slug": "medallia",
-      "url": "https://medallia.com/trust/subprocessors",
-      "final": "https://medallia.com/trust/subprocessors",
-      "reason": "fetch-failed",
+      "slug": "secureworks",
+      "url": "",
+      "reason": "no-stored-first-party-url",
+      "kind": "dpa"
+    },
+    {
+      "slug": "secureworks",
+      "url": "",
+      "reason": "no-stored-first-party-url",
       "kind": "subprocessors"
     },
     {
-      "slug": "medallia",
-      "url": "https://medallia.com/sub-processors",
-      "final": "https://medallia.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
+      "slug": "juniper-networks",
+      "url": "",
+      "reason": "no-stored-first-party-url",
+      "kind": "dpa"
     },
     {
-      "slug": "medallia",
-      "url": "https://medallia.com/privacy/subprocessors",
-      "final": "https://medallia.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "medallia",
-      "url": "https://medallia.com/legal/service-providers",
-      "final": "https://medallia.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "medallia",
-      "url": "https://trust.medallia.com/sub-processors",
-      "final": "https://trust.medallia.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "medallia",
-      "url": "https://trust.medallia.com/subprocessors",
-      "final": "https://trust.medallia.com/",
-      "reason": "safebase-itemuid",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindbody-inc",
-      "url": "https://security.mindbodyonline.com/sub-processors",
-      "final": "https://security.mindbodyonline.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindbody-inc",
-      "url": "https://security.mindbodyonline.com/subprocessors",
-      "final": "https://security.mindbodyonline.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/subprocessors",
-      "final": "https://mindfireinc.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/sub-processors",
-      "final": "https://mindfireinc.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/legal/subprocessors",
-      "final": "https://mindfireinc.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/privacy/subprocessors",
-      "final": "https://mindfireinc.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/company/subprocessors",
-      "final": "https://mindfireinc.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/legal/sub-processors",
-      "final": "https://mindfireinc.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/legal/service-providers",
-      "final": "https://mindfireinc.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/trust/subprocessors",
-      "final": "https://mindfireinc.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://mindfireinc.com/legal/sub-processors-page",
-      "final": "https://mindfireinc.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://compliance.mindfireinc.com/subprocessors",
-      "final": "https://compliance.mindfireinc.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindfire-inc",
-      "url": "https://compliance.mindfireinc.com/sub-processors",
-      "final": "https://compliance.mindfireinc.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/legal/sub-processors-page",
-      "final": "https://mindbodyonline.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/legal/service-providers",
-      "final": "https://mindbodyonline.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/company/subprocessors",
-      "final": "https://mindbodyonline.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/subprocessors",
-      "final": "https://mindbodyonline.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/legal/sub-processors",
-      "final": "https://mindbodyonline.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/sub-processors",
-      "final": "https://mindbodyonline.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/trust/subprocessors",
-      "final": "https://mindbodyonline.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/privacy/subprocessors",
-      "final": "https://mindbodyonline.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mindbody-inc",
-      "url": "https://mindbodyonline.com/legal/subprocessors",
-      "final": "https://mindbodyonline.com/legal/subprocessors",
-      "reason": "fetch-failed",
+      "slug": "juniper-networks",
+      "url": "",
+      "reason": "no-stored-first-party-url",
       "kind": "subprocessors"
     }
   ]
