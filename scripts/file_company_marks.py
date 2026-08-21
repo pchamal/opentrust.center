@@ -1,0 +1,347 @@
+#!/usr/bin/env python3
+"""Fill missing marks on the next ~40 on-file companies.
+
+First-party trust / security / compliance HTML only. Fetch-check. Do not invent.
+When unsure, leave open. Portal hosts stay unread.
+"""
+from __future__ import annotations
+
+import json
+import re
+import sys
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "scripts"))
+
+import enrich  # noqa: E402
+from marks import extract_certs_from_html, mark_blob  # noqa: E402
+
+SITE = ROOT / "site"
+DATA = ROOT / "data"
+PUBLIC = SITE / "data.json"
+ENRICHED = SITE / "data" / "enriched.json"
+REPORT = DATA / "render" / "company-marks.json"
+BATCH = 40
+WORKERS = 12
+
+# Regulation-only lists stay thin. Real certs (SOC / ISO / FedRAMP / …) fill out.
+REG_MARKS = {"GDPR", "CCPA", "DORA", "NIS2", "PIPEDA", "LGPD"}
+COMPLIANCE_URL_RE = re.compile(
+    r"(trust|security|compliance|certif|attestation|assurance)",
+    re.I,
+)
+ITEM_UID_RE = re.compile(r"(?:[?&]|/)itemUid=|(?:[?&])itemName=", re.I)
+ASSET_URL_RE = re.compile(r"\.(?:ico|png|jpe?g|gif|svg|webp|css|js|woff2?|map)(?:\?|$)", re.I)
+
+
+def load_json(path: Path, default):
+    if not path.exists():
+        return default
+    return json.loads(path.read_text())
+
+
+def write_json(path: Path, obj) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(obj, indent=2, ensure_ascii=False) + "\n")
+
+
+def instrument_url(row: dict, key: str) -> str:
+    rec = (row.get("instruments") or {}).get(key) or {}
+    if isinstance(rec, dict):
+        return (rec.get("url") or "").strip()
+    return str(rec or "").strip()
+
+
+def named_certs(public: dict, enr: dict) -> list[str]:
+    certs = [c for c in (public.get("certs") or []) if c]
+    if not certs:
+        certs = [c for c in (enr.get("certs") or []) if isinstance(c, str) and c]
+    return certs
+
+
+def named_marks_on_file(public: dict, enr: dict) -> bool:
+    atts = [a for a in (public.get("attestations") or []) if a and (a.get("name") or a.get("short"))]
+    if atts or named_certs(public, enr):
+        return True
+    return bool(public.get("fedramp") or enr.get("fedramp"))
+
+
+def marks_are_thin(certs: list[str]) -> bool:
+    real = [c for c in certs if c not in REG_MARKS]
+    return len(real) <= 1 and len(certs) <= 3
+
+
+def marks_are_substantial(certs: list[str]) -> bool:
+    real = [c for c in certs if c not in REG_MARKS]
+    return len(real) >= 3 or len(certs) >= 5
+
+
+def public_url(url: str) -> str:
+    u = (url or "").split("#")[0].strip()
+    if "itemUid=" in u or "inviteToken=" in u or "loginRequest=" in u:
+        return u.split("?", 1)[0]
+    return u
+
+
+def first_party_candidates(public: dict, enr: dict) -> list[tuple[str, str]]:
+    """URLs already on the file that we may read. Portal hosts stay out."""
+    out, seen = [], set()
+
+    def add(kind: str, url: str) -> None:
+        u = (url or "").strip()
+        if not u.startswith("http"):
+            return
+        if ITEM_UID_RE.search(u) or ASSET_URL_RE.search(u):
+            return
+        key = u.lower()
+        if key in seen:
+            return
+        if not enrich.is_first_party_url(u, enr):
+            return
+        path = enrich.path_of(u)
+        host = enrich.host_of(u)
+        if kind not in {"trust", "security", "trust_url", "enr_trust"}:
+            # final_url / extra links must themselves be a trust or compliance page
+            if not COMPLIANCE_URL_RE.search(f"{host} {path}"):
+                return
+        seen.add(key)
+        out.append((kind, u))
+
+    links = enr.get("links") or {}
+    for kind in ("trust", "security"):
+        add(kind, links.get(kind) or "")
+    add("trust_url", public.get("trust_url") or "")
+    add("enr_trust", enr.get("trust_url") or "")
+    add("final_url", public.get("final_url") or "")
+    add("enr_final", enr.get("final_url") or "")
+    for key in ("trust", "security"):
+        add(key, instrument_url(public, key))
+    return out
+
+
+def previous_batch() -> set[str]:
+    return {slug for slug in (load_json(REPORT, {}).get("batch") or []) if slug}
+
+
+def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]:
+    skip = previous_batch()
+    open_rows, thin_rows = [], []
+    for row in public_rows:
+        if not row.get("found"):
+            continue
+        slug = row.get("slug") or ""
+        if slug in skip:
+            continue
+        enr = enr_by.get(slug)
+        if not enr:
+            continue
+        certs = named_certs(row, enr)
+        if marks_are_substantial(certs):
+            continue
+        on_file = named_marks_on_file(row, enr)
+        if on_file and not marks_are_thin(certs):
+            continue
+        cands = first_party_candidates(row, enr)
+        if not cands:
+            continue
+        rec = {
+            "slug": slug,
+            "name": row.get("name") or slug,
+            "thin": on_file,
+            "have": certs,
+            "candidates": cands,
+        }
+        (thin_rows if on_file else open_rows).append(rec)
+    return (open_rows + thin_rows)[:BATCH]
+
+
+def fetch_page(url: str) -> dict:
+    try:
+        return enrich.fetch_seed_page(url)
+    except Exception:
+        return {
+            "ok": False, "status": 0, "final_url": url,
+            "hrefs": [], "html": "", "title": "", "text": "", "meta": "", "ctype": "",
+        }
+
+
+def reject_reason(url: str, rec: dict, row: dict) -> str | None:
+    final = rec.get("final_url") or url
+    if not rec.get("ok") or rec.get("status") != 200:
+        return f"http-{rec.get('status') or 0}"
+    if not enrich.is_first_party_url(final, row):
+        return "not-first-party"
+    if enrich.is_portal_vendor_host(url, row) or enrich.is_portal_vendor_host(final, row):
+        return "portal-vendor"
+    title, text = rec.get("title") or "", rec.get("text") or ""
+    if enrich.looks_like_login_wall(title, text):
+        return "login-wall"
+    if enrich.looks_dead(title, text):
+        return "soft-404"
+    if enrich.landed_on_home(url, final):
+        return "homepage-bounce"
+    ctype = (rec.get("ctype") or "").lower()
+    if "pdf" in ctype or (url or "").lower().endswith(".pdf"):
+        return "pdf"
+    return None
+
+
+def marks_from_rec(rec: dict) -> list[str]:
+    html = rec.get("html") or ""
+    title = rec.get("title") or ""
+    text = rec.get("text") or ""
+    meta = rec.get("meta") or ""
+    blob = mark_blob(html, title, meta, text)
+    return extract_certs_from_html(html, text=blob)
+
+
+def main() -> int:
+    t0 = time.time()
+    public = load_json(PUBLIC, {})
+    enr = load_json(ENRICHED, {})
+    public_rows = list(public.get("companies") or [])
+    companies = list(enr.get("companies") or [])
+    enr_by = {c["slug"]: c for c in companies if c.get("slug")}
+
+    batch = select_batch(public_rows, enr_by)
+    print(f"batch {len(batch)} companies with an open or thin marks rule", flush=True)
+    for rec in batch:
+        kind = "thin" if rec["thin"] else "open"
+        print(
+            f"  {rec['slug']} {kind} have={len(rec['have'])} urls={len(rec['candidates'])}",
+            flush=True,
+        )
+
+    jobs = []
+    seen = set()
+    for rec in batch:
+        for kind, url in rec["candidates"]:
+            key = (rec["slug"], url.lower())
+            if key in seen:
+                continue
+            seen.add(key)
+            jobs.append((rec["slug"], kind, url))
+
+    print(f"fetch-check {len(jobs)} on-file first-party pages", flush=True)
+    accepted: dict[str, dict] = {}
+    rejected: list[dict] = []
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = {pool.submit(fetch_page, url): (slug, kind, url) for slug, kind, url in jobs}
+        done = 0
+        for fut in as_completed(futs):
+            slug, kind, url = futs[fut]
+            rec = fut.result()
+            done += 1
+            if done % 10 == 0 or done == len(futs):
+                print(f"  read {done}/{len(futs)}", flush=True)
+            row = enr_by.get(slug)
+            if not row:
+                continue
+            final = rec.get("final_url") or url
+            skip = reject_reason(url, rec, row)
+            if skip:
+                rejected.append({
+                    "slug": slug,
+                    "url": public_url(url),
+                    "final": public_url(final),
+                    "reason": skip,
+                    "kind": kind,
+                })
+                continue
+            live = marks_from_rec(rec)
+            if not live:
+                rejected.append({
+                    "slug": slug,
+                    "url": public_url(url),
+                    "final": public_url(final),
+                    "reason": "no-named-marks",
+                    "kind": kind,
+                })
+                continue
+            have = named_certs(next((r for r in public_rows if r.get("slug") == slug), {}), row)
+            added = [m for m in live if m not in have]
+            if not added:
+                rejected.append({
+                    "slug": slug,
+                    "url": public_url(url),
+                    "final": public_url(final),
+                    "reason": "already-on-file",
+                    "kind": kind,
+                    "seen": live,
+                })
+                continue
+            prev = accepted.get(slug)
+            if prev and len(prev.get("added") or []) >= len(added):
+                continue
+            source = public_url(url) if not ITEM_UID_RE.search(url) else public_url(final)
+            if ITEM_UID_RE.search(source) or ASSET_URL_RE.search(source):
+                source = public_url(url).split("?")[0]
+            accepted[slug] = {
+                "url": source,
+                "named": live,
+                "added": added,
+            }
+
+    filed = []
+    for slug, hit in sorted(accepted.items()):
+        row = enr_by[slug]
+        added = enrich.apply_marks_to_row(row, hit["added"])
+        if not added:
+            continue
+        filed.append({
+            "slug": slug,
+            "name": row.get("name") or slug,
+            "url": hit["url"],
+            "added": added,
+            "certs": list(row.get("certs") or []),
+        })
+
+    write_json(ENRICHED, enr)
+    write_json(DATA / "enriched.json", enr)
+
+    stayed = []
+    for rec in batch:
+        if any(x["slug"] == rec["slug"] for x in filed):
+            continue
+        stayed.append({
+            "slug": rec["slug"],
+            "name": rec["name"],
+            "rule": "marks",
+            "thin": rec["thin"],
+        })
+
+    report = {
+        "generated_at": enr.get("generated_at"),
+        "rule": (
+            "Next ~40 on-file companies whose marks File-glyph rule was open "
+            "or thin and who already had a first-party trust / security / "
+            "compliance URL. Marks fill only when that live page names the "
+            "instrument. Login walls, soft-404s, homepage bounces, PDFs, and "
+            "portal hosts stay open. Substantial files were skipped."
+        ),
+        "batch": [rec["slug"] for rec in batch],
+        "marks_filed": filed,
+        "stayed_open": stayed,
+        "rejected": rejected,
+    }
+    write_json(REPORT, report)
+
+    print(
+        f"filed marks={len(filed)} stayed={len(stayed)} rejected={len(rejected)} "
+        f"in {time.time() - t0:.1f}s",
+        flush=True,
+    )
+    for row in filed:
+        print(f"  + marks {row['slug']} +{', '.join(row['added'])} {row['url']}", flush=True)
+    for row in stayed:
+        print(f"  - open {row['slug']}", flush=True)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
