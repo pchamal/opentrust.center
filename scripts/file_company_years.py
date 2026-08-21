@@ -90,28 +90,18 @@ def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]
     return picked[:BATCH] if not wanted else picked
 
 
-def reject_host_reason(url: str) -> str | None:
+def reject_host_reason(url: str, company_name: str = "") -> str | None:
     h = enrich.host_of(url) or ""
     if "wikipedia.org" in h or "wikidata.org" in h:
+        wiki_title = (url.rsplit("/", 1)[-1] or "").replace("_", " ")
+        if company_name and wiki_title and not title_close(wiki_title, company_name):
+            return "prefix-match"
         return "wikipedia"
     if enrich.is_third_party_year_host(url):
         return "third-party"
     if is_news_article_url(url):
         return "news"
     return None
-
-
-def prefix_title_guess(title: str, name: str) -> bool:
-    """The Manhattan / Sage Publishing class: a shorter title is not this firm."""
-    raw = (title or "").split("|")[0].split("–")[0].split("—")[0].strip()
-    if not raw or not name:
-        return False
-    if title_close(raw, name):
-        return False
-    a, b = enrich._name_core(raw), enrich._name_core(name)
-    if not a or not b or a == b:
-        return False
-    return b.startswith(a + " ") or a.startswith(b + " ")
 
 
 def inspect_official_year(company: dict) -> tuple[tuple[int, str] | None, list[dict]]:
@@ -127,7 +117,8 @@ def inspect_official_year(company: dict) -> tuple[tuple[int, str] | None, list[d
         rec = enrich.fetch_cached(url, max_body=enrich.TRUST_BODY)
         final = rec.get("final_url") or url
         status = rec.get("status") or 0
-        skip = reject_host_reason(url) or reject_host_reason(final)
+        name = company.get("name") or ""
+        skip = reject_host_reason(url, name) or reject_host_reason(final, name)
         if skip:
             rejected.append({
                 "slug": company.get("slug"),
@@ -160,15 +151,6 @@ def inspect_official_year(company: dict) -> tuple[tuple[int, str] | None, list[d
                 "url": public_url(url),
                 "final": public_url(final),
                 "reason": "website-mismatch",
-            })
-            continue
-        if prefix_title_guess(title, company.get("name") or ""):
-            rejected.append({
-                "slug": company.get("slug"),
-                "url": public_url(url),
-                "final": public_url(final),
-                "reason": "prefix-match",
-                "title": title,
             })
             continue
         if not is_official_year_source(final, company):
