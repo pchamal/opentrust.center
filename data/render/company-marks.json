@@ -1,8 +1,7 @@
 {
-  "generated_at": "2026-08-21T18:02:56Z",
-  "rule": "The 7 companies added in the 2026-08-21 18:02 CRN expand. Marks fill only when a live first-party page names a real cert (SOC / ISO / FedRAMP / PCI / CSA STAR / etc.). Regulation-only GDPR/CCPA lists, login walls, soft-404s, homepage bounces, PDFs, JS shells, and portal hosts stay open. Companies with no stored first-party trust / security / privacy URL stay open.",
+  "generated_at": "2026-08-21T19:08:11Z",
+  "rule": "The 6 CRN-expand companies that stayed silent in 8fa1da8. Marks fill only when a newly filed first-party page names the instrument. Third-party PCI mentions, transfer-mechanism DPF, product hubs, and non-first-party hosts stay open.",
   "batch": [
-    "dashlane",
     "vulncheck",
     "recorded-future",
     "blackberry",
@@ -10,29 +9,34 @@
     "secureworks",
     "juniper-networks"
   ],
-  "marks_filed": [],
-  "stayed_open": [
-    {
-      "slug": "dashlane",
-      "name": "Dashlane",
-      "rule": "marks",
-      "thin": false
-    },
-    {
-      "slug": "vulncheck",
-      "name": "VulnCheck",
-      "rule": "marks",
-      "thin": false
-    },
+  "marks_filed": [
     {
       "slug": "recorded-future",
       "name": "Recorded Future",
-      "rule": "marks",
-      "thin": false
+      "url": "https://www.recordedfuture.com/legal/privacy-policy",
+      "added": [
+        "EU-US DPF"
+      ],
+      "certs": [
+        "EU-US DPF"
+      ]
     },
     {
       "slug": "blackberry",
       "name": "BlackBerry",
+      "url": "https://www.blackberry.com/en/legal/privacy-notice",
+      "added": [
+        "SOC 2 Type II"
+      ],
+      "certs": [
+        "SOC 2 Type II"
+      ]
+    }
+  ],
+  "stayed_open": [
+    {
+      "slug": "vulncheck",
+      "name": "VulnCheck",
       "rule": "marks",
       "thin": false
     },
@@ -57,71 +61,27 @@
   ],
   "rejected": [
     {
-      "slug": "dashlane",
-      "url": "https://trust.dashlane.com",
-      "final": "https://trust.dashlane.com",
-      "reason": "js-shell-no-named-marks",
-      "kind": "trust"
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://www.dashlane.com/security",
-      "final": "https://www.dashlane.com/security",
-      "reason": "no-named-marks",
-      "kind": "security"
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://www.dashlane.com/privacy",
-      "final": "https://www.dashlane.com/privacy",
-      "reason": "regulation-only",
-      "kind": "privacy",
-      "seen": [
-        "GDPR",
-        "CCPA"
-      ]
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://trust.dashlane.com/subprocessors",
-      "final": "https://trust.dashlane.com/subprocessors",
-      "reason": "js-shell-no-named-marks",
-      "kind": "subprocessors"
-    },
-    {
       "slug": "vulncheck",
-      "url": "",
-      "reason": "no-stored-first-party-url",
-      "kind": "marks"
-    },
-    {
-      "slug": "recorded-future",
-      "url": "",
-      "reason": "no-stored-first-party-url",
+      "url": "https://www.vulncheck.com/privacy",
+      "reason": "eu-us-dpf-is-transfer-mechanism-not-self-cert",
       "kind": "marks"
     },
     {
       "slug": "blackberry",
-      "url": "",
-      "reason": "no-stored-first-party-url",
+      "url": "https://www.blackberry.com/en/legal/privacy-notice",
+      "reason": "pci-dss-names-third-party-processors-not-hold",
       "kind": "marks"
     },
     {
-      "slug": "reflectiz",
-      "url": "",
-      "reason": "no-stored-first-party-url",
+      "slug": "recorded-future",
+      "url": "https://www.recordedfuture.com/legal/privacy-policy",
+      "reason": "regulation-only-gdpr-ccpa",
       "kind": "marks"
     },
     {
-      "slug": "secureworks",
-      "url": "",
-      "reason": "no-stored-first-party-url",
-      "kind": "marks"
-    },
-    {
-      "slug": "juniper-networks",
-      "url": "",
-      "reason": "no-stored-first-party-url",
+      "slug": "blackberry",
+      "url": "https://www.blackberry.com/en/legal/privacy-notice",
+      "reason": "regulation-only-gdpr-ccpa-pipeda",
       "kind": "marks"
     }
   ]

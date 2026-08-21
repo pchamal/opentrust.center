@@ -1,8 +1,7 @@
 {
-  "generated_at": "2026-08-21T18:02:56Z",
-  "rule": "The 7 companies added in the 2026-08-21 18:02 CRN expand. DPA fills only from a real first-party DPA. Named subprocessors fill only from a printed first-party list of organization names. Dates, JS shells, login walls, itemUids, and portal hosts stay open. Companies with no stored first-party trust / security / privacy URL stay open.",
+  "generated_at": "2026-08-21T19:08:11Z",
+  "rule": "The 6 CRN-expand companies that stayed silent in 8fa1da8. DPA fills only from a real first-party DPA. Named subprocessors fill only from a printed first-party list of organization names. Hashed DAM PDFs, Adobe Sign widgets, and non-first-party hosts stay open.",
   "batch": [
-    "dashlane",
     "vulncheck",
     "recorded-future",
     "blackberry",
@@ -10,68 +9,27 @@
     "secureworks",
     "juniper-networks"
   ],
-  "dpa_filed": [
-    {
-      "slug": "dashlane",
-      "name": "Dashlane",
-      "url": "https://www.dashlane.com/terms/business/dpa"
-    }
-  ],
-  "subprocessors_filed": [
-    {
-      "slug": "dashlane",
-      "name": "Dashlane",
-      "url": "https://www.dashlane.com/privacy/subprocessors",
-      "names": [
-        "Amazon WebServices, Inc. (AWS)",
-        "Ada Support, Inc",
-        "Intersections, LLC",
-        "Sendgrid, Inc",
-        "Spycloud, Inc",
-        "Vonage, Inc",
-        "ZenDesk, Inc",
-        "Checkout Ltd",
-        "Paypal, Inc",
-        "ProcessOut, Inc",
-        "Stripe, Inc",
-        "Adjust, Inc",
-        "Google, Inc",
-        "Functional Software, Inc. d/b/a Sentry",
-        "Enterpret, Inc",
-        "Great Question, Inc",
-        "Braze, Inc",
-        "Calendly, LLC",
-        "Gong.io Ltd",
-        "LeanData, Inc",
-        "Marketo, Inc",
-        "Qualified.com, Inc",
-        "Rattle Software",
-        "Salesforce.com, Inc",
-        "Sprout Social",
-        "Vitally, Inc",
-        "Wingify",
-        "ZoomInfo, Inc",
-        "Bill.com, LLC",
-        "Cloudflare, Inc",
-        "Docusign, Inc",
-        "Greenhouse",
-        "LinkedIn Corporation",
-        "Netsuite, Inc",
-        "Pennylane, SAS",
-        "Slack, Inc",
-        "Zoom Video Communications, Inc"
-      ]
-    }
-  ],
+  "dpa_filed": [],
+  "subprocessors_filed": [],
   "stayed_open": [
     {
+      "slug": "blackberry",
+      "name": "BlackBerry",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "vulncheck",
+      "name": "VulnCheck",
+      "rule": "subprocessors"
+    },
+    {
       "slug": "vulncheck",
       "name": "VulnCheck",
       "rule": "dpa"
     },
     {
-      "slug": "vulncheck",
-      "name": "VulnCheck",
+      "slug": "recorded-future",
+      "name": "Recorded Future",
       "rule": "subprocessors"
     },
     {
@@ -80,23 +38,8 @@
       "rule": "dpa"
     },
     {
-      "slug": "recorded-future",
-      "name": "Recorded Future",
-      "rule": "subprocessors"
-    },
-    {
       "slug": "blackberry",
       "name": "BlackBerry",
-      "rule": "dpa"
-    },
-    {
-      "slug": "blackberry",
-      "name": "BlackBerry",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "reflectiz",
-      "name": "Reflectiz",
       "rule": "dpa"
     },
     {
@@ -105,8 +48,8 @@
       "rule": "subprocessors"
     },
     {
-      "slug": "secureworks",
-      "name": "Secureworks",
+      "slug": "reflectiz",
+      "name": "Reflectiz",
       "rule": "dpa"
     },
     {
@@ -115,213 +58,39 @@
       "rule": "subprocessors"
     },
     {
-      "slug": "juniper-networks",
-      "name": "Juniper Networks",
+      "slug": "secureworks",
+      "name": "Secureworks",
       "rule": "dpa"
     },
     {
       "slug": "juniper-networks",
       "name": "Juniper Networks",
       "rule": "subprocessors"
+    },
+    {
+      "slug": "juniper-networks",
+      "name": "Juniper Networks",
+      "rule": "dpa"
     }
   ],
   "rejected": [
     {
-      "slug": "dashlane",
-      "url": "https://dashlane.com/dpa",
-      "final": "https://dashlane.com/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://dashlane.com/data-processing-addendum",
-      "final": "https://dashlane.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://dashlane.com/legal/dpa",
-      "final": "https://dashlane.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://dashlane.com/gdpr/dpa",
-      "final": "https://dashlane.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://dashlane.com/data-processing-agreement",
-      "final": "https://dashlane.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://dashlane.com/policies/dpa",
-      "final": "https://dashlane.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://dashlane.com/terms/dpa",
-      "final": "https://dashlane.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://dashlane.com/policies/data-processing-addendum",
-      "final": "https://dashlane.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://dashlane.com/legal/gdpr/dpa",
-      "final": "https://dashlane.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://dashlane.com/legal/processor-terms",
-      "final": "https://dashlane.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://dashlane.com/legal/data-processing",
-      "final": "https://dashlane.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://dashlane.com/data-processing",
-      "final": "https://dashlane.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://dashlane.com/legal/data-processing-agreement",
-      "final": "https://dashlane.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://dashlane.com/policies/data-processing-agreement",
-      "final": "https://dashlane.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://dashlane.com/privacy/dpa",
-      "final": "https://dashlane.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://dashlane.com/company/dpa",
-      "final": "https://dashlane.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://dashlane.com/legal/data-processing-addendum",
-      "final": "https://dashlane.com/legal/data-processing-addendum",
-      "reason": "http-0",
-      "kind": "dpa"
-    },
-    {
-      "slug": "dashlane",
-      "url": "https://trust.dashlane.com/subprocessors",
-      "final": "https://trust.dashlane.com/subprocessors",
-      "reason": "js-portal",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "",
-      "reason": "no-stored-first-party-url",
-      "kind": "dpa"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "",
-      "reason": "no-stored-first-party-url",
-      "kind": "subprocessors"
-    },
-    {
       "slug": "recorded-future",
-      "url": "",
-      "reason": "no-stored-first-party-url",
-      "kind": "dpa"
-    },
-    {
-      "slug": "recorded-future",
-      "url": "",
-      "reason": "no-stored-first-party-url",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "blackberry",
-      "url": "",
-      "reason": "no-stored-first-party-url",
+      "url": "https://recordedfuture.com/dpa",
+      "final": "https://secure.na4.adobesign.com/public/esignWidget",
+      "reason": "not-first-party",
       "kind": "dpa"
     },
     {
       "slug": "blackberry",
-      "url": "",
-      "reason": "no-stored-first-party-url",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "reflectiz",
-      "url": "",
-      "reason": "no-stored-first-party-url",
+      "url": "https://assets.blackberry.com/f/286245462458556/x/899777be89/blackberry-customer-dpa.pdf",
+      "reason": "classify_as_dpa-false-hashed-dam-pdf",
       "kind": "dpa"
     },
     {
-      "slug": "reflectiz",
-      "url": "",
-      "reason": "no-stored-first-party-url",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "secureworks",
-      "url": "",
-      "reason": "no-stored-first-party-url",
-      "kind": "dpa"
-    },
-    {
-      "slug": "secureworks",
-      "url": "",
-      "reason": "no-stored-first-party-url",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "juniper-networks",
-      "url": "",
-      "reason": "no-stored-first-party-url",
-      "kind": "dpa"
-    },
-    {
-      "slug": "juniper-networks",
-      "url": "",
-      "reason": "no-stored-first-party-url",
+      "slug": "blackberry",
+      "url": "https://www.blackberry.com/en/legal/privacy-notice/subprocessors",
+      "reason": "name-cell-concatenates-address-not-clean-org-names",
       "kind": "subprocessors"
     }
   ]
