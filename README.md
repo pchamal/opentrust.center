@@ -11,9 +11,9 @@ The company’s own page stays authoritative. We file what is public. We do not 
 | URL | Job |
 |---|---|
 | `/` | AITI — AI Trust Index, the public file on AI systems |
-| `/companies.html` | Register — table of companies, disclosure tier |
+| `/companies.html` | Register — the company file |
 | `/c/{slug}.html` | Dossier — the file |
-| `/graph.html` | Map — named subprocessors, as published |
+| `/graph.html` | Subprocessors — named subprocessors, as published (`list | map`) |
 | `/attestations.html` | Standards — book of marks |
 | `/data.json` | Machine copy of the register (`_crawl` is not for citation) |
 | `/llms.txt` | Agent brief |

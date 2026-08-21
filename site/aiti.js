@@ -8,6 +8,7 @@ import {
   hasPrintedAiMark,
   aiFileIndexHtml,
   aiFileCount,
+  aiFileOnWords,
   printedAitiUrl,
   nameWithIcon,
 } from "./lib.js";
@@ -51,12 +52,12 @@ export function aiMarksCell(row) {
   return `<span class="mark-line">${line}</span>`;
 }
 
-/* Clerk default: name order. Mixed fills on the first screen. Not a complete-file strip. */
+/* Clerk default: most of the five rules on file, then name A–Z. */
 export function defaultAiRows(rows) {
-  return (rows || []).slice().sort((a, b) => cmpText(a && a.name, b && b.name));
+  return filledAiRows(rows);
 }
 
-/* Finder clerk sort: how many of the five AI rules are on file. Not the default. */
+/* How many of the five AI rules are on file, then name A–Z. Open rows stay below. */
 export function filledAiRows(rows) {
   return (rows || []).slice().sort((a, b) => {
     const c = aiFileCount(b) - aiFileCount(a);
@@ -65,16 +66,22 @@ export function filledAiRows(rows) {
   });
 }
 
-function wantsFilledSort(raw) {
-  return /\bfilled\b/i.test(String(raw || ""));
+/* Finder can still arrange by name A–Z. */
+export function namedAiRows(rows) {
+  return (rows || []).slice().sort((a, b) => cmpText(a && a.name, b && b.name));
+}
+
+function wantsNameSort(raw) {
+  return /\bname\b/i.test(String(raw || ""));
 }
 
 /* One filter + one row render. Full table and finder share aiFileFlags. */
 export function filterAiRows(rows, rawQuery) {
   const parsed = parseFinder(rawQuery);
-  const filled = wantsFilledSort(rawQuery);
+  const byName = wantsNameSort(rawQuery);
   const q = parsed.q
     .replace(/\bfilled\b/gi, " ")
+    .replace(/\bname\b/gi, " ")
     .replace(/\s+/g, " ")
     .trim()
     .toLowerCase();
@@ -82,7 +89,7 @@ export function filterAiRows(rows, rawQuery) {
     if (!q) return true;
     return hay(row).includes(q);
   });
-  return filled ? filledAiRows(found) : defaultAiRows(found);
+  return byName ? namedAiRows(found) : defaultAiRows(found);
 }
 
 function apply() {
@@ -96,7 +103,7 @@ export function aitiRowHtml(row, i, selectedSlug) {
         <td class="num">${escapeHtml(n)}</td>
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${nameWithIcon(row.name, row.favicon)}</a></td>
         <td class="domain">${printedAitiUrl(row)}</td>
-        <td class="file-cell">${aiFileIndexHtml(row)}</td>
+        <td class="file-cell">${aiFileIndexHtml(row)}<span class="file-on">${escapeHtml(aiFileOnWords(row))}</span></td>
         <td class="marks">${aiMarksCell(row)}</td>
       </tr>`;
 }
