@@ -35054,9 +35054,15 @@
       "title": "",
       "probed": 2,
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2, ISO 27001, ISO 42001, PCI DSS, GDPR.",
       "list": "crn-security-100-2025",
-      "certs": [],
+      "certs": [
+        "SOC 2",
+        "ISO 27001",
+        "ISO 42001",
+        "PCI DSS",
+        "GDPR"
+      ],
       "links": {
         "security": "https://security.deepwatch.com",
         "trust": "https://security.deepwatch.com",
@@ -35066,13 +35072,14 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 38,
-        "tier": "thin",
+        "score": 69,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
           "status": 6,
           "disclosure": 6,
-          "privacy": 6
+          "privacy": 6,
+          "marks": 31
         }
       }
     },
@@ -36108,9 +36115,16 @@
       "title": "",
       "probed": 1,
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 1, PCI DSS, EU-US DPF, GDPR, CCPA, PIPEDA.",
       "list": "companiesmarketcap-software",
-      "certs": [],
+      "certs": [
+        "SOC 1",
+        "PCI DSS",
+        "EU-US DPF",
+        "GDPR",
+        "CCPA",
+        "PIPEDA"
+      ],
       "links": {
         "trust": "https://trust.accesso.com",
         "privacy": "https://accesso.com/privacy-policy/",
@@ -36118,12 +36132,13 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 36,
-        "tier": "thin",
+        "score": 62,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
           "privacy": 6,
-          "longevity": 10
+          "longevity": 10,
+          "marks": 26
         }
       },
       "founded_year": 2000,
@@ -36557,9 +36572,14 @@
       "title": "",
       "probed": 1,
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, SOC 3, ISO 27001, ISO 27701.",
       "list": "companiesmarketcap-software",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "ISO 27001",
+        "ISO 27701"
+      ],
       "links": {
         "trust": "https://trust.csdisco.com",
         "privacy": "https://csdisco.com/legal/privacy-policy",
@@ -36570,14 +36590,15 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 48,
-        "tier": "on-file",
+        "score": 78,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
           "dpa": 8,
           "processors": 8,
           "status": 6,
-          "privacy": 6
+          "privacy": 6,
+          "marks": 30
         }
       }
     },
@@ -37021,9 +37042,16 @@
       "title": "",
       "probed": 1,
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, ISO 27017, GDPR, CCPA, PIPEDA.",
       "list": "companiesmarketcap-software",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27017",
+        "GDPR",
+        "CCPA",
+        "PIPEDA"
+      ],
       "links": {
         "trust": "https://trust.megaport.com",
         "security_txt": "https://www.megaport.com/.well-known/security.txt",
@@ -37035,13 +37063,14 @@
         "netlify"
       ],
       "disclosure": {
-        "score": 40,
-        "tier": "on-file",
+        "score": 74,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
           "processors": 8,
           "disclosure": 6,
-          "privacy": 6
+          "privacy": 6,
+          "marks": 34
         }
       }
     },
@@ -45365,9 +45394,19 @@
       "title": "",
       "probed": 5,
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_States",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, SOC 1, SOC 3, ISO 27001, NIST CSF, EU-US DPF +3.",
       "list": "wikipedia-software-us",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 1",
+        "SOC 3",
+        "ISO 27001",
+        "NIST CSF",
+        "EU-US DPF",
+        "GDPR",
+        "CCPA",
+        "DORA"
+      ],
       "links": {
         "trust": "https://trustcenter.cleo.com",
         "privacy": "https://www.cleo.com/privacy-notice",
@@ -45376,13 +45415,14 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 42,
-        "tier": "on-file",
+        "score": 82,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
           "status": 6,
           "privacy": 6,
-          "longevity": 10
+          "longevity": 10,
+          "marks": 40
         }
       },
       "founded_year": 1976,
@@ -46239,9 +46279,24 @@
       "title": "",
       "probed": 4,
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_States",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27018, ISO 27701, ISO 42001 +8.",
       "list": "wikipedia-software-us",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27701",
+        "ISO 42001",
+        "HIPAA",
+        "CSA STAR",
+        "EU-US DPF",
+        "GDPR",
+        "CCPA",
+        "DORA",
+        "NIS2",
+        "PIPEDA"
+      ],
       "links": {
         "trust": "https://trust.daon.com",
         "privacy": "https://www.daon.com/privacy-policy/",
@@ -46251,14 +46306,15 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 50,
-        "tier": "on-file",
+        "score": 90,
+        "tier": "complete",
         "factors": {
           "portal": 20,
           "dpa": 8,
           "status": 6,
           "privacy": 6,
-          "longevity": 10
+          "longevity": 10,
+          "marks": 40
         }
       },
       "founded_year": 1999,
@@ -46276,9 +46332,13 @@
       "title": "",
       "probed": 7,
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_States",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, HIPAA, GDPR.",
       "list": "wikipedia-software-us",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "HIPAA",
+        "GDPR"
+      ],
       "links": {
         "trust": "https://trust.datalogics.com",
         "privacy": "https://www.datalogics.com/privacy",
@@ -46290,8 +46350,8 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 64,
-        "tier": "on-file",
+        "score": 83,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
           "dpa": 8,
@@ -46299,7 +46359,8 @@
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
-          "longevity": 10
+          "longevity": 10,
+          "marks": 19
         }
       },
       "founded_year": 1967,
@@ -46648,9 +46709,13 @@
       "title": "",
       "probed": 3,
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_States",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, GDPR, CCPA.",
       "list": "wikipedia-software-us",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "GDPR",
+        "CCPA"
+      ],
       "links": {
         "trust": "https://trust.eab.com",
         "privacy": "https://eab.com/privacy-policy/",
@@ -46659,13 +46724,14 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 42,
+        "score": 58,
         "tier": "on-file",
         "factors": {
           "portal": 20,
           "status": 6,
           "privacy": 6,
-          "longevity": 10
+          "longevity": 10,
+          "marks": 16
         }
       },
       "founded_year": 1979,

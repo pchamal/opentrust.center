@@ -2905,6 +2905,46 @@ def apply_subprocessors_to_row(row: dict, url: str) -> bool:
     return True
 
 
+def apply_marks_to_row(row: dict, names: list[str]) -> list[str]:
+    """File catalog marks the first-party page named. Leave other factors."""
+    old = [x for x in (row.get("certs") or []) if isinstance(x, str)]
+    incoming = [x for x in names if isinstance(x, str) and x.strip()]
+    if not incoming:
+        return []
+    merged = apply_supersede(old + [x for x in incoming if x not in old])
+    added = [x for x in merged if x not in old]
+    if not added:
+        return []
+    row["certs"] = merged
+    disc = dict(row.get("disclosure") or {})
+    factors = dict(disc.get("factors") or {})
+    old_w = int(factors.get("marks") or 0)
+    new_w = cert_score(merged)
+    if new_w != old_w:
+        delta = new_w - old_w
+        factors["marks"] = new_w
+        score = min(100, max(0, int(disc.get("score") or 0) + delta))
+        if not row.get("found"):
+            tier = "silent"
+        elif score >= 90:
+            tier = "complete"
+        elif score >= 70:
+            tier = "substantial"
+        elif score >= 40:
+            tier = "on-file"
+        else:
+            tier = "thin"
+        disc["score"] = score
+        disc["tier"] = tier
+        disc["factors"] = factors
+        row["disclosure"] = disc
+    if row.get("found"):
+        cited = ", ".join(merged[:6])
+        extra = f" +{len(merged) - 6}" if len(merged) > 6 else ""
+        row["summary"] = f"Official page on file. Marks cited from public HTML: {cited}{extra}."
+    return added
+
+
 def fetch_seed_page(url: str) -> dict:
     fetched = crawl.fetch(url, max_body=TRUST_BODY)
     html = fetched.get("body") or ""
