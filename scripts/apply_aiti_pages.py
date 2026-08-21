@@ -47,7 +47,7 @@ def main() -> int:
             continue
         row_html = (
             f"<tr><td>AI page</td><td>{official_a(url, host)}</td>"
-            f"<td>20 Aug 2026</td></tr>"
+            f"<td>21 Aug 2026</td></tr>"
         )
         patched, n = ROW_RE.subn(r"\1" + row_html + r"\2", html, count=1)
         if n != 1:
