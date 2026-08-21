@@ -24,7 +24,7 @@ import {
   nameWithIcon,
 } from "../site/lib.js";
 import { aiMarksCell, defaultAiRows, filledAiRows, namedAiRows, filterAiRows, aitiRowHtml, arrangeAiRows, compareAiRows } from "../site/aiti.js";
-import { clickSort } from "../site/sort.js";
+import { clickSort, paintHeaders } from "../site/sort.js";
 
 const data = JSON.parse(readFileSync(new URL("../site/data.json", import.meta.url), "utf8"));
 const bySlug = Object.fromEntries(data.companies.map((r) => [r.slug, r]));
@@ -160,6 +160,30 @@ expect(
     /<button type="button">Marks<\/button>/.test(indexHtml) &&
     !/>Name</.test(indexHtml) &&
     !/>Domain</.test(indexHtml),
+);
+function aitiHeads(html) {
+  const block = ((html.match(/<table class="reg" id="reg"[\s\S]*?<thead>([\s\S]*?)<\/thead>/) || [])[1] || "");
+  return [...block.matchAll(/<th\b([^>]*)>([\s\S]*?)<\/th>/g)].map((m) => ({
+    attrs: m[1],
+    word: ((m[2].match(/<button[^>]*>([^<]*)<\/button>/) || [])[1] || "").trim(),
+    classes: (((m[1].match(/\bclass="([^"]*)"/) || [])[1] || "").split(/\s+/).filter(Boolean)),
+  }));
+}
+const heads = aitiHeads(indexHtml);
+const fileHead = heads.find((h) => h.word === "File");
+const marksHead = heads.find((h) => h.word === "Marks");
+expect(
+  "first paint only File has the active underline",
+  heads.filter((h) => h.classes.includes("on")).map((h) => h.word).join(" ") === "File" &&
+    fileHead &&
+    /aria-sort="descending"/.test(fileHead.attrs),
+);
+expect(
+  "first paint Marks is a plain word",
+  marksHead &&
+    !marksHead.classes.includes("on") &&
+    /aria-sort="none"/.test(marksHead.attrs) &&
+    marksHead.classes.includes("marks"),
 );
 expect("AITI has no N of 5", !aitiJs.includes(" of 5") && !indexHtml.includes(" of 5"));
 expect("showing uses the AITI N", aitiJs.includes("showing ${rows.length} of ${n}"));
@@ -462,6 +486,58 @@ expect("first click File is most-on-file", clickSort({ sort: "name", dir: "asc" 
 expect("second click File reverses", clickSort({ sort: "file", dir: "desc" }, "file", aitiDefaults).dir === "asc");
 expect("first click Marks is A–Z", clickSort(idleFile, "marks", aitiDefaults).dir === "asc");
 expect("second click Marks reverses", clickSort({ sort: "marks", dir: "asc" }, "marks", aitiDefaults).dir === "desc");
+function fakeHeader(sort, className = "") {
+  const classes = className ? className.split(/\s+/).filter(Boolean) : [];
+  const attrs = { "data-sort": sort, "aria-sort": "none" };
+  return {
+    getAttribute(name) {
+      return Object.prototype.hasOwnProperty.call(attrs, name) ? attrs[name] : null;
+    },
+    setAttribute(name, value) {
+      attrs[name] = value;
+    },
+    classList: {
+      toggle(name, on) {
+        const i = classes.indexOf(name);
+        if (on) {
+          if (i < 0) classes.push(name);
+        } else if (i >= 0) {
+          classes.splice(i, 1);
+        }
+      },
+      contains(name) {
+        return classes.includes(name);
+      },
+    },
+  };
+}
+const painted = {
+  name: fakeHeader("name"),
+  host: fakeHeader("host"),
+  file: fakeHeader("file", "on"),
+  marks: fakeHeader("marks", "marks"),
+};
+const paintedRoot = { querySelectorAll: () => [painted.name, painted.host, painted.file, painted.marks] };
+paintHeaders(paintedRoot, "file", "desc");
+expect(
+  "paintHeaders first paint only File is on",
+  painted.file.classList.contains("on") &&
+    !painted.marks.classList.contains("on") &&
+    !painted.name.classList.contains("on") &&
+    !painted.host.classList.contains("on") &&
+    painted.file.getAttribute("aria-sort") === "descending" &&
+    painted.marks.getAttribute("aria-sort") === "none",
+);
+paintHeaders(paintedRoot, "marks", "asc");
+expect(
+  "after Marks click only Marks is on",
+  painted.marks.classList.contains("on") &&
+    !painted.file.classList.contains("on") &&
+    !painted.name.classList.contains("on") &&
+    !painted.host.classList.contains("on") &&
+    painted.marks.getAttribute("aria-sort") === "ascending" &&
+    painted.file.getAttribute("aria-sort") === "none",
+);
 const byHost = arrangeAiRows(files, "host", "asc");
 expect("Host sort is domain A–Z", byHost.every((r, i) => !i || String(r.domain).localeCompare(byHost[i - 1].domain, undefined, { sensitivity: "base" }) >= 0));
 const byMarks = arrangeAiRows(files, "marks", "asc");
@@ -533,7 +609,16 @@ expect("AITI File numeral has no teal", !/body\.aiti \.reg td\.file-cell \.file-
 expect("390 stacks the File numeral above the rules", /@media \(max-width: 390px\) \{[\s\S]*body\.aiti \.reg td\.file-cell \.file-num \{[\s\S]*display: block/.test(css));
 expect("AITI domain and marks are clerk ink", /body\.aiti \.reg td\.domain a,[\s\S]*color: var\(--ot-ledger-black\);[\s\S]*text-decoration: none;/.test(css));
 expect("AITI printed marks stay roman", /body\.aiti \.reg td\.marks \.mark-line,[\s\S]*body\.aiti \.reg td\.marks \.mark-chip \{[\s\S]*font-style: normal;/.test(css));
-expect("active sort header is a 1px Ledger Black underline", /\.reg th\.on \{[\s\S]*border-bottom-color: var\(--ot-ledger-black\)/.test(css) && !css.includes('content: "▴"') && !css.includes('content: "▾"'));
+const regOn = (css.match(/\.reg th\.on \{[^}]+\}/) || [""])[0];
+const regOnBtn = (css.match(/\.reg th\.on button \{[^}]+\}/) || [""])[0];
+expect(
+  "active sort underline is under the button word",
+  regOnBtn.includes("border-bottom-color: var(--ot-ledger-black)") &&
+    !regOn.includes("border-bottom-color") &&
+    !css.includes('content: "▴"') &&
+    !css.includes('content: "▾"'),
+);
+expect("header row hairline stays graphite", /\.reg th \{[\s\S]*border-bottom: 1px solid var\(--ot-rule\)/.test(css));
 expect("companies first screen H1 stays", companiesHtml.includes('<h1 class="page-title">Public trust register</h1>') && companiesHtml.includes("A database of each company’s public trust ledger."));
 expect("AITI domain and marks hover is a 1px clerk rule", /body\.aiti \.reg td\.domain a:hover,[\s\S]*text-decoration: underline;[\s\S]*text-decoration-color: var\(--ot-rule-strong\)/.test(css));
 expect("AITI clerk hover matches Companies names", /\.reg td\.name a:hover \{[\s\S]*text-decoration: underline;[\s\S]*text-decoration-color: var\(--ot-rule-strong\)/.test(css));

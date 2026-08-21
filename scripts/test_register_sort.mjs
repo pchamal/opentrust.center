@@ -175,7 +175,11 @@ expect("folio row is a dossier click-through", /class="folio"/.test(registerSrc)
 
 const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8");
 expect("sort chrome has no chevron", !css.includes('content: "▴"') && !css.includes('content: "▾"'));
-expect("active header is a 1px Ledger Black underline", /\.reg th\.on \{[\s\S]*border-bottom-color: var\(--ot-ledger-black\)/.test(css));
+expect(
+  "active header is a 1px Ledger Black underline on the word",
+  /\.reg th\.on button \{[^}]*border-bottom-color: var\(--ot-ledger-black\)/.test(css) &&
+    !/\.reg th\.on \{[^}]*border-bottom-color/.test(css),
+);
 expect("headers stay graphite", /\.reg th \{[\s\S]*color: var\(--ot-graphite\)/.test(css));
 expect("row ink is graphite", /\.reg td \{[\s\S]*color: var\(--ot-graphite\)/.test(css) && /\.reg td\.marks,/.test(css));
 expect("names stay ledger black", /\.reg td\.name \{[\s\S]*color: var\(--ot-ledger-black\)/.test(css));
