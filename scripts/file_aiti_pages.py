@@ -333,6 +333,25 @@ CURATED_TRY = {
     "xiaomi": [
         "https://trust.mi.com/pdf/Xiaomi_Trustworthy_AI_White_Paper_2021_EN.pdf",
     ],
+    "black-forest-labs": [
+        "https://bfl.ai/legal/responsible-ai-development-policy",
+        "https://bfl.ai/transparency",
+    ],
+    "alibaba": [
+        "https://static.alibabagroup.com/manual-upload/Alibaba-Al-for-Good-Action-Report-2025.pdf",
+    ],
+    "reka": [
+        "https://reka.ai/legal/responsibleai-ethics",
+    ],
+    "baidu": [
+        "https://ai.baidu.com/ai-doc/REFERENCE/xk3dwjgfe",
+    ],
+    "suno": [
+        "https://suno.com/safety",
+    ],
+    "seekr": [
+        "https://www.seekr.com/responsible-ai-for-enterprises/",
+    ],
 }
 
 

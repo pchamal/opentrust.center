@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-21T15:50:00Z",
+  "generated_at": "2026-08-21T19:50:00Z",
   "seen": "2026-08-20",
   "rule": "Page fills only from a stored first-party AI-page URL. The company's generic trust, privacy, or status page is not enough. No SafeBase, login-walled portals, or third-party directories. When unsure, leave the rule open. Do not invent processors, evals, incidents, companies, or URLs.",
   "method": "Conservative curated first-party list, checked by fetch (crawl.fetch, UA opentrust.center/1.0). A URL is filed only when HTTP 200 and the document is clearly an AI instrument on the company's own domain or an official docs/research/CDN subdomain they operate. Soft-404s, homepage bounces, Cloudflare/login walls, vendor hosts, and third-party org pages are rejected. Path guesses that returned 404 stay open.",
-  "count": 36,
+  "count": 38,
   "pages": {
     "anthropic": {
       "url": "https://www.anthropic.com/responsible-scaling-policy",
@@ -274,6 +274,24 @@
       "via": "curated-first-party",
       "seen": "2026-08-21",
       "note": "First-party CDN model card is 200. The English algorithm-disclosure page is training-method documentation, not filed."
+    },
+    "black-forest-labs": {
+      "url": "https://bfl.ai/legal/responsible-ai-development-policy",
+      "host": "bfl.ai",
+      "title": "Responsible AI Development Policy | Black Forest Labs",
+      "kind": "responsible-ai",
+      "via": "curated-first-party",
+      "seen": "2026-08-21",
+      "note": "Official Responsible AI Development Policy. Fetch 200 with before/during/after-release safeguards in the document body. Transparency Hub also exists; one URL is filed."
+    },
+    "alibaba": {
+      "url": "https://static.alibabagroup.com/manual-upload/Alibaba-Al-for-Good-Action-Report-2025.pdf",
+      "host": "static.alibabagroup.com",
+      "title": "Alibaba AI for Good Action Report 2025",
+      "kind": "responsible-ai",
+      "via": "curated-first-party",
+      "seen": "2026-08-21",
+      "note": "First-party AI for Good report on static.alibabagroup.com. Fetch 200. Sets Alibaba's six AI-for-Good / responsible-AI principles and the Group technology-ethics committee. The generic ESG hub is not filed."
     }
   },
   "rejected": [
@@ -536,6 +554,71 @@
       "slug": "databricks",
       "url": "https://www.databricks.com/trust/responsibleAI",
       "reason": "HTTP 200 CSS/JS shell. The fetch does not include an instrument body. Prior Unity AI Gateway product-docs rejection also stands. Leave open."
+    },
+    {
+      "slug": "black-forest-labs",
+      "url": "https://bfl.ai/transparency",
+      "reason": "Live first-party Transparency Hub. Filed the Responsible AI Development Policy instead; one URL is filed."
+    },
+    {
+      "slug": "reka",
+      "url": "https://reka.ai/legal/responsibleai-ethics",
+      "reason": "HTTP 200 Framer shell titled Responsible AI, Model Risk, Ethics & Governance Framework. No instrument body in this crawler fetch. Leave open."
+    },
+    {
+      "slug": "baidu",
+      "url": "https://ai.baidu.com/ai-doc/REFERENCE/xk3dwjgfe",
+      "reason": "HTTP 200 JS shell. No title or AI-ethics instrument body in the fetch. Leave open."
+    },
+    {
+      "slug": "baidu",
+      "url": "https://esgs.cdn.bcebos.com/2026/05/17/05/080532d06118abd0b715365f9ae46689.pdf",
+      "reason": "ESG report on bcebos.com. Host is not first-party for baidu.com, so the bind cannot fill page."
+    },
+    {
+      "slug": "notion",
+      "url": "https://www.notion.so/help/ai-safety",
+      "reason": "Help article titled Notion’s commitment to AI safety. Fetch 200 but a JS shell with no instrument body, and the document lands on notion.com. Leave open."
+    },
+    {
+      "slug": "bytedance",
+      "url": "https://seed.bytedance.com/transparency",
+      "reason": "HTTP 200 JS shell. Training-data PDFs linked from the page live on bytednsdoc.com, which is not first-party for bytedance.com. Leave open."
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/news-updates/stability-ais-annual-integrity-transparency-report",
+      "reason": "News path. Fetch 200 Squarespace shell; the report body is not in the document. Prior /safety product-page rejection also stands. Leave open."
+    },
+    {
+      "slug": "perplexity-ai",
+      "url": "https://docs.perplexity.ai/models/model-cards",
+      "reason": "Redirects to the Sonar/API models catalog, not a model-card instrument."
+    },
+    {
+      "slug": "suno",
+      "url": "https://suno.com/safety",
+      "reason": "HTTP 200 titled Safety | Suno. Body is a marketing About page, not a responsible-AI / model-card instrument. When unsure, leave open."
+    },
+    {
+      "slug": "seekr",
+      "url": "https://www.seekr.com/responsible-ai-for-enterprises/",
+      "reason": "Resource explainer on what responsible AI is for enterprises, not Seekr's own AI instrument. Prior finance-governance article rejection also stands."
+    },
+    {
+      "slug": "clarifai",
+      "url": "https://www.clarifai.com/company/responsible-ai",
+      "reason": "HTTP 200 titled responsible-ai app. Product/app page, not Clarifai's own RAI instrument."
+    },
+    {
+      "slug": "alibaba",
+      "url": "https://www.alibabagroup.com/en-US/esg-resource",
+      "reason": "Generic ESG hub. Filed the first-party AI for Good report instead."
+    },
+    {
+      "slug": "alibaba",
+      "url": "https://www.alibabagroup.com/en-US/document-1816291626708893696",
+      "reason": "CSR news article about AI-for-Good projects, not the Group's AI instrument. Filed the Action Report PDF instead."
     }
   ],
   "open": [
@@ -578,7 +661,6 @@
     "actively-ai",
     "advanced-machine-intelligence",
     "agentsmyth",
-    "alibaba",
     "ankar",
     "antithesis",
     "applied-intuition",
@@ -590,7 +672,6 @@
     "avantos",
     "axiom",
     "baidu",
-    "black-forest-labs",
     "blue-water-autonomy",
     "bluefish",
     "boltz",
