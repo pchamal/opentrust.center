@@ -104,7 +104,7 @@ def main() -> int:
     zoom = (ROOT / "site" / "c" / "zoom.html").read_text(encoding="utf-8")
     check("01 April 2025" not in zoom, "zoom still has no date processors")
     check("Amazon Web Services" in zoom, "zoom still names AWS")
-    check("Concentration" in (ROOT / "site" / "graph.html").read_text(encoding="utf-8"), "map concentration label stays")
+    check("Concentration" not in (ROOT / "site" / "graph.html").read_text(encoding="utf-8"), "list dropped Concentration")
 
     print(
         "ok",

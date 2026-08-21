@@ -36,7 +36,11 @@ const HEADER_KEYS = {
   processor: "processor",
   processors: "processor",
   name: "name",
+  system: "name",
+  company: "name",
+  mark: "name",
   exposure: "exposure",
+  "named by": "exposure",
   "public file": "file",
   file: "file",
   concentration: "risk",
@@ -168,10 +172,20 @@ export function compareCellText(key, a, b) {
       return impactValue(left) - impactValue(right);
     case "file":
     case "tier": {
+      const an = left.match(/^(\d+)/);
+      const bn = right.match(/^(\d+)/);
+      if (an && bn) return Number(an[1]) - Number(bn[1]);
       const order = TIER_ORDER;
       const av = order[left] != null ? order[left] : left === "on file" ? 2 : -1;
       const bv = order[right] != null ? order[right] : right === "on file" ? 2 : -1;
       return av - bv;
+    }
+    case "marks": {
+      const empty = (s) => !s || /^not on file$/i.test(s);
+      if (empty(left) && empty(right)) return 0;
+      if (empty(left)) return 1;
+      if (empty(right)) return -1;
+      return cmpText(left, right);
     }
     default:
       return cmpText(left, right);

@@ -28,8 +28,8 @@ const state = {
   geo: "all",
   industry: "all",
   kind: "all",
-  sort: "files",
-  dir: "desc",
+  sort: "name",
+  dir: "asc",
   depth: new Map(),
   rot: 0,
   drag: null,
@@ -100,7 +100,7 @@ export function compareMarks(a, b, key) {
 }
 
 export function arrangeMarks(rows, sort, dir) {
-  return arrange(rows, sort || "files", dir || "desc", compareMarks);
+  return arrange(rows, sort || "name", dir || "asc", compareMarks);
 }
 
 function geosOf(item) {

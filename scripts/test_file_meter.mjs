@@ -104,14 +104,15 @@ expect("register does not restyle the dossier stamp", !src.includes("disclosure"
 expect("register has no More on this file", !src.includes("More on this file") && !src.includes("record-extra"));
 
 const indexHtml = readFileSync(new URL("../site/index.html", import.meta.url), "utf8");
+const companiesHtml = readFileSync(new URL("../site/companies.html", import.meta.url), "utf8");
 expect(
   "legend is once above the grid",
-  indexHtml.includes('id="file-legend"') && indexHtml.includes("page · marks · DPA · subprocessors · years"),
+  indexHtml.includes('id="file-legend"') && indexHtml.includes("page · marks · processors · evals · incidents"),
 );
 expect(
   "finder placeholder dropped old tier words",
-  indexHtml.includes('placeholder="/ stripe, fedramp moderate"') &&
-    !/placeholder="[^"]*\b(silent|thin|substantial|complete)\b/.test(indexHtml),
+  companiesHtml.includes('placeholder="/ stripe, complete, fedramp moderate"') &&
+    !/placeholder="[^"]*\b(silent|thin|substantial)\b/.test(companiesHtml),
 );
 expect("legend is not a tooltip farm", !src.includes("title=") || !/file-rule[^>]*title=/.test(src));
 

@@ -69,27 +69,30 @@ expect("file count is 0–5", fileCount({}) === 0 && fileCount({
 
 expect("normalize #", normalizeSort("#") === "rank");
 expect("normalize junk", normalizeSort("score") === "");
-expect("dir default for marks", normalizeDir("", "marks") === "desc");
+expect("normalize host alias", normalizeSort("domain") === "host");
+expect("normalize file alias", normalizeSort("tier") === "file");
+expect("dir default for marks", normalizeDir("", "marks") === "asc");
 expect("dir default for name", normalizeDir(null, "name") === "asc");
+expect("dir default for file", normalizeDir("", "file") === "desc");
 
-const idle = { sort: "rank", dir: "asc", sorted: false };
-const firstRank = clickSort(idle, "rank");
-expect("first click # stays 001 first", firstRank.sort === "rank" && firstRank.dir === "asc" && firstRank.sorted);
-const flipRank = clickSort(firstRank, "rank");
-expect("second click # reverses", flipRank.dir === "desc");
+const idle = { sort: "name", dir: "asc", sorted: true };
+const firstName = clickSort({ sort: "file", dir: "desc", sorted: false }, "name");
+expect("first click Company is A–Z", firstName.sort === "name" && firstName.dir === "asc");
+expect("second click Company is Z–A", clickSort(firstName, "name").dir === "desc");
 
-const firstName = clickSort(idle, "name");
-expect("first click name is A–Z", firstName.sort === "name" && firstName.dir === "asc");
-expect("second click name is Z–A", clickSort(firstName, "name").dir === "desc");
+const firstHost = clickSort(idle, "host");
+expect("first click Host is A–Z", firstHost.sort === "host" && firstHost.dir === "asc");
+expect("second click Host reverses", clickSort(firstHost, "host").dir === "desc");
 
-const firstTier = clickSort(idle, "tier");
-expect("first click File is 0 to 5", firstTier.sort === "tier" && firstTier.dir === "asc");
-expect("second click File reverses", clickSort(firstTier, "tier").dir === "desc");
+const firstFile = clickSort(idle, "file");
+expect("first click File is most-on-file", firstFile.sort === "file" && firstFile.dir === "desc");
+expect("second click File reverses", clickSort(firstFile, "file").dir === "asc");
 const firstMarks = clickSort(idle, "marks");
-expect("first click marks is high count", firstMarks.sort === "marks" && firstMarks.dir === "desc");
+expect("first click marks is A–Z", firstMarks.sort === "marks" && firstMarks.dir === "asc");
+expect("second click marks reverses", clickSort(firstMarks, "marks").dir === "desc");
 
 const byRank = arrangeRows(rows, "rank", "asc");
-expect("default rank order", byRank[0].rank === 1 && byRank.every((r, i) => i === 0 || r.rank >= byRank[i - 1].rank));
+expect("rank order still works", byRank[0].rank === 1 && byRank.every((r, i) => i === 0 || r.rank >= byRank[i - 1].rank));
 
 const byRankDesc = arrangeRows(rows, "rank", "desc");
 expect("rank high-to-low is 001 last", byRankDesc[0].rank === byRank[byRank.length - 1].rank && byRankDesc[byRankDesc.length - 1].rank === 1);
@@ -112,14 +115,14 @@ const mixedCase = arrangeRows(
 );
 expect("name ignores case", mixedCase[0].name === "Alpha" && mixedCase[1].name === "zeta");
 
-const byDomain = arrangeRows(rows, "domain", "asc");
+const byDomain = arrangeRows(rows, "host", "asc");
 const domainOk = byDomain.every((r, i) => {
   if (i === 0) return true;
   return String(r.domain || "").localeCompare(byDomain[i - 1].domain || "", undefined, { sensitivity: "base" }) >= 0;
 });
-expect("domain is case-insensitive alpha", domainOk);
+expect("host is case-insensitive alpha", domainOk);
 
-const byTier = arrangeRows(rows, "tier", "desc");
+const byTier = arrangeRows(rows, "file", "desc");
 const fileOk = byTier.every((r, i) => {
   if (i === 0) return true;
   return fileCount(r) <= fileCount(byTier[i - 1]);
@@ -138,47 +141,46 @@ expect(
   byTier.map((r) => r.slug).join() !== english.map((r) => r.slug).join(),
 );
 
-const byMarks = arrangeRows(rows, "marks", "desc");
-const marksOk = byMarks.every((r, i) => {
-  if (i === 0) return true;
-  return marksCount(r) <= marksCount(byMarks[i - 1]);
-});
-expect("marks is count high to low", marksOk);
-expect("marks count is a number", marksCount(byMarks[0]) > marksCount(byMarks[byMarks.length - 1]));
+const byMarks = arrangeRows(rows, "marks", "asc");
+const emptyMarks = (row) => marksCount(row) === 0;
+expect("marks A–Z leaves empty last", emptyMarks(byMarks[byMarks.length - 1]) && !emptyMarks(byMarks[0]));
+expect("marks count helper still works", marksCount(rows.find((r) => (r.attestations || []).length)) > 0);
 
-expect("probed is the default arrange key", normalizeSort("probed") === "probed");
+expect("probed still a sort key", normalizeSort("probed") === "probed");
 
 const landing = defaultRows(rows);
-const firstScreen = landing.slice(0, 20);
-const firstTiers = new Set(firstScreen.map((r) => r.tier || "silent"));
-const probedOk = landing.every((r, i) => {
+const nameOkLanding = landing.every((r, i) => {
   if (i === 0) return true;
-  const a = Date.parse(landing[i - 1].probed_at || "") || 0;
-  const b = Date.parse(r.probed_at || "") || 0;
-  return a >= b;
+  return String(r.name).localeCompare(landing[i - 1].name, undefined, { sensitivity: "base" }) >= 0;
 });
 expect("default keeps every company", landing.length === rows.length);
 expect("default does not drop a slug", new Set(landing.map((r) => r.slug)).size === rows.length);
-expect("default is last probed newest first", probedOk);
-expect("first screen is not all silent", firstScreen.some((r) => r.tier !== "silent"));
-expect("first screen is not a complete stripe", firstScreen.some((r) => r.tier !== "complete"));
-expect("first screen is mixed files", firstTiers.size >= 3);
+expect("default is Company A–Z", nameOkLanding && landing[0].name.localeCompare(landing[landing.length - 1].name, undefined, { sensitivity: "base" }) < 0);
 expect("complete stays in the table", landing.some((r) => r.tier === "complete"));
-expect("file header still sorts the state", fileCount(arrangeRows(rows, "tier", "asc")[0]) === 0 && fileCount(arrangeRows(rows, "tier", "desc")[0]) === 5);
+expect("file header still sorts the state", fileCount(arrangeRows(rows, "file", "asc")[0]) === 0 && fileCount(arrangeRows(rows, "file", "desc")[0]) === 5);
 
 const indexHtml = readFileSync(new URL("../site/companies.html", import.meta.url), "utf8");
 expect("register grid dropped probed", !/data-sort="probed"/.test(indexHtml) && !/>probed</.test(indexHtml));
+expect("register dropped the # medal", !/data-sort="rank"/.test(indexHtml) && !/>#</.test(indexHtml));
+expect(
+  "register headers are Company Host File Marks",
+  /<button type="button">Company<\/button>/.test(indexHtml) &&
+    /<button type="button">Host<\/button>/.test(indexHtml) &&
+    /<button type="button">File<\/button>/.test(indexHtml) &&
+    /<button type="button">Marks<\/button>/.test(indexHtml),
+);
 expect("register file cell has no coverage count", !/file-cov|fileCoverageHtml| of 5/.test(registerSrc));
 expect("register has no More on this file", !/More on this file|record-extra/.test(registerSrc));
 expect("folio row is a dossier click-through", /class="folio"/.test(registerSrc));
 
 const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8");
-expect("sort caret is utility triangles", css.includes('content: "▴"') && css.includes('content: "▾"') && /th\[data-sort\] button::after \{[\s\S]*font: var\(--t-meta\)/.test(css) && /th\[data-sort\] button::after \{[\s\S]*color: var\(--ot-graphite\)/.test(css));
+expect("sort chrome has no chevron", !css.includes('content: "▴"') && !css.includes('content: "▾"'));
+expect("active header is a 1px Ledger Black underline", /\.reg th\.on \{[\s\S]*border-bottom-color: var\(--ot-ledger-black\)/.test(css));
 expect("headers stay graphite", /\.reg th \{[\s\S]*color: var\(--ot-graphite\)/.test(css));
-expect("row ink is graphite", /\.reg td \{[\s\S]*color: var\(--ot-graphite\)/.test(css) && /\.reg td\.num \{ color: var\(--ot-graphite\)/.test(css) && /\.reg td\.marks,/.test(css));
+expect("row ink is graphite", /\.reg td \{[\s\S]*color: var\(--ot-graphite\)/.test(css) && /\.reg td\.marks,/.test(css));
 expect("names stay ledger black", /\.reg td\.name \{[\s\S]*color: var\(--ot-ledger-black\)/.test(css));
 expect("coverage is not on the register", !css.includes(".file-meter") && !css.includes(".file-cov"));
-expect("hover and selected share the spine", /tr\.folio:hover td\.num,[\s\S]*border-left-color: var\(--ot-evidence-teal\)/.test(css));
+expect("hover and selected share the spine", /tr\.folio:hover td\.name,[\s\S]*border-left-color: var\(--ot-evidence-teal\)/.test(css));
 expect("register row has no mint wash", !/\.reg tbody tr[\s\S]{0,80}--ot-index-wash/.test(css) && !/\.reg tbody tr[\s\S]{0,120}#DDEFEA/.test(css));
 expect("register row has no box-shadow pip", !/\.reg tbody tr[\s\S]{0,200}box-shadow: inset var\(--ot-spine\)/.test(css));
 expect("nav underline is 1px teal", /\.docket a \{[\s\S]*border-bottom: 1px solid transparent/.test(css) && /\.docket a\.on \{[\s\S]*border-bottom-color: var\(--ot-evidence-teal\)/.test(css));
@@ -231,7 +233,7 @@ expect("sort keeps finder set", fedByName.length === fedSet.length && fedByName.
 expect("sorted finder is A–Z", fedByName[0].name.localeCompare(fedByName[fedByName.length - 1].name, undefined, { sensitivity: "base" }) < 0);
 
 const stripe = apply("/ stripe");
-const stripeByDomain = arrangeRows(stripe, "domain", "asc");
+const stripeByDomain = arrangeRows(stripe, "host", "asc");
 expect("stripe still found", stripeByDomain.some((r) => r.slug === "stripe"));
 
 if (!process.exitCode) console.log("ok sort");

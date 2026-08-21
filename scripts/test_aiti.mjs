@@ -23,7 +23,8 @@ import {
   isAiSystemProcessor,
   nameWithIcon,
 } from "../site/lib.js";
-import { aiMarksCell, defaultAiRows, filledAiRows, namedAiRows, filterAiRows, aitiRowHtml } from "../site/aiti.js";
+import { aiMarksCell, defaultAiRows, filledAiRows, namedAiRows, filterAiRows, aitiRowHtml, arrangeAiRows, compareAiRows } from "../site/aiti.js";
+import { clickSort } from "../site/sort.js";
 
 const data = JSON.parse(readFileSync(new URL("../site/data.json", import.meta.url), "utf8"));
 const bySlug = Object.fromEntries(data.companies.map((r) => [r.slug, r]));
@@ -150,7 +151,16 @@ expect("docket word stays AITI", activeWord(indexHtml) === "AITI");
 expect("no stars medals Elo or 0-100", !/★|☆|medal|0–100|0-100|\bElo\b|podium/i.test(aitiJs + indexHtml));
 expect("AITI table has no score column", !/>\s*Score\s*</i.test(indexHtml) && !aitiJs.includes("trust score") && !aitiJs.includes("score column") && !aitiJs.includes("aitiScore") && !aitiJs.includes("file score"));
 expect("AITI table has no rank column", !/>\s*Rank\s*</i.test(indexHtml) && !aitiJs.includes("who's ahead") && !aitiJs.includes("who’s ahead"));
-expect("AITI has no sixth number column", /<th scope="col">#<\/th>\s*<th scope="col">Name<\/th>\s*<th scope="col">Domain<\/th>\s*<th scope="col">File<\/th>\s*<th scope="col" class="marks">Marks<\/th>/.test(indexHtml));
+expect("AITI has no sixth number column", !/#<\/th>/.test(indexHtml) && !/>\s*#\s*</.test(indexHtml) && (indexHtml.match(/<th /g) || []).length === 4);
+expect(
+  "AITI headers are System Host File Marks",
+  /<button type="button">System<\/button>/.test(indexHtml) &&
+    /<button type="button">Host<\/button>/.test(indexHtml) &&
+    /<button type="button">File<\/button>/.test(indexHtml) &&
+    /<button type="button">Marks<\/button>/.test(indexHtml) &&
+    !/>Name</.test(indexHtml) &&
+    !/>Domain</.test(indexHtml),
+);
 expect("AITI has no N of 5", !aitiJs.includes(" of 5") && !indexHtml.includes(" of 5"));
 expect("showing uses the AITI N", aitiJs.includes("showing ${rows.length} of ${n}"));
 expect("AITI does not paginate a second universe", !aitiJs.includes("PAGE_SIZE") && !indexHtml.includes("pager"));
@@ -348,10 +358,21 @@ expect(
 );
 expect("Anthropic File is page and marks only", anthropicFlags.page === true && anthropicFlags.marks === true && anthropicFlags.processors === false && anthropicFlags.evals === false && anthropicFlags.incidents === false);
 expect("Anthropic count is 2", aiFileCount(anthropic) === 2 && aiFileOnWords(anthropic) === "2 on file");
-expect("Anthropic caption is 2 on file", fileCell(defaultAnthropicHtml).includes("2 on file") && fileCell(finderAnthropicHtml).includes("2 on file") && fileCell(aitiRowHtml(anthropic, 0)).includes("2 on file"));
-expect("Anthropic caption is after the rules", /file-index[\s\S]*file-on/.test(fileCell(defaultAnthropicHtml)) && fileCell(defaultAnthropicHtml).includes("file-rule"));
-expect("Midjourney caption is 0 on file", aiFileOnWords(mid) === "0 on file" && fileCell(aitiRowHtml(mid, 0)).includes("0 on file"));
-expect("every row prints the on-file caption", files.every((r) => fileCell(aitiRowHtml(r, 0)).includes(`${aiFileCount(r)} on file`)));
+expect(
+  "Anthropic File prints 2",
+  /<span class="file-num">2<\/span>/.test(fileCell(defaultAnthropicHtml)) &&
+    /<span class="file-num">2<\/span>/.test(fileCell(finderAnthropicHtml)) &&
+    /<span class="file-num">2<\/span>/.test(fileCell(aitiRowHtml(anthropic, 0))) &&
+    !/\d+ on file/.test(fileCell(defaultAnthropicHtml)) &&
+    !fileCell(finderAnthropicHtml).includes("2 on file") &&
+    !fileCell(defaultAnthropicHtml).includes("file-on"),
+);
+expect("Anthropic numeral is left of the rules", /file-num[\s\S]*file-index[\s\S]*file-rule/.test(fileCell(defaultAnthropicHtml)));
+expect("Midjourney File prints 0", /<span class="file-num">0<\/span>/.test(fileCell(aitiRowHtml(mid, 0))) && !/\d+ on file/.test(fileCell(aitiRowHtml(mid, 0))) && !fileCell(aitiRowHtml(mid, 0)).includes("file-on"));
+expect("every row prints the file numeral", files.every((r) => {
+  const cell = fileCell(aitiRowHtml(r, 0));
+  return cell.includes(`<span class="file-num">${aiFileCount(r)}</span>`) && !/\d+ on file/.test(cell) && !cell.includes("file-on");
+}));
 expect("caption is not a score name", !aitiJs.includes("aitiScore") && !aitiJs.includes("trust index") && !aitiJs.includes("maturity") && !aitiJs.includes("Arena") && !indexHtml.includes(">Score<"));
 function hostText(html) {
   return domainCell(html).replace(/<[^>]+>/g, "").trim();
@@ -419,6 +440,42 @@ expect("xAI evals follow the stored model card", storedAiEvalsUrl(bySlug.xai) ==
 expect("OpenAI page bind unchanged", storedAiPageUrl(bySlug.openai) === pagesDoc.pages.openai.url && aiFileFlags(bySlug.openai).page === true);
 expect("xAI page bind unchanged", storedAiPageUrl(bySlug.xai) === pagesDoc.pages.xai.url && aiFileFlags(bySlug.xai).page === true);
 
+const openai = bySlug.openai;
+expect("OpenAI File is 3", aiFileCount(openai) === 3 && /<span class="file-num">3<\/span>/.test(fileCell(aitiRowHtml(openai, 0))));
+expect("OpenAI File has no on-file words", !/\d+ on file/.test(fileCell(aitiRowHtml(openai, 0))) && !fileCell(aitiRowHtml(openai, 0)).includes("file-on"));
+
+const runway = bySlug.runway;
+const runwayFlags = aiFileFlags(runway);
+const runwayMarks = aiMarksCell(runway);
+const runwayHtml = aitiRowHtml(runway, 0);
+expect("Runway File is page and processors", runwayFlags.page === true && runwayFlags.processors === true && runwayFlags.marks === false && runwayFlags.evals === false && runwayFlags.incidents === false);
+expect("Runway File prints 2", aiFileCount(runway) === 2 && /<span class="file-num">2<\/span>/.test(fileCell(runwayHtml)) && !/\d+ on file/.test(fileCell(runwayHtml)));
+expect("Runway Marks stays italic not on file", runwayMarks.includes("not on file") && runwayMarks.includes("absent"));
+
+const aitiDefaults = { name: "asc", host: "asc", file: "desc", marks: "asc" };
+const idleFile = { sort: "file", dir: "desc" };
+expect("first click System is A–Z", clickSort(idleFile, "name", aitiDefaults).sort === "name" && clickSort(idleFile, "name", aitiDefaults).dir === "asc");
+expect("second click System reverses", clickSort({ sort: "name", dir: "asc" }, "name", aitiDefaults).dir === "desc");
+expect("first click Host is A–Z", clickSort(idleFile, "host", aitiDefaults).dir === "asc");
+expect("second click Host reverses", clickSort({ sort: "host", dir: "asc" }, "host", aitiDefaults).dir === "desc");
+expect("first click File is most-on-file", clickSort({ sort: "name", dir: "asc" }, "file", aitiDefaults).dir === "desc");
+expect("second click File reverses", clickSort({ sort: "file", dir: "desc" }, "file", aitiDefaults).dir === "asc");
+expect("first click Marks is A–Z", clickSort(idleFile, "marks", aitiDefaults).dir === "asc");
+expect("second click Marks reverses", clickSort({ sort: "marks", dir: "asc" }, "marks", aitiDefaults).dir === "desc");
+const byHost = arrangeAiRows(files, "host", "asc");
+expect("Host sort is domain A–Z", byHost.every((r, i) => !i || String(r.domain).localeCompare(byHost[i - 1].domain, undefined, { sensitivity: "base" }) >= 0));
+const byMarks = arrangeAiRows(files, "marks", "asc");
+expect(
+  "Marks sort is A–Z with not on file last",
+  byMarks.every((r, i) => {
+    if (!i) return true;
+    return compareAiRows(byMarks[i - 1], r, "marks") <= 0;
+  }) &&
+    !hasPrintedAiMark(byMarks[byMarks.length - 1]) &&
+    hasPrintedAiMark(byMarks[0]),
+);
+expect("AITI table has four columns", !aitiJs.includes('class="num"') && aitiJs.includes("file-num") && !aitiJs.includes("aitiScore"));
+
 expect(
   "third-party evals URL does not fill",
   storedAiEvalsUrl({ slug: "openai", domain: "openai.com", ai_evals: { url: "https://example.com/evals" } }) === "",
@@ -468,15 +525,15 @@ expect("Midjourney Domain stays the homepage", printedAitiUrl(mid).includes("mid
 expect("AITI names use the icon helper", aitiJs.includes("nameWithIcon(row.name, row.favicon)"));
 expect("01.AI 12px mark is name only", !bySlug["01-ai"].favicon && !nameWithIcon(bySlug["01-ai"].name, bySlug["01-ai"].favicon).includes("ink-ico"));
 expect("finder example is aiuc-1", indexHtml.includes('placeholder="/ cursor, aiuc-1"') && !indexHtml.includes("aluc-1") && !aitiJs.includes("aluc-1"));
-expect("AITI # is the padded index only", /<td class="num">\$\{escapeHtml\(n\)\}<\/td>/.test(aitiJs) && !/<td class="num">[^<]*<img/.test(aitiJs));
+expect("AITI has no medal # column", !aitiJs.includes('class="num"') && !/#<\/th>/.test(indexHtml));
 expect("AITI does not invent a globe or index placeholder", !aitiJs.includes("globe") && !aitiJs.includes("placeholder") && !aitiJs.includes("inkIcon("));
 expect("AITI body scopes the first-screen nibble", indexHtml.includes('class="register aiti"'));
-expect("AITI # is ledger black type", /body\.aiti \.reg td\.num \{[\s\S]*color: var\(--ot-ledger-black\)/.test(css));
-expect("AITI # has no pip tile or disc", /body\.aiti \.reg td\.num \{[\s\S]*background: none;[\s\S]*border-radius: 0;[\s\S]*box-shadow: none;/.test(css));
-expect("Companies # stays graphite", /\.reg td\.num \{ color: var\(--ot-graphite\)/.test(css));
+expect("AITI File numeral is Source Serif Ledger Black", /body\.aiti \.reg td\.file-cell \.file-num \{[\s\S]*font: var\(--t-name\)[\s\S]*color: var\(--ot-ledger-black\)/.test(css));
+expect("AITI File numeral has no teal", !/body\.aiti \.reg td\.file-cell \.file-num \{[\s\S]{0,180}--ot-evidence-teal/.test(css));
+expect("390 stacks the File numeral above the rules", /@media \(max-width: 390px\) \{[\s\S]*body\.aiti \.reg td\.file-cell \.file-num \{[\s\S]*display: block/.test(css));
 expect("AITI domain and marks are clerk ink", /body\.aiti \.reg td\.domain a,[\s\S]*color: var\(--ot-ledger-black\);[\s\S]*text-decoration: none;/.test(css));
 expect("AITI printed marks stay roman", /body\.aiti \.reg td\.marks \.mark-line,[\s\S]*body\.aiti \.reg td\.marks \.mark-chip \{[\s\S]*font-style: normal;/.test(css));
-expect("on-file caption is ledger Atkinson", /body\.aiti \.reg td\.file-cell \.file-on \{[\s\S]*color: var\(--ot-ledger-black\)[\s\S]*font: var\(--t-meta\)/.test(css));
+expect("active sort header is a 1px Ledger Black underline", /\.reg th\.on \{[\s\S]*border-bottom-color: var\(--ot-ledger-black\)/.test(css) && !css.includes('content: "▴"') && !css.includes('content: "▾"'));
 expect("companies first screen H1 stays", companiesHtml.includes('<h1 class="page-title">Public trust register</h1>') && companiesHtml.includes("A database of each company’s public trust ledger."));
 expect("AITI domain and marks hover is a 1px clerk rule", /body\.aiti \.reg td\.domain a:hover,[\s\S]*text-decoration: underline;[\s\S]*text-decoration-color: var\(--ot-rule-strong\)/.test(css));
 expect("AITI clerk hover matches Companies names", /\.reg td\.name a:hover \{[\s\S]*text-decoration: underline;[\s\S]*text-decoration-color: var\(--ot-rule-strong\)/.test(css));

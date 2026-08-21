@@ -418,20 +418,12 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   border-radius: 0;
   min-height: 44px;
 }
-.reg th[data-sort] button::after {
-  content: "";
-  display: inline-block;
-  width: 1em;
-  margin-left: 0.25em;
-  font: var(--t-meta);
-  color: var(--ot-graphite);
-}
-.reg th[data-sort][aria-sort="ascending"] button::after { content: "▴"; }
-.reg th[data-sort][aria-sort="descending"] button::after { content: "▾"; }
 .reg th[data-sort]:hover,
 .reg th[data-sort] button:hover { color: var(--ot-ledger-black); }
-.reg th.on { color: var(--ot-ledger-black); }
-.reg th.on button::after { color: var(--ot-ledger-black); }
+.reg th.on {
+  color: var(--ot-ledger-black);
+  border-bottom-color: var(--ot-ledger-black);
+}
 .reg td {
   font: var(--t-data);
   font-variant-numeric: tabular-nums;
@@ -447,6 +439,7 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   letter-spacing: -0.02em;
   color: var(--ot-ledger-black);
   white-space: nowrap;
+  border-left: var(--ot-spine) solid transparent;
 }
 .reg td.name a {
   color: inherit;
@@ -498,13 +491,6 @@ a:hover img.ink-ico {
 .reg .mark-line { color: var(--ot-graphite); text-decoration: none; }
 .reg .mark-chip { color: var(--ot-graphite); font: inherit; }
 .reg td.num { color: var(--ot-graphite); width: 3.2em; border-left: var(--ot-spine) solid transparent; }
-/* AITI # is type. No pip, disc, globe, or tile on the index. */
-body.aiti .reg td.num {
-  color: var(--ot-ledger-black);
-  background: none;
-  border-radius: 0;
-  box-shadow: none;
-}
 body.aiti .reg td.domain a,
 body.aiti .reg td.marks a {
   color: var(--ot-ledger-black);
@@ -520,10 +506,10 @@ body.aiti .reg td.marks a:hover {
   text-decoration-color: var(--ot-rule-strong);
 }
 .reg tbody tr { cursor: pointer; }
-.reg tbody tr.folio:hover td.num,
-.reg tbody tr[aria-selected="true"] td.num,
-.reg tbody tr.selected td.num,
-.reg tbody tr.on td.num {
+.reg tbody tr.folio:hover td.name,
+.reg tbody tr[aria-selected="true"] td.name,
+.reg tbody tr.selected td.name,
+.reg tbody tr.on td.name {
   border-left-color: var(--ot-evidence-teal);
 }
 .reg tbody tr.folio:focus-visible,
@@ -564,11 +550,11 @@ body.aiti .reg td.marks a:hover {
   border: 0;
   background: var(--ot-ledger-black);
 }
-body.aiti .reg td.file-cell .file-on {
+body.aiti .reg td.file-cell .file-num {
+  font: var(--t-name);
   color: var(--ot-ledger-black);
-  font: var(--t-meta);
   font-style: normal;
-  margin-left: 8px;
+  margin-right: 8px;
   vertical-align: middle;
 }
 
@@ -782,20 +768,9 @@ a.official {
   border-radius: 0;
   min-height: 44px;
 }
-.inst th[data-sort] button::after {
-  content: "";
-  display: inline-block;
-  width: 1em;
-  margin-left: 0.25em;
-  font: var(--t-meta);
-  color: var(--ot-graphite);
-}
-.inst th[data-sort][aria-sort="ascending"] button::after { content: "▴"; }
-.inst th[data-sort][aria-sort="descending"] button::after { content: "▾"; }
 .inst th[data-sort]:hover,
 .inst th[data-sort] button:hover { color: var(--ot-ledger-black); }
 .inst th.on { color: var(--ot-ledger-black); border-bottom-color: var(--ot-ledger-black); }
-.inst th.on button::after { color: var(--ot-ledger-black); }
 #book-sort {
   margin: 0 0 8px;
 }
@@ -1366,7 +1341,7 @@ a.official {
     white-space: normal;
   }
   .reg td.num { display: none; }
-  .reg td.name { margin-bottom: 2px; }
+  .reg td.name { margin-bottom: 2px; border-left: 0; }
   .dossier .file .ident,
   .dossier .file .fig-sub,
   .dossier .file .src-line,
@@ -1427,6 +1402,11 @@ a.official {
 }
 
 @media (max-width: 390px) {
+  body.aiti .reg td.file-cell .file-num {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 4px;
+  }
   .wires-scroll {
     max-height: none;
     overflow: visible;

@@ -17,14 +17,21 @@ import {
   echoWords,
 } from "./finder.js";
 
-const SORTS = new Set(["rank", "name", "domain", "tier", "marks", "probed"]);
+const SORTS = new Set(["rank", "name", "host", "file", "marks", "probed"]);
+const SORT_ALIAS = {
+  "#": "rank",
+  num: "rank",
+  number: "rank",
+  domain: "host",
+  tier: "file",
+};
 export const PAGE_SIZE = 50;
 const DEFAULT_DIR = {
   rank: "asc",
   name: "asc",
-  domain: "asc",
-  tier: "asc",
-  marks: "desc",
+  host: "asc",
+  file: "desc",
+  marks: "asc",
   probed: "desc",
 };
 const state = {
@@ -32,17 +39,17 @@ const state = {
   generatedAt: null,
   q: "",
   url: { tier: "all", list: "all", fedramp: "all" },
-  sort: "rank",
+  sort: "name",
   dir: "asc",
-  sorted: false,
+  sorted: true,
   page: 1,
   selected: "",
 };
 
 export function normalizeSort(value) {
   const v = String(value || "").trim().toLowerCase();
-  if (v === "#" || v === "num" || v === "number") return "rank";
-  return SORTS.has(v) ? v : "";
+  const key = SORT_ALIAS[v] || v;
+  return SORTS.has(key) ? key : "";
 }
 
 export function normalizeDir(value, sort) {
@@ -77,22 +84,46 @@ export function marksCount(row) {
   return names.length + (stamp ? 1 : 0);
 }
 
+function marksSortKey(row) {
+  const stamp = !!(row && row.fedramp);
+  let names = namedMarks(row);
+  if (stamp) names = names.filter((a) => !isFedrampCite(a));
+  const labels = [];
+  if (stamp) labels.push("fedramp");
+  for (const a of names) {
+    const label = markLabel(a);
+    if (label) labels.push(label);
+  }
+  return labels.join(" · ");
+}
+
+function cmpMarksText(a, b) {
+  const left = marksSortKey(a);
+  const right = marksSortKey(b);
+  if (!left && !right) return 0;
+  if (!left) return 1;
+  if (!right) return -1;
+  return cmpText(left, right);
+}
+
 export function compareRows(a, b, key) {
   switch (key) {
     case "rank":
       return rankOf(a) - rankOf(b);
     case "name":
       return cmpText(a && a.name, b && b.name);
+    case "host":
     case "domain":
       return cmpText(a && a.domain, b && b.domain);
+    case "file":
     case "tier":
       return fileCount(a) - fileCount(b);
     case "marks":
-      return marksCount(a) - marksCount(b);
+      return cmpMarksText(a, b);
     case "probed":
       return probedMs(a) - probedMs(b);
     default:
-      return rankOf(a) - rankOf(b);
+      return cmpText(a && a.name, b && b.name);
   }
 }
 
@@ -103,22 +134,18 @@ function probedMs(row) {
 }
 
 export function arrangeRows(rows, sort, dir) {
-  const key = normalizeSort(sort) || "rank";
+  const key = normalizeSort(sort) || "name";
   const sign = dir === "desc" ? -1 : 1;
-  const nameTie = key === "probed";
   return rows.slice().sort((a, b) => {
     const c = compareRows(a, b, key);
     if (c) return c * sign;
-    if (nameTie) return cmpText(a && a.name, b && b.name);
-    const r = rankOf(a) - rankOf(b);
-    if (r) return r;
     return cmpText(a && a.name, b && b.name);
   });
 }
 
-/* Default: last probed, newest first. Name tie-break so a single crawl is not a silent or complete stripe. */
+/* Default: Company A–Z. */
 export function defaultRows(rows) {
-  return arrangeRows(rows, "probed", "desc");
+  return arrangeRows(rows, "name", "asc");
 }
 
 export function pageCount(total, size = PAGE_SIZE) {
@@ -396,10 +423,8 @@ function render() {
   renderPager(view.length, rows.length);
   body.innerHTML = view
     .map((row) => {
-      const n = row.rank == null ? "—" : String(row.rank).padStart(3, "0");
       const selected = state.selected === row.slug ? ' aria-selected="true"' : "";
       return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
-        <td class="num">${escapeHtml(n)}</td>
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${nameWithIcon(row.name, row.favicon)}</a></td>
         <td class="domain">${printedUrl(row.domain || "", row.domain || "")}</td>
         <td class="file">${fileIndexHtml(row)}</td>
