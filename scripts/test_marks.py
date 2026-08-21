@@ -52,6 +52,15 @@ CONVEYOR_NAKED = """
 {"id":"y","key":"iso 27032","label":"ISO 27032","shortLabel":"ISO 27032","backgroundColor":"#051"}
 """
 
+CMMC_GUIDE = """
+<title>Huntress Trust Center | Powered by SafeBase</title>
+<a aria-label="Open to SOC 2 Type 2" href="/?itemUid=1">card</a>
+<a aria-label="Open to CCPA" href="/?itemUid=2">card</a>
+<a aria-label="Open to GDPR" href="/?itemUid=3">card</a>
+<a aria-label="Open to 7/13/2026  CMMC Phase II Suspension Information - Supplemental" href="/?itemUid=4">card</a>
+<a aria-label="Open to How to Use CMMC Resources - Start Here" href="/?itemUid=5">card</a>
+"""
+
 PLAIN = """
 <h2>Certifications</h2>
 <ul>
@@ -82,6 +91,11 @@ def main() -> int:
         "conveyor catalog is not a hold",
     )
     eq(extract_certs_from_html(CONVEYOR_NAKED), [], "naked conveyor dictionary")
+    eq(
+        extract_certs_from_html(CMMC_GUIDE),
+        ["SOC 2 Type II", "GDPR", "CCPA"],
+        "cmmc resource is not a hold",
+    )
     print("ok")
     return 0
 

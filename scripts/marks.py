@@ -183,6 +183,13 @@ SKIP_PHRASE = (
     "not yet certified", "coming soon", "planned",
 )
 
+# A CMMC guide or phase note is not the company holding CMMC.
+CMMC_NOISE = re.compile(
+    r"(?:how to use|resources|suspension|phase\s*ii)\s+cmmc|"
+    r"cmmc\s+(?:resources|phase|suspension|how to)",
+    re.I,
+)
+
 # Sales / homework language — the company is not stating it holds the mark.
 HELP_YOU = re.compile(
     r"(help(?:s|ing)? you (?:get|achieve|earn|obtain|prepare|automate)|"
@@ -271,7 +278,9 @@ def apply_supersede(names: list[str]) -> list[str]:
 
 def _context_ok(blob: str, start: int, end: int) -> bool:
     window = blob[max(0, start - 90): min(len(blob), end + 90)]
-    return not HELP_YOU.search(window)
+    if HELP_YOU.search(window) or CMMC_NOISE.search(window):
+        return False
+    return True
 
 
 def extract_certs_from_html(html: str, text: str = "") -> list[str]:
