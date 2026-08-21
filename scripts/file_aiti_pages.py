@@ -128,6 +128,7 @@ CURATED_TRY = {
     "elevenlabs": [
         "https://elevenlabs.io/safety",
         "https://elevenlabs.io/responsible-ai",
+        "https://elevenlabs.io/ai-transparency",
     ],
     "grammarly": [
         "https://www.grammarly.com/responsible-ai",
@@ -269,6 +270,8 @@ CURATED_TRY = {
     ],
     "groq": [
         "https://groq.com/responsible-ai",
+        "https://console.groq.com/docs/legal/ai-policy",
+        "https://groq.com/legal/ai-policy",
     ],
     "glean": [
         "https://www.glean.com/responsible-ai",
@@ -295,6 +298,40 @@ CURATED_TRY = {
     ],
     "dbt-labs": [
         "https://www.getdbt.com/legal/responsible-ai",
+    ],
+    "cloudflare": [
+        "https://www.cloudflare.com/responsible-ai-principles/",
+        "https://www.cloudflare.com/trust-hub/responsible-ai/",
+    ],
+    "inflection": [
+        "https://inflection.ai/frontier-safety",
+        "https://inflection.ai/safety",
+        "https://inflection.ai/transparency-and-content-moderation",
+    ],
+    "tencent": [
+        "https://www.tencent.com/our-actions/social/tencent-responsible-ai-principles/",
+    ],
+    "heygen": [
+        "https://www.heygen.com/ethics",
+        "https://www.heygen.com/trust-and-safety",
+    ],
+    "deepseek": [
+        "https://cdn.deepseek.com/policies/en-US/model-algorithm-disclosure.html",
+        "https://fe-static.deepseek.com/chat/transparency/deepseek-v3.2-model-card-0414-CN.pdf",
+    ],
+    "bytedance": [
+        "https://seed.bytedance.com/en/direction/responsible_ai",
+        "https://seed.bytedance.com/transparency",
+    ],
+    "apple": [
+        "https://machinelearning.apple.com/research/apple-foundation-models-tech-report-2025",
+    ],
+    "notion": [
+        "https://www.notion.com/help/ai-safety",
+        "https://www.notion.so/help/ai-safety",
+    ],
+    "xiaomi": [
+        "https://trust.mi.com/pdf/Xiaomi_Trustworthy_AI_White_Paper_2021_EN.pdf",
     ],
 }
 
