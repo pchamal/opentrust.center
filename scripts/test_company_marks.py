@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from enrich import apply_marks_to_row  # noqa: E402
+from file_company_marks import hold_marks  # noqa: E402
 from marks import MARK_PATTERNS  # noqa: E402
 
 PUBLIC = ROOT / "site" / "data.json"
@@ -50,6 +51,32 @@ def main() -> int:
     check("Marks cited from public HTML" in (row.get("summary") or ""), "clerk summary names the hold")
     check(apply_marks_to_row(row, ["ISO 27001"]) == [], "duplicate mark is not re-filed")
     check(apply_marks_to_row(row, []) == [], "empty names stay empty")
+
+    kept, why = hold_marks(
+        ["EU-US DPF", "GDPR"],
+        "Chartbeat has certified to the U.S. Department of Commerce that it adheres "
+        "to the EU-U.S. Data Privacy Framework. GDPR rights are described below.",
+        "privacy",
+    )
+    check(kept == ["EU-US DPF"], f"DPF self-cert files, privacy GDPR stays open: {kept} {why}")
+    kept, why = hold_marks(
+        ["EU-US DPF", "GDPR"],
+        "We transfer data using standard contractual clauses and the EU-US Data Privacy Framework.",
+        "privacy",
+    )
+    check(kept == [] and why == "regulation-only", f"DPF among SCCs stays open: {kept} {why}")
+    kept, why = hold_marks(
+        ["HIPAA", "CCPA"],
+        "Information excluded from the CCPA, such as health information covered by HIPAA.",
+        "privacy",
+    )
+    check(kept == [] and why in {"regulation-only", "no-named-marks"}, f"HIPAA scope sentence stays open: {kept} {why}")
+    kept, why = hold_marks(
+        ["CMMC"],
+        "Tabletop Exercises CMMC Readiness Solutions VISIBL",
+        "privacy",
+    )
+    check(kept == [], f"CMMC readiness product stays open: {kept} {why}")
 
     for rec in report.get("marks_filed") or []:
         slug, url, added = rec["slug"], rec["url"], rec["added"]

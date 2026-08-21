@@ -27,10 +27,10 @@ ENRICHED = SITE / "data" / "enriched.json"
 REPORT = DATA / "render" / "company-marks.json"
 BATCH = 40
 WORKERS = 12
-# Companies already attempted in PRs 49, 50, 51, and 58. Do not retry this cut.
-# The live report holds the expand increment; older PRs are listed here because
-# those reports were overwritten.
-PRIOR_ATTEMPTED = {
+# Register-walk PRs 49, 50, 51, and 58 already fetch-checked trust / security.
+# This cut may read a stored first-party privacy page on those still-open
+# files. Trust / security URLs from those slices stay unread.
+REGISTER_WALKED = {
     # PR 49
     "datalogics",
     "guild",
@@ -185,6 +185,56 @@ PRIOR_ATTEMPTED = {
     "watchguard",
 }
 
+# Expand cuts already read privacy. Do not retry those slugs.
+# The live report holds the last expand increment; older expand PRs are
+# listed here because those reports were overwritten.
+PRIOR_ATTEMPTED = {
+    # PR 60 morning expand
+    "jamf",
+    "jw-player",
+    "ivanti",
+    "kajabi",
+    "kaseya",
+    "kentik",
+    "litera",
+    "lusha",
+    "lilt",
+    "lever",
+    "liquidplanner",
+    "lucidworks",
+    "lionbridge",
+    # PR 62 9:46 expand
+    "medallia",
+    "mindbody-inc",
+    "mindfire-inc",
+    # PR 64 CRN expand
+    "dashlane",
+    # PR 65 silent CRN six
+    "vulncheck",
+    "recorded-future",
+    "blackberry",
+    "reflectiz",
+    "secureworks",
+    "juniper-networks",
+    # PR 66 19:01 expand (also the live report batch)
+    "bugcrowd",
+    "crossbeam-systems",
+    "druva",
+    "fluid-attacks",
+    "datto",
+    "hackerone",
+    # PR 68 19:55 expand — JS shells / 403s, nothing to file
+    "netcraft",
+    "synack",
+    "pentera",
+    "panorays",
+    # Privacy pages already fetch-checked this cut; no company hold.
+    "instacart",
+    "baxter-international",
+    "meta-platforms",
+    "indinero",
+}
+
 # Regulation-only lists stay thin. Real certs (SOC / ISO / FedRAMP / …) fill out.
 REG_MARKS = {"GDPR", "CCPA", "DORA", "NIS2", "PIPEDA", "LGPD"}
 COMPLIANCE_URL_RE = re.compile(
@@ -193,6 +243,36 @@ COMPLIANCE_URL_RE = re.compile(
 )
 ITEM_UID_RE = re.compile(r"itemUid=|itemName=", re.I)
 ASSET_URL_RE = re.compile(r"\.(?:ico|png|jpe?g|gif|svg|webp|css|js|woff2?|map)(?:\?|$)", re.I)
+DPF_PHRASE_RE = re.compile(
+    r"data[\s/_-]*privacy[\s/_-]*framework|eu[\s/_-]*u\.?s\.?[\s/_-]*dpf|"
+    r"eu[\s/_-]*us[\s/_-]*dpf",
+    re.I,
+)
+DPF_SELF_CERT_RE = re.compile(
+    r"self[- ]?certif|"
+    r"certif(?:ied|ication)\s+to\s+the\s+u\.?s\.?\s+department\s+of\s+commerce|"
+    r"compli(?:es|ant|ance)\s+with\s+the\s+"
+    r"(?:eu[- /]*u\.?s\.?|swiss[- /]*u\.?s\.?)\s+data\s+privacy\s+framework|"
+    r"notice of certification under|"
+    r"data privacy framework policy certification",
+    re.I,
+)
+CMMC_PRODUCT_RE = re.compile(
+    r"cmmc\s+(?:readiness|consult|services?|solutions?|training)",
+    re.I,
+)
+PCI_PROCESSOR_RE = re.compile(
+    r"(?:payment|third[- ]party|our)\s+process(?:or|ors|ing)",
+    re.I,
+)
+HIPAA_NOT_HOLD_RE = re.compile(
+    r"notice of privacy practices|rights?\s+under\s+hipaa|"
+    r"protected\s+under\s+hipaa|applicable\s+law,?\s+including\s+hipaa|"
+    r"including\s+(?:the\s+)?(?:health insurance portability|hipaa)|"
+    r"covered\s+by\s+(?:the\s+)?(?:health insurance portability|hipaa)|"
+    r"hipaa\s+notice",
+    re.I,
+)
 
 
 def load_json(path: Path, default):
@@ -269,14 +349,17 @@ def first_party_candidates(public: dict, enr: dict) -> list[tuple[str, str]]:
         out.append((kind, u))
 
     links = enr.get("links") or {}
-    kinds = ("trust", "security")
-    extra_kinds = ("privacy", "dpa", "subprocessors") if requested_slugs() else ()
+    slug = (public.get("slug") or enr.get("slug") or "")
+    privacy_only = slug in REGISTER_WALKED and not requested_slugs()
+    kinds = ("privacy",) if privacy_only else ("trust", "security", "privacy")
+    extra_kinds = ("dpa", "subprocessors") if requested_slugs() else ()
     for kind in (*kinds, *extra_kinds):
         add(kind, links.get(kind) or "")
-    add("trust_url", public.get("trust_url") or "")
-    add("enr_trust", enr.get("trust_url") or "")
-    add("final_url", public.get("final_url") or "")
-    add("enr_final", enr.get("final_url") or "")
+    if not privacy_only:
+        add("trust_url", public.get("trust_url") or "")
+        add("enr_trust", enr.get("trust_url") or "")
+        add("final_url", public.get("final_url") or "")
+        add("enr_final", enr.get("final_url") or "")
     for key in (*kinds, *extra_kinds):
         add(key, instrument_url(public, key))
     return out
@@ -370,6 +453,88 @@ def marks_from_rec(rec: dict) -> list[str]:
     return extract_certs_from_html(html, text=blob)
 
 
+def rec_blob(rec: dict) -> str:
+    return mark_blob(
+        rec.get("html") or "",
+        rec.get("title") or "",
+        rec.get("meta") or "",
+        rec.get("text") or "",
+    )
+
+
+def dpf_is_self_cert(blob: str) -> bool:
+    """DPF fills only on a self-cert / compliance claim, not as an SCC among others."""
+    if not blob:
+        return False
+    for m in DPF_PHRASE_RE.finditer(blob):
+        window = blob[max(0, m.start() - 220): min(len(blob), m.end() + 220)]
+        if DPF_SELF_CERT_RE.search(window):
+            return True
+    return False
+
+
+def pci_is_processor(blob: str) -> bool:
+    """Third-party processor PCI is not this company's hold."""
+    if not blob:
+        return False
+    for m in re.finditer(r"\bpci(?:[\s/_-]*dss|\s+dss|\s+level)\b", blob, re.I):
+        window = blob[max(0, m.start() - 160): min(len(blob), m.end() + 160)]
+        if PCI_PROCESSOR_RE.search(window):
+            return True
+    return False
+
+
+def cmmc_is_hold(blob: str) -> bool:
+    """A CMMC readiness product pitch is not the company holding CMMC."""
+    if not blob:
+        return False
+    hold = False
+    for m in re.finditer(r"\bcmmc\b", blob, re.I):
+        window = blob[max(0, m.start() - 80): min(len(blob), m.end() + 80)]
+        if CMMC_PRODUCT_RE.search(window):
+            continue
+        hold = True
+    return hold
+
+
+def hipaa_is_hold(blob: str) -> bool:
+    """A HIPAA notice or rights sentence is not a certification hold."""
+    if not blob:
+        return False
+    hold = False
+    for m in re.finditer(r"\bhipaa\b", blob, re.I):
+        window = blob[max(0, m.start() - 160): min(len(blob), m.end() + 160)]
+        if HIPAA_NOT_HOLD_RE.search(window):
+            continue
+        hold = True
+    return hold
+
+
+def hold_marks(named: list[str], blob: str, kind: str = "") -> tuple[list[str], str | None]:
+    """Keep the company's own holds. Regulation-as-rights and DPF-as-SCC stay out."""
+    kept = []
+    privacy_page = kind == "privacy"
+    for name in named:
+        if name == "EU-US DPF" and not dpf_is_self_cert(blob):
+            continue
+        if name == "PCI DSS" and pci_is_processor(blob):
+            continue
+        if name == "HIPAA" and not hipaa_is_hold(blob):
+            continue
+        if name == "CMMC" and not cmmc_is_hold(blob):
+            continue
+        if privacy_page and name in REG_MARKS:
+            # Privacy-page rights / legal-grounds mentions stay open.
+            continue
+        kept.append(name)
+    real = [m for m in kept if m not in REG_MARKS]
+    if not real:
+        if any(m in REG_MARKS for m in named) or "EU-US DPF" in named:
+            return [], "regulation-only"
+        return [], "no-named-marks"
+    return kept, None
+
+
 def main() -> int:
     t0 = time.time()
     public = load_json(PUBLIC, {})
@@ -424,13 +589,13 @@ def main() -> int:
                     "kind": kind,
                 })
                 continue
-            live = marks_from_rec(rec)
+            live, hold_skip = hold_marks(marks_from_rec(rec), rec_blob(rec), kind)
             if not live:
                 rejected.append({
                     "slug": slug,
                     "url": public_url(url),
                     "final": public_url(final),
-                    "reason": "no-named-marks",
+                    "reason": hold_skip or "no-named-marks",
                     "kind": kind,
                 })
                 continue
@@ -490,10 +655,12 @@ def main() -> int:
         "generated_at": enr.get("generated_at"),
         "rule": (
             "Next ~40 on-file companies whose marks File-glyph rule was open "
-            "or thin and who already had a first-party trust / security / "
-            "compliance URL. Marks fill only when that live page names the "
-            "instrument. Login walls, soft-404s, homepage bounces, PDFs, and "
-            "portal hosts stay open. Substantial files were skipped."
+            "or thin and who already had a first-party trust / privacy / "
+            "security URL. Marks fill only when that live page names the "
+            "company's own hold. Regulation mentions (GDPR/CCPA as rights) "
+            "and DPF as a transfer mechanism among SCCs stay open. Login "
+            "walls, soft-404s, homepage bounces, PDFs, JS shells, and portal "
+            "hosts stay open. Substantial files were skipped."
         ),
         "batch": [rec["slug"] for rec in batch],
         "marks_filed": filed,
