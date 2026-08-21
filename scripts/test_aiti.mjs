@@ -269,6 +269,8 @@ expect("Midjourney processors stay open", aiFileFlags(mid).processors === false)
 expect("Midjourney still all-open without a named AI processor", ruleOn(aiFileIndexHtml(mid)).every((on) => on === false) && aiFileCount(mid) === 0);
 
 expect("AWS hosting does not count", isAiSystemProcessor({ name: "Amazon Web Services", slug: "amazon-web-services" }) === false);
+expect("dates are not processors", isAiSystemProcessor({ name: "01 April 2025" }) === false && isAiSystemProcessor({ name: "29 April 2026" }) === false);
+expect("Date header is not a processor", isAiSystemProcessor({ name: "Date" }) === false && isAiSystemProcessor({ name: "Date of change" }) === false);
 expect("Stripe does not count", isAiSystemProcessor({ name: "Stripe", slug: "stripe" }) === false);
 expect("Datadog does not count", isAiSystemProcessor({ name: "Datadog", slug: "datadog" }) === false);
 expect("bare Google does not count", isAiSystemProcessor({ name: "Google", slug: "google" }) === false);
@@ -352,6 +354,11 @@ expect("Midjourney finder render stays all-open", ruleOn(fileCell(aitiRowHtml(fi
 expect("page bind unchanged for Midjourney", aiFileFlags(mid).page === false);
 expect("Cursor processors filled and marks still bound", aiFileFlags(cursor).processors === true && aiFileFlags(cursor).marks === true && ruleOn(aiFileIndexHtml(cursor))[1] === true && ruleOn(aiFileIndexHtml(cursor))[2] === true);
 expect("Cursor page still open", aiFileFlags(cursor).page === false);
+expect("Databricks processors follow stored legal names", storedAiProcessors(bySlug.databricks).map((p) => p.name).join("|") === "Anthropic, PBC|OpenAI, L.L.C" && aiFileFlags(bySlug.databricks).processors === true);
+expect("Glean processors follow stored legal names", storedAiProcessors(bySlug.glean).some((p) => p.name === "Anthropic PBC") && storedAiProcessors(bySlug.glean).some((p) => p.name === "OpenAI OpCo, LLC") && aiFileFlags(bySlug.glean).processors === true);
+expect("Databricks page and marks binds stay open", aiFileFlags(bySlug.databricks).page === false && aiFileFlags(bySlug.databricks).marks === false);
+expect("Glean page and marks binds stay open", aiFileFlags(bySlug.glean).page === false && aiFileFlags(bySlug.glean).marks === false);
+expect("leftover date names do not fill processors", aiFileFlags({ slug: "zoom", domain: "zoom.com", processors: [{ name: "01 April 2025" }] }).processors === false);
 
 for (const row of files) {
   const flags = aiFileFlags(row);

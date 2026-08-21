@@ -12,6 +12,8 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from enrich import (  # noqa: E402
     cited_list_skip_reason,
     has_filed_names,
+    looks_like_date_name,
+    looks_like_org_name,
     processors_from_company,
     published_processors_from_html,
 )
@@ -158,6 +160,40 @@ def main() -> int:
     )
     aws_self = {"slug": "amazon-web-services", "name": "Amazon Web Services", "domain": "aws.amazon.com", "subprocessors": ["aws"]}
     check(not has_filed_names(aws_self, set()), "self-only aws row is still empty")
+
+    check(looks_like_date_name("29 April 2026"), "29 April 2026 is a date")
+    check(looks_like_date_name("01 April 2025"), "01 April 2025 is a date")
+    check(looks_like_date_name("2026-04-29"), "ISO date is a date")
+    check(looks_like_date_name("29-april-2026"), "slug date is a date")
+    check(looks_like_date_name("2026"), "bare year is a date")
+    check(looks_like_date_name("Date of change"), "date column header is not a processor")
+    check(looks_like_date_name("Date"), "Date header is not a processor")
+    check(not looks_like_date_name("Amazon Web Services"), "AWS is not a date")
+    check(not looks_like_date_name("OpenAI"), "OpenAI is not a date")
+    check(not looks_like_date_name("Twilio"), "Twilio is not a date")
+    check(not looks_like_org_name("29 April 2026"), "date fails org name")
+    check(looks_like_org_name("Amazon Web Services, Inc"), "real org still files")
+
+    zoom_dates = """
+<html><head><title>Zoom Subprocessors</title></head><body>
+<h1>Zoom Subprocessors</h1>
+<table>
+  <tr><th>Entity</th><th>Date of change</th></tr>
+  <tr><td>Amazon Web Services, Inc</td><td>29 April 2026</td></tr>
+  <tr><td>Brighthire, Inc</td><td>01 April 2025</td></tr>
+</table>
+</body></html>
+"""
+    zoom = {"slug": "zoom", "name": "Zoom", "domain": "zoom.com"}
+    zoom_filed = published_processors_from_html(
+        zoom_dates, "Zoom Subprocessors Amazon Web Services", zoom, register
+    )
+    zoom_names = [n for _i, n, _e in zoom_filed]
+    check(any("Amazon Web Services" in n for n in zoom_names), f"zoom keeps AWS: {zoom_names}")
+    check(any("Brighthire" in n for n in zoom_names), f"zoom keeps Brighthire: {zoom_names}")
+    check(not any(looks_like_date_name(n) for n in zoom_names), f"zoom drops dates: {zoom_names}")
+    check(not any(i.endswith("2026") or i.endswith("2025") for i, _n, _e in zoom_filed), f"no date ids: {zoom_filed}")
+
     print("ok")
     return 0
 

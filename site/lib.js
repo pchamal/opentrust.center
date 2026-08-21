@@ -176,12 +176,26 @@ function normalizeProcessorName(value) {
     .trim();
 }
 
+const DATE_HEADER_RE = /^(date(?: of change)?|effective date)$/i;
+const DATE_PROCESSOR_RE =
+  /^(?:(?:19|20|21)\d{2}|\d{4}-\d{2}-\d{2}|\d{1,2}[./]\d{1,2}[./](?:\d{2}|\d{4})|\d{1,2}\s+(?:january|february|march|april|may|june|july|august|september|october|november|december|jan|feb|mar|apr|jun|jul|aug|sep|sept|oct|nov|dec)\s+\d{4})$/i;
+
+function looksLikeDateProcessor(value) {
+  const t = String(value || "").replace(/\s+/g, " ").trim();
+  if (!t) return false;
+  if (DATE_HEADER_RE.test(t)) return true;
+  if (DATE_PROCESSOR_RE.test(t)) return true;
+  const spaced = t.replace(/[-_]+/g, " ");
+  return spaced !== t && DATE_PROCESSOR_RE.test(spaced);
+}
+
 export function isAiSystemProcessor(proc, ownerSlug) {
   if (!proc) return false;
   const slug = String(proc.slug || "").toLowerCase();
   const owner = String(ownerSlug || "").toLowerCase();
   if (slug && owner && slug === owner) return false;
   if (slug && NOT_AI_SYSTEM_PROCESSOR_SLUGS.has(slug)) return false;
+  if (looksLikeDateProcessor(proc.name || proc) || looksLikeDateProcessor(slug)) return false;
   const name = normalizeProcessorName(proc.name || proc);
   if (HOSTING_PROCESSOR_NAME_RE.test(name)) return false;
   if (slug && AI_SYSTEM_PROCESSOR_SLUGS.has(slug)) return true;
