@@ -24,6 +24,51 @@ ENRICHED = SITE / "data" / "enriched.json"
 REPORT = DATA / "render" / "company-dpa-processors.json"
 BATCH = 40
 WORKERS = 12
+# Companies already attempted in PR 47. Do not retry this cut.
+# The live report holds the immediately previous batch (PR 48); PR 47 is listed
+# here because that report was overwritten.
+PRIOR_ATTEMPTED = {
+    "palo-alto-networks",
+    "dropbox",
+    "motive",
+    "clickup",
+    "alteryx",
+    "cvent",
+    "dynatrace",
+    "amazon-web-services",
+    "cloudera",
+    "automation-anywhere",
+    "splunk",
+    "asana",
+    "calendly",
+    "dataiku",
+    "sierra",
+    "checkr",
+    "varonis",
+    "workday",
+    "grammarly",
+    "slack",
+    "airwallex",
+    "clickhouse",
+    "scale-ai",
+    "cohere",
+    "infor",
+    "automattic",
+    "checkout",
+    "canva",
+    "hubspot",
+    "vertex",
+    "elastic",
+    "monday",
+    "samsara",
+    "notion",
+    "shopify",
+    "carta",
+    "papaya-global",
+    "lambda",
+    "cornerstone-ondemand",
+    "fortinet",
+}
 
 
 def load_json(path: Path, default):
@@ -74,7 +119,9 @@ def first_party_candidates(public: dict, enr: dict) -> list[tuple[str, str]]:
 
 def previous_batch() -> set[str]:
     """Skip companies already attempted on the last increment. Do not retry them."""
-    return {slug for slug in (load_json(REPORT, {}).get("batch") or []) if slug}
+    prior = {slug for slug in (load_json(REPORT, {}).get("batch") or []) if slug}
+    prior.update(PRIOR_ATTEMPTED)
+    return prior
 
 
 def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]:
