@@ -59,7 +59,7 @@ expect("no third palette token on the icon", !/--ot-[a-z-]+:/.test((css.match(/i
 
 const indexHtml = readFileSync(new URL("../site/index.html", import.meta.url), "utf8");
 const docket = (indexHtml.match(/<nav class="docket"[\s\S]*?<\/nav>/) || [""])[0];
-expect("companies docket is Companies / Subprocessor Map / Standards", /Companies/.test(docket) && /Subprocessor Map/.test(docket) && />Standards</.test(docket));
+expect("docket is AITI / Register / Subprocessors / Standards", /AITI/.test(docket) && />Register</.test(docket) && />Subprocessors</.test(docket) && />Standards</.test(docket) && !/>Companies</.test(docket) && !/>Map</.test(docket));
 expect("docket word is Standards, not Frameworks", />Standards</.test(docket) && !/Frameworks/.test(docket));
 expect("nav has no company icons", !/class="docket"[\s\S]*ink-ico/.test(indexHtml));
 expect("file rules are still words", !indexHtml.includes("ink-ico"));

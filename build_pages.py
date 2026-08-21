@@ -1522,8 +1522,8 @@ def mast(active: str, prefix: str) -> str:
     <a class="wordmark" href="{prefix}">opentrust<span class="wm-dot">.</span>center</a>
     <nav class="docket" aria-label="Pages">
       {link("", "AITI", "aiti", "ayti")}
-      {link("companies.html", "Companies", "register")}
-      {link("graph.html", "Map", "subprocessors")}
+      {link("companies.html", "Register", "register")}
+      {link("graph.html", "Subprocessors", "subprocessors")}
       {link("attestations.html", "Standards", "marks")}
     </nav>
   </header>"""
@@ -1773,7 +1773,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
   </main>
   <footer class="colo">
     <p>Disclosure rates the file, not the company. Empty rows print <i>not on file</i>. File tiers are public-file ratings, never company trust.</p>
-    <p><a href="../">AITI</a> · <a href="../companies.html">Companies</a> · <a href="../graph.html">Map</a> · <a href="../attestations.html">Standards</a></p>
+    <p><a href="../">AITI</a> · <a href="../companies.html">Register</a> · <a href="../graph.html">Subprocessors</a> · <a href="../attestations.html">Standards</a></p>
   </footer>
   <script type="module" src="../dossier.js"></script>
 </body>

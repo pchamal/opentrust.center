@@ -8,6 +8,7 @@ import {
   aiFileFlags,
   aiFileIndexHtml,
   aiFileCount,
+  aiFileOnWords,
   fillAitiIssue,
   isAiFile,
   isAiNamed,
@@ -22,7 +23,7 @@ import {
   isAiSystemProcessor,
   nameWithIcon,
 } from "../site/lib.js";
-import { aiMarksCell, defaultAiRows, filledAiRows, filterAiRows, aitiRowHtml } from "../site/aiti.js";
+import { aiMarksCell, defaultAiRows, filledAiRows, namedAiRows, filterAiRows, aitiRowHtml } from "../site/aiti.js";
 
 const data = JSON.parse(readFileSync(new URL("../site/data.json", import.meta.url), "utf8"));
 const bySlug = Object.fromEntries(data.companies.map((r) => [r.slug, r]));
@@ -104,19 +105,22 @@ for (const row of files) {
 expect("every AITI row binds marks to the Marks cell", true);
 
 const arranged = defaultAiRows(files);
-const first = arranged.slice(0, 16);
-const firstFilled = first.filter((r) => aiFileCount(r) > 0).length;
-const firstOpen = first.filter((r) => aiFileCount(r) === 0).length;
 const names = arranged.map((r) => r.name);
-const byName = names.slice().sort((a, b) => String(a).localeCompare(String(b), undefined, { sensitivity: "base" }));
-expect("default order is clerk name", names.join("\0") === byName.join("\0"));
-expect("first screen is not a complete-file strip", firstFilled < first.length);
-expect("first screen includes an open file", firstOpen > 0);
-expect("first screen has mixed fills", firstFilled > 0 && firstOpen > 0);
-expect("silent or Midjourney-class rows stay in the file", arranged.some((r) => r.slug === "midjourney" || aiFileCount(r) === 0));
+const byName = namedAiRows(files).map((r) => r.name);
+expect("default order is most-on-file then name", arranged.every((row, i) => {
+  if (!i) return true;
+  const prev = arranged[i - 1];
+  const c = aiFileCount(prev) - aiFileCount(row);
+  if (c > 0) return true;
+  if (c < 0) return false;
+  return String(prev.name).localeCompare(String(row.name), undefined, { sensitivity: "base" }) <= 0;
+}));
+expect("open rows stay in the file below", arranged.some((r) => r.slug === "midjourney") && aiFileCount(arranged[0]) >= aiFileCount(arranged[arranged.length - 1]) && arranged.findIndex((r) => r.slug === "midjourney") > 0);
+expect("default is not name A–Z", names.join("\0") !== byName.join("\0"));
 const byFilled = filledAiRows(files);
-expect("finder filled sort uses the five rules", aiFileCount(byFilled[0]) >= aiFileCount(byFilled[byFilled.length - 1]));
-expect("finder filled sort is not the default", byFilled[0].slug !== arranged[0].slug || aiFileCount(arranged[0]) === aiFileCount(byFilled[0]));
+expect("filled sort is the clerk default", byFilled.map((r) => r.slug).join("\0") === arranged.map((r) => r.slug).join("\0"));
+expect("finder name sort is A–Z", filterAiRows(files, "name").map((r) => r.name).join("\0") === byName.join("\0"));
+expect("finder still finds a name", filterAiRows(files, "anthropic").some((r) => r.slug === "anthropic"));
 
 const issue = { textContent: "" };
 fillAitiIssue(issue, data, files.length);
@@ -131,11 +135,12 @@ const marksHtml = readFileSync(new URL("../site/attestations.html", import.meta.
 const aitiJs = readFileSync(new URL("../site/aiti.js", import.meta.url), "utf8");
 const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8");
 
-expect("home docket is AITI Companies Map Standards", docketWords(indexHtml).join(" ") === "AITI Companies Map Standards");
+expect("home docket is AITI Register Subprocessors Standards", docketWords(indexHtml).join(" ") === "AITI Register Subprocessors Standards");
 expect("AITI is the active word on /", activeWord(indexHtml) === "AITI");
-expect("Companies is the active word on companies", activeWord(companiesHtml) === "Companies");
-expect("Map is the active word on graph", activeWord(graphHtml) === "Map");
+expect("Register is the active word on companies", activeWord(companiesHtml) === "Register");
+expect("Subprocessors is the active word on graph", activeWord(graphHtml) === "Subprocessors");
 expect("Standards is the active word on attestations", activeWord(marksHtml) === "Standards");
+expect("graph still has list | map", graphHtml.includes(">list</button>") && graphHtml.includes(">map</button>"));
 expect("docket links hit the signed routes", indexHtml.includes('href="./companies.html"') && indexHtml.includes('href="./graph.html"') && indexHtml.includes('href="./attestations.html"') && companiesHtml.includes('href="./"'));
 expect("H1 is AI Trust Index", /<h1 class="page-title">AI Trust Index<\/h1>/.test(indexHtml));
 expect("product title is AI Trust Index", indexHtml.includes("opentrust.center — AI Trust Index"));
@@ -159,7 +164,7 @@ const onBlock = (css.match(/\.docket a\.on \{[^}]+\}/) || [""])[0];
 expect("active docket is underline not teal type", onBlock.includes("border-bottom-color: var(--ot-evidence-teal)") && !/(?:^|[;\s{])color:\s*var\(--ot-evidence-teal\)/.test(onBlock));
 
 const dossier = readFileSync(new URL("../site/c/anysphere.html", import.meta.url), "utf8");
-expect("dossier docket names AITI", docketWords(dossier).join(" ") === "AITI Companies Map Standards");
+expect("dossier docket names AITI", docketWords(dossier).join(" ") === "AITI Register Subprocessors Standards");
 expect("dossier crumb keeps Companies", dossier.includes('href="../companies.html">Companies</a>'));
 
 expect("isAiFile is conservative", isAiFile(bySlug.stripe) === false && isAiFile(mid) === true);
@@ -342,6 +347,12 @@ expect(
     defaultAnthropicOn.join(" ") === "true true false false false",
 );
 expect("Anthropic File is page and marks only", anthropicFlags.page === true && anthropicFlags.marks === true && anthropicFlags.processors === false && anthropicFlags.evals === false && anthropicFlags.incidents === false);
+expect("Anthropic count is 2", aiFileCount(anthropic) === 2 && aiFileOnWords(anthropic) === "2 on file");
+expect("Anthropic caption is 2 on file", fileCell(defaultAnthropicHtml).includes("2 on file") && fileCell(finderAnthropicHtml).includes("2 on file") && fileCell(aitiRowHtml(anthropic, 0)).includes("2 on file"));
+expect("Anthropic caption is after the rules", /file-index[\s\S]*file-on/.test(fileCell(defaultAnthropicHtml)) && fileCell(defaultAnthropicHtml).includes("file-rule"));
+expect("Midjourney caption is 0 on file", aiFileOnWords(mid) === "0 on file" && fileCell(aitiRowHtml(mid, 0)).includes("0 on file"));
+expect("every row prints the on-file caption", files.every((r) => fileCell(aitiRowHtml(r, 0)).includes(`${aiFileCount(r)} on file`)));
+expect("caption is not a score name", !aitiJs.includes("aitiScore") && !aitiJs.includes("trust index") && !aitiJs.includes("maturity") && !aitiJs.includes("Arena") && !indexHtml.includes(">Score<"));
 function hostText(html) {
   return domainCell(html).replace(/<[^>]+>/g, "").trim();
 }
@@ -465,6 +476,8 @@ expect("AITI # has no pip tile or disc", /body\.aiti \.reg td\.num \{[\s\S]*back
 expect("Companies # stays graphite", /\.reg td\.num \{ color: var\(--ot-graphite\)/.test(css));
 expect("AITI domain and marks are clerk ink", /body\.aiti \.reg td\.domain a,[\s\S]*color: var\(--ot-ledger-black\);[\s\S]*text-decoration: none;/.test(css));
 expect("AITI printed marks stay roman", /body\.aiti \.reg td\.marks \.mark-line,[\s\S]*body\.aiti \.reg td\.marks \.mark-chip \{[\s\S]*font-style: normal;/.test(css));
+expect("on-file caption is ledger Atkinson", /body\.aiti \.reg td\.file-cell \.file-on \{[\s\S]*color: var\(--ot-ledger-black\)[\s\S]*font: var\(--t-meta\)/.test(css));
+expect("companies first screen H1 stays", companiesHtml.includes('<h1 class="page-title">Public trust register</h1>') && companiesHtml.includes("A database of each company’s public trust ledger."));
 expect("AITI domain and marks hover is a 1px clerk rule", /body\.aiti \.reg td\.domain a:hover,[\s\S]*text-decoration: underline;[\s\S]*text-decoration-color: var\(--ot-rule-strong\)/.test(css));
 expect("AITI clerk hover matches Companies names", /\.reg td\.name a:hover \{[\s\S]*text-decoration: underline;[\s\S]*text-decoration-color: var\(--ot-rule-strong\)/.test(css));
 

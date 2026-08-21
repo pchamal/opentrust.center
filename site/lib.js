@@ -387,6 +387,10 @@ export function aiFileCount(row) {
   return AI_FILE_KEYS.reduce((n, key) => n + (flags[key] ? 1 : 0), 0);
 }
 
+export function aiFileOnWords(row) {
+  return `${aiFileCount(row)} on file`;
+}
+
 export function aiFileCoverage(row) {
   const flags = aiFileFlags(row);
   const n = aiFileCount(row);
