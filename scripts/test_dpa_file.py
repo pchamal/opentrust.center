@@ -10,8 +10,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from enrich import (
     apply_dpa_to_row,
+    apply_subprocessors_to_row,
     classify_as_dpa,
     extract_dpa_candidates,
+    extract_subprocessor_candidates,
     is_first_party_url,
     is_portal_vendor_host,
     path_is_privacy_or_cookie_only,
@@ -146,6 +148,35 @@ class DpaClassifyTest(unittest.TestCase):
         self.assertEqual(row["disclosure"]["score"], 60)
         self.assertEqual(row["disclosure"]["tier"], "on-file")
         self.assertFalse(apply_dpa_to_row(row, "https://example.com/other"))
+
+    def test_link_text_extracts_subprocessors_and_drops_itemuid(self):
+        html = (
+            '<a href="/legal/terms">Master terms</a>'
+            '<a href="/legal/subprocessors">Sub-processors</a>'
+            '<a href="https://trust.example.com/?itemUid=abc">Subprocessors</a>'
+        )
+        got = extract_subprocessor_candidates(html, "https://example.com/trust")
+        self.assertIn("https://example.com/legal/subprocessors", got)
+        self.assertNotIn("https://example.com/legal/terms", got)
+        self.assertFalse(any("itemUid" in u for u in got))
+
+    def test_apply_subprocessors_adds_eight_and_leaves_other_factors(self):
+        row = {
+            "found": True,
+            "links": {"privacy": "https://example.com/privacy"},
+            "disclosure": {
+                "score": 52,
+                "tier": "on-file",
+                "factors": {"page": 20, "marks": 10, "privacy": 6, "years": 16},
+            },
+        }
+        self.assertTrue(apply_subprocessors_to_row(row, "https://example.com/legal/subprocessors"))
+        self.assertEqual(row["links"]["subprocessors"], "https://example.com/legal/subprocessors")
+        self.assertEqual(row["disclosure"]["factors"]["subprocessors"], 8)
+        self.assertEqual(row["disclosure"]["factors"]["page"], 20)
+        self.assertEqual(row["disclosure"]["score"], 60)
+        self.assertEqual(row["disclosure"]["tier"], "on-file")
+        self.assertFalse(apply_subprocessors_to_row(row, "https://example.com/other"))
 
 
 if __name__ == "__main__":

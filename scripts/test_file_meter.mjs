@@ -197,6 +197,18 @@ expect("aws identity has five rules", (awsIdent.match(/file-rule/g) || []).lengt
 expect("aws DPA stays an open rule", (awsIdent.match(/file-rule on/g) || []).length === 4);
 expect("aws identity has no complete word", !awsIdent.includes("complete") && !awsIdent.includes("substantial") && !awsIdent.includes("file-word"));
 
+const cvent = bySlug.cvent;
+const vertex = bySlug.vertex;
+const checkr = bySlug.checkr;
+const clickup = bySlug.clickup;
+const monday = bySlug.monday;
+expect("cvent DPA follows the stored addendum", cvent.instruments.dpa.url === "https://www.cvent.com/en/data-processing-addendum" && fileFlags(cvent).dpa === true && ruleOn(fileIndexHtml(cvent))[2] === true);
+expect("vertex DPA follows the stored addendum", vertex.instruments.dpa.url === "https://www.vertexinc.com/legal/data-processing-addendum" && fileFlags(vertex).dpa === true && ruleOn(fileIndexHtml(vertex))[2] === true);
+expect("checkr subprocessors follow the stored list", checkr.instruments.subprocessors.url === "https://checkr.com/legal/sub-processor-list" && checkr.processors.length > 0 && fileFlags(checkr).subprocessors === true);
+expect("clickup subprocessors follow the stored list", clickup.instruments.subprocessors.url === "https://clickup.com/terms/dpa/subprocessors" && clickup.processors.length > 0 && fileFlags(clickup).subprocessors === true);
+expect("monday subprocessors follow the stored list", monday.instruments.subprocessors.url === "https://monday.com/l/privacy/sub-processors-subsidiaries-support/" && monday.processors.length > 0 && fileFlags(monday).subprocessors === true);
+expect("filed processor names are not dates", [checkr, clickup, monday].every((row) => (row.processors || []).every((p) => !/^\d{1,2}\s+[A-Za-z]+\s+\d{4}$/.test(p.name) && p.name !== "Date" && p.name !== "Date of change" && p.name !== "AUS")));
+
 const box = readFileSync(new URL("../site/c/box.html", import.meta.url), "utf8");
 expect("on-file FedRAMP is a table with marketplace cite", box.includes("Filed from the") && box.includes("FedRAMP Marketplace") && box.includes("fedramp.gov/marketplace") && box.includes('class="inst filed"') && box.includes("authorized") && !box.includes("Not a badge") && !box.includes("highest authorized") && !box.includes('td class="mark"') && !box.includes("sem-source") && !box.includes("sem-conflict"));
 expect("on-file processors are published names", box.includes("GitHub") && box.includes("New Relic") && !box.includes("+N") && !box.includes("Not a complete supply chain") && /sec-kicker">Named processors[\s\S]*Filed from/.test(box));

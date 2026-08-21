@@ -2469,6 +2469,671 @@
     },
     {
       "rank": 12,
+      "name": "ClickUp",
+      "slug": "clickup",
+      "domain": "clickup.com",
+      "found": true,
+      "trust_url": "https://security.clickup.com",
+      "final_url": "https://security.clickup.com",
+      "list": "cloud100",
+      "source": "forbes-cloud-100-2025",
+      "source_url": "",
+      "probed": 2,
+      "probed_at": "2026-08-21T00:52:53Z",
+      "certs": [
+        "CCPA",
+        "GDPR",
+        "HIPAA",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27701",
+        "ISO 42001",
+        "LGPD",
+        "PCI DSS",
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "SOC 3",
+        "TX-RAMP"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": "lgpd",
+          "name": "LGPD",
+          "weight": 3
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        },
+        {
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
+          "weight": 4
+        }
+      ],
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27018, ISO 27701, ISO 42001 +6.",
+      "founded_year": 2016,
+      "founded_source": "https://en.wikipedia.org/wiki/ClickUp",
+      "instruments": {
+        "trust": {
+          "url": "https://security.clickup.com",
+          "host": "security.clickup.com",
+          "seen": "2026-08-21"
+        },
+        "security": {
+          "url": "https://clickup.com/security-policy",
+          "host": "clickup.com",
+          "seen": "2026-08-21"
+        },
+        "privacy": {
+          "url": "https://clickup.com/terms/privacy",
+          "host": "clickup.com",
+          "seen": "2026-08-21"
+        },
+        "dpa": {
+          "url": "https://clickup.com/terms/dpa",
+          "host": "clickup.com",
+          "seen": "2026-08-21"
+        },
+        "subprocessors": {
+          "url": "https://clickup.com/terms/dpa/subprocessors",
+          "host": "clickup.com",
+          "seen": "2026-08-21"
+        },
+        "status": {
+          "url": "https://status.clickup.com",
+          "host": "status.clickup.com",
+          "seen": "2026-08-21"
+        },
+        "bounty": {
+          "url": "https://clickup.com/vulnerability-disclosure",
+          "host": "clickup.com",
+          "seen": "2026-08-21"
+        }
+      },
+      "processors": [
+        {
+          "name": "Amazon Web Services",
+          "slug": "amazon-web-services",
+          "id": "aws",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Amplitude",
+          "slug": "amplitude",
+          "id": "amplitude",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "APILayer",
+          "slug": null,
+          "id": "apilayer",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Artie",
+          "slug": null,
+          "id": "artie",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Avalara",
+          "slug": null,
+          "id": "avalara",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Braintree",
+          "slug": null,
+          "id": "braintree",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Census",
+          "slug": null,
+          "id": "census",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Chameleon",
+          "slug": null,
+          "id": "chameleon",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Daily",
+          "slug": null,
+          "id": "daily",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Datadog",
+          "slug": "datadog",
+          "id": "datadog",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "EXA",
+          "slug": null,
+          "id": "exa",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Flatfile",
+          "slug": null,
+          "id": "flatfile",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Functional Software, Inc. - Sentry",
+          "slug": null,
+          "id": "sentry",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Google Firebase, Google Analytics, Google Gemini",
+          "slug": null,
+          "id": "google-firebase-google-analytics-google-gemini",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Iterable",
+          "slug": null,
+          "id": "iterable",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Nylas",
+          "slug": null,
+          "id": "nylas",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Oracle Netsuite",
+          "slug": null,
+          "id": "oracle-netsuite",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Readme",
+          "slug": null,
+          "id": "readme",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Recall",
+          "slug": null,
+          "id": "recall",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Relyance AI",
+          "slug": null,
+          "id": "relyance-ai",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Segment",
+          "slug": null,
+          "id": "segment",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Similarweb",
+          "slug": "similarweb",
+          "id": "similarweb",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Singular Lab, Inc",
+          "slug": null,
+          "id": "singular-lab",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "SlashNext",
+          "slug": null,
+          "id": "slashnext",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Snowflake",
+          "slug": "snowflake",
+          "id": "snowflake",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Stripe",
+          "slug": "stripe",
+          "id": "stripe",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "strongDM",
+          "slug": null,
+          "id": "strongdm",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Tableau",
+          "slug": null,
+          "id": "tableau",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Turbopuffer Inc",
+          "slug": null,
+          "id": "turbopuffer",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Twilio",
+          "slug": "twilio",
+          "id": "twilio",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Upwind",
+          "slug": null,
+          "id": "upwind",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Nodedata",
+          "slug": null,
+          "id": "nodedata",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Vertex",
+          "slug": "vertex",
+          "id": "vertex",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Wistia, Inc",
+          "slug": null,
+          "id": "wistia",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic",
+          "id": "anthropic",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "AssemblyAI",
+          "slug": null,
+          "id": "assemblyai",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Baseten",
+          "slug": "baseten",
+          "id": "baseten",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Brave",
+          "slug": null,
+          "id": "brave",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Browserbase",
+          "slug": null,
+          "id": "browserbase",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Foundry Labs, Inc",
+          "slug": null,
+          "id": "foundry-labs",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Kling 3.0",
+          "slug": null,
+          "id": "kling-3-0",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Microsoft Azure AI Foundry",
+          "slug": null,
+          "id": "azure",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "id": "openai",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Seedance 2.0",
+          "slug": null,
+          "id": "seedance-2-0",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Vercel",
+          "slug": "vercel",
+          "id": "vercel",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Canny",
+          "slug": null,
+          "id": "canny",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Maven AGI",
+          "slug": null,
+          "id": "maven-agi",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Salesforce",
+          "slug": "salesforce",
+          "id": "salesforce",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Zendesk",
+          "slug": "zendesk",
+          "id": "zendesk",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "PDF.co",
+          "slug": null,
+          "id": "pdf",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Skilljar for ClickUp University",
+          "slug": null,
+          "id": "skilljar-for-clickup-university",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        },
+        {
+          "name": "Workato for ClickUp Professional Services",
+          "slug": null,
+          "id": "workato-for-clickup-professional-services",
+          "source_url": "https://clickup.com/terms/dpa/subprocessors"
+        }
+      ],
+      "disclosure": {
+        "score": 99,
+        "tier": "complete",
+        "factors": {
+          "page": 20,
+          "marks": 40,
+          "dpa": 8,
+          "processors": 8,
+          "status": 6,
+          "bounty": 6,
+          "privacy": 6,
+          "years": 5
+        }
+      },
+      "tier": "complete",
+      "file": {
+        "page": true,
+        "marks": true,
+        "dpa": true,
+        "subprocessors": true,
+        "years": true
+      },
+      "_crawl": {
+        "vendor": "safebase",
+        "title": "ClickUp Trust Center",
+        "http_status": null
+      },
+      "txramp": {
+        "marketplace": "https://dir.texas.gov/resource-library-item/tx-ramp-certified-cloud-products",
+        "source": "https://dir.texas.gov/sites/default/files/2026-08/TX-RAMP%20Certified%20Cloud%20Products_1.xlsx",
+        "products": [
+          {
+            "id": "TX1114753",
+            "offering": "ClickUp",
+            "status": "Level 2",
+            "impact_level": "Level 2",
+            "auth_date": null,
+            "url": "https://dir.texas.gov/resource-library-item/tx-ramp-certified-cloud-products"
+          }
+        ]
+      },
+      "list_rank": 70
+    },
+    {
+      "rank": 13,
+      "name": "Cvent",
+      "slug": "cvent",
+      "domain": "cvent.com",
+      "found": true,
+      "trust_url": "https://trust.cvent.com",
+      "final_url": "https://trust.cvent.com",
+      "list": "wikipedia-software-us",
+      "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_States",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_States",
+      "probed": 5,
+      "probed_at": "2026-08-21T00:52:53Z",
+      "certs": [
+        "CCPA",
+        "CSA STAR",
+        "FedRAMP",
+        "GDPR",
+        "HIPAA",
+        "HITRUST",
+        "IRAP",
+        "ISO 27001",
+        "ISO 27701",
+        "PCI DSS",
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "SOC 3",
+        "TX-RAMP"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "hitrust-csf",
+          "name": "HITRUST",
+          "weight": 8
+        },
+        {
+          "id": "irap",
+          "name": "IRAP",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        },
+        {
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
+          "weight": 4
+        }
+      ],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 1 Type II, SOC 3, ISO 27001, ISO 27701, FedRAMP, HIPAA, PCI DSS and others.",
+      "founded_year": 1999,
+      "founded_source": "https://en.wikipedia.org/wiki/Cvent",
+      "instruments": {
+        "trust": {
+          "url": "https://trust.cvent.com",
+          "host": "trust.cvent.com",
+          "seen": "2026-08-21"
+        },
+        "security": {
+          "url": "https://www.cvent.com/en/trust",
+          "host": "cvent.com",
+          "seen": "2026-08-21"
+        },
+        "privacy": {
+          "url": "https://www.cvent.com/en/privacy-policy",
+          "host": "cvent.com",
+          "seen": "2026-08-21"
+        },
+        "dpa": {
+          "url": "https://www.cvent.com/en/data-processing-addendum",
+          "host": "cvent.com",
+          "seen": "2026-08-21"
+        },
+        "subprocessors": {
+          "url": "https://trust.cvent.com/subprocessors",
+          "host": "trust.cvent.com",
+          "seen": "2026-08-21"
+        },
+        "status": {
+          "url": "https://status.cvent.com/NA/Event%20Marketing",
+          "host": "status.cvent.com",
+          "seen": "2026-08-21"
+        },
+        "bounty": null
+      },
+      "processors": [],
+      "disclosure": {
+        "score": 98,
+        "tier": "complete",
+        "factors": {
+          "page": 20,
+          "marks": 40,
+          "dpa": 8,
+          "processors": 8,
+          "status": 6,
+          "bounty": 0,
+          "privacy": 6,
+          "years": 10
+        }
+      },
+      "tier": "complete",
+      "file": {
+        "page": true,
+        "marks": true,
+        "dpa": true,
+        "subprocessors": true,
+        "years": true
+      },
+      "_crawl": {
+        "vendor": "unknown",
+        "title": "",
+        "http_status": null
+      },
+      "list_rank": 1409
+    },
+    {
+      "rank": 14,
       "name": "Snyk",
       "slug": "snyk",
       "domain": "snyk.io",
@@ -2632,7 +3297,7 @@
       "list_rank": 51
     },
     {
-      "rank": 13,
+      "rank": 15,
       "name": "Tanium",
       "slug": "tanium",
       "domain": "tanium.com",
@@ -2920,7 +3585,7 @@
       "list_rank": 17
     },
     {
-      "rank": 14,
+      "rank": 16,
       "name": "Twilio",
       "slug": "twilio",
       "domain": "twilio.com",
@@ -3194,7 +3859,7 @@
       "list_rank": null
     },
     {
-      "rank": 15,
+      "rank": 17,
       "name": "Palo Alto Networks",
       "slug": "palo-alto-networks",
       "domain": "paloaltonetworks.com",
@@ -3553,7 +4218,7 @@
       "list_rank": null
     },
     {
-      "rank": 16,
+      "rank": 18,
       "name": "PagerDuty",
       "slug": "pagerduty",
       "domain": "pagerduty.com",
@@ -3999,7 +4664,7 @@
       "list_rank": null
     },
     {
-      "rank": 17,
+      "rank": 19,
       "name": "Anthropic",
       "slug": "anthropic",
       "domain": "anthropic.com",
@@ -4302,7 +4967,7 @@
       "list_rank": 2
     },
     {
-      "rank": 18,
+      "rank": 20,
       "name": "Dropbox",
       "slug": "dropbox",
       "domain": "dropbox.com",
@@ -4512,7 +5177,7 @@
       "list_rank": null
     },
     {
-      "rank": 19,
+      "rank": 21,
       "name": "AppsFlyer",
       "slug": "appsflyer",
       "domain": "appsflyer.com",
@@ -4691,7 +5356,7 @@
       "list_rank": 58
     },
     {
-      "rank": 20,
+      "rank": 22,
       "name": "Celonis",
       "slug": "celonis",
       "domain": "celonis.com",
@@ -4857,7 +5522,7 @@
       "list_rank": 12
     },
     {
-      "rank": 21,
+      "rank": 23,
       "name": "Intercom",
       "slug": "intercom",
       "domain": "intercom.com",
@@ -5128,7 +5793,7 @@
       "list_rank": 53
     },
     {
-      "rank": 22,
+      "rank": 24,
       "name": "Zapier",
       "slug": "zapier",
       "domain": "zapier.com",
@@ -5434,7 +6099,7 @@
       "list_rank": 48
     },
     {
-      "rank": 23,
+      "rank": 25,
       "name": "Webflow",
       "slug": "webflow",
       "domain": "webflow.com",
@@ -5694,7 +6359,7 @@
       "list_rank": 64
     },
     {
-      "rank": 24,
+      "rank": 26,
       "name": "Brex",
       "slug": "brex",
       "domain": "brex.com",
@@ -5805,7 +6470,7 @@
       "list_rank": 50
     },
     {
-      "rank": 25,
+      "rank": 27,
       "name": "Vanta",
       "slug": "vanta",
       "domain": "vanta.com",
@@ -6032,7 +6697,359 @@
       "list_rank": 63
     },
     {
-      "rank": 26,
+      "rank": 28,
+      "name": "Checkr",
+      "slug": "checkr",
+      "domain": "checkr.com",
+      "found": true,
+      "trust_url": "https://security.checkr.com",
+      "final_url": "https://security.checkr.com",
+      "list": "cloud100",
+      "source": "forbes-cloud-100-2025",
+      "source_url": "",
+      "probed": 2,
+      "probed_at": "2026-08-21T00:52:53Z",
+      "certs": [
+        "CCPA",
+        "GDPR",
+        "ISO 27001",
+        "ISO 42001",
+        "PIPEDA",
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "SOC 3"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": "pipeda",
+          "name": "PIPEDA",
+          "weight": 3
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        }
+      ],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, ISO 27001, ISO 42001, GDPR, CCPA +2.",
+      "founded_year": null,
+      "founded_source": null,
+      "instruments": {
+        "trust": {
+          "url": "https://security.checkr.com",
+          "host": "security.checkr.com",
+          "seen": "2026-08-21"
+        },
+        "security": {
+          "url": "https://security.checkr.com",
+          "host": "security.checkr.com",
+          "seen": "2026-08-21"
+        },
+        "privacy": {
+          "url": "https://security.checkr.com/?itemUid=63f59def-eb18-4135-95a1-addeb7463801",
+          "host": "security.checkr.com",
+          "seen": "2026-08-21"
+        },
+        "dpa": {
+          "url": "https://checkr.com/legal/dpa",
+          "host": "checkr.com",
+          "seen": "2026-08-21"
+        },
+        "subprocessors": {
+          "url": "https://checkr.com/legal/sub-processor-list",
+          "host": "checkr.com",
+          "seen": "2026-08-21"
+        },
+        "status": {
+          "url": "https://security.checkr.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
+          "host": "security.checkr.com",
+          "seen": "2026-08-21"
+        },
+        "bounty": {
+          "url": "https://security.checkr.com/?itemUid=64c9680b-ef79-4c92-baa0-13b541954bef",
+          "host": "security.checkr.com",
+          "seen": "2026-08-21"
+        }
+      },
+      "processors": [
+        {
+          "name": "Ada",
+          "slug": null,
+          "id": "ada",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Amazon Web Services ('AWS')",
+          "slug": "amazon-web-services",
+          "id": "aws",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Amplitude",
+          "slug": "amplitude",
+          "id": "amplitude",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Atlassian",
+          "slug": "atlassian",
+          "id": "atlassian",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Auth0",
+          "slug": null,
+          "id": "auth0",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Confluent",
+          "slug": "confluent",
+          "id": "confluent",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "CloudKarafka",
+          "slug": null,
+          "id": "cloudkarafka",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Datadog",
+          "slug": "datadog",
+          "id": "datadog",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Dovetail",
+          "slug": null,
+          "id": "dovetail",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Filestack",
+          "slug": null,
+          "id": "filestack",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Fivetran",
+          "slug": "fivetran",
+          "id": "fivetran",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "GitHub",
+          "slug": "github",
+          "id": "github",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Gitlab",
+          "slug": "gitlab",
+          "id": "gitlab",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Google",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Looker",
+          "slug": null,
+          "id": "looker",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Mailgun",
+          "slug": null,
+          "id": "mailgun",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Middesk",
+          "slug": null,
+          "id": "middesk",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Mulesoft",
+          "slug": null,
+          "id": "mulesoft",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "MongoDB Atlas",
+          "slug": "mongodb",
+          "id": "mongodb",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Pendo",
+          "slug": "pendo",
+          "id": "pendo",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Proofpoint",
+          "slug": "proofpoint",
+          "id": "proofpoint",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Sendgrid",
+          "slug": null,
+          "id": "sendgrid",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Sentry",
+          "slug": null,
+          "id": "sentry",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Slack",
+          "slug": "slack",
+          "id": "slack",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Snowflake",
+          "slug": "snowflake",
+          "id": "snowflake",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Stripe",
+          "slug": "stripe",
+          "id": "stripe",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "SupportNinja",
+          "slug": null,
+          "id": "supportninja",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Talkdesk",
+          "slug": "talkdesk",
+          "id": "talkdesk",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "TokenX",
+          "slug": null,
+          "id": "tokenx",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "TransUnion Canada",
+          "slug": null,
+          "id": "transunion-canada",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Tugboat Logic",
+          "slug": null,
+          "id": "tugboat-logic",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Twilio",
+          "slug": "twilio",
+          "id": "twilio",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "User Testing",
+          "slug": null,
+          "id": "user-testing",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Workato",
+          "slug": "workato",
+          "id": "workato",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Yoti",
+          "slug": null,
+          "id": "yoti",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        },
+        {
+          "name": "Zendesk",
+          "slug": "zendesk",
+          "id": "zendesk",
+          "source_url": "https://checkr.com/legal/sub-processor-list"
+        }
+      ],
+      "disclosure": {
+        "score": 94,
+        "tier": "complete",
+        "factors": {
+          "page": 20,
+          "marks": 40,
+          "dpa": 8,
+          "processors": 8,
+          "status": 6,
+          "bounty": 6,
+          "privacy": 6,
+          "years": 0
+        }
+      },
+      "tier": "complete",
+      "file": {
+        "page": true,
+        "marks": true,
+        "dpa": true,
+        "subprocessors": true,
+        "years": false
+      },
+      "_crawl": {
+        "vendor": "safebase",
+        "title": "Checkr Trust and Security Portal",
+        "http_status": null
+      },
+      "list_rank": 27
+    },
+    {
+      "rank": 29,
       "name": "Fireworks AI",
       "slug": "fireworks-ai",
       "domain": "fireworks.ai",
@@ -6298,7 +7315,7 @@
       "list_rank": 84
     },
     {
-      "rank": 27,
+      "rank": 30,
       "name": "Harvey",
       "slug": "harvey",
       "domain": "harvey.ai",
@@ -6526,7 +7543,7 @@
       "list_rank": 91
     },
     {
-      "rank": 28,
+      "rank": 31,
       "name": "Writer",
       "slug": "writer",
       "domain": "writer.com",
@@ -6733,7 +7750,7 @@
       "list_rank": null
     },
     {
-      "rank": 29,
+      "rank": 32,
       "name": "Motive",
       "slug": "motive",
       "domain": "gomotive.com",
@@ -6878,188 +7895,7 @@
       "list_rank": 42
     },
     {
-      "rank": 30,
-      "name": "ClickUp",
-      "slug": "clickup",
-      "domain": "clickup.com",
-      "found": true,
-      "trust_url": "https://security.clickup.com",
-      "final_url": "https://security.clickup.com",
-      "list": "cloud100",
-      "source": "forbes-cloud-100-2025",
-      "source_url": "",
-      "probed": 2,
-      "probed_at": "2026-08-21T00:52:53Z",
-      "certs": [
-        "CCPA",
-        "GDPR",
-        "HIPAA",
-        "ISO 27001",
-        "ISO 27017",
-        "ISO 27018",
-        "ISO 27701",
-        "ISO 42001",
-        "LGPD",
-        "PCI DSS",
-        "SOC 1 Type II",
-        "SOC 2 Type II",
-        "SOC 3",
-        "TX-RAMP"
-      ],
-      "attestations": [
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
-        },
-        {
-          "id": "iso-27017",
-          "name": "ISO 27017",
-          "weight": 4
-        },
-        {
-          "id": "iso-27018",
-          "name": "ISO 27018",
-          "weight": 4
-        },
-        {
-          "id": "iso-27701",
-          "name": "ISO 27701",
-          "weight": 6
-        },
-        {
-          "id": "iso-42001",
-          "name": "ISO 42001",
-          "weight": 6
-        },
-        {
-          "id": "lgpd",
-          "name": "LGPD",
-          "weight": 3
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
-        },
-        {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1 Type II",
-          "weight": 4
-        },
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
-        },
-        {
-          "id": "tx-ramp",
-          "name": "TX-RAMP",
-          "weight": 4
-        }
-      ],
-      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27018, ISO 27701, ISO 42001 +6.",
-      "founded_year": 2016,
-      "founded_source": "https://en.wikipedia.org/wiki/ClickUp",
-      "instruments": {
-        "trust": {
-          "url": "https://security.clickup.com",
-          "host": "security.clickup.com",
-          "seen": "2026-08-21"
-        },
-        "security": {
-          "url": "https://clickup.com/security-policy",
-          "host": "clickup.com",
-          "seen": "2026-08-21"
-        },
-        "privacy": {
-          "url": "https://clickup.com/terms/privacy",
-          "host": "clickup.com",
-          "seen": "2026-08-21"
-        },
-        "dpa": {
-          "url": "https://clickup.com/terms/dpa",
-          "host": "clickup.com",
-          "seen": "2026-08-21"
-        },
-        "subprocessors": null,
-        "status": {
-          "url": "https://status.clickup.com",
-          "host": "status.clickup.com",
-          "seen": "2026-08-21"
-        },
-        "bounty": {
-          "url": "https://clickup.com/vulnerability-disclosure",
-          "host": "clickup.com",
-          "seen": "2026-08-21"
-        }
-      },
-      "processors": [],
-      "disclosure": {
-        "score": 91,
-        "tier": "complete",
-        "factors": {
-          "page": 20,
-          "marks": 40,
-          "dpa": 8,
-          "processors": 0,
-          "status": 6,
-          "bounty": 6,
-          "privacy": 6,
-          "years": 5
-        }
-      },
-      "tier": "complete",
-      "file": {
-        "page": true,
-        "marks": true,
-        "dpa": true,
-        "subprocessors": false,
-        "years": true
-      },
-      "_crawl": {
-        "vendor": "safebase",
-        "title": "ClickUp Trust Center",
-        "http_status": null
-      },
-      "txramp": {
-        "marketplace": "https://dir.texas.gov/resource-library-item/tx-ramp-certified-cloud-products",
-        "source": "https://dir.texas.gov/sites/default/files/2026-08/TX-RAMP%20Certified%20Cloud%20Products_1.xlsx",
-        "products": [
-          {
-            "id": "TX1114753",
-            "offering": "ClickUp",
-            "status": "Level 2",
-            "impact_level": "Level 2",
-            "auth_date": null,
-            "url": "https://dir.texas.gov/resource-library-item/tx-ramp-certified-cloud-products"
-          }
-        ]
-      },
-      "list_rank": 70
-    },
-    {
-      "rank": 31,
+      "rank": 33,
       "name": "Synthesia",
       "slug": "synthesia",
       "domain": "synthesia.io",
@@ -7251,7 +8087,7 @@
       "list_rank": 98
     },
     {
-      "rank": 32,
+      "rank": 34,
       "name": "Cyera",
       "slug": "cyera",
       "domain": "cyera.com",
@@ -7437,7 +8273,7 @@
       "list_rank": 82
     },
     {
-      "rank": 33,
+      "rank": 35,
       "name": "Alteryx",
       "slug": "alteryx",
       "domain": "alteryx.com",
@@ -7566,170 +8402,7 @@
       "list_rank": 1313
     },
     {
-      "rank": 34,
-      "name": "Cvent",
-      "slug": "cvent",
-      "domain": "cvent.com",
-      "found": true,
-      "trust_url": "https://trust.cvent.com",
-      "final_url": "https://trust.cvent.com",
-      "list": "wikipedia-software-us",
-      "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_States",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_States",
-      "probed": 5,
-      "probed_at": "2026-08-21T00:52:53Z",
-      "certs": [
-        "CCPA",
-        "CSA STAR",
-        "FedRAMP",
-        "GDPR",
-        "HIPAA",
-        "HITRUST",
-        "IRAP",
-        "ISO 27001",
-        "ISO 27701",
-        "PCI DSS",
-        "SOC 1 Type II",
-        "SOC 2 Type II",
-        "SOC 3",
-        "TX-RAMP"
-      ],
-      "attestations": [
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
-          "weight": 4
-        },
-        {
-          "id": "fedramp",
-          "name": "FedRAMP",
-          "weight": 12
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "hitrust-csf",
-          "name": "HITRUST",
-          "weight": 8
-        },
-        {
-          "id": "irap",
-          "name": "IRAP",
-          "weight": 4
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
-        },
-        {
-          "id": "iso-27701",
-          "name": "ISO 27701",
-          "weight": 6
-        },
-        {
-          "id": "pci-dss",
-          "name": "PCI DSS",
-          "weight": 8
-        },
-        {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1 Type II",
-          "weight": 4
-        },
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
-        },
-        {
-          "id": "tx-ramp",
-          "name": "TX-RAMP",
-          "weight": 4
-        }
-      ],
-      "summary": "Public trust center. On file: SOC 2 Type II, SOC 1 Type II, SOC 3, ISO 27001, ISO 27701, FedRAMP, HIPAA, PCI DSS and others.",
-      "founded_year": 1999,
-      "founded_source": "https://en.wikipedia.org/wiki/Cvent",
-      "instruments": {
-        "trust": {
-          "url": "https://trust.cvent.com",
-          "host": "trust.cvent.com",
-          "seen": "2026-08-21"
-        },
-        "security": {
-          "url": "https://www.cvent.com/en/trust",
-          "host": "cvent.com",
-          "seen": "2026-08-21"
-        },
-        "privacy": {
-          "url": "https://www.cvent.com/en/privacy-policy",
-          "host": "cvent.com",
-          "seen": "2026-08-21"
-        },
-        "dpa": null,
-        "subprocessors": {
-          "url": "https://trust.cvent.com/subprocessors",
-          "host": "trust.cvent.com",
-          "seen": "2026-08-21"
-        },
-        "status": {
-          "url": "https://status.cvent.com/NA/Event%20Marketing",
-          "host": "status.cvent.com",
-          "seen": "2026-08-21"
-        },
-        "bounty": null
-      },
-      "processors": [],
-      "disclosure": {
-        "score": 90,
-        "tier": "complete",
-        "factors": {
-          "page": 20,
-          "marks": 40,
-          "dpa": 0,
-          "processors": 8,
-          "status": 6,
-          "bounty": 0,
-          "privacy": 6,
-          "years": 10
-        }
-      },
-      "tier": "complete",
-      "file": {
-        "page": true,
-        "marks": true,
-        "dpa": false,
-        "subprocessors": true,
-        "years": true
-      },
-      "_crawl": {
-        "vendor": "unknown",
-        "title": "",
-        "http_status": null
-      },
-      "list_rank": 1409
-    },
-    {
-      "rank": 35,
+      "rank": 36,
       "name": "Dynatrace",
       "slug": "dynatrace",
       "domain": "dynatrace.com",
@@ -7995,7 +8668,7 @@
       "list_rank": null
     },
     {
-      "rank": 36,
+      "rank": 37,
       "name": "Amazon Web Services",
       "slug": "amazon-web-services",
       "domain": "aws.amazon.com",
@@ -8500,7 +9173,7 @@
       "list_rank": null
     },
     {
-      "rank": 37,
+      "rank": 38,
       "name": "ElevenLabs",
       "slug": "elevenlabs",
       "domain": "elevenlabs.io",
@@ -8948,7 +9621,7 @@
       "list_rank": 80
     },
     {
-      "rank": 38,
+      "rank": 39,
       "name": "Cloudera",
       "slug": "cloudera",
       "domain": "cloudera.com",
@@ -9089,7 +9762,7 @@
       "list_rank": 1392
     },
     {
-      "rank": 39,
+      "rank": 40,
       "name": "Klaviyo",
       "slug": "klaviyo",
       "domain": "klaviyo.com",
@@ -9241,7 +9914,7 @@
       "list_rank": null
     },
     {
-      "rank": 40,
+      "rank": 41,
       "name": "Automation Anywhere",
       "slug": "automation-anywhere",
       "domain": "automationanywhere.com",
@@ -9399,7 +10072,7 @@
       "list_rank": 41
     },
     {
-      "rank": 41,
+      "rank": 42,
       "name": "Splunk",
       "slug": "splunk",
       "domain": "splunk.com",
@@ -9672,7 +10345,7 @@
       "list_rank": null
     },
     {
-      "rank": 42,
+      "rank": 43,
       "name": "Adyen",
       "slug": "adyen",
       "domain": "adyen.com",
@@ -9792,7 +10465,7 @@
       "list_rank": null
     },
     {
-      "rank": 43,
+      "rank": 44,
       "name": "Dialpad",
       "slug": "dialpad",
       "domain": "dialpad.com",
@@ -10009,7 +10682,7 @@
       "list_rank": 38
     },
     {
-      "rank": 44,
+      "rank": 45,
       "name": "Workato",
       "slug": "workato",
       "domain": "workato.com",
@@ -10256,7 +10929,7 @@
       "list_rank": 61
     },
     {
-      "rank": 45,
+      "rank": 46,
       "name": "Gong",
       "slug": "gong",
       "domain": "gong.io",
@@ -10465,7 +11138,7 @@
       "list_rank": 52
     },
     {
-      "rank": 46,
+      "rank": 47,
       "name": "Pendo",
       "slug": "pendo",
       "domain": "pendo.io",
@@ -10643,7 +11316,165 @@
       "list_rank": 62
     },
     {
-      "rank": 47,
+      "rank": 48,
+      "name": "Vertex",
+      "slug": "vertex",
+      "domain": "vertexinc.com",
+      "found": true,
+      "trust_url": "https://trust.vertexinc.com",
+      "final_url": "https://trust.vertexinc.com",
+      "list": "companiesmarketcap-software",
+      "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
+      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
+      "probed": 1,
+      "probed_at": "2026-08-21T00:52:53Z",
+      "certs": [
+        "CCPA",
+        "FedRAMP",
+        "FedRAMP Moderate",
+        "GDPR",
+        "HIPAA",
+        "HITRUST",
+        "SOC 1",
+        "SOC 1 Type II",
+        "SOC 2 Type II",
+        "SOC 3"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP",
+          "weight": 12
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP Moderate",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "hitrust-csf",
+          "name": "HITRUST",
+          "weight": 8
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1",
+          "weight": 4
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        }
+      ],
+      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, SOC 1 Type II, FedRAMP Moderate, HIPAA, HITRUST, GDPR, CCPA and others.",
+      "founded_year": null,
+      "founded_source": null,
+      "instruments": {
+        "trust": {
+          "url": "https://trust.vertexinc.com",
+          "host": "trust.vertexinc.com",
+          "seen": "2026-08-21"
+        },
+        "security": null,
+        "privacy": {
+          "url": "https://www.vertexinc.com/vertex-privacy-policy",
+          "host": "vertexinc.com",
+          "seen": "2026-08-21"
+        },
+        "dpa": {
+          "url": "https://www.vertexinc.com/legal/data-processing-addendum",
+          "host": "vertexinc.com",
+          "seen": "2026-08-21"
+        },
+        "subprocessors": {
+          "url": "https://trust.vertexinc.com/subprocessors",
+          "host": "trust.vertexinc.com",
+          "seen": "2026-08-21"
+        },
+        "status": {
+          "url": "https://status.vertexinc.com",
+          "host": "status.vertexinc.com",
+          "seen": "2026-08-21"
+        },
+        "bounty": null
+      },
+      "processors": [
+        {
+          "name": "Amazon Web Services",
+          "slug": "amazon-web-services",
+          "id": "aws",
+          "source_url": "https://trust.vertexinc.com/subprocessors"
+        },
+        {
+          "name": "GitHub",
+          "slug": "github",
+          "id": "github",
+          "source_url": "https://trust.vertexinc.com/subprocessors"
+        },
+        {
+          "name": "Sentry",
+          "slug": null,
+          "id": "sentry",
+          "source_url": "https://trust.vertexinc.com/subprocessors"
+        }
+      ],
+      "disclosure": {
+        "score": 88,
+        "tier": "substantial",
+        "factors": {
+          "page": 20,
+          "marks": 40,
+          "dpa": 8,
+          "processors": 8,
+          "status": 6,
+          "bounty": 0,
+          "privacy": 6,
+          "years": 0
+        }
+      },
+      "tier": "substantial",
+      "file": {
+        "page": true,
+        "marks": true,
+        "dpa": true,
+        "subprocessors": true,
+        "years": false
+      },
+      "_crawl": {
+        "vendor": "unknown",
+        "title": "",
+        "http_status": null
+      },
+      "list_rank": 862
+    },
+    {
+      "rank": 49,
       "name": "Asana",
       "slug": "asana",
       "domain": "asana.com",
@@ -10870,7 +11701,7 @@
       "list_rank": null
     },
     {
-      "rank": 48,
+      "rank": 50,
       "name": "Figma",
       "slug": "figma",
       "domain": "figma.com",
@@ -11338,7 +12169,399 @@
       "list_rank": null
     },
     {
-      "rank": 49,
+      "rank": 51,
+      "name": "monday.com",
+      "slug": "monday",
+      "domain": "monday.com",
+      "found": true,
+      "trust_url": "https://trust.monday.com",
+      "final_url": "https://trust.monday.com",
+      "list": "enterprise",
+      "source": "public-enterprise",
+      "source_url": "",
+      "probed": 1,
+      "probed_at": "2026-08-21T00:52:53Z",
+      "certs": [
+        "CCPA",
+        "CSA STAR",
+        "DORA",
+        "EU-US DPF",
+        "FedRAMP",
+        "GDPR",
+        "HIPAA",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27032",
+        "ISO 27701",
+        "LGPD",
+        "PIPEDA",
+        "SOC 1",
+        "SOC 1 Type II",
+        "SOC 2",
+        "SOC 2 Type II",
+        "SOC 3",
+        "TX-RAMP"
+      ],
+      "attestations": [
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
+        },
+        {
+          "id": "csa-star-l1",
+          "name": "CSA STAR",
+          "weight": 4
+        },
+        {
+          "id": "dora",
+          "name": "DORA",
+          "weight": 4
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
+        {
+          "id": "fedramp",
+          "name": "FedRAMP",
+          "weight": 12
+        },
+        {
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": null,
+          "name": "ISO 27032",
+          "weight": 4
+        },
+        {
+          "id": "iso-27701",
+          "name": "ISO 27701",
+          "weight": 6
+        },
+        {
+          "id": "lgpd",
+          "name": "LGPD",
+          "weight": 3
+        },
+        {
+          "id": "pipeda",
+          "name": "PIPEDA",
+          "weight": 3
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1",
+          "weight": 4
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        },
+        {
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
+          "weight": 4
+        }
+      ],
+      "summary": "Public trust center. On file: SOC 2, SOC 1, ISO 27001, FedRAMP, HIPAA, GDPR, CCPA, TX-RAMP.",
+      "founded_year": 2012,
+      "founded_source": "https://en.wikipedia.org/wiki/Monday.com",
+      "instruments": {
+        "trust": {
+          "url": "https://trust.monday.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
+          "host": "trust.monday.com",
+          "seen": "2026-08-21"
+        },
+        "security": {
+          "url": "https://monday.com/trustcenter",
+          "host": "monday.com",
+          "seen": "2026-08-21"
+        },
+        "privacy": {
+          "url": "https://monday.com/trustcenter/privacy",
+          "host": "monday.com",
+          "seen": "2026-08-21"
+        },
+        "dpa": {
+          "url": "https://monday.com/l/privacy/dpa/",
+          "host": "monday.com",
+          "seen": "2026-08-21"
+        },
+        "subprocessors": {
+          "url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/",
+          "host": "monday.com",
+          "seen": "2026-08-21"
+        },
+        "status": {
+          "url": "https://status.monday.com",
+          "host": "status.monday.com",
+          "seen": "2026-08-21"
+        },
+        "bounty": null
+      },
+      "processors": [
+        {
+          "name": "Amazon Web Services EMEA SARL",
+          "slug": "amazon-web-services",
+          "id": "aws",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Google Cloud EMEA Limited",
+          "slug": null,
+          "id": "gcp",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Redis Labs, Ltd",
+          "slug": null,
+          "id": "redis-labs",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Cloudflare, Inc",
+          "slug": "cloudflare",
+          "id": "cloudflare",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "WorkCanvas, WorkAssests",
+          "slug": null,
+          "id": "workcanvas-workassests",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Twilio Inc. (SendGrid)",
+          "slug": "twilio",
+          "id": "twilio",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Mailgun Technologies, Inc",
+          "slug": null,
+          "id": "mailgun-technologies",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Coralogix, Inc",
+          "slug": null,
+          "id": "coralogix",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Cloudinary Ltd",
+          "slug": "cloudinary",
+          "id": "cloudinary",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Fortinet, Inc",
+          "slug": "fortinet",
+          "id": "fortinet",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Functional Software, Inc. dba Sentry",
+          "slug": null,
+          "id": "sentry",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Datadog, Inc",
+          "slug": "datadog",
+          "id": "datadog",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Microsoft Corp",
+          "slug": "microsoft",
+          "id": "microsoft",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "EON.io Ltd",
+          "slug": null,
+          "id": "eon-io",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Nebius Inc",
+          "slug": "nebius",
+          "id": "nebius",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Snowflake Computing Netherlands B.V",
+          "slug": "snowflake",
+          "id": "snowflake",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "OpenAI, L.L.C",
+          "slug": "openai",
+          "id": "openai",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "LangChain Inc",
+          "slug": "langchain",
+          "id": "langchain",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "AlphaAI Technologies Inc. dba Tavily",
+          "slug": null,
+          "id": "alphaai-technologies-dba-tavily",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Hyperdoc Inc. (Recall.ai)",
+          "slug": null,
+          "id": "hyperdoc-recall-ai",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Anthropic PBC",
+          "slug": "anthropic",
+          "id": "anthropic",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "dbt Labs, Inc",
+          "slug": "dbt-labs",
+          "id": "dbt-labs",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Exa Labs, Inc",
+          "slug": null,
+          "id": "exa-labs",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Superpowered Labs Inc dba Vapi",
+          "slug": null,
+          "id": "superpowered-labs-dba-vapi",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Lakera AI AG",
+          "slug": null,
+          "id": "lakera-ai",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Transactel International Services Limited d/b/a TELUS International",
+          "slug": null,
+          "id": "transactel-international-services-d-b-a-telus-international",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        },
+        {
+          "name": "Foundever Operating Corporation Limited",
+          "slug": null,
+          "id": "foundever-operating",
+          "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/"
+        }
+      ],
+      "disclosure": {
+        "score": 87,
+        "tier": "substantial",
+        "factors": {
+          "page": 20,
+          "marks": 40,
+          "dpa": 0,
+          "processors": 8,
+          "status": 6,
+          "bounty": 0,
+          "privacy": 6,
+          "years": 7
+        }
+      },
+      "tier": "substantial",
+      "file": {
+        "page": true,
+        "marks": true,
+        "dpa": true,
+        "subprocessors": true,
+        "years": true
+      },
+      "_crawl": {
+        "vendor": "safebase",
+        "title": "monday.com security compliance hub",
+        "http_status": null
+      },
+      "favicon": "monday.com.png",
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/monday-com",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "monday.com",
+            "url": "https://cloudsecurityalliance.org/star/registry/monday-com",
+            "listed_since": "2020-01-30"
+          }
+        ]
+      },
+      "txramp": {
+        "marketplace": "https://dir.texas.gov/resource-library-item/tx-ramp-certified-cloud-products",
+        "source": "https://dir.texas.gov/sites/default/files/2026-08/TX-RAMP%20Certified%20Cloud%20Products_1.xlsx",
+        "products": [
+          {
+            "id": "TX1101066",
+            "offering": "Monday",
+            "status": "Level 2",
+            "impact_level": "Level 2",
+            "auth_date": null,
+            "url": "https://dir.texas.gov/resource-library-item/tx-ramp-certified-cloud-products"
+          }
+        ]
+      },
+      "list_rank": null
+    },
+    {
+      "rank": 52,
       "name": "Calendly",
       "slug": "calendly",
       "domain": "calendly.com",
@@ -11468,7 +12691,7 @@
       "list_rank": 59
     },
     {
-      "rank": 50,
+      "rank": 53,
       "name": "Dataiku",
       "slug": "dataiku",
       "domain": "dataiku.com",
@@ -11595,7 +12818,7 @@
       "list_rank": 35
     },
     {
-      "rank": 51,
+      "rank": 54,
       "name": "Sierra",
       "slug": "sierra",
       "domain": "sierra.ai",
@@ -11858,138 +13081,7 @@
       "list_rank": 92
     },
     {
-      "rank": 52,
-      "name": "Checkr",
-      "slug": "checkr",
-      "domain": "checkr.com",
-      "found": true,
-      "trust_url": "https://security.checkr.com",
-      "final_url": "https://security.checkr.com",
-      "list": "cloud100",
-      "source": "forbes-cloud-100-2025",
-      "source_url": "",
-      "probed": 2,
-      "probed_at": "2026-08-21T00:52:53Z",
-      "certs": [
-        "CCPA",
-        "GDPR",
-        "ISO 27001",
-        "ISO 42001",
-        "PIPEDA",
-        "SOC 1 Type II",
-        "SOC 2 Type II",
-        "SOC 3"
-      ],
-      "attestations": [
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
-        },
-        {
-          "id": "iso-42001",
-          "name": "ISO 42001",
-          "weight": 6
-        },
-        {
-          "id": "pipeda",
-          "name": "PIPEDA",
-          "weight": 3
-        },
-        {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1 Type II",
-          "weight": 4
-        },
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
-        }
-      ],
-      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, ISO 27001, ISO 42001, GDPR, CCPA +2.",
-      "founded_year": null,
-      "founded_source": null,
-      "instruments": {
-        "trust": {
-          "url": "https://security.checkr.com",
-          "host": "security.checkr.com",
-          "seen": "2026-08-21"
-        },
-        "security": {
-          "url": "https://security.checkr.com",
-          "host": "security.checkr.com",
-          "seen": "2026-08-21"
-        },
-        "privacy": {
-          "url": "https://security.checkr.com/?itemUid=63f59def-eb18-4135-95a1-addeb7463801",
-          "host": "security.checkr.com",
-          "seen": "2026-08-21"
-        },
-        "dpa": {
-          "url": "https://checkr.com/legal/dpa",
-          "host": "checkr.com",
-          "seen": "2026-08-21"
-        },
-        "subprocessors": null,
-        "status": {
-          "url": "https://security.checkr.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
-          "host": "security.checkr.com",
-          "seen": "2026-08-21"
-        },
-        "bounty": {
-          "url": "https://security.checkr.com/?itemUid=64c9680b-ef79-4c92-baa0-13b541954bef",
-          "host": "security.checkr.com",
-          "seen": "2026-08-21"
-        }
-      },
-      "processors": [],
-      "disclosure": {
-        "score": 86,
-        "tier": "substantial",
-        "factors": {
-          "page": 20,
-          "marks": 40,
-          "dpa": 8,
-          "processors": 0,
-          "status": 6,
-          "bounty": 6,
-          "privacy": 6,
-          "years": 0
-        }
-      },
-      "tier": "substantial",
-      "file": {
-        "page": true,
-        "marks": true,
-        "dpa": true,
-        "subprocessors": false,
-        "years": false
-      },
-      "_crawl": {
-        "vendor": "safebase",
-        "title": "Checkr Trust and Security Portal",
-        "http_status": null
-      },
-      "list_rank": 27
-    },
-    {
-      "rank": 53,
+      "rank": 55,
       "name": "Clay",
       "slug": "clay",
       "domain": "clay.com",
@@ -12142,7 +13234,7 @@
       "list_rank": 99
     },
     {
-      "rank": 54,
+      "rank": 56,
       "name": "Varonis",
       "slug": "varonis",
       "domain": "varonis.com",
@@ -12340,7 +13432,7 @@
       "list_rank": 780
     },
     {
-      "rank": 55,
+      "rank": 57,
       "name": "Workday",
       "slug": "workday",
       "domain": "workday.com",
@@ -12601,7 +13693,7 @@
       "list_rank": null
     },
     {
-      "rank": 56,
+      "rank": 58,
       "name": "Smartsheet",
       "slug": "smartsheet",
       "domain": "smartsheet.com",
@@ -13051,7 +14143,7 @@
       "list_rank": null
     },
     {
-      "rank": 57,
+      "rank": 59,
       "name": "Grammarly",
       "slug": "grammarly",
       "domain": "grammarly.com",
@@ -13231,7 +14323,7 @@
       "list_rank": 11
     },
     {
-      "rank": 58,
+      "rank": 60,
       "name": "Slack",
       "slug": "slack",
       "domain": "slack.com",
@@ -13476,7 +14568,7 @@
       "list_rank": null
     },
     {
-      "rank": 59,
+      "rank": 61,
       "name": "Algolia",
       "slug": "algolia",
       "domain": "algolia.com",
@@ -13608,7 +14700,7 @@
       "list_rank": 74
     },
     {
-      "rank": 60,
+      "rank": 62,
       "name": "Airwallex",
       "slug": "airwallex",
       "domain": "airwallex.com",
@@ -13736,7 +14828,7 @@
       "list_rank": 45
     },
     {
-      "rank": 61,
+      "rank": 63,
       "name": "ClickHouse",
       "slug": "clickhouse",
       "domain": "clickhouse.com",
@@ -13869,7 +14961,7 @@
       "list_rank": 72
     },
     {
-      "rank": 62,
+      "rank": 64,
       "name": "Scale AI",
       "slug": "scale-ai",
       "domain": "scale.com",
@@ -14042,7 +15134,7 @@
       "list_rank": null
     },
     {
-      "rank": 63,
+      "rank": 65,
       "name": "Cohere",
       "slug": "cohere",
       "domain": "cohere.com",
@@ -14177,7 +15269,7 @@
       "list_rank": null
     },
     {
-      "rank": 64,
+      "rank": 66,
       "name": "Atlassian",
       "slug": "atlassian",
       "domain": "atlassian.com",
@@ -14537,7 +15629,7 @@
       "list_rank": null
     },
     {
-      "rank": 65,
+      "rank": 67,
       "name": "Infor",
       "slug": "infor",
       "domain": "infor.com",
@@ -14660,7 +15752,7 @@
       "list_rank": 794
     },
     {
-      "rank": 66,
+      "rank": 68,
       "name": "Proofpoint",
       "slug": "proofpoint",
       "domain": "proofpoint.com",
@@ -14978,7 +16070,7 @@
       "list_rank": null
     },
     {
-      "rank": 67,
+      "rank": 69,
       "name": "Automattic",
       "slug": "automattic",
       "domain": "automattic.com",
@@ -15154,7 +16246,7 @@
       "list_rank": 71
     },
     {
-      "rank": 68,
+      "rank": 70,
       "name": "GitHub",
       "slug": "github",
       "domain": "github.com",
@@ -15478,7 +16570,7 @@
       "list_rank": null
     },
     {
-      "rank": 69,
+      "rank": 71,
       "name": "Checkout.com",
       "slug": "checkout",
       "domain": "checkout.com",
@@ -15620,7 +16712,7 @@
       "list_rank": 40
     },
     {
-      "rank": 70,
+      "rank": 72,
       "name": "Claroty",
       "slug": "claroty",
       "domain": "claroty.com",
@@ -15871,7 +16963,7 @@
       "list_rank": 96
     },
     {
-      "rank": 71,
+      "rank": 73,
       "name": "Canva",
       "slug": "canva",
       "domain": "canva.com",
@@ -15996,7 +17088,7 @@
       "list_rank": 5
     },
     {
-      "rank": 72,
+      "rank": 74,
       "name": "HubSpot",
       "slug": "hubspot",
       "domain": "hubspot.com",
@@ -16134,7 +17226,7 @@
       "list_rank": null
     },
     {
-      "rank": 73,
+      "rank": 75,
       "name": "dbt Labs",
       "slug": "dbt-labs",
       "domain": "getdbt.com",
@@ -16320,161 +17412,7 @@
       "list_rank": 87
     },
     {
-      "rank": 74,
-      "name": "Vertex",
-      "slug": "vertex",
-      "domain": "vertexinc.com",
-      "found": true,
-      "trust_url": "https://trust.vertexinc.com",
-      "final_url": "https://trust.vertexinc.com",
-      "list": "companiesmarketcap-software",
-      "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "source_url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "probed": 1,
-      "probed_at": "2026-08-21T00:52:53Z",
-      "certs": [
-        "CCPA",
-        "FedRAMP",
-        "FedRAMP Moderate",
-        "GDPR",
-        "HIPAA",
-        "HITRUST",
-        "SOC 1",
-        "SOC 1 Type II",
-        "SOC 2 Type II",
-        "SOC 3"
-      ],
-      "attestations": [
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": "fedramp",
-          "name": "FedRAMP",
-          "weight": 12
-        },
-        {
-          "id": "fedramp",
-          "name": "FedRAMP Moderate",
-          "weight": 12
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "hitrust-csf",
-          "name": "HITRUST",
-          "weight": 8
-        },
-        {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1",
-          "weight": 4
-        },
-        {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1 Type II",
-          "weight": 4
-        },
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
-        }
-      ],
-      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, SOC 1 Type II, FedRAMP Moderate, HIPAA, HITRUST, GDPR, CCPA and others.",
-      "founded_year": null,
-      "founded_source": null,
-      "instruments": {
-        "trust": {
-          "url": "https://trust.vertexinc.com",
-          "host": "trust.vertexinc.com",
-          "seen": "2026-08-21"
-        },
-        "security": null,
-        "privacy": {
-          "url": "https://www.vertexinc.com/vertex-privacy-policy",
-          "host": "vertexinc.com",
-          "seen": "2026-08-21"
-        },
-        "dpa": null,
-        "subprocessors": {
-          "url": "https://trust.vertexinc.com/subprocessors",
-          "host": "trust.vertexinc.com",
-          "seen": "2026-08-21"
-        },
-        "status": {
-          "url": "https://status.vertexinc.com",
-          "host": "status.vertexinc.com",
-          "seen": "2026-08-21"
-        },
-        "bounty": null
-      },
-      "processors": [
-        {
-          "name": "Amazon Web Services",
-          "slug": "amazon-web-services",
-          "id": "aws",
-          "source_url": "https://trust.vertexinc.com/subprocessors"
-        },
-        {
-          "name": "GitHub",
-          "slug": "github",
-          "id": "github",
-          "source_url": "https://trust.vertexinc.com/subprocessors"
-        },
-        {
-          "name": "Sentry",
-          "slug": null,
-          "id": "sentry",
-          "source_url": "https://trust.vertexinc.com/subprocessors"
-        }
-      ],
-      "disclosure": {
-        "score": 80,
-        "tier": "substantial",
-        "factors": {
-          "page": 20,
-          "marks": 40,
-          "dpa": 0,
-          "processors": 8,
-          "status": 6,
-          "bounty": 0,
-          "privacy": 6,
-          "years": 0
-        }
-      },
-      "tier": "substantial",
-      "file": {
-        "page": true,
-        "marks": true,
-        "dpa": false,
-        "subprocessors": true,
-        "years": false
-      },
-      "_crawl": {
-        "vendor": "unknown",
-        "title": "",
-        "http_status": null
-      },
-      "list_rank": 862
-    },
-    {
-      "rank": 75,
+      "rank": 76,
       "name": "Weave",
       "slug": "weave",
       "domain": "getweave.com",
@@ -16586,7 +17524,7 @@
       "list_rank": 785
     },
     {
-      "rank": 76,
+      "rank": 77,
       "name": "Elastic",
       "slug": "elastic",
       "domain": "elastic.co",
@@ -16808,231 +17746,6 @@
           {
             "id": "TX985442",
             "offering": "Elastic Cloud on GovCloud",
-            "status": "Level 2",
-            "impact_level": "Level 2",
-            "auth_date": null,
-            "url": "https://dir.texas.gov/resource-library-item/tx-ramp-certified-cloud-products"
-          }
-        ]
-      },
-      "list_rank": null
-    },
-    {
-      "rank": 77,
-      "name": "monday.com",
-      "slug": "monday",
-      "domain": "monday.com",
-      "found": true,
-      "trust_url": "https://trust.monday.com",
-      "final_url": "https://trust.monday.com",
-      "list": "enterprise",
-      "source": "public-enterprise",
-      "source_url": "",
-      "probed": 1,
-      "probed_at": "2026-08-21T00:52:53Z",
-      "certs": [
-        "CCPA",
-        "CSA STAR",
-        "DORA",
-        "EU-US DPF",
-        "FedRAMP",
-        "GDPR",
-        "HIPAA",
-        "ISO 27001",
-        "ISO 27017",
-        "ISO 27018",
-        "ISO 27032",
-        "ISO 27701",
-        "LGPD",
-        "PIPEDA",
-        "SOC 1",
-        "SOC 1 Type II",
-        "SOC 2",
-        "SOC 2 Type II",
-        "SOC 3",
-        "TX-RAMP"
-      ],
-      "attestations": [
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": "csa-star-l1",
-          "name": "CSA STAR",
-          "weight": 4
-        },
-        {
-          "id": "dora",
-          "name": "DORA",
-          "weight": 4
-        },
-        {
-          "id": "eu-us-dpf",
-          "name": "EU-US DPF",
-          "weight": 4
-        },
-        {
-          "id": "fedramp",
-          "name": "FedRAMP",
-          "weight": 12
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "iso-27001",
-          "name": "ISO 27001",
-          "weight": 10
-        },
-        {
-          "id": "iso-27017",
-          "name": "ISO 27017",
-          "weight": 4
-        },
-        {
-          "id": "iso-27018",
-          "name": "ISO 27018",
-          "weight": 4
-        },
-        {
-          "id": null,
-          "name": "ISO 27032",
-          "weight": 4
-        },
-        {
-          "id": "iso-27701",
-          "name": "ISO 27701",
-          "weight": 6
-        },
-        {
-          "id": "lgpd",
-          "name": "LGPD",
-          "weight": 3
-        },
-        {
-          "id": "pipeda",
-          "name": "PIPEDA",
-          "weight": 3
-        },
-        {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1",
-          "weight": 4
-        },
-        {
-          "id": "soc-1-type-ii",
-          "name": "SOC 1 Type II",
-          "weight": 4
-        },
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2",
-          "weight": 4
-        },
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
-        },
-        {
-          "id": "tx-ramp",
-          "name": "TX-RAMP",
-          "weight": 4
-        }
-      ],
-      "summary": "Public trust center. On file: SOC 2, SOC 1, ISO 27001, FedRAMP, HIPAA, GDPR, CCPA, TX-RAMP.",
-      "founded_year": 2012,
-      "founded_source": "https://en.wikipedia.org/wiki/Monday.com",
-      "instruments": {
-        "trust": {
-          "url": "https://trust.monday.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
-          "host": "trust.monday.com",
-          "seen": "2026-08-21"
-        },
-        "security": {
-          "url": "https://monday.com/trustcenter",
-          "host": "monday.com",
-          "seen": "2026-08-21"
-        },
-        "privacy": {
-          "url": "https://monday.com/trustcenter/privacy",
-          "host": "monday.com",
-          "seen": "2026-08-21"
-        },
-        "dpa": {
-          "url": "https://monday.com/l/privacy/dpa/",
-          "host": "monday.com",
-          "seen": "2026-08-21"
-        },
-        "subprocessors": null,
-        "status": {
-          "url": "https://status.monday.com",
-          "host": "status.monday.com",
-          "seen": "2026-08-21"
-        },
-        "bounty": null
-      },
-      "processors": [],
-      "disclosure": {
-        "score": 79,
-        "tier": "substantial",
-        "factors": {
-          "page": 20,
-          "marks": 40,
-          "dpa": 0,
-          "processors": 0,
-          "status": 6,
-          "bounty": 0,
-          "privacy": 6,
-          "years": 7
-        }
-      },
-      "tier": "substantial",
-      "file": {
-        "page": true,
-        "marks": true,
-        "dpa": true,
-        "subprocessors": false,
-        "years": true
-      },
-      "_crawl": {
-        "vendor": "safebase",
-        "title": "monday.com security compliance hub",
-        "http_status": null
-      },
-      "favicon": "monday.com.png",
-      "csa_star": {
-        "marketplace": "https://cloudsecurityalliance.org/star/registry/monday-com",
-        "source": "https://cloudsecurityalliance.org/star/registry",
-        "products": [
-          {
-            "offering": "monday.com",
-            "url": "https://cloudsecurityalliance.org/star/registry/monday-com",
-            "listed_since": "2020-01-30"
-          }
-        ]
-      },
-      "txramp": {
-        "marketplace": "https://dir.texas.gov/resource-library-item/tx-ramp-certified-cloud-products",
-        "source": "https://dir.texas.gov/sites/default/files/2026-08/TX-RAMP%20Certified%20Cloud%20Products_1.xlsx",
-        "products": [
-          {
-            "id": "TX1101066",
-            "offering": "Monday",
             "status": "Level 2",
             "impact_level": "Level 2",
             "auth_date": null,
@@ -124124,35 +124837,35 @@
     "companies": 1461,
     "years": 331,
     "certs_companies": 367,
-    "edges": 1186,
+    "edges": 1301,
     "top_processors": [
       {
         "id": "aws",
-        "n": 71
+        "n": 74
       },
       {
         "id": "twilio",
-        "n": 31
+        "n": 34
       },
       {
         "id": "openai",
-        "n": 30
+        "n": 32
       }
     ],
     "links": {
       "security_txt": 230,
-      "dpa": 124,
+      "dpa": 126,
       "privacy": 562,
       "status": 278,
       "bug_bounty": 187,
-      "subprocessors": 196
+      "subprocessors": 199
     },
     "tiers": {
       "silent": 1084,
       "thin": 147,
       "on-file": 120,
-      "substantial": 73,
-      "complete": 37
+      "substantial": 72,
+      "complete": 38
     }
   }
 }

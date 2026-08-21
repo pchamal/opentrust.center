@@ -579,6 +579,22 @@ DPA_WELL_KNOWN_PATHS = (
     "/legal/data-processing",
     "/data-processing",
 )
+SUB_PATH_RE = re.compile(r"sub-?process|service-providers?", re.I)
+SUB_LINK_TEXT_RE = re.compile(
+    r"\b(?:sub-?processors?(?:\s+list)?|service providers?)\b",
+    re.I,
+)
+SUBPROCESSOR_WELL_KNOWN_PATHS = (
+    "/subprocessors",
+    "/sub-processors",
+    "/legal/subprocessors",
+    "/legal/sub-processors",
+    "/legal/service-providers",
+    "/privacy/subprocessors",
+    "/company/subprocessors",
+    "/trust/subprocessors",
+    "/legal/sub-processors-page",
+)
 
 
 
@@ -918,7 +934,7 @@ GEO_NAME_RE = re.compile(
     r"eu|eea|switzerland|netherlands|singapore|israel|sweden|spain|italy|"
     r"belgium|finland|poland|austria|denmark|norway|new zealand|mexico|"
     r"south korea|korea|taiwan|hong kong|uae|saudi arabia|usa\*?|"
-    r"usa, eu|uk \(.*)$",
+    r"usa, eu|uk \(.*|aus)$",
     re.I,
 )
 PURPOSE_LEAD_RE = re.compile(
@@ -1692,7 +1708,7 @@ GEO_NAME_RE = re.compile(
     r"eu|eea|switzerland|netherlands|singapore|israel|sweden|spain|italy|"
     r"belgium|finland|poland|austria|denmark|norway|new zealand|mexico|"
     r"south korea|korea|taiwan|hong kong|uae|saudi arabia|usa\*?|"
-    r"usa, eu|uk \(.*)$",
+    r"usa, eu|uk \(.*|aus)$",
     re.I,
 )
 PURPOSE_LEAD_RE = re.compile(
@@ -2807,6 +2823,85 @@ def apply_dpa_to_row(row: dict, url: str) -> bool:
         disc["factors"] = factors
         row["disclosure"] = disc
     return True
+
+
+def extract_subprocessor_candidates(html: str, base: str) -> list[str]:
+    """Hrefs that look like a printed subprocessor list. Portal itemUids stay out."""
+    out, seen = [], set()
+
+    def add(u: str) -> None:
+        u = (u or "").split("#")[0].strip()
+        if not u.startswith("http") or u in seen:
+            return
+        if ITEM_UID_RE.search(u):
+            return
+        seen.add(u)
+        out.append(u)
+
+    for href in extract_hrefs(html, base):
+        if SUB_PATH_RE.search(href):
+            add(href)
+    for m in A_TAG_RE.finditer(html or ""):
+        raw, inner = m.group(1).strip(), strip_tags(m.group(2))
+        if raw.startswith(("javascript:", "mailto:", "tel:", "data:")):
+            continue
+        if SUB_LINK_TEXT_RE.search(inner):
+            add(urljoin(base, raw))
+    return out[:40]
+
+
+def subprocessor_probe_urls_for(company: dict) -> list[str]:
+    pairs, seen = [], set()
+
+    def add(url: str) -> None:
+        u = (url or "").rstrip("/")
+        key = u.lower()
+        if u.startswith("http") and key not in seen:
+            seen.add(key)
+            pairs.append(u)
+
+    for domain in hosts_for(company)[:2]:
+        for path in SUBPROCESSOR_WELL_KNOWN_PATHS:
+            add(f"https://{domain}{path}")
+    trust = company.get("trust_url") or ""
+    th = host_of(trust)
+    if th and not is_portal_vendor_host(trust, company):
+        add(f"https://{th}/subprocessors")
+        add(f"https://{th}/sub-processors")
+    for url, hint in SPECIAL_URLS.get(company.get("slug") or "", []):
+        if hint == "subprocessors":
+            add(url)
+    return pairs
+
+
+def apply_subprocessors_to_row(row: dict, url: str) -> bool:
+    """File a first-party list URL and add the +8 factor. Leave other factors."""
+    links = dict(row.get("links") or {})
+    if links.get("subprocessors"):
+        return False
+    links["subprocessors"] = url
+    row["links"] = links
+    disc = dict(row.get("disclosure") or {})
+    factors = dict(disc.get("factors") or {})
+    if not factors.get("subprocessors") and not factors.get("processors"):
+        factors["subprocessors"] = 8
+        score = min(100, int(disc.get("score") or 0) + 8)
+        if not row.get("found"):
+            tier = "silent"
+        elif score >= 90:
+            tier = "complete"
+        elif score >= 70:
+            tier = "substantial"
+        elif score >= 40:
+            tier = "on-file"
+        else:
+            tier = "thin"
+        disc["score"] = score
+        disc["tier"] = tier
+        disc["factors"] = factors
+        row["disclosure"] = disc
+    return True
+
 
 def fetch_seed_page(url: str) -> dict:
     fetched = crawl.fetch(url, max_body=TRUST_BODY)
