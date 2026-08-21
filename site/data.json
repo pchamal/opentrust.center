@@ -78559,39 +78559,55 @@
       "source_url": "https://www.crn.com/news/security/2024/2024-security-100",
       "probed": 13,
       "probed_at": "2026-08-21T19:01:01Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
         "trust": null,
         "security": null,
-        "privacy": null,
+        "privacy": {
+          "url": "https://www.blackberry.com/en/legal/privacy-notice",
+          "host": "blackberry.com",
+          "seen": "2026-08-21"
+        },
         "dpa": null,
         "subprocessors": null,
         "status": null,
-        "bounty": null
+        "bounty": {
+          "url": "https://www.blackberry.com/en/secure-communications/blackberry-coordinated-vulnerability-disclosure-policy",
+          "host": "blackberry.com",
+          "seen": "2026-08-21"
+        }
       },
       "processors": [],
       "disclosure": {
-        "score": 0,
+        "score": 22,
         "tier": "silent",
         "factors": {
           "page": 0,
-          "marks": 0,
+          "marks": 10,
           "dpa": 0,
           "processors": 0,
           "status": 0,
-          "bounty": 0,
-          "privacy": 0,
+          "bounty": 6,
+          "privacy": 6,
           "years": 0
         }
       },
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -108527,11 +108543,15 @@
         "dpa": null,
         "subprocessors": null,
         "status": null,
-        "bounty": null
+        "bounty": {
+          "url": "https://www.juniper.net/content/dam/www/utils/security.txt",
+          "host": "juniper.net",
+          "seen": "2026-08-21"
+        }
       },
       "processors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
         "factors": {
           "page": 0,
@@ -108539,7 +108559,7 @@
           "dpa": 0,
           "processors": 0,
           "status": 0,
-          "bounty": 0,
+          "bounty": 6,
           "privacy": 0,
           "years": 0
         }
@@ -123895,39 +123915,59 @@
       "source_url": "https://www.crn.com/news/security/2024/2024-security-100",
       "probed": 18,
       "probed_at": "2026-08-21T19:01:01Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "EU-US DPF"
+      ],
+      "attestations": [
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
         "trust": null,
         "security": null,
-        "privacy": null,
+        "privacy": {
+          "url": "https://www.recordedfuture.com/legal/privacy-policy",
+          "host": "recordedfuture.com",
+          "seen": "2026-08-21"
+        },
         "dpa": null,
         "subprocessors": null,
-        "status": null,
-        "bounty": null
+        "status": {
+          "url": "https://status.recordedfuture.com",
+          "host": "status.recordedfuture.com",
+          "seen": "2026-08-21"
+        },
+        "bounty": {
+          "url": "https://bugcrowd.com/engagements/recorded-future-mbb-og",
+          "host": "bugcrowd.com",
+          "seen": "2026-08-21"
+        }
       },
       "processors": [],
       "disclosure": {
-        "score": 0,
+        "score": 22,
         "tier": "silent",
         "factors": {
           "page": 0,
-          "marks": 0,
+          "marks": 4,
           "dpa": 0,
           "processors": 0,
-          "status": 0,
-          "bounty": 0,
-          "privacy": 0,
+          "status": 6,
+          "bounty": 6,
+          "privacy": 6,
           "years": 0
         }
       },
       "tier": "silent",
       "file": {
         "page": false,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": false,
         "years": false
@@ -136636,8 +136676,8 @@
       "name": "VulnCheck",
       "slug": "vulncheck",
       "domain": "vulncheck.com",
-      "found": false,
-      "trust_url": null,
+      "found": true,
+      "trust_url": "https://www.vulncheck.com/advisories/report",
       "final_url": null,
       "list": "crn-security-100-2026",
       "source": "https://www.crn.com/news/security/2026/the-2026-security-100",
@@ -136646,43 +136686,63 @@
       "probed_at": "2026-08-21T19:01:01Z",
       "certs": [],
       "attestations": [],
-      "summary": "",
+      "summary": "Official page on file. No marks extracted from the public HTML.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
-        "trust": null,
-        "security": null,
-        "privacy": null,
+        "trust": {
+          "url": "https://www.vulncheck.com/advisories/report",
+          "host": "vulncheck.com",
+          "seen": "2026-08-21"
+        },
+        "security": {
+          "url": "https://www.vulncheck.com/advisories/report",
+          "host": "vulncheck.com",
+          "seen": "2026-08-21"
+        },
+        "privacy": {
+          "url": "https://www.vulncheck.com/privacy",
+          "host": "vulncheck.com",
+          "seen": "2026-08-21"
+        },
         "dpa": null,
         "subprocessors": null,
-        "status": null,
-        "bounty": null
+        "status": {
+          "url": "https://status.vulncheck.com",
+          "host": "status.vulncheck.com",
+          "seen": "2026-08-21"
+        },
+        "bounty": {
+          "url": "https://www.vulncheck.com/vulnerability-disclosure-policy",
+          "host": "vulncheck.com",
+          "seen": "2026-08-21"
+        }
       },
       "processors": [],
       "disclosure": {
-        "score": 0,
+        "score": 18,
         "tier": "silent",
         "factors": {
           "page": 0,
           "marks": 0,
           "dpa": 0,
           "processors": 0,
-          "status": 0,
-          "bounty": 0,
-          "privacy": 0,
+          "status": 6,
+          "bounty": 6,
+          "privacy": 6,
           "years": 0
         }
       },
       "tier": "silent",
       "file": {
-        "page": false,
+        "page": true,
         "marks": false,
         "dpa": false,
         "subprocessors": false,
         "years": false
       },
       "_crawl": {
-        "vendor": null,
+        "vendor": "unknown",
         "title": "",
         "http_status": null
       },
@@ -139916,12 +139976,12 @@
       "list_rank": 474
     }
   ],
-  "found": 433,
+  "found": 434,
   "total": 1653,
   "coverage": {
     "companies": 1653,
     "years": 369,
-    "certs_companies": 423,
+    "certs_companies": 425,
     "edges": 1454,
     "top_processors": [
       {
@@ -139938,11 +139998,11 @@
       }
     ],
     "links": {
-      "security_txt": 243,
+      "security_txt": 247,
       "dpa": 143,
-      "privacy": 603,
-      "status": 309,
-      "bug_bounty": 199,
+      "privacy": 606,
+      "status": 311,
+      "bug_bounty": 202,
       "subprocessors": 225
     },
     "tiers": {
