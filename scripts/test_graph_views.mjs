@@ -27,7 +27,7 @@ const wires = JSON.parse(readFileSync(new URL("../site/data/subprocessors.json",
 
 expect("list and map are words", html.includes(">list</button>") && html.includes(">map</button>") && html.includes("|"));
 expect("list is the landing", /id="view-list"[^>]*aria-selected="true"/.test(html) && /id="wires"[^>]*data-view="list"/.test(html));
-expect("list stays a table", html.includes('id="wire-table"') && html.includes("Concentration") && html.includes("not a security grade"));
+expect("list stays a table", html.includes('id="wire-table"') && html.includes("Named by") && !html.includes("Concentration") && !html.includes("not a security grade"));
 expect("clerk neighborhood line sits under the tabs", html.includes('id="hood-line"') && html.indexOf("view-toggle") < html.indexOf("hood-line") && js.includes("neighborhood · "));
 expect("Fig. 1 names the neighborhood", js.includes("Fig. 1 · Neighborhood of ${p.name}") && html.includes('id="fig-cap"'));
 const phone = css.slice(css.lastIndexOf("@media (max-width: 390px)"));
@@ -35,7 +35,7 @@ expect("390 stays the list", /data-view="map"[\s\S]*\.fig-block[\s\S]*display: n
 expect("390 hides the neighborhood canvas", /#fig1 \{ display: none/.test(phone) && /\.map-field[\s\S]*display: none/.test(phone) && /if \(compactPhone\(\)\) return false/.test(js));
 expect("390 stacks the wire list", /\.wires-table \.inst thead \{ display: none/.test(phone) && /\.wires-table \.inst td \{[\s\S]*display: block/.test(phone));
 expect("390 kills the inner table scroll", /\.wires-scroll \{[\s\S]*max-height: none/.test(phone) && /\.wires-scroll \{[\s\S]*overflow-x: hidden/.test(phone) && /\.wires-table \.inst \{[\s\S]*min-width: 0/.test(phone));
-expect("390 list fields stay labeled", js.includes('data-label="Processor"') && js.includes('data-label="Exposure"') && js.includes('data-label="Public file"') && js.includes('data-label="Concentration"') && js.includes('data-label="Source"'));
+expect("390 list fields stay labeled", js.includes('data-label="Processor"') && js.includes('data-label="Named by"') && js.includes('data-label="File"') && js.includes('data-label="Source"') && !js.includes('data-label="Concentration"'));
 expect("1440 wire table stays a table", !/@media \(min-width: 1440px\)/.test(css) && /\.wires-table \.inst \{ display: table/.test(css) && /\.wires-table \.inst \{ display: table; min-width: min\(640px, 100%\)/.test(css));
 
 const toggle = css.slice(css.indexOf(".view-toggle"), css.indexOf(".wires-grid"));

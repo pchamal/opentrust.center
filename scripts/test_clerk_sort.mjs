@@ -32,7 +32,7 @@ function expect(name, cond) {
 const idle = { sort: "name", dir: "asc" };
 expect("first click same key flips", clickSort(idle, "name").dir === "desc");
 expect("first click exposure is high to low", clickSort(idle, "exposure", { exposure: "desc" }).dir === "desc");
-expect("concentration click is risk desc", clickSort(idle, "risk", { risk: "desc" }).sort === "risk" && clickSort(idle, "risk", { risk: "desc" }).dir === "desc");
+expect("named-by click is exposure desc", clickSort(idle, "exposure", { exposure: "desc" }).sort === "exposure" && clickSort(idle, "exposure", { exposure: "desc" }).dir === "desc");
 
 const procs = [
   { name: "Zebra", exposure: 9, risk: 8.1, inRegister: true, tier: "silent", sources: ["https://z.example/x"] },
@@ -42,16 +42,15 @@ const procs = [
 const az = arrangeProcessors(procs, "name", "asc");
 expect("graph default A–Z is case-insensitive", az[0].name === "alpha" && az[1].name === "Mid" && az[2].name === "Zebra");
 
-const byRisk = arrangeProcessors(procs, "risk", "desc");
-expect("concentration restores risk ranking", byRisk[0].name === "Mid" && byRisk[1].name === "Zebra" && byRisk[2].name === "alpha");
+expect("named by is count high to low", arrangeProcessors(procs, "exposure", "desc")[0].name === "Zebra");
 expect("exposure click is count high to low", arrangeProcessors(procs, "exposure", "desc")[0].name === "Zebra");
 expect("public file uses tier order", compareProcessors(procs[0], procs[1], "file") < 0);
 expect("graph compare is exported", compareProcessors(procs[1], procs[0], "name") < 0);
 
 expect("graph list has Processor sort", /data-sort="name"/.test(graphHtml) && /Processor/.test(graphHtml));
-expect("graph list has Exposure sort", /data-sort="exposure"/.test(graphHtml));
-expect("graph list has Public file sort", /data-sort="file"/.test(graphHtml));
-expect("graph list has Concentration sort", /data-sort="risk"/.test(graphHtml));
+expect("graph list has Named by sort", /data-sort="exposure"/.test(graphHtml) && /Named by/.test(graphHtml));
+expect("graph list has File sort", /data-sort="file"/.test(graphHtml) && /<button type="button">File<\/button>/.test(graphHtml));
+expect("graph list dropped Concentration", !/Concentration/.test(graphHtml) && !/data-sort="risk"/.test(graphHtml));
 expect("graph list has Source sort", /data-sort="source"/.test(graphHtml));
 expect("graph default header is Processor A–Z", /data-sort="name" aria-sort="ascending"/.test(graphHtml));
 expect("graph figure is still a canvas", /<canvas id="fig1"/.test(graphHtml));
@@ -67,6 +66,10 @@ const stripeProcs = [...stripeHtml.match(/data-table="processors"[\s\S]*?<tbody>
 expect("stripe named processors land A–Z", stripeProcs.length > 5 && stripeProcs[0] === "Adish" && stripeProcs.join("\0") === [...stripeProcs].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" })).join("\0"));
 expect("marks stay a list", /<ul class="mark-list">/.test(stripeHtml) && !/data-table="marks"/.test(stripeHtml));
 
+expect("system header key", headerKey("System") === "name");
+expect("company header key", headerKey("Company") === "name");
+expect("mark header key", headerKey("Mark") === "name");
+expect("named by header key", headerKey("Named by") === "exposure");
 expect("host header key", headerKey("Host") === "host");
 expect("last seen header key", headerKey("Last seen") === "seen");
 expect("impact header key", headerKey("Impact level") === "impact");
@@ -94,9 +97,8 @@ const marks = (gaz.attestations || []).map((item) => ({
 }));
 const byFiles = arrangeMarks(marks, "files", "desc");
 const byName = arrangeMarks(marks, "name", "asc");
-expect("frameworks landing is popularity", byFiles[0].files >= byFiles[1].files && byFiles[0].files > byFiles[byFiles.length - 1].files);
-expect("frameworks land SOC 2 first", /soc\s*2/i.test(byFiles[0].name));
-expect("frameworks land FedRAMP in the high-count head", byFiles.slice(0, 3).some((r) => /fedramp/i.test(r.name)));
+expect("frameworks File click is popularity", byFiles[0].files >= byFiles[1].files && byFiles[0].files > byFiles[byFiles.length - 1].files);
+expect("frameworks File lands a high-count mark first", byFiles[0].files >= byFiles[byFiles.length - 1].files);
 expect("frameworks popularity tie-breaks A–Z", byFiles.every((r, i) => {
   if (i === 0) return true;
   const prev = byFiles[i - 1];
@@ -104,6 +106,7 @@ expect("frameworks popularity tie-breaks A–Z", byFiles.every((r, i) => {
   return String(prev.name).localeCompare(String(r.name), undefined, { sensitivity: "base" }) <= 0;
 }));
 expect("frameworks Name click is A–Z", byName[0].name.localeCompare(byName[byName.length - 1].name, undefined, { sensitivity: "base" }) < 0 && byName[0].id !== byFiles[0].id);
+expect("frameworks default is Mark A–Z", arrangeMarks(marks).map((r) => r.id).join("\0") === byName.map((r) => r.id).join("\0"));
 expect("frameworks Files click returns popularity", clickSort({ sort: "name", dir: "asc" }, "files", { files: "desc" }).sort === "files" && clickSort({ sort: "name", dir: "asc" }, "files", { files: "desc" }).dir === "desc");
 expect("frameworks Files compare", compareMarks(byFiles[0], byFiles[byFiles.length - 1], "files") > 0);
 const soc = filterMarks(marks, "soc");
@@ -112,7 +115,16 @@ expect("frameworks typing soc filters", soc.length > 0 && soc.length < marks.len
 expect("frameworks empty query invents nothing", filterMarks(marks, "zzzz-not-a-filed-mark").length === 0);
 expect("frameworks finder is the quiet input", /id="finder"/.test(attestHtml) && /id="q"/.test(attestHtml) && /Find a mark/.test(attestHtml));
 expect("frameworks miss is italic not on file", /id="book-miss"/.test(attestHtml) && /not on file/.test(attestHtml));
-expect("frameworks list has Name and Files", /id="book-sort"/.test(attestHtml) && /data-sort="name"/.test(attestHtml) && /data-sort="files"/.test(attestHtml) && /aria-sort="descending"/.test(attestHtml));
+expect(
+  "frameworks headers are Mark Issuer File",
+  /id="book-sort"/.test(attestHtml) &&
+    /<button type="button">Mark<\/button>/.test(attestHtml) &&
+    /<button type="button">Issuer<\/button>/.test(attestHtml) &&
+    /<button type="button">File<\/button>/.test(attestHtml) &&
+    /data-sort="name" aria-sort="ascending"/.test(attestHtml) &&
+    /data-sort="issuer"/.test(attestHtml) &&
+    /data-sort="files"/.test(attestHtml),
+);
 expect("frameworks globe stays a canvas", /<canvas id="fig2"/.test(attestHtml));
 expect("frameworks has no seal icons", !/framework-icon|mark-seal|badge-svg/.test(attestHtml) && !/framework-icon|mark-seal/.test(css));
 
@@ -121,12 +133,11 @@ function markHayOk(item, token) {
 }
 
 const rows = data.companies;
-expect("register File sort still 0–5 internal order", arrangeRows(rows, "tier", "asc")[0].tier === "silent" && arrangeRows(rows, "tier", "desc")[0].tier === "complete");
-expect("register File header is still tier", normalizeSort("tier") === "tier");
-const firstFile = registerClick({ sort: "rank", dir: "asc", sorted: false }, "tier");
-expect("register File first click stays silent-to-complete", firstFile.sort === "tier" && firstFile.dir === "asc");
-expect("register caret CSS stayed on .reg", css.includes('.reg th[data-sort][aria-sort="ascending"] button::after { content: "▴"; }') && css.includes('.reg th[data-sort][aria-sort="descending"] button::after { content: "▾"; }'));
-expect("inst caret matches register", css.includes('.inst th[data-sort][aria-sort="ascending"] button::after { content: "▴"; }') && css.includes('.inst th[data-sort][aria-sort="descending"] button::after { content: "▾"; }'));
+expect("register File sort still 0–5 internal order", arrangeRows(rows, "file", "asc")[0].tier === "silent" && arrangeRows(rows, "file", "desc")[0].tier === "complete");
+expect("register File header is file", normalizeSort("file") === "file" && normalizeSort("tier") === "file");
+const firstFile = registerClick({ sort: "name", dir: "asc", sorted: true }, "file");
+expect("register File first click is most-on-file", firstFile.sort === "file" && firstFile.dir === "desc");
+expect("register sort chrome has no chevron", !css.includes('content: "▴"') && !css.includes('content: "▾"'));
 expect("inst active header is a 1px rule not a chip", /\.inst th\.on \{[^}]*border-bottom-color: var\(--ot-ledger-black\)/.test(css) && !/\.inst th\.on \{[^}]*background:/.test(css));
 expect("no third palette added", !/--ot-sort|--ot-chip-fill|#DDEFEA/.test(css.split(".inst th[data-sort]")[1] || ""));
 

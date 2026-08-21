@@ -4,8 +4,7 @@ import { arrange, clickSort, cmpText, paintHeaders, TIER_ORDER } from "./sort.js
 const SORT_DEFAULTS = {
   name: "asc",
   exposure: "desc",
-  file: "asc",
-  risk: "desc",
+  file: "desc",
   source: "asc",
 };
 
@@ -257,9 +256,8 @@ function renderTable() {
       const src = p.sources[0] ? hostOfSafe(p.sources[0]) : "not on file";
       return `<tr data-i="${i}" class="folio${state.focus === i ? " on selected" : ""}">
         <td class="name" data-label="Processor">${escapeHtml(p.name)}</td>
-        <td data-label="Exposure">${p.exposure}</td>
-        <td class="${p.inRegister ? "" : "absent"}" data-label="Public file">${escapeHtml(tier)}</td>
-        <td data-label="Concentration">${p.risk.toFixed(1)}</td>
+        <td data-label="Named by">${p.exposure}</td>
+        <td class="${p.inRegister ? "" : "absent"}" data-label="File">${escapeHtml(tier)}</td>
         <td data-label="Source">${escapeHtml(src)}</td>
       </tr>`;
     })

@@ -8,22 +8,27 @@ import {
   hasPrintedAiMark,
   aiFileIndexHtml,
   aiFileCount,
-  aiFileOnWords,
   printedAitiUrl,
   nameWithIcon,
 } from "./lib.js";
 import { parseFinder, stripFinderToken, echoWords } from "./finder.js";
+import { clickSort, cmpText, paintHeaders } from "./sort.js";
+
+const SORT_DEFAULTS = {
+  name: "asc",
+  host: "asc",
+  file: "desc",
+  marks: "asc",
+};
 
 const state = {
   rows: [],
   generatedAt: null,
   q: "",
   selected: "",
+  sort: "file",
+  dir: "desc",
 };
-
-function cmpText(a, b) {
-  return String(a || "").localeCompare(String(b || ""), undefined, { sensitivity: "base" });
-}
 
 function hay(row) {
   const marks = printedAiMarks(row)
@@ -52,6 +57,47 @@ export function aiMarksCell(row) {
   return `<span class="mark-line">${line}</span>`;
 }
 
+function marksSortKey(row) {
+  const names = printedAiMarks(row);
+  if (!names.length) return "";
+  return names
+    .map((a) => String((a && (a.short || a.name)) || "").toLowerCase())
+    .filter(Boolean)
+    .join(" · ");
+}
+
+export function compareAiRows(a, b, key) {
+  switch (key) {
+    case "name":
+      return cmpText(a && a.name, b && b.name);
+    case "host":
+    case "domain":
+      return cmpText(a && a.domain, b && b.domain);
+    case "file":
+      return aiFileCount(a) - aiFileCount(b);
+    case "marks": {
+      const left = marksSortKey(a);
+      const right = marksSortKey(b);
+      if (!left && !right) return 0;
+      if (!left) return 1;
+      if (!right) return -1;
+      return cmpText(left, right);
+    }
+    default:
+      return cmpText(a && a.name, b && b.name);
+  }
+}
+
+export function arrangeAiRows(rows, sort, dir) {
+  const key = sort || "file";
+  const sign = dir === "desc" ? -1 : 1;
+  return (rows || []).slice().sort((a, b) => {
+    const c = compareAiRows(a, b, key);
+    if (c) return c * sign;
+    return cmpText(a && a.name, b && b.name);
+  });
+}
+
 /* Clerk default: most of the five rules on file, then name A–Z. */
 export function defaultAiRows(rows) {
   return filledAiRows(rows);
@@ -59,16 +105,12 @@ export function defaultAiRows(rows) {
 
 /* How many of the five AI rules are on file, then name A–Z. Open rows stay below. */
 export function filledAiRows(rows) {
-  return (rows || []).slice().sort((a, b) => {
-    const c = aiFileCount(b) - aiFileCount(a);
-    if (c) return c;
-    return cmpText(a && a.name, b && b.name);
-  });
+  return arrangeAiRows(rows, "file", "desc");
 }
 
 /* Finder can still arrange by name A–Z. */
 export function namedAiRows(rows) {
-  return (rows || []).slice().sort((a, b) => cmpText(a && a.name, b && b.name));
+  return arrangeAiRows(rows, "name", "asc");
 }
 
 function wantsNameSort(raw) {
@@ -76,7 +118,7 @@ function wantsNameSort(raw) {
 }
 
 /* One filter + one row render. Full table and finder share aiFileFlags. */
-export function filterAiRows(rows, rawQuery) {
+export function filterAiRows(rows, rawQuery, sort = "file", dir = "desc") {
   const parsed = parseFinder(rawQuery);
   const byName = wantsNameSort(rawQuery);
   const q = parsed.q
@@ -89,21 +131,21 @@ export function filterAiRows(rows, rawQuery) {
     if (!q) return true;
     return hay(row).includes(q);
   });
-  return byName ? namedAiRows(found) : defaultAiRows(found);
+  if (byName) return namedAiRows(found);
+  return arrangeAiRows(found, sort, dir);
 }
 
 function apply() {
-  return filterAiRows(state.rows, state.q);
+  return filterAiRows(state.rows, state.q, state.sort, state.dir);
 }
 
 export function aitiRowHtml(row, i, selectedSlug) {
-  const n = String(i + 1).padStart(3, "0");
   const selected = selectedSlug === row.slug ? ' aria-selected="true"' : "";
+  const n = String(aiFileCount(row));
   return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
-        <td class="num">${escapeHtml(n)}</td>
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${nameWithIcon(row.name, row.favicon)}</a></td>
         <td class="domain">${printedAitiUrl(row)}</td>
-        <td class="file-cell">${aiFileIndexHtml(row)}<span class="file-on">${escapeHtml(aiFileOnWords(row))}</span></td>
+        <td class="file-cell"><span class="file-num">${escapeHtml(n)}</span>${aiFileIndexHtml(row)}</td>
         <td class="marks">${aiMarksCell(row)}</td>
       </tr>`;
 }
@@ -161,6 +203,7 @@ function render() {
   const n = state.rows.length;
   count.textContent = n ? `showing ${rows.length} of ${n}` : "";
   renderEcho();
+  paintHeaders($("reg"), state.sort, state.dir);
   syncUrl();
 
   if (!state.rows.length) {
@@ -256,6 +299,17 @@ function bind() {
       const btn = e.target.closest("button[data-clear]");
       if (!btn) return;
       clearToken(btn.getAttribute("data-clear"));
+    });
+  }
+  const head = document.querySelector("#reg thead");
+  if (head) {
+    head.addEventListener("click", (e) => {
+      const th = e.target.closest("th[data-sort]");
+      if (!th) return;
+      const next = clickSort(state, th.getAttribute("data-sort"), SORT_DEFAULTS);
+      state.sort = next.sort;
+      state.dir = next.dir;
+      render();
     });
   }
   $("reg-body").addEventListener("click", (e) => {

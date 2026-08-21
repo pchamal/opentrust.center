@@ -46,9 +46,8 @@
             <thead>
               <tr>
                 <th scope="col" data-sort="name" aria-sort="ascending"><button type="button">Processor</button></th>
-                <th scope="col" data-sort="exposure" aria-sort="none"><button type="button">Exposure</button></th>
-                <th scope="col" data-sort="file" aria-sort="none"><button type="button">Public file</button></th>
-                <th scope="col" data-sort="risk" aria-sort="none"><button type="button">Concentration</button></th>
+                <th scope="col" data-sort="exposure" aria-sort="none"><button type="button">Named by</button></th>
+                <th scope="col" data-sort="file" aria-sort="none"><button type="button">File</button></th>
                 <th scope="col" data-sort="source" aria-sort="none"><button type="button">Source</button></th>
               </tr>
             </thead>
@@ -56,7 +55,6 @@
           </table>
         </div>
         <p class="clerk-line" id="empty-wires" hidden>No public subprocessor lists filed yet.</p>
-        <p class="formula">Concentration = exposure × (0.4 + 0.6 × thin public file). Thinness is 1 if silent, thin, or not in the register; else (100 − disclosure) / 100. This is concentration × a thin public file, not a security grade.</p>
       </div>
       <div class="wires-map" id="wires-map" role="tabpanel" aria-labelledby="view-map" hidden>
         <div class="fig-block" id="fig-block">
