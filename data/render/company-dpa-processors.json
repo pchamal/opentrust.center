@@ -1,648 +1,434 @@
 {
-  "generated_at": "2026-08-21T21:53:12Z",
+  "generated_at": "2026-08-21T22:59:03Z",
   "rule": "Next ~40 on-file companies whose DPA or subprocessors rule was open and who already had a first-party public URL. DPA fills only from a real first-party DPA. Named subprocessors fill only from a printed first-party list of organization names. Dates, JS shells, login walls, and portal hosts stay open.",
   "batch": [
-    "zerotier",
-    "cloudbees",
-    "cognite",
-    "deputy",
-    "alibaba-cloud",
-    "diligent-corporation"
+    "global-relay",
+    "outsystems",
+    "perforce"
   ],
   "dpa_filed": [
     {
-      "slug": "cloudbees",
-      "name": "CloudBees",
-      "url": "https://docs.cloudbees.com/docs/cloudbees-common/latest/data-processing-agreement/"
+      "slug": "outsystems",
+      "name": "OutSystems",
+      "url": "https://www.outsystems.com/legal/outsystems-msa/data-processing-agreement/"
     }
   ],
   "subprocessors_filed": [],
   "stayed_open": [
     {
-      "slug": "cognite",
-      "name": "Cognite",
+      "slug": "global-relay",
+      "name": "Global Relay",
       "rule": "dpa"
     },
     {
-      "slug": "cognite",
-      "name": "Cognite",
+      "slug": "outsystems",
+      "name": "OutSystems",
       "rule": "subprocessors"
     },
     {
-      "slug": "alibaba-cloud",
-      "name": "Alibaba Cloud",
+      "slug": "perforce",
+      "name": "Perforce",
       "rule": "dpa"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "name": "Alibaba Cloud",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "diligent-corporation",
-      "name": "Diligent Corporation",
-      "rule": "dpa"
-    },
-    {
-      "slug": "diligent-corporation",
-      "name": "Diligent Corporation",
-      "rule": "subprocessors"
     }
   ],
   "rejected": [
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/dpa",
-      "final": "https://cognite.com/dpa",
+      "slug": "global-relay",
+      "url": "https://www.globalrelay.com/policies/data-processing-addendum/",
+      "final": "https://www.globalrelay.com/policies/data-processing-addendum/",
+      "reason": "on-request-not-published",
+      "kind": "dpa"
+    },
+    {
+      "slug": "perforce",
+      "url": "https://www.perforce.com/system/files/2026-02/2026.01.30%20Perforce%20Data%20Privacy%20Agreement.pdf",
+      "final": "https://www.perforce.com/system/files/2026-02/2026.01.30%20Perforce%20Data%20Privacy%20Agreement.pdf",
+      "reason": "pdf",
+      "kind": "dpa"
+    },
+    {
+      "slug": "global-relay",
+      "url": "https://globalrelay.com/data-processing-agreement",
+      "final": "https://globalrelay.com/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/data-processing-addendum",
-      "final": "https://cognite.com/data-processing-addendum",
+      "slug": "global-relay",
+      "url": "https://globalrelay.com/legal/data-processing-agreement",
+      "final": "https://globalrelay.com/legal/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/policies/data-processing-addendum",
-      "final": "https://cognite.com/policies/data-processing-addendum",
+      "slug": "global-relay",
+      "url": "https://globalrelay.com/legal/data-processing-addendum",
+      "final": "https://globalrelay.com/legal/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/data-processing-agreement",
-      "final": "https://cognite.com/data-processing-agreement",
+      "slug": "global-relay",
+      "url": "https://globalrelay.com/gdpr/dpa",
+      "final": "https://globalrelay.com/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/gdpr/dpa",
-      "final": "https://cognite.com/gdpr/dpa",
+      "slug": "global-relay",
+      "url": "https://globalrelay.com/legal/dpa",
+      "final": "https://globalrelay.com/legal/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/policies/data-processing-agreement",
-      "final": "https://cognite.com/policies/data-processing-agreement",
+      "slug": "global-relay",
+      "url": "https://globalrelay.com/policies/dpa",
+      "final": "https://globalrelay.com/policies/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/legal/data-processing-addendum",
-      "final": "https://cognite.com/legal/data-processing-addendum",
+      "slug": "global-relay",
+      "url": "https://globalrelay.com/company/dpa",
+      "final": "https://globalrelay.com/company/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/legal/dpa",
-      "final": "https://cognite.com/legal/dpa",
+      "slug": "global-relay",
+      "url": "https://globalrelay.com/policies/data-processing-agreement",
+      "final": "https://globalrelay.com/policies/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/legal/gdpr/dpa",
-      "final": "https://cognite.com/legal/gdpr/dpa",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/legal/dpa",
+      "final": "https://outsystems.com/legal/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/privacy/dpa",
-      "final": "https://cognite.com/privacy/dpa",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/legal/data-processing-addendum",
+      "final": "https://outsystems.com/legal/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/legal/processor-terms",
-      "final": "https://cognite.com/legal/processor-terms",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/legal/data-processing-agreement",
+      "final": "https://outsystems.com/legal/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/terms/dpa",
-      "final": "https://cognite.com/terms/dpa",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/data-processing-addendum",
+      "final": "https://outsystems.com/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/legal/data-processing-agreement",
-      "final": "https://cognite.com/legal/data-processing-agreement",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/data-processing-agreement",
+      "final": "https://outsystems.com/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/policies/dpa",
-      "final": "https://cognite.com/policies/dpa",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/policies/data-processing-addendum",
+      "final": "https://outsystems.com/policies/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/legal/data-processing",
-      "final": "https://cognite.com/legal/data-processing",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/policies/data-processing-agreement",
+      "final": "https://outsystems.com/policies/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/data-processing",
-      "final": "https://cognite.com/data-processing",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/policies/dpa",
+      "final": "https://outsystems.com/policies/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/company/dpa",
-      "final": "https://cognite.com/company/dpa",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/terms/dpa",
+      "final": "https://outsystems.com/terms/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/dpa",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/legal/dpa",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/legal/data-processing-agreement",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/legal/data-processing-addendum",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/data-processing-agreement",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/data-processing-addendum",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/dpa",
-      "final": "https://diligent.com/dpa",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/company/dpa",
+      "final": "https://outsystems.com/company/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/legal/dpa",
-      "final": "https://diligent.com/legal/dpa",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/legal/gdpr/dpa",
+      "final": "https://outsystems.com/legal/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/legal/data-processing-addendum",
-      "final": "https://diligent.com/legal/data-processing-addendum",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/dpa",
+      "final": "https://outsystems.com/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/privacy/dpa",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/data-processing-addendum",
-      "final": "https://www.diligent.com/cdn/files/33u1mixi/production/107139ab4f9d5180dc3c5e16bf58bf0609f6c6b9.pdf",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/legal/data-processing-agreement",
-      "final": "https://diligent.com/legal/data-processing-agreement",
+      "slug": "perforce",
+      "url": "https://perforce.com/legal/dpa",
+      "final": "https://perforce.com/legal/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/legal/data-processing",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/policies/data-processing-addendum",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/data-processing-agreement",
-      "final": "https://diligent.com/data-processing-agreement",
+      "slug": "perforce",
+      "url": "https://perforce.com/dpa",
+      "final": "https://perforce.com/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/policies/data-processing-agreement",
-      "final": "https://diligent.com/policies/data-processing-agreement",
+      "slug": "perforce",
+      "url": "https://perforce.com/data-processing-addendum",
+      "final": "https://perforce.com/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/policies/data-processing-agreement",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/policies/dpa",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/gdpr/dpa",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/company/dpa",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/policies/dpa",
-      "final": "https://diligent.com/policies/dpa",
+      "slug": "perforce",
+      "url": "https://perforce.com/legal/data-processing-addendum",
+      "final": "https://perforce.com/legal/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/policies/data-processing-addendum",
-      "final": "https://diligent.com/policies/data-processing-addendum",
+      "slug": "perforce",
+      "url": "https://perforce.com/legal/data-processing-agreement",
+      "final": "https://perforce.com/legal/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/terms/dpa",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/terms/dpa",
-      "final": "https://diligent.com/terms/dpa",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/legal/data-processing",
+      "final": "https://outsystems.com/legal/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/legal/gdpr/dpa",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/legal/processor-terms",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/data-processing",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/legal/processor-terms",
-      "final": "https://diligent.com/legal/processor-terms",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/legal/processor-terms",
+      "final": "https://outsystems.com/legal/processor-terms",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/privacy/dpa",
-      "final": "https://diligent.com/privacy/dpa",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/gdpr/dpa",
+      "final": "https://outsystems.com/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/company/dpa",
-      "final": "https://diligent.com/company/dpa",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/privacy/dpa",
+      "final": "https://outsystems.com/privacy/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/legal/gdpr/dpa",
-      "final": "https://diligent.com/legal/gdpr/dpa",
+      "slug": "perforce",
+      "url": "https://perforce.com/data-processing-agreement",
+      "final": "https://perforce.com/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/legal/data-processing",
-      "final": "https://diligent.com/legal/data-processing",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/data-processing",
+      "final": "https://outsystems.com/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/gdpr/dpa",
-      "final": "https://diligent.com/gdpr/dpa",
+      "slug": "perforce",
+      "url": "https://perforce.com/legal/data-processing",
+      "final": "https://perforce.com/legal/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/data-processing",
-      "final": "https://diligent.com/data-processing",
+      "slug": "perforce",
+      "url": "https://perforce.com/policies/data-processing-addendum",
+      "final": "https://perforce.com/policies/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "zerotier",
-      "url": "https://trust.zerotier.com/subprocessors",
-      "final": "https://trust.zerotier.com/subprocessors",
+      "slug": "perforce",
+      "url": "https://perforce.com/policies/dpa",
+      "final": "https://perforce.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "perforce",
+      "url": "https://perforce.com/policies/data-processing-agreement",
+      "final": "https://perforce.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "perforce",
+      "url": "https://perforce.com/company/dpa",
+      "final": "https://perforce.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "perforce",
+      "url": "https://perforce.com/terms/dpa",
+      "final": "https://perforce.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "perforce",
+      "url": "https://perforce.com/legal/gdpr/dpa",
+      "final": "https://perforce.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "perforce",
+      "url": "https://perforce.com/data-processing",
+      "final": "https://perforce.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "perforce",
+      "url": "https://perforce.com/gdpr/dpa",
+      "final": "https://perforce.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "perforce",
+      "url": "https://perforce.com/privacy/dpa",
+      "final": "https://perforce.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "perforce",
+      "url": "https://perforce.com/legal/processor-terms",
+      "final": "https://perforce.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "global-relay",
+      "url": "https://trust.globalrelay.com/subprocessors",
+      "final": "https://trust.globalrelay.com/subprocessors",
       "reason": "js-portal",
       "kind": "subprocessors"
     },
     {
-      "slug": "cognite",
-      "url": "https://trust.cognite.com/subprocessors",
-      "final": "https://trust.cognite.com/",
-      "reason": "safebase-itemuid",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "cognite",
-      "url": "https://trust.cognite.com/sub-processors",
-      "final": "https://trust.cognite.com/sub-processors",
+      "slug": "outsystems",
+      "url": "https://security.outsystems.com/sub-processors",
+      "final": "https://security.outsystems.com/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "cloudbees",
-      "url": "https://trust.cloudbees.com/subprocessors",
-      "final": "https://trust.cloudbees.com/subprocessors",
+      "slug": "outsystems",
+      "url": "https://security.outsystems.com/subprocessors",
+      "final": "https://security.outsystems.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "outsystems",
+      "url": "https://outsystems.com/subprocessors",
+      "final": "https://outsystems.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "outsystems",
+      "url": "https://outsystems.com/trust/subprocessors",
+      "final": "https://outsystems.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "outsystems",
+      "url": "https://outsystems.com/legal/sub-processors-page",
+      "final": "https://outsystems.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "perforce",
+      "url": "https://trust.perforce.com/subprocessors",
+      "final": "https://trust.perforce.com/subprocessors",
       "reason": "js-portal",
       "kind": "subprocessors"
     },
     {
-      "slug": "deputy",
-      "url": "https://www.deputy.com/subprocessors",
-      "final": "https://www.deputy.com/subprocessors",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "cognite",
-      "url": "https://cognite.com/sub-processors",
-      "final": "https://cognite.com/sub-processors",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/company/subprocessors",
+      "final": "https://outsystems.com/company/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/legal/subprocessors",
-      "final": "https://cognite.com/legal/subprocessors",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/legal/sub-processors",
+      "final": "https://outsystems.com/legal/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/subprocessors",
-      "final": "https://cognite.com/subprocessors",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/sub-processors",
+      "final": "https://outsystems.com/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/legal/sub-processors",
-      "final": "https://cognite.com/legal/sub-processors",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/legal/subprocessors",
+      "final": "https://outsystems.com/legal/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/legal/service-providers",
-      "final": "https://cognite.com/legal/service-providers",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/privacy/subprocessors",
+      "final": "https://outsystems.com/privacy/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "cognite",
-      "url": "https://cognite.com/privacy/subprocessors",
-      "final": "https://cognite.com/privacy/subprocessors",
+      "slug": "outsystems",
+      "url": "https://outsystems.com/legal/service-providers",
+      "final": "https://outsystems.com/legal/service-providers",
       "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "cognite",
-      "url": "https://cognite.com/company/subprocessors",
-      "final": "https://cognite.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "cognite",
-      "url": "https://cognite.com/legal/sub-processors-page",
-      "final": "https://cognite.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/subprocessors",
-      "final": "https://diligent.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "cognite",
-      "url": "https://cognite.com/trust/subprocessors",
-      "final": "https://cognite.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/sub-processors",
-      "final": "https://diligent.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/legal/subprocessors",
-      "final": "https://diligent.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/legal/sub-processors",
-      "final": "https://diligent.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/legal/service-providers",
-      "final": "https://diligent.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/subprocessors",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/sub-processors",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/legal/sub-processors",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "diligent-corporation",
-      "url": "https://trust.diligent.com/subprocessors",
-      "final": "https://trust.diligent.com/",
-      "reason": "safebase-itemuid",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/trust/subprocessors",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/privacy/subprocessors",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "diligent-corporation",
-      "url": "https://trust.diligent.com/sub-processors",
-      "final": "https://trust.diligent.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/legal/subprocessors",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/legal/service-providers",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/trust/subprocessors",
-      "final": "https://diligent.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/company/subprocessors",
-      "final": "https://diligent.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/legal/sub-processors-page",
-      "final": "https://diligent.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "diligent-corporation",
-      "url": "https://diligent.com/privacy/subprocessors",
-      "final": "https://diligent.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/company/subprocessors",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "alibaba-cloud",
-      "url": "https://alibabacloud.com/legal/sub-processors-page",
-      "final": "https://www.alibabacloud.com/en/notfound?_p_lc=1",
-      "reason": "no-printed-names",
       "kind": "subprocessors"
     }
   ]
