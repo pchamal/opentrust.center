@@ -1,433 +1,1071 @@
 {
-  "generated_at": "2026-08-21T22:59:03Z",
+  "generated_at": "2026-08-22T00:04:52Z",
   "rule": "Next ~40 on-file companies whose DPA or subprocessors rule was open and who already had a first-party public URL. DPA fills only from a real first-party DPA. Named subprocessors fill only from a printed first-party list of organization names. Dates, JS shells, login walls, and portal hosts stay open.",
   "batch": [
-    "global-relay",
-    "outsystems",
-    "perforce"
+    "smartbear-software",
+    "scaleway",
+    "sinch-ab",
+    "surveymonkey",
+    "ukg",
+    "booksy",
+    "zuora"
   ],
-  "dpa_filed": [
-    {
-      "slug": "outsystems",
-      "name": "OutSystems",
-      "url": "https://www.outsystems.com/legal/outsystems-msa/data-processing-agreement/"
-    }
-  ],
+  "dpa_filed": [],
   "subprocessors_filed": [],
   "stayed_open": [
     {
-      "slug": "global-relay",
-      "name": "Global Relay",
+      "slug": "smartbear-software",
+      "name": "SmartBear Software",
       "rule": "dpa"
     },
     {
-      "slug": "outsystems",
-      "name": "OutSystems",
+      "slug": "smartbear-software",
+      "name": "SmartBear Software",
       "rule": "subprocessors"
     },
     {
-      "slug": "perforce",
-      "name": "Perforce",
+      "slug": "scaleway",
+      "name": "Scaleway",
       "rule": "dpa"
+    },
+    {
+      "slug": "scaleway",
+      "name": "Scaleway",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "sinch-ab",
+      "name": "Sinch AB",
+      "rule": "dpa"
+    },
+    {
+      "slug": "surveymonkey",
+      "name": "SurveyMonkey",
+      "rule": "dpa"
+    },
+    {
+      "slug": "surveymonkey",
+      "name": "SurveyMonkey",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "ukg",
+      "name": "UKG",
+      "rule": "dpa"
+    },
+    {
+      "slug": "ukg",
+      "name": "UKG",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "booksy",
+      "name": "Booksy",
+      "rule": "dpa"
+    },
+    {
+      "slug": "zuora",
+      "name": "Zuora",
+      "rule": "dpa"
+    },
+    {
+      "slug": "zuora",
+      "name": "Zuora",
+      "rule": "subprocessors"
     }
   ],
   "rejected": [
     {
-      "slug": "global-relay",
-      "url": "https://www.globalrelay.com/policies/data-processing-addendum/",
-      "final": "https://www.globalrelay.com/policies/data-processing-addendum/",
-      "reason": "on-request-not-published",
+      "slug": "sinch-ab",
+      "url": "https://sinch.com/policies/data-processing-addendum",
+      "final": "https://sinch.com/policies/data-processing-addendum",
+      "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "perforce",
-      "url": "https://www.perforce.com/system/files/2026-02/2026.01.30%20Perforce%20Data%20Privacy%20Agreement.pdf",
-      "final": "https://www.perforce.com/system/files/2026-02/2026.01.30%20Perforce%20Data%20Privacy%20Agreement.pdf",
-      "reason": "pdf",
+      "slug": "sinch-ab",
+      "url": "https://sinch.com/legal/data-processing-addendum",
+      "final": "https://sinch.com/legal/data-processing-addendum",
+      "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "global-relay",
-      "url": "https://globalrelay.com/data-processing-agreement",
-      "final": "https://globalrelay.com/data-processing-agreement",
+      "slug": "sinch-ab",
+      "url": "https://sinch.com/dpa",
+      "final": "https://sinch.com/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sinch-ab",
+      "url": "https://sinch.com/legal/data-processing-agreement",
+      "final": "https://sinch.com/legal/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sinch-ab",
+      "url": "https://sinch.com/legal/dpa",
+      "final": "https://sinch.com/legal/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sinch-ab",
+      "url": "https://sinch.com/policies/data-processing-agreement",
+      "final": "https://sinch.com/policies/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sinch-ab",
+      "url": "https://sinch.com/data-processing-addendum",
+      "final": "https://sinch.com/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sinch-ab",
+      "url": "https://sinch.com/terms/dpa",
+      "final": "https://sinch.com/terms/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "smartbear-software",
+      "url": "https://smartbear.com/legal/data-processing-addendum/",
+      "final": "https://smartbear.com/legal/data-processing-addendum/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sinch-ab",
+      "url": "https://sinch.com/policies/dpa",
+      "final": "https://sinch.com/policies/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "scaleway",
+      "url": "https://www.scaleway.com/en/contracts/",
+      "final": "https://www.scaleway.com/en/contracts/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sinch-ab",
+      "url": "https://sinch.com/company/dpa",
+      "final": "https://sinch.com/company/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sinch-ab",
+      "url": "https://sinch.com/legal/gdpr/dpa",
+      "final": "https://sinch.com/legal/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sinch-ab",
+      "url": "https://sinch.com/gdpr/dpa",
+      "final": "https://sinch.com/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sinch-ab",
+      "url": "https://sinch.com/privacy/dpa",
+      "final": "https://sinch.com/privacy/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sinch-ab",
+      "url": "https://sinch.com/legal/processor-terms",
+      "final": "https://sinch.com/legal/processor-terms",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sinch-ab",
+      "url": "https://sinch.com/legal/data-processing",
+      "final": "https://sinch.com/legal/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "sinch-ab",
+      "url": "https://sinch.com/data-processing",
+      "final": "https://sinch.com/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/legal/data-processing-addendum",
+      "final": "https://surveymonkey.com/legal/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "global-relay",
-      "url": "https://globalrelay.com/legal/data-processing-agreement",
-      "final": "https://globalrelay.com/legal/data-processing-agreement",
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/data-processing-addendum",
+      "final": "https://surveymonkey.com/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "global-relay",
-      "url": "https://globalrelay.com/legal/data-processing-addendum",
-      "final": "https://globalrelay.com/legal/data-processing-addendum",
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/data-processing-agreement",
+      "final": "https://surveymonkey.com/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "global-relay",
-      "url": "https://globalrelay.com/gdpr/dpa",
-      "final": "https://globalrelay.com/gdpr/dpa",
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/policies/dpa",
+      "final": "https://surveymonkey.com/policies/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "global-relay",
-      "url": "https://globalrelay.com/legal/dpa",
-      "final": "https://globalrelay.com/legal/dpa",
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/policies/data-processing-addendum",
+      "final": "https://surveymonkey.com/policies/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "global-relay",
-      "url": "https://globalrelay.com/policies/dpa",
-      "final": "https://globalrelay.com/policies/dpa",
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/legal/dpa",
+      "final": "https://surveymonkey.com/legal/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "global-relay",
-      "url": "https://globalrelay.com/company/dpa",
-      "final": "https://globalrelay.com/company/dpa",
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/legal/data-processing-agreement",
+      "final": "https://surveymonkey.com/legal/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "global-relay",
-      "url": "https://globalrelay.com/policies/data-processing-agreement",
-      "final": "https://globalrelay.com/policies/data-processing-agreement",
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/terms/dpa",
+      "final": "https://surveymonkey.com/terms/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/legal/dpa",
-      "final": "https://outsystems.com/legal/dpa",
+      "slug": "sinch-ab",
+      "url": "https://sinch.com/data-processing-agreement",
+      "final": "https://sinch.com/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/company/dpa",
+      "final": "https://surveymonkey.com/company/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/legal/data-processing-addendum",
-      "final": "https://outsystems.com/legal/data-processing-addendum",
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/policies/data-processing-agreement",
+      "final": "https://surveymonkey.com/policies/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/legal/data-processing-agreement",
-      "final": "https://outsystems.com/legal/data-processing-agreement",
+      "slug": "ukg",
+      "url": "https://ukg.com/legal/data-processing-addendum",
+      "final": "https://ukg.com/legal/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://ukg.com/legal/data-processing-agreement",
+      "final": "https://ukg.com/legal/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://ukg.com/legal/dpa",
+      "final": "https://ukg.com/legal/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://ukg.com/dpa",
+      "final": "https://ukg.com/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/gdpr/dpa",
+      "final": "https://surveymonkey.com/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/data-processing-addendum",
-      "final": "https://outsystems.com/data-processing-addendum",
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/privacy/dpa",
+      "final": "https://surveymonkey.com/privacy/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/data-processing-agreement",
-      "final": "https://outsystems.com/data-processing-agreement",
+      "slug": "ukg",
+      "url": "https://ukg.com/data-processing-addendum",
+      "final": "https://ukg.com/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/legal/processor-terms",
+      "final": "https://surveymonkey.com/legal/processor-terms",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/policies/data-processing-addendum",
-      "final": "https://outsystems.com/policies/data-processing-addendum",
+      "slug": "ukg",
+      "url": "https://ukg.com/data-processing-agreement",
+      "final": "https://ukg.com/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://ukg.com/policies/data-processing-addendum",
+      "final": "https://ukg.com/policies/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://ukg.com/policies/dpa",
+      "final": "https://ukg.com/policies/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://ukg.com/policies/data-processing-agreement",
+      "final": "https://ukg.com/policies/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/legal/data-processing",
+      "final": "https://surveymonkey.com/legal/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/policies/data-processing-agreement",
-      "final": "https://outsystems.com/policies/data-processing-agreement",
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/data-processing",
+      "final": "https://surveymonkey.com/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/policies/dpa",
-      "final": "https://outsystems.com/policies/dpa",
+      "slug": "ukg",
+      "url": "https://ukg.com/terms/dpa",
+      "final": "https://ukg.com/terms/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://ukg.com/company/dpa",
+      "final": "https://ukg.com/company/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://ukg.com/gdpr/dpa",
+      "final": "https://ukg.com/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://ukg.com/privacy/dpa",
+      "final": "https://ukg.com/privacy/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://ukg.com/legal/gdpr/dpa",
+      "final": "https://ukg.com/legal/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://ukg.com/data-processing",
+      "final": "https://ukg.com/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/dpa",
+      "final": "https://surveymonkey.com/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/terms/dpa",
-      "final": "https://outsystems.com/terms/dpa",
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/legal/gdpr/dpa",
+      "final": "https://surveymonkey.com/legal/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/company/dpa",
-      "final": "https://outsystems.com/company/dpa",
+      "slug": "ukg",
+      "url": "https://ukg.com/legal/processor-terms",
+      "final": "https://ukg.com/legal/processor-terms",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "booksy",
+      "url": "https://booksy.com/legal/dpa",
+      "final": "https://booksy.com/legal/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/legal/gdpr/dpa",
-      "final": "https://outsystems.com/legal/gdpr/dpa",
+      "slug": "booksy",
+      "url": "https://booksy.com/legal/data-processing-agreement",
+      "final": "https://booksy.com/legal/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/dpa",
-      "final": "https://outsystems.com/dpa",
+      "slug": "booksy",
+      "url": "https://booksy.com/policies/data-processing-addendum",
+      "final": "https://booksy.com/policies/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "perforce",
-      "url": "https://perforce.com/legal/dpa",
-      "final": "https://perforce.com/legal/dpa",
+      "slug": "booksy",
+      "url": "https://booksy.com/data-processing-agreement",
+      "final": "https://booksy.com/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "perforce",
-      "url": "https://perforce.com/dpa",
-      "final": "https://perforce.com/dpa",
+      "slug": "booksy",
+      "url": "https://booksy.com/policies/dpa",
+      "final": "https://booksy.com/policies/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "perforce",
-      "url": "https://perforce.com/data-processing-addendum",
-      "final": "https://perforce.com/data-processing-addendum",
+      "slug": "booksy",
+      "url": "https://booksy.com/legal/gdpr/dpa",
+      "final": "https://booksy.com/legal/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "perforce",
-      "url": "https://perforce.com/legal/data-processing-addendum",
-      "final": "https://perforce.com/legal/data-processing-addendum",
+      "slug": "booksy",
+      "url": "https://booksy.com/gdpr/dpa",
+      "final": "https://booksy.com/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "perforce",
-      "url": "https://perforce.com/legal/data-processing-agreement",
-      "final": "https://perforce.com/legal/data-processing-agreement",
+      "slug": "booksy",
+      "url": "https://booksy.com/privacy/dpa",
+      "final": "https://booksy.com/privacy/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/legal/data-processing",
-      "final": "https://outsystems.com/legal/data-processing",
+      "slug": "booksy",
+      "url": "https://booksy.com/dpa",
+      "final": "https://booksy.com/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/legal/processor-terms",
-      "final": "https://outsystems.com/legal/processor-terms",
+      "slug": "booksy",
+      "url": "https://booksy.com/policies/data-processing-agreement",
+      "final": "https://booksy.com/policies/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/gdpr/dpa",
-      "final": "https://outsystems.com/gdpr/dpa",
+      "slug": "booksy",
+      "url": "https://booksy.com/data-processing-addendum",
+      "final": "https://booksy.com/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/privacy/dpa",
-      "final": "https://outsystems.com/privacy/dpa",
+      "slug": "booksy",
+      "url": "https://booksy.com/legal/processor-terms",
+      "final": "https://booksy.com/legal/processor-terms",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "perforce",
-      "url": "https://perforce.com/data-processing-agreement",
-      "final": "https://perforce.com/data-processing-agreement",
+      "slug": "booksy",
+      "url": "https://booksy.com/legal/data-processing",
+      "final": "https://booksy.com/legal/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/data-processing",
-      "final": "https://outsystems.com/data-processing",
+      "slug": "booksy",
+      "url": "https://booksy.com/data-processing",
+      "final": "https://booksy.com/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "perforce",
-      "url": "https://perforce.com/legal/data-processing",
-      "final": "https://perforce.com/legal/data-processing",
+      "slug": "booksy",
+      "url": "https://booksy.com/company/dpa",
+      "final": "https://booksy.com/company/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "perforce",
-      "url": "https://perforce.com/policies/data-processing-addendum",
-      "final": "https://perforce.com/policies/data-processing-addendum",
+      "slug": "booksy",
+      "url": "https://booksy.com/terms/dpa",
+      "final": "https://booksy.com/terms/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "perforce",
-      "url": "https://perforce.com/policies/dpa",
-      "final": "https://perforce.com/policies/dpa",
+      "slug": "booksy",
+      "url": "https://booksy.com/legal/data-processing-addendum",
+      "final": "https://booksy.com/legal/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "perforce",
-      "url": "https://perforce.com/policies/data-processing-agreement",
-      "final": "https://perforce.com/policies/data-processing-agreement",
+      "slug": "ukg",
+      "url": "https://ukg.com/legal/data-processing",
+      "final": "https://ukg.com/legal/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zuora",
+      "url": "https://zuora.com/policies/data-processing-addendum",
+      "final": "https://zuora.com/policies/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "perforce",
-      "url": "https://perforce.com/company/dpa",
-      "final": "https://perforce.com/company/dpa",
+      "slug": "zuora",
+      "url": "https://zuora.com/policies/dpa",
+      "final": "https://zuora.com/policies/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "perforce",
-      "url": "https://perforce.com/terms/dpa",
-      "final": "https://perforce.com/terms/dpa",
+      "slug": "zuora",
+      "url": "https://zuora.com/policies/data-processing-agreement",
+      "final": "https://zuora.com/policies/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "perforce",
-      "url": "https://perforce.com/legal/gdpr/dpa",
-      "final": "https://perforce.com/legal/gdpr/dpa",
+      "slug": "zuora",
+      "url": "https://zuora.com/legal/data-processing-addendum",
+      "final": "https://zuora.com/legal/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "perforce",
-      "url": "https://perforce.com/data-processing",
-      "final": "https://perforce.com/data-processing",
+      "slug": "zuora",
+      "url": "https://zuora.com/dpa",
+      "final": "https://zuora.com/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "perforce",
-      "url": "https://perforce.com/gdpr/dpa",
-      "final": "https://perforce.com/gdpr/dpa",
+      "slug": "zuora",
+      "url": "https://zuora.com/data-processing-agreement",
+      "final": "https://zuora.com/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "perforce",
-      "url": "https://perforce.com/privacy/dpa",
-      "final": "https://perforce.com/privacy/dpa",
+      "slug": "zuora",
+      "url": "https://zuora.com/legal/data-processing-agreement",
+      "final": "https://zuora.com/legal/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "perforce",
-      "url": "https://perforce.com/legal/processor-terms",
-      "final": "https://perforce.com/legal/processor-terms",
+      "slug": "zuora",
+      "url": "https://zuora.com/legal/dpa",
+      "final": "https://zuora.com/legal/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "global-relay",
-      "url": "https://trust.globalrelay.com/subprocessors",
-      "final": "https://trust.globalrelay.com/subprocessors",
-      "reason": "js-portal",
-      "kind": "subprocessors"
+      "slug": "zuora",
+      "url": "https://zuora.com/data-processing-addendum",
+      "final": "https://zuora.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
     },
     {
-      "slug": "outsystems",
-      "url": "https://security.outsystems.com/sub-processors",
-      "final": "https://security.outsystems.com/sub-processors",
+      "slug": "zuora",
+      "url": "https://zuora.com/company/dpa",
+      "final": "https://zuora.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zuora",
+      "url": "https://zuora.com/terms/dpa",
+      "final": "https://zuora.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zuora",
+      "url": "https://zuora.com/gdpr/dpa",
+      "final": "https://zuora.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zuora",
+      "url": "https://zuora.com/legal/gdpr/dpa",
+      "final": "https://zuora.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zuora",
+      "url": "https://zuora.com/legal/processor-terms",
+      "final": "https://zuora.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zuora",
+      "url": "https://zuora.com/legal/data-processing",
+      "final": "https://zuora.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zuora",
+      "url": "https://zuora.com/data-processing",
+      "final": "https://zuora.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zuora",
+      "url": "https://zuora.com/privacy/dpa",
+      "final": "https://zuora.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "smartbear-software",
+      "url": "https://smartbear.com/trust/subprocessors",
+      "final": "https://smartbear.com/trust/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "outsystems",
-      "url": "https://security.outsystems.com/subprocessors",
-      "final": "https://security.outsystems.com/",
+      "slug": "smartbear-software",
+      "url": "https://smartbear.com/privacy/subprocessors",
+      "final": "https://smartbear.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "smartbear-software",
+      "url": "https://smartbear.com/legal/sub-processors-page",
+      "final": "https://smartbear.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "smartbear-software",
+      "url": "https://smartbear.com/legal/subprocessors",
+      "final": "https://smartbear.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "smartbear-software",
+      "url": "https://smartbear.com/sub-processors",
+      "final": "https://smartbear.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "smartbear-software",
+      "url": "https://smartbear.com/legal/sub-processors",
+      "final": "https://smartbear.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "smartbear-software",
+      "url": "https://smartbear.com/company/subprocessors",
+      "final": "https://smartbear.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "smartbear-software",
+      "url": "https://trust.smartbear.com/sub-processors",
+      "final": "https://trust.smartbear.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "smartbear-software",
+      "url": "https://smartbear.com/subprocessors",
+      "final": "https://smartbear.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "smartbear-software",
+      "url": "https://smartbear.com/legal/service-providers",
+      "final": "https://smartbear.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "smartbear-software",
+      "url": "https://trust.smartbear.com/subprocessors",
+      "final": "https://trust.smartbear.com/",
       "reason": "safebase-itemuid",
       "kind": "subprocessors"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/subprocessors",
-      "final": "https://outsystems.com/subprocessors",
+      "slug": "scaleway",
+      "url": "https://security.scaleway.com/sub-processors",
+      "final": "https://security.scaleway.com/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/trust/subprocessors",
-      "final": "https://outsystems.com/trust/subprocessors",
+      "slug": "scaleway",
+      "url": "https://scaleway.com/legal/service-providers",
+      "final": "https://scaleway.com/legal/service-providers",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/legal/sub-processors-page",
-      "final": "https://outsystems.com/legal/sub-processors-page",
+      "slug": "scaleway",
+      "url": "https://scaleway.com/legal/sub-processors",
+      "final": "https://scaleway.com/legal/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "perforce",
-      "url": "https://trust.perforce.com/subprocessors",
-      "final": "https://trust.perforce.com/subprocessors",
+      "slug": "scaleway",
+      "url": "https://scaleway.com/subprocessors",
+      "final": "https://scaleway.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "scaleway",
+      "url": "https://scaleway.com/company/subprocessors",
+      "final": "https://scaleway.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "scaleway",
+      "url": "https://scaleway.com/privacy/subprocessors",
+      "final": "https://scaleway.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "scaleway",
+      "url": "https://security.scaleway.com/subprocessors",
+      "final": "https://security.scaleway.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "scaleway",
+      "url": "https://scaleway.com/legal/subprocessors",
+      "final": "https://scaleway.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "scaleway",
+      "url": "https://scaleway.com/legal/sub-processors-page",
+      "final": "https://scaleway.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "scaleway",
+      "url": "https://scaleway.com/sub-processors",
+      "final": "https://scaleway.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "sinch-ab",
+      "url": "https://trust.sinch.com/subprocessors",
+      "final": "https://trust.sinch.com/subprocessors",
       "reason": "js-portal",
       "kind": "subprocessors"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/company/subprocessors",
-      "final": "https://outsystems.com/company/subprocessors",
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/subprocessors",
+      "final": "https://surveymonkey.com/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/legal/sub-processors",
-      "final": "https://outsystems.com/legal/sub-processors",
+      "slug": "ukg",
+      "url": "https://ukg.com/subprocessors",
+      "final": "https://ukg.com/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/sub-processors",
-      "final": "https://outsystems.com/sub-processors",
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/sub-processors",
+      "final": "https://surveymonkey.com/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/legal/subprocessors",
-      "final": "https://outsystems.com/legal/subprocessors",
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/privacy/subprocessors",
+      "final": "https://surveymonkey.com/privacy/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/privacy/subprocessors",
-      "final": "https://outsystems.com/privacy/subprocessors",
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/legal/sub-processors",
+      "final": "https://surveymonkey.com/legal/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "outsystems",
-      "url": "https://outsystems.com/legal/service-providers",
-      "final": "https://outsystems.com/legal/service-providers",
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/legal/service-providers",
+      "final": "https://surveymonkey.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/legal/subprocessors",
+      "final": "https://surveymonkey.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/trust/subprocessors",
+      "final": "https://surveymonkey.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://ukg.com/legal/sub-processors",
+      "final": "https://ukg.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://ukg.com/sub-processors",
+      "final": "https://ukg.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/legal/sub-processors-page",
+      "final": "https://surveymonkey.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://ukg.com/legal/subprocessors",
+      "final": "https://ukg.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://ukg.com/privacy/subprocessors",
+      "final": "https://ukg.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "surveymonkey",
+      "url": "https://trust.surveymonkey.com/subprocessors",
+      "final": "https://trust.surveymonkey.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "surveymonkey",
+      "url": "https://trust.surveymonkey.com/sub-processors",
+      "final": "https://trust.surveymonkey.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://ukg.com/legal/service-providers",
+      "final": "https://ukg.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://ukg.com/company/subprocessors",
+      "final": "https://ukg.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://ukg.com/trust/subprocessors",
+      "final": "https://ukg.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://ukg.com/legal/sub-processors-page",
+      "final": "https://ukg.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "booksy",
+      "url": "https://trust.booksy.com/subprocessors",
+      "final": "https://trust.booksy.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "surveymonkey",
+      "url": "https://surveymonkey.com/company/subprocessors",
+      "final": "https://surveymonkey.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://trustcenter.ukg.com/sub-processors",
+      "final": "https://trustcenter.ukg.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "scaleway",
+      "url": "https://scaleway.com/trust/subprocessors",
+      "final": "https://scaleway.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ukg",
+      "url": "https://trustcenter.ukg.com/subprocessors",
+      "final": "https://trustcenter.ukg.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zuora",
+      "url": "https://zuora.com/sub-processors",
+      "final": "https://zuora.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zuora",
+      "url": "https://zuora.com/company/subprocessors",
+      "final": "https://zuora.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zuora",
+      "url": "https://zuora.com/subprocessors",
+      "final": "https://zuora.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zuora",
+      "url": "https://zuora.com/legal/sub-processors",
+      "final": "https://zuora.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zuora",
+      "url": "https://zuora.com/trust/subprocessors",
+      "final": "https://zuora.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zuora",
+      "url": "https://zuora.com/legal/subprocessors",
+      "final": "https://zuora.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zuora",
+      "url": "https://zuora.com/privacy/subprocessors",
+      "final": "https://zuora.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zuora",
+      "url": "https://zuora.com/legal/service-providers",
+      "final": "https://zuora.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zuora",
+      "url": "https://zuora.com/legal/sub-processors-page",
+      "final": "https://zuora.com/legal/sub-processors-page",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     }
