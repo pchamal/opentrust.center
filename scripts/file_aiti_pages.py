@@ -124,6 +124,8 @@ CURATED_TRY = {
     "stability-ai": [
         "https://stability.ai/safety",
         "https://stability.ai/responsible-ai",
+        "https://stability.ai/news-updates/stability-ais-annual-integrity-transparency-report",
+        "https://stability.ai/child-safety",
     ],
     "elevenlabs": [
         "https://elevenlabs.io/safety",
