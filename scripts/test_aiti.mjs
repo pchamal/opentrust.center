@@ -148,6 +148,24 @@ expect("H1 is AI Trust Index", /<h1 class="page-title">AI Trust Index<\/h1>/.tes
 expect("product title is AI Trust Index", indexHtml.includes("opentrust.center — AI Trust Index"));
 expect("lede is the public file sentence", indexHtml.includes("The public file on AI systems. Not a trust score."));
 expect("lede is unchanged", (indexHtml.match(/<p class="lede">The public file on AI systems\. Not a trust score\.<\/p>/g) || []).length === 1);
+
+const methodHtml = readFileSync(new URL("../site/methodology.html", import.meta.url), "utf8");
+expect("H1 is Method", /<h1 class="page-title">Method<\/h1>/.test(methodHtml));
+expect("lede is the count sentence", (methodHtml.match(/<p class="lede">How we count a public file\. Not a company grade\.<\/p>/g) || []).length === 1);
+expect("method docket is still four words", docketWords(methodHtml).join(" ") === "AITI Register Subprocessors Standards");
+expect("method docket has no teal on", activeWord(methodHtml) === "" && !/<nav class="docket"[^>]*>[\s\S]*class="on"/.test(methodHtml));
+expect(
+  "AITI footer has specimen · methodology · code",
+  /<a href="\.\/brand\.html">specimen<\/a> · <a href="\.\/methodology\.html">methodology<\/a> · <a href="https:\/\/github.com\/pchamal\/opentrust.center">code<\/a>/.test(indexHtml),
+);
+expect(
+  "Register footer has specimen · methodology · code",
+  /<a href="\.\/brand\.html">specimen<\/a> · <a href="\.\/methodology\.html">methodology<\/a> · <a href="https:\/\/github.com\/pchamal\/opentrust.center">code<\/a>/.test(companiesHtml),
+);
+expect("no See methodology chip on AITI", !/See methodology/i.test(indexHtml));
+expect("no See methodology chip on Register", !/See methodology/i.test(companiesHtml));
+expect("AITI method line is still the only 0–100 sentence", (indexHtml.match(/20 for each instrument on file\. 100 is five\. This rates the file, not the company\./g) || []).length === 1);
+expect("Register method line is still the only 0–100 sentence", (companiesHtml.match(/20 for each instrument on file\. 100 is five\. This rates the file, not the company\./g) || []).length === 1);
 expect("docket word stays AITI", activeWord(indexHtml) === "AITI");
 expect("no stars medals Elo or 0-100", !/★|☆|medal|0–100|0-100|\bElo\b|podium/i.test(aitiJs + indexHtml));
 expect("AITI table has no score column", !/>\s*Score\s*</i.test(indexHtml) && !aitiJs.includes("trust score") && !aitiJs.includes("score column") && !aitiJs.includes("aitiScore") && !aitiJs.includes("file score"));

@@ -664,6 +664,10 @@ body.aiti .reg td.file-cell .file-num {
   max-width: 72em;
 }
 .colo a { color: var(--ot-ledger-black); }
+.colo a.here {
+  text-decoration: none;
+  border-bottom: 1px solid var(--ot-ledger-black);
+}
 
 /* ——— dossier ——— */
 .crumb {

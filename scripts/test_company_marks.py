@@ -126,6 +126,22 @@ def main() -> int:
     check("The public file on AI systems. Not a trust score." in index, "AITI lede stays")
     check("page · marks · processors · evals · incidents" in index, "AITI legend stays")
     check("AITI is the public file on AI systems, not a trust score." in index, "AITI footer was not cut")
+    method = (ROOT / "site" / "methodology.html").read_text(encoding="utf-8")
+    check('<h1 class="page-title">Method</h1>' in method, "H1 Method")
+    check(
+        '<p class="lede">How we count a public file. Not a company grade.</p>' in method,
+        "exact Method lede",
+    )
+    check(
+        'href="./brand.html">specimen</a> · <a href="./methodology.html">methodology</a> · <a href="https://github.com/pchamal/opentrust.center">code</a>'
+        in index,
+        "AITI footer has specimen · methodology · code",
+    )
+    check("See methodology" not in index and "See methodology" not in companies, "no See methodology chip")
+    check(
+        index.count("20 for each instrument on file. 100 is five. This rates the file, not the company.") == 1,
+        "AITI method line unchanged",
+    )
     check("Concentration" not in graph, "list dropped Concentration")
     check("Named by" in graph, "list kept Named by")
     check("toFixed(1)" not in (ROOT / "site" / "graph.js").read_text(encoding="utf-8"), "Concentration numeral left the list")
