@@ -104,6 +104,33 @@ function instrumentUrl(row, key) {
   return !!(rec && rec.url);
 }
 
+function recordedWall(rec) {
+  if (!rec || typeof rec !== "object") return false;
+  if (Number(rec.http_status || rec.status) === 403) return true;
+  const note = String(rec.note || rec.reason || rec.wall || "").toLowerCase();
+  return /js shell|login wall|\b403\b/.test(note);
+}
+
+function recordedPageWall(row) {
+  const crawl = row && row._crawl;
+  if (crawl && Number(crawl.http_status) === 403) return true;
+  const inst = (row && row.instruments) || {};
+  return recordedWall(inst.trust) || recordedWall(inst.security);
+}
+
+function namedProcessorList(row) {
+  const procs = (row && row.processors) || [];
+  return procs.some((p) => p && String(p.name || "").trim());
+}
+
+function officialPageOnFile(row) {
+  return !!(
+    (row && row.found && (row.trust_url || row.final_url)) ||
+    instrumentUrl(row, "trust") ||
+    instrumentUrl(row, "security")
+  );
+}
+
 export function hasNamedMarks(row) {
   const atts = ((row && row.attestations) || []).filter((a) => a && (a.name || a.short));
   const certs = ((row && row.certs) || []).filter(Boolean);
@@ -111,19 +138,15 @@ export function hasNamedMarks(row) {
   return !!(row && row.fedramp);
 }
 
+/* Per-rule 0 / 10 / 20. No secret weights. */
 export function fileFlags(row) {
-  const page = !!(
-    (row && row.found && (row.trust_url || row.final_url)) ||
-    instrumentUrl(row, "trust") ||
-    instrumentUrl(row, "security")
-  );
-  const procs = (row && row.processors) || [];
+  const pageOn = officialPageOnFile(row);
   return {
-    page,
-    marks: hasNamedMarks(row),
-    dpa: instrumentUrl(row, "dpa"),
-    subprocessors: procs.length > 0 || instrumentUrl(row, "subprocessors"),
-    years: !!(row && row.founded_year),
+    page: pageOn ? (recordedPageWall(row) ? 10 : 20) : 0,
+    marks: hasNamedMarks(row) ? 20 : pageOn ? 10 : 0,
+    dpa: instrumentUrl(row, "dpa") ? 20 : 0,
+    subprocessors: namedProcessorList(row) ? 20 : instrumentUrl(row, "subprocessors") ? 10 : 0,
+    years: row && row.founded_year ? 20 : 0,
   };
 }
 
@@ -132,9 +155,18 @@ export function fileCount(row) {
   return FILE_KEYS.reduce((n, key) => n + (flags[key] ? 1 : 0), 0);
 }
 
-/* One instrument on file is 20. Five is 100. No weights. */
-export function fileScore(n) {
-  return n * 20;
+/* Sum of five 0 / 10 / 20 rules. 100 is five prints. */
+export function fileScore(flags) {
+  if (!flags || typeof flags !== "object") return 0;
+  const keys =
+    "dpa" in flags || "subprocessors" in flags || "years" in flags ? FILE_KEYS : AI_FILE_KEYS;
+  return keys.reduce((n, key) => n + (Number(flags[key]) || 0), 0);
+}
+
+export function fileRuleClass(score) {
+  if (score === 20 || score === true) return "file-rule on";
+  if (score === 10) return "file-rule partial";
+  return "file-rule";
 }
 
 export function fileCoverage(row) {
@@ -150,8 +182,7 @@ export function fileIndexHtml(row) {
   const flags = fileFlags(row);
   const c = fileCoverage(row);
   const rules = FILE_KEYS.map((key) => {
-    const cls = flags[key] ? "file-rule on" : "file-rule";
-    return `<span class="${cls}" aria-hidden="true"></span>`;
+    return `<span class="${fileRuleClass(flags[key])}" aria-hidden="true"></span>`;
   }).join("");
   return `<span class="file-index" role="img" aria-label="${escapeHtml(c.spoken)}">${rules}</span>`;
 }
@@ -377,13 +408,51 @@ export function selectAiFiles(rows) {
   return (rows || []).filter(isAiFile);
 }
 
+function storedAiFieldUrl(row, key) {
+  const field = row && row[`ai_${key}`];
+  const fromField = typeof field === "string" ? field : field && (field.url || field.source_url);
+  return fromField || instrumentHref(row, key) || "";
+}
+
+function storedFirstPartyUrl(row, key) {
+  const url = storedAiFieldUrl(row, key);
+  if (!url) return "";
+  if (!isFirstPartyUrl(url, row && row.domain)) return "";
+  return url;
+}
+
+function storedAiProcessorListUrl(row) {
+  const field = row && row.ai_processors;
+  const fromField = typeof field === "string" ? field : field && (field.url || field.source_url);
+  const url = fromField || instrumentHref(row, "model_processors") || instrumentHref(row, "processors") || "";
+  if (!url) return "";
+  if (!isFirstPartyUrl(url, row && row.domain)) return "";
+  return url;
+}
+
+function storedAiMarksUrl(row) {
+  return storedFirstPartyUrl(row, "marks") || storedFirstPartyUrl(row, "certs") || "";
+}
+
+function aiPrintOrUrl(printed, url, rec) {
+  if (printed) return recordedWall(rec) ? 10 : 20;
+  if (url) return 10;
+  return 0;
+}
+
 export function aiFileFlags(row) {
+  const pageUrl = storedAiPageUrl(row);
+  const evalsUrl = storedAiInstrumentUrl(row, "evals");
+  const incidentsUrl = storedAiInstrumentUrl(row, "incidents");
+  const pageRec = row && typeof row.ai_page === "object" ? row.ai_page : null;
+  const evalsRec = row && typeof row.ai_evals === "object" ? row.ai_evals : null;
+  const incidentsRec = row && typeof row.ai_incidents === "object" ? row.ai_incidents : null;
   return {
-    page: !!storedAiPageUrl(row),
-    marks: hasPrintedAiMark(row),
-    processors: storedAiProcessors(row).length > 0,
-    evals: !!storedAiInstrumentUrl(row, "evals"),
-    incidents: !!storedAiInstrumentUrl(row, "incidents"),
+    page: aiPrintOrUrl(!!pageUrl, storedFirstPartyUrl(row, "page") || storedFirstPartyUrl(row, "ai"), pageRec),
+    marks: hasPrintedAiMark(row) ? 20 : storedAiMarksUrl(row) ? 10 : 0,
+    processors: storedAiProcessors(row).length > 0 ? 20 : storedAiProcessorListUrl(row) ? 10 : 0,
+    evals: aiPrintOrUrl(!!evalsUrl, storedFirstPartyUrl(row, "evals"), evalsRec),
+    incidents: aiPrintOrUrl(!!incidentsUrl, storedFirstPartyUrl(row, "incidents"), incidentsRec),
   };
 }
 
@@ -409,10 +478,44 @@ export function aiFileIndexHtml(row) {
   const flags = aiFileFlags(row);
   const c = aiFileCoverage(row);
   const rules = AI_FILE_KEYS.map((key) => {
-    const cls = flags[key] ? "file-rule on" : "file-rule";
-    return `<span class="${cls}" aria-hidden="true"></span>`;
+    return `<span class="${fileRuleClass(flags[key])}" aria-hidden="true"></span>`;
   }).join("");
   return `<span class="file-index" role="img" aria-label="${escapeHtml(c.spoken)}">${rules}</span>`;
+}
+
+export function bindFileMethodToggle() {
+  function setView(view, viaUser) {
+    const on = view === "method" ? "method" : "file";
+    const filePane = $("file-view");
+    const methodPane = $("method-view");
+    if (filePane) filePane.hidden = on !== "file";
+    if (methodPane) methodPane.hidden = on !== "method";
+    document.querySelectorAll(".view-toggle button[data-view]").forEach((btn) => {
+      const live = btn.getAttribute("data-view") === on;
+      btn.classList.toggle("on", live);
+      btn.setAttribute("aria-selected", live ? "true" : "false");
+    });
+    if (viaUser && globalThis.location && globalThis.history && globalThis.history.replaceState) {
+      if (on === "method") {
+        if (globalThis.location.hash !== "#method") {
+          globalThis.history.replaceState(null, "", "#method");
+        }
+      } else if (globalThis.location.hash === "#method") {
+        globalThis.history.replaceState(null, "", globalThis.location.pathname + globalThis.location.search);
+      }
+    }
+  }
+  document.querySelectorAll(".view-toggle button[data-view]").forEach((btn) => {
+    btn.addEventListener("click", () => setView(btn.getAttribute("data-view"), true));
+  });
+  if (globalThis.window) {
+    globalThis.window.addEventListener("hashchange", () => {
+      setView(globalThis.location.hash === "#method" ? "method" : "file", false);
+    });
+  }
+  const start =
+    globalThis.location && globalThis.location.hash === "#method" ? "method" : "file";
+  setView(start, false);
 }
 
 export function fillAitiIssue(el, data, n) {

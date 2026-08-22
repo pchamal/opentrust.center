@@ -139,8 +139,11 @@ def main() -> int:
     )
     check("See methodology" not in index and "See methodology" not in companies, "no See methodology chip")
     check(
-        index.count("20 for each instrument on file. 100 is five. This rates the file, not the company.") == 1,
-        "AITI method line unchanged",
+        index.count(
+            '<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing. 100 is five prints.</p>'
+        )
+        == 1,
+        "AITI method line is the three-state sentence once",
     )
     check("Concentration" not in graph, "list dropped Concentration")
     check("Named by" in graph, "list kept Named by")

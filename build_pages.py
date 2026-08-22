@@ -619,18 +619,36 @@ def _named_marks_on_file(row: dict) -> bool:
     return bool(atts or certs or row.get("fedramp"))
 
 
+def _recorded_wall(rec) -> bool:
+    if not isinstance(rec, dict):
+        return False
+    status = rec.get("http_status") or rec.get("status")
+    if status == 403:
+        return True
+    note = str(rec.get("note") or rec.get("reason") or rec.get("wall") or "").lower()
+    return "js shell" in note or "login wall" in note or "403" in note
+
+
+def _named_processor_list(row: dict) -> bool:
+    return any(str((p or {}).get("name") or "").strip() for p in (row.get("processors") or []))
+
+
 def file_flags(row: dict, disc: dict | None = None) -> dict:
-    """Bind each rule to that instrument on this row. Not a factor score."""
-    page = bool(row.get("found") and (row.get("trust_url") or row.get("final_url")))
-    if not page:
-        page = _instrument_url(row, "trust") or _instrument_url(row, "security")
-    procs = row.get("processors") or []
+    """Bind each rule to 0 / 10 / 20 on this row. Not a factor score."""
+    page_on = bool(row.get("found") and (row.get("trust_url") or row.get("final_url")))
+    if not page_on:
+        page_on = _instrument_url(row, "trust") or _instrument_url(row, "security")
+    crawl = row.get("_crawl") or {}
+    page_wall = crawl.get("http_status") == 403 or _recorded_wall(
+        (row.get("instruments") or {}).get("trust")
+    ) or _recorded_wall((row.get("instruments") or {}).get("security"))
+    named_marks = _named_marks_on_file(row)
     return {
-        "page": page,
-        "marks": _named_marks_on_file(row),
-        "dpa": _instrument_url(row, "dpa"),
-        "subprocessors": bool(procs) or _instrument_url(row, "subprocessors"),
-        "years": bool(row.get("founded_year")),
+        "page": (10 if page_wall else 20) if page_on else 0,
+        "marks": 20 if named_marks else (10 if page_on else 0),
+        "dpa": 20 if _instrument_url(row, "dpa") else 0,
+        "subprocessors": 20 if _named_processor_list(row) else (10 if _instrument_url(row, "subprocessors") else 0),
+        "years": 20 if row.get("founded_year") else 0,
     }
 
 
@@ -647,12 +665,20 @@ def file_count(flags: dict) -> int:
     return sum(1 for k in FILE_METER_KEYS if flags.get(k))
 
 
+def _file_rule_class(score) -> str:
+    if score in (20, True):
+        return "file-rule on"
+    if score == 10:
+        return "file-rule partial"
+    return "file-rule"
+
+
 def file_index_html(flags: dict) -> str:
-    """Five short rules. Filled = on file. Open hairline = not on file. Not a score."""
+    """Five short rules. Filled = 20. Dotted = 10. Open hairline = 0."""
     on = [FILE_METER_LABELS[k] for k in FILE_METER_KEYS if flags.get(k)]
     spoken = " · ".join(on) if on else "not on file"
     rules = "".join(
-        f'<span class="file-rule{" on" if flags.get(k) else ""}" aria-hidden="true"></span>'
+        f'<span class="{_file_rule_class(flags.get(k))}" aria-hidden="true"></span>'
         for k in FILE_METER_KEYS
     )
     return f'<span class="file-index" role="img" aria-label="{escape(spoken)}">{rules}</span>'
@@ -1570,7 +1596,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     found = bool(row.get("found"))
     url = row.get("trust_url") or ""
     disc = row["disclosure"]
-    flags = row.get("file") or file_flags(row, disc)
+    flags = file_flags(row, disc)
     file_html = file_index_html(flags)
     title = f"{name} — opentrust.center"
     desc = "A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not."

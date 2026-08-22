@@ -41,7 +41,11 @@ function expect(name, cond) {
 }
 
 function ruleOn(html) {
-  return [...html.matchAll(/class="file-rule(?: on)?"/g)].map((m) => m[0].includes(" on"));
+  return [...html.matchAll(/class="file-rule(?: (on|partial))?"/g)].map((m) => m[1] === "on");
+}
+
+function ruleKind(html) {
+  return [...html.matchAll(/class="file-rule(?: (on|partial))?"/g)].map((m) => m[1] || "");
 }
 
 function docketWords(html) {
@@ -88,7 +92,7 @@ const cursorHtml = aiFileIndexHtml(cursor);
 const cursorMarks = aiMarksCell(cursor);
 expect("Cursor Marks cell prints aiuc-1", cursorMarks.includes("aiuc-1"));
 expect("Cursor Marks cell does not print soc 2 as the AI mark bind", /aiuc-1/.test(cursorMarks));
-expect("Cursor marks rule is filled", aiFileFlags(cursor).marks === true && ruleOn(cursorHtml)[1] === true);
+expect("Cursor marks rule is filled", aiFileFlags(cursor).marks === 20 && ruleOn(cursorHtml)[1] === true);
 expect("printed mark is not next to an open marks rule", ruleOn(cursorHtml)[1] === true);
 
 for (const row of files) {
@@ -109,10 +113,10 @@ expect("every AITI row binds marks to the Marks cell", true);
 const arranged = defaultAiRows(files);
 const names = arranged.map((r) => r.name);
 const byName = namedAiRows(files).map((r) => r.name);
-expect("default order is most-on-file then name", arranged.every((row, i) => {
+expect("default order is highest File then name", arranged.every((row, i) => {
   if (!i) return true;
   const prev = arranged[i - 1];
-  const c = aiFileCount(prev) - aiFileCount(row);
+  const c = fileScore(aiFileFlags(prev)) - fileScore(aiFileFlags(row));
   if (c > 0) return true;
   if (c < 0) return false;
   return String(prev.name).localeCompare(String(row.name), undefined, { sensitivity: "base" }) <= 0;
@@ -152,6 +156,14 @@ expect("lede is unchanged", (indexHtml.match(/<p class="lede">The public file on
 const methodHtml = readFileSync(new URL("../site/methodology.html", import.meta.url), "utf8");
 expect("H1 is Method", /<h1 class="page-title">Method<\/h1>/.test(methodHtml));
 expect("lede is the count sentence", (methodHtml.match(/<p class="lede">How we count a public file\. Not a company grade\.<\/p>/g) || []).length === 1);
+expect(
+  "The count is the three states",
+  /<h2 class="sec-kicker">The count<\/h2>\s*<p class="clerk">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/.test(methodHtml) &&
+    /<h2 class="sec-kicker">The count<\/h2>\s*<p class="clerk">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/.test(indexHtml) &&
+    /<h2 class="sec-kicker">The count<\/h2>\s*<p class="clerk">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/.test(companiesHtml),
+);
+expect("in-tab Method is the signed page", /id="method-view"[\s\S]*<h1 class="page-title">Method<\/h1>[\s\S]*How we count a public file\. Not a company grade\.[\s\S]*The count[\s\S]*AITI[\s\S]*Register[\s\S]*What counts[\s\S]*What stays open[\s\S]*Outbound/.test(indexHtml));
+expect("file|method active is Ledger Black not teal", /body\.register \.view-toggle button\.on \{[\s\S]*border-bottom-color: var\(--ot-ledger-black\)/.test(css) && !/body\.register \.view-toggle button\.on \{[\s\S]{0,120}--ot-evidence-teal/.test(css));
 expect("method docket is still four words", docketWords(methodHtml).join(" ") === "AITI Register Subprocessors Standards");
 expect("method docket has no teal on", activeWord(methodHtml) === "" && !/<nav class="docket"[^>]*>[\s\S]*class="on"/.test(methodHtml));
 expect(
@@ -164,8 +176,12 @@ expect(
 );
 expect("no See methodology chip on AITI", !/See methodology/i.test(indexHtml));
 expect("no See methodology chip on Register", !/See methodology/i.test(companiesHtml));
-expect("AITI method line is still the only 0–100 sentence", (indexHtml.match(/20 for each instrument on file\. 100 is five\. This rates the file, not the company\./g) || []).length === 1);
-expect("Register method line is still the only 0–100 sentence", (companiesHtml.match(/20 for each instrument on file\. 100 is five\. This rates the file, not the company\./g) || []).length === 1);
+expect("AITI method line is the three-state sentence once", (indexHtml.match(/<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/g) || []).length === 1);
+expect("Register method line is the three-state sentence once", (companiesHtml.match(/<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/g) || []).length === 1);
+expect("AITI has file | method", indexHtml.includes(">file</button>") && indexHtml.includes(">method</button>") && indexHtml.includes('class="view-toggle"'));
+expect("Register has file | method", companiesHtml.includes(">file</button>") && companiesHtml.includes(">method</button>"));
+expect("default view is file", /id="file-view"/.test(indexHtml) && /id="method-view"[^>]*hidden/.test(indexHtml) && /id="method-view"[^>]*hidden/.test(companiesHtml));
+expect("docket is not a fifth method word", docketWords(indexHtml).join(" ") === "AITI Register Subprocessors Standards" && !docketWords(indexHtml).includes("method"));
 expect("docket word stays AITI", activeWord(indexHtml) === "AITI");
 expect("no stars medals Elo or 0-100", !/★|☆|medal|0–100|0-100|\bElo\b|podium/i.test(aitiJs + indexHtml));
 expect("AITI table has no score column", !/>\s*Score\s*</i.test(indexHtml) && !aitiJs.includes("trust score") && !aitiJs.includes("score column") && !aitiJs.includes("aitiScore") && !aitiJs.includes("file score"));
@@ -210,14 +226,15 @@ expect("AITI does not paginate a second universe", !aitiJs.includes("PAGE_SIZE")
 expect("legend is the AI five", indexHtml.includes("page · marks · processors · evals · incidents"));
 expect(
   "method line is once under the legend",
-  /id="file-legend">page · marks · processors · evals · incidents<\/p>\s*<p class="file-method" id="file-method">20 for each instrument on file\. 100 is five\. This rates the file, not the company\.<\/p>/.test(indexHtml) &&
-    (indexHtml.match(/20 for each instrument on file\. 100 is five\. This rates the file, not the company\./g) || []).length === 1,
+  /id="file-legend">page · marks · processors · evals · incidents<\/p>\s*<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/.test(indexHtml) &&
+    (indexHtml.match(/<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/g) || []).length === 1,
 );
 expect("wordmark unchanged", /<a class="wordmark" href="\.\/">opentrust<span class="wm-dot">\.<\/span>center<\/a>/.test(indexHtml));
 
 expect("rules are ledger black", /\.file-rule \{[\s\S]*border-top: 1px solid var\(--ot-ledger-black\)/.test(css) && /\.file-rule\.on \{[\s\S]*background: var\(--ot-ledger-black\)/.test(css));
-expect("teal does not fill the rules", !/\.file-rule[\s\S]{0,80}--ot-evidence-teal/.test(css) && !/\.file-rule\.on[\s\S]{0,80}--ot-evidence-teal/.test(css));
+expect("teal does not fill the rules", !/\.file-rule[\s\S]{0,80}--ot-evidence-teal/.test(css) && !/\.file-rule\.on[\s\S]{0,80}--ot-evidence-teal/.test(css) && !/\.file-rule\.partial[\s\S]{0,80}--ot-evidence-teal/.test(css));
 expect("rules are short horizontal", /\.file-rule \{[\s\S]*width: 12px;[\s\S]*height: 3px;[\s\S]*border-top: 1px solid/.test(css));
+expect("partial is a dotted Ledger Black rule", /\.file-rule\.partial \{[\s\S]*border-top: 1px dotted var\(--ot-ledger-black\)/.test(css));
 const onBlock = (css.match(/\.docket a\.on \{[^}]+\}/) || [""])[0];
 expect("active docket is underline not teal type", onBlock.includes("border-bottom-color: var(--ot-evidence-teal)") && !/(?:^|[;\s{])color:\s*var\(--ot-evidence-teal\)/.test(onBlock));
 
@@ -247,14 +264,14 @@ for (const slug of filedSlugs) {
   const flags = aiFileFlags(row);
   const html = aiFileIndexHtml(row);
   expect(`${slug} page follows the stored URL`, storedAiPageUrl(row) === rec.url);
-  expect(`${slug} page rule is filled`, flags.page === true && ruleOn(html)[0] === true);
+  expect(`${slug} page rule is filled`, flags.page === 20 && ruleOn(html)[0] === true);
   expect(`${slug} URL is first-party`, isFirstPartyUrl(rec.url, row.domain) === true);
   const dossierHtml = readFileSync(new URL(`../site/c/${slug}.html`, import.meta.url), "utf8");
   expect(`${slug} dossier reaches the URL`, dossierHtml.includes(rec.url) && dossierHtml.includes(">AI page<") && dossierHtml.includes('class="official"'));
 }
 
 expect("Midjourney has no stored AI page", storedAiPageUrl(mid) === "");
-expect("Midjourney page stays open", aiFileFlags(mid).page === false);
+expect("Midjourney page stays open", aiFileFlags(mid).page === 0);
 expect("Midjourney still all-open without an official AI page", ruleOn(midHtml).every((on) => on === false) && aiFileCount(mid) === 0);
 
 expect(
@@ -264,7 +281,7 @@ expect(
     domain: "openai.com",
     trust_url: "https://trust.openai.com",
     instruments: { trust: { url: "https://trust.openai.com" } },
-  }).page === false,
+  }).page === 0,
 );
 expect(
   "path guess on a security URL does not fill page",
@@ -272,7 +289,7 @@ expect(
     slug: "example",
     domain: "example.com",
     instruments: { security: { url: "https://example.com/responsible-ai" } },
-  }).page === false,
+  }).page === 0,
 );
 expect(
   "evals follow stored instruments only",
@@ -280,7 +297,7 @@ expect(
     slug: "example",
     domain: "example.com",
     instruments: { bounty: { url: "https://example.com/evals" } },
-  }).evals === false,
+  }).evals === 0,
 );
 expect(
   "incidents follow stored instruments only",
@@ -288,7 +305,7 @@ expect(
     slug: "example",
     domain: "example.com",
     trust_url: "https://example.com/incidents",
-  }).incidents === false,
+  }).incidents === 0,
 );
 expect(
   "SafeBase does not fill page",
@@ -300,11 +317,11 @@ expect(
 );
 expect(
   "page bind follows a stored first-party URL",
-  aiFileFlags({ ...mid, ai_page: { url: "https://www.midjourney.com/responsible-ai" } }).page === true,
+  aiFileFlags({ ...mid, ai_page: { url: "https://www.midjourney.com/responsible-ai" } }).page === 20,
 );
 
-expect("Cursor page stays open", aiFileFlags(cursor).page === false && ruleOn(cursorHtml)[0] === false);
-expect("Cursor marks bind unchanged", aiFileFlags(cursor).marks === true && ruleOn(cursorHtml)[1] === true);
+expect("Cursor page stays open", aiFileFlags(cursor).page === 0 && ruleOn(cursorHtml)[0] === false);
+expect("Cursor marks bind unchanged", aiFileFlags(cursor).marks === 20 && ruleOn(cursorHtml)[1] === true);
 
 const procsDoc = JSON.parse(readFileSync(new URL("../site/data/aiti-processors.json", import.meta.url), "utf8"));
 const procFiled = Object.keys(procsDoc.processors);
@@ -322,7 +339,7 @@ for (const slug of procFiled) {
   const flags = aiFileFlags(row);
   const html = aiFileIndexHtml(row);
   expect(`${slug} processors follow stored names`, stored.length === rec.names.length && stored.every((p, i) => p.name === rec.names[i].name));
-  expect(`${slug} processors rule is filled`, flags.processors === true && ruleOn(html)[2] === true);
+  expect(`${slug} processors rule is filled`, flags.processors === 20 && ruleOn(html)[2] === true);
   expect(`${slug} stored names are AI system processors`, stored.every((p) => isAiSystemProcessor(p, slug)));
   const dossierHtml = readFileSync(new URL(`../site/c/${slug}.html`, import.meta.url), "utf8");
   const src = rec.source_url || "";
@@ -330,7 +347,7 @@ for (const slug of procFiled) {
 }
 
 expect("Midjourney has no stored AI processors", storedAiProcessors(mid).length === 0);
-expect("Midjourney processors stay open", aiFileFlags(mid).processors === false);
+expect("Midjourney processors stay open", aiFileFlags(mid).processors === 0);
 expect("Midjourney still all-open without a named AI processor", ruleOn(aiFileIndexHtml(mid)).every((on) => on === false) && aiFileCount(mid) === 0);
 
 expect("AWS hosting does not count", isAiSystemProcessor({ name: "Amazon Web Services", slug: "amazon-web-services" }) === false);
@@ -348,11 +365,11 @@ expect(
     slug: "example",
     domain: "example.com",
     processors: [{ name: "Amazon Web Services", slug: "amazon-web-services", source_url: "https://example.com/subprocessors" }],
-  }).processors === false,
+  }).processors === 0,
 );
 expect(
   "processors bind follows stored AI names",
-  aiFileFlags({ ...mid, ai_processors: { names: [{ name: "OpenAI", slug: "openai" }] } }).processors === true,
+  aiFileFlags({ ...mid, ai_processors: { names: [{ name: "OpenAI", slug: "openai" }] } }).processors === 20,
 );
 
 const anthropic = bySlug.anthropic;
@@ -368,21 +385,21 @@ expect(
     !/font-style:\s*italic/.test(anthropicMarks) &&
     !anthropicMarks.includes("absent"),
 );
-expect("Anthropic marks filled iff printed AI mark", anthropicFlags.marks === true && hasPrintedAiMark(anthropic) === true && anthropicOn[1] === true);
-expect("Anthropic page follows stored RSP URL", anthropicFlags.page === true && storedAiPageUrl(anthropic).includes("responsible-scaling-policy") && anthropicOn[0] === true);
+expect("Anthropic marks filled iff printed AI mark", anthropicFlags.marks === 20 && hasPrintedAiMark(anthropic) === true && anthropicOn[1] === true);
+expect("Anthropic page follows stored RSP URL", anthropicFlags.page === 20 && storedAiPageUrl(anthropic).includes("responsible-scaling-policy") && anthropicOn[0] === true);
 expect("Anthropic Domain prints anthropic.com", printedAitiUrl(anthropic).includes("https://www.anthropic.com/") && printedAitiUrl(anthropic).includes(">anthropic.com<") && !printedAitiUrl(anthropic).includes("responsible-scaling-policy"));
-expect("Anthropic processors stay open", anthropicFlags.processors === false && storedAiProcessors(anthropic).length === 0 && !anthropic.ai_processors && anthropicOn[2] === false);
-expect("Anthropic leftover ElevenLabs/Vanta bind does not fill processors", (anthropic.processors || []).some((p) => /elevenlabs/i.test(String((p && (p.name || p.slug)) || ""))) && storedAiProcessors(anthropic).length === 0 && anthropicFlags.processors === false);
+expect("Anthropic processors stay open", anthropicFlags.processors === 0 && storedAiProcessors(anthropic).length === 0 && !anthropic.ai_processors && anthropicOn[2] === false);
+expect("Anthropic leftover ElevenLabs/Vanta bind does not fill processors", (anthropic.processors || []).some((p) => /elevenlabs/i.test(String((p && (p.name || p.slug)) || ""))) && storedAiProcessors(anthropic).length === 0 && anthropicFlags.processors === 0);
 expect(
   "row.processors names do not fill AITI processors",
   aiFileFlags({
     slug: "anthropic",
     domain: "anthropic.com",
     processors: [{ name: "ElevenLabs", slug: "elevenlabs", source_url: "https://trust.anthropic.com/subprocessors" }],
-  }).processors === false,
+  }).processors === 0,
 );
-expect("Anthropic evals stay open", anthropicFlags.evals === false && anthropicOn[3] === false);
-expect("Anthropic incidents stay open", anthropicFlags.incidents === false && anthropicOn[4] === false);
+expect("Anthropic evals stay open", anthropicFlags.evals === 0 && anthropicOn[3] === false);
+expect("Anthropic incidents stay open", anthropicFlags.incidents === 0 && anthropicOn[4] === false);
 
 function domainCell(html) {
   const m = String(html || "").match(/<td class="domain">([\s\S]*?)<\/td>/);
@@ -404,9 +421,9 @@ expect(
   defaultAnthropicOn.join(" ") === finderAnthropicOn.join(" ") &&
     defaultAnthropicOn.join(" ") === "true true false false false",
 );
-expect("Anthropic File is page and marks only", anthropicFlags.page === true && anthropicFlags.marks === true && anthropicFlags.processors === false && anthropicFlags.evals === false && anthropicFlags.incidents === false);
+expect("Anthropic File is page and marks only", anthropicFlags.page === 20 && anthropicFlags.marks === 20 && anthropicFlags.processors === 0 && anthropicFlags.evals === 0 && anthropicFlags.incidents === 0);
 expect("Anthropic count is 2", aiFileCount(anthropic) === 2 && aiFileOnWords(anthropic) === "2 on file");
-expect("fileScore is count times 20", fileScore(0) === 0 && fileScore(2) === 40 && fileScore(3) === 60 && fileScore(5) === 100);
+expect("fileScore is the sum of 0/10/20", fileScore(aiFileFlags(anthropic)) === 40 && fileScore(aiFileFlags(mid)) === 0 && fileScore(aiFileFlags({ ...mid, ai_page: { url: "https://www.midjourney.com/responsible-ai" } })) === 20);
 expect(
   "Anthropic File prints 40",
   /<span class="file-num">40<\/span>/.test(fileCell(defaultAnthropicHtml)) &&
@@ -423,7 +440,8 @@ expect("Anthropic numeral is left of the rules", /file-num[\s\S]*file-index[\s\S
 expect("Midjourney File prints 0", /<span class="file-num">0<\/span>/.test(fileCell(aitiRowHtml(mid, 0))) && !/\d+ on file/.test(fileCell(aitiRowHtml(mid, 0))) && !fileCell(aitiRowHtml(mid, 0)).includes("file-on"));
 expect("every row prints the file numeral", files.every((r) => {
   const cell = fileCell(aitiRowHtml(r, 0));
-  return cell.includes(`<span class="file-num">${fileScore(aiFileCount(r))}</span>`) && !/\d+ on file/.test(cell) && !cell.includes("file-on");
+  const n = fileScore(aiFileFlags(r));
+  return n % 10 === 0 && n <= 100 && cell.includes(`<span class="file-num">${n}</span>`) && !/\d+ on file/.test(cell) && !cell.includes("file-on");
 }));
 expect("caption is not a score name", !aitiJs.includes("aitiScore") && !aitiJs.includes("trust index") && !aitiJs.includes("maturity") && !aitiJs.includes("Arena") && !indexHtml.includes(">Score<"));
 function hostText(html) {
@@ -437,14 +455,14 @@ expect(
     !domainCell(finderAnthropicHtml).includes("responsible-scaling-policy"),
 );
 expect("Midjourney finder render stays all-open", ruleOn(fileCell(aitiRowHtml(filterAiRows(files, "midjourney").find((r) => r.slug === "midjourney"), 0))).every((on) => on === false));
-expect("page bind unchanged for Midjourney", aiFileFlags(mid).page === false);
-expect("Cursor processors filled and marks still bound", aiFileFlags(cursor).processors === true && aiFileFlags(cursor).marks === true && ruleOn(aiFileIndexHtml(cursor))[1] === true && ruleOn(aiFileIndexHtml(cursor))[2] === true);
-expect("Cursor page still open", aiFileFlags(cursor).page === false);
-expect("Databricks processors follow stored legal names", storedAiProcessors(bySlug.databricks).map((p) => p.name).join("|") === "Anthropic, PBC|OpenAI, L.L.C" && aiFileFlags(bySlug.databricks).processors === true);
-expect("Glean processors follow stored legal names", storedAiProcessors(bySlug.glean).some((p) => p.name === "Anthropic PBC") && storedAiProcessors(bySlug.glean).some((p) => p.name === "OpenAI OpCo, LLC") && aiFileFlags(bySlug.glean).processors === true);
-expect("Databricks page and marks binds stay open", aiFileFlags(bySlug.databricks).page === false && aiFileFlags(bySlug.databricks).marks === false);
-expect("Glean page and marks binds stay open", aiFileFlags(bySlug.glean).page === false && aiFileFlags(bySlug.glean).marks === false);
-expect("leftover date names do not fill processors", aiFileFlags({ slug: "zoom", domain: "zoom.com", processors: [{ name: "01 April 2025" }] }).processors === false);
+expect("page bind unchanged for Midjourney", aiFileFlags(mid).page === 0);
+expect("Cursor processors filled and marks still bound", aiFileFlags(cursor).processors === 20 && aiFileFlags(cursor).marks === 20 && ruleOn(aiFileIndexHtml(cursor))[1] === true && ruleOn(aiFileIndexHtml(cursor))[2] === true);
+expect("Cursor page still open", aiFileFlags(cursor).page === 0);
+expect("Databricks processors follow stored legal names", storedAiProcessors(bySlug.databricks).map((p) => p.name).join("|") === "Anthropic, PBC|OpenAI, L.L.C" && aiFileFlags(bySlug.databricks).processors === 20);
+expect("Glean processors follow stored legal names", storedAiProcessors(bySlug.glean).some((p) => p.name === "Anthropic PBC") && storedAiProcessors(bySlug.glean).some((p) => p.name === "OpenAI OpCo, LLC") && aiFileFlags(bySlug.glean).processors === 20);
+expect("Databricks page and marks binds stay open", aiFileFlags(bySlug.databricks).page === 0 && aiFileFlags(bySlug.databricks).marks === 0);
+expect("Glean page and marks binds stay open", aiFileFlags(bySlug.glean).page === 0 && aiFileFlags(bySlug.glean).marks === 0);
+expect("leftover date names do not fill processors", aiFileFlags({ slug: "zoom", domain: "zoom.com", processors: [{ name: "01 April 2025" }] }).processors === 0);
 
 const evalsDoc = JSON.parse(readFileSync(new URL("../site/data/aiti-evals.json", import.meta.url), "utf8"));
 const incidentsDoc = JSON.parse(readFileSync(new URL("../site/data/aiti-incidents.json", import.meta.url), "utf8"));
@@ -469,7 +487,7 @@ for (const slug of evalFiled) {
   const flags = aiFileFlags(row);
   const html = aiFileIndexHtml(row);
   expect(`${slug} evals follow the stored URL`, storedAiEvalsUrl(row) === rec.url);
-  expect(`${slug} evals rule is filled`, flags.evals === true && ruleOn(html)[3] === true);
+  expect(`${slug} evals rule is filled`, flags.evals === 20 && ruleOn(html)[3] === true);
   expect(`${slug} evals URL is first-party`, isFirstPartyUrl(rec.url, row.domain) === true);
   const dossierHtml = readFileSync(new URL(`../site/c/${slug}.html`, import.meta.url), "utf8");
   expect(`${slug} dossier reaches the evals URL`, dossierHtml.includes(rec.url) && dossierHtml.includes(">AI evals<") && dossierHtml.includes('class="official"'));
@@ -481,26 +499,41 @@ for (const slug of incidentFiled) {
   const flags = aiFileFlags(row);
   const html = aiFileIndexHtml(row);
   expect(`${slug} incidents follow the stored URL`, storedAiIncidentsUrl(row) === rec.url);
-  expect(`${slug} incidents rule is filled`, flags.incidents === true && ruleOn(html)[4] === true);
+  expect(`${slug} incidents rule is filled`, flags.incidents === 20 && ruleOn(html)[4] === true);
   expect(`${slug} incidents URL is first-party`, isFirstPartyUrl(rec.url, row.domain) === true);
   const dossierHtml = readFileSync(new URL(`../site/c/${slug}.html`, import.meta.url), "utf8");
   expect(`${slug} dossier reaches the incidents URL`, dossierHtml.includes(rec.url) && dossierHtml.includes(">AI incidents<") && dossierHtml.includes('class="official"'));
 }
 
-expect("OpenAI evals follow the stored system card", storedAiEvalsUrl(bySlug.openai) === evalsDoc.evals.openai.url && aiFileFlags(bySlug.openai).evals === true);
-expect("xAI evals follow the stored model card", storedAiEvalsUrl(bySlug.xai) === evalsDoc.evals.xai.url && aiFileFlags(bySlug.xai).evals === true);
-expect("OpenAI page bind unchanged", storedAiPageUrl(bySlug.openai) === pagesDoc.pages.openai.url && aiFileFlags(bySlug.openai).page === true);
-expect("xAI page bind unchanged", storedAiPageUrl(bySlug.xai) === pagesDoc.pages.xai.url && aiFileFlags(bySlug.xai).page === true);
+expect("OpenAI evals follow the stored system card", storedAiEvalsUrl(bySlug.openai) === evalsDoc.evals.openai.url && aiFileFlags(bySlug.openai).evals === 20);
+expect("xAI evals follow the stored model card", storedAiEvalsUrl(bySlug.xai) === evalsDoc.evals.xai.url && aiFileFlags(bySlug.xai).evals === 20);
+expect("OpenAI page bind unchanged", storedAiPageUrl(bySlug.openai) === pagesDoc.pages.openai.url && aiFileFlags(bySlug.openai).page === 20);
+expect("xAI page bind unchanged", storedAiPageUrl(bySlug.xai) === pagesDoc.pages.xai.url && aiFileFlags(bySlug.xai).page === 20);
 
 const openai = bySlug.openai;
 expect("OpenAI File is 3", aiFileCount(openai) === 3 && /<span class="file-num">60<\/span>/.test(fileCell(aitiRowHtml(openai, 0))));
+expect("OpenAI stays a high File", fileScore(aiFileFlags(openai)) === 60 && aiFileFlags(openai).page === 20 && aiFileFlags(openai).marks === 20 && aiFileFlags(openai).evals === 20);
 expect("OpenAI File has no on-file words", !/\d+ on file/.test(fileCell(aitiRowHtml(openai, 0))) && !fileCell(aitiRowHtml(openai, 0)).includes("file-on") && !fileCell(aitiRowHtml(openai, 0)).includes("60%") && !fileCell(aitiRowHtml(openai, 0)).includes("60/100"));
+const urlOnlyAi = {
+  slug: "example",
+  domain: "example.com",
+  ai_processors: { url: "https://example.com/model-processors", names: [] },
+};
+expect("AITI URL-only processors is 10", aiFileFlags(urlOnlyAi).processors === 10 && fileScore(aiFileFlags(urlOnlyAi)) === 10);
+expect(
+  "dotted rule is the 10 state",
+  ruleKind(aiFileIndexHtml(urlOnlyAi))[2] === "partial" &&
+    aiFileIndexHtml(urlOnlyAi).includes('class="file-rule partial"') &&
+    !aiFileIndexHtml(urlOnlyAi).includes("file-rule on"),
+);
+expect("dotted rule is not teal", !/\.file-rule\.partial[\s\S]{0,120}--ot-evidence-teal/.test(css));
+expect("Midjourney has no dotted rule", !midHtml.includes("file-rule partial") && ruleKind(midHtml).every((k) => k === ""));
 
 const runway = bySlug.runway;
 const runwayFlags = aiFileFlags(runway);
 const runwayMarks = aiMarksCell(runway);
 const runwayHtml = aitiRowHtml(runway, 0);
-expect("Runway File is page and processors", runwayFlags.page === true && runwayFlags.processors === true && runwayFlags.marks === false && runwayFlags.evals === false && runwayFlags.incidents === false);
+expect("Runway File is page and processors", runwayFlags.page === 20 && runwayFlags.processors === 20 && runwayFlags.marks === 0 && runwayFlags.evals === 0 && runwayFlags.incidents === 0);
 expect("Runway File prints 40", aiFileCount(runway) === 2 && /<span class="file-num">40<\/span>/.test(fileCell(runwayHtml)) && !/<span class="file-num">2<\/span>/.test(fileCell(runwayHtml)) && !/\d+ on file/.test(fileCell(runwayHtml)));
 expect("Runway Marks stays italic not on file", runwayMarks.includes("not on file") && runwayMarks.includes("absent"));
 
@@ -590,11 +623,11 @@ expect(
 );
 expect(
   "evals bind follows a stored first-party URL",
-  aiFileFlags({ ...mid, ai_evals: { url: "https://www.midjourney.com/system-card" } }).evals === true,
+  aiFileFlags({ ...mid, ai_evals: { url: "https://www.midjourney.com/system-card" } }).evals === 20,
 );
 expect(
   "incidents bind follows a stored first-party URL",
-  aiFileFlags({ ...mid, ai_incidents: { url: "https://www.midjourney.com/ai-incidents" } }).incidents === true,
+  aiFileFlags({ ...mid, ai_incidents: { url: "https://www.midjourney.com/ai-incidents" } }).incidents === 20,
 );
 expect(
   "AIID does not fill incidents",
@@ -603,8 +636,8 @@ expect(
 
 expect("Midjourney has no stored AI evals", storedAiEvalsUrl(mid) === "");
 expect("Midjourney has no stored AI incidents", storedAiIncidentsUrl(mid) === "");
-expect("Midjourney evals stay open", aiFileFlags(mid).evals === false);
-expect("Midjourney incidents stay open", aiFileFlags(mid).incidents === false);
+expect("Midjourney evals stay open", aiFileFlags(mid).evals === 0);
+expect("Midjourney incidents stay open", aiFileFlags(mid).incidents === 0);
 
 for (const row of files) {
   const flags = aiFileFlags(row);
@@ -688,7 +721,7 @@ expect("list member helper sees 2026", isAiListMember({ aiti_lists: ["forbes-ai-
 expect("membership is 200 slugs", Object.keys(membership.slugs).length === 200);
 expect("AITI files are exactly the membership", files.length === 200 && files.every((r) => membership.slugs[r.slug]));
 expect("every AITI file has official homepage", files.every((r) => /^https?:\/\//.test(r.official_url || "")));
-expect("official homepage does not fill page", files.filter((r) => r.official_url && !pagesDoc.pages[r.slug]).every((r) => storedAiPageUrl(r) === "" && aiFileFlags(r).page === false));
+expect("official homepage does not fill page", files.filter((r) => r.official_url && !pagesDoc.pages[r.slug]).every((r) => storedAiPageUrl(r) === "" && aiFileFlags(r).page === 0));
 expect("Amazon homepage is not the AI page fill", storedAiPageUrl(bySlug.amazon) === pagesDoc.pages.amazon.url && storedAiPageUrl(bySlug.amazon) !== bySlug.amazon.official_url && storedAiPageUrl(bySlug.amazon).includes("responsible-ai"));
 expect("Google homepage is not the AI page fill", storedAiPageUrl(bySlug.google) === pagesDoc.pages.google.url && storedAiPageUrl(bySlug.google) !== bySlug.google.official_url && storedAiPageUrl(bySlug.google).includes("responsible-ai"));
 expect("Midjourney dossier homepage is a link", /<a class="official" href="https:\/\/www\.midjourney\.com\/?"/.test(midDossier));

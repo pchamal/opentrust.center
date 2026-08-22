@@ -6,7 +6,11 @@ const data = JSON.parse(readFileSync(new URL("../site/data.json", import.meta.ur
 const bySlug = Object.fromEntries(data.companies.map((r) => [r.slug, r]));
 
 function ruleOn(html) {
-  return [...html.matchAll(/class="file-rule(?: on)?"/g)].map((m) => m[0].includes(" on"));
+  return [...html.matchAll(/class="file-rule(?: (on|partial))?"/g)].map((m) => m[1] === "on");
+}
+
+function ruleKind(html) {
+  return [...html.matchAll(/class="file-rule(?: (on|partial))?"/g)].map((m) => m[1] || "");
 }
 
 function expect(name, cond) {
@@ -36,6 +40,7 @@ const fullRow = {
   trust_url: "https://trust.example",
   attestations: [{ name: "SOC 2" }],
   instruments: { dpa: { url: "https://example/dpa" }, subprocessors: { url: "https://example/subs" } },
+  processors: [{ name: "Acme" }],
   founded_year: 2012,
 };
 const full = fileIndexHtml(fullRow);
@@ -52,12 +57,12 @@ const mixedRow = {
 };
 const mixed = fileCoverage(mixedRow);
 const mixedHtml = fileIndexHtml(mixedRow);
-expect("mixed counts three", mixed.n === 3 && fileCount(mixedRow) === 3);
+expect("mixed counts four", mixed.n === 4 && fileCount(mixedRow) === 4);
 expect("mixed does not print the count", !mixedHtml.includes("3 of 5") && !mixedHtml.includes("file · 3"));
-expect("mixed speaks instruments on file", mixed.spoken === "page · DPA · years");
-expect("mixed fills three rules", (mixedHtml.match(/file-rule on/g) || []).length === 3);
-expect("mixed keeps two open rules", (mixedHtml.match(/file-rule/g) || []).length - (mixedHtml.match(/file-rule on/g) || []).length === 2);
-expect("mixed binds DPA not the second slot", ruleOn(mixedHtml)[2] === true && ruleOn(mixedHtml)[1] === false);
+expect("mixed speaks instruments on file", mixed.spoken === "page · marks · DPA · years");
+expect("mixed fills three prints", (mixedHtml.match(/file-rule on/g) || []).length === 3);
+expect("mixed marks is dotted 10", ruleKind(mixedHtml)[1] === "partial" && fileFlags(mixedRow).marks === 10);
+expect("mixed binds DPA not a filled marks rule", ruleOn(mixedHtml)[2] === true && ruleOn(mixedHtml)[1] === false);
 
 const staleFilled = {
   found: true,
@@ -67,8 +72,8 @@ const staleFilled = {
   certs: [],
   attestations: [],
 };
-expect("stale factors.marks do not fill marks", fileFlags(staleFilled).marks === false && ruleOn(fileIndexHtml(staleFilled))[1] === false);
-expect("stale file.marks do not fill marks", fileFlags(staleFilled).page === true && ruleOn(fileIndexHtml(staleFilled))[0] === true);
+expect("stale factors.marks do not print marks", fileFlags(staleFilled).marks === 10 && ruleKind(fileIndexHtml(staleFilled))[1] === "partial");
+expect("stale file.marks do not fill marks", fileFlags(staleFilled).page === 20 && ruleOn(fileIndexHtml(staleFilled))[0] === true);
 
 const staleEmpty = {
   found: true,
@@ -77,23 +82,23 @@ const staleEmpty = {
   disclosure: { factors: { marks: 0 } },
   attestations: [{ name: "SOC 2 Type II" }, { name: "HIPAA" }],
 };
-expect("named marks fill even if file.marks is false", fileFlags(staleEmpty).marks === true && ruleOn(fileIndexHtml(staleEmpty))[1] === true);
+expect("named marks fill even if file.marks is false", fileFlags(staleEmpty).marks === 20 && ruleOn(fileIndexHtml(staleEmpty))[1] === true);
 
 const eight = bySlug["8x8"];
 const eightHtml = fileIndexHtml(eight);
 const eightMarks = marksCell(eight);
-expect("8x8 page is on file", eight.found && eight.trust_url && fileFlags(eight).page);
-expect("8x8 Marks cell is not on file", eightMarks.includes("not on file"));
-expect("8x8 marks rule is open", fileFlags(eight).marks === false && ruleOn(eightHtml)[1] === false);
-expect("8x8 does not fill first-N from thin", ruleOn(eightHtml)[0] === true && ruleOn(eightHtml).filter(Boolean).length === 1);
+expect("8x8 page is on file", eight.found && eight.trust_url && fileFlags(eight).page === 20);
+expect("8x8 Marks cell lists csa star", /csa star/.test(eightMarks));
+expect("8x8 marks rule is filled", fileFlags(eight).marks === 20 && ruleOn(eightHtml)[1] === true);
+expect("8x8 subprocessors URL-only is 10", fileFlags(eight).subprocessors === 10 && ruleKind(eightHtml)[3] === "partial");
 
 const abridge = bySlug.abridge;
 const abridgeHtml = fileIndexHtml(abridge);
 const abridgeMarks = marksCell(abridge);
 expect("Abridge Marks cell lists names", /soc 2/.test(abridgeMarks) && abridgeMarks.includes("hipaa") && abridgeMarks.includes("ccpa") && abridgeMarks.includes("tx-ramp"));
-expect("Abridge marks rule is filled", fileFlags(abridge).marks === true && ruleOn(abridgeHtml)[1] === true);
+expect("Abridge marks rule is filled", fileFlags(abridge).marks === 20 && ruleOn(abridgeHtml)[1] === true);
 expect("Abridge is not five open hairlines", ruleOn(abridgeHtml).some(Boolean));
-expect("Abridge page stays filled", fileFlags(abridge).page === true && ruleOn(abridgeHtml)[0] === true);
+expect("Abridge page stays filled", fileFlags(abridge).page === 20 && ruleOn(abridgeHtml)[0] === true);
 
 const src = readFileSync(new URL("../site/register.js", import.meta.url), "utf8");
 expect("register draws the file index", src.includes("fileIndexHtml"));
@@ -120,13 +125,13 @@ expect(
 );
 expect(
   "register method line is once under the legend",
-  /id="file-legend">page · marks · DPA · subprocessors · years<\/p>\s*<p class="file-method" id="file-method">20 for each instrument on file\. 100 is five\. This rates the file, not the company\.<\/p>/.test(companiesHtml) &&
-    (companiesHtml.match(/20 for each instrument on file\. 100 is five\. This rates the file, not the company\./g) || []).length === 1,
+  /id="file-legend">page · marks · DPA · subprocessors · years<\/p>\s*<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/.test(companiesHtml) &&
+    (companiesHtml.match(/<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/g) || []).length === 1,
 );
 
 const onePass = bySlug["1password"];
 const onePassCell = registerFileCell(registerRowHtml(onePass));
-expect("1Password count is five", fileCount(onePass) === 5 && fileScore(fileCount(onePass)) === 100);
+expect("1Password count is five", fileCount(onePass) === 5 && fileScore(fileFlags(onePass)) === 100);
 expect(
   "1Password File prints 100",
   /<span class="file-num">100<\/span>/.test(onePassCell) &&
@@ -140,12 +145,11 @@ const twoFilled = {
   slug: "two-filled",
   name: "Two",
   domain: "two.example",
-  found: true,
-  trust_url: "https://trust.two.example",
+  instruments: { dpa: { url: "https://two.example/dpa" } },
   founded_year: 2014,
 };
 const twoCell = registerFileCell(registerRowHtml(twoFilled));
-expect("two-filled count is two", fileCount(twoFilled) === 2 && fileScore(2) === 40);
+expect("two-filled count is two", fileCount(twoFilled) === 2 && fileScore(fileFlags(twoFilled)) === 40);
 expect(
   "two-filled File prints 40",
   /<span class="file-num">40<\/span>/.test(twoCell) &&
@@ -258,16 +262,29 @@ const unity = bySlug.unity;
 const amplitude = bySlug.amplitude;
 const benchling = bySlug.benchling;
 const digitalocean = bySlug.digitalocean;
-expect("cvent DPA follows the stored addendum", cvent.instruments.dpa.url === "https://www.cvent.com/en/data-processing-addendum" && fileFlags(cvent).dpa === true && ruleOn(fileIndexHtml(cvent))[2] === true);
-expect("vertex DPA follows the stored addendum", vertex.instruments.dpa.url === "https://www.vertexinc.com/legal/data-processing-addendum" && fileFlags(vertex).dpa === true && ruleOn(fileIndexHtml(vertex))[2] === true);
-expect("miro DPA follows the stored addendum", miro.instruments.dpa.url === "https://miro.com/legal/customer-data-processing-addendum/" && fileFlags(miro).dpa === true && ruleOn(fileIndexHtml(miro))[2] === true);
-expect("unity DPA follows the stored addendum", unity.instruments.dpa.url === "https://unity.com/legal/unity-data-processing-addendum-dpa" && fileFlags(unity).dpa === true && ruleOn(fileIndexHtml(unity))[2] === true);
-expect("checkr subprocessors follow the stored list", checkr.instruments.subprocessors.url === "https://checkr.com/legal/sub-processor-list" && checkr.processors.length > 0 && fileFlags(checkr).subprocessors === true);
-expect("clickup subprocessors follow the stored list", clickup.instruments.subprocessors.url === "https://clickup.com/terms/dpa/subprocessors" && clickup.processors.length > 0 && fileFlags(clickup).subprocessors === true);
-expect("monday subprocessors follow the stored list", monday.instruments.subprocessors.url === "https://monday.com/l/privacy/sub-processors-subsidiaries-support/" && monday.processors.length > 0 && fileFlags(monday).subprocessors === true);
-expect("amplitude subprocessors follow the stored list", amplitude.instruments.subprocessors.url === "https://www.amplitude.com/subprocessor-list" && amplitude.processors.length > 0 && fileFlags(amplitude).subprocessors === true);
-expect("benchling subprocessors follow the stored list", benchling.instruments.subprocessors.url === "https://www.benchling.com/subprocessors" && benchling.processors.length > 0 && fileFlags(benchling).subprocessors === true);
-expect("digitalocean subprocessors follow the stored list", digitalocean.instruments.subprocessors.url === "https://www.digitalocean.com/trust/subprocessors" && digitalocean.processors.length > 0 && fileFlags(digitalocean).subprocessors === true);
+expect("cvent DPA follows the stored addendum", cvent.instruments.dpa.url === "https://www.cvent.com/en/data-processing-addendum" && fileFlags(cvent).dpa === 20 && ruleOn(fileIndexHtml(cvent))[2] === true);
+expect("vertex DPA follows the stored addendum", vertex.instruments.dpa.url === "https://www.vertexinc.com/legal/data-processing-addendum" && fileFlags(vertex).dpa === 20 && ruleOn(fileIndexHtml(vertex))[2] === true);
+expect("miro DPA follows the stored addendum", miro.instruments.dpa.url === "https://miro.com/legal/customer-data-processing-addendum/" && fileFlags(miro).dpa === 20 && ruleOn(fileIndexHtml(miro))[2] === true);
+expect("unity DPA follows the stored addendum", unity.instruments.dpa.url === "https://unity.com/legal/unity-data-processing-addendum-dpa" && fileFlags(unity).dpa === 20 && ruleOn(fileIndexHtml(unity))[2] === true);
+expect("checkr subprocessors follow the stored list", checkr.instruments.subprocessors.url === "https://checkr.com/legal/sub-processor-list" && checkr.processors.length > 0 && fileFlags(checkr).subprocessors === 20);
+expect("clickup subprocessors follow the stored list", clickup.instruments.subprocessors.url === "https://clickup.com/terms/dpa/subprocessors" && clickup.processors.length > 0 && fileFlags(clickup).subprocessors === 20);
+expect("monday subprocessors follow the stored list", monday.instruments.subprocessors.url === "https://monday.com/l/privacy/sub-processors-subsidiaries-support/" && monday.processors.length > 0 && fileFlags(monday).subprocessors === 20);
+expect("amplitude subprocessors follow the stored list", amplitude.instruments.subprocessors.url === "https://www.amplitude.com/subprocessor-list" && amplitude.processors.length > 0 && fileFlags(amplitude).subprocessors === 20);
+expect("benchling subprocessors follow the stored list", benchling.instruments.subprocessors.url === "https://www.benchling.com/subprocessors" && benchling.processors.length > 0 && fileFlags(benchling).subprocessors === 20);
+expect("digitalocean subprocessors follow the stored list", digitalocean.instruments.subprocessors.url === "https://www.digitalocean.com/trust/subprocessors" && digitalocean.processors.length > 0 && fileFlags(digitalocean).subprocessors === 20);
+const planview = bySlug.planview;
+expect(
+  "URL-only subprocessors is 10 not 20",
+  planview.processors.length === 0 &&
+    !!planview.instruments.subprocessors.url &&
+    fileFlags(planview).subprocessors === 10 &&
+    fileScore(fileFlags(planview)) === 90 &&
+    ruleKind(fileIndexHtml(planview))[3] === "partial" &&
+    fileIndexHtml(planview).includes('class="file-rule partial"'),
+);
+const urlOnlySubs = { instruments: { subprocessors: { url: "https://example.com/subprocessors" } } };
+expect("synthetic URL-only subprocessors is 10", fileFlags(urlOnlySubs).subprocessors === 10 && fileScore(fileFlags(urlOnlySubs)) === 10);
+expect("dotted rule is Ledger Black not a pip", fileIndexHtml(urlOnlySubs).includes('class="file-rule partial"') && ruleKind(fileIndexHtml(urlOnlySubs))[3] === "partial");
 expect("filed processor names are not dates", [checkr, clickup, monday, amplitude, benchling, digitalocean].every((row) => (row.processors || []).every((p) => !/^\d{1,2}\s+[A-Za-z]+\s+\d{4}$/.test(p.name) && p.name !== "Date" && p.name !== "Date of change" && p.name !== "AUS" && p.name !== "Data Center Services")));
 
 const box = readFileSync(new URL("../site/c/box.html", import.meta.url), "utf8");
@@ -283,7 +300,7 @@ const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8")
 expect("identity block wears the spine", /\.ident \{[\s\S]*border-left: var\(--ot-spine\) solid var\(--ot-evidence-teal\)/.test(css));
 expect("no boxed file-state module", !css.includes(".file-state") && !css.includes(".state-word"));
 expect("rules are ledger black", /\.file-rule \{[\s\S]*border-top: 1px solid var\(--ot-ledger-black\)/.test(css) && /\.file-rule\.on \{[\s\S]*background: var\(--ot-ledger-black\)/.test(css));
-expect("teal does not fill the rules", !/\.file-rule[\s\S]{0,80}--ot-evidence-teal/.test(css) && !/\.file-rule\.on[\s\S]{0,80}--ot-evidence-teal/.test(css));
+expect("teal does not fill the rules", !/\.file-rule[\s\S]{0,80}--ot-evidence-teal/.test(css) && !/\.file-rule\.on[\s\S]{0,80}--ot-evidence-teal/.test(css) && !/\.file-rule\.partial[\s\S]{0,80}--ot-evidence-teal/.test(css));
 expect("no star styles", !css.includes("★") && !css.includes("☆") && !css.includes("star-rating") && !css.includes("trust-maturity"));
 expect("marks stay Atkinson data", /\.mark-list li \{[\s\S]*font: var\(--t-data\)/.test(css) && /\.mark-list li \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css));
 expect("instrument cells stay Atkinson", /\.inst td \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css));

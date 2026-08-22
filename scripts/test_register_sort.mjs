@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { parseFinder } from "../site/finder.js";
-import { fileCount, fillIssue } from "../site/lib.js";
+import { fileCount, fileFlags, fileScore, fillIssue } from "../site/lib.js";
 import {
   normalizeSort,
   normalizeDir,
@@ -125,11 +125,11 @@ expect("host is case-insensitive alpha", domainOk);
 const byTier = arrangeRows(rows, "file", "desc");
 const fileOk = byTier.every((r, i) => {
   if (i === 0) return true;
-  return fileCount(r) <= fileCount(byTier[i - 1]);
+  return fileScore(fileFlags(r)) <= fileScore(fileFlags(byTier[i - 1]));
 });
-expect("file sort uses 0–5 on file", fileOk);
-expect("file high is five instruments", fileCount(byTier[0]) === 5);
-expect("file low is empty", fileCount(byTier[byTier.length - 1]) === 0);
+expect("file sort uses the File numeral", fileOk);
+expect("file high is five prints", fileScore(fileFlags(byTier[0])) === 100);
+expect("file low is empty", fileScore(fileFlags(byTier[byTier.length - 1])) === 0);
 
 const english = [...byTier].sort((a, b) => {
   const aw = a.tier === "on-file" ? "on file" : a.tier;
@@ -157,7 +157,7 @@ expect("default keeps every company", landing.length === rows.length);
 expect("default does not drop a slug", new Set(landing.map((r) => r.slug)).size === rows.length);
 expect("default is Company A–Z", nameOkLanding && landing[0].name.localeCompare(landing[landing.length - 1].name, undefined, { sensitivity: "base" }) < 0);
 expect("complete stays in the table", landing.some((r) => r.tier === "complete"));
-expect("file header still sorts the state", fileCount(arrangeRows(rows, "file", "asc")[0]) === 0 && fileCount(arrangeRows(rows, "file", "desc")[0]) === 5);
+expect("file header still sorts the state", fileScore(fileFlags(arrangeRows(rows, "file", "asc")[0])) === 0 && fileScore(fileFlags(arrangeRows(rows, "file", "desc")[0])) === 100);
 
 const indexHtml = readFileSync(new URL("../site/companies.html", import.meta.url), "utf8");
 expect("register grid dropped probed", !/data-sort="probed"/.test(indexHtml) && !/>probed</.test(indexHtml));
