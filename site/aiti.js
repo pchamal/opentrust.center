@@ -7,10 +7,11 @@ import {
   printedAiMarks,
   hasPrintedAiMark,
   aiFileIndexHtml,
-  aiFileCount,
+  aiFileFlags,
   fileScore,
   printedAitiUrl,
   nameWithIcon,
+  bindFileMethodToggle,
 } from "./lib.js";
 import { parseFinder, stripFinderToken, echoWords } from "./finder.js";
 import { clickSort, cmpText, paintHeaders } from "./sort.js";
@@ -75,7 +76,7 @@ export function compareAiRows(a, b, key) {
     case "domain":
       return cmpText(a && a.domain, b && b.domain);
     case "file":
-      return aiFileCount(a) - aiFileCount(b);
+      return fileScore(aiFileFlags(a)) - fileScore(aiFileFlags(b));
     case "marks": {
       const left = marksSortKey(a);
       const right = marksSortKey(b);
@@ -142,7 +143,7 @@ function apply() {
 
 export function aitiRowHtml(row, i, selectedSlug) {
   const selected = selectedSlug === row.slug ? ' aria-selected="true"' : "";
-  const n = String(fileScore(aiFileCount(row)));
+  const n = String(fileScore(aiFileFlags(row)));
   return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${nameWithIcon(row.name, row.favicon)}</a></td>
         <td class="domain">${printedAitiUrl(row)}</td>
@@ -283,6 +284,7 @@ function resetQuery() {
 }
 
 function bind() {
+  bindFileMethodToggle();
   $("finder").addEventListener("submit", (e) => {
     e.preventDefault();
     state.q = $("q").value;

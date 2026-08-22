@@ -44,7 +44,10 @@ expect("active view is 1px underline not teal type", toggle.includes("border-bot
 expect("selected is ink fill teal stroke", js.includes("ctx.fillStyle = ink") && js.includes("selected ? teal : ink") && js.includes("selected ? 2 : 1") && /placeLabel\([\s\S]*ink/.test(js));
 expect("no teal type on the selected name", !js.includes("placeLabel") || !/placeLabel\([^)]*teal/.test(js));
 expect("issue line has no edge count", js.includes("fillIssue($(\"issue\"), reg)") && !js.includes("${state.edges.length} edges"));
-expect("register first screen untouched", companies.includes("Public trust register") && !index.includes("view-toggle"));
+expect("register first screen keeps its title", companies.includes("Public trust register"));
+expect("AITI and Register use file | method", index.includes(">file</button>") && index.includes(">method</button>") && companies.includes(">file</button>") && companies.includes(">method</button>"));
+expect("graph is still list | map", html.includes(">list</button>") && html.includes(">map</button>") && !html.includes(">file</button>"));
+expect("file|method underline is Ledger Black", /body\.register \.view-toggle button\.on \{[\s\S]*border-bottom-color: var\(--ot-ledger-black\)/.test(css));
 expect("dossier identity untouched", dossier.includes('class="ident"') && dossier.includes("file-line"));
 
 const edges = (wires.edges || [])

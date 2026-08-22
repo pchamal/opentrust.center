@@ -41,8 +41,14 @@
   <p class="issue" id="issue">issue —</p>
 
   <main class="canvas" id="main">
+    <div id="file-view">
     <h1 class="page-title">Public trust register</h1>
     <p class="lede">A database of each company’s public trust ledger.</p>
+    <nav class="view-toggle" role="tablist" aria-label="View">
+      <button type="button" role="tab" data-view="file" class="on" aria-controls="file-view" aria-selected="true">file</button>
+      <span class="sep" aria-hidden="true">|</span>
+      <button type="button" role="tab" data-view="method" aria-controls="method-view" aria-selected="false">method</button>
+    </nav>
 
     <form class="finder" id="finder" role="search">
       <label>
@@ -55,7 +61,7 @@
     <p class="queryline" id="queryline" hidden></p>
     <p class="countline" id="countline"></p>
     <p class="file-legend" id="file-legend">page · marks · DPA · subprocessors · years</p>
-    <p class="file-method" id="file-method">20 for each instrument on file. 100 is five. This rates the file, not the company.</p>
+    <p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing. 100 is five prints.</p>
 
     <div id="miss" class="miss" hidden>
       <p class="miss-title" id="miss-title">Not in the index.</p>
@@ -83,6 +89,29 @@
 
     <div id="empty" class="empty" hidden>
       <p>No crawl data on file.</p>
+    </div>
+    </div>
+
+    <div id="method-view" hidden>
+      <h1 class="page-title">Method</h1>
+      <p class="lede">How we count a public file. Not a company grade.</p>
+      <nav class="view-toggle" role="tablist" aria-label="View">
+        <button type="button" role="tab" data-view="file" aria-controls="file-view" aria-selected="false">file</button>
+        <span class="sep" aria-hidden="true">|</span>
+        <button type="button" role="tab" data-view="method" class="on" aria-controls="method-view" aria-selected="true">method</button>
+      </nav>
+      <h2 class="sec-kicker">The count</h2>
+      <p class="clerk">20 printed · 10 on file, not extracted · 0 missing. 100 is five prints.</p>
+      <h2 class="sec-kicker">AITI</h2>
+      <p class="clerk">page · marks · processors · evals · incidents. Marks print only when an AI mark is on the page. Empty incidents are inconclusive.</p>
+      <h2 class="sec-kicker">Register</h2>
+      <p class="clerk">page · marks · DPA · subprocessors · years.</p>
+      <h2 class="sec-kicker">What counts</h2>
+      <p class="clerk">First-party public HTML or a first-party legal PDF on the company’s own host. Fetch-check. No invented companies, certs, processors, or URLs.</p>
+      <h2 class="sec-kicker">What stays open</h2>
+      <p class="clerk">JS shells, HTTP 403/404, login walls, regulation-only GDPR/CCPA rights text, DPF as a transfer among SCCs, portal hosts. Missing prints <i>not on file</i>. When unsure, leave open.</p>
+      <h2 class="sec-kicker">Outbound</h2>
+      <p class="clerk">Outbound is human-gated. Documents stay on the company’s domain.</p>
     </div>
   </main>
 

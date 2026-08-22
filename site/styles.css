@@ -554,6 +554,12 @@ body.aiti .reg td.marks a:hover {
   border: 0;
   background: var(--ot-ledger-black);
 }
+.file-rule.partial {
+  margin-top: 0;
+  border: 0;
+  background: transparent;
+  border-top: 1px dotted var(--ot-ledger-black);
+}
 body.aiti .reg td.file-cell .file-num {
   font: var(--t-name);
   color: var(--ot-ledger-black);
@@ -1073,6 +1079,10 @@ a.official {
   gap: 32px;
   align-items: start;
 }
+body.register .view-toggle button.on {
+  color: var(--ot-ledger-black);
+  border-bottom-color: var(--ot-ledger-black);
+}
 .wires-grid[data-view="map"] {
   grid-template-columns: minmax(0, 1fr) 320px;
 }
@@ -1417,6 +1427,11 @@ a.official {
 }
 
 @media (max-width: 390px) {
+  body.register #method-view .sec-kicker,
+  body.register #method-view .clerk {
+    display: block;
+    width: 100%;
+  }
   body.aiti .reg td.file-cell .file-num {
     display: block;
     margin-right: 0;

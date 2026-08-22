@@ -2,10 +2,11 @@ import {
   $,
   escapeHtml,
   fillIssue,
-  fileCount,
+  fileFlags,
   fileIndexHtml,
   fileScore,
   dataUrl,
+  bindFileMethodToggle,
   nameWithIcon,
   printedUrl,
 } from "./lib.js";
@@ -118,7 +119,7 @@ export function compareRows(a, b, key) {
       return cmpText(a && a.domain, b && b.domain);
     case "file":
     case "tier":
-      return fileCount(a) - fileCount(b);
+      return fileScore(fileFlags(a)) - fileScore(fileFlags(b));
     case "marks":
       return cmpMarksText(a, b);
     case "probed":
@@ -271,7 +272,7 @@ export function marksCell(row) {
 
 export function registerRowHtml(row, selectedSlug) {
   const selected = selectedSlug === row.slug ? ' aria-selected="true"' : "";
-  const n = String(fileScore(fileCount(row)));
+  const n = String(fileScore(fileFlags(row)));
   return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${nameWithIcon(row.name, row.favicon)}</a></td>
         <td class="domain">${printedUrl(row.domain || "", row.domain || "")}</td>
@@ -461,6 +462,7 @@ function resetQuery() {
 }
 
 function bind() {
+  bindFileMethodToggle();
   $("finder").addEventListener("submit", (e) => {
     e.preventDefault();
     state.q = $("q").value;
