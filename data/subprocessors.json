@@ -9381,6 +9381,83 @@
       "domain": "",
       "kind": "processor",
       "in_register": false
+    },
+    {
+      "id": "zight-formerly-cloudapp",
+      "name": "Zight (formerly CloudApp)",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "activecampaign",
+      "name": "ActiveCampaign",
+      "domain": "activecampaign.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "logz-io",
+      "name": "logz.io",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "powtoon",
+      "name": "Powtoon",
+      "domain": "powtoon.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "recurly-com",
+      "name": "recurly.com",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "appcues-com",
+      "name": "appcues.com",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "elevenlabs-io",
+      "name": "elevenlabs.io",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "iterable-com",
+      "name": "iterable.com",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "ciklum",
+      "name": "Ciklum",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "collosyan",
+      "name": "Collosyan",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "heygen",
+      "name": "HeyGen",
+      "domain": "heygen.com",
+      "kind": "company",
+      "in_register": true
     }
   ],
   "edges": [
@@ -18179,6 +18256,162 @@
       "to": "gcp",
       "source_url": "https://www.crossbeam.com/legal/subprocessors",
       "evidence": "Google Cloud Platform"
+    },
+    {
+      "from": "activecampaign",
+      "to": "aws",
+      "source_url": "https://www.activecampaign.com/legal/subprocessors",
+      "evidence": "Amazon Web Services"
+    },
+    {
+      "from": "activecampaign",
+      "to": "cloudflare",
+      "source_url": "https://www.activecampaign.com/legal/subprocessors",
+      "evidence": "CloudFlare"
+    },
+    {
+      "from": "activecampaign",
+      "to": "snowflake",
+      "source_url": "https://www.activecampaign.com/legal/subprocessors",
+      "evidence": "Snowflake"
+    },
+    {
+      "from": "activecampaign",
+      "to": "zendesk",
+      "source_url": "https://www.activecampaign.com/legal/subprocessors",
+      "evidence": "Zendesk"
+    },
+    {
+      "from": "activecampaign",
+      "to": "zight-formerly-cloudapp",
+      "source_url": "https://www.activecampaign.com/legal/subprocessors",
+      "evidence": "Zight (formerly CloudApp)"
+    },
+    {
+      "from": "activecampaign",
+      "to": "twilio",
+      "source_url": "https://www.activecampaign.com/legal/subprocessors",
+      "evidence": "Twilio"
+    },
+    {
+      "from": "activecampaign",
+      "to": "openai",
+      "source_url": "https://www.activecampaign.com/legal/subprocessors",
+      "evidence": "OpenAI"
+    },
+    {
+      "from": "powtoon",
+      "to": "aws",
+      "source_url": "https://www.powtoon.com/dpa/sub-processors/",
+      "evidence": "aws.com"
+    },
+    {
+      "from": "powtoon",
+      "to": "azure",
+      "source_url": "https://www.powtoon.com/dpa/sub-processors/",
+      "evidence": "azure.com"
+    },
+    {
+      "from": "powtoon",
+      "to": "logz-io",
+      "source_url": "https://www.powtoon.com/dpa/sub-processors/",
+      "evidence": "logz.io"
+    },
+    {
+      "from": "powtoon",
+      "to": "sentry",
+      "source_url": "https://www.powtoon.com/dpa/sub-processors/",
+      "evidence": "sentry.com"
+    },
+    {
+      "from": "powtoon",
+      "to": "fastly",
+      "source_url": "https://www.powtoon.com/dpa/sub-processors/",
+      "evidence": "Fastly"
+    },
+    {
+      "from": "powtoon",
+      "to": "mongodb",
+      "source_url": "https://www.powtoon.com/dpa/sub-processors/",
+      "evidence": "MongoDB"
+    },
+    {
+      "from": "powtoon",
+      "to": "pusher",
+      "source_url": "https://www.powtoon.com/dpa/sub-processors/",
+      "evidence": "Pusher"
+    },
+    {
+      "from": "powtoon",
+      "to": "mux",
+      "source_url": "https://www.powtoon.com/dpa/sub-processors/",
+      "evidence": "Mux"
+    },
+    {
+      "from": "powtoon",
+      "to": "zendesk",
+      "source_url": "https://www.powtoon.com/dpa/sub-processors/",
+      "evidence": "zendesk"
+    },
+    {
+      "from": "powtoon",
+      "to": "recurly-com",
+      "source_url": "https://www.powtoon.com/dpa/sub-processors/",
+      "evidence": "recurly.com"
+    },
+    {
+      "from": "powtoon",
+      "to": "hubspot",
+      "source_url": "https://www.powtoon.com/dpa/sub-processors/",
+      "evidence": "hubspot.com"
+    },
+    {
+      "from": "powtoon",
+      "to": "google",
+      "source_url": "https://www.powtoon.com/dpa/sub-processors/",
+      "evidence": "Google"
+    },
+    {
+      "from": "powtoon",
+      "to": "appcues-com",
+      "source_url": "https://www.powtoon.com/dpa/sub-processors/",
+      "evidence": "appcues.com"
+    },
+    {
+      "from": "powtoon",
+      "to": "openai",
+      "source_url": "https://www.powtoon.com/dpa/sub-processors/",
+      "evidence": "openai.com"
+    },
+    {
+      "from": "powtoon",
+      "to": "elevenlabs-io",
+      "source_url": "https://www.powtoon.com/dpa/sub-processors/",
+      "evidence": "elevenlabs.io"
+    },
+    {
+      "from": "powtoon",
+      "to": "iterable-com",
+      "source_url": "https://www.powtoon.com/dpa/sub-processors/",
+      "evidence": "iterable.com"
+    },
+    {
+      "from": "powtoon",
+      "to": "ciklum",
+      "source_url": "https://www.powtoon.com/dpa/sub-processors/",
+      "evidence": "Ciklum"
+    },
+    {
+      "from": "powtoon",
+      "to": "collosyan",
+      "source_url": "https://www.powtoon.com/dpa/sub-processors/",
+      "evidence": "Collosyan"
+    },
+    {
+      "from": "powtoon",
+      "to": "heygen",
+      "source_url": "https://www.powtoon.com/dpa/sub-processors/",
+      "evidence": "Heygen"
     }
   ],
   "notes": "Only public lists. Incomplete by nature. Login-walled app URLs omitted."

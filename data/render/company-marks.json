@@ -1,143 +1,209 @@
 {
-  "generated_at": "2026-08-22T00:04:52Z",
+  "generated_at": "2026-08-22T00:54:27Z",
   "rule": "Next ~40 on-file companies whose marks File-glyph rule was open or thin and who already had a first-party trust / privacy / security URL. Marks fill only when that live page names the company's own hold. Regulation mentions (GDPR/CCPA as rights) and DPF as a transfer mechanism among SCCs stay open. Login walls, soft-404s, homepage bounces, PDFs, JS shells, and portal hosts stay open. Substantial files were skipped.",
   "batch": [
-    "smartbear-software",
-    "scaleway",
-    "ukg",
-    "booksy"
+    "activecampaign",
+    "kiteworks",
+    "kampyle",
+    "comm100",
+    "planview",
+    "typeform"
   ],
   "marks_filed": [
     {
-      "slug": "scaleway",
-      "name": "Scaleway",
-      "url": "https://security.scaleway.com",
-      "added": [
-        "ISO 27001",
-        "CSA STAR",
-        "HDS",
-        "GDPR"
-      ],
-      "certs": [
-        "ISO 27001",
-        "CSA STAR",
-        "HDS",
-        "GDPR"
-      ]
-    },
-    {
-      "slug": "smartbear-software",
-      "name": "SmartBear Software",
-      "url": "https://trust.smartbear.com",
+      "slug": "activecampaign",
+      "name": "ActiveCampaign",
+      "url": "https://www.activecampaign.com/security",
       "added": [
         "SOC 2 Type II",
-        "SOC 3",
-        "ISO 27001",
-        "GDPR",
-        "CCPA",
-        "NIST CSF"
-      ],
-      "certs": [
-        "SOC 2 Type II",
-        "SOC 3",
-        "ISO 27001",
-        "GDPR",
-        "CCPA",
-        "NIST CSF"
-      ]
-    },
-    {
-      "slug": "ukg",
-      "name": "UKG",
-      "url": "https://trustcenter.ukg.com",
-      "added": [
-        "SOC 2 Type II",
-        "SOC 2 Type I",
-        "SOC 1 Type II",
-        "SOC 3",
-        "ISO 27001",
-        "ISO 27017",
-        "ISO 27018",
-        "CSA STAR",
-        "Cyber Essentials",
-        "IRAP",
-        "GDPR",
-        "CCPA"
-      ],
-      "certs": [
-        "SOC 2 Type II",
-        "SOC 2 Type I",
-        "SOC 1 Type II",
-        "SOC 3",
-        "ISO 27001",
-        "ISO 27017",
-        "ISO 27018",
-        "CSA STAR",
-        "Cyber Essentials",
-        "IRAP",
-        "GDPR",
-        "CCPA"
-      ]
-    },
-    {
-      "slug": "zuora",
-      "name": "Zuora",
-      "url": "https://www.zuora.com/privacy-statement/",
-      "added": [
-        "EU-US DPF"
-      ],
-      "certs": [
-        "SOC 1",
         "HIPAA",
-        "PCI DSS",
         "GDPR",
         "EU-US DPF"
+      ],
+      "certs": [
+        "SOC 2 Type II",
+        "HIPAA",
+        "GDPR",
+        "EU-US DPF"
+      ],
+      "also": [
+        "https://www.activecampaign.com/legal/dpa",
+        "https://www.activecampaign.com/legal/privacy-policy"
+      ],
+      "note": "Extractor first picked the DPA page (SOC 2 Type II + GDPR/CCPA/LGPD as applicable law). Verification kept SOC 2 Type II from the DPA report sentence and GDPR from the security compliance sentence; added HIPAA from the same security sentence; added EU-US DPF from the privacy-policy self-cert; dropped CCPA/LGPD as regulation-only."
+    },
+    {
+      "slug": "planview",
+      "name": "Planview",
+      "url": "https://trust.planview.com",
+      "added": [
+        "SOC 2",
+        "ISO 27001",
+        "ISO 27701",
+        "CSA STAR",
+        "GDPR"
+      ],
+      "certs": [
+        "SOC 2",
+        "ISO 27001",
+        "ISO 27701",
+        "CSA STAR",
+        "GDPR"
       ]
     }
   ],
   "stayed_open": [
     {
-      "slug": "booksy",
-      "name": "Booksy",
+      "slug": "kiteworks",
+      "name": "Kiteworks",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "kampyle",
+      "name": "Kampyle",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "comm100",
+      "name": "Comm100",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "typeform",
+      "name": "Typeform",
       "rule": "marks",
       "thin": false
     }
   ],
   "rejected": [
     {
-      "slug": "ukg",
-      "url": "https://www.ukg.com/privacy",
-      "final": "https://www.ukg.com/privacy",
+      "slug": "kampyle",
+      "url": "https://kampyle.com/trust",
+      "final": "https://kampyle.com/trust",
       "reason": "http-403",
-      "kind": "privacy"
+      "kind": "trust"
     },
     {
-      "slug": "smartbear-software",
-      "url": "https://smartbear.com/privacy/",
-      "final": "https://smartbear.com/privacy/",
-      "reason": "regulation-only",
-      "kind": "privacy"
+      "slug": "kampyle",
+      "url": "https://kampyle.com/security/",
+      "final": "https://kampyle.com/security/",
+      "reason": "http-403",
+      "kind": "security"
     },
     {
-      "slug": "booksy",
-      "url": "https://trust.booksy.com",
-      "final": "https://trust.booksy.com",
+      "slug": "activecampaign",
+      "url": "https://trust.activecampaign.com",
+      "final": "https://trust.activecampaign.com",
       "reason": "no-named-marks",
       "kind": "trust"
     },
     {
-      "slug": "booksy",
-      "url": "https://trust.booksy.com/subprocessors",
-      "final": "https://trust.booksy.com/subprocessors",
+      "slug": "kampyle",
+      "url": "https://www.medallia.com/wp-content/uploads/2025/05/Medallia-Subprocessor-List-2025.v.1.03.pdf",
+      "final": "https://www.medallia.com/wp-content/uploads/2025/05/Medallia-Subprocessor-List-2025.v.1.03.pdf",
+      "reason": "http-403",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "kampyle",
+      "url": "https://www.medallia.com/security/",
+      "final": "https://www.medallia.com/security/",
+      "reason": "http-403",
+      "kind": "final_url"
+    },
+    {
+      "slug": "kampyle",
+      "url": "https://www.medallia.com/legal/privacy-policy/",
+      "final": "https://www.medallia.com/legal/privacy-policy/",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "activecampaign",
+      "url": "https://www.activecampaign.com/legal/subprocessors",
+      "final": "https://www.activecampaign.com/legal/subprocessors",
+      "reason": "regulation-only",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "planview",
+      "url": "https://www.planview.com/trust/privacy/",
+      "final": "https://www.planview.com/trust/privacy/",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "planview",
+      "url": "https://www.planview.com/legal/agreements/dpa-archive/",
+      "final": "https://www.planview.com/legal/agreements/dpa-archive/",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "planview",
+      "url": "https://www.planview.com/trust/subprocessors/",
+      "final": "https://www.planview.com/trust/subprocessors/",
+      "reason": "http-403",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "kiteworks",
+      "url": "https://trust.kiteworks.com/subprocessors",
+      "final": "https://trust.kiteworks.com/subprocessors",
       "reason": "no-named-marks",
       "kind": "subprocessors"
     },
     {
-      "slug": "scaleway",
-      "url": "https://www.scaleway.com/en/privacy-policy/",
-      "final": "https://www.scaleway.com/en/privacy-policy/",
+      "slug": "kiteworks",
+      "url": "https://trust.kiteworks.com",
+      "final": "https://trust.kiteworks.com",
+      "reason": "no-named-marks",
+      "kind": "trust"
+    },
+    {
+      "slug": "comm100",
+      "url": "https://www.comm100.com/trust-center/",
+      "final": "https://www.comm100.com/trust-center/",
+      "reason": "no-named-marks",
+      "kind": "final_url"
+    },
+    {
+      "slug": "typeform",
+      "url": "https://www.typeform.com/legal/data-processing-agreement",
+      "final": "https://www.typeform.com/legal/data-processing-agreement",
       "reason": "regulation-only",
+      "kind": "dpa"
+    },
+    {
+      "slug": "comm100",
+      "url": "https://comm100.com/trust-center",
+      "final": "https://www.comm100.com/trust-center/",
+      "reason": "no-named-marks",
+      "kind": "trust"
+    },
+    {
+      "slug": "comm100",
+      "url": "https://www.comm100.com/privacy/",
+      "final": "https://www.comm100.com/privacy/",
+      "reason": "no-named-marks",
       "kind": "privacy"
+    },
+    {
+      "slug": "typeform",
+      "url": "https://trust.typeform.com/subprocessors",
+      "final": "https://trust.typeform.com/subprocessors",
+      "reason": "no-named-marks",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "typeform",
+      "url": "https://trust.typeform.com",
+      "final": "https://trust.typeform.com",
+      "reason": "no-named-marks",
+      "kind": "trust"
     }
   ]
 }
