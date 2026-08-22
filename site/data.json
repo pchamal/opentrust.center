@@ -23284,32 +23284,59 @@
           "host": "alvao.com",
           "seen": "2026-08-22"
         },
-        "dpa": null,
-        "subprocessors": null,
+        "dpa": {
+          "url": "https://www.alvao.com/en/storage/app/media/alvaosaas-dpaenglishseptember2026.pdf",
+          "host": "alvao.com",
+          "seen": "2026-08-22"
+        },
+        "subprocessors": {
+          "url": "https://www.alvao.com/en/trust-center",
+          "host": "alvao.com",
+          "seen": "2026-08-22"
+        },
         "status": null,
         "bounty": null
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "Microsoft Corporation",
+          "slug": "microsoft",
+          "id": "microsoft",
+          "source_url": "https://www.alvao.com/en/trust-center"
+        },
+        {
+          "name": "HubSpot",
+          "slug": "hubspot",
+          "id": "hubspot",
+          "source_url": "https://www.alvao.com/en/trust-center"
+        },
+        {
+          "name": "SendGrid",
+          "slug": null,
+          "id": "sendgrid",
+          "source_url": "https://www.alvao.com/en/trust-center"
+        }
+      ],
       "disclosure": {
-        "score": 76,
-        "tier": "substantial",
+        "score": 92,
+        "tier": "complete",
         "factors": {
           "page": 20,
           "marks": 40,
-          "dpa": 0,
-          "processors": 0,
+          "dpa": 8,
+          "processors": 8,
           "status": 0,
           "bounty": 0,
           "privacy": 6,
           "years": 10
         }
       },
-      "tier": "substantial",
+      "tier": "complete",
       "file": {
         "page": true,
         "marks": true,
-        "dpa": false,
-        "subprocessors": false,
+        "dpa": true,
+        "subprocessors": true,
         "years": true
       },
       "_crawl": {
@@ -47574,9 +47601,23 @@
       "source_url": "https://en.wikipedia.org/wiki/Category:Business_software_companies",
       "probed": 4,
       "probed_at": "2026-08-22T01:55:00Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "SOC 1 Type II",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, SOC 1 Type II.",
       "founded_year": 2003,
       "founded_source": "https://en.wikipedia.org/wiki/BigTime_Enterprise_PSA",
       "instruments": {
@@ -47610,11 +47651,11 @@
       },
       "processors": [],
       "disclosure": {
-        "score": 50,
+        "score": 64,
         "tier": "on-file",
         "factors": {
           "page": 20,
-          "marks": 0,
+          "marks": 14,
           "dpa": 0,
           "processors": 8,
           "status": 6,
@@ -47626,7 +47667,7 @@
       "tier": "on-file",
       "file": {
         "page": true,
-        "marks": false,
+        "marks": true,
         "dpa": false,
         "subprocessors": true,
         "years": true
