@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-21T22:50:00Z",
-  "seen": "2026-08-21",
+  "generated_at": "2026-08-22T01:50:00Z",
+  "seen": "2026-08-22",
   "rule": "Processors fills only when the company names, on a first-party public page, at least one AI system processor (a model/API provider). Stripe, Datadog, AWS-as-hosting, Snowflake, and bare Google/Microsoft/Azure do not count. No SafeBase, no login-walled portals, no invented names, no date-shaped strings. When unsure, leave open.",
-  "method": "Fetch-check of first-party public lists. Processors fill only when the HTML prints organization names of AI system processors (model/API providers). Cognition, Wispr Flow, Profound, and Further AI first-party DPA/data-protection tables print names. Trust-center JS shells, homepage bounces, hosting/SaaS-only tables, leftover row.processors names, Cloudflare walls, Framer non-tables, and PDFs do not fill. Anthropic stays open. Midjourney stays all-open. ISO 27001 / SOC 2 are not processor names.",
-  "count": 22,
+  "method": "Fetch-check of first-party public lists. Processors fill only when the HTML prints organization names of AI system processors (model/API providers). Speak and Upstage first-party privacy tables print OpenAI. Cognition, Wispr Flow, Profound, and Further AI first-party DPA/data-protection tables stay on file. Trust-center JS shells, homepage bounces, hosting/SaaS-only tables, numbered lists that are not tables, leftover row.processors names, Cloudflare walls, Framer non-tables, and PDFs do not fill. Anthropic stays open. Midjourney stays all-open. ISO 27001 / SOC 2 are not processor names.",
+  "count": 24,
   "processors": {
     "intercom": {
       "names": [
@@ -526,6 +526,28 @@
       ],
       "source_url": "https://www.furtherai.com/data-protection",
       "via": "cited-first-party-list"
+    },
+    "speak": {
+      "names": [
+        {
+          "name": "OpenAI, L.L.C.",
+          "slug": "openai",
+          "source_url": "https://www.speak.com/privacy"
+        }
+      ],
+      "source_url": "https://www.speak.com/privacy",
+      "via": "cited-first-party-list"
+    },
+    "upstage": {
+      "names": [
+        {
+          "name": "OpenAI, L.L.C.",
+          "slug": "openai",
+          "source_url": "https://www.upstage.ai/privacy-policy"
+        }
+      ],
+      "source_url": "https://www.upstage.ai/privacy-policy",
+      "via": "cited-first-party-list"
     }
   },
   "rejected": [
@@ -652,6 +674,46 @@
     {
       "slug": "perplexity-ai",
       "reason": "https://trust.perplexity.ai/subprocessors is a JS shell; names were not printed."
+    },
+    {
+      "slug": "newton-research",
+      "reason": "https://www.newtonresearch.ai/dpa prints OpenAI in a numbered <p> list, not a table."
+    },
+    {
+      "slug": "serval",
+      "reason": "https://www.serval.com/legal/data-processing-addendum is a Framer DPA; Perplexity and Together.ai are customer logos, not a processor table."
+    },
+    {
+      "slug": "straiker",
+      "reason": "https://www.straiker.ai/legal/dpa has no processor table. OpenAI appears in marketing nav."
+    },
+    {
+      "slug": "stackone",
+      "reason": "https://www.stackone.com/terms/dpa/ names no organizations. trust.stackone.com is Cloudflare 403."
+    },
+    {
+      "slug": "lovable",
+      "reason": "https://lovable.dev/subprocessors points at a Trust Center; organization names were not printed."
+    },
+    {
+      "slug": "simbian",
+      "reason": "https://simbian.ai/legal/dpa table is Auth0, AWS, Microsoft, Notion, HubSpot, Slack, Stripe. Perplexity is a nav ask-link."
+    },
+    {
+      "slug": "incountry",
+      "reason": "https://incountry.com/legal/sub-processors table is hosting and SaaS. OpenAI Codex is a product-menu link."
+    },
+    {
+      "slug": "browser-use",
+      "reason": "https://browser-use.com/dpa tables are SCCs and TOMs. No model/API provider named."
+    },
+    {
+      "slug": "poolside",
+      "reason": "https://poolside.ai/legal/dpa tables are SCCs and TOMs. No model/API provider named."
+    },
+    {
+      "slug": "deepjudge",
+      "reason": "https://www.deepjudge.ai/dpa table is hosting and SaaS (Azure, GCP, AWS, Intercom, Gong)."
     },
     {
       "note": "Bare Google, Microsoft, Azure, Google Cloud, AWS, Stripe, Datadog, and Snowflake never fill processors. Date-shaped strings are not processors. ISO 27001 / SOC 2 are not processor names."
@@ -819,7 +881,6 @@
     "simile",
     "sipearl",
     "skild-ai",
-    "speak",
     "stackone",
     "stepfun",
     "straiker",
@@ -832,7 +893,6 @@
     "the-bot-company",
     "tollbit",
     "unsloth-ai",
-    "upstage",
     "venice",
     "virtue-ai",
     "wan-ai",
