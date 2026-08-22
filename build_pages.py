@@ -1943,6 +1943,7 @@ def main() -> int:
         f"{CANON}/graph.html",
         f"{CANON}/attestations.html",
         f"{CANON}/brand.html",
+        f"{CANON}/methodology.html",
         f"{CANON}/claim.html",
     ]
     for row in public_companies:
