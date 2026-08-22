@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-21T19:50:00Z",
+  "generated_at": "2026-08-22T01:00:00Z",
   "seen": "2026-08-20",
   "rule": "Page fills only from a stored first-party AI-page URL. The company's generic trust, privacy, or status page is not enough. No SafeBase, login-walled portals, or third-party directories. When unsure, leave the rule open. Do not invent processors, evals, incidents, companies, or URLs.",
   "method": "Conservative curated first-party list, checked by fetch (crawl.fetch, UA opentrust.center/1.0). A URL is filed only when HTTP 200 and the document is clearly an AI instrument on the company's own domain or an official docs/research/CDN subdomain they operate. Soft-404s, homepage bounces, Cloudflare/login walls, vendor hosts, and third-party org pages are rejected. Path guesses that returned 404 stay open.",
-  "count": 38,
+  "count": 40,
   "pages": {
     "anthropic": {
       "url": "https://www.anthropic.com/responsible-scaling-policy",
@@ -292,6 +292,24 @@
       "via": "curated-first-party",
       "seen": "2026-08-21",
       "note": "First-party AI for Good report on static.alibabagroup.com. Fetch 200. Sets Alibaba's six AI-for-Good / responsible-AI principles and the Group technology-ethics committee. The generic ESG hub is not filed."
+    },
+    "elevenlabs": {
+      "url": "https://elevenlabs.io/safety",
+      "host": "elevenlabs.io",
+      "title": "Safety",
+      "kind": "ai-safety",
+      "via": "curated-first-party",
+      "seen": "2026-08-22",
+      "note": "Official AI safety page. Fetch 200 with Our Safety Principles (Safety by Design, Traceability & Accountability, Transparency, Agility, Collaboration) in the document body. Earlier crawler cuts saw only a JS shell."
+    },
+    "stability-ai": {
+      "url": "https://stability.ai/news-updates/stability-ais-annual-integrity-transparency-report",
+      "host": "stability.ai",
+      "title": "Stability AI’s Annual Integrity Transparency Report",
+      "kind": "ai-transparency",
+      "via": "curated-first-party",
+      "seen": "2026-08-22",
+      "note": "Official Annual Integrity Transparency Report. Fetch 200 with Purpose, Scope, Model Safety Approach, and Safety and Responsible AI Practices in the document body. /safety remains a Squarespace product shell. The AUP is not filed."
     }
   },
   "rejected": [
@@ -619,12 +637,191 @@
       "slug": "alibaba",
       "url": "https://www.alibabagroup.com/en-US/document-1816291626708893696",
       "reason": "CSR news article about AI-for-Good projects, not the Group's AI instrument. Filed the Action Report PDF instead."
+    },
+    {
+      "slug": "elevenlabs",
+      "url": "https://elevenlabs.io/ai-transparency",
+      "reason": "HTTP 200 JS shell with no instrument title or body in the fetch. Filed /safety, which has the Safety Principles in the document body."
+    },
+    {
+      "slug": "elevenlabs",
+      "url": "https://elevenlabs.io/docs/overview/product-safety",
+      "reason": "Official docs path 404."
+    },
+    {
+      "slug": "elevenlabs",
+      "url": "https://elevenlabs.io/blog/safety-framework-for-ai-voice-agents",
+      "reason": "Blog post about ElevenAgents guardrails. Filed the first-party /safety instrument instead."
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/safety",
+      "reason": "Still a Squarespace Stable Safety product shell. Visible fetch is nav chrome only. Filed the Annual Integrity Transparency Report instead."
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/use-policy",
+      "reason": "Acceptable Use Policy. AUP, not Stability's RAI / model-card instrument. Filed the transparency report instead."
+    },
+    {
+      "slug": "stability-ai",
+      "url": "https://stability.ai/child-safety",
+      "reason": "Live first-party child-safety principles page (CSAM / Thorn). Filed the broader Annual Integrity Transparency Report instead; one URL is filed."
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/responsible-ai-principles/",
+      "reason": "HTTP 200 Gatsby/CSS shell. Search engines see the principles; this crawler fetch still has no instrument body. Prior rejection stands."
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://blog.cloudflare.com/building-a-better-internet-with-responsible-ai-bot-principles/",
+      "reason": "Blog post proposing principles for AI crawler bots, not Cloudflare's own RAI instrument."
+    },
+    {
+      "slug": "hugging-face",
+      "url": "https://huggingface.co/blog/ethical-charter-multimodal",
+      "reason": "Blog post. Project-specific ethical charter for the multimodal research group, not Hugging Face's company AI instrument. When unsure, leave open."
+    },
+    {
+      "slug": "apple",
+      "url": "https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models",
+      "reason": "Research announcement with a Responsible AI section. Not a dedicated RAI, system-card, or model-card instrument. Prior tech-report rejection also stands."
+    },
+    {
+      "slug": "apple",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/generative-ai",
+      "reason": "Developer HIG page. Fetch 200 but no instrument body in this crawler fetch. When unsure, leave open."
+    },
+    {
+      "slug": "notion",
+      "url": "https://www.notion.com/help/ai-safety",
+      "reason": "Help article titled Notion’s commitment to AI safety. Fetch 200 JS shell; document lands on notion.com while the stored domain is notion.so. Leave open."
+    },
+    {
+      "slug": "anysphere",
+      "url": "https://cursor.com/responsible-ai",
+      "reason": "HTTP 200 with homepage title; Next.js 404 shell, not an AI page."
+    },
+    {
+      "slug": "anysphere",
+      "url": "https://cursor.com/security",
+      "reason": "Generic security page. Not an AI instrument."
+    },
+    {
+      "slug": "anysphere",
+      "url": "https://cursor.com/docs/agent/security",
+      "reason": "Product docs for Agent Security. Not Cursor's own RAI / model-card instrument."
+    },
+    {
+      "slug": "fireworks-ai",
+      "url": "https://fireworks.ai/responsible-ai",
+      "reason": "Official path 404."
+    },
+    {
+      "slug": "fireworks-ai",
+      "url": "https://docs.fireworks.ai/guides/security_compliance/data_security",
+      "reason": "Generic data-security docs. ISO 42001 is mentioned as a mark, not an AI-page instrument."
+    },
+    {
+      "slug": "together-ai",
+      "url": "https://www.together.ai/responsible-ai",
+      "reason": "Official path 404."
+    },
+    {
+      "slug": "together-ai",
+      "url": "https://docs.together.ai/docs/safety",
+      "reason": "Official docs path 404."
+    },
+    {
+      "slug": "sierra",
+      "url": "https://sierra.ai/responsible-ai",
+      "reason": "Official path 404."
+    },
+    {
+      "slug": "clay",
+      "url": "https://www.clay.com/responsible-ai",
+      "reason": "Official path 404."
+    },
+    {
+      "slug": "cyera",
+      "url": "https://www.cyera.com/responsible-ai",
+      "reason": "Official path 404. Blog/glossary pages on AI governance are explainers, not Cyera's own instrument."
+    },
+    {
+      "slug": "decagon",
+      "url": "https://decagon.ai/glossary/what-is-responsible-ai",
+      "reason": "Glossary explainer on what responsible AI is, not Decagon's own AI instrument."
+    },
+    {
+      "slug": "lyzr",
+      "url": "https://lyzr.ai/responsible-ai",
+      "reason": "Redirects to a Responsible AI Platform product page, not Lyzr's own instrument. Prior glossary rejection also stands."
+    },
+    {
+      "slug": "seekr",
+      "url": "https://www.seekr.com/responsible-ai",
+      "reason": "Redirects to /responsible-ai-for-enterprises/, a resource explainer. Prior rejection stands."
+    },
+    {
+      "slug": "reka",
+      "url": "https://reka.ai/legal/responsibleai-ethics",
+      "reason": "HTTP 200 Framer shell titled Responsible AI, Model Risk, Ethics & Governance Framework. Still no instrument body in this crawler fetch. Leave open."
+    },
+    {
+      "slug": "reflection",
+      "url": "https://reflection.ai/legal/responsible-ai",
+      "reason": "HTTP 200 Nuxt shell titled Responsible Ai. Still no instrument body in this crawler fetch. Leave open."
+    },
+    {
+      "slug": "bytedance",
+      "url": "https://seed.bytedance.com/en/direction/responsible_ai",
+      "reason": "HTTP 200 JS shell titled Seed-Responsible AI. H1 is Selected papers. No instrument body in the fetch. Leave open."
+    },
+    {
+      "slug": "suno",
+      "url": "https://suno.com/safety",
+      "reason": "HTTP 200 titled Safety | Suno. Body is still a marketing About page, not a RAI / model-card instrument. When unsure, leave open."
+    },
+    {
+      "slug": "databricks",
+      "url": "https://www.databricks.com/trust/responsibleAI",
+      "reason": "HTTP 200 CSS/JS shell. The fetch does not include an instrument body. Blog explainers on responsible AI are not filed."
+    },
+    {
+      "slug": "groq",
+      "url": "https://groq.com/responsible-ai",
+      "reason": "Official path 404. Prior AUP rejection also stands."
+    },
+    {
+      "slug": "glean",
+      "url": "https://www.glean.com/responsible-ai",
+      "reason": "Official path 404. Perspectives articles are blogs/explainers."
+    },
+    {
+      "slug": "abridge",
+      "url": "https://www.abridge.com/responsible-ai",
+      "reason": "Official path 404."
+    },
+    {
+      "slug": "digitalocean",
+      "url": "https://www.digitalocean.com/legal/responsible-ai",
+      "reason": "Official path 404. Resources articles are generic explainers."
+    },
+    {
+      "slug": "perplexity-ai",
+      "url": "https://www.perplexity.ai/hub/legal/responsible-ai",
+      "reason": "Cloudflare challenge (403). Prior model-cards catalog rejection also stands."
+    },
+    {
+      "slug": "midjourney",
+      "url": "https://www.midjourney.com/responsible-ai",
+      "reason": "Nothing new found. Stay all-open. Do not invent a page."
     }
   ],
   "open": [
     "fireworks-ai",
     "cyera",
-    "elevenlabs",
     "sierra",
     "clay",
     "notion",
@@ -634,7 +831,6 @@
     "groq",
     "digitalocean",
     "abridge",
-    "stability-ai",
     "glean",
     "cloudflare",
     "hugging-face",
