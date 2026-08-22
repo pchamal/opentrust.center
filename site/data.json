@@ -52959,19 +52959,23 @@
           "host": "bill.com",
           "seen": "2026-08-22"
         },
-        "dpa": null,
+        "dpa": {
+          "url": "https://www.bill.com/privacy/data-processing-addendum",
+          "host": "bill.com",
+          "seen": "2026-08-22"
+        },
         "subprocessors": null,
         "status": null,
         "bounty": null
       },
       "processors": [],
       "disclosure": {
-        "score": 36,
-        "tier": "thin",
+        "score": 44,
+        "tier": "on-file",
         "factors": {
           "page": 20,
           "marks": 0,
-          "dpa": 0,
+          "dpa": 8,
           "processors": 0,
           "status": 0,
           "bounty": 0,
@@ -52979,11 +52983,11 @@
           "years": 10
         }
       },
-      "tier": "thin",
+      "tier": "on-file",
       "file": {
         "page": true,
         "marks": true,
-        "dpa": false,
+        "dpa": true,
         "subprocessors": false,
         "years": true
       },
@@ -155555,7 +155559,7 @@
     ],
     "links": {
       "security_txt": 254,
-      "dpa": 155,
+      "dpa": 156,
       "privacy": 628,
       "status": 329,
       "bug_bounty": 208,
@@ -155563,8 +155567,8 @@
     },
     "tiers": {
       "silent": 1442,
-      "thin": 134,
-      "on-file": 157,
+      "thin": 133,
+      "on-file": 158,
       "substantial": 108,
       "complete": 52
     }
