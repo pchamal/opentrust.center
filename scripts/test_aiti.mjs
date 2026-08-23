@@ -167,13 +167,27 @@ expect("file|method active is Ledger Black not teal", /body\.register \.view-tog
 expect("method docket is still four words", docketWords(methodHtml).join(" ") === "AITI Register Subprocessors Standards");
 expect("method docket has no teal on", activeWord(methodHtml) === "" && !/<nav class="docket"[^>]*>[\s\S]*class="on"/.test(methodHtml));
 expect(
-  "AITI footer has specimen · methodology · code",
-  /<a href="\.\/brand\.html">specimen<\/a> · <a href="\.\/methodology\.html">methodology<\/a> · <a href="https:\/\/github.com\/pchamal\/opentrust.center">code<\/a>/.test(indexHtml),
+  "AITI footer has specimen · methodology · contact · code",
+  /<a href="\.\/brand\.html">specimen<\/a> · <a href="\.\/methodology\.html">methodology<\/a> · <a href="\.\/contact\.html">contact<\/a> · <a href="https:\/\/github.com\/pchamal\/opentrust.center">code<\/a>/.test(indexHtml),
 );
 expect(
-  "Register footer has specimen · methodology · code",
-  /<a href="\.\/brand\.html">specimen<\/a> · <a href="\.\/methodology\.html">methodology<\/a> · <a href="https:\/\/github.com\/pchamal\/opentrust.center">code<\/a>/.test(companiesHtml),
+  "Register footer has specimen · methodology · contact · code",
+  /<a href="\.\/brand\.html">specimen<\/a> · <a href="\.\/methodology\.html">methodology<\/a> · <a href="\.\/contact\.html">contact<\/a> · <a href="https:\/\/github.com\/pchamal\/opentrust.center">code<\/a>/.test(companiesHtml),
 );
+const contactHtml = readFileSync(new URL("../site/contact.html", import.meta.url), "utf8");
+expect("H1 is Contact", /<h1 class="page-title">Contact<\/h1>/.test(contactHtml));
+expect(
+  "lede is the write sentence",
+  (contactHtml.match(/<p class="lede">Write <a class="official" href="mailto:hello@opentrust.center">hello@opentrust.center<\/a>\.<\/p>/g) || []).length === 1,
+);
+expect("contact docket is still four words", docketWords(contactHtml).join(" ") === "AITI Register Subprocessors Standards");
+expect("contact docket has no teal on", activeWord(contactHtml) === "" && !/<nav class="docket"[^>]*>[\s\S]*class="on"/.test(contactHtml));
+expect("contact is not a fifth docket word", !docketWords(contactHtml).includes("Contact") && !docketWords(contactHtml).includes("contact"));
+expect("issue is contact", contactHtml.includes('<p class="issue">issue · contact</p>'));
+expect("contact footer word is here", /<a href="\.\/contact\.html" class="here">contact<\/a>/.test(contactHtml));
+expect("contact page has no personal email", !/pukar@/i.test(contactHtml) && !/securitypalhq/i.test(contactHtml));
+expect("contact page has no form", !/<form\b/i.test(contactHtml));
+expect("contact page is H1 + lede only", !/<h2\b/.test(contactHtml) && !/class="clerk"/.test(contactHtml) && !/class="sec-kicker"/.test(contactHtml));
 expect("no See methodology chip on AITI", !/See methodology/i.test(indexHtml));
 expect("no See methodology chip on Register", !/See methodology/i.test(companiesHtml));
 expect("AITI method line is the three-state sentence once", (indexHtml.match(/<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/g) || []).length === 1);

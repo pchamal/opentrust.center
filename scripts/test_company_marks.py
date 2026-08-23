@@ -133,10 +133,19 @@ def main() -> int:
         "exact Method lede",
     )
     check(
-        'href="./brand.html">specimen</a> · <a href="./methodology.html">methodology</a> · <a href="https://github.com/pchamal/opentrust.center">code</a>'
+        'href="./brand.html">specimen</a> · <a href="./methodology.html">methodology</a> · <a href="./contact.html">contact</a> · <a href="https://github.com/pchamal/opentrust.center">code</a>'
         in index,
-        "AITI footer has specimen · methodology · code",
+        "AITI footer has specimen · methodology · contact · code",
     )
+    contact = (ROOT / "site" / "contact.html").read_text(encoding="utf-8")
+    check('<h1 class="page-title">Contact</h1>' in contact, "H1 Contact")
+    check(
+        '<p class="lede">Write <a class="official" href="mailto:hello@opentrust.center">hello@opentrust.center</a>.</p>'
+        in contact,
+        "exact Contact lede",
+    )
+    check("pukar@" not in contact.lower() and "securitypalhq" not in contact.lower(), "no personal email on contact")
+    check("<form" not in contact.lower(), "no contact form")
     check("See methodology" not in index and "See methodology" not in companies, "no See methodology chip")
     check(
         index.count(

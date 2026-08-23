@@ -1970,6 +1970,7 @@ def main() -> int:
         f"{CANON}/attestations.html",
         f"{CANON}/brand.html",
         f"{CANON}/methodology.html",
+        f"{CANON}/contact.html",
         f"{CANON}/claim.html",
     ]
     for row in public_companies:
