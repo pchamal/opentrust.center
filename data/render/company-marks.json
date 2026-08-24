@@ -1,111 +1,144 @@
 {
-  "generated_at": "2026-08-22T02:53:24Z",
-  "rule": "Next ~40 on-file companies whose marks File-glyph rule was open or thin and who already had a first-party trust / privacy / security URL. Marks fill only when that live page names the company's own hold. Regulation mentions (GDPR/CCPA as rights) and DPF as a transfer mechanism among SCCs stay open. Login walls, soft-404s, homepage bounces, PDFs, JS shells, and portal hosts stay open. Substantial files were skipped.",
+  "generated_at": "2026-08-24T16:53:56Z",
+  "rule": "Six slugs that gained a public trust/security URL in expand b989d05. Marks fill only when live first-party HTML on the company's own host names the hold. GDPR/CCPA fill only from a certification list, not rights text. JS shells, itemUid landings, 403s, and another company's host stay open. Catalog-only extras stay off.",
   "batch": [
-    "indeni",
-    "guesty",
-    "ex-libris-group"
+    "lightricks",
+    "optimove",
+    "sapiens-international-corporation",
+    "sisense",
+    "snappy-gifts",
+    "rollout-io"
   ],
   "marks_filed": [
     {
-      "slug": "ex-libris-group",
-      "name": "Ex Libris Group",
-      "url": "https://knowledge.exlibrisgroup.com/Cross-Product/Security",
+      "slug": "lightricks",
+      "name": "Lightricks",
+      "url": "https://trust.lightricks.com",
       "added": [
-        "ISO 27001",
-        "ISO 27017",
-        "ISO 27018",
-        "ISO 22301",
-        "ISO 27032",
-        "ISO 27701"
+        "SOC 2 Type II",
+        "SOC 3",
+        "ISO 42001",
+        "PCI DSS",
+        "CCPA"
       ],
       "certs": [
-        "ISO 22301",
         "ISO 27001",
+        "GDPR",
+        "SOC 2 Type II",
+        "SOC 3",
+        "ISO 42001",
+        "PCI DSS",
+        "CCPA"
+      ]
+    },
+    {
+      "slug": "sapiens-international-corporation",
+      "name": "Sapiens International Corporation",
+      "url": "https://trust.sapiens.com",
+      "added": [
+        "SOC 2 Type I",
+        "SOC 1 Type II",
+        "SOC 1 Type I",
+        "ISO 27001",
+        "ISO 27701",
+        "ISO 22301",
+        "ISO 27017"
+      ],
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 2 Type I",
+        "SOC 1 Type II",
+        "SOC 1 Type I",
+        "ISO 27001",
+        "ISO 27701",
+        "ISO 22301",
         "ISO 27017",
-        "ISO 27018",
-        "ISO 27032",
-        "ISO 27701"
+        "HIPAA",
+        "GDPR"
+      ]
+    },
+    {
+      "slug": "sisense",
+      "name": "Sisense",
+      "url": "https://trust.sisense.com",
+      "added": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27701",
+        "ISO 42001",
+        "HIPAA"
+      ],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27701",
+        "ISO 42001",
+        "HIPAA"
       ]
     }
   ],
   "stayed_open": [
     {
-      "slug": "indeni",
-      "name": "Indeni",
+      "slug": "optimove",
+      "name": "Optimove",
       "rule": "marks",
       "thin": false
     },
     {
-      "slug": "guesty",
-      "name": "Guesty",
+      "slug": "snappy-gifts",
+      "name": "Snappy Gifts",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "rollout-io",
+      "name": "Rollout.io",
       "rule": "marks",
       "thin": false
     }
   ],
   "rejected": [
     {
-      "slug": "indeni",
-      "url": "https://indeni.com/trust",
-      "final": "https://indeni.com/trust",
-      "reason": "http-403",
+      "slug": "optimove",
+      "url": "https://trust.optimove.com",
+      "final": "https://trust.optimove.com",
+      "reason": "js-shell",
       "kind": "trust"
     },
     {
-      "slug": "guesty",
-      "url": "https://www.guesty.com/data-processing-addendum/",
-      "final": "https://www.guesty.com/data-processing-addendum/",
-      "reason": "regulation-only",
-      "kind": "dpa"
-    },
-    {
-      "slug": "guesty",
-      "url": "https://www.guesty.com/privacy-policy/",
-      "final": "https://www.guesty.com/privacy-policy/",
+      "slug": "optimove",
+      "url": "https://www.optimove.com/legal/privacy-policy",
+      "final": "https://www.optimove.com/legal/privacy-policy",
       "reason": "regulation-only",
       "kind": "privacy"
     },
     {
-      "slug": "indeni",
-      "url": "https://bluecatnetworks.com/privacy/?source=indeni",
-      "final": "https://bluecatnetworks.com/privacy/?source=indeni",
-      "reason": "http-403",
-      "kind": "privacy"
-    },
-    {
-      "slug": "indeni",
-      "url": "https://trustcenter.bluecatnetworks.com/?source=indeni",
-      "final": "https://trustcenter.bluecatnetworks.com/?source=indeni",
-      "reason": "no-named-marks",
-      "kind": "final_url"
-    },
-    {
-      "slug": "guesty",
-      "url": "https://trust.guesty.com",
-      "final": "https://trust.guesty.com",
-      "reason": "no-named-marks",
+      "slug": "snappy-gifts",
+      "url": "https://trust.snappy.com",
+      "final": "https://trust.snappy.com",
+      "reason": "js-shell",
       "kind": "trust"
     },
     {
-      "slug": "guesty",
-      "url": "https://trust.guesty.com/subprocessors",
-      "final": "https://trust.guesty.com/subprocessors",
-      "reason": "no-named-marks",
+      "slug": "rollout-io",
+      "url": "https://rollout.io/security",
+      "final": "https://www.cloudbees.com/company/trust-center",
+      "reason": "not-first-party",
+      "kind": "trust"
+    },
+    {
+      "slug": "rollout-io",
+      "url": "https://www.cloudbees.com/use-case/security-and-compliance",
+      "final": "https://www.cloudbees.com/use-case/security-and-compliance",
+      "reason": "not-first-party",
+      "kind": "security"
+    },
+    {
+      "slug": "lightricks",
+      "url": "https://trust.lightricks.com/subprocessors",
+      "final": "https://trust.lightricks.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
+      "reason": "itemuid",
       "kind": "subprocessors"
-    },
-    {
-      "slug": "ex-libris-group",
-      "url": "https://clarivate.com/trust-center/?lid=exl-tc",
-      "final": "https://clarivate.com/trust-center/?lid=exl-tc",
-      "reason": "no-named-marks",
-      "kind": "final_url"
-    },
-    {
-      "slug": "ex-libris-group",
-      "url": "https://trust.exlibrisgroup.com",
-      "final": "https://clarivate.com/trust-center/?lid=exl-tc",
-      "reason": "no-named-marks",
-      "kind": "trust"
     }
   ]
 }

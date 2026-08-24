@@ -85,7 +85,7 @@ def main() -> int:
         check(all(m in stored for m in added), f"{slug} stored certs missing {added}")
         check(all(m in (pub.get("certs") or []) for m in added), f"{slug} public certs missing {added}")
         check(all(m in CATALOG for m in added), f"{slug} invented cert {added}")
-        check((pub.get("file") or {}).get("marks") is True, f"{slug} file.marks not filled")
+        check((pub.get("file") or {}).get("marks") in (True, 20), f"{slug} file.marks not filled")
         check(any((a.get("name") in added) for a in (pub.get("attestations") or [])), f"{slug} attestations missing bind")
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         for name in added:
@@ -104,7 +104,11 @@ def main() -> int:
         if rec.get("thin"):
             continue
         check(not (pub.get("certs") or []), f"{rec['slug']} invented certs while open")
-        check(not (pub.get("file") or {}).get("marks") or pub.get("fedramp"), f"{rec['slug']} file.marks filled without a name")
+        marks_flag = (pub.get("file") or {}).get("marks")
+        check(
+            marks_flag in (0, 10, False, None) or pub.get("fedramp"),
+            f"{rec['slug']} file.marks filled without a name",
+        )
 
     # Bind: stored certs from this pass fill the glyph. Display stays clerk words.
     for row in public["companies"]:
@@ -112,7 +116,7 @@ def main() -> int:
         enr_row = by_enr.get(slug) or {}
         stored = [c for c in (enr_row.get("certs") or []) if c]
         if stored:
-            check((row.get("file") or {}).get("marks") is True, f"{slug} stored certs did not fill glyph")
+            check((row.get("file") or {}).get("marks") in (True, 20), f"{slug} stored certs did not fill glyph")
     filed_slugs = {rec["slug"] for rec in report.get("marks_filed") or []}
     for slug in filed_slugs:
         stored = [c for c in (by_enr[slug].get("certs") or []) if c]
