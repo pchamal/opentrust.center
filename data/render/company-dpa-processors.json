@@ -1,1022 +1,232 @@
 {
-  "generated_at": "2026-08-22T01:55:00Z",
+  "generated_at": "2026-08-22T02:53:24Z",
   "rule": "Next ~40 on-file companies whose DPA or subprocessors rule was open and who already had a first-party public URL. DPA fills only from a real first-party DPA. Named subprocessors fill only from a printed first-party list of organization names. Dates, JS shells, login walls, and portal hosts stay open.",
   "batch": [
-    "bigtime-enterprise-psa",
-    "avaloq",
-    "mileiq",
-    "alvao",
-    "quickbase",
-    "readdle"
+    "indeni",
+    "guesty",
+    "ex-libris-group"
   ],
   "dpa_filed": [
     {
-      "slug": "alvao",
-      "name": "ALVAO",
-      "url": "https://www.alvao.com/en/storage/app/media/alvaosaas-dpaenglishseptember2026.pdf"
+      "slug": "ex-libris-group",
+      "name": "Ex Libris Group",
+      "url": "https://knowledge.exlibrisgroup.com/Cross-Product/Security/GDPR/03GDPR_Data_Processing_Addendum"
     }
   ],
-  "subprocessors_filed": [
-    {
-      "slug": "alvao",
-      "name": "ALVAO",
-      "url": "https://www.alvao.com/en/trust-center",
-      "names": [
-        "Microsoft Corporation",
-        "HubSpot",
-        "SendGrid"
-      ]
-    }
-  ],
+  "subprocessors_filed": [],
   "stayed_open": [
     {
-      "slug": "bigtime-enterprise-psa",
-      "name": "BigTime Enterprise PSA",
+      "slug": "indeni",
+      "name": "Indeni",
       "rule": "dpa"
     },
     {
-      "slug": "avaloq",
-      "name": "Avaloq",
-      "rule": "dpa"
-    },
-    {
-      "slug": "mileiq",
-      "name": "MileIQ",
-      "rule": "dpa"
-    },
-    {
-      "slug": "quickbase",
-      "name": "Quickbase",
-      "rule": "dpa"
-    },
-    {
-      "slug": "readdle",
-      "name": "Readdle",
-      "rule": "dpa"
+      "slug": "indeni",
+      "name": "Indeni",
+      "rule": "subprocessors"
     }
   ],
   "rejected": [
     {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://www.bigtime.net/subprocessors/",
-      "reason": "seed-not-live",
+      "slug": "indeni",
+      "url": "https://indeni.com/dpa",
+      "final": "https://indeni.com/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "indeni",
+      "url": "https://indeni.com/legal/data-processing-agreement",
+      "final": "https://indeni.com/legal/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "indeni",
+      "url": "https://indeni.com/policies/data-processing-agreement",
+      "final": "https://indeni.com/policies/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "indeni",
+      "url": "https://indeni.com/data-processing-addendum",
+      "final": "https://indeni.com/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "indeni",
+      "url": "https://indeni.com/terms/dpa",
+      "final": "https://indeni.com/terms/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "indeni",
+      "url": "https://indeni.com/policies/dpa",
+      "final": "https://indeni.com/policies/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "indeni",
+      "url": "https://indeni.com/legal/dpa",
+      "final": "https://indeni.com/legal/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "indeni",
+      "url": "https://indeni.com/policies/data-processing-addendum",
+      "final": "https://indeni.com/policies/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "indeni",
+      "url": "https://indeni.com/gdpr/dpa",
+      "final": "https://indeni.com/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "indeni",
+      "url": "https://indeni.com/legal/data-processing-addendum",
+      "final": "https://indeni.com/legal/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "indeni",
+      "url": "https://indeni.com/company/dpa",
+      "final": "https://indeni.com/company/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "indeni",
+      "url": "https://indeni.com/data-processing-agreement",
+      "final": "https://indeni.com/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "indeni",
+      "url": "https://indeni.com/legal/gdpr/dpa",
+      "final": "https://indeni.com/legal/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "indeni",
+      "url": "https://indeni.com/data-processing",
+      "final": "https://indeni.com/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "indeni",
+      "url": "https://indeni.com/legal/data-processing",
+      "final": "https://indeni.com/legal/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "indeni",
+      "url": "https://indeni.com/privacy/dpa",
+      "final": "https://indeni.com/privacy/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "indeni",
+      "url": "https://indeni.com/legal/processor-terms",
+      "final": "https://indeni.com/legal/processor-terms",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "indeni",
+      "url": "https://indeni.com/subprocessors",
+      "final": "https://indeni.com/subprocessors",
+      "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "mileiq",
-      "url": "https://trust.mileiq.com/subprocessors",
-      "reason": "seed-not-live",
+      "slug": "indeni",
+      "url": "https://indeni.com/privacy/subprocessors",
+      "final": "https://indeni.com/privacy/subprocessors",
+      "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/company/dpa",
-      "final": "https://bigtime.net/company/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
+      "slug": "indeni",
+      "url": "https://indeni.com/company/subprocessors",
+      "final": "https://indeni.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/dpa",
-      "final": "https://bigtime.net/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
+      "slug": "guesty",
+      "url": "https://cms-cdn.guesty.com/wp-content/uploads/2026/08/Guesty-Sub-Processors-list-.pdf",
+      "final": "https://cms-cdn.guesty.com/wp-content/uploads/2026/08/Guesty-Sub-Processors-list-.pdf",
+      "reason": "pdf",
+      "kind": "subprocessors"
     },
     {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/legal/data-processing-addendum",
-      "final": "https://bigtime.net/legal/data-processing-addendum",
-      "reason": "http-403",
-      "kind": "dpa"
+      "slug": "indeni",
+      "url": "https://indeni.com/sub-processors",
+      "final": "https://indeni.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/policies/data-processing-agreement",
-      "final": "https://bigtime.net/policies/data-processing-agreement",
-      "reason": "http-403",
-      "kind": "dpa"
+      "slug": "indeni",
+      "url": "https://indeni.com/legal/sub-processors-page",
+      "final": "https://indeni.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/legal/data-processing-agreement",
-      "final": "https://bigtime.net/legal/data-processing-agreement",
-      "reason": "http-403",
-      "kind": "dpa"
+      "slug": "indeni",
+      "url": "https://indeni.com/legal/subprocessors",
+      "final": "https://indeni.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/data-processing-addendum",
-      "final": "https://bigtime.net/data-processing-addendum",
-      "reason": "http-403",
-      "kind": "dpa"
+      "slug": "indeni",
+      "url": "https://indeni.com/legal/service-providers",
+      "final": "https://indeni.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/policies/data-processing-addendum",
-      "final": "https://bigtime.net/policies/data-processing-addendum",
-      "reason": "http-403",
-      "kind": "dpa"
+      "slug": "indeni",
+      "url": "https://indeni.com/trust/subprocessors",
+      "final": "https://indeni.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/gdpr/dpa",
-      "final": "https://bigtime.net/gdpr/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/policies/dpa",
-      "final": "https://bigtime.net/policies/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/legal/dpa",
-      "final": "https://bigtime.net/legal/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/data-processing-agreement",
-      "final": "https://bigtime.net/data-processing-agreement",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/terms/dpa",
-      "final": "https://bigtime.net/terms/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/privacy/dpa",
-      "final": "https://bigtime.net/privacy/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/data-processing",
-      "final": "https://bigtime.net/data-processing",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/legal/gdpr/dpa",
-      "final": "https://bigtime.net/legal/gdpr/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/legal/processor-terms",
-      "final": "https://bigtime.net/legal/processor-terms",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/legal/data-processing",
-      "final": "https://bigtime.net/legal/data-processing",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "avaloq",
-      "url": "https://avaloq.com/data-processing-agreement",
-      "final": "https://avaloq.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "avaloq",
-      "url": "https://avaloq.com/legal/data-processing-agreement",
-      "final": "https://avaloq.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "avaloq",
-      "url": "https://avaloq.com/legal/data-processing-addendum",
-      "final": "https://avaloq.com/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "avaloq",
-      "url": "https://avaloq.com/data-processing-addendum",
-      "final": "https://avaloq.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "avaloq",
-      "url": "https://avaloq.com/policies/data-processing-addendum",
-      "final": "https://avaloq.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "avaloq",
-      "url": "https://avaloq.com/terms/dpa",
-      "final": "https://avaloq.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "avaloq",
-      "url": "https://avaloq.com/policies/dpa",
-      "final": "https://avaloq.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "avaloq",
-      "url": "https://avaloq.com/policies/data-processing-agreement",
-      "final": "https://avaloq.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "avaloq",
-      "url": "https://avaloq.com/gdpr/dpa",
-      "final": "https://avaloq.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "avaloq",
-      "url": "https://avaloq.com/company/dpa",
-      "final": "https://avaloq.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/dpa",
-      "final": "https://mileiq.com/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/legal/data-processing-addendum",
-      "final": "https://mileiq.com/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/legal/data-processing-agreement",
-      "final": "https://mileiq.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/data-processing-addendum",
-      "final": "https://mileiq.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/data-processing-agreement",
-      "final": "https://mileiq.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/legal/dpa",
-      "final": "https://mileiq.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/policies/data-processing-addendum",
-      "final": "https://mileiq.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "avaloq",
-      "url": "https://avaloq.com/legal/dpa",
-      "final": "https://avaloq.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/policies/data-processing-agreement",
-      "final": "https://mileiq.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/policies/dpa",
-      "final": "https://mileiq.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/terms/dpa",
-      "final": "https://mileiq.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/company/dpa",
-      "final": "https://mileiq.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "avaloq",
-      "url": "https://avaloq.com/dpa",
-      "final": "https://avaloq.com/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/legal/gdpr/dpa",
-      "final": "https://mileiq.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/gdpr/dpa",
-      "final": "https://mileiq.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/privacy/dpa",
-      "final": "https://mileiq.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/legal/processor-terms",
-      "final": "https://mileiq.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/legal/data-processing",
-      "final": "https://mileiq.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/data-processing",
-      "final": "https://mileiq.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "avaloq",
-      "url": "https://avaloq.com/privacy/dpa",
-      "final": "https://avaloq.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "avaloq",
-      "url": "https://avaloq.com/legal/gdpr/dpa",
-      "final": "https://avaloq.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "avaloq",
-      "url": "https://avaloq.com/data-processing",
-      "final": "https://avaloq.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "avaloq",
-      "url": "https://avaloq.com/legal/data-processing",
-      "final": "https://avaloq.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/dpa",
-      "final": "https://alvao.com/dpa",
-      "reason": "http-401",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/legal/dpa",
-      "final": "https://alvao.com/legal/dpa",
-      "reason": "http-401",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/legal/data-processing-agreement",
-      "final": "https://alvao.com/legal/data-processing-agreement",
-      "reason": "http-401",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/data-processing-agreement",
-      "final": "https://alvao.com/data-processing-agreement",
-      "reason": "http-401",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/data-processing-addendum",
-      "final": "https://alvao.com/data-processing-addendum",
-      "reason": "http-401",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/policies/data-processing-addendum",
-      "final": "https://alvao.com/policies/data-processing-addendum",
-      "reason": "http-401",
-      "kind": "dpa"
-    },
-    {
-      "slug": "avaloq",
-      "url": "https://avaloq.com/legal/processor-terms",
-      "final": "https://avaloq.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/policies/data-processing-agreement",
-      "final": "https://alvao.com/policies/data-processing-agreement",
-      "reason": "http-401",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/policies/dpa",
-      "final": "https://alvao.com/policies/dpa",
-      "reason": "http-401",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/terms/dpa",
-      "final": "https://alvao.com/terms/dpa",
-      "reason": "http-401",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/company/dpa",
-      "final": "https://alvao.com/company/dpa",
-      "reason": "http-401",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/legal/processor-terms",
-      "final": "https://alvao.com/legal/processor-terms",
-      "reason": "http-401",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/legal/data-processing",
-      "final": "https://alvao.com/legal/data-processing",
-      "reason": "http-401",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/legal/gdpr/dpa",
-      "final": "https://alvao.com/legal/gdpr/dpa",
-      "reason": "http-401",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/data-processing",
-      "final": "https://alvao.com/data-processing",
-      "reason": "http-401",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/privacy/dpa",
-      "final": "https://alvao.com/privacy/dpa",
-      "reason": "http-401",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/legal/data-processing-addendum",
-      "final": "https://alvao.com/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "quickbase",
-      "url": "https://quickbase.com/dpa",
-      "final": "https://quickbase.com/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "quickbase",
-      "url": "https://quickbase.com/data-processing-addendum",
-      "final": "https://quickbase.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "quickbase",
-      "url": "https://quickbase.com/legal/data-processing-addendum",
-      "final": "https://quickbase.com/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "quickbase",
-      "url": "https://quickbase.com/legal/data-processing-agreement",
-      "final": "https://quickbase.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/gdpr/dpa",
-      "final": "https://alvao.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "quickbase",
-      "url": "https://quickbase.com/policies/dpa",
-      "final": "https://quickbase.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "quickbase",
-      "url": "https://quickbase.com/policies/data-processing-agreement",
-      "final": "https://quickbase.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "quickbase",
-      "url": "https://quickbase.com/company/dpa",
-      "final": "https://quickbase.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "quickbase",
-      "url": "https://quickbase.com/data-processing-agreement",
-      "final": "https://quickbase.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "quickbase",
-      "url": "https://quickbase.com/policies/data-processing-addendum",
-      "final": "https://quickbase.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "readdle",
-      "url": "https://readdle.com/dpa",
-      "final": "https://readdle.com/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "quickbase",
-      "url": "https://quickbase.com/legal/gdpr/dpa",
-      "final": "https://quickbase.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "readdle",
-      "url": "https://readdle.com/legal/dpa",
-      "final": "https://readdle.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "readdle",
-      "url": "https://readdle.com/legal/data-processing-addendum",
-      "final": "https://readdle.com/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "quickbase",
-      "url": "https://quickbase.com/data-processing",
-      "final": "https://quickbase.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "quickbase",
-      "url": "https://quickbase.com/legal/dpa",
-      "final": "https://quickbase.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "readdle",
-      "url": "https://readdle.com/data-processing-agreement",
-      "final": "https://readdle.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "quickbase",
-      "url": "https://quickbase.com/legal/data-processing",
-      "final": "https://quickbase.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "readdle",
-      "url": "https://readdle.com/legal/data-processing-agreement",
-      "final": "https://readdle.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "readdle",
-      "url": "https://readdle.com/data-processing-addendum",
-      "final": "https://readdle.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "readdle",
-      "url": "https://readdle.com/policies/data-processing-addendum",
-      "final": "https://readdle.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "readdle",
-      "url": "https://readdle.com/policies/dpa",
-      "final": "https://readdle.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "quickbase",
-      "url": "https://quickbase.com/legal/processor-terms",
-      "final": "https://quickbase.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "readdle",
-      "url": "https://readdle.com/policies/data-processing-agreement",
-      "final": "https://readdle.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "quickbase",
-      "url": "https://quickbase.com/privacy/dpa",
-      "final": "https://quickbase.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "quickbase",
-      "url": "https://quickbase.com/terms/dpa",
-      "final": "https://quickbase.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "quickbase",
-      "url": "https://quickbase.com/gdpr/dpa",
-      "final": "https://quickbase.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "readdle",
-      "url": "https://readdle.com/terms/dpa",
-      "final": "https://readdle.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "readdle",
-      "url": "https://readdle.com/gdpr/dpa",
-      "final": "https://readdle.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "readdle",
-      "url": "https://readdle.com/legal/processor-terms",
-      "final": "https://readdle.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "readdle",
-      "url": "https://readdle.com/company/dpa",
-      "final": "https://readdle.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "readdle",
-      "url": "https://readdle.com/privacy/dpa",
-      "final": "https://readdle.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "readdle",
-      "url": "https://readdle.com/legal/gdpr/dpa",
-      "final": "https://readdle.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "readdle",
-      "url": "https://readdle.com/data-processing",
-      "final": "https://readdle.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "readdle",
-      "url": "https://readdle.com/legal/data-processing",
-      "final": "https://readdle.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "avaloq",
-      "url": "https://trust.avaloq.com/subprocessors",
-      "final": "https://trust.avaloq.com/subprocessors",
+      "slug": "guesty",
+      "url": "https://trust.guesty.com/subprocessors",
+      "final": "https://trust.guesty.com/subprocessors",
       "reason": "js-portal",
       "kind": "subprocessors"
     },
     {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/subprocessors",
-      "final": "https://bigtime.net/subprocessors",
-      "reason": "fetch-failed",
+      "slug": "ex-libris-group",
+      "url": "https://knowledge.exlibrisgroup.com/Cross-Product/Security/GDPR/Subprocessor_Information",
+      "final": "https://knowledge.exlibrisgroup.com/Cross-Product/Security/GDPR/Subprocessor_Information",
+      "reason": "no-printed-names",
       "kind": "subprocessors"
     },
     {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/company/subprocessors",
-      "final": "https://bigtime.net/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://trust.bigtime.net/sub-processors",
-      "final": "https://trust.bigtime.net/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/legal/sub-processors",
-      "final": "https://bigtime.net/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/legal/sub-processors-page",
-      "final": "https://bigtime.net/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/privacy/subprocessors",
-      "final": "https://bigtime.net/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/trust/subprocessors",
-      "final": "https://bigtime.net/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/sub-processors",
-      "final": "https://bigtime.net/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/legal/service-providers",
-      "final": "https://bigtime.net/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://bigtime.net/legal/subprocessors",
-      "final": "https://bigtime.net/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/subprocessors",
-      "final": "https://mileiq.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://trust.mileiq.com/subprocessors",
-      "final": "https://trust.mileiq.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://trust.mileiq.com/sub-processors",
-      "final": "https://trust.mileiq.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/sub-processors",
-      "final": "https://mileiq.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/legal/subprocessors",
-      "final": "https://mileiq.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/legal/sub-processors",
-      "final": "https://mileiq.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "bigtime-enterprise-psa",
-      "url": "https://trust.bigtime.net/subprocessors",
-      "final": "https://trust.bigtime.net/",
-      "reason": "safebase-itemuid",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/trust/subprocessors",
-      "final": "https://mileiq.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/legal/service-providers",
-      "final": "https://mileiq.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/privacy/subprocessors",
-      "final": "https://mileiq.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/legal/sub-processors-page",
-      "final": "https://mileiq.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mileiq",
-      "url": "https://mileiq.com/company/subprocessors",
-      "final": "https://mileiq.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "quickbase",
-      "url": "https://trust.quickbase.com/subprocessors",
-      "final": "https://trust.quickbase.com/subprocessors",
-      "reason": "js-portal",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "readdle",
-      "url": "https://trust.readdle.com/subprocessors",
-      "final": "https://trust.readdle.com/subprocessors",
-      "reason": "js-portal",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/legal/subprocessors",
-      "final": "https://alvao.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/legal/sub-processors",
-      "final": "https://alvao.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/legal/service-providers",
-      "final": "https://alvao.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/sub-processors",
-      "final": "https://alvao.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/trust/subprocessors",
-      "final": "https://alvao.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/privacy/subprocessors",
-      "final": "https://alvao.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/legal/sub-processors-page",
-      "final": "https://alvao.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/company/subprocessors",
-      "final": "https://alvao.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "alvao",
-      "url": "https://alvao.com/subprocessors",
-      "final": "https://alvao.com/subprocessors",
+      "slug": "indeni",
+      "url": "https://indeni.com/legal/sub-processors",
+      "final": "https://indeni.com/legal/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     }
