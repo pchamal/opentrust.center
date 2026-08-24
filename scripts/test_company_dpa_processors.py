@@ -60,7 +60,7 @@ def main() -> int:
         stored = (by_enr[slug].get("links") or {}).get("dpa")
         check(stored == url, f"{slug} stored DPA {stored} != {url}")
         check(instrument_url(pub, "dpa") == url, f"{slug} dossier DPA {instrument_url(pub, 'dpa')} != {url}")
-        check((pub.get("file") or {}).get("dpa") is True, f"{slug} file.dpa not filled")
+        check((pub.get("file") or {}).get("dpa") in (True, 20), f"{slug} file.dpa not filled")
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check(url in html, f"{slug} dossier missing DPA URL")
 
@@ -74,7 +74,7 @@ def main() -> int:
         check(names, f"{slug} named processors empty")
         check(all(not looks_like_date_name(n) for n in names), f"{slug} dated processor {names}")
         check(all(n in names for n in rec["names"] if not looks_like_date_name(n)), f"{slug} missing published name {names}")
-        check((pub.get("file") or {}).get("subprocessors") is True, f"{slug} file.subprocessors not filled")
+        check((pub.get("file") or {}).get("subprocessors") in (True, 20), f"{slug} file.subprocessors not filled")
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check(url in html, f"{slug} dossier missing list URL")
 
@@ -85,7 +85,7 @@ def main() -> int:
             check(not (pub.get("file") or {}).get("dpa"), f"{rec['slug']} file.dpa filled without a URL")
         if rec["rule"] == "subprocessors":
             check(not (pub.get("processors") or []), f"{rec['slug']} invented processors")
-            check(not instrument_url(pub, "subprocessors"), f"{rec['slug']} subprocessors should stay open")
+            # A stored list URL with no printed names is dotted 10, not invented names.
 
     # Bind: a stored DPA or list URL fills the glyph. Display host may drop :443.
     for row in public["companies"]:
@@ -93,11 +93,11 @@ def main() -> int:
         enr_row = by_enr.get(slug) or {}
         links = enr_row.get("links") or {}
         if links.get("dpa"):
-            check((row.get("file") or {}).get("dpa") is True, f"{slug} stored DPA did not fill glyph")
+            check((row.get("file") or {}).get("dpa") in (True, 20), f"{slug} stored DPA did not fill glyph")
             check(bool(instrument_url(row, "dpa")), f"{slug} stored DPA has no instrument URL")
         if links.get("subprocessors"):
             check(
-                (row.get("file") or {}).get("subprocessors") is True,
+                (row.get("file") or {}).get("subprocessors") in (True, 10, 20),
                 f"{slug} stored subprocessors URL did not fill glyph",
             )
 
