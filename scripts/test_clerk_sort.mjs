@@ -132,6 +132,10 @@ expect(
 );
 expect("Standards H1 and lede", /<h1 class="page-title">Standards<\/h1>/.test(attestHtml) && attestHtml.includes("Standards named on public files. Not a company grade.") && !attestHtml.includes("Marks a buyer will meet") && !attestHtml.includes("then ELI-5, then the long form"));
 expect("frameworks globe stays a canvas", /<canvas id="fig2"/.test(attestHtml));
+expect(
+  "Fig. 2 caption is geography of standards",
+  attestHtml.includes("Fig. 2 · Geography of standards") && !attestHtml.includes("Geography of marks"),
+);
 expect("Standards has no 0–100 or rising column", !/0–100|0-100|rising|medal|trending/i.test(attestHtml) && !/This issue/.test(attestHtml));
 expect("frameworks has no seal icons", !/framework-icon|mark-seal|badge-svg/.test(attestHtml) && !/framework-icon|mark-seal/.test(css));
 
