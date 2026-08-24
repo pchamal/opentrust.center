@@ -43,6 +43,7 @@ const HEADER_KEYS = {
   "named by": "exposure",
   "public file": "file",
   file: "file",
+  completeness: "file",
   concentration: "risk",
   source: "source",
   instrument: "instrument",
@@ -65,6 +66,7 @@ const HEADER_KEYS = {
   "#": "rank",
   domain: "domain",
   marks: "marks",
+  standards: "marks",
 };
 
 export function headerKey(label) {

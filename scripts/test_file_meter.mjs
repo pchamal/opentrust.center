@@ -162,7 +162,7 @@ const silentCell = registerFileCell(registerRowHtml({ slug: "silent", name: "Sil
 expect("silent File prints 0", /<span class="file-num">0<\/span>/.test(silentCell) && fileCount({}) === 0);
 
 expect("register has no Score header", !/>\s*Score\s*</i.test(companiesHtml) && (companiesHtml.match(/<th /g) || []).length === 4);
-expect("register File header stays File", /<button type="button">File<\/button>/.test(companiesHtml));
+expect("register Completeness header stays Completeness", /<button type="button">Completeness<\/button>/.test(companiesHtml));
 expect(
   "finder placeholder dropped old tier words",
   companiesHtml.includes('placeholder="/ stripe, complete, fedramp moderate"') &&

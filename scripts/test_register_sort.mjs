@@ -71,6 +71,8 @@ expect("normalize #", normalizeSort("#") === "rank");
 expect("normalize junk", normalizeSort("score") === "");
 expect("normalize host alias", normalizeSort("domain") === "host");
 expect("normalize file alias", normalizeSort("tier") === "file");
+expect("normalize Completeness alias", normalizeSort("completeness") === "file");
+expect("normalize Standards alias", normalizeSort("standards") === "marks");
 expect("dir default for marks", normalizeDir("", "marks") === "asc");
 expect("dir default for name", normalizeDir(null, "name") === "asc");
 expect("dir default for file", normalizeDir("", "file") === "desc");
@@ -81,15 +83,15 @@ expect("first click Company is A–Z", firstName.sort === "name" && firstName.di
 expect("second click Company is Z–A", clickSort(firstName, "name").dir === "desc");
 
 const firstHost = clickSort(idle, "host");
-expect("first click Host is A–Z", firstHost.sort === "host" && firstHost.dir === "asc");
-expect("second click Host reverses", clickSort(firstHost, "host").dir === "desc");
+expect("first click Domain is A–Z", firstHost.sort === "host" && firstHost.dir === "asc");
+expect("second click Domain reverses", clickSort(firstHost, "host").dir === "desc");
 
 const firstFile = clickSort(idle, "file");
-expect("first click File is most-on-file", firstFile.sort === "file" && firstFile.dir === "desc");
-expect("second click File reverses", clickSort(firstFile, "file").dir === "asc");
+expect("first click Completeness is most-on-file", firstFile.sort === "file" && firstFile.dir === "desc");
+expect("second click Completeness reverses", clickSort(firstFile, "file").dir === "asc");
 const firstMarks = clickSort(idle, "marks");
-expect("first click marks is A–Z", firstMarks.sort === "marks" && firstMarks.dir === "asc");
-expect("second click marks reverses", clickSort(firstMarks, "marks").dir === "desc");
+expect("first click Standards is A–Z", firstMarks.sort === "marks" && firstMarks.dir === "asc");
+expect("second click Standards reverses", clickSort(firstMarks, "marks").dir === "desc");
 
 const byRank = arrangeRows(rows, "rank", "asc");
 expect("rank order still works", byRank[0].rank === 1 && byRank.every((r, i) => i === 0 || r.rank >= byRank[i - 1].rank));
@@ -163,11 +165,15 @@ const indexHtml = readFileSync(new URL("../site/companies.html", import.meta.url
 expect("register grid dropped probed", !/data-sort="probed"/.test(indexHtml) && !/>probed</.test(indexHtml));
 expect("register dropped the # medal", !/data-sort="rank"/.test(indexHtml) && !/>#</.test(indexHtml));
 expect(
-  "register headers are Company Host File Marks",
+  "register headers are Company Domain Completeness Standards",
   /<button type="button">Company<\/button>/.test(indexHtml) &&
-    /<button type="button">Host<\/button>/.test(indexHtml) &&
-    /<button type="button">File<\/button>/.test(indexHtml) &&
-    /<button type="button">Marks<\/button>/.test(indexHtml),
+    /<button type="button">Domain<\/button>/.test(indexHtml) &&
+    /<button type="button">Completeness<\/button>/.test(indexHtml) &&
+    /<button type="button">Standards<\/button>/.test(indexHtml) &&
+    !/<button type="button">Name<\/button>/.test(indexHtml) &&
+    !/<button type="button">Host<\/button>/.test(indexHtml) &&
+    !/<button type="button">File<\/button>/.test(indexHtml) &&
+    !/<button type="button">Marks<\/button>/.test(indexHtml),
 );
 function registerHeads(html) {
   const block = ((html.match(/<table class="reg" id="reg"[\s\S]*?<thead>([\s\S]*?)<\/thead>/) || [])[1] || "");
@@ -182,7 +188,7 @@ expect(
   "first paint only Company has the active underline",
   heads.filter((h) => h.classes.includes("on")).map((h) => h.word).join(" ") === "Company",
 );
-expect("first paint File is a plain word", heads.find((h) => h.word === "File") && !heads.find((h) => h.word === "File").classes.includes("on"));
+expect("first paint Completeness is a plain word", heads.find((h) => h.word === "Completeness") && !heads.find((h) => h.word === "Completeness").classes.includes("on"));
 expect("register file cell has no coverage count", !/file-cov|fileCoverageHtml| of 5/.test(registerSrc));
 expect("register has no More on this file", !/More on this file|record-extra/.test(registerSrc));
 expect("folio row is a dossier click-through", /class="folio"/.test(registerSrc));
