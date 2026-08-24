@@ -191,6 +191,12 @@ expect("contact page is H1 + lede only", !/<h2\b/.test(contactHtml) && !/class="
 expect("no See methodology chip on AITI", !/See methodology/i.test(indexHtml));
 expect("no See methodology chip on Register", !/See methodology/i.test(companiesHtml));
 expect("AITI method line is the three-state sentence once", (indexHtml.match(/<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/g) || []).length === 1);
+expect(
+  "Method AITI slot list says standards",
+  indexHtml.includes("page · standards · processors · evals · incidents. Standards print only when an AI standard is on the page.") &&
+    companiesHtml.includes("page · standards · DPA · subprocessors · years.") &&
+    methodHtml.includes("Standards print only when an AI standard is on the page."),
+);
 expect("Register method line is the three-state sentence once", (companiesHtml.match(/<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/g) || []).length === 1);
 expect("AITI has completeness | method", indexHtml.includes(">completeness</button>") && indexHtml.includes(">method</button>") && indexHtml.includes('class="view-toggle"'));
 expect("Register has completeness | method", companiesHtml.includes(">completeness</button>") && companiesHtml.includes(">method</button>"));
@@ -239,10 +245,10 @@ expect(
 expect("AITI has no N of 5", !aitiJs.includes(" of 5") && !indexHtml.includes(" of 5"));
 expect("showing uses the AITI N", aitiJs.includes("showing ${rows.length} of ${n}"));
 expect("AITI does not paginate a second universe", !aitiJs.includes("PAGE_SIZE") && !indexHtml.includes("pager"));
-expect("legend is the AI five", indexHtml.includes("page · marks · processors · evals · incidents"));
+expect("legend is the AI five", indexHtml.includes("page · standards · processors · evals · incidents"));
 expect(
   "method line is once under the legend",
-  /id="file-legend">page · marks · processors · evals · incidents<\/p>\s*<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/.test(indexHtml) &&
+  /id="file-legend">page · standards · processors · evals · incidents<\/p>\s*<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/.test(indexHtml) &&
     (indexHtml.match(/<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/g) || []).length === 1,
 );
 expect("wordmark unchanged", /<a class="wordmark" href="\.\/">opentrust<span class="wm-dot">\.<\/span>center<\/a>/.test(indexHtml));

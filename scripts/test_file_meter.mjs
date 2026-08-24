@@ -47,7 +47,7 @@ const full = fileIndexHtml(fullRow);
 expect("full fills five rules", (full.match(/file-rule on/g) || []).length === 5);
 expect("full does not print N of 5", !full.includes(" of 5") && !full.includes("5 of 5"));
 expect("full is not a sixth score", !full.includes("trust maturity") && !full.includes("file · 5"));
-expect("full spoken is the instruments", fileCoverage(fullRow).spoken === "page · marks · DPA · subprocessors · years");
+expect("full spoken is the instruments", fileCoverage(fullRow).spoken === "page · standards · DPA · subprocessors · years");
 
 const mixedRow = {
   found: true,
@@ -59,7 +59,7 @@ const mixed = fileCoverage(mixedRow);
 const mixedHtml = fileIndexHtml(mixedRow);
 expect("mixed counts four", mixed.n === 4 && fileCount(mixedRow) === 4);
 expect("mixed does not print the count", !mixedHtml.includes("3 of 5") && !mixedHtml.includes("file · 3"));
-expect("mixed speaks instruments on file", mixed.spoken === "page · marks · DPA · years");
+expect("mixed speaks instruments on file", mixed.spoken === "page · standards · DPA · years");
 expect("mixed fills three prints", (mixedHtml.match(/file-rule on/g) || []).length === 3);
 expect("mixed marks is dotted 10", ruleKind(mixedHtml)[1] === "partial" && fileFlags(mixedRow).marks === 10);
 expect("mixed binds DPA not a filled marks rule", ruleOn(mixedHtml)[2] === true && ruleOn(mixedHtml)[1] === false);
@@ -117,15 +117,15 @@ function registerFileCell(html) {
 
 expect(
   "legend is once above the grid",
-  indexHtml.includes('id="file-legend"') && indexHtml.includes("page · marks · processors · evals · incidents"),
+  indexHtml.includes('id="file-legend"') && indexHtml.includes("page · standards · processors · evals · incidents"),
 );
 expect(
   "register legend is the five Companies rules",
-  companiesHtml.includes('id="file-legend"') && companiesHtml.includes("page · marks · DPA · subprocessors · years"),
+  companiesHtml.includes('id="file-legend"') && companiesHtml.includes("page · standards · DPA · subprocessors · years"),
 );
 expect(
   "register method line is once under the legend",
-  /id="file-legend">page · marks · DPA · subprocessors · years<\/p>\s*<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/.test(companiesHtml) &&
+  /id="file-legend">page · standards · DPA · subprocessors · years<\/p>\s*<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/.test(companiesHtml) &&
     (companiesHtml.match(/<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/g) || []).length === 1,
 );
 expect(
