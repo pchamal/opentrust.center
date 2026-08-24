@@ -43,8 +43,8 @@ const state = {
   generatedAt: null,
   q: "",
   url: { tier: "all", list: "all", fedramp: "all" },
-  sort: "name",
-  dir: "asc",
+  sort: "file",
+  dir: "desc",
   sorted: true,
   page: 1,
   selected: "",
@@ -138,7 +138,7 @@ function probedMs(row) {
 }
 
 export function arrangeRows(rows, sort, dir) {
-  const key = normalizeSort(sort) || "name";
+  const key = normalizeSort(sort) || "file";
   const sign = dir === "desc" ? -1 : 1;
   return rows.slice().sort((a, b) => {
     const c = compareRows(a, b, key);
@@ -147,9 +147,9 @@ export function arrangeRows(rows, sort, dir) {
   });
 }
 
-/* Default: Company A–Z. */
+/* Default: Completeness highest first, then Company A–Z. */
 export function defaultRows(rows) {
-  return arrangeRows(rows, "name", "asc");
+  return arrangeRows(rows, "file", "desc");
 }
 
 export function pageCount(total, size = PAGE_SIZE) {
