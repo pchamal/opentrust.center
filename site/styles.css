@@ -569,7 +569,8 @@ body.aiti .reg td.file-cell .file-num {
   margin-right: 8px;
   vertical-align: middle;
 }
-.reg td.file .file-num {
+.reg td.file .file-num,
+.wires-table td.file .file-num {
   font: var(--t-name);
   color: var(--ot-ledger-black);
   font-style: normal;
@@ -1439,7 +1440,8 @@ body.register .view-toggle button.on {
     margin-right: 0;
     margin-bottom: 4px;
   }
-  .reg td.file .file-num {
+  .reg td.file .file-num,
+  .wires-table td.file .file-num {
     display: block;
     margin-right: 0;
     margin-bottom: 4px;

@@ -36,6 +36,15 @@ expect("390 hides the neighborhood canvas", /#fig1 \{ display: none/.test(phone)
 expect("390 stacks the wire list", /\.wires-table \.inst thead \{ display: none/.test(phone) && /\.wires-table \.inst td \{[\s\S]*display: block/.test(phone));
 expect("390 kills the inner table scroll", /\.wires-scroll \{[\s\S]*max-height: none/.test(phone) && /\.wires-scroll \{[\s\S]*overflow-x: hidden/.test(phone) && /\.wires-table \.inst \{[\s\S]*min-width: 0/.test(phone));
 expect("390 list fields stay labeled", js.includes('data-label="Processor"') && js.includes('data-label="Named by"') && js.includes('data-label="Completeness"') && js.includes('data-label="Source"') && !js.includes('data-label="File"') && !js.includes('data-label="Concentration"'));
+expect(
+  "graph Completeness numeral is Source Serif roman",
+  /\.wires-table td\.file \.file-num \{[\s\S]*font: var\(--t-name\)[\s\S]*color: var\(--ot-ledger-black\)/.test(css),
+);
+expect(
+  "graph no-file Completeness prints file-num 0",
+  /<span class="file-num">\$\{score\}<\/span>/.test(js) && js.includes("fileIndexHtml(row)") && !/file-num:empty/.test(css),
+);
+expect("graph Completeness has no pip glyph", !js.includes("∅") && !css.includes("∅") && !html.includes("∅"));
 expect("1440 wire table stays a table", !/@media \(min-width: 1440px\)/.test(css) && /\.wires-table \.inst \{ display: table/.test(css) && /\.wires-table \.inst \{ display: table; min-width: min\(640px, 100%\)/.test(css));
 
 const toggle = css.slice(css.indexOf(".view-toggle"), css.indexOf(".wires-grid"));
