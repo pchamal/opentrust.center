@@ -35,7 +35,7 @@ expect("390 stays the list", /data-view="map"[\s\S]*\.fig-block[\s\S]*display: n
 expect("390 hides the neighborhood canvas", /#fig1 \{ display: none/.test(phone) && /\.map-field[\s\S]*display: none/.test(phone) && /if \(compactPhone\(\)\) return false/.test(js));
 expect("390 stacks the wire list", /\.wires-table \.inst thead \{ display: none/.test(phone) && /\.wires-table \.inst td \{[\s\S]*display: block/.test(phone));
 expect("390 kills the inner table scroll", /\.wires-scroll \{[\s\S]*max-height: none/.test(phone) && /\.wires-scroll \{[\s\S]*overflow-x: hidden/.test(phone) && /\.wires-table \.inst \{[\s\S]*min-width: 0/.test(phone));
-expect("390 list fields stay labeled", js.includes('data-label="Processor"') && js.includes('data-label="Named by"') && js.includes('data-label="File"') && js.includes('data-label="Source"') && !js.includes('data-label="Concentration"'));
+expect("390 list fields stay labeled", js.includes('data-label="Processor"') && js.includes('data-label="Named by"') && js.includes('data-label="Completeness"') && js.includes('data-label="Source"') && !js.includes('data-label="File"') && !js.includes('data-label="Concentration"'));
 expect("1440 wire table stays a table", !/@media \(min-width: 1440px\)/.test(css) && /\.wires-table \.inst \{ display: table/.test(css) && /\.wires-table \.inst \{ display: table; min-width: min\(640px, 100%\)/.test(css));
 
 const toggle = css.slice(css.indexOf(".view-toggle"), css.indexOf(".wires-grid"));
@@ -63,7 +63,7 @@ const processors = [...by.values()];
 const aws = processors.find((p) => p.id === "aws");
 aws.name = "Amazon Web Services";
 const hood = neighborhoodOf(aws, edges, processors, new Map());
-expect("aws namers stay a count not a ring", hood.namers === 77 && hood.nodes.filter((n) => n.role === "namer").length === 0);
+expect("aws namers stay a count not a ring", hood.namers === 84 && hood.nodes.filter((n) => n.role === "namer").length === 0);
 expect(
   "every plate node is named",
   hood.nodes.every((n) => n.name && n.role !== "namer") &&
@@ -72,7 +72,7 @@ expect(
     hood.nodes.length === 1 + hood.others,
 );
 expect("aws siblings are labeled processors", hood.nodes.filter((n) => n.role === "other").every((n) => n.name) && hood.others >= 6);
-expect("no anonymous ring", !hood.nodes.some((n) => n.role === "namer") && edges.length === 1344);
+expect("no anonymous ring", !hood.nodes.some((n) => n.role === "namer") && edges.length === 1506);
 expect("01 April 2025 is not a processor name", looksLikeDateName("01 April 2025") && !looksLikeProcessorName("01 April 2025"));
 expect("29 April 2026 is not a processor name", looksLikeDateName("29 April 2026") && !looksLikeProcessorName("29 April 2026"));
 expect("date slug is not a processor name", looksLikeDateName("01-april-2025") && !looksLikeProcessorName("01-april-2025"));

@@ -128,7 +128,7 @@ def main() -> int:
     zoom = (ROOT / "site" / "c" / "zoom.html").read_text(encoding="utf-8")
     check("AI Trust Index" in index, "AITI title stays")
     check("The public file on AI systems. Not a trust score." in index, "AITI lede stays")
-    check("page · marks · processors · evals · incidents" in index, "AITI legend stays")
+    check("page · standards · processors · evals · incidents" in index, "AITI legend stays")
     check("AITI is the public file on AI systems, not a trust score." in index, "AITI footer was not cut")
     method = (ROOT / "site" / "methodology.html").read_text(encoding="utf-8")
     check('<h1 class="page-title">Method</h1>' in method, "H1 Method")

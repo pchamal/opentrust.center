@@ -35,21 +35,21 @@ expect("first click exposure is high to low", clickSort(idle, "exposure", { expo
 expect("named-by click is exposure desc", clickSort(idle, "exposure", { exposure: "desc" }).sort === "exposure" && clickSort(idle, "exposure", { exposure: "desc" }).dir === "desc");
 
 const procs = [
-  { name: "Zebra", exposure: 9, risk: 8.1, inRegister: true, tier: "silent", sources: ["https://z.example/x"] },
-  { name: "alpha", exposure: 2, risk: 1.2, inRegister: true, tier: "complete", sources: ["https://a.example/x"] },
-  { name: "Mid", exposure: 4, risk: 9.0, inRegister: false, tier: null, sources: ["https://m.example/x"] },
+  { name: "Zebra", exposure: 9, risk: 8.1, inRegister: true, tier: "silent", score: 0, sources: ["https://z.example/x"] },
+  { name: "alpha", exposure: 2, risk: 1.2, inRegister: true, tier: "complete", score: 100, sources: ["https://a.example/x"] },
+  { name: "Mid", exposure: 4, risk: 9.0, inRegister: false, tier: null, score: 0, sources: ["https://m.example/x"] },
 ];
 const az = arrangeProcessors(procs, "name", "asc");
 expect("graph default A–Z is case-insensitive", az[0].name === "alpha" && az[1].name === "Mid" && az[2].name === "Zebra");
 
 expect("named by is count high to low", arrangeProcessors(procs, "exposure", "desc")[0].name === "Zebra");
 expect("exposure click is count high to low", arrangeProcessors(procs, "exposure", "desc")[0].name === "Zebra");
-expect("public file uses tier order", compareProcessors(procs[0], procs[1], "file") < 0);
+expect("public file uses Completeness numeral", compareProcessors(procs[0], procs[1], "file") < 0);
 expect("graph compare is exported", compareProcessors(procs[1], procs[0], "name") < 0);
 
 expect("graph list has Processor sort", /data-sort="name"/.test(graphHtml) && /Processor/.test(graphHtml));
 expect("graph list has Named by sort", /data-sort="exposure"/.test(graphHtml) && /Named by/.test(graphHtml));
-expect("graph list has File sort", /data-sort="file"/.test(graphHtml) && /<button type="button">File<\/button>/.test(graphHtml));
+expect("graph list has Completeness sort", /data-sort="file"/.test(graphHtml) && /<button type="button">Completeness<\/button>/.test(graphHtml) && !/<button type="button">File<\/button>/.test(graphHtml));
 expect("graph list dropped Concentration", !/Concentration/.test(graphHtml) && !/data-sort="risk"/.test(graphHtml));
 expect("graph list has Source sort", /data-sort="source"/.test(graphHtml));
 expect("graph default header is Processor A–Z", /data-sort="name" aria-sort="ascending"/.test(graphHtml));
@@ -69,6 +69,7 @@ expect("marks stay a list", /<ul class="mark-list">/.test(stripeHtml) && !/data-
 expect("name header key", headerKey("Name") === "name");
 expect("company header key", headerKey("Company") === "name");
 expect("mark header key", headerKey("Mark") === "name");
+expect("standard header key", headerKey("Standard") === "name");
 expect("named by header key", headerKey("Named by") === "exposure");
 expect("host header key", headerKey("Host") === "host");
 expect("completeness header key", headerKey("Completeness") === "file");
@@ -108,26 +109,30 @@ expect("frameworks popularity tie-breaks A–Z", byFiles.every((r, i) => {
   return String(prev.name).localeCompare(String(r.name), undefined, { sensitivity: "base" }) <= 0;
 }));
 expect("frameworks Name click is A–Z", byName[0].name.localeCompare(byName[byName.length - 1].name, undefined, { sensitivity: "base" }) < 0 && byName[0].id !== byFiles[0].id);
-expect("frameworks default is Mark A–Z", arrangeMarks(marks).map((r) => r.id).join("\0") === byName.map((r) => r.id).join("\0"));
+expect("frameworks default is Named by most first", arrangeMarks(marks).map((r) => r.id).join("\0") === byFiles.map((r) => r.id).join("\0"));
 expect("frameworks Files click returns popularity", clickSort({ sort: "name", dir: "asc" }, "files", { files: "desc" }).sort === "files" && clickSort({ sort: "name", dir: "asc" }, "files", { files: "desc" }).dir === "desc");
 expect("frameworks Files compare", compareMarks(byFiles[0], byFiles[byFiles.length - 1], "files") > 0);
 const soc = filterMarks(marks, "soc");
 expect("frameworks soc tokens parse", parseMarkQuery("/ soc, 2").join(" ") === "soc 2");
 expect("frameworks typing soc filters", soc.length > 0 && soc.length < marks.length && soc.every((r) => markHayOk(r, "soc")));
 expect("frameworks empty query invents nothing", filterMarks(marks, "zzzz-not-a-filed-mark").length === 0);
-expect("frameworks finder is the quiet input", /id="finder"/.test(attestHtml) && /id="q"/.test(attestHtml) && /Find a mark/.test(attestHtml));
+expect("frameworks finder is the quiet input", /id="finder"/.test(attestHtml) && /id="q"/.test(attestHtml) && /Find a standard/.test(attestHtml));
 expect("frameworks miss is italic not on file", /id="book-miss"/.test(attestHtml) && /not on file/.test(attestHtml));
 expect(
-  "frameworks headers are Mark Issuer File",
+  "frameworks headers are Standard Issuer Named by",
   /id="book-sort"/.test(attestHtml) &&
-    /<button type="button">Mark<\/button>/.test(attestHtml) &&
+    /<button type="button">Standard<\/button>/.test(attestHtml) &&
     /<button type="button">Issuer<\/button>/.test(attestHtml) &&
-    /<button type="button">File<\/button>/.test(attestHtml) &&
-    /data-sort="name" aria-sort="ascending"/.test(attestHtml) &&
+    /<button type="button">Named by<\/button>/.test(attestHtml) &&
+    !/<button type="button">Mark<\/button>/.test(attestHtml) &&
+    !/<button type="button">File<\/button>/.test(attestHtml) &&
+    /data-sort="name" aria-sort="none"/.test(attestHtml) &&
     /data-sort="issuer"/.test(attestHtml) &&
-    /data-sort="files"/.test(attestHtml),
+    /data-sort="files" aria-sort="descending"/.test(attestHtml),
 );
+expect("Standards H1 and lede", /<h1 class="page-title">Standards<\/h1>/.test(attestHtml) && attestHtml.includes("Standards named on public files. Not a company grade.") && !attestHtml.includes("Marks a buyer will meet") && !attestHtml.includes("then ELI-5, then the long form"));
 expect("frameworks globe stays a canvas", /<canvas id="fig2"/.test(attestHtml));
+expect("Standards has no 0–100 or rising column", !/0–100|0-100|rising|medal|trending/i.test(attestHtml) && !/This issue/.test(attestHtml));
 expect("frameworks has no seal icons", !/framework-icon|mark-seal|badge-svg/.test(attestHtml) && !/framework-icon|mark-seal/.test(css));
 
 function markHayOk(item, token) {

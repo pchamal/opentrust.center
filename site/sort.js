@@ -39,6 +39,7 @@ const HEADER_KEYS = {
   system: "name",
   company: "name",
   mark: "name",
+  standard: "name",
   exposure: "exposure",
   "named by": "exposure",
   "public file": "file",

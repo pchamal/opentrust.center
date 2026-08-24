@@ -28,8 +28,8 @@ const state = {
   geo: "all",
   industry: "all",
   kind: "all",
-  sort: "name",
-  dir: "asc",
+  sort: "files",
+  dir: "desc",
   depth: new Map(),
   rot: 0,
   drag: null,
@@ -100,7 +100,7 @@ export function compareMarks(a, b, key) {
 }
 
 export function arrangeMarks(rows, sort, dir) {
-  return arrange(rows, sort || "name", dir || "asc", compareMarks);
+  return arrange(rows, sort || "files", dir || "desc", compareMarks);
 }
 
 function geosOf(item) {
@@ -182,7 +182,7 @@ function renderBook() {
       const markIco = inkIcon((state.icons.marks || {})[item.id]);
       return `<article class="entry" id="${escapeHtml(item.id)}">
         <h2>${markIco}${escapeHtml(item.name)}</h2>
-        <p class="entry-meta">${escapeHtml(item.kind === "framework" ? "standard" : item.kind)} · ${escapeHtml(geo)} · ${escapeHtml(item.issuer)} · ${files} files</p>
+        <p class="entry-meta">${escapeHtml(item.kind === "framework" ? "standard" : item.kind)} · ${escapeHtml(geo)} · ${escapeHtml(item.issuer)} · ${files} named by</p>
         <p class="entry-meta">${escapeHtml(ind)}</p>
         ${read}
         <p class="entry-body">${escapeHtml(body || "")}</p>
@@ -662,7 +662,7 @@ async function load() {
       ...item,
       files: citeCount(state.companies, item),
     }));
-    fillIssue($("issue"), reg, `${state.items.length} marks`);
+    fillIssue($("issue"), reg, `${state.items.length} standards`);
     const params = new URLSearchParams(window.location.search);
     if (params.get("q")) {
       state.q = params.get("q");

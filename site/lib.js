@@ -6,7 +6,7 @@ export const DATA_V = "2026-08-24T21:55:52Z";
 export const FILE_KEYS = ["page", "marks", "dpa", "subprocessors", "years"];
 export const FILE_LABELS = {
   page: "page",
-  marks: "marks",
+  marks: "standards",
   dpa: "DPA",
   subprocessors: "subprocessors",
   years: "years",
@@ -14,7 +14,7 @@ export const FILE_LABELS = {
 export const AI_FILE_KEYS = ["page", "marks", "processors", "evals", "incidents"];
 export const AI_FILE_LABELS = {
   page: "page",
-  marks: "marks",
+  marks: "standards",
   processors: "processors",
   evals: "evals",
   incidents: "incidents",
@@ -172,7 +172,7 @@ export function fileRuleClass(score) {
 export function fileCoverage(row) {
   const flags = fileFlags(row);
   const n = fileCount(row);
-  const legend = "page · marks · DPA · subprocessors · years";
+  const legend = "page · standards · DPA · subprocessors · years";
   const on = FILE_KEYS.filter((k) => flags[k]).map((k) => FILE_LABELS[k]);
   const spoken = on.length ? on.join(" · ") : "not on file";
   return { n, legend, spoken, title: spoken };
@@ -468,7 +468,7 @@ export function aiFileOnWords(row) {
 export function aiFileCoverage(row) {
   const flags = aiFileFlags(row);
   const n = aiFileCount(row);
-  const legend = "page · marks · processors · evals · incidents";
+  const legend = "page · standards · processors · evals · incidents";
   const on = AI_FILE_KEYS.filter((k) => flags[k]).map((k) => AI_FILE_LABELS[k]);
   const spoken = on.length ? on.join(" · ") : "not on file";
   return { n, legend, spoken, title: spoken };

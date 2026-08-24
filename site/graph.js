@@ -1,5 +1,5 @@
-import { $, escapeHtml, fillIssue, displayTier, dataUrl, nameWithIcon } from "./lib.js";
-import { arrange, clickSort, cmpText, paintHeaders, TIER_ORDER } from "./sort.js";
+import { $, escapeHtml, fillIssue, dataUrl, nameWithIcon, fileFlags, fileIndexHtml, fileScore } from "./lib.js";
+import { arrange, clickSort, cmpText, paintHeaders } from "./sort.js";
 
 const SORT_DEFAULTS = {
   name: "asc",
@@ -177,6 +177,7 @@ export function rankProcessors(edges, companies) {
     const exposure = rec.namers.length;
     const t = thinness(self);
     const risk = exposure * (0.4 + 0.6 * t);
+    const score = self ? fileScore(fileFlags(self)) : 0;
     rows.push({
       id: rec.id || rec.slug || rec.name,
       name: rec.name,
@@ -184,6 +185,7 @@ export function rankProcessors(edges, companies) {
       domain: rec.domain || (self && self.domain) || "",
       inRegister: Boolean(self),
       tier: self ? self.tier : null,
+      score,
       exposure,
       thinness: t,
       risk,
@@ -199,12 +201,6 @@ export function sourceHost(p) {
   return url ? hostOfSafe(url) : "";
 }
 
-function fileRank(p) {
-  if (!p || !p.inRegister) return -1;
-  const n = TIER_ORDER[p.tier];
-  return n == null ? -1 : n;
-}
-
 export function compareProcessors(a, b, key) {
   switch (key) {
     case "name":
@@ -212,7 +208,7 @@ export function compareProcessors(a, b, key) {
     case "exposure":
       return ((a && a.exposure) || 0) - ((b && b.exposure) || 0);
     case "file":
-      return fileRank(a) - fileRank(b);
+      return ((a && a.score) || 0) - ((b && b.score) || 0);
     case "risk":
       return ((a && a.risk) || 0) - ((b && b.risk) || 0) || ((a && a.exposure) || 0) - ((b && b.exposure) || 0);
     case "source":
@@ -252,12 +248,14 @@ function renderTable() {
   paintHeaders($("wire-table"), state.sort, state.dir);
   body.innerHTML = state.processors
     .map((p, i) => {
-      const tier = p.inRegister ? displayTier(p.tier) : "not in register";
+      const row = p.slug ? state.companies.get(p.slug) : null;
+      const score = Number.isFinite(p.score) ? p.score : row ? fileScore(fileFlags(row)) : 0;
+      const ticks = row ? fileIndexHtml(row) : "";
       const src = p.sources[0] ? hostOfSafe(p.sources[0]) : "not on file";
       return `<tr data-i="${i}" class="folio${state.focus === i ? " on selected" : ""}">
         <td class="name" data-label="Processor">${escapeHtml(p.name)}</td>
         <td data-label="Named by">${p.exposure}</td>
-        <td class="${p.inRegister ? "" : "absent"}" data-label="File">${escapeHtml(tier)}</td>
+        <td class="file" data-label="Completeness"><span class="file-num">${score}</span>${ticks}</td>
         <td data-label="Source">${escapeHtml(src)}</td>
       </tr>`;
     })
