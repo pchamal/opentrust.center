@@ -50739,7 +50739,11 @@
           "host": "progress.com",
           "seen": "2026-08-22"
         },
-        "dpa": null,
+        "dpa": {
+          "url": "https://www.progress.com/docs/default-source/progress-software/data-processing-addendum.pdf",
+          "host": "progress.com",
+          "seen": "2026-08-24"
+        },
         "subprocessors": {
           "url": "https://trust.progress.com/subprocessors",
           "host": "trust.progress.com",
@@ -50750,12 +50754,12 @@
       },
       "processors": [],
       "disclosure": {
-        "score": 44,
+        "score": 52,
         "tier": "on-file",
         "factors": {
           "page": 20,
           "marks": 24,
-          "dpa": 0,
+          "dpa": 8,
           "processors": 0,
           "status": 0,
           "bounty": 0,
@@ -50767,7 +50771,7 @@
       "file": {
         "page": true,
         "marks": true,
-        "dpa": false,
+        "dpa": true,
         "subprocessors": true,
         "years": true
       },
@@ -160414,7 +160418,7 @@
     ],
     "links": {
       "security_txt": 256,
-      "dpa": 158,
+      "dpa": 159,
       "privacy": 636,
       "status": 332,
       "bug_bounty": 209,
