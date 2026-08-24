@@ -77,8 +77,8 @@ expect("dir default for marks", normalizeDir("", "marks") === "asc");
 expect("dir default for name", normalizeDir(null, "name") === "asc");
 expect("dir default for file", normalizeDir("", "file") === "desc");
 
-const idle = { sort: "name", dir: "asc", sorted: true };
-const firstName = clickSort({ sort: "file", dir: "desc", sorted: false }, "name");
+const idle = { sort: "file", dir: "desc", sorted: true };
+const firstName = clickSort(idle, "name");
 expect("first click Company is A–Z", firstName.sort === "name" && firstName.dir === "asc");
 expect("second click Company is Z–A", clickSort(firstName, "name").dir === "desc");
 
@@ -86,9 +86,9 @@ const firstHost = clickSort(idle, "host");
 expect("first click Domain is A–Z", firstHost.sort === "host" && firstHost.dir === "asc");
 expect("second click Domain reverses", clickSort(firstHost, "host").dir === "desc");
 
-const firstFile = clickSort(idle, "file");
+const firstFile = clickSort({ sort: "name", dir: "asc", sorted: true }, "file");
 expect("first click Completeness is most-on-file", firstFile.sort === "file" && firstFile.dir === "desc");
-expect("second click Completeness reverses", clickSort(firstFile, "file").dir === "asc");
+expect("second click Completeness reverses", clickSort(idle, "file").dir === "asc");
 const firstMarks = clickSort(idle, "marks");
 expect("first click Standards is A–Z", firstMarks.sort === "marks" && firstMarks.dir === "asc");
 expect("second click Standards reverses", clickSort(firstMarks, "marks").dir === "desc");
@@ -151,13 +151,22 @@ expect("marks count helper still works", marksCount(rows.find((r) => (r.attestat
 expect("probed still a sort key", normalizeSort("probed") === "probed");
 
 const landing = defaultRows(rows);
-const nameOkLanding = landing.every((r, i) => {
-  if (i === 0) return true;
-  return String(r.name).localeCompare(landing[i - 1].name, undefined, { sensitivity: "base" }) >= 0;
+const byNameLanding = arrangeRows(rows, "name", "asc");
+const fileOkLanding = landing.every((row, i) => {
+  if (!i) return true;
+  const prev = landing[i - 1];
+  const c = fileScore(fileFlags(prev)) - fileScore(fileFlags(row));
+  if (c > 0) return true;
+  if (c < 0) return false;
+  return String(prev.name).localeCompare(String(row.name), undefined, { sensitivity: "base" }) <= 0;
 });
 expect("default keeps every company", landing.length === rows.length);
 expect("default does not drop a slug", new Set(landing.map((r) => r.slug)).size === rows.length);
-expect("default is Company A–Z", nameOkLanding && landing[0].name.localeCompare(landing[landing.length - 1].name, undefined, { sensitivity: "base" }) < 0);
+expect("default is highest Completeness then Company A–Z", fileOkLanding);
+expect("default is not Company A–Z", landing.map((r) => r.slug).join("\0") !== byNameLanding.map((r) => r.slug).join("\0"));
+expect("default leads with a full print", fileScore(fileFlags(landing[0])) === 100);
+expect("01.AI at 0 does not lead", landing[0].slug !== "01-ai");
+expect("1Password at 100 sits above 01.AI", landing.findIndex((r) => r.slug === "1password") < landing.findIndex((r) => r.slug === "01-ai"));
 expect("complete stays in the table", landing.some((r) => r.tier === "complete"));
 expect("file header still sorts the state", fileScore(fileFlags(arrangeRows(rows, "file", "asc")[0])) === 0 && fileScore(fileFlags(arrangeRows(rows, "file", "desc")[0])) === 100);
 
@@ -184,11 +193,20 @@ function registerHeads(html) {
   }));
 }
 const heads = registerHeads(indexHtml);
+const fileHead = heads.find((h) => h.word === "Completeness");
+const nameHead = heads.find((h) => h.word === "Company");
 expect(
-  "first paint only Company has the active underline",
-  heads.filter((h) => h.classes.includes("on")).map((h) => h.word).join(" ") === "Company",
+  "first paint only Completeness has the active underline",
+  heads.filter((h) => h.classes.includes("on")).map((h) => h.word).join(" ") === "Completeness" &&
+    fileHead &&
+    /aria-sort="descending"/.test(fileHead.attrs),
 );
-expect("first paint Completeness is a plain word", heads.find((h) => h.word === "Completeness") && !heads.find((h) => h.word === "Completeness").classes.includes("on"));
+expect(
+  "first paint Company is a plain word",
+  nameHead &&
+    !nameHead.classes.includes("on") &&
+    /aria-sort="none"/.test(nameHead.attrs),
+);
 expect("register file cell has no coverage count", !/file-cov|fileCoverageHtml| of 5/.test(registerSrc));
 expect("register has no More on this file", !/More on this file|record-extra/.test(registerSrc));
 expect("folio row is a dossier click-through", /class="folio"/.test(registerSrc));

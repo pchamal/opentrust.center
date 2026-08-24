@@ -10,7 +10,7 @@ import {
 } from "../site/sort.js";
 import { arrangeProcessors, compareProcessors } from "../site/graph.js";
 import { arrangeMarks, citeCount, compareMarks, filterMarks, parseMarkQuery } from "../site/gazette.js";
-import { arrangeRows, clickSort as registerClick, normalizeSort } from "../site/register.js";
+import { arrangeRows, clickSort as registerClick, defaultRows, normalizeSort } from "../site/register.js";
 
 const graphHtml = readFileSync(new URL("../site/graph.html", import.meta.url), "utf8");
 const attestHtml = readFileSync(new URL("../site/attestations.html", import.meta.url), "utf8");
@@ -135,10 +135,12 @@ function markHayOk(item, token) {
 }
 
 const rows = data.companies;
-expect("register File sort still 0–5 internal order", arrangeRows(rows, "file", "asc")[0].tier === "silent" && arrangeRows(rows, "file", "desc")[0].tier === "complete");
-expect("register File header is file", normalizeSort("file") === "file" && normalizeSort("tier") === "file");
+expect("register Completeness sort still 0–5 internal order", arrangeRows(rows, "file", "asc")[0].tier === "silent" && arrangeRows(rows, "file", "desc")[0].tier === "complete");
+expect("register Completeness header is file", normalizeSort("file") === "file" && normalizeSort("tier") === "file" && normalizeSort("completeness") === "file");
+expect("register default is Completeness first", defaultRows(rows)[0].tier === "complete" && defaultRows(rows)[0].slug === arrangeRows(rows, "file", "desc")[0].slug);
 const firstFile = registerClick({ sort: "name", dir: "asc", sorted: true }, "file");
-expect("register File first click is most-on-file", firstFile.sort === "file" && firstFile.dir === "desc");
+expect("register Completeness first click is most-on-file", firstFile.sort === "file" && firstFile.dir === "desc");
+expect("register Completeness default click reverses", registerClick({ sort: "file", dir: "desc", sorted: true }, "file").dir === "asc");
 expect("register sort chrome has no chevron", !css.includes('content: "▴"') && !css.includes('content: "▾"'));
 expect("inst active header is a 1px rule not a chip", /\.inst th\.on \{[^}]*border-bottom-color: var\(--ot-ledger-black\)/.test(css) && !/\.inst th\.on \{[^}]*background:/.test(css));
 expect("no third palette added", !/--ot-sort|--ot-chip-fill|#DDEFEA/.test(css.split(".inst th[data-sort]")[1] || ""));
