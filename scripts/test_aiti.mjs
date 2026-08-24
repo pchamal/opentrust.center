@@ -113,7 +113,7 @@ expect("every AITI row binds marks to the Marks cell", true);
 const arranged = defaultAiRows(files);
 const names = arranged.map((r) => r.name);
 const byName = namedAiRows(files).map((r) => r.name);
-expect("default order is highest File then name", arranged.every((row, i) => {
+expect("default order is highest Completeness then name", arranged.every((row, i) => {
   if (!i) return true;
   const prev = arranged[i - 1];
   const c = fileScore(aiFileFlags(prev)) - fileScore(aiFileFlags(row));
@@ -192,8 +192,8 @@ expect("no See methodology chip on AITI", !/See methodology/i.test(indexHtml));
 expect("no See methodology chip on Register", !/See methodology/i.test(companiesHtml));
 expect("AITI method line is the three-state sentence once", (indexHtml.match(/<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/g) || []).length === 1);
 expect("Register method line is the three-state sentence once", (companiesHtml.match(/<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/g) || []).length === 1);
-expect("AITI has file | method", indexHtml.includes(">file</button>") && indexHtml.includes(">method</button>") && indexHtml.includes('class="view-toggle"'));
-expect("Register has file | method", companiesHtml.includes(">file</button>") && companiesHtml.includes(">method</button>"));
+expect("AITI has completeness | method", indexHtml.includes(">completeness</button>") && indexHtml.includes(">method</button>") && indexHtml.includes('class="view-toggle"'));
+expect("Register has completeness | method", companiesHtml.includes(">completeness</button>") && companiesHtml.includes(">method</button>"));
 expect("default view is file", /id="file-view"/.test(indexHtml) && /id="method-view"[^>]*hidden/.test(indexHtml) && /id="method-view"[^>]*hidden/.test(companiesHtml));
 expect("docket is not a fifth method word", docketWords(indexHtml).join(" ") === "AITI Register Subprocessors Standards" && !docketWords(indexHtml).includes("method"));
 expect("docket word stays AITI", activeWord(indexHtml) === "AITI");
@@ -202,13 +202,15 @@ expect("AITI table has no score column", !/>\s*Score\s*</i.test(indexHtml) && !a
 expect("AITI table has no rank column", !/>\s*Rank\s*</i.test(indexHtml) && !aitiJs.includes("who's ahead") && !aitiJs.includes("who’s ahead"));
 expect("AITI has no sixth number column", !/#<\/th>/.test(indexHtml) && !/>\s*#\s*</.test(indexHtml) && (indexHtml.match(/<th /g) || []).length === 4);
 expect(
-  "AITI headers are System Host File Marks",
-  /<button type="button">System<\/button>/.test(indexHtml) &&
-    /<button type="button">Host<\/button>/.test(indexHtml) &&
-    /<button type="button">File<\/button>/.test(indexHtml) &&
-    /<button type="button">Marks<\/button>/.test(indexHtml) &&
-    !/>Name</.test(indexHtml) &&
-    !/>Domain</.test(indexHtml),
+  "AITI headers are Name Domain Completeness Standards",
+  /<button type="button">Name<\/button>/.test(indexHtml) &&
+    /<button type="button">Domain<\/button>/.test(indexHtml) &&
+    /<button type="button">Completeness<\/button>/.test(indexHtml) &&
+    /<button type="button">Standards<\/button>/.test(indexHtml) &&
+    !/<button type="button">System<\/button>/.test(indexHtml) &&
+    !/<button type="button">Host<\/button>/.test(indexHtml) &&
+    !/<button type="button">File<\/button>/.test(indexHtml) &&
+    !/<button type="button">Marks<\/button>/.test(indexHtml),
 );
 function aitiHeads(html) {
   const block = ((html.match(/<table class="reg" id="reg"[\s\S]*?<thead>([\s\S]*?)<\/thead>/) || [])[1] || "");
@@ -219,16 +221,16 @@ function aitiHeads(html) {
   }));
 }
 const heads = aitiHeads(indexHtml);
-const fileHead = heads.find((h) => h.word === "File");
-const marksHead = heads.find((h) => h.word === "Marks");
+const fileHead = heads.find((h) => h.word === "Completeness");
+const marksHead = heads.find((h) => h.word === "Standards");
 expect(
-  "first paint only File has the active underline",
-  heads.filter((h) => h.classes.includes("on")).map((h) => h.word).join(" ") === "File" &&
+  "first paint only Completeness has the active underline",
+  heads.filter((h) => h.classes.includes("on")).map((h) => h.word).join(" ") === "Completeness" &&
     fileHead &&
     /aria-sort="descending"/.test(fileHead.attrs),
 );
 expect(
-  "first paint Marks is a plain word",
+  "first paint Standards is a plain word",
   marksHead &&
     !marksHead.classes.includes("on") &&
     /aria-sort="none"/.test(marksHead.attrs) &&
@@ -553,14 +555,14 @@ expect("Runway Marks stays italic not on file", runwayMarks.includes("not on fil
 
 const aitiDefaults = { name: "asc", host: "asc", file: "desc", marks: "asc" };
 const idleFile = { sort: "file", dir: "desc" };
-expect("first click System is A–Z", clickSort(idleFile, "name", aitiDefaults).sort === "name" && clickSort(idleFile, "name", aitiDefaults).dir === "asc");
-expect("second click System reverses", clickSort({ sort: "name", dir: "asc" }, "name", aitiDefaults).dir === "desc");
-expect("first click Host is A–Z", clickSort(idleFile, "host", aitiDefaults).dir === "asc");
-expect("second click Host reverses", clickSort({ sort: "host", dir: "asc" }, "host", aitiDefaults).dir === "desc");
-expect("first click File is most-on-file", clickSort({ sort: "name", dir: "asc" }, "file", aitiDefaults).dir === "desc");
-expect("second click File reverses", clickSort({ sort: "file", dir: "desc" }, "file", aitiDefaults).dir === "asc");
-expect("first click Marks is A–Z", clickSort(idleFile, "marks", aitiDefaults).dir === "asc");
-expect("second click Marks reverses", clickSort({ sort: "marks", dir: "asc" }, "marks", aitiDefaults).dir === "desc");
+expect("first click Name is A–Z", clickSort(idleFile, "name", aitiDefaults).sort === "name" && clickSort(idleFile, "name", aitiDefaults).dir === "asc");
+expect("second click Name reverses", clickSort({ sort: "name", dir: "asc" }, "name", aitiDefaults).dir === "desc");
+expect("first click Domain is A–Z", clickSort(idleFile, "host", aitiDefaults).dir === "asc");
+expect("second click Domain reverses", clickSort({ sort: "host", dir: "asc" }, "host", aitiDefaults).dir === "desc");
+expect("first click Completeness is most-on-file", clickSort({ sort: "name", dir: "asc" }, "file", aitiDefaults).dir === "desc");
+expect("second click Completeness reverses", clickSort({ sort: "file", dir: "desc" }, "file", aitiDefaults).dir === "asc");
+expect("first click Standards is A–Z", clickSort(idleFile, "marks", aitiDefaults).dir === "asc");
+expect("second click Standards reverses", clickSort({ sort: "marks", dir: "asc" }, "marks", aitiDefaults).dir === "desc");
 function fakeHeader(sort, className = "") {
   const classes = className ? className.split(/\s+/).filter(Boolean) : [];
   const attrs = { "data-sort": sort, "aria-sort": "none" };
@@ -595,7 +597,7 @@ const painted = {
 const paintedRoot = { querySelectorAll: () => [painted.name, painted.host, painted.file, painted.marks] };
 paintHeaders(paintedRoot, "file", "desc");
 expect(
-  "paintHeaders first paint only File is on",
+  "paintHeaders first paint only Completeness is on",
   painted.file.classList.contains("on") &&
     !painted.marks.classList.contains("on") &&
     !painted.name.classList.contains("on") &&
@@ -605,7 +607,7 @@ expect(
 );
 paintHeaders(paintedRoot, "marks", "asc");
 expect(
-  "after Marks click only Marks is on",
+  "after Standards click only Standards is on",
   painted.marks.classList.contains("on") &&
     !painted.file.classList.contains("on") &&
     !painted.name.classList.contains("on") &&
@@ -614,10 +616,10 @@ expect(
     painted.file.getAttribute("aria-sort") === "none",
 );
 const byHost = arrangeAiRows(files, "host", "asc");
-expect("Host sort is domain A–Z", byHost.every((r, i) => !i || String(r.domain).localeCompare(byHost[i - 1].domain, undefined, { sensitivity: "base" }) >= 0));
+expect("Domain sort is domain A–Z", byHost.every((r, i) => !i || String(r.domain).localeCompare(byHost[i - 1].domain, undefined, { sensitivity: "base" }) >= 0));
 const byMarks = arrangeAiRows(files, "marks", "asc");
 expect(
-  "Marks sort is A–Z with not on file last",
+  "Standards sort is A–Z with not on file last",
   byMarks.every((r, i) => {
     if (!i) return true;
     return compareAiRows(byMarks[i - 1], r, "marks") <= 0;

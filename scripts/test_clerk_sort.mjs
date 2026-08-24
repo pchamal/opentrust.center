@@ -66,11 +66,13 @@ const stripeProcs = [...stripeHtml.match(/data-table="processors"[\s\S]*?<tbody>
 expect("stripe named processors land A–Z", stripeProcs.length > 5 && stripeProcs[0] === "Adish" && stripeProcs.join("\0") === [...stripeProcs].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" })).join("\0"));
 expect("marks stay a list", /<ul class="mark-list">/.test(stripeHtml) && !/data-table="marks"/.test(stripeHtml));
 
-expect("system header key", headerKey("System") === "name");
+expect("name header key", headerKey("Name") === "name");
 expect("company header key", headerKey("Company") === "name");
 expect("mark header key", headerKey("Mark") === "name");
 expect("named by header key", headerKey("Named by") === "exposure");
 expect("host header key", headerKey("Host") === "host");
+expect("completeness header key", headerKey("Completeness") === "file");
+expect("standards header key", headerKey("Standards") === "marks");
 expect("last seen header key", headerKey("Last seen") === "seen");
 expect("impact header key", headerKey("Impact level") === "impact");
 expect("auth date header key", headerKey("Auth date") === "date");

@@ -26,6 +26,8 @@ const SORT_ALIAS = {
   number: "rank",
   domain: "host",
   tier: "file",
+  completeness: "file",
+  standards: "marks",
 };
 export const PAGE_SIZE = 50;
 const DEFAULT_DIR = {
