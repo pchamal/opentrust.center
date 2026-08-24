@@ -696,10 +696,13 @@ expect(
     !/italic/.test(methodCss) &&
     !/line-through/.test(methodCss),
 );
+function methodLineInner(html) {
+  return ((html.match(/<p class="file-method"[^>]*>([\s\S]*?)<\/p>/) || [])[1] || "");
+}
 expect(
   "method line has no strike markup",
-  !/<p class="file-method"[^>]*>[\s\S]*?<(?:s|del|strike|i)[\s>/]/.test(indexHtml) &&
-    !/<p class="file-method"[^>]*>[\s\S]*?<(?:s|del|strike|i)[\s>/]/.test(companiesHtml),
+  !/<(?:s|del|strike|i)[\s>/]/.test(methodLineInner(indexHtml)) &&
+    !/<(?:s|del|strike|i)[\s>/]/.test(methodLineInner(companiesHtml)),
 );
 expect(
   "method line is not a card",

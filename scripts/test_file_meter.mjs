@@ -130,7 +130,7 @@ expect(
 );
 expect(
   "register method line has no strike markup",
-  !/<p class="file-method"[^>]*>[\s\S]*?<(?:s|del|strike|i)[\s>/]/.test(companiesHtml),
+  !/<(?:s|del|strike|i)[\s>/]/.test(((companiesHtml.match(/<p class="file-method"[^>]*>([\s\S]*?)<\/p>/) || [])[1] || "")),
 );
 
 const onePass = bySlug["1password"];
