@@ -688,6 +688,19 @@ expect(
   "method line is Atkinson issue size Ledger Black",
   /\.file-method \{[\s\S]*font: var\(--t-data\)[\s\S]*color: var\(--ot-ledger-black\)/.test(css),
 );
+const methodCss = (css.match(/\.file-method \{[^}]+\}/) || [""])[0];
+expect(
+  "method line is roman with no strikethrough",
+  methodCss.includes("font-style: normal") &&
+    methodCss.includes("text-decoration: none") &&
+    !/italic/.test(methodCss) &&
+    !/line-through/.test(methodCss),
+);
+expect(
+  "method line has no strike markup",
+  !/<p class="file-method"[^>]*>[\s\S]*?<(?:s|del|strike|i)[\s>/]/.test(indexHtml) &&
+    !/<p class="file-method"[^>]*>[\s\S]*?<(?:s|del|strike|i)[\s>/]/.test(companiesHtml),
+);
 expect(
   "method line is not a card",
   !/\.file-method \{[\s\S]{0,160}background:/.test(css) &&

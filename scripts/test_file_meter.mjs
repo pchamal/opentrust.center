@@ -128,6 +128,10 @@ expect(
   /id="file-legend">page · marks · DPA · subprocessors · years<\/p>\s*<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/.test(companiesHtml) &&
     (companiesHtml.match(/<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/g) || []).length === 1,
 );
+expect(
+  "register method line has no strike markup",
+  !/<p class="file-method"[^>]*>[\s\S]*?<(?:s|del|strike|i)[\s>/]/.test(companiesHtml),
+);
 
 const onePass = bySlug["1password"];
 const onePassCell = registerFileCell(registerRowHtml(onePass));
