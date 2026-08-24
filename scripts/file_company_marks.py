@@ -183,7 +183,7 @@ REGISTER_WALKED = {
     "lime-technologies",
     "malwarebytes",
     "watchguard",
-    # this cut — remaining open trust pages fetch-checked; JS shells / no hold
+    # PR 83 — remaining open trust pages fetch-checked; JS shells / no hold
     "perforce",
     "typeform",
     "zerotier",
@@ -192,6 +192,10 @@ REGISTER_WALKED = {
     "booksy",
     "alibaba-cloud",
     "comm100",
+    # this cut — remaining open trust pages fetch-checked; JS shells / 403 / already on file
+    "guesty",
+    "indeni",
+    "trusona",
 }
 
 # Expand cuts already read privacy. Do not retry those slugs.
@@ -249,7 +253,7 @@ PRIOR_ATTEMPTED = {
     "alvao",
     "quickbase",
     "readdle",
-    # this cut — 40 open files fetch-checked; nothing first-party printed
+    # PR 83 — 40 open files fetch-checked; nothing first-party printed
     "imperva",
     "guild",
     "classranked",
@@ -290,6 +294,54 @@ PRIOR_ATTEMPTED = {
     "wells-fargo",
     "diebold-nixdorf",
     "leidos-holdings",
+    # PR 90 16:53 expand — already fetch-checked; next walk should not retry
+    "lightricks",
+    "optimove",
+    "sapiens-international-corporation",
+    "sisense",
+    "snappy-gifts",
+    "rollout-io",
+    # this cut — 40 open/thin files fetch-checked
+    "guesty",
+    "indeni",
+    "audiocodes",
+    "ebay",
+    "paylocity",
+    "bank-of-america",
+    "lightspeed-commerce",
+    "phunware",
+    "the-trade-desk",
+    "ibotta",
+    "lyft",
+    "zerofox",
+    "expensify",
+    "photoroom",
+    "tribal-group",
+    "texas-instruments",
+    "nucleus-software-exports",
+    "walmart",
+    "attentive",
+    "idrive-inc",
+    "deel",
+    "eab",
+    "hugging-face",
+    "fal-ai",
+    "perplexity-ai",
+    "mixpanel",
+    "xai",
+    "intuit",
+    "pinewood-technologies",
+    "odoo",
+    "chartbeat",
+    "mercor",
+    "huntress",
+    "altium",
+    "aras-corp",
+    "coactive-ai",
+    "trusona",
+    "forter",
+    "guidewire",
+    "veritone",
 }
 
 # Regulation-only lists stay thin. Real certs (SOC / ISO / FedRAMP / …) fill out.
