@@ -56797,9 +56797,13 @@
           "host": "lightspeedhq.com",
           "seen": "2026-08-25"
         },
-        "dpa": null,
+        "dpa": {
+          "url": "https://www.lightspeedhq.com/legal/data-processing-agreement/",
+          "host": "lightspeedhq.com",
+          "seen": "2026-08-25"
+        },
         "subprocessors": {
-          "url": "https://www.lightspeedhq.com/legal/sub-processors/",
+          "url": "https://www.lightspeedhq.com/legal/subprocessors/",
           "host": "lightspeedhq.com",
           "seen": "2026-08-25"
         },
@@ -56810,14 +56814,303 @@
         },
         "bounty": null
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "ActiveCampaign, LLC",
+          "slug": "activecampaign",
+          "id": "activecampaign",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Adyen",
+          "slug": "adyen",
+          "id": "adyen",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Airbrake",
+          "slug": null,
+          "id": "airbrake",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Appcues, Inc",
+          "slug": null,
+          "id": "appcues",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Amazon Web Services, Inc",
+          "slug": "amazon-web-services",
+          "id": "aws",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Cayan (TSYS)",
+          "slug": null,
+          "id": "cayan-tsys",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Cloudflare, Inc",
+          "slug": "cloudflare",
+          "id": "cloudflare",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "CloudStrap AD",
+          "slug": null,
+          "id": "cloudstrap-ad",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Elasticsearch B.V",
+          "slug": "elastic",
+          "id": "elastic",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Google LLC",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Hetzner Online GmbH",
+          "slug": null,
+          "id": "hetzner-online",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "HubSpot, Inc",
+          "slug": "hubspot",
+          "id": "hubspot",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Infinicept, Inc",
+          "slug": null,
+          "id": "infinicept",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Intercom, Inc",
+          "slug": "intercom",
+          "id": "intercom",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "IT LLC",
+          "slug": null,
+          "id": "it",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "justt.ai",
+          "slug": null,
+          "id": "justt-ai",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Klaviyo, Inc",
+          "slug": "klaviyo",
+          "id": "klaviyo",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Looker Data Sciences, Inc. (Google Cloud)",
+          "slug": null,
+          "id": "gcp",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Mailgun Technologies, Inc",
+          "slug": null,
+          "id": "mailgun-technologies",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Marsello",
+          "slug": null,
+          "id": "marsello",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "MessageBird B.V",
+          "slug": null,
+          "id": "messagebird",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Popout, Inc",
+          "slug": null,
+          "id": "popout",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Propay Inc",
+          "slug": null,
+          "id": "propay",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Pusher Ltd",
+          "slug": null,
+          "id": "pusher",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Segment.io, Inc",
+          "slug": null,
+          "id": "segment",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "SendGrid, Inc",
+          "slug": null,
+          "id": "sendgrid",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Sentry (Functional Software, Inc.)",
+          "slug": null,
+          "id": "sentry",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Sisense Inc",
+          "slug": "sisense",
+          "id": "sisense",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Stripe, Inc",
+          "slug": "stripe",
+          "id": "stripe",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Spreedly, Inc",
+          "slug": null,
+          "id": "spreedly",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "The Rocket Science Group LLC",
+          "slug": null,
+          "id": "the-rocket-science-group",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Timekit, Inc",
+          "slug": null,
+          "id": "timekit",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "TPS Unlimited, Inc",
+          "slug": null,
+          "id": "tps-unlimited",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Twilio Inc",
+          "slug": "twilio",
+          "id": "twilio",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "TPS Unlimited, Inc. (formerly Wootric Inc.)",
+          "slug": null,
+          "id": "tps-unlimited-formerly-wootric",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Zapier, Inc",
+          "slug": "zapier",
+          "id": "zapier",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Zendesk Inc",
+          "slug": "zendesk",
+          "id": "zendesk",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Zuora, Inc",
+          "slug": "zuora",
+          "id": "zuora",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Atelier35 Inc",
+          "slug": null,
+          "id": "atelier35",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Vend, Inc",
+          "slug": null,
+          "id": "vend",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Payment Revolution LLC",
+          "slug": null,
+          "id": "payment-revolution",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Simple Order Inc",
+          "slug": null,
+          "id": "simple-order",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Ecwid, Inc",
+          "slug": null,
+          "id": "ecwid",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Alcmene S.à r.l",
+          "slug": null,
+          "id": "alcmene-s-r-l",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "iKentoo (France) SASU",
+          "slug": null,
+          "id": "ikentoo-france-sasu",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "ShopKeep.com Ltd",
+          "slug": null,
+          "id": "shopkeep-com",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "Kounta Pty Ltd",
+          "slug": null,
+          "id": "kounta",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        },
+        {
+          "name": "NuORDER Pty Ltd",
+          "slug": null,
+          "id": "nuorder",
+          "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
+        }
+      ],
       "disclosure": {
-        "score": 24,
+        "score": 32,
         "tier": "thin",
         "factors": {
           "page": 20,
           "marks": 4,
-          "dpa": 0,
+          "dpa": 8,
           "processors": 0,
           "status": 0,
           "bounty": 0,
@@ -56829,8 +57122,8 @@
       "file": {
         "page": 20,
         "marks": 20,
-        "dpa": 0,
-        "subprocessors": 10,
+        "dpa": 20,
+        "subprocessors": 20,
         "years": 20
       },
       "_crawl": {
@@ -58321,7 +58614,7 @@
           "weight": 4
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
+      "summary": "Official page on file. Named processors filed from a first-party list.",
       "founded_year": 1956,
       "founded_source": "https://en.wikipedia.org/wiki/FICO",
       "instruments": {
@@ -58340,7 +58633,11 @@
           "host": "fico.com",
           "seen": "2026-08-25"
         },
-        "dpa": null,
+        "dpa": {
+          "url": "https://www.fico.com/en/fair-isaac-data-processing-addendum",
+          "host": "fico.com",
+          "seen": "2026-08-25"
+        },
         "subprocessors": {
           "url": "https://www.fico.com/en/subprocessors",
           "host": "fico.com",
@@ -58616,12 +58913,12 @@
         }
       ],
       "disclosure": {
-        "score": 20,
+        "score": 28,
         "tier": "thin",
         "factors": {
           "page": 20,
           "marks": 0,
-          "dpa": 0,
+          "dpa": 8,
           "processors": 0,
           "status": 0,
           "bounty": 0,
@@ -58633,7 +58930,7 @@
       "file": {
         "page": 20,
         "marks": 20,
-        "dpa": 0,
+        "dpa": 20,
         "subprocessors": 20,
         "years": 20
       },
@@ -59069,7 +59366,7 @@
           "weight": 4
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: TX-RAMP.",
+      "summary": "Official page on file. Named processors filed from a first-party list.",
       "founded_year": 1979,
       "founded_source": "https://en.wikipedia.org/wiki/Teradata",
       "instruments": {
@@ -59084,10 +59381,14 @@
           "host": "teradata.com",
           "seen": "2026-08-25"
         },
-        "dpa": null,
+        "dpa": {
+          "url": "https://www.teradata.com/privacy/data-processing-addendum",
+          "host": "teradata.com",
+          "seen": "2026-08-25"
+        },
         "subprocessors": {
-          "url": "https://trust.teradata.com/subprocessors",
-          "host": "trust.teradata.com",
+          "url": "https://www.teradata.com/privacy/data-processing-addendum/sub-processors",
+          "host": "teradata.com",
           "seen": "2026-08-25"
         },
         "status": null,
@@ -59097,14 +59398,39 @@
           "seen": "2026-08-25"
         }
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "TRDT Brasil Tecnologia Ltda",
+          "slug": null,
+          "id": "trdt-brasil-tecnologia-ltda",
+          "source_url": "https://www.teradata.com/privacy/data-processing-addendum/sub-processors"
+        },
+        {
+          "name": "TDC Colombia Limitada",
+          "slug": null,
+          "id": "tdc-colombia-limitada",
+          "source_url": "https://www.teradata.com/privacy/data-processing-addendum/sub-processors"
+        },
+        {
+          "name": "PT. TData Indonesia",
+          "slug": null,
+          "id": "pt-tdata-indonesia",
+          "source_url": "https://www.teradata.com/privacy/data-processing-addendum/sub-processors"
+        },
+        {
+          "name": "TData Corporation (Malaysia) Sdn. Bhd",
+          "slug": null,
+          "id": "tdata-malaysia-sdn-bhd",
+          "source_url": "https://www.teradata.com/privacy/data-processing-addendum/sub-processors"
+        }
+      ],
       "disclosure": {
-        "score": 20,
+        "score": 28,
         "tier": "thin",
         "factors": {
           "page": 20,
           "marks": 0,
-          "dpa": 0,
+          "dpa": 8,
           "processors": 0,
           "status": 0,
           "bounty": 0,
@@ -59116,8 +59442,8 @@
       "file": {
         "page": 20,
         "marks": 20,
-        "dpa": 0,
-        "subprocessors": 10,
+        "dpa": 20,
+        "subprocessors": 20,
         "years": 20
       },
       "_crawl": {
@@ -60147,7 +60473,7 @@
           "weight": 4
         }
       ],
-      "summary": "Official page on file. Marks cited from public HTML: CMMC, CSA STAR, NIS2, TX-RAMP.",
+      "summary": "Official page on file. Marks cited from public HTML: CMMC, NIS2.",
       "founded_year": 1985,
       "founded_source": "https://en.wikipedia.org/wiki/Sophos",
       "instruments": {
@@ -60171,7 +60497,11 @@
           "host": "sophos.com",
           "seen": "2026-08-25"
         },
-        "subprocessors": null,
+        "subprocessors": {
+          "url": "https://www.sophos.com/en-us/legal/sub-processor",
+          "host": "sophos.com",
+          "seen": "2026-08-25"
+        },
         "status": null,
         "bounty": {
           "url": "https://www.sophos.com/en-us/trust/responsible-disclosure",
@@ -60179,15 +60509,232 @@
           "seen": "2026-08-25"
         }
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "Amazon Web Services, Inc",
+          "slug": "amazon-web-services",
+          "id": "aws",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Atlassian Corporation Limited",
+          "slug": "atlassian",
+          "id": "atlassian",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Aiven Ltd. [Apache Kafka]",
+          "slug": null,
+          "id": "aiven-apache-kafka",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Fullstory, Inc",
+          "slug": null,
+          "id": "fullstory",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Genesys Telecommunications Laboratories, Inc",
+          "slug": null,
+          "id": "genesys-telecommunications-laboratories",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Google Cloud EMEA Limited",
+          "slug": null,
+          "id": "gcp",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Logz.io",
+          "slug": null,
+          "id": "logz-io",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Raintank Inc, d/b/a Grafana Labs",
+          "slug": null,
+          "id": "raintank-d-b-a-grafana-labs",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Salesforce Inc",
+          "slug": "salesforce",
+          "id": "salesforce",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "SendSafely Inc (B2B)",
+          "slug": null,
+          "id": "sendsafely-b2b",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Sierra Technologies Inc",
+          "slug": null,
+          "id": "sierra-technologies",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Ada Support Inc",
+          "slug": null,
+          "id": "ada-support",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Akamai Technologies Inc",
+          "slug": "akamai",
+          "id": "akamai",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Blue Ocean Contact Centres Inc",
+          "slug": null,
+          "id": "blue-ocean-contact-centres",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Box Inc",
+          "slug": "box",
+          "id": "box",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Cleverbridge GmbH",
+          "slug": null,
+          "id": "cleverbridge",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Constella Intelligence, Inc",
+          "slug": null,
+          "id": "constella-intelligence",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Echoworx Corporation",
+          "slug": null,
+          "id": "echoworx",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Google LLC",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Island Technology Inc",
+          "slug": null,
+          "id": "island-technology",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Microsoft Corporation",
+          "slug": "microsoft",
+          "id": "microsoft",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Reversing Labs",
+          "slug": null,
+          "id": "reversing-labs",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Rubrik, Inc",
+          "slug": "rubrik",
+          "id": "rubrik",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Sendmarc Inc",
+          "slug": null,
+          "id": "sendmarc",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "SendSafely Inc",
+          "slug": null,
+          "id": "sendsafely",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Sentry (d/b/a Functional Software, Inc.)",
+          "slug": null,
+          "id": "sentry",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Tenable, Inc",
+          "slug": "tenable",
+          "id": "tenable",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Zendesk, Inc",
+          "slug": "zendesk",
+          "id": "zendesk",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Fenix24, Inc",
+          "slug": null,
+          "id": "fenix24",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "SIE Co.,Ltd",
+          "slug": null,
+          "id": "sie",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Benjamin Mosse Consulting Pty Ltd",
+          "slug": null,
+          "id": "benjamin-mosse-consulting",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Forvis Mazars Group",
+          "slug": null,
+          "id": "forvis-mazars-group",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "GRCS INC",
+          "slug": null,
+          "id": "grcs",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Hoodwink Consulting LLC",
+          "slug": null,
+          "id": "hoodwink-consulting",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Rule 56",
+          "slug": null,
+          "id": "rule-56",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        },
+        {
+          "name": "Invictus Incident Response B.V",
+          "slug": null,
+          "id": "invictus-incident-response",
+          "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
+        }
+      ],
       "disclosure": {
-        "score": 20,
+        "score": 28,
         "tier": "thin",
         "factors": {
           "page": 20,
           "marks": 0,
           "dpa": 0,
-          "processors": 0,
+          "processors": 8,
           "status": 0,
           "bounty": 0,
           "privacy": 0,
@@ -60199,24 +60746,13 @@
         "page": 20,
         "marks": 20,
         "dpa": 20,
-        "subprocessors": 0,
+        "subprocessors": 20,
         "years": 20
       },
       "_crawl": {
         "vendor": "unknown",
         "title": "",
         "http_status": null
-      },
-      "csa_star": {
-        "marketplace": "https://cloudsecurityalliance.org/star/registry/sophos",
-        "source": "https://cloudsecurityalliance.org/star/registry",
-        "products": [
-          {
-            "offering": "Sophos",
-            "url": "https://cloudsecurityalliance.org/star/registry/sophos",
-            "listed_since": "2026-06-01"
-          }
-        ]
       },
       "txramp": {
         "marketplace": "https://dir.texas.gov/resource-library-item/tx-ramp-certified-cloud-products",
@@ -60229,6 +60765,17 @@
             "impact_level": "Level 2",
             "auth_date": null,
             "url": "https://dir.texas.gov/resource-library-item/tx-ramp-certified-cloud-products"
+          }
+        ]
+      },
+      "csa_star": {
+        "marketplace": "https://cloudsecurityalliance.org/star/registry/sophos",
+        "source": "https://cloudsecurityalliance.org/star/registry",
+        "products": [
+          {
+            "offering": "Sophos",
+            "url": "https://cloudsecurityalliance.org/star/registry/sophos",
+            "listed_since": "2026-06-01"
           }
         ]
       },
@@ -60700,7 +61247,11 @@
           "host": "sonicwall.com",
           "seen": "2026-08-25"
         },
-        "dpa": null,
+        "dpa": {
+          "url": "https://www.sonicwall.com/legal/privacy-statement/sonicwall-data-processing-agreement",
+          "host": "sonicwall.com",
+          "seen": "2026-08-25"
+        },
         "subprocessors": {
           "url": "https://www.sonicwall.com/legal/sub-processors",
           "host": "sonicwall.com",
@@ -60788,12 +61339,12 @@
         }
       ],
       "disclosure": {
-        "score": 20,
+        "score": 28,
         "tier": "thin",
         "factors": {
           "page": 20,
           "marks": 0,
-          "dpa": 0,
+          "dpa": 8,
           "processors": 0,
           "status": 0,
           "bounty": 0,
@@ -60805,7 +61356,7 @@
       "file": {
         "page": 20,
         "marks": 20,
-        "dpa": 0,
+        "dpa": 20,
         "subprocessors": 20,
         "years": 20
       },
@@ -61103,7 +61654,7 @@
       "probed_at": "2026-08-25T02:53:44Z",
       "certs": [],
       "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "summary": "Official page on file. Named processors filed from a first-party list.",
       "founded_year": 1993,
       "founded_source": "https://en.wikipedia.org/wiki/AudioCodes",
       "instruments": {
@@ -61119,19 +61670,132 @@
           "seen": "2026-08-25"
         },
         "dpa": null,
-        "subprocessors": null,
+        "subprocessors": {
+          "url": "https://www.audiocodes.com/data-sub-processors",
+          "host": "audiocodes.com",
+          "seen": "2026-08-25"
+        },
         "status": null,
         "bounty": null
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "SFDC Ireland Limited",
+          "slug": null,
+          "id": "sfdc-ireland",
+          "source_url": "https://www.audiocodes.com/data-sub-processors"
+        },
+        {
+          "name": "HubSpot INC",
+          "slug": "hubspot",
+          "id": "hubspot",
+          "source_url": "https://www.audiocodes.com/data-sub-processors"
+        },
+        {
+          "name": "Oracle Israel LTD",
+          "slug": null,
+          "id": "oracle-israel",
+          "source_url": "https://www.audiocodes.com/data-sub-processors"
+        },
+        {
+          "name": "Microsoft Ireland Operations Limited",
+          "slug": null,
+          "id": "microsoft-ireland-operations",
+          "source_url": "https://www.audiocodes.com/data-sub-processors"
+        },
+        {
+          "name": "Amazon Web Services EMEA SARL (“AWS Europe”)",
+          "slug": "amazon-web-services",
+          "id": "aws",
+          "source_url": "https://www.audiocodes.com/data-sub-processors"
+        },
+        {
+          "name": "Cardtronics USA, Inc. ( Previously NCR Corporation)",
+          "slug": null,
+          "id": "cardtronics-usa-previously-ncr",
+          "source_url": "https://www.audiocodes.com/data-sub-processors"
+        },
+        {
+          "name": "GCS",
+          "slug": null,
+          "id": "gcs",
+          "source_url": "https://www.audiocodes.com/data-sub-processors"
+        },
+        {
+          "name": "MongoDB LTD",
+          "slug": "mongodb",
+          "id": "mongodb",
+          "source_url": "https://www.audiocodes.com/data-sub-processors"
+        },
+        {
+          "name": "Damovo Global Services",
+          "slug": null,
+          "id": "damovo-global-services",
+          "source_url": "https://www.audiocodes.com/data-sub-processors"
+        },
+        {
+          "name": "Qunifi Limited",
+          "slug": null,
+          "id": "qunifi",
+          "source_url": "https://www.audiocodes.com/data-sub-processors"
+        },
+        {
+          "name": "Intercom",
+          "slug": "intercom",
+          "id": "intercom",
+          "source_url": "https://www.audiocodes.com/data-sub-processors"
+        },
+        {
+          "name": "BlueSnap Ltd",
+          "slug": null,
+          "id": "bluesnap",
+          "source_url": "https://www.audiocodes.com/data-sub-processors"
+        },
+        {
+          "name": "Bandwidth Inc",
+          "slug": null,
+          "id": "bandwidth",
+          "source_url": "https://www.audiocodes.com/data-sub-processors"
+        },
+        {
+          "name": "Telnyx",
+          "slug": null,
+          "id": "telnyx",
+          "source_url": "https://www.audiocodes.com/data-sub-processors"
+        },
+        {
+          "name": "Twilio Inc",
+          "slug": "twilio",
+          "id": "twilio",
+          "source_url": "https://www.audiocodes.com/data-sub-processors"
+        },
+        {
+          "name": "TelAgility Corp. d/b/a Sippio",
+          "slug": null,
+          "id": "telagility-d-b-a-sippio",
+          "source_url": "https://www.audiocodes.com/data-sub-processors"
+        },
+        {
+          "name": "Nuera Communications Singapore PTE LTD",
+          "slug": null,
+          "id": "nuera-communications-singapore-pte",
+          "source_url": "https://www.audiocodes.com/data-sub-processors"
+        },
+        {
+          "name": "Active Communications Europe BV",
+          "slug": null,
+          "id": "active-communications-europe",
+          "source_url": "https://www.audiocodes.com/data-sub-processors"
+        }
+      ],
       "disclosure": {
-        "score": 20,
+        "score": 28,
         "tier": "thin",
         "factors": {
           "page": 20,
           "marks": 0,
           "dpa": 0,
-          "processors": 0,
+          "processors": 8,
           "status": 0,
           "bounty": 0,
           "privacy": 0,
@@ -61143,7 +61807,7 @@
         "page": 20,
         "marks": 10,
         "dpa": 0,
-        "subprocessors": 0,
+        "subprocessors": 20,
         "years": 20
       },
       "_crawl": {
@@ -61767,7 +62431,11 @@
           "host": "nuix.com",
           "seen": "2026-08-25"
         },
-        "dpa": null,
+        "dpa": {
+          "url": "https://www.nuix.com/legal/data-processing",
+          "host": "nuix.com",
+          "seen": "2026-08-25"
+        },
         "subprocessors": null,
         "status": {
           "url": "https://status.nuix.com",
@@ -61782,12 +62450,12 @@
       },
       "processors": [],
       "disclosure": {
-        "score": 20,
+        "score": 28,
         "tier": "thin",
         "factors": {
           "page": 20,
           "marks": 0,
-          "dpa": 0,
+          "dpa": 8,
           "processors": 0,
           "status": 0,
           "bounty": 0,
@@ -61799,7 +62467,7 @@
       "file": {
         "page": 20,
         "marks": 20,
-        "dpa": 0,
+        "dpa": 20,
         "subprocessors": 0,
         "years": 20
       },

@@ -298,6 +298,24 @@ PRIOR_ATTEMPTED = {
     "docebo",
     "energycap",
     "esentire",
+    # PR 88 02:53 expand
+    "indeni",
+    "guesty",
+    "ex-libris-group",
+    # PR 90 16:53 expand
+    "lightricks",
+    "optimove",
+    "sapiens-international-corporation",
+    "sisense",
+    "snappy-gifts",
+    "rollout-io",
+    # PR 98 24 Aug expand (also the live report batch)
+    "aveva",
+    "bromcom",
+    "faculty",
+    "kraken-technologies",
+    "activestate",
+    "altus-group",
 }
 
 
