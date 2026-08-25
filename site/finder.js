@@ -1,6 +1,6 @@
 /* Finder tokens for the register. Clerk syntax, not a search product. */
 
-const TIERS = new Set(["on-file"]);
+const TIERS = new Set(["on-file", "not-on-file"]);
 const RETIRED_TIERS = new Set(["silent", "thin", "substantial", "complete"]);
 const LISTS = new Set(["cloud100", "enterprise"]);
 const FEDRAMP = new Set(["all", "any", "low", "moderate", "high"]);
@@ -8,6 +8,9 @@ const FEDRAMP = new Set(["all", "any", "low", "moderate", "high"]);
 const EXACT = {
   "on file": { kind: "tier", value: "on-file" },
   "on-file": { kind: "tier", value: "on-file" },
+  "not on file": { kind: "tier", value: "not-on-file" },
+  "not-on-file": { kind: "tier", value: "not-on-file" },
+  "no file": { kind: "tier", value: "not-on-file" },
   "cloud 100": { kind: "list", value: "cloud100" },
   cloud100: { kind: "list", value: "cloud100" },
   enterprise: { kind: "list", value: "enterprise" },
@@ -26,6 +29,9 @@ const EXACT = {
    Leave enterprise / any / low / moderate / high to exact clauses
    so a name like Hewlett Packard Enterprise still searches. */
 const PEEL = [
+  /* not-on-file peels before on-file: the shorter regex would otherwise
+     eat the tail of "not on file" and leak "not" into the text query. */
+  { kind: "tier", value: "not-on-file", re: /\bnot[\s-]+on[\s-]+file\b/ },
   { kind: "tier", value: "on-file", re: /\bon[\s-]+file\b/ },
   { kind: "list", value: "cloud100", re: /\bcloud[\s-]*100\b/ },
   { kind: "fedramp", value: "moderate", re: /\bfedramp\s+moderate\b/ },
@@ -128,7 +134,8 @@ export function normalizeFedramp(value) {
 export function echoWords(filters) {
   const bits = [];
   if (filters.tier && filters.tier !== "all" && !RETIRED_TIERS.has(filters.tier)) {
-    bits.push({ kind: "tier", label: "tier " + (filters.tier === "on-file" ? "on file" : filters.tier) });
+    const tierLabel = filters.tier === "on-file" ? "on file" : filters.tier === "not-on-file" ? "not on file" : filters.tier;
+    bits.push({ kind: "tier", label: "tier " + tierLabel });
   }
   if (filters.list && filters.list !== "all") {
     bits.push({ kind: "list", label: "list " + (filters.list === "cloud100" ? "cloud 100" : filters.list) });
