@@ -1,109 +1,66 @@
 {
-  "generated_at": "2026-08-24T22:57:46Z",
-  "rule": "Six slugs that gained a public trust URL in the 24 Aug expand batches. Marks fill only when live first-party HTML names the company's own hold. Regulation mentions (GDPR as rights) stay open. Soft-404s, JS shells, and portal hosts stay open. Substantial files already on file (Kraken Technologies, Altus Group) were skipped.",
+  "generated_at": "2026-08-25T15:20:00Z",
+  "rule": "Three slugs that gained a public trust URL in the 24 Aug 19:48 expand. Marks fill only when live first-party HTML names the company's own hold. Regulation mentions (GDPR as rights) stay open. JS shells and portal hosts stay open. Substantial files already on file (ProntoForms) were skipped. Cert strings inside a JS payload are not a printed hold.",
   "batch": [
-    "aveva",
-    "bromcom",
-    "faculty",
-    "kraken-technologies",
-    "activestate",
-    "altus-group"
+    "intrahealth-systems-limited",
+    "prontoforms",
+    "versapay"
   ],
   "marks_filed": [],
   "stayed_open": [
     {
-      "slug": "aveva",
-      "name": "Aveva",
+      "slug": "intrahealth-systems-limited",
+      "name": "Intrahealth Systems Limited",
       "rule": "marks",
       "thin": false
     },
     {
-      "slug": "bromcom",
-      "name": "Bromcom",
-      "rule": "marks",
-      "thin": false
-    },
-    {
-      "slug": "faculty",
-      "name": "Faculty",
-      "rule": "marks",
-      "thin": false
-    },
-    {
-      "slug": "activestate",
-      "name": "ActiveState",
+      "slug": "versapay",
+      "name": "Versapay",
       "rule": "marks",
       "thin": false
     }
   ],
   "rejected": [
     {
-      "slug": "aveva",
-      "url": "https://www.aveva.com/en/legal/trust/",
-      "final": "https://www.aveva.com/en/legal/trust/",
-      "reason": "soft-404",
-      "kind": "final_url"
-    },
-    {
-      "slug": "aveva",
-      "url": "https://trust.aveva.com",
-      "final": "https://www.aveva.com/en/legal/trust/",
-      "reason": "soft-404",
+      "slug": "intrahealth-systems-limited",
+      "url": "https://trust.intrahealth.com",
+      "final": "https://trust.intrahealth.com",
+      "reason": "js-shell",
       "kind": "trust"
     },
     {
-      "slug": "faculty",
-      "url": "https://faculty.ai/en-gb/privacy-policy",
-      "final": "https://faculty.ai/en-gb/privacy-policy",
+      "slug": "intrahealth-systems-limited",
+      "url": "https://www.intrahealth.com/privacy-policy",
+      "final": "https://www.intrahealth.com/privacy-policy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "prontoforms",
+      "url": "https://truecontext.com/about/privacy-policy/",
+      "final": "https://truecontext.com/about/privacy-policy/",
       "reason": "regulation-only",
       "kind": "privacy"
     },
     {
-      "slug": "faculty",
-      "url": "https://trust.faculty.ai/subprocessors",
-      "final": "https://trust.faculty.ai/subprocessors",
-      "reason": "no-named-marks",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "faculty",
-      "url": "https://trust.faculty.ai",
-      "final": "https://trust.faculty.ai",
-      "reason": "no-named-marks",
+      "slug": "prontoforms",
+      "url": "https://trust.prontoforms.com",
+      "final": "https://trust.truecontext.com/",
+      "reason": "js-shell",
       "kind": "trust"
     },
     {
-      "slug": "activestate",
-      "url": "https://trust.activestate.com",
-      "final": "https://trust.activestate.com",
-      "reason": "no-named-marks",
+      "slug": "versapay",
+      "url": "https://trust.versapay.com",
+      "final": "https://trust.versapay.com",
+      "reason": "js-shell",
       "kind": "trust"
     },
     {
-      "slug": "activestate",
-      "url": "https://trust.activestate.com/subprocessors",
-      "final": "https://trust.activestate.com/subprocessors",
-      "reason": "no-named-marks",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "bromcom",
-      "url": "https://trust.bromcom.com",
-      "final": "https://trust.bromcom.com",
-      "reason": "no-named-marks",
-      "kind": "trust"
-    },
-    {
-      "slug": "bromcom",
-      "url": "https://trust.bromcom.com/subprocessors",
-      "final": "https://trust.bromcom.com/subprocessors",
-      "reason": "no-named-marks",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "bromcom",
-      "url": "https://bromcom.com/privacy",
-      "final": "https://bromcom.com/privacy",
+      "slug": "versapay",
+      "url": "https://www.versapay.com/privacy-policy",
+      "final": "https://www.versapay.com/privacy-policy",
       "reason": "no-named-marks",
       "kind": "privacy"
     }
