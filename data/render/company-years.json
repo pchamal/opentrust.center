@@ -1,670 +1,4743 @@
 {
-  "generated_at": "2026-08-25T18:59:44Z",
-  "rule": "Remaining unread on-file companies whose years File-glyph rule was open and who already had an official domain. A year fills only when the live page names the company's founding year. Wikipedia category/list pages, news articles, title-only prefix matches, bot-blocked about paths, and 404s stay open. Prior year cuts, PR 104, PR 107, and PR 111 are on the skip list.",
+  "generated_at": "2026-08-25T19:55:35Z",
+  "rule": "Next ~40 unread open-years files that already had an official domain, preferring the latest register expand. Silent rows are eligible: a first-party about page can still name a year. A year fills only when the live page names the company's founding year. Wikipedia category/list pages, news articles, title-only prefix matches, and 404s stay open. Prior year cuts, PR 104, PR 107, PR 111, and PR 115 leftovers are on the skip list.",
   "batch": [
-    "craigslist",
-    "f5",
-    "meta-platforms",
-    "nucleus-software-exports",
-    "walmart"
+    "eizo",
+    "gala-inc",
+    "lm3labs",
+    "genista-corporation",
+    "ah-software",
+    "toontrack",
+    "fenrir-inc",
+    "crypton-future-media",
+    "visage-technologies-ab",
+    "comptel",
+    "nhn-japan-corporation",
+    "six-apart",
+    "maruhon",
+    "pixela-corporation",
+    "digion",
+    "works-applications",
+    "justsystems",
+    "softether-corporation",
+    "innofactor",
+    "preferred-networks",
+    "link-motion",
+    "futurice",
+    "umbra",
+    "rightware",
+    "exense",
+    "easybits",
+    "tekla",
+    "data-respons",
+    "tuxera",
+    "microtask",
+    "hytracc-consulting",
+    "valamis",
+    "bplats",
+    "kantega",
+    "macecraft-software",
+    "kongsberg-spacetec",
+    "increo-interactive-creations-as",
+    "blackberry",
+    "recorded-future",
+    "juniper-networks"
   ],
-  "years_filed": [],
+  "years_filed": [
+    {
+      "slug": "innofactor",
+      "name": "Innofactor",
+      "year": 2000,
+      "url": "https://www.innofactor.com/about-us/our-story",
+      "quote": "Innofactor - Innofactor's story Innofactor was established on 1 January 2000."
+    },
+    {
+      "slug": "preferred-networks",
+      "name": "Preferred Networks",
+      "year": 2014,
+      "url": "https://www.preferred.jp/en/company",
+      "quote": "Established March 26, 2014 Location Otemachi Building, 1-6-1 Otemachi, Chiyoda-ku, Tokyo (Reception: 3."
+    },
+    {
+      "slug": "works-applications",
+      "name": "Works Applications",
+      "year": 1996,
+      "url": "https://www.worksap.co.jp/",
+      "quote": "{\"@type\":\"Organization\",\"name\":\"株式会社ワークスアプリケーションズ\",\"foundingDate\":\"1996-07-01\"}"
+    }
+  ],
   "stayed_open": [
     {
-      "slug": "craigslist",
-      "name": "Craigslist",
+      "slug": "eizo",
+      "name": "Eizo",
       "rule": "years",
-      "reason": "no-founded-sentence https://www.craigslist.org/area/frederick"
+      "reason": "prefix-match https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan"
     },
     {
-      "slug": "f5",
-      "name": "F5",
+      "slug": "gala-inc",
+      "name": "Gala Inc.",
       "rule": "years",
-      "reason": "no-founded-sentence https://www.f5.com/"
+      "reason": "no-founded-sentence https://www.gala.biz/en"
     },
     {
-      "slug": "meta-platforms",
-      "name": "Meta Platforms",
+      "slug": "lm3labs",
+      "name": "LM3LABS",
       "rule": "years",
-      "reason": "no-founded-sentence https://www.meta.com/"
+      "reason": "no-founded-sentence https://lm3labs.com"
     },
     {
-      "slug": "nucleus-software-exports",
-      "name": "Nucleus Software Exports",
+      "slug": "genista-corporation",
+      "name": "Genista Corporation",
       "rule": "years",
-      "reason": "no-founded-sentence https://www.nucleussoftware.com/"
+      "reason": "no-founded-sentence https://genista.com"
     },
     {
-      "slug": "walmart",
-      "name": "Walmart",
+      "slug": "ah-software",
+      "name": "AH-Software",
       "rule": "years",
-      "reason": "no-founded-sentence https://www.walmart.com/"
+      "reason": "prefix-match https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan"
+    },
+    {
+      "slug": "toontrack",
+      "name": "Toontrack",
+      "rule": "years",
+      "reason": "no-founded-sentence https://www.toontrack.com/"
+    },
+    {
+      "slug": "fenrir-inc",
+      "name": "Fenrir Inc",
+      "rule": "years",
+      "reason": "timeline-next-event https://us.fenrir-inc.com/ — 2005 Fenrir Established 2008 Collaborative Development; 2008 is the next beat, not founding"
+    },
+    {
+      "slug": "crypton-future-media",
+      "name": "Crypton Future Media",
+      "rule": "years",
+      "reason": "no-founded-sentence https://www.crypton.co.jp/"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "name": "Visage Technologies AB",
+      "rule": "years",
+      "reason": "no-founded-sentence https://visagetechnologies.com"
+    },
+    {
+      "slug": "comptel",
+      "name": "Comptel",
+      "rule": "years",
+      "reason": "prefix-match https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland"
+    },
+    {
+      "slug": "nhn-japan-corporation",
+      "name": "NHN Japan Corporation",
+      "rule": "years",
+      "reason": "prefix-match https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan"
+    },
+    {
+      "slug": "six-apart",
+      "name": "Six Apart",
+      "rule": "years",
+      "reason": "prefix-match https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan"
+    },
+    {
+      "slug": "maruhon",
+      "name": "Maruhon",
+      "rule": "years",
+      "reason": "no-founded-sentence https://maruhon-kogyo.co.jp"
+    },
+    {
+      "slug": "pixela-corporation",
+      "name": "Pixela Corporation",
+      "rule": "years",
+      "reason": "no-founded-sentence https://www.pixela.co.jp/"
+    },
+    {
+      "slug": "digion",
+      "name": "DigiOn",
+      "rule": "years",
+      "reason": "prefix-match https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan"
+    },
+    {
+      "slug": "justsystems",
+      "name": "JustSystems",
+      "rule": "years",
+      "reason": "prefix-match https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan"
+    },
+    {
+      "slug": "softether-corporation",
+      "name": "SoftEther Corporation",
+      "rule": "years",
+      "reason": "no-founded-sentence https://www.softether.jp/8-about"
+    },
+    {
+      "slug": "link-motion",
+      "name": "Link Motion",
+      "rule": "years",
+      "reason": "no-founded-sentence https://link-motion.com"
+    },
+    {
+      "slug": "futurice",
+      "name": "Futurice",
+      "rule": "years",
+      "reason": "other-firm https://www.futurice.com/about/family — Thriv Founded in 2018; Futurice family page does not name Futurice’s year"
+    },
+    {
+      "slug": "umbra",
+      "name": "Umbra",
+      "rule": "years",
+      "reason": "no-founded-sentence https://umbra3d.com"
+    },
+    {
+      "slug": "rightware",
+      "name": "Rightware",
+      "rule": "years",
+      "reason": "no-founded-sentence https://rightware.com"
+    },
+    {
+      "slug": "exense",
+      "name": "Exense",
+      "rule": "years",
+      "reason": "no-founded-sentence https://exense.com"
+    },
+    {
+      "slug": "easybits",
+      "name": "Easybits",
+      "rule": "years",
+      "reason": "no-founded-sentence https://www.easybits.com/"
+    },
+    {
+      "slug": "tekla",
+      "name": "Tekla",
+      "rule": "years",
+      "reason": "no-founded-sentence https://www.tekla.com/"
+    },
+    {
+      "slug": "data-respons",
+      "name": "Data Respons",
+      "rule": "years",
+      "reason": "prefix-match https://en.wikipedia.org/wiki/Category:Software_companies_of_Norway"
+    },
+    {
+      "slug": "tuxera",
+      "name": "Tuxera",
+      "rule": "years",
+      "reason": "no-founded-sentence https://www.tuxera.com/"
+    },
+    {
+      "slug": "microtask",
+      "name": "Microtask",
+      "rule": "years",
+      "reason": "no-founded-sentence https://microtask.com"
+    },
+    {
+      "slug": "hytracc-consulting",
+      "name": "Hytracc Consulting",
+      "rule": "years",
+      "reason": "prefix-match https://en.wikipedia.org/wiki/Category:Software_companies_of_Norway"
+    },
+    {
+      "slug": "valamis",
+      "name": "Valamis",
+      "rule": "years",
+      "reason": "no-founded-sentence https://www.valamis.com/"
+    },
+    {
+      "slug": "bplats",
+      "name": "Bplats",
+      "rule": "years",
+      "reason": "no-founded-sentence https://bplats.co.jp"
+    },
+    {
+      "slug": "kantega",
+      "name": "Kantega",
+      "rule": "years",
+      "reason": "no-founded-sentence https://www.kantega.no/"
+    },
+    {
+      "slug": "macecraft-software",
+      "name": "Macecraft Software",
+      "rule": "years",
+      "reason": "prefix-match https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland"
+    },
+    {
+      "slug": "kongsberg-spacetec",
+      "name": "Kongsberg Spacetec",
+      "rule": "years",
+      "reason": "prefix-match https://en.wikipedia.org/wiki/Category:Software_companies_of_Norway"
+    },
+    {
+      "slug": "increo-interactive-creations-as",
+      "name": "InCreo Interactive Creations AS",
+      "rule": "years",
+      "reason": "no-founded-sentence https://increo.no"
+    },
+    {
+      "slug": "blackberry",
+      "name": "BlackBerry",
+      "rule": "years",
+      "reason": "no-founded-sentence https://www.blackberry.com/en"
+    },
+    {
+      "slug": "recorded-future",
+      "name": "Recorded Future",
+      "rule": "years",
+      "reason": "no-founded-sentence https://www.recordedfuture.com/"
+    },
+    {
+      "slug": "juniper-networks",
+      "name": "Juniper Networks",
+      "rule": "years",
+      "reason": "no-founded-sentence https://www.juniper.net:443/"
     }
   ],
   "rejected": [
     {
-      "slug": "craigslist",
-      "url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
-      "final": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
+      "slug": "eizo",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
       "reason": "prefix-match"
     },
     {
-      "slug": "craigslist",
-      "url": "https://craigslist.org",
-      "final": "https://www.craigslist.org/area/frederick",
-      "reason": "no-founded-sentence"
+      "slug": "eizo",
+      "url": "https://eizo.co.jp",
+      "final": "https://eizo.co.jp",
+      "reason": "http-0"
     },
     {
-      "slug": "craigslist",
-      "url": "https://craigslist.org/about",
-      "final": "https://www.craigslist.org/about/",
-      "reason": "no-founded-sentence"
+      "slug": "eizo",
+      "url": "https://eizo.co.jp/about",
+      "final": "https://eizo.co.jp/about",
+      "reason": "http-0"
     },
     {
-      "slug": "craigslist",
-      "url": "https://craigslist.org/about-us",
-      "final": "https://www.craigslist.org/about/help/",
-      "reason": "no-founded-sentence"
+      "slug": "eizo",
+      "url": "https://eizo.co.jp/about-us",
+      "final": "https://eizo.co.jp/about-us",
+      "reason": "http-0"
     },
     {
-      "slug": "craigslist",
-      "url": "https://craigslist.org/about/company",
-      "final": "https://www.craigslist.org/about/help/",
-      "reason": "no-founded-sentence"
+      "slug": "eizo",
+      "url": "https://eizo.co.jp/about/company",
+      "final": "https://eizo.co.jp/about/company",
+      "reason": "http-0"
     },
     {
-      "slug": "craigslist",
-      "url": "https://craigslist.org/about/us",
-      "final": "https://www.craigslist.org/about/help/",
-      "reason": "no-founded-sentence"
+      "slug": "eizo",
+      "url": "https://eizo.co.jp/about/us",
+      "final": "https://eizo.co.jp/about/us",
+      "reason": "http-0"
     },
     {
-      "slug": "craigslist",
-      "url": "https://craigslist.org/company",
-      "final": "https://craigslist.org/company",
-      "reason": "404"
+      "slug": "eizo",
+      "url": "https://eizo.co.jp/company",
+      "final": "https://eizo.co.jp/company",
+      "reason": "http-0"
     },
     {
-      "slug": "craigslist",
-      "url": "https://craigslist.org/company/about",
-      "final": "https://craigslist.org/company/about",
-      "reason": "404"
+      "slug": "eizo",
+      "url": "https://eizo.co.jp/company/about",
+      "final": "https://eizo.co.jp/company/about",
+      "reason": "http-0"
     },
     {
-      "slug": "craigslist",
-      "url": "https://craigslist.org/company/our-story",
-      "final": "https://craigslist.org/company/our-story",
-      "reason": "404"
+      "slug": "eizo",
+      "url": "https://eizo.co.jp/company/our-story",
+      "final": "https://eizo.co.jp/company/our-story",
+      "reason": "http-0"
     },
     {
-      "slug": "craigslist",
-      "url": "https://craigslist.org/our-story",
-      "final": "https://craigslist.org/our-story",
-      "reason": "404"
+      "slug": "eizo",
+      "url": "https://eizo.co.jp/our-story",
+      "final": "https://eizo.co.jp/our-story",
+      "reason": "http-0"
     },
     {
-      "slug": "craigslist",
-      "url": "https://craigslist.org/our-company",
-      "final": "https://craigslist.org/our-company",
-      "reason": "404"
+      "slug": "eizo",
+      "url": "https://eizo.co.jp/our-company",
+      "final": "https://eizo.co.jp/our-company",
+      "reason": "http-0"
     },
     {
-      "slug": "craigslist",
-      "url": "https://craigslist.org/who-we-are",
-      "final": "https://craigslist.org/who-we-are",
-      "reason": "404"
+      "slug": "eizo",
+      "url": "https://eizo.co.jp/who-we-are",
+      "final": "https://eizo.co.jp/who-we-are",
+      "reason": "http-0"
     },
     {
-      "slug": "craigslist",
-      "url": "https://craigslist.org/about/our-story",
-      "final": "https://www.craigslist.org/about/help/",
-      "reason": "no-founded-sentence"
+      "slug": "eizo",
+      "url": "https://eizo.co.jp/about/our-story",
+      "final": "https://eizo.co.jp/about/our-story",
+      "reason": "http-0"
     },
     {
-      "slug": "craigslist",
-      "url": "https://craigslist.org/en/about",
-      "final": "https://craigslist.org/en/about",
-      "reason": "404"
+      "slug": "eizo",
+      "url": "https://eizo.co.jp/en/about",
+      "final": "https://eizo.co.jp/en/about",
+      "reason": "http-0"
     },
     {
-      "slug": "craigslist",
-      "url": "https://craigslist.org/en/company",
-      "final": "https://craigslist.org/en/company",
-      "reason": "404"
+      "slug": "eizo",
+      "url": "https://eizo.co.jp/en/company",
+      "final": "https://eizo.co.jp/en/company",
+      "reason": "http-0"
     },
     {
-      "slug": "craigslist",
-      "url": "https://craigslist.org/press",
-      "final": "https://craigslist.org/press",
-      "reason": "404"
+      "slug": "eizo",
+      "url": "https://eizo.co.jp/press",
+      "final": "https://eizo.co.jp/press",
+      "reason": "http-0"
     },
     {
-      "slug": "craigslist",
-      "url": "https://craigslist.org/newsroom",
-      "final": "https://craigslist.org/newsroom",
-      "reason": "404"
+      "slug": "eizo",
+      "url": "https://eizo.co.jp/newsroom",
+      "final": "https://eizo.co.jp/newsroom",
+      "reason": "http-0"
     },
     {
-      "slug": "craigslist",
-      "url": "https://craigslist.org/company/press",
-      "final": "https://craigslist.org/company/press",
-      "reason": "404"
+      "slug": "eizo",
+      "url": "https://eizo.co.jp/company/press",
+      "final": "https://eizo.co.jp/company/press",
+      "reason": "http-0"
     },
     {
-      "slug": "craigslist",
-      "url": "https://www.craigslist.org/about/sites",
-      "final": "https://www.craigslist.org/about/sites",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "craigslist",
-      "url": "https://www.craigslist.org/about/help/",
-      "final": "https://www.craigslist.org/about/help/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "craigslist",
-      "url": "https://www.craigslist.org/about/help/safety/scams",
-      "final": "https://www.craigslist.org/about/help/safety/scams/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "craigslist",
-      "url": "https://www.craigslist.org/about/help/safety",
-      "final": "https://www.craigslist.org/about/help/safety/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "craigslist",
-      "url": "https://www.craigslist.org/about/",
-      "final": "https://www.craigslist.org/about/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "craigslist",
-      "url": "https://www.craigslist.org/about/best/all/",
-      "final": "https://www.craigslist.org/about/best/all/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
-      "final": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
+      "slug": "lm3labs",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
       "reason": "prefix-match"
     },
     {
-      "slug": "walmart",
-      "url": "https://walmart.com",
-      "final": "https://www.walmart.com/",
+      "slug": "lm3labs",
+      "url": "https://lm3labs.com",
+      "final": "https://lm3labs.com",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "walmart",
-      "url": "https://walmart.com/about",
-      "final": "https://walmart.com/about",
-      "reason": "404"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/about-us",
-      "final": "https://www.walmart.com/blocked?url=L2Fib3V0LXVz&uuid=4c71ab86-a0be-11f1-8fdc-c5e01283d326&vid=&g=b",
+      "slug": "lm3labs",
+      "url": "https://lm3labs.com/about",
+      "final": "https://lm3labs.com/about",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "walmart",
-      "url": "https://walmart.com/about/company",
-      "final": "https://www.walmart.com/blocked?url=L2Fib3V0L2NvbXBhbnk=&uuid=4c9906ee-a0be-11f1-8a09-68da4e83e24a&vid=&g=b",
+      "slug": "lm3labs",
+      "url": "https://lm3labs.com/about-us",
+      "final": "https://lm3labs.com/about-us",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "walmart",
-      "url": "https://walmart.com/about/us",
-      "final": "https://walmart.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/company",
-      "final": "https://www.walmart.com/blocked?url=L2NvbXBhbnk=&uuid=4cd2bea9-a0be-11f1-98a4-3cd9f4f754ec&vid=&g=b",
+      "slug": "lm3labs",
+      "url": "https://lm3labs.com/about/company",
+      "final": "https://lm3labs.com/about/company",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "walmart",
-      "url": "https://walmart.com/company/about",
-      "final": "https://www.walmart.com/blocked?url=L2NvbXBhbnkvYWJvdXQ=&uuid=4d0a9650-a0be-11f1-91cf-c5e01283d326&vid=&g=b",
+      "slug": "lm3labs",
+      "url": "https://lm3labs.com/about/us",
+      "final": "https://lm3labs.com/about/us",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "walmart",
-      "url": "https://walmart.com/company/our-story",
-      "final": "https://www.walmart.com/blocked?url=L2NvbXBhbnkvb3VyLXN0b3J5&uuid=4d2f0bc5-a0be-11f1-8001-89be09bc9267&vid=&g=b",
+      "slug": "lm3labs",
+      "url": "https://lm3labs.com/company",
+      "final": "https://lm3labs.com/company",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "walmart",
-      "url": "https://walmart.com/our-story",
-      "final": "https://www.walmart.com/blocked?url=L291ci1zdG9yeQ==&uuid=4d503462-a0be-11f1-9fbb-8127da82a396&vid=&g=b",
+      "slug": "lm3labs",
+      "url": "https://lm3labs.com/company/about",
+      "final": "https://lm3labs.com/company/about",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "walmart",
-      "url": "https://walmart.com/our-company",
-      "final": "https://walmart.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/who-we-are",
-      "final": "https://walmart.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/about/our-story",
-      "final": "https://www.walmart.com/blocked?url=L2Fib3V0L291ci1zdG9yeQ==&uuid=4dc14f38-a0be-11f1-8c0d-a0bae3809ced&vid=&g=b",
+      "slug": "lm3labs",
+      "url": "https://lm3labs.com/company/our-story",
+      "final": "https://lm3labs.com/company/our-story",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "walmart",
-      "url": "https://walmart.com/en/about",
-      "final": "https://walmart.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/en/company",
-      "final": "https://www.walmart.com/blocked?url=L2VuL2NvbXBhbnk=&uuid=4e06e878-a0be-11f1-bc21-a2a34e051d29&vid=&g=b",
+      "slug": "lm3labs",
+      "url": "https://lm3labs.com/our-story",
+      "final": "https://lm3labs.com/our-story",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "walmart",
-      "url": "https://walmart.com/press",
-      "final": "https://www.walmart.com/blocked?url=L3ByZXNz&uuid=4e2d8b6a-a0be-11f1-870c-a154d69e1bcd&vid=&g=b",
+      "slug": "lm3labs",
+      "url": "https://lm3labs.com/our-company",
+      "final": "https://lm3labs.com/our-company",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "walmart",
-      "url": "https://walmart.com/newsroom",
-      "final": "https://www.walmart.com/blocked?url=L25ld3Nyb29t&uuid=4e4d9888-a0be-11f1-ae0b-57e1062b792a&vid=&g=b",
+      "slug": "lm3labs",
+      "url": "https://lm3labs.com/who-we-are",
+      "final": "https://lm3labs.com/who-we-are",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "walmart",
-      "url": "https://walmart.com/company/press",
-      "final": "https://www.walmart.com/blocked?url=L2NvbXBhbnkvcHJlc3M=&uuid=4e6e009e-a0be-11f1-add8-34909c2607a6&vid=&g=b",
+      "slug": "lm3labs",
+      "url": "https://lm3labs.com/about/our-story",
+      "final": "https://lm3labs.com/about/our-story",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "f5",
-      "url": "https://www.crn.com/news/security/2025/the-2025-security-100",
-      "final": "https://www.crn.com/news/security/2025/the-2025-security-100",
-      "reason": "news"
-    },
-    {
-      "slug": "f5",
-      "url": "https://f5.com",
-      "final": "https://www.f5.com/",
+      "slug": "lm3labs",
+      "url": "https://lm3labs.com/en/about",
+      "final": "https://lm3labs.com/en/about",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "f5",
-      "url": "https://f5.com/about",
-      "final": "https://f5.com/about",
-      "reason": "404"
-    },
-    {
-      "slug": "f5",
-      "url": "https://f5.com/about-us",
-      "final": "https://www.f5.com/company",
+      "slug": "lm3labs",
+      "url": "https://lm3labs.com/en/company",
+      "final": "https://lm3labs.com/en/company",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "f5",
-      "url": "https://f5.com/about/company",
-      "final": "https://f5.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "f5",
-      "url": "https://f5.com/about/us",
-      "final": "https://f5.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "f5",
-      "url": "https://f5.com/company",
-      "final": "https://www.f5.com/company",
+      "slug": "lm3labs",
+      "url": "https://lm3labs.com/press",
+      "final": "https://lm3labs.com/press",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "f5",
-      "url": "https://f5.com/company/about",
-      "final": "https://f5.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "f5",
-      "url": "https://f5.com/company/our-story",
-      "final": "https://f5.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "f5",
-      "url": "https://f5.com/our-story",
-      "final": "https://f5.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "f5",
-      "url": "https://f5.com/our-company",
-      "final": "https://f5.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "f5",
-      "url": "https://f5.com/who-we-are",
-      "final": "https://f5.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "f5",
-      "url": "https://f5.com/about/our-story",
-      "final": "https://f5.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "f5",
-      "url": "https://f5.com/en/about",
-      "final": "https://f5.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "f5",
-      "url": "https://f5.com/en/company",
-      "final": "https://f5.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "f5",
-      "url": "https://f5.com/press",
-      "final": "https://f5.com/press",
-      "reason": "404"
-    },
-    {
-      "slug": "f5",
-      "url": "https://f5.com/newsroom",
-      "final": "https://f5.com/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "f5",
-      "url": "https://f5.com/company/press",
-      "final": "https://f5.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "f5",
-      "url": "https://www.f5.com/company",
-      "final": "https://www.f5.com/company",
+      "slug": "lm3labs",
+      "url": "https://lm3labs.com/newsroom",
+      "final": "https://lm3labs.com/newsroom",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "meta-platforms",
-      "url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
-      "final": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
+      "slug": "lm3labs",
+      "url": "https://lm3labs.com/company/press",
+      "final": "https://lm3labs.com/company/press",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "genista-corporation",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
       "reason": "prefix-match"
     },
     {
-      "slug": "meta-platforms",
-      "url": "https://meta.com",
-      "final": "https://www.meta.com/",
+      "slug": "genista-corporation",
+      "url": "https://genista.com",
+      "final": "https://genista.com",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "meta-platforms",
-      "url": "https://meta.com/about",
-      "final": "https://www.meta.com/about/",
+      "slug": "genista-corporation",
+      "url": "https://genista.com/about",
+      "final": "https://genista.com/about",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "meta-platforms",
-      "url": "https://meta.com/about-us",
-      "final": "https://meta.com/about-us",
-      "reason": "404"
-    },
-    {
-      "slug": "meta-platforms",
-      "url": "https://meta.com/about/company",
-      "final": "https://meta.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "meta-platforms",
-      "url": "https://meta.com/about/us",
-      "final": "https://meta.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "meta-platforms",
-      "url": "https://meta.com/company",
-      "final": "https://meta.com/company",
-      "reason": "404"
-    },
-    {
-      "slug": "meta-platforms",
-      "url": "https://meta.com/company/about",
-      "final": "https://meta.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "meta-platforms",
-      "url": "https://meta.com/company/our-story",
-      "final": "https://meta.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "meta-platforms",
-      "url": "https://meta.com/our-story",
-      "final": "https://meta.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "meta-platforms",
-      "url": "https://meta.com/our-company",
-      "final": "https://meta.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "meta-platforms",
-      "url": "https://meta.com/who-we-are",
-      "final": "https://meta.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "meta-platforms",
-      "url": "https://meta.com/about/our-story",
-      "final": "https://meta.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "meta-platforms",
-      "url": "https://meta.com/en/about",
-      "final": "https://meta.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "meta-platforms",
-      "url": "https://meta.com/en/company",
-      "final": "https://meta.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "meta-platforms",
-      "url": "https://meta.com/press",
-      "final": "https://meta.com/press",
-      "reason": "404"
-    },
-    {
-      "slug": "meta-platforms",
-      "url": "https://meta.com/newsroom",
-      "final": "https://meta.com/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "meta-platforms",
-      "url": "https://meta.com/company/press",
-      "final": "https://meta.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "meta-platforms",
-      "url": "https://www.meta.com/about/",
-      "final": "https://www.meta.com/about/",
+      "slug": "genista-corporation",
+      "url": "https://genista.com/about-us",
+      "final": "https://genista.com/about-us",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "meta-platforms",
-      "url": "https://www.meta.com/cs-cz/about/",
-      "final": "https://www.meta.com/cs-cz/about/",
+      "slug": "genista-corporation",
+      "url": "https://genista.com/about/company",
+      "final": "https://genista.com/about/company",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "meta-platforms",
-      "url": "https://www.meta.com/da-dk/about/",
-      "final": "https://www.meta.com/da-dk/about/",
+      "slug": "genista-corporation",
+      "url": "https://genista.com/about/us",
+      "final": "https://genista.com/about/us",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "meta-platforms",
-      "url": "https://www.meta.com/de-de/about/",
-      "final": "https://www.meta.com/de-de/about/",
+      "slug": "genista-corporation",
+      "url": "https://genista.com/company",
+      "final": "https://genista.com/company",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "meta-platforms",
-      "url": "https://www.meta.com/en-gb/about/",
-      "final": "https://www.meta.com/en-gb/about/",
+      "slug": "genista-corporation",
+      "url": "https://genista.com/company/about",
+      "final": "https://genista.com/company/about",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "meta-platforms",
-      "url": "https://www.meta.com/es-es/about/",
-      "final": "https://www.meta.com/es-es/about/",
+      "slug": "genista-corporation",
+      "url": "https://genista.com/company/our-story",
+      "final": "https://genista.com/company/our-story",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "nucleus-software-exports",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
+      "slug": "genista-corporation",
+      "url": "https://genista.com/our-story",
+      "final": "https://genista.com/our-story",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "genista-corporation",
+      "url": "https://genista.com/our-company",
+      "final": "https://genista.com/our-company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "genista-corporation",
+      "url": "https://genista.com/who-we-are",
+      "final": "https://genista.com/who-we-are",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "genista-corporation",
+      "url": "https://genista.com/about/our-story",
+      "final": "https://genista.com/about/our-story",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "genista-corporation",
+      "url": "https://genista.com/en/about",
+      "final": "https://genista.com/en/about",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "genista-corporation",
+      "url": "https://genista.com/en/company",
+      "final": "https://genista.com/en/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "genista-corporation",
+      "url": "https://genista.com/press",
+      "final": "https://genista.com/press",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "genista-corporation",
+      "url": "https://genista.com/newsroom",
+      "final": "https://genista.com/newsroom",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "genista-corporation",
+      "url": "https://genista.com/company/press",
+      "final": "https://genista.com/company/press",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "nhn-japan-corporation",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "nhn-japan-corporation",
+      "url": "https://nhn-japan.com",
+      "final": "https://nhn-japan.com",
+      "reason": "http-0"
+    },
+    {
+      "slug": "nhn-japan-corporation",
+      "url": "https://nhn-japan.com/about",
+      "final": "https://nhn-japan.com/about",
+      "reason": "http-0"
+    },
+    {
+      "slug": "nhn-japan-corporation",
+      "url": "https://nhn-japan.com/about-us",
+      "final": "https://nhn-japan.com/about-us",
+      "reason": "http-0"
+    },
+    {
+      "slug": "nhn-japan-corporation",
+      "url": "https://nhn-japan.com/about/company",
+      "final": "https://nhn-japan.com/about/company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "nhn-japan-corporation",
+      "url": "https://nhn-japan.com/about/us",
+      "final": "https://nhn-japan.com/about/us",
+      "reason": "http-0"
+    },
+    {
+      "slug": "nhn-japan-corporation",
+      "url": "https://nhn-japan.com/company",
+      "final": "https://nhn-japan.com/company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "nhn-japan-corporation",
+      "url": "https://nhn-japan.com/company/about",
+      "final": "https://nhn-japan.com/company/about",
+      "reason": "http-0"
+    },
+    {
+      "slug": "nhn-japan-corporation",
+      "url": "https://nhn-japan.com/company/our-story",
+      "final": "https://nhn-japan.com/company/our-story",
+      "reason": "http-0"
+    },
+    {
+      "slug": "nhn-japan-corporation",
+      "url": "https://nhn-japan.com/our-story",
+      "final": "https://nhn-japan.com/our-story",
+      "reason": "http-0"
+    },
+    {
+      "slug": "nhn-japan-corporation",
+      "url": "https://nhn-japan.com/our-company",
+      "final": "https://nhn-japan.com/our-company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "nhn-japan-corporation",
+      "url": "https://nhn-japan.com/who-we-are",
+      "final": "https://nhn-japan.com/who-we-are",
+      "reason": "http-0"
+    },
+    {
+      "slug": "nhn-japan-corporation",
+      "url": "https://nhn-japan.com/about/our-story",
+      "final": "https://nhn-japan.com/about/our-story",
+      "reason": "http-0"
+    },
+    {
+      "slug": "nhn-japan-corporation",
+      "url": "https://nhn-japan.com/en/about",
+      "final": "https://nhn-japan.com/en/about",
+      "reason": "http-0"
+    },
+    {
+      "slug": "nhn-japan-corporation",
+      "url": "https://nhn-japan.com/en/company",
+      "final": "https://nhn-japan.com/en/company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "nhn-japan-corporation",
+      "url": "https://nhn-japan.com/press",
+      "final": "https://nhn-japan.com/press",
+      "reason": "http-0"
+    },
+    {
+      "slug": "nhn-japan-corporation",
+      "url": "https://nhn-japan.com/newsroom",
+      "final": "https://nhn-japan.com/newsroom",
+      "reason": "http-0"
+    },
+    {
+      "slug": "nhn-japan-corporation",
+      "url": "https://nhn-japan.com/company/press",
+      "final": "https://nhn-japan.com/company/press",
+      "reason": "http-0"
+    },
+    {
+      "slug": "comptel",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "comptel",
+      "url": "https://comptel.com",
+      "final": "https://comptel.com",
+      "reason": "http-403"
+    },
+    {
+      "slug": "comptel",
+      "url": "https://comptel.com/about",
+      "final": "https://comptel.com/about",
+      "reason": "http-403"
+    },
+    {
+      "slug": "comptel",
+      "url": "https://comptel.com/about-us",
+      "final": "https://comptel.com/about-us",
+      "reason": "http-403"
+    },
+    {
+      "slug": "comptel",
+      "url": "https://comptel.com/about/company",
+      "final": "https://comptel.com/about/company",
+      "reason": "http-403"
+    },
+    {
+      "slug": "comptel",
+      "url": "https://comptel.com/about/us",
+      "final": "https://comptel.com/about/us",
+      "reason": "http-403"
+    },
+    {
+      "slug": "comptel",
+      "url": "https://comptel.com/company",
+      "final": "https://comptel.com/company",
+      "reason": "http-403"
+    },
+    {
+      "slug": "comptel",
+      "url": "https://comptel.com/company/about",
+      "final": "https://comptel.com/company/about",
+      "reason": "http-403"
+    },
+    {
+      "slug": "comptel",
+      "url": "https://comptel.com/company/our-story",
+      "final": "https://comptel.com/company/our-story",
+      "reason": "http-403"
+    },
+    {
+      "slug": "comptel",
+      "url": "https://comptel.com/our-story",
+      "final": "https://comptel.com/our-story",
+      "reason": "http-403"
+    },
+    {
+      "slug": "comptel",
+      "url": "https://comptel.com/our-company",
+      "final": "https://comptel.com/our-company",
+      "reason": "http-403"
+    },
+    {
+      "slug": "comptel",
+      "url": "https://comptel.com/who-we-are",
+      "final": "https://comptel.com/who-we-are",
+      "reason": "http-403"
+    },
+    {
+      "slug": "comptel",
+      "url": "https://comptel.com/about/our-story",
+      "final": "https://comptel.com/about/our-story",
+      "reason": "http-403"
+    },
+    {
+      "slug": "comptel",
+      "url": "https://comptel.com/en/about",
+      "final": "https://comptel.com/en/about",
+      "reason": "http-403"
+    },
+    {
+      "slug": "comptel",
+      "url": "https://comptel.com/en/company",
+      "final": "https://comptel.com/en/company",
+      "reason": "http-403"
+    },
+    {
+      "slug": "comptel",
+      "url": "https://comptel.com/press",
+      "final": "https://comptel.com/press",
+      "reason": "http-403"
+    },
+    {
+      "slug": "comptel",
+      "url": "https://comptel.com/newsroom",
+      "final": "https://comptel.com/newsroom",
+      "reason": "http-403"
+    },
+    {
+      "slug": "comptel",
+      "url": "https://comptel.com/company/press",
+      "final": "https://comptel.com/company/press",
+      "reason": "http-403"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://gala.biz",
+      "final": "https://www.gala.biz/en",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://gala.biz/about",
+      "final": "https://gala.biz/about",
+      "reason": "404"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://gala.biz/about-us",
+      "final": "https://gala.biz/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://gala.biz/about/company",
+      "final": "https://gala.biz/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://gala.biz/about/us",
+      "final": "https://gala.biz/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://gala.biz/company",
+      "final": "https://gala.biz/company",
+      "reason": "404"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://gala.biz/company/about",
+      "final": "https://gala.biz/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://gala.biz/company/our-story",
+      "final": "https://gala.biz/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://gala.biz/our-story",
+      "final": "https://gala.biz/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://gala.biz/our-company",
+      "final": "https://gala.biz/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://gala.biz/who-we-are",
+      "final": "https://gala.biz/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://gala.biz/about/our-story",
+      "final": "https://gala.biz/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://gala.biz/en/about",
+      "final": "https://gala.biz/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://gala.biz/en/company",
+      "final": "https://gala.biz/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://gala.biz/press",
+      "final": "https://gala.biz/press",
+      "reason": "404"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://gala.biz/newsroom",
+      "final": "https://gala.biz/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://gala.biz/company/press",
+      "final": "https://gala.biz/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://www.gala.biz/en/about-us/values-and-culture",
+      "final": "https://www.gala.biz/en/about-us/values-and-culture",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://www.gala.biz/en/about-us/corporate-profile",
+      "final": "https://www.gala.biz/en/about-us/corporate-profile",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://www.gala.biz/en/about-us/history",
+      "final": "https://www.gala.biz/en/about-us/history",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://www.gala.biz/en/about-us/group-companies",
+      "final": "https://www.gala.biz/en/about-us/group-companies",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://www.gala.biz/en/about-us/ci",
+      "final": "https://www.gala.biz/en/about-us/ci",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "gala-inc",
+      "url": "https://www.gala.biz/about-us/values-and-culture",
+      "final": "https://www.gala.biz/about-us/values-and-culture",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "ah-software",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "ah-software",
+      "url": "https://ah-soft.com",
+      "final": "https://ah-soft.com",
+      "reason": "http-0"
+    },
+    {
+      "slug": "ah-software",
+      "url": "https://ah-soft.com/about",
+      "final": "https://ah-soft.com/about",
+      "reason": "http-0"
+    },
+    {
+      "slug": "ah-software",
+      "url": "https://ah-soft.com/about-us",
+      "final": "https://ah-soft.com/about-us",
+      "reason": "http-0"
+    },
+    {
+      "slug": "ah-software",
+      "url": "https://ah-soft.com/about/company",
+      "final": "https://ah-soft.com/about/company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "ah-software",
+      "url": "https://ah-soft.com/about/us",
+      "final": "https://ah-soft.com/about/us",
+      "reason": "http-0"
+    },
+    {
+      "slug": "ah-software",
+      "url": "https://ah-soft.com/company",
+      "final": "https://ah-soft.com/company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "ah-software",
+      "url": "https://ah-soft.com/company/about",
+      "final": "https://ah-soft.com/company/about",
+      "reason": "http-0"
+    },
+    {
+      "slug": "ah-software",
+      "url": "https://ah-soft.com/company/our-story",
+      "final": "https://ah-soft.com/company/our-story",
+      "reason": "http-0"
+    },
+    {
+      "slug": "ah-software",
+      "url": "https://ah-soft.com/our-story",
+      "final": "https://ah-soft.com/our-story",
+      "reason": "http-0"
+    },
+    {
+      "slug": "ah-software",
+      "url": "https://ah-soft.com/our-company",
+      "final": "https://ah-soft.com/our-company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "ah-software",
+      "url": "https://ah-soft.com/who-we-are",
+      "final": "https://ah-soft.com/who-we-are",
+      "reason": "http-0"
+    },
+    {
+      "slug": "ah-software",
+      "url": "https://ah-soft.com/about/our-story",
+      "final": "https://ah-soft.com/about/our-story",
+      "reason": "http-0"
+    },
+    {
+      "slug": "ah-software",
+      "url": "https://ah-soft.com/en/about",
+      "final": "https://ah-soft.com/en/about",
+      "reason": "http-0"
+    },
+    {
+      "slug": "ah-software",
+      "url": "https://ah-soft.com/en/company",
+      "final": "https://ah-soft.com/en/company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "ah-software",
+      "url": "https://ah-soft.com/press",
+      "final": "https://ah-soft.com/press",
+      "reason": "http-0"
+    },
+    {
+      "slug": "ah-software",
+      "url": "https://ah-soft.com/newsroom",
+      "final": "https://ah-soft.com/newsroom",
+      "reason": "http-0"
+    },
+    {
+      "slug": "ah-software",
+      "url": "https://ah-soft.com/company/press",
+      "final": "https://ah-soft.com/company/press",
+      "reason": "http-0"
+    },
+    {
+      "slug": "maruhon",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "maruhon",
+      "url": "https://maruhon-kogyo.co.jp",
+      "final": "https://maruhon-kogyo.co.jp",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "maruhon",
+      "url": "https://maruhon-kogyo.co.jp/about",
+      "final": "https://maruhon-kogyo.co.jp/about",
+      "reason": "404"
+    },
+    {
+      "slug": "maruhon",
+      "url": "https://maruhon-kogyo.co.jp/about-us",
+      "final": "https://maruhon-kogyo.co.jp/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "maruhon",
+      "url": "https://maruhon-kogyo.co.jp/about/company",
+      "final": "https://maruhon-kogyo.co.jp/about/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "maruhon",
+      "url": "https://maruhon-kogyo.co.jp/about/us",
+      "final": "https://maruhon-kogyo.co.jp/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "maruhon",
+      "url": "https://maruhon-kogyo.co.jp/company",
+      "final": "https://maruhon-kogyo.co.jp/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "maruhon",
+      "url": "https://maruhon-kogyo.co.jp/company/about",
+      "final": "https://maruhon-kogyo.co.jp/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "maruhon",
+      "url": "https://maruhon-kogyo.co.jp/company/our-story",
+      "final": "https://maruhon-kogyo.co.jp/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "maruhon",
+      "url": "https://maruhon-kogyo.co.jp/our-story",
+      "final": "https://maruhon-kogyo.co.jp/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "maruhon",
+      "url": "https://maruhon-kogyo.co.jp/our-company",
+      "final": "https://maruhon-kogyo.co.jp/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "maruhon",
+      "url": "https://maruhon-kogyo.co.jp/who-we-are",
+      "final": "https://maruhon-kogyo.co.jp/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "maruhon",
+      "url": "https://maruhon-kogyo.co.jp/about/our-story",
+      "final": "https://maruhon-kogyo.co.jp/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "maruhon",
+      "url": "https://maruhon-kogyo.co.jp/en/about",
+      "final": "https://maruhon-kogyo.co.jp/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "maruhon",
+      "url": "https://maruhon-kogyo.co.jp/en/company",
+      "final": "https://maruhon-kogyo.co.jp/en/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "maruhon",
+      "url": "https://maruhon-kogyo.co.jp/press",
+      "final": "https://maruhon-kogyo.co.jp/press",
+      "reason": "404"
+    },
+    {
+      "slug": "maruhon",
+      "url": "https://maruhon-kogyo.co.jp/newsroom",
+      "final": "https://maruhon-kogyo.co.jp/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "maruhon",
+      "url": "https://maruhon-kogyo.co.jp/company/press",
+      "final": "https://maruhon-kogyo.co.jp/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "maruhon",
+      "url": "https://maruhon-kogyo.co.jp/company/",
+      "final": "https://maruhon-kogyo.co.jp/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "fenrir-inc",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "fenrir-inc",
+      "url": "https://fenrir-inc.com/about",
+      "final": "https://www.fenrir-inc.com:443/jp/about/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "fenrir-inc",
+      "url": "https://fenrir-inc.com/about-us",
+      "final": "https://fenrir-inc.com/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "fenrir-inc",
+      "url": "https://fenrir-inc.com/about/company",
+      "final": "https://www.fenrir-inc.com:443/jp/about/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "fenrir-inc",
+      "url": "https://fenrir-inc.com/about/us",
+      "final": "https://fenrir-inc.com/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "fenrir-inc",
+      "url": "https://fenrir-inc.com/about/our-story",
+      "final": "https://fenrir-inc.com/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "fenrir-inc",
+      "url": "https://fenrir-inc.com/en/about",
+      "final": "https://www.fenrir-inc.com:443/jp/about/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "fenrir-inc",
+      "url": "https://fenrir-inc.com/en/company",
+      "final": "https://fenrir-inc.com/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "fenrir-inc",
+      "url": "https://fenrir-inc.com/newsroom",
+      "final": "https://fenrir-inc.com/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "fenrir-inc",
+      "url": "https://www.fenrir-inc.com:443/jp/about/",
+      "final": "https://www.fenrir-inc.com:443/jp/about/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "fenrir-inc",
+      "url": "https://www.fenrir-inc.com:443/jp/about/company/",
+      "final": "https://www.fenrir-inc.com:443/jp/about/company/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "fenrir-inc",
+      "url": "https://www.fenrir-inc.com:443/jp/about/history/",
+      "final": "https://www.fenrir-inc.com:443/jp/about/history/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "fenrir-inc",
+      "url": "https://www.fenrir-inc.com:443/jp/about/security/",
+      "final": "https://www.fenrir-inc.com:443/jp/about/security/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "fenrir-inc",
+      "url": "https://www.fenrir-inc.com:443/jp/about/rouseido2025",
+      "final": "https://www.fenrir-inc.com:443/jp/about/rouseido2025",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "fenrir-inc",
+      "url": "https://www.fenrir-inc.com:443/jp/about/card-shake",
+      "final": "https://www.fenrir-inc.com:443/jp/about/card-shake",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "crypton-future-media",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "crypton-future-media",
+      "url": "https://crypton.co.jp",
+      "final": "https://www.crypton.co.jp/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "crypton-future-media",
+      "url": "https://crypton.co.jp/about",
+      "final": "https://crypton.co.jp/about",
+      "reason": "404"
+    },
+    {
+      "slug": "crypton-future-media",
+      "url": "https://crypton.co.jp/about-us",
+      "final": "https://crypton.co.jp/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "crypton-future-media",
+      "url": "https://crypton.co.jp/about/company",
+      "final": "https://crypton.co.jp/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "crypton-future-media",
+      "url": "https://crypton.co.jp/about/us",
+      "final": "https://crypton.co.jp/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "crypton-future-media",
+      "url": "https://crypton.co.jp/company",
+      "final": "https://crypton.co.jp/company",
+      "reason": "404"
+    },
+    {
+      "slug": "crypton-future-media",
+      "url": "https://crypton.co.jp/company/about",
+      "final": "https://crypton.co.jp/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "crypton-future-media",
+      "url": "https://crypton.co.jp/company/our-story",
+      "final": "https://crypton.co.jp/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "crypton-future-media",
+      "url": "https://crypton.co.jp/our-story",
+      "final": "https://crypton.co.jp/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "crypton-future-media",
+      "url": "https://crypton.co.jp/our-company",
+      "final": "https://crypton.co.jp/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "crypton-future-media",
+      "url": "https://crypton.co.jp/who-we-are",
+      "final": "https://crypton.co.jp/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "crypton-future-media",
+      "url": "https://crypton.co.jp/about/our-story",
+      "final": "https://crypton.co.jp/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "crypton-future-media",
+      "url": "https://crypton.co.jp/en/about",
+      "final": "https://crypton.co.jp/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "crypton-future-media",
+      "url": "https://crypton.co.jp/en/company",
+      "final": "https://crypton.co.jp/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "crypton-future-media",
+      "url": "https://crypton.co.jp/press",
+      "final": "https://crypton.co.jp/press",
+      "reason": "404"
+    },
+    {
+      "slug": "crypton-future-media",
+      "url": "https://crypton.co.jp/newsroom",
+      "final": "https://crypton.co.jp/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "crypton-future-media",
+      "url": "https://crypton.co.jp/company/press",
+      "final": "https://crypton.co.jp/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Sweden",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Sweden",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://visagetechnologies.com",
+      "final": "https://visagetechnologies.com",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://visagetechnologies.com/about",
+      "final": "https://visagetechnologies.com/about",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://visagetechnologies.com/about-us",
+      "final": "https://visagetechnologies.com/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://visagetechnologies.com/about/company",
+      "final": "https://visagetechnologies.com/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://visagetechnologies.com/about/us",
+      "final": "https://visagetechnologies.com/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://visagetechnologies.com/company",
+      "final": "https://visagetechnologies.com/about",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://visagetechnologies.com/company/about",
+      "final": "https://visagetechnologies.com/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://visagetechnologies.com/company/our-story",
+      "final": "https://visagetechnologies.com/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://visagetechnologies.com/our-story",
+      "final": "https://visagetechnologies.com/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://visagetechnologies.com/our-company",
+      "final": "https://visagetechnologies.com/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://visagetechnologies.com/who-we-are",
+      "final": "https://visagetechnologies.com/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://visagetechnologies.com/about/our-story",
+      "final": "https://visagetechnologies.com/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://visagetechnologies.com/en/about",
+      "final": "https://visagetechnologies.com/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://visagetechnologies.com/en/company",
+      "final": "https://visagetechnologies.com/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://visagetechnologies.com/press",
+      "final": "https://visagetechnologies.com/press",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://visagetechnologies.com/newsroom",
+      "final": "https://visagetechnologies.com/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://visagetechnologies.com/company/press",
+      "final": "https://visagetechnologies.com/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://visagetechnologies.com/about/",
+      "final": "https://visagetechnologies.com/about/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "visage-technologies-ab",
+      "url": "https://visagetechnologies.com/press/",
+      "final": "https://visagetechnologies.com/press/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "toontrack",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Sweden",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Sweden",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "toontrack",
+      "url": "https://toontrack.com",
+      "final": "https://www.toontrack.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "toontrack",
+      "url": "https://toontrack.com/about",
+      "final": "https://www.toontrack.com/forums/topic/about-a-topic-i-wrote-about-the-kick-and-snare-expansion-in-the-sd3-forum/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "toontrack",
+      "url": "https://toontrack.com/about-us",
+      "final": "https://toontrack.com/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "toontrack",
+      "url": "https://toontrack.com/about/company",
+      "final": "https://toontrack.com/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "toontrack",
+      "url": "https://toontrack.com/about/us",
+      "final": "https://www.toontrack.com/us-retail/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "toontrack",
+      "url": "https://toontrack.com/company",
+      "final": "https://toontrack.com/company",
+      "reason": "404"
+    },
+    {
+      "slug": "toontrack",
+      "url": "https://toontrack.com/company/about",
+      "final": "https://www.toontrack.com/product/decades-sdx/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "toontrack",
+      "url": "https://toontrack.com/company/our-story",
+      "final": "https://toontrack.com/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "toontrack",
+      "url": "https://toontrack.com/our-story",
+      "final": "https://toontrack.com/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "toontrack",
+      "url": "https://toontrack.com/our-company",
+      "final": "https://toontrack.com/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "toontrack",
+      "url": "https://toontrack.com/who-we-are",
+      "final": "https://toontrack.com/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "toontrack",
+      "url": "https://toontrack.com/about/our-story",
+      "final": "https://toontrack.com/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "toontrack",
+      "url": "https://toontrack.com/en/about",
+      "final": "https://www.toontrack.com/product/decades-sdx/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "toontrack",
+      "url": "https://toontrack.com/en/company",
+      "final": "https://toontrack.com/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "toontrack",
+      "url": "https://toontrack.com/press",
+      "final": "https://toontrack.com/press",
+      "reason": "http-402"
+    },
+    {
+      "slug": "toontrack",
+      "url": "https://toontrack.com/newsroom",
+      "final": "https://toontrack.com/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "toontrack",
+      "url": "https://toontrack.com/company/press",
+      "final": "https://toontrack.com/company/press",
+      "reason": "http-402"
+    },
+    {
+      "slug": "works-applications",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "works-applications",
+      "url": "https://www.worksap.co.jp/about/",
+      "final": "https://www.worksap.co.jp/about/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "works-applications",
+      "url": "https://www.worksap.co.jp/about/purpose/",
+      "final": "https://www.worksap.co.jp/about/purpose/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "works-applications",
+      "url": "https://www.worksap.co.jp/about/philosophy/",
+      "final": "https://www.worksap.co.jp/about/philosophy/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "works-applications",
+      "url": "https://www.worksap.co.jp/about/value/",
+      "final": "https://www.worksap.co.jp/about/value/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "works-applications",
+      "url": "https://www.worksap.co.jp/about/ceo/",
+      "final": "https://www.worksap.co.jp/about/ceo/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "works-applications",
+      "url": "https://www.worksap.co.jp/about/profile/",
+      "final": "https://www.worksap.co.jp/about/profile/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "https://pixela.co.jp",
+      "final": "https://www.pixela.co.jp/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "https://pixela.co.jp/about",
+      "final": "https://pixela.co.jp/about",
+      "reason": "404"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "https://pixela.co.jp/about-us",
+      "final": "https://pixela.co.jp/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "https://pixela.co.jp/about/company",
+      "final": "https://pixela.co.jp/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "https://pixela.co.jp/about/us",
+      "final": "https://pixela.co.jp/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "https://pixela.co.jp/company",
+      "final": "http://www.pixela.co.jp/company/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "https://pixela.co.jp/company/about",
+      "final": "https://pixela.co.jp/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "https://pixela.co.jp/company/our-story",
+      "final": "https://pixela.co.jp/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "https://pixela.co.jp/our-story",
+      "final": "https://pixela.co.jp/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "https://pixela.co.jp/our-company",
+      "final": "https://pixela.co.jp/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "https://pixela.co.jp/who-we-are",
+      "final": "https://pixela.co.jp/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "https://pixela.co.jp/about/our-story",
+      "final": "https://pixela.co.jp/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "https://pixela.co.jp/en/about",
+      "final": "https://pixela.co.jp/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "https://pixela.co.jp/en/company",
+      "final": "http://www.pixela.co.jp/en/company/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "https://pixela.co.jp/press",
+      "final": "https://pixela.co.jp/press",
+      "reason": "404"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "https://pixela.co.jp/newsroom",
+      "final": "https://pixela.co.jp/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "https://pixela.co.jp/company/press",
+      "final": "https://pixela.co.jp/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "https://www.pixela.co.jp/company/",
+      "final": "https://www.pixela.co.jp/company/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "http://www.pixela.co.jp/company/",
+      "final": "http://www.pixela.co.jp/company/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "pixela-corporation",
+      "url": "http://www.pixela.co.jp/en/company/",
+      "final": "http://www.pixela.co.jp/en/company/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://innofactor.com",
+      "final": "https://www.innofactor.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://innofactor.com/about",
+      "final": "https://innofactor.com/about",
+      "reason": "404"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://innofactor.com/about-us",
+      "final": "https://innofactor.com/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://innofactor.com/about/company",
+      "final": "https://innofactor.com/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://innofactor.com/about/us",
+      "final": "https://innofactor.com/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://innofactor.com/company",
+      "final": "https://innofactor.com/company",
+      "reason": "404"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://innofactor.com/company/about",
+      "final": "https://innofactor.com/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://innofactor.com/company/our-story",
+      "final": "https://innofactor.com/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://innofactor.com/our-story",
+      "final": "https://innofactor.com/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://innofactor.com/our-company",
+      "final": "https://innofactor.com/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://innofactor.com/who-we-are",
+      "final": "https://innofactor.com/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://innofactor.com/about/our-story",
+      "final": "https://innofactor.com/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://innofactor.com/en/about",
+      "final": "https://innofactor.com/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://innofactor.com/en/company",
+      "final": "https://innofactor.com/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://innofactor.com/press",
+      "final": "https://innofactor.com/press",
+      "reason": "404"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://innofactor.com/newsroom",
+      "final": "https://innofactor.com/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://innofactor.com/company/press",
+      "final": "https://innofactor.com/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://www.innofactor.com/about-us/innofactor-in-brief/",
+      "final": "https://www.innofactor.com/about-us/innofactor-in-brief/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://www.innofactor.com/about-us/ai-driven/",
+      "final": "https://www.innofactor.com/about-us/ai-driven/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://www.innofactor.com/about-us/mission-vision-and-strategy/",
+      "final": "https://www.innofactor.com/about-us/mission-vision-and-strategy/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://www.innofactor.com/about-us/our-values/",
+      "final": "https://www.innofactor.com/about-us/our-values/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "innofactor",
+      "url": "https://www.innofactor.com/about-us/quality-promise-and-certificates/",
+      "final": "https://www.innofactor.com/about-us/quality-promise-and-certificates/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "six-apart",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "six-apart",
+      "url": "https://sixapart.com",
+      "final": "https://movabletype.com/",
       "reason": "website-mismatch"
     },
     {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com",
-      "final": "https://www.nucleussoftware.com/",
+      "slug": "six-apart",
+      "url": "https://sixapart.com/about",
+      "final": "https://movabletype.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "six-apart",
+      "url": "https://sixapart.com/about-us",
+      "final": "https://movabletype.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "six-apart",
+      "url": "https://sixapart.com/about/company",
+      "final": "https://movabletype.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "six-apart",
+      "url": "https://sixapart.com/about/us",
+      "final": "https://movabletype.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "six-apart",
+      "url": "https://sixapart.com/company",
+      "final": "https://movabletype.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "six-apart",
+      "url": "https://sixapart.com/company/about",
+      "final": "https://movabletype.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "six-apart",
+      "url": "https://sixapart.com/company/our-story",
+      "final": "https://movabletype.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "six-apart",
+      "url": "https://sixapart.com/our-story",
+      "final": "https://movabletype.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "six-apart",
+      "url": "https://sixapart.com/our-company",
+      "final": "https://movabletype.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "six-apart",
+      "url": "https://sixapart.com/who-we-are",
+      "final": "https://movabletype.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "six-apart",
+      "url": "https://sixapart.com/about/our-story",
+      "final": "https://movabletype.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "six-apart",
+      "url": "https://sixapart.com/en/about",
+      "final": "https://movabletype.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "six-apart",
+      "url": "https://sixapart.com/en/company",
+      "final": "https://movabletype.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "six-apart",
+      "url": "https://sixapart.com/press",
+      "final": "https://movabletype.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "six-apart",
+      "url": "https://sixapart.com/newsroom",
+      "final": "https://movabletype.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "six-apart",
+      "url": "https://sixapart.com/company/press",
+      "final": "https://movabletype.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "link-motion",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "link-motion",
+      "url": "https://link-motion.com",
+      "final": "https://link-motion.com",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/about",
-      "final": "https://nucleussoftware.com/about",
+      "slug": "link-motion",
+      "url": "https://link-motion.com/about",
+      "final": "https://link-motion.com/about",
       "reason": "404"
     },
     {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/about-us",
-      "final": "https://www.nucleussoftware.com/about-us/",
+      "slug": "link-motion",
+      "url": "https://link-motion.com/about-us",
+      "final": "https://link-motion.com/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "link-motion",
+      "url": "https://link-motion.com/about/company",
+      "final": "https://link-motion.com/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "link-motion",
+      "url": "https://link-motion.com/about/us",
+      "final": "https://link-motion.com/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "link-motion",
+      "url": "https://link-motion.com/company",
+      "final": "https://link-motion.com/company",
+      "reason": "404"
+    },
+    {
+      "slug": "link-motion",
+      "url": "https://link-motion.com/company/about",
+      "final": "https://link-motion.com/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "link-motion",
+      "url": "https://link-motion.com/company/our-story",
+      "final": "https://link-motion.com/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "link-motion",
+      "url": "https://link-motion.com/our-story",
+      "final": "https://link-motion.com/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "link-motion",
+      "url": "https://link-motion.com/our-company",
+      "final": "https://link-motion.com/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "link-motion",
+      "url": "https://link-motion.com/who-we-are",
+      "final": "https://link-motion.com/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "link-motion",
+      "url": "https://link-motion.com/about/our-story",
+      "final": "https://link-motion.com/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "link-motion",
+      "url": "https://link-motion.com/en/about",
+      "final": "https://link-motion.com/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "link-motion",
+      "url": "https://link-motion.com/en/company",
+      "final": "https://link-motion.com/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "link-motion",
+      "url": "https://link-motion.com/press",
+      "final": "https://link-motion.com/press",
+      "reason": "404"
+    },
+    {
+      "slug": "link-motion",
+      "url": "https://link-motion.com/newsroom",
+      "final": "https://link-motion.com/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "link-motion",
+      "url": "https://link-motion.com/company/press",
+      "final": "https://link-motion.com/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "exense",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Norway",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Norway",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "exense",
+      "url": "https://exense.com",
+      "final": "https://exense.com",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/about/company",
-      "final": "https://nucleussoftware.com/about/company",
+      "slug": "exense",
+      "url": "https://exense.com/about",
+      "final": "https://exense.com/about",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "exense",
+      "url": "https://exense.com/about-us",
+      "final": "https://exense.com/about-us",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "exense",
+      "url": "https://exense.com/about/company",
+      "final": "https://exense.com/about/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "exense",
+      "url": "https://exense.com/about/us",
+      "final": "https://exense.com/about/us",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "exense",
+      "url": "https://exense.com/company",
+      "final": "https://exense.com/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "exense",
+      "url": "https://exense.com/company/about",
+      "final": "https://exense.com/company/about",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "exense",
+      "url": "https://exense.com/company/our-story",
+      "final": "https://exense.com/company/our-story",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "exense",
+      "url": "https://exense.com/our-story",
+      "final": "https://exense.com/our-story",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "exense",
+      "url": "https://exense.com/our-company",
+      "final": "https://exense.com/our-company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "exense",
+      "url": "https://exense.com/who-we-are",
+      "final": "https://exense.com/who-we-are",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "exense",
+      "url": "https://exense.com/about/our-story",
+      "final": "https://exense.com/about/our-story",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "exense",
+      "url": "https://exense.com/en/about",
+      "final": "https://exense.com/en/about",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "exense",
+      "url": "https://exense.com/en/company",
+      "final": "https://exense.com/en/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "exense",
+      "url": "https://exense.com/press",
+      "final": "https://exense.com/press",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "exense",
+      "url": "https://exense.com/newsroom",
+      "final": "https://exense.com/newsroom",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "exense",
+      "url": "https://exense.com/company/press",
+      "final": "https://exense.com/company/press",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "easybits",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Norway",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Norway",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "easybits",
+      "url": "https://easybits.com",
+      "final": "https://www.easybits.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "easybits",
+      "url": "https://easybits.com/about",
+      "final": "https://easybits.com/about",
       "reason": "404"
     },
     {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/about/us",
-      "final": "https://www.nucleussoftware.com/blog/us-lending-landscape-2025-and-what-banks-must-do-to-grow/",
+      "slug": "easybits",
+      "url": "https://easybits.com/about-us",
+      "final": "https://easybits.com/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "easybits",
+      "url": "https://easybits.com/about/company",
+      "final": "https://easybits.com/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "easybits",
+      "url": "https://easybits.com/about/us",
+      "final": "https://easybits.com/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "easybits",
+      "url": "https://easybits.com/company",
+      "final": "https://easybits.com/company",
+      "reason": "404"
+    },
+    {
+      "slug": "easybits",
+      "url": "https://easybits.com/company/about",
+      "final": "https://easybits.com/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "easybits",
+      "url": "https://easybits.com/company/our-story",
+      "final": "https://easybits.com/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "easybits",
+      "url": "https://easybits.com/our-story",
+      "final": "https://easybits.com/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "easybits",
+      "url": "https://easybits.com/our-company",
+      "final": "https://easybits.com/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "easybits",
+      "url": "https://easybits.com/who-we-are",
+      "final": "https://easybits.com/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "easybits",
+      "url": "https://easybits.com/about/our-story",
+      "final": "https://easybits.com/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "easybits",
+      "url": "https://easybits.com/en/about",
+      "final": "https://easybits.com/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "easybits",
+      "url": "https://easybits.com/en/company",
+      "final": "https://easybits.com/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "easybits",
+      "url": "https://easybits.com/press",
+      "final": "https://easybits.com/press",
+      "reason": "404"
+    },
+    {
+      "slug": "easybits",
+      "url": "https://easybits.com/newsroom",
+      "final": "https://easybits.com/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "easybits",
+      "url": "https://easybits.com/company/press",
+      "final": "https://easybits.com/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "umbra",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "umbra",
+      "url": "https://umbra3d.com",
+      "final": "https://umbra3d.com",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "umbra",
+      "url": "https://umbra3d.com/about",
+      "final": "https://umbra3d.com/about",
+      "reason": "http-403"
+    },
+    {
+      "slug": "umbra",
+      "url": "https://umbra3d.com/about-us",
+      "final": "https://umbra3d.com/about-us",
+      "reason": "http-403"
+    },
+    {
+      "slug": "umbra",
+      "url": "https://umbra3d.com/about/company",
+      "final": "https://umbra3d.com/about/company",
+      "reason": "http-403"
+    },
+    {
+      "slug": "umbra",
+      "url": "https://umbra3d.com/about/us",
+      "final": "https://umbra3d.com/about/us",
+      "reason": "http-403"
+    },
+    {
+      "slug": "umbra",
+      "url": "https://umbra3d.com/company",
+      "final": "https://umbra3d.com/company",
+      "reason": "http-403"
+    },
+    {
+      "slug": "umbra",
+      "url": "https://umbra3d.com/company/about",
+      "final": "https://umbra3d.com/company/about",
+      "reason": "http-403"
+    },
+    {
+      "slug": "umbra",
+      "url": "https://umbra3d.com/company/our-story",
+      "final": "https://umbra3d.com/company/our-story",
+      "reason": "http-403"
+    },
+    {
+      "slug": "umbra",
+      "url": "https://umbra3d.com/our-story",
+      "final": "https://umbra3d.com/our-story",
+      "reason": "http-403"
+    },
+    {
+      "slug": "umbra",
+      "url": "https://umbra3d.com/our-company",
+      "final": "https://umbra3d.com/our-company",
+      "reason": "http-403"
+    },
+    {
+      "slug": "umbra",
+      "url": "https://umbra3d.com/who-we-are",
+      "final": "https://umbra3d.com/who-we-are",
+      "reason": "http-403"
+    },
+    {
+      "slug": "umbra",
+      "url": "https://umbra3d.com/about/our-story",
+      "final": "https://umbra3d.com/about/our-story",
+      "reason": "http-403"
+    },
+    {
+      "slug": "umbra",
+      "url": "https://umbra3d.com/en/about",
+      "final": "https://umbra3d.com/en/about",
+      "reason": "http-403"
+    },
+    {
+      "slug": "umbra",
+      "url": "https://umbra3d.com/en/company",
+      "final": "https://umbra3d.com/en/company",
+      "reason": "http-403"
+    },
+    {
+      "slug": "umbra",
+      "url": "https://umbra3d.com/press",
+      "final": "https://umbra3d.com/press",
+      "reason": "http-403"
+    },
+    {
+      "slug": "umbra",
+      "url": "https://umbra3d.com/newsroom",
+      "final": "https://umbra3d.com/newsroom",
+      "reason": "http-403"
+    },
+    {
+      "slug": "umbra",
+      "url": "https://umbra3d.com/company/press",
+      "final": "https://umbra3d.com/company/press",
+      "reason": "http-403"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://futurice.com",
+      "final": "https://www.futurice.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://futurice.com/about",
+      "final": "https://www.futurice.com/about",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://futurice.com/about-us",
+      "final": "https://futurice.com/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://futurice.com/about/company",
+      "final": "https://futurice.com/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://futurice.com/about/us",
+      "final": "https://futurice.com/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://futurice.com/company",
+      "final": "https://futurice.com/company",
+      "reason": "404"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://futurice.com/company/about",
+      "final": "https://futurice.com/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://futurice.com/company/our-story",
+      "final": "https://futurice.com/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://futurice.com/our-story",
+      "final": "https://futurice.com/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://futurice.com/our-company",
+      "final": "https://futurice.com/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://futurice.com/who-we-are",
+      "final": "https://futurice.com/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://futurice.com/about/our-story",
+      "final": "https://futurice.com/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://futurice.com/en/about",
+      "final": "https://www.futurice.com/about",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://futurice.com/en/company",
+      "final": "https://futurice.com/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://futurice.com/press",
+      "final": "https://futurice.com/press",
+      "reason": "404"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://futurice.com/newsroom",
+      "final": "https://futurice.com/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://futurice.com/company/press",
+      "final": "https://futurice.com/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://www.futurice.com/about",
+      "final": "https://www.futurice.com/about",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://www.futurice.com/about/culture",
+      "final": "https://www.futurice.com/about/culture",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://www.futurice.com/about/diversity-equity-inclusion",
+      "final": "https://www.futurice.com/about/diversity-equity-inclusion",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://www.futurice.com/about/our-journey",
+      "final": "https://www.futurice.com/about/our-journey",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "futurice",
+      "url": "https://www.futurice.com/about/spice-program",
+      "final": "https://www.futurice.com/about/spice-program",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "softether-corporation",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "softether-corporation",
+      "url": "https://softether.jp",
+      "final": "https://www.google.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "softether-corporation",
+      "url": "https://softether.jp/about",
+      "final": "https://www.google.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "softether-corporation",
+      "url": "https://softether.jp/about-us",
+      "final": "https://www.google.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "softether-corporation",
+      "url": "https://softether.jp/about/company",
+      "final": "https://www.google.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "softether-corporation",
+      "url": "https://softether.jp/about/us",
+      "final": "https://www.google.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "softether-corporation",
+      "url": "https://softether.jp/company",
+      "final": "https://www.google.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "softether-corporation",
+      "url": "https://softether.jp/company/about",
+      "final": "https://www.google.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "softether-corporation",
+      "url": "https://softether.jp/company/our-story",
+      "final": "https://www.google.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "softether-corporation",
+      "url": "https://softether.jp/our-story",
+      "final": "https://www.google.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "softether-corporation",
+      "url": "https://softether.jp/our-company",
+      "final": "https://www.google.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "softether-corporation",
+      "url": "https://softether.jp/who-we-are",
+      "final": "https://www.google.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "softether-corporation",
+      "url": "https://softether.jp/about/our-story",
+      "final": "https://www.google.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "softether-corporation",
+      "url": "https://softether.jp/en/about",
+      "final": "https://softether.jp/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "softether-corporation",
+      "url": "https://softether.jp/en/company",
+      "final": "https://www.softether.jp/8-about",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "softether-corporation",
+      "url": "https://softether.jp/press",
+      "final": "https://www.google.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "softether-corporation",
+      "url": "https://softether.jp/newsroom",
+      "final": "https://www.google.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "softether-corporation",
+      "url": "https://softether.jp/company/press",
+      "final": "https://www.google.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "preferred-networks",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "preferred-networks",
+      "url": "https://preferred.jp",
+      "final": "https://www.preferred.jp:443/ja",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "preferred-networks",
+      "url": "https://preferred.jp/about",
+      "final": "https://preferred.jp/about",
+      "reason": "404"
+    },
+    {
+      "slug": "preferred-networks",
+      "url": "https://preferred.jp/about-us",
+      "final": "https://preferred.jp/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "preferred-networks",
+      "url": "https://preferred.jp/about/company",
+      "final": "https://preferred.jp/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "preferred-networks",
+      "url": "https://preferred.jp/about/us",
+      "final": "https://preferred.jp/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "preferred-networks",
+      "url": "https://preferred.jp/company",
+      "final": "https://www.preferred.jp:443/ja/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "preferred-networks",
+      "url": "https://preferred.jp/company/about",
+      "final": "https://preferred.jp/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "preferred-networks",
+      "url": "https://preferred.jp/company/our-story",
+      "final": "https://preferred.jp/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "preferred-networks",
+      "url": "https://preferred.jp/our-story",
+      "final": "https://preferred.jp/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "preferred-networks",
+      "url": "https://preferred.jp/our-company",
+      "final": "https://preferred.jp/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "preferred-networks",
+      "url": "https://preferred.jp/who-we-are",
+      "final": "https://preferred.jp/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "preferred-networks",
+      "url": "https://preferred.jp/about/our-story",
+      "final": "https://preferred.jp/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "preferred-networks",
+      "url": "https://preferred.jp/en/about",
+      "final": "https://preferred.jp/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "preferred-networks",
+      "url": "https://preferred.jp/press",
+      "final": "https://preferred.jp/press",
+      "reason": "404"
+    },
+    {
+      "slug": "preferred-networks",
+      "url": "https://preferred.jp/newsroom",
+      "final": "https://preferred.jp/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "preferred-networks",
+      "url": "https://preferred.jp/company/press",
+      "final": "https://preferred.jp/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "preferred-networks",
+      "url": "https://www.preferred.jp:443/ja/company",
+      "final": "https://www.preferred.jp:443/ja/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "preferred-networks",
+      "url": "https://www.preferred.jp/ja/company",
+      "final": "https://www.preferred.jp/ja/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "hytracc-consulting",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Norway",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Norway",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "hytracc-consulting",
+      "url": "https://hytracc.com",
+      "final": "https://hytracc.com",
+      "reason": "http-0"
+    },
+    {
+      "slug": "hytracc-consulting",
+      "url": "https://hytracc.com/about",
+      "final": "https://hytracc.com/about",
+      "reason": "http-0"
+    },
+    {
+      "slug": "hytracc-consulting",
+      "url": "https://hytracc.com/about-us",
+      "final": "https://hytracc.com/about-us",
+      "reason": "http-0"
+    },
+    {
+      "slug": "hytracc-consulting",
+      "url": "https://hytracc.com/about/company",
+      "final": "https://hytracc.com/about/company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "hytracc-consulting",
+      "url": "https://hytracc.com/about/us",
+      "final": "https://hytracc.com/about/us",
+      "reason": "http-0"
+    },
+    {
+      "slug": "hytracc-consulting",
+      "url": "https://hytracc.com/company",
+      "final": "https://hytracc.com/company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "hytracc-consulting",
+      "url": "https://hytracc.com/company/about",
+      "final": "https://hytracc.com/company/about",
+      "reason": "http-0"
+    },
+    {
+      "slug": "hytracc-consulting",
+      "url": "https://hytracc.com/company/our-story",
+      "final": "https://hytracc.com/company/our-story",
+      "reason": "http-0"
+    },
+    {
+      "slug": "hytracc-consulting",
+      "url": "https://hytracc.com/our-story",
+      "final": "https://hytracc.com/our-story",
+      "reason": "http-0"
+    },
+    {
+      "slug": "hytracc-consulting",
+      "url": "https://hytracc.com/our-company",
+      "final": "https://hytracc.com/our-company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "hytracc-consulting",
+      "url": "https://hytracc.com/who-we-are",
+      "final": "https://hytracc.com/who-we-are",
+      "reason": "http-0"
+    },
+    {
+      "slug": "hytracc-consulting",
+      "url": "https://hytracc.com/about/our-story",
+      "final": "https://hytracc.com/about/our-story",
+      "reason": "http-0"
+    },
+    {
+      "slug": "hytracc-consulting",
+      "url": "https://hytracc.com/en/about",
+      "final": "https://hytracc.com/en/about",
+      "reason": "http-0"
+    },
+    {
+      "slug": "hytracc-consulting",
+      "url": "https://hytracc.com/en/company",
+      "final": "https://hytracc.com/en/company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "hytracc-consulting",
+      "url": "https://hytracc.com/press",
+      "final": "https://hytracc.com/press",
+      "reason": "http-0"
+    },
+    {
+      "slug": "hytracc-consulting",
+      "url": "https://hytracc.com/newsroom",
+      "final": "https://hytracc.com/newsroom",
+      "reason": "http-0"
+    },
+    {
+      "slug": "hytracc-consulting",
+      "url": "https://hytracc.com/company/press",
+      "final": "https://hytracc.com/company/press",
+      "reason": "http-0"
+    },
+    {
+      "slug": "data-respons",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Norway",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Norway",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "data-respons",
+      "url": "https://datarespons.com",
+      "final": "https://www.akkodis.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "data-respons",
+      "url": "https://datarespons.com/about",
+      "final": "https://datarespons.com/about",
+      "reason": "404"
+    },
+    {
+      "slug": "data-respons",
+      "url": "https://datarespons.com/about-us",
+      "final": "https://datarespons.com/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "data-respons",
+      "url": "https://datarespons.com/about/company",
+      "final": "https://datarespons.com/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "data-respons",
+      "url": "https://datarespons.com/about/us",
+      "final": "https://datarespons.com/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "data-respons",
+      "url": "https://datarespons.com/company",
+      "final": "https://datarespons.com/company",
+      "reason": "404"
+    },
+    {
+      "slug": "data-respons",
+      "url": "https://datarespons.com/company/about",
+      "final": "https://datarespons.com/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "data-respons",
+      "url": "https://datarespons.com/company/our-story",
+      "final": "https://datarespons.com/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "data-respons",
+      "url": "https://datarespons.com/our-story",
+      "final": "https://datarespons.com/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "data-respons",
+      "url": "https://datarespons.com/our-company",
+      "final": "https://datarespons.com/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "data-respons",
+      "url": "https://datarespons.com/who-we-are",
+      "final": "https://datarespons.com/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "data-respons",
+      "url": "https://datarespons.com/about/our-story",
+      "final": "https://datarespons.com/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "data-respons",
+      "url": "https://datarespons.com/en/about",
+      "final": "https://datarespons.com/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "data-respons",
+      "url": "https://datarespons.com/en/company",
+      "final": "https://datarespons.com/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "data-respons",
+      "url": "https://datarespons.com/press",
+      "final": "https://datarespons.com/press",
+      "reason": "404"
+    },
+    {
+      "slug": "data-respons",
+      "url": "https://datarespons.com/newsroom",
+      "final": "https://datarespons.com/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "data-respons",
+      "url": "https://datarespons.com/company/press",
+      "final": "https://datarespons.com/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://tekla.com",
+      "final": "https://www.tekla.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://tekla.com/about",
+      "final": "https://www.tekla.com/about",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://tekla.com/about-us",
+      "final": "https://tekla.com/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://tekla.com/about/company",
+      "final": "https://tekla.com/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://tekla.com/about/us",
+      "final": "https://tekla.com/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://tekla.com/company",
+      "final": "https://tekla.com/company",
+      "reason": "404"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://tekla.com/company/about",
+      "final": "https://tekla.com/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://tekla.com/company/our-story",
+      "final": "https://tekla.com/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://tekla.com/our-story",
+      "final": "https://tekla.com/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://tekla.com/our-company",
+      "final": "https://tekla.com/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://tekla.com/who-we-are",
+      "final": "https://tekla.com/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://tekla.com/about/our-story",
+      "final": "https://tekla.com/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://tekla.com/en/about",
+      "final": "https://www.tekla.com/about",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://tekla.com/en/company",
+      "final": "https://tekla.com/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://tekla.com/press",
+      "final": "https://tekla.com/press",
+      "reason": "404"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://tekla.com/newsroom",
+      "final": "https://tekla.com/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://tekla.com/company/press",
+      "final": "https://www.tekla.com/contact",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://www.tekla.com/about/tekla-trimble",
+      "final": "https://www.tekla.com/about/tekla-trimble",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://www.tekla.com/about/tekla-trust-center",
+      "final": "https://www.tekla.com/about/tekla-trust-center",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://www.tekla.com/about/license-compliance",
+      "final": "https://www.tekla.com/about/license-compliance",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "tekla",
+      "url": "https://www.tekla.com/about/tekla-trust-center/security-white-papers",
+      "final": "https://www.tekla.com/about/tekla-trust-center/security-white-papers",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "rightware",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "rightware",
+      "url": "https://rightware.com",
+      "final": "https://rightware.com",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "rightware",
+      "url": "https://rightware.com/about",
+      "final": "https://rightware.com/about-us/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "rightware",
+      "url": "https://rightware.com/about-us",
+      "final": "https://rightware.com/about-us/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "rightware",
+      "url": "https://rightware.com/about/company",
+      "final": "https://rightware.com/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "rightware",
+      "url": "https://rightware.com/about/us",
+      "final": "https://rightware.com/blog/using-realtime-3d-visualization-in-iot/",
       "reason": "news"
     },
     {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/company",
-      "final": "https://nucleussoftware.com/company",
-      "reason": "404"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/company/about",
-      "final": "https://www.nucleussoftware.com/about-us/",
+      "slug": "rightware",
+      "url": "https://rightware.com/company",
+      "final": "https://rightware.com/about-us/",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/company/our-story",
-      "final": "https://nucleussoftware.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/our-story",
-      "final": "https://nucleussoftware.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/our-company",
-      "final": "https://nucleussoftware.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/who-we-are",
-      "final": "https://www.nucleussoftware.com/about-us/",
+      "slug": "rightware",
+      "url": "https://rightware.com/company/about",
+      "final": "https://rightware.com/about-us/",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/about/our-story",
-      "final": "https://nucleussoftware.com/about/our-story",
+      "slug": "rightware",
+      "url": "https://rightware.com/company/our-story",
+      "final": "https://rightware.com/company/our-story",
       "reason": "404"
     },
     {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/en/about",
-      "final": "https://www.nucleussoftware.com/about-us/",
+      "slug": "rightware",
+      "url": "https://rightware.com/our-story",
+      "final": "https://rightware.com/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "rightware",
+      "url": "https://rightware.com/our-company",
+      "final": "https://rightware.com/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "rightware",
+      "url": "https://rightware.com/who-we-are",
+      "final": "https://rightware.com/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "rightware",
+      "url": "https://rightware.com/about/our-story",
+      "final": "https://rightware.com/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "rightware",
+      "url": "https://rightware.com/en/about",
+      "final": "https://rightware.com/about-us/",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/en/company",
-      "final": "https://nucleussoftware.com/en/company",
+      "slug": "rightware",
+      "url": "https://rightware.com/en/company",
+      "final": "https://rightware.com/en/company",
       "reason": "404"
     },
     {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/press",
-      "final": "https://nucleussoftware.com/press",
+      "slug": "rightware",
+      "url": "https://rightware.com/press",
+      "final": "https://rightware.com/blog/press-release-rightware-releases-kanzi-3-0/",
+      "reason": "news"
+    },
+    {
+      "slug": "rightware",
+      "url": "https://rightware.com/newsroom",
+      "final": "https://rightware.com/newsroom",
       "reason": "404"
     },
     {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/newsroom",
-      "final": "https://nucleussoftware.com/newsroom",
-      "reason": "404"
+      "slug": "rightware",
+      "url": "https://rightware.com/company/press",
+      "final": "https://rightware.com/blog/press-release-rightware-releases-kanzi-3-0/",
+      "reason": "news"
     },
     {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/company/press",
-      "final": "https://nucleussoftware.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://www.nucleussoftware.com/about-us/",
-      "final": "https://www.nucleussoftware.com/about-us/",
+      "slug": "rightware",
+      "url": "https://rightware.com/about-us/",
+      "final": "https://rightware.com/about-us/",
       "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://tuxera.com",
+      "final": "https://www.tuxera.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://tuxera.com/about",
+      "final": "https://tuxera.com/about",
+      "reason": "404"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://tuxera.com/about-us",
+      "final": "https://tuxera.com/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://tuxera.com/about/company",
+      "final": "https://tuxera.com/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://tuxera.com/about/us",
+      "final": "https://tuxera.com/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://tuxera.com/company",
+      "final": "https://tuxera.com/company",
+      "reason": "404"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://tuxera.com/company/about",
+      "final": "https://tuxera.com/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://tuxera.com/company/our-story",
+      "final": "https://www.tuxera.com/our-story/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://tuxera.com/our-story",
+      "final": "https://www.tuxera.com/our-story/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://tuxera.com/our-company",
+      "final": "https://tuxera.com/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://tuxera.com/who-we-are",
+      "final": "https://tuxera.com/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://tuxera.com/about/our-story",
+      "final": "https://tuxera.com/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://tuxera.com/en/about",
+      "final": "https://tuxera.com/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://tuxera.com/en/company",
+      "final": "https://tuxera.com/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://tuxera.com/press",
+      "final": "https://www.tuxera.com/news/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://tuxera.com/newsroom",
+      "final": "https://tuxera.com/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://tuxera.com/company/press",
+      "final": "https://tuxera.com/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://www.tuxera.com/our-story/",
+      "final": "https://www.tuxera.com/our-story/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "tuxera",
+      "url": "https://www.tuxera.com/ja/our-story/",
+      "final": "https://www.tuxera.com/ja/our-story/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "bplats",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "bplats",
+      "url": "https://bplats.co.jp",
+      "final": "https://bplats.co.jp",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "bplats",
+      "url": "https://bplats.co.jp/about",
+      "final": "https://bplats.co.jp/about",
+      "reason": "404"
+    },
+    {
+      "slug": "bplats",
+      "url": "https://bplats.co.jp/about-us",
+      "final": "https://bplats.co.jp/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "bplats",
+      "url": "https://bplats.co.jp/about/company",
+      "final": "https://bplats.co.jp/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "bplats",
+      "url": "https://bplats.co.jp/about/us",
+      "final": "https://bplats.co.jp/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "bplats",
+      "url": "https://bplats.co.jp/company",
+      "final": "https://bplats.co.jp/company",
+      "reason": "404"
+    },
+    {
+      "slug": "bplats",
+      "url": "https://bplats.co.jp/company/about",
+      "final": "https://bplats.co.jp/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "bplats",
+      "url": "https://bplats.co.jp/company/our-story",
+      "final": "https://bplats.co.jp/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "bplats",
+      "url": "https://bplats.co.jp/our-story",
+      "final": "https://bplats.co.jp/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "bplats",
+      "url": "https://bplats.co.jp/our-company",
+      "final": "https://bplats.co.jp/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "bplats",
+      "url": "https://bplats.co.jp/who-we-are",
+      "final": "https://bplats.co.jp/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "bplats",
+      "url": "https://bplats.co.jp/about/our-story",
+      "final": "https://bplats.co.jp/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "bplats",
+      "url": "https://bplats.co.jp/en/about",
+      "final": "https://bplats.co.jp/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "bplats",
+      "url": "https://bplats.co.jp/en/company",
+      "final": "https://bplats.co.jp/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "bplats",
+      "url": "https://bplats.co.jp/press",
+      "final": "https://bplats.co.jp/news/2014/05/press-dellsquare-4/",
+      "reason": "news"
+    },
+    {
+      "slug": "bplats",
+      "url": "https://bplats.co.jp/newsroom",
+      "final": "https://bplats.co.jp/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "bplats",
+      "url": "https://bplats.co.jp/company/press",
+      "final": "https://bplats.co.jp/news/2014/05/press-dellsquare-4/",
+      "reason": "news"
+    },
+    {
+      "slug": "valamis",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "valamis",
+      "url": "https://valamis.com",
+      "final": "https://www.valamis.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "valamis",
+      "url": "https://valamis.com/about",
+      "final": "https://www.valamis.com/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "valamis",
+      "url": "https://valamis.com/about-us",
+      "final": "https://valamis.com/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "valamis",
+      "url": "https://valamis.com/about/company",
+      "final": "https://www.valamis.com/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "valamis",
+      "url": "https://valamis.com/about/us",
+      "final": "https://www.valamis.com/blog/using-data-to-make-smarter-learning-decisions",
+      "reason": "news"
+    },
+    {
+      "slug": "valamis",
+      "url": "https://valamis.com/company",
+      "final": "https://www.valamis.com/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "valamis",
+      "url": "https://valamis.com/company/about",
+      "final": "https://valamis.com/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "valamis",
+      "url": "https://valamis.com/company/our-story",
+      "final": "https://valamis.com/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "valamis",
+      "url": "https://valamis.com/our-story",
+      "final": "https://valamis.com/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "valamis",
+      "url": "https://valamis.com/our-company",
+      "final": "https://valamis.com/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "valamis",
+      "url": "https://valamis.com/who-we-are",
+      "final": "https://valamis.com/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "valamis",
+      "url": "https://valamis.com/about/our-story",
+      "final": "https://valamis.com/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "valamis",
+      "url": "https://valamis.com/en/about",
+      "final": "https://valamis.com/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "valamis",
+      "url": "https://valamis.com/en/company",
+      "final": "https://www.valamis.com/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "valamis",
+      "url": "https://valamis.com/press",
+      "final": "https://valamis.com/press",
+      "reason": "404"
+    },
+    {
+      "slug": "valamis",
+      "url": "https://valamis.com/newsroom",
+      "final": "https://valamis.com/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "valamis",
+      "url": "https://valamis.com/company/press",
+      "final": "https://www.valamis.com/de/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "valamis",
+      "url": "https://www.valamis.com/company",
+      "final": "https://www.valamis.com/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "increo-interactive-creations-as",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Norway",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Norway",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "increo-interactive-creations-as",
+      "url": "https://increo.no",
+      "final": "https://increo.no",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "increo-interactive-creations-as",
+      "url": "https://increo.no/about",
+      "final": "https://increo.no/about",
+      "reason": "404"
+    },
+    {
+      "slug": "increo-interactive-creations-as",
+      "url": "https://increo.no/about-us",
+      "final": "https://increo.no/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "increo-interactive-creations-as",
+      "url": "https://increo.no/about/company",
+      "final": "https://increo.no/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "increo-interactive-creations-as",
+      "url": "https://increo.no/about/us",
+      "final": "https://increo.no/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "increo-interactive-creations-as",
+      "url": "https://increo.no/company",
+      "final": "https://increo.no/company",
+      "reason": "404"
+    },
+    {
+      "slug": "increo-interactive-creations-as",
+      "url": "https://increo.no/company/about",
+      "final": "https://increo.no/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "increo-interactive-creations-as",
+      "url": "https://increo.no/company/our-story",
+      "final": "https://increo.no/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "increo-interactive-creations-as",
+      "url": "https://increo.no/our-story",
+      "final": "https://increo.no/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "increo-interactive-creations-as",
+      "url": "https://increo.no/our-company",
+      "final": "https://increo.no/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "increo-interactive-creations-as",
+      "url": "https://increo.no/who-we-are",
+      "final": "https://increo.no/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "increo-interactive-creations-as",
+      "url": "https://increo.no/about/our-story",
+      "final": "https://increo.no/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "increo-interactive-creations-as",
+      "url": "https://increo.no/en/about",
+      "final": "https://increo.no/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "increo-interactive-creations-as",
+      "url": "https://increo.no/en/company",
+      "final": "https://increo.no/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "increo-interactive-creations-as",
+      "url": "https://increo.no/press",
+      "final": "https://increo.no/press",
+      "reason": "404"
+    },
+    {
+      "slug": "increo-interactive-creations-as",
+      "url": "https://increo.no/newsroom",
+      "final": "https://increo.no/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "increo-interactive-creations-as",
+      "url": "https://increo.no/company/press",
+      "final": "https://increo.no/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "https://www.crn.com/news/security/2024/2024-security-100",
+      "final": "https://www.crn.com/news/security/2024/2024-security-100",
+      "reason": "news"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "https://recordedfuture.com",
+      "final": "https://www.recordedfuture.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "https://recordedfuture.com/about",
+      "final": "https://www.recordedfuture.com/our-story",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "https://recordedfuture.com/about-us",
+      "final": "https://www.recordedfuture.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "https://recordedfuture.com/about/company",
+      "final": "https://www.recordedfuture.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "https://recordedfuture.com/about/us",
+      "final": "https://www.recordedfuture.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "https://recordedfuture.com/company",
+      "final": "https://www.recordedfuture.com/why-recorded-future",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "https://recordedfuture.com/company/about",
+      "final": "https://www.recordedfuture.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "https://recordedfuture.com/company/our-story",
+      "final": "https://www.recordedfuture.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "https://recordedfuture.com/our-story",
+      "final": "https://www.recordedfuture.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "https://recordedfuture.com/our-company",
+      "final": "https://www.recordedfuture.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "https://recordedfuture.com/who-we-are",
+      "final": "https://www.recordedfuture.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "https://recordedfuture.com/about/our-story",
+      "final": "https://www.recordedfuture.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "https://recordedfuture.com/en/about",
+      "final": "https://www.recordedfuture.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "https://recordedfuture.com/en/company",
+      "final": "https://www.recordedfuture.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "https://recordedfuture.com/press",
+      "final": "https://www.recordedfuture.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "https://recordedfuture.com/newsroom",
+      "final": "https://www.recordedfuture.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "https://recordedfuture.com/company/press",
+      "final": "https://www.recordedfuture.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "recorded-future",
+      "url": "https://www.recordedfuture.com/our-story",
+      "final": "https://www.recordedfuture.com/our-story",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "kantega",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Norway",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Norway",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "kantega",
+      "url": "https://kantega.no",
+      "final": "https://www.kantega.no/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "kantega",
+      "url": "https://kantega.no/about",
+      "final": "https://kantega.no/about",
+      "reason": "404"
+    },
+    {
+      "slug": "kantega",
+      "url": "https://kantega.no/about-us",
+      "final": "https://kantega.no/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "kantega",
+      "url": "https://kantega.no/about/company",
+      "final": "https://kantega.no/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "kantega",
+      "url": "https://kantega.no/about/us",
+      "final": "https://kantega.no/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "kantega",
+      "url": "https://kantega.no/company",
+      "final": "https://kantega.no/company",
+      "reason": "404"
+    },
+    {
+      "slug": "kantega",
+      "url": "https://kantega.no/company/about",
+      "final": "https://kantega.no/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "kantega",
+      "url": "https://kantega.no/company/our-story",
+      "final": "https://kantega.no/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "kantega",
+      "url": "https://kantega.no/our-story",
+      "final": "https://kantega.no/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "kantega",
+      "url": "https://kantega.no/our-company",
+      "final": "https://kantega.no/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "kantega",
+      "url": "https://kantega.no/who-we-are",
+      "final": "https://kantega.no/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "kantega",
+      "url": "https://kantega.no/about/our-story",
+      "final": "https://kantega.no/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "kantega",
+      "url": "https://kantega.no/en/about",
+      "final": "https://kantega.no/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "kantega",
+      "url": "https://kantega.no/en/company",
+      "final": "https://kantega.no/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "kantega",
+      "url": "https://kantega.no/press",
+      "final": "https://kantega.no/press",
+      "reason": "404"
+    },
+    {
+      "slug": "kantega",
+      "url": "https://kantega.no/newsroom",
+      "final": "https://kantega.no/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "kantega",
+      "url": "https://kantega.no/company/press",
+      "final": "https://kantega.no/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "kongsberg-spacetec",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Norway",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Norway",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "kongsberg-spacetec",
+      "url": "https://spacetec.no",
+      "final": "https://spacetec.no",
+      "reason": "http-0"
+    },
+    {
+      "slug": "kongsberg-spacetec",
+      "url": "https://spacetec.no/about",
+      "final": "https://spacetec.no/about",
+      "reason": "http-0"
+    },
+    {
+      "slug": "kongsberg-spacetec",
+      "url": "https://spacetec.no/about-us",
+      "final": "https://spacetec.no/about-us",
+      "reason": "http-0"
+    },
+    {
+      "slug": "kongsberg-spacetec",
+      "url": "https://spacetec.no/about/company",
+      "final": "https://spacetec.no/about/company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "kongsberg-spacetec",
+      "url": "https://spacetec.no/about/us",
+      "final": "https://spacetec.no/about/us",
+      "reason": "http-0"
+    },
+    {
+      "slug": "kongsberg-spacetec",
+      "url": "https://spacetec.no/company",
+      "final": "https://spacetec.no/company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "kongsberg-spacetec",
+      "url": "https://spacetec.no/company/about",
+      "final": "https://spacetec.no/company/about",
+      "reason": "http-0"
+    },
+    {
+      "slug": "kongsberg-spacetec",
+      "url": "https://spacetec.no/company/our-story",
+      "final": "https://spacetec.no/company/our-story",
+      "reason": "http-0"
+    },
+    {
+      "slug": "kongsberg-spacetec",
+      "url": "https://spacetec.no/our-story",
+      "final": "https://spacetec.no/our-story",
+      "reason": "http-0"
+    },
+    {
+      "slug": "kongsberg-spacetec",
+      "url": "https://spacetec.no/our-company",
+      "final": "https://spacetec.no/our-company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "kongsberg-spacetec",
+      "url": "https://spacetec.no/who-we-are",
+      "final": "https://spacetec.no/who-we-are",
+      "reason": "http-0"
+    },
+    {
+      "slug": "kongsberg-spacetec",
+      "url": "https://spacetec.no/about/our-story",
+      "final": "https://spacetec.no/about/our-story",
+      "reason": "http-0"
+    },
+    {
+      "slug": "kongsberg-spacetec",
+      "url": "https://spacetec.no/en/about",
+      "final": "https://spacetec.no/en/about",
+      "reason": "http-0"
+    },
+    {
+      "slug": "kongsberg-spacetec",
+      "url": "https://spacetec.no/en/company",
+      "final": "https://spacetec.no/en/company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "kongsberg-spacetec",
+      "url": "https://spacetec.no/press",
+      "final": "https://spacetec.no/press",
+      "reason": "http-0"
+    },
+    {
+      "slug": "kongsberg-spacetec",
+      "url": "https://spacetec.no/newsroom",
+      "final": "https://spacetec.no/newsroom",
+      "reason": "http-0"
+    },
+    {
+      "slug": "kongsberg-spacetec",
+      "url": "https://spacetec.no/company/press",
+      "final": "https://spacetec.no/company/press",
+      "reason": "http-0"
+    },
+    {
+      "slug": "blackberry",
+      "url": "https://www.crn.com/news/security/2024/2024-security-100",
+      "final": "https://www.crn.com/news/security/2024/2024-security-100",
+      "reason": "news"
+    },
+    {
+      "slug": "blackberry",
+      "url": "https://blackberry.com",
+      "final": "https://www.blackberry.com/en",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "blackberry",
+      "url": "https://blackberry.com/about",
+      "final": "https://blackberry.com/about",
+      "reason": "404"
+    },
+    {
+      "slug": "blackberry",
+      "url": "https://blackberry.com/about-us",
+      "final": "https://blackberry.com/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "blackberry",
+      "url": "https://blackberry.com/about/company",
+      "final": "https://blackberry.com/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "blackberry",
+      "url": "https://blackberry.com/about/us",
+      "final": "https://blackberry.com/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "blackberry",
+      "url": "https://blackberry.com/company",
+      "final": "https://blackberry.com/company",
+      "reason": "404"
+    },
+    {
+      "slug": "blackberry",
+      "url": "https://blackberry.com/company/about",
+      "final": "https://blackberry.com/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "blackberry",
+      "url": "https://blackberry.com/company/our-story",
+      "final": "https://blackberry.com/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "blackberry",
+      "url": "https://blackberry.com/our-story",
+      "final": "https://blackberry.com/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "blackberry",
+      "url": "https://blackberry.com/our-company",
+      "final": "https://blackberry.com/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "blackberry",
+      "url": "https://blackberry.com/who-we-are",
+      "final": "https://blackberry.com/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "blackberry",
+      "url": "https://blackberry.com/about/our-story",
+      "final": "https://blackberry.com/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "blackberry",
+      "url": "https://blackberry.com/en/about",
+      "final": "https://blackberry.com/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "blackberry",
+      "url": "https://blackberry.com/en/company",
+      "final": "https://blackberry.com/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "blackberry",
+      "url": "https://blackberry.com/press",
+      "final": "https://blackberry.com/press",
+      "reason": "404"
+    },
+    {
+      "slug": "blackberry",
+      "url": "https://blackberry.com/newsroom",
+      "final": "https://investors.blackberry.com/press-releases",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "blackberry",
+      "url": "https://blackberry.com/company/press",
+      "final": "https://blackberry.com/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "macecraft-software",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "macecraft-software",
+      "url": "https://macecraft.com",
+      "final": "https://jv16powertools.com/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "macecraft-software",
+      "url": "https://macecraft.com/about",
+      "final": "https://jv16powertools.com/about",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "macecraft-software",
+      "url": "https://macecraft.com/about-us",
+      "final": "https://jv16powertools.com/404",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "macecraft-software",
+      "url": "https://macecraft.com/about/company",
+      "final": "https://jv16powertools.com/404",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "macecraft-software",
+      "url": "https://macecraft.com/about/us",
+      "final": "https://jv16powertools.com/404",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "macecraft-software",
+      "url": "https://macecraft.com/company",
+      "final": "https://jv16powertools.com/404",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "macecraft-software",
+      "url": "https://macecraft.com/company/about",
+      "final": "https://jv16powertools.com/404",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "macecraft-software",
+      "url": "https://macecraft.com/company/our-story",
+      "final": "https://jv16powertools.com/404",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "macecraft-software",
+      "url": "https://macecraft.com/our-story",
+      "final": "https://jv16powertools.com/404",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "macecraft-software",
+      "url": "https://macecraft.com/our-company",
+      "final": "https://jv16powertools.com/404",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "macecraft-software",
+      "url": "https://macecraft.com/who-we-are",
+      "final": "https://jv16powertools.com/404",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "macecraft-software",
+      "url": "https://macecraft.com/about/our-story",
+      "final": "https://jv16powertools.com/404",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "macecraft-software",
+      "url": "https://macecraft.com/en/about",
+      "final": "https://jv16powertools.com/404",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "macecraft-software",
+      "url": "https://macecraft.com/en/company",
+      "final": "https://jv16powertools.com/404",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "macecraft-software",
+      "url": "https://macecraft.com/press",
+      "final": "https://jv16powertools.com/press",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "macecraft-software",
+      "url": "https://macecraft.com/newsroom",
+      "final": "https://jv16powertools.com/404",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "macecraft-software",
+      "url": "https://macecraft.com/company/press",
+      "final": "https://jv16powertools.com/404",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "juniper-networks",
+      "url": "https://www.crn.com/news/security/2024/2024-security-100",
+      "final": "https://www.crn.com/news/security/2024/2024-security-100",
+      "reason": "news"
+    },
+    {
+      "slug": "juniper-networks",
+      "url": "https://juniper.net",
+      "final": "https://www.juniper.net:443/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "juniper-networks",
+      "url": "https://juniper.net/about",
+      "final": "https://juniper.net/about",
+      "reason": "404"
+    },
+    {
+      "slug": "juniper-networks",
+      "url": "https://juniper.net/about-us",
+      "final": "https://juniper.net/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "juniper-networks",
+      "url": "https://juniper.net/about/company",
+      "final": "https://juniper.net/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "juniper-networks",
+      "url": "https://juniper.net/about/us",
+      "final": "https://juniper.net/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "juniper-networks",
+      "url": "https://juniper.net/company",
+      "final": "https://juniper.net/company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "juniper-networks",
+      "url": "https://juniper.net/company/about",
+      "final": "https://juniper.net/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "juniper-networks",
+      "url": "https://juniper.net/company/our-story",
+      "final": "https://juniper.net/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "juniper-networks",
+      "url": "https://juniper.net/our-story",
+      "final": "https://juniper.net/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "juniper-networks",
+      "url": "https://juniper.net/our-company",
+      "final": "https://juniper.net/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "juniper-networks",
+      "url": "https://juniper.net/who-we-are",
+      "final": "https://juniper.net/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "juniper-networks",
+      "url": "https://juniper.net/about/our-story",
+      "final": "https://juniper.net/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "juniper-networks",
+      "url": "https://juniper.net/en/about",
+      "final": "https://juniper.net/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "juniper-networks",
+      "url": "https://juniper.net/en/company",
+      "final": "https://juniper.net/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "juniper-networks",
+      "url": "https://juniper.net/press",
+      "final": "https://www.hpe.com:443/us/en/newsroom.html",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "juniper-networks",
+      "url": "https://juniper.net/newsroom",
+      "final": "https://juniper.net/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "juniper-networks",
+      "url": "https://juniper.net/company/press",
+      "final": "https://juniper.net/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "microtask",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Finland",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "microtask",
+      "url": "https://microtask.com",
+      "final": "https://microtask.com",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "microtask",
+      "url": "https://microtask.com/about",
+      "final": "https://microtask.com/about/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "microtask",
+      "url": "https://microtask.com/about-us",
+      "final": "https://microtask.com/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "microtask",
+      "url": "https://microtask.com/about/company",
+      "final": "https://microtask.com/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "microtask",
+      "url": "https://microtask.com/about/us",
+      "final": "https://microtask.com/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "microtask",
+      "url": "https://microtask.com/company",
+      "final": "https://microtask.com/company",
+      "reason": "404"
+    },
+    {
+      "slug": "microtask",
+      "url": "https://microtask.com/company/about",
+      "final": "https://microtask.com/about/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "microtask",
+      "url": "https://microtask.com/company/our-story",
+      "final": "https://microtask.com/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "microtask",
+      "url": "https://microtask.com/our-story",
+      "final": "https://microtask.com/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "microtask",
+      "url": "https://microtask.com/our-company",
+      "final": "https://microtask.com/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "microtask",
+      "url": "https://microtask.com/who-we-are",
+      "final": "https://microtask.com/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "microtask",
+      "url": "https://microtask.com/about/our-story",
+      "final": "https://microtask.com/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "microtask",
+      "url": "https://microtask.com/en/about",
+      "final": "https://microtask.com/about/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "microtask",
+      "url": "https://microtask.com/en/company",
+      "final": "https://microtask.com/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "microtask",
+      "url": "https://microtask.com/press",
+      "final": "https://microtask.com/press",
+      "reason": "404"
+    },
+    {
+      "slug": "microtask",
+      "url": "https://microtask.com/newsroom",
+      "final": "https://microtask.com/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "microtask",
+      "url": "https://microtask.com/company/press",
+      "final": "https://microtask.com/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "microtask",
+      "url": "https://microtask.com/about/",
+      "final": "https://microtask.com/about/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "digion",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "digion",
+      "url": "https://digion.com",
+      "final": "https://digion.com",
+      "reason": "http-0"
+    },
+    {
+      "slug": "digion",
+      "url": "https://digion.com/about",
+      "final": "https://digion.com/about",
+      "reason": "http-0"
+    },
+    {
+      "slug": "digion",
+      "url": "https://digion.com/about-us",
+      "final": "https://digion.com/about-us",
+      "reason": "http-0"
+    },
+    {
+      "slug": "digion",
+      "url": "https://digion.com/about/company",
+      "final": "https://digion.com/about/company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "digion",
+      "url": "https://digion.com/about/us",
+      "final": "https://digion.com/about/us",
+      "reason": "http-0"
+    },
+    {
+      "slug": "digion",
+      "url": "https://digion.com/company",
+      "final": "https://digion.com/company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "digion",
+      "url": "https://digion.com/company/about",
+      "final": "https://digion.com/company/about",
+      "reason": "http-0"
+    },
+    {
+      "slug": "digion",
+      "url": "https://digion.com/company/our-story",
+      "final": "https://digion.com/company/our-story",
+      "reason": "http-0"
+    },
+    {
+      "slug": "digion",
+      "url": "https://digion.com/our-story",
+      "final": "https://digion.com/our-story",
+      "reason": "http-0"
+    },
+    {
+      "slug": "digion",
+      "url": "https://digion.com/our-company",
+      "final": "https://digion.com/our-company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "digion",
+      "url": "https://digion.com/who-we-are",
+      "final": "https://digion.com/who-we-are",
+      "reason": "http-0"
+    },
+    {
+      "slug": "digion",
+      "url": "https://digion.com/about/our-story",
+      "final": "https://digion.com/about/our-story",
+      "reason": "http-0"
+    },
+    {
+      "slug": "digion",
+      "url": "https://digion.com/en/about",
+      "final": "https://digion.com/en/about",
+      "reason": "http-0"
+    },
+    {
+      "slug": "digion",
+      "url": "https://digion.com/en/company",
+      "final": "https://digion.com/en/company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "digion",
+      "url": "https://digion.com/press",
+      "final": "https://digion.com/press",
+      "reason": "http-0"
+    },
+    {
+      "slug": "digion",
+      "url": "https://digion.com/newsroom",
+      "final": "https://digion.com/newsroom",
+      "reason": "http-0"
+    },
+    {
+      "slug": "digion",
+      "url": "https://digion.com/company/press",
+      "final": "https://digion.com/company/press",
+      "reason": "http-0"
+    },
+    {
+      "slug": "justsystems",
+      "url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "final": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "justsystems",
+      "url": "https://justsystems.com",
+      "final": "https://justsystems.com",
+      "reason": "http-0"
+    },
+    {
+      "slug": "justsystems",
+      "url": "https://justsystems.com/about",
+      "final": "https://justsystems.com/about",
+      "reason": "http-0"
+    },
+    {
+      "slug": "justsystems",
+      "url": "https://justsystems.com/about-us",
+      "final": "https://justsystems.com/about-us",
+      "reason": "http-0"
+    },
+    {
+      "slug": "justsystems",
+      "url": "https://justsystems.com/about/company",
+      "final": "https://justsystems.com/about/company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "justsystems",
+      "url": "https://justsystems.com/about/us",
+      "final": "https://justsystems.com/about/us",
+      "reason": "http-0"
+    },
+    {
+      "slug": "justsystems",
+      "url": "https://justsystems.com/company",
+      "final": "https://justsystems.com/company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "justsystems",
+      "url": "https://justsystems.com/company/about",
+      "final": "https://justsystems.com/company/about",
+      "reason": "http-0"
+    },
+    {
+      "slug": "justsystems",
+      "url": "https://justsystems.com/company/our-story",
+      "final": "https://justsystems.com/company/our-story",
+      "reason": "http-0"
+    },
+    {
+      "slug": "justsystems",
+      "url": "https://justsystems.com/our-story",
+      "final": "https://justsystems.com/our-story",
+      "reason": "http-0"
+    },
+    {
+      "slug": "justsystems",
+      "url": "https://justsystems.com/our-company",
+      "final": "https://justsystems.com/our-company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "justsystems",
+      "url": "https://justsystems.com/who-we-are",
+      "final": "https://justsystems.com/who-we-are",
+      "reason": "http-0"
+    },
+    {
+      "slug": "justsystems",
+      "url": "https://justsystems.com/about/our-story",
+      "final": "https://justsystems.com/about/our-story",
+      "reason": "http-0"
+    },
+    {
+      "slug": "justsystems",
+      "url": "https://justsystems.com/en/about",
+      "final": "https://justsystems.com/en/about",
+      "reason": "http-0"
+    },
+    {
+      "slug": "justsystems",
+      "url": "https://justsystems.com/en/company",
+      "final": "https://justsystems.com/en/company",
+      "reason": "http-0"
+    },
+    {
+      "slug": "justsystems",
+      "url": "https://justsystems.com/press",
+      "final": "https://justsystems.com/press",
+      "reason": "http-0"
+    },
+    {
+      "slug": "justsystems",
+      "url": "https://justsystems.com/newsroom",
+      "final": "https://justsystems.com/newsroom",
+      "reason": "http-0"
+    },
+    {
+      "slug": "justsystems",
+      "url": "https://justsystems.com/company/press",
+      "final": "https://justsystems.com/company/press",
+      "reason": "http-0"
+    },
+    {
+      "slug": "fenrir-inc",
+      "url": "https://us.fenrir-inc.com/",
+      "final": "https://us.fenrir-inc.com/",
+      "reason": "timeline-next-event",
+      "year": 2008
+    },
+    {
+      "slug": "futurice",
+      "url": "https://www.futurice.com/about/family",
+      "final": "https://www.futurice.com/about/family",
+      "reason": "other-firm",
+      "year": 2018
     }
   ]
 }
