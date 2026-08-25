@@ -178,7 +178,7 @@ PRIOR_ATTEMPTED = {
     "domo",
     "avepoint",
     "expensify",
-    # this cut — next 40 open years files; nothing first-party printed
+    # PR 111 — next 40 open years files; nothing first-party printed
     # Orca homepage “Established in 1974” is Temasek, not Orca Security
     "admicom",
     "allegion",
@@ -220,6 +220,12 @@ PRIOR_ATTEMPTED = {
     "withsecure",
     "vulncheck",
     "watchguard",
+    # this cut — remaining unread open years files; nothing first-party printed
+    "craigslist",
+    "f5",
+    "meta-platforms",
+    "nucleus-software-exports",
+    "walmart",
 }
 
 
@@ -663,7 +669,8 @@ def main() -> int:
             "other first-party/public page. A year fills only when that live "
             "page names the company's founding year. Wikipedia category/list "
             "pages, news articles, title-only prefix matches, and 404s stay "
-            "open. Prior year cuts and PR 104 are on the skip list."
+            "open. Prior year cuts, PR 104, PR 107, and PR 111 are on the skip "
+            "list."
         ),
         "batch": [rec["slug"] for rec in batch],
         "years_filed": filed,
