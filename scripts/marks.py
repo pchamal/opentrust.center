@@ -64,6 +64,11 @@ MARK_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
     ("IRAP", re.compile(r"\birap\b", re.I)),
     ("ISMAP", re.compile(r"\bismap\b", re.I)),
     ("C5", re.compile(r"\b(?:bsi[\s/_-]+c5|c5[\s/_-]+(?:type|attestation|catalogue|catalog))\b", re.I)),
+    ("ENS", re.compile(
+        r"\bens[\s/_-]+(?:medium|medio|high|alto|basic|b[aá]sico)\b|"
+        r"\besquema nacional de seguridad\b",
+        re.I,
+    )),
     ("HDS", re.compile(r"\b(?:h[ée]bergement[\s/_-]*de[\s/_-]*donn[ée]es[\s/_-]*de[\s/_-]*sant[ée]|hds[\s/_-]*(?:certif|h[ée]bergeur))\b", re.I)),
     ("GDPR", re.compile(r"\bgdpr\b", re.I)),
     ("CCPA", re.compile(r"\b(?:ccpa|cpra)\b", re.I)),
@@ -154,6 +159,10 @@ LABEL_MAP: list[tuple[str, str | None]] = [
     ("ismap", "ISMAP"),
     ("bsi c5", "C5"),
     ("c5", "C5"),
+    ("ens medium", "ENS"),
+    ("ens medio", "ENS"),
+    ("esquema nacional de seguridad", "ENS"),
+    ("ens", "ENS"),
     ("hds", "HDS"),
     ("dora", "DORA"),
     ("nis 2", "NIS2"),
