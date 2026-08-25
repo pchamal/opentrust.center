@@ -1,5159 +1,670 @@
 {
-  "generated_at": "2026-08-25T17:57:46Z",
-  "rule": "Next ~40 on-file companies whose years File-glyph rule was open and who already had a stored Wikipedia company page, About, or other first-party/public page. A year fills only when that live page names the company's founding year. Wikipedia category/list pages, news articles, title-only prefix matches, and 404s stay open. Orca homepage 1974 is Temasek, not Orca Security. Prior year cuts, PR 104, and PR 107 are on the skip list.",
+  "generated_at": "2026-08-25T18:59:44Z",
+  "rule": "Remaining unread on-file companies whose years File-glyph rule was open and who already had an official domain. A year fills only when the live page names the company's founding year. Wikipedia category/list pages, news articles, title-only prefix matches, bot-blocked about paths, and 404s stay open. Prior year cuts, PR 104, PR 107, and PR 111 are on the skip list.",
   "batch": [
-    "admicom",
-    "allegion",
-    "aqua-security",
-    "audioeye",
-    "axon-enterprise",
-    "baxter-international",
-    "commvault",
-    "csg-international",
-    "dexcom",
-    "digital-turbine",
-    "donnelley-financial-solutions",
-    "eplus",
-    "ge-aerospace",
-    "gigamon",
-    "iress",
-    "johnson-controls",
-    "kinaxis",
-    "knowbe4",
-    "kwai",
-    "lime-technologies",
-    "netscout",
-    "orca-security",
-    "pagaya",
-    "pexip",
-    "photoroom",
-    "pulsar-group",
-    "rekor-systems",
-    "resmed",
-    "sage",
-    "seagate-technology",
-    "servicetitan",
-    "stryker-corporation",
-    "t-mobile-us",
-    "toast",
-    "tribal-group",
-    "usio",
-    "vtex",
-    "withsecure",
-    "vulncheck",
-    "watchguard"
+    "craigslist",
+    "f5",
+    "meta-platforms",
+    "nucleus-software-exports",
+    "walmart"
   ],
   "years_filed": [],
   "stayed_open": [
     {
-      "slug": "admicom",
-      "name": "Admicom",
+      "slug": "craigslist",
+      "name": "Craigslist",
       "rule": "years",
-      "reason": "website-mismatch https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/"
+      "reason": "no-founded-sentence https://www.craigslist.org/area/frederick"
     },
     {
-      "slug": "allegion",
-      "name": "Allegion",
+      "slug": "f5",
+      "name": "F5",
       "rule": "years",
-      "reason": "no-founded-sentence https://www.allegion.com/corp/en/index.html"
+      "reason": "no-founded-sentence https://www.f5.com/"
     },
     {
-      "slug": "aqua-security",
-      "name": "Aqua Security",
+      "slug": "meta-platforms",
+      "name": "Meta Platforms",
       "rule": "years",
-      "reason": "news https://www.crn.com/news/security/2025/the-2025-security-100"
+      "reason": "no-founded-sentence https://www.meta.com/"
     },
     {
-      "slug": "audioeye",
-      "name": "AudioEye",
+      "slug": "nucleus-software-exports",
+      "name": "Nucleus Software Exports",
       "rule": "years",
-      "reason": "website-mismatch https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/"
+      "reason": "no-founded-sentence https://www.nucleussoftware.com/"
     },
     {
-      "slug": "axon-enterprise",
-      "name": "Axon Enterprise",
+      "slug": "walmart",
+      "name": "Walmart",
       "rule": "years",
-      "reason": "no-founded-sentence https://www.axon.com/"
-    },
-    {
-      "slug": "baxter-international",
-      "name": "Baxter International",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.baxter.com/"
-    },
-    {
-      "slug": "commvault",
-      "name": "Commvault",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.commvault.com/"
-    },
-    {
-      "slug": "csg-international",
-      "name": "CSG International",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.csgi.com/"
-    },
-    {
-      "slug": "dexcom",
-      "name": "Dexcom",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.dexcom.com/"
-    },
-    {
-      "slug": "digital-turbine",
-      "name": "Digital Turbine",
-      "rule": "years",
-      "reason": "no-founded-sentence https://digitalturbine.com"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "name": "Donnelley Financial Solutions",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.dfinsolutions.com/"
-    },
-    {
-      "slug": "eplus",
-      "name": "ePlus",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.eplus.com/"
-    },
-    {
-      "slug": "ge-aerospace",
-      "name": "GE Aerospace",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.geaerospace.com/"
-    },
-    {
-      "slug": "gigamon",
-      "name": "Gigamon",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.gigamon.com/"
-    },
-    {
-      "slug": "iress",
-      "name": "Iress",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.iress.com:443/"
-    },
-    {
-      "slug": "johnson-controls",
-      "name": "Johnson Controls",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.johnsoncontrols.com/"
-    },
-    {
-      "slug": "kinaxis",
-      "name": "Kinaxis",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.kinaxis.com/en"
-    },
-    {
-      "slug": "knowbe4",
-      "name": "KnowBe4",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.knowbe4.com/"
-    },
-    {
-      "slug": "kwai",
-      "name": "Kwai",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.kuaishou.com/"
-    },
-    {
-      "slug": "lime-technologies",
-      "name": "Lime Technologies",
-      "rule": "years",
-      "reason": "website-mismatch https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/"
-    },
-    {
-      "slug": "netscout",
-      "name": "NETSCOUT",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.netscout.com/"
-    },
-    {
-      "slug": "orca-security",
-      "name": "Orca Security",
-      "rule": "years",
-      "reason": "other-firm Temasek 1974 on https://orca.security/ is the investor, not Orca Security"
-    },
-    {
-      "slug": "pagaya",
-      "name": "Pagaya",
-      "rule": "years",
-      "reason": "no-founded-sentence https://pagaya.com"
-    },
-    {
-      "slug": "pexip",
-      "name": "Pexip",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.pexip.com/"
-    },
-    {
-      "slug": "photoroom",
-      "name": "Photoroom",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.photoroom.com/"
-    },
-    {
-      "slug": "pulsar-group",
-      "name": "Pulsar Group",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.pulsarplatform.com/"
-    },
-    {
-      "slug": "rekor-systems",
-      "name": "Rekor Systems",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.rekor.ai/"
-    },
-    {
-      "slug": "resmed",
-      "name": "ResMed",
-      "rule": "years",
-      "reason": "prefix-match https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
-    },
-    {
-      "slug": "sage",
-      "name": "Sage",
-      "rule": "years",
-      "reason": "prefix-match https://en.wikipedia.org/wiki/Sage_Group"
-    },
-    {
-      "slug": "seagate-technology",
-      "name": "Seagate Technology",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.seagate.com/"
-    },
-    {
-      "slug": "servicetitan",
-      "name": "ServiceTitan",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.servicetitan.com/"
-    },
-    {
-      "slug": "stryker-corporation",
-      "name": "Stryker Corporation",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.stryker.com/"
-    },
-    {
-      "slug": "t-mobile-us",
-      "name": "T-Mobile US",
-      "rule": "years",
-      "reason": "prefix-match https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
-    },
-    {
-      "slug": "toast",
-      "name": "Toast",
-      "rule": "years",
-      "reason": "wikipedia https://en.wikipedia.org/wiki/Toast,_Inc."
-    },
-    {
-      "slug": "tribal-group",
-      "name": "Tribal Group",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.tribalgroup.com/"
-    },
-    {
-      "slug": "usio",
-      "name": "Usio",
-      "rule": "years",
-      "reason": "website-mismatch https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/"
-    },
-    {
-      "slug": "vtex",
-      "name": "VTEX",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.vtex.com/en-us"
-    },
-    {
-      "slug": "withsecure",
-      "name": "WithSecure",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.withsecure.com/en/"
-    },
-    {
-      "slug": "vulncheck",
-      "name": "VulnCheck",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.vulncheck.com/"
-    },
-    {
-      "slug": "watchguard",
-      "name": "WatchGuard",
-      "rule": "years",
-      "reason": "no-founded-sentence https://www.watchguard.com/"
+      "reason": "no-founded-sentence https://www.walmart.com/"
     }
   ],
   "rejected": [
     {
-      "slug": "aqua-security",
-      "url": "https://www.crn.com/news/security/2025/the-2025-security-100",
-      "final": "https://www.crn.com/news/security/2025/the-2025-security-100",
-      "reason": "news"
-    },
-    {
-      "slug": "aqua-security",
-      "url": "https://aquasec.com",
-      "final": "https://aquasec.com",
-      "reason": "http-403"
-    },
-    {
-      "slug": "aqua-security",
-      "url": "https://aquasec.com/about",
-      "final": "https://aquasec.com/about",
-      "reason": "http-403"
-    },
-    {
-      "slug": "aqua-security",
-      "url": "https://aquasec.com/about-us",
-      "final": "https://aquasec.com/about-us",
-      "reason": "http-403"
-    },
-    {
-      "slug": "aqua-security",
-      "url": "https://aquasec.com/about/company",
-      "final": "https://aquasec.com/about/company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "aqua-security",
-      "url": "https://aquasec.com/about/us",
-      "final": "https://aquasec.com/about/us",
-      "reason": "http-403"
-    },
-    {
-      "slug": "aqua-security",
-      "url": "https://aquasec.com/company",
-      "final": "https://aquasec.com/company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "aqua-security",
-      "url": "https://aquasec.com/company/about",
-      "final": "https://aquasec.com/company/about",
-      "reason": "http-403"
-    },
-    {
-      "slug": "aqua-security",
-      "url": "https://aquasec.com/company/our-story",
-      "final": "https://aquasec.com/company/our-story",
-      "reason": "http-403"
-    },
-    {
-      "slug": "aqua-security",
-      "url": "https://aquasec.com/our-story",
-      "final": "https://aquasec.com/our-story",
-      "reason": "http-403"
-    },
-    {
-      "slug": "aqua-security",
-      "url": "https://aquasec.com/our-company",
-      "final": "https://aquasec.com/our-company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "aqua-security",
-      "url": "https://aquasec.com/who-we-are",
-      "final": "https://aquasec.com/who-we-are",
-      "reason": "http-403"
-    },
-    {
-      "slug": "aqua-security",
-      "url": "https://aquasec.com/about/our-story",
-      "final": "https://aquasec.com/about/our-story",
-      "reason": "http-403"
-    },
-    {
-      "slug": "aqua-security",
-      "url": "https://aquasec.com/en/about",
-      "final": "https://aquasec.com/en/about",
-      "reason": "http-403"
-    },
-    {
-      "slug": "aqua-security",
-      "url": "https://aquasec.com/en/company",
-      "final": "https://aquasec.com/en/company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "aqua-security",
-      "url": "https://aquasec.com/press",
-      "final": "https://aquasec.com/press",
-      "reason": "http-403"
-    },
-    {
-      "slug": "aqua-security",
-      "url": "https://aquasec.com/newsroom",
-      "final": "https://aquasec.com/newsroom",
-      "reason": "http-403"
-    },
-    {
-      "slug": "aqua-security",
-      "url": "https://aquasec.com/company/press",
-      "final": "https://aquasec.com/company/press",
-      "reason": "http-403"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "final": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "reason": "prefix-match"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://allegion.com",
-      "final": "https://www.allegion.com/corp/en/index.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://allegion.com/about",
-      "final": "https://allegion.com/about",
-      "reason": "404"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://allegion.com/about-us",
-      "final": "https://allegion.com/about-us",
-      "reason": "404"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://allegion.com/about/company",
-      "final": "https://allegion.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://allegion.com/about/us",
-      "final": "https://allegion.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://allegion.com/company",
-      "final": "https://allegion.com/company",
-      "reason": "404"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://allegion.com/company/about",
-      "final": "https://allegion.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://allegion.com/company/our-story",
-      "final": "https://allegion.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://allegion.com/our-story",
-      "final": "https://allegion.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://allegion.com/our-company",
-      "final": "https://allegion.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://allegion.com/who-we-are",
-      "final": "https://allegion.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://allegion.com/about/our-story",
-      "final": "https://allegion.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://allegion.com/en/about",
-      "final": "https://allegion.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://allegion.com/en/company",
-      "final": "https://allegion.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://allegion.com/press",
-      "final": "https://allegion.com/press",
-      "reason": "404"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://allegion.com/newsroom",
-      "final": "https://allegion.com/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://allegion.com/company/press",
-      "final": "https://allegion.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://www.allegion.com/corp/en/about/ESG.html",
-      "final": "https://www.allegion.com/corp/en/about/ESG.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://www.allegion.com/corp/en/about/ESG/environmental.html",
-      "final": "https://www.allegion.com/corp/en/about/ESG/environmental.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://www.allegion.com/corp/en/about/ESG/social.html",
-      "final": "https://www.allegion.com/corp/en/about/ESG/social.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://www.allegion.com/corp/en/about/ESG/governance.html",
-      "final": "https://www.allegion.com/corp/en/about/ESG/governance.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://www.allegion.com/corp/en/about/leadership.html",
-      "final": "https://www.allegion.com/corp/en/about/leadership.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "allegion",
-      "url": "https://www.allegion.com/corp/en/about/annual-report.html",
-      "final": "https://www.allegion.com/corp/en/about/annual-report.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "csg-international",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "csg-international",
-      "url": "https://csgi.com",
-      "final": "https://www.csgi.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "csg-international",
-      "url": "https://csgi.com/about",
-      "final": "https://csgi.com/about",
-      "reason": "404"
-    },
-    {
-      "slug": "csg-international",
-      "url": "https://csgi.com/about-us",
-      "final": "https://csgi.com/about-us",
-      "reason": "404"
-    },
-    {
-      "slug": "csg-international",
-      "url": "https://csgi.com/about/company",
-      "final": "https://csgi.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "csg-international",
-      "url": "https://csgi.com/about/us",
-      "final": "https://csgi.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "csg-international",
-      "url": "https://csgi.com/company",
-      "final": "https://csgi.com/company",
-      "reason": "404"
-    },
-    {
-      "slug": "csg-international",
-      "url": "https://csgi.com/company/about",
-      "final": "https://csgi.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "csg-international",
-      "url": "https://csgi.com/company/our-story",
-      "final": "https://csgi.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "csg-international",
-      "url": "https://csgi.com/our-story",
-      "final": "https://csgi.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "csg-international",
-      "url": "https://csgi.com/our-company",
-      "final": "https://csgi.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "csg-international",
-      "url": "https://csgi.com/who-we-are",
-      "final": "https://csgi.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "csg-international",
-      "url": "https://csgi.com/about/our-story",
-      "final": "https://csgi.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "csg-international",
-      "url": "https://csgi.com/en/about",
-      "final": "https://csgi.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "csg-international",
-      "url": "https://csgi.com/en/company",
-      "final": "https://csgi.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "csg-international",
-      "url": "https://csgi.com/press",
-      "final": "https://csgi.com/press",
-      "reason": "404"
-    },
-    {
-      "slug": "csg-international",
-      "url": "https://csgi.com/newsroom",
-      "final": "https://csgi.com/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "csg-international",
-      "url": "https://csgi.com/company/press",
-      "final": "https://csgi.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "digital-turbine",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "digital-turbine",
-      "url": "https://digitalturbine.com",
-      "final": "https://digitalturbine.com",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "digital-turbine",
-      "url": "https://digitalturbine.com/about",
-      "final": "https://digitalturbine.com/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "digital-turbine",
-      "url": "https://digitalturbine.com/about-us",
-      "final": "https://digitalturbine.com/about-us",
-      "reason": "404"
-    },
-    {
-      "slug": "digital-turbine",
-      "url": "https://digitalturbine.com/about/company",
-      "final": "https://digitalturbine.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "digital-turbine",
-      "url": "https://digitalturbine.com/about/us",
-      "final": "https://digitalturbine.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "digital-turbine",
-      "url": "https://digitalturbine.com/company",
-      "final": "https://digitalturbine.com/company",
-      "reason": "404"
-    },
-    {
-      "slug": "digital-turbine",
-      "url": "https://digitalturbine.com/company/about",
-      "final": "https://digitalturbine.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "digital-turbine",
-      "url": "https://digitalturbine.com/company/our-story",
-      "final": "https://digitalturbine.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "digital-turbine",
-      "url": "https://digitalturbine.com/our-story",
-      "final": "https://digitalturbine.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "digital-turbine",
-      "url": "https://digitalturbine.com/our-company",
-      "final": "https://digitalturbine.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "digital-turbine",
-      "url": "https://digitalturbine.com/who-we-are",
-      "final": "https://digitalturbine.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "digital-turbine",
-      "url": "https://digitalturbine.com/about/our-story",
-      "final": "https://digitalturbine.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "digital-turbine",
-      "url": "https://digitalturbine.com/en/about",
-      "final": "https://digitalturbine.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "digital-turbine",
-      "url": "https://digitalturbine.com/en/company",
-      "final": "https://digitalturbine.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "digital-turbine",
-      "url": "https://digitalturbine.com/press",
-      "final": "https://digitalturbine.com/press",
-      "reason": "404"
-    },
-    {
-      "slug": "digital-turbine",
-      "url": "https://digitalturbine.com/newsroom",
-      "final": "https://digitalturbine.com/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "digital-turbine",
-      "url": "https://digitalturbine.com/company/press",
-      "final": "https://digitalturbine.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "digital-turbine",
-      "url": "https://www.digitalturbine.com/about",
-      "final": "https://www.digitalturbine.com/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://dfinsolutions.com",
-      "final": "https://www.dfinsolutions.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://dfinsolutions.com/about",
-      "final": "https://www.dfinsolutions.com/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://dfinsolutions.com/about-us",
-      "final": "https://www.dfinsolutions.com/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://dfinsolutions.com/about/company",
-      "final": "https://dfinsolutions.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://dfinsolutions.com/about/us",
-      "final": "https://dfinsolutions.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://dfinsolutions.com/company",
-      "final": "https://www.dfinsolutions.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://dfinsolutions.com/company/about",
-      "final": "https://dfinsolutions.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://dfinsolutions.com/company/our-story",
-      "final": "https://dfinsolutions.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://dfinsolutions.com/our-story",
-      "final": "https://dfinsolutions.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://dfinsolutions.com/our-company",
-      "final": "https://dfinsolutions.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://dfinsolutions.com/who-we-are",
-      "final": "https://www.dfinsolutions.com/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://dfinsolutions.com/about/our-story",
-      "final": "https://dfinsolutions.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://dfinsolutions.com/en/about",
-      "final": "https://dfinsolutions.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://dfinsolutions.com/en/company",
-      "final": "https://dfinsolutions.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://dfinsolutions.com/press",
-      "final": "https://www.dfinsolutions.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://dfinsolutions.com/newsroom",
-      "final": "https://www.dfinsolutions.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://dfinsolutions.com/company/press",
-      "final": "https://dfinsolutions.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://www.dfinsolutions.com/about",
-      "final": "https://www.dfinsolutions.com/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://www.dfinsolutions.com/about/leadership",
-      "final": "https://www.dfinsolutions.com/about/leadership",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://www.dfinsolutions.com/about/culture",
-      "final": "https://www.dfinsolutions.com/about/culture",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://www.dfinsolutions.com/about/sustainability",
-      "final": "https://www.dfinsolutions.com/about/sustainability",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://www.dfinsolutions.com/knowledge-hub/newsroom",
-      "final": "https://www.dfinsolutions.com/knowledge-hub/newsroom",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "donnelley-financial-solutions",
-      "url": "https://www.dfinsolutions.com/about/explore-partners",
-      "final": "https://www.dfinsolutions.com/about/explore-partners",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "audioeye",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "audioeye",
-      "url": "https://audioeye.com",
-      "final": "https://audioeye.com",
-      "reason": "http-429"
-    },
-    {
-      "slug": "audioeye",
-      "url": "https://audioeye.com/about",
-      "final": "https://audioeye.com/about",
-      "reason": "http-429"
-    },
-    {
-      "slug": "audioeye",
-      "url": "https://audioeye.com/about-us",
-      "final": "https://audioeye.com/about-us",
-      "reason": "http-429"
-    },
-    {
-      "slug": "audioeye",
-      "url": "https://audioeye.com/about/company",
-      "final": "https://audioeye.com/about/company",
-      "reason": "http-429"
-    },
-    {
-      "slug": "audioeye",
-      "url": "https://audioeye.com/about/us",
-      "final": "https://audioeye.com/about/us",
-      "reason": "http-429"
-    },
-    {
-      "slug": "audioeye",
-      "url": "https://audioeye.com/company",
-      "final": "https://audioeye.com/company",
-      "reason": "http-429"
-    },
-    {
-      "slug": "audioeye",
-      "url": "https://audioeye.com/company/about",
-      "final": "https://audioeye.com/company/about",
-      "reason": "http-429"
-    },
-    {
-      "slug": "audioeye",
-      "url": "https://audioeye.com/company/our-story",
-      "final": "https://audioeye.com/company/our-story",
-      "reason": "http-429"
-    },
-    {
-      "slug": "audioeye",
-      "url": "https://audioeye.com/our-story",
-      "final": "https://audioeye.com/our-story",
-      "reason": "http-429"
-    },
-    {
-      "slug": "audioeye",
-      "url": "https://audioeye.com/our-company",
-      "final": "https://audioeye.com/our-company",
-      "reason": "http-429"
-    },
-    {
-      "slug": "audioeye",
-      "url": "https://audioeye.com/who-we-are",
-      "final": "https://audioeye.com/who-we-are",
-      "reason": "http-429"
-    },
-    {
-      "slug": "audioeye",
-      "url": "https://audioeye.com/about/our-story",
-      "final": "https://audioeye.com/about/our-story",
-      "reason": "http-429"
-    },
-    {
-      "slug": "audioeye",
-      "url": "https://audioeye.com/en/about",
-      "final": "https://audioeye.com/en/about",
-      "reason": "http-429"
-    },
-    {
-      "slug": "audioeye",
-      "url": "https://audioeye.com/en/company",
-      "final": "https://audioeye.com/en/company",
-      "reason": "http-429"
-    },
-    {
-      "slug": "audioeye",
-      "url": "https://audioeye.com/press",
-      "final": "https://audioeye.com/press",
-      "reason": "http-429"
-    },
-    {
-      "slug": "audioeye",
-      "url": "https://audioeye.com/newsroom",
-      "final": "https://audioeye.com/newsroom",
-      "reason": "http-429"
-    },
-    {
-      "slug": "audioeye",
-      "url": "https://audioeye.com/company/press",
-      "final": "https://audioeye.com/company/press",
-      "reason": "http-429"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://eplus.com",
-      "final": "https://www.eplus.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://eplus.com/about",
-      "final": "https://eplus.com/about",
-      "reason": "404"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://eplus.com/about-us",
-      "final": "https://www.eplus.com/who-we-are",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://eplus.com/about/company",
-      "final": "https://eplus.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://eplus.com/about/us",
-      "final": "https://eplus.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://eplus.com/company",
-      "final": "https://eplus.com/company",
-      "reason": "404"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://eplus.com/company/about",
-      "final": "https://eplus.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://eplus.com/company/our-story",
-      "final": "https://eplus.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://eplus.com/our-story",
-      "final": "https://eplus.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://eplus.com/our-company",
-      "final": "https://eplus.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://eplus.com/who-we-are",
-      "final": "https://www.eplus.com/who-we-are",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://eplus.com/about/our-story",
-      "final": "https://eplus.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://eplus.com/en/about",
-      "final": "https://eplus.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://eplus.com/en/company",
-      "final": "https://eplus.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://eplus.com/press",
-      "final": "https://eplus.com/press",
-      "reason": "404"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://eplus.com/newsroom",
-      "final": "https://eplus.com/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://eplus.com/company/press",
-      "final": "https://eplus.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://www.eplus.com/who-we-are/awards",
-      "final": "https://www.eplus.com/who-we-are/awards",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://www.eplus.com/who-we-are/investor-relations",
-      "final": "https://www.eplus.com/who-we-are/investor-relations",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://www.eplus.com/who-we-are/industries",
-      "final": "https://www.eplus.com/who-we-are/industries",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://www.eplus.com/who-we-are/locations",
-      "final": "https://www.eplus.com/who-we-are/locations",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://www.eplus.com/who-we-are/leadership/mark-marron",
-      "final": "https://www.eplus.com/who-we-are/leadership/mark-marron",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "eplus",
-      "url": "https://www.eplus.com/who-we-are/leadership/darren-raiguel",
-      "final": "https://www.eplus.com/who-we-are/leadership/darren-raiguel",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://commvault.com",
-      "final": "https://www.commvault.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://commvault.com/about",
-      "final": "https://www.commvault.com/about-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://commvault.com/about-us",
-      "final": "https://www.commvault.com/about-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://commvault.com/about/company",
-      "final": "https://commvault.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://commvault.com/about/us",
-      "final": "https://commvault.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://commvault.com/company",
-      "final": "https://commvault.com/company",
-      "reason": "404"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://commvault.com/company/about",
-      "final": "https://commvault.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://commvault.com/company/our-story",
-      "final": "https://commvault.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://commvault.com/our-story",
-      "final": "https://commvault.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://commvault.com/our-company",
-      "final": "https://commvault.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://commvault.com/who-we-are",
-      "final": "https://www.commvault.com/wp-content/uploads/2025/11/who-we-are.jpg",
-      "reason": "news"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://commvault.com/about/our-story",
-      "final": "https://commvault.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://commvault.com/en/about",
-      "final": "https://commvault.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://commvault.com/en/company",
-      "final": "https://commvault.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://commvault.com/press",
-      "final": "https://commvault.com/press",
-      "reason": "404"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://commvault.com/newsroom",
-      "final": "https://www.commvault.com/newsroom",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://commvault.com/company/press",
-      "final": "https://commvault.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://www.commvault.com/about-us",
-      "final": "https://www.commvault.com/about-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://www.commvault.com/about-us/leadership",
-      "final": "https://www.commvault.com/about-us/leadership",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://www.commvault.com/newsroom",
-      "final": "https://www.commvault.com/newsroom",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://www.commvault.com/br/about-us",
-      "final": "https://www.commvault.com/about-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://www.commvault.com/de/about-us",
-      "final": "https://www.commvault.com/about-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "commvault",
-      "url": "https://www.commvault.com/es/about-us",
-      "final": "https://www.commvault.com/about-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "final": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "reason": "prefix-match"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://geaerospace.com",
-      "final": "https://www.geaerospace.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://geaerospace.com/about",
-      "final": "https://geaerospace.com/about",
-      "reason": "404"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://geaerospace.com/about-us",
-      "final": "https://geaerospace.com/about-us",
-      "reason": "404"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://geaerospace.com/about/company",
-      "final": "https://geaerospace.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://geaerospace.com/about/us",
-      "final": "https://geaerospace.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://geaerospace.com/company",
-      "final": "https://www.geaerospace.com/company/about-us/leadership",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://geaerospace.com/company/about",
-      "final": "https://geaerospace.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://geaerospace.com/company/our-story",
-      "final": "https://geaerospace.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://geaerospace.com/our-story",
-      "final": "https://geaerospace.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://geaerospace.com/our-company",
-      "final": "https://geaerospace.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://geaerospace.com/who-we-are",
-      "final": "https://geaerospace.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://geaerospace.com/about/our-story",
-      "final": "https://geaerospace.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://geaerospace.com/en/about",
-      "final": "https://geaerospace.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://geaerospace.com/en/company",
-      "final": "https://geaerospace.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://geaerospace.com/press",
-      "final": "https://geaerospace.com/press",
-      "reason": "404"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://geaerospace.com/newsroom",
-      "final": "https://geaerospace.com/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://geaerospace.com/company/press",
-      "final": "https://geaerospace.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://www.geaerospace.com/company/about-us/history",
-      "final": "https://www.geaerospace.com/company/about-us/history",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "ge-aerospace",
-      "url": "https://www.geaerospace.com/company/about-us/leadership",
-      "final": "https://www.geaerospace.com/company/about-us/leadership",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "admicom",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "admicom",
-      "url": "https://admicom.fi",
-      "final": "https://www.admicom.com/fi/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "admicom",
-      "url": "https://admicom.fi/about",
-      "final": "https://admicom.fi/about",
-      "reason": "404"
-    },
-    {
-      "slug": "admicom",
-      "url": "https://admicom.fi/about-us",
-      "final": "https://www.admicom.com/about-us",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "admicom",
-      "url": "https://admicom.fi/about/company",
-      "final": "https://admicom.fi/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "admicom",
-      "url": "https://admicom.fi/about/us",
-      "final": "https://admicom.fi/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "admicom",
-      "url": "https://admicom.fi/company",
-      "final": "https://admicom.fi/company",
-      "reason": "404"
-    },
-    {
-      "slug": "admicom",
-      "url": "https://admicom.fi/company/about",
-      "final": "https://admicom.fi/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "admicom",
-      "url": "https://admicom.fi/company/our-story",
-      "final": "https://admicom.fi/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "admicom",
-      "url": "https://admicom.fi/our-story",
-      "final": "https://admicom.fi/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "admicom",
-      "url": "https://admicom.fi/our-company",
-      "final": "https://admicom.fi/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "admicom",
-      "url": "https://admicom.fi/who-we-are",
-      "final": "https://admicom.fi/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "admicom",
-      "url": "https://admicom.fi/about/our-story",
-      "final": "https://admicom.fi/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "admicom",
-      "url": "https://admicom.fi/en/about",
-      "final": "https://admicom.fi/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "admicom",
-      "url": "https://admicom.fi/en/company",
-      "final": "https://admicom.fi/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "admicom",
-      "url": "https://admicom.fi/press",
-      "final": "https://admicom.fi/press",
-      "reason": "404"
-    },
-    {
-      "slug": "admicom",
-      "url": "https://admicom.fi/newsroom",
-      "final": "https://admicom.fi/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "admicom",
-      "url": "https://admicom.fi/company/press",
-      "final": "https://admicom.fi/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "final": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "reason": "prefix-match"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://axon.com",
-      "final": "https://www.axon.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://axon.com/about",
-      "final": "https://axon.com/about",
-      "reason": "404"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://axon.com/about-us",
-      "final": "https://axon.com/about-us",
-      "reason": "404"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://axon.com/about/company",
-      "final": "https://axon.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://axon.com/about/us",
-      "final": "https://axon.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://axon.com/company",
-      "final": "https://www.axon.com/company",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://axon.com/company/about",
-      "final": "https://axon.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://axon.com/company/our-story",
-      "final": "https://axon.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://axon.com/our-story",
-      "final": "https://axon.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://axon.com/our-company",
-      "final": "https://axon.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://axon.com/who-we-are",
-      "final": "https://axon.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://axon.com/about/our-story",
-      "final": "https://axon.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://axon.com/en/about",
-      "final": "https://axon.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://axon.com/en/company",
-      "final": "https://www.axon.com/en/company",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://axon.com/press",
-      "final": "https://www.axon.com/newsroom",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://axon.com/newsroom",
-      "final": "https://www.axon.com/newsroom",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://axon.com/company/press",
-      "final": "https://axon.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://www.axon.com/press",
-      "final": "https://www.axon.com/newsroom",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "axon-enterprise",
-      "url": "https://www.axon.com/newsroom",
-      "final": "https://www.axon.com/newsroom",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://www.crn.com/news/security/2025/the-2025-security-100",
-      "final": "https://www.crn.com/news/security/2025/the-2025-security-100",
-      "reason": "news"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://knowbe4.com",
-      "final": "https://www.knowbe4.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://knowbe4.com/about",
-      "final": "https://knowbe4.com/about",
-      "reason": "404"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://knowbe4.com/about-us",
-      "final": "https://www.knowbe4.com/about-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://knowbe4.com/about/company",
-      "final": "https://knowbe4.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://knowbe4.com/about/us",
-      "final": "https://knowbe4.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://knowbe4.com/company",
-      "final": "https://knowbe4.com/company",
-      "reason": "404"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://knowbe4.com/company/about",
-      "final": "https://knowbe4.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://knowbe4.com/company/our-story",
-      "final": "https://knowbe4.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://knowbe4.com/our-story",
-      "final": "https://knowbe4.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://knowbe4.com/our-company",
-      "final": "https://knowbe4.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://knowbe4.com/who-we-are",
-      "final": "https://www.knowbe4.com/about-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://knowbe4.com/about/our-story",
-      "final": "https://knowbe4.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://knowbe4.com/en/about",
-      "final": "https://knowbe4.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://knowbe4.com/en/company",
-      "final": "https://knowbe4.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://knowbe4.com/press",
-      "final": "https://www.knowbe4.com/press",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://knowbe4.com/newsroom",
-      "final": "https://knowbe4.com/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://knowbe4.com/company/press",
-      "final": "https://knowbe4.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://www.knowbe4.com/about-us",
-      "final": "https://www.knowbe4.com/about-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://www.knowbe4.com/press",
-      "final": "https://www.knowbe4.com/press",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://www.knowbe4.com/ja/press",
-      "final": "https://www.knowbe4.com/ja/press",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://www.knowbe4.com/ja/about-us/imprint",
-      "final": "https://www.knowbe4.com/ja/about-us/imprint",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "knowbe4",
-      "url": "https://www.knowbe4.com/de/about-us/imprint",
-      "final": "https://www.knowbe4.com/de/about-us/imprint",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "lime-technologies",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "lime-technologies",
-      "url": "https://lime-technologies.com",
-      "final": "https://lime-technologies.com",
-      "reason": "http-403"
-    },
-    {
-      "slug": "lime-technologies",
-      "url": "https://lime-technologies.com/about",
-      "final": "https://lime-technologies.com/about",
-      "reason": "http-403"
-    },
-    {
-      "slug": "lime-technologies",
-      "url": "https://lime-technologies.com/about-us",
-      "final": "https://lime-technologies.com/about-us",
-      "reason": "http-403"
-    },
-    {
-      "slug": "lime-technologies",
-      "url": "https://lime-technologies.com/about/company",
-      "final": "https://lime-technologies.com/about/company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "lime-technologies",
-      "url": "https://lime-technologies.com/about/us",
-      "final": "https://lime-technologies.com/about/us",
-      "reason": "http-403"
-    },
-    {
-      "slug": "lime-technologies",
-      "url": "https://lime-technologies.com/company",
-      "final": "https://lime-technologies.com/company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "lime-technologies",
-      "url": "https://lime-technologies.com/company/about",
-      "final": "https://lime-technologies.com/company/about",
-      "reason": "http-403"
-    },
-    {
-      "slug": "lime-technologies",
-      "url": "https://lime-technologies.com/company/our-story",
-      "final": "https://lime-technologies.com/company/our-story",
-      "reason": "http-403"
-    },
-    {
-      "slug": "lime-technologies",
-      "url": "https://lime-technologies.com/our-story",
-      "final": "https://lime-technologies.com/our-story",
-      "reason": "http-403"
-    },
-    {
-      "slug": "lime-technologies",
-      "url": "https://lime-technologies.com/our-company",
-      "final": "https://lime-technologies.com/our-company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "lime-technologies",
-      "url": "https://lime-technologies.com/who-we-are",
-      "final": "https://lime-technologies.com/who-we-are",
-      "reason": "http-403"
-    },
-    {
-      "slug": "lime-technologies",
-      "url": "https://lime-technologies.com/about/our-story",
-      "final": "https://lime-technologies.com/about/our-story",
-      "reason": "http-403"
-    },
-    {
-      "slug": "lime-technologies",
-      "url": "https://lime-technologies.com/en/about",
-      "final": "https://lime-technologies.com/en/about",
-      "reason": "http-403"
-    },
-    {
-      "slug": "lime-technologies",
-      "url": "https://lime-technologies.com/en/company",
-      "final": "https://lime-technologies.com/en/company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "lime-technologies",
-      "url": "https://lime-technologies.com/press",
-      "final": "https://lime-technologies.com/press",
-      "reason": "http-403"
-    },
-    {
-      "slug": "lime-technologies",
-      "url": "https://lime-technologies.com/newsroom",
-      "final": "https://lime-technologies.com/newsroom",
-      "reason": "http-403"
-    },
-    {
-      "slug": "lime-technologies",
-      "url": "https://lime-technologies.com/company/press",
-      "final": "https://lime-technologies.com/company/press",
-      "reason": "http-403"
-    },
-    {
-      "slug": "gigamon",
-      "url": "https://www.crn.com/news/security/2025/the-2025-security-100",
-      "final": "https://www.crn.com/news/security/2025/the-2025-security-100",
-      "reason": "news"
-    },
-    {
-      "slug": "gigamon",
-      "url": "https://gigamon.com",
-      "final": "https://www.gigamon.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "gigamon",
-      "url": "https://gigamon.com/about",
-      "final": "https://www.gigamon.com/company/company-information.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "gigamon",
-      "url": "https://gigamon.com/about-us",
-      "final": "https://gigamon.com/about-us",
-      "reason": "404"
-    },
-    {
-      "slug": "gigamon",
-      "url": "https://gigamon.com/about/company",
-      "final": "https://gigamon.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "gigamon",
-      "url": "https://gigamon.com/about/us",
-      "final": "https://gigamon.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "gigamon",
-      "url": "https://gigamon.com/company",
-      "final": "https://www.gigamon.com/company/company-information.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "gigamon",
-      "url": "https://gigamon.com/company/about",
-      "final": "https://gigamon.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "gigamon",
-      "url": "https://gigamon.com/company/our-story",
-      "final": "https://gigamon.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "gigamon",
-      "url": "https://gigamon.com/our-story",
-      "final": "https://gigamon.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "gigamon",
-      "url": "https://gigamon.com/our-company",
-      "final": "https://gigamon.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "gigamon",
-      "url": "https://gigamon.com/who-we-are",
-      "final": "https://gigamon.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "gigamon",
-      "url": "https://gigamon.com/about/our-story",
-      "final": "https://gigamon.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "gigamon",
-      "url": "https://gigamon.com/en/about",
-      "final": "https://gigamon.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "gigamon",
-      "url": "https://gigamon.com/en/company",
-      "final": "https://gigamon.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "gigamon",
-      "url": "https://gigamon.com/press",
-      "final": "https://gigamon.com/press",
-      "reason": "404"
-    },
-    {
-      "slug": "gigamon",
-      "url": "https://gigamon.com/newsroom",
-      "final": "https://gigamon.com/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "gigamon",
-      "url": "https://gigamon.com/company/press",
-      "final": "https://gigamon.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "johnson-controls",
-      "url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "final": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "reason": "prefix-match"
-    },
-    {
-      "slug": "johnson-controls",
-      "url": "https://johnsoncontrols.com",
-      "final": "https://www.johnsoncontrols.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "johnson-controls",
-      "url": "https://johnsoncontrols.com/about",
-      "final": "https://www.johnsoncontrols.com/404",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "johnson-controls",
-      "url": "https://johnsoncontrols.com/about-us",
-      "final": "https://www.johnsoncontrols.com/404",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "johnson-controls",
-      "url": "https://johnsoncontrols.com/about/company",
-      "final": "https://www.johnsoncontrols.com/404",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "johnson-controls",
-      "url": "https://johnsoncontrols.com/about/us",
-      "final": "https://www.johnsoncontrols.com/404",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "johnson-controls",
-      "url": "https://johnsoncontrols.com/company",
-      "final": "https://www.johnsoncontrols.com/404",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "johnson-controls",
-      "url": "https://johnsoncontrols.com/company/about",
-      "final": "https://www.johnsoncontrols.com/404",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "johnson-controls",
-      "url": "https://johnsoncontrols.com/company/our-story",
-      "final": "https://www.johnsoncontrols.com/404",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "johnson-controls",
-      "url": "https://johnsoncontrols.com/our-story",
-      "final": "https://www.johnsoncontrols.com/404",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "johnson-controls",
-      "url": "https://johnsoncontrols.com/our-company",
-      "final": "https://www.johnsoncontrols.com/404",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "johnson-controls",
-      "url": "https://johnsoncontrols.com/who-we-are",
-      "final": "https://www.johnsoncontrols.com/404",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "johnson-controls",
-      "url": "https://johnsoncontrols.com/about/our-story",
-      "final": "https://www.johnsoncontrols.com/404",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "johnson-controls",
-      "url": "https://johnsoncontrols.com/en/about",
-      "final": "https://www.johnsoncontrols.com/404",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "johnson-controls",
-      "url": "https://johnsoncontrols.com/en/company",
-      "final": "https://www.johnsoncontrols.com/404",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "johnson-controls",
-      "url": "https://johnsoncontrols.com/press",
-      "final": "https://www.johnsoncontrols.com/404",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "johnson-controls",
-      "url": "https://johnsoncontrols.com/newsroom",
-      "final": "https://www.johnsoncontrols.com/404",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "johnson-controls",
-      "url": "https://johnsoncontrols.com/company/press",
-      "final": "https://www.johnsoncontrols.com/404",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "johnson-controls",
-      "url": "https://www.johnsoncontrols.com/about-us/our-company",
-      "final": "https://www.johnsoncontrols.com/about-us/our-company",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://kinaxis.com",
-      "final": "https://www.kinaxis.com/en",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://kinaxis.com/about",
-      "final": "https://www.kinaxis.com/en/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://kinaxis.com/about-us",
-      "final": "https://www.kinaxis.com/en/about-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://kinaxis.com/about/company",
-      "final": "https://kinaxis.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://kinaxis.com/about/us",
-      "final": "https://kinaxis.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://kinaxis.com/company",
-      "final": "https://kinaxis.com/company",
-      "reason": "404"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://kinaxis.com/company/about",
-      "final": "https://kinaxis.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://kinaxis.com/company/our-story",
-      "final": "https://kinaxis.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://kinaxis.com/our-story",
-      "final": "https://kinaxis.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://kinaxis.com/our-company",
-      "final": "https://kinaxis.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://kinaxis.com/who-we-are",
-      "final": "https://kinaxis.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://kinaxis.com/about/our-story",
-      "final": "https://kinaxis.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://kinaxis.com/en/about",
-      "final": "https://www.kinaxis.com/en/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://kinaxis.com/en/company",
-      "final": "https://kinaxis.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://kinaxis.com/press",
-      "final": "https://kinaxis.com/press",
-      "reason": "404"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://kinaxis.com/newsroom",
-      "final": "https://www.kinaxis.com/en/news",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://kinaxis.com/company/press",
-      "final": "https://kinaxis.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://www.kinaxis.com/en/about-us/gartner-magic-quadrant-supply-chain-planning-solutions",
-      "final": "https://www.kinaxis.com/en/about-us/gartner-magic-quadrant-supply-chain-planning-solutions",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://www.kinaxis.com/en/about",
-      "final": "https://www.kinaxis.com/en/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://www.kinaxis.com/about-us/gartner-magic-quadrant-supply-chain-planning-solutions",
-      "final": "https://www.kinaxis.com/ja/about-us/gartner-magic-quadrant-supply-chain-planning-solutions",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://www.kinaxis.com/ja/about",
-      "final": "https://www.kinaxis.com/ja/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://www.kinaxis.com/en/about-us",
-      "final": "https://www.kinaxis.com/en/about-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "kinaxis",
-      "url": "https://www.kinaxis.com/en/about-us/www.kinaxis.com/gartner-leader",
-      "final": "https://www.kinaxis.com/en/about-us/www.kinaxis.com/gartner-leader",
-      "reason": "404"
-    },
-    {
-      "slug": "pagaya",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "pagaya",
-      "url": "https://pagaya.com",
-      "final": "https://pagaya.com",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pagaya",
-      "url": "https://pagaya.com/about",
-      "final": "https://pagaya.com/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pagaya",
-      "url": "https://pagaya.com/about-us",
-      "final": "https://pagaya.com/about-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pagaya",
-      "url": "https://pagaya.com/about/company",
-      "final": "https://pagaya.com/about/company",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pagaya",
-      "url": "https://pagaya.com/about/us",
-      "final": "https://pagaya.com/about/us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pagaya",
-      "url": "https://pagaya.com/company",
-      "final": "https://pagaya.com/company",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pagaya",
-      "url": "https://pagaya.com/company/about",
-      "final": "https://pagaya.com/company/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pagaya",
-      "url": "https://pagaya.com/company/our-story",
-      "final": "https://pagaya.com/company/our-story",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pagaya",
-      "url": "https://pagaya.com/our-story",
-      "final": "https://pagaya.com/our-story",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pagaya",
-      "url": "https://pagaya.com/our-company",
-      "final": "https://pagaya.com/our-company",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pagaya",
-      "url": "https://pagaya.com/who-we-are",
-      "final": "https://pagaya.com/who-we-are",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pagaya",
-      "url": "https://pagaya.com/about/our-story",
-      "final": "https://pagaya.com/about/our-story",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pagaya",
-      "url": "https://pagaya.com/en/about",
-      "final": "https://pagaya.com/en/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pagaya",
-      "url": "https://pagaya.com/en/company",
-      "final": "https://pagaya.com/en/company",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pagaya",
-      "url": "https://pagaya.com/press",
-      "final": "https://pagaya.com/press",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pagaya",
-      "url": "https://pagaya.com/newsroom",
-      "final": "https://pagaya.com/newsroom",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pagaya",
-      "url": "https://pagaya.com/company/press",
-      "final": "https://pagaya.com/company/press",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pagaya",
-      "url": "https://pagaya.com/about-us/",
-      "final": "https://pagaya.com/about-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "dexcom",
-      "url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "final": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "reason": "prefix-match"
-    },
-    {
-      "slug": "dexcom",
-      "url": "https://dexcom.com",
-      "final": "https://www.dexcom.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "dexcom",
-      "url": "https://dexcom.com/about",
-      "final": "https://www.dexcom.com/en-us/about-dexcom",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "dexcom",
-      "url": "https://dexcom.com/about-us",
-      "final": "https://dexcom.com/about-us",
-      "reason": "404"
-    },
-    {
-      "slug": "dexcom",
-      "url": "https://dexcom.com/about/company",
-      "final": "https://dexcom.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "dexcom",
-      "url": "https://dexcom.com/about/us",
-      "final": "https://dexcom.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "dexcom",
-      "url": "https://dexcom.com/company",
-      "final": "https://dexcom.com/company",
-      "reason": "404"
-    },
-    {
-      "slug": "dexcom",
-      "url": "https://dexcom.com/company/about",
-      "final": "https://dexcom.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "dexcom",
-      "url": "https://dexcom.com/company/our-story",
-      "final": "https://dexcom.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "dexcom",
-      "url": "https://dexcom.com/our-story",
-      "final": "https://dexcom.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "dexcom",
-      "url": "https://dexcom.com/our-company",
-      "final": "https://dexcom.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "dexcom",
-      "url": "https://dexcom.com/who-we-are",
-      "final": "https://dexcom.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "dexcom",
-      "url": "https://dexcom.com/about/our-story",
-      "final": "https://dexcom.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "dexcom",
-      "url": "https://dexcom.com/en/about",
-      "final": "https://dexcom.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "dexcom",
-      "url": "https://dexcom.com/en/company",
-      "final": "https://dexcom.com/en/company",
-      "reason": "http-0"
-    },
-    {
-      "slug": "dexcom",
-      "url": "https://dexcom.com/press",
-      "final": "https://dexcom.com/press",
-      "reason": "http-403"
-    },
-    {
-      "slug": "dexcom",
-      "url": "https://dexcom.com/newsroom",
-      "final": "https://dexcom.com/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "dexcom",
-      "url": "https://dexcom.com/company/press",
-      "final": "https://dexcom.com/company/press",
-      "reason": "http-0"
-    },
-    {
-      "slug": "netscout",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "netscout",
-      "url": "https://netscout.com",
-      "final": "https://www.netscout.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "netscout",
-      "url": "https://netscout.com/about",
-      "final": "https://netscout.com/about",
-      "reason": "404"
-    },
-    {
-      "slug": "netscout",
-      "url": "https://netscout.com/about-us",
-      "final": "https://www.netscout.com/company",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "netscout",
-      "url": "https://netscout.com/about/company",
-      "final": "https://netscout.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "netscout",
-      "url": "https://netscout.com/about/us",
-      "final": "https://netscout.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "netscout",
-      "url": "https://netscout.com/company",
-      "final": "https://www.netscout.com/company",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "netscout",
-      "url": "https://netscout.com/company/about",
-      "final": "https://www.netscout.com/company",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "netscout",
-      "url": "https://netscout.com/company/our-story",
-      "final": "https://netscout.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "netscout",
-      "url": "https://netscout.com/our-story",
-      "final": "https://netscout.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "netscout",
-      "url": "https://netscout.com/our-company",
-      "final": "https://www.netscout.com/company",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "netscout",
-      "url": "https://netscout.com/who-we-are",
-      "final": "https://netscout.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "netscout",
-      "url": "https://netscout.com/about/our-story",
-      "final": "https://netscout.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "netscout",
-      "url": "https://netscout.com/en/about",
-      "final": "https://netscout.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "netscout",
-      "url": "https://netscout.com/en/company",
-      "final": "https://netscout.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "netscout",
-      "url": "https://netscout.com/press",
-      "final": "https://netscout.com/press",
-      "reason": "404"
-    },
-    {
-      "slug": "netscout",
-      "url": "https://netscout.com/newsroom",
-      "final": "https://www.netscout.com/news",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "netscout",
-      "url": "https://netscout.com/company/press",
-      "final": "https://netscout.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "netscout",
-      "url": "https://www.netscout.com/company",
-      "final": "https://www.netscout.com/company",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://www.aiworld.lat/forbes-50.html",
-      "final": "https://www.aiworld.lat/forbes-50.html",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://photoroom.com",
-      "final": "https://www.photoroom.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://photoroom.com/about",
-      "final": "https://www.photoroom.com/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://photoroom.com/about-us",
-      "final": "https://photoroom.com/about-us",
-      "reason": "404"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://photoroom.com/about/company",
-      "final": "https://photoroom.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://photoroom.com/about/us",
-      "final": "https://photoroom.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://photoroom.com/company",
-      "final": "https://www.photoroom.com/company",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://photoroom.com/company/about",
-      "final": "https://photoroom.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://photoroom.com/company/our-story",
-      "final": "https://photoroom.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://photoroom.com/our-story",
-      "final": "https://photoroom.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://photoroom.com/our-company",
-      "final": "https://photoroom.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://photoroom.com/who-we-are",
-      "final": "https://photoroom.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://photoroom.com/about/our-story",
-      "final": "https://photoroom.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://photoroom.com/en/about",
-      "final": "https://www.photoroom.com/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://photoroom.com/en/company",
-      "final": "https://www.photoroom.com/company",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://photoroom.com/press",
-      "final": "https://photoroom.com/press",
-      "reason": "404"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://photoroom.com/newsroom",
-      "final": "https://photoroom.com/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://photoroom.com/company/press",
-      "final": "https://photoroom.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://www.photoroom.com/about",
-      "final": "https://www.photoroom.com/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://www.photoroom.com/fr/about",
-      "final": "https://www.photoroom.com/fr/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://www.photoroom.com/uk/about",
-      "final": "https://www.photoroom.com/uk/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://www.photoroom.com/zh/about",
-      "final": "https://www.photoroom.com/zh/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://www.photoroom.com/de/about",
-      "final": "https://www.photoroom.com/de/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "photoroom",
-      "url": "https://www.photoroom.com/es/about",
-      "final": "https://www.photoroom.com/es/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "orca-security",
-      "url": "https://www.crn.com/news/security/2025/the-2025-security-100",
-      "final": "https://www.crn.com/news/security/2025/the-2025-security-100",
-      "reason": "news"
-    },
-    {
-      "slug": "orca-security",
-      "url": "https://orca.security/about",
-      "final": "https://orca.security/about/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "orca-security",
-      "url": "https://orca.security/about-us",
-      "final": "https://orca.security/about-us",
-      "reason": "http-302"
-    },
-    {
-      "slug": "orca-security",
-      "url": "https://orca.security/about/company",
-      "final": "https://orca.security/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "orca-security",
-      "url": "https://orca.security/about/us",
-      "final": "https://orca.security/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "orca-security",
-      "url": "https://orca.security/company/about",
-      "final": "https://orca.security/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "orca-security",
-      "url": "https://orca.security/company/our-story",
-      "final": "https://orca.security/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "orca-security",
-      "url": "https://orca.security/our-story",
-      "final": "https://orca.security/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "orca-security",
-      "url": "https://orca.security/our-company",
-      "final": "https://orca.security/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "orca-security",
-      "url": "https://orca.security/who-we-are",
-      "final": "https://orca.security/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "orca-security",
-      "url": "https://orca.security/about/our-story",
-      "final": "https://orca.security/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "orca-security",
-      "url": "https://orca.security/en/about",
-      "final": "https://orca.security/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "orca-security",
-      "url": "https://orca.security/en/company",
-      "final": "https://orca.security/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "orca-security",
-      "url": "https://orca.security/press",
-      "final": "https://orca.security/press",
-      "reason": "404"
-    },
-    {
-      "slug": "orca-security",
-      "url": "https://orca.security/newsroom",
-      "final": "https://orca.security/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "orca-security",
-      "url": "https://orca.security/company/press",
-      "final": "https://orca.security/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "orca-security",
-      "url": "https://orca.security/about/",
-      "final": "https://orca.security/about/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://pexip.com",
-      "final": "https://www.pexip.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://pexip.com/about",
-      "final": "https://www.pexip.com/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://pexip.com/about-us",
-      "final": "https://pexip.com/about-us",
-      "reason": "404"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://pexip.com/about/company",
-      "final": "https://pexip.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://pexip.com/about/us",
-      "final": "https://pexip.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://pexip.com/company",
-      "final": "https://pexip.com/company",
-      "reason": "404"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://pexip.com/company/about",
-      "final": "https://www.pexip.com/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://pexip.com/company/our-story",
-      "final": "https://pexip.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://pexip.com/our-story",
-      "final": "https://pexip.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://pexip.com/our-company",
-      "final": "https://pexip.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://pexip.com/who-we-are",
-      "final": "https://pexip.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://pexip.com/about/our-story",
-      "final": "https://pexip.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://pexip.com/en/about",
-      "final": "https://www.pexip.com/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://pexip.com/en/company",
-      "final": "https://pexip.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://pexip.com/press",
-      "final": "https://www.pexip.com/press",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://pexip.com/newsroom",
-      "final": "https://pexip.com/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://pexip.com/company/press",
-      "final": "https://pexip.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://www.pexip.com/about",
-      "final": "https://www.pexip.com/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://www.pexip.com/press",
-      "final": "https://www.pexip.com/press",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://www.pexip.com/fr/about",
-      "final": "https://www.pexip.com/fr/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://www.pexip.com/about/pexip-concern-reporting-process",
-      "final": "https://www.pexip.com/about/pexip-concern-reporting-process",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pexip",
-      "url": "https://investor.pexip.com/about/management-team?hsLang=en",
-      "final": "https://investor.pexip.com/corporate-governance/board-management",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "iress",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "iress",
-      "url": "https://iress.com",
-      "final": "https://www.iress.com:443/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "iress",
-      "url": "https://iress.com/about",
-      "final": "https://www.iress.com:443/about/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "iress",
-      "url": "https://iress.com/about-us",
-      "final": "https://iress.com/about-us",
-      "reason": "404"
-    },
-    {
-      "slug": "iress",
-      "url": "https://iress.com/about/company",
-      "final": "https://iress.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "iress",
-      "url": "https://iress.com/about/us",
-      "final": "https://iress.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "iress",
-      "url": "https://iress.com/company",
-      "final": "https://iress.com/company",
-      "reason": "404"
-    },
-    {
-      "slug": "iress",
-      "url": "https://iress.com/company/about",
-      "final": "https://iress.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "iress",
-      "url": "https://iress.com/company/our-story",
-      "final": "https://iress.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "iress",
-      "url": "https://iress.com/our-story",
-      "final": "https://iress.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "iress",
-      "url": "https://iress.com/our-company",
-      "final": "https://iress.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "iress",
-      "url": "https://iress.com/who-we-are",
-      "final": "https://iress.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "iress",
-      "url": "https://iress.com/about/our-story",
-      "final": "https://iress.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "iress",
-      "url": "https://iress.com/en/about",
-      "final": "https://iress.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "iress",
-      "url": "https://iress.com/en/company",
-      "final": "https://iress.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "iress",
-      "url": "https://iress.com/press",
-      "final": "https://iress.com/press",
-      "reason": "404"
-    },
-    {
-      "slug": "iress",
-      "url": "https://iress.com/newsroom",
-      "final": "https://iress.com/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "iress",
-      "url": "https://iress.com/company/press",
-      "final": "https://iress.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "iress",
-      "url": "https://www.iress.com:443/about/about-us/",
-      "final": "https://www.iress.com:443/about/about-us/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "iress",
-      "url": "https://www.iress.com:443/about/our-approach-to-environment-social-governance-esg/",
-      "final": "https://www.iress.com:443/about/our-approach-to-environment-social-governance-esg/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "iress",
-      "url": "https://www.iress.com:443/about/investors/",
-      "final": "https://www.iress.com:443/about/investors/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "iress",
-      "url": "https://www.iress.com:443/about/media-centre/",
-      "final": "https://www.iress.com:443/about/media-centre/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "iress",
-      "url": "https://www.iress.com:443/about/",
-      "final": "https://www.iress.com:443/about/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "iress",
-      "url": "https://www.iress.com:443/about/our-approach-to-environment-social-governance-esg/environmental/",
-      "final": "https://www.iress.com:443/about/our-approach-to-environment-social-governance-esg/environmental/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "rekor-systems",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "rekor-systems",
-      "url": "https://rekor.ai",
-      "final": "https://www.rekor.ai/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "rekor-systems",
-      "url": "https://rekor.ai/about",
-      "final": "https://www.rekor.ai/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "rekor-systems",
-      "url": "https://rekor.ai/about-us",
-      "final": "https://www.rekor.ai/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "rekor-systems",
-      "url": "https://rekor.ai/about/company",
-      "final": "https://rekor.ai/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "rekor-systems",
-      "url": "https://rekor.ai/about/us",
-      "final": "https://rekor.ai/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "rekor-systems",
-      "url": "https://rekor.ai/company",
-      "final": "https://rekor.ai/company",
-      "reason": "404"
-    },
-    {
-      "slug": "rekor-systems",
-      "url": "https://rekor.ai/company/about",
-      "final": "https://rekor.ai/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "rekor-systems",
-      "url": "https://rekor.ai/company/our-story",
-      "final": "https://rekor.ai/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "rekor-systems",
-      "url": "https://rekor.ai/our-story",
-      "final": "https://rekor.ai/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "rekor-systems",
-      "url": "https://rekor.ai/our-company",
-      "final": "https://rekor.ai/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "rekor-systems",
-      "url": "https://rekor.ai/who-we-are",
-      "final": "https://rekor.ai/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "rekor-systems",
-      "url": "https://rekor.ai/about/our-story",
-      "final": "https://rekor.ai/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "rekor-systems",
-      "url": "https://rekor.ai/en/about",
-      "final": "https://rekor.ai/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "rekor-systems",
-      "url": "https://rekor.ai/en/company",
-      "final": "https://rekor.ai/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "rekor-systems",
-      "url": "https://rekor.ai/press",
-      "final": "https://rekor.ai/press",
-      "reason": "404"
-    },
-    {
-      "slug": "rekor-systems",
-      "url": "https://rekor.ai/newsroom",
-      "final": "https://www.rekor.ai/blog",
-      "reason": "not-official"
-    },
-    {
-      "slug": "rekor-systems",
-      "url": "https://rekor.ai/company/press",
-      "final": "https://rekor.ai/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "rekor-systems",
-      "url": "https://www.rekor.ai/about",
-      "final": "https://www.rekor.ai/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "resmed",
-      "url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "final": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "reason": "prefix-match"
-    },
-    {
-      "slug": "resmed",
-      "url": "https://resmed.com",
-      "final": "https://resmed.com",
-      "reason": "http-403"
-    },
-    {
-      "slug": "resmed",
-      "url": "https://resmed.com/about",
-      "final": "https://resmed.com/about",
-      "reason": "http-403"
-    },
-    {
-      "slug": "resmed",
-      "url": "https://resmed.com/about-us",
-      "final": "https://resmed.com/about-us",
-      "reason": "http-403"
-    },
-    {
-      "slug": "resmed",
-      "url": "https://resmed.com/about/company",
-      "final": "https://resmed.com/about/company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "resmed",
-      "url": "https://resmed.com/about/us",
-      "final": "https://resmed.com/about/us",
-      "reason": "http-403"
-    },
-    {
-      "slug": "resmed",
-      "url": "https://resmed.com/company",
-      "final": "https://resmed.com/company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "resmed",
-      "url": "https://resmed.com/company/about",
-      "final": "https://resmed.com/company/about",
-      "reason": "http-403"
-    },
-    {
-      "slug": "resmed",
-      "url": "https://resmed.com/company/our-story",
-      "final": "https://resmed.com/company/our-story",
-      "reason": "http-403"
-    },
-    {
-      "slug": "resmed",
-      "url": "https://resmed.com/our-story",
-      "final": "https://resmed.com/our-story",
-      "reason": "http-403"
-    },
-    {
-      "slug": "resmed",
-      "url": "https://resmed.com/our-company",
-      "final": "https://resmed.com/our-company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "resmed",
-      "url": "https://resmed.com/who-we-are",
-      "final": "https://resmed.com/who-we-are",
-      "reason": "http-403"
-    },
-    {
-      "slug": "resmed",
-      "url": "https://resmed.com/about/our-story",
-      "final": "https://resmed.com/about/our-story",
-      "reason": "http-403"
-    },
-    {
-      "slug": "resmed",
-      "url": "https://resmed.com/en/about",
-      "final": "https://resmed.com/en/about",
-      "reason": "http-403"
-    },
-    {
-      "slug": "resmed",
-      "url": "https://resmed.com/en/company",
-      "final": "https://resmed.com/en/company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "resmed",
-      "url": "https://resmed.com/press",
-      "final": "https://resmed.com/press",
-      "reason": "http-403"
-    },
-    {
-      "slug": "resmed",
-      "url": "https://resmed.com/newsroom",
-      "final": "https://resmed.com/newsroom",
-      "reason": "http-403"
-    },
-    {
-      "slug": "resmed",
-      "url": "https://resmed.com/company/press",
-      "final": "https://resmed.com/company/press",
-      "reason": "http-403"
-    },
-    {
-      "slug": "t-mobile-us",
-      "url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "final": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "reason": "prefix-match"
-    },
-    {
-      "slug": "t-mobile-us",
-      "url": "https://t-mobile.com",
-      "final": "https://t-mobile.com",
-      "reason": "http-403"
-    },
-    {
-      "slug": "t-mobile-us",
-      "url": "https://t-mobile.com/about",
-      "final": "https://t-mobile.com/about",
-      "reason": "http-403"
-    },
-    {
-      "slug": "t-mobile-us",
-      "url": "https://t-mobile.com/about-us",
-      "final": "https://t-mobile.com/about-us",
-      "reason": "http-403"
-    },
-    {
-      "slug": "t-mobile-us",
-      "url": "https://t-mobile.com/about/company",
-      "final": "https://t-mobile.com/about/company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "t-mobile-us",
-      "url": "https://t-mobile.com/about/us",
-      "final": "https://t-mobile.com/about/us",
-      "reason": "http-403"
-    },
-    {
-      "slug": "t-mobile-us",
-      "url": "https://t-mobile.com/company",
-      "final": "https://t-mobile.com/company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "t-mobile-us",
-      "url": "https://t-mobile.com/company/about",
-      "final": "https://t-mobile.com/company/about",
-      "reason": "http-403"
-    },
-    {
-      "slug": "t-mobile-us",
-      "url": "https://t-mobile.com/company/our-story",
-      "final": "https://t-mobile.com/company/our-story",
-      "reason": "http-403"
-    },
-    {
-      "slug": "t-mobile-us",
-      "url": "https://t-mobile.com/our-story",
-      "final": "https://t-mobile.com/our-story",
-      "reason": "http-403"
-    },
-    {
-      "slug": "t-mobile-us",
-      "url": "https://t-mobile.com/our-company",
-      "final": "https://t-mobile.com/our-company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "t-mobile-us",
-      "url": "https://t-mobile.com/who-we-are",
-      "final": "https://t-mobile.com/who-we-are",
-      "reason": "http-403"
-    },
-    {
-      "slug": "t-mobile-us",
-      "url": "https://t-mobile.com/about/our-story",
-      "final": "https://t-mobile.com/about/our-story",
-      "reason": "http-403"
-    },
-    {
-      "slug": "t-mobile-us",
-      "url": "https://t-mobile.com/en/about",
-      "final": "https://t-mobile.com/en/about",
-      "reason": "http-403"
-    },
-    {
-      "slug": "t-mobile-us",
-      "url": "https://t-mobile.com/en/company",
-      "final": "https://t-mobile.com/en/company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "t-mobile-us",
-      "url": "https://t-mobile.com/press",
-      "final": "https://t-mobile.com/press",
-      "reason": "http-403"
-    },
-    {
-      "slug": "t-mobile-us",
-      "url": "https://t-mobile.com/newsroom",
-      "final": "https://t-mobile.com/newsroom",
-      "reason": "http-403"
-    },
-    {
-      "slug": "t-mobile-us",
-      "url": "https://t-mobile.com/company/press",
-      "final": "https://t-mobile.com/company/press",
-      "reason": "http-403"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "final": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "reason": "prefix-match"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://seagate.com",
-      "final": "https://www.seagate.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://seagate.com/about",
-      "final": "https://www.seagate.com/our-story/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://seagate.com/about-us",
-      "final": "https://seagate.com/about-us",
-      "reason": "404"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://seagate.com/about/company",
-      "final": "https://seagate.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://seagate.com/about/us",
-      "final": "https://seagate.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://seagate.com/company",
-      "final": "https://seagate.com/company",
-      "reason": "404"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://seagate.com/company/about",
-      "final": "https://seagate.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://seagate.com/company/our-story",
-      "final": "https://seagate.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://seagate.com/our-story",
-      "final": "https://www.seagate.com/our-story/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://seagate.com/our-company",
-      "final": "https://seagate.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://seagate.com/who-we-are",
-      "final": "https://seagate.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://seagate.com/about/our-story",
-      "final": "https://seagate.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://seagate.com/en/about",
-      "final": "https://seagate.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://seagate.com/en/company",
-      "final": "https://seagate.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://seagate.com/press",
-      "final": "https://seagate.com/press",
-      "reason": "404"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://seagate.com/newsroom",
-      "final": "https://www.seagate.com/stories/articles/press-releases/",
-      "reason": "news"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://seagate.com/company/press",
-      "final": "https://seagate.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://www.seagate.com/our-story/",
-      "final": "https://www.seagate.com/our-story/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://www.seagate.com/our-story/product-quality-assurance/",
-      "final": "https://www.seagate.com/our-story/product-quality-assurance/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://www.seagate.com/ca/en/our-story/",
-      "final": "https://www.seagate.com/ca/en/our-story/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://www.seagate.com/in/en/our-story/",
-      "final": "https://www.seagate.com/in/en/our-story/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://www.seagate.com/em/en/our-story/",
-      "final": "https://www.seagate.com/em/en/our-story/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "seagate-technology",
-      "url": "https://www.seagate.com/be/nl/our-story/",
-      "final": "https://www.seagate.com/be/nl/our-story/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "toast",
-      "url": "https://en.wikipedia.org/wiki/Toast,_Inc.",
-      "final": "https://en.wikipedia.org/wiki/Toast,_Inc.",
-      "reason": "wikipedia"
-    },
-    {
-      "slug": "toast",
-      "url": "https://toasttab.com",
-      "final": "https://toasttab.com",
-      "reason": "http-403"
-    },
-    {
-      "slug": "toast",
-      "url": "https://toasttab.com/about",
-      "final": "https://toasttab.com/about",
-      "reason": "http-403"
-    },
-    {
-      "slug": "toast",
-      "url": "https://toasttab.com/about-us",
-      "final": "https://toasttab.com/about-us",
-      "reason": "http-403"
-    },
-    {
-      "slug": "toast",
-      "url": "https://toasttab.com/about/company",
-      "final": "https://toasttab.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "toast",
-      "url": "https://toasttab.com/about/us",
-      "final": "https://toasttab.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "toast",
-      "url": "https://toasttab.com/company",
-      "final": "https://toasttab.com/company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "toast",
-      "url": "https://toasttab.com/company/about",
-      "final": "https://toasttab.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "toast",
-      "url": "https://toasttab.com/company/our-story",
-      "final": "https://toasttab.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "toast",
-      "url": "https://toasttab.com/our-story",
-      "final": "https://toasttab.com/our-story",
-      "reason": "http-403"
-    },
-    {
-      "slug": "toast",
-      "url": "https://toasttab.com/our-company",
-      "final": "https://toasttab.com/our-company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "toast",
-      "url": "https://toasttab.com/who-we-are",
-      "final": "https://toasttab.com/who-we-are",
-      "reason": "http-403"
-    },
-    {
-      "slug": "toast",
-      "url": "https://toasttab.com/about/our-story",
-      "final": "https://toasttab.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "toast",
-      "url": "https://toasttab.com/en/about",
-      "final": "https://toasttab.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "toast",
-      "url": "https://toasttab.com/en/company",
-      "final": "https://toasttab.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "toast",
-      "url": "https://toasttab.com/press",
-      "final": "https://toasttab.com/press",
-      "reason": "http-403"
-    },
-    {
-      "slug": "toast",
-      "url": "https://toasttab.com/newsroom",
-      "final": "https://toasttab.com/newsroom",
-      "reason": "http-403"
-    },
-    {
-      "slug": "toast",
-      "url": "https://toasttab.com/company/press",
-      "final": "https://toasttab.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "servicetitan",
-      "url": "https://cloudindex.bvp.com/companies",
-      "final": "https://cloudindex.bvp.com/companies",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "servicetitan",
-      "url": "https://servicetitan.com",
-      "final": "https://www.servicetitan.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "servicetitan",
-      "url": "https://servicetitan.com/about",
-      "final": "https://www.servicetitan.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "servicetitan",
-      "url": "https://servicetitan.com/about-us",
-      "final": "https://www.servicetitan.com/company",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "servicetitan",
-      "url": "https://servicetitan.com/about/company",
-      "final": "https://servicetitan.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "servicetitan",
-      "url": "https://servicetitan.com/about/us",
-      "final": "https://servicetitan.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "servicetitan",
-      "url": "https://servicetitan.com/company",
-      "final": "https://www.servicetitan.com/company",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "servicetitan",
-      "url": "https://servicetitan.com/company/about",
-      "final": "https://servicetitan.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "servicetitan",
-      "url": "https://servicetitan.com/company/our-story",
-      "final": "https://servicetitan.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "servicetitan",
-      "url": "https://servicetitan.com/our-story",
-      "final": "https://servicetitan.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "servicetitan",
-      "url": "https://servicetitan.com/our-company",
-      "final": "https://servicetitan.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "servicetitan",
-      "url": "https://servicetitan.com/who-we-are",
-      "final": "https://servicetitan.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "servicetitan",
-      "url": "https://servicetitan.com/about/our-story",
-      "final": "https://servicetitan.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "servicetitan",
-      "url": "https://servicetitan.com/en/about",
-      "final": "https://servicetitan.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "servicetitan",
-      "url": "https://servicetitan.com/en/company",
-      "final": "https://servicetitan.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "servicetitan",
-      "url": "https://servicetitan.com/press",
-      "final": "https://www.servicetitan.com/press",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "servicetitan",
-      "url": "https://servicetitan.com/newsroom",
-      "final": "https://servicetitan.com/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "servicetitan",
-      "url": "https://servicetitan.com/company/press",
-      "final": "https://servicetitan.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "usio",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "usio",
-      "url": "https://usio.com",
-      "final": "https://usio.com",
-      "reason": "http-403"
-    },
-    {
-      "slug": "usio",
-      "url": "https://usio.com/about",
-      "final": "https://usio.com/about",
-      "reason": "http-403"
-    },
-    {
-      "slug": "usio",
-      "url": "https://usio.com/about-us",
-      "final": "https://usio.com/about-us",
-      "reason": "http-403"
-    },
-    {
-      "slug": "usio",
-      "url": "https://usio.com/about/company",
-      "final": "https://usio.com/about/company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "usio",
-      "url": "https://usio.com/about/us",
-      "final": "https://usio.com/about/us",
-      "reason": "http-403"
-    },
-    {
-      "slug": "usio",
-      "url": "https://usio.com/company",
-      "final": "https://usio.com/company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "usio",
-      "url": "https://usio.com/company/about",
-      "final": "https://usio.com/company/about",
-      "reason": "http-403"
-    },
-    {
-      "slug": "usio",
-      "url": "https://usio.com/company/our-story",
-      "final": "https://usio.com/company/our-story",
-      "reason": "http-403"
-    },
-    {
-      "slug": "usio",
-      "url": "https://usio.com/our-story",
-      "final": "https://usio.com/our-story",
-      "reason": "http-403"
-    },
-    {
-      "slug": "usio",
-      "url": "https://usio.com/our-company",
-      "final": "https://usio.com/our-company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "usio",
-      "url": "https://usio.com/who-we-are",
-      "final": "https://usio.com/who-we-are",
-      "reason": "http-403"
-    },
-    {
-      "slug": "usio",
-      "url": "https://usio.com/about/our-story",
-      "final": "https://usio.com/about/our-story",
-      "reason": "http-403"
-    },
-    {
-      "slug": "usio",
-      "url": "https://usio.com/en/about",
-      "final": "https://usio.com/en/about",
-      "reason": "http-403"
-    },
-    {
-      "slug": "usio",
-      "url": "https://usio.com/en/company",
-      "final": "https://usio.com/en/company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "usio",
-      "url": "https://usio.com/press",
-      "final": "https://usio.com/press",
-      "reason": "http-403"
-    },
-    {
-      "slug": "usio",
-      "url": "https://usio.com/newsroom",
-      "final": "https://usio.com/newsroom",
-      "reason": "http-403"
-    },
-    {
-      "slug": "usio",
-      "url": "https://usio.com/company/press",
-      "final": "https://usio.com/company/press",
-      "reason": "http-403"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "final": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "reason": "prefix-match"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://stryker.com",
-      "final": "https://www.stryker.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://stryker.com/about",
-      "final": "https://www.stryker.com/us/en/about.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://stryker.com/about-us",
-      "final": "https://www.stryker.com/us/en/about.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://stryker.com/about/company",
-      "final": "https://www.stryker.com/us/en/about.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://stryker.com/about/us",
-      "final": "https://www.stryker.com/us/en/about.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://stryker.com/company",
-      "final": "https://stryker.com/company",
-      "reason": "404"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://stryker.com/company/about",
-      "final": "https://stryker.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://stryker.com/company/our-story",
-      "final": "https://stryker.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://stryker.com/our-story",
-      "final": "https://stryker.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://stryker.com/our-company",
-      "final": "https://stryker.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://stryker.com/who-we-are",
-      "final": "https://stryker.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://stryker.com/about/our-story",
-      "final": "https://www.stryker.com/us/en/about.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://stryker.com/en/about",
-      "final": "https://stryker.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://stryker.com/en/company",
-      "final": "https://stryker.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://stryker.com/press",
-      "final": "https://stryker.com/press",
-      "reason": "404"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://stryker.com/newsroom",
-      "final": "https://www.stryker.com/us/en/about/news/index.html",
-      "reason": "news"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://stryker.com/company/press",
-      "final": "https://stryker.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://www.stryker.com/us/en/about/contact.html",
-      "final": "https://www.stryker.com/us/en/about/contact.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://www.stryker.com/us/en/about/annual-review.html",
-      "final": "https://www.stryker.com/us/en/about/annual-review/2024.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://www.stryker.com/us/en/about/our-culture.html",
-      "final": "https://www.stryker.com/us/en/about/our-culture.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://www.stryker.com/us/en/about/history.html",
-      "final": "https://www.stryker.com/us/en/about/history.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://www.stryker.com/us/en/about/our-board-of-directors.html",
-      "final": "https://www.stryker.com/us/en/about/our-board-of-directors.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "stryker-corporation",
-      "url": "https://www.stryker.com/us/en/about/our-management.html",
-      "final": "https://www.stryker.com/us/en/about/our-management.html",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "sage",
-      "url": "https://en.wikipedia.org/wiki/Sage_Group",
-      "final": "https://en.wikipedia.org/wiki/Sage_Group",
-      "reason": "prefix-match"
-    },
-    {
-      "slug": "sage",
-      "url": "https://sage.com",
-      "final": "https://sage.com",
-      "reason": "http-403"
-    },
-    {
-      "slug": "sage",
-      "url": "https://sage.com/about",
-      "final": "https://sage.com/about",
-      "reason": "http-403"
-    },
-    {
-      "slug": "sage",
-      "url": "https://sage.com/about-us",
-      "final": "https://sage.com/about-us",
-      "reason": "http-403"
-    },
-    {
-      "slug": "sage",
-      "url": "https://sage.com/about/company",
-      "final": "https://sage.com/about/company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "sage",
-      "url": "https://sage.com/about/us",
-      "final": "https://sage.com/about/us",
-      "reason": "http-403"
-    },
-    {
-      "slug": "sage",
-      "url": "https://sage.com/company",
-      "final": "https://sage.com/company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "sage",
-      "url": "https://sage.com/company/about",
-      "final": "https://sage.com/company/about",
-      "reason": "http-403"
-    },
-    {
-      "slug": "sage",
-      "url": "https://sage.com/company/our-story",
-      "final": "https://sage.com/company/our-story",
-      "reason": "http-403"
-    },
-    {
-      "slug": "sage",
-      "url": "https://sage.com/our-story",
-      "final": "https://sage.com/our-story",
-      "reason": "http-403"
-    },
-    {
-      "slug": "sage",
-      "url": "https://sage.com/our-company",
-      "final": "https://sage.com/our-company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "sage",
-      "url": "https://sage.com/who-we-are",
-      "final": "https://sage.com/who-we-are",
-      "reason": "http-403"
-    },
-    {
-      "slug": "sage",
-      "url": "https://sage.com/about/our-story",
-      "final": "https://sage.com/about/our-story",
-      "reason": "http-403"
-    },
-    {
-      "slug": "sage",
-      "url": "https://sage.com/en/about",
-      "final": "https://sage.com/en/about",
-      "reason": "http-403"
-    },
-    {
-      "slug": "sage",
-      "url": "https://sage.com/en/company",
-      "final": "https://sage.com/en/company",
-      "reason": "http-403"
-    },
-    {
-      "slug": "sage",
-      "url": "https://sage.com/press",
-      "final": "https://sage.com/press",
-      "reason": "http-403"
-    },
-    {
-      "slug": "sage",
-      "url": "https://sage.com/newsroom",
-      "final": "https://sage.com/newsroom",
-      "reason": "http-403"
-    },
-    {
-      "slug": "sage",
-      "url": "https://sage.com/company/press",
-      "final": "https://sage.com/company/press",
-      "reason": "http-403"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://vtex.com",
-      "final": "https://www.vtex.com/en-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://vtex.com/about",
-      "final": "https://www.vtex.com/en-us/about-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://vtex.com/about-us",
-      "final": "https://www.vtex.com/en-us/about-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://vtex.com/about/company",
-      "final": "https://vtex.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://vtex.com/about/us",
-      "final": "https://vtex.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://vtex.com/company",
-      "final": "https://vtex.com/company",
-      "reason": "404"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://vtex.com/company/about",
-      "final": "https://vtex.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://vtex.com/company/our-story",
-      "final": "https://vtex.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://vtex.com/our-story",
-      "final": "https://vtex.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://vtex.com/our-company",
-      "final": "https://vtex.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://vtex.com/who-we-are",
-      "final": "https://vtex.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://vtex.com/about/our-story",
-      "final": "https://vtex.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://vtex.com/en/about",
-      "final": "https://vtex.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://vtex.com/en/company",
-      "final": "https://vtex.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://vtex.com/press",
-      "final": "https://www.vtex.com/en-us/press",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://vtex.com/newsroom",
-      "final": "https://vtex.com/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://vtex.com/company/press",
-      "final": "https://vtex.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://www.vtex.com/en-us/about-us/",
-      "final": "https://www.vtex.com/en-us/about-us/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://www.vtex.com/en-us/about-us",
-      "final": "https://www.vtex.com/en-us/about-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://www.vtex.com/pt-br/about-us",
-      "final": "https://www.vtex.com/pt-br/about-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://www.vtex.com/es-mx/about-us",
-      "final": "https://www.vtex.com/es-mx/sobre-nosotros/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://www.vtex.com/en-us/press",
-      "final": "https://www.vtex.com/en-us/press",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "vtex",
-      "url": "https://www.vtex.com/pt-br/press",
-      "final": "https://www.vtex.com/pt-br/press",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://www.crn.com/news/security/2026/the-2026-security-100",
-      "final": "https://www.crn.com/news/security/2026/the-2026-security-100",
-      "reason": "news"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://vulncheck.com",
-      "final": "https://www.vulncheck.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://vulncheck.com/about",
-      "final": "https://vulncheck.com/about",
-      "reason": "404"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://vulncheck.com/about-us",
-      "final": "https://vulncheck.com/about-us",
-      "reason": "404"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://vulncheck.com/about/company",
-      "final": "https://vulncheck.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://vulncheck.com/about/us",
-      "final": "https://vulncheck.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://vulncheck.com/company",
-      "final": "https://www.vulncheck.com/company",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://vulncheck.com/company/about",
-      "final": "https://www.vulncheck.com/company/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://vulncheck.com/company/our-story",
-      "final": "https://vulncheck.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://vulncheck.com/our-story",
-      "final": "https://vulncheck.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://vulncheck.com/our-company",
-      "final": "https://vulncheck.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://vulncheck.com/who-we-are",
-      "final": "https://vulncheck.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://vulncheck.com/about/our-story",
-      "final": "https://vulncheck.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://vulncheck.com/en/about",
-      "final": "https://vulncheck.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://vulncheck.com/en/company",
-      "final": "https://vulncheck.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://vulncheck.com/press",
-      "final": "https://www.vulncheck.com/press",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://vulncheck.com/newsroom",
-      "final": "https://vulncheck.com/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://vulncheck.com/company/press",
-      "final": "https://vulncheck.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://www.vulncheck.com/company",
-      "final": "https://www.vulncheck.com/company",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://www.vulncheck.com/press",
-      "final": "https://www.vulncheck.com/press",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "vulncheck",
-      "url": "https://www.vulncheck.com/company/about",
-      "final": "https://www.vulncheck.com/company/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://tribalgroup.com",
-      "final": "https://www.tribalgroup.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://tribalgroup.com/about",
-      "final": "https://tribalgroup.com/about",
-      "reason": "404"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://tribalgroup.com/about-us",
-      "final": "https://www.tribalgroup.com/about-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://tribalgroup.com/about/company",
-      "final": "https://tribalgroup.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://tribalgroup.com/about/us",
-      "final": "https://tribalgroup.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://tribalgroup.com/company",
-      "final": "https://tribalgroup.com/company",
-      "reason": "404"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://tribalgroup.com/company/about",
-      "final": "https://tribalgroup.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://tribalgroup.com/company/our-story",
-      "final": "https://tribalgroup.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://tribalgroup.com/our-story",
-      "final": "https://tribalgroup.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://tribalgroup.com/our-company",
-      "final": "https://tribalgroup.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://tribalgroup.com/who-we-are",
-      "final": "https://tribalgroup.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://tribalgroup.com/about/our-story",
-      "final": "https://tribalgroup.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://tribalgroup.com/en/about",
-      "final": "https://tribalgroup.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://tribalgroup.com/en/company",
-      "final": "https://tribalgroup.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://tribalgroup.com/press",
-      "final": "https://tribalgroup.com/press",
-      "reason": "404"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://tribalgroup.com/newsroom",
-      "final": "https://tribalgroup.com/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://tribalgroup.com/company/press",
-      "final": "https://tribalgroup.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://www.tribalgroup.com/about-us",
-      "final": "https://www.tribalgroup.com/about-us",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "tribal-group",
-      "url": "https://www.tribalgroup.com/about-us/executive-management-team",
-      "final": "https://www.tribalgroup.com/about-us/executive-management-team",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "watchguard",
-      "url": "https://www.crn.com/news/security/2025/the-2025-security-100",
-      "final": "https://www.crn.com/news/security/2025/the-2025-security-100",
-      "reason": "news"
-    },
-    {
-      "slug": "watchguard",
-      "url": "https://watchguard.com",
-      "final": "https://www.watchguard.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "watchguard",
-      "url": "https://watchguard.com/about",
-      "final": "https://www.watchguard.com/wgrd-about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "watchguard",
-      "url": "https://watchguard.com/about-us",
-      "final": "https://watchguard.com/about-us",
-      "reason": "404"
-    },
-    {
-      "slug": "watchguard",
-      "url": "https://watchguard.com/about/company",
-      "final": "https://watchguard.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "watchguard",
-      "url": "https://watchguard.com/about/us",
-      "final": "https://watchguard.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "watchguard",
-      "url": "https://watchguard.com/company",
-      "final": "https://watchguard.com/company",
-      "reason": "404"
-    },
-    {
-      "slug": "watchguard",
-      "url": "https://watchguard.com/company/about",
-      "final": "https://watchguard.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "watchguard",
-      "url": "https://watchguard.com/company/our-story",
-      "final": "https://watchguard.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "watchguard",
-      "url": "https://watchguard.com/our-story",
-      "final": "https://watchguard.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "watchguard",
-      "url": "https://watchguard.com/our-company",
-      "final": "https://watchguard.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "watchguard",
-      "url": "https://watchguard.com/who-we-are",
-      "final": "https://watchguard.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "watchguard",
-      "url": "https://watchguard.com/about/our-story",
-      "final": "https://watchguard.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "watchguard",
-      "url": "https://watchguard.com/en/about",
-      "final": "https://watchguard.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "watchguard",
-      "url": "https://watchguard.com/en/company",
-      "final": "https://watchguard.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "watchguard",
-      "url": "https://watchguard.com/press",
-      "final": "https://watchguard.com/press",
-      "reason": "404"
-    },
-    {
-      "slug": "watchguard",
-      "url": "https://watchguard.com/newsroom",
-      "final": "https://watchguard.com/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "watchguard",
-      "url": "https://watchguard.com/company/press",
-      "final": "https://watchguard.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://withsecure.com",
-      "final": "https://www.withsecure.com/en/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://withsecure.com/about",
-      "final": "https://withsecure.com/about",
-      "reason": "404"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://withsecure.com/about-us",
-      "final": "https://www.withsecure.com/en/about-us/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://withsecure.com/about/company",
-      "final": "https://withsecure.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://withsecure.com/about/us",
-      "final": "https://withsecure.com/about/us",
-      "reason": "404"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://withsecure.com/company",
-      "final": "https://withsecure.com/company",
-      "reason": "404"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://withsecure.com/company/about",
-      "final": "https://withsecure.com/company/about",
-      "reason": "404"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://withsecure.com/company/our-story",
-      "final": "https://withsecure.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://withsecure.com/our-story",
-      "final": "https://withsecure.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://withsecure.com/our-company",
-      "final": "https://withsecure.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://withsecure.com/who-we-are",
-      "final": "https://withsecure.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://withsecure.com/about/our-story",
-      "final": "https://withsecure.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://withsecure.com/en/about",
-      "final": "https://withsecure.com/en/about",
-      "reason": "404"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://withsecure.com/en/company",
-      "final": "https://withsecure.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://withsecure.com/press",
-      "final": "https://withsecure.com/press",
-      "reason": "404"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://withsecure.com/newsroom",
-      "final": "https://withsecure.com/newsroom",
-      "reason": "404"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://withsecure.com/company/press",
-      "final": "https://withsecure.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://www.withsecure.com/en/about-us/",
-      "final": "https://www.withsecure.com/en/about-us/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://www.withsecure.com/en/about-us/our-leadership/",
-      "final": "https://www.withsecure.com/en/about-us/our-leadership/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://www.withsecure.com/en/about-us/company-contacts-offices/",
-      "final": "https://www.withsecure.com/en/about-us/company-contacts-offices/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://www.withsecure.com/en/about-us/museum-of-malware-art/",
-      "final": "https://www.withsecure.com/en/about-us/museum-of-malware-art/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://www.withsecure.com/en/about-us/achievements-certification/",
-      "final": "https://www.withsecure.com/en/about-us/achievements-certification/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "withsecure",
-      "url": "https://www.withsecure.com/en/about-us/sustainability/",
-      "final": "https://www.withsecure.com/en/about-us/sustainability/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pulsar-group",
-      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "reason": "website-mismatch"
-    },
-    {
-      "slug": "pulsar-group",
-      "url": "https://pulsarplatform.com",
-      "final": "https://www.pulsarplatform.com/",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pulsar-group",
-      "url": "https://pulsarplatform.com/about",
-      "final": "https://www.pulsarplatform.com/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pulsar-group",
-      "url": "https://pulsarplatform.com/about-us",
-      "final": "https://pulsarplatform.com/about-us",
-      "reason": "404"
-    },
-    {
-      "slug": "pulsar-group",
-      "url": "https://pulsarplatform.com/about/company",
-      "final": "https://pulsarplatform.com/about/company",
-      "reason": "404"
-    },
-    {
-      "slug": "pulsar-group",
-      "url": "https://pulsarplatform.com/about/us",
-      "final": "https://www.pulsarplatform.com/blog/2020/us-higher-education-ivy-brands-reputation",
-      "reason": "news"
-    },
-    {
-      "slug": "pulsar-group",
-      "url": "https://pulsarplatform.com/company",
-      "final": "https://pulsarplatform.com/company",
-      "reason": "404"
-    },
-    {
-      "slug": "pulsar-group",
-      "url": "https://pulsarplatform.com/company/about",
-      "final": "https://www.pulsarplatform.com/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pulsar-group",
-      "url": "https://pulsarplatform.com/company/our-story",
-      "final": "https://pulsarplatform.com/company/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "pulsar-group",
-      "url": "https://pulsarplatform.com/our-story",
-      "final": "https://pulsarplatform.com/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "pulsar-group",
-      "url": "https://pulsarplatform.com/our-company",
-      "final": "https://pulsarplatform.com/our-company",
-      "reason": "404"
-    },
-    {
-      "slug": "pulsar-group",
-      "url": "https://pulsarplatform.com/who-we-are",
-      "final": "https://pulsarplatform.com/who-we-are",
-      "reason": "404"
-    },
-    {
-      "slug": "pulsar-group",
-      "url": "https://pulsarplatform.com/about/our-story",
-      "final": "https://pulsarplatform.com/about/our-story",
-      "reason": "404"
-    },
-    {
-      "slug": "pulsar-group",
-      "url": "https://pulsarplatform.com/en/about",
-      "final": "https://www.pulsarplatform.com/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pulsar-group",
-      "url": "https://pulsarplatform.com/en/company",
-      "final": "https://pulsarplatform.com/en/company",
-      "reason": "404"
-    },
-    {
-      "slug": "pulsar-group",
-      "url": "https://pulsarplatform.com/press",
-      "final": "https://pulsarplatform.com/press",
-      "reason": "404"
-    },
-    {
-      "slug": "pulsar-group",
-      "url": "https://pulsarplatform.com/newsroom",
-      "final": "https://www.pulsarplatform.com/newsroom-press-partnerships",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "pulsar-group",
-      "url": "https://pulsarplatform.com/company/press",
-      "final": "https://pulsarplatform.com/company/press",
-      "reason": "404"
-    },
-    {
-      "slug": "pulsar-group",
-      "url": "https://www.pulsarplatform.com/about",
-      "final": "https://www.pulsarplatform.com/about",
-      "reason": "no-founded-sentence"
-    },
-    {
-      "slug": "kwai",
+      "slug": "craigslist",
       "url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
       "final": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
       "reason": "prefix-match"
     },
     {
-      "slug": "kwai",
-      "url": "https://kuaishou.com",
-      "final": "https://www.kuaishou.com/",
+      "slug": "craigslist",
+      "url": "https://craigslist.org",
+      "final": "https://www.craigslist.org/area/frederick",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "kwai",
-      "url": "https://kuaishou.com/about",
-      "final": "https://kuaishou.com/about",
-      "reason": "http-0"
+      "slug": "craigslist",
+      "url": "https://craigslist.org/about",
+      "final": "https://www.craigslist.org/about/",
+      "reason": "no-founded-sentence"
     },
     {
-      "slug": "kwai",
-      "url": "https://kuaishou.com/about-us",
-      "final": "https://kuaishou.com/about-us",
-      "reason": "http-0"
+      "slug": "craigslist",
+      "url": "https://craigslist.org/about-us",
+      "final": "https://www.craigslist.org/about/help/",
+      "reason": "no-founded-sentence"
     },
     {
-      "slug": "kwai",
-      "url": "https://kuaishou.com/about/company",
-      "final": "https://kuaishou.com/about/company",
-      "reason": "http-0"
+      "slug": "craigslist",
+      "url": "https://craigslist.org/about/company",
+      "final": "https://www.craigslist.org/about/help/",
+      "reason": "no-founded-sentence"
     },
     {
-      "slug": "kwai",
-      "url": "https://kuaishou.com/about/us",
-      "final": "https://kuaishou.com/about/us",
+      "slug": "craigslist",
+      "url": "https://craigslist.org/about/us",
+      "final": "https://www.craigslist.org/about/help/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "craigslist",
+      "url": "https://craigslist.org/company",
+      "final": "https://craigslist.org/company",
       "reason": "404"
     },
     {
-      "slug": "kwai",
-      "url": "https://kuaishou.com/company",
-      "final": "https://www.kuaishou.com/404",
+      "slug": "craigslist",
+      "url": "https://craigslist.org/company/about",
+      "final": "https://craigslist.org/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "craigslist",
+      "url": "https://craigslist.org/company/our-story",
+      "final": "https://craigslist.org/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "craigslist",
+      "url": "https://craigslist.org/our-story",
+      "final": "https://craigslist.org/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "craigslist",
+      "url": "https://craigslist.org/our-company",
+      "final": "https://craigslist.org/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "craigslist",
+      "url": "https://craigslist.org/who-we-are",
+      "final": "https://craigslist.org/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "craigslist",
+      "url": "https://craigslist.org/about/our-story",
+      "final": "https://www.craigslist.org/about/help/",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "kwai",
-      "url": "https://kuaishou.com/company/about",
-      "final": "https://kuaishou.com/company/about",
-      "reason": "http-0"
+      "slug": "craigslist",
+      "url": "https://craigslist.org/en/about",
+      "final": "https://craigslist.org/en/about",
+      "reason": "404"
     },
     {
-      "slug": "kwai",
-      "url": "https://kuaishou.com/company/our-story",
-      "final": "https://kuaishou.com/company/our-story",
-      "reason": "http-0"
+      "slug": "craigslist",
+      "url": "https://craigslist.org/en/company",
+      "final": "https://craigslist.org/en/company",
+      "reason": "404"
     },
     {
-      "slug": "kwai",
-      "url": "https://kuaishou.com/our-story",
-      "final": "https://www.kuaishou.com/404",
+      "slug": "craigslist",
+      "url": "https://craigslist.org/press",
+      "final": "https://craigslist.org/press",
+      "reason": "404"
+    },
+    {
+      "slug": "craigslist",
+      "url": "https://craigslist.org/newsroom",
+      "final": "https://craigslist.org/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "craigslist",
+      "url": "https://craigslist.org/company/press",
+      "final": "https://craigslist.org/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "craigslist",
+      "url": "https://www.craigslist.org/about/sites",
+      "final": "https://www.craigslist.org/about/sites",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "kwai",
-      "url": "https://kuaishou.com/our-company",
-      "final": "https://kuaishou.com/our-company",
-      "reason": "http-0"
-    },
-    {
-      "slug": "kwai",
-      "url": "https://kuaishou.com/who-we-are",
-      "final": "https://www.kuaishou.com/404",
+      "slug": "craigslist",
+      "url": "https://www.craigslist.org/about/help/",
+      "final": "https://www.craigslist.org/about/help/",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "kwai",
-      "url": "https://kuaishou.com/about/our-story",
-      "final": "https://kuaishou.com/about/our-story",
-      "reason": "http-0"
-    },
-    {
-      "slug": "kwai",
-      "url": "https://kuaishou.com/en/about",
-      "final": "https://www.kuaishou.com/en/about",
+      "slug": "craigslist",
+      "url": "https://www.craigslist.org/about/help/safety/scams",
+      "final": "https://www.craigslist.org/about/help/safety/scams/",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "kwai",
-      "url": "https://kuaishou.com/en/company",
-      "final": "https://www.kuaishou.com/en/company",
+      "slug": "craigslist",
+      "url": "https://www.craigslist.org/about/help/safety",
+      "final": "https://www.craigslist.org/about/help/safety/",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "kwai",
-      "url": "https://kuaishou.com/press",
-      "final": "https://kuaishou.com/press",
-      "reason": "http-0"
-    },
-    {
-      "slug": "kwai",
-      "url": "https://kuaishou.com/newsroom",
-      "final": "https://www.kuaishou.com/404",
+      "slug": "craigslist",
+      "url": "https://www.craigslist.org/about/",
+      "final": "https://www.craigslist.org/about/",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "kwai",
-      "url": "https://kuaishou.com/company/press",
-      "final": "https://www.kuaishou.com/404",
+      "slug": "craigslist",
+      "url": "https://www.craigslist.org/about/best/all/",
+      "final": "https://www.craigslist.org/about/best/all/",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "baxter-international",
-      "url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "final": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+      "slug": "walmart",
+      "url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
+      "final": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
       "reason": "prefix-match"
     },
     {
-      "slug": "baxter-international",
-      "url": "https://baxter.com",
-      "final": "https://www.baxter.com/",
+      "slug": "walmart",
+      "url": "https://walmart.com",
+      "final": "https://www.walmart.com/",
       "reason": "no-founded-sentence"
     },
     {
-      "slug": "baxter-international",
-      "url": "https://baxter.com/about",
-      "final": "https://baxter.com/about",
-      "reason": "http-0"
+      "slug": "walmart",
+      "url": "https://walmart.com/about",
+      "final": "https://walmart.com/about",
+      "reason": "404"
     },
     {
-      "slug": "baxter-international",
-      "url": "https://baxter.com/about-us",
-      "final": "https://baxter.com/about-us",
-      "reason": "http-0"
+      "slug": "walmart",
+      "url": "https://walmart.com/about-us",
+      "final": "https://www.walmart.com/blocked?url=L2Fib3V0LXVz&uuid=4c71ab86-a0be-11f1-8fdc-c5e01283d326&vid=&g=b",
+      "reason": "no-founded-sentence"
     },
     {
-      "slug": "baxter-international",
-      "url": "https://baxter.com/about/company",
-      "final": "https://baxter.com/about/company",
-      "reason": "http-0"
+      "slug": "walmart",
+      "url": "https://walmart.com/about/company",
+      "final": "https://www.walmart.com/blocked?url=L2Fib3V0L2NvbXBhbnk=&uuid=4c9906ee-a0be-11f1-8a09-68da4e83e24a&vid=&g=b",
+      "reason": "no-founded-sentence"
     },
     {
-      "slug": "baxter-international",
-      "url": "https://baxter.com/about/us",
-      "final": "https://baxter.com/about/us",
-      "reason": "http-0"
+      "slug": "walmart",
+      "url": "https://walmart.com/about/us",
+      "final": "https://walmart.com/about/us",
+      "reason": "404"
     },
     {
-      "slug": "baxter-international",
-      "url": "https://baxter.com/company",
-      "final": "https://baxter.com/company",
-      "reason": "http-0"
+      "slug": "walmart",
+      "url": "https://walmart.com/company",
+      "final": "https://www.walmart.com/blocked?url=L2NvbXBhbnk=&uuid=4cd2bea9-a0be-11f1-98a4-3cd9f4f754ec&vid=&g=b",
+      "reason": "no-founded-sentence"
     },
     {
-      "slug": "baxter-international",
-      "url": "https://baxter.com/company/about",
-      "final": "https://baxter.com/company/about",
-      "reason": "http-0"
+      "slug": "walmart",
+      "url": "https://walmart.com/company/about",
+      "final": "https://www.walmart.com/blocked?url=L2NvbXBhbnkvYWJvdXQ=&uuid=4d0a9650-a0be-11f1-91cf-c5e01283d326&vid=&g=b",
+      "reason": "no-founded-sentence"
     },
     {
-      "slug": "baxter-international",
-      "url": "https://baxter.com/company/our-story",
-      "final": "https://baxter.com/company/our-story",
-      "reason": "http-0"
+      "slug": "walmart",
+      "url": "https://walmart.com/company/our-story",
+      "final": "https://www.walmart.com/blocked?url=L2NvbXBhbnkvb3VyLXN0b3J5&uuid=4d2f0bc5-a0be-11f1-8001-89be09bc9267&vid=&g=b",
+      "reason": "no-founded-sentence"
     },
     {
-      "slug": "baxter-international",
-      "url": "https://baxter.com/our-story",
-      "final": "https://baxter.com/our-story",
-      "reason": "http-0"
+      "slug": "walmart",
+      "url": "https://walmart.com/our-story",
+      "final": "https://www.walmart.com/blocked?url=L291ci1zdG9yeQ==&uuid=4d503462-a0be-11f1-9fbb-8127da82a396&vid=&g=b",
+      "reason": "no-founded-sentence"
     },
     {
-      "slug": "baxter-international",
-      "url": "https://baxter.com/our-company",
-      "final": "https://baxter.com/our-company",
-      "reason": "http-0"
+      "slug": "walmart",
+      "url": "https://walmart.com/our-company",
+      "final": "https://walmart.com/our-company",
+      "reason": "404"
     },
     {
-      "slug": "baxter-international",
-      "url": "https://baxter.com/who-we-are",
-      "final": "https://baxter.com/who-we-are",
-      "reason": "http-0"
+      "slug": "walmart",
+      "url": "https://walmart.com/who-we-are",
+      "final": "https://walmart.com/who-we-are",
+      "reason": "404"
     },
     {
-      "slug": "baxter-international",
-      "url": "https://baxter.com/about/our-story",
-      "final": "https://baxter.com/about/our-story",
-      "reason": "http-0"
+      "slug": "walmart",
+      "url": "https://walmart.com/about/our-story",
+      "final": "https://www.walmart.com/blocked?url=L2Fib3V0L291ci1zdG9yeQ==&uuid=4dc14f38-a0be-11f1-8c0d-a0bae3809ced&vid=&g=b",
+      "reason": "no-founded-sentence"
     },
     {
-      "slug": "baxter-international",
-      "url": "https://baxter.com/en/about",
-      "final": "https://baxter.com/en/about",
-      "reason": "http-0"
+      "slug": "walmart",
+      "url": "https://walmart.com/en/about",
+      "final": "https://walmart.com/en/about",
+      "reason": "404"
     },
     {
-      "slug": "baxter-international",
-      "url": "https://baxter.com/en/company",
-      "final": "https://baxter.com/en/company",
-      "reason": "http-0"
+      "slug": "walmart",
+      "url": "https://walmart.com/en/company",
+      "final": "https://www.walmart.com/blocked?url=L2VuL2NvbXBhbnk=&uuid=4e06e878-a0be-11f1-bc21-a2a34e051d29&vid=&g=b",
+      "reason": "no-founded-sentence"
     },
     {
-      "slug": "baxter-international",
-      "url": "https://baxter.com/press",
-      "final": "https://baxter.com/press",
-      "reason": "http-0"
+      "slug": "walmart",
+      "url": "https://walmart.com/press",
+      "final": "https://www.walmart.com/blocked?url=L3ByZXNz&uuid=4e2d8b6a-a0be-11f1-870c-a154d69e1bcd&vid=&g=b",
+      "reason": "no-founded-sentence"
     },
     {
-      "slug": "baxter-international",
-      "url": "https://baxter.com/newsroom",
-      "final": "https://baxter.com/newsroom",
-      "reason": "http-0"
+      "slug": "walmart",
+      "url": "https://walmart.com/newsroom",
+      "final": "https://www.walmart.com/blocked?url=L25ld3Nyb29t&uuid=4e4d9888-a0be-11f1-ae0b-57e1062b792a&vid=&g=b",
+      "reason": "no-founded-sentence"
     },
     {
-      "slug": "baxter-international",
-      "url": "https://baxter.com/company/press",
-      "final": "https://baxter.com/company/press",
-      "reason": "http-0"
+      "slug": "walmart",
+      "url": "https://walmart.com/company/press",
+      "final": "https://www.walmart.com/blocked?url=L2NvbXBhbnkvcHJlc3M=&uuid=4e6e009e-a0be-11f1-add8-34909c2607a6&vid=&g=b",
+      "reason": "no-founded-sentence"
     },
     {
-      "slug": "orca-security",
-      "url": "https://orca.security/",
-      "final": "https://orca.security/",
-      "reason": "other-firm",
-      "year": 1974,
-      "note": "Established in 1974 names Temasek, a listed investor, not Orca Security"
+      "slug": "f5",
+      "url": "https://www.crn.com/news/security/2025/the-2025-security-100",
+      "final": "https://www.crn.com/news/security/2025/the-2025-security-100",
+      "reason": "news"
+    },
+    {
+      "slug": "f5",
+      "url": "https://f5.com",
+      "final": "https://www.f5.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "f5",
+      "url": "https://f5.com/about",
+      "final": "https://f5.com/about",
+      "reason": "404"
+    },
+    {
+      "slug": "f5",
+      "url": "https://f5.com/about-us",
+      "final": "https://www.f5.com/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "f5",
+      "url": "https://f5.com/about/company",
+      "final": "https://f5.com/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "f5",
+      "url": "https://f5.com/about/us",
+      "final": "https://f5.com/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "f5",
+      "url": "https://f5.com/company",
+      "final": "https://www.f5.com/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "f5",
+      "url": "https://f5.com/company/about",
+      "final": "https://f5.com/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "f5",
+      "url": "https://f5.com/company/our-story",
+      "final": "https://f5.com/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "f5",
+      "url": "https://f5.com/our-story",
+      "final": "https://f5.com/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "f5",
+      "url": "https://f5.com/our-company",
+      "final": "https://f5.com/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "f5",
+      "url": "https://f5.com/who-we-are",
+      "final": "https://f5.com/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "f5",
+      "url": "https://f5.com/about/our-story",
+      "final": "https://f5.com/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "f5",
+      "url": "https://f5.com/en/about",
+      "final": "https://f5.com/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "f5",
+      "url": "https://f5.com/en/company",
+      "final": "https://f5.com/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "f5",
+      "url": "https://f5.com/press",
+      "final": "https://f5.com/press",
+      "reason": "404"
+    },
+    {
+      "slug": "f5",
+      "url": "https://f5.com/newsroom",
+      "final": "https://f5.com/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "f5",
+      "url": "https://f5.com/company/press",
+      "final": "https://f5.com/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "f5",
+      "url": "https://www.f5.com/company",
+      "final": "https://www.f5.com/company",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
+      "final": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
+      "reason": "prefix-match"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://meta.com",
+      "final": "https://www.meta.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://meta.com/about",
+      "final": "https://www.meta.com/about/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://meta.com/about-us",
+      "final": "https://meta.com/about-us",
+      "reason": "404"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://meta.com/about/company",
+      "final": "https://meta.com/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://meta.com/about/us",
+      "final": "https://meta.com/about/us",
+      "reason": "404"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://meta.com/company",
+      "final": "https://meta.com/company",
+      "reason": "404"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://meta.com/company/about",
+      "final": "https://meta.com/company/about",
+      "reason": "404"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://meta.com/company/our-story",
+      "final": "https://meta.com/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://meta.com/our-story",
+      "final": "https://meta.com/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://meta.com/our-company",
+      "final": "https://meta.com/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://meta.com/who-we-are",
+      "final": "https://meta.com/who-we-are",
+      "reason": "404"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://meta.com/about/our-story",
+      "final": "https://meta.com/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://meta.com/en/about",
+      "final": "https://meta.com/en/about",
+      "reason": "404"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://meta.com/en/company",
+      "final": "https://meta.com/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://meta.com/press",
+      "final": "https://meta.com/press",
+      "reason": "404"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://meta.com/newsroom",
+      "final": "https://meta.com/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://meta.com/company/press",
+      "final": "https://meta.com/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://www.meta.com/about/",
+      "final": "https://www.meta.com/about/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://www.meta.com/cs-cz/about/",
+      "final": "https://www.meta.com/cs-cz/about/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://www.meta.com/da-dk/about/",
+      "final": "https://www.meta.com/da-dk/about/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://www.meta.com/de-de/about/",
+      "final": "https://www.meta.com/de-de/about/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://www.meta.com/en-gb/about/",
+      "final": "https://www.meta.com/en-gb/about/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "meta-platforms",
+      "url": "https://www.meta.com/es-es/about/",
+      "final": "https://www.meta.com/es-es/about/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "nucleus-software-exports",
+      "url": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
+      "final": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
+      "reason": "website-mismatch"
+    },
+    {
+      "slug": "nucleus-software-exports",
+      "url": "https://nucleussoftware.com",
+      "final": "https://www.nucleussoftware.com/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "nucleus-software-exports",
+      "url": "https://nucleussoftware.com/about",
+      "final": "https://nucleussoftware.com/about",
+      "reason": "404"
+    },
+    {
+      "slug": "nucleus-software-exports",
+      "url": "https://nucleussoftware.com/about-us",
+      "final": "https://www.nucleussoftware.com/about-us/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "nucleus-software-exports",
+      "url": "https://nucleussoftware.com/about/company",
+      "final": "https://nucleussoftware.com/about/company",
+      "reason": "404"
+    },
+    {
+      "slug": "nucleus-software-exports",
+      "url": "https://nucleussoftware.com/about/us",
+      "final": "https://www.nucleussoftware.com/blog/us-lending-landscape-2025-and-what-banks-must-do-to-grow/",
+      "reason": "news"
+    },
+    {
+      "slug": "nucleus-software-exports",
+      "url": "https://nucleussoftware.com/company",
+      "final": "https://nucleussoftware.com/company",
+      "reason": "404"
+    },
+    {
+      "slug": "nucleus-software-exports",
+      "url": "https://nucleussoftware.com/company/about",
+      "final": "https://www.nucleussoftware.com/about-us/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "nucleus-software-exports",
+      "url": "https://nucleussoftware.com/company/our-story",
+      "final": "https://nucleussoftware.com/company/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "nucleus-software-exports",
+      "url": "https://nucleussoftware.com/our-story",
+      "final": "https://nucleussoftware.com/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "nucleus-software-exports",
+      "url": "https://nucleussoftware.com/our-company",
+      "final": "https://nucleussoftware.com/our-company",
+      "reason": "404"
+    },
+    {
+      "slug": "nucleus-software-exports",
+      "url": "https://nucleussoftware.com/who-we-are",
+      "final": "https://www.nucleussoftware.com/about-us/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "nucleus-software-exports",
+      "url": "https://nucleussoftware.com/about/our-story",
+      "final": "https://nucleussoftware.com/about/our-story",
+      "reason": "404"
+    },
+    {
+      "slug": "nucleus-software-exports",
+      "url": "https://nucleussoftware.com/en/about",
+      "final": "https://www.nucleussoftware.com/about-us/",
+      "reason": "no-founded-sentence"
+    },
+    {
+      "slug": "nucleus-software-exports",
+      "url": "https://nucleussoftware.com/en/company",
+      "final": "https://nucleussoftware.com/en/company",
+      "reason": "404"
+    },
+    {
+      "slug": "nucleus-software-exports",
+      "url": "https://nucleussoftware.com/press",
+      "final": "https://nucleussoftware.com/press",
+      "reason": "404"
+    },
+    {
+      "slug": "nucleus-software-exports",
+      "url": "https://nucleussoftware.com/newsroom",
+      "final": "https://nucleussoftware.com/newsroom",
+      "reason": "404"
+    },
+    {
+      "slug": "nucleus-software-exports",
+      "url": "https://nucleussoftware.com/company/press",
+      "final": "https://nucleussoftware.com/company/press",
+      "reason": "404"
+    },
+    {
+      "slug": "nucleus-software-exports",
+      "url": "https://www.nucleussoftware.com/about-us/",
+      "final": "https://www.nucleussoftware.com/about-us/",
+      "reason": "no-founded-sentence"
     }
   ]
 }

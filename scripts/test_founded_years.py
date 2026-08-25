@@ -235,13 +235,24 @@ def test_report_years_landed() -> None:
     batch = report.get("batch") or []
     stayed = report.get("stayed_open") or []
     check(len(filed) == 0, f"this increment filed 0, got {len(filed)}")
-    check(len(stayed) == 40, f"40 stayed open, got {len(stayed)}")
-    check(len(batch) == 40, f"batch is 40, got {len(batch)}")
+    check(len(stayed) == 5, f"5 stayed open, got {len(stayed)}")
+    check(len(batch) == 5, f"batch is the remaining unread 5, got {len(batch)}")
+    check(set(batch) == {
+        "craigslist",
+        "f5",
+        "meta-platforms",
+        "nucleus-software-exports",
+        "walmart",
+    }, f"remaining unread queue, got {batch}")
     check("faculty" not in batch, "Faculty is not re-walked")
     check("airship" not in batch, "Airship is not re-walked")
     check("appian" not in batch, "PR 107 fills are not re-walked")
-    check("orca-security" in batch, "Orca was walked")
-    check("orca-security" not in {r["slug"] for r in filed}, "Orca Temasek 1974 is not filed")
+    check("orca-security" not in batch, "PR 111 Orca is not re-walked")
+    from file_company_years import PRIOR_ATTEMPTED, select_batch
+    for slug in batch:
+        check(slug in PRIOR_ATTEMPTED, f"{slug} is on the next-increment skip list")
+    leftover = select_batch(list(public["companies"]), by_enr)
+    check(leftover == [], f"unread open-years queue is empty, got {[r['slug'] for r in leftover]}")
     orca = by_pub["orca-security"]
     check(not orca.get("founded_year"), "Orca year stays open")
     check(not orca.get("founded_source"), "Orca source stays off file")
@@ -280,6 +291,15 @@ def test_report_years_landed() -> None:
     check(not watch.get("founded_year"), "WatchGuard year stays open")
     check((watch.get("file") or {}).get("marks") == 20, "WatchGuard marks stay")
     check((watch.get("file") or {}).get("years") in (0, None, False), "WatchGuard years rule open")
+    for slug in batch:
+        pub = by_pub[slug]
+        check(not pub.get("founded_year"), f"{slug} year stays open")
+        check((pub.get("file") or {}).get("years") in (0, None, False), f"{slug} years rule open")
+        html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
+        check(
+            "founded · <span class=\"absent\">not on file</span>" in html,
+            f"{slug} dossier years open",
+        )
 
 
 def main() -> int:
