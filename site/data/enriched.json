@@ -13479,17 +13479,24 @@
       "certs": [],
       "links": {
         "trust": "https://trust.teradata.com",
-        "subprocessors": "https://trust.teradata.com/subprocessors",
+        "subprocessors": "https://www.teradata.com/privacy/data-processing-addendum/sub-processors",
         "security_txt": "https://www.teradata.com/.well-known/security.txt",
         "bug_bounty": "https://www.teradata.com/trust-security-center/data-security/vulnerability-disclosure-policy",
-        "privacy": "https://www.teradata.com/privacy"
+        "privacy": "https://www.teradata.com/privacy",
+        "dpa": "https://www.teradata.com/privacy/data-processing-addendum"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "trdt-brasil-tecnologia-ltda",
+        "tdc-colombia-limitada",
+        "pt-tdata-indonesia",
+        "tdata-malaysia-sdn-bhd"
+      ],
       "disclosure": {
-        "score": 20,
+        "score": 28,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "dpa": 8
         }
       },
       "founded_year": 1979,
@@ -13842,7 +13849,8 @@
         "trust": "https://fico.com/trust-center",
         "privacy": "https://www.fico.com/en/privacy-policy",
         "subprocessors": "https://www.fico.com/en/subprocessors",
-        "security": "https://www.fico.com/en/latest-thinking/white-paper/fico-platform-security-design"
+        "security": "https://www.fico.com/en/latest-thinking/white-paper/fico-platform-security-design",
+        "dpa": "https://www.fico.com/en/fair-isaac-data-processing-addendum"
       },
       "subprocessors": [
         "aws",
@@ -13891,10 +13899,11 @@
         "fair-isaac-thailand"
       ],
       "disclosure": {
-        "score": 20,
+        "score": 28,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "dpa": 8
         }
       },
       "founded_year": 1956,
@@ -15083,7 +15092,8 @@
         "privacy": "https://www.sonicwall.com/legal/privacy-statement",
         "subprocessors": "https://www.sonicwall.com/legal/sub-processors",
         "status": "https://status.sonicwall.com",
-        "security": "https://trust.sonicwall.com/?itemName=data_security&amp;source=click"
+        "security": "https://trust.sonicwall.com/?itemName=data_security&amp;source=click",
+        "dpa": "https://www.sonicwall.com/legal/privacy-statement/sonicwall-data-processing-agreement"
       },
       "subprocessors": [
         "avanan",
@@ -15100,10 +15110,11 @@
         "360insights"
       ],
       "disclosure": {
-        "score": 20,
+        "score": 28,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "dpa": 8
         }
       },
       "founded_year": 1991,
@@ -15705,14 +15716,53 @@
         "dpa": "https://www.sophos.com/en-us/legal/data-processing-addendum",
         "security": "https://www.sophos.com/en-us/blog",
         "bug_bounty": "https://www.sophos.com/en-us/trust/responsible-disclosure",
-        "privacy": "https://www.sophos.com/en-us/trust/privacy"
+        "privacy": "https://www.sophos.com/en-us/trust/privacy",
+        "subprocessors": "https://www.sophos.com/en-us/legal/sub-processor"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "atlassian",
+        "aiven-apache-kafka",
+        "fullstory",
+        "genesys-telecommunications-laboratories",
+        "gcp",
+        "logz-io",
+        "raintank-d-b-a-grafana-labs",
+        "salesforce",
+        "sendsafely-b2b",
+        "sierra-technologies",
+        "ada-support",
+        "akamai",
+        "blue-ocean-contact-centres",
+        "box",
+        "cleverbridge",
+        "constella-intelligence",
+        "echoworx",
+        "google",
+        "island-technology",
+        "microsoft",
+        "reversing-labs",
+        "rubrik",
+        "sendmarc",
+        "sendsafely",
+        "sentry",
+        "tenable",
+        "zendesk",
+        "fenix24",
+        "sie",
+        "benjamin-mosse-consulting",
+        "forvis-mazars-group",
+        "grcs",
+        "hoodwink-consulting",
+        "rule-56",
+        "invictus-incident-response"
+      ],
       "disclosure": {
-        "score": 20,
+        "score": 28,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "subprocessors": 8
         }
       },
       "founded_year": 1985,
@@ -19343,14 +19393,35 @@
       "certs": [],
       "links": {
         "trust": "https://trust.audiocodes.com",
-        "privacy": "https://www.audiocodes.com/corporate/privacy-policy"
+        "privacy": "https://www.audiocodes.com/corporate/privacy-policy",
+        "subprocessors": "https://www.audiocodes.com/data-sub-processors"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "sfdc-ireland",
+        "hubspot",
+        "oracle-israel",
+        "microsoft-ireland-operations",
+        "aws",
+        "cardtronics-usa-previously-ncr",
+        "gcs",
+        "mongodb",
+        "damovo-global-services",
+        "qunifi",
+        "intercom",
+        "bluesnap",
+        "bandwidth",
+        "telnyx",
+        "twilio",
+        "telagility-d-b-a-sippio",
+        "nuera-communications-singapore-pte",
+        "active-communications-europe"
+      ],
       "disclosure": {
-        "score": 20,
+        "score": 28,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "subprocessors": 8
         }
       },
       "founded_year": 1993,
@@ -19960,16 +20031,67 @@
       "links": {
         "trust": "https://trust.lightspeedhq.com",
         "privacy": "https://www.lightspeedhq.com/legal/privacy-policy/",
-        "subprocessors": "https://www.lightspeedhq.com/legal/sub-processors/",
-        "status": "https://status.lightspeedhq.com"
+        "subprocessors": "https://www.lightspeedhq.com/legal/subprocessors/",
+        "status": "https://status.lightspeedhq.com",
+        "dpa": "https://www.lightspeedhq.com/legal/data-processing-agreement/"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "activecampaign",
+        "adyen",
+        "airbrake",
+        "appcues",
+        "aws",
+        "cayan-tsys",
+        "cloudflare",
+        "cloudstrap-ad",
+        "elastic",
+        "google",
+        "hetzner-online",
+        "hubspot",
+        "infinicept",
+        "intercom",
+        "it",
+        "justt-ai",
+        "klaviyo",
+        "gcp",
+        "mailgun-technologies",
+        "marsello",
+        "messagebird",
+        "popout",
+        "propay",
+        "pusher",
+        "segment",
+        "sendgrid",
+        "sentry",
+        "sisense",
+        "stripe",
+        "spreedly",
+        "the-rocket-science-group",
+        "timekit",
+        "tps-unlimited",
+        "twilio",
+        "tps-unlimited-formerly-wootric",
+        "zapier",
+        "zendesk",
+        "zuora",
+        "atelier35",
+        "vend",
+        "payment-revolution",
+        "simple-order",
+        "ecwid",
+        "alcmene-s-r-l",
+        "ikentoo-france-sasu",
+        "shopkeep-com",
+        "kounta",
+        "nuorder"
+      ],
       "disclosure": {
-        "score": 24,
+        "score": 32,
         "tier": "thin",
         "factors": {
           "portal": 20,
-          "marks": 4
+          "marks": 4,
+          "dpa": 8
         }
       },
       "founded_year": 2005,
@@ -20467,14 +20589,16 @@
         "trust": "https://trustcenter.nuix.com",
         "security_txt": "https://www.nuix.com/.well-known/security.txt",
         "privacy": "https://www.nuix.com/privacy-policy",
-        "status": "https://status.nuix.com"
+        "status": "https://status.nuix.com",
+        "dpa": "https://www.nuix.com/legal/data-processing"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 28,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "dpa": 8
         }
       },
       "founded_year": 2000,
