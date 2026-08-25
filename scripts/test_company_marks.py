@@ -72,6 +72,15 @@ def main() -> int:
     )
     check(kept == [] and why in {"regulation-only", "no-named-marks"}, f"HIPAA scope sentence stays open: {kept} {why}")
     kept, why = hold_marks(
+        ["HIPAA"],
+        "identifiers from protected health information required under the Health Insurance "
+        "Portability and Accountability Act (“HIPAA”), 45 CFR § 164.514(b)(2). This Notice "
+        "is distinct from our HIPAA Notice of Privacy Practices. Certain health information "
+        "governed by HIPAA is excluded.",
+        "privacy",
+    )
+    check(kept == [], f"HIPAA de-id / notice sentence stays open: {kept} {why}")
+    kept, why = hold_marks(
         ["CMMC"],
         "Tabletop Exercises CMMC Readiness Solutions VISIBL",
         "privacy",
