@@ -941,7 +941,8 @@ GEO_NAME_RE = re.compile(
     r"european union|europe|asia|emea|amer|apac|north america|south america|"
     r"eu|eea|switzerland|netherlands|singapore|israel|sweden|spain|italy|"
     r"belgium|finland|poland|austria|denmark|norway|new zealand|mexico|"
-    r"south korea|korea|taiwan|hong kong|uae|saudi arabia|usa\*?|"
+    r"south korea|korea|taiwan|hong kong|uae|saudi arabia|south africa|"
+    r"oceania|usa\*?|"
     r"usa, eu|uk \(.*|aus)$",
     re.I,
 )
@@ -1076,6 +1077,10 @@ def looks_like_org_name(name: str) -> bool:
     if len(t) < 2 or len(t) > 80:
         return False
     if GEO_NAME_RE.match(t):
+        return False
+    # Country lists ("Germany, Austria or Switzerland") are not organizations.
+    geo_parts = [p for p in re.split(r"\s*(?:,|/|;|\bor\b)\s*", t, flags=re.I) if p]
+    if len(geo_parts) >= 2 and all(GEO_NAME_RE.match(p) for p in geo_parts):
         return False
     if PURPOSE_LEAD_RE.search(t) or PRODUCTISH_RE.search(t) or HEADERISH_RE.search(t):
         return False
@@ -1732,7 +1737,8 @@ GEO_NAME_RE = re.compile(
     r"european union|europe|asia|emea|amer|apac|north america|south america|"
     r"eu|eea|switzerland|netherlands|singapore|israel|sweden|spain|italy|"
     r"belgium|finland|poland|austria|denmark|norway|new zealand|mexico|"
-    r"south korea|korea|taiwan|hong kong|uae|saudi arabia|usa\*?|"
+    r"south korea|korea|taiwan|hong kong|uae|saudi arabia|south africa|"
+    r"oceania|usa\*?|"
     r"usa, eu|uk \(.*|aus)$",
     re.I,
 )
@@ -1870,6 +1876,10 @@ def looks_like_org_name(name: str) -> bool:
     if len(t) < 2 or len(t) > 80:
         return False
     if GEO_NAME_RE.match(t):
+        return False
+    # Country lists ("Germany, Austria or Switzerland") are not organizations.
+    geo_parts = [p for p in re.split(r"\s*(?:,|/|;|\bor\b)\s*", t, flags=re.I) if p]
+    if len(geo_parts) >= 2 and all(GEO_NAME_RE.match(p) for p in geo_parts):
         return False
     if PURPOSE_LEAD_RE.search(t) or PRODUCTISH_RE.search(t) or HEADERISH_RE.search(t):
         return False

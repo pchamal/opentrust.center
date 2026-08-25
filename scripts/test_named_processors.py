@@ -176,6 +176,25 @@ def main() -> int:
     check(not looks_like_org_name("Data Center Services"), "Data Center Services is a category not a processor")
     check(looks_like_org_name("Amazon Web Services, Inc"), "real org still files")
     check(looks_like_org_name("Google, LLC"), "cleaned LLC still files")
+    check(not looks_like_org_name("South Africa"), "South Africa is a geo")
+    check(not looks_like_org_name("Germany, Austria or Switzerland"), "country list is not an org")
+    check(not looks_like_org_name("Australia, New Zealand or Oceania"), "oceania list is not an org")
+
+    knowbe4_regions = """
+<html><head><title>Managed Service Provider Agreement</title></head><body>
+<table>
+  <tr><th>Name</th><th>Purpose</th></tr>
+  <tr><td>Germany, Austria or Switzerland</td><td>Territory</td></tr>
+  <tr><td>Australia, New Zealand or Oceania</td><td>Territory</td></tr>
+  <tr><td>South Africa</td><td>Territory</td></tr>
+</table>
+</body></html>
+"""
+    knowbe4 = {"slug": "knowbe4", "name": "KnowBe4", "domain": "knowbe4.com"}
+    kb_filed = published_processors_from_html(
+        knowbe4_regions, "Managed Service Provider Agreement", knowbe4, register
+    )
+    check(kb_filed == [], f"region cells are not processors: {kb_filed}")
 
     arista_sections = """
 <html><head><title>Trusted Third Party / Subprocessor List</title></head><body>

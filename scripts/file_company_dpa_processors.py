@@ -361,7 +361,7 @@ PRIOR_ATTEMPTED = {
     "intrahealth-systems-limited",
     "prontoforms",
     "versapay",
-    # this cut (live report batch)
+    # PR 106 (also the previous live report batch)
     "qualys",
     "zoominfo",
     "mckesson-corporation",
@@ -402,6 +402,10 @@ PRIOR_ATTEMPTED = {
     "aqua-security",
     "audioeye",
     "axon-enterprise",
+    # PR 108 / 110 expand fills — do not retry
+    "software-ag",
+    "signavio",
+    "dubber",
 }
 
 
