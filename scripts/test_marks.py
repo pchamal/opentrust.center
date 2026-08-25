@@ -111,6 +111,18 @@ def main() -> int:
         ["ISO 27001", "ISO 9001", "Cyber Essentials"],
         "aligned-to is not a hold",
     )
+    eq(
+        extract_certs_from_html(
+            "<p>Software GmbH and SAG Deutschland GmbH are certified under the "
+            "ENS MEDIUM category, as attested by an independent certification "
+            "body accredited by CCN.</p>"
+            "<p>Software AG UK Ltd has achieved Cyber Essentials certification.</p>"
+            "<p>Our ISO 22301-certified Business Continuity Management System.</p>"
+            "<p>Our ISO 9001-certified Quality Management System (QMS).</p>"
+        ),
+        ["ISO 22301", "ISO 9001", "Cyber Essentials", "ENS"],
+        "software ag first-party holds",
+    )
     print("ok")
     return 0
 

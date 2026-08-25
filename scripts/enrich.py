@@ -90,6 +90,7 @@ CERT_RULES = [
     ("NIST CSF", re.compile(r"\bNIST\s*CSF\b", re.I), 4),
     ("CMMC", re.compile(r"\bCMMC\b", re.I), 8),
     ("C5", re.compile(r"\b(?:BSI\s+)?C5\b", re.I), 4),
+    ("ENS", re.compile(r"\bENS\s+(?:MEDIUM|MEDIO|HIGH|ALTO)\b|\bEsquema Nacional de Seguridad\b", re.I), 8),
     ("ISMAP", re.compile(r"\bISMAP\b", re.I), 4),
     ("SOX", re.compile(r"\bSarbanes[-\s]?Oxley\b", re.I), 4),
 ]

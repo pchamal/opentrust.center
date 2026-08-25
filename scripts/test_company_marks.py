@@ -87,6 +87,38 @@ def main() -> int:
     )
     check(kept == [], f"CMMC readiness product stays open: {kept} {why}")
 
+    kept, why = hold_marks(
+        ["ISO 27001", "ISO 27017", "SOC 1 Type II", "SOC 2 Type II", "C5", "CSA STAR"],
+        "Our solutions have received multiple certifications and attestations, including: "
+        "ISO 27001 certification for our Information Security Management System (ISMS). "
+        "ISO 27001, ISO 27017, SOC 1 Type 2 and SOC 2 Type 2 for secure operations of cloud products. "
+        "BSI C5 Type 2 attestation as well as CSA STAR Level 2 certification for security.",
+        "security",
+    )
+    check(
+        {"ISO 27001", "ISO 27017", "SOC 1 Type II", "SOC 2 Type II", "C5", "CSA STAR"} <= set(kept),
+        f"Signavio holds stay: {kept} {why}",
+    )
+    # Regulation-only on a privacy notice stays open.
+    kept, why = hold_marks(
+        ["GDPR"],
+        "You have a right to appeal to the data protection supervisory authorities pursuant to Art. 77 GDPR.",
+        "privacy",
+    )
+    check(kept == [] and why == "regulation-only", f"Software AG privacy GDPR stays open: {kept} {why}")
+    kept, why = hold_marks(
+        ["Cyber Essentials", "ENS", "ISO 22301", "ISO 9001"],
+        "Software AG UK Ltd has achieved Cyber Essentials certification. "
+        "Software GmbH and SAG Deutschland GmbH are certified under the ENS MEDIUM category. "
+        "Our ISO 22301-certified Business Continuity Management System. "
+        "Our ISO 9001-certified Quality Management System (QMS).",
+        "security",
+    )
+    check(
+        kept == ["Cyber Essentials", "ENS", "ISO 22301", "ISO 9001"],
+        f"Software AG first-party holds stay: {kept} {why}",
+    )
+
     for rec in report.get("marks_filed") or []:
         slug, url, added = rec["slug"], rec["url"], rec["added"]
         pub = by_pub[slug]
