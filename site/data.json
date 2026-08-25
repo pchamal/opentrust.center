@@ -69926,7 +69926,11 @@
           "host": "gigamon.com",
           "seen": "2026-08-25"
         },
-        "dpa": null,
+        "dpa": {
+          "url": "https://www.gigamon.com/content/dam/resource-library/english/user---support-documentation/data-processing-agreement.pdf",
+          "host": "gigamon.com",
+          "seen": "2026-08-25"
+        },
         "subprocessors": null,
         "status": null,
         "bounty": {
@@ -69937,12 +69941,12 @@
       },
       "processors": [],
       "disclosure": {
-        "score": 20,
+        "score": 28,
         "tier": "thin",
         "factors": {
           "page": 20,
           "marks": 0,
-          "dpa": 0,
+          "dpa": 8,
           "processors": 0,
           "status": 0,
           "bounty": 0,
@@ -69954,7 +69958,7 @@
       "file": {
         "page": 20,
         "marks": 20,
-        "dpa": 0,
+        "dpa": 20,
         "subprocessors": 0,
         "years": 0
       },
@@ -71101,7 +71105,11 @@
           "host": "pexip.com",
           "seen": "2026-08-25"
         },
-        "subprocessors": null,
+        "subprocessors": {
+          "url": "https://docs.pexip.com/partner/service/subprocessors.htm",
+          "host": "docs.pexip.com",
+          "seen": "2026-08-25"
+        },
         "status": {
           "url": "https://status.pexip.com/",
           "host": "status.pexip.com",
@@ -71113,15 +71121,100 @@
           "seen": "2026-08-25"
         }
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "Elastic",
+          "slug": "elastic",
+          "id": "elastic",
+          "source_url": "https://docs.pexip.com/partner/service/subprocessors.htm"
+        },
+        {
+          "name": "GitHub Copilot",
+          "slug": "github",
+          "id": "github",
+          "source_url": "https://docs.pexip.com/partner/service/subprocessors.htm"
+        },
+        {
+          "name": "Google Cloud Platform",
+          "slug": null,
+          "id": "gcp",
+          "source_url": "https://docs.pexip.com/partner/service/subprocessors.htm"
+        },
+        {
+          "name": "NetApp",
+          "slug": "netapp",
+          "id": "netapp",
+          "source_url": "https://docs.pexip.com/partner/service/subprocessors.htm"
+        },
+        {
+          "name": "Microsoft 365 Copilot",
+          "slug": null,
+          "id": "microsoft-365-copilot",
+          "source_url": "https://docs.pexip.com/partner/service/subprocessors.htm"
+        },
+        {
+          "name": "Microsoft Azure",
+          "slug": null,
+          "id": "azure",
+          "source_url": "https://docs.pexip.com/partner/service/subprocessors.htm"
+        },
+        {
+          "name": "Mividas",
+          "slug": null,
+          "id": "mividas",
+          "source_url": "https://docs.pexip.com/partner/service/subprocessors.htm"
+        },
+        {
+          "name": "Sentry.io",
+          "slug": null,
+          "id": "sentry",
+          "source_url": "https://docs.pexip.com/partner/service/subprocessors.htm"
+        },
+        {
+          "name": "Twilio",
+          "slug": "twilio",
+          "id": "twilio",
+          "source_url": "https://docs.pexip.com/partner/service/subprocessors.htm"
+        },
+        {
+          "name": "Zendesk",
+          "slug": "zendesk",
+          "id": "zendesk",
+          "source_url": "https://docs.pexip.com/partner/service/subprocessors.htm"
+        },
+        {
+          "name": "Cronofy",
+          "slug": null,
+          "id": "cronofy",
+          "source_url": "https://docs.pexip.com/partner/service/subprocessors.htm"
+        },
+        {
+          "name": "Google",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://docs.pexip.com/partner/service/subprocessors.htm"
+        },
+        {
+          "name": "Mailchimp / Mandrill",
+          "slug": "mailchimp",
+          "id": "mailchimp",
+          "source_url": "https://docs.pexip.com/partner/service/subprocessors.htm"
+        },
+        {
+          "name": "Spryng BV",
+          "slug": null,
+          "id": "spryng",
+          "source_url": "https://docs.pexip.com/partner/service/subprocessors.htm"
+        }
+      ],
       "disclosure": {
-        "score": 20,
+        "score": 28,
         "tier": "thin",
         "factors": {
           "page": 20,
           "marks": 0,
           "dpa": 0,
-          "processors": 0,
+          "processors": 8,
           "status": 0,
           "bounty": 0,
           "privacy": 0,
@@ -71133,7 +71226,7 @@
         "page": 20,
         "marks": 20,
         "dpa": 20,
-        "subprocessors": 0,
+        "subprocessors": 20,
         "years": 0
       },
       "_crawl": {
@@ -71864,19 +71957,23 @@
         },
         "security": null,
         "privacy": null,
-        "dpa": null,
+        "dpa": {
+          "url": "https://www.stryker.com/ie/en/legal/data-processing-agreement.html",
+          "host": "stryker.com",
+          "seen": "2026-08-25"
+        },
         "subprocessors": null,
         "status": null,
         "bounty": null
       },
       "processors": [],
       "disclosure": {
-        "score": 20,
+        "score": 28,
         "tier": "thin",
         "factors": {
           "page": 20,
           "marks": 0,
-          "dpa": 0,
+          "dpa": 8,
           "processors": 0,
           "status": 0,
           "bounty": 0,
@@ -71888,7 +71985,7 @@
       "file": {
         "page": 20,
         "marks": 10,
-        "dpa": 0,
+        "dpa": 20,
         "subprocessors": 0,
         "years": 0
       },
@@ -72968,7 +73065,11 @@
           "seen": "2026-08-25"
         },
         "dpa": null,
-        "subprocessors": null,
+        "subprocessors": {
+          "url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors",
+          "host": "watchguard.com",
+          "seen": "2026-08-25"
+        },
         "status": {
           "url": "https://status.watchguard.com",
           "host": "status.watchguard.com",
@@ -72980,27 +73081,208 @@
           "seen": "2026-08-25"
         }
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "Amazon Web Services, Inc",
+          "slug": "amazon-web-services",
+          "id": "aws",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Mailgun Technologies, Inc",
+          "slug": null,
+          "id": "mailgun-technologies",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Proofpoint, Inc",
+          "slug": "proofpoint",
+          "id": "proofpoint",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Broadcom Inc. (Previously Lastline, VMware)",
+          "slug": "broadcom",
+          "id": "broadcom",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Bitdefender S.R.L",
+          "slug": null,
+          "id": "bitdefender-s-r-l",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Forcepoint, LLC",
+          "slug": "forcepoint",
+          "id": "forcepoint",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "84codes AB, dba CloudAMQP",
+          "slug": null,
+          "id": "84codes-dba-cloudamqp",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "MongoDB, Inc",
+          "slug": "mongodb",
+          "id": "mongodb",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Papertrail, Inc",
+          "slug": null,
+          "id": "papertrail",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Google LLC (Google Workspace, formerly G-Suite)",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Functional Software, Inc. dba Sentry",
+          "slug": null,
+          "id": "sentry",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Groove Networks, LLC dba Groove",
+          "slug": null,
+          "id": "groove-networks-dba-groove",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Arista Networks, Inc",
+          "slug": "arista-networks",
+          "id": "arista-networks",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Salesforce, Inc",
+          "slug": "salesforce",
+          "id": "salesforce",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Snowflake Inc",
+          "slug": "snowflake",
+          "id": "snowflake",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Microsoft Corporation (Azure)",
+          "slug": null,
+          "id": "azure",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "F‑Secure Corporation",
+          "slug": "f-secure",
+          "id": "f-secure",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Constella Intelligence, Inc",
+          "slug": null,
+          "id": "constella-intelligence",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "R Systems International Ltd",
+          "slug": null,
+          "id": "r-systems-international",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Opstalent Spolka Z O.O. SP.K",
+          "slug": null,
+          "id": "opstalent-spolka-z-o-o-sp-k",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Akamai Technologies, Inc",
+          "slug": "akamai",
+          "id": "akamai",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Ivanti UK Limited",
+          "slug": null,
+          "id": "ivanti-uk",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Devo Inc",
+          "slug": "devo",
+          "id": "devo",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Ártica PFMS SLU",
+          "slug": null,
+          "id": "rtica-pfms-slu",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple",
+          "id": "apple",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Google (Google Cloud)",
+          "slug": null,
+          "id": "gcp",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Hornetsecurity GmbH",
+          "slug": null,
+          "id": "hornetsecurity",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Kaseya US, LLC (Previously Datto, Inc.)",
+          "slug": null,
+          "id": "kaseya-us-previously-datto",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Anytech365",
+          "slug": null,
+          "id": "anytech365",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        },
+        {
+          "name": "Aura (Previously Pango, Anchorfree)",
+          "slug": null,
+          "id": "aura-previously-pango-anchorfree",
+          "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+        }
+      ],
       "disclosure": {
-        "score": 4,
-        "tier": "silent",
+        "score": 12,
+        "tier": "thin",
         "factors": {
           "page": 0,
           "marks": 4,
           "dpa": 0,
-          "processors": 0,
+          "processors": 8,
           "status": 0,
           "bounty": 0,
           "privacy": 0,
           "years": 0
         }
       },
-      "tier": "silent",
+      "tier": "thin",
       "file": {
         "page": 20,
         "marks": 20,
         "dpa": 0,
-        "subprocessors": 0,
+        "subprocessors": 20,
         "years": 0
       },
       "_crawl": {
@@ -75395,7 +75677,11 @@
           "seen": "2026-08-25"
         },
         "dpa": null,
-        "subprocessors": null,
+        "subprocessors": {
+          "url": "https://www.malwarebytes.com/legal/subprocessors",
+          "host": "malwarebytes.com",
+          "seen": "2026-08-25"
+        },
         "status": null,
         "bounty": {
           "url": "https://www.malwarebytes.com/.well-known/security.txt",
@@ -75403,27 +75689,130 @@
           "seen": "2026-08-25"
         }
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "Ada Support Inc",
+          "slug": null,
+          "id": "ada-support",
+          "source_url": "https://www.malwarebytes.com/legal/subprocessors"
+        },
+        {
+          "name": "Amazon Web Services, Inc",
+          "slug": "amazon-web-services",
+          "id": "aws",
+          "source_url": "https://www.malwarebytes.com/legal/subprocessors"
+        },
+        {
+          "name": "Array US, Inc",
+          "slug": null,
+          "id": "array-us",
+          "source_url": "https://www.malwarebytes.com/legal/subprocessors"
+        },
+        {
+          "name": "Atlassian Corporation Plc",
+          "slug": "atlassian",
+          "id": "atlassian",
+          "source_url": "https://www.malwarebytes.com/legal/subprocessors"
+        },
+        {
+          "name": "Calendly LLC",
+          "slug": "calendly",
+          "id": "calendly",
+          "source_url": "https://www.malwarebytes.com/legal/subprocessors"
+        },
+        {
+          "name": "CloudFlare, Inc",
+          "slug": "cloudflare",
+          "id": "cloudflare",
+          "source_url": "https://www.malwarebytes.com/legal/subprocessors"
+        },
+        {
+          "name": "Functional Software, Inc. d/b/a Sentry",
+          "slug": null,
+          "id": "sentry",
+          "source_url": "https://www.malwarebytes.com/legal/subprocessors"
+        },
+        {
+          "name": "Gainsight, Inc",
+          "slug": null,
+          "id": "gainsight",
+          "source_url": "https://www.malwarebytes.com/legal/subprocessors"
+        },
+        {
+          "name": "Microsoft Corporation",
+          "slug": "microsoft",
+          "id": "microsoft",
+          "source_url": "https://www.malwarebytes.com/legal/subprocessors"
+        },
+        {
+          "name": "Mullvad VPN AB",
+          "slug": null,
+          "id": "mullvad-vpn",
+          "source_url": "https://www.malwarebytes.com/legal/subprocessors"
+        },
+        {
+          "name": "OpenAI, LLC",
+          "slug": "openai",
+          "id": "openai",
+          "source_url": "https://www.malwarebytes.com/legal/subprocessors"
+        },
+        {
+          "name": "OVH US LLC dba OVHcloud",
+          "slug": null,
+          "id": "ovh-us-dba-ovhcloud",
+          "source_url": "https://www.malwarebytes.com/legal/subprocessors"
+        },
+        {
+          "name": "Snowflake, Inc",
+          "slug": "snowflake",
+          "id": "snowflake",
+          "source_url": "https://www.malwarebytes.com/legal/subprocessors"
+        },
+        {
+          "name": "Sontiq, Inc. (a TransUnion company)",
+          "slug": null,
+          "id": "sontiq-a-transunion-company",
+          "source_url": "https://www.malwarebytes.com/legal/subprocessors"
+        },
+        {
+          "name": "tvScientific, Inc",
+          "slug": null,
+          "id": "tvscientific",
+          "source_url": "https://www.malwarebytes.com/legal/subprocessors"
+        },
+        {
+          "name": "Twilio, Inc",
+          "slug": "twilio",
+          "id": "twilio",
+          "source_url": "https://www.malwarebytes.com/legal/subprocessors"
+        },
+        {
+          "name": "Zendesk Inc",
+          "slug": "zendesk",
+          "id": "zendesk",
+          "source_url": "https://www.malwarebytes.com/legal/subprocessors"
+        }
+      ],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
+        "score": 8,
+        "tier": "thin",
         "factors": {
           "page": 0,
           "marks": 0,
           "dpa": 0,
-          "processors": 0,
+          "processors": 8,
           "status": 0,
           "bounty": 0,
           "privacy": 0,
           "years": 0
         }
       },
-      "tier": "silent",
+      "tier": "thin",
       "file": {
         "page": 20,
         "marks": 20,
         "dpa": 0,
-        "subprocessors": 0,
+        "subprocessors": 20,
         "years": 20
       },
       "_crawl": {
