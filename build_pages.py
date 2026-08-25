@@ -155,6 +155,91 @@ LINK_TO_INSTRUMENT = {
 INSTRUMENTS = ("trust", "security", "privacy", "dpa", "subprocessors", "status", "bounty")
 
 
+def emit_changes(public: dict) -> None:
+    """Diff this build against the previous snapshot and file ot_changes.
+
+    Prints only what a buyer would meet: instrument filed/removed, tier
+    movement, marks named or withdrawn. probed_at churn never prints.
+    The first run writes the baseline snapshot and files nothing.
+    """
+    path = ROOT / "data" / "prev-data.json"
+    prev = load_json(path, {}) if path.exists() else {}
+    prev_rows = {r.get("domain", "").lower(): r for r in (prev.get("companies") or [])}
+    cur_rows = {r.get("domain", "").lower(): r for r in public.get("companies", [])}
+
+    observed = public.get("generated_at") or ""
+    day = observed[:10]
+    changes: list[dict] = []
+
+    def add(domain: str, field: str, old, new) -> None:
+        changes.append({
+            "changeKey": f"{domain}|{field}|{day}",
+            "domain": domain, "field": field,
+            "oldValue": old, "newValue": new,
+            "observedAt": observed,
+        })
+
+    for domain in sorted(set(prev_rows) | set(cur_rows)):
+        old = prev_rows.get(domain)
+        new = cur_rows.get(domain)
+        if not new:
+            continue
+        if not old:
+            if new.get("tier") != "silent":
+                add(domain, "instrument_filed",
+                    {"key": "page"}, {"key": "page"})
+            continue
+        ot, nt = old.get("tier"), new.get("tier")
+        if ot != nt:
+            add(domain, "tier", ot, nt)
+        for key in INSTRUMENTS:
+            was, now = _instrument_url(old, key), _instrument_url(new, key)
+            if was and not now:
+                add(domain, "instrument_removed", {"key": key}, None)
+            elif now and not was:
+                url_rec = (new.get("instruments") or {}).get(key) or {}
+                add(domain, "instrument_filed", None,
+                    {"key": key, "url": url_rec.get("url")})
+        om = {str(c).lower() for c in (old.get("certs") or [])}
+        nm = {str(c).lower() for c in (new.get("certs") or [])}
+        for name in sorted(nm - om)[:6]:
+            add(domain, "mark_added", None, {"name": name})
+        for name in sorted(om - nm)[:6]:
+            add(domain, "mark_removed", {"name": name}, None)
+
+    path.write_text(json.dumps(
+        {"generated_at": observed, "companies": [
+            {"domain": r.get("domain", ""), "tier": r.get("tier"),
+             "certs": r.get("certs") or [], "instruments": {
+                 k: ((v or {}).get("url") if isinstance(v, dict) else v)
+                 for k, v in (r.get("instruments") or {}).items()}}
+            for r in public.get("companies", [])
+        ]}, indent=1) + "\n")
+
+    if not changes:
+        return
+    try:
+        meta_path = ROOT.parent / ".insforge" / "project.json"
+        meta = json.loads(meta_path.read_text())
+        base, key = meta["oss_host"], meta["api_key"]
+        posted = post_changes(base, key, changes[:400])
+        print(f"changes filed: {len(changes)}" + ("" if posted else " · backend unreachable, snapshot updated anyway"))
+    except Exception as exc:
+        print(f"changes computed: {len(changes)} · backend post skipped ({exc})")
+
+
+def post_changes(base: str, key: str, rows: list[dict]) -> bool:
+    import urllib.request
+    req = urllib.request.Request(
+        base + "/api/database/records/ot_changes",
+        data=json.dumps(rows).encode(),
+        headers={"Authorization": "Bearer " + key, "Content-Type": "application/json"},
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=20) as resp:
+        return 200 <= resp.status < 300
+
+
 def apply_discoveries(rows: list[dict]) -> int:
     """File verified discovery leads into company rows before enrichment.
 
@@ -1989,6 +2074,7 @@ def main() -> int:
         "coverage": coverage,
     }
     (SITE / "data.json").write_text(json.dumps(public, indent=2, ensure_ascii=False) + "\n")
+    emit_changes(public)
     snapshot = snapshot_line(
         generated_at,
         public["found"],
@@ -2023,6 +2109,7 @@ def main() -> int:
         f"{CANON}/methodology.html",
         f"{CANON}/contact.html",
         f"{CANON}/claim.html",
+        f"{CANON}/watch.html",
     ]
     for row in public_companies:
         urls.append(f"{CANON}/c/{row['slug']}.html")
