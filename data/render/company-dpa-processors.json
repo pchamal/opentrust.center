@@ -1,86 +1,973 @@
 {
-  "generated_at": "2026-08-25T20:58:33Z",
-  "rule": "One increment: SuperOffice, Genedata, Sonar, and Trustpilot from the 25 Aug 20:58 / 13:50 PT expand. DPA fills only from a real first-party DPA. Named subprocessors fill only from a printed first-party list of organization names. Dates, JS shells, login walls, and portal hosts stay open.",
+  "generated_at": "2026-08-25T22:56:01Z",
+  "rule": "Next unread first-party DPA / named-processor files after PRIOR_ATTEMPTED (6 companies; queue is not ~40). DPA fills only from a real first-party DPA. Named subprocessors fill only from a printed first-party list of organization names. Dates, JS shells, login walls, download-only lists, and portal hosts stay open.",
   "batch": [
-    "superoffice",
-    "genedata",
-    "sonar",
-    "trustpilot"
+    "y-soft",
+    "tricentis",
+    "trustly",
+    "frosmo",
+    "projectmanager-com",
+    "esko"
   ],
   "dpa_filed": [
     {
-      "slug": "trustpilot",
-      "name": "Trustpilot",
-      "url": "https://corporate.trustpilot.com/legal/for-businesses/data-processing-agreement/nov-2025",
-      "quote": "This Data Processing Agreement (“ DPA ”) supplements and forms part of the Terms of Use and Sale for Businesses or other written or electronic agreement (the “ Agreement ”) between you and Trustpilot."
+      "slug": "tricentis",
+      "name": "Tricentis",
+      "url": "https://www.tricentis.com/legal-information/data-processing-addendum",
+      "quote": "This data processing agreement (this “DPA”) is entered into by and between the Tricentis entity identified in Section 1.4 below (“Tricentis” or “Processor”); and the Customer entity identified in Section 1.4 below (“Customer” or “Controller”), together, the “Parties”."
+    },
+    {
+      "slug": "y-soft",
+      "name": "Y Soft",
+      "url": "https://www.ysoft.com/legal/data-protection-addendum",
+      "quote": "This Data Protection Addendum (“DPA”) forms part of the Terms of Use and governs data protection obligations, with precedence given first to the Standard Contractual Clauses, then this DPA."
     }
   ],
   "subprocessors_filed": [
     {
-      "slug": "sonar",
-      "name": "Sonar",
-      "url": "https://www.sonarsource.com/legal/sub-processors/",
+      "slug": "frosmo",
+      "name": "Frosmo",
+      "url": "https://frosmo.com/data-processing-annex/",
       "names": [
-        "Amazon Web Services EMEA SARL",
-        "Okta, Inc",
-        "Atlassian Pty Ltd",
-        "Clerk",
-        "Slack Technologies Limited",
-        "Google Ireland Limited",
-        "Kaseya Limited",
-        "Zendesk, Inc",
-        "Zoom Video Communications, Inc"
+        "Hetzner Online AG",
+        "Hetzner Finland Oy",
+        "Amazon Web Services, Inc"
       ],
-      "quote": "SonarSource engages the following subprocessors and affiliates to assist in providing the SonarQube Products, Services, Support, and customer management."
-    },
-    {
-      "slug": "trustpilot",
-      "name": "Trustpilot",
-      "url": "https://corporate.trustpilot.com/legal/for-businesses/subprocessors/may-2026",
-      "names": [
-        "Sendgrid (Twilio, Inc.)",
-        "Google Cloud EMEA Limited",
-        "Amazon Web Services",
-        "Sutherland Global Services, Inc",
-        "ClickHouse Inc"
-      ],
-      "quote": "Sendgrid (Twilio, Inc.) Location: USA Google Cloud EMEA Limited Location: Dublin, Ireland Amazon Web Services Location: Dublin, Ireland"
+      "quote": "Permitted sub-processors of Frosmo: Hetzner Online AG, Hetzner Finland Oy and Amazon Web Services, Inc."
     }
   ],
   "stayed_open": [
     {
-      "slug": "superoffice",
-      "name": "SuperOffice",
-      "rule": "dpa"
-    },
-    {
-      "slug": "superoffice",
-      "name": "SuperOffice",
+      "slug": "tricentis",
+      "name": "Tricentis",
       "rule": "subprocessors"
     },
     {
-      "slug": "genedata",
-      "name": "Genedata",
+      "slug": "trustly",
+      "name": "Trustly",
       "rule": "dpa"
     },
     {
-      "slug": "genedata",
-      "name": "Genedata",
+      "slug": "trustly",
+      "name": "Trustly",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "projectmanager-com",
+      "name": "ProjectManager.com",
+      "rule": "dpa"
+    },
+    {
+      "slug": "esko",
+      "name": "Esko",
+      "rule": "dpa"
+    },
+    {
+      "slug": "esko",
+      "name": "Esko",
       "rule": "subprocessors"
     }
   ],
   "rejected": [
     {
-      "slug": "superoffice",
-      "url": "https://trust.superoffice.com/subprocessors",
-      "reason": "js-portal",
-      "kind": "subprocessors",
-      "quote": "Directory of approved sub-processors is part of our Data Processing Agreement available in the Trust Center — Trust Center is a JS shell."
+      "slug": "y-soft",
+      "url": "https://trust.ysoft.com/subprocessors",
+      "reason": "seed-not-live",
+      "kind": "subprocessors"
     },
     {
-      "slug": "genedata",
-      "url": "https://trustcenter.genedata.com/subprocessors",
-      "reason": "js-portal",
+      "slug": "projectmanager-com",
+      "url": "https://trust.projectmanager.com/subprocessors",
+      "reason": "seed-not-live",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "y-soft",
+      "url": "https://ysoft.com/legal/data-processing-addendum",
+      "final": "https://ysoft.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "y-soft",
+      "url": "https://ysoft.com/gdpr/dpa",
+      "final": "https://ysoft.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "y-soft",
+      "url": "https://ysoft.com/legal/dpa",
+      "final": "https://ysoft.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "y-soft",
+      "url": "https://ysoft.com/dpa",
+      "final": "https://ysoft.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "y-soft",
+      "url": "https://ysoft.com/data-processing-addendum",
+      "final": "https://ysoft.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "y-soft",
+      "url": "https://ysoft.com/terms/dpa",
+      "final": "https://ysoft.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "y-soft",
+      "url": "https://ysoft.com/data-processing-agreement",
+      "final": "https://ysoft.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "y-soft",
+      "url": "https://ysoft.com/policies/data-processing-addendum",
+      "final": "https://ysoft.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "y-soft",
+      "url": "https://ysoft.com/policies/dpa",
+      "final": "https://ysoft.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "y-soft",
+      "url": "https://ysoft.com/policies/data-processing-agreement",
+      "final": "https://ysoft.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "y-soft",
+      "url": "https://ysoft.com/legal/data-processing-agreement",
+      "final": "https://ysoft.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "y-soft",
+      "url": "https://ysoft.com/company/dpa",
+      "final": "https://ysoft.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/legal/dpa",
+      "final": "https://tricentis.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/dpa",
+      "final": "https://tricentis.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/legal/data-processing-addendum",
+      "final": "https://tricentis.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/data-processing-agreement",
+      "final": "https://tricentis.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/policies/data-processing-addendum",
+      "final": "https://tricentis.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/policies/dpa",
+      "final": "https://tricentis.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/terms/dpa",
+      "final": "https://tricentis.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/data-processing-addendum",
+      "final": "https://tricentis.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "y-soft",
+      "url": "https://ysoft.com/legal/gdpr/dpa",
+      "final": "https://ysoft.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "y-soft",
+      "url": "https://ysoft.com/legal/processor-terms",
+      "final": "https://ysoft.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "y-soft",
+      "url": "https://ysoft.com/privacy/dpa",
+      "final": "https://ysoft.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "y-soft",
+      "url": "https://ysoft.com/legal/data-processing",
+      "final": "https://ysoft.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "y-soft",
+      "url": "https://ysoft.com/data-processing",
+      "final": "https://ysoft.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/legal/gdpr/dpa",
+      "final": "https://tricentis.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/legal/processor-terms",
+      "final": "https://tricentis.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/privacy/dpa",
+      "final": "https://tricentis.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/legal/data-processing",
+      "final": "https://tricentis.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/legal/dpa",
+      "final": "https://trustly.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/data-processing",
+      "final": "https://tricentis.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/dpa",
+      "final": "https://trustly.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/gdpr/dpa",
+      "final": "https://tricentis.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/legal/data-processing-addendum",
+      "final": "https://trustly.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/legal/data-processing-agreement",
+      "final": "https://trustly.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/data-processing-addendum",
+      "final": "https://trustly.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/policies/data-processing-addendum",
+      "final": "https://trustly.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/data-processing-agreement",
+      "final": "https://trustly.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/policies/data-processing-agreement",
+      "final": "https://trustly.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/terms/dpa",
+      "final": "https://trustly.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/policies/dpa",
+      "final": "https://trustly.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/company/dpa",
+      "final": "https://trustly.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/gdpr/dpa",
+      "final": "https://trustly.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/legal/gdpr/dpa",
+      "final": "https://trustly.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "projectmanager-com",
+      "url": "https://projectmanager.com/dpa",
+      "final": "https://projectmanager.com/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/privacy/dpa",
+      "final": "https://trustly.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "projectmanager-com",
+      "url": "https://projectmanager.com/legal/dpa",
+      "final": "https://projectmanager.com/legal/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "projectmanager-com",
+      "url": "https://projectmanager.com/legal/data-processing-addendum",
+      "final": "https://projectmanager.com/legal/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "projectmanager-com",
+      "url": "https://projectmanager.com/legal/data-processing-agreement",
+      "final": "https://projectmanager.com/legal/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "projectmanager-com",
+      "url": "https://projectmanager.com/data-processing-agreement",
+      "final": "https://projectmanager.com/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/legal/processor-terms",
+      "final": "https://trustly.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "projectmanager-com",
+      "url": "https://projectmanager.com/data-processing-addendum",
+      "final": "https://projectmanager.com/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "projectmanager-com",
+      "url": "https://projectmanager.com/policies/data-processing-addendum",
+      "final": "https://projectmanager.com/policies/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "projectmanager-com",
+      "url": "https://projectmanager.com/policies/dpa",
+      "final": "https://projectmanager.com/policies/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "projectmanager-com",
+      "url": "https://projectmanager.com/policies/data-processing-agreement",
+      "final": "https://projectmanager.com/policies/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/legal/data-processing",
+      "final": "https://trustly.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "projectmanager-com",
+      "url": "https://projectmanager.com/terms/dpa",
+      "final": "https://projectmanager.com/terms/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/data-processing",
+      "final": "https://trustly.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "projectmanager-com",
+      "url": "https://projectmanager.com/company/dpa",
+      "final": "https://projectmanager.com/company/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "projectmanager-com",
+      "url": "https://projectmanager.com/gdpr/dpa",
+      "final": "https://projectmanager.com/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "projectmanager-com",
+      "url": "https://projectmanager.com/legal/gdpr/dpa",
+      "final": "https://projectmanager.com/legal/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "projectmanager-com",
+      "url": "https://projectmanager.com/privacy/dpa",
+      "final": "https://projectmanager.com/privacy/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "projectmanager-com",
+      "url": "https://projectmanager.com/legal/processor-terms",
+      "final": "https://projectmanager.com/legal/processor-terms",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "projectmanager-com",
+      "url": "https://projectmanager.com/legal/data-processing",
+      "final": "https://projectmanager.com/legal/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "projectmanager-com",
+      "url": "https://projectmanager.com/data-processing",
+      "final": "https://projectmanager.com/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/dpa",
+      "final": "https://esko.com/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/data-processing-addendum",
+      "final": "https://esko.com/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/policies/data-processing-addendum",
+      "final": "https://esko.com/policies/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/policies/dpa",
+      "final": "https://esko.com/policies/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/legal/dpa",
+      "final": "https://esko.com/legal/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/policies/data-processing-agreement",
+      "final": "https://esko.com/policies/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/legal/data-processing-agreement",
+      "final": "https://esko.com/legal/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/legal/data-processing-addendum",
+      "final": "https://esko.com/legal/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/data-processing-agreement",
+      "final": "https://esko.com/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/terms/dpa",
+      "final": "https://esko.com/terms/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/company/dpa",
+      "final": "https://esko.com/company/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/gdpr/dpa",
+      "final": "https://esko.com/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/data-processing",
+      "final": "https://esko.com/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/legal/gdpr/dpa",
+      "final": "https://esko.com/legal/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/privacy/dpa",
+      "final": "https://esko.com/privacy/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/legal/processor-terms",
+      "final": "https://esko.com/legal/processor-terms",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/legal/data-processing",
+      "final": "https://esko.com/legal/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/legal/data-processing-agreement",
+      "final": "https://tricentis.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/policies/data-processing-agreement",
+      "final": "https://tricentis.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/company/dpa",
+      "final": "https://tricentis.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/subprocessors",
+      "final": "https://trustly.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://security.tricentis.com/sub-processors",
+      "final": "https://security.tricentis.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://security.tricentis.com/subprocessors",
+      "final": "https://security.tricentis.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/legal/subprocessors",
+      "final": "https://tricentis.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/sub-processors",
+      "final": "https://tricentis.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/legal/sub-processors",
+      "final": "https://trustly.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/subprocessors",
+      "final": "https://tricentis.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/legal/sub-processors-page",
+      "final": "https://tricentis.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/sub-processors",
+      "final": "https://trustly.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/legal/service-providers",
+      "final": "https://tricentis.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/company/subprocessors",
+      "final": "https://tricentis.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/trust/subprocessors",
+      "final": "https://tricentis.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/privacy/subprocessors",
+      "final": "https://tricentis.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/legal/subprocessors",
+      "final": "https://trustly.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/legal/service-providers",
+      "final": "https://trustly.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "tricentis",
+      "url": "https://tricentis.com/legal/sub-processors",
+      "final": "https://tricentis.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/company/subprocessors",
+      "final": "https://trustly.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/privacy/subprocessors",
+      "final": "https://trustly.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/trust/subprocessors",
+      "final": "https://trustly.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "trustly",
+      "url": "https://trustly.com/legal/sub-processors-page",
+      "final": "https://trustly.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/subprocessors",
+      "final": "https://esko.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/sub-processors",
+      "final": "https://esko.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/legal/subprocessors",
+      "final": "https://esko.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/legal/sub-processors",
+      "final": "https://esko.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/legal/service-providers",
+      "final": "https://esko.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/privacy/subprocessors",
+      "final": "https://esko.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/company/subprocessors",
+      "final": "https://esko.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/trust/subprocessors",
+      "final": "https://esko.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "esko",
+      "url": "https://esko.com/legal/sub-processors-page",
+      "final": "https://esko.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "esko",
+      "url": "https://trustcenter.esko.com/subprocessors",
+      "final": "https://trustcenter.esko.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "frosmo",
+      "url": "https://trust.frosmo.com/sub-processors",
+      "final": "https://trust.frosmo.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "frosmo",
+      "url": "https://frosmo.com/sub-processors",
+      "final": "https://frosmo.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "frosmo",
+      "url": "https://trust.frosmo.com/subprocessors",
+      "final": "https://trust.frosmo.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "esko",
+      "url": "https://trustcenter.esko.com/sub-processors",
+      "final": "https://trustcenter.esko.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "frosmo",
+      "url": "https://frosmo.com/legal/subprocessors",
+      "final": "https://frosmo.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "frosmo",
+      "url": "https://frosmo.com/legal/service-providers",
+      "final": "https://frosmo.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "frosmo",
+      "url": "https://frosmo.com/subprocessors",
+      "final": "https://frosmo.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "frosmo",
+      "url": "https://frosmo.com/legal/sub-processors",
+      "final": "https://frosmo.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "frosmo",
+      "url": "https://frosmo.com/privacy/subprocessors",
+      "final": "https://frosmo.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "frosmo",
+      "url": "https://frosmo.com/company/subprocessors",
+      "final": "https://frosmo.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "frosmo",
+      "url": "https://frosmo.com/trust/subprocessors",
+      "final": "https://frosmo.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "frosmo",
+      "url": "https://frosmo.com/legal/sub-processors-page",
+      "final": "https://frosmo.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
       "kind": "subprocessors"
     }
   ]

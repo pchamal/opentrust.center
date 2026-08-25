@@ -461,6 +461,13 @@ PRIOR_ATTEMPTED = {
     "constellation-energy",
     "sopra-steria",
     "domo",
+    # this cut — unread first-party queue after PR 114/122 (fills + honest zeros)
+    "y-soft",
+    "tricentis",
+    "trustly",
+    "frosmo",
+    "projectmanager-com",
+    "esko",
 }
 
 
