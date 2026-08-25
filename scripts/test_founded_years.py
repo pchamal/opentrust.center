@@ -16,6 +16,7 @@ from enrich import (  # noqa: E402
     title_close,
     website_matches,
 )
+from file_company_years import jsonld_later_than_known  # noqa: E402
 
 
 def check(cond: bool, msg: str) -> None:
@@ -166,6 +167,29 @@ def test_parse_founded_sentence() -> None:
         ) is None,
         "is part of the parent group is not this company’s year",
     )
+    check(
+        parse_official_founded_year(
+            'Urban Airship was founded in 2009. {"@type":"Organization","foundingDate":"2019-06-01"}',
+            "Airship",
+        ) == 2009,
+        "earlier founded sentence beats a later JSON-LD foundingDate",
+    )
+    check(
+        parse_official_founded_year(
+            'The company rebranded in 2019. {"@type":"Organization","foundingDate":"2019-06-01"}',
+            "Airship",
+        ) is None,
+        "JSON-LD foundingDate next to a rebrand is not founding",
+    )
+    check(
+        jsonld_later_than_known({"slug": "airship", "name": "Airship"}, 2019)
+        == "jsonld-later-than-known-founding",
+        "Airship 2019 is later than the 2009 Urban Airship founding",
+    )
+    check(
+        jsonld_later_than_known({"slug": "huntress", "name": "Huntress"}, 2015) is None,
+        "Huntress 2015 is not a known-later JSON-LD",
+    )
 
 
 def test_apply_rejects_wiki_and_keeps_existing() -> None:
@@ -190,11 +214,61 @@ def test_apply_rejects_wiki_and_keeps_existing() -> None:
     check(row["founded_year"] == held["founded_year"], "first official year stays")
 
 
+def test_report_years_landed() -> None:
+    """Filed years from this increment must be on the public row and dossier."""
+    import json
+    public = json.loads((ROOT / "site" / "data.json").read_text())
+    enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
+    report = json.loads((ROOT / "data" / "render" / "company-years.json").read_text())
+    by_pub = {c["slug"]: c for c in public["companies"]}
+    by_enr = {c["slug"]: c for c in enr["companies"]}
+    filed = report.get("years_filed") or []
+    check(len(filed) == 7, f"this increment filed 7, got {len(filed)}")
+    check(len(report.get("stayed_open") or []) == 33, "33 stayed open")
+    check("faculty" not in (report.get("batch") or []), "Faculty is not re-walked")
+    check("airship" not in {r["slug"] for r in filed}, "Airship 2019 rebrand is not filed")
+    check(
+        {r["slug"] for r in filed}
+        == {
+            "appian",
+            "esentire",
+            "xylem-inc",
+            "huntress",
+            "salt-security",
+            "bluevoyant",
+            "crusoe",
+        },
+        "seven verified fills stay",
+    )
+    for rec in filed:
+        slug, year, url = rec["slug"], rec["year"], rec["url"]
+        pub, row = by_pub[slug], by_enr[slug]
+        check(pub.get("founded_year") == year, f"{slug} public year")
+        check(row.get("founded_year") == year, f"{slug} enriched year")
+        check(pub.get("founded_source") == url, f"{slug} public source")
+        check((pub.get("file") or {}).get("years") in (True, 20), f"{slug} file.years")
+        html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
+        check(f"founded · {year}" in html, f"{slug} dossier year line")
+        check(url.rstrip("/") in html or url in html, f"{slug} dossier source")
+        check('file-rule on" aria-hidden="true"></span></span></p>' in html, f"{slug} years glyph on")
+    airship = by_pub["airship"]
+    check(not airship.get("founded_year"), "Airship year stays open")
+    check(not airship.get("founded_source"), "Airship source stays off file")
+    check((airship.get("file") or {}).get("years") in (0, None, False), "Airship years rule open")
+    air_html = (ROOT / "site" / "c" / "airship.html").read_text(encoding="utf-8")
+    check("founded · <span class=\"absent\">not on file</span>" in air_html, "Airship dossier years open")
+    check("founded · 2019" not in air_html, "Airship 2019 is not printed")
+    faculty = by_pub["faculty"]
+    check(faculty.get("founded_year") == 2014, "Faculty year 2014 stays")
+    check(faculty.get("founded_source") == "https://faculty.ai/en-gb", "Faculty source stays")
+
+
 def main() -> int:
     test_prefix_is_not_a_match()
     test_official_site_only()
     test_parse_founded_sentence()
     test_apply_rejects_wiki_and_keeps_existing()
+    test_report_years_landed()
     print("ok")
     return 0
 
