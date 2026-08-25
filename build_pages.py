@@ -154,6 +154,56 @@ LINK_TO_INSTRUMENT = {
 
 INSTRUMENTS = ("trust", "security", "privacy", "dpa", "subprocessors", "status", "bounty")
 
+
+def apply_discoveries(rows: list[dict]) -> int:
+    """File verified discovery leads into company rows before enrichment.
+
+    A verified first-party page upgrades a silent row to thin (page print,
+    20/100) and fills its instrument slot. Nothing is rescored beyond that;
+    marks still require public HTML with extractable certificates.
+    """
+    path = ROOT / "data" / "discovered-files.json"
+    if not path.exists():
+        return 0
+    discovered = load_json(path, {})
+    if not discovered:
+        return 0
+    applied = 0
+    for row in rows:
+        domain = (row.get("domain") or "").lower()
+        hit = discovered.get(domain)
+        if not hit:
+            continue
+        links = row.get("links") or {}
+        changed = False
+        page_url = hit.get("page")
+        if page_url and not links.get("trust") and not links.get("security"):
+            slot = "trust" if "trust" in page_url.lower() else "security"
+            links[slot] = page_url
+            changed = True
+        for kind in ("dpa", "subprocessors"):
+            url = hit.get(kind)
+            if url and not links.get(kind):
+                links[kind] = url
+                changed = True
+        if not changed:
+            continue
+        row["links"] = links
+        row["found"] = True
+        disc = row.get("disclosure") or {}
+        factors = disc.get("factors") or {}
+        if (disc.get("tier") or "silent") == "silent":
+            disc["tier"] = "thin"
+            disc["score"] = max(int(disc.get("score") or 0), 20)
+            factors.setdefault("page", 20)
+            disc["factors"] = factors
+        row["disclosure"] = disc
+        row["discovered"] = True
+        applied += 1
+    if applied:
+        print(f"discoveries filed: {applied} rows upgraded from silent")
+    return applied
+
 FAVICON = "../favicon.svg"
 
 
@@ -1886,6 +1936,7 @@ def main() -> int:
         src = ROOT / "data" / "enriched.json"
     raw = load_json(src, {})
     companies_in = raw.get("companies") or []
+    apply_discoveries(companies_in)
     attach_fedramp_dump(companies_in)
     attach_ramp_dump(companies_in, "stateramp.json", "stateramp", "StateRAMP")
     attach_ramp_dump(companies_in, "txramp.json", "txramp", "TX-RAMP")
