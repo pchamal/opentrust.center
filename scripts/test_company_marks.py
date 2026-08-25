@@ -173,6 +173,37 @@ def main() -> int:
         "privacy",
     )
     check(kept == [] and why == "regulation-only", f"SuperOffice privacy GDPR stays open: {kept} {why}")
+    kept, why = hold_marks(
+        ["HIPAA"],
+        "you shall not provide us with any PHI (as defined in the Health Insurance "
+        "Portability and Accountability Act of 1996 (“HIPAA”)) in connection with "
+        "the provision of services under these terms, but to the extent that you "
+        "are acting as a Covered Entity under HIPAA and there is incidental "
+        "disclosure of PHI about your consumers to Trustpilot and to the extent "
+        "that Trustpilot, as a result, is deemed under HIPAA to be acting as a "
+        "Business Associate, the disclosure of such PHI will be governed by the "
+        "HIPAA Business Associate Addendum.",
+        "privacy",
+    )
+    check(kept == [], f"HIPAA BAA / shall-not-provide-PHI stays open: {kept} {why}")
+    from file_company_marks import reject_reason
+    # Title tail is a portal product line. Catalog chrome is not a hold.
+    check(
+        reject_reason(
+            "https://trustcenter.example.com",
+            {
+                "ok": True,
+                "status": 200,
+                "final_url": "https://trustcenter.example.com",
+                "title": "Example Digital Trust Center | Powered by ExamplePortal",
+                "text": "SOC 2 Type II ISO 27001 GDPR NIS2 SOX",
+                "html": "<html></html>",
+                "ctype": "text/html",
+            },
+            {"slug": "example", "domain": "example.com", "trust_url": "https://trustcenter.example.com"},
+        ) == "js-portal",
+        "powered-by portal title stays unread",
+    )
 
     for rec in report.get("marks_filed") or []:
         slug, url, added = rec["slug"], rec["url"], rec["added"]
@@ -264,32 +295,32 @@ def main() -> int:
     check("Amazon Web Services" in zoom, "zoom still names AWS")
     check("0–100" not in index and "0-100" not in index, "no 0-100 score on AITI")
 
-    # This increment: SuperOffice, Genedata, Sonar, Trustpilot.
-    check(report.get("batch") == ["superoffice", "genedata", "sonar", "trustpilot"], "batch is the four expand slugs")
+    # This increment: next 40 open/thin first-party trust URLs. Nothing printed.
+    batch = report.get("batch") or []
+    check(len(batch) == 40, f"batch is 40, got {len(batch)}")
+    check(not (report.get("marks_filed") or []), "this cut filed no marks")
+    check(len(report.get("stayed_open") or []) == 40, "40 stayed open")
+    from file_company_marks import PRIOR_ATTEMPTED, select_batch
+    for slug in batch:
+        check(slug in PRIOR_ATTEMPTED, f"{slug} is on the next-increment skip list")
+    leftover = select_batch(list(public["companies"]), by_enr)
+    leftover_slugs = {r["slug"] for r in leftover}
+    check(not leftover_slugs & set(batch), f"this batch is not retried, got {leftover_slugs & set(batch)}")
+    for slug in ("esko", "trustpilot", "toast", "snap", "superoffice", "genedata"):
+        pub = by_pub[slug]
+        check(not (pub.get("certs") or []), f"{slug} certs stay empty")
+        check((pub.get("file") or {}).get("marks") in (0, 10, False, None), f"{slug} marks glyph stays open")
+        html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
+        check("safebase" not in html.lower() and "conveyor" not in html.lower() and "vanta" not in html.lower(), f"{slug} named a portal vendor")
+    check("HIPAA" not in (by_pub["trustpilot"].get("certs") or []), "trustpilot HIPAA BAA is not a filed mark")
     sonar = by_pub["sonar"]
-    check(sonar.get("certs") == ["ISO 27001", "SOC 2 Type II"], f"sonar certs {sonar.get('certs')}")
-    check((sonar.get("file") or {}).get("marks") == 20, "sonar marks printed")
-    sonar_html = (ROOT / "site" / "c" / "sonar.html").read_text(encoding="utf-8")
-    check("ISO 27001" in sonar_html and "SOC 2 Type II" in sonar_html, "sonar dossier names both holds")
-    check('attestations.html#iso-27001' in sonar_html and 'attestations.html#soc-2-type-ii' in sonar_html, "sonar marks clerk-link")
-    check("GDPR" not in (sonar.get("certs") or []) and "CCPA" not in (sonar.get("certs") or []), "sonar DPA regulations not filed as holds")
-    check("vanta" not in sonar_html.lower() and "secureframe" not in sonar_html.lower(), "sonar dossier names no portal vendor")
-    sonar_privacy = ((sonar.get("instruments") or {}).get("privacy") or {}).get("url")
-    check(sonar_privacy == "https://www.sonarsource.com/company/privacy/", "sonar privacy filed from first-party HTML")
+    check(sonar.get("certs") == ["ISO 27001", "SOC 2 Type II"], f"sonar prior certs stay {sonar.get('certs')}")
+    check((sonar.get("file") or {}).get("marks") == 20, "sonar marks stay printed")
+    pronto_html = (ROOT / "site" / "c" / "pronto-software.html").read_text(encoding="utf-8")
+    check("Official page" in pronto_html, "Pronto Software still prints Official page")
     years = {"superoffice": 1990, "genedata": 1997, "trustpilot": 2007, "sonar": 2008}
     for slug, year in years.items():
-        pub = by_pub[slug]
-        check(pub.get("founded_year") == year, f"{slug} year stays {year}")
-        if slug != "sonar":
-            check(not (pub.get("certs") or []), f"{slug} marks stay open")
-            check((pub.get("file") or {}).get("marks") in (0, 10), f"{slug} marks glyph stays 10")
-    tp_html = (ROOT / "site" / "c" / "trustpilot.html").read_text(encoding="utf-8")
-    check("HIPAA" not in (by_pub["trustpilot"].get("certs") or []), "trustpilot HIPAA BAA nav is not a filed mark")
-    check("vanta" not in tp_html.lower(), "trustpilot dossier names no portal vendor")
-    so_html = (ROOT / "site" / "c" / "superoffice.html").read_text(encoding="utf-8")
-    ge_html = (ROOT / "site" / "c" / "genedata.html").read_text(encoding="utf-8")
-    check("secureframe" not in so_html.lower() and "vanta" not in so_html.lower(), "superoffice names no portal vendor")
-    check("onetrust" not in ge_html.lower() and "vanta" not in ge_html.lower(), "genedata names no portal vendor")
+        check(by_pub[slug].get("founded_year") == year, f"{slug} year stays {year}")
 
     print(
         "ok",
