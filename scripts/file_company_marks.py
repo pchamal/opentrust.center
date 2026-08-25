@@ -373,6 +373,47 @@ PRIOR_ATTEMPTED = {
     "gigamon",
     "malwarebytes",
     "watchguard",
+    # this cut — 40 open/thin files fetch-checked; portal shells / no hold
+    "superoffice",
+    "extensis",
+    "frosmo",
+    "projectmanager-com",
+    "trustpilot",
+    "caspio",
+    "genedata",
+    "bettercloud",
+    "deltek",
+    "athenahealth",
+    "crusoe",
+    "esko",
+    "meta",
+    "aptitude-software",
+    "energycap",
+    "forescout",
+    "luminance",
+    "stryker-corporation",
+    "snap",
+    "ge-aerospace",
+    "iress",
+    "johnson-controls",
+    "kwai",
+    "resmed",
+    "seagate-technology",
+    "toast",
+    "usio",
+    "newegg",
+    "gen-digital",
+    "craigslist",
+    "meltwater",
+    "trustly",
+    "pdf-solutions",
+    "beyondtrust",
+    "8x8",
+    "citrix",
+    "logmein",
+    "checkmarx",
+    "zeta-global",
+    "aqua-security",
 }
 
 # Regulation-only lists stay thin. Real certs (SOC / ISO / FedRAMP / …) fill out.
@@ -415,7 +456,10 @@ HIPAA_NOT_HOLD_RE = re.compile(
     r"hipaa-covered|"
     r"required\s+under\s+(?:the\s+)?(?:health insurance portability|hipaa)|"
     r"de-identif|"
-    r"45\s+cfr",
+    r"45\s+cfr|"
+    r"business\s+associate\s+addendum|"
+    r"deemed\s+under\s+hipaa\s+to\s+be\s+acting\s+as\s+a\s+business\s+associate|"
+    r"shall\s+not\s+provide\s+us\s+with\s+any\s+phi",
     re.I,
 )
 
@@ -494,17 +538,17 @@ def first_party_candidates(public: dict, enr: dict) -> list[tuple[str, str]]:
         out.append((kind, u))
 
     links = enr.get("links") or {}
-    slug = (public.get("slug") or enr.get("slug") or "")
-    privacy_only = slug in REGISTER_WALKED and not requested_slugs()
-    kinds = ("privacy",) if privacy_only else ("trust", "security", "privacy")
+    # Remaining register-walk files still have an unread first-party trust
+    # URL and empty/thin certs. This cut reads those trust pages. Skip
+    # lists still keep PRIOR_ATTEMPTED slugs off the queue.
+    kinds = ("trust", "security", "privacy")
     extra_kinds = ("dpa", "subprocessors") if requested_slugs() else ()
     for kind in (*kinds, *extra_kinds):
         add(kind, links.get(kind) or "")
-    if not privacy_only:
-        add("trust_url", public.get("trust_url") or "")
-        add("enr_trust", enr.get("trust_url") or "")
-        add("final_url", public.get("final_url") or "")
-        add("enr_final", enr.get("final_url") or "")
+    add("trust_url", public.get("trust_url") or "")
+    add("enr_trust", enr.get("trust_url") or "")
+    add("final_url", public.get("final_url") or "")
+    add("enr_final", enr.get("final_url") or "")
     for key in (*kinds, *extra_kinds):
         add(key, instrument_url(public, key))
     return out
@@ -577,6 +621,8 @@ def reject_reason(url: str, rec: dict, row: dict) -> str | None:
     if enrich.is_portal_vendor_host(url, row) or enrich.is_portal_vendor_host(final, row):
         return "portal-vendor"
     title, text = rec.get("title") or "", rec.get("text") or ""
+    if enrich.VENDOR_WORDS.search(title) or enrich.VENDOR_TITLE_TAIL.search(title):
+        return "js-portal"
     if enrich.looks_like_login_wall(title, text):
         return "login-wall"
     if enrich.looks_dead(title, text):
@@ -643,8 +689,16 @@ def cmmc_is_hold(blob: str) -> bool:
 
 
 def hipaa_is_hold(blob: str) -> bool:
-    """A HIPAA notice or rights sentence is not a certification hold."""
+    """A HIPAA notice, BAA, or rights sentence is not a certification hold."""
     if not blob:
+        return False
+    if re.search(
+        r"business\s+associate\s+addendum|"
+        r"shall\s+not\s+provide\s+us\s+with\s+any\s+phi|"
+        r"deemed\s+under\s+hipaa\s+to\s+be\s+acting\s+as\s+a\s+business\s+associate",
+        blob,
+        re.I,
+    ):
         return False
     hold = False
     for m in re.finditer(r"\bhipaa\b", blob, re.I):
