@@ -199,6 +199,22 @@ def test_parse_founded_sentence() -> None:
         ) is None,
         "Temasek 1974 on an Orca page is not Orca’s year",
     )
+    check(
+        parse_official_founded_year(
+            "Our Story 2005 Fenrir Established 2008 Collaborative Development "
+            "2014 First International Expansion",
+            "Fenrir Inc",
+        ) is None,
+        "Fenrir timeline 2008 is the next beat, not founding",
+    )
+    check(
+        parse_official_founded_year(
+            "Learn more Thriv Founded in 2018, Thriv is a Helsinki-based tech "
+            "talent agency. We connect ambitious freelance software developers.",
+            "Futurice",
+        ) is None,
+        "Thriv 2018 on a Futurice family page is not Futurice’s year",
+    )
 
 
 def test_apply_rejects_wiki_and_keeps_existing() -> None:
@@ -224,7 +240,7 @@ def test_apply_rejects_wiki_and_keeps_existing() -> None:
 
 
 def test_report_years_landed() -> None:
-    """This increment printed nothing first-party. Prior fills stay."""
+    """This increment filed three first-party years. Held false hits stay open."""
     import json
     public = json.loads((ROOT / "site" / "data.json").read_text())
     enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
@@ -234,25 +250,38 @@ def test_report_years_landed() -> None:
     filed = report.get("years_filed") or []
     batch = report.get("batch") or []
     stayed = report.get("stayed_open") or []
-    check(len(filed) == 0, f"this increment filed 0, got {len(filed)}")
-    check(len(stayed) == 5, f"5 stayed open, got {len(stayed)}")
-    check(len(batch) == 5, f"batch is the remaining unread 5, got {len(batch)}")
-    check(set(batch) == {
-        "craigslist",
-        "f5",
-        "meta-platforms",
-        "nucleus-software-exports",
-        "walmart",
-    }, f"remaining unread queue, got {batch}")
+    filed_by = {r["slug"]: r for r in filed}
+    check(len(filed) == 3, f"this increment filed 3, got {len(filed)}")
+    check(len(stayed) == 37, f"37 stayed open, got {len(stayed)}")
+    check(len(batch) == 40, f"batch is 40, got {len(batch)}")
+    expect = {
+        "innofactor": (2000, "https://www.innofactor.com/about-us/our-story"),
+        "preferred-networks": (2014, "https://www.preferred.jp/en/company"),
+        "works-applications": (1996, "https://www.worksap.co.jp/"),
+    }
+    check(set(filed_by) == set(expect), f"filed slugs, got {sorted(filed_by)}")
+    for slug, (year, source) in expect.items():
+        rec, pub, row = filed_by[slug], by_pub[slug], by_enr[slug]
+        check(rec.get("year") == year, f"{slug} report year")
+        check(rec.get("url") == source, f"{slug} report source")
+        check(pub.get("founded_year") == year, f"{slug} public year")
+        check(pub.get("founded_source") == source, f"{slug} public source")
+        check(row.get("founded_year") == year, f"{slug} enriched year")
+        check((pub.get("file") or {}).get("years") in (True, 20), f"{slug} file.years")
+        html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
+        check(f"founded · {year}" in html, f"{slug} dossier year")
+        check(source in html, f"{slug} dossier source")
     check("faculty" not in batch, "Faculty is not re-walked")
     check("airship" not in batch, "Airship is not re-walked")
     check("appian" not in batch, "PR 107 fills are not re-walked")
     check("orca-security" not in batch, "PR 111 Orca is not re-walked")
+    check("craigslist" not in batch, "PR 115 leftovers are not re-walked")
     from file_company_years import PRIOR_ATTEMPTED, select_batch
     for slug in batch:
         check(slug in PRIOR_ATTEMPTED, f"{slug} is on the next-increment skip list")
     leftover = select_batch(list(public["companies"]), by_enr)
-    check(leftover == [], f"unread open-years queue is empty, got {[r['slug'] for r in leftover]}")
+    leftover_slugs = {r["slug"] for r in leftover}
+    check(not leftover_slugs & set(batch), f"this batch is not retried, got {leftover_slugs & set(batch)}")
     orca = by_pub["orca-security"]
     check(not orca.get("founded_year"), "Orca year stays open")
     check(not orca.get("founded_source"), "Orca source stays off file")
@@ -291,7 +320,11 @@ def test_report_years_landed() -> None:
     check(not watch.get("founded_year"), "WatchGuard year stays open")
     check((watch.get("file") or {}).get("marks") == 20, "WatchGuard marks stay")
     check((watch.get("file") or {}).get("years") in (0, None, False), "WatchGuard years rule open")
-    for slug in batch:
+    held = {
+        "fenrir-inc": "2008",
+        "futurice": "2018",
+    }
+    for slug, year in held.items():
         pub = by_pub[slug]
         check(not pub.get("founded_year"), f"{slug} year stays open")
         check((pub.get("file") or {}).get("years") in (0, None, False), f"{slug} years rule open")
@@ -300,6 +333,14 @@ def test_report_years_landed() -> None:
             "founded · <span class=\"absent\">not on file</span>" in html,
             f"{slug} dossier years open",
         )
+        check(f"founded · {year}" not in html, f"{slug} {year} is not printed")
+    for row in stayed:
+        slug = row["slug"]
+        if slug in expect:
+            raise SystemExit(f"fail: {slug} is filed and stayed open")
+        pub = by_pub[slug]
+        check(not pub.get("founded_year"), f"{slug} year stays open")
+        check((pub.get("file") or {}).get("years") in (0, None, False), f"{slug} years rule open")
 
 
 def main() -> int:

@@ -220,12 +220,54 @@ PRIOR_ATTEMPTED = {
     "withsecure",
     "vulncheck",
     "watchguard",
-    # this cut — remaining unread open years files; nothing first-party printed
+    # PR 115 — remaining unread open years files; nothing first-party printed
     "craigslist",
     "f5",
     "meta-platforms",
     "nucleus-software-exports",
     "walmart",
+    # this cut — latest expand silent rows + three other unread open years files
+    # Fenrir 2008 is the next timeline beat, not founding. Futurice 2018 is Thriv.
+    "eizo",
+    "gala-inc",
+    "lm3labs",
+    "genista-corporation",
+    "ah-software",
+    "toontrack",
+    "fenrir-inc",
+    "crypton-future-media",
+    "visage-technologies-ab",
+    "comptel",
+    "nhn-japan-corporation",
+    "six-apart",
+    "maruhon",
+    "pixela-corporation",
+    "digion",
+    "works-applications",
+    "justsystems",
+    "softether-corporation",
+    "innofactor",
+    "preferred-networks",
+    "link-motion",
+    "futurice",
+    "umbra",
+    "rightware",
+    "exense",
+    "easybits",
+    "tekla",
+    "data-respons",
+    "tuxera",
+    "microtask",
+    "hytracc-consulting",
+    "valamis",
+    "bplats",
+    "kantega",
+    "macecraft-software",
+    "kongsberg-spacetec",
+    "increo-interactive-creations-as",
+    "blackberry",
+    "recorded-future",
+    "juniper-networks",
 }
 
 
@@ -256,17 +298,31 @@ def previous_batch() -> set[str]:
     return prior
 
 
+def latest_expand_slugs() -> list[str]:
+    """Newest register expand first. Those rows are unread for years."""
+    paths = sorted((DATA / "render").glob("expand-*.json"))
+    if not paths:
+        return []
+    rows = load_json(paths[-1], {}).get("rows") or []
+    return [r.get("slug") for r in rows if r.get("slug")]
+
+
 def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]:
     wanted = requested_slugs()
     skip = set() if wanted else previous_batch()
     by_pub = {row.get("slug"): row for row in public_rows if row.get("slug")}
-    rows = [by_pub[s] for s in wanted if s in by_pub] if wanted else public_rows
+    if wanted:
+        rows = [by_pub[s] for s in wanted if s in by_pub]
+    else:
+        # Found=True open-years queue is exhausted. Prefer the latest expand
+        # (silent rows with official domains), then any other unread open
+        # years file that already has a domain. A first-party about page
+        # can still name a year when no trust portal was found.
+        prefer = [by_pub[s] for s in latest_expand_slugs() if s in by_pub]
+        seen = {r.get("slug") for r in prefer}
+        rows = prefer + [r for r in public_rows if r.get("slug") not in seen]
     picked = []
     for row in rows:
-        # Register walk stays on-file (trust portal found). Requested slugs
-        # may be silent: a first-party about page can still name a year.
-        if not wanted and not row.get("found"):
-            continue
         slug = row.get("slug") or ""
         if slug in skip:
             continue
@@ -664,13 +720,13 @@ def main() -> int:
     report = {
         "generated_at": enr.get("generated_at"),
         "rule": (
-            "Next ~40 on-file companies whose years File-glyph rule was open "
-            "and who already had a stored Wikipedia company page, About, or "
-            "other first-party/public page. A year fills only when that live "
-            "page names the company's founding year. Wikipedia category/list "
-            "pages, news articles, title-only prefix matches, and 404s stay "
-            "open. Prior year cuts, PR 104, PR 107, and PR 111 are on the skip "
-            "list."
+            "Next ~40 unread open-years files that already had an official "
+            "domain, preferring the latest register expand. Silent rows are "
+            "eligible: a first-party about page can still name a year. A year "
+            "fills only when the live page names the company's founding year. "
+            "Wikipedia category/list pages, news articles, title-only prefix "
+            "matches, and 404s stay open. Prior year cuts, PR 104, PR 107, "
+            "PR 111, and PR 115 leftovers are on the skip list."
         ),
         "batch": [rec["slug"] for rec in batch],
         "years_filed": filed,

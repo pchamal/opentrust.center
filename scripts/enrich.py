@@ -377,6 +377,14 @@ JSONLD_NOT_FOUNDING = re.compile(
     r"product\s+launch|launched the product|unveiled)\b",
     re.I,
 )
+# Timeline copy: "2005 Fenrir Established 2008 Collaborative Development"
+# The year after Established is the next beat, not founding.
+_YEAR_NC = r"(?:1[6-9]\d{2}|20[0-2]\d)"
+_TIMELINE_NEXT_EVENT = re.compile(
+    rf"\b({_YEAR_NC})\s+[A-Z][A-Za-z][\w.&'-]*"
+    rf"(?:\s+[A-Z][A-Za-z][\w.&'-]*){{0,3}}\s+"
+    rf"(?:Founded|Established|Incorporated)\s+({_YEAR_NC})\b"
+)
 COPYRIGHT_SPAN = re.compile(
     r"(?:©|&copy;|copyright)\s*(?:©\s*)?(?:19|20)\d{2}(?:\s*[-–—]\s*(?:19|20)\d{2})?",
     re.I,
@@ -3244,6 +3252,15 @@ _GENERIC_LEAD = {
 }
 
 
+def _timeline_next_event(window: str, year: int) -> bool:
+    """A later year after 'YYYY Name Established' is the next timeline beat."""
+    for m in _TIMELINE_NEXT_EVENT.finditer(window or ""):
+        first, second = int(m.group(1)), int(m.group(2))
+        if year == second and first != second:
+            return True
+    return False
+
+
 def _other_named_org_before_founding(window: str, company_core: str) -> bool:
     """Another named firm in the same window is not this company."""
     m = re.search(r"\b(?:founded|established|incorporated)\b", window or "", re.I)
@@ -3284,6 +3301,9 @@ def _window_about_this_company(window: str, company_name: str, structured: bool)
     if core and core in _name_core(w):
         return True
     if re.search(r"\b(we|our company|our firm|our story|this company)\b", w, re.I):
+        # Thriv Founded in 2018 … We connect — other firm, not this company.
+        if core and _other_named_org_before_founding(w, core):
+            return False
         return True
     if re.search(r"\bthe company\b", w, re.I) and not re.search(
         r"\b(?:selling|sold|left|joined|acquired|bought)\s+the company\b", w, re.I
@@ -3318,6 +3338,8 @@ def parse_official_founded_year(text: str, company_name: str = ""):
             if not _window_about_this_company(window, company_name, is_struct):
                 continue
             if is_struct and JSONLD_NOT_FOUNDING.search(window):
+                continue
+            if not is_struct and _timeline_next_event(window, year):
                 continue
             (structured if is_struct else prose).append(year)
     # A later JSON-LD foundingDate is not the founding year when the same
