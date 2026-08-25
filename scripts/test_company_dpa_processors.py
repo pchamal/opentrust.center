@@ -106,43 +106,57 @@ def main() -> int:
     check("Amazon Web Services" in zoom, "zoom still names AWS")
     check("Concentration" not in (ROOT / "site" / "graph.html").read_text(encoding="utf-8"), "list dropped Concentration")
 
-    # This increment: SuperOffice, Genedata, Sonar, Trustpilot.
-    check(report.get("batch") == ["superoffice", "genedata", "sonar", "trustpilot"], "batch is the four expand slugs")
-    sonar = by_pub["sonar"]
-    tp = by_pub["trustpilot"]
+    # This increment: unread first-party queue after PRIOR_ATTEMPTED (6 slugs).
     check(
-        instrument_url(sonar, "dpa") == "https://www.sonarsource.com/legal/data-processing-addendum/",
-        "sonar DPA stays the stored first-party addendum",
+        report.get("batch") == ["y-soft", "tricentis", "trustly", "frosmo", "projectmanager-com", "esko"],
+        "batch is the six unread first-party slugs",
     )
+    ys = by_pub["y-soft"]
+    tr = by_pub["tricentis"]
+    fr = by_pub["frosmo"]
     check(
-        instrument_url(tp, "dpa")
-        == "https://corporate.trustpilot.com/legal/for-businesses/data-processing-agreement/nov-2025",
-        "trustpilot DPA filed from first-party HTML",
+        instrument_url(ys, "dpa") == "https://www.ysoft.com/legal/data-protection-addendum",
+        "y-soft DPA filed from first-party HTML",
     )
-    check((tp.get("file") or {}).get("dpa") == 20, "trustpilot DPA printed")
-    sonar_names = [p.get("name") for p in (sonar.get("processors") or [])]
-    tp_names = [p.get("name") for p in (tp.get("processors") or [])]
-    check("Amazon Web Services EMEA SARL" in sonar_names, "sonar names AWS EMEA")
-    check("Okta, Inc" in sonar_names and "Clerk" in sonar_names, "sonar names Okta and Clerk")
-    check(not any("SonarSource" in (n or "") for n in sonar_names), "sonar affiliates are not subprocessors")
-    check("Service Delivery" not in sonar_names, "sonar section headers are not processors")
-    check("Sendgrid (Twilio, Inc.)" in tp_names, "trustpilot names Sendgrid")
-    check("Amazon Web Services" in tp_names and "ClickHouse Inc" in tp_names, "trustpilot names AWS and ClickHouse")
-    check(not any("Trustpilot" in (n or "") for n in tp_names), "trustpilot affiliates are not subprocessors")
-    for slug in ("superoffice", "genedata"):
+    check((ys.get("file") or {}).get("dpa") == 20, "y-soft DPA printed")
+    check(
+        instrument_url(tr, "dpa") == "https://www.tricentis.com/legal-information/data-processing-addendum",
+        "tricentis DPA filed from first-party legal path",
+    )
+    check((tr.get("file") or {}).get("dpa") == 20, "tricentis DPA printed")
+    check(not (tr.get("processors") or []), "tricentis named processors stay open")
+    fr_names = [p.get("name") for p in (fr.get("processors") or [])]
+    check("Hetzner Online AG" in fr_names, "frosmo names Hetzner Online AG")
+    check("Hetzner Finland Oy" in fr_names, "frosmo names Hetzner Finland Oy")
+    check(
+        any(n.startswith("Amazon Web Services") for n in fr_names),
+        "frosmo names Amazon Web Services",
+    )
+    check(not any("Frosmo" in (n or "") for n in fr_names), "frosmo affiliates are not subprocessors")
+    check(instrument_url(fr, "dpa") == "https://frosmo.com/data-processing-annex/", "frosmo DPA stays the stored annex")
+    for slug in ("trustly", "esko"):
         pub = by_pub[slug]
         check(not instrument_url(pub, "dpa"), f"{slug} DPA stays open")
         check(not (pub.get("processors") or []), f"{slug} named processors stay open")
-        check((pub.get("file") or {}).get("subprocessors") == 10, f"{slug} list URL stays dotted 10")
-    sonar_html = (ROOT / "site" / "c" / "sonar.html").read_text(encoding="utf-8")
-    tp_html = (ROOT / "site" / "c" / "trustpilot.html").read_text(encoding="utf-8")
-    check('target="_blank"' in sonar_html and 'rel="noopener noreferrer"' in sonar_html, "sonar outbound opens a new tab")
-    check('target="_blank"' in tp_html and 'rel="noopener noreferrer"' in tp_html, "trustpilot outbound opens a new tab")
-    check("wires-scroll" in sonar_html and "wires-scroll" in tp_html, "rewritten dossiers keep the swipe wrapper")
-    check("vanta" not in sonar_html.lower() and "vanta" not in tp_html.lower(), "filed dossiers name no portal vendor")
+    pm = by_pub["projectmanager-com"]
+    check(not instrument_url(pm, "dpa"), "projectmanager-com DPA stays open")
+    check(not (pm.get("processors") or []), "projectmanager-com named processors stay open")
+    check((pm.get("file") or {}).get("subprocessors") == 10, "projectmanager-com list URL stays dotted 10")
+    ys_html = (ROOT / "site" / "c" / "y-soft.html").read_text(encoding="utf-8")
+    tr_html = (ROOT / "site" / "c" / "tricentis.html").read_text(encoding="utf-8")
+    fr_html = (ROOT / "site" / "c" / "frosmo.html").read_text(encoding="utf-8")
+    check('target="_blank"' in ys_html and 'rel="noopener noreferrer"' in ys_html, "y-soft outbound opens a new tab")
+    check('target="_blank"' in tr_html and 'rel="noopener noreferrer"' in tr_html, "tricentis outbound opens a new tab")
+    check('target="_blank"' in fr_html and 'rel="noopener noreferrer"' in fr_html, "frosmo outbound opens a new tab")
+    check("wires-scroll" in ys_html and "wires-scroll" in tr_html and "wires-scroll" in fr_html, "rewritten dossiers keep the swipe wrapper")
+    check(
+        "vanta" not in ys_html.lower() and "vanta" not in tr_html.lower() and "vanta" not in fr_html.lower(),
+        "filed dossiers name no portal vendor",
+    )
+    check("safebase" not in tr_html.lower() and "drata" not in ys_html.lower(), "filed dossiers name no portal vendor")
 
     print(
-        f"ok increment-dpa sonar/trustpilot {len(sonar_names)}+{len(tp_names)} processors; "
+        f"ok increment-dpa y-soft/tricentis + frosmo {len(fr_names)} processors; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
     )
     return 0

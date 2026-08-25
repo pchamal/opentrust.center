@@ -69412,18 +69412,24 @@
         "trust": "https://trust.frosmo.com",
         "privacy": "https://frosmo.com/privacy-policy/",
         "status": "https://status.frosmo.com",
-        "dpa": "https://frosmo.com/data-processing-annex/"
+        "dpa": "https://frosmo.com/data-processing-annex/",
+        "subprocessors": "https://frosmo.com/data-processing-annex/"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "hetzner-online",
+        "hetzner-finland",
+        "aws"
+      ],
       "disclosure": {
-        "score": 49,
+        "score": 57,
         "tier": "on-file",
         "factors": {
           "portal": 20,
           "dpa": 8,
           "status": 6,
           "privacy": 6,
-          "longevity": 9
+          "longevity": 9,
+          "subprocessors": 8
         }
       },
       "founded_year": 2008,
@@ -71310,18 +71316,20 @@
         "trust": "https://security.tricentis.com",
         "security": "https://security.tricentis.com",
         "privacy": "https://www.tricentis.com/legal-information/privacy-policy",
-        "status": "https://status.tricentis.com"
+        "status": "https://status.tricentis.com",
+        "dpa": "https://www.tricentis.com/legal-information/data-processing-addendum"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 71,
+        "score": 79,
         "tier": "substantial",
         "factors": {
           "portal": 20,
           "status": 6,
           "privacy": 6,
           "longevity": 9,
-          "marks": 30
+          "marks": 30,
+          "dpa": 8
         }
       },
       "founded_year": 2007,
@@ -72165,11 +72173,12 @@
         "privacy": "https://www.ysoft.com/privacy-policy",
         "security": "https://www.ysoft.com/safeq/security",
         "subprocessors": "https://trust.ysoft.com/subprocessors",
-        "status": "https://status.ysoft.cloud/"
+        "status": "https://status.ysoft.cloud/",
+        "dpa": "https://www.ysoft.com/legal/data-protection-addendum"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 77,
+        "score": 85,
         "tier": "substantial",
         "factors": {
           "portal": 20,
@@ -72177,7 +72186,8 @@
           "subprocessors": 8,
           "status": 6,
           "privacy": 6,
-          "longevity": 10
+          "longevity": 10,
+          "dpa": 8
         }
       },
       "founded_year": 2000,

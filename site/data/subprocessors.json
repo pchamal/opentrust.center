@@ -10934,6 +10934,20 @@
       "domain": "kaseya.com",
       "kind": "company",
       "in_register": true
+    },
+    {
+      "id": "hetzner-finland",
+      "name": "Hetzner Finland Oy",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "frosmo",
+      "name": "Frosmo",
+      "domain": "frosmo.com",
+      "kind": "company",
+      "in_register": true
     }
   ],
   "edges": [
@@ -22366,6 +22380,24 @@
       "to": "clickhouse",
       "source_url": "https://corporate.trustpilot.com/legal/for-businesses/subprocessors/may-2026",
       "evidence": "ClickHouse Inc"
+    },
+    {
+      "from": "frosmo",
+      "to": "hetzner-online",
+      "source_url": "https://frosmo.com/data-processing-annex/",
+      "evidence": "Hetzner Online AG"
+    },
+    {
+      "from": "frosmo",
+      "to": "hetzner-finland",
+      "source_url": "https://frosmo.com/data-processing-annex/",
+      "evidence": "Hetzner Finland Oy"
+    },
+    {
+      "from": "frosmo",
+      "to": "aws",
+      "source_url": "https://frosmo.com/data-processing-annex/",
+      "evidence": "Amazon Web Services, Inc"
     }
   ]
 }
