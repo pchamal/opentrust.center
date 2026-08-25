@@ -58,6 +58,13 @@ DPA_HINTS = ("/dpa", "data-processing", "processing-terms", "dpas")
 SUB_HINTS = ("subprocessor", "sub-processor", "third-party", "vendor-list")
 SOFT_404 = ("page not found", "404", "not found", "nothing found")
 
+# Not files: marketing shelves, docs, and search results never count.
+BLOCK_SEGMENTS = {
+    "blog", "blogs", "products", "product", "solutions", "markets",
+    "services", "documentation", "docs", "resources", "news", "events",
+    "search", "webinars", "podcasts",
+}
+
 MULTI_SUFFIXES = {"co.uk", "org.uk", "gov.uk", "com.au", "co.jp", "com.br",
                   "co.in", "co.nz", "com.sg", "com.tr"}
 
@@ -221,6 +228,9 @@ async def verify_lead(client: httpx.AsyncClient, domain: str, url: str) -> dict 
     if status != 200 or not body:
         return None
     if not same_site(final_url, domain):
+        return None
+    path_segs = {s.lower().strip("/") for s in urlparse(final_url).path.split("/")}
+    if path_segs & BLOCK_SEGMENTS or urlparse(final_url).query:
         return None
     title = title_of(body)
     if not title or any(s in title.lower()[:60] for s in SOFT_404):
