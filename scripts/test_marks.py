@@ -123,6 +123,19 @@ def main() -> int:
         ["ISO 22301", "ISO 9001", "Cyber Essentials", "ENS"],
         "software ag first-party holds",
     )
+    eq(
+        extract_certs_from_html(
+            "<p>This policy defines Dubber’s commitment to protecting information "
+            "assets and ensuring compliance with ISO/IEC 27001, ISO 22301, PCI DSS.</p>"
+            "<p>Maintaining Certified Management Systems. Establishing, operating, "
+            "monitoring, reviewing, auditing, and continually improving our Information "
+            "Security Management System (ISMS) in line with ISO/IEC 27001 and its "
+            "integration with the Business Continuity Management System (BCMS) under "
+            "ISO 22301.</p>"
+        ),
+        ["ISO 27001", "ISO 22301", "PCI DSS"],
+        "dubber first-party ISMS/BCMS holds",
+    )
     print("ok")
     return 0
 

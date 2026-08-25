@@ -51440,11 +51440,25 @@
       "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Australia",
       "probed": 4,
       "probed_at": "2026-08-25T17:57:46Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "ISO 27001",
+        "ISO 22301"
+      ],
+      "attestations": [
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-22301",
+          "name": "ISO 22301",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: ISO 27001, ISO 22301.",
       "founded_year": 2011,
-      "founded_source": "https://en.wikipedia.org/wiki/Dubber",
+      "founded_source": "https://www.dubber.net/company/about-dubber/",
       "instruments": {
         "trust": {
           "url": "https://trust.dubber.net",
@@ -51452,8 +51466,8 @@
           "seen": "2026-08-25"
         },
         "security": {
-          "url": "https://trust.dubber.net/?itemName=data_security&amp;source=click",
-          "host": "trust.dubber.net",
+          "url": "https://www.dubber.net/information-security-policy/",
+          "host": "dubber.net",
           "seen": "2026-08-25"
         },
         "privacy": {
@@ -51476,11 +51490,11 @@
       },
       "processors": [],
       "disclosure": {
-        "score": 47,
+        "score": 61,
         "tier": "on-file",
         "factors": {
           "page": 20,
-          "marks": 0,
+          "marks": 14,
           "dpa": 0,
           "processors": 8,
           "status": 6,
@@ -51492,7 +51506,7 @@
       "tier": "on-file",
       "file": {
         "page": 20,
-        "marks": 10,
+        "marks": 20,
         "dpa": 0,
         "subprocessors": 10,
         "years": 20
