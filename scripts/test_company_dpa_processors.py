@@ -106,14 +106,44 @@ def main() -> int:
     check("Amazon Web Services" in zoom, "zoom still names AWS")
     check("Concentration" not in (ROOT / "site" / "graph.html").read_text(encoding="utf-8"), "list dropped Concentration")
 
+    # This increment: SuperOffice, Genedata, Sonar, Trustpilot.
+    check(report.get("batch") == ["superoffice", "genedata", "sonar", "trustpilot"], "batch is the four expand slugs")
+    sonar = by_pub["sonar"]
+    tp = by_pub["trustpilot"]
+    check(
+        instrument_url(sonar, "dpa") == "https://www.sonarsource.com/legal/data-processing-addendum/",
+        "sonar DPA stays the stored first-party addendum",
+    )
+    check(
+        instrument_url(tp, "dpa")
+        == "https://corporate.trustpilot.com/legal/for-businesses/data-processing-agreement/nov-2025",
+        "trustpilot DPA filed from first-party HTML",
+    )
+    check((tp.get("file") or {}).get("dpa") == 20, "trustpilot DPA printed")
+    sonar_names = [p.get("name") for p in (sonar.get("processors") or [])]
+    tp_names = [p.get("name") for p in (tp.get("processors") or [])]
+    check("Amazon Web Services EMEA SARL" in sonar_names, "sonar names AWS EMEA")
+    check("Okta, Inc" in sonar_names and "Clerk" in sonar_names, "sonar names Okta and Clerk")
+    check(not any("SonarSource" in (n or "") for n in sonar_names), "sonar affiliates are not subprocessors")
+    check("Service Delivery" not in sonar_names, "sonar section headers are not processors")
+    check("Sendgrid (Twilio, Inc.)" in tp_names, "trustpilot names Sendgrid")
+    check("Amazon Web Services" in tp_names and "ClickHouse Inc" in tp_names, "trustpilot names AWS and ClickHouse")
+    check(not any("Trustpilot" in (n or "") for n in tp_names), "trustpilot affiliates are not subprocessors")
+    for slug in ("superoffice", "genedata"):
+        pub = by_pub[slug]
+        check(not instrument_url(pub, "dpa"), f"{slug} DPA stays open")
+        check(not (pub.get("processors") or []), f"{slug} named processors stay open")
+        check((pub.get("file") or {}).get("subprocessors") == 10, f"{slug} list URL stays dotted 10")
+    sonar_html = (ROOT / "site" / "c" / "sonar.html").read_text(encoding="utf-8")
+    tp_html = (ROOT / "site" / "c" / "trustpilot.html").read_text(encoding="utf-8")
+    check('target="_blank"' in sonar_html and 'rel="noopener noreferrer"' in sonar_html, "sonar outbound opens a new tab")
+    check('target="_blank"' in tp_html and 'rel="noopener noreferrer"' in tp_html, "trustpilot outbound opens a new tab")
+    check("wires-scroll" in sonar_html and "wires-scroll" in tp_html, "rewritten dossiers keep the swipe wrapper")
+    check("vanta" not in sonar_html.lower() and "vanta" not in tp_html.lower(), "filed dossiers name no portal vendor")
+
     print(
-        "ok",
-        "dpa",
-        len(report.get("dpa_filed") or []),
-        "sub",
-        len(report.get("subprocessors_filed") or []),
-        "open",
-        len(report.get("stayed_open") or []),
+        f"ok increment-dpa sonar/trustpilot {len(sonar_names)}+{len(tp_names)} processors; "
+        f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
     )
     return 0
 

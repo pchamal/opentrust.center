@@ -148,6 +148,31 @@ def main() -> int:
         "privacy",
     )
     check(kept == [] and why == "regulation-only", f"Dubber GDPR statement stays open: {kept} {why}")
+    kept, why = hold_marks(
+        ["ISO 27001", "SOC 2 Type II"],
+        "At the company level, Sonar maintains both ISO 27001:2022 certification "
+        "and SOC 2 Type II attestation for all products and services.",
+        "trust",
+    )
+    check(
+        kept == ["ISO 27001", "SOC 2 Type II"],
+        f"Sonar first-party trust-center holds stay: {kept} {why}",
+    )
+    kept, why = hold_marks(
+        ["GDPR", "CCPA"],
+        "the GDPR and (ii) the EU e-Privacy Directive. CCPA means the California "
+        "Consumer Privacy Act, as amended by the California Privacy Rights Act.",
+        "privacy",
+    )
+    check(kept == [] and why == "regulation-only", f"Sonar DPA GDPR/CCPA definitions stay open: {kept} {why}")
+    kept, why = hold_marks(
+        ["GDPR"],
+        "In SuperOffice we are committed to protect and respect your privacy in "
+        "compliance with EU- General Data Protection Regulation (GDPR) 2016/679, "
+        "dated April 27th 2016.",
+        "privacy",
+    )
+    check(kept == [] and why == "regulation-only", f"SuperOffice privacy GDPR stays open: {kept} {why}")
 
     for rec in report.get("marks_filed") or []:
         slug, url, added = rec["slug"], rec["url"], rec["added"]
@@ -238,6 +263,33 @@ def main() -> int:
     check("01 April 2025" not in zoom, "zoom still has no date processors")
     check("Amazon Web Services" in zoom, "zoom still names AWS")
     check("0–100" not in index and "0-100" not in index, "no 0-100 score on AITI")
+
+    # This increment: SuperOffice, Genedata, Sonar, Trustpilot.
+    check(report.get("batch") == ["superoffice", "genedata", "sonar", "trustpilot"], "batch is the four expand slugs")
+    sonar = by_pub["sonar"]
+    check(sonar.get("certs") == ["ISO 27001", "SOC 2 Type II"], f"sonar certs {sonar.get('certs')}")
+    check((sonar.get("file") or {}).get("marks") == 20, "sonar marks printed")
+    sonar_html = (ROOT / "site" / "c" / "sonar.html").read_text(encoding="utf-8")
+    check("ISO 27001" in sonar_html and "SOC 2 Type II" in sonar_html, "sonar dossier names both holds")
+    check('attestations.html#iso-27001' in sonar_html and 'attestations.html#soc-2-type-ii' in sonar_html, "sonar marks clerk-link")
+    check("GDPR" not in (sonar.get("certs") or []) and "CCPA" not in (sonar.get("certs") or []), "sonar DPA regulations not filed as holds")
+    check("vanta" not in sonar_html.lower() and "secureframe" not in sonar_html.lower(), "sonar dossier names no portal vendor")
+    sonar_privacy = ((sonar.get("instruments") or {}).get("privacy") or {}).get("url")
+    check(sonar_privacy == "https://www.sonarsource.com/company/privacy/", "sonar privacy filed from first-party HTML")
+    years = {"superoffice": 1990, "genedata": 1997, "trustpilot": 2007, "sonar": 2008}
+    for slug, year in years.items():
+        pub = by_pub[slug]
+        check(pub.get("founded_year") == year, f"{slug} year stays {year}")
+        if slug != "sonar":
+            check(not (pub.get("certs") or []), f"{slug} marks stay open")
+            check((pub.get("file") or {}).get("marks") in (0, 10), f"{slug} marks glyph stays 10")
+    tp_html = (ROOT / "site" / "c" / "trustpilot.html").read_text(encoding="utf-8")
+    check("HIPAA" not in (by_pub["trustpilot"].get("certs") or []), "trustpilot HIPAA BAA nav is not a filed mark")
+    check("vanta" not in tp_html.lower(), "trustpilot dossier names no portal vendor")
+    so_html = (ROOT / "site" / "c" / "superoffice.html").read_text(encoding="utf-8")
+    ge_html = (ROOT / "site" / "c" / "genedata.html").read_text(encoding="utf-8")
+    check("secureframe" not in so_html.lower() and "vanta" not in so_html.lower(), "superoffice names no portal vendor")
+    check("onetrust" not in ge_html.lower() and "vanta" not in ge_html.lower(), "genedata names no portal vendor")
 
     print(
         "ok",

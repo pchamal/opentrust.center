@@ -10906,6 +10906,34 @@
       "domain": "",
       "kind": "processor",
       "in_register": false
+    },
+    {
+      "id": "clerk",
+      "name": "Clerk",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "sonar",
+      "name": "Sonar",
+      "domain": "sonarsource.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "google-ireland",
+      "name": "Google Ireland Limited",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "kaseya",
+      "name": "Kaseya",
+      "domain": "kaseya.com",
+      "kind": "company",
+      "in_register": true
     }
   ],
   "edges": [
@@ -22254,6 +22282,90 @@
       "to": "zealep-business-solutions",
       "source_url": "https://www.meltwater.com/en/privacy/subprocessors",
       "evidence": "Zealep Business Solutions"
+    },
+    {
+      "from": "sonar",
+      "to": "aws",
+      "source_url": "https://www.sonarsource.com/legal/sub-processors/",
+      "evidence": "Amazon Web Services EMEA SARL"
+    },
+    {
+      "from": "sonar",
+      "to": "okta",
+      "source_url": "https://www.sonarsource.com/legal/sub-processors/",
+      "evidence": "Okta, Inc"
+    },
+    {
+      "from": "sonar",
+      "to": "atlassian",
+      "source_url": "https://www.sonarsource.com/legal/sub-processors/",
+      "evidence": "Atlassian Pty Ltd"
+    },
+    {
+      "from": "sonar",
+      "to": "clerk",
+      "source_url": "https://www.sonarsource.com/legal/sub-processors/",
+      "evidence": "Clerk"
+    },
+    {
+      "from": "sonar",
+      "to": "slack",
+      "source_url": "https://www.sonarsource.com/legal/sub-processors/",
+      "evidence": "Slack Technologies Limited"
+    },
+    {
+      "from": "sonar",
+      "to": "google-ireland",
+      "source_url": "https://www.sonarsource.com/legal/sub-processors/",
+      "evidence": "Google Ireland Limited"
+    },
+    {
+      "from": "sonar",
+      "to": "kaseya",
+      "source_url": "https://www.sonarsource.com/legal/sub-processors/",
+      "evidence": "Kaseya Limited"
+    },
+    {
+      "from": "sonar",
+      "to": "zendesk",
+      "source_url": "https://www.sonarsource.com/legal/sub-processors/",
+      "evidence": "Zendesk, Inc"
+    },
+    {
+      "from": "sonar",
+      "to": "zoom",
+      "source_url": "https://www.sonarsource.com/legal/sub-processors/",
+      "evidence": "Zoom Video Communications, Inc"
+    },
+    {
+      "from": "trustpilot",
+      "to": "twilio",
+      "source_url": "https://corporate.trustpilot.com/legal/for-businesses/subprocessors/may-2026",
+      "evidence": "Sendgrid (Twilio, Inc.)"
+    },
+    {
+      "from": "trustpilot",
+      "to": "gcp",
+      "source_url": "https://corporate.trustpilot.com/legal/for-businesses/subprocessors/may-2026",
+      "evidence": "Google Cloud EMEA Limited"
+    },
+    {
+      "from": "trustpilot",
+      "to": "aws",
+      "source_url": "https://corporate.trustpilot.com/legal/for-businesses/subprocessors/may-2026",
+      "evidence": "Amazon Web Services"
+    },
+    {
+      "from": "trustpilot",
+      "to": "sutherland-global-services",
+      "source_url": "https://corporate.trustpilot.com/legal/for-businesses/subprocessors/may-2026",
+      "evidence": "Sutherland Global Services, Inc"
+    },
+    {
+      "from": "trustpilot",
+      "to": "clickhouse",
+      "source_url": "https://corporate.trustpilot.com/legal/for-businesses/subprocessors/may-2026",
+      "evidence": "ClickHouse Inc"
     }
   ]
 }
