@@ -118,6 +118,36 @@ def main() -> int:
         kept == ["Cyber Essentials", "ENS", "ISO 22301", "ISO 9001"],
         f"Software AG first-party holds stay: {kept} {why}",
     )
+    kept, why = hold_marks(
+        ["ISO 27001", "ISO 22301", "PCI DSS"],
+        "This policy defines Dubber’s commitment to protecting the Confidentiality, "
+        "Integrity, and Availability (CIA) of information assets and ensuring "
+        "compliance with ISO/IEC 27001, ISO 22301, PCI DSS. Maintaining Certified "
+        "Management Systems Establishing, operating, monitoring, reviewing, auditing, "
+        "and continually improving our Information Security Management System (ISMS) "
+        "in line with ISO/IEC 27001 and its integration with the Business Continuity "
+        "Management System (BCMS) under ISO 22301.",
+        "security",
+    )
+    check(
+        {"ISO 27001", "ISO 22301"} <= set(kept),
+        f"Dubber ISMS/BCMS holds stay: {kept} {why}",
+    )
+    kept, why = hold_marks(
+        ["ISO 27001"],
+        "11.1 ISO/IEC 27001. We adhere to and are compliant with the ISO/IEC 27001 "
+        "industry standard. We are audited by an independent body annually on the "
+        "ISO/IEC 27001 standard. Our certificate is available in the Dubber Website.",
+        "security",
+    )
+    check(kept == ["ISO 27001"], f"Dubber ISO 27001 certificate sentence stays: {kept} {why}")
+    kept, why = hold_marks(
+        ["GDPR"],
+        "This Compliance Statement provides a general description of how Dubber "
+        "processes and safeguards personal data as a processor in accordance with the GDPR.",
+        "privacy",
+    )
+    check(kept == [] and why == "regulation-only", f"Dubber GDPR statement stays open: {kept} {why}")
 
     for rec in report.get("marks_filed") or []:
         slug, url, added = rec["slug"], rec["url"], rec["added"]
