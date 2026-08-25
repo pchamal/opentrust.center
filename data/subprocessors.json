@@ -10521,6 +10521,125 @@
       "domain": "",
       "kind": "processor",
       "in_register": false
+    },
+    {
+      "id": "logrocket",
+      "name": "LogRocket",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "episerver",
+      "name": "Episerver",
+      "domain": "episerver.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "link-mobility",
+      "name": "Link Mobility",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "sinch-germany",
+      "name": "Sinch Germany GmbH",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "mongo-db-atlas",
+      "name": "Mongo DB Atlas",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "google-analytics-optional-sub-processor",
+      "name": "Google Analytics (Optional Sub-processor)",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "bugsnag",
+      "name": "Bugsnag",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "full-story",
+      "name": "Full Story",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "tray-io-optional-sub-processor",
+      "name": "Tray.io (Optional Sub-processor)",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "litmus",
+      "name": "Litmus",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "scylladb",
+      "name": "ScyllaDB",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "upper-quadrant",
+      "name": "Upper Quadrant",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "amazon-ses-optional-sub-processor",
+      "name": "Amazon SES (Optional Sub-processor)",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "google-firebase",
+      "name": "Google Firebase",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "persistent",
+      "name": "Persistent",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "stretch-qonnect-aps",
+      "name": "Stretch Qonnect APs",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "globallogic",
+      "name": "GlobalLogic",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
     }
   ],
   "edges": [
@@ -21275,6 +21394,252 @@
       "to": "aura-previously-pango-anchorfree",
       "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors",
       "evidence": "Aura (Previously Pango, Anchorfree)"
+    },
+    {
+      "from": "episerver",
+      "to": "aws",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Amazon Web Services Inc"
+    },
+    {
+      "from": "episerver",
+      "to": "datadog",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Datadog"
+    },
+    {
+      "from": "episerver",
+      "to": "gcp",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Google Cloud"
+    },
+    {
+      "from": "episerver",
+      "to": "logrocket",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "LogRocket"
+    },
+    {
+      "from": "episerver",
+      "to": "okta",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Okta"
+    },
+    {
+      "from": "episerver",
+      "to": "segment",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Segment"
+    },
+    {
+      "from": "episerver",
+      "to": "snowflake",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Snowflake"
+    },
+    {
+      "from": "episerver",
+      "to": "cloudflare",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "CloudFlare Inc"
+    },
+    {
+      "from": "episerver",
+      "to": "deutsche-telekom",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Deutsche Telekom"
+    },
+    {
+      "from": "episerver",
+      "to": "link-mobility",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Link Mobility"
+    },
+    {
+      "from": "episerver",
+      "to": "sinch-germany",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Sinch Germany GmbH"
+    },
+    {
+      "from": "episerver",
+      "to": "vonage",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Vonage B.V"
+    },
+    {
+      "from": "episerver",
+      "to": "azure",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Microsoft Inc. Azure"
+    },
+    {
+      "from": "episerver",
+      "to": "twilio",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Twilio Send Grid (Optional Sub-processor)"
+    },
+    {
+      "from": "episerver",
+      "to": "mongo-db-atlas",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Mongo DB Atlas"
+    },
+    {
+      "from": "episerver",
+      "to": "google-analytics-optional-sub-processor",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Google Analytics (Optional Sub-processor)"
+    },
+    {
+      "from": "episerver",
+      "to": "looker",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Looker a Google company"
+    },
+    {
+      "from": "episerver",
+      "to": "mailgun",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Mailgun"
+    },
+    {
+      "from": "episerver",
+      "to": "bugsnag",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Bugsnag"
+    },
+    {
+      "from": "episerver",
+      "to": "full-story",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Full Story"
+    },
+    {
+      "from": "episerver",
+      "to": "tray-io-optional-sub-processor",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Tray.io (Optional Sub-processor)"
+    },
+    {
+      "from": "episerver",
+      "to": "bandwidth",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Bandwidth"
+    },
+    {
+      "from": "episerver",
+      "to": "litmus",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Litmus"
+    },
+    {
+      "from": "episerver",
+      "to": "scylladb",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "ScyllaDB"
+    },
+    {
+      "from": "episerver",
+      "to": "upper-quadrant",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Upper Quadrant"
+    },
+    {
+      "from": "episerver",
+      "to": "amazon-ses-optional-sub-processor",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Amazon SES (Optional Sub-processor)"
+    },
+    {
+      "from": "episerver",
+      "to": "anthropic",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Anthropic"
+    },
+    {
+      "from": "episerver",
+      "to": "google-gemini",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Google Gemini"
+    },
+    {
+      "from": "episerver",
+      "to": "semrush",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "SEMRush"
+    },
+    {
+      "from": "episerver",
+      "to": "sentry",
+      "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
+      "evidence": "Sentry"
+    },
+    {
+      "from": "qlik",
+      "to": "aws",
+      "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html",
+      "evidence": "Amazon Web Services (AWS)"
+    },
+    {
+      "from": "qlik",
+      "to": "mongodb",
+      "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html",
+      "evidence": "MongoDB"
+    },
+    {
+      "from": "qlik",
+      "to": "google-firebase",
+      "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html",
+      "evidence": "Google Firebase"
+    },
+    {
+      "from": "qlik",
+      "to": "azure",
+      "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html",
+      "evidence": "Microsoft Azure"
+    },
+    {
+      "from": "qlik",
+      "to": "salesforce",
+      "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html",
+      "evidence": "Salesforce"
+    },
+    {
+      "from": "qlik",
+      "to": "microsoft",
+      "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html",
+      "evidence": "Microsoft"
+    },
+    {
+      "from": "qlik",
+      "to": "ada",
+      "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html",
+      "evidence": "Ada"
+    },
+    {
+      "from": "qlik",
+      "to": "persistent",
+      "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html",
+      "evidence": "Persistent"
+    },
+    {
+      "from": "qlik",
+      "to": "atlassian",
+      "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html",
+      "evidence": "Atlassian (Jira Cloud)"
+    },
+    {
+      "from": "qlik",
+      "to": "stretch-qonnect-aps",
+      "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html",
+      "evidence": "Stretch Qonnect APs"
+    },
+    {
+      "from": "qlik",
+      "to": "globallogic",
+      "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html",
+      "evidence": "GlobalLogic"
     }
   ]
 }
