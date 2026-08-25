@@ -257,7 +257,7 @@ function renderTable() {
       : `<span class="absent">not in register</span>`;
     const src0 = p.sources[0];
     const srcCell = src0
-      ? `<a href="${escapeHtml(src0)}" rel="noopener noreferrer">${escapeHtml(hostOfSafe(src0))}</a>`
+      ? `<a href="${escapeHtml(src0)}" target="_blank" rel="noopener noreferrer">${escapeHtml(hostOfSafe(src0))}</a>`
       : `<span class="absent">not on file</span>`;
     return `<tr data-i="${i}" class="folio${state.focus === i ? " on selected" : ""}">
         <td class="name" data-label="Processor">${escapeHtml(p.name)}</td>
@@ -305,7 +305,7 @@ function namerLine(n) {
   const href = co ? `./c/${encodeURIComponent(co.slug)}.html` : null;
   const host = n.source_url ? hostOfSafe(n.source_url) : "";
   const src = n.source_url
-    ? ` <span class="muted">· <a href="${escapeHtml(n.source_url)}" rel="noopener noreferrer">${escapeHtml(host)}</a></span>`
+    ? ` <span class="muted">· <a href="${escapeHtml(n.source_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(host)}</a></span>`
     : "";
   const named = nameWithIcon(label, namerInk(iconForDomain(co && co.domain, co)));
   return href

@@ -156,6 +156,14 @@ expect("lede is unchanged", (indexHtml.match(/<p class="lede">The public file on
 const methodHtml = readFileSync(new URL("../site/methodology.html", import.meta.url), "utf8");
 expect("H1 is Method", /<h1 class="page-title">Method<\/h1>/.test(methodHtml));
 expect("lede is the count sentence", (methodHtml.match(/<p class="lede">How we count a public file\. Not a company grade\.<\/p>/g) || []).length === 1);
+expect("Method has a copy rubric word", /id="copy-rubric">copy rubric<\/button>/.test(methodHtml) && methodHtml.includes("navigator.clipboard.writeText"));
+expect(
+  "copied rubric is the clerk payload",
+  methodHtml.includes("Completeness rates the file, not the company") &&
+    methodHtml.includes("Cite the dossier: /c/{slug}.html") &&
+    methodHtml.includes("Rate the file, not the company.") &&
+    !/powered by|in one place/i.test(methodHtml),
+);
 expect(
   "The count is the three states",
   /<h2 class="sec-kicker">The count<\/h2>\s*<p class="clerk">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/.test(methodHtml) &&
@@ -168,11 +176,11 @@ expect("method docket is still four words", docketWords(methodHtml).join(" ") ==
 expect("method docket has no teal on", activeWord(methodHtml) === "" && !/<nav class="docket"[^>]*>[\s\S]*class="on"/.test(methodHtml));
 expect(
   "AITI footer has specimen · methodology · contact · code",
-  /<a href="\.\/brand\.html">specimen<\/a> · <a href="\.\/methodology\.html">methodology<\/a> · <a href="\.\/contact\.html">contact<\/a> · <a href="https:\/\/github.com\/pchamal\/opentrust.center">code<\/a>/.test(indexHtml),
+  /<a href="\.\/brand\.html">specimen<\/a> · <a href="\.\/methodology\.html">methodology<\/a> · <a href="\.\/contact\.html">contact<\/a> · <a href="https:\/\/github.com\/pchamal\/opentrust.center" target="_blank" rel="noopener noreferrer">code<\/a>/.test(indexHtml),
 );
 expect(
   "Register footer has specimen · methodology · contact · code",
-  /<a href="\.\/brand\.html">specimen<\/a> · <a href="\.\/methodology\.html">methodology<\/a> · <a href="\.\/contact\.html">contact<\/a> · <a href="https:\/\/github.com\/pchamal\/opentrust.center">code<\/a>/.test(companiesHtml),
+  /<a href="\.\/brand\.html">specimen<\/a> · <a href="\.\/methodology\.html">methodology<\/a> · <a href="\.\/contact\.html">contact<\/a> · <a href="https:\/\/github.com\/pchamal\/opentrust.center" target="_blank" rel="noopener noreferrer">code<\/a>/.test(companiesHtml),
 );
 const contactHtml = readFileSync(new URL("../site/contact.html", import.meta.url), "utf8");
 expect("H1 is Contact", /<h1 class="page-title">Contact<\/h1>/.test(contactHtml));
@@ -677,6 +685,11 @@ const midDossier = readFileSync(new URL("../site/c/midjourney.html", import.meta
 expect("open files do not grow an empty AI page row", !cursorDossier.includes(">AI page<") && !midDossier.includes(">AI page<"));
 expect("AITI table is not restyled with an official page chip", !aitiJs.includes("AI page") && !aitiJs.includes("ai_page"));
 expect("printed URL is an href", printedUrl("https://www.anthropic.com/responsible-scaling-policy", "anthropic.com").includes('href="https://www.anthropic.com/responsible-scaling-policy"'));
+expect(
+  "printed URL opens out",
+  printedUrl("https://www.anthropic.com/responsible-scaling-policy", "anthropic.com").includes('target="_blank"') &&
+    printedUrl("https://www.anthropic.com/responsible-scaling-policy", "anthropic.com").includes('rel="noopener noreferrer"'),
+);
 expect("bare domain stays text", printedUrl("openai.com", "openai.com") === "openai.com");
 expect("AITI marks link to the framework", aitiJs.includes('href="./attestations.html#') && aitiJs.includes("mark-chip"));
 expect("AITI Domain prints the company domain", aitiJs.includes("printedAitiUrl(row)") && aitiJs.includes("aitiRowHtml") && aitiJs.includes("filterAiRows"));
@@ -690,6 +703,11 @@ expect("AITI body scopes the first-screen nibble", indexHtml.includes('class="re
 expect("AITI File numeral is Source Serif Ledger Black", /body\.aiti \.reg td\.file-cell \.file-num \{[\s\S]*font: var\(--t-name\)[\s\S]*color: var\(--ot-ledger-black\)/.test(css));
 expect("AITI File numeral has no teal", !/body\.aiti \.reg td\.file-cell \.file-num \{[\s\S]{0,180}--ot-evidence-teal/.test(css));
 expect("390 stacks the File numeral above the rules", /@media \(max-width: 390px\) \{[\s\S]*body\.aiti \.reg td\.file-cell \.file-num \{[\s\S]*display: block/.test(css));
+expect("AITI table sits in a swipe wrapper", /<div class="wires-scroll">\s*<table class="reg" id="reg"/.test(indexHtml));
+expect("phone keeps the AITI thead", !/\.reg thead \{ display: none/.test(css));
+expect("639 keeps AITI .reg a table", /@media \(max-width: 639px\) \{[\s\S]*\.reg \{ display: table/.test(css));
+const homeDocket = (indexHtml.match(/<nav class="docket"[^>]*>[\s\S]*?<\/nav>/) || [])[0] || "";
+expect("docket stays same-tab", homeDocket.includes("AITI") && !/target="_blank"/.test(homeDocket));
 expect(
   "method line is Atkinson issue size Ledger Black",
   /\.file-method \{[\s\S]*font: var\(--t-data\)[\s\S]*color: var\(--ot-ledger-black\)/.test(css),

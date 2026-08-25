@@ -13,6 +13,8 @@ from build_pages import (  # noqa: E402
     looks_like_processor_name,
     link_mark_words,
     map_cert,
+    official_a,
+    outbound_a,
     processor_cell,
     processor_href,
     register_slug_for,
@@ -44,6 +46,23 @@ def main() -> int:
 
     cell = processor_cell({"name": "OpenAI", "slug": "openai", "id": "openai"})
     check(cell == '<a href="./openai.html">OpenAI</a>', f"cell {cell}")
+    out = official_a("https://trust.openai.com", "Official page")
+    check(
+        'target="_blank"' in out and 'rel="noopener noreferrer"' in out,
+        f"official page opens out {out}",
+    )
+    check(
+        'target="_blank"' not in official_a("mailto:hello@opentrust.center", "hello@opentrust.center"),
+        "mailto stays same-tab",
+    )
+    check(
+        outbound_a("./openai.html", "OpenAI") == '<a href="./openai.html">OpenAI</a>',
+        "in-site dossier href stays same-tab",
+    )
+    check(
+        'target="_blank"' in outbound_a("https://www.fedramp.gov/marketplace/products/", "FedRAMP Marketplace"),
+        "marketplace opens out",
+    )
 
     by_slug = {"openai": {"slug": "openai"}, "amazon-web-services": {"slug": "amazon-web-services"}}
     by_domain = {"aws.amazon.com": "amazon-web-services"}

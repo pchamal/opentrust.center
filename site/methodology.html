@@ -32,6 +32,7 @@
   <main class="file" id="main">
     <h1 class="page-title">Method</h1>
     <p class="lede">How we count a public file. Not a company grade.</p>
+    <p class="clerk"><button type="button" class="cite-copy" id="copy-rubric">copy rubric</button></p>
 
     <h2 class="sec-kicker">The clerk's rules</h2>
     <ol class="rules">
@@ -60,7 +61,73 @@
 
   <footer class="colo">
     <p><a href="./">AITI</a> · <a href="./companies.html">Register</a> · <a href="./graph.html">Subprocessors</a> · <a href="./attestations.html">Standards</a>
-      <a href="./watch.html">Notices</a> · <a href="./brand.html">specimen</a> · <a href="./methodology.html" class="here">methodology</a> · <a href="./contact.html">contact</a> · <a href="https://github.com/pchamal/opentrust.center">code</a></p>
+      <a href="./watch.html">Notices</a> · <a href="./brand.html">specimen</a> · <a href="./methodology.html" class="here">methodology</a> · <a href="./contact.html">contact</a> · <a href="https://github.com/pchamal/opentrust.center" target="_blank" rel="noopener noreferrer">code</a></p>
   </footer>
+  <script>
+(function () {
+  const btn = document.getElementById("copy-rubric");
+  if (!btn) return;
+  const word = "copy rubric";
+  const payload = [
+    "A database of each company’s public trust ledger.",
+    "",
+    "Completeness rates the file, not the company. 20 printed · 10 on file, not extracted · 0 missing. 100 is five prints. Never call this a trust score, security grade, or letter.",
+    "",
+    "The clerk’s rules",
+    "1. First-party public HTML, or a first-party legal PDF, on the company’s own host.",
+    "2. Every source is fetch-checked.",
+    "3. Nothing invented: no companies, certs, processors, or URLs.",
+    "4. Missing private evidence is inconclusive. It prints not on file.",
+    "5. When unsure, leave open.",
+    "6. Outbound is human-gated. Documents stay on the company’s domain.",
+    "7. Discovery is first-party only: candidate paths, the company’s own footer links, and its sitemaps. A lead is not a finding until rules 1–3 pass.",
+    "",
+    "The count, defined",
+    "printed — the signal is observed on the page. on file, not extracted — listed by our crawl, not yet parsed into the row. missing — expected and unfetchable this sweep; it prints not on file, never an X. 100 is five prints.",
+    "",
+    "AITI",
+    "page · standards · processors · evals · incidents. Standards print only when an AI standard is on the page. Empty incidents are inconclusive.",
+    "",
+    "Register",
+    "page · standards · DPA · subprocessors · years.",
+    "",
+    "What stays open",
+    "JS shells, HTTP 403/404, login walls, regulation-only GDPR/CCPA rights text, DPF as a transfer among SCCs, portal hosts. Never name portal vendors on public surfaces.",
+    "",
+    "Agent use",
+    "Cite the dossier: /c/{slug}.html. Do not invent URLs, certificates, founding years, or subprocessor edges. If found is false, no official page is on file — that is not “no security program.” A subprocessors list URL is not named processors.",
+    "",
+    "Apply these rules to the company’s own public pages only. If asked about zero-data-retention or residual retention, file a hold only when first-party HTML names it. Rate the file, not the company.",
+  ].join("\n");
+
+  function fallbackCopy() {
+    const ta = document.createElement("textarea");
+    ta.value = payload;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.left = "-9999px";
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    ta.remove();
+  }
+
+  btn.addEventListener("click", function () {
+    const done = function () {
+      btn.textContent = "copied";
+      setTimeout(function () { btn.textContent = word; }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(payload).then(done).catch(function () {
+        fallbackCopy();
+        done();
+      });
+    } else {
+      fallbackCopy();
+      done();
+    }
+  });
+})();
+  </script>
 </body>
 </html>

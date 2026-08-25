@@ -194,7 +194,7 @@ expect("dossier nav does not current Register", !dossier.includes('class="on"'))
 expect("dossier body is dossier", dossier.includes('class="dossier"'));
 expect("dossier empty rows stay italic not on file", dossier.includes('class="absent">not on file'));
 expect("dossier FedRAMP cites marketplace, not a badge", dossier.includes("Filed from the") && dossier.includes("FedRAMP Marketplace") && !dossier.includes("Not a badge") && !dossier.includes("not a badge") && !dossier.includes("not a score") && !dossier.includes("Not a score"));
-expect("anysphere FedRAMP is the Cursor marketplace row", dossier.includes("FR2631054484") && /<a href="https:\/\/www\.fedramp\.gov\/marketplace\/products\/FR2631054484\/?">Cursor<\/a>/.test(dossier) && dossier.includes("not yet certified") && dossier.includes("initial implementation") && dossier.includes("authorizations 0"));
+expect("anysphere FedRAMP is the Cursor marketplace row", dossier.includes("FR2631054484") && /<a href="https:\/\/www\.fedramp\.gov\/marketplace\/products\/FR2631054484\/?"[^>]*target="_blank"[^>]*>Cursor<\/a>/.test(dossier) && dossier.includes("not yet certified") && dossier.includes("initial implementation") && dossier.includes("authorizations 0"));
 expect("anysphere FedRAMP does not borrow Box words", !dossier.includes("authorized") && !dossier.includes(">High<") && !dossier.includes("25 Mar 2025") && !dossier.includes("Box Enterprise"));
 expect("anysphere FedRAMP is not four invented misses", !/<tr><td[^>]*>[\s\S]*not on file[\s\S]*not on file[\s\S]*not on file[\s\S]*not on file/.test(dossier.split('sec-kicker">FedRAMP')[1].split("Named processors")[0]));
 const cursorNames = [
@@ -311,4 +311,4 @@ expect("instrument cells stay Atkinson", /\.inst td \{[\s\S]*font-family: var\(-
 expect("Official page stays Atkinson", /\.out \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css) && /a\.official \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css));
 expect("Official page stays Atkinson on compact", /\.dossier \.file \.out a\.official \{[\s\S]*font-family: var\(--ot-font-utility\)/.test(css));
 expect("filed tables have no second spine", /\.inst\.filed td:first-child \{[\s\S]*border-left: 0/.test(css) && /\.inst\.filed tbody tr:hover td:first-child[\s\S]*border-left: 0/.test(css));
-expect("390 hides empty FedRAMP cells", css.includes(".inst.filed td.empty") && css.includes("display: none"));
+expect("phone keeps FedRAMP columns as a table", !/\.dossier \.file \.inst thead \{ display: none/.test(css) && !/\.dossier \.file \.inst\.filed td\.empty \{[\s\S]*display: none/.test(css));

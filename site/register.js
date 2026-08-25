@@ -251,7 +251,7 @@ function fedrampMark(row) {
   if (!fr) return "";
   const url = fr.marketplace || "";
   if (!url) return `<span class="fr-mark">fedramp</span>`;
-  return `<a class="fr-mark" href="${escapeHtml(url)}" target="_blank" rel="noopener">fedramp</a>`;
+  return `<a class="fr-mark" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">fedramp</a>`;
 }
 
 function markLabel(a) {
@@ -437,7 +437,7 @@ function render() {
         ]
       : [];
     $("guesses").innerHTML = guesses
-      .map((u) => `<li><a href="${escapeHtml(u)}" target="_blank" rel="noopener"><code>${escapeHtml(u)}</code></a></li>`)
+      .map((u) => `<li><a href="${escapeHtml(u)}" target="_blank" rel="noopener noreferrer"><code>${escapeHtml(u)}</code></a></li>`)
       .join("");
     const actions = $("miss-actions");
     const look = $("miss-look");

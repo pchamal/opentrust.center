@@ -19,7 +19,7 @@ ROW_RE = re.compile(
 
 def official_a(url: str, host: str) -> str:
     return (
-        f'<a class="official" href="{url}" rel="noopener noreferrer">{host}</a>'
+        f'<a class="official" href="{url}" target="_blank" rel="noopener noreferrer">{host}</a>'
     )
 
 

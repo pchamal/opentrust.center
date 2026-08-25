@@ -28,13 +28,26 @@ const wires = JSON.parse(readFileSync(new URL("../site/data/subprocessors.json",
 expect("list and map are words", html.includes(">list</button>") && html.includes(">map</button>") && html.includes("|"));
 expect("list is the landing", /id="view-list"[^>]*aria-selected="true"/.test(html) && /id="wires"[^>]*data-view="list"/.test(html));
 expect("list stays a table", html.includes('id="wire-table"') && html.includes("Named by") && !html.includes("Concentration") && !html.includes("not a security grade"));
+expect("AITI table sits in a swipe wrapper", /<div class="wires-scroll">\s*<table class="reg" id="reg"/.test(index));
+expect("Register table sits in a swipe wrapper", /<div class="wires-scroll">\s*<table class="reg" id="reg"/.test(companies));
+expect("graph table already sits in wires-scroll", html.includes('class="wires-scroll"') && html.includes('id="wire-table"'));
+expect("dossier instruments sit in a swipe wrapper", /<div class="wires-scroll">[\s\S]*<table class="inst" data-table="instruments"/.test(dossier));
+expect("phone keeps register thead", !/\.reg thead \{ display: none/.test(css));
+expect("639 keeps .reg a table", /@media \(max-width: 639px\) \{[\s\S]*\.reg \{ display: table/.test(css) && !/@media \(max-width: 639px\) \{[\s\S]*\.reg, \.reg tbody \{ display: block/.test(css));
+expect("639 keeps dossier inst a table", /@media \(max-width: 639px\) \{[\s\S]*\.dossier \.file \.inst \{ display: table/.test(css) && !/\.dossier \.file \.inst thead \{ display: none/.test(css));
+expect("row hover uses Index Wash", /\.reg tbody tr\.folio:hover,[\s\S]*background: var\(--ot-index-wash\)/.test(css));
+expect("row hover is also focus-within", /\.reg tbody tr\.folio:focus-within,[\s\S]*background: var\(--ot-index-wash\)/.test(css));
+expect("odd rows stay Record White", /tr:nth-child\(odd\) \{[\s\S]*background: var\(--ot-record-white\)/.test(css));
+expect("row stripe is a light Record White mix", /tr:nth-child\(even\) \{[\s\S]*color-mix\(in srgb, var\(--ot-ledger-black\) 3%, var\(--ot-record-white\)\)/.test(css));
+expect("graph source opens out", js.includes('target="_blank" rel="noopener noreferrer"') && js.includes("src0"));
 expect("clerk neighborhood line sits under the tabs", html.includes('id="hood-line"') && html.indexOf("view-toggle") < html.indexOf("hood-line") && js.includes("neighborhood · "));
 expect("Fig. 1 names the neighborhood", js.includes("Fig. 1 · Neighborhood of ${p.name}") && html.includes('id="fig-cap"'));
 const phone = css.slice(css.lastIndexOf("@media (max-width: 390px)"));
 expect("390 stays the list", /data-view="map"[\s\S]*\.fig-block[\s\S]*display: none/.test(phone) && js.includes("compactPhone") && js.includes("return false"));
 expect("390 hides the neighborhood canvas", /#fig1 \{ display: none/.test(phone) && /\.map-field[\s\S]*display: none/.test(phone) && /if \(compactPhone\(\)\) return false/.test(js));
-expect("390 stacks the wire list", /\.wires-table \.inst thead \{ display: none/.test(phone) && /\.wires-table \.inst td \{[\s\S]*display: block/.test(phone));
-expect("390 kills the inner table scroll", /\.wires-scroll \{[\s\S]*max-height: none/.test(phone) && /\.wires-scroll \{[\s\S]*overflow-x: hidden/.test(phone) && /\.wires-table \.inst \{[\s\S]*min-width: 0/.test(phone));
+expect("390 keeps the wire list a table", !/\.wires-table \.inst thead \{ display: none/.test(phone) && !/\.wires-table \.inst td \{[^}]*display:\s*block/.test(phone) && /\.wires-table \.inst \{ display: table/.test(phone));
+const swipe = ((phone.match(/\.wires-scroll \{([^}]+)\}/) || [])[1] || "");
+expect("390 swipes the inner table", /overflow-x:\s*auto/.test(swipe) && /-webkit-overflow-scrolling:\s*touch/.test(swipe) && !/overflow-x:\s*hidden/.test(swipe) && !/^\s*body \{ overflow-x: hidden/m.test(phone));
 expect("390 list fields stay labeled", js.includes('data-label="Processor"') && js.includes('data-label="Named by"') && js.includes('data-label="Completeness"') && js.includes('data-label="Source"') && !js.includes('data-label="File"') && !js.includes('data-label="Concentration"'));
 expect(
   "graph Completeness numeral is Source Serif roman",
@@ -45,7 +58,7 @@ expect(
   /<span class="file-num">\$\{score\}<\/span>/.test(js) && js.includes("fileIndexHtml(row)") && !/file-num:empty/.test(css),
 );
 expect("graph Completeness has no pip glyph", !js.includes("∅") && !css.includes("∅") && !html.includes("∅"));
-expect("1440 wire table stays a table", !/@media \(min-width: 1440px\)/.test(css) && /\.wires-table \.inst \{ display: table/.test(css) && /\.wires-table \.inst \{ display: table; min-width: min\(640px, 100%\)/.test(css));
+expect("1440 wire table stays a table", !/@media \(min-width: 1440px\)/.test(css) && /\.wires-table \.inst \{ display: table/.test(css) && /\.wires-table \.inst \{ display: table; min-width: 640px/.test(css));
 
 const toggle = css.slice(css.indexOf(".view-toggle"), css.indexOf(".wires-grid"));
 expect("toggle is Atkinson ink words", toggle.includes("var(--t-meta)") && toggle.includes("var(--ot-ledger-black)"));
