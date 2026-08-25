@@ -1090,7 +1090,16 @@ body.register .view-toggle button.on {
   grid-template-columns: minmax(0, 1fr) 320px;
 }
 .wires-table { min-width: 0; }
-.wires-scroll { min-width: 0; overflow-x: auto; }
+.wires-scroll {
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.wires-scroll > table.reg,
+.wires-scroll > table.inst {
+  width: max-content;
+  min-width: 100%;
+}
 .wires-table .inst,
 .wires-table .inst thead,
 .wires-table .inst tbody,
@@ -1099,7 +1108,7 @@ body.register .view-toggle button.on {
 .wires-table .inst td {
   display: revert;
 }
-.wires-table .inst { display: table; min-width: min(640px, 100%); }
+.wires-table .inst { display: table; min-width: 640px; }
 .wires-table .inst tbody tr { cursor: pointer; }
 .wires-table .inst td:last-child { white-space: nowrap; }
 .wires-map { min-width: 0; }
@@ -1344,38 +1353,11 @@ body.register .view-toggle button.on {
   }
   .wordmark { justify-self: start; }
   .docket { justify-content: flex-start; flex-wrap: wrap; gap: 12px 20px; }
-  .reg thead { display: none; }
-  .reg, .reg tbody { display: block; width: 100%; }
-  .reg tbody tr.folio {
-    display: block;
-    height: auto;
-    padding: 12px 0 12px 8px;
-    border-left: var(--ot-spine) solid transparent;
-    border-bottom: 1px solid var(--ot-rule);
-    background: var(--ot-sheet-white);
-  }
-  .reg tbody tr.folio:hover,
-  .reg tbody tr[aria-selected="true"],
-  .reg tbody tr.selected,
-  .reg tbody tr.on {
-    background: var(--ot-sheet-white);
-    border-left-color: var(--ot-evidence-teal);
-  }
-  .reg td {
-    display: block;
-    height: auto;
-    padding: 2px 0;
-    border-bottom: 0;
-    white-space: normal;
-  }
-  .reg td.num { display: none; }
-  .reg td.name { margin-bottom: 2px; border-left: 0; }
   .dossier .file .ident,
   .dossier .file .fig-sub,
   .dossier .file .src-line,
   .dossier .file .mark-list,
   .dossier .file .out,
-  .dossier .file .inst,
   .dossier .file .clerk,
   .dossier .file .probe,
   .dossier .file .actions {
@@ -1387,44 +1369,6 @@ body.register .view-toggle button.on {
     font: var(--t-body);
     font-family: var(--ot-font-utility);
     font-weight: 400;
-  }
-  .dossier .file .inst,
-  .dossier .file .inst tbody {
-    display: block;
-    width: 100%;
-    background: transparent;
-  }
-  .dossier .file .inst thead { display: none; }
-  .dossier .file .inst tbody tr {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    column-gap: 12px;
-    row-gap: 0;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--ot-rule);
-    border-left: 0;
-    background: transparent;
-  }
-  .dossier .file .inst tbody tr:hover,
-  .dossier .file .inst tbody tr.on,
-  .dossier .file .inst tbody tr.selected {
-    background: transparent;
-    border-left: 0;
-  }
-  .dossier .file .inst td,
-  .dossier .file .inst td:first-child {
-    display: inline;
-    width: auto;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    font: var(--t-data);
-    font-family: var(--ot-font-utility);
-    font-weight: 400;
-  }
-  .dossier .file .inst.filed td.empty {
-    display: none;
   }
   .swatches { grid-template-columns: repeat(2, 1fr); }
 }
@@ -1448,60 +1392,11 @@ body.register .view-toggle button.on {
   }
   .wires-scroll {
     max-height: none;
-    overflow: visible;
-    overflow-x: hidden;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
     border-bottom: 0;
   }
-  .wires-table .inst {
-    display: block;
-    width: 100%;
-    min-width: 0;
-  }
-  .wires-table .inst thead { display: none; }
-  .wires-table .inst tbody { display: block; width: 100%; }
-  .wires-table .inst tbody tr,
-  .wires-table .inst tbody tr.folio {
-    display: block;
-    height: auto;
-    padding: 12px 0 12px 8px;
-    border-left: var(--ot-spine) solid transparent;
-    border-bottom: 1px solid var(--ot-rule);
-    background: var(--ot-sheet-white);
-  }
-  .wires-table .inst tbody tr:hover,
-  .wires-table .inst tbody tr.on,
-  .wires-table .inst tbody tr.selected {
-    background: var(--ot-sheet-white);
-    border-left-color: var(--ot-evidence-teal);
-  }
-  .wires-table .inst tbody tr:hover td:first-child,
-  .wires-table .inst tbody tr.on td:first-child,
-  .wires-table .inst tbody tr.selected td:first-child {
-    border-left-color: transparent;
-  }
-  .wires-table .inst th,
-  .wires-table .inst td {
-    display: block;
-    height: auto;
-    width: 100%;
-    padding: 2px 0;
-    border-bottom: 0;
-    border-left: 0;
-    white-space: normal;
-  }
-  .wires-table .inst td:first-child,
-  .wires-table .inst td:last-child {
-    border-left: 0;
-    padding-left: 0;
-    white-space: normal;
-  }
-  .wires-table .inst td.name { margin-bottom: 2px; }
-  .wires-table .inst td[data-label]::before {
-    content: attr(data-label) " · ";
-    font: var(--t-meta);
-    color: var(--ot-graphite);
-  }
-  .wires-table .inst td.name[data-label]::before { content: none; }
   .wires-grid[data-view="map"] .wires-fig { order: -1; }
   .wires-grid[data-view="map"] .wires-map,
   .wires-grid[data-view="map"] .fig-block,
@@ -1516,7 +1411,7 @@ body.register .view-toggle button.on {
 }
 
 @media (max-width: 320px) {
-  body { overflow-x: hidden; }
+  .mast, .binding, .colo { overflow-x: hidden; }
   .canvas, .file, .colo { width: calc(100% - 2 * var(--gutter-xs)); }
 }
 

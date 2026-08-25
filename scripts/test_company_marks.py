@@ -208,7 +208,7 @@ def main() -> int:
         "exact Method lede",
     )
     check(
-        'href="./brand.html">specimen</a> · <a href="./methodology.html">methodology</a> · <a href="./contact.html">contact</a> · <a href="https://github.com/pchamal/opentrust.center">code</a>'
+        'href="./brand.html">specimen</a> · <a href="./methodology.html">methodology</a> · <a href="./contact.html">contact</a> · <a href="https://github.com/pchamal/opentrust.center" target="_blank" rel="noopener noreferrer">code</a>'
         in index,
         "AITI footer has specimen · methodology · contact · code",
     )

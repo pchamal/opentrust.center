@@ -401,7 +401,7 @@ export function printedUrl(url, text) {
   const href = String(url || "").trim();
   if (!/^https?:\/\//i.test(href)) return escapeHtml(text || href);
   const label = text == null || text === "" ? href : text;
-  return `<a class="official" href="${escapeHtml(href)}" rel="noopener noreferrer">${escapeHtml(label)}</a>`;
+  return `<a class="official" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`;
 }
 
 export function selectAiFiles(rows) {

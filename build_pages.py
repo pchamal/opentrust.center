@@ -1220,11 +1220,41 @@ def public_fedramp(raw) -> dict | None:
     }
 
 
+def is_outbound_href(url: str) -> bool:
+    """Leave-the-origin http(s). In-site paths, hashes, and mailto stay same-tab."""
+    href = (url or "").strip()
+    if not href or href.startswith(("#", "/", "./", "../", "mailto:")):
+        return False
+    if not href.startswith(("http://", "https://")):
+        return False
+    try:
+        host = href.split("/", 3)[2].split("@")[-1].split(":")[0].lower()
+    except IndexError:
+        return False
+    return host != "opentrust.center" and not host.endswith(".opentrust.center")
+
+
+def outbound_attrs(url: str) -> str:
+    if not is_outbound_href(url):
+        return ""
+    return ' target="_blank" rel="noopener noreferrer"'
+
+
 def official_a(url: str, text: str) -> str:
     return (
-        f'<a class="official" href="{escape(url)}" rel="noopener noreferrer">'
+        f'<a class="official" href="{escape(url)}"{outbound_attrs(url)}>'
         f"{escape(text)}</a>"
     )
+
+
+def outbound_a(url: str, text: str) -> str:
+    return f'<a href="{escape(url)}"{outbound_attrs(url)}>{escape(text)}</a>'
+
+
+def wires_scroll(inner: str) -> str:
+    """Phone swipe wrapper. Table stays a table; the wrapper scrolls."""
+    body = inner.strip("\n")
+    return f'    <div class="wires-scroll">\n{body}\n    </div>'
 
 
 def fedramp_status_word(status: str) -> str:
@@ -1456,7 +1486,7 @@ def fedramp_block(row: dict, generated_at: str = "") -> str:
     if authz is not None:
         extras.append(f"authorizations {escape(str(authz))}")
     cite = (
-        f'Filed from the <a href="{escape(FEDRAMP_MARKET)}">FedRAMP Marketplace</a>'
+        f'Filed from the {outbound_a(FEDRAMP_MARKET, "FedRAMP Marketplace")}'
     )
     if extras:
         cite = cite + " · " + " · ".join(extras)
@@ -1467,7 +1497,7 @@ def fedramp_block(row: dict, generated_at: str = "") -> str:
             offering = str(p.get("offering") or "").strip()
             href = str(p.get("url") or "").strip() or FEDRAMP_MARKET
             rows.append(
-                f'<tr><td><a href="{escape(href)}">{escape(offering)}</a></td>'
+                f"<tr><td>{outbound_a(href, offering)}</td>"
                 f"<td>{cell(fedramp_status_word(p.get('status') or ''))}</td>"
                 f"{filed_cell(str(p.get('impact_level') or '').strip())}"
                 f"{filed_cell(fmt_day(p.get('auth_date') or ''))}</tr>"
@@ -1475,18 +1505,21 @@ def fedramp_block(row: dict, generated_at: str = "") -> str:
         body = "".join(rows)
     else:
         body = f"<tr><td colspan=\"4\">{cell(None)}</td></tr>"
-    lines = [
-        '    <p class="sec-kicker">FedRAMP</p>',
-        f"    {caption}",
-        '    <table class="inst filed" data-table="fedramp">',
+    table = (
+        '    <table class="inst filed" data-table="fedramp">\n'
         '      <thead><tr>'
         + sort_th("offering", "Offering")
         + sort_th("status", "Status")
         + sort_th("impact", "Impact level")
         + sort_th("date", "Auth date")
-        + "</tr></thead>",
-        f"      <tbody>{body}</tbody>",
-        "    </table>",
+        + "</tr></thead>\n"
+        f"      <tbody>{body}</tbody>\n"
+        "    </table>"
+    )
+    lines = [
+        '    <p class="sec-kicker">FedRAMP</p>',
+        f"    {caption}",
+        wires_scroll(table),
     ]
     return "\n".join(lines) + "\n"
 
@@ -1506,22 +1539,25 @@ def star_block(row: dict) -> str:
         offering = str(p.get("offering") or p.get("csp") or "").strip()
         href = str(p.get("url") or "").strip() or STAR_REGISTRY
         rows.append(
-            f'<tr><td><a href="{escape(href)}">{escape(offering)}</a></td>'
+            f"<tr><td>{outbound_a(href, offering)}</td>"
             f"{filed_cell('')}"
             f"{filed_cell('')}"
             f"{filed_cell(fmt_day(p.get('listed_since') or ''))}</tr>"
         )
     cite = (
-        f'Filed from the <a href="{escape(STAR_REGISTRY)}">CSA STAR Registry</a>'
+        f'Filed from the {outbound_a(STAR_REGISTRY, "CSA STAR Registry")}'
     )
-    return (
-        '    <p class="sec-kicker">CSA STAR</p>\n'
-        f'    <p class="src-line">{cite}.</p>\n'
+    table = (
         '    <table class="inst filed">\n'
         '      <thead><tr><th scope="col">Listing</th><th scope="col">Status</th>'
         '<th scope="col">Level</th><th scope="col">Listed since</th></tr></thead>\n'
         f'      <tbody>{"".join(rows)}</tbody>\n'
-        "    </table>\n"
+        "    </table>"
+    )
+    return (
+        '    <p class="sec-kicker">CSA STAR</p>\n'
+        f'    <p class="src-line">{cite}.</p>\n'
+        f"{wires_scroll(table)}\n"
     )
 
 
@@ -1540,25 +1576,28 @@ def ramp_block(row: dict, key: str, heading: str, cite_html: str, level_label: s
         offering = str(p.get("offering") or "").strip()
         href = str(p.get("url") or "").strip() or market
         rows.append(
-            f'<tr><td><a href="{escape(href)}">{escape(offering)}</a></td>'
+            f"<tr><td>{outbound_a(href, offering) if href else escape(offering)}</td>"
             f"<td>{cell(str(p.get('status') or '').strip() or None)}</td>"
             f"{filed_cell(str(p.get('impact_level') or p.get('level') or '').strip())}"
             f"{filed_cell(fmt_day(p.get('auth_date') or ''))}</tr>"
         )
-    return (
-        f'    <p class="sec-kicker">{escape(heading)}</p>\n'
-        f'    <p class="src-line">{cite_html}.</p>\n'
+    table = (
         '    <table class="inst filed">\n'
         f'      <thead><tr><th scope="col">Offering</th><th scope="col">Status</th>'
         f'<th scope="col">{escape(level_label)}</th><th scope="col">Auth date</th></tr></thead>\n'
         f'      <tbody>{"".join(rows)}</tbody>\n'
-        "    </table>\n"
+        "    </table>"
+    )
+    return (
+        f'    <p class="sec-kicker">{escape(heading)}</p>\n'
+        f'    <p class="src-line">{cite_html}.</p>\n'
+        f"{wires_scroll(table)}\n"
     )
 
 
 def stateramp_block(row: dict) -> str:
     cite = (
-        f'Filed from the <a href="{escape(STATERAMP_MARKET)}">GovRAMP Authorized Product List</a>'
+        f'Filed from the {outbound_a(STATERAMP_MARKET, "GovRAMP Authorized Product List")}'
         " · StateRAMP name, same program"
     )
     return ramp_block(row, "stateramp", "StateRAMP", cite, "Impact level")
@@ -1566,7 +1605,7 @@ def stateramp_block(row: dict) -> str:
 
 def txramp_block(row: dict) -> str:
     cite = (
-        f'Filed from the <a href="{escape(TXRAMP_MARKET)}">TX-RAMP certified cloud products</a>'
+        f'Filed from the {outbound_a(TXRAMP_MARKET, "TX-RAMP certified cloud products")}'
         " list"
     )
     return ramp_block(row, "txramp", "TX-RAMP", cite, "Level")
@@ -1600,6 +1639,7 @@ def processor_cell(p: dict) -> str:
 
 def processors_block(procs: list[dict], generated_at: str = "", list_url: str = "") -> str:
     proc_head = (
+        '    <div class="wires-scroll">\n'
         '    <table class="inst filed" data-table="processors">\n'
         f'      <thead><tr>{sort_th("processor", "Processor", "asc")}</tr></thead>\n'
     )
@@ -1622,7 +1662,8 @@ def processors_block(procs: list[dict], generated_at: str = "", list_url: str = 
             f"{cite}"
             f"{proc_head}"
             f"      <tbody>{proc_rows}</tbody>\n"
-            "    </table>"
+            "    </table>\n"
+            "    </div>"
         )
     if list_url:
         shown = cite_url(list_url)
@@ -1635,7 +1676,8 @@ def processors_block(procs: list[dict], generated_at: str = "", list_url: str = 
         '    <p class="sec-kicker">Named processors</p>\n'
         f"{proc_head}"
         f"      <tbody><tr><td>{cell(None)}</td></tr></tbody>\n"
-        "    </table>"
+        "    </table>\n"
+        "    </div>"
     )
 
 
@@ -1658,7 +1700,7 @@ def fedramp_spine(row: dict) -> str:
             spine_item(
                 escape(offering),
                 f"FedRAMP marketplace · {escape(status)} · {escape(level)} · last reviewed {escape(auth)} · "
-                f'<a href="{escape(href)}">View source</a>',
+                f'{outbound_a(href, "View source")}',
                 "source",
             )
         )
@@ -1740,7 +1782,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     year = row.get("founded_year")
     year_src = row.get("founded_source")
     if year:
-        year_html = f'{year} · <a href="{escape(year_src)}">source</a>' if year_src else str(year)
+        year_html = f"{year} · {outbound_a(year_src, 'source')}" if year_src else str(year)
     else:
         year_html = '<span class="absent">not on file</span>'
 
@@ -1830,7 +1872,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     clerk = row.get("summary") or ""
     clerk_html = f'<p class="clerk">{link_mark_words(clerk, atts)}</p>' if clerk else ""
     outbound = (
-        f'<a class="official" href="{escape(url)}" rel="noopener noreferrer">Official page</a>'
+        official_a(url, "Official page")
         if found and url
         else '<span class="absent">Official page · not on file</span>'
     )
@@ -1897,10 +1939,12 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     </section>
 
     <p class="sec-kicker">Instruments</p>
+    <div class="wires-scroll">
     <table class="inst" data-table="instruments">
       <thead><tr>{sort_th("instrument", "Instrument")}{sort_th("host", "Host")}{sort_th("seen", "Last seen")}</tr></thead>
       <tbody>{"".join(inst_rows)}</tbody>
     </table>
+    </div>
 
     <p class="sec-kicker">Marks</p>
     {mark_list}
