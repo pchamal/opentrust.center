@@ -3223,6 +3223,33 @@ _OTHER_SUBJECT = re.compile(
     r"college|scholarship)\b",
     re.I,
 )
+# "Temasek operates… Established in 1974, the company" is Temasek, not Orca.
+_GENERIC_LEAD = {
+    "the", "this", "our", "we", "in", "on", "since", "after", "from",
+    "with", "through", "and", "for", "its", "their", "when", "where",
+    "founded", "established", "incorporated", "year", "date", "new",
+    "january", "february", "march", "april", "may", "june", "july",
+    "august", "september", "october", "november", "december",
+}
+
+
+def _other_named_org_before_founding(window: str, company_core: str) -> bool:
+    """Another named firm in the same window is not this company."""
+    m = re.search(r"\b(?:founded|established|incorporated)\b", window or "", re.I)
+    if not m:
+        return False
+    names = re.findall(
+        r"\b([A-Z][A-Za-z]{2,})(?:\s+[A-Z][A-Za-z]{2,}){0,2}\b",
+        window[: m.start()],
+    )
+    for name in names:
+        parts = [p.lower() for p in name.split()]
+        if all(p in _GENERIC_LEAD for p in parts):
+            continue
+        if company_core and company_core in _name_core(name):
+            continue
+        return True
+    return False
 
 
 def _window_about_this_company(window: str, company_name: str, structured: bool) -> bool:
@@ -3250,6 +3277,9 @@ def _window_about_this_company(window: str, company_name: str, structured: bool)
     if re.search(r"\bthe company\b", w, re.I) and not re.search(
         r"\b(?:selling|sold|left|joined|acquired|bought)\s+the company\b", w, re.I
     ):
+        # Investor / other-firm copy: Temasek 1974 on Orca Security.
+        if core and _other_named_org_before_founding(w, core):
+            return False
         return True
     # A year without this company’s name (or we/our) is not enough — partner
     # hospitals and heritage footnotes stay off file.

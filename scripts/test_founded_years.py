@@ -190,6 +190,15 @@ def test_parse_founded_sentence() -> None:
         jsonld_later_than_known({"slug": "huntress", "name": "Huntress"}, 2015) is None,
         "Huntress 2015 is not a known-later JSON-LD",
     )
+    check(
+        parse_official_founded_year(
+            "Temasek operates in markets around the world. Established in 1974, "
+            "the company is driven by its core values of integrity, excellence, "
+            "and respect, investing with a focus on sustainability.",
+            "Orca Security",
+        ) is None,
+        "Temasek 1974 on an Orca page is not Orca’s year",
+    )
 
 
 def test_apply_rejects_wiki_and_keeps_existing() -> None:
@@ -215,7 +224,7 @@ def test_apply_rejects_wiki_and_keeps_existing() -> None:
 
 
 def test_report_years_landed() -> None:
-    """Filed years from this increment must be on the public row and dossier."""
+    """This increment printed nothing first-party. Prior fills stay."""
     import json
     public = json.loads((ROOT / "site" / "data.json").read_text())
     enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
@@ -223,34 +232,23 @@ def test_report_years_landed() -> None:
     by_pub = {c["slug"]: c for c in public["companies"]}
     by_enr = {c["slug"]: c for c in enr["companies"]}
     filed = report.get("years_filed") or []
-    check(len(filed) == 7, f"this increment filed 7, got {len(filed)}")
-    check(len(report.get("stayed_open") or []) == 33, "33 stayed open")
-    check("faculty" not in (report.get("batch") or []), "Faculty is not re-walked")
-    check("airship" not in {r["slug"] for r in filed}, "Airship 2019 rebrand is not filed")
-    check(
-        {r["slug"] for r in filed}
-        == {
-            "appian",
-            "esentire",
-            "xylem-inc",
-            "huntress",
-            "salt-security",
-            "bluevoyant",
-            "crusoe",
-        },
-        "seven verified fills stay",
-    )
-    for rec in filed:
-        slug, year, url = rec["slug"], rec["year"], rec["url"]
-        pub, row = by_pub[slug], by_enr[slug]
-        check(pub.get("founded_year") == year, f"{slug} public year")
-        check(row.get("founded_year") == year, f"{slug} enriched year")
-        check(pub.get("founded_source") == url, f"{slug} public source")
-        check((pub.get("file") or {}).get("years") in (True, 20), f"{slug} file.years")
-        html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
-        check(f"founded · {year}" in html, f"{slug} dossier year line")
-        check(url.rstrip("/") in html or url in html, f"{slug} dossier source")
-        check('file-rule on" aria-hidden="true"></span></span></p>' in html, f"{slug} years glyph on")
+    batch = report.get("batch") or []
+    stayed = report.get("stayed_open") or []
+    check(len(filed) == 0, f"this increment filed 0, got {len(filed)}")
+    check(len(stayed) == 40, f"40 stayed open, got {len(stayed)}")
+    check(len(batch) == 40, f"batch is 40, got {len(batch)}")
+    check("faculty" not in batch, "Faculty is not re-walked")
+    check("airship" not in batch, "Airship is not re-walked")
+    check("appian" not in batch, "PR 107 fills are not re-walked")
+    check("orca-security" in batch, "Orca was walked")
+    check("orca-security" not in {r["slug"] for r in filed}, "Orca Temasek 1974 is not filed")
+    orca = by_pub["orca-security"]
+    check(not orca.get("founded_year"), "Orca year stays open")
+    check(not orca.get("founded_source"), "Orca source stays off file")
+    check((orca.get("file") or {}).get("years") in (0, None, False), "Orca years rule open")
+    orca_html = (ROOT / "site" / "c" / "orca-security.html").read_text(encoding="utf-8")
+    check("founded · <span class=\"absent\">not on file</span>" in orca_html, "Orca dossier years open")
+    check("founded · 1974" not in orca_html, "Orca 1974 is not printed")
     airship = by_pub["airship"]
     check(not airship.get("founded_year"), "Airship year stays open")
     check(not airship.get("founded_source"), "Airship source stays off file")
@@ -261,6 +259,27 @@ def test_report_years_landed() -> None:
     faculty = by_pub["faculty"]
     check(faculty.get("founded_year") == 2014, "Faculty year 2014 stays")
     check(faculty.get("founded_source") == "https://faculty.ai/en-gb", "Faculty source stays")
+    prior = {
+        "appian": 1999,
+        "esentire": 2001,
+        "xylem-inc": 2011,
+        "huntress": 2015,
+        "salt-security": 2016,
+        "bluevoyant": 2017,
+        "crusoe": 2018,
+        "dubber": 2011,
+    }
+    for slug, year in prior.items():
+        pub, row = by_pub[slug], by_enr[slug]
+        check(pub.get("founded_year") == year, f"{slug} public year stays")
+        check(row.get("founded_year") == year, f"{slug} enriched year stays")
+        check((pub.get("file") or {}).get("years") in (True, 20), f"{slug} file.years stays")
+        html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
+        check(f"founded · {year}" in html, f"{slug} dossier year stays")
+    watch = by_pub["watchguard"]
+    check(not watch.get("founded_year"), "WatchGuard year stays open")
+    check((watch.get("file") or {}).get("marks") == 20, "WatchGuard marks stay")
+    check((watch.get("file") or {}).get("years") in (0, None, False), "WatchGuard years rule open")
 
 
 def main() -> int:
