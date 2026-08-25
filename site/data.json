@@ -22106,22 +22106,18 @@
       "probed": 21,
       "probed_at": "2026-08-25T18:59:44Z",
       "certs": [
-        "CCPA",
-        "GDPR",
-        "ISO 27001",
         "SOC 2 Type II",
-        "TX-RAMP"
+        "ISO 27001",
+        "GDPR",
+        "CCPA",
+        "TX-RAMP",
+        "PCI DSS"
       ],
       "attestations": [
         {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
         },
         {
           "id": "iso-27001",
@@ -22129,17 +22125,27 @@
           "weight": 10
         },
         {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
+          "id": "gdpr",
+          "name": "GDPR",
+          "weight": 3
+        },
+        {
+          "id": "ccpa-cpra",
+          "name": "CCPA",
+          "weight": 3
         },
         {
           "id": "tx-ramp",
           "name": "TX-RAMP",
           "weight": 4
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
         }
       ],
-      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, GDPR, CCPA, TX-RAMP.",
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, GDPR, CCPA, TX-RAMP, PCI DSS.",
       "founded_year": 1976,
       "founded_source": "https://en.wikipedia.org/wiki/Pronto_Software",
       "instruments": {
@@ -22173,11 +22179,11 @@
       },
       "processors": [],
       "disclosure": {
-        "score": 80,
+        "score": 88,
         "tier": "substantial",
         "factors": {
           "page": 20,
-          "marks": 30,
+          "marks": 38,
           "dpa": 0,
           "processors": 8,
           "status": 6,
@@ -49007,9 +49013,53 @@
       "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Sweden",
       "probed": 13,
       "probed_at": "2026-08-25T18:59:44Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "PCI DSS",
+        "TISAX",
+        "EU-US DPF"
+      ],
+      "attestations": [
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "tisax",
+          "name": "TISAX",
+          "weight": 4
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27018, PCI DSS, TISAX +1.",
       "founded_year": 1994,
       "founded_source": "https://en.wikipedia.org/wiki/Episerver",
       "instruments": {
@@ -49028,7 +49078,11 @@
           "host": "optimizely.com",
           "seen": "2026-08-25"
         },
-        "dpa": null,
+        "dpa": {
+          "url": "https://www.optimizely.com/trust-center/data-processing-agreement",
+          "host": "optimizely.com",
+          "seen": "2026-08-25"
+        },
         "subprocessors": {
           "url": "https://www.optimizely.com/legal/sub-processors",
           "host": "optimizely.com",
@@ -49041,14 +49095,195 @@
         },
         "bounty": null
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "Amazon Web Services Inc",
+          "slug": "amazon-web-services",
+          "id": "aws",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Datadog",
+          "slug": "datadog",
+          "id": "datadog",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Google Cloud",
+          "slug": "google",
+          "id": "gcp",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "LogRocket",
+          "slug": null,
+          "id": "logrocket",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Okta",
+          "slug": "okta",
+          "id": "okta",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Segment",
+          "slug": null,
+          "id": "segment",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Snowflake",
+          "slug": "snowflake",
+          "id": "snowflake",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "CloudFlare Inc",
+          "slug": "cloudflare",
+          "id": "cloudflare",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Deutsche Telekom",
+          "slug": "deutsche-telekom",
+          "id": "deutsche-telekom",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Link Mobility",
+          "slug": null,
+          "id": "link-mobility",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Sinch Germany GmbH",
+          "slug": null,
+          "id": "sinch-germany",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Vonage B.V",
+          "slug": null,
+          "id": "vonage",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Microsoft Inc. Azure",
+          "slug": "microsoft",
+          "id": "azure",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Twilio Send Grid (Optional Sub-processor)",
+          "slug": "twilio",
+          "id": "twilio",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Mongo DB Atlas",
+          "slug": null,
+          "id": "mongo-db-atlas",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Google Analytics (Optional Sub-processor)",
+          "slug": null,
+          "id": "google-analytics-optional-sub-processor",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Looker a Google company",
+          "slug": null,
+          "id": "looker",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Mailgun",
+          "slug": "mailgun",
+          "id": "mailgun",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Bugsnag",
+          "slug": null,
+          "id": "bugsnag",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Full Story",
+          "slug": null,
+          "id": "full-story",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Tray.io (Optional Sub-processor)",
+          "slug": null,
+          "id": "tray-io-optional-sub-processor",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Bandwidth",
+          "slug": null,
+          "id": "bandwidth",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Litmus",
+          "slug": null,
+          "id": "litmus",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "ScyllaDB",
+          "slug": null,
+          "id": "scylladb",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Upper Quadrant",
+          "slug": null,
+          "id": "upper-quadrant",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Amazon SES (Optional Sub-processor)",
+          "slug": null,
+          "id": "amazon-ses-optional-sub-processor",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic",
+          "id": "anthropic",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Google Gemini",
+          "slug": null,
+          "id": "google-gemini",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "SEMRush",
+          "slug": "semrush",
+          "id": "semrush",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        },
+        {
+          "name": "Sentry",
+          "slug": null,
+          "id": "sentry",
+          "source_url": "https://www.optimizely.com/legal/sub-processors/third-party"
+        }
+      ],
       "disclosure": {
-        "score": 50,
-        "tier": "on-file",
+        "score": 98,
+        "tier": "complete",
         "factors": {
           "page": 20,
-          "marks": 0,
-          "dpa": 0,
+          "marks": 40,
+          "dpa": 8,
           "processors": 8,
           "status": 6,
           "bounty": 0,
@@ -49056,12 +49291,12 @@
           "years": 10
         }
       },
-      "tier": "on-file",
+      "tier": "complete",
       "file": {
         "page": 20,
-        "marks": 10,
-        "dpa": 0,
-        "subprocessors": 10,
+        "marks": 20,
+        "dpa": 20,
+        "subprocessors": 20,
         "years": 20
       },
       "_crawl": {
@@ -57820,9 +58055,95 @@
       "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Sweden",
       "probed": 2,
       "probed_at": "2026-08-25T18:59:44Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 1 Type II",
+        "SOC 3",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 42001",
+        "HITRUST",
+        "HIPAA",
+        "Cyber Essentials Plus",
+        "C5",
+        "TX-RAMP",
+        "TISAX",
+        "EU-US DPF"
+      ],
+      "attestations": [
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-1-type-ii",
+          "name": "SOC 1 Type II",
+          "weight": 4
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "iso-27017",
+          "name": "ISO 27017",
+          "weight": 4
+        },
+        {
+          "id": "iso-27018",
+          "name": "ISO 27018",
+          "weight": 4
+        },
+        {
+          "id": "iso-42001",
+          "name": "ISO 42001",
+          "weight": 6
+        },
+        {
+          "id": "hitrust-csf",
+          "name": "HITRUST",
+          "weight": 8
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "cyber-essentials-plus",
+          "name": "Cyber Essentials Plus",
+          "weight": 6
+        },
+        {
+          "id": "c5",
+          "name": "C5",
+          "weight": 4
+        },
+        {
+          "id": "tx-ramp",
+          "name": "TX-RAMP",
+          "weight": 4
+        },
+        {
+          "id": "tisax",
+          "name": "TISAX",
+          "weight": 4
+        },
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, SOC 1 Type II, SOC 3, ISO 27001, ISO 27017, ISO 27018 +8.",
       "founded_year": 1993,
       "founded_source": "https://en.wikipedia.org/wiki/Qlik",
       "instruments": {
@@ -57836,33 +58157,112 @@
           "host": "security.qlik.com",
           "seen": "2026-08-25"
         },
-        "privacy": null,
-        "dpa": null,
-        "subprocessors": null,
+        "privacy": {
+          "url": "https://www.qlik.com/us/legal/privacy-and-cookie-notice",
+          "host": "qlik.com",
+          "seen": "2026-08-25"
+        },
+        "dpa": {
+          "url": "https://assets.qlik.com/image/upload/v1717166902/qlik/docs/Legal/addendums/qlik-data-processing-addendum_rlbhor.pdf",
+          "host": "assets.qlik.com",
+          "seen": "2026-08-25"
+        },
+        "subprocessors": {
+          "url": "https://pages.qlik.com/qlik_subprocessor_list.html",
+          "host": "pages.qlik.com",
+          "seen": "2026-08-25"
+        },
         "status": null,
         "bounty": null
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "Amazon Web Services (AWS)",
+          "slug": "amazon-web-services",
+          "id": "aws",
+          "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html"
+        },
+        {
+          "name": "MongoDB",
+          "slug": "mongodb",
+          "id": "mongodb",
+          "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html"
+        },
+        {
+          "name": "Google Firebase",
+          "slug": null,
+          "id": "google-firebase",
+          "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html"
+        },
+        {
+          "name": "Microsoft Azure",
+          "slug": "microsoft",
+          "id": "azure",
+          "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html"
+        },
+        {
+          "name": "Salesforce",
+          "slug": "salesforce",
+          "id": "salesforce",
+          "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft",
+          "id": "microsoft",
+          "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html"
+        },
+        {
+          "name": "Ada",
+          "slug": null,
+          "id": "ada",
+          "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html"
+        },
+        {
+          "name": "Persistent",
+          "slug": null,
+          "id": "persistent",
+          "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html"
+        },
+        {
+          "name": "Atlassian (Jira Cloud)",
+          "slug": "atlassian",
+          "id": "atlassian",
+          "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html"
+        },
+        {
+          "name": "Stretch Qonnect APs",
+          "slug": null,
+          "id": "stretch-qonnect-aps",
+          "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html"
+        },
+        {
+          "name": "GlobalLogic",
+          "slug": null,
+          "id": "globallogic",
+          "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html"
+        }
+      ],
       "disclosure": {
-        "score": 30,
-        "tier": "thin",
+        "score": 92,
+        "tier": "complete",
         "factors": {
           "page": 20,
-          "marks": 0,
-          "dpa": 0,
-          "processors": 0,
+          "marks": 40,
+          "dpa": 8,
+          "processors": 8,
           "status": 0,
           "bounty": 0,
-          "privacy": 0,
+          "privacy": 6,
           "years": 10
         }
       },
-      "tier": "thin",
+      "tier": "complete",
       "file": {
         "page": 20,
-        "marks": 10,
-        "dpa": 0,
-        "subprocessors": 0,
+        "marks": 20,
+        "dpa": 20,
+        "subprocessors": 20,
         "years": 20
       },
       "_crawl": {
