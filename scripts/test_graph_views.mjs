@@ -36,6 +36,8 @@ expect("phone keeps register thead", !/\.reg thead \{ display: none/.test(css));
 expect("639 keeps .reg a table", /@media \(max-width: 639px\) \{[\s\S]*\.reg \{ display: table/.test(css) && !/@media \(max-width: 639px\) \{[\s\S]*\.reg, \.reg tbody \{ display: block/.test(css));
 expect("639 keeps dossier inst a table", /@media \(max-width: 639px\) \{[\s\S]*\.dossier \.file \.inst \{ display: table/.test(css) && !/\.dossier \.file \.inst thead \{ display: none/.test(css));
 expect("row hover uses Index Wash", /\.reg tbody tr\.folio:hover,[\s\S]*background: var\(--ot-index-wash\)/.test(css));
+expect("row hover is also focus-within", /\.reg tbody tr\.folio:focus-within,[\s\S]*background: var\(--ot-index-wash\)/.test(css));
+expect("odd rows stay Record White", /tr:nth-child\(odd\) \{[\s\S]*background: var\(--ot-record-white\)/.test(css));
 expect("row stripe is a light Record White mix", /tr:nth-child\(even\) \{[\s\S]*color-mix\(in srgb, var\(--ot-ledger-black\) 3%, var\(--ot-record-white\)\)/.test(css));
 expect("graph source opens out", js.includes('target="_blank" rel="noopener noreferrer"') && js.includes("src0"));
 expect("clerk neighborhood line sits under the tabs", html.includes('id="hood-line"') && html.indexOf("view-toggle") < html.indexOf("hood-line") && js.includes("neighborhood · "));

@@ -505,6 +505,10 @@ body.aiti .reg td.marks a:hover {
   text-decoration-color: var(--ot-rule-strong);
 }
 .reg tbody tr { cursor: pointer; }
+.reg tbody tr.folio:nth-child(odd),
+.wires-table .inst tbody tr:nth-child(odd) {
+  background: var(--ot-record-white);
+}
 .reg tbody tr.folio:nth-child(even),
 .wires-table .inst tbody tr:nth-child(even) {
   background: color-mix(in srgb, var(--ot-ledger-black) 3%, var(--ot-record-white));
@@ -830,6 +834,7 @@ a.official {
   padding-left: 8px;
 }
 .inst tbody tr:hover td:first-child,
+.inst tbody tr:focus-within td:first-child,
 .inst tbody tr.on td:first-child,
 .inst tbody tr.selected td:first-child {
   border-left-color: var(--ot-evidence-teal);
