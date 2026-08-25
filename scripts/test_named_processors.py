@@ -175,6 +175,54 @@ def main() -> int:
     check(not looks_like_org_name("AUS"), "AUS is a geo not a processor")
     check(not looks_like_org_name("Data Center Services"), "Data Center Services is a category not a processor")
     check(looks_like_org_name("Amazon Web Services, Inc"), "real org still files")
+    check(looks_like_org_name("Google, LLC"), "cleaned LLC still files")
+
+    arista_sections = """
+<html><head><title>Trusted Third Party / Subprocessor List</title></head><body>
+<table>
+  <tr><th>Third Party Subprocessor</th><th>Purpose of Processing</th><th>Categories of Individuals</th><th>Categories of Personal Data</th></tr>
+  <tr><td>Arista Cloud Services Operations</td></tr>
+  <tr><td>Amazon AWS</td><td>Cloud Services Platform</td><td>Customer Employees</td><td>Names</td></tr>
+  <tr><td>General Business Operations</td></tr>
+  <tr><td>8x8</td><td>Support</td><td>Customer Employees</td><td>Names</td></tr>
+  <tr><td>Recruiting</td></tr>
+  <tr><td>HireRight</td><td>Background checks</td><td>Candidates</td><td>Names</td></tr>
+</table>
+</body></html>
+"""
+    arista = {"slug": "arista-networks", "name": "Arista Networks", "domain": "arista.com"}
+    arista_filed = published_processors_from_html(
+        arista_sections, "Trusted Third Party Amazon AWS 8x8 HireRight", arista, register
+    )
+    arista_names = [n for _i, n, _e in arista_filed]
+    check(any(n == "Amazon AWS" for n in arista_names), f"arista keeps AWS: {arista_names}")
+    check(any(n == "8x8" for n in arista_names), f"arista keeps 8x8: {arista_names}")
+    check(any("HireRight" in n for n in arista_names), f"arista keeps HireRight: {arista_names}")
+    check(not any("Operations" in n for n in arista_names), f"arista drops section banners: {arista_names}")
+    check(not any(n == "Recruiting" for n in arista_names), f"arista drops Recruiting banner: {arista_names}")
+
+    rc_ui = """
+<html><head><title>DPA Subprocessor List</title></head><body>
+<table>
+  <tr><th>Name</th><th>Purpose of Processing</th></tr>
+  <tr><td>Google, LLC. Subprocessor List &gt;</td><td>Hosting</td></tr>
+  <tr><td>Amazon Web Services, Inc. Subprocessor List &gt;</td><td>Hosting</td></tr>
+  <tr><td>PubNub, Inc. No subprocessors</td><td>Messaging</td></tr>
+  <tr><td>Mutare, Inc. Available upon request</td><td>Voicemail</td></tr>
+</table>
+</body></html>
+"""
+    ringcentral = {"slug": "ringcentral", "name": "RingCentral", "domain": "ringcentral.com"}
+    rc_filed = published_processors_from_html(
+        rc_ui, "DPA Subprocessor List Google Amazon PubNub Mutare", ringcentral, register
+    )
+    rc_names = [n for _i, n, _e in rc_filed]
+    check(any(n == "Google, LLC" for n in rc_names), f"rc strips list chrome: {rc_names}")
+    check(any("Amazon Web Services, Inc" in n for n in rc_names), f"rc keeps AWS: {rc_names}")
+    check(any(n == "PubNub, Inc" for n in rc_names), f"rc strips no-subprocessors chrome: {rc_names}")
+    check(any(n == "Mutare, Inc" for n in rc_names), f"rc strips available-upon-request: {rc_names}")
+    check(not any("Subprocessor List" in n for n in rc_names), f"rc dropped list chrome: {rc_names}")
+    check(not any("No subprocessors" in n for n in rc_names), f"rc dropped no-subprocessors chrome: {rc_names}")
 
     zoom_dates = """
 <html><head><title>Zoom Subprocessors</title></head><body>

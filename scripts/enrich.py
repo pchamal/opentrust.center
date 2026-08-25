@@ -978,10 +978,23 @@ def slugify_processor(name: str) -> str:
     return s[:60]
 
 
+UI_NAME_TAIL_RE = re.compile(
+    r"\s+(?:"
+    r"sub-?processor lists?\s*>?|"
+    r"no subprocessors|"
+    r"available upon request|"
+    r"subprocessors?\s*>"
+    r")\s*$",
+    re.I,
+)
+
+
 def cell_text(raw: str) -> str:
     t = strip_tags(raw or "")
     t = re.sub(r"[*†‡]+", "", t)
     t = re.sub(r"\s+", " ", t).strip(" \t.,;:|")
+    t = UI_NAME_TAIL_RE.sub("", t).strip(" \t.,;:|")
+    t = re.sub(r"\b(\S+)(?:\s+\1)+\b", r"\1", t)
     return t
 
 
@@ -1123,6 +1136,9 @@ def names_from_tables(html: str) -> list[str]:
         for row in data_rows:
             cells = [cell_text(c) for c in CELL_RE.findall(row)]
             if not cells:
+                continue
+            # Section banners are one cell in an otherwise multi-column table.
+            if len(cells) == 1 and len(header_cells) > 1:
                 continue
             if len(cells) == 1 and not looks_like_org_name(cells[0]):
                 continue
@@ -1756,10 +1772,23 @@ def slugify_processor(name: str) -> str:
     return s[:60]
 
 
+UI_NAME_TAIL_RE = re.compile(
+    r"\s+(?:"
+    r"sub-?processor lists?\s*>?|"
+    r"no subprocessors|"
+    r"available upon request|"
+    r"subprocessors?\s*>"
+    r")\s*$",
+    re.I,
+)
+
+
 def cell_text(raw: str) -> str:
     t = strip_tags(raw or "")
     t = re.sub(r"[*†‡]+", "", t)
     t = re.sub(r"\s+", " ", t).strip(" \t.,;:|")
+    t = UI_NAME_TAIL_RE.sub("", t).strip(" \t.,;:|")
+    t = re.sub(r"\b(\S+)(?:\s+\1)+\b", r"\1", t)
     return t
 
 
@@ -1901,6 +1930,9 @@ def names_from_tables(html: str) -> list[str]:
         for row in data_rows:
             cells = [cell_text(c) for c in CELL_RE.findall(row)]
             if not cells:
+                continue
+            # Section banners are one cell in an otherwise multi-column table.
+            if len(cells) == 1 and len(header_cells) > 1:
                 continue
             if len(cells) == 1 and not looks_like_org_name(cells[0]):
                 continue
