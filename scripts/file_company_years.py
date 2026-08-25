@@ -268,6 +268,47 @@ PRIOR_ATTEMPTED = {
     "blackberry",
     "recorded-future",
     "juniper-networks",
+    # this cut — latest expand silent rows + unread open years files
+    "tmetric",
+    "critical-software",
+    "sbs-contents-hub",
+    "jetbrains",
+    "tmaxsoft",
+    "nhn-corporation",
+    "watcha",
+    "landka",
+    "move-interactive",
+    "nortal",
+    "cleverlance-enterprise-solutions",
+    "seoul-robotics",
+    "glintt",
+    "maxdata-software",
+    "geneea-analytics",
+    "crowdin",
+    "siscog",
+    "chemaxon",
+    "scoro",
+    "zeroturnaround",
+    "cellum",
+    "nng",
+    "gravity-randd",
+    "bugsense",
+    "graphisoft",
+    "quidgest",
+    "capillary-technologies",
+    "cyberlink",
+    "intracom-holdings",
+    "scarab-research",
+    "viva-wallet-group",
+    "pouliadis-associates-corporation",
+    "astridbio",
+    "orthograph",
+    "ip-systems",
+    "openmaru",
+    "plumbr",
+    "synerise",
+    "01-communique",
+    "01-ai",
 }
 
 
@@ -561,7 +602,7 @@ def patch_dossier(slug: str, year: int, source: str) -> bool:
     src = public_url(source)
     founded = (
         f'<p class="ident-meta">founded · {int(year)} · '
-        f'<a href="{src}">source</a></p>'
+        f'<a href="{src}" target="_blank" rel="noopener noreferrer">source</a></p>'
     )
     html, n = re.subn(
         r'<p class="ident-meta">founded · <span class="absent">not on file</span></p>',
@@ -726,7 +767,7 @@ def main() -> int:
             "fills only when the live page names the company's founding year. "
             "Wikipedia category/list pages, news articles, title-only prefix "
             "matches, and 404s stay open. Prior year cuts, PR 104, PR 107, "
-            "PR 111, and PR 115 leftovers are on the skip list."
+            "PR 111, PR 115 leftovers, and PR 117 are on the skip list."
         ),
         "batch": [rec["slug"] for rec in batch],
         "years_filed": filed,
