@@ -155,7 +155,7 @@ PRIOR_ATTEMPTED = {
     "grafana-labs",
     "salt-security",
     "activeops",
-    "airship",
+    "airship",  # 2019 JSON-LD is the Urban Airship → Airship rebrand, not founding
     "bluevoyant",
     "corelight",
     "fluid-attacks",
@@ -267,6 +267,21 @@ def stored_year_urls(public: dict, enr: dict) -> list[str]:
     return out
 
 
+# Well-known first founding. A later JSON-LD foundingDate on the official
+# site is a rebrand / product date and stays off file (Airship 2019).
+KNOWN_EARLIER_FOUNDING = {
+    "airship": 2009,
+}
+
+
+def jsonld_later_than_known(company: dict, year: int) -> str | None:
+    """Reject a parsed year later than this company's well-known founding."""
+    known = KNOWN_EARLIER_FOUNDING.get(company.get("slug") or "")
+    if known and year and int(year) > known:
+        return "jsonld-later-than-known-founding"
+    return None
+
+
 def reject_host_reason(url: str, company_name: str = "") -> str | None:
     h = enrich.host_of(url) or ""
     if "wikipedia.org" in h or "wikidata.org" in h:
@@ -350,6 +365,16 @@ def inspect_official_year(
         blob = " ".join(filter(None, [title, rec.get("meta") or "", text]))
         year = parse_official_founded_year(blob, company.get("name") or "")
         if year:
+            hold = jsonld_later_than_known(company, year)
+            if hold:
+                rejected.append({
+                    "slug": company.get("slug"),
+                    "url": public_url(url),
+                    "final": public_url(final),
+                    "reason": hold,
+                    "year": year,
+                })
+                continue
             found.append((year, final))
         else:
             rejected.append({

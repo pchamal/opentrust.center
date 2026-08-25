@@ -45,13 +45,6 @@
   ],
   "years_filed": [
     {
-      "slug": "airship",
-      "name": "Airship",
-      "year": 2019,
-      "url": "https://www.airship.com/",
-      "quote": "\"foundingDate\":\"2019-06-01\""
-    },
-    {
       "slug": "appian",
       "name": "Appian",
       "year": 1999,
@@ -197,6 +190,12 @@
       "name": "ActiveOps",
       "rule": "years",
       "reason": "no-founded-sentence https://activeops.com"
+    },
+    {
+      "slug": "airship",
+      "name": "Airship",
+      "rule": "years",
+      "reason": "jsonld-later-than-known-founding https://www.airship.com/ (2019-06-01 is the Urban Airship rebrand, not 2009 founding)"
     },
     {
       "slug": "corelight",

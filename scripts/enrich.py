@@ -369,6 +369,13 @@ FOUNDING_DATE_FIELD = re.compile(
     rf"""(?:foundingDate|founding_date|dateFounded|yearFounded)\s*"?\s*[=:]\s*"?({_YEAR_TOKEN})""",
     re.I,
 )
+# JSON-LD foundingDate is not a founding year when the same window is a
+# rebrand, rename, or product launch (Airship 2019-06-01 class).
+JSONLD_NOT_FOUNDING = re.compile(
+    r"\b(re-?brand(?:ed|ing)?|formerly known as|renamed(?:\s+to)?|"
+    r"product\s+launch|launched the product|unveiled)\b",
+    re.I,
+)
 COPYRIGHT_SPAN = re.compile(
     r"(?:©|&copy;|copyright)\s*(?:©\s*)?(?:19|20)\d{2}(?:\s*[-–—]\s*(?:19|20)\d{2})?",
     re.I,
@@ -3253,8 +3260,9 @@ def parse_official_founded_year(text: str, company_name: str = ""):
     if not text:
         return None
     cleaned = COPYRIGHT_SPAN.sub(" ", text)
-    years = []
-    for pat, structured in (
+    prose: list[int] = []
+    structured: list[int] = []
+    for pat, is_struct in (
         (OFFICIAL_FOUNDED, False),
         (OFFICIAL_FOUNDED_REVERSE, False),
         (YEAR_THEN_FOUNDED, False),
@@ -3265,9 +3273,17 @@ def parse_official_founded_year(text: str, company_name: str = ""):
             if not (1600 <= year <= NOW_YEAR):
                 continue
             window = cleaned[max(0, m.start() - 90): m.end() + 90]
-            if not _window_about_this_company(window, company_name, structured):
+            if not _window_about_this_company(window, company_name, is_struct):
                 continue
-            years.append(year)
+            if is_struct and JSONLD_NOT_FOUNDING.search(window):
+                continue
+            (structured if is_struct else prose).append(year)
+    # A later JSON-LD foundingDate is not the founding year when the same
+    # page already names an earlier founded/established year.
+    if prose and structured:
+        earliest = min(prose)
+        structured = [y for y in structured if y <= earliest]
+    years = prose + structured
     if not years:
         return None
     uniq = sorted(set(years))
