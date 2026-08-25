@@ -1530,6 +1530,12 @@ body.register .view-toggle button.on {
   --ot-binding-warn: #D9A94F;
 }
 
+/* Shared measure inside the binding band (same rule as .canvas). */
+.wrap {
+  width: min(var(--canvas), calc(100% - 2 * var(--gutter)));
+  margin-inline: auto;
+}
+
 .binding {
   background: var(--ot-ledger-black);
   color: var(--ot-record-white);
@@ -1797,3 +1803,95 @@ body.register .view-toggle button.on {
   .b-count { border-left: 0; padding: 0; }
   .binding-status { flex-direction: column; align-items: flex-start; gap: 4px; }
 }
+
+/* Tier ledger line — one sentence from coverage.tiers, printed like a notice. */
+.b-tier-line {
+  margin: 0;
+  padding: 18px 0 0;
+  border-top: 1px solid var(--ot-binding-line);
+  font: var(--t-body);
+  color: var(--ot-binding-dim);
+}
+.b-tier-line strong {
+  font: 600 1.35em/1 var(--ot-font-editorial);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--ot-record-white);
+}
+.b-count-note { border-top: 1px dashed var(--ot-binding-line); padding-top: 14px; }
+
+/* OT-METHOD-001 clerk's rules */
+.rules {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: ot-rule;
+  border-top: 1px solid var(--ot-rule);
+}
+.rules li {
+  counter-increment: ot-rule;
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--ot-rule);
+  font: var(--t-body);
+  color: var(--ot-ledger-black);
+  scroll-margin-top: 24px;
+}
+.rules li::before {
+  content: "§" counter(ot-rule);
+  flex: 0 0 auto;
+  min-width: 3ch;
+  font-family: var(--ot-font-utility);
+  font-weight: 600;
+  color: var(--ot-evidence-teal);
+}
+.cite-note { font-size: 14px; color: var(--ot-graphite); }
+
+/* Facet groups on Standards */
+.facet-group {
+  display: flex;
+  align-items: center;
+  padding-right: 12px;
+  margin-right: 8px;
+  border-right: 1px solid var(--ot-rule);
+}
+.facet-group:last-child { border-right: 0; }
+.facet-label {
+  font: var(--t-meta);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ot-graphite);
+  padding-right: 4px;
+}
+
+/* Dossier cite-this-file block */
+.cite-file {
+  margin-top: 20px;
+  padding: 14px 0 0;
+  border-top: 1px solid var(--ot-rule);
+}
+.cite-file pre {
+  margin: 0;
+  font: var(--t-data);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ot-ledger-black);
+}
+.cite-copy {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--ot-rule-strong);
+  border-radius: 0;
+  padding: 10px 0;
+  min-height: 44px;
+  font: var(--t-meta);
+  color: var(--ot-ledger-black);
+  cursor: pointer;
+}
+.cite-copy:hover { text-decoration: underline; }

@@ -190,7 +190,12 @@ function apply() {
   const f = active();
   const q = f.q.trim().toLowerCase();
   const found = state.rows.filter((row) => {
-    if (f.tier !== "all" && row.tier !== f.tier) return false;
+    if (f.tier === "not-on-file") {
+      const emptyFile = row.tier === "silent" || fileScore(fileFlags(row)) === 0;
+      if (!emptyFile) return false;
+    } else if (f.tier !== "all" && row.tier !== f.tier) {
+      return false;
+    }
     if (f.list === "cloud100" && row.list !== "cloud100") return false;
     if (f.list === "enterprise" && row.list !== "enterprise") return false;
     if (f.fedramp !== "all") {
@@ -269,7 +274,10 @@ export function marksCell(row) {
         : `<span class="mark-chip">${label}</span>`;
     })
     .join(" · ");
-  return stamp ? stamp + (line ? " · " + line : "") : `<span class="mark-line">${line}</span>`;
+  /* Full mark list rides along as title: clipping must never lose a finding. */
+  const plain = names.map((a) => String(markLabel(a) || "")).filter(Boolean).join(" · ");
+  const inner = stamp ? stamp + (line ? " · " + line : "") : line;
+  return `<span class="mark-line"${plain ? ` title="${escapeHtml(plain)}"` : ""}>${inner}</span>`;
 }
 
 export function registerRowHtml(row, selectedSlug) {

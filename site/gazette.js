@@ -170,9 +170,8 @@ function renderBook() {
       const files = item.files != null ? item.files : citers.length;
       const citeLine = citers.length
         ? citers
-            .slice(0, 8)
             .map((c) => `<a href="./c/${encodeURIComponent(c.slug)}.html">${escapeHtml(c.name)}</a>`)
-            .join(" · ") + (citers.length > 8 ? ` +${citers.length - 8}` : "")
+            .join(" · ")
         : `<span class="absent">none in this index</span>`;
       const geo = (item.geography || []).join(" · ");
       const ind = (item.industry || []).join(" · ");
@@ -522,6 +521,7 @@ function setGeo(geo) {
   state.geo = geo;
   document.querySelectorAll("[data-geo]").forEach((b) => {
     b.classList.toggle("on", b.getAttribute("data-geo") === geo);
+    b.setAttribute("aria-pressed", b.getAttribute("data-geo") === geo ? "true" : "false");
   });
   renderBook();
 }
@@ -566,14 +566,20 @@ function bind() {
   document.querySelectorAll("[data-kind]").forEach((btn) => {
     btn.addEventListener("click", () => {
       state.kind = btn.getAttribute("data-kind");
-      document.querySelectorAll("[data-kind]").forEach((b) => b.classList.toggle("on", b === btn));
+      document.querySelectorAll("[data-kind]").forEach((b) => {
+    b.classList.toggle("on", b === btn);
+    b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+  });
       renderBook();
     });
   });
   document.querySelectorAll("[data-ind]").forEach((btn) => {
     btn.addEventListener("click", () => {
       state.industry = btn.getAttribute("data-ind");
-      document.querySelectorAll("[data-ind]").forEach((b) => b.classList.toggle("on", b === btn));
+      document.querySelectorAll("[data-ind]").forEach((b) => {
+    b.classList.toggle("on", b === btn);
+    b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+  });
       renderBook();
     });
   });

@@ -65,6 +65,19 @@ function paintStats(data, marks) {
   }
 }
 
+function paintTierLine(data) {
+  const el = $("b-tier-line");
+  if (!el || !data || !data.coverage || !data.coverage.tiers) return;
+  const t = data.coverage.tiers;
+  const total = Number(data.total) || 0;
+  const silent = Number(t.silent) || 0;
+  const complete = Number(t.complete) || 0;
+  if (!total || silent === undefined) return;
+  el.innerHTML =
+    `<strong>${fmt(silent)}</strong> of ${fmt(total)} domains in scope print no AI file` +
+    ` · <strong>${fmt(complete)}</strong> print public file complete`;
+}
+
 function paintStatus(data) {
   const el = $("issue");
   if (!el || !data) return;
@@ -152,6 +165,7 @@ async function init() {
   try {
     const [data, att] = await Promise.all([getJson("./data.json"), getJson("./data/attestations.json").catch(() => null)]);
     paintStatus(data);
+    paintTierLine(data);
     paintStats(data, att && att.count);
     paintTicker(data);
     if (stamp) stamp.textContent = `sweep ${fmtDay(data.generated_at)}`;

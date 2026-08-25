@@ -249,14 +249,21 @@ function renderTable() {
   body.innerHTML = state.processors
     .map((p, i) => {
       const row = p.slug ? state.companies.get(p.slug) : null;
-      const score = Number.isFinite(p.score) ? p.score : row ? fileScore(fileFlags(row)) : 0;
-      const ticks = row ? fileIndexHtml(row) : "";
-      const src = p.sources[0] ? hostOfSafe(p.sources[0]) : "not on file";
-      return `<tr data-i="${i}" class="folio${state.focus === i ? " on selected" : ""}">
+    const score = Number.isFinite(p.score) ? p.score : row ? fileScore(fileFlags(row)) : null;
+    /* No register file is inconclusive, not zero: blank rules, never a false miss. */
+    const ticks = row ? fileIndexHtml(row) : "";
+    const scoreCell = row
+      ? `<span class="file-num">${score}</span>${ticks}`
+      : `<span class="absent">not in register</span>`;
+    const src0 = p.sources[0];
+    const srcCell = src0
+      ? `<a href="${escapeHtml(src0)}" rel="noopener noreferrer">${escapeHtml(hostOfSafe(src0))}</a>`
+      : `<span class="absent">not on file</span>`;
+    return `<tr data-i="${i}" class="folio${state.focus === i ? " on selected" : ""}">
         <td class="name" data-label="Processor">${escapeHtml(p.name)}</td>
         <td data-label="Named by">${p.exposure}</td>
-        <td class="file" data-label="Completeness"><span class="file-num">${score}</span>${ticks}</td>
-        <td data-label="Source">${escapeHtml(src)}</td>
+        <td class="file" data-label="Completeness">${scoreCell}</td>
+        <td data-label="Source">${srcCell}</td>
       </tr>`;
     })
     .join("");
@@ -310,11 +317,13 @@ function renderStub() {
   const el = $("stub");
   if (state.focus == null) {
     el.hidden = true;
+    document.title = "opentrust.center — public trust ledger";
     return;
   }
   const p = state.processors[state.focus];
   if (!p) {
     el.hidden = true;
+    document.title = "opentrust.center — public trust ledger";
     return;
   }
   el.hidden = false;
@@ -324,9 +333,11 @@ function renderStub() {
   const self = p.slug ? state.companies.get(p.slug) : null;
   el.innerHTML = `<h2>${nameWithIcon(p.name, iconForDomain(p.domain, self))}</h2>
     ${status}
-    <p class="ident-meta">exposure · ${p.exposure}</p>
+    <p class="ident-meta">named by ${p.exposure} · exposure, not a score</p>
     <p class="fig-sub">Who named them, as published.</p>
-    <ul class="guesses">${p.namers.map(namerLine).join("")}</ul>`;
+    <ul class="guesses">${p.namers.map(namerLine).join("")}</ul>
+    <button type="button" class="go-out" id="copy-permalink">copy link to this processor</button>`;
+  document.title = `${p.name} · named by ${p.exposure} · opentrust.center`;
 }
 
 const map = {
@@ -784,6 +795,15 @@ function bind() {
       return;
     }
     fileProcessor(i);
+  });
+  $("wires").addEventListener("click", (e) => {
+    const btn = e.target.closest("#copy-permalink");
+    if (!btn || !navigator.clipboard) return;
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const prev = btn.textContent;
+      btn.textContent = "copied · " + window.location.href;
+      setTimeout(() => { btn.textContent = prev; }, 1800);
+    });
   });
   $("view-list").addEventListener("click", () => setView("list", true));
   $("view-map").addEventListener("click", () => setView("map", true));
