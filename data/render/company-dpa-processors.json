@@ -1,397 +1,125 @@
 {
-  "generated_at": "2026-08-25T18:59:44Z",
-  "rule": "Next ~40 on-file companies whose DPA or subprocessors rule was open and who already had a first-party public URL. DPA fills only from a real first-party DPA. Named subprocessors fill only from a printed first-party list of organization names. Dates, JS shells, login walls, and portal hosts stay open.",
+  "generated_at": "2026-08-25T19:55:35Z",
+  "rule": "One increment: Trustly, Frosmo, and Meltwater from the 25 Aug 19:55 expand. DPA fills only from a real first-party DPA. Named subprocessors fill only from a printed first-party list of organization names. Dates, JS shells, login walls, and portal hosts stay open.",
   "batch": [
-    "nucleus-software-exports",
-    "walmart"
+    "trustly",
+    "frosmo",
+    "meltwater"
   ],
-  "dpa_filed": [],
-  "subprocessors_filed": [],
+  "dpa_filed": [
+    {
+      "slug": "meltwater",
+      "name": "Meltwater",
+      "url": "https://www.meltwater.com/en/privacy/dpa"
+    }
+  ],
+  "subprocessors_filed": [
+    {
+      "slug": "meltwater",
+      "name": "Meltwater",
+      "url": "https://www.meltwater.com/en/privacy/subprocessors",
+      "names": [
+        "Atlassian",
+        "Carahsoft Technology Corp",
+        "Drift.com, Inc",
+        "EdInvent Inc. (Accredible)",
+        "Google LLC",
+        "Intercom R&D Unlimited Company",
+        "Microsoft Corp",
+        "Oracle America Inc",
+        "Satismeter s.r.o",
+        "Totango",
+        "Auth0, Inc",
+        "Amazon Web Services, Inc., Amazon Web Services EMEA SARL",
+        "Basefarm AS",
+        "Launchboard Software Inc",
+        "Microsoft Azure",
+        "MongoDB Inc",
+        "OpenAI OpCo, LLC",
+        "RFPIO",
+        "Segment i.o, Inc",
+        "Twilio Inc",
+        "Worketics IT Solutions",
+        "84codes AB (CloudAMQP)",
+        "Bugsnag",
+        "Dropbox International Unlimited Company",
+        "Fullstory",
+        "Microsoft Clarity",
+        "The Rocket Science Group LLC d/b/a Mailchimp",
+        "Pipedrive",
+        "Zapier",
+        "Alibaba Cloud",
+        "OVH",
+        "Pendo",
+        "HubSpot",
+        "Typeform",
+        "Mediactive",
+        "Scaleway",
+        "HappyFox",
+        "Salesforce",
+        "Stripe",
+        "Amplitude",
+        "Tray.aiio",
+        "A.G. Consulting Limited",
+        "Cognitive Intelligence Corp",
+        "Commetric Ltd",
+        "Fineyear Human Resources Service Ltd",
+        "KLEA Media Intelligence",
+        "Mpower",
+        "Media Connect",
+        "Media Intelligence Brand Distillery",
+        "Mercatus Ltd",
+        "Multyware Associates",
+        "Novemilla",
+        "Ninestars Bulgaria EOOD",
+        "Quintype Technologies Inc d/b/a ListenFirst Media",
+        "Rythmos DB Inc",
+        "Tagfact Services Pvt Ltd",
+        "Tsengararu",
+        "Zealep Business Solutions"
+      ]
+    }
+  ],
   "stayed_open": [
     {
-      "slug": "nucleus-software-exports",
-      "name": "Nucleus Software Exports",
+      "slug": "trustly",
+      "name": "Trustly",
       "rule": "dpa"
     },
     {
-      "slug": "nucleus-software-exports",
-      "name": "Nucleus Software Exports",
+      "slug": "trustly",
+      "name": "Trustly",
       "rule": "subprocessors"
     },
     {
-      "slug": "walmart",
-      "name": "Walmart",
-      "rule": "dpa"
-    },
-    {
-      "slug": "walmart",
-      "name": "Walmart",
+      "slug": "frosmo",
+      "name": "Frosmo",
       "rule": "subprocessors"
     }
   ],
   "rejected": [
     {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/company/dpa",
-      "final": "https://nucleussoftware.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/terms/dpa",
-      "final": "https://nucleussoftware.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/legal/data-processing-agreement",
-      "final": "https://nucleussoftware.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/legal/dpa",
-      "final": "https://nucleussoftware.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/data-processing-agreement",
-      "final": "https://nucleussoftware.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/policies/data-processing-agreement",
-      "final": "https://nucleussoftware.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/gdpr/dpa",
-      "final": "https://nucleussoftware.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/policies/dpa",
-      "final": "https://nucleussoftware.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/dpa",
-      "final": "https://nucleussoftware.com/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/data-processing-addendum",
-      "final": "https://nucleussoftware.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/policies/data-processing-addendum",
-      "final": "https://nucleussoftware.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/legal/data-processing-addendum",
-      "final": "https://nucleussoftware.com/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/dpa",
-      "final": "https://www.walmart.com/blocked?url=L2RwYQ==&uuid=51f2fa18-a0bb-11f1-836c-f0c1b7f08948&vid=&g=b",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/legal/dpa",
-      "final": "https://www.walmart.com/blocked?url=L2xlZ2FsL2RwYQ==&uuid=51e9daaf-a0bb-11f1-9a59-b1784cb5b6ef&vid=&g=b",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/legal/data-processing-agreement",
-      "final": "https://www.walmart.com/blocked?url=L2xlZ2FsL2RhdGEtcHJvY2Vzc2luZy1hZ3JlZW1lbnQ=&uuid=52042676-a0bb-11f1-adf8-11a5e7bb920f&vid=&g=b",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/data-processing-agreement",
-      "final": "https://walmart.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/data-processing-addendum",
-      "final": "https://www.walmart.com/blocked?url=L2RhdGEtcHJvY2Vzc2luZy1hZGRlbmR1bQ==&uuid=5203c0db-a0bb-11f1-bcdb-d7998baf040f&vid=&g=b",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/legal/data-processing-addendum",
-      "final": "https://www.walmart.com/blocked?url=L2xlZ2FsL2RhdGEtcHJvY2Vzc2luZy1hZGRlbmR1bQ==&uuid=52039c33-a0bb-11f1-902c-68da4e83e24a&vid=&g=b",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/policies/data-processing-addendum",
-      "final": "https://walmart.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/policies/data-processing-agreement",
-      "final": "https://www.walmart.com/blocked?url=L3BvbGljaWVzL2RhdGEtcHJvY2Vzc2luZy1hZ3JlZW1lbnQ=&uuid=522b3436-a0bb-11f1-857c-3df2bd0d04c4&vid=&g=b",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/legal/gdpr/dpa",
-      "final": "https://walmart.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/policies/dpa",
-      "final": "https://www.walmart.com/blocked?url=L3BvbGljaWVzL2RwYQ==&uuid=5230b33e-a0bb-11f1-a475-8127da82a396&vid=&g=b",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/gdpr/dpa",
-      "final": "https://www.walmart.com/blocked?url=L2dkcHIvZHBh&uuid=524921af-a0bb-11f1-8e85-5bb0bba9dfc3&vid=&g=b",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/terms/dpa",
-      "final": "https://www.walmart.com/blocked?url=L3Rlcm1zL2RwYQ==&uuid=524c871c-a0bb-11f1-8ec6-65d715834f58&vid=&g=b",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/company/dpa",
-      "final": "https://www.walmart.com/blocked?url=L2NvbXBhbnkvZHBh&uuid=5244f654-a0bb-11f1-880b-8a6fe23a0d06&vid=&g=b",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/privacy/dpa",
-      "final": "https://www.walmart.com/blocked?url=L3ByaXZhY3kvZHBh&uuid=5257e81c-a0bb-11f1-b105-e2fcb3c18350&vid=&g=b",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/legal/data-processing",
-      "final": "https://www.walmart.com/blocked?url=L2xlZ2FsL2RhdGEtcHJvY2Vzc2luZw==&uuid=5270cbd4-a0bb-11f1-9902-c5e01283d326&vid=&g=b",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/data-processing",
-      "final": "https://walmart.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/legal/processor-terms",
-      "final": "https://walmart.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/privacy/dpa",
-      "final": "https://nucleussoftware.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/legal/gdpr/dpa",
-      "final": "https://nucleussoftware.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/data-processing",
-      "final": "https://nucleussoftware.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/legal/processor-terms",
-      "final": "https://nucleussoftware.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/legal/data-processing",
-      "final": "https://nucleussoftware.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/subprocessors",
-      "final": "https://www.walmart.com/blocked?url=L3N1YnByb2Nlc3NvcnM=&uuid=52cc6563-a0bb-11f1-9de0-4c0db016d1e0&vid=&g=b",
+      "slug": "trustly",
+      "url": "https://www.trustly.com/security",
       "reason": "no-printed-names",
       "kind": "subprocessors"
     },
     {
-      "slug": "walmart",
-      "url": "https://walmart.com/legal/subprocessors",
-      "final": "https://www.walmart.com/blocked?url=L2xlZ2FsL3N1YnByb2Nlc3NvcnM=&uuid=52cf1572-a0bb-11f1-ab1d-3d64b11da6cd&vid=&g=b",
+      "slug": "trustly",
+      "url": "https://www.trustly.com/legal-hub",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "frosmo",
+      "url": "https://frosmo.com/data-processing-annex/",
       "reason": "no-printed-names",
       "kind": "subprocessors"
     },
     {
-      "slug": "walmart",
-      "url": "https://walmart.com/sub-processors",
-      "final": "https://www.walmart.com/blocked?url=L3N1Yi1wcm9jZXNzb3Jz&uuid=52cda929-a0bb-11f1-a5ef-ce0874444557&vid=&g=b",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/privacy/subprocessors",
-      "final": "https://www.walmart.com/blocked?url=L3ByaXZhY3kvc3VicHJvY2Vzc29ycw==&uuid=530c857d-a0bb-11f1-bb6b-56660db91eb9&vid=&g=b",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/legal/sub-processors",
-      "final": "https://www.walmart.com/blocked?url=L2xlZ2FsL3N1Yi1wcm9jZXNzb3Jz&uuid=530bee65-a0bb-11f1-b15b-0bb6cd6c32e4&vid=&g=b",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/legal/service-providers",
-      "final": "https://walmart.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/trust/subprocessors",
-      "final": "https://www.walmart.com/blocked?url=L3RydXN0L3N1YnByb2Nlc3NvcnM=&uuid=53444128-a0bb-11f1-9d29-22bb515da7ef&vid=&g=b",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/company/subprocessors",
-      "final": "https://www.walmart.com/blocked?url=L2NvbXBhbnkvc3VicHJvY2Vzc29ycw==&uuid=534a7489-a0bb-11f1-b21e-0bb6cd6c32e4&vid=&g=b",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "walmart",
-      "url": "https://walmart.com/legal/sub-processors-page",
-      "final": "https://www.walmart.com/blocked?url=L2xlZ2FsL3N1Yi1wcm9jZXNzb3JzLXBhZ2U=&uuid=5356fb4c-a0bb-11f1-9fe2-d295e57f72c4&vid=&g=b",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/privacy/subprocessors",
-      "final": "https://nucleussoftware.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/legal/sub-processors",
-      "final": "https://nucleussoftware.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/subprocessors",
-      "final": "https://nucleussoftware.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/legal/subprocessors",
-      "final": "https://nucleussoftware.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/legal/service-providers",
-      "final": "https://nucleussoftware.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/company/subprocessors",
-      "final": "https://nucleussoftware.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/legal/sub-processors-page",
-      "final": "https://nucleussoftware.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/trust/subprocessors",
-      "final": "https://nucleussoftware.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "nucleus-software-exports",
-      "url": "https://nucleussoftware.com/sub-processors",
-      "final": "https://nucleussoftware.com/sub-processors",
-      "reason": "fetch-failed",
+      "slug": "meltwater",
+      "url": "https://trust.meltwater.com/subprocessors",
+      "reason": "js-portal",
       "kind": "subprocessors"
     }
   ]
