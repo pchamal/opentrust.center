@@ -9472,6 +9472,83 @@
       "domain": "kraken.tech",
       "kind": "company",
       "in_register": true
+    },
+    {
+      "id": "adobe-systems",
+      "name": "Adobe Systems Incorporated",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "altus-group",
+      "name": "Altus Group",
+      "domain": "altusgroup.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "arm-group-deltek",
+      "name": "ARM Group limited (Deltek)",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "conga",
+      "name": "Conga",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "credica",
+      "name": "Credica Limited",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "cvent",
+      "name": "Cvent",
+      "domain": "cvent.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "imperva",
+      "name": "Imperva",
+      "domain": "imperva.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "ironclad",
+      "name": "Ironclad",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "equinix-france-sas",
+      "name": "Equinix (France) SAS",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "ikoula",
+      "name": "Ikoula",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "linkedin-ireland-unlimited-company",
+      "name": "LinkedIn Ireland Unlimited Company",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
     }
   ],
   "edges": [
@@ -18510,6 +18587,108 @@
       "to": "wiz",
       "source_url": "https://www.kraken.tech/legal/subprocessors",
       "evidence": "Wiz, Inc"
+    },
+    {
+      "from": "altus-group",
+      "to": "adobe-systems",
+      "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
+      "evidence": "Adobe Systems Incorporated"
+    },
+    {
+      "from": "altus-group",
+      "to": "aws",
+      "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
+      "evidence": "Amazon Web Services, Inc"
+    },
+    {
+      "from": "altus-group",
+      "to": "arm-group-deltek",
+      "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
+      "evidence": "ARM Group limited (Deltek)"
+    },
+    {
+      "from": "altus-group",
+      "to": "conga",
+      "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
+      "evidence": "Conga"
+    },
+    {
+      "from": "altus-group",
+      "to": "credica",
+      "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
+      "evidence": "Credica Limited"
+    },
+    {
+      "from": "altus-group",
+      "to": "cvent",
+      "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
+      "evidence": "CVENT"
+    },
+    {
+      "from": "altus-group",
+      "to": "cyera",
+      "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
+      "evidence": "Cyera"
+    },
+    {
+      "from": "altus-group",
+      "to": "datadog",
+      "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
+      "evidence": "Datadog, Inc"
+    },
+    {
+      "from": "altus-group",
+      "to": "imperva",
+      "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
+      "evidence": "Imperva, Inc"
+    },
+    {
+      "from": "altus-group",
+      "to": "ironclad",
+      "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
+      "evidence": "Ironclad"
+    },
+    {
+      "from": "altus-group",
+      "to": "equinix-france-sas",
+      "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
+      "evidence": "Equinix (France) SAS"
+    },
+    {
+      "from": "altus-group",
+      "to": "ikoula",
+      "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
+      "evidence": "Ikoula"
+    },
+    {
+      "from": "altus-group",
+      "to": "linkedin-ireland-unlimited-company",
+      "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
+      "evidence": "LinkedIn Ireland Unlimited Company"
+    },
+    {
+      "from": "altus-group",
+      "to": "okta",
+      "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
+      "evidence": "Okta, Inc"
+    },
+    {
+      "from": "altus-group",
+      "to": "ringcentral",
+      "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
+      "evidence": "RingCentral, Inc"
+    },
+    {
+      "from": "altus-group",
+      "to": "salesforce",
+      "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
+      "evidence": "Salesforce.com Canada Corporation"
+    },
+    {
+      "from": "altus-group",
+      "to": "zendesk",
+      "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
+      "evidence": "Zendesk, Inc"
     }
   ],
   "notes": "Only public lists. Incomplete by nature. Login-walled app URLs omitted."
