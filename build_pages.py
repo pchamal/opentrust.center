@@ -296,7 +296,7 @@ FAVICON = "../favicon.svg"
 
 VENDOR_HOST_RE = re.compile(
     r"(^|\.)(safebase\.us|safebase\.com|vanta\.com|conveyor\.com|wolfia\.\w+|"
-    r"securitypal\.com|drata\.com|secureframe\.com|whistic\.com|"
+    r"securitypal\.com|drata\.com|secureframe\.com|secureframetrust\.com|whistic\.com|"
     r"sprinto\.com|trustcloud\.com)$",
     re.I,
 )
