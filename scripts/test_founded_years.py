@@ -190,11 +190,40 @@ def test_apply_rejects_wiki_and_keeps_existing() -> None:
     check(row["founded_year"] == held["founded_year"], "first official year stays")
 
 
+def test_report_years_landed() -> None:
+    """Filed years from this increment must be on the public row and dossier."""
+    import json
+    public = json.loads((ROOT / "site" / "data.json").read_text())
+    enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
+    report = json.loads((ROOT / "data" / "render" / "company-years.json").read_text())
+    by_pub = {c["slug"]: c for c in public["companies"]}
+    by_enr = {c["slug"]: c for c in enr["companies"]}
+    filed = report.get("years_filed") or []
+    check(len(filed) == 8, f"this increment filed 8, got {len(filed)}")
+    check(len(report.get("stayed_open") or []) == 32, "32 stayed open")
+    check("faculty" not in (report.get("batch") or []), "Faculty is not re-walked")
+    for rec in filed:
+        slug, year, url = rec["slug"], rec["year"], rec["url"]
+        pub, row = by_pub[slug], by_enr[slug]
+        check(pub.get("founded_year") == year, f"{slug} public year")
+        check(row.get("founded_year") == year, f"{slug} enriched year")
+        check(pub.get("founded_source") == url, f"{slug} public source")
+        check((pub.get("file") or {}).get("years") in (True, 20), f"{slug} file.years")
+        html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
+        check(f"founded · {year}" in html, f"{slug} dossier year line")
+        check(url.rstrip("/") in html or url in html, f"{slug} dossier source")
+        check('file-rule on" aria-hidden="true"></span></span></p>' in html, f"{slug} years glyph on")
+    faculty = by_pub["faculty"]
+    check(faculty.get("founded_year") == 2014, "Faculty year 2014 stays")
+    check(faculty.get("founded_source") == "https://faculty.ai/en-gb", "Faculty source stays")
+
+
 def main() -> int:
     test_prefix_is_not_a_match()
     test_official_site_only()
     test_parse_founded_sentence()
     test_apply_rejects_wiki_and_keeps_existing()
+    test_report_years_landed()
     print("ok")
     return 0
 
