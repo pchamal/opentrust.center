@@ -1,111 +1,307 @@
 {
-  "generated_at": "2026-08-24T22:57:46Z",
-  "rule": "Six slugs that gained a public trust URL in the 24 Aug expand batches. Marks fill only when live first-party HTML names the company's own hold. Regulation mentions (GDPR as rights) stay open. Soft-404s, JS shells, and portal hosts stay open. Substantial files already on file (Kraken Technologies, Altus Group) were skipped.",
+  "generated_at": "2026-08-25T02:53:44Z",
+  "rule": "Next ~40 on-file companies whose marks File-glyph rule was open or thin and who already had a first-party trust / privacy / security URL. Marks fill only when that live page names the company's own hold. Regulation mentions (GDPR/CCPA as rights) and DPF as a transfer mechanism among SCCs stay open. Login walls, soft-404s, homepage bounces, PDFs, JS shells, and portal hosts stay open. Substantial files were skipped.",
   "batch": [
-    "aveva",
-    "bromcom",
-    "faculty",
-    "kraken-technologies",
-    "activestate",
-    "altus-group"
+    "mckesson-corporation",
+    "pfizer",
+    "sendio",
+    "vast-data",
+    "fico",
+    "teradata",
+    "nationwide-mutual-insurance-company",
+    "leidos",
+    "bmc-software",
+    "zoominfo",
+    "blackline",
+    "coveo",
+    "teamviewer",
+    "cerebras",
+    "admicom",
+    "dexcom",
+    "gigamon",
+    "malwarebytes",
+    "watchguard"
   ],
-  "marks_filed": [],
+  "marks_filed": [
+    {
+      "slug": "fico",
+      "name": "FICO",
+      "url": "https://www.fico.com/en/privacy-policy",
+      "added": [
+        "EU-US DPF"
+      ],
+      "certs": [
+        "EU-US DPF"
+      ]
+    },
+    {
+      "slug": "watchguard",
+      "name": "WatchGuard",
+      "url": "https://www.watchguard.com/wgrd-trust-center/privacy-policy",
+      "added": [
+        "EU-US DPF"
+      ],
+      "certs": [
+        "EU-US DPF"
+      ]
+    },
+    {
+      "slug": "zoominfo",
+      "name": "ZoomInfo",
+      "url": "https://www.zoominfo.com/legal/privacy-policy",
+      "added": [
+        "ISO 27001",
+        "ISO 27701",
+        "EU-US DPF"
+      ],
+      "certs": [
+        "ISO 27001",
+        "ISO 27701",
+        "EU-US DPF"
+      ]
+    }
+  ],
   "stayed_open": [
     {
-      "slug": "aveva",
-      "name": "Aveva",
+      "slug": "mckesson-corporation",
+      "name": "McKesson Corporation",
       "rule": "marks",
       "thin": false
     },
     {
-      "slug": "bromcom",
-      "name": "Bromcom",
+      "slug": "pfizer",
+      "name": "Pfizer",
       "rule": "marks",
       "thin": false
     },
     {
-      "slug": "faculty",
-      "name": "Faculty",
+      "slug": "sendio",
+      "name": "Sendio",
       "rule": "marks",
       "thin": false
     },
     {
-      "slug": "activestate",
-      "name": "ActiveState",
+      "slug": "vast-data",
+      "name": "VAST Data",
       "rule": "marks",
       "thin": false
+    },
+    {
+      "slug": "teradata",
+      "name": "Teradata",
+      "rule": "marks",
+      "thin": true
+    },
+    {
+      "slug": "nationwide-mutual-insurance-company",
+      "name": "Nationwide Mutual Insurance Company",
+      "rule": "marks",
+      "thin": true
+    },
+    {
+      "slug": "leidos",
+      "name": "Leidos",
+      "rule": "marks",
+      "thin": true
+    },
+    {
+      "slug": "bmc-software",
+      "name": "BMC Software",
+      "rule": "marks",
+      "thin": true
+    },
+    {
+      "slug": "blackline",
+      "name": "BlackLine",
+      "rule": "marks",
+      "thin": true
+    },
+    {
+      "slug": "coveo",
+      "name": "Coveo",
+      "rule": "marks",
+      "thin": true
+    },
+    {
+      "slug": "teamviewer",
+      "name": "TeamViewer",
+      "rule": "marks",
+      "thin": true
+    },
+    {
+      "slug": "cerebras",
+      "name": "Cerebras",
+      "rule": "marks",
+      "thin": true
+    },
+    {
+      "slug": "admicom",
+      "name": "Admicom",
+      "rule": "marks",
+      "thin": true
+    },
+    {
+      "slug": "gigamon",
+      "name": "Gigamon",
+      "rule": "marks",
+      "thin": true
+    },
+    {
+      "slug": "malwarebytes",
+      "name": "Malwarebytes",
+      "rule": "marks",
+      "thin": true
+    },
+    {
+      "slug": "dexcom",
+      "name": "Dexcom",
+      "rule": "marks",
+      "thin": true
     }
   ],
   "rejected": [
     {
-      "slug": "aveva",
-      "url": "https://www.aveva.com/en/legal/trust/",
-      "final": "https://www.aveva.com/en/legal/trust/",
-      "reason": "soft-404",
-      "kind": "final_url"
+      "slug": "pfizer",
+      "url": "https://www.pfizer.com/privacy",
+      "final": "https://www.pfizer.com/privacy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
     },
     {
-      "slug": "aveva",
-      "url": "https://trust.aveva.com",
-      "final": "https://www.aveva.com/en/legal/trust/",
-      "reason": "soft-404",
-      "kind": "trust"
-    },
-    {
-      "slug": "faculty",
-      "url": "https://faculty.ai/en-gb/privacy-policy",
-      "final": "https://faculty.ai/en-gb/privacy-policy",
+      "slug": "bmc-software",
+      "url": "https://www.bmc.com/legal/privacy-policy.html?vu=privacy",
+      "final": "https://www.bmc.com/legal/privacy-policy.html?vu=privacy",
       "reason": "regulation-only",
       "kind": "privacy"
     },
     {
-      "slug": "faculty",
-      "url": "https://trust.faculty.ai/subprocessors",
-      "final": "https://trust.faculty.ai/subprocessors",
-      "reason": "no-named-marks",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "faculty",
-      "url": "https://trust.faculty.ai",
-      "final": "https://trust.faculty.ai",
-      "reason": "no-named-marks",
-      "kind": "trust"
-    },
-    {
-      "slug": "activestate",
-      "url": "https://trust.activestate.com",
-      "final": "https://trust.activestate.com",
-      "reason": "no-named-marks",
-      "kind": "trust"
-    },
-    {
-      "slug": "activestate",
-      "url": "https://trust.activestate.com/subprocessors",
-      "final": "https://trust.activestate.com/subprocessors",
-      "reason": "no-named-marks",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "bromcom",
-      "url": "https://trust.bromcom.com",
-      "final": "https://trust.bromcom.com",
-      "reason": "no-named-marks",
-      "kind": "trust"
-    },
-    {
-      "slug": "bromcom",
-      "url": "https://trust.bromcom.com/subprocessors",
-      "final": "https://trust.bromcom.com/subprocessors",
-      "reason": "no-named-marks",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "bromcom",
-      "url": "https://bromcom.com/privacy",
-      "final": "https://bromcom.com/privacy",
+      "slug": "vast-data",
+      "url": "https://www.vastdata.com/legal/privacy-policy",
+      "final": "https://www.vastdata.com/legal/privacy-policy",
       "reason": "no-named-marks",
       "kind": "privacy"
+    },
+    {
+      "slug": "leidos",
+      "url": "https://www.leidos.com/privacy",
+      "final": "https://www.leidos.com/privacy",
+      "reason": "regulation-only",
+      "kind": "privacy"
+    },
+    {
+      "slug": "teradata",
+      "url": "https://www.teradata.com/privacy",
+      "final": "https://www.teradata.com/privacy",
+      "reason": "regulation-only",
+      "kind": "privacy"
+    },
+    {
+      "slug": "pfizer",
+      "url": "https://pfizer.com/compliance",
+      "final": "https://www.pfizer.com/about/responsibility/compliance",
+      "reason": "no-named-marks",
+      "kind": "trust_url"
+    },
+    {
+      "slug": "nationwide-mutual-insurance-company",
+      "url": "https://www.nationwide.com/privacy-policy",
+      "final": "https://www.nationwide.com/privacy-policy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "vast-data",
+      "url": "https://vastdata.com/compliance",
+      "final": "https://www.vastdata.com/usecase/compliance",
+      "reason": "no-named-marks",
+      "kind": "trust_url"
+    },
+    {
+      "slug": "coveo",
+      "url": "https://www.coveo.com:443/en/company/legal/privacy-and-security/privacy-notice",
+      "final": "https://www.coveo.com:443/en/company/legal/privacy-and-security/privacy-notice",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "coveo",
+      "url": "https://www.coveo.com/en/company/legal/privacy-and-security/privacy-notice",
+      "final": "https://www.coveo.com/en/company/legal/privacy-and-security/privacy-notice",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "malwarebytes",
+      "url": "https://www.malwarebytes.com/legal/privacy-policy",
+      "final": "https://www.malwarebytes.com/legal/privacy-policy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "mckesson-corporation",
+      "url": "https://mckesson.com/commitments/compliance-and-ethics",
+      "final": "https://www.mckesson.com/commitments/compliance-and-ethics/",
+      "reason": "no-named-marks",
+      "kind": "trust_url"
+    },
+    {
+      "slug": "teamviewer",
+      "url": "https://www.teamviewer.com/en/resources/trust-center/world-class-privacy/",
+      "final": "https://www.teamviewer.com/en/resources/trust-center/world-class-privacy/",
+      "reason": "regulation-only",
+      "kind": "privacy"
+    },
+    {
+      "slug": "cerebras",
+      "url": "https://www.cerebras.ai/privacy-policy",
+      "final": "https://www.cerebras.ai/privacy-policy",
+      "reason": "regulation-only",
+      "kind": "privacy"
+    },
+    {
+      "slug": "sendio",
+      "url": "https://sendio.com/company/trust",
+      "final": "https://sendio.com/trusted-sender/",
+      "reason": "no-named-marks",
+      "kind": "trust_url"
+    },
+    {
+      "slug": "gigamon",
+      "url": "https://www.gigamon.com/privacy-policy.html",
+      "final": "https://www.gigamon.com/privacy-policy.html",
+      "reason": "regulation-only",
+      "kind": "privacy"
+    },
+    {
+      "slug": "mckesson-corporation",
+      "url": "https://www.mckesson.com/utility/privacy-notice/",
+      "final": "https://www.mckesson.com/utility/privacy-notice/",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "admicom",
+      "url": "https://www.admicom.com/privacy-notice",
+      "final": "https://www.admicom.com/privacy-notice",
+      "reason": "regulation-only",
+      "kind": "privacy"
+    },
+    {
+      "slug": "blackline",
+      "url": "https://www.blackline.com/legal/privacy-policy/",
+      "final": "https://www.blackline.com/legal/privacy-policy/",
+      "reason": "http-0",
+      "kind": "privacy"
+    },
+    {
+      "slug": "dexcom",
+      "url": "https://www.dexcom.com/legal/privacy-policy",
+      "final": "https://www.dexcom.com/legal/privacy-policy",
+      "reason": "hipaa-notice-not-hold",
+      "kind": "privacy",
+      "seen": [
+        "HIPAA"
+      ]
     }
   ]
 }

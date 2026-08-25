@@ -301,6 +301,17 @@ PRIOR_ATTEMPTED = {
     "sisense",
     "snappy-gifts",
     "rollout-io",
+    # PR 98 — 24 Aug expand six; trust/privacy already fetch-checked
+    "aveva",
+    "bromcom",
+    "faculty",
+    "kraken-technologies",
+    "activestate",
+    "altus-group",
+    # PR 104 — 24 Aug 19:48 expand three; JS shells, closed without merge
+    "intrahealth-systems-limited",
+    "prontoforms",
+    "versapay",
     # this cut — 40 open/thin files fetch-checked
     "guesty",
     "indeni",
@@ -342,6 +353,26 @@ PRIOR_ATTEMPTED = {
     "forter",
     "guidewire",
     "veritone",
+    # this cut — 19 remaining open/thin files fetch-checked
+    "mckesson-corporation",
+    "pfizer",
+    "sendio",
+    "vast-data",
+    "fico",
+    "teradata",
+    "nationwide-mutual-insurance-company",
+    "leidos",
+    "bmc-software",
+    "zoominfo",
+    "blackline",
+    "coveo",
+    "teamviewer",
+    "cerebras",
+    "admicom",
+    "dexcom",
+    "gigamon",
+    "malwarebytes",
+    "watchguard",
 }
 
 # Regulation-only lists stay thin. Real certs (SOC / ISO / FedRAMP / …) fill out.
@@ -379,7 +410,12 @@ HIPAA_NOT_HOLD_RE = re.compile(
     r"protected\s+under\s+hipaa|applicable\s+law,?\s+including\s+hipaa|"
     r"including\s+(?:the\s+)?(?:health insurance portability|hipaa)|"
     r"covered\s+by\s+(?:the\s+)?(?:health insurance portability|hipaa)|"
-    r"hipaa\s+notice",
+    r"hipaa\s+notice|"
+    r"governed\s+by\s+hipaa|"
+    r"hipaa-covered|"
+    r"required\s+under\s+(?:the\s+)?(?:health insurance portability|hipaa)|"
+    r"de-identif|"
+    r"45\s+cfr",
     re.I,
 )
 
