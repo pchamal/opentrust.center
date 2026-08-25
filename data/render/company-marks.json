@@ -1,119 +1,41 @@
 {
-  "generated_at": "2026-08-25T17:15:00Z",
-  "rule": "One increment: Software AG and Signavio from the 25 Aug morning expand. Marks, DPA, named processors, and other instruments fill only from live first-party HTML (and first-party pages those pages link to). The company's own hold only. Regulation-as-rights, JS shells, login walls, PDFs-as-the-only-name-list, and portal hosts stay open. Portal vendor names are not written on public surfaces.",
-  "batch": [
-    "software-ag",
-    "signavio"
-  ],
-  "marks_filed": [
-    {
-      "slug": "signavio",
-      "name": "Signavio",
-      "url": "https://www.signavio.com/security/",
-      "added": [
-        "ISO 27001",
-        "ISO 27017",
-        "SOC 1 Type II",
-        "SOC 2 Type II",
-        "C5",
-        "CSA STAR",
-        "ISO 27018",
-        "ISO 9001",
-        "ISO 22301"
-      ],
-      "certs": [
-        "ISO 27001",
-        "ISO 27017",
-        "SOC 1 Type II",
-        "SOC 2 Type II",
-        "C5",
-        "CSA STAR",
-        "ISO 27018",
-        "ISO 9001",
-        "ISO 22301"
-      ]
-    },
-    {
-      "slug": "software-ag",
-      "name": "Software AG",
-      "url": "https://www.softwareag.com/en/company/trust-portal/information-security/",
-      "added": [
-        "Cyber Essentials",
-        "ENS",
-        "ISO 22301",
-        "ISO 9001"
-      ],
-      "certs": [
-        "Cyber Essentials",
-        "ENS",
-        "ISO 22301",
-        "ISO 9001"
-      ]
-    }
-  ],
+  "generated_at": "2026-08-25T17:51:16Z",
+  "rule": "Next ~40 on-file companies whose marks File-glyph rule was open or thin and who already had a first-party trust / privacy / security URL. Marks fill only when that live page names the company's own hold. Regulation mentions (GDPR/CCPA as rights) and DPF as a transfer mechanism among SCCs stay open. Login walls, soft-404s, homepage bounces, PDFs, JS shells, and portal hosts stay open. Substantial files were skipped. This increment: after the PR 105 remaining-19 walk and the PR 108 Software AG / Signavio fill, the unread found-and-first-party queue is empty. PR 104 JS shells (Intrahealth, ProntoForms, Versapay) were not retried. Signavio ISO 42001 / TISAX definition cards stay open.",
+  "batch": [],
+  "marks_filed": [],
   "stayed_open": [],
-  "rejected": [
-    {
-      "slug": "software-ag",
-      "url": "https://trust.softwareag.com",
-      "reason": "js-shell",
-      "kind": "trust"
-    },
-    {
-      "slug": "software-ag",
-      "url": "https://trust.softwareag.com/subprocessors",
-      "reason": "js-shell",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "software-ag",
-      "url": "https://www.softwareag.com/en/privacy/",
-      "reason": "regulation-only",
-      "kind": "privacy"
-    },
-    {
-      "slug": "software-ag",
-      "url": "https://www.softwareag.com/en/company/trust-portal/data-privacy/",
-      "reason": "dpa-named-no-public-url",
-      "kind": "dpa"
-    },
-    {
-      "slug": "software-ag",
-      "url": "https://www.softwareag.com/app/uploads/2026/08/AN_Subprocessors-List_2026-08_en.pdf",
-      "reason": "names-in-pdf-not-printed-html",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "signavio",
-      "url": "https://www.signavio.com/security/",
-      "reason": "definition-only",
-      "kind": "marks",
-      "seen": [
-        "ISO 42001",
-        "TISAX",
-        "IRAP"
-      ]
-    },
-    {
-      "slug": "signavio",
-      "url": "https://www.signavio.com/security/",
-      "reason": "regulation-only",
-      "kind": "marks",
-      "seen": [
-        "GDPR"
-      ]
-    },
-    {
-      "slug": "signavio",
-      "url": "https://www.signavio.com/dpa/",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "signavio",
-      "url": "https://www.signavio.com/subprocessors/",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    }
-  ]
+  "rejected": [],
+  "queue": {
+    "eligible_unread": 0,
+    "filed": 0,
+    "reason": "No found company remains whose marks rule is open or thin and who still has an unread first-party trust, privacy, or security URL. Register-walked trust/security pages stay unread. Portal hosts stay unread. PR 105 and PR 108 slugs are on the skip list.",
+    "skip_this_morning": [
+      "mckesson-corporation",
+      "pfizer",
+      "sendio",
+      "vast-data",
+      "fico",
+      "teradata",
+      "nationwide-mutual-insurance-company",
+      "leidos",
+      "bmc-software",
+      "zoominfo",
+      "blackline",
+      "coveo",
+      "teamviewer",
+      "cerebras",
+      "admicom",
+      "dexcom",
+      "gigamon",
+      "malwarebytes",
+      "watchguard",
+      "software-ag",
+      "signavio"
+    ],
+    "do_not_retry": [
+      "intrahealth-systems-limited",
+      "prontoforms",
+      "versapay"
+    ]
+  }
 }

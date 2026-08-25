@@ -353,7 +353,7 @@ PRIOR_ATTEMPTED = {
     "forter",
     "guidewire",
     "veritone",
-    # this cut — 19 remaining open/thin files fetch-checked
+    # PR 105 — 19 remaining open/thin files fetch-checked
     "mckesson-corporation",
     "pfizer",
     "sendio",
@@ -373,6 +373,11 @@ PRIOR_ATTEMPTED = {
     "gigamon",
     "malwarebytes",
     "watchguard",
+    # PR 105 — 25 Aug morning marks walk (19 remaining open/thin)
+    # PR 108 — Software AG / Signavio first-party instruments.
+    # ISO 42001 / TISAX definition cards left open; do not retry.
+    "software-ag",
+    "signavio",
 }
 
 # Regulation-only lists stay thin. Real certs (SOC / ISO / FedRAMP / …) fill out.

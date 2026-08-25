@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from enrich import apply_marks_to_row  # noqa: E402
-from file_company_marks import hold_marks  # noqa: E402
+from file_company_marks import PRIOR_ATTEMPTED, hold_marks  # noqa: E402
 from marks import MARK_PATTERNS  # noqa: E402
 
 PUBLIC = ROOT / "site" / "data.json"
@@ -118,6 +118,33 @@ def main() -> int:
         kept == ["Cyber Essentials", "ENS", "ISO 22301", "ISO 9001"],
         f"Software AG first-party holds stay: {kept} {why}",
     )
+
+    check(not (report.get("marks_filed") or []), "this increment filed no marks")
+    check(not (report.get("batch") or []), "unread found-and-first-party queue is empty")
+    for slug in (
+        "software-ag",
+        "signavio",
+        "mckesson-corporation",
+        "watchguard",
+        "zoominfo",
+        "fico",
+        "intrahealth-systems-limited",
+        "prontoforms",
+        "versapay",
+    ):
+        check(slug in PRIOR_ATTEMPTED, f"{slug} missing from marks skip list")
+    signavio_certs = set(by_pub["signavio"].get("certs") or [])
+    check("ISO 27001" in signavio_certs, "Signavio ISO 27001 stay")
+    check("ISO 42001" not in signavio_certs and "TISAX" not in signavio_certs, "Signavio definition cards stay open")
+    sag = set(by_pub["software-ag"].get("certs") or [])
+    check({"Cyber Essentials", "ENS", "ISO 22301", "ISO 9001"} <= sag, "Software AG first-party holds stay")
+    check("EU-US DPF" in (by_pub["fico"].get("certs") or []), "FICO DPF stay")
+    check("EU-US DPF" in (by_pub["watchguard"].get("certs") or []), "WatchGuard DPF stay")
+    check("ISO 27001" in (by_pub["zoominfo"].get("certs") or []), "ZoomInfo ISO 27001 stay")
+    airship = by_pub["airship"]
+    check(not airship.get("founded_year"), "Airship year stays open")
+    faculty = by_pub["faculty"]
+    check(faculty.get("founded_year") == 2014, "Faculty year 2014 stays")
 
     for rec in report.get("marks_filed") or []:
         slug, url, added = rec["slug"], rec["url"], rec["added"]
