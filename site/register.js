@@ -10,6 +10,26 @@ import {
   nameWithIcon,
   printedUrl,
 } from "./lib.js";
+import { toggle, has, count, CAP } from "./watch.js";
+
+/* Persistent strip: the register remembers an unconfirmed notice list. */
+function paintWatchStrip() {
+  const n = count();
+  let strip = document.getElementById("watch-strip");
+  if (!n) { if (strip) strip.hidden = true; return; }
+  if (!strip) {
+    strip = document.createElement("p");
+    strip.id = "watch-strip";
+    strip.className = "issue watch-strip";
+    const main = document.getElementById("main");
+    if (main && main.parentNode) main.parentNode.insertBefore(strip, main);
+  }
+  const state = JSON.parse(localStorage.getItem("ot-notice-list") || "{}");
+  const word = state.email ? (state.confirmed ? "active" : "unconfirmed") : "unconfirmed";
+  strip.innerHTML =
+    `<a href="./watch.html">notice list</a> · ${n} of ${CAP} files · ${word}` +
+    (word === "unconfirmed" ? ` · <a href="./watch.html">confirm to start the presses</a>` : "");
+}
 import {
   parseFinder,
   stripFinderToken,
@@ -287,7 +307,7 @@ export function registerRowHtml(row, selectedSlug) {
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${nameWithIcon(row.name, row.favicon)}</a></td>
         <td class="domain">${printedUrl(row.domain || "", row.domain || "")}</td>
         <td class="file"><span class="file-num">${escapeHtml(n)}</span>${fileIndexHtml(row)}</td>
-        <td class="marks">${marksCell(row)}</td>
+        <td class="marks">${marksCell(row)}<span class="row-track-wrap"> · <a href="#" class="row-track" data-slug="${escapeHtml(row.slug)}" data-domain="${escapeHtml((row.domain || "").toLowerCase())}" data-name="${escapeHtml(row.name)}">track</a></span></td>
       </tr>`;
 }
 
@@ -521,6 +541,25 @@ function bind() {
     });
   }
   $("reg-body").addEventListener("click", (e) => {
+    const trackBtn = e.target.closest(".row-track");
+    if (trackBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      const slug = trackBtn.getAttribute("data-slug");
+      const domain = trackBtn.getAttribute("data-domain") || "";
+      const name = trackBtn.getAttribute("data-name") || "";
+      const verdict = toggle({ slug, domain, name });
+      paintWatchStrip();
+      if (verdict === "full") {
+        trackBtn.textContent = "10 of 10";
+        return;
+      }
+      document.querySelectorAll(`.row-track[data-slug="${CSS.escape(slug)}"]`).forEach((el) => {
+        el.textContent = has(slug) ? "tracking" : "track";
+        el.classList.toggle("on", has(slug));
+      });
+      return;
+    }
     if (e.target.closest("a") || e.target.closest("details")) return;
     const tr = e.target.closest("tr");
     if (!tr) return;
@@ -584,8 +623,10 @@ async function load() {
     state.rows = [];
   }
   render();
+  paintWatchStrip();
 }
 
 if (typeof window !== "undefined") {
   load();
+  document.addEventListener("ot-notice-changed", paintWatchStrip);
 }
