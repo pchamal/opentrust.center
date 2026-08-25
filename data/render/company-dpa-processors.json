@@ -1,124 +1,85 @@
 {
-  "generated_at": "2026-08-25T19:55:35Z",
-  "rule": "One increment: Trustly, Frosmo, and Meltwater from the 25 Aug 19:55 expand. DPA fills only from a real first-party DPA. Named subprocessors fill only from a printed first-party list of organization names. Dates, JS shells, login walls, and portal hosts stay open.",
+  "generated_at": "2026-08-25T20:58:33Z",
+  "rule": "One increment: SuperOffice, Genedata, Sonar, and Trustpilot from the 25 Aug 20:58 / 13:50 PT expand. DPA fills only from a real first-party DPA. Named subprocessors fill only from a printed first-party list of organization names. Dates, JS shells, login walls, and portal hosts stay open.",
   "batch": [
-    "trustly",
-    "frosmo",
-    "meltwater"
+    "superoffice",
+    "genedata",
+    "sonar",
+    "trustpilot"
   ],
   "dpa_filed": [
     {
-      "slug": "meltwater",
-      "name": "Meltwater",
-      "url": "https://www.meltwater.com/en/privacy/dpa"
+      "slug": "trustpilot",
+      "name": "Trustpilot",
+      "url": "https://corporate.trustpilot.com/legal/for-businesses/data-processing-agreement/nov-2025",
+      "quote": "This Data Processing Agreement (“ DPA ”) supplements and forms part of the Terms of Use and Sale for Businesses or other written or electronic agreement (the “ Agreement ”) between you and Trustpilot."
     }
   ],
   "subprocessors_filed": [
     {
-      "slug": "meltwater",
-      "name": "Meltwater",
-      "url": "https://www.meltwater.com/en/privacy/subprocessors",
+      "slug": "sonar",
+      "name": "Sonar",
+      "url": "https://www.sonarsource.com/legal/sub-processors/",
       "names": [
-        "Atlassian",
-        "Carahsoft Technology Corp",
-        "Drift.com, Inc",
-        "EdInvent Inc. (Accredible)",
-        "Google LLC",
-        "Intercom R&D Unlimited Company",
-        "Microsoft Corp",
-        "Oracle America Inc",
-        "Satismeter s.r.o",
-        "Totango",
-        "Auth0, Inc",
-        "Amazon Web Services, Inc., Amazon Web Services EMEA SARL",
-        "Basefarm AS",
-        "Launchboard Software Inc",
-        "Microsoft Azure",
-        "MongoDB Inc",
-        "OpenAI OpCo, LLC",
-        "RFPIO",
-        "Segment i.o, Inc",
-        "Twilio Inc",
-        "Worketics IT Solutions",
-        "84codes AB (CloudAMQP)",
-        "Bugsnag",
-        "Dropbox International Unlimited Company",
-        "Fullstory",
-        "Microsoft Clarity",
-        "The Rocket Science Group LLC d/b/a Mailchimp",
-        "Pipedrive",
-        "Zapier",
-        "Alibaba Cloud",
-        "OVH",
-        "Pendo",
-        "HubSpot",
-        "Typeform",
-        "Mediactive",
-        "Scaleway",
-        "HappyFox",
-        "Salesforce",
-        "Stripe",
-        "Amplitude",
-        "Tray.aiio",
-        "A.G. Consulting Limited",
-        "Cognitive Intelligence Corp",
-        "Commetric Ltd",
-        "Fineyear Human Resources Service Ltd",
-        "KLEA Media Intelligence",
-        "Mpower",
-        "Media Connect",
-        "Media Intelligence Brand Distillery",
-        "Mercatus Ltd",
-        "Multyware Associates",
-        "Novemilla",
-        "Ninestars Bulgaria EOOD",
-        "Quintype Technologies Inc d/b/a ListenFirst Media",
-        "Rythmos DB Inc",
-        "Tagfact Services Pvt Ltd",
-        "Tsengararu",
-        "Zealep Business Solutions"
-      ]
+        "Amazon Web Services EMEA SARL",
+        "Okta, Inc",
+        "Atlassian Pty Ltd",
+        "Clerk",
+        "Slack Technologies Limited",
+        "Google Ireland Limited",
+        "Kaseya Limited",
+        "Zendesk, Inc",
+        "Zoom Video Communications, Inc"
+      ],
+      "quote": "SonarSource engages the following subprocessors and affiliates to assist in providing the SonarQube Products, Services, Support, and customer management."
+    },
+    {
+      "slug": "trustpilot",
+      "name": "Trustpilot",
+      "url": "https://corporate.trustpilot.com/legal/for-businesses/subprocessors/may-2026",
+      "names": [
+        "Sendgrid (Twilio, Inc.)",
+        "Google Cloud EMEA Limited",
+        "Amazon Web Services",
+        "Sutherland Global Services, Inc",
+        "ClickHouse Inc"
+      ],
+      "quote": "Sendgrid (Twilio, Inc.) Location: USA Google Cloud EMEA Limited Location: Dublin, Ireland Amazon Web Services Location: Dublin, Ireland"
     }
   ],
   "stayed_open": [
     {
-      "slug": "trustly",
-      "name": "Trustly",
+      "slug": "superoffice",
+      "name": "SuperOffice",
       "rule": "dpa"
     },
     {
-      "slug": "trustly",
-      "name": "Trustly",
+      "slug": "superoffice",
+      "name": "SuperOffice",
       "rule": "subprocessors"
     },
     {
-      "slug": "frosmo",
-      "name": "Frosmo",
+      "slug": "genedata",
+      "name": "Genedata",
+      "rule": "dpa"
+    },
+    {
+      "slug": "genedata",
+      "name": "Genedata",
       "rule": "subprocessors"
     }
   ],
   "rejected": [
     {
-      "slug": "trustly",
-      "url": "https://www.trustly.com/security",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
+      "slug": "superoffice",
+      "url": "https://trust.superoffice.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors",
+      "quote": "Directory of approved sub-processors is part of our Data Processing Agreement available in the Trust Center — Trust Center is a JS shell."
     },
     {
-      "slug": "trustly",
-      "url": "https://www.trustly.com/legal-hub",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "frosmo",
-      "url": "https://frosmo.com/data-processing-annex/",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "meltwater",
-      "url": "https://trust.meltwater.com/subprocessors",
+      "slug": "genedata",
+      "url": "https://trustcenter.genedata.com/subprocessors",
       "reason": "js-portal",
       "kind": "subprocessors"
     }
