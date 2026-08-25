@@ -33,15 +33,19 @@ expect("Register table sits in a swipe wrapper", /<div class="wires-scroll">\s*<
 expect("graph table already sits in wires-scroll", html.includes('class="wires-scroll"') && html.includes('id="wire-table"'));
 expect("dossier instruments sit in a swipe wrapper", /<div class="wires-scroll">[\s\S]*<table class="inst" data-table="instruments"/.test(dossier));
 expect("phone keeps register thead", !/\.reg thead \{ display: none/.test(css));
+expect("639 keeps .reg a table", /@media \(max-width: 639px\) \{[\s\S]*\.reg \{ display: table/.test(css) && !/@media \(max-width: 639px\) \{[\s\S]*\.reg, \.reg tbody \{ display: block/.test(css));
+expect("639 keeps dossier inst a table", /@media \(max-width: 639px\) \{[\s\S]*\.dossier \.file \.inst \{ display: table/.test(css) && !/\.dossier \.file \.inst thead \{ display: none/.test(css));
+expect("row hover uses Index Wash", /\.reg tbody tr\.folio:hover,[\s\S]*background: var\(--ot-index-wash\)/.test(css));
+expect("row stripe is a light Record White mix", /tr:nth-child\(even\) \{[\s\S]*color-mix\(in srgb, var\(--ot-ledger-black\) 3%, var\(--ot-record-white\)\)/.test(css));
 expect("graph source opens out", js.includes('target="_blank" rel="noopener noreferrer"') && js.includes("src0"));
 expect("clerk neighborhood line sits under the tabs", html.includes('id="hood-line"') && html.indexOf("view-toggle") < html.indexOf("hood-line") && js.includes("neighborhood · "));
 expect("Fig. 1 names the neighborhood", js.includes("Fig. 1 · Neighborhood of ${p.name}") && html.includes('id="fig-cap"'));
 const phone = css.slice(css.lastIndexOf("@media (max-width: 390px)"));
 expect("390 stays the list", /data-view="map"[\s\S]*\.fig-block[\s\S]*display: none/.test(phone) && js.includes("compactPhone") && js.includes("return false"));
 expect("390 hides the neighborhood canvas", /#fig1 \{ display: none/.test(phone) && /\.map-field[\s\S]*display: none/.test(phone) && /if \(compactPhone\(\)\) return false/.test(js));
-expect("390 keeps the wire list a table", !/\.wires-table \.inst thead \{ display: none/.test(phone) && !/\.wires-table \.inst td \{[\s\S]*display: block/.test(phone));
+expect("390 keeps the wire list a table", !/\.wires-table \.inst thead \{ display: none/.test(phone) && !/\.wires-table \.inst td \{[^}]*display:\s*block/.test(phone) && /\.wires-table \.inst \{ display: table/.test(phone));
 const swipe = ((phone.match(/\.wires-scroll \{([^}]+)\}/) || [])[1] || "");
-expect("390 swipes the inner table", /overflow-x:\s*auto/.test(swipe) && /-webkit-overflow-scrolling:\s*touch/.test(swipe) && !/overflow-x:\s*hidden/.test(swipe) && !/body \{ overflow-x: hidden/.test(phone));
+expect("390 swipes the inner table", /overflow-x:\s*auto/.test(swipe) && /-webkit-overflow-scrolling:\s*touch/.test(swipe) && !/overflow-x:\s*hidden/.test(swipe) && !/^\s*body \{ overflow-x: hidden/m.test(phone));
 expect("390 list fields stay labeled", js.includes('data-label="Processor"') && js.includes('data-label="Named by"') && js.includes('data-label="Completeness"') && js.includes('data-label="Source"') && !js.includes('data-label="File"') && !js.includes('data-label="Concentration"'));
 expect(
   "graph Completeness numeral is Source Serif roman",

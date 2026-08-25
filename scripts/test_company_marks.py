@@ -207,6 +207,8 @@ def main() -> int:
         '<p class="lede">How we count a public file. Not a company grade.</p>' in method,
         "exact Method lede",
     )
+    check('id="copy-rubric">copy rubric</button>' in method, "Method copy rubric word")
+    check("Cite the dossier: /c/{slug}.html" in method, "copied rubric cites the dossier")
     check(
         'href="./brand.html">specimen</a> · <a href="./methodology.html">methodology</a> · <a href="./contact.html">contact</a> · <a href="https://github.com/pchamal/opentrust.center" target="_blank" rel="noopener noreferrer">code</a>'
         in index,

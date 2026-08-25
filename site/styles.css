@@ -505,7 +505,23 @@ body.aiti .reg td.marks a:hover {
   text-decoration-color: var(--ot-rule-strong);
 }
 .reg tbody tr { cursor: pointer; }
+.reg tbody tr.folio:nth-child(even),
+.wires-table .inst tbody tr:nth-child(even) {
+  background: color-mix(in srgb, var(--ot-ledger-black) 3%, var(--ot-record-white));
+}
+.reg tbody tr.folio:hover,
+.reg tbody tr.folio:focus-within,
+.reg tbody tr[aria-selected="true"],
+.reg tbody tr.selected,
+.reg tbody tr.on,
+.wires-table .inst tbody tr:hover,
+.wires-table .inst tbody tr:focus-within,
+.wires-table .inst tbody tr.selected,
+.wires-table .inst tbody tr.on {
+  background: var(--ot-index-wash);
+}
 .reg tbody tr.folio:hover td.name,
+.reg tbody tr.folio:focus-within td.name,
 .reg tbody tr[aria-selected="true"] td.name,
 .reg tbody tr.selected td.name,
 .reg tbody tr.on td.name {
@@ -1353,6 +1369,25 @@ body.register .view-toggle button.on {
   }
   .wordmark { justify-self: start; }
   .docket { justify-content: flex-start; flex-wrap: wrap; gap: 12px 20px; }
+  /* Undo the 639 card stack on Register / AITI (.reg) and dossier instruments. */
+  .reg,
+  .reg thead,
+  .reg tbody,
+  .reg tr,
+  .reg th,
+  .reg td {
+    display: revert;
+  }
+  .reg { display: table; }
+  .dossier .file .inst,
+  .dossier .file .inst thead,
+  .dossier .file .inst tbody,
+  .dossier .file .inst tr,
+  .dossier .file .inst th,
+  .dossier .file .inst td {
+    display: revert;
+  }
+  .dossier .file .inst { display: table; }
   .dossier .file .ident,
   .dossier .file .fig-sub,
   .dossier .file .src-line,
@@ -1397,6 +1432,16 @@ body.register .view-toggle button.on {
     -webkit-overflow-scrolling: touch;
     border-bottom: 0;
   }
+  /* Undo the 390 card stack on Subprocessors / Standards (.wires-table .inst). */
+  .wires-table .inst,
+  .wires-table .inst thead,
+  .wires-table .inst tbody,
+  .wires-table .inst tr,
+  .wires-table .inst th,
+  .wires-table .inst td {
+    display: revert;
+  }
+  .wires-table .inst { display: table; min-width: 640px; }
   .wires-grid[data-view="map"] .wires-fig { order: -1; }
   .wires-grid[data-view="map"] .wires-map,
   .wires-grid[data-view="map"] .fig-block,
@@ -1411,7 +1456,9 @@ body.register .view-toggle button.on {
 }
 
 @media (max-width: 320px) {
+  /* Page chrome may clip; the table scroller must still swipe. */
   .mast, .binding, .colo { overflow-x: hidden; }
+  .wires-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .canvas, .file, .colo { width: calc(100% - 2 * var(--gutter-xs)); }
 }
 

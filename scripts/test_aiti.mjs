@@ -156,6 +156,14 @@ expect("lede is unchanged", (indexHtml.match(/<p class="lede">The public file on
 const methodHtml = readFileSync(new URL("../site/methodology.html", import.meta.url), "utf8");
 expect("H1 is Method", /<h1 class="page-title">Method<\/h1>/.test(methodHtml));
 expect("lede is the count sentence", (methodHtml.match(/<p class="lede">How we count a public file\. Not a company grade\.<\/p>/g) || []).length === 1);
+expect("Method has a copy rubric word", /id="copy-rubric">copy rubric<\/button>/.test(methodHtml) && methodHtml.includes("navigator.clipboard.writeText"));
+expect(
+  "copied rubric is the clerk payload",
+  methodHtml.includes("Completeness rates the file, not the company") &&
+    methodHtml.includes("Cite the dossier: /c/{slug}.html") &&
+    methodHtml.includes("Rate the file, not the company.") &&
+    !/powered by|in one place/i.test(methodHtml),
+);
 expect(
   "The count is the three states",
   /<h2 class="sec-kicker">The count<\/h2>\s*<p class="clerk">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/.test(methodHtml) &&
@@ -697,6 +705,7 @@ expect("AITI File numeral has no teal", !/body\.aiti \.reg td\.file-cell \.file-
 expect("390 stacks the File numeral above the rules", /@media \(max-width: 390px\) \{[\s\S]*body\.aiti \.reg td\.file-cell \.file-num \{[\s\S]*display: block/.test(css));
 expect("AITI table sits in a swipe wrapper", /<div class="wires-scroll">\s*<table class="reg" id="reg"/.test(indexHtml));
 expect("phone keeps the AITI thead", !/\.reg thead \{ display: none/.test(css));
+expect("639 keeps AITI .reg a table", /@media \(max-width: 639px\) \{[\s\S]*\.reg \{ display: table/.test(css));
 const homeDocket = (indexHtml.match(/<nav class="docket"[^>]*>[\s\S]*?<\/nav>/) || [])[0] || "";
 expect("docket stays same-tab", homeDocket.includes("AITI") && !/target="_blank"/.test(homeDocket));
 expect(
