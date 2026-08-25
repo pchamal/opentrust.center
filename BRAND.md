@@ -251,3 +251,37 @@ If you want a new color or typeface, change this file and `docs/OT-BRAND-001.yam
 After a visual pass, name the one fake thing that remains. Add it to the no-list.
 
 Do not overwrite this law with a moodboard.
+
+## Amendment v2 — Black Binding (front page only)
+
+Authorized by Pukar, 24 Aug 2026. The front page gains a **Black Binding**: a Ledger Black band
+between the mast and the paper. The metaphor is literal — a civic registry has a black binding
+above white leaves. Below the band nothing changes: Record White paper, existing rules.
+
+### Scope
+
+- Applies to `index.html` only. Register, dossiers, graph, attestations keep the light law.
+- Band composition, top to bottom: status line → hero (claim + console) → probe ticker → count band.
+- The existing `#issue` snapshot line moves inside the band as its first row. Same id, same clerk text.
+
+### What is legal inside the band
+
+- **Bright Teal (`--ot-bright-teal`) becomes usable** inside the band only. The band is mast
+  territory; the mast already carried Bright Teal. On the paper below, Evidence Teal stays rare.
+- New tokens, no aliases: `--ot-binding-line` (hairlines on black), `--ot-binding-dim` (meta on black).
+- Console and ticker are **instruments, not marketing chrome**. They may not glow, pulse, or animate
+  except the ticker scroll. No blur, no gradients, no cards with shadows on the paper below.
+
+### What stays illegal everywhere
+
+- No Inter / no monospace face. Data in the band prints Atkinson with tabular figures.
+- No trust score, no KPI flexing. Numbers in the count band must be **computed from `data.json`
+  at runtime** — never hardcoded prose claims. A number we cannot compute does not print.
+- CTA verbs stay clerical: **Open the index**, View source, Report a correction. Never Get started.
+- Motion diet: ticker scroll (slow) and hover color only. Reduced-motion kills the scroll.
+
+### Live probe console
+
+The console re-probes four real `final_url`s from the register **from the visitor's browser**
+(`no-cors`, 4s abort) and prints measured latency. Timeout prints `timeout · not on file`.
+It is a demonstration of method, not a status page. It cites no company quality.

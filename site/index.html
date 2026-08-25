@@ -38,7 +38,60 @@
       <a href="./attestations.html">Standards</a>
     </nav>
   </header>
-  <p class="issue" id="issue">issue —</p>
+
+  <section class="binding" aria-label="opentrust.center overview">
+    <div class="binding-status">
+      <p class="issue" id="issue">issue —</p>
+      <span class="binding-live"><i class="binding-dot" aria-hidden="true"></i>fetching</span>
+    </div>
+
+    <div class="wrap">
+      <div class="binding-grid">
+        <div class="binding-claim">
+          <p class="binding-kicker">public evidence register · ai trust index</p>
+          <h1 class="binding-title">The public file on AI&nbsp;systems.</h1>
+          <p class="binding-lede">What AI companies publish about themselves, verified on their
+          own host, printed as a receipt. Not a trust score. Disclosure rates the file — never the company.</p>
+          <div class="binding-actions">
+            <a class="binding-go" href="#main">Open the index<span aria-hidden="true"> ↓</span></a>
+            <button type="button" class="binding-chip" data-find="complete">complete files</button>
+            <button type="button" class="binding-chip" data-find="silent">silent</button>
+            <button type="button" class="binding-chip" data-find="iso 42001">iso 42001</button>
+          </div>
+        </div>
+
+        <aside class="b-console" aria-label="Live probe console">
+          <span class="b-reg b-reg-tl" aria-hidden="true">+</span><span class="b-reg b-reg-tr" aria-hidden="true">+</span>
+          <span class="b-reg b-reg-bl" aria-hidden="true">+</span><span class="b-reg b-reg-br" aria-hidden="true">+</span>
+          <p class="b-console-head"><span>probe console</span><span id="b-sweep-stamp" class="b-dim">sweep</span></p>
+          <div class="b-console-body">
+            <p class="b-row"><span class="b-k">$ sweep · 4 targets</span></p>
+            <p class="b-row"><span class="b-k">→ docs.stripe.com</span><span class="b-dots" aria-hidden="true">·········</span><span class="b-v" id="b-pr-stripe">queued</span></p>
+            <p class="b-row"><span class="b-k">→ trust.openai.com</span><span class="b-dots" aria-hidden="true">·········</span><span class="b-v" id="b-pr-openai">queued</span></p>
+            <p class="b-row"><span class="b-k">→ cloudflare.com</span><span class="b-dots" aria-hidden="true">·········</span><span class="b-v" id="b-pr-cloudflare">queued</span></p>
+            <p class="b-row"><span class="b-k">→ trust.mistral.ai</span><span class="b-dots" aria-hidden="true">·········</span><span class="b-v" id="b-pr-mistral">queued</span></p>
+            <p class="b-rule" aria-hidden="true"></p>
+            <p class="b-row b-verdict"><span class="b-k">verdict</span><span class="b-dots" aria-hidden="true">·········</span><span class="b-v" id="b-verdict">sweeping</span></p>
+          </div>
+          <p class="b-console-foot"><span>cadence daily</span><span>latency measured in your browser</span><span>timeout prints not on file</span></p>
+        </aside>
+      </div>
+    </div>
+
+    <div class="b-ticker" aria-hidden="true">
+      <div class="b-ticker-track" id="b-ticker-track"></div>
+    </div>
+
+    <div class="wrap">
+      <dl class="b-counts" id="b-counts">
+        <div class="b-count"><dt>domains in scope</dt><dd id="b-stat-scope">—</dd></div>
+        <div class="b-count"><dt>files on record</dt><dd id="b-stat-found">—</dd></div>
+        <div class="b-count"><dt>subprocessor edges</dt><dd id="b-stat-edges">—</dd></div>
+        <div class="b-count"><dt>marks explained</dt><dd id="b-stat-marks">—</dd></div>
+      </dl>
+      <p class="b-count-note" id="b-count-note">counts computed from data.json at load. a row that cannot be fetched prints not on file — it is never dropped.</p>
+    </div>
+  </section>
 
   <main class="canvas" id="main">
     <div id="file-view">
@@ -120,5 +173,6 @@
   </footer>
 
   <script type="module" src="./aiti.js"></script>
+  <script type="module" src="./binding.js"></script>
 </body>
 </html>

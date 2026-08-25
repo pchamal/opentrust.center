@@ -161,3 +161,22 @@ a11y:
   tables: th with scope
   touch: 44px
   min_width: 320px no page overflow
+
+# Amendment v2 - Black Binding (front page only). Authorized by Pukar, 24 Aug 2026.
+black_binding:
+  scope: index.html front page only
+  composition: [status_line, hero_claim_plus_console, probe_ticker, count_band]
+  issue_line_moves_into_band: true
+  bright_teal_legal_inside_band: true
+  new_tokens:
+    binding_line: "rgba(248,250,249,.14)"
+    binding_dim: "#7C8F88"
+  instruments_not_marketing: [console, ticker]
+  numbers_must_be_runtime_computed_from_data_json: true
+  cta_verbs: ["Open the index", "View source", "Report a correction"]
+  motion_diet: [ticker_scroll_slow, hover_color_only]
+  live_probe:
+    targets: real final_urls from register
+    mode: no-cors from visitor browser
+    timeout_ms: 4000
+    timeout_prints: "timeout - not on file"
