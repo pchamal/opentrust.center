@@ -1,118 +1,845 @@
 {
-  "generated_at": "2026-08-24T16:53:56Z",
-  "rule": "Six slugs that gained a public trust/security URL in expand b989d05. DPA fills only from a first-party DPA or legal PDF on the company's own host. Named subprocessors fill only from printed organization names. A stored list URL with no printed names stays on file, not extracted. JS shells, itemUid landings, 403s, and another company's host stay open.",
+  "generated_at": "2026-08-24T22:57:46Z",
+  "rule": "Six slugs that gained a public trust URL in the 24 Aug expand batches. DPA fills only from a first-party DPA or legal PDF on the company's own host. Named subprocessors fill only from printed organization names. A stored list URL with no printed names stays on file, not extracted. JS shells, soft-404s, and portal hosts stay open.",
   "batch": [
-    "lightricks",
-    "optimove",
-    "sapiens-international-corporation",
-    "sisense",
-    "snappy-gifts",
-    "rollout-io"
+    "aveva",
+    "bromcom",
+    "faculty",
+    "kraken-technologies",
+    "activestate",
+    "altus-group"
   ],
-  "dpa_filed": [],
-  "subprocessors_filed": [],
+  "dpa_filed": [
+    {
+      "slug": "altus-group",
+      "name": "Altus Group",
+      "url": "https://www.altusgroup.com/downloads/legal/gdpr/data-processing-addendum.pdf"
+    }
+  ],
+  "subprocessors_filed": [
+    {
+      "slug": "altus-group",
+      "name": "Altus Group",
+      "url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
+      "names": [
+        "Adobe Systems Incorporated",
+        "Amazon Web Services, Inc",
+        "ARM Group limited (Deltek)",
+        "Conga",
+        "Credica Limited",
+        "CVENT",
+        "Cyera",
+        "Datadog, Inc",
+        "Imperva, Inc",
+        "Ironclad",
+        "Equinix (France) SAS",
+        "Ikoula",
+        "LinkedIn Ireland Unlimited Company",
+        "Okta, Inc",
+        "RingCentral, Inc",
+        "Salesforce.com Canada Corporation",
+        "Zendesk, Inc"
+      ]
+    }
+  ],
   "stayed_open": [
     {
-      "slug": "lightricks",
-      "name": "Lightricks",
+      "slug": "aveva",
+      "name": "Aveva",
       "rule": "dpa"
     },
     {
-      "slug": "optimove",
-      "name": "Optimove",
+      "slug": "aveva",
+      "name": "Aveva",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "bromcom",
+      "name": "Bromcom",
       "rule": "dpa"
     },
     {
-      "slug": "sapiens-international-corporation",
-      "name": "Sapiens International Corporation",
+      "slug": "bromcom",
+      "name": "Bromcom",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "faculty",
+      "name": "Faculty",
       "rule": "dpa"
     },
     {
-      "slug": "sisense",
-      "name": "Sisense",
+      "slug": "faculty",
+      "name": "Faculty",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "activestate",
+      "name": "ActiveState",
       "rule": "dpa"
     },
     {
-      "slug": "snappy-gifts",
-      "name": "Snappy Gifts",
-      "rule": "dpa"
-    },
-    {
-      "slug": "rollout-io",
-      "name": "Rollout.io",
-      "rule": "dpa"
+      "slug": "activestate",
+      "name": "ActiveState",
+      "rule": "subprocessors"
     }
   ],
   "rejected": [
     {
-      "slug": "optimove",
-      "url": "https://www.optimove.com/legal/dpa",
-      "final": "https://2701652.fs1.hubspotusercontent-na1.net/hubfs/2701652/Legal%20Docs/optimove_dpa.pdf",
-      "reason": "not-first-party",
-      "kind": "dpa"
-    },
-    {
-      "slug": "sapiens-international-corporation",
-      "url": "https://sapiens.com/legal/dpa",
-      "final": "https://sapiens.com/legal/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "sisense",
-      "url": "https://www.sisense.com/about/legal/dpa",
-      "final": "https://www.sisense.com/about/legal/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "sisense",
-      "url": "https://www.sisense.com/about/legal/subprocessors/",
-      "final": "https://www.sisense.com/about/legal/subprocessors/",
-      "reason": "http-403",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "snappy-gifts",
-      "url": "https://snappy.com/legal/dpa",
-      "final": "https://snappy.com/legal/dpa",
+      "slug": "aveva",
+      "url": "https://aveva.com/policies/data-processing-agreement",
+      "final": "https://aveva.com/policies/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "snappy-gifts",
-      "url": "https://trust.snappy.com/subprocessors",
-      "final": "https://trust.snappy.com/subprocessors",
-      "reason": "js-shell",
+      "slug": "aveva",
+      "url": "https://aveva.com/legal/data-processing-addendum",
+      "final": "https://aveva.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/terms/dpa",
+      "final": "https://aveva.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/policies/data-processing-addendum",
+      "final": "https://aveva.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/policies/dpa",
+      "final": "https://aveva.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/gdpr/dpa",
+      "final": "https://aveva.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/legal/data-processing-agreement",
+      "final": "https://aveva.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/legal/dpa",
+      "final": "https://aveva.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/company/dpa",
+      "final": "https://aveva.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/data-processing-agreement",
+      "final": "https://aveva.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/data-processing-addendum",
+      "final": "https://aveva.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/dpa",
+      "final": "https://aveva.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/legal/processor-terms",
+      "final": "https://aveva.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/data-processing",
+      "final": "https://aveva.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/privacy/dpa",
+      "final": "https://aveva.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/legal/gdpr/dpa",
+      "final": "https://aveva.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/legal/data-processing",
+      "final": "https://aveva.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bromcom",
+      "url": "https://bromcom.com/dpa",
+      "final": "https://bromcom.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bromcom",
+      "url": "https://bromcom.com/legal/data-processing-addendum",
+      "final": "https://bromcom.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bromcom",
+      "url": "https://bromcom.com/legal/dpa",
+      "final": "https://bromcom.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bromcom",
+      "url": "https://bromcom.com/legal/data-processing-agreement",
+      "final": "https://bromcom.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bromcom",
+      "url": "https://bromcom.com/policies/data-processing-addendum",
+      "final": "https://bromcom.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bromcom",
+      "url": "https://bromcom.com/data-processing-agreement",
+      "final": "https://bromcom.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "faculty",
+      "url": "https://faculty.ai/dpa",
+      "final": "https://faculty.ai/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "faculty",
+      "url": "https://faculty.ai/legal/dpa",
+      "final": "https://faculty.ai/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "faculty",
+      "url": "https://faculty.ai/legal/data-processing-addendum",
+      "final": "https://faculty.ai/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "faculty",
+      "url": "https://faculty.ai/legal/data-processing-agreement",
+      "final": "https://faculty.ai/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bromcom",
+      "url": "https://bromcom.com/data-processing-addendum",
+      "final": "https://bromcom.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "faculty",
+      "url": "https://faculty.ai/data-processing-addendum",
+      "final": "https://faculty.ai/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bromcom",
+      "url": "https://bromcom.com/policies/data-processing-agreement",
+      "final": "https://bromcom.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "faculty",
+      "url": "https://faculty.ai/policies/data-processing-addendum",
+      "final": "https://faculty.ai/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "faculty",
+      "url": "https://faculty.ai/policies/data-processing-agreement",
+      "final": "https://faculty.ai/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "faculty",
+      "url": "https://faculty.ai/data-processing-agreement",
+      "final": "https://faculty.ai/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "faculty",
+      "url": "https://faculty.ai/policies/dpa",
+      "final": "https://faculty.ai/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "faculty",
+      "url": "https://faculty.ai/terms/dpa",
+      "final": "https://faculty.ai/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bromcom",
+      "url": "https://bromcom.com/terms/dpa",
+      "final": "https://bromcom.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bromcom",
+      "url": "https://bromcom.com/policies/dpa",
+      "final": "https://bromcom.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "faculty",
+      "url": "https://faculty.ai/gdpr/dpa",
+      "final": "https://faculty.ai/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "faculty",
+      "url": "https://faculty.ai/company/dpa",
+      "final": "https://faculty.ai/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "faculty",
+      "url": "https://faculty.ai/legal/gdpr/dpa",
+      "final": "https://faculty.ai/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "faculty",
+      "url": "https://faculty.ai/privacy/dpa",
+      "final": "https://faculty.ai/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "faculty",
+      "url": "https://faculty.ai/legal/processor-terms",
+      "final": "https://faculty.ai/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "activestate",
+      "url": "https://activestate.com/dpa",
+      "final": "https://activestate.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bromcom",
+      "url": "https://bromcom.com/company/dpa",
+      "final": "https://bromcom.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "faculty",
+      "url": "https://faculty.ai/legal/data-processing",
+      "final": "https://faculty.ai/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "activestate",
+      "url": "https://activestate.com/data-processing-addendum",
+      "final": "https://activestate.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "activestate",
+      "url": "https://activestate.com/data-processing-agreement",
+      "final": "https://activestate.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "activestate",
+      "url": "https://activestate.com/policies/data-processing-addendum",
+      "final": "https://activestate.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "activestate",
+      "url": "https://activestate.com/legal/data-processing-agreement",
+      "final": "https://activestate.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "faculty",
+      "url": "https://faculty.ai/data-processing",
+      "final": "https://faculty.ai/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "activestate",
+      "url": "https://activestate.com/policies/data-processing-agreement",
+      "final": "https://activestate.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "activestate",
+      "url": "https://activestate.com/policies/dpa",
+      "final": "https://activestate.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "activestate",
+      "url": "https://activestate.com/terms/dpa",
+      "final": "https://activestate.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "activestate",
+      "url": "https://activestate.com/company/dpa",
+      "final": "https://activestate.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "activestate",
+      "url": "https://activestate.com/gdpr/dpa",
+      "final": "https://activestate.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "activestate",
+      "url": "https://activestate.com/privacy/dpa",
+      "final": "https://activestate.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "activestate",
+      "url": "https://activestate.com/legal/gdpr/dpa",
+      "final": "https://activestate.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "activestate",
+      "url": "https://activestate.com/data-processing",
+      "final": "https://activestate.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "activestate",
+      "url": "https://activestate.com/legal/processor-terms",
+      "final": "https://activestate.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "activestate",
+      "url": "https://activestate.com/legal/data-processing-addendum",
+      "final": "https://activestate.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "activestate",
+      "url": "https://activestate.com/legal/dpa",
+      "final": "https://activestate.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "activestate",
+      "url": "https://activestate.com/legal/data-processing",
+      "final": "https://activestate.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bromcom",
+      "url": "https://bromcom.com/gdpr/dpa",
+      "final": "https://bromcom.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/dpa",
+      "final": "https://altusgroup.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/legal/data-processing-addendum",
+      "final": "https://altusgroup.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/legal/dpa",
+      "final": "https://altusgroup.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/data-processing-addendum",
+      "final": "https://altusgroup.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/company/dpa",
+      "final": "https://www.altusgroup.com/about-us/",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bromcom",
+      "url": "https://bromcom.com/privacy/dpa",
+      "final": "https://bromcom.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bromcom",
+      "url": "https://bromcom.com/legal/gdpr/dpa",
+      "final": "https://bromcom.com/legal/gdpr/dpa",
+      "reason": "http-0",
+      "kind": "dpa"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/policies/data-processing-agreement",
+      "final": "https://altusgroup.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/legal/data-processing-agreement",
+      "final": "https://altusgroup.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/data-processing-agreement",
+      "final": "https://altusgroup.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/policies/data-processing-addendum",
+      "final": "https://altusgroup.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/policies/dpa",
+      "final": "https://altusgroup.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/terms/dpa",
+      "final": "https://altusgroup.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bromcom",
+      "url": "https://bromcom.com/legal/processor-terms",
+      "final": "https://bromcom.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bromcom",
+      "url": "https://bromcom.com/legal/data-processing",
+      "final": "https://bromcom.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/gdpr/dpa",
+      "final": "https://altusgroup.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bromcom",
+      "url": "https://bromcom.com/data-processing",
+      "final": "https://bromcom.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/data-processing",
+      "final": "https://altusgroup.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/legal/data-processing",
+      "final": "https://altusgroup.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/legal/gdpr/dpa",
+      "final": "https://altusgroup.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/privacy/dpa",
+      "final": "https://altusgroup.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/legal/processor-terms",
+      "final": "https://altusgroup.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "bromcom",
+      "url": "https://trust.bromcom.com/subprocessors",
+      "final": "https://trust.bromcom.com/subprocessors",
+      "reason": "js-portal",
       "kind": "subprocessors"
     },
     {
-      "slug": "optimove",
-      "url": "https://trust.optimove.com/subprocessors",
-      "final": "https://trust.optimove.com/subprocessors",
-      "reason": "js-shell",
+      "slug": "faculty",
+      "url": "https://trust.faculty.ai/subprocessors",
+      "final": "https://trust.faculty.ai/subprocessors",
+      "reason": "js-portal",
       "kind": "subprocessors"
     },
     {
-      "slug": "sapiens-international-corporation",
-      "url": "https://trust.sapiens.com/subprocessors",
-      "final": "https://trust.sapiens.com/subprocessors",
+      "slug": "activestate",
+      "url": "https://trust.activestate.com/subprocessors",
+      "final": "https://trust.activestate.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/legal/sub-processors-page",
+      "final": "https://aveva.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/legal/sub-processors",
+      "final": "https://aveva.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/trust/subprocessors",
+      "final": "https://aveva.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/privacy/subprocessors",
+      "final": "https://aveva.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/company/subprocessors",
+      "final": "https://aveva.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/sub-processors",
+      "final": "https://aveva.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/subprocessors",
+      "final": "https://aveva.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://trust.aveva.com/subprocessors",
+      "final": "https://trust.aveva.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/legal/service-providers",
+      "final": "https://aveva.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://trust.aveva.com/sub-processors",
+      "final": "https://trust.aveva.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aveva",
+      "url": "https://aveva.com/legal/subprocessors",
+      "final": "https://aveva.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/company/subprocessors",
+      "final": "https://www.altusgroup.com/about-us/",
       "reason": "no-printed-names",
       "kind": "subprocessors"
     },
     {
-      "slug": "lightricks",
-      "url": "https://lightricks.com/legal/dpa",
-      "final": "https://lightricks.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/legal/sub-processors",
+      "final": "https://altusgroup.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "rollout-io",
-      "url": "https://rollout.io/legal/dpa",
-      "final": "https://www.cloudbees.com/capabilities/feature-management",
-      "reason": "homepage-bounce",
-      "kind": "dpa"
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/legal/subprocessors",
+      "final": "https://altusgroup.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/sub-processors",
+      "final": "https://altusgroup.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/legal/service-providers",
+      "final": "https://altusgroup.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/subprocessors",
+      "final": "https://altusgroup.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/trust/subprocessors",
+      "final": "https://altusgroup.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/legal/sub-processors-page",
+      "final": "https://altusgroup.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "altus-group",
+      "url": "https://altusgroup.com/privacy/subprocessors",
+      "final": "https://altusgroup.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     }
   ]
 }

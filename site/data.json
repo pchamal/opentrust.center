@@ -32813,32 +32813,143 @@
           "host": "altusgroup.com",
           "seen": "2026-08-24"
         },
-        "dpa": null,
-        "subprocessors": null,
+        "dpa": {
+          "url": "https://www.altusgroup.com/downloads/legal/gdpr/data-processing-addendum.pdf",
+          "host": "altusgroup.com",
+          "seen": "2026-08-24"
+        },
+        "subprocessors": {
+          "url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
+          "host": "altusgroup.com",
+          "seen": "2026-08-24"
+        },
         "status": null,
         "bounty": null
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "Adobe Systems Incorporated",
+          "slug": null,
+          "id": "adobe-systems",
+          "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/"
+        },
+        {
+          "name": "Amazon Web Services, Inc",
+          "slug": "amazon-web-services",
+          "id": "aws",
+          "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/"
+        },
+        {
+          "name": "ARM Group limited (Deltek)",
+          "slug": null,
+          "id": "arm-group-deltek",
+          "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/"
+        },
+        {
+          "name": "Conga",
+          "slug": null,
+          "id": "conga",
+          "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/"
+        },
+        {
+          "name": "Credica Limited",
+          "slug": null,
+          "id": "credica",
+          "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/"
+        },
+        {
+          "name": "CVENT",
+          "slug": "cvent",
+          "id": "cvent",
+          "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/"
+        },
+        {
+          "name": "Cyera",
+          "slug": "cyera",
+          "id": "cyera",
+          "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/"
+        },
+        {
+          "name": "Datadog, Inc",
+          "slug": "datadog",
+          "id": "datadog",
+          "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/"
+        },
+        {
+          "name": "Imperva, Inc",
+          "slug": "imperva",
+          "id": "imperva",
+          "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/"
+        },
+        {
+          "name": "Ironclad",
+          "slug": null,
+          "id": "ironclad",
+          "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/"
+        },
+        {
+          "name": "Equinix (France) SAS",
+          "slug": null,
+          "id": "equinix-france-sas",
+          "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/"
+        },
+        {
+          "name": "Ikoula",
+          "slug": null,
+          "id": "ikoula",
+          "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/"
+        },
+        {
+          "name": "LinkedIn Ireland Unlimited Company",
+          "slug": null,
+          "id": "linkedin-ireland-unlimited-company",
+          "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/"
+        },
+        {
+          "name": "Okta, Inc",
+          "slug": "okta",
+          "id": "okta",
+          "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/"
+        },
+        {
+          "name": "RingCentral, Inc",
+          "slug": "ringcentral",
+          "id": "ringcentral",
+          "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/"
+        },
+        {
+          "name": "Salesforce.com Canada Corporation",
+          "slug": "salesforce",
+          "id": "salesforce",
+          "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/"
+        },
+        {
+          "name": "Zendesk, Inc",
+          "slug": "zendesk",
+          "id": "zendesk",
+          "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/"
+        }
+      ],
       "disclosure": {
-        "score": 66,
-        "tier": "on-file",
+        "score": 82,
+        "tier": "substantial",
         "factors": {
           "page": 20,
           "marks": 30,
-          "dpa": 0,
-          "processors": 0,
+          "dpa": 8,
+          "processors": 8,
           "status": 0,
           "bounty": 0,
           "privacy": 6,
           "years": 10
         }
       },
-      "tier": "on-file",
+      "tier": "substantial",
       "file": {
         "page": 20,
         "marks": 20,
-        "dpa": 0,
-        "subprocessors": 0,
+        "dpa": 20,
+        "subprocessors": 20,
         "years": 20
       },
       "_crawl": {
@@ -55633,8 +55744,8 @@
       "certs": [],
       "attestations": [],
       "summary": "Official page on file. No marks extracted from the public HTML.",
-      "founded_year": null,
-      "founded_source": null,
+      "founded_year": 2014,
+      "founded_source": "https://faculty.ai/en-gb",
       "instruments": {
         "trust": {
           "url": "https://trust.faculty.ai",
@@ -55658,8 +55769,8 @@
       },
       "processors": [],
       "disclosure": {
-        "score": 34,
-        "tier": "thin",
+        "score": 40,
+        "tier": "on-file",
         "factors": {
           "page": 20,
           "marks": 0,
@@ -55668,16 +55779,16 @@
           "status": 0,
           "bounty": 0,
           "privacy": 6,
-          "years": 0
+          "years": 6
         }
       },
-      "tier": "thin",
+      "tier": "on-file",
       "file": {
         "page": 20,
         "marks": 10,
         "dpa": 0,
         "subprocessors": 10,
-        "years": 0
+        "years": 20
       },
       "_crawl": {
         "vendor": "unknown",
