@@ -351,6 +351,49 @@ PRIOR_ATTEMPTED = {
     "carrier-global",
     "cboe-global-markets",
     "cdk-global",
+    # this cut — unread open years files with a stored first-party
+    # trust / privacy / about / security URL. Cencora 2023 is the
+    # AmerisourceBergen rename, not founding.
+    "cencora",
+    "centerpoint-energy",
+    "cf-industries",
+    "charles-schwab-corporation",
+    "chipotle-mexican-grill",
+    "chubb-limited",
+    "church-and-dwight",
+    "cincinnati-financial",
+    "cognizant",
+    "cognizant-technology-solutions",
+    "cognyte",
+    "coherent-corp",
+    "comfort-systems-usa",
+    "concentrix",
+    "conocophillips",
+    "consolidated-edison",
+    "constellation-brands",
+    "constellation-software",
+    "copart",
+    "corteva",
+    "cox-enterprises",
+    "crh-plc",
+    "crown-castle",
+    "cvs-health",
+    "d-r-horton",
+    "danaher-corporation",
+    "darden-restaurants",
+    "davita",
+    "deckers-brands",
+    "delta-air-lines",
+    "devon-energy",
+    "digimarc",
+    "dollar-general",
+    "dollar-tree",
+    "dte-energy",
+    "dye-and-durham",
+    "echostar",
+    "elevance-health",
+    "energy-transfer-partners",
+    "enterprise-mobility",
 }
 
 
@@ -852,7 +895,7 @@ def main() -> int:
             "HTML names founded, established, or foundingDate. Wikipedia, news, "
             "title-only prefix matches, portal catalogs, JS shells, login/CMP "
             "walls, investor/parent years, rebrand dates, and soft story-began "
-            "copy stay open. Prior year cuts through PR 124 are on the skip list."
+            "copy stay open. Prior year cuts through PR 129 are on the skip list."
         ),
         "batch": [rec["slug"] for rec in batch],
         "years_filed": filed,

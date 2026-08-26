@@ -230,6 +230,14 @@ def test_parse_founded_sentence() -> None:
         ) is None,
         "since YYYY building copy is not a founded sentence",
     )
+    check(
+        parse_official_founded_year(
+            "A defining moment for Cencora Cencora was established in 2023, "
+            "as a new name for the AmerisourceBergen Corporation.",
+            "Cencora",
+        ) is None,
+        "Cencora 2023 rename is not founding",
+    )
 
 
 def test_apply_rejects_wiki_and_keeps_existing() -> None:
@@ -270,9 +278,9 @@ def test_report_years_landed() -> None:
     check(len(stayed) == 37, f"37 stayed open, got {len(stayed)}")
     check(len(batch) == 40, f"batch is 40, got {len(batch)}")
     expect = {
-        "american-water-works": (1886, "https://amwater.com/corp/About-Us/Corporate"),
-        "blackrock": (1988, "https://www.blackrock.com/us/individual"),
-        "brown-forman": (1870, "https://www.brown-forman.com/"),
+        "consolidated-edison": (1823, "https://www.coned.com/en/about-us/company-information"),
+        "danaher-corporation": (1984, "https://www.danaher.com/about-danaher"),
+        "echostar": (1980, "https://echostar.com/company"),
     }
     check(set(filed_by) == set(expect), f"filed slugs, got {sorted(filed_by)}")
     for slug, (year, source) in expect.items():
@@ -300,7 +308,9 @@ def test_report_years_landed() -> None:
     check("crowdin" not in batch, "PR 124 fills are not re-walked")
     check("grafana-labs" not in batch, "earlier trust-URL years files are not re-walked")
     check("checkr" not in batch, "earlier trust-URL years files are not re-walked")
-    check("alkami" in batch and "amdocs" in batch, "natural first-party-link queue is walked")
+    check("american-water-works" not in batch, "PR 129 fills are not re-walked")
+    check("blackrock" not in batch, "PR 129 fills are not re-walked")
+    check("cencora" in batch and "danaher-corporation" in batch, "natural first-party-link queue is walked")
     from file_company_years import PRIOR_ATTEMPTED, select_batch
     for slug in batch:
         check(slug in PRIOR_ATTEMPTED, f"{slug} is on the next-increment skip list")
@@ -342,6 +352,9 @@ def test_report_years_landed() -> None:
         "graphisoft": 1982,
         "scoro": 2013,
         "tmaxsoft": 1997,
+        "american-water-works": 1886,
+        "blackrock": 1988,
+        "brown-forman": 1870,
     }
     for slug, year in prior.items():
         pub, row = by_pub[slug], by_enr[slug]
@@ -361,6 +374,7 @@ def test_report_years_landed() -> None:
         "zeroturnaround": "2007",
         "orthograph": "2004",
         "a-o-smith": "1904",
+        "cencora": "2023",
     }
     aosmith_html = (ROOT / "site" / "c" / "a-o-smith.html").read_text(encoding="utf-8")
     check("founded · 1874" not in aosmith_html, "A. O. Smith 1874 is not printed")
