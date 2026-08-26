@@ -146,71 +146,17 @@ def main() -> int:
     check(len(by_pub["altus-group"].get("processors") or []) == 17, "altus-group 17 names stay")
     check(not instrument_url(by_pub["faculty"], "dpa"), "faculty DPA stays open")
 
-    # This increment: portal-catalog DPA upgrades + unread first-party privacy-page queue.
-    expected_batch = [
-        "1password",
-        "navan",
-        "vercel",
-        "twilio",
-        "dialpad",
-        "check-point",
-        "trip-com",
-        "gb-group",
-        "first-solar",
-        "alfa-financial-software",
-        "mitek-systems",
-        "consolidated-edison",
-        "brown-forman",
-        "american-water-works",
-        "echostar",
-        "danaher-corporation",
-        "synaptics",
-        "blackrock",
-        "tencent",
-        "genius-sports",
-        "klarna",
-        "nagarro",
-        "sea-limited",
-        "character-ai",
-        "fiserv",
-        "stitch-fix",
-        "freee-k-k",
-        "backblaze",
-        "cboe-global-markets",
-        "travelport",
-        "verisign",
-        "amcor",
-        "abbott-laboratories",
-        "american-international-group",
-        "aflac",
-        "jabil",
-        "micron-technology",
-        "valero-energy",
-        "aes-corporation",
-        "centene",
-    ]
-    check(report.get("batch") == expected_batch, "batch is the privacy-page / portal-upgrade queue")
-    filed = {r["slug"]: r["url"] for r in (report.get("dpa_filed") or [])}
-    check(filed.get("navan") == "https://navan.com/dpa", "navan first-party DPA filed")
-    check(filed.get("vercel") == "https://vercel.com/legal/dpa", "vercel first-party DPA filed")
-    check(
-        filed.get("backblaze") == "https://www.backblaze.com/company/policy/dpa-for-uk-residents",
-        "backblaze first-party DPA filed",
-    )
-    check(len(filed) == 3, f"three DPAs filed, got {sorted(filed)}")
-    check(not (report.get("subprocessors_filed") or []), "no named processors were invented")
-
-    check(instrument_url(by_pub["navan"], "dpa") == "https://navan.com/dpa", "navan dossier DPA")
+    # PR 149 fills stay.
+    check(instrument_url(by_pub["navan"], "dpa") == "https://navan.com/dpa", "navan dossier DPA stays")
     check(len(by_pub["navan"].get("processors") or []) == 4, "navan existing 4 names stay")
-    check(instrument_url(by_pub["vercel"], "dpa") == "https://vercel.com/legal/dpa", "vercel dossier DPA")
+    check(instrument_url(by_pub["vercel"], "dpa") == "https://vercel.com/legal/dpa", "vercel dossier DPA stays")
     check(len(by_pub["vercel"].get("processors") or []) == 14, "vercel existing 14 names stay")
     check(
         instrument_url(by_pub["backblaze"], "dpa")
         == "https://www.backblaze.com/company/policy/dpa-for-uk-residents",
-        "backblaze dossier DPA",
+        "backblaze dossier DPA stays",
     )
     check(not (by_pub["backblaze"].get("processors") or []), "backblaze named processors stay open")
-
     check(
         "itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e"
         in (instrument_url(by_pub["1password"], "dpa") or ""),
@@ -228,16 +174,74 @@ def main() -> int:
     )
     check(len(by_pub["dialpad"].get("processors") or []) == 1, "dialpad existing name stays")
 
-    zeros = [
-        slug
-        for slug in expected_batch
-        if slug not in {"navan", "vercel", "backblaze", "1password", "twilio", "dialpad"}
+    # This increment: unread first-party privacy-page queue after PR 149.
+    expected_batch = [
+        "phreesia",
+        "corpay",
+        "huawei",
+        "materialise-nv",
+        "schr-dinger",
+        "zensar-technologies",
+        "planisware",
+        "align-technology",
+        "paycom",
+        "on-semiconductor",
+        "globant",
+        "4dmedical-limited",
+        "bytedance",
+        "cyngn",
+        "system1",
+        "cellebrite",
+        "applied-digital",
+        "3d-systems",
+        "3i-infotech",
+        "a-o-smith",
+        "accenture",
+        "agilysys",
+        "aiforia-technologies-oyj",
+        "albemarle-corporation",
+        "alexandria-real-estate-equities",
+        "alibaba",
+        "alkami",
+        "alliant-energy",
+        "amadeus",
+        "amdocs",
+        "ameren",
+        "american-electric-power",
+        "american-express",
+        "ametek",
+        "amgen",
+        "aptiv",
+        "arthur-j-gallagher-and-co",
+        "assurant",
+        "at-and-t",
+        "atmos-energy",
     ]
-    for slug in zeros:
+    check(report.get("batch") == expected_batch, "batch is the unread first-party privacy-page queue")
+    check(not (report.get("dpa_filed") or []), "no DPA was invented")
+    check(not (report.get("subprocessors_filed") or []), "no named processors were invented")
+    withdrawn = {r["slug"] for r in (report.get("withdrawn") or [])}
+    check(withdrawn == {"at-and-t"}, f"AT&T CMS-shell DPA withdrawn, got {sorted(withdrawn)}")
+    check(not instrument_url(by_pub["at-and-t"], "dpa"), "at-and-t withdrawn DPA stays off file")
+
+    for slug in expected_batch:
         pub = by_pub[slug]
         check(not instrument_url(pub, "dpa"), f"{slug} DPA stays open")
         check(not (pub.get("file") or {}).get("dpa"), f"{slug} file.dpa stays open")
         check(not (pub.get("processors") or []), f"{slug} named processors stay open")
+
+    from file_company_dpa_processors import PRIOR_ATTEMPTED, select_batch
+    for slug in expected_batch:
+        check(slug in PRIOR_ATTEMPTED, f"{slug} is on the next-increment skip list")
+    leftover = select_batch(list(public["companies"]), by_enr)
+    leftover_slugs = {r["slug"] for r in leftover}
+    check(not leftover_slugs & set(expected_batch), f"this batch is not retried, got {leftover_slugs & set(expected_batch)}")
+    for slug in (
+        "navan", "vercel", "backblaze", "1password", "peak", "translated",
+        "anaplan", "sarvam-ai", "salesloft", "verint-systems", "thoughtspot",
+    ):
+        check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
+        check(slug not in leftover_slugs, f"{slug} leftover is not retried")
 
     for slug in expected_batch:
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
@@ -248,8 +252,7 @@ def main() -> int:
             "safebase" not in visible and "conveyor" not in visible and "drata" not in visible,
             f"{slug} named a portal vendor",
         )
-        if slug != "1password":
-            check("vanta" not in visible, f"{slug} dossier names no portal vendor")
+        check("vanta" not in visible, f"{slug} dossier names no portal vendor")
     pronto_html = (ROOT / "site" / "c" / "pronto-software.html").read_text(encoding="utf-8")
     check("Official page" in pronto_html, "Pronto Software still prints Official page")
     cognition = (ROOT / "site" / "c" / "cognition.html").read_text(encoding="utf-8")
