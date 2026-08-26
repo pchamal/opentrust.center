@@ -521,7 +521,7 @@ PRIOR_ATTEMPTED = {
     "pagaya",
     "teamviewer",
     "ibotta",
-    # this cut — leftover DPA-on-file empty list + unread first-party DPA queue
+    # PR 136 — leftover DPA-on-file empty list + unread first-party DPA queue
     "synap",
     "blackboard",
     "foxit-software",
@@ -530,6 +530,66 @@ PRIOR_ATTEMPTED = {
     "renaissance-learning",
     "inmobi",
     "zafin",
+    # PR 131 instrument leftover — AfterShip DPA already on file; named processors filed
+    "aftership",
+    # PR 137 / 139 / 142 / 145 / 148 instrument leftovers — DPA/processors already walked
+    "opengov",
+    "aptean",
+    "sap-ariba",
+    "qad-redzone",
+    "telestream",
+    "ctsi-global",
+    "seqera-labs",
+    "beck-technology",
+    "sherpa-ai",
+    "walkme",
+    "virtutech",
+    "pubnub",
+    "canonical",
+    "percona",
+    "agility-robotics",
+    "berkshire-grey",
+    # this cut — portal-catalog DPA upgrades + unread first-party privacy-page queue
+    "1password",
+    "navan",
+    "vercel",
+    "twilio",
+    "dialpad",
+    "check-point",
+    "trip-com",
+    "gb-group",
+    "first-solar",
+    "alfa-financial-software",
+    "mitek-systems",
+    "consolidated-edison",
+    "brown-forman",
+    "american-water-works",
+    "echostar",
+    "danaher-corporation",
+    "synaptics",
+    "blackrock",
+    "tencent",
+    "genius-sports",
+    "klarna",
+    "nagarro",
+    "sea-limited",
+    "character-ai",
+    "fiserv",
+    "stitch-fix",
+    "freee-k-k",
+    "backblaze",
+    "cboe-global-markets",
+    "travelport",
+    "verisign",
+    "amcor",
+    "abbott-laboratories",
+    "american-international-group",
+    "aflac",
+    "jabil",
+    "micron-technology",
+    "valero-energy",
+    "aes-corporation",
+    "centene",
 }
 
 
@@ -615,10 +675,17 @@ def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]
 
     def consider(row: dict, *, force_sub_open: bool | None = None) -> dict | None:
         slug = row.get("slug") or ""
-        if not row.get("found") or not slug or slug in skip or slug in picked_slugs:
+        if not slug or slug in skip or slug in picked_slugs:
             return None
         enr = enr_by.get(slug)
         if not enr:
+            return None
+        cands = first_party_candidates(row, enr)
+        if not cands:
+            return None
+        # Found-company DPA queue is exhausted after PRIOR. Silent rows with a
+        # stored first-party trust/privacy/security URL are the next unread file.
+        if not row.get("found") and not has_trust_privacy_security(cands):
             return None
         dpa_url = stored_dpa_url(row, enr)
         dpa_open = not dpa_url
@@ -626,9 +693,6 @@ def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]
         dpa_upgrade = bool(dpa_url and dpa_is_portal_catalog(dpa_url))
         sub_open = not (row.get("processors") or []) if force_sub_open is None else force_sub_open
         if not (dpa_open or dpa_upgrade or sub_open):
-            return None
-        cands = first_party_candidates(row, enr)
-        if not cands:
             return None
         return {
             "slug": slug,
@@ -662,7 +726,24 @@ def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]
             if len(picked) >= BATCH:
                 return picked
 
-    # (b) trust/privacy/security first-party URLs, no DPA link yet, not in PRIOR.
+    # (b) portal-catalog DPA that may upgrade to printed first-party HTML.
+    # Existing named processors stay; only the DPA URL is in scope.
+    for row in public_rows:
+        if len(picked) >= BATCH:
+            return picked
+        enr = enr_by.get(row.get("slug") or "")
+        if not enr:
+            continue
+        dpa_url = stored_dpa_url(row, enr)
+        if not (dpa_url and dpa_is_portal_catalog(dpa_url)):
+            continue
+        rec = consider(row)
+        if rec:
+            picked.append(rec)
+            picked_slugs.add(rec["slug"])
+
+    # (c) trust/privacy/security first-party URLs, no DPA link yet, not in PRIOR.
+    # Includes silent rows: found-company open-DPA queue is exhausted.
     for row in public_rows:
         enr = enr_by.get(row.get("slug") or "")
         if not enr:
@@ -1038,8 +1119,10 @@ def main() -> int:
         "generated_at": enr.get("generated_at"),
         "rule": (
             "Next ~40 companies: first those with links.dpa on file and an empty "
-            "named-processor list, then those with first-party trust/privacy/"
-            "security URLs and no DPA link yet. Named subprocessors fill only "
+            "named-processor list, then portal-catalog DPAs that may upgrade to "
+            "printed first-party HTML, then those with first-party trust/privacy/"
+            "security URLs and no DPA link yet (including silent rows once the "
+            "found-company queue is exhausted). Named subprocessors fill only "
             "from printed organization names in live first-party HTML tables or "
             "labeled spans. A stored list URL with no printed names stays open. "
             "A DPA is filed only when a printed first-party DPA is newly found; "
