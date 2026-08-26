@@ -350,6 +350,53 @@ def main() -> int:
         "privacy",
     )
     check(kept == [], f"RTX HIPAA Privacy Practices Notice stays open: {kept} {why}")
+    kept, why = hold_marks(
+        ["EU-US DPF", "GDPR"],
+        "Backblaze, Inc. (“Backblaze”) complies with the EU-U.S. Data Privacy "
+        "Framework (EU-U.S. DPF) and the Swiss-U.S. Data Privacy Framework "
+        "(Swiss-U.S. DPF) as set forth by the U.S. Department of Commerce. "
+        "Backblaze has certified to the U.S. Department of Commerce that it "
+        "adheres to the EU-U.S. Data Privacy Framework Principles.",
+        "privacy",
+    )
+    check(kept == ["EU-US DPF"], f"Backblaze DPF self-cert files, privacy GDPR stays open: {kept} {why}")
+    kept, why = hold_marks(
+        ["PCI DSS", "CCPA"],
+        "We maintain annual compliance with global Payment Card Industry Data "
+        "Security Standard (PCI DSS) adopted by the payment card brands for "
+        "all companies that process, store or transmit cardholder data.",
+        "privacy",
+    )
+    check(kept == ["PCI DSS"], f"Fiserv PCI DSS compliance sentence stays: {kept} {why}")
+    kept, why = hold_marks(
+        ["EU-US DPF"],
+        "Travelport, LP (“Travelport”) complies with the EU-U.S. Data Privacy "
+        "Framework (EU-U.S. DPF). Travelport has certified to the U.S. "
+        "Department of Commerce that it adheres to the EU-U.S. Data Privacy "
+        "Framework Principles (EU-U.S. DPF Principles).",
+        "privacy",
+    )
+    check(kept == ["EU-US DPF"], f"Travelport DPF self-cert stays: {kept} {why}")
+    kept, why = hold_marks(
+        ["SOC 2 Type II", "ISO 27001", "PCI DSS"],
+        "We have obtained ISO 27001, PCI DSS, and SOC2 Type 2 certifications.",
+        "privacy",
+    )
+    check(
+        kept == ["SOC 2 Type II", "ISO 27001", "PCI DSS"],
+        f"Trip.com certification sentence stays: {kept} {why}",
+    )
+    kept, why = hold_marks(
+        ["EU-US DPF", "GDPR", "CCPA"],
+        "VeriSign, Inc. complies with the EU-U.S. Data Privacy Framework "
+        "(“EU-U.S. DPF”), the UK Extension to the EU-U.S. DPF, and the "
+        "Swiss-U.S. Data Privacy Framework (“Swiss-U.S. DPF”) as set forth "
+        "by the U.S. Department of Commerce. VeriSign, Inc. has certified "
+        "to the U.S. Department of Commerce that it adheres to the EU-U.S. "
+        "Data Privacy Framework Principles.",
+        "privacy",
+    )
+    check(kept == ["EU-US DPF"], f"Verisign DPF self-cert files, privacy GDPR/CCPA stay open: {kept} {why}")
 
     for rec in report.get("marks_filed") or []:
         slug, url, added = rec["slug"], rec["url"], rec["added"]
@@ -441,27 +488,37 @@ def main() -> int:
     check("Amazon Web Services" in zoom, "zoom still names AWS")
     check("0–100" not in index and "0-100" not in index, "no 0-100 score on AITI")
 
-    # This increment: leftover empty-cert trust-URL files plus the next
-    # unread empty-cert files with a stored first-party privacy URL.
+    # This increment: leftover empty-cert trust-URL file plus the next
+    # unread empty-cert files with a stored first-party privacy URL,
+    # then thin files to fill the ~40 walk.
     batch = report.get("batch") or []
     want = [
-        "seqera-labs", "walkme", "virtutech", "performance-food-group",
-        "phillips-66", "porch-group", "pro-medicus", "publix-super-markets",
-        "quick-heal", "ramco-systems", "raysearch-laboratories", "robinhood",
-        "rtx", "sandisk", "sanmina", "science-applications-international",
-        "sea-limited", "serko-limited", "serviceware", "silvaco",
-        "simulations-plus", "smith-micro-software", "sonata-software",
-        "southern-glazer-s-wine-and-spirits", "spotify", "stitch-fix",
-        "super-micro-computer", "synaptics", "synchronoss", "sysco",
-        "take-two-interactive", "tally-solutions", "target", "td-synnex",
-        "tech-mahindra", "teledyne-technologies", "tencent", "tietoevry",
-        "tko-group-holdings", "tose-software",
+        "canonical", "travelport", "trip-com", "tucows", "twitter",
+        "txt-e-solutions", "uber", "uber-technologies", "unitedhealth-group",
+        "urgent-ly-inc", "verimatrix", "verisign", "verizon-communications",
+        "vitec-software", "vroom-com", "western-digital", "wipro",
+        "world-labs", "xero", "xunlei", "zillow", "zspace", "zuken",
+        "synap", "inmobi", "beck-technology", "lime-technologies",
+        "blackrock", "huawei", "planisware", "align-technology", "paycom",
+        "cellebrite", "agilysys", "alibaba", "amdocs", "at-and-t",
+        "backblaze", "cognizant", "fiserv",
     ]
     check(batch == want, f"batch is next unread 40, got {batch}")
     filed = {rec["slug"]: rec for rec in (report.get("marks_filed") or [])}
-    check(set(filed) == set(), f"filed slugs {sorted(filed)}")
+    check(
+        set(filed) == {"backblaze", "fiserv", "travelport", "trip-com", "verisign"},
+        f"filed slugs {sorted(filed)}",
+    )
+    check(filed["backblaze"]["added"] == ["EU-US DPF"], f"backblaze added {filed['backblaze']['added']}")
+    check(filed["fiserv"]["added"] == ["PCI DSS"], f"fiserv added {filed['fiserv']['added']}")
+    check(filed["travelport"]["added"] == ["EU-US DPF"], f"travelport added {filed['travelport']['added']}")
+    check(
+        filed["trip-com"]["added"] == ["SOC 2 Type II", "ISO 27001", "PCI DSS"],
+        f"trip-com added {filed['trip-com']['added']}",
+    )
+    check(filed["verisign"]["added"] == ["EU-US DPF"], f"verisign added {filed['verisign']['added']}")
     stayed = {rec["slug"] for rec in (report.get("stayed_open") or [])}
-    check(stayed == set(want), f"honest zeros {sorted(stayed)}")
+    check(stayed == set(want) - set(filed), f"honest zeros {sorted(stayed)}")
     from file_company_marks import PRIOR_ATTEMPTED, select_batch
     for slug in batch:
         check(slug in PRIOR_ATTEMPTED, f"{slug} is on the next-increment skip list")
@@ -534,6 +591,34 @@ def main() -> int:
     years = {"superoffice": 1990, "genedata": 1997, "trustpilot": 2007, "sonar": 2008}
     for slug, year in years.items():
         check(by_pub[slug].get("founded_year") == year, f"{slug} year stays {year}")
+    check("EU-US DPF" in (by_pub["backblaze"].get("certs") or []), "backblaze DPF filed")
+    check("TX-RAMP" in (by_pub["backblaze"].get("certs") or []), "backblaze TX-RAMP stays")
+    check("PCI DSS" in (by_pub["fiserv"].get("certs") or []), "fiserv PCI DSS filed")
+    check("TX-RAMP" in (by_pub["fiserv"].get("certs") or []), "fiserv TX-RAMP stays")
+    check((by_pub["travelport"].get("certs") or []) == ["EU-US DPF"], f"travelport certs {by_pub['travelport'].get('certs')}")
+    check(
+        {"SOC 2 Type II", "ISO 27001", "PCI DSS"} <= set(by_pub["trip-com"].get("certs") or []),
+        f"trip-com certs {by_pub['trip-com'].get('certs')}",
+    )
+    check((by_pub["verisign"].get("certs") or []) == ["EU-US DPF"], f"verisign certs {by_pub['verisign'].get('certs')}")
+    check("CCPA" not in (by_pub["fiserv"].get("certs") or []), "fiserv privacy CCPA is not a hold")
+    check("GDPR" not in (by_pub["backblaze"].get("certs") or []), "backblaze privacy GDPR is not a hold")
+    check("GDPR" not in (by_pub["verisign"].get("certs") or []), "verisign privacy GDPR is not a hold")
+    check("CSA STAR" in (by_pub["huawei"].get("certs") or []), "huawei CSA STAR stays")
+    check("TX-RAMP" in (by_pub["cognizant"].get("certs") or []), "cognizant TX-RAMP stays")
+    for slug in ("canonical", "beck-technology", "world-labs", "synap", "lime-technologies", "inmobi"):
+        html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
+        check("Official page" in html, f"{slug} still prints Official page")
+        visible = re.sub(r'https?://\S+', "", html)
+        visible = re.sub(r'href="[^"]+"', "", visible).lower()
+        check(
+            "safebase" not in visible
+            and "conveyor" not in visible
+            and "vanta" not in visible
+            and "securitypal" not in visible
+            and "sprinto" not in visible,
+            f"{slug} named a portal vendor",
+        )
 
     print(
         "ok",
