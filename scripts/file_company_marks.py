@@ -761,6 +761,47 @@ PRIOR_ATTEMPTED = {
     "mapr",
     "owkin",
     "lighton",
+    # this cut — latest expand silent/unread rows with a domain
+    "gamecaster",
+    "coresoft",
+    "hanaho",
+    "davka",
+    "chartboost",
+    "filament-games",
+    "hitcents",
+    "big-finish-games",
+    "epicenter-studios",
+    "cosmi-corporation",
+    "exakt-entertainment",
+    "gun-interactive",
+    "jump-shot-media",
+    "global-vr",
+    "isotope-244",
+    "laminar-research",
+    "midboss",
+    "kru-interactive",
+    "mentez",
+    "the-logic-factory",
+    "mikengreg",
+    "holistic-design",
+    "limbic-software",
+    "matrix-games",
+    "mastiff",
+    "ientertainment-network",
+    "nyko",
+    "mistwalker",
+    "muzzy-lane",
+    "playmotion",
+    "naked-sky-entertainment",
+    "reaxion",
+    "open-network-entertainment",
+    "ntn-buzztime",
+    "movaya",
+    "re-logic",
+    "punch-entertainment",
+    "raven-software",
+    "nerjyzed-entertainment",
+    "night-light-interactive",
 }
 
 # Regulation-only lists stay thin. Real certs (SOC / ISO / FedRAMP / …) fill out.
@@ -1370,14 +1411,16 @@ def main() -> int:
             "Next ~40 unread open/thin marks files. Prefer remaining "
             "empty-cert companies that already store a first-party trust / "
             "security / privacy URL. That queue is exhausted after PRIOR "
-            "(including leftover instrument walks 120–153), so this cut "
-            "fills from the latest expand's silent/unread rows that have a "
-            "domain. Well-known first-party privacy / security / trust / "
-            "compliance paths are live-fetched. Marks fill only when that "
-            "HTML names the company's own hold. Regulation mentions "
-            "(GDPR/CCPA as rights) and DPF as a transfer mechanism among "
-            "SCCs stay open. Login walls, soft-404s, homepage bounces, "
-            "PDFs, JS shells, and portal hosts stay open."
+            "(including leftover instrument walks 120, 122, 125, 126, 128, "
+            "130, 133, 134, 137, 138, 141, 142, 144, 145, 147, 150, 151, "
+            "153, and 155), so this cut fills from the latest expand's "
+            "silent/unread rows that have a domain. Well-known first-party "
+            "privacy / security / trust / compliance paths are live-fetched. "
+            "Marks fill only when that HTML names the company's own hold. "
+            "Regulation mentions (GDPR/CCPA as rights) and DPF as a "
+            "transfer mechanism among SCCs stay open. Login walls, "
+            "soft-404s, homepage bounces, PDFs, JS shells, and portal "
+            "hosts stay open."
         ),
         "batch": [rec["slug"] for rec in batch],
         "marks_filed": filed,
