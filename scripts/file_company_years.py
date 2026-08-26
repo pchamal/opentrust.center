@@ -394,6 +394,48 @@ PRIOR_ATTEMPTED = {
     "elevance-health",
     "energy-transfer-partners",
     "enterprise-mobility",
+    # this cut — unread open years files with a stored first-party
+    # trust / privacy / about / security URL
+    "gb-group",
+    "first-solar",
+    "enterprise-products-partners",
+    "epic-games",
+    "exasol-ag",
+    "exxon-mobil",
+    "fanatics",
+    "fannie-mae",
+    "fedex",
+    "figure-ai",
+    "fiserv",
+    "flex-ltd",
+    "fox-corporation",
+    "freddie-mac",
+    "freee-k-k",
+    "freightos",
+    "genius-sports",
+    "grab",
+    "grubhub",
+    "h-e-b-grocery-company",
+    "hbx-group-international-plc",
+    "hca-healthcare",
+    "hcl-tech",
+    "hp",
+    "humana",
+    "informatica",
+    "infotel",
+    "intel",
+    "intershop-communications",
+    "jack-henry",
+    "jfrog",
+    "johnson-and-johnson",
+    "kakao",
+    "kingsoft",
+    "kla",
+    "klarna",
+    "kpit-technologies",
+    "kyndryl",
+    "kyndryl-holdings",
+    "ltts",
 }
 
 
@@ -895,7 +937,7 @@ def main() -> int:
             "HTML names founded, established, or foundingDate. Wikipedia, news, "
             "title-only prefix matches, portal catalogs, JS shells, login/CMP "
             "walls, investor/parent years, rebrand dates, and soft story-began "
-            "copy stay open. Prior year cuts through PR 129 are on the skip list."
+            "copy stay open. Prior year cuts through PR 135 are on the skip list."
         ),
         "batch": [rec["slug"] for rec in batch],
         "years_filed": filed,
