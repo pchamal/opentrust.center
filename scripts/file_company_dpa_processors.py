@@ -513,6 +513,14 @@ PRIOR_ATTEMPTED = {
     "diebold-nixdorf",
     "paylocity",
     "procore",
+    # this cut — leftover DPA-on-file empty named-processor lists
+    "anysphere",
+    "glossgenius",
+    "braze",
+    "photoroom",
+    "pagaya",
+    "teamviewer",
+    "ibotta",
 }
 
 

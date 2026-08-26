@@ -74786,7 +74786,7 @@
       "probed_at": "2026-08-26T01:56:36Z",
       "certs": [],
       "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "summary": "Official page on file. Named processors filed from a first-party list.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -74807,22 +74807,47 @@
           "seen": "2026-08-26"
         },
         "subprocessors": {
-          "url": "https://trust.photoroom.com/subprocessors",
-          "host": "trust.photoroom.com",
+          "url": "https://www.photoroom.com/legal/data-processing-agreement",
+          "host": "photoroom.com",
           "seen": "2026-08-26"
         },
         "status": null,
         "bounty": null
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "Amazon Web Services (AWS)",
+          "slug": "amazon-web-services",
+          "id": "aws",
+          "source_url": "https://www.photoroom.com/legal/data-processing-agreement"
+        },
+        {
+          "name": "Cloudflare Inc",
+          "slug": "cloudflare",
+          "id": "cloudflare",
+          "source_url": "https://www.photoroom.com/legal/data-processing-agreement"
+        },
+        {
+          "name": "Google LLC (Google Cloud, Firebase, Workspace)",
+          "slug": null,
+          "id": "gcp",
+          "source_url": "https://www.photoroom.com/legal/data-processing-agreement"
+        },
+        {
+          "name": "Intercom",
+          "slug": "intercom",
+          "id": "intercom",
+          "source_url": "https://www.photoroom.com/legal/data-processing-agreement"
+        }
+      ],
       "disclosure": {
-        "score": 20,
+        "score": 28,
         "tier": "thin",
         "factors": {
           "page": 20,
           "marks": 0,
           "dpa": 0,
-          "processors": 0,
+          "processors": 8,
           "status": 0,
           "bounty": 0,
           "privacy": 0,
@@ -74834,7 +74859,7 @@
         "page": 20,
         "marks": 10,
         "dpa": 20,
-        "subprocessors": 10,
+        "subprocessors": 20,
         "years": 0
       },
       "_crawl": {
@@ -199612,11 +199637,11 @@
     "companies": 2573,
     "years": 463,
     "certs_companies": 484,
-    "edges": 2014,
+    "edges": 2018,
     "top_processors": [
       {
         "id": "aws",
-        "n": 104
+        "n": 105
       },
       {
         "id": "twilio",
@@ -199624,7 +199649,7 @@
       },
       {
         "id": "gcp",
-        "n": 45
+        "n": 46
       }
     ],
     "links": {
