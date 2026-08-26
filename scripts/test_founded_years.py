@@ -255,7 +255,7 @@ def test_apply_rejects_wiki_and_keeps_existing() -> None:
 
 
 def test_report_years_landed() -> None:
-    """This increment filed six first-party years. Held false hits stay open."""
+    """This increment filed three first-party years. Held false hits stay open."""
     import json
     public = json.loads((ROOT / "site" / "data.json").read_text())
     enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
@@ -266,16 +266,13 @@ def test_report_years_landed() -> None:
     batch = report.get("batch") or []
     stayed = report.get("stayed_open") or []
     filed_by = {r["slug"]: r for r in filed}
-    check(len(filed) == 6, f"this increment filed 6, got {len(filed)}")
-    check(len(stayed) == 34, f"34 stayed open, got {len(stayed)}")
+    check(len(filed) == 3, f"this increment filed 3, got {len(filed)}")
+    check(len(stayed) == 37, f"37 stayed open, got {len(stayed)}")
     check(len(batch) == 40, f"batch is 40, got {len(batch)}")
     expect = {
-        "01-ai": (2023, "https://www.01.ai/"),
-        "crowdin": (2008, "https://crowdin.com/"),
-        "cyberlink": (1996, "https://www.cyberlink.com/"),
-        "graphisoft": (1982, "https://www.graphisoft.com/en-us/company/about"),
-        "scoro": (2013, "https://www.scoro.com/"),
-        "tmaxsoft": (1997, "https://www.tmaxsoft.com/en/introduction/overview"),
+        "american-water-works": (1886, "https://amwater.com/corp/About-Us/Corporate"),
+        "blackrock": (1988, "https://www.blackrock.com/us/individual"),
+        "brown-forman": (1870, "https://www.brown-forman.com/"),
     }
     check(set(filed_by) == set(expect), f"filed slugs, got {sorted(filed_by)}")
     for slug, (year, source) in expect.items():
@@ -299,8 +296,11 @@ def test_report_years_landed() -> None:
     check("orca-security" not in batch, "PR 111 Orca is not re-walked")
     check("craigslist" not in batch, "PR 115 leftovers are not re-walked")
     check("innofactor" not in batch, "PR 117 fills are not re-walked")
+    check("01-ai" not in batch, "PR 124 fills are not re-walked")
+    check("crowdin" not in batch, "PR 124 fills are not re-walked")
     check("grafana-labs" not in batch, "earlier trust-URL years files are not re-walked")
     check("checkr" not in batch, "earlier trust-URL years files are not re-walked")
+    check("alkami" in batch and "amdocs" in batch, "natural first-party-link queue is walked")
     from file_company_years import PRIOR_ATTEMPTED, select_batch
     for slug in batch:
         check(slug in PRIOR_ATTEMPTED, f"{slug} is on the next-increment skip list")
@@ -336,6 +336,12 @@ def test_report_years_landed() -> None:
         "innofactor": 2000,
         "preferred-networks": 2014,
         "works-applications": 1996,
+        "01-ai": 2023,
+        "crowdin": 2008,
+        "cyberlink": 1996,
+        "graphisoft": 1982,
+        "scoro": 2013,
+        "tmaxsoft": 1997,
     }
     for slug, year in prior.items():
         pub, row = by_pub[slug], by_enr[slug]
@@ -354,7 +360,10 @@ def test_report_years_landed() -> None:
         "critical-software": "1998",
         "zeroturnaround": "2007",
         "orthograph": "2004",
+        "a-o-smith": "1904",
     }
+    aosmith_html = (ROOT / "site" / "c" / "a-o-smith.html").read_text(encoding="utf-8")
+    check("founded · 1874" not in aosmith_html, "A. O. Smith 1874 is not printed")
     for slug, year in held.items():
         pub = by_pub[slug]
         check(not pub.get("founded_year"), f"{slug} year stays open")
