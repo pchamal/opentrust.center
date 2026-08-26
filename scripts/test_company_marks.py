@@ -289,6 +289,14 @@ def main() -> int:
         "privacy",
     )
     check(kept == [], f"4DMedical HIPAA business-associate sentence stays open: {kept} {why}")
+    kept, why = hold_marks(
+        ["EU-US DPF", "GDPR", "CCPA", "PIPEDA"],
+        "Cboe and its wholly-owned subsidiaries participate and comply with "
+        "the EU-U.S. Data Privacy Framework. Cboe has certified to the U.S. "
+        "Department of Commerce that it adheres to the DPF Principles.",
+        "privacy",
+    )
+    check(kept == ["EU-US DPF"], f"Cboe DPF self-cert files, privacy GDPR/CCPA stay open: {kept} {why}")
 
     for rec in report.get("marks_filed") or []:
         slug, url, added = rec["slug"], rec["url"], rec["added"]
@@ -380,24 +388,26 @@ def main() -> int:
     check("Amazon Web Services" in zoom, "zoom still names AWS")
     check("0–100" not in index and "0-100" not in index, "no 0-100 score on AITI")
 
-    # This increment: unread empty-cert files with a stored first-party
-    # trust / security / privacy URL. Trust-URL leftovers are exhausted.
+    # This increment: leftover empty-cert trust-URL files plus the next
+    # unread empty-cert files with a stored first-party privacy URL.
     batch = report.get("batch") or []
     want = [
-        "braze", "glossgenius", "brown-forman", "american-water-works",
-        "character-ai", "amcor", "abbott-laboratories", "american-international-group",
-        "aflac", "jabil", "micron-technology", "valero-energy", "aes-corporation",
-        "centene", "corpay", "materialise-nv", "schr-dinger", "zensar-technologies",
-        "on-semiconductor", "globant", "4dmedical-limited", "bytedance", "cyngn",
-        "system1", "applied-digital", "3d-systems", "3i-infotech", "a-o-smith",
-        "aiforia-technologies-oyj", "albemarle-corporation",
-        "alexandria-real-estate-equities", "alfa-financial-software", "alkami",
-        "alliant-energy", "amadeus", "ameren", "american-electric-power",
-        "american-express", "ametek", "amgen",
+        "codesignal", "earnin", "renaissance-learning", "zafin",
+        "aptiv", "arthur-j-gallagher-and-co", "assurant", "atmos-energy",
+        "aurora-innovation", "baker-hughes", "becton-dickinson", "beyond",
+        "blue-yonder", "bristol-myers-squibb", "builders-firstsource",
+        "c-h-robinson", "camden-property-trust", "carrier-global",
+        "cboe-global-markets", "cdk-global", "cencora", "centerpoint-energy",
+        "cf-industries", "charles-schwab-corporation", "chipotle-mexican-grill",
+        "chubb-limited", "church-and-dwight", "cincinnati-financial",
+        "cognizant-technology-solutions", "cognyte", "coherent-corp",
+        "comfort-systems-usa", "concentrix", "conocophillips",
+        "consolidated-edison", "constellation-brands", "constellation-software",
+        "copart", "corteva", "cox-enterprises",
     ]
     check(batch == want, f"batch is next unread 40, got {batch}")
     filed = {rec["slug"]: rec for rec in (report.get("marks_filed") or [])}
-    check(set(filed) == {"braze", "alfa-financial-software"}, f"filed slugs {sorted(filed)}")
+    check(set(filed) == {"cboe-global-markets"}, f"filed slugs {sorted(filed)}")
     stayed = {rec["slug"] for rec in (report.get("stayed_open") or [])}
     check(stayed == set(want) - set(filed), f"honest zeros {sorted(stayed)}")
     from file_company_marks import PRIOR_ATTEMPTED, select_batch
@@ -406,16 +416,18 @@ def main() -> int:
     leftover = select_batch(list(public["companies"]), by_enr)
     leftover_slugs = {r["slug"] for r in leftover}
     check(not leftover_slugs & set(batch), f"this batch is not retried, got {leftover_slugs & set(batch)}")
-    check(filed["braze"]["added"] == ["EU-US DPF"], f"braze added {filed['braze']['added']}")
-    check("ISO 27001" not in filed["braze"]["added"], "braze nav ISO 27001 is not a hold")
-    check(
-        filed["alfa-financial-software"]["added"] == ["ISO 27001", "ISO 27018"],
-        f"alfa added {filed['alfa-financial-software']['added']}",
-    )
+    check(filed["cboe-global-markets"]["added"] == ["EU-US DPF"], f"cboe added {filed['cboe-global-markets']['added']}")
+    check("GDPR" not in filed["cboe-global-markets"]["added"], "cboe privacy GDPR is not a hold")
+    check("CCPA" not in filed["cboe-global-markets"]["added"], "cboe privacy CCPA is not a hold")
     for slug in ("abbott-laboratories", "aflac", "centene", "4dmedical-limited"):
         pub = by_pub[slug]
         check(not (pub.get("certs") or []), f"{slug} HIPAA notice is not a filed mark")
         check((pub.get("file") or {}).get("marks") in (0, 10, False, None), f"{slug} marks glyph stays open")
+    check("EU-US DPF" in (by_pub["braze"].get("certs") or []), "braze prior DPF stays")
+    check(
+        {"ISO 27001", "ISO 27018"} <= set(by_pub["alfa-financial-software"].get("certs") or []),
+        "alfa prior ISO holds stay",
+    )
     for slug in ("domo", "sopra-steria"):
         pub = by_pub[slug]
         check(not (pub.get("certs") or []), f"{slug} certs stay empty")
