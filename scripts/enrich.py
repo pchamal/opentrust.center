@@ -378,6 +378,13 @@ JSONLD_NOT_FOUNDING = re.compile(
     r"product\s+launch|launched the product|unveiled)\b",
     re.I,
 )
+# Prose "established in YYYY, as a new name for X" is a rename, not founding
+# (Cencora 2023 / AmerisourceBergen class).
+PROSE_REBRAND = re.compile(
+    r"\b(?:as a new name(?:\s+for)?|new name for|re-?brand(?:ed|ing)?|"
+    r"formerly known as|renamed(?:\s+to)?|change(?:d)? its name)\b",
+    re.I,
+)
 # Timeline copy: "2005 Fenrir Established 2008 Collaborative Development"
 # The year after Established is the next beat, not founding.
 _YEAR_NC = r"(?:1[6-9]\d{2}|20[0-2]\d)"
@@ -3339,6 +3346,8 @@ def parse_official_founded_year(text: str, company_name: str = ""):
             if not _window_about_this_company(window, company_name, is_struct):
                 continue
             if is_struct and JSONLD_NOT_FOUNDING.search(window):
+                continue
+            if not is_struct and PROSE_REBRAND.search(window):
                 continue
             if not is_struct and _timeline_next_event(window, year):
                 continue
