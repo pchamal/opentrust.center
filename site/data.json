@@ -62915,7 +62915,7 @@
       "list_rank": 1114
     },
     {
-      "rank": 408,
+      "rank": 372,
       "name": "Beck Technology",
       "slug": "beck-technology",
       "domain": "beck-technology.com",
@@ -62927,9 +62927,17 @@
       "source_url": "https://en.wikipedia.org/wiki/Category:Development_software_companies",
       "probed": 1,
       "probed_at": "2026-08-26T17:53:26Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "SOC 2"
+      ],
+      "attestations": [
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2.",
       "founded_year": 1996,
       "founded_source": "https://en.wikipedia.org/wiki/Beck_Technology",
       "instruments": {
@@ -62939,7 +62947,11 @@
           "seen": "2026-08-26"
         },
         "security": null,
-        "privacy": null,
+        "privacy": {
+          "url": "https://www.beck-technology.com/privacy-policy",
+          "host": "beck-technology.com",
+          "seen": "2026-08-26"
+        },
         "dpa": null,
         "subprocessors": null,
         "status": null,
@@ -62947,23 +62959,23 @@
       },
       "processors": [],
       "disclosure": {
-        "score": 30,
-        "tier": "thin",
+        "score": 40,
+        "tier": "on-file",
         "factors": {
           "page": 20,
-          "marks": 0,
+          "marks": 4,
           "dpa": 0,
           "processors": 0,
           "status": 0,
           "bounty": 0,
-          "privacy": 0,
+          "privacy": 6,
           "years": 10
         }
       },
-      "tier": "thin",
+      "tier": "on-file",
       "file": {
         "page": 20,
-        "marks": 10,
+        "marks": 20,
         "dpa": 0,
         "subprocessors": 0,
         "years": 20
@@ -65501,7 +65513,7 @@
       "list_rank": 1117
     },
     {
-      "rank": 423,
+      "rank": 291,
       "name": "Sherpa.ai",
       "slug": "sherpa-ai",
       "domain": "sherpa.ai",
@@ -65513,9 +65525,29 @@
       "source_url": "https://en.wikipedia.org/wiki/Category:Development_software_companies",
       "probed": 1,
       "probed_at": "2026-08-26T17:53:26Z",
-      "certs": [],
-      "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "certs": [
+        "Cyber Essentials",
+        "HIPAA",
+        "ISO 27001"
+      ],
+      "attestations": [
+        {
+          "id": "cyber-essentials",
+          "name": "Cyber Essentials",
+          "weight": 4
+        },
+        {
+          "id": "hipaa",
+          "name": "HIPAA",
+          "weight": 6
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: ISO 27001, HIPAA, Cyber Essentials.",
       "founded_year": 2012,
       "founded_source": "https://en.wikipedia.org/wiki/Sherpa.ai",
       "instruments": {
@@ -65529,7 +65561,11 @@
           "host": "trust.sherpa.ai",
           "seen": "2026-08-26"
         },
-        "privacy": null,
+        "privacy": {
+          "url": "https://sherpa.ai/privacy-policy/",
+          "host": "sherpa.ai",
+          "seen": "2026-08-26"
+        },
         "dpa": null,
         "subprocessors": null,
         "status": null,
@@ -65537,23 +65573,23 @@
       },
       "processors": [],
       "disclosure": {
-        "score": 27,
-        "tier": "thin",
+        "score": 53,
+        "tier": "on-file",
         "factors": {
           "page": 20,
-          "marks": 0,
+          "marks": 20,
           "dpa": 0,
           "processors": 0,
           "status": 0,
           "bounty": 0,
-          "privacy": 0,
+          "privacy": 6,
           "years": 7
         }
       },
-      "tier": "thin",
+      "tier": "on-file",
       "file": {
         "page": 20,
-        "marks": 10,
+        "marks": 20,
         "dpa": 0,
         "subprocessors": 0,
         "years": 20
@@ -209434,7 +209470,7 @@
   "coverage": {
     "companies": 2733,
     "years": 487,
-    "certs_companies": 494,
+    "certs_companies": 496,
     "edges": 2048,
     "top_processors": [
       {
@@ -209453,17 +209489,17 @@
     "links": {
       "security_txt": 266,
       "dpa": 183,
-      "privacy": 685,
+      "privacy": 687,
       "status": 360,
       "bug_bounty": 221,
       "subprocessors": 292
     },
     "tiers": {
-      "silent": 2212,
-      "thin": 142,
-      "on-file": 198,
+      "complete": 58,
       "substantial": 123,
-      "complete": 58
+      "on-file": 200,
+      "thin": 140,
+      "silent": 2212
     }
   }
 }
