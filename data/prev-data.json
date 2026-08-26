@@ -344,7 +344,7 @@
     "trust": "https://trust.navan.com",
     "security": "https://navan.com/security",
     "privacy": "https://navan.com/privacy",
-    "dpa": "https://trust.navan.com/?itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e",
+    "dpa": "https://navan.com/dpa",
     "subprocessors": "https://trust.navan.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
     "status": "https://status.navan.com",
     "bounty": "https://navan.com/security"
@@ -401,7 +401,7 @@
     "trust": "https://security.vercel.com",
     "security": "https://security.vercel.com",
     "privacy": "https://vercel.com/legal/privacy-notice",
-    "dpa": "https://security.vercel.com/?itemName=legal",
+    "dpa": "https://vercel.com/legal/dpa",
     "subprocessors": "https://security.vercel.com/subprocessors",
     "status": "https://www.vercel-status.com/",
     "bounty": "https://vercel.com/security/responsible-disclosure"
@@ -1437,21 +1437,6 @@
     "subprocessors": "https://aws.amazon.com/compliance/sub-processors/",
     "status": null,
     "bounty": "https://aws.amazon.com/security/vulnerability-reporting/"
-   }
-  },
-  {
-   "domain": "percona.com",
-   "tier": "on-file",
-   "certs": [
-   ],
-   "instruments": {
-    "trust": "https://trust.percona.com",
-    "security": "https://www.percona.com/security/",
-    "privacy": "https://www.percona.com/privacy/",
-    "dpa": null,
-    "subprocessors": "https://trust.percona.com/subprocessors",
-    "status": "https://status.percona.com",
-    "bounty": null
    }
   },
   {
@@ -6819,6 +6804,20 @@
    }
   },
   {
+   "domain": "percona.com",
+   "tier": "on-file",
+   "certs": [],
+   "instruments": {
+    "trust": "https://trust.percona.com",
+    "security": "https://www.percona.com/security/",
+    "privacy": "https://www.percona.com/privacy/",
+    "dpa": null,
+    "subprocessors": "https://trust.percona.com/subprocessors",
+    "status": "https://status.percona.com",
+    "bounty": null
+   }
+  },
+  {
    "domain": "versapay.com",
    "tier": "on-file",
    "certs": [],
@@ -10718,6 +10717,23 @@
    }
   },
   {
+   "domain": "backblaze.com",
+   "tier": "silent",
+   "certs": [
+    "EU-US DPF",
+    "TX-RAMP"
+   ],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://www.backblaze.com/company/policy/privacy",
+    "dpa": "https://www.backblaze.com/company/policy/dpa-for-uk-residents",
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
    "domain": "watchguard.com",
    "tier": "silent",
    "certs": [
@@ -11144,23 +11160,6 @@
     "trust": null,
     "security": null,
     "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
-   "domain": "backblaze.com",
-   "tier": "silent",
-   "certs": [
-    "EU-US DPF",
-    "TX-RAMP"
-   ],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": "https://www.backblaze.com/company/policy/privacy",
     "dpa": null,
     "subprocessors": null,
     "status": null,
