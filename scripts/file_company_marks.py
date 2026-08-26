@@ -591,6 +591,48 @@ PRIOR_ATTEMPTED = {
     "opendoor",
     "opera",
     "perfect-corp",
+    # this cut — leftover empty-cert trust-URL files plus the next
+    # unread empty-cert files with a stored first-party privacy URL.
+    "seqera-labs",
+    "walkme",
+    "virtutech",
+    "performance-food-group",
+    "phillips-66",
+    "porch-group",
+    "pro-medicus",
+    "publix-super-markets",
+    "quick-heal",
+    "ramco-systems",
+    "raysearch-laboratories",
+    "robinhood",
+    "rtx",
+    "sandisk",
+    "sanmina",
+    "science-applications-international",
+    "sea-limited",
+    "serko-limited",
+    "serviceware",
+    "silvaco",
+    "simulations-plus",
+    "smith-micro-software",
+    "sonata-software",
+    "southern-glazer-s-wine-and-spirits",
+    "spotify",
+    "stitch-fix",
+    "super-micro-computer",
+    "synaptics",
+    "synchronoss",
+    "sysco",
+    "take-two-interactive",
+    "tally-solutions",
+    "target",
+    "td-synnex",
+    "tech-mahindra",
+    "teledyne-technologies",
+    "tencent",
+    "tietoevry",
+    "tko-group-holdings",
+    "tose-software",
 }
 
 # Regulation-only lists stay thin. Real certs (SOC / ISO / FedRAMP / …) fill out.
@@ -646,6 +688,9 @@ HIPAA_NOT_HOLD_RE = re.compile(
     r"regulated\s+under\s+(?:the\s+)?(?:health insurance portability|hipaa)|"
     r"(?:complian[ct]e|comply)\s+with\s+(?:the\s+)?(?:health insurance portability|hipaa)|"
     r"hipaa.?s?\s+privacy\s+rule|"
+    r"hipaa\s+privacy\s+practices|"
+    r"privacy\s+practices\s+notice|"
+    r"health\s+and\s+wellness\s+plan|"
     r"sector[- ]specific\s+privacy\s+laws|"
     r"health\s+insurance\s+portability\s+and\s+accountability\s+act\s+of\s+1996|"
     r"does\s+not\s+apply\s+to.{0,160}protected\s+health\s+information",
