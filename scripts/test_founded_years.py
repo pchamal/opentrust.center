@@ -263,7 +263,7 @@ def test_apply_rejects_wiki_and_keeps_existing() -> None:
 
 
 def test_report_years_landed() -> None:
-    """This increment filed four first-party years. Held false hits stay open."""
+    """This increment filed no first-party years. Held false hits stay open."""
     import json
     public = json.loads((ROOT / "site" / "data.json").read_text())
     enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
@@ -274,15 +274,10 @@ def test_report_years_landed() -> None:
     batch = report.get("batch") or []
     stayed = report.get("stayed_open") or []
     filed_by = {r["slug"]: r for r in filed}
-    check(len(filed) == 4, f"this increment filed 4, got {len(filed)}")
-    check(len(stayed) == 36, f"36 stayed open, got {len(stayed)}")
+    check(len(filed) == 0, f"this increment filed 0, got {len(filed)}")
+    check(len(stayed) == 40, f"40 stayed open, got {len(stayed)}")
     check(len(batch) == 40, f"batch is 40, got {len(batch)}")
-    expect = {
-        "first-solar": (1999, "https://www.firstsolar.com/About-Us/Overview"),
-        "freee-k-k": (2012, "https://www.freee.co.jp/"),
-        "genius-sports": (2001, "https://www.geniussports.com/about-us"),
-        "klarna": (2005, "https://www.klarna.com/international/about-us"),
-    }
+    expect = {}
     check(set(filed_by) == set(expect), f"filed slugs, got {sorted(filed_by)}")
     for slug, (year, source) in expect.items():
         rec, pub, row = filed_by[slug], by_pub[slug], by_enr[slug]
@@ -313,7 +308,9 @@ def test_report_years_landed() -> None:
     check("blackrock" not in batch, "PR 129 fills are not re-walked")
     check("cencora" not in batch, "PR 135 leftovers are not re-walked")
     check("danaher-corporation" not in batch, "PR 135 fills are not re-walked")
-    check("first-solar" in batch and "klarna" in batch, "natural first-party-link queue is walked")
+    check("first-solar" not in batch, "PR 140 fills are not re-walked")
+    check("klarna" not in batch, "PR 140 fills are not re-walked")
+    check("mitek-systems" in batch and "sandisk" in batch, "natural first-party-link queue is walked")
     from file_company_years import PRIOR_ATTEMPTED, select_batch
     for slug in batch:
         check(slug in PRIOR_ATTEMPTED, f"{slug} is on the next-increment skip list")
@@ -361,6 +358,10 @@ def test_report_years_landed() -> None:
         "consolidated-edison": 1823,
         "danaher-corporation": 1984,
         "echostar": 1980,
+        "first-solar": 1999,
+        "freee-k-k": 2012,
+        "genius-sports": 2001,
+        "klarna": 2005,
     }
     for slug, year in prior.items():
         pub, row = by_pub[slug], by_enr[slug]
