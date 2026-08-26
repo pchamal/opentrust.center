@@ -1869,6 +1869,27 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     sub = inst.get("subprocessors")
     if isinstance(sub, dict) and sub.get("url"):
         list_url = sub["url"]
+    ai = row.get("ai_processors") or {}
+    if not procs and isinstance(ai, dict) and ai.get("names"):
+        # Cited AITI named-processor source-lines stay on the dossier
+        # when the register processors list is empty.
+        procs = []
+        for raw in ai.get("names") or []:
+            if isinstance(raw, dict):
+                proc_name = str(raw.get("name") or "").strip()
+                if not proc_name:
+                    continue
+                procs.append({
+                    "name": proc_name,
+                    "slug": raw.get("slug"),
+                    "id": raw.get("id"),
+                    "source_url": raw.get("source_url") or ai.get("source_url"),
+                })
+            else:
+                proc_name = str(raw or "").strip()
+                if proc_name:
+                    procs.append({"name": proc_name, "source_url": ai.get("source_url")})
+        list_url = list_url or (ai.get("source_url") or "")
     clerk = row.get("summary") or ""
     clerk_html = f'<p class="clerk">{link_mark_words(clerk, atts)}</p>' if clerk else ""
     outbound = (

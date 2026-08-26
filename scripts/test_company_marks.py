@@ -285,6 +285,21 @@ def main() -> int:
         f"Phreesia first-party certification holds stay: {kept} {why}",
     )
     kept, why = hold_marks(
+        ["SOC 2 Type I", "GDPR"],
+        "SOC 2 Type 1 certified Audited annually GDPR compliant EU data residency "
+        "by default. Your data is never used to train models.",
+        "security",
+    )
+    check(kept == ["SOC 2 Type I"], f"LightOn GDPR-compliant copy stays open: {kept} {why}")
+    kept, why = hold_marks(
+        ["ISO 27001", "PCI DSS", "GDPR"],
+        "We are ISO 27001 certified. All payments are managed according to PCI DSS "
+        "standard by PayPal, and Stripe. We meet requirements of the General Data "
+        "Protection Regulation (GDPR).",
+        "security",
+    )
+    check(kept == ["ISO 27001"], f"SurveyLab processor PCI / GDPR requirements stay open: {kept} {why}")
+    kept, why = hold_marks(
         ["HIPAA"],
         "Protected health information subject to the Health Insurance "
         "Portability and Accountability Act (“HIPAA”). In such cases, we are "
@@ -499,22 +514,33 @@ def main() -> int:
     check("Amazon Web Services" in zoom, "zoom still names AWS")
     check("0–100" not in index and "0-100" not in index, "no 0-100 score on AITI")
 
-    # This increment: remaining thin files with a stored first-party
-    # privacy URL after leftover instrument walks and the empty-cert queue.
+    # This increment: latest expand silent/unread rows with a domain,
+    # after leftover instrument walks and the empty-cert URL queue.
     batch = report.get("batch") or []
     want = [
-        "flex-ltd", "hp", "jfrog", "kingsoft", "metlife", "phreesia",
-        "rackspace", "semrush", "soundthinking", "ssc-technologies",
-        "synopsys", "thales", "unisys", "verisk", "yandex",
+        "trendrr", "varigence", "skift", "veda", "civiqs", "targit", "kaggle",
+        "telligent-systems", "medio", "sentient-information-systems",
+        "importgenius", "black-swan-data", "surgisphere", "mu-sigma",
+        "exl-service", "oag", "plum-analytics", "reprisk", "newswhip",
+        "surveylab", "platfora", "truviso", "smith-brandon-international",
+        "civis-analytics", "data-propria", "hortonworks", "sojern",
+        "bright-computing", "zoomdata", "arcade1up", "rocket-fuel-inc",
+        "xandr", "sense-networks", "tubemogul", "analogue", "american-sammy",
+        "the-ant-commandos", "mapr", "owkin", "lighton",
     ]
-    check(batch == want, f"batch is remaining thin 15, got {batch}")
+    check(batch == want, f"batch is latest-expand silent 40, got {batch}")
     filed = {rec["slug"]: rec for rec in (report.get("marks_filed") or [])}
-    check(set(filed) == {"phreesia"}, f"filed slugs {sorted(filed)}")
+    check(set(filed) == {"lighton", "mu-sigma", "sojern", "surveylab"}, f"filed slugs {sorted(filed)}")
+    check(filed["lighton"]["added"] == ["SOC 2 Type I"], f"lighton added {filed['lighton']['added']}")
+    check("GDPR" not in filed["lighton"]["added"], "lighton GDPR-compliant copy is not a hold")
     check(
-        filed["phreesia"]["added"] == ["SOC 2 Type II", "HITRUST", "PCI DSS"],
-        f"phreesia added {filed['phreesia']['added']}",
+        filed["mu-sigma"]["added"] == ["SOC 2 Type II", "ISO 27001"],
+        f"mu-sigma added {filed['mu-sigma']['added']}",
     )
-    check("HIPAA" not in filed["phreesia"]["added"], "phreesia HIPAA scope is not a hold")
+    check(filed["sojern"]["added"] == ["EU-US DPF"], f"sojern added {filed['sojern']['added']}")
+    check(filed["surveylab"]["added"] == ["ISO 27001"], f"surveylab added {filed['surveylab']['added']}")
+    check("PCI DSS" not in filed["surveylab"]["added"], "surveylab PayPal/Stripe PCI is not a hold")
+    check("GDPR" not in filed["surveylab"]["added"], "surveylab GDPR requirements are not a hold")
     stayed = {rec["slug"] for rec in (report.get("stayed_open") or [])}
     check(stayed == set(want) - set(filed), f"honest zeros {sorted(stayed)}")
     from file_company_marks import PRIOR_ATTEMPTED, select_batch
@@ -526,6 +552,8 @@ def main() -> int:
     for slug in (
         "percona", "agility-robotics", "berkshire-grey", "sherpa-ai", "pubnub",
         "foxit-software", "opengov", "aptean", "qad-redzone", "blackboard",
+        "peak", "translated", "anaplan", "sarvam-ai", "salesloft",
+        "verint-systems", "thoughtspot",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")
@@ -595,6 +623,21 @@ def main() -> int:
     years = {"superoffice": 1990, "genedata": 1997, "trustpilot": 2007, "sonar": 2008}
     for slug, year in years.items():
         check(by_pub[slug].get("founded_year") == year, f"{slug} year stays {year}")
+    check(
+        {"SOC 2 Type II", "HITRUST", "PCI DSS"} <= set(by_pub["phreesia"].get("certs") or []),
+        "phreesia prior holds stay",
+    )
+    check("HIPAA" not in (by_pub["phreesia"].get("certs") or []), "phreesia HIPAA scope stays open")
+    check("SOC 2 Type I" in (by_pub["lighton"].get("certs") or []), "lighton SOC 2 Type I filed")
+    check("GDPR" not in (by_pub["lighton"].get("certs") or []), "lighton GDPR-compliant copy stays open")
+    check(
+        {"SOC 2 Type II", "ISO 27001"} <= set(by_pub["mu-sigma"].get("certs") or []),
+        "mu-sigma ISO / SOC 2 Type II filed",
+    )
+    check((by_pub["sojern"].get("certs") or []) == ["EU-US DPF"], f"sojern certs {by_pub['sojern'].get('certs')}")
+    check((by_pub["surveylab"].get("certs") or []) == ["ISO 27001"], f"surveylab certs {by_pub['surveylab'].get('certs')}")
+    check("PCI DSS" not in (by_pub["surveylab"].get("certs") or []), "surveylab PayPal/Stripe PCI stays open")
+    check("GDPR" not in (by_pub["surveylab"].get("certs") or []), "surveylab GDPR requirements stay open")
     check("EU-US DPF" in (by_pub["backblaze"].get("certs") or []), "backblaze DPF filed")
     check("TX-RAMP" in (by_pub["backblaze"].get("certs") or []), "backblaze TX-RAMP stays")
     check("PCI DSS" in (by_pub["fiserv"].get("certs") or []), "fiserv PCI DSS filed")
