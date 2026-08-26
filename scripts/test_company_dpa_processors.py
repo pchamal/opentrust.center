@@ -106,18 +106,7 @@ def main() -> int:
     check("Amazon Web Services" in zoom, "zoom still names AWS")
     check("Concentration" not in (ROOT / "site" / "graph.html").read_text(encoding="utf-8"), "list dropped Concentration")
 
-    # This increment: leftover DPA-on-file companies with empty named processors (7 slugs).
-    expected_batch = [
-        "anysphere", "glossgenius", "braze", "photoroom", "pagaya", "teamviewer", "ibotta",
-    ]
-    check(report.get("batch") == expected_batch, "batch is the 7 leftover DPA-on-file slugs")
-    check(not (report.get("dpa_filed") or []), "no DPA was newly filed or dropped")
-
-    for slug in expected_batch:
-        pub = by_pub[slug]
-        check(instrument_url(pub, "dpa"), f"{slug} existing DPA stays on file")
-        check((pub.get("file") or {}).get("dpa") in (True, 20), f"{slug} file.dpa stays filled")
-
+    # Prior fill stays: Photoroom printed appendix (PR 132).
     check(
         instrument_url(by_pub["photoroom"], "dpa")
         == "https://www.photoroom.com/legal/data-processing-agreement",
@@ -135,37 +124,70 @@ def main() -> int:
     check(
         instrument_url(by_pub["photoroom"], "subprocessors")
         == "https://www.photoroom.com/legal/data-processing-agreement",
-        "photoroom list URL moved from the JS trust path to the printed appendix",
+        "photoroom list URL stays the printed appendix",
     )
     check((by_pub["photoroom"].get("file") or {}).get("subprocessors") == 20, "photoroom list printed")
 
-    # Already named on the public file before this cut; live first-party HTML added no new names.
     any_names = [p.get("name") for p in (by_pub["anysphere"].get("processors") or [])]
     check(len(any_names) == 17, f"anysphere existing 17 names stay, got {len(any_names)}")
     check(instrument_url(by_pub["anysphere"], "dpa") == "https://cursor.com/terms/dpa", "anysphere DPA stays")
 
-    for slug in ("glossgenius", "braze", "pagaya", "teamviewer", "ibotta"):
+    # This increment: leftover DPA-on-file empty list + unread first-party DPA queue (8 slugs).
+    expected_batch = [
+        "synap",
+        "blackboard",
+        "foxit-software",
+        "codesignal",
+        "earnin",
+        "renaissance-learning",
+        "inmobi",
+        "zafin",
+    ]
+    check(report.get("batch") == expected_batch, "batch is the leftover first-party DPA/processor queue")
+    check(not (report.get("dpa_filed") or []), "no DPA was newly filed or dropped")
+    check(not (report.get("subprocessors_filed") or []), "no named processors were invented")
+
+    check(
+        instrument_url(by_pub["synap"], "dpa")
+        == "https://synap.ac/docs/legals/data-processing-agreement-dpa",
+        "synap existing DPA stays on file",
+    )
+    check((by_pub["synap"].get("file") or {}).get("dpa") in (True, 20), "synap file.dpa stays filled")
+    check(not (by_pub["synap"].get("processors") or []), "synap named processors stay open")
+
+    bb_names = [p.get("name") for p in (by_pub["blackboard"].get("processors") or [])]
+    check(len(bb_names) == 30, f"blackboard existing 30 names stay, got {len(bb_names)}")
+    check(not instrument_url(by_pub["blackboard"], "dpa"), "blackboard PDF-only DPA stays unfiled")
+    check(not (by_pub["blackboard"].get("file") or {}).get("dpa"), "blackboard file.dpa stays open")
+
+    for slug in (
+        "foxit-software",
+        "codesignal",
+        "earnin",
+        "renaissance-learning",
+        "inmobi",
+        "zafin",
+    ):
         pub = by_pub[slug]
+        check(not instrument_url(pub, "dpa"), f"{slug} DPA stays open")
+        check(not (pub.get("file") or {}).get("dpa"), f"{slug} file.dpa stays open")
         check(not (pub.get("processors") or []), f"{slug} named processors stay open")
 
-    filled_html = {}
     for slug in expected_batch:
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
-        filled_html[slug] = html
         check('target="_blank"' in html and 'rel="noopener noreferrer"' in html, f"{slug} outbound opens a new tab")
-        check("wires-scroll" in html, f"{slug} rewritten dossier keeps the swipe wrapper")
+        check("wires-scroll" in html, f"{slug} dossier keeps the swipe wrapper")
         visible = html.lower()
         check(
             "safebase" not in visible and "conveyor" not in visible and "drata" not in visible,
             f"{slug} named a portal vendor",
         )
-    check("vanta" not in filled_html["photoroom"].lower(), "photoroom dossier names no portal vendor")
-    check("vanta" not in filled_html["braze"].lower(), "braze dossier names no portal vendor")
+        check("vanta" not in visible, f"{slug} dossier names no portal vendor")
     pronto_html = (ROOT / "site" / "c" / "pronto-software.html").read_text(encoding="utf-8")
     check("Official page" in pronto_html, "Pronto Software still prints Official page")
 
     print(
-        f"ok increment-dpa photoroom {len(pr_names)} processors; "
+        f"ok increment-dpa leftover-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
     )
     return 0

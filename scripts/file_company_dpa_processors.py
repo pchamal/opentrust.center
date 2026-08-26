@@ -513,7 +513,7 @@ PRIOR_ATTEMPTED = {
     "diebold-nixdorf",
     "paylocity",
     "procore",
-    # this cut — leftover DPA-on-file empty named-processor lists
+    # PR 132 — leftover DPA-on-file empty named-processor lists
     "anysphere",
     "glossgenius",
     "braze",
@@ -521,6 +521,15 @@ PRIOR_ATTEMPTED = {
     "pagaya",
     "teamviewer",
     "ibotta",
+    # this cut — leftover DPA-on-file empty list + unread first-party DPA queue
+    "synap",
+    "blackboard",
+    "foxit-software",
+    "codesignal",
+    "earnin",
+    "renaissance-learning",
+    "inmobi",
+    "zafin",
 }
 
 
@@ -587,47 +596,85 @@ def dpa_is_portal_catalog(url: str) -> bool:
     return bool(enrich.ITEM_UID_RE.search(url or ""))
 
 
+def stored_dpa_url(row: dict, enr: dict) -> str:
+    """Public instrument first, then the enriched links.dpa the queue is keyed on."""
+    return instrument_url(row, "dpa") or ((enr.get("links") or {}).get("dpa") or "").strip()
+
+
+def has_trust_privacy_security(cands: list[tuple[str, str]]) -> bool:
+    return any(kind in {"trust", "security", "privacy", "trust_url", "enr_trust"} for kind, _ in cands)
+
+
 def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]:
     wanted = requested_slugs()
     skip = set() if wanted else previous_batch()
     by_pub = {row.get("slug"): row for row in public_rows if row.get("slug")}
     rows = [by_pub[s] for s in wanted if s in by_pub] if wanted else public_rows
     picked = []
-    for row in rows:
-        if not row.get("found"):
-            continue
+    picked_slugs: set[str] = set()
+
+    def consider(row: dict, *, force_sub_open: bool | None = None) -> dict | None:
         slug = row.get("slug") or ""
-        if slug in skip:
-            continue
+        if not row.get("found") or not slug or slug in skip or slug in picked_slugs:
+            return None
         enr = enr_by.get(slug)
         if not enr:
-            continue
-        dpa_url = instrument_url(row, "dpa")
+            return None
+        dpa_url = stored_dpa_url(row, enr)
         dpa_open = not dpa_url
         # Portal catalog DPA may be upgraded to a printed first-party DPA. Never drop.
         dpa_upgrade = bool(dpa_url and dpa_is_portal_catalog(dpa_url))
-        # Named-list increment: a stored URL with no printed names is still open.
-        if wanted:
-            sub_open = not (row.get("processors") or [])
-        else:
-            # Natural queue for this cut: DPA already on file, named processors empty.
-            if not dpa_url or (row.get("processors") or []):
-                continue
-            sub_open = True
+        sub_open = not (row.get("processors") or []) if force_sub_open is None else force_sub_open
         if not (dpa_open or dpa_upgrade or sub_open):
-            continue
+            return None
         cands = first_party_candidates(row, enr)
         if not cands:
-            continue
-        picked.append({
+            return None
+        return {
             "slug": slug,
             "name": row.get("name") or slug,
             "dpa_open": dpa_open,
             "dpa_upgrade": dpa_upgrade,
             "sub_open": sub_open,
             "candidates": cands,
-        })
-        if not wanted and len(picked) >= BATCH:
+        }
+
+    if wanted:
+        for row in rows:
+            rec = consider(row)
+            if rec:
+                picked.append(rec)
+                picked_slugs.add(rec["slug"])
+        return picked
+
+    # (a) links.dpa on file, named processors empty, not in PRIOR.
+    for row in public_rows:
+        enr = enr_by.get(row.get("slug") or "")
+        if not enr:
+            continue
+        dpa_url = stored_dpa_url(row, enr)
+        if not dpa_url or (row.get("processors") or []):
+            continue
+        rec = consider(row, force_sub_open=True)
+        if rec:
+            picked.append(rec)
+            picked_slugs.add(rec["slug"])
+            if len(picked) >= BATCH:
+                return picked
+
+    # (b) trust/privacy/security first-party URLs, no DPA link yet, not in PRIOR.
+    for row in public_rows:
+        enr = enr_by.get(row.get("slug") or "")
+        if not enr:
+            continue
+        if stored_dpa_url(row, enr):
+            continue
+        rec = consider(row)
+        if not rec or not has_trust_privacy_security(rec["candidates"]):
+            continue
+        picked.append(rec)
+        picked_slugs.add(rec["slug"])
+        if len(picked) >= BATCH:
             break
     return picked
 
@@ -990,13 +1037,14 @@ def main() -> int:
     report = {
         "generated_at": enr.get("generated_at"),
         "rule": (
-            "Next ~40 companies that already have a DPA on file and whose named "
-            "processors are empty. Named subprocessors fill only from printed "
-            "organization names in live first-party HTML. A stored list URL with "
-            "no printed names stays open. A DPA is filed only when a better "
-            "first-party DPA is newly found; an existing DPA is never dropped. "
-            "Dates, JS shells, login walls, download-only lists, affiliate-only "
-            "rows, and portal catalogs stay open."
+            "Next ~40 companies: first those with links.dpa on file and an empty "
+            "named-processor list, then those with first-party trust/privacy/"
+            "security URLs and no DPA link yet. Named subprocessors fill only "
+            "from printed organization names in live first-party HTML tables or "
+            "labeled spans. A stored list URL with no printed names stays open. "
+            "A DPA is filed only when a printed first-party DPA is newly found; "
+            "an existing DPA is never dropped. Dates, JS shells, login walls, "
+            "PDF-only lists, affiliate-only rows, and portal catalogs stay open."
         ),
         "batch": [rec["slug"] for rec in batch],
         "dpa_filed": filed_dpa,

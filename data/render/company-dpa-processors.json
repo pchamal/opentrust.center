@@ -1,143 +1,1457 @@
 {
-  "generated_at": "2026-08-26T01:56:36Z",
-  "rule": "Leftover companies that already have a DPA on file and whose named processors were empty. Named subprocessors fill only from printed organization names in live first-party HTML. A stored list URL with no printed names stays open. An existing DPA is never dropped. Dates, JS shells, login walls, download-only lists, affiliate-only rows, and portal catalogs stay open.",
+  "generated_at": "2026-08-26T02:56:32Z",
+  "rule": "Next ~40 companies: first those with links.dpa on file and an empty named-processor list, then those with first-party trust/privacy/security URLs and no DPA link yet. Named subprocessors fill only from printed organization names in live first-party HTML tables or labeled spans. A stored list URL with no printed names stays open. A DPA is filed only when a printed first-party DPA is newly found; an existing DPA is never dropped. Dates, JS shells, login walls, PDF-only lists, affiliate-only rows, and portal catalogs stay open.",
   "batch": [
-    "anysphere",
-    "glossgenius",
-    "braze",
-    "photoroom",
-    "pagaya",
-    "teamviewer",
-    "ibotta"
+    "synap",
+    "blackboard",
+    "foxit-software",
+    "codesignal",
+    "earnin",
+    "renaissance-learning",
+    "inmobi",
+    "zafin"
   ],
   "dpa_filed": [],
-  "subprocessors_filed": [
-    {
-      "slug": "photoroom",
-      "name": "Photoroom",
-      "url": "https://www.photoroom.com/legal/data-processing-agreement",
-      "names": [
-        "Amazon Web Services (AWS)",
-        "Cloudflare Inc",
-        "Google LLC (Google Cloud, Firebase, Workspace)",
-        "Intercom"
-      ],
-      "quote": "Appendix 2 to the DPA Sub-Processors List. Company name Services Localization. Amazon Web Services (AWS) Cloud infrastructure provider."
-    }
-  ],
-  "already_named": [
-    {
-      "slug": "anysphere",
-      "name": "Cursor",
-      "count": 17,
-      "note": "Public file already names 17 processors from a prior graph cut. This cut re-fetched first-party HTML; the stored list URL is a JS shell with no printed organization names. Existing names and DPA stay."
-    }
-  ],
+  "subprocessors_filed": [],
+  "walk_notes": {
+    "synap": "DPA already on file (https://synap.ac/docs/legals/data-processing-agreement-dpa). Trust list is a JS portal. Policy page https://synap.ac/docs/legals/subprocessors-list-and-management-policy is live first-party HTML with no printed organization table or labeled spans. Parser returned empty.",
+    "blackboard": "PDF-only customer DPA at https://backstage.blackboard.com/sites/default/files/agreements/2026-03/Blackboard_Customer_DPA_V1_Feb_2026.pdf. classify_as_dpa false on binary. Existing 30 named processors stay. Well-known HTML DPA paths 404 or bounce to the trust-center shell.",
+    "foxit-software": "Well-known first-party DPA and list paths 404 / fetch-failed. Privacy HTML is not a DPA.",
+    "codesignal": "Well-known first-party DPA paths 404. Stored list URL https://trust.codesignal.com/subprocessors is a JS portal with no printed organization names.",
+    "earnin": "Well-known first-party DPA paths 404. Stored list URL https://trust.earnin.com/subprocessors is a JS portal. Privacy host is a JS marketing shell.",
+    "renaissance-learning": "First-party privacy and well-known DPA paths 403 (bot-challenge HTML). Trust list bounced to a SafeBase itemUid catalog.",
+    "inmobi": "Well-known first-party DPA and list paths 404. Privacy HTML is not a DPA.",
+    "zafin": "First-party privacy and well-known DPA paths 403 (bot-challenge HTML). Trust list bounced to a SafeBase itemUid catalog."
+  },
   "stayed_open": [
     {
-      "slug": "glossgenius",
-      "name": "GlossGenius",
+      "slug": "synap",
+      "name": "Synap",
       "rule": "subprocessors"
     },
     {
-      "slug": "braze",
-      "name": "Braze",
+      "slug": "blackboard",
+      "name": "Blackboard",
+      "rule": "dpa"
+    },
+    {
+      "slug": "foxit-software",
+      "name": "Foxit Software",
+      "rule": "dpa"
+    },
+    {
+      "slug": "foxit-software",
+      "name": "Foxit Software",
       "rule": "subprocessors"
     },
     {
-      "slug": "pagaya",
-      "name": "Pagaya",
+      "slug": "codesignal",
+      "name": "CodeSignal",
+      "rule": "dpa"
+    },
+    {
+      "slug": "codesignal",
+      "name": "CodeSignal",
       "rule": "subprocessors"
     },
     {
-      "slug": "teamviewer",
-      "name": "TeamViewer",
+      "slug": "earnin",
+      "name": "EarnIn",
+      "rule": "dpa"
+    },
+    {
+      "slug": "earnin",
+      "name": "EarnIn",
       "rule": "subprocessors"
     },
     {
-      "slug": "ibotta",
-      "name": "Ibotta",
+      "slug": "renaissance-learning",
+      "name": "Renaissance Learning",
+      "rule": "dpa"
+    },
+    {
+      "slug": "renaissance-learning",
+      "name": "Renaissance Learning",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "inmobi",
+      "name": "InMobi",
+      "rule": "dpa"
+    },
+    {
+      "slug": "inmobi",
+      "name": "InMobi",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "zafin",
+      "name": "Zafin",
+      "rule": "dpa"
+    },
+    {
+      "slug": "zafin",
+      "name": "Zafin",
       "rule": "subprocessors"
     }
   ],
   "rejected": [
     {
-      "slug": "anysphere",
-      "url": "https://trust.cursor.com/subprocessors",
-      "reason": "js-portal",
-      "kind": "subprocessors"
+      "slug": "blackboard",
+      "url": "https://blackboard.com/legal/data-processing-agreement",
+      "final": "https://www.blackboard.com/trust-center",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
     },
     {
-      "slug": "anysphere",
-      "url": "https://cursor.com/terms/dpa",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
+      "slug": "blackboard",
+      "url": "https://blackboard.com/legal/dpa",
+      "final": "https://www.blackboard.com/trust-center",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
     },
     {
-      "slug": "glossgenius",
-      "url": "https://glossgenius.com/legal/subprocessors",
+      "slug": "blackboard",
+      "url": "https://blackboard.com/data-processing-agreement",
+      "final": "https://backstage.blackboard.com/sites/default/files/agreements/2026-03/Blackboard_Customer_DPA_V1_Feb_2026.pdf",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "blackboard",
+      "url": "https://blackboard.com/policies/data-processing-agreement",
+      "final": "https://blackboard.com/policies/data-processing-agreement",
       "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "blackboard",
+      "url": "https://blackboard.com/policies/data-processing-addendum",
+      "final": "https://blackboard.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "blackboard",
+      "url": "https://blackboard.com/legal/data-processing-addendum",
+      "final": "https://www.blackboard.com/trust-center",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "blackboard",
+      "url": "https://blackboard.com/dpa",
+      "final": "https://blackboard.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "blackboard",
+      "url": "https://blackboard.com/company/dpa",
+      "final": "https://blackboard.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "blackboard",
+      "url": "https://blackboard.com/terms/dpa",
+      "final": "https://blackboard.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "blackboard",
+      "url": "https://blackboard.com/policies/dpa",
+      "final": "https://blackboard.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "blackboard",
+      "url": "https://blackboard.com/data-processing-addendum",
+      "final": "https://blackboard.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "blackboard",
+      "url": "https://blackboard.com/gdpr/dpa",
+      "final": "https://blackboard.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "blackboard",
+      "url": "https://blackboard.com/legal/gdpr/dpa",
+      "final": "https://www.blackboard.com/trust-center",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "blackboard",
+      "url": "https://blackboard.com/privacy/dpa",
+      "final": "https://blackboard.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "blackboard",
+      "url": "https://blackboard.com/legal/data-processing",
+      "final": "https://www.blackboard.com/trust-center",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "blackboard",
+      "url": "https://blackboard.com/legal/processor-terms",
+      "final": "https://www.blackboard.com/trust-center",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/legal/dpa",
+      "final": "https://foxit.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "blackboard",
+      "url": "https://blackboard.com/data-processing",
+      "final": "https://blackboard.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/legal/data-processing-addendum",
+      "final": "https://foxit.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/policies/data-processing-agreement",
+      "final": "https://foxit.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/legal/data-processing-agreement",
+      "final": "https://foxit.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/gdpr/dpa",
+      "final": "https://foxit.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/data-processing-addendum",
+      "final": "https://foxit.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/dpa",
+      "final": "https://foxit.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/policies/data-processing-addendum",
+      "final": "https://foxit.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/policies/dpa",
+      "final": "https://foxit.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/privacy/dpa",
+      "final": "https://foxit.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/legal/gdpr/dpa",
+      "final": "https://foxit.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/company/dpa",
+      "final": "https://foxit.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/terms/dpa",
+      "final": "https://foxit.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/data-processing-agreement",
+      "final": "https://foxit.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/legal/processor-terms",
+      "final": "https://foxit.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/data-processing",
+      "final": "https://foxit.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/legal/data-processing",
+      "final": "https://foxit.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/dpa",
+      "final": "https://codesignal.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/legal/dpa",
+      "final": "https://codesignal.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/legal/data-processing-agreement",
+      "final": "https://codesignal.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/data-processing-addendum",
+      "final": "https://codesignal.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/legal/data-processing-addendum",
+      "final": "https://codesignal.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/data-processing-agreement",
+      "final": "https://codesignal.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/policies/data-processing-addendum",
+      "final": "https://codesignal.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/policies/dpa",
+      "final": "https://codesignal.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/dpa",
+      "final": "https://earnin.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/legal/dpa",
+      "final": "https://earnin.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/legal/data-processing-addendum",
+      "final": "https://earnin.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/terms/dpa",
+      "final": "https://codesignal.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/legal/data-processing-agreement",
+      "final": "https://earnin.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/company/dpa",
+      "final": "https://codesignal.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/data-processing-agreement",
+      "final": "https://earnin.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/data-processing-addendum",
+      "final": "https://earnin.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/policies/data-processing-addendum",
+      "final": "https://earnin.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/gdpr/dpa",
+      "final": "https://codesignal.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/policies/data-processing-agreement",
+      "final": "https://earnin.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/policies/dpa",
+      "final": "https://earnin.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/terms/dpa",
+      "final": "https://earnin.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/gdpr/dpa",
+      "final": "https://earnin.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/company/dpa",
+      "final": "https://earnin.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/dpa",
+      "final": "https://renaissance.com/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/legal/dpa",
+      "final": "https://renaissance.com/legal/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/legal/data-processing-addendum",
+      "final": "https://renaissance.com/legal/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/legal/data-processing-agreement",
+      "final": "https://renaissance.com/legal/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/legal/gdpr/dpa",
+      "final": "https://earnin.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/data-processing-addendum",
+      "final": "https://renaissance.com/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/data-processing-agreement",
+      "final": "https://renaissance.com/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/policies/data-processing-addendum",
+      "final": "https://renaissance.com/policies/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/policies/data-processing-agreement",
+      "final": "https://renaissance.com/policies/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/legal/processor-terms",
+      "final": "https://earnin.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/policies/dpa",
+      "final": "https://renaissance.com/policies/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/company/dpa",
+      "final": "https://renaissance.com/company/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/terms/dpa",
+      "final": "https://renaissance.com/terms/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/policies/data-processing-agreement",
+      "final": "https://codesignal.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/gdpr/dpa",
+      "final": "https://renaissance.com/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/privacy/dpa",
+      "final": "https://renaissance.com/privacy/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/legal/gdpr/dpa",
+      "final": "https://renaissance.com/legal/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/legal/processor-terms",
+      "final": "https://renaissance.com/legal/processor-terms",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/legal/data-processing",
+      "final": "https://renaissance.com/legal/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/data-processing",
+      "final": "https://renaissance.com/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/privacy/dpa",
+      "final": "https://earnin.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/data-processing",
+      "final": "https://earnin.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/legal/data-processing",
+      "final": "https://earnin.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/legal/data-processing-addendum",
+      "final": "https://inmobi.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/legal/dpa",
+      "final": "https://inmobi.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/dpa",
+      "final": "https://inmobi.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/legal/data-processing-agreement",
+      "final": "https://inmobi.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/data-processing-addendum",
+      "final": "https://inmobi.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/data-processing-agreement",
+      "final": "https://inmobi.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/policies/data-processing-addendum",
+      "final": "https://inmobi.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/policies/dpa",
+      "final": "https://inmobi.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/policies/data-processing-agreement",
+      "final": "https://inmobi.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/terms/dpa",
+      "final": "https://inmobi.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/company/dpa",
+      "final": "https://inmobi.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/gdpr/dpa",
+      "final": "https://inmobi.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/dpa",
+      "final": "https://zafin.com/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/legal/dpa",
+      "final": "https://zafin.com/legal/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/legal/gdpr/dpa",
+      "final": "https://inmobi.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/legal/data-processing-addendum",
+      "final": "https://zafin.com/legal/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/privacy/dpa",
+      "final": "https://inmobi.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/legal/data-processing-agreement",
+      "final": "https://zafin.com/legal/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/data-processing-addendum",
+      "final": "https://zafin.com/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/data-processing-agreement",
+      "final": "https://zafin.com/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/policies/data-processing-addendum",
+      "final": "https://zafin.com/policies/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/policies/dpa",
+      "final": "https://zafin.com/policies/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/policies/data-processing-agreement",
+      "final": "https://zafin.com/policies/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/terms/dpa",
+      "final": "https://zafin.com/terms/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/gdpr/dpa",
+      "final": "https://zafin.com/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/legal/gdpr/dpa",
+      "final": "https://zafin.com/legal/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/legal/processor-terms",
+      "final": "https://inmobi.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/company/dpa",
+      "final": "https://zafin.com/company/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/privacy/dpa",
+      "final": "https://zafin.com/privacy/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/legal/processor-terms",
+      "final": "https://zafin.com/legal/processor-terms",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/data-processing",
+      "final": "https://zafin.com/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/legal/data-processing",
+      "final": "https://zafin.com/legal/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/data-processing",
+      "final": "https://inmobi.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/legal/data-processing",
+      "final": "https://inmobi.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/privacy/dpa",
+      "final": "https://codesignal.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/legal/gdpr/dpa",
+      "final": "https://codesignal.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/legal/processor-terms",
+      "final": "https://codesignal.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/legal/data-processing",
+      "final": "https://codesignal.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/data-processing",
+      "final": "https://codesignal.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "synap",
+      "url": "https://trust.synap.ac/subprocessors",
+      "final": "https://trust.synap.ac/subprocessors",
+      "reason": "js-portal",
       "kind": "subprocessors"
     },
     {
-      "slug": "glossgenius",
-      "url": "https://glossgenius.com/legal/data-processing-addendum",
+      "slug": "synap",
+      "url": "https://trust.synap.ac/sub-processors",
+      "final": "https://trust.synap.ac/sub-processors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "synap",
+      "url": "https://synap.ac/docs/legals/data-processing-agreement-dpa",
+      "final": "https://synap.ac/docs/legals/data-processing-agreement-dpa",
       "reason": "no-printed-names",
       "kind": "subprocessors"
     },
     {
-      "slug": "glossgenius",
-      "url": "https://glossgenius.com/legal/privacy",
+      "slug": "synap",
+      "url": "https://synap.ac/docs/legals/subprocessors-list-and-management-policy",
+      "final": "https://synap.ac/docs/legals/subprocessors-list-and-management-policy",
       "reason": "no-printed-names",
       "kind": "subprocessors"
     },
     {
-      "slug": "braze",
-      "url": "https://www.braze.com/company/legal/subprocessors",
-      "reason": "download-only-pdf",
+      "slug": "synap",
+      "url": "https://synap.ac/legal/subprocessors",
+      "final": "https://synap.ac/legal/subprocessors",
+      "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "photoroom",
-      "url": "https://trust.photoroom.com/subprocessors",
+      "slug": "synap",
+      "url": "https://synap.ac/subprocessors",
+      "final": "https://synap.ac/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "synap",
+      "url": "https://synap.ac/company/subprocessors",
+      "final": "https://synap.ac/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "synap",
+      "url": "https://synap.ac/trust/subprocessors",
+      "final": "https://synap.ac/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "synap",
+      "url": "https://synap.ac/legal/service-providers",
+      "final": "https://synap.ac/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "synap",
+      "url": "https://synap.ac/legal/sub-processors-page",
+      "final": "https://synap.ac/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "synap",
+      "url": "https://synap.ac/legal/sub-processors",
+      "final": "https://synap.ac/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "synap",
+      "url": "https://synap.ac/sub-processors",
+      "final": "https://synap.ac/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "synap",
+      "url": "https://synap.ac/privacy/subprocessors",
+      "final": "https://synap.ac/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://trust.codesignal.com/subprocessors",
+      "final": "https://trust.codesignal.com/subprocessors",
       "reason": "js-portal",
       "kind": "subprocessors"
     },
     {
-      "slug": "pagaya",
-      "url": "https://pagaya.com/subprocessors",
-      "reason": "js-shell-no-printed-names",
+      "slug": "foxit-software",
+      "url": "https://foxit.com/subprocessors",
+      "final": "https://foxit.com/subprocessors",
+      "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "pagaya",
-      "url": "https://trust.pagaya.com/subprocessors",
-      "final": "https://trust.pagaya.com/",
-      "reason": "portal-catalog",
+      "slug": "foxit-software",
+      "url": "https://foxit.com/legal/sub-processors-page",
+      "final": "https://foxit.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "teamviewer",
-      "url": "https://www.teamviewer.com/en/resources/trust-center/world-class-privacy/",
-      "reason": "download-only-pdf",
+      "slug": "foxit-software",
+      "url": "https://foxit.com/legal/sub-processors",
+      "final": "https://foxit.com/legal/sub-processors",
+      "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "teamviewer",
-      "url": "https://compliance.teamviewer.com/subprocessors",
+      "slug": "foxit-software",
+      "url": "https://foxit.com/legal/service-providers",
+      "final": "https://foxit.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/trust/subprocessors",
+      "final": "https://foxit.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/legal/subprocessors",
+      "final": "https://foxit.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/company/subprocessors",
+      "final": "https://foxit.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://trust.codesignal.com/sub-processors",
+      "final": "https://trust.codesignal.com/sub-processors",
       "reason": "js-portal",
       "kind": "subprocessors"
     },
     {
-      "slug": "ibotta",
-      "url": "https://ibotta.com/subprocessors",
-      "reason": "js-shell-no-printed-names",
+      "slug": "earnin",
+      "url": "https://trust.earnin.com/subprocessors",
+      "final": "https://trust.earnin.com/subprocessors",
+      "reason": "js-portal",
       "kind": "subprocessors"
     },
     {
-      "slug": "ibotta",
-      "url": "https://trust.ibotta.com/subprocessors",
+      "slug": "foxit-software",
+      "url": "https://foxit.com/sub-processors",
+      "final": "https://foxit.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/subprocessors",
+      "final": "https://earnin.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/sub-processors",
+      "final": "https://earnin.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/legal/subprocessors",
+      "final": "https://earnin.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/legal/sub-processors",
+      "final": "https://earnin.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/legal/service-providers",
+      "final": "https://earnin.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/privacy/subprocessors",
+      "final": "https://earnin.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/company/subprocessors",
+      "final": "https://earnin.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/trust/subprocessors",
+      "final": "https://earnin.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://earnin.com/legal/sub-processors-page",
+      "final": "https://earnin.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/subprocessors",
+      "final": "https://renaissance.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/sub-processors",
+      "final": "https://renaissance.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "earnin",
+      "url": "https://trust.earnin.com/sub-processors",
+      "final": "https://trust.earnin.com/sub-processors",
       "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/legal/subprocessors",
+      "final": "https://renaissance.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/legal/sub-processors",
+      "final": "https://renaissance.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/legal/service-providers",
+      "final": "https://renaissance.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/privacy/subprocessors",
+      "final": "https://renaissance.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/company/subprocessors",
+      "final": "https://renaissance.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/trust/subprocessors",
+      "final": "https://renaissance.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://renaissance.com/legal/sub-processors-page",
+      "final": "https://renaissance.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://trust.renaissance.com/subprocessors",
+      "final": "https://trust.renaissance.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/subprocessors",
+      "final": "https://codesignal.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "renaissance-learning",
+      "url": "https://trust.renaissance.com/sub-processors",
+      "final": "https://trust.renaissance.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/subprocessors",
+      "final": "https://inmobi.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/legal/subprocessors",
+      "final": "https://inmobi.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/sub-processors",
+      "final": "https://inmobi.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/sub-processors",
+      "final": "https://codesignal.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/legal/sub-processors",
+      "final": "https://inmobi.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/legal/service-providers",
+      "final": "https://inmobi.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/privacy/subprocessors",
+      "final": "https://inmobi.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/subprocessors",
+      "final": "https://zafin.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/sub-processors",
+      "final": "https://zafin.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/legal/subprocessors",
+      "final": "https://zafin.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/company/subprocessors",
+      "final": "https://inmobi.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/legal/sub-processors",
+      "final": "https://zafin.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/legal/service-providers",
+      "final": "https://zafin.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/privacy/subprocessors",
+      "final": "https://zafin.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/trust/subprocessors",
+      "final": "https://inmobi.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "inmobi",
+      "url": "https://inmobi.com/legal/sub-processors-page",
+      "final": "https://inmobi.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/company/subprocessors",
+      "final": "https://zafin.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/trust/subprocessors",
+      "final": "https://zafin.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://zafin.com/legal/sub-processors-page",
+      "final": "https://zafin.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/legal/subprocessors",
+      "final": "https://codesignal.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://trust.zafin.com/sub-processors",
+      "final": "https://trust.zafin.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "zafin",
+      "url": "https://trust.zafin.com/subprocessors",
+      "final": "https://trust.zafin.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/legal/sub-processors",
+      "final": "https://codesignal.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/legal/service-providers",
+      "final": "https://codesignal.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/company/subprocessors",
+      "final": "https://codesignal.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/privacy/subprocessors",
+      "final": "https://codesignal.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/legal/sub-processors-page",
+      "final": "https://codesignal.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "codesignal",
+      "url": "https://codesignal.com/trust/subprocessors",
+      "final": "https://codesignal.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "foxit-software",
+      "url": "https://foxit.com/privacy/subprocessors",
+      "final": "https://foxit.com/privacy/subprocessors",
+      "reason": "fetch-failed",
       "kind": "subprocessors"
     }
   ]
