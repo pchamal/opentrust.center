@@ -521,7 +521,7 @@ PRIOR_ATTEMPTED = {
     "unisys",
     "unitedhealth-group",
     # PR 146 leftovers — first-party-link queue through unitedhealth-group
-    # this cut — remaining first-party-link files + latest-expand silent rows
+    # PR 152 — remaining first-party-link files + prior expand silent rows
     "agility-robotics",
     "berkshire-grey",
     "translated",
@@ -562,6 +562,47 @@ PRIOR_ATTEMPTED = {
     "seidor",
     "caci",
     "lloyd-s-list-intelligence",
+    # this cut — latest expand silent/unread rows (first-party-link queue empty)
+    "gamecaster",
+    "coresoft",
+    "hanaho",
+    "davka",
+    "chartboost",
+    "filament-games",
+    "hitcents",
+    "big-finish-games",
+    "epicenter-studios",
+    "cosmi-corporation",
+    "exakt-entertainment",
+    "gun-interactive",
+    "jump-shot-media",
+    "global-vr",
+    "isotope-244",
+    "laminar-research",
+    "midboss",
+    "kru-interactive",
+    "mentez",
+    "the-logic-factory",
+    "mikengreg",
+    "holistic-design",
+    "limbic-software",
+    "matrix-games",
+    "mastiff",
+    "ientertainment-network",
+    "nyko",
+    "mistwalker",
+    "muzzy-lane",
+    "playmotion",
+    "naked-sky-entertainment",
+    "reaxion",
+    "open-network-entertainment",
+    "ntn-buzztime",
+    "movaya",
+    "re-logic",
+    "punch-entertainment",
+    "raven-software",
+    "nerjyzed-entertainment",
+    "night-light-interactive",
 }
 
 
@@ -592,8 +633,8 @@ def previous_batch() -> set[str]:
     return prior
 
 
-# First-party-link years queue is nearly exhausted after PRIOR (through
-# PR 146). Prefer remaining unread open-years files that already store a
+# First-party-link years queue is exhausted after PRIOR (through PR 152).
+# Prefer remaining unread open-years files that already store a
 # first-party trust / privacy / about / security URL, then fill to ~40
 # from the latest expand's silent/unread rows. security.txt is not a
 # security page.
@@ -888,7 +929,11 @@ def year_quote(text: str, year: int, company_name: str = "") -> str:
         bit = " ".join(raw.split())
         if needle not in bit:
             continue
-        if not re.search(r"\b(?:founded|established|foundingDate)\b", bit, re.I):
+        if not re.search(
+            r"\b(?:founded|established|foundingDate|founding date|founding)\b",
+            bit,
+            re.I,
+        ):
             continue
         if len(bit) > 220:
             i = bit.find(needle)
@@ -1094,7 +1139,7 @@ def main() -> int:
             "established, or foundingDate. Wikipedia, news, title-only prefix "
             "matches, portal catalogs, JS shells, login/CMP walls, "
             "investor/parent years, rebrand dates, and soft story-began copy "
-            "stay open. Prior year cuts through PR 146 are on the skip list."
+            "stay open. Prior year cuts through PR 152 are on the skip list."
         ),
         "batch": [rec["slug"] for rec in batch],
         "years_filed": filed,

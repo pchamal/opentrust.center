@@ -247,6 +247,14 @@ def test_parse_founded_sentence() -> None:
         ) is None,
         "Niantic Spatial timeline 2004 is Keyhole’s Google acquisition, not founding",
     )
+    check(
+        parse_official_founded_year(
+            "Factsheet Developer: Isotope 244 Based in Tampa, FL "
+            "Founding date: July 1st, 1999 Website: isotope244.com/",
+            "Isotope 244",
+        ) == 1999,
+        "founding date colon month day YYYY is founding",
+    )
 
 
 def test_apply_rejects_wiki_and_keeps_existing() -> None:
@@ -272,7 +280,7 @@ def test_apply_rejects_wiki_and_keeps_existing() -> None:
 
 
 def test_report_years_landed() -> None:
-    """This increment filed five first-party years. Held false hits stay open."""
+    """This increment filed four first-party years. Held false hits stay open."""
     import json
     public = json.loads((ROOT / "site" / "data.json").read_text())
     enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
@@ -283,15 +291,14 @@ def test_report_years_landed() -> None:
     batch = report.get("batch") or []
     stayed = report.get("stayed_open") or []
     filed_by = {r["slug"]: r for r in filed}
-    check(len(filed) == 5, f"this increment filed 5, got {len(filed)}")
-    check(len(stayed) == 35, f"35 stayed open, got {len(stayed)}")
+    check(len(filed) == 4, f"this increment filed 4, got {len(filed)}")
+    check(len(stayed) == 36, f"36 stayed open, got {len(stayed)}")
     check(len(batch) == 40, f"batch is 40, got {len(batch)}")
     expect = {
-        "alphasights": (2008, "https://www.alphasights.com/company"),
-        "black-cube": (2011, "https://www.blackcube.com/about-us"),
-        "lighton": (2016, "https://lighton.ai/about-us"),
-        "owkin": (2016, "https://www.owkin.com/about-us"),
-        "raic-labs": (2019, "https://raiclabs.com/company"),
+        "filament-games": (2005, "https://www.filamentgames.com/"),
+        "hitcents": (1999, "https://hitcents.com/"),
+        "isotope-244": (1999, "https://isotope244.com/press"),
+        "mastiff": (2002, "https://mastiff-games.com/about"),
     }
     check(set(filed_by) == set(expect), f"filed slugs, got {sorted(filed_by)}")
     for slug, (year, source) in expect.items():
@@ -329,7 +336,13 @@ def test_report_years_landed() -> None:
     check("sandisk" not in batch, "PR 143 leftovers are not re-walked")
     check("sanmina" not in batch, "PR 146 leftovers are not re-walked")
     check("unitedhealth-group" not in batch, "PR 146 leftovers are not re-walked")
-    check("agility-robotics" in batch and "lloyd-s-list-intelligence" in batch, "remaining first-party-link files plus latest-expand silent rows are walked")
+    check("agility-robotics" not in batch, "PR 152 leftovers are not re-walked")
+    check("lloyd-s-list-intelligence" not in batch, "PR 152 leftovers are not re-walked")
+    check("alphasights" not in batch, "PR 152 fills are not re-walked")
+    check(
+        "gamecaster" in batch and "night-light-interactive" in batch,
+        "latest expand silent/unread rows are walked",
+    )
     from file_company_years import PRIOR_ATTEMPTED, select_batch
     for slug in batch:
         check(slug in PRIOR_ATTEMPTED, f"{slug} is on the next-increment skip list")
@@ -390,6 +403,10 @@ def test_report_years_landed() -> None:
         "lighton": 2016,
         "owkin": 2016,
         "raic-labs": 2019,
+        "filament-games": 2005,
+        "hitcents": 1999,
+        "isotope-244": 1999,
+        "mastiff": 2002,
     }
     for slug, year in prior.items():
         pub, row = by_pub[slug], by_enr[slug]
