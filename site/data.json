@@ -97191,9 +97191,15 @@
       "probed": 13,
       "probed_at": "2026-08-26T19:00:22Z",
       "certs": [
+        "EU-US DPF",
         "TX-RAMP"
       ],
       "attestations": [
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        },
         {
           "id": "tx-ramp",
           "name": "TX-RAMP",
@@ -129552,9 +129558,15 @@
       "probed": 13,
       "probed_at": "2026-08-26T19:00:22Z",
       "certs": [
+        "PCI DSS",
         "TX-RAMP"
       ],
       "attestations": [
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
         {
           "id": "tx-ramp",
           "name": "TX-RAMP",
@@ -198754,8 +198766,16 @@
       "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
       "probed": 13,
       "probed_at": "2026-08-26T19:00:22Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "EU-US DPF"
+      ],
+      "attestations": [
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -198790,7 +198810,7 @@
       "tier": "silent",
       "file": {
         "page": 0,
-        "marks": 0,
+        "marks": 20,
         "dpa": 0,
         "subprocessors": 0,
         "years": 0
@@ -199277,8 +199297,28 @@
       "source_url": "https://en.wikipedia.org/wiki/List_of_largest_Internet_companies",
       "probed": 23,
       "probed_at": "2026-08-26T19:00:22Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "ISO 27001",
+        "PCI DSS",
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
+          "weight": 10
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -199313,7 +199353,7 @@
       "tier": "silent",
       "file": {
         "page": 0,
-        "marks": 0,
+        "marks": 20,
         "dpa": 0,
         "subprocessors": 0,
         "years": 0
@@ -203101,8 +203141,16 @@
       "source_url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
       "probed": 13,
       "probed_at": "2026-08-26T19:00:22Z",
-      "certs": [],
-      "attestations": [],
+      "certs": [
+        "EU-US DPF"
+      ],
+      "attestations": [
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        }
+      ],
       "summary": "",
       "founded_year": null,
       "founded_source": null,
@@ -203137,7 +203185,7 @@
       "tier": "silent",
       "file": {
         "page": 0,
-        "marks": 0,
+        "marks": 20,
         "dpa": 0,
         "subprocessors": 0,
         "years": 0
