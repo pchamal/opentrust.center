@@ -215,6 +215,21 @@ def test_parse_founded_sentence() -> None:
         ) is None,
         "Thriv 2018 on a Futurice family page is not Futurice’s year",
     )
+    check(
+        parse_official_founded_year(
+            "01.AI was founded in Beijing in May 2023 under the leadership of "
+            "Dr. Kai-Fu Lee and became a unicorn within six months.",
+            "01.AI",
+        ) == 2023,
+        "founded in city in month YYYY is founding",
+    )
+    check(
+        parse_official_founded_year(
+            "Since 1998, we've been building software and systems for safety.",
+            "Critical Software",
+        ) is None,
+        "since YYYY building copy is not a founded sentence",
+    )
 
 
 def test_apply_rejects_wiki_and_keeps_existing() -> None:
@@ -240,7 +255,7 @@ def test_apply_rejects_wiki_and_keeps_existing() -> None:
 
 
 def test_report_years_landed() -> None:
-    """This increment filed three first-party years. Held false hits stay open."""
+    """This increment filed six first-party years. Held false hits stay open."""
     import json
     public = json.loads((ROOT / "site" / "data.json").read_text())
     enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
@@ -251,13 +266,16 @@ def test_report_years_landed() -> None:
     batch = report.get("batch") or []
     stayed = report.get("stayed_open") or []
     filed_by = {r["slug"]: r for r in filed}
-    check(len(filed) == 3, f"this increment filed 3, got {len(filed)}")
-    check(len(stayed) == 37, f"37 stayed open, got {len(stayed)}")
+    check(len(filed) == 6, f"this increment filed 6, got {len(filed)}")
+    check(len(stayed) == 34, f"34 stayed open, got {len(stayed)}")
     check(len(batch) == 40, f"batch is 40, got {len(batch)}")
     expect = {
-        "innofactor": (2000, "https://www.innofactor.com/about-us/our-story"),
-        "preferred-networks": (2014, "https://www.preferred.jp/en/company"),
-        "works-applications": (1996, "https://www.worksap.co.jp/"),
+        "01-ai": (2023, "https://www.01.ai/"),
+        "crowdin": (2008, "https://crowdin.com/"),
+        "cyberlink": (1996, "https://www.cyberlink.com/"),
+        "graphisoft": (1982, "https://www.graphisoft.com/en-us/company/about"),
+        "scoro": (2013, "https://www.scoro.com/"),
+        "tmaxsoft": (1997, "https://www.tmaxsoft.com/en/introduction/overview"),
     }
     check(set(filed_by) == set(expect), f"filed slugs, got {sorted(filed_by)}")
     for slug, (year, source) in expect.items():
@@ -271,11 +289,18 @@ def test_report_years_landed() -> None:
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check(f"founded · {year}" in html, f"{slug} dossier year")
         check(source in html, f"{slug} dossier source")
+        check(
+            'target="_blank" rel="noopener noreferrer"' in html,
+            f"{slug} outbound source keeps noopener",
+        )
     check("faculty" not in batch, "Faculty is not re-walked")
     check("airship" not in batch, "Airship is not re-walked")
     check("appian" not in batch, "PR 107 fills are not re-walked")
     check("orca-security" not in batch, "PR 111 Orca is not re-walked")
     check("craigslist" not in batch, "PR 115 leftovers are not re-walked")
+    check("innofactor" not in batch, "PR 117 fills are not re-walked")
+    check("grafana-labs" not in batch, "earlier trust-URL years files are not re-walked")
+    check("checkr" not in batch, "earlier trust-URL years files are not re-walked")
     from file_company_years import PRIOR_ATTEMPTED, select_batch
     for slug in batch:
         check(slug in PRIOR_ATTEMPTED, f"{slug} is on the next-increment skip list")
@@ -308,6 +333,9 @@ def test_report_years_landed() -> None:
         "bluevoyant": 2017,
         "crusoe": 2018,
         "dubber": 2011,
+        "innofactor": 2000,
+        "preferred-networks": 2014,
+        "works-applications": 1996,
     }
     for slug, year in prior.items():
         pub, row = by_pub[slug], by_enr[slug]
@@ -323,6 +351,9 @@ def test_report_years_landed() -> None:
     held = {
         "fenrir-inc": "2008",
         "futurice": "2018",
+        "critical-software": "1998",
+        "zeroturnaround": "2007",
+        "orthograph": "2004",
     }
     for slug, year in held.items():
         pub = by_pub[slug]

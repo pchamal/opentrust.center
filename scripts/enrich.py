@@ -352,6 +352,7 @@ OFFICIAL_FOUNDED = re.compile(
     )
     \s*[:\-–—,]?\s*
     (?:the\s+year\s+)?
+    (?:(?!(?:{_MONTH}|1[6-9]\d{{2}}|20[0-2]\d)\b)[A-Za-z][A-Za-z.'-]+(?:\s+(?!(?:{_MONTH}|1[6-9]\d{{2}}|20[0-2]\d|in|on)\b)[A-Za-z][A-Za-z.'-]+)?\s+(?:in|on)\s+)?
     (?:{_MONTH}\s+(?:\d{{1,2}}(?:st|nd|rd|th)?,?\s+)?)?
     ({_YEAR_TOKEN})
     \b
