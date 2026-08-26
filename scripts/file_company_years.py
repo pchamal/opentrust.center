@@ -478,6 +478,48 @@ PRIOR_ATTEMPTED = {
     "robinhood",
     "rtx",
     "sandisk",
+    # this cut — unread open years files with a stored first-party
+    # trust / privacy / about / security URL
+    "sanmina",
+    "science-applications-international",
+    "sea-limited",
+    "semrush",
+    "serko-limited",
+    "serviceware",
+    "silvaco",
+    "simulations-plus",
+    "smith-micro-software",
+    "sonata-software",
+    "soundthinking",
+    "southern-glazer-s-wine-and-spirits",
+    "spotify",
+    "ssc-technologies",
+    "stitch-fix",
+    "super-micro-computer",
+    "synaptics",
+    "synchronoss",
+    "synopsys",
+    "sysco",
+    "take-two-interactive",
+    "tally-solutions",
+    "target",
+    "td-synnex",
+    "tech-mahindra",
+    "teledyne-technologies",
+    "tencent",
+    "thales",
+    "tietoevry",
+    "tko-group-holdings",
+    "tose-software",
+    "travelport",
+    "trip-com",
+    "tucows",
+    "twitter",
+    "txt-e-solutions",
+    "uber",
+    "uber-technologies",
+    "unisys",
+    "unitedhealth-group",
 }
 
 
@@ -979,7 +1021,7 @@ def main() -> int:
             "HTML names founded, established, or foundingDate. Wikipedia, news, "
             "title-only prefix matches, portal catalogs, JS shells, login/CMP "
             "walls, investor/parent years, rebrand dates, and soft story-began "
-            "copy stay open. Prior year cuts through PR 140 are on the skip list."
+            "copy stay open. Prior year cuts through PR 143 are on the skip list."
         ),
         "batch": [rec["slug"] for rec in batch],
         "years_filed": filed,
