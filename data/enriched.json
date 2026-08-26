@@ -80703,9 +80703,15 @@
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, SOC 3, ISO 27001, HIPAA, EU-US DPF.",
       "list": "wikipedia-iot-companies",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "ISO 27001",
+        "HIPAA",
+        "EU-US DPF"
+      ],
       "links": {
         "trust": "https://pubnub.com/trust",
         "privacy": "https://www.pubnub.com/trust/legal/privacy-policy/",
@@ -80715,14 +80721,15 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 46,
-        "tier": "on-file",
+        "score": 80,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
           "status": 6,
           "disclosure": 6,
           "privacy": 6,
-          "longevity": 8
+          "longevity": 8,
+          "marks": 34
         }
       },
       "founded_year": 2010,
