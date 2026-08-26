@@ -518,31 +518,23 @@ def main() -> int:
     # after leftover instrument walks and the empty-cert URL queue.
     batch = report.get("batch") or []
     want = [
-        "trendrr", "varigence", "skift", "veda", "civiqs", "targit", "kaggle",
-        "telligent-systems", "medio", "sentient-information-systems",
-        "importgenius", "black-swan-data", "surgisphere", "mu-sigma",
-        "exl-service", "oag", "plum-analytics", "reprisk", "newswhip",
-        "surveylab", "platfora", "truviso", "smith-brandon-international",
-        "civis-analytics", "data-propria", "hortonworks", "sojern",
-        "bright-computing", "zoomdata", "arcade1up", "rocket-fuel-inc",
-        "xandr", "sense-networks", "tubemogul", "analogue", "american-sammy",
-        "the-ant-commandos", "mapr", "owkin", "lighton",
+        "gamecaster", "coresoft", "hanaho", "davka", "chartboost",
+        "filament-games", "hitcents", "big-finish-games", "epicenter-studios",
+        "cosmi-corporation", "exakt-entertainment", "gun-interactive",
+        "jump-shot-media", "global-vr", "isotope-244", "laminar-research",
+        "midboss", "kru-interactive", "mentez", "the-logic-factory",
+        "mikengreg", "holistic-design", "limbic-software", "matrix-games",
+        "mastiff", "ientertainment-network", "nyko", "mistwalker",
+        "muzzy-lane", "playmotion", "naked-sky-entertainment", "reaxion",
+        "open-network-entertainment", "ntn-buzztime", "movaya", "re-logic",
+        "punch-entertainment", "raven-software", "nerjyzed-entertainment",
+        "night-light-interactive",
     ]
     check(batch == want, f"batch is latest-expand silent 40, got {batch}")
     filed = {rec["slug"]: rec for rec in (report.get("marks_filed") or [])}
-    check(set(filed) == {"lighton", "mu-sigma", "sojern", "surveylab"}, f"filed slugs {sorted(filed)}")
-    check(filed["lighton"]["added"] == ["SOC 2 Type I"], f"lighton added {filed['lighton']['added']}")
-    check("GDPR" not in filed["lighton"]["added"], "lighton GDPR-compliant copy is not a hold")
-    check(
-        filed["mu-sigma"]["added"] == ["SOC 2 Type II", "ISO 27001"],
-        f"mu-sigma added {filed['mu-sigma']['added']}",
-    )
-    check(filed["sojern"]["added"] == ["EU-US DPF"], f"sojern added {filed['sojern']['added']}")
-    check(filed["surveylab"]["added"] == ["ISO 27001"], f"surveylab added {filed['surveylab']['added']}")
-    check("PCI DSS" not in filed["surveylab"]["added"], "surveylab PayPal/Stripe PCI is not a hold")
-    check("GDPR" not in filed["surveylab"]["added"], "surveylab GDPR requirements are not a hold")
+    check(filed == {}, f"filed slugs {sorted(filed)}")
     stayed = {rec["slug"] for rec in (report.get("stayed_open") or [])}
-    check(stayed == set(want) - set(filed), f"honest zeros {sorted(stayed)}")
+    check(stayed == set(want), f"honest zeros {sorted(stayed)}")
     from file_company_marks import PRIOR_ATTEMPTED, select_batch
     for slug in batch:
         check(slug in PRIOR_ATTEMPTED, f"{slug} is on the next-increment skip list")
@@ -554,6 +546,7 @@ def main() -> int:
         "foxit-software", "opengov", "aptean", "qad-redzone", "blackboard",
         "peak", "translated", "anaplan", "sarvam-ai", "salesloft",
         "verint-systems", "thoughtspot",
+        "trendrr", "lighton", "mu-sigma", "sojern", "surveylab",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")
