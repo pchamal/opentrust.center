@@ -506,6 +506,49 @@ PRIOR_ATTEMPTED = {
     "copart",
     "corteva",
     "cox-enterprises",
+    # this cut — 40 unread empty-cert files with a stored first-party
+    # trust / security / privacy URL. One leftover trust-URL file
+    # (sap-ariba) plus the next privacy-page empty-cert files.
+    "sap-ariba",
+    "echostar",
+    "danaher-corporation",
+    "crh-plc",
+    "crown-castle",
+    "cvs-health",
+    "d-r-horton",
+    "darden-restaurants",
+    "davita",
+    "deckers-brands",
+    "delta-air-lines",
+    "devon-energy",
+    "digimarc",
+    "dollar-general",
+    "dollar-tree",
+    "dte-energy",
+    "dye-and-durham",
+    "elevance-health",
+    "energy-transfer-partners",
+    "enterprise-mobility",
+    "enterprise-products-partners",
+    "epic-games",
+    "exasol-ag",
+    "exxon-mobil",
+    "fanatics",
+    "fannie-mae",
+    "fedex",
+    "figure-ai",
+    "first-solar",
+    "fox-corporation",
+    "freddie-mac",
+    "freee-k-k",
+    "freightos",
+    "gb-group",
+    "genius-sports",
+    "grab",
+    "grubhub",
+    "h-e-b-grocery-company",
+    "hbx-group-international-plc",
+    "hca-healthcare",
 }
 
 # Regulation-only lists stay thin. Real certs (SOC / ISO / FedRAMP / …) fill out.
@@ -557,7 +600,13 @@ HIPAA_NOT_HOLD_RE = re.compile(
     r"45\s+cfr|"
     r"business\s+associate|"
     r"deemed\s+under\s+hipaa\s+to\s+be\s+acting\s+as\s+a\s+business\s+associate|"
-    r"shall\s+not\s+provide\s+us\s+with\s+any\s+phi",
+    r"shall\s+not\s+provide\s+us\s+with\s+any\s+phi|"
+    r"regulated\s+under\s+(?:the\s+)?(?:health insurance portability|hipaa)|"
+    r"(?:complian[ct]e|comply)\s+with\s+(?:the\s+)?(?:health insurance portability|hipaa)|"
+    r"hipaa.?s?\s+privacy\s+rule|"
+    r"sector[- ]specific\s+privacy\s+laws|"
+    r"health\s+insurance\s+portability\s+and\s+accountability\s+act\s+of\s+1996|"
+    r"does\s+not\s+apply\s+to.{0,160}protected\s+health\s+information",
     re.I,
 )
 
