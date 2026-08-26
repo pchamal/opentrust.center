@@ -434,25 +434,25 @@ def main() -> int:
     check("Amazon Web Services" in zoom, "zoom still names AWS")
     check("0–100" not in index and "0-100" not in index, "no 0-100 score on AITI")
 
-    # This increment: leftover empty-cert trust-URL file plus the next
+    # This increment: leftover empty-cert trust-URL files plus the next
     # unread empty-cert files with a stored first-party privacy URL.
     batch = report.get("batch") or []
     want = [
-        "sap-ariba", "echostar", "danaher-corporation", "crh-plc",
-        "crown-castle", "cvs-health", "d-r-horton", "darden-restaurants",
-        "davita", "deckers-brands", "delta-air-lines", "devon-energy",
-        "digimarc", "dollar-general", "dollar-tree", "dte-energy",
-        "dye-and-durham", "elevance-health", "energy-transfer-partners",
-        "enterprise-mobility", "enterprise-products-partners", "epic-games",
-        "exasol-ag", "exxon-mobil", "fanatics", "fannie-mae", "fedex",
-        "figure-ai", "first-solar", "fox-corporation", "freddie-mac",
-        "freee-k-k", "freightos", "gb-group", "genius-sports", "grab",
-        "grubhub", "h-e-b-grocery-company", "hbx-group-international-plc",
-        "hca-healthcare",
+        "ctsi-global", "telestream", "klarna", "hcl-tech", "humana",
+        "infotel", "intel", "intershop-communications", "jack-henry",
+        "johnson-and-johnson", "kakao", "kla", "kpit-technologies",
+        "kyndryl", "kyndryl-holdings", "ltts", "lectra", "lg-electronics",
+        "liberty-mutual-insurance-group", "linedata",
+        "live-nation-entertainment", "magic-software", "mapmyindia",
+        "marin-software", "mercadolibre", "micro-systemation",
+        "mitek-systems", "money-forward", "monolithic-power-systems",
+        "msci", "nagarro", "netcall", "netflix", "news-corp", "nextnav",
+        "nxp-semiconductors", "one-software-technologies", "opendoor",
+        "opera", "perfect-corp",
     ]
     check(batch == want, f"batch is next unread 40, got {batch}")
     filed = {rec["slug"]: rec for rec in (report.get("marks_filed") or [])}
-    check(set(filed) == {"first-solar", "gb-group"}, f"filed slugs {sorted(filed)}")
+    check(set(filed) == {"mitek-systems", "nagarro"}, f"filed slugs {sorted(filed)}")
     stayed = {rec["slug"] for rec in (report.get("stayed_open") or [])}
     check(stayed == set(want) - set(filed), f"honest zeros {sorted(stayed)}")
     from file_company_marks import PRIOR_ATTEMPTED, select_batch
@@ -461,31 +461,41 @@ def main() -> int:
     leftover = select_batch(list(public["companies"]), by_enr)
     leftover_slugs = {r["slug"] for r in leftover}
     check(not leftover_slugs & set(batch), f"this batch is not retried, got {leftover_slugs & set(batch)}")
-    check(filed["first-solar"]["added"] == ["EU-US DPF"], f"first-solar added {filed['first-solar']['added']}")
-    check("CCPA" not in filed["first-solar"]["added"], "first-solar privacy CCPA is not a hold")
     check(
-        set(filed["gb-group"]["added"]) == {"ISO 27001", "PCI DSS", "Cyber Essentials Plus"},
-        f"gb-group added {filed['gb-group']['added']}",
+        set(filed["mitek-systems"]["added"]) == {"ISO 27001", "EU-US DPF"},
+        f"mitek-systems added {filed['mitek-systems']['added']}",
     )
-    check("CCPA" not in filed["gb-group"]["added"], "gb-group privacy CCPA is not a hold")
+    check("SOC 2" not in filed["mitek-systems"]["added"], "mitek AICPA SOC badge is not SOC 2")
+    check(
+        filed["nagarro"]["added"] == ["ISO 27001"],
+        f"nagarro added {filed['nagarro']['added']}",
+    )
+    check("CCPA" not in filed["nagarro"]["added"], "nagarro privacy CCPA is not a hold")
+    check("EU-US DPF" not in filed["nagarro"]["added"], "nagarro internal privacy framework is not DPF")
     for slug in (
         "abbott-laboratories", "aflac", "centene", "4dmedical-limited",
-        "elevance-health", "fannie-mae", "hca-healthcare",
+        "elevance-health", "fannie-mae", "hca-healthcare", "humana",
     ):
         pub = by_pub[slug]
         check(not (pub.get("certs") or []), f"{slug} HIPAA notice is not a filed mark")
         check((pub.get("file") or {}).get("marks") in (0, 10, False, None), f"{slug} marks glyph stays open")
     check("EU-US DPF" in (by_pub["braze"].get("certs") or []), "braze prior DPF stays")
     check("EU-US DPF" in (by_pub["cboe-global-markets"].get("certs") or []), "cboe prior DPF stays")
+    check("EU-US DPF" in (by_pub["first-solar"].get("certs") or []), "first-solar prior DPF stays")
     check(
         {"ISO 27001", "ISO 27018"} <= set(by_pub["alfa-financial-software"].get("certs") or []),
         "alfa prior ISO holds stay",
+    )
+    check(
+        {"ISO 27001", "PCI DSS", "Cyber Essentials Plus"}
+        <= set(by_pub["gb-group"].get("certs") or []),
+        "gb-group prior holds stay",
     )
     for slug in ("domo", "sopra-steria"):
         pub = by_pub[slug]
         check(not (pub.get("certs") or []), f"{slug} certs stay empty")
         check((pub.get("file") or {}).get("marks") in (0, 10, False, None), f"{slug} marks glyph stays open")
-    for slug in ("domo", "sopra-steria", "bigid"):
+    for slug in ("domo", "sopra-steria", "bigid", "ctsi-global", "telestream"):
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check("Official page" in html, f"{slug} still prints Official page")
         visible = re.sub(r'https?://\S+', "", html)
@@ -496,7 +506,8 @@ def main() -> int:
             and "vanta" not in visible
             and "securitypal" not in visible
             and "sprinto" not in visible
-            and "anecdotes" not in visible,
+            and "anecdotes" not in visible
+            and "upguard" not in visible,
             f"{slug} named a portal vendor",
         )
     check("SOC 2 Type II" in (by_pub["bigid"].get("certs") or []), "bigid prior SOC 2 Type II stays")
