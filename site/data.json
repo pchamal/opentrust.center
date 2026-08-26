@@ -176380,9 +176380,27 @@
       "probed": 13,
       "probed_at": "2026-08-26T20:58:18Z",
       "certs": [
+        "HITRUST",
+        "PCI DSS",
+        "SOC 2 Type II",
         "TX-RAMP"
       ],
       "attestations": [
+        {
+          "id": "hitrust-csf",
+          "name": "HITRUST",
+          "weight": 8
+        },
+        {
+          "id": "pci-dss",
+          "name": "PCI DSS",
+          "weight": 8
+        },
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
         {
           "id": "tx-ramp",
           "name": "TX-RAMP",
@@ -176407,11 +176425,11 @@
       },
       "processors": [],
       "disclosure": {
-        "score": 0,
+        "score": 26,
         "tier": "silent",
         "factors": {
           "page": 0,
-          "marks": 0,
+          "marks": 26,
           "dpa": 0,
           "processors": 0,
           "status": 0,

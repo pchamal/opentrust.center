@@ -676,6 +676,41 @@ PRIOR_ATTEMPTED = {
     "backblaze",
     "cognizant",
     "fiserv",
+    # leftover instrument / expand walks already fetch-checked for marks
+    # (PRs 120, 122, 125, 128, 133, 137, 142, 145, 148). Do not retry.
+    "tricentis",
+    "synerise",
+    "y-soft",
+    "pipedrive",
+    "veriff",
+    "eleks",
+    "foxit-software",
+    "aftership",
+    "blackboard",
+    "opengov",
+    "aptean",
+    "qad-redzone",
+    "sherpa-ai",
+    "pubnub",
+    "percona",
+    "agility-robotics",
+    "berkshire-grey",
+    # this cut — remaining thin files with a stored first-party privacy URL
+    "flex-ltd",
+    "hp",
+    "jfrog",
+    "kingsoft",
+    "metlife",
+    "phreesia",
+    "rackspace",
+    "semrush",
+    "soundthinking",
+    "ssc-technologies",
+    "synopsys",
+    "thales",
+    "unisys",
+    "verisk",
+    "yandex",
 }
 
 # Regulation-only lists stay thin. Real certs (SOC / ISO / FedRAMP / …) fill out.
@@ -710,7 +745,7 @@ PCI_PROCESSOR_RE = re.compile(
 )
 HIPAA_NOT_HOLD_RE = re.compile(
     r"notice of privacy practices|rights?\s+under\s+hipaa|"
-    r"protected\s+under\s+hipaa|applicable\s+law,?\s+including\s+hipaa|"
+    r"protected\s+(?:under|by)\s+hipaa|applicable\s+law,?\s+including\s+hipaa|"
     r"including\s+(?:the\s+)?(?:health insurance portability|hipaa)|"
     r"covered\s+by\s+(?:the\s+)?(?:health insurance portability|hipaa)|"
     r"subject\s+to\s+(?:the\s+)?(?:health insurance portability|hipaa)|"
@@ -815,9 +850,10 @@ def first_party_candidates(public: dict, enr: dict) -> list[tuple[str, str]]:
         out.append((kind, u))
 
     links = enr.get("links") or {}
-    # Trust-URL-only leftovers are exhausted after PRIOR. This cut reads
-    # unread empty-cert files that already store a first-party trust,
-    # security, or privacy URL. Skip lists keep PRIOR_ATTEMPTED off queue.
+    # Empty-cert trust/privacy leftovers are exhausted after PRIOR. This
+    # cut reads remaining thin files that already store a first-party
+    # trust, security, or privacy URL. Skip lists keep PRIOR_ATTEMPTED
+    # off queue.
     kinds = ("trust", "security", "privacy")
     extra_kinds = ("dpa", "subprocessors") if requested_slugs() else ()
     for kind in (*kinds, *extra_kinds):
@@ -874,7 +910,8 @@ def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]
         (thin_rows if on_file else open_rows).append(rec)
     if wanted:
         return open_rows + thin_rows
-    # Trust-URL-only leftovers are exhausted. Prefer empty-cert files.
+    # Empty-cert first-party URL queue is exhausted. Remaining rows are
+    # thin marketplace-only files with a stored first-party privacy page.
     return (open_rows + thin_rows)[:BATCH]
 
 
@@ -1129,13 +1166,14 @@ def main() -> int:
     report = {
         "generated_at": enr.get("generated_at"),
         "rule": (
-            "Next ~40 unread empty-cert companies that already store a "
-            "first-party trust / security / privacy URL. The trust-URL-only "
-            "queue is exhausted after PRIOR. Marks fill only when that live "
-            "page names the company's own hold. Regulation mentions "
-            "(GDPR/CCPA as rights) and DPF as a transfer mechanism among "
-            "SCCs stay open. Login walls, soft-404s, homepage bounces, "
-            "PDFs, JS shells, and portal hosts stay open."
+            "Remaining thin files that already store a first-party trust / "
+            "security / privacy URL. Empty-cert leftover and privacy-page "
+            "queues are exhausted after PRIOR (including leftover instrument "
+            "walks). Marks fill only when that live page names the company's "
+            "own hold. Regulation mentions (GDPR/CCPA as rights) and DPF as "
+            "a transfer mechanism among SCCs stay open. Login walls, "
+            "soft-404s, homepage bounces, PDFs, JS shells, and portal hosts "
+            "stay open."
         ),
         "batch": [rec["slug"] for rec in batch],
         "marks_filed": filed,
