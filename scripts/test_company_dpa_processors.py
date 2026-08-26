@@ -106,65 +106,50 @@ def main() -> int:
     check("Amazon Web Services" in zoom, "zoom still names AWS")
     check("Concentration" not in (ROOT / "site" / "graph.html").read_text(encoding="utf-8"), "list dropped Concentration")
 
-    # This increment: DPA already on file, named processors empty (~40 slugs).
+    # This increment: leftover DPA-on-file companies with empty named processors (7 slugs).
     expected_batch = [
-        "clio", "freshworks", "cato-networks", "snyk", "celonis", "veriff", "brex",
-        "vanta", "honeycomb", "lucidworks", "datalogics", "algolia", "pipedrive",
-        "attentive", "cs-disco", "synerise", "snowflake", "imperva", "idrive-inc",
-        "ramp", "evenup", "varonis-systems", "cloudflare", "sprout-social",
-        "darktrace", "launchdarkly", "deel", "red-canary", "guild", "classranked",
-        "mixpanel", "midjourney", "aerospike", "xai", "boomi-lp", "salt-security",
-        "caspio", "diebold-nixdorf", "paylocity", "procore",
+        "anysphere", "glossgenius", "braze", "photoroom", "pagaya", "teamviewer", "ibotta",
     ]
-    check(report.get("batch") == expected_batch, "batch is the 40 DPA-on-file empty-processor slugs")
-    check(
-        instrument_url(by_pub["brex"], "dpa") == "https://www.brex.com/legal/dpa",
-        "brex DPA upgraded from portal catalog to first-party HTML",
-    )
-    check((by_pub["brex"].get("file") or {}).get("dpa") == 20, "brex DPA printed")
-    check(
-        instrument_url(by_pub["freshworks"], "dpa")
-        == "https://www.freshworks.com/data-processing-addendum/",
-        "freshworks DPA upgraded from portal catalog to first-party HTML",
-    )
-    check((by_pub["freshworks"].get("file") or {}).get("dpa") == 20, "freshworks DPA printed")
-    check(not (by_pub["freshworks"].get("processors") or []), "freshworks named processors stay open")
-    check(not (by_pub["brex"].get("processors") or []), "brex named processors stay open")
+    check(report.get("batch") == expected_batch, "batch is the 7 leftover DPA-on-file slugs")
+    check(not (report.get("dpa_filed") or []), "no DPA was newly filed or dropped")
 
-    snyk_names = [p.get("name") for p in (by_pub["snyk"].get("processors") or [])]
-    check("Amplitude, Inc" in snyk_names, "snyk names Amplitude")
-    check("Datadog, Inc" in snyk_names and "OpenAI, LLC" in snyk_names, "snyk names Datadog and OpenAI")
-    check(not any((n or "").startswith("Snyk") for n in snyk_names), "snyk affiliates are not subprocessors")
-    check(len(snyk_names) == 30, f"snyk printed 30 third-party names, got {len(snyk_names)}")
-
-    alg_names = [p.get("name") for p in (by_pub["algolia"].get("processors") or [])]
-    check("Amazon Web Services, Inc" in alg_names, "algolia names AWS")
-    check("OpenAI" in alg_names and "Anthropic, PBC" in alg_names, "algolia names OpenAI and Anthropic")
-    check(not any((n or "").startswith("Algolia") for n in alg_names), "algolia affiliates are not subprocessors")
-
-    hc_names = [p.get("name") for p in (by_pub["honeycomb"].get("processors") or [])]
-    check("Amazon Web Services" in hc_names and "Anthropic" in hc_names, "honeycomb names AWS and Anthropic")
-    check(len(hc_names) == 7, f"honeycomb printed table has 7 names, got {len(hc_names)}")
-
-    id_names = [p.get("name") for p in (by_pub["idrive-inc"].get("processors") or [])]
-    check("Stripe, Inc" in id_names and "Talkdesk, Inc" in id_names, "idrive names Stripe and Talkdesk")
-    check("TrustCloud" not in id_names, "idrive portal vendor is not a processor")
-
-    boomi_names = [p.get("name") for p in (by_pub["boomi-lp"].get("processors") or [])]
-    check("Amazon Web Services Inc" in boomi_names, "boomi names AWS")
-    check("Snowflake Inc" in boomi_names, "boomi names Snowflake")
-
-    sprout_names = [p.get("name") for p in (by_pub["sprout-social"].get("processors") or [])]
-    check("ClickHouse, Inc" in sprout_names, "sprout-social names ClickHouse")
-    check("OpenAI, L.L.C" in sprout_names, "sprout-social names OpenAI")
-
-    for slug in ("ramp", "deel", "vanta", "midjourney", "clio", "celonis", "attentive", "imperva"):
+    for slug in expected_batch:
         pub = by_pub[slug]
         check(instrument_url(pub, "dpa"), f"{slug} existing DPA stays on file")
+        check((pub.get("file") or {}).get("dpa") in (True, 20), f"{slug} file.dpa stays filled")
+
+    check(
+        instrument_url(by_pub["photoroom"], "dpa")
+        == "https://www.photoroom.com/legal/data-processing-agreement",
+        "photoroom DPA stays the stored first-party agreement",
+    )
+    pr_names = [p.get("name") for p in (by_pub["photoroom"].get("processors") or [])]
+    check("Amazon Web Services (AWS)" in pr_names, "photoroom names Amazon Web Services (AWS)")
+    check("Cloudflare Inc" in pr_names, "photoroom names Cloudflare Inc")
+    check(
+        "Google LLC (Google Cloud, Firebase, Workspace)" in pr_names,
+        "photoroom names Google LLC",
+    )
+    check("Intercom" in pr_names, "photoroom names Intercom")
+    check(len(pr_names) == 4, f"photoroom printed appendix has 4 names, got {len(pr_names)}")
+    check(
+        instrument_url(by_pub["photoroom"], "subprocessors")
+        == "https://www.photoroom.com/legal/data-processing-agreement",
+        "photoroom list URL moved from the JS trust path to the printed appendix",
+    )
+    check((by_pub["photoroom"].get("file") or {}).get("subprocessors") == 20, "photoroom list printed")
+
+    # Already named on the public file before this cut; live first-party HTML added no new names.
+    any_names = [p.get("name") for p in (by_pub["anysphere"].get("processors") or [])]
+    check(len(any_names) == 17, f"anysphere existing 17 names stay, got {len(any_names)}")
+    check(instrument_url(by_pub["anysphere"], "dpa") == "https://cursor.com/terms/dpa", "anysphere DPA stays")
+
+    for slug in ("glossgenius", "braze", "pagaya", "teamviewer", "ibotta"):
+        pub = by_pub[slug]
         check(not (pub.get("processors") or []), f"{slug} named processors stay open")
 
     filled_html = {}
-    for slug in ("snyk", "algolia", "honeycomb", "idrive-inc", "boomi-lp", "sprout-social", "brex", "freshworks"):
+    for slug in expected_batch:
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         filled_html[slug] = html
         check('target="_blank"' in html and 'rel="noopener noreferrer"' in html, f"{slug} outbound opens a new tab")
@@ -174,14 +159,13 @@ def main() -> int:
             "safebase" not in visible and "conveyor" not in visible and "drata" not in visible,
             f"{slug} named a portal vendor",
         )
-    check("vanta" not in filled_html["snyk"].lower() and "vanta" not in filled_html["algolia"].lower(), "filed lists name no portal vendor")
+    check("vanta" not in filled_html["photoroom"].lower(), "photoroom dossier names no portal vendor")
+    check("vanta" not in filled_html["braze"].lower(), "braze dossier names no portal vendor")
     pronto_html = (ROOT / "site" / "c" / "pronto-software.html").read_text(encoding="utf-8")
     check("Official page" in pronto_html, "Pronto Software still prints Official page")
 
     print(
-        f"ok increment-dpa brex/freshworks + "
-        f"{len(snyk_names)}+{len(alg_names)}+{len(hc_names)}+{len(id_names)}+"
-        f"{len(boomi_names)}+{len(sprout_names)} processors; "
+        f"ok increment-dpa photoroom {len(pr_names)} processors; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
     )
     return 0
