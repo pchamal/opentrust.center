@@ -420,6 +420,48 @@ PRIOR_ATTEMPTED = {
     "clarivate",
     "domo",
     "sopra-steria",
+    # this cut — unread empty-cert files with a stored first-party
+    # trust / security / privacy URL. Trust-URL leftovers exhausted.
+    "braze",
+    "glossgenius",
+    "brown-forman",
+    "american-water-works",
+    "character-ai",
+    "amcor",
+    "abbott-laboratories",
+    "american-international-group",
+    "aflac",
+    "jabil",
+    "micron-technology",
+    "valero-energy",
+    "aes-corporation",
+    "centene",
+    "corpay",
+    "materialise-nv",
+    "schr-dinger",
+    "zensar-technologies",
+    "on-semiconductor",
+    "globant",
+    "4dmedical-limited",
+    "bytedance",
+    "cyngn",
+    "system1",
+    "applied-digital",
+    "3d-systems",
+    "3i-infotech",
+    "a-o-smith",
+    "aiforia-technologies-oyj",
+    "albemarle-corporation",
+    "alexandria-real-estate-equities",
+    "alfa-financial-software",
+    "alkami",
+    "alliant-energy",
+    "amadeus",
+    "ameren",
+    "american-electric-power",
+    "american-express",
+    "ametek",
+    "amgen",
 }
 
 # Regulation-only lists stay thin. Real certs (SOC / ISO / FedRAMP / …) fill out.
@@ -457,13 +499,19 @@ HIPAA_NOT_HOLD_RE = re.compile(
     r"protected\s+under\s+hipaa|applicable\s+law,?\s+including\s+hipaa|"
     r"including\s+(?:the\s+)?(?:health insurance portability|hipaa)|"
     r"covered\s+by\s+(?:the\s+)?(?:health insurance portability|hipaa)|"
+    r"subject\s+to\s+(?:the\s+)?(?:health insurance portability|hipaa)|"
+    r"related\s+to\s+hipaa|"
     r"hipaa\s+notice|"
+    r"hipaa\s+patient|"
+    r"hipaa\s+forms|"
+    r"hipaa\s+rules|"
+    r"granted\s+by\s+hipaa|"
     r"governed\s+by\s+hipaa|"
     r"hipaa-covered|"
     r"required\s+under\s+(?:the\s+)?(?:health insurance portability|hipaa)|"
     r"de-identif|"
     r"45\s+cfr|"
-    r"business\s+associate\s+addendum|"
+    r"business\s+associate|"
     r"deemed\s+under\s+hipaa\s+to\s+be\s+acting\s+as\s+a\s+business\s+associate|"
     r"shall\s+not\s+provide\s+us\s+with\s+any\s+phi",
     re.I,
@@ -544,9 +592,9 @@ def first_party_candidates(public: dict, enr: dict) -> list[tuple[str, str]]:
         out.append((kind, u))
 
     links = enr.get("links") or {}
-    # Remaining register-walk files still have an unread first-party trust
-    # URL and empty/thin certs. This cut reads those trust pages. Skip
-    # lists still keep PRIOR_ATTEMPTED slugs off the queue.
+    # Trust-URL-only leftovers are exhausted after PRIOR. This cut reads
+    # unread empty-cert files that already store a first-party trust,
+    # security, or privacy URL. Skip lists keep PRIOR_ATTEMPTED off queue.
     kinds = ("trust", "security", "privacy")
     extra_kinds = ("dpa", "subprocessors") if requested_slugs() else ()
     for kind in (*kinds, *extra_kinds):
@@ -578,8 +626,6 @@ def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]
     rows = [by_pub[s] for s in wanted if s in by_pub] if wanted else public_rows
     open_rows, thin_rows = [], []
     for row in rows:
-        if not row.get("found"):
-            continue
         slug = row.get("slug") or ""
         if slug in skip:
             continue
@@ -605,6 +651,7 @@ def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]
         (thin_rows if on_file else open_rows).append(rec)
     if wanted:
         return open_rows + thin_rows
+    # Trust-URL-only leftovers are exhausted. Prefer empty-cert files.
     return (open_rows + thin_rows)[:BATCH]
 
 
@@ -859,13 +906,13 @@ def main() -> int:
     report = {
         "generated_at": enr.get("generated_at"),
         "rule": (
-            "Next ~40 on-file companies whose marks File-glyph rule was open "
-            "or thin and who already had a first-party trust / privacy / "
-            "security URL. Marks fill only when that live page names the "
-            "company's own hold. Regulation mentions (GDPR/CCPA as rights) "
-            "and DPF as a transfer mechanism among SCCs stay open. Login "
-            "walls, soft-404s, homepage bounces, PDFs, JS shells, and portal "
-            "hosts stay open. Substantial files were skipped."
+            "Next ~40 unread empty-cert companies that already store a "
+            "first-party trust / security / privacy URL. The trust-URL-only "
+            "queue is exhausted after PRIOR. Marks fill only when that live "
+            "page names the company's own hold. Regulation mentions "
+            "(GDPR/CCPA as rights) and DPF as a transfer mechanism among "
+            "SCCs stay open. Login walls, soft-404s, homepage bounces, "
+            "PDFs, JS shells, and portal hosts stay open."
         ),
         "batch": [rec["slug"] for rec in batch],
         "marks_filed": filed,
