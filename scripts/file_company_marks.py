@@ -711,6 +711,56 @@ PRIOR_ATTEMPTED = {
     "unisys",
     "verisk",
     "yandex",
+    # leftover instrument / expand walks already fetch-checked for marks
+    # (PRs 151, 153). Do not retry.
+    "peak",
+    "translated",
+    "anaplan",
+    "sarvam-ai",
+    "salesloft",
+    "verint-systems",
+    "thoughtspot",
+    # this cut — latest expand silent/unread rows with a domain
+    "trendrr",
+    "varigence",
+    "skift",
+    "veda",
+    "civiqs",
+    "targit",
+    "kaggle",
+    "telligent-systems",
+    "medio",
+    "sentient-information-systems",
+    "importgenius",
+    "black-swan-data",
+    "surgisphere",
+    "mu-sigma",
+    "exl-service",
+    "oag",
+    "plum-analytics",
+    "reprisk",
+    "newswhip",
+    "surveylab",
+    "platfora",
+    "truviso",
+    "smith-brandon-international",
+    "civis-analytics",
+    "data-propria",
+    "hortonworks",
+    "sojern",
+    "bright-computing",
+    "zoomdata",
+    "arcade1up",
+    "rocket-fuel-inc",
+    "xandr",
+    "sense-networks",
+    "tubemogul",
+    "analogue",
+    "american-sammy",
+    "the-ant-commandos",
+    "mapr",
+    "owkin",
+    "lighton",
 }
 
 # Regulation-only lists stay thin. Real certs (SOC / ISO / FedRAMP / …) fill out.
@@ -740,7 +790,18 @@ CMMC_PRODUCT_RE = re.compile(
     re.I,
 )
 PCI_PROCESSOR_RE = re.compile(
-    r"(?:payment|third[- ]party|our)\s+process(?:or|ors|ing)",
+    r"(?:payment|third[- ]party|our)\s+process(?:or|ors|ing)|"
+    r"payments?\s+are\s+managed|"
+    r"(?:paypal|stripe).{0,80}pci|pci.{0,80}(?:paypal|stripe)",
+    re.I,
+)
+GDPR_NOT_HOLD_RE = re.compile(
+    r"gdpr[- ]compliant|"
+    r"compli(?:es|ant|ance)\s+with.{0,60}gdpr|"
+    r"meet(?:s)?\s+(?:the\s+)?requirements?\s+of.{0,60}gdpr|"
+    r"in\s+accordance\s+with.{0,60}gdpr|"
+    r"pursuant\s+to.{0,40}gdpr|"
+    r"rights?\s+under.{0,40}gdpr",
     re.I,
 )
 HIPAA_NOT_HOLD_RE = re.compile(
@@ -850,10 +911,10 @@ def first_party_candidates(public: dict, enr: dict) -> list[tuple[str, str]]:
         out.append((kind, u))
 
     links = enr.get("links") or {}
-    # Empty-cert trust/privacy leftovers are exhausted after PRIOR. This
-    # cut reads remaining thin files that already store a first-party
-    # trust, security, or privacy URL. Skip lists keep PRIOR_ATTEMPTED
-    # off queue.
+    # Prefer stored first-party trust / security / privacy / compliance
+    # URLs. Expand-silent fill adds well-known first-party paths in
+    # select_batch when those stored URLs are gone. Skip lists keep
+    # PRIOR_ATTEMPTED off queue.
     kinds = ("trust", "security", "privacy")
     extra_kinds = ("dpa", "subprocessors") if requested_slugs() else ()
     for kind in (*kinds, *extra_kinds):
@@ -878,41 +939,163 @@ def previous_batch() -> set[str]:
     return prior
 
 
+def latest_expand_slugs() -> list[str]:
+    """Newest register expand first, then older expands. Unread silent rows."""
+    paths = sorted((DATA / "render").glob("expand-*.json"), reverse=True)
+    out, seen = [], set()
+    for path in paths:
+        rows = load_json(path, {}).get("rows") or []
+        for rec in rows:
+            slug = rec.get("slug") or ""
+            if not slug or slug in seen:
+                continue
+            seen.add(slug)
+            out.append(slug)
+        if len(out) >= BATCH * 3:
+            break
+    return out
+
+
+def well_known_mark_candidates(enr: dict) -> list[tuple[str, str]]:
+    """Well-known first-party privacy / security / trust / compliance paths.
+
+    Used when the stored trust/security/privacy queue is exhausted and the
+    company is a latest-expand silent/unread row with a domain on file.
+    Live fetch still has to accept the page before any mark is filed.
+    """
+    out, seen = [], set()
+
+    def add(kind: str, url: str) -> None:
+        u = (url or "").strip()
+        if not u.startswith("http"):
+            return
+        if ITEM_UID_RE.search(u) or ASSET_URL_RE.search(u):
+            return
+        key = u.lower()
+        if key in seen:
+            return
+        if not enrich.is_first_party_url(u, enr):
+            return
+        seen.add(key)
+        out.append((kind, u))
+
+    for url in enrich.privacy_probe_urls_for(enr, core_only=True):
+        add("privacy", url)
+    for domain in enrich.hosts_for(enr)[:1]:
+        for kind, path in (
+            ("security", "/security"),
+            ("trust", "/trust"),
+            ("compliance", "/compliance"),
+            ("trust", "/trust-center"),
+        ):
+            add(kind, f"https://{domain}{path}")
+            if not domain.startswith("www."):
+                add(kind, f"https://www.{domain}{path}")
+    return out
+
+
+def mark_quote(blob: str, names: list[str]) -> str:
+    """Short live-page phrase that names a filed hold. Empty if none."""
+    if not blob or not names:
+        return ""
+    real = [n for n in names if n not in REG_MARKS] or list(names)
+    for name in real:
+        needle = re.escape(name)
+        if name == "EU-US DPF":
+            needle = r"(?:EU[- /]*U\.?S\.?\s+Data Privacy Framework|EU[- /]*U\.?S\.?\s+DPF)"
+        elif name == "SOC 2 Type II":
+            needle = r"SOC\s*2(?:\s+Type\s*[2II]+)?"
+        elif name == "SOC 2 Type I":
+            needle = r"SOC\s*2(?:\s+Type\s*[1I]+)?"
+        elif name == "PCI DSS":
+            needle = r"PCI(?:[\s/_-]*DSS|\s+Level)?"
+        m = re.search(needle, blob, re.I)
+        if not m:
+            continue
+        start = blob.rfind(".", 0, m.start()) + 1
+        end = blob.find(".", m.end())
+        if end == -1:
+            end = min(len(blob), m.end() + 180)
+        bit = " ".join(blob[start:end].split())
+        if len(bit) > 280:
+            i = m.start() - start
+            bit = bit[max(0, i - 100): i + 160].strip()
+        return bit.strip(" .;,:") + "."
+    return ""
+
+
 def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]:
     wanted = requested_slugs()
     skip = set() if wanted else previous_batch()
     by_pub = {row.get("slug"): row for row in public_rows if row.get("slug")}
     rows = [by_pub[s] for s in wanted if s in by_pub] if wanted else public_rows
     open_rows, thin_rows = [], []
-    for row in rows:
+
+    def consider(row: dict, *, allow_well_known: bool = False) -> dict | None:
         slug = row.get("slug") or ""
         if slug in skip:
-            continue
+            return None
         enr = enr_by.get(slug)
         if not enr:
-            continue
+            return None
         certs = named_certs(row, enr)
         if marks_are_substantial(certs):
-            continue
+            return None
         on_file = named_marks_on_file(row, enr)
         if on_file and not marks_are_thin(certs):
-            continue
+            return None
         cands = first_party_candidates(row, enr)
+        if not cands and allow_well_known:
+            if not enrich.has_official_domain(enr) and not enrich.has_official_domain(row):
+                return None
+            cands = well_known_mark_candidates(enr)
         if not cands:
-            continue
-        rec = {
+            return None
+        return {
             "slug": slug,
             "name": row.get("name") or slug,
             "thin": on_file,
             "have": certs,
             "candidates": cands,
         }
-        (thin_rows if on_file else open_rows).append(rec)
+
+    for row in rows:
+        rec = consider(row, allow_well_known=bool(wanted))
+        if not rec:
+            continue
+        (thin_rows if rec["thin"] else open_rows).append(rec)
     if wanted:
         return open_rows + thin_rows
-    # Empty-cert first-party URL queue is exhausted. Remaining rows are
-    # thin marketplace-only files with a stored first-party privacy page.
-    return (open_rows + thin_rows)[:BATCH]
+
+    # Stored first-party empty-cert / thin queue first. Then fill to ~40
+    # from the latest expand's silent/unread rows that have a domain.
+    picked: list[dict] = []
+    seen: set[str] = set()
+
+    def take(rec: dict) -> None:
+        slug = rec.get("slug") or ""
+        if not slug or slug in seen:
+            return
+        seen.add(slug)
+        picked.append(rec)
+
+    for rec in open_rows + thin_rows:
+        if len(picked) >= BATCH:
+            break
+        take(rec)
+    if len(picked) < BATCH:
+        for slug in latest_expand_slugs():
+            if len(picked) >= BATCH:
+                break
+            if slug in seen:
+                continue
+            row = by_pub.get(slug)
+            if not row:
+                continue
+            rec = consider(row, allow_well_known=True)
+            if rec:
+                take(rec)
+    return picked
 
 
 def fetch_page(url: str) -> dict:
@@ -1001,6 +1184,20 @@ def cmmc_is_hold(blob: str) -> bool:
     return hold
 
 
+def gdpr_is_hold(blob: str) -> bool:
+    """A 'GDPR compliant' / meet-requirements sentence is not a certification hold."""
+    if not blob:
+        return False
+    hold = False
+    for m in re.finditer(r"\bgdpr\b", blob, re.I):
+        window = blob[max(0, m.start() - 160): min(len(blob), m.end() + 160)]
+        if GDPR_NOT_HOLD_RE.search(window):
+            continue
+        if re.search(r"certif|attest", window, re.I):
+            hold = True
+    return hold
+
+
 def hipaa_is_hold(blob: str) -> bool:
     """A HIPAA notice, BAA, or rights sentence is not a certification hold."""
     if not blob:
@@ -1034,6 +1231,8 @@ def hold_marks(named: list[str], blob: str, kind: str = "") -> tuple[list[str], 
         if name == "HIPAA" and not hipaa_is_hold(blob):
             continue
         if name == "CMMC" and not cmmc_is_hold(blob):
+            continue
+        if name == "GDPR" and not gdpr_is_hold(blob):
             continue
         if privacy_page and name in REG_MARKS:
             # Privacy-page rights / legal-grounds mentions stay open.
@@ -1133,6 +1332,7 @@ def main() -> int:
                 "url": source,
                 "named": live,
                 "added": added,
+                "quote": mark_quote(rec_blob(rec), added),
             }
 
     filed = []
@@ -1147,6 +1347,7 @@ def main() -> int:
             "url": hit["url"],
             "added": added,
             "certs": list(row.get("certs") or []),
+            "quote": hit.get("quote") or "",
         })
 
     write_json(ENRICHED, enr)
@@ -1166,14 +1367,17 @@ def main() -> int:
     report = {
         "generated_at": enr.get("generated_at"),
         "rule": (
-            "Remaining thin files that already store a first-party trust / "
-            "security / privacy URL. Empty-cert leftover and privacy-page "
-            "queues are exhausted after PRIOR (including leftover instrument "
-            "walks). Marks fill only when that live page names the company's "
-            "own hold. Regulation mentions (GDPR/CCPA as rights) and DPF as "
-            "a transfer mechanism among SCCs stay open. Login walls, "
-            "soft-404s, homepage bounces, PDFs, JS shells, and portal hosts "
-            "stay open."
+            "Next ~40 unread open/thin marks files. Prefer remaining "
+            "empty-cert companies that already store a first-party trust / "
+            "security / privacy URL. That queue is exhausted after PRIOR "
+            "(including leftover instrument walks 120–153), so this cut "
+            "fills from the latest expand's silent/unread rows that have a "
+            "domain. Well-known first-party privacy / security / trust / "
+            "compliance paths are live-fetched. Marks fill only when that "
+            "HTML names the company's own hold. Regulation mentions "
+            "(GDPR/CCPA as rights) and DPF as a transfer mechanism among "
+            "SCCs stay open. Login walls, soft-404s, homepage bounces, "
+            "PDFs, JS shells, and portal hosts stay open."
         ),
         "batch": [rec["slug"] for rec in batch],
         "marks_filed": filed,
