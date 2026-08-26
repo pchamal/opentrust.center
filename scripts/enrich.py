@@ -387,11 +387,12 @@ PROSE_REBRAND = re.compile(
 )
 # Timeline copy: "2005 Fenrir Established 2008 Collaborative Development"
 # The year after Established is the next beat, not founding.
+# Also "2001 Keyhole founded 2004 Acquired by Google" (Niantic Spatial).
 _YEAR_NC = r"(?:1[6-9]\d{2}|20[0-2]\d)"
 _TIMELINE_NEXT_EVENT = re.compile(
     rf"\b({_YEAR_NC})\s+[A-Z][A-Za-z][\w.&'-]*"
     rf"(?:\s+[A-Z][A-Za-z][\w.&'-]*){{0,3}}\s+"
-    rf"(?:Founded|Established|Incorporated)\s+({_YEAR_NC})\b"
+    rf"(?:[Ff]ounded|[Ee]stablished|[Ii]ncorporated)\s+({_YEAR_NC})\b"
 )
 COPYRIGHT_SPAN = re.compile(
     r"(?:©|&copy;|copyright)\s*(?:©\s*)?(?:19|20)\d{2}(?:\s*[-–—]\s*(?:19|20)\d{2})?",

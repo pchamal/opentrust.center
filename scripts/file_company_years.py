@@ -520,6 +520,48 @@ PRIOR_ATTEMPTED = {
     "uber-technologies",
     "unisys",
     "unitedhealth-group",
+    # PR 146 leftovers — first-party-link queue through unitedhealth-group
+    # this cut — remaining first-party-link files + latest-expand silent rows
+    "agility-robotics",
+    "berkshire-grey",
+    "translated",
+    "verisign",
+    "urgent-ly-inc",
+    "verimatrix",
+    "verisk",
+    "verizon-communications",
+    "vitec-software",
+    "vroom-com",
+    "western-digital",
+    "wipro",
+    "world-labs",
+    "xero",
+    "xunlei",
+    "yandex",
+    "zillow",
+    "zspace",
+    "zuken",
+    "owkin",
+    "lighton",
+    "mind-foundry",
+    "raic-labs",
+    "matador-network",
+    "niantic-spatial",
+    "linagora",
+    "tempus-ai",
+    "two-sigma",
+    "unanimous-a-i",
+    "bigchampagne",
+    "acxiom",
+    "alphasights",
+    "cvidya",
+    "unbabel",
+    "black-cube",
+    "undetectable-ai",
+    "mgx-fund-management-limited",
+    "seidor",
+    "caci",
+    "lloyd-s-list-intelligence",
 }
 
 
@@ -550,9 +592,11 @@ def previous_batch() -> set[str]:
     return prior
 
 
-# Trust-URL-only years queue is exhausted. This cut walks open years
-# files that already store a first-party trust / privacy / about / security
-# URL. security.txt is not a security page.
+# First-party-link years queue is nearly exhausted after PRIOR (through
+# PR 146). Prefer remaining unread open-years files that already store a
+# first-party trust / privacy / about / security URL, then fill to ~40
+# from the latest expand's silent/unread rows. security.txt is not a
+# security page.
 YEAR_QUEUE_LINKS = ("trust", "privacy", "about", "security")
 
 
@@ -599,35 +643,63 @@ def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]
     wanted = requested_slugs()
     skip = set() if wanted else previous_batch()
     by_pub = {row.get("slug"): row for row in public_rows if row.get("slug")}
-    if wanted:
-        rows = [by_pub[s] for s in wanted if s in by_pub]
-    else:
-        # Trust-URL-only years queue is exhausted after PRIOR. Walk unread
-        # open-years files that already store a first-party trust, privacy,
-        # about, or security URL. Register order is the natural queue.
-        rows = list(public_rows)
-    picked = []
-    for row in rows:
+    def eligible(row: dict) -> bool:
         slug = row.get("slug") or ""
         if slug in skip:
-            continue
+            return False
         enr = enr_by.get(slug)
         if not enr:
-            continue
+            return False
         if row.get("founded_year") or enr.get("founded_year"):
-            continue
+            return False
         if not enrich.has_official_domain(enr) and not enrich.has_official_domain(row):
-            continue
-        if not wanted and not first_party_year_links(row, enr):
-            continue
-        picked.append({
-            "slug": slug,
-            "name": row.get("name") or enr.get("name") or slug,
+            return False
+        return True
+
+    def as_rec(row: dict) -> dict:
+        enr = enr_by.get(row.get("slug") or "") or {}
+        return {
+            "slug": row.get("slug") or "",
+            "name": row.get("name") or enr.get("name") or row.get("slug"),
             "domain": row.get("domain") or enr.get("domain") or "",
-        })
-        if not wanted and len(picked) >= BATCH:
+        }
+
+    if wanted:
+        picked = [as_rec(by_pub[s]) for s in wanted if s in by_pub and eligible(by_pub[s])]
+        return picked
+
+    # Prefer remaining first-party-link files, then latest-expand silent
+    # rows, then register order until BATCH.
+    picked: list[dict] = []
+    seen: set[str] = set()
+
+    def take(row: dict) -> None:
+        slug = row.get("slug") or ""
+        if slug in seen or not eligible(row):
+            return
+        picked.append(as_rec(row))
+        seen.add(slug)
+
+    for row in public_rows:
+        if len(picked) >= BATCH:
             break
-    return picked[:BATCH] if not wanted else picked
+        enr = enr_by.get(row.get("slug") or "")
+        if not enr or not first_party_year_links(row, enr):
+            continue
+        take(row)
+    if len(picked) < BATCH:
+        for slug in latest_expand_slugs():
+            if len(picked) >= BATCH:
+                break
+            row = by_pub.get(slug)
+            if row:
+                take(row)
+    if len(picked) < BATCH:
+        for row in public_rows:
+            if len(picked) >= BATCH:
+                break
+            take(row)
+    return picked
 
 
 def stored_year_urls(public: dict, enr: dict) -> list[str]:
@@ -1015,13 +1087,14 @@ def main() -> int:
     report = {
         "generated_at": enr.get("generated_at"),
         "rule": (
-            "Next ~40 unread open-years files that already store a first-party "
-            "trust, privacy, about, or security URL. The trust-URL-only queue "
-            "is exhausted after PRIOR. A year fills only when live first-party "
-            "HTML names founded, established, or foundingDate. Wikipedia, news, "
-            "title-only prefix matches, portal catalogs, JS shells, login/CMP "
-            "walls, investor/parent years, rebrand dates, and soft story-began "
-            "copy stay open. Prior year cuts through PR 143 are on the skip list."
+            "Next ~40 unread open-years files. Prefer remaining files that "
+            "already store a first-party trust, privacy, about, or security "
+            "URL; fill to ~40 from the latest expand's silent/unread rows. "
+            "A year fills only when live first-party HTML names founded, "
+            "established, or foundingDate. Wikipedia, news, title-only prefix "
+            "matches, portal catalogs, JS shells, login/CMP walls, "
+            "investor/parent years, rebrand dates, and soft story-began copy "
+            "stay open. Prior year cuts through PR 146 are on the skip list."
         ),
         "batch": [rec["slug"] for rec in batch],
         "years_filed": filed,
