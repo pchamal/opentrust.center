@@ -1,973 +1,3986 @@
 {
-  "generated_at": "2026-08-25T22:56:01Z",
-  "rule": "Next unread first-party DPA / named-processor files after PRIOR_ATTEMPTED (6 companies; queue is not ~40). DPA fills only from a real first-party DPA. Named subprocessors fill only from a printed first-party list of organization names. Dates, JS shells, login walls, download-only lists, and portal hosts stay open.",
+  "generated_at": "2026-08-25T23:53:35Z",
+  "rule": "Next ~40 companies that already have a DPA on file and whose named processors are empty. Named subprocessors fill only from printed organization names in live first-party HTML. A stored list URL with no printed names stays open. A DPA is filed only when a better first-party DPA is newly found; an existing DPA is never dropped. Dates, JS shells, login walls, download-only lists, affiliate-only rows, and portal catalogs stay open.",
   "batch": [
-    "y-soft",
-    "tricentis",
-    "trustly",
-    "frosmo",
-    "projectmanager-com",
-    "esko"
+    "clio",
+    "freshworks",
+    "cato-networks",
+    "snyk",
+    "celonis",
+    "veriff",
+    "brex",
+    "vanta",
+    "honeycomb",
+    "lucidworks",
+    "datalogics",
+    "algolia",
+    "pipedrive",
+    "attentive",
+    "cs-disco",
+    "synerise",
+    "snowflake",
+    "imperva",
+    "idrive-inc",
+    "ramp",
+    "evenup",
+    "varonis-systems",
+    "cloudflare",
+    "sprout-social",
+    "darktrace",
+    "launchdarkly",
+    "deel",
+    "red-canary",
+    "guild",
+    "classranked",
+    "mixpanel",
+    "midjourney",
+    "aerospike",
+    "xai",
+    "boomi-lp",
+    "salt-security",
+    "caspio",
+    "diebold-nixdorf",
+    "paylocity",
+    "procore"
   ],
   "dpa_filed": [
     {
-      "slug": "tricentis",
-      "name": "Tricentis",
-      "url": "https://www.tricentis.com/legal-information/data-processing-addendum",
-      "quote": "This data processing agreement (this “DPA”) is entered into by and between the Tricentis entity identified in Section 1.4 below (“Tricentis” or “Processor”); and the Customer entity identified in Section 1.4 below (“Customer” or “Controller”), together, the “Parties”."
+      "slug": "brex",
+      "name": "Brex",
+      "url": "https://www.brex.com/legal/dpa",
+      "quote": "This Data Processing Addendum (\"DPA\") is subject to and forms part of the Agreement. This DPA applies to you when you use the Services and governs Brex's Processing of Personal Data."
     },
     {
-      "slug": "y-soft",
-      "name": "Y Soft",
-      "url": "https://www.ysoft.com/legal/data-protection-addendum",
-      "quote": "This Data Protection Addendum (“DPA”) forms part of the Terms of Use and governs data protection obligations, with precedence given first to the Standard Contractual Clauses, then this DPA."
+      "slug": "freshworks",
+      "name": "Freshworks",
+      "url": "https://www.freshworks.com/data-processing-addendum/",
+      "quote": "This DPA forms a part of, and is subject to, the Main Service Agreement or other written contract or electronic terms of service (\"Agreement\") between the Parties."
     }
   ],
   "subprocessors_filed": [
     {
-      "slug": "frosmo",
-      "name": "Frosmo",
-      "url": "https://frosmo.com/data-processing-annex/",
+      "slug": "algolia",
+      "name": "Algolia",
+      "url": "https://www.algolia.com/policies/infrastructure-and-sub-processors",
       "names": [
-        "Hetzner Online AG",
-        "Hetzner Finland Oy",
-        "Amazon Web Services, Inc"
+        "Amazon Web Services, Inc",
+        "Google LLC",
+        "LeaseWeb Global B.V",
+        "OVH SAS",
+        "HorizonIQ",
+        "Latitude.sh",
+        "Equinix, Inc",
+        "Microsoft Corporation",
+        "The Constant Company, LLC (Vultr)",
+        "OVH US LLC",
+        "Cloudflare, Inc",
+        "Datadog, Inc",
+        "OpenAI",
+        "Anthropic, PBC",
+        "MorphL R&D SRL",
+        "Sajari Corp Pty Limited (a/k/a Search.io)",
+        "Sajari Pty Limited",
+        "Sajari USA Inc"
       ],
-      "quote": "Permitted sub-processors of Frosmo: Hetzner Online AG, Hetzner Finland Oy and Amazon Web Services, Inc."
+      "quote": "Algolia operates worldwide infrastructure in co-location and server hosting facilities of our infrastructure partners together with industry leading cloud providers."
+    },
+    {
+      "slug": "boomi-lp",
+      "name": "Boomi, LP",
+      "url": "https://boomi.com/legal/sub-processors/",
+      "names": [
+        "Amazon Web Services Inc",
+        "Google LLC (Google Cloud Platform)",
+        "Microsoft Corporation (Microsoft Azure)",
+        "Salesforce.com Inc",
+        "ServiceNow",
+        "Solace Corporation (where purchased by Customer)",
+        "Snowflake Inc"
+      ],
+      "quote": "Boomi uses certain subprocessors to assist it in providing services. A subprocessor is a third party or Boomi affiliate data processor who has or potentially will have access to or process Personal Data on behalf of Boomi’s customers."
+    },
+    {
+      "slug": "honeycomb",
+      "name": "Honeycomb",
+      "url": "https://www.honeycomb.io/subprocessors",
+      "names": [
+        "Amazon Web Services",
+        "Amplitude",
+        "Anthropic",
+        "Asana",
+        "Braintrust Data",
+        "Census (Sutro Labs Inc.)",
+        "dbt Labs"
+      ],
+      "quote": "Name Purpose Entity Country. Amazon Web Services — Cloud service provider and AI services. Customer may designate data residency upon signup."
+    },
+    {
+      "slug": "idrive-inc",
+      "name": "IDrive Inc.",
+      "url": "https://www.idrive.com/authorized-sub-processor",
+      "names": [
+        "Stripe, Inc",
+        "SendGrid (Twilio)",
+        "Brevo (Sendinblue)",
+        "Google Workspace",
+        "SurveyMonkey (Momentive)",
+        "Zerobounce",
+        "Webbula",
+        "LiveChat, Inc. ( Text Inc.)",
+        "Talkdesk, Inc",
+        "PartnerStack"
+      ],
+      "quote": "IDrive works with the following affiliates or third party service providers to process customer data."
+    },
+    {
+      "slug": "snyk",
+      "name": "Snyk",
+      "url": "https://snyk.io/policies/subprocessors/",
+      "names": [
+        "Amplitude, Inc",
+        "Akamai Technologies Limited and its affiliates",
+        "Amazon Web Services, Inc. and Amazon Web Services EMEA SARL",
+        "Okta, Inc. (Auth0)",
+        "Confluent, Inc",
+        "CrowdStrike, Inc",
+        "Datadog, Inc",
+        "DBT Labs, Inc",
+        "Functional Software, Inc. (Sentry)",
+        "Google Cloud Platform",
+        "Google Workspace",
+        "Looker",
+        "MongoDB Ltd",
+        "Shoreline Labs, Inc. (d/b/a Nightfall)",
+        "OpenAI, LLC",
+        "Orca Security UK Ltd",
+        "Salesforce.com, Inc",
+        "Slack Technologies Limited",
+        "Snowflake, Inc",
+        "Sublime, Security Inc",
+        "Twilio Ireland Limited (Segment.io)",
+        "BastionX, Inc",
+        "Chargebee, Inc",
+        "Intercom, Inc",
+        "Hubspot",
+        "Stripe, Inc",
+        "Cloudflare, Inc",
+        "Invoiceexpress",
+        "Chartmogul",
+        "Oracle Netsuite"
+      ],
+      "quote": "Entity Name Location of Processing Data Processed & Purpose of Processing. Amplitude, Inc. Snyk uses Amplitude to obtain usage analytics in relation to its products and services."
+    },
+    {
+      "slug": "sprout-social",
+      "name": "Sprout Social",
+      "url": "https://sproutsocial.com/legal/subprocessors/",
+      "names": [
+        "AWS (Amazon Web Services), Inc",
+        "ClickHouse, Inc",
+        "Cloudflare, Inc",
+        "Datadog, Inc",
+        "dbt Labs, Inc. (dbt Cloud)",
+        "Elasticsearch, Inc",
+        "Firebase (Google LLC)",
+        "FullStory, Inc",
+        "Google Cloud Platform (Google LLC)",
+        "Intercom, Inc",
+        "ipdata LLC",
+        "LaunchDarkly (Catamorphic, Corp.)",
+        "Mailchimp (The Rocket Science Group LLC)",
+        "Mixpanel, Inc",
+        "Pendo.io, Inc",
+        "Postmark (ActiveCampaign, LLC)",
+        "Segment (Twilio, Inc.)",
+        "OpenAI, L.L.C",
+        "Very Good Security, Inc",
+        "Google LLC",
+        "Hetzner Online GmbH",
+        "OVHcloud"
+      ],
+      "quote": "For the Sprout Social platform: Name of company Use case Location. AWS (Amazon Web Services), Inc. Hosting provider United States."
     }
   ],
   "stayed_open": [
     {
-      "slug": "tricentis",
-      "name": "Tricentis",
+      "slug": "clio",
+      "name": "Clio",
       "rule": "subprocessors"
     },
     {
-      "slug": "trustly",
-      "name": "Trustly",
-      "rule": "dpa"
-    },
-    {
-      "slug": "trustly",
-      "name": "Trustly",
+      "slug": "freshworks",
+      "name": "Freshworks",
       "rule": "subprocessors"
     },
     {
-      "slug": "projectmanager-com",
-      "name": "ProjectManager.com",
-      "rule": "dpa"
+      "slug": "cato-networks",
+      "name": "Cato Networks",
+      "rule": "subprocessors"
     },
     {
-      "slug": "esko",
-      "name": "Esko",
-      "rule": "dpa"
+      "slug": "celonis",
+      "name": "Celonis",
+      "rule": "subprocessors"
     },
     {
-      "slug": "esko",
-      "name": "Esko",
+      "slug": "veriff",
+      "name": "Veriff",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "brex",
+      "name": "Brex",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "vanta",
+      "name": "Vanta",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "lucidworks",
+      "name": "Lucidworks",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "datalogics",
+      "name": "Datalogics",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "pipedrive",
+      "name": "Pipedrive",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "attentive",
+      "name": "Attentive",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "cs-disco",
+      "name": "CS Disco",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "synerise",
+      "name": "Synerise",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "snowflake",
+      "name": "Snowflake",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "ramp",
+      "name": "Ramp",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "evenup",
+      "name": "EvenUp",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "varonis-systems",
+      "name": "Varonis Systems",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "name": "Cloudflare",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "darktrace",
+      "name": "Darktrace",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "launchdarkly",
+      "name": "LaunchDarkly",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "name": "Deel",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "red-canary",
+      "name": "Red Canary",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "guild",
+      "name": "Guild",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "classranked",
+      "name": "ClassRanked",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "mixpanel",
+      "name": "Mixpanel",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "midjourney",
+      "name": "Midjourney",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "aerospike",
+      "name": "Aerospike",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "xai",
+      "name": "xAI",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "salt-security",
+      "name": "Salt Security",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "caspio",
+      "name": "Caspio",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "diebold-nixdorf",
+      "name": "Diebold Nixdorf",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "paylocity",
+      "name": "Paylocity",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "procore",
+      "name": "Procore",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "imperva",
+      "name": "Imperva",
       "rule": "subprocessors"
     }
   ],
   "rejected": [
     {
-      "slug": "y-soft",
-      "url": "https://trust.ysoft.com/subprocessors",
+      "slug": "lucidworks",
+      "url": "https://lucidworks.com/legal/dpa",
+      "reason": "seed-not-live",
+      "kind": "dpa"
+    },
+    {
+      "slug": "lucidworks",
+      "url": "https://lucidworks.com/legal/sub-processors",
       "reason": "seed-not-live",
       "kind": "subprocessors"
     },
     {
-      "slug": "projectmanager-com",
-      "url": "https://trust.projectmanager.com/subprocessors",
+      "slug": "evenup",
+      "url": "https://www.evenuplaw.com/dpa/",
+      "reason": "seed-not-live",
+      "kind": "dpa"
+    },
+    {
+      "slug": "midjourney",
+      "url": "https://www.midjourney.com/dpa",
+      "reason": "seed-not-live",
+      "kind": "dpa"
+    },
+    {
+      "slug": "midjourney",
+      "url": "https://www.midjourney.com/subprocessors",
       "reason": "seed-not-live",
       "kind": "subprocessors"
     },
     {
-      "slug": "y-soft",
-      "url": "https://ysoft.com/legal/data-processing-addendum",
-      "final": "https://ysoft.com/legal/data-processing-addendum",
-      "reason": "http-404",
+      "slug": "xai",
+      "url": "https://x.ai/legal/data-processing-addendum",
+      "reason": "seed-not-live",
       "kind": "dpa"
     },
     {
-      "slug": "y-soft",
-      "url": "https://ysoft.com/gdpr/dpa",
-      "final": "https://ysoft.com/gdpr/dpa",
-      "reason": "http-404",
+      "slug": "caspio",
+      "url": "https://www.caspio.com/legal/dpa/",
+      "reason": "seed-not-live",
       "kind": "dpa"
     },
     {
-      "slug": "y-soft",
-      "url": "https://ysoft.com/legal/dpa",
-      "final": "https://ysoft.com/legal/dpa",
-      "reason": "http-404",
+      "slug": "imperva",
+      "url": "https://www.imperva.com/dpa",
+      "reason": "seed-not-live",
       "kind": "dpa"
     },
     {
-      "slug": "y-soft",
-      "url": "https://ysoft.com/dpa",
-      "final": "https://ysoft.com/dpa",
-      "reason": "http-404",
+      "slug": "boomi-lp",
+      "url": "https://boomi.com/dpa/",
+      "reason": "seed-not-live",
       "kind": "dpa"
     },
     {
-      "slug": "y-soft",
-      "url": "https://ysoft.com/data-processing-addendum",
-      "final": "https://ysoft.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "y-soft",
-      "url": "https://ysoft.com/terms/dpa",
-      "final": "https://ysoft.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "y-soft",
-      "url": "https://ysoft.com/data-processing-agreement",
-      "final": "https://ysoft.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "y-soft",
-      "url": "https://ysoft.com/policies/data-processing-addendum",
-      "final": "https://ysoft.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "y-soft",
-      "url": "https://ysoft.com/policies/dpa",
-      "final": "https://ysoft.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "y-soft",
-      "url": "https://ysoft.com/policies/data-processing-agreement",
-      "final": "https://ysoft.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "y-soft",
-      "url": "https://ysoft.com/legal/data-processing-agreement",
-      "final": "https://ysoft.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "y-soft",
-      "url": "https://ysoft.com/company/dpa",
-      "final": "https://ysoft.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/legal/dpa",
-      "final": "https://tricentis.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/dpa",
-      "final": "https://tricentis.com/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/legal/data-processing-addendum",
-      "final": "https://tricentis.com/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/data-processing-agreement",
-      "final": "https://tricentis.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/policies/data-processing-addendum",
-      "final": "https://tricentis.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/policies/dpa",
-      "final": "https://tricentis.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/terms/dpa",
-      "final": "https://tricentis.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/data-processing-addendum",
-      "final": "https://tricentis.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "y-soft",
-      "url": "https://ysoft.com/legal/gdpr/dpa",
-      "final": "https://ysoft.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "y-soft",
-      "url": "https://ysoft.com/legal/processor-terms",
-      "final": "https://ysoft.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "y-soft",
-      "url": "https://ysoft.com/privacy/dpa",
-      "final": "https://ysoft.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "y-soft",
-      "url": "https://ysoft.com/legal/data-processing",
-      "final": "https://ysoft.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "y-soft",
-      "url": "https://ysoft.com/data-processing",
-      "final": "https://ysoft.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/legal/gdpr/dpa",
-      "final": "https://tricentis.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/legal/processor-terms",
-      "final": "https://tricentis.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/privacy/dpa",
-      "final": "https://tricentis.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/legal/data-processing",
-      "final": "https://tricentis.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/legal/dpa",
-      "final": "https://trustly.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/data-processing",
-      "final": "https://tricentis.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/dpa",
-      "final": "https://trustly.com/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/gdpr/dpa",
-      "final": "https://tricentis.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/legal/data-processing-addendum",
-      "final": "https://trustly.com/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/legal/data-processing-agreement",
-      "final": "https://trustly.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/data-processing-addendum",
-      "final": "https://trustly.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/policies/data-processing-addendum",
-      "final": "https://trustly.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/data-processing-agreement",
-      "final": "https://trustly.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/policies/data-processing-agreement",
-      "final": "https://trustly.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/terms/dpa",
-      "final": "https://trustly.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/policies/dpa",
-      "final": "https://trustly.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/company/dpa",
-      "final": "https://trustly.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/gdpr/dpa",
-      "final": "https://trustly.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/legal/gdpr/dpa",
-      "final": "https://trustly.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "projectmanager-com",
-      "url": "https://projectmanager.com/dpa",
-      "final": "https://projectmanager.com/dpa",
+      "slug": "clio",
+      "url": "https://clio.com/legal/dpa",
+      "final": "https://clio.com/legal/dpa",
       "reason": "http-403",
       "kind": "dpa"
     },
     {
-      "slug": "trustly",
-      "url": "https://trustly.com/privacy/dpa",
-      "final": "https://trustly.com/privacy/dpa",
+      "slug": "clio",
+      "url": "https://clio.com/dpa",
+      "final": "https://clio.com/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "clio",
+      "url": "https://clio.com/data-processing-agreement",
+      "final": "https://clio.com/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "clio",
+      "url": "https://clio.com/terms/dpa",
+      "final": "https://clio.com/terms/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "clio",
+      "url": "https://clio.com/legal/data-processing-agreement",
+      "final": "https://clio.com/legal/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "clio",
+      "url": "https://clio.com/policies/data-processing-agreement",
+      "final": "https://clio.com/policies/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "clio",
+      "url": "https://clio.com/policies/dpa",
+      "final": "https://clio.com/policies/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "clio",
+      "url": "https://clio.com/gdpr/dpa",
+      "final": "https://clio.com/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "clio",
+      "url": "https://clio.com/company/dpa",
+      "final": "https://clio.com/company/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "clio",
+      "url": "https://clio.com/policies/data-processing-addendum",
+      "final": "https://clio.com/policies/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "clio",
+      "url": "https://clio.com/data-processing-addendum",
+      "final": "https://clio.com/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "clio",
+      "url": "https://clio.com/legal/data-processing-addendum",
+      "final": "https://clio.com/legal/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "clio",
+      "url": "https://clio.com/legal/gdpr/dpa",
+      "final": "https://clio.com/legal/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "clio",
+      "url": "https://clio.com/data-processing",
+      "final": "https://clio.com/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "clio",
+      "url": "https://clio.com/privacy/dpa",
+      "final": "https://clio.com/privacy/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "clio",
+      "url": "https://clio.com/legal/processor-terms",
+      "final": "https://clio.com/legal/processor-terms",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "clio",
+      "url": "https://clio.com/legal/data-processing",
+      "final": "https://clio.com/legal/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "freshworks",
+      "url": "https://freshworks.com/policies/data-processing-agreement",
+      "final": "https://freshworks.com/policies/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "projectmanager-com",
-      "url": "https://projectmanager.com/legal/dpa",
-      "final": "https://projectmanager.com/legal/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "projectmanager-com",
-      "url": "https://projectmanager.com/legal/data-processing-addendum",
-      "final": "https://projectmanager.com/legal/data-processing-addendum",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "projectmanager-com",
-      "url": "https://projectmanager.com/legal/data-processing-agreement",
-      "final": "https://projectmanager.com/legal/data-processing-agreement",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "projectmanager-com",
-      "url": "https://projectmanager.com/data-processing-agreement",
-      "final": "https://projectmanager.com/data-processing-agreement",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/legal/processor-terms",
-      "final": "https://trustly.com/legal/processor-terms",
+      "slug": "freshworks",
+      "url": "https://freshworks.com/data-processing-agreement",
+      "final": "https://freshworks.com/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "projectmanager-com",
-      "url": "https://projectmanager.com/data-processing-addendum",
-      "final": "https://projectmanager.com/data-processing-addendum",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "projectmanager-com",
-      "url": "https://projectmanager.com/policies/data-processing-addendum",
-      "final": "https://projectmanager.com/policies/data-processing-addendum",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "projectmanager-com",
-      "url": "https://projectmanager.com/policies/dpa",
-      "final": "https://projectmanager.com/policies/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "projectmanager-com",
-      "url": "https://projectmanager.com/policies/data-processing-agreement",
-      "final": "https://projectmanager.com/policies/data-processing-agreement",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/legal/data-processing",
-      "final": "https://trustly.com/legal/data-processing",
+      "slug": "celonis",
+      "url": "https://celonis.com/dpa",
+      "final": "https://celonis.com/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "projectmanager-com",
-      "url": "https://projectmanager.com/terms/dpa",
-      "final": "https://projectmanager.com/terms/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/data-processing",
-      "final": "https://trustly.com/data-processing",
+      "slug": "celonis",
+      "url": "https://celonis.com/legal/dpa",
+      "final": "https://celonis.com/legal/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "projectmanager-com",
-      "url": "https://projectmanager.com/company/dpa",
-      "final": "https://projectmanager.com/company/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "projectmanager-com",
-      "url": "https://projectmanager.com/gdpr/dpa",
-      "final": "https://projectmanager.com/gdpr/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "projectmanager-com",
-      "url": "https://projectmanager.com/legal/gdpr/dpa",
-      "final": "https://projectmanager.com/legal/gdpr/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "projectmanager-com",
-      "url": "https://projectmanager.com/privacy/dpa",
-      "final": "https://projectmanager.com/privacy/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "projectmanager-com",
-      "url": "https://projectmanager.com/legal/processor-terms",
-      "final": "https://projectmanager.com/legal/processor-terms",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "projectmanager-com",
-      "url": "https://projectmanager.com/legal/data-processing",
-      "final": "https://projectmanager.com/legal/data-processing",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "projectmanager-com",
-      "url": "https://projectmanager.com/data-processing",
-      "final": "https://projectmanager.com/data-processing",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/dpa",
-      "final": "https://esko.com/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/data-processing-addendum",
-      "final": "https://esko.com/data-processing-addendum",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/policies/data-processing-addendum",
-      "final": "https://esko.com/policies/data-processing-addendum",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/policies/dpa",
-      "final": "https://esko.com/policies/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/legal/dpa",
-      "final": "https://esko.com/legal/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/policies/data-processing-agreement",
-      "final": "https://esko.com/policies/data-processing-agreement",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/legal/data-processing-agreement",
-      "final": "https://esko.com/legal/data-processing-agreement",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/legal/data-processing-addendum",
-      "final": "https://esko.com/legal/data-processing-addendum",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/data-processing-agreement",
-      "final": "https://esko.com/data-processing-agreement",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/terms/dpa",
-      "final": "https://esko.com/terms/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/company/dpa",
-      "final": "https://esko.com/company/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/gdpr/dpa",
-      "final": "https://esko.com/gdpr/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/data-processing",
-      "final": "https://esko.com/data-processing",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/legal/gdpr/dpa",
-      "final": "https://esko.com/legal/gdpr/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/privacy/dpa",
-      "final": "https://esko.com/privacy/dpa",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/legal/processor-terms",
-      "final": "https://esko.com/legal/processor-terms",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/legal/data-processing",
-      "final": "https://esko.com/legal/data-processing",
-      "reason": "http-403",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/legal/data-processing-agreement",
-      "final": "https://tricentis.com/legal/data-processing-agreement",
+      "slug": "celonis",
+      "url": "https://celonis.com/legal/data-processing-addendum",
+      "final": "https://celonis.com/legal/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/policies/data-processing-agreement",
-      "final": "https://tricentis.com/policies/data-processing-agreement",
+      "slug": "celonis",
+      "url": "https://celonis.com/legal/data-processing-agreement",
+      "final": "https://celonis.com/legal/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/company/dpa",
-      "final": "https://tricentis.com/company/dpa",
+      "slug": "celonis",
+      "url": "https://celonis.com/data-processing-addendum",
+      "final": "https://celonis.com/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "trustly",
-      "url": "https://trustly.com/subprocessors",
-      "final": "https://trustly.com/subprocessors",
+      "slug": "celonis",
+      "url": "https://celonis.com/data-processing-agreement",
+      "final": "https://celonis.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "celonis",
+      "url": "https://celonis.com/policies/data-processing-agreement",
+      "final": "https://celonis.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "celonis",
+      "url": "https://celonis.com/policies/dpa",
+      "final": "https://celonis.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "celonis",
+      "url": "https://celonis.com/policies/data-processing-addendum",
+      "final": "https://celonis.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "celonis",
+      "url": "https://celonis.com/terms/dpa",
+      "final": "https://celonis.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "celonis",
+      "url": "https://celonis.com/company/dpa",
+      "final": "https://celonis.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "celonis",
+      "url": "https://celonis.com/legal/gdpr/dpa",
+      "final": "https://celonis.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "celonis",
+      "url": "https://celonis.com/gdpr/dpa",
+      "final": "https://celonis.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "celonis",
+      "url": "https://celonis.com/privacy/dpa",
+      "final": "https://celonis.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "celonis",
+      "url": "https://celonis.com/legal/processor-terms",
+      "final": "https://celonis.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "celonis",
+      "url": "https://celonis.com/legal/data-processing",
+      "final": "https://celonis.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "celonis",
+      "url": "https://celonis.com/data-processing",
+      "final": "https://celonis.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/dpa",
+      "final": "https://attentive.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/legal/dpa",
+      "final": "https://attentive.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/legal/data-processing-addendum",
+      "final": "https://attentive.com/legal/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/data-processing-agreement",
+      "final": "https://attentive.com/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/data-processing-addendum",
+      "final": "https://attentive.com/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/policies/data-processing-addendum",
+      "final": "https://attentive.com/policies/data-processing-addendum",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/policies/data-processing-agreement",
+      "final": "https://attentive.com/policies/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/legal/data-processing-agreement",
+      "final": "https://attentive.com/legal/data-processing-agreement",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/policies/dpa",
+      "final": "https://attentive.com/policies/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/company/dpa",
+      "final": "https://attentive.com/company/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/legal/gdpr/dpa",
+      "final": "https://attentive.com/legal/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/terms/dpa",
+      "final": "https://attentive.com/terms/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/gdpr/dpa",
+      "final": "https://attentive.com/gdpr/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/privacy/dpa",
+      "final": "https://attentive.com/privacy/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/data-processing",
+      "final": "https://attentive.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/legal/processor-terms",
+      "final": "https://attentive.com/legal/processor-terms",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/legal/data-processing",
+      "final": "https://attentive.com/legal/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "clio",
+      "url": "https://trust.clio.com/sub-processors",
+      "final": "https://trust.clio.com/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "tricentis",
-      "url": "https://security.tricentis.com/sub-processors",
-      "final": "https://security.tricentis.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "tricentis",
-      "url": "https://security.tricentis.com/subprocessors",
-      "final": "https://security.tricentis.com/",
+      "slug": "clio",
+      "url": "https://trust.clio.com/subprocessors",
+      "final": "https://trust.clio.com/",
       "reason": "safebase-itemuid",
       "kind": "subprocessors"
     },
     {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/legal/subprocessors",
-      "final": "https://tricentis.com/legal/subprocessors",
+      "slug": "clio",
+      "url": "https://clio.com/sub-processors",
+      "final": "https://clio.com/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/sub-processors",
-      "final": "https://tricentis.com/sub-processors",
+      "slug": "clio",
+      "url": "https://clio.com/privacy/subprocessors",
+      "final": "https://clio.com/privacy/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "trustly",
-      "url": "https://trustly.com/legal/sub-processors",
-      "final": "https://trustly.com/legal/sub-processors",
+      "slug": "clio",
+      "url": "https://clio.com/legal/subprocessors",
+      "final": "https://clio.com/legal/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/subprocessors",
-      "final": "https://tricentis.com/subprocessors",
+      "slug": "clio",
+      "url": "https://clio.com/legal/service-providers",
+      "final": "https://clio.com/legal/service-providers",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/legal/sub-processors-page",
-      "final": "https://tricentis.com/legal/sub-processors-page",
+      "slug": "clio",
+      "url": "https://clio.com/legal/sub-processors-page",
+      "final": "https://clio.com/legal/sub-processors-page",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "trustly",
-      "url": "https://trustly.com/sub-processors",
-      "final": "https://trustly.com/sub-processors",
+      "slug": "clio",
+      "url": "https://clio.com/trust/subprocessors",
+      "final": "https://clio.com/trust/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/legal/service-providers",
-      "final": "https://tricentis.com/legal/service-providers",
+      "slug": "clio",
+      "url": "https://clio.com/subprocessors",
+      "final": "https://clio.com/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/company/subprocessors",
-      "final": "https://tricentis.com/company/subprocessors",
+      "slug": "clio",
+      "url": "https://clio.com/legal/sub-processors",
+      "final": "https://clio.com/legal/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/trust/subprocessors",
-      "final": "https://tricentis.com/trust/subprocessors",
+      "slug": "clio",
+      "url": "https://clio.com/company/subprocessors",
+      "final": "https://clio.com/company/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/privacy/subprocessors",
-      "final": "https://tricentis.com/privacy/subprocessors",
+      "slug": "cato-networks",
+      "url": "https://www.catonetworks.com/subprocessors",
+      "final": "https://www.catonetworks.com/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "freshworks",
+      "url": "https://trust.freshworks.com/sub-processors",
+      "final": "https://trust.freshworks.com/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "trustly",
-      "url": "https://trustly.com/legal/subprocessors",
-      "final": "https://trustly.com/legal/subprocessors",
-      "reason": "fetch-failed",
+      "slug": "cato-networks",
+      "url": "https://www.catonetworks.com/dpa",
+      "final": "https://www.catonetworks.com/dpa",
+      "reason": "no-printed-names",
       "kind": "subprocessors"
     },
     {
-      "slug": "trustly",
-      "url": "https://trustly.com/legal/service-providers",
-      "final": "https://trustly.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "tricentis",
-      "url": "https://tricentis.com/legal/sub-processors",
-      "final": "https://tricentis.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/company/subprocessors",
-      "final": "https://trustly.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/privacy/subprocessors",
-      "final": "https://trustly.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/trust/subprocessors",
-      "final": "https://trustly.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "trustly",
-      "url": "https://trustly.com/legal/sub-processors-page",
-      "final": "https://trustly.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/subprocessors",
-      "final": "https://esko.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/sub-processors",
-      "final": "https://esko.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/legal/subprocessors",
-      "final": "https://esko.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/legal/sub-processors",
-      "final": "https://esko.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/legal/service-providers",
-      "final": "https://esko.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/privacy/subprocessors",
-      "final": "https://esko.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/company/subprocessors",
-      "final": "https://esko.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/trust/subprocessors",
-      "final": "https://esko.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "esko",
-      "url": "https://esko.com/legal/sub-processors-page",
-      "final": "https://esko.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "esko",
-      "url": "https://trustcenter.esko.com/subprocessors",
-      "final": "https://trustcenter.esko.com/",
+      "slug": "freshworks",
+      "url": "https://trust.freshworks.com/subprocessors",
+      "final": "https://trust.freshworks.com/",
       "reason": "safebase-itemuid",
       "kind": "subprocessors"
     },
     {
-      "slug": "frosmo",
-      "url": "https://trust.frosmo.com/sub-processors",
-      "final": "https://trust.frosmo.com/sub-processors",
+      "slug": "cato-networks",
+      "url": "https://catonetworks.com/sub-processors",
+      "final": "https://www.catonetworks.com/sub-processors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cato-networks",
+      "url": "https://catonetworks.com/subprocessors",
+      "final": "https://www.catonetworks.com/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cato-networks",
+      "url": "https://catonetworks.com/legal/subprocessors",
+      "final": "https://www.catonetworks.com/legal/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cato-networks",
+      "url": "https://catonetworks.com/legal/service-providers",
+      "final": "https://www.catonetworks.com/legal/service-providers",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cato-networks",
+      "url": "https://catonetworks.com/legal/sub-processors",
+      "final": "https://www.catonetworks.com/legal/sub-processors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cato-networks",
+      "url": "https://catonetworks.com/privacy/subprocessors",
+      "final": "https://www.catonetworks.com/privacy/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cato-networks",
+      "url": "https://catonetworks.com/company/subprocessors",
+      "final": "https://www.catonetworks.com/company/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cato-networks",
+      "url": "https://catonetworks.com/trust/subprocessors",
+      "final": "https://www.catonetworks.com/trust/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "freshworks",
+      "url": "https://freshworks.com/subprocessors",
+      "final": "https://freshworks.com/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "frosmo",
-      "url": "https://frosmo.com/sub-processors",
-      "final": "https://frosmo.com/sub-processors",
+      "slug": "cato-networks",
+      "url": "https://catonetworks.com/legal/sub-processors-page",
+      "final": "https://www.catonetworks.com/legal/sub-processors-page",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "freshworks",
+      "url": "https://freshworks.com/legal/subprocessors",
+      "final": "https://freshworks.com/legal/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "frosmo",
-      "url": "https://trust.frosmo.com/subprocessors",
-      "final": "https://trust.frosmo.com/subprocessors",
+      "slug": "snyk",
+      "url": "https://trust.snyk.io/subprocessors",
+      "final": "https://trust.snyk.io/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "freshworks",
+      "url": "https://freshworks.com/legal/service-providers",
+      "final": "https://freshworks.com/legal/service-providers",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "esko",
-      "url": "https://trustcenter.esko.com/sub-processors",
-      "final": "https://trustcenter.esko.com/sub-processors",
+      "slug": "cato-networks",
+      "url": "https://security.catonetworks.com/subprocessors",
+      "final": "https://security.catonetworks.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "freshworks",
+      "url": "https://freshworks.com/trust/subprocessors",
+      "final": "https://freshworks.com/trust/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "frosmo",
-      "url": "https://frosmo.com/legal/subprocessors",
-      "final": "https://frosmo.com/legal/subprocessors",
+      "slug": "cato-networks",
+      "url": "https://security.catonetworks.com/sub-processors",
+      "final": "https://security.catonetworks.com/sub-processors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "freshworks",
+      "url": "https://freshworks.com/privacy/subprocessors",
+      "final": "https://freshworks.com/privacy/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "frosmo",
-      "url": "https://frosmo.com/legal/service-providers",
-      "final": "https://frosmo.com/legal/service-providers",
+      "slug": "freshworks",
+      "url": "https://freshworks.com/legal/sub-processors",
+      "final": "https://freshworks.com/legal/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "frosmo",
-      "url": "https://frosmo.com/subprocessors",
-      "final": "https://frosmo.com/subprocessors",
+      "slug": "freshworks",
+      "url": "https://freshworks.com/sub-processors",
+      "final": "https://freshworks.com/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "frosmo",
-      "url": "https://frosmo.com/legal/sub-processors",
-      "final": "https://frosmo.com/legal/sub-processors",
+      "slug": "freshworks",
+      "url": "https://freshworks.com/company/subprocessors",
+      "final": "https://freshworks.com/company/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "frosmo",
-      "url": "https://frosmo.com/privacy/subprocessors",
-      "final": "https://frosmo.com/privacy/subprocessors",
+      "slug": "celonis",
+      "url": "https://celonis.com/legal/subprocessors",
+      "final": "https://celonis.com/legal/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "frosmo",
-      "url": "https://frosmo.com/company/subprocessors",
-      "final": "https://frosmo.com/company/subprocessors",
+      "slug": "celonis",
+      "url": "https://celonis.com/sub-processors",
+      "final": "https://celonis.com/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "frosmo",
-      "url": "https://frosmo.com/trust/subprocessors",
-      "final": "https://frosmo.com/trust/subprocessors",
+      "slug": "celonis",
+      "url": "https://celonis.com/subprocessors",
+      "final": "https://celonis.com/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "frosmo",
-      "url": "https://frosmo.com/legal/sub-processors-page",
-      "final": "https://frosmo.com/legal/sub-processors-page",
+      "slug": "celonis",
+      "url": "https://celonis.com/legal/sub-processors",
+      "final": "https://celonis.com/legal/sub-processors",
       "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "celonis",
+      "url": "https://trust.celonis.com/sub-processors",
+      "final": "https://trust.celonis.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "celonis",
+      "url": "https://celonis.com/privacy/subprocessors",
+      "final": "https://celonis.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "celonis",
+      "url": "https://celonis.com/company/subprocessors",
+      "final": "https://celonis.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "veriff",
+      "url": "https://trust.veriff.com/subprocessors",
+      "final": "https://trust.veriff.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "celonis",
+      "url": "https://celonis.com/trust/subprocessors",
+      "final": "https://celonis.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "veriff",
+      "url": "https://www.veriff.com/data-processing-addendum",
+      "final": "https://www.veriff.com/data-processing-addendum",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "celonis",
+      "url": "https://celonis.com/legal/service-providers",
+      "final": "https://celonis.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "freshworks",
+      "url": "https://freshworks.com/legal/sub-processors-page",
+      "final": "https://freshworks.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "celonis",
+      "url": "https://celonis.com/legal/sub-processors-page",
+      "final": "https://celonis.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "veriff",
+      "url": "https://trust.veriff.com/sub-processors",
+      "final": "https://trust.veriff.com/sub-processors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "celonis",
+      "url": "https://trust.celonis.com/subprocessors",
+      "final": "https://trust.celonis.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "brex",
+      "url": "https://brex.com/subprocessors",
+      "final": "https://www.brex.com/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "brex",
+      "url": "https://brex.com/sub-processors",
+      "final": "https://www.brex.com/sub-processors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "veriff",
+      "url": "https://veriff.com/company/subprocessors",
+      "final": "https://veriff.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "veriff",
+      "url": "https://veriff.com/legal/subprocessors",
+      "final": "https://veriff.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "veriff",
+      "url": "https://veriff.com/subprocessors",
+      "final": "https://veriff.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "veriff",
+      "url": "https://veriff.com/sub-processors",
+      "final": "https://veriff.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "veriff",
+      "url": "https://veriff.com/trust/subprocessors",
+      "final": "https://veriff.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "veriff",
+      "url": "https://veriff.com/privacy/subprocessors",
+      "final": "https://veriff.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "brex",
+      "url": "https://brex.com/legal/subprocessors",
+      "final": "https://brex.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "brex",
+      "url": "https://brex.com/company/subprocessors",
+      "final": "https://www.brex.com/company/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "veriff",
+      "url": "https://veriff.com/legal/sub-processors",
+      "final": "https://veriff.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "veriff",
+      "url": "https://veriff.com/legal/service-providers",
+      "final": "https://veriff.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "brex",
+      "url": "https://brex.com/trust/subprocessors",
+      "final": "https://www.brex.com/trust/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "brex",
+      "url": "https://trust-portal.brex.com/sub-processors",
+      "final": "https://trust-portal.brex.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "brex",
+      "url": "https://brex.com/legal/service-providers",
+      "final": "https://brex.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "veriff",
+      "url": "https://veriff.com/legal/sub-processors-page",
+      "final": "https://veriff.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "vanta",
+      "url": "https://trust.vanta.com/subprocessors",
+      "final": "https://trust.vanta.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "vanta",
+      "url": "https://www.vanta.com/privacy/subprocessors",
+      "final": "https://trust.vanta.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "vanta",
+      "url": "http://trust.vanta.com/subprocessors",
+      "final": "https://trust.vanta.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "brex",
+      "url": "https://brex.com/legal/sub-processors-page",
+      "final": "https://brex.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "vanta",
+      "url": "https://www.vanta.com/partners/service-providers",
+      "final": "https://www.vanta.com/partners/service-providers",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "vanta",
+      "url": "https://www.vanta.com/partners/find-a-partner?filters=Service+Partner",
+      "final": "https://www.vanta.com/partners/find-a-partner?filters=Service+Partner",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "brex",
+      "url": "https://trust-portal.brex.com/subprocessors",
+      "final": "https://trust-portal.brex.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "brex",
+      "url": "https://brex.com/legal/sub-processors",
+      "final": "https://brex.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "brex",
+      "url": "https://brex.com/privacy/subprocessors",
+      "final": "https://www.brex.com/privacy/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "vanta",
+      "url": "https://www.vanta.com/legal/dpa",
+      "final": "https://www.vanta.com/legal/dpa",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "vanta",
+      "url": "https://trust.vanta.com/sub-processors",
+      "final": "https://trust.vanta.com/sub-processors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "vanta",
+      "url": "https://vanta.com/subprocessors",
+      "final": "https://vanta.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "vanta",
+      "url": "https://vanta.com/privacy/subprocessors",
+      "final": "https://trust.vanta.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "vanta",
+      "url": "https://vanta.com/sub-processors",
+      "final": "https://vanta.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "vanta",
+      "url": "https://vanta.com/company/subprocessors",
+      "final": "https://vanta.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "vanta",
+      "url": "https://vanta.com/trust/subprocessors",
+      "final": "https://vanta.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "lucidworks",
+      "url": "https://lucidworks.com/legal/subprocessors",
+      "final": "https://lucidworks.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "lucidworks",
+      "url": "https://lucidworks.com/subprocessors",
+      "final": "https://lucidworks.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "lucidworks",
+      "url": "https://lucidworks.com/sub-processors",
+      "final": "https://lucidworks.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "lucidworks",
+      "url": "https://lucidworks.com/legal/dpa",
+      "final": "https://lucidworks.com/legal/dpa",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "lucidworks",
+      "url": "https://lucidworks.com/legal/sub-processors",
+      "final": "https://lucidworks.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "lucidworks",
+      "url": "https://lucidworks.com/privacy/subprocessors",
+      "final": "https://lucidworks.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "lucidworks",
+      "url": "https://lucidworks.com/company/subprocessors",
+      "final": "https://lucidworks.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "lucidworks",
+      "url": "https://lucidworks.com/trust/subprocessors",
+      "final": "https://lucidworks.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "lucidworks",
+      "url": "https://lucidworks.com/legal/sub-processors-page",
+      "final": "https://lucidworks.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "lucidworks",
+      "url": "https://lucidworks.com/legal/service-providers",
+      "final": "https://lucidworks.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "vanta",
+      "url": "https://vanta.com/legal/sub-processors-page",
+      "final": "https://vanta.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "vanta",
+      "url": "https://vanta.com/legal/service-providers",
+      "final": "https://vanta.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "vanta",
+      "url": "https://vanta.com/legal/subprocessors",
+      "final": "https://vanta.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "lucidworks",
+      "url": "https://trust.lucidworks.com/sub-processors",
+      "final": "https://trust.lucidworks.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "datalogics",
+      "url": "https://www.datalogics.com/dpa",
+      "final": "https://www.datalogics.com/dpa",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "datalogics",
+      "url": "https://datalogics.com/sub-processors",
+      "final": "https://www.datalogics.com/sub-processors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "datalogics",
+      "url": "https://www.datalogics.com/subprocessors",
+      "final": "https://www.datalogics.com/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "lucidworks",
+      "url": "https://trust.lucidworks.com/subprocessors",
+      "final": "https://trust.lucidworks.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "datalogics",
+      "url": "https://datalogics.com/privacy/subprocessors",
+      "final": "https://www.datalogics.com/privacy/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "datalogics",
+      "url": "https://datalogics.com/legal/subprocessors",
+      "final": "https://www.datalogics.com/legal/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "datalogics",
+      "url": "https://trust.datalogics.com/sub-processors",
+      "final": "https://trust.datalogics.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "datalogics",
+      "url": "https://datalogics.com/subprocessors",
+      "final": "https://www.datalogics.com/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "datalogics",
+      "url": "https://trust.datalogics.com/subprocessors",
+      "final": "https://trust.datalogics.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "algolia",
+      "url": "https://trust.algolia.com/subprocessors",
+      "final": "https://trust.algolia.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "vanta",
+      "url": "https://vanta.com/legal/sub-processors",
+      "final": "https://vanta.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "datalogics",
+      "url": "https://datalogics.com/company/subprocessors",
+      "final": "https://www.datalogics.com/company/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "datalogics",
+      "url": "https://datalogics.com/trust/subprocessors",
+      "final": "https://www.datalogics.com/trust/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "algolia",
+      "url": "https://algolia.com/sub-processors",
+      "final": "https://algolia.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "datalogics",
+      "url": "https://datalogics.com/legal/sub-processors-page",
+      "final": "https://www.datalogics.com/legal/sub-processors-page",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "algolia",
+      "url": "https://algolia.com/legal/subprocessors",
+      "final": "https://algolia.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "algolia",
+      "url": "https://algolia.com/legal/sub-processors",
+      "final": "https://algolia.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "algolia",
+      "url": "https://algolia.com/legal/service-providers",
+      "final": "https://algolia.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "algolia",
+      "url": "https://www.algolia.com/policies/data-processing-addendum",
+      "final": "https://www.algolia.com/policies/data-processing-addendum",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "algolia",
+      "url": "https://trust.algolia.com/sub-processors",
+      "final": "https://trust.algolia.com/sub-processors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "algolia",
+      "url": "https://algolia.com/company/subprocessors",
+      "final": "https://algolia.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "pipedrive",
+      "url": "https://www.pipedrive.com/en/subprocessors",
+      "final": "https://www.pipedrive.com/en/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "pipedrive",
+      "url": "https://www.pipedrive.com/en/privacy/dpa",
+      "final": "https://www.pipedrive.com/en/privacy/dpa",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "pipedrive",
+      "url": "http://www.pipedrive.com/subprocessors",
+      "final": "https://www.pipedrive.com/en/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "pipedrive",
+      "url": "https://pipedrive.com/subprocessors",
+      "final": "https://www.pipedrive.com/en/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "pipedrive",
+      "url": "https://pipedrive.com/legal/sub-processors",
+      "final": "https://pipedrive.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "pipedrive",
+      "url": "https://pipedrive.com/company/subprocessors",
+      "final": "https://pipedrive.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "pipedrive",
+      "url": "https://pipedrive.com/legal/service-providers",
+      "final": "https://pipedrive.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "pipedrive",
+      "url": "https://trustcenter.pipedrive.com/sub-processors",
+      "final": "https://trustcenter.pipedrive.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "pipedrive",
+      "url": "https://pipedrive.com/sub-processors",
+      "final": "https://pipedrive.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "pipedrive",
+      "url": "https://pipedrive.com/legal/subprocessors",
+      "final": "https://pipedrive.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "pipedrive",
+      "url": "https://pipedrive.com/privacy/subprocessors",
+      "final": "https://pipedrive.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "pipedrive",
+      "url": "https://pipedrive.com/legal/sub-processors-page",
+      "final": "https://pipedrive.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "pipedrive",
+      "url": "https://pipedrive.com/trust/subprocessors",
+      "final": "https://pipedrive.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/subprocessors",
+      "final": "https://attentive.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/sub-processors",
+      "final": "https://attentive.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "pipedrive",
+      "url": "https://trustcenter.pipedrive.com/subprocessors",
+      "final": "https://trustcenter.pipedrive.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/company/subprocessors",
+      "final": "https://attentive.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/privacy/subprocessors",
+      "final": "https://attentive.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://security.attentive.com/sub-processors",
+      "final": "https://security.attentive.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/trust/subprocessors",
+      "final": "https://attentive.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/legal/service-providers",
+      "final": "https://attentive.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/legal/subprocessors",
+      "final": "https://attentive.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/legal/sub-processors",
+      "final": "https://attentive.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cs-disco",
+      "url": "https://csdisco.com/legal/subprocessors",
+      "final": "https://csdisco.com/legal/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://attentive.com/legal/sub-processors-page",
+      "final": "https://attentive.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cs-disco",
+      "url": "https://csdisco.com/sub-processors",
+      "final": "https://csdisco.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cs-disco",
+      "url": "https://csdisco.com/privacy/subprocessors",
+      "final": "https://csdisco.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cs-disco",
+      "url": "https://csdisco.com/legal/sub-processors",
+      "final": "https://csdisco.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cs-disco",
+      "url": "https://csdisco.com/legal/service-providers",
+      "final": "https://csdisco.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cs-disco",
+      "url": "https://csdisco.com/legal/data-processing-addendum",
+      "final": "https://csdisco.com/legal/data-processing-addendum",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "attentive",
+      "url": "https://security.attentive.com/subprocessors",
+      "final": "https://security.attentive.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cs-disco",
+      "url": "https://csdisco.com/company/subprocessors",
+      "final": "https://csdisco.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cs-disco",
+      "url": "https://csdisco.com/trust/subprocessors",
+      "final": "https://csdisco.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cs-disco",
+      "url": "https://csdisco.com/legal/sub-processors-page",
+      "final": "https://csdisco.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "datalogics",
+      "url": "https://datalogics.com/legal/service-providers",
+      "final": "https://www.datalogics.com/legal/service-providers",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cs-disco",
+      "url": "https://csdisco.com/subprocessors",
+      "final": "https://csdisco.com/legal/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cs-disco",
+      "url": "https://trust.csdisco.com/sub-processors",
+      "final": "https://trust.csdisco.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "synerise",
+      "url": "https://synerise.com/legal/subprocessors",
+      "final": "https://synerise.com/legal/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "synerise",
+      "url": "https://synerise.com/privacy/subprocessors",
+      "final": "https://synerise.com/privacy/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "synerise",
+      "url": "https://synerise.com/dpa",
+      "final": "https://synerise.com/dpa",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "synerise",
+      "url": "https://synerise.com/legal/sub-processors",
+      "final": "https://synerise.com/legal/sub-processors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "synerise",
+      "url": "https://synerise.com/legal/service-providers",
+      "final": "https://synerise.com/legal/service-providers",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "synerise",
+      "url": "https://synerise.com/subprocessors",
+      "final": "https://synerise.com/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "synerise",
+      "url": "https://synerise.com/sub-processors",
+      "final": "https://synerise.com/sub-processors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "synerise",
+      "url": "https://synerise.com/company/subprocessors",
+      "final": "https://synerise.com/company/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "datalogics",
+      "url": "https://datalogics.com/legal/sub-processors",
+      "final": "https://www.datalogics.com/legal/sub-processors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "synerise",
+      "url": "https://synerise.com/legal/sub-processors-page",
+      "final": "https://synerise.com/legal/sub-processors-page",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "synerise",
+      "url": "https://synerise.com/trust/subprocessors",
+      "final": "https://synerise.com/trust/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "snowflake",
+      "url": "https://trust.snowflake.com/subprocessors",
+      "final": "https://trust.snowflake.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cs-disco",
+      "url": "https://trust.csdisco.com/subprocessors",
+      "final": "https://trust.csdisco.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "snowflake",
+      "url": "https://trust.snowflake.com/sub-processors",
+      "final": "https://trust.snowflake.com/sub-processors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "snowflake",
+      "url": "https://www.snowflake.com/en/legal/addenda/data-processing-addendum/",
+      "final": "https://www.snowflake.com/en/legal/addenda/data-processing-addendum/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "snowflake",
+      "url": "https://snowflake.com/subprocessors",
+      "final": "https://snowflake.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "snowflake",
+      "url": "https://snowflake.com/legal/subprocessors",
+      "final": "https://snowflake.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "snowflake",
+      "url": "https://snowflake.com/sub-processors",
+      "final": "https://snowflake.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "snowflake",
+      "url": "https://snowflake.com/legal/sub-processors",
+      "final": "https://snowflake.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "snowflake",
+      "url": "https://snowflake.com/trust/subprocessors",
+      "final": "https://snowflake.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "snowflake",
+      "url": "https://snowflake.com/legal/service-providers",
+      "final": "https://snowflake.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "snowflake",
+      "url": "https://snowflake.com/legal/sub-processors-page",
+      "final": "https://snowflake.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "snowflake",
+      "url": "https://snowflake.com/privacy/subprocessors",
+      "final": "https://snowflake.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "snowflake",
+      "url": "https://www.snowflake.com/legal/snowflake-subprocessors",
+      "final": "https://www.snowflake.com/legal/snowflake-subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "snowflake",
+      "url": "https://snowflake.com/company/subprocessors",
+      "final": "https://snowflake.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "imperva",
+      "url": "https://imperva.com/privacy/subprocessors",
+      "final": "https://www.imperva.com/privacy/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "imperva",
+      "url": "https://imperva.com/sub-processors",
+      "final": "http://www.imperva.com/403",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "imperva",
+      "url": "https://imperva.com/trust/subprocessors",
+      "final": "https://www.imperva.com/403",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "imperva",
+      "url": "https://www.imperva.com/dpa",
+      "final": "https://www.imperva.com/403",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "imperva",
+      "url": "https://www.imperva.com/404",
+      "final": "https://www.imperva.com/404",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "imperva",
+      "url": "https://imperva.com/legal/subprocessors",
+      "final": "https://www.imperva.com/trust-center/sub-processors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "imperva",
+      "url": "https://imperva.com/company/subprocessors",
+      "final": "https://www.imperva.com/404?aspxerrorpath=/company/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ramp",
+      "url": "https://ramp.com/legal/subprocessors",
+      "final": "https://ramp.com/legal/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ramp",
+      "url": "https://ramp.com/legal/customer-terms/services-terms/dpa",
+      "final": "https://ramp.com/legal/customer-terms/services-terms/dpa",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ramp",
+      "url": "https://ramp.com/legal/sub-processors",
+      "final": "https://ramp.com/legal/sub-processors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ramp",
+      "url": "https://ramp.com/legal/service-providers",
+      "final": "https://ramp.com/legal/service-providers",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ramp",
+      "url": "https://ramp.com/legal/sub-processors-page",
+      "final": "https://ramp.com/legal/sub-processors-page",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ramp",
+      "url": "https://trust.ramp.com/sub-processors",
+      "final": "https://trust.ramp.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ramp",
+      "url": "https://ramp.com/sub-processors",
+      "final": "https://ramp.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "evenup",
+      "url": "https://www.evenuplaw.com/dpa/",
+      "final": "https://www.evenuplaw.com/dpa/",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "evenup",
+      "url": "https://evenuplaw.com/subprocessors",
+      "final": "https://evenuplaw.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ramp",
+      "url": "https://ramp.com/subprocessors",
+      "final": "https://ramp.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "evenup",
+      "url": "https://evenuplaw.com/sub-processors",
+      "final": "https://evenuplaw.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "evenup",
+      "url": "https://evenuplaw.com/legal/subprocessors",
+      "final": "https://evenuplaw.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "evenup",
+      "url": "https://evenuplaw.com/legal/service-providers",
+      "final": "https://evenuplaw.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "evenup",
+      "url": "https://evenuplaw.com/privacy/subprocessors",
+      "final": "https://evenuplaw.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "evenup",
+      "url": "https://evenuplaw.com/legal/sub-processors",
+      "final": "https://evenuplaw.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "evenup",
+      "url": "https://evenuplaw.com/company/subprocessors",
+      "final": "https://evenuplaw.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "evenup",
+      "url": "https://evenuplaw.com/trust/subprocessors",
+      "final": "https://evenuplaw.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "evenup",
+      "url": "https://trust.evenuplaw.com/subprocessors",
+      "final": "https://trust.evenuplaw.com/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ramp",
+      "url": "https://trust.ramp.com/subprocessors",
+      "final": "https://trust.ramp.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "evenup",
+      "url": "https://evenuplaw.com/legal/sub-processors-page",
+      "final": "https://evenuplaw.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ramp",
+      "url": "https://ramp.com/privacy/subprocessors",
+      "final": "https://ramp.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ramp",
+      "url": "https://ramp.com/trust/subprocessors",
+      "final": "https://ramp.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "varonis-systems",
+      "url": "https://trust.varonis.com/subprocessors",
+      "final": "https://trust.varonis.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "ramp",
+      "url": "https://ramp.com/company/subprocessors",
+      "final": "https://ramp.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "evenup",
+      "url": "https://trust.evenuplaw.com/sub-processors",
+      "final": "https://trust.evenuplaw.com/sub-processors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "varonis-systems",
+      "url": "https://trust.varonis.com/sub-processors",
+      "final": "https://trust.varonis.com/sub-processors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "varonis-systems",
+      "url": "https://www.varonis.com/legal/dpa",
+      "final": "https://www.varonis.com/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "varonis-systems",
+      "url": "https://varonis.com/legal/service-providers",
+      "final": "https://www.varonis.com/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "varonis-systems",
+      "url": "https://varonis.com/sub-processors",
+      "final": "https://www.varonis.com/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/en-in/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/en-in/gdpr/subprocessors/",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "varonis-systems",
+      "url": "https://varonis.com/legal/sub-processors",
+      "final": "https://www.varonis.com/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "varonis-systems",
+      "url": "https://varonis.com/subprocessors",
+      "final": "https://www.varonis.com/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "varonis-systems",
+      "url": "https://varonis.com/legal/subprocessors",
+      "final": "https://www.varonis.com/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/en-gb/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/en-gb/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "varonis-systems",
+      "url": "https://varonis.com/privacy/subprocessors",
+      "final": "https://www.varonis.com/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "varonis-systems",
+      "url": "https://varonis.com/company/subprocessors",
+      "final": "https://www.varonis.com/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/en-ca/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/en-ca/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "varonis-systems",
+      "url": "https://varonis.com/trust/subprocessors",
+      "final": "https://www.varonis.com/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "varonis-systems",
+      "url": "https://varonis.com/legal/sub-processors-page",
+      "final": "https://www.varonis.com/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/en-au/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/en-au/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/de-de/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/de-de/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/es-es/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/es-es/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/id-id/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/id-id/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/fr-fr/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/fr-fr/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/ru-ru/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/ru-ru/gdpr/subprocessors/",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/es-la/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/es-la/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/ko-kr/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/ko-kr/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/ja-jp/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/ja-jp/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/it-it/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/it-it/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/nl-nl/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/nl-nl/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/tr-tr/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/tr-tr/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/th-th/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/th-th/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/policies/data-processing-addendum/",
+      "final": "https://www.cloudflare.com/policies/data-processing-addendum/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/ar-ar/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/ar-ar/gdpr/subprocessors/",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/pl-pl/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/pl-pl/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/he-il/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/he-il/gdpr/subprocessors/",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/zh-tw/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/zh-tw/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/zh-hans-cn/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/zh-hans-cn/gdpr/subprocessors/",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://cloudflare.com/legal/subprocessors",
+      "final": "https://cloudflare.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/sv-se/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/sv-se/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://cloudflare.com/subprocessors",
+      "final": "https://cloudflare.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://cloudflare.com/legal/sub-processors",
+      "final": "https://cloudflare.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/pt-br/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/pt-br/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/vi-vn/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/vi-vn/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://cloudflare.com/legal/sub-processors-page",
+      "final": "https://cloudflare.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://cloudflare.com/sub-processors",
+      "final": "https://cloudflare.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://www.cloudflare.com/zh-cn/gdpr/subprocessors/",
+      "final": "https://www.cloudflare.com/zh-cn/gdpr/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://cloudflare.com/trust/subprocessors",
+      "final": "https://cloudflare.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://cloudflare.com/legal/service-providers",
+      "final": "https://cloudflare.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "darktrace",
+      "url": "https://trust.darktrace.com/subprocessors",
+      "final": "https://trust.darktrace.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "darktrace",
+      "url": "https://www.darktrace.com/legal/data-processing-addendum",
+      "final": "https://www.darktrace.com/legal/data-processing-addendum",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://cloudflare.com/privacy/subprocessors",
+      "final": "https://cloudflare.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "darktrace",
+      "url": "https://darktrace.com/subprocessors",
+      "final": "https://darktrace.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "cloudflare",
+      "url": "https://cloudflare.com/company/subprocessors",
+      "final": "https://cloudflare.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "darktrace",
+      "url": "https://darktrace.com/sub-processors",
+      "final": "https://darktrace.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "darktrace",
+      "url": "https://darktrace.com/privacy/subprocessors",
+      "final": "https://darktrace.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "darktrace",
+      "url": "https://darktrace.com/company/subprocessors",
+      "final": "https://darktrace.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "darktrace",
+      "url": "https://darktrace.com/trust/subprocessors",
+      "final": "https://darktrace.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "launchdarkly",
+      "url": "https://launchdarkly.com/subprocessors/",
+      "final": "https://launchdarkly.com/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "darktrace",
+      "url": "https://trust.darktrace.com/sub-processors",
+      "final": "https://trust.darktrace.com/sub-processors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "launchdarkly",
+      "url": "https://launchdarkly.com/data-processing-addendum/",
+      "final": "https://launchdarkly.com/data-processing-addendum/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "launchdarkly",
+      "url": "https://launchdarkly.com/policies/subprocessors/",
+      "final": "https://launchdarkly.com/policies/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "launchdarkly",
+      "url": "https://launchdarkly.com/legal/subprocessors",
+      "final": "https://launchdarkly.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "launchdarkly",
+      "url": "https://trust.launchdarkly.com/subprocessors",
+      "final": "https://app.vanta.com/launchdarkly.com/trust/gu6fblhdgsyexg8g2xsj0",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "launchdarkly",
+      "url": "https://trust.launchdarkly.com/sub-processors",
+      "final": "https://app.vanta.com/launchdarkly.com/trust/gu6fblhdgsyexg8g2xsj0",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "darktrace",
+      "url": "https://darktrace.com/legal/service-providers",
+      "final": "https://darktrace.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://www.deel.com/legal/data-processing-addendum/",
+      "final": "https://www.deel.com/legal/data-processing-addendum/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://trust.deel.com/subprocessors",
+      "final": "https://trust.deel.com/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "darktrace",
+      "url": "https://darktrace.com/legal/sub-processors",
+      "final": "https://darktrace.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://deel.com/sub-processors",
+      "final": "https://deel.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://deel.com/subprocessors",
+      "final": "https://deel.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://deel.com/legal/subprocessors",
+      "final": "https://deel.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://deel.com/legal/sub-processors",
+      "final": "https://deel.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://deel.com/privacy/subprocessors",
+      "final": "https://deel.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://deel.com/legal/service-providers",
+      "final": "https://deel.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://deel.com/trust/subprocessors",
+      "final": "https://deel.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "darktrace",
+      "url": "https://darktrace.com/legal/subprocessors",
+      "final": "https://darktrace.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://deel.com/company/subprocessors",
+      "final": "https://deel.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://letsdeel.com/sub-processors",
+      "final": "https://letsdeel.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://letsdeel.com/subprocessors",
+      "final": "https://letsdeel.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://deel.com/legal/sub-processors-page",
+      "final": "https://deel.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://letsdeel.com/legal/subprocessors",
+      "final": "https://letsdeel.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://letsdeel.com/legal/service-providers",
+      "final": "https://letsdeel.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://letsdeel.com/legal/sub-processors",
+      "final": "https://letsdeel.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://letsdeel.com/privacy/subprocessors",
+      "final": "https://letsdeel.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://letsdeel.com/company/subprocessors",
+      "final": "https://letsdeel.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://trust.deel.com/sub-processors",
+      "final": "https://trust.deel.com/sub-processors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://letsdeel.com/legal/sub-processors-page",
+      "final": "https://letsdeel.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "deel",
+      "url": "https://letsdeel.com/trust/subprocessors",
+      "final": "https://letsdeel.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "red-canary",
+      "url": "https://redcanary.com/dpa/",
+      "final": "https://redcanary.com/dpa/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "darktrace",
+      "url": "https://darktrace.com/legal/sub-processors-page",
+      "final": "https://darktrace.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "red-canary",
+      "url": "https://security.redcanary.com/subprocessors",
+      "final": "https://security.redcanary.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "launchdarkly",
+      "url": "https://launchdarkly.com/privacy/subprocessors",
+      "final": "https://launchdarkly.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "launchdarkly",
+      "url": "https://launchdarkly.com/trust/subprocessors",
+      "final": "https://launchdarkly.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "launchdarkly",
+      "url": "https://launchdarkly.com/legal/sub-processors",
+      "final": "https://launchdarkly.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "launchdarkly",
+      "url": "https://launchdarkly.com/sub-processors",
+      "final": "https://launchdarkly.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "launchdarkly",
+      "url": "https://launchdarkly.com/company/subprocessors",
+      "final": "https://launchdarkly.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "launchdarkly",
+      "url": "https://launchdarkly.com/legal/service-providers",
+      "final": "https://launchdarkly.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "launchdarkly",
+      "url": "https://launchdarkly.com/legal/sub-processors-page",
+      "final": "https://launchdarkly.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "guild",
+      "url": "https://guild.com/subprocessors",
+      "final": "https://guild.com/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "guild",
+      "url": "https://guild.com/dpa",
+      "final": "https://guild.com/dpa",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "red-canary",
+      "url": "https://security.redcanary.com/sub-processors",
+      "final": "https://security.redcanary.com/sub-processors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "guild",
+      "url": "https://guild.com/legal/subprocessors",
+      "final": "https://guild.com/legal/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "guild",
+      "url": "https://guild.com/sub-processors",
+      "final": "https://guild.com/sub-processors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "guild",
+      "url": "https://guild.com/legal/sub-processors",
+      "final": "https://guild.com/legal/sub-processors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "guild",
+      "url": "https://guild.com/legal/service-providers",
+      "final": "https://guild.com/legal/service-providers",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "guild",
+      "url": "https://guild.com/privacy/subprocessors",
+      "final": "https://guild.com/privacy/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "guild",
+      "url": "https://guild.com/trust/subprocessors",
+      "final": "https://guild.com/trust/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "guild",
+      "url": "https://trust.guild.com/subprocessors",
+      "final": "https://trust.guild.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "guild",
+      "url": "https://guild.com/company/subprocessors",
+      "final": "https://guild.com/company/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "guild",
+      "url": "https://trust.guild.com/sub-processors",
+      "final": "https://trust.guild.com/sub-processors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "red-canary",
+      "url": "https://redcanary.com/subprocessors",
+      "final": "https://redcanary.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "classranked",
+      "url": "https://classranked.com/subprocessors",
+      "final": "https://classranked.com/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "classranked",
+      "url": "https://classranked.com/dpa",
+      "final": "https://classranked.com/dpa",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "classranked",
+      "url": "https://classranked.com/legal/sub-processors",
+      "final": "https://classranked.com/legal/sub-processors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "red-canary",
+      "url": "https://redcanary.com/sub-processors",
+      "final": "https://redcanary.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "classranked",
+      "url": "https://classranked.com/sub-processors",
+      "final": "https://classranked.com/sub-processors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "classranked",
+      "url": "https://classranked.com/legal/subprocessors",
+      "final": "https://classranked.com/legal/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "classranked",
+      "url": "https://classranked.com/legal/service-providers",
+      "final": "https://classranked.com/legal/service-providers",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "classranked",
+      "url": "https://classranked.com/company/subprocessors",
+      "final": "https://classranked.com/company/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "classranked",
+      "url": "https://classranked.com/privacy/subprocessors",
+      "final": "https://classranked.com/privacy/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "classranked",
+      "url": "https://classranked.com/trust/subprocessors",
+      "final": "https://classranked.com/trust/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "classranked",
+      "url": "https://classranked.com/legal/sub-processors-page",
+      "final": "https://classranked.com/legal/sub-processors-page",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "mixpanel",
+      "url": "https://mixpanel.com/subprocessors",
+      "final": "https://mixpanel.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "mixpanel",
+      "url": "https://mixpanel.com/legal/subprocessors/",
+      "final": "https://mixpanel.com/legal/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "guild",
+      "url": "https://guild.com/legal/sub-processors-page",
+      "final": "https://guild.com/legal/sub-processors-page",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "mixpanel",
+      "url": "https://mixpanel.com/sub-processors",
+      "final": "https://mixpanel.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "mixpanel",
+      "url": "https://mixpanel.com/legal/dpa/",
+      "final": "https://mixpanel.com/legal/dpa/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "red-canary",
+      "url": "https://redcanary.com/legal/subprocessors",
+      "final": "https://redcanary.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "mixpanel",
+      "url": "https://mixpanel.com/privacy/subprocessors",
+      "final": "https://mixpanel.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "mixpanel",
+      "url": "https://mixpanel.com/company/subprocessors",
+      "final": "https://mixpanel.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "mixpanel",
+      "url": "https://trust.mixpanel.com/subprocessors",
+      "final": "https://trust.mixpanel.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "mixpanel",
+      "url": "https://mixpanel.com/trust/subprocessors",
+      "final": "https://mixpanel.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "midjourney",
+      "url": "https://www.midjourney.com/dpa",
+      "final": "https://www.midjourney.com/dpa",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "midjourney",
+      "url": "https://midjourney.com/subprocessors",
+      "final": "https://midjourney.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "midjourney",
+      "url": "https://midjourney.com/sub-processors",
+      "final": "https://midjourney.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "mixpanel",
+      "url": "https://trust.mixpanel.com/sub-processors",
+      "final": "https://trust.mixpanel.com/sub-processors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "midjourney",
+      "url": "https://midjourney.com/legal/sub-processors",
+      "final": "https://midjourney.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "midjourney",
+      "url": "https://midjourney.com/legal/subprocessors",
+      "final": "https://midjourney.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "midjourney",
+      "url": "https://midjourney.com/legal/service-providers",
+      "final": "https://midjourney.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "midjourney",
+      "url": "https://midjourney.com/privacy/subprocessors",
+      "final": "https://midjourney.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "midjourney",
+      "url": "https://midjourney.com/company/subprocessors",
+      "final": "https://midjourney.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "mixpanel",
+      "url": "https://mixpanel.com/legal/service-providers",
+      "final": "https://mixpanel.com/legal/service-providers/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "midjourney",
+      "url": "https://midjourney.com/trust/subprocessors",
+      "final": "https://midjourney.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "midjourney",
+      "url": "https://midjourney.com/legal/sub-processors-page",
+      "final": "https://midjourney.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "mixpanel",
+      "url": "https://mixpanel.com/legal/sub-processors",
+      "final": "https://mixpanel.com/legal/sub-processors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aerospike",
+      "url": "https://aerospike.com/legal/data-processing-addendum/",
+      "final": "https://aerospike.com/legal/data-processing-addendum/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aerospike",
+      "url": "https://aerospike.com/subprocessors",
+      "final": "https://aerospike.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "mixpanel",
+      "url": "https://mixpanel.com/legal/sub-processors-page",
+      "final": "https://mixpanel.com/legal/sub-processors-page/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aerospike",
+      "url": "https://aerospike.com/legal/subprocessors",
+      "final": "https://aerospike.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aerospike",
+      "url": "https://aerospike.com/privacy/subprocessors",
+      "final": "https://aerospike.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aerospike",
+      "url": "https://aerospike.com/legal/sub-processors",
+      "final": "https://aerospike.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aerospike",
+      "url": "https://aerospike.com/legal/service-providers",
+      "final": "https://aerospike.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aerospike",
+      "url": "https://aerospike.com/company/subprocessors",
+      "final": "https://aerospike.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aerospike",
+      "url": "https://trust.aerospike.com/sub-processors",
+      "final": "https://trust.aerospike.com/sub-processors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "xai",
+      "url": "https://x.ai/legal/data-processing-addendum",
+      "final": "https://x.ai/legal/data-processing-addendum",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "xai",
+      "url": "https://x.ai/subprocessors",
+      "final": "https://x.ai/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "xai",
+      "url": "https://x.ai/sub-processors",
+      "final": "https://x.ai/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aerospike",
+      "url": "https://aerospike.com/trust/subprocessors",
+      "final": "https://aerospike.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aerospike",
+      "url": "https://aerospike.com/legal/sub-processors-page",
+      "final": "https://aerospike.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "xai",
+      "url": "https://x.ai/legal/subprocessors",
+      "final": "https://x.ai/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "xai",
+      "url": "https://x.ai/legal/sub-processors",
+      "final": "https://x.ai/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "xai",
+      "url": "https://x.ai/legal/service-providers",
+      "final": "https://x.ai/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "xai",
+      "url": "https://x.ai/privacy/subprocessors",
+      "final": "https://x.ai/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "xai",
+      "url": "https://x.ai/company/subprocessors",
+      "final": "https://x.ai/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "xai",
+      "url": "https://x.ai/trust/subprocessors",
+      "final": "https://x.ai/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aerospike",
+      "url": "https://trust.aerospike.com/subprocessors",
+      "final": "https://trust.aerospike.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "xai",
+      "url": "https://x.ai/legal/sub-processors-page",
+      "final": "https://x.ai/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "xai",
+      "url": "https://trust.x.ai/subprocessors",
+      "final": "https://trust.x.ai/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "xai",
+      "url": "https://trust.x.ai/sub-processors",
+      "final": "https://trust.x.ai/sub-processors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "aerospike",
+      "url": "https://aerospike.com/sub-processors",
+      "final": "https://aerospike.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "red-canary",
+      "url": "https://redcanary.com/legal/sub-processors",
+      "final": "https://redcanary.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "red-canary",
+      "url": "https://redcanary.com/legal/service-providers",
+      "final": "https://redcanary.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "red-canary",
+      "url": "https://redcanary.com/privacy/subprocessors",
+      "final": "https://redcanary.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "red-canary",
+      "url": "https://redcanary.com/legal/sub-processors-page",
+      "final": "https://redcanary.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "red-canary",
+      "url": "https://redcanary.com/company/subprocessors",
+      "final": "https://redcanary.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salt-security",
+      "url": "https://salt.security/subprocessors",
+      "final": "https://salt.security/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salt-security",
+      "url": "https://salt.security/pt-br/subprocessors",
+      "final": "https://salt.security/pt-br/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salt-security",
+      "url": "https://salt.security/fr/subprocessors",
+      "final": "https://salt.security/fr/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salt-security",
+      "url": "https://salt.security/es/subprocessors",
+      "final": "https://salt.security/es/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "red-canary",
+      "url": "https://redcanary.com/trust/subprocessors",
+      "final": "https://redcanary.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salt-security",
+      "url": "https://salt.security/data-processing-addendum",
+      "final": "https://salt.security/data-processing-addendum",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salt-security",
+      "url": "https://salt.security/sub-processors",
+      "final": "https://salt.security/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salt-security",
+      "url": "https://salt.security/legal/subprocessors",
+      "final": "https://salt.security/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salt-security",
+      "url": "https://salt.security/legal/sub-processors",
+      "final": "https://salt.security/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salt-security",
+      "url": "https://salt.security/legal/service-providers",
+      "final": "https://salt.security/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salt-security",
+      "url": "https://salt.security/privacy/subprocessors",
+      "final": "https://salt.security/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salt-security",
+      "url": "https://salt.security/company/subprocessors",
+      "final": "https://salt.security/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salt-security",
+      "url": "https://salt.security/trust/subprocessors",
+      "final": "https://salt.security/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salt-security",
+      "url": "https://salt.security/legal/sub-processors-page",
+      "final": "https://salt.security/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salt-security",
+      "url": "https://trust.salt.security/sub-processors",
+      "final": "https://trust.salt.security/sub-processors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "caspio",
+      "url": "https://www.caspio.com/legal/dpa/",
+      "final": "https://www.caspio.com/legal/dpa/",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "salt-security",
+      "url": "https://trust.salt.security/subprocessors",
+      "final": "https://trust.salt.security/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "caspio",
+      "url": "https://caspio.com/subprocessors",
+      "final": "https://caspio.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "caspio",
+      "url": "https://trust.caspio.com/subprocessors",
+      "final": "https://trust.caspio.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "caspio",
+      "url": "https://caspio.com/sub-processors",
+      "final": "https://caspio.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "caspio",
+      "url": "https://caspio.com/legal/sub-processors",
+      "final": "https://caspio.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "caspio",
+      "url": "https://caspio.com/legal/subprocessors",
+      "final": "https://caspio.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "caspio",
+      "url": "https://caspio.com/legal/service-providers",
+      "final": "https://caspio.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "caspio",
+      "url": "https://caspio.com/privacy/subprocessors",
+      "final": "https://caspio.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "caspio",
+      "url": "https://caspio.com/company/subprocessors",
+      "final": "https://caspio.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "caspio",
+      "url": "https://caspio.com/trust/subprocessors",
+      "final": "https://caspio.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "caspio",
+      "url": "https://caspio.com/legal/sub-processors-page",
+      "final": "https://caspio.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "caspio",
+      "url": "https://trust.caspio.com/sub-processors",
+      "final": "https://trust.caspio.com/sub-processors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diebold-nixdorf",
+      "url": "https://www.dieboldnixdorf.com/dpa/",
+      "final": "https://www.dieboldnixdorf.com/dpa/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diebold-nixdorf",
+      "url": "https://www.dieboldnixdorf.com/subprocessors/",
+      "final": "https://www.dieboldnixdorf.com/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diebold-nixdorf",
+      "url": "https://dieboldnixdorf.com/subprocessors",
+      "final": "https://www.dieboldnixdorf.com/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diebold-nixdorf",
+      "url": "https://dieboldnixdorf.com/sub-processors",
+      "final": "https://www.dieboldnixdorf.com/sub-processors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diebold-nixdorf",
+      "url": "https://dieboldnixdorf.com/legal/subprocessors",
+      "final": "https://www.dieboldnixdorf.com/legal/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diebold-nixdorf",
+      "url": "https://dieboldnixdorf.com/legal/sub-processors",
+      "final": "https://www.dieboldnixdorf.com/legal/sub-processors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diebold-nixdorf",
+      "url": "https://dieboldnixdorf.com/legal/service-providers",
+      "final": "https://www.dieboldnixdorf.com/legal/service-providers/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diebold-nixdorf",
+      "url": "https://dieboldnixdorf.com/privacy/subprocessors",
+      "final": "https://www.dieboldnixdorf.com/privacy/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "paylocity",
+      "url": "https://www.paylocity.com/subprocessors/?manual_bypass=1",
+      "final": "https://www.paylocity.com/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diebold-nixdorf",
+      "url": "https://dieboldnixdorf.com/company/subprocessors",
+      "final": "https://www.dieboldnixdorf.com/company/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "paylocity",
+      "url": "https://www.paylocity.com/subprocessors/",
+      "final": "https://www.paylocity.com/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "paylocity",
+      "url": "https://www.paylocity.com/dpa/",
+      "final": "https://www.paylocity.com/dpa/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diebold-nixdorf",
+      "url": "https://dieboldnixdorf.com/trust/subprocessors",
+      "final": "https://www.dieboldnixdorf.com/trust/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "diebold-nixdorf",
+      "url": "https://dieboldnixdorf.com/legal/sub-processors-page",
+      "final": "https://www.dieboldnixdorf.com/legal/sub-processors-page/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "paylocity",
+      "url": "https://paylocity.com/subprocessors",
+      "final": "https://www.paylocity.com/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "paylocity",
+      "url": "https://paylocity.com/legal/subprocessors",
+      "final": "https://www.paylocity.com/legal/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "paylocity",
+      "url": "https://paylocity.com/sub-processors",
+      "final": "https://www.paylocity.com/sub-processors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "paylocity",
+      "url": "https://paylocity.com/legal/sub-processors",
+      "final": "https://www.paylocity.com/legal/sub-processors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "paylocity",
+      "url": "https://paylocity.com/trust/subprocessors",
+      "final": "https://www.paylocity.com/trust/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "paylocity",
+      "url": "https://paylocity.com/legal/service-providers",
+      "final": "https://www.paylocity.com/legal/service-providers/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "paylocity",
+      "url": "https://paylocity.com/company/subprocessors",
+      "final": "https://www.paylocity.com/company/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "paylocity",
+      "url": "https://paylocity.com/privacy/subprocessors",
+      "final": "https://www.paylocity.com/privacy/subprocessors/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "procore",
+      "url": "https://www.procore.com/legal/subprocessors",
+      "final": "https://www.procore.com/legal/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "paylocity",
+      "url": "https://paylocity.com/legal/sub-processors-page",
+      "final": "https://www.paylocity.com/legal/sub-processors-page/",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "paylocity",
+      "url": "https://trust.paylocity.com/subprocessors",
+      "final": "https://trust.paylocity.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "paylocity",
+      "url": "https://trust.paylocity.com/sub-processors",
+      "final": "https://trust.paylocity.com/sub-processors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "procore",
+      "url": "https://www.procore.com/en-ae/legal/subprocessors",
+      "final": "https://www.procore.com/en-ae/legal/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "procore",
+      "url": "https://www.procore.com/en-au/legal/subprocessors",
+      "final": "https://www.procore.com/en-au/legal/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "procore",
+      "url": "https://www.procore.com/legal/dpa",
+      "final": "https://www.procore.com/legal/dpa",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "procore",
+      "url": "https://www.procore.com/en-ca/legal/subprocessors",
+      "final": "https://www.procore.com/en-ca/legal/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "procore",
+      "url": "https://www.procore.com/en-sg/legal/subprocessors",
+      "final": "https://www.procore.com/en-sg/legal/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "procore",
+      "url": "https://www.procore.com/en-gb/legal/subprocessors",
+      "final": "https://www.procore.com/en-gb/legal/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "procore",
+      "url": "https://procore.com/subprocessors",
+      "final": "https://procore.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "procore",
+      "url": "https://procore.com/legal/subprocessors",
+      "final": "https://www.procore.com/legal/subprocessors",
+      "reason": "no-printed-names",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "procore",
+      "url": "https://procore.com/sub-processors",
+      "final": "https://procore.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "procore",
+      "url": "https://procore.com/legal/sub-processors",
+      "final": "https://procore.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "procore",
+      "url": "https://procore.com/company/subprocessors",
+      "final": "https://procore.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "procore",
+      "url": "https://procore.com/trust/subprocessors",
+      "final": "https://procore.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "procore",
+      "url": "https://procore.com/legal/service-providers",
+      "final": "https://procore.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "procore",
+      "url": "https://trust.procore.com/sub-processors",
+      "final": "https://trust.procore.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "procore",
+      "url": "https://trust.procore.com/subprocessors",
+      "final": "https://trust.procore.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "procore",
+      "url": "https://procore.com/legal/sub-processors-page",
+      "final": "https://procore.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "procore",
+      "url": "https://procore.com/privacy/subprocessors",
+      "final": "https://procore.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "imperva",
+      "url": "https://www.imperva.com/trust-center/sub-processors/",
+      "reason": "bot-wall-unverified",
       "kind": "subprocessors"
     }
   ]

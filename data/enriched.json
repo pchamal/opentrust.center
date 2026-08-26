@@ -3037,7 +3037,7 @@
         "security_txt": "https://www.brex.com/security.txt",
         "privacy": "https://www.brex.com/legal/privacy",
         "subprocessors": "https://trust-portal.brex.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57",
-        "dpa": "https://trust-portal.brex.com/?itemName=legal",
+        "dpa": "https://www.brex.com/legal/dpa",
         "status": "https://trust-portal.brex.com/?itemUid=a26c76c4-6568-4a97-a75b-5cc628e0a407",
         "bug_bounty": "https://www.brex.com/trust/responsible-disclosure",
         "security": "https://trust-portal.brex.com/?itemName=data_security&amp;itemUid=2295dac0-4666-4503-8305-18da8472661f&amp;q_mailing_7U7YeR6GBr5VvcWGjXL7RVqNFLcCmQxKhaCJb=RpGi3Z7zndmuuFjehcbtESNWC1E4ykk63iuxs2C8g3zBBTkB33NYcZN5d&amp;source=click"
@@ -3089,9 +3089,40 @@
         "status": "https://status.snyk.io",
         "bug_bounty": "https://snyk.io/report-a-vulnerability/",
         "security": "https://snyk.io/security/",
-        "subprocessors": "https://trust.snyk.io/subprocessors"
+        "subprocessors": "https://snyk.io/policies/subprocessors/"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "amplitude",
+        "akamai",
+        "aws",
+        "okta",
+        "confluent",
+        "crowdstrike",
+        "datadog",
+        "dbt-labs",
+        "sentry",
+        "gcp",
+        "google-workspace",
+        "looker",
+        "mongodb",
+        "shoreline-labs-d-b-a-nightfall",
+        "openai",
+        "orca-security-uk",
+        "salesforce",
+        "slack",
+        "snowflake",
+        "sublime-security",
+        "twilio",
+        "bastionx",
+        "chargebee",
+        "intercom",
+        "hubspot",
+        "stripe",
+        "cloudflare",
+        "invoiceexpress",
+        "chartmogul",
+        "oracle-netsuite"
+      ],
       "disclosure": {
         "score": 98,
         "tier": "complete",
@@ -4510,11 +4541,30 @@
       "links": {
         "trust": "https://trust.algolia.com",
         "status": "https://status.algolia.com",
-        "subprocessors": "https://trust.algolia.com/subprocessors",
+        "subprocessors": "https://www.algolia.com/policies/infrastructure-and-sub-processors",
         "privacy": "https://www.algolia.com/policies/privacy",
         "dpa": "https://www.algolia.com/policies/data-processing-addendum"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "google",
+        "leaseweb-global",
+        "ovh-sas",
+        "horizoniq",
+        "latitude-sh",
+        "equinix",
+        "microsoft",
+        "the-constant-company-vultr",
+        "ovh-us",
+        "cloudflare",
+        "datadog",
+        "openai",
+        "anthropic",
+        "morphl-r-d-srl",
+        "sajari-a-k-a-search-io",
+        "sajari",
+        "sajari-usa"
+      ],
       "disclosure": {
         "score": 83,
         "tier": "substantial",
@@ -8476,7 +8526,7 @@
         "privacy": "https://trust.freshworks.com/?itemUid=63f59def-eb18-4135-95a1-addeb7463801&source=click",
         "bug_bounty": "https://www.freshworks.com/security/responsible-disclosure/",
         "security": "https://www.freshworks.com/security/",
-        "dpa": "https://trust.freshworks.com/?itemUid=c4223a81-5840-4e11-ac9f-2b812794a67e&source=click",
+        "dpa": "https://www.freshworks.com/data-processing-addendum/",
         "subprocessors": "https://trust.freshworks.com/?itemUid=e3fae2ca-94a9-416b-b577-5c90e382df57&source=click",
         "status": "https://status.freshworks.com"
       },
@@ -21482,7 +21532,30 @@
         "status": "https://www.sproutsocialstatus.com/index.html",
         "bug_bounty": "https://sproutsocial.com/legal/responsible-disclosure-policy/"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "clickhouse",
+        "cloudflare",
+        "datadog",
+        "dbt-labs",
+        "elastic",
+        "firebase-google",
+        "fullstory",
+        "gcp",
+        "intercom",
+        "ipdata",
+        "launchdarkly",
+        "mailchimp",
+        "mixpanel",
+        "pendo",
+        "postmark-activecampaign",
+        "twilio",
+        "openai",
+        "very-good-security",
+        "google",
+        "hetzner-online",
+        "ovhcloud"
+      ],
       "disclosure": {
         "score": 60,
         "tier": "on-file",
@@ -45128,7 +45201,15 @@
         "dpa": "https://boomi.com/dpa/",
         "status": "https://status.boomi.com"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "gcp",
+        "azure",
+        "salesforce",
+        "servicenow",
+        "solace-where-purchased-by-customer",
+        "snowflake"
+      ],
       "disclosure": {
         "score": 48,
         "tier": "on-file",
@@ -48983,7 +49064,15 @@
         "bug_bounty": "https://docs.honeycomb.io/security-compliance/bug-bounty-program",
         "security": "https://docs.honeycomb.io/security-compliance"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "amplitude",
+        "anthropic",
+        "asana",
+        "braintrust-data",
+        "census-sutro-labs",
+        "dbt-labs"
+      ],
       "disclosure": {
         "score": 94,
         "tier": "complete",
@@ -49199,9 +49288,20 @@
         "privacy": "https://www.idrive.com/privacy",
         "dpa": "https://www.idrive.com/dpa",
         "status": "https://status.idrive.com",
-        "subprocessors": "https://trust.idrive.com/subprocessors"
+        "subprocessors": "https://www.idrive.com/authorized-sub-processor"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "stripe",
+        "twilio",
+        "brevo-sendinblue",
+        "google-workspace",
+        "surveymonkey-momentive",
+        "zerobounce",
+        "webbula",
+        "livechat",
+        "talkdesk",
+        "partnerstack"
+      ],
       "disclosure": {
         "score": 62,
         "tier": "on-file",

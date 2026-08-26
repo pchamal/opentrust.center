@@ -461,13 +461,58 @@ PRIOR_ATTEMPTED = {
     "constellation-energy",
     "sopra-steria",
     "domo",
-    # this cut — unread first-party queue after PR 114/122 (fills + honest zeros)
+    # PR 123 — unread first-party queue after PR 114/122 (fills + honest zeros)
     "y-soft",
     "tricentis",
     "trustly",
     "frosmo",
     "projectmanager-com",
     "esko",
+    # PR 119 / 125 trust-URL leftovers — honest DPA/processor zeros; no new first-party HTML
+    "superoffice",
+    "genedata",
+    "eleks",
+    # this cut — DPA on file, named processors empty (fills + honest zeros)
+    "clio",
+    "freshworks",
+    "cato-networks",
+    "snyk",
+    "celonis",
+    "veriff",
+    "brex",
+    "vanta",
+    "honeycomb",
+    "lucidworks",
+    "datalogics",
+    "algolia",
+    "pipedrive",
+    "attentive",
+    "cs-disco",
+    "synerise",
+    "snowflake",
+    "imperva",
+    "idrive-inc",
+    "ramp",
+    "evenup",
+    "varonis-systems",
+    "cloudflare",
+    "sprout-social",
+    "darktrace",
+    "launchdarkly",
+    "deel",
+    "red-canary",
+    "guild",
+    "classranked",
+    "mixpanel",
+    "midjourney",
+    "aerospike",
+    "xai",
+    "boomi-lp",
+    "salt-security",
+    "caspio",
+    "diebold-nixdorf",
+    "paylocity",
+    "procore",
 }
 
 
@@ -529,6 +574,11 @@ def previous_batch() -> set[str]:
     return prior
 
 
+def dpa_is_portal_catalog(url: str) -> bool:
+    """SafeBase-style itemUid / itemName catalogs are not a printed first-party DPA."""
+    return bool(enrich.ITEM_UID_RE.search(url or ""))
+
+
 def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]:
     wanted = requested_slugs()
     skip = set() if wanted else previous_batch()
@@ -544,13 +594,19 @@ def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]
         enr = enr_by.get(slug)
         if not enr:
             continue
-        dpa_open = not instrument_url(row, "dpa")
+        dpa_url = instrument_url(row, "dpa")
+        dpa_open = not dpa_url
+        # Portal catalog DPA may be upgraded to a printed first-party DPA. Never drop.
+        dpa_upgrade = bool(dpa_url and dpa_is_portal_catalog(dpa_url))
         # Named-list increment: a stored URL with no printed names is still open.
         if wanted:
             sub_open = not (row.get("processors") or [])
         else:
-            sub_open = not (row.get("processors") or instrument_url(row, "subprocessors"))
-        if not (dpa_open or sub_open):
+            # Natural queue for this cut: DPA already on file, named processors empty.
+            if not dpa_url or (row.get("processors") or []):
+                continue
+            sub_open = True
+        if not (dpa_open or dpa_upgrade or sub_open):
             continue
         cands = first_party_candidates(row, enr)
         if not cands:
@@ -559,6 +615,7 @@ def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]
             "slug": slug,
             "name": row.get("name") or slug,
             "dpa_open": dpa_open,
+            "dpa_upgrade": dpa_upgrade,
             "sub_open": sub_open,
             "candidates": cands,
         })
@@ -667,8 +724,8 @@ def main() -> int:
     print(f"batch {len(batch)} companies with an open DPA or subprocessors rule", flush=True)
     for rec in batch:
         print(
-            f"  {rec['slug']} dpa_open={rec['dpa_open']} sub_open={rec['sub_open']} "
-            f"urls={len(rec['candidates'])}",
+            f"  {rec['slug']} dpa_open={rec['dpa_open']} dpa_upgrade={rec.get('dpa_upgrade')} "
+            f"sub_open={rec['sub_open']} urls={len(rec['candidates'])}",
             flush=True,
         )
 
@@ -684,7 +741,9 @@ def main() -> int:
             seed_jobs.append((rec["slug"], kind, url))
 
     print(f"phase 1: read {len(seed_jobs)} on-file first-party pages", flush=True)
-    dpa_cands: dict[str, list[str]] = {rec["slug"]: [] for rec in batch if rec["dpa_open"]}
+    dpa_cands: dict[str, list[str]] = {
+        rec["slug"]: [] for rec in batch if rec["dpa_open"] or rec.get("dpa_upgrade")
+    }
     sub_cands: dict[str, list[str]] = {rec["slug"]: [] for rec in batch if rec["sub_open"]}
     rejected: list[dict] = []
 
@@ -720,31 +779,42 @@ def main() -> int:
                 base = final
                 if slug in dpa_cands:
                     for href in enrich.extract_dpa_candidates(html, base):
-                        if enrich.is_first_party_url(href, row):
+                        if enrich.is_first_party_url(href, row) and not dpa_is_portal_catalog(href):
                             take_dpa(slug, href)
                     for href in rec.get("hrefs") or []:
-                        if enrich.DPA_PATH_RE.search(href) and enrich.is_first_party_url(href, row):
+                        if (
+                            enrich.DPA_PATH_RE.search(href)
+                            and enrich.is_first_party_url(href, row)
+                            and not dpa_is_portal_catalog(href)
+                        ):
                             take_dpa(slug, href)
-                    if kind == "dpa":
+                    if kind == "dpa" and not dpa_is_portal_catalog(final):
                         take_dpa(slug, final)
                 if slug in sub_cands:
                     for href in enrich.extract_subprocessor_candidates(html, base):
-                        if enrich.is_first_party_url(href, row):
+                        if enrich.is_first_party_url(href, row) and not dpa_is_portal_catalog(href):
                             take_sub(slug, href)
-                    if kind == "subprocessors":
+                    if kind == "subprocessors" and not dpa_is_portal_catalog(final):
                         take_sub(slug, final)
             elif kind in {"dpa", "subprocessors"}:
                 rejected.append({"slug": slug, "url": public_url(url), "reason": "seed-not-live", "kind": kind})
 
     for rec in batch:
         row = enr_by[rec["slug"]]
-        if rec["dpa_open"] and not dpa_cands.get(rec["slug"]):
+        if rec["dpa_open"] or rec.get("dpa_upgrade"):
             for url in enrich.dpa_probe_urls_for(row):
-                if enrich.is_first_party_url(url, row):
+                if enrich.is_first_party_url(url, row) and not dpa_is_portal_catalog(url):
                     take_dpa(rec["slug"], url)
-        if rec["sub_open"] and not sub_cands.get(rec["slug"]):
+        if rec["sub_open"]:
+            stored_dpa = (row.get("links") or {}).get("dpa") or ""
+            if (
+                stored_dpa
+                and enrich.is_first_party_url(stored_dpa, row)
+                and not dpa_is_portal_catalog(stored_dpa)
+            ):
+                take_sub(rec["slug"], stored_dpa)
             for url in enrich.subprocessor_probe_urls_for(row):
-                if enrich.is_first_party_url(url, row):
+                if enrich.is_first_party_url(url, row) and not dpa_is_portal_catalog(url):
                     take_sub(rec["slug"], url)
 
     dpa_jobs, sub_jobs = [], []
@@ -787,7 +857,7 @@ def main() -> int:
             if not row:
                 continue
             final = rec.get("final_url") or url
-            if not enrich.is_first_party_url(final, row):
+            if not enrich.is_first_party_url(final, row) or dpa_is_portal_catalog(final):
                 rejected.append({"slug": slug, "url": public_url(url), "final": public_url(final), "reason": "not-first-party", "kind": "dpa"})
                 continue
             if not enrich.classify_as_dpa(url, rec):
@@ -835,16 +905,50 @@ def main() -> int:
                 continue
             accepted_sub[slug] = (final, procs)
 
+    def file_dpa_url(row: dict, url: str) -> bool:
+        """File a new DPA, or upgrade a portal catalog. Never drop a stored DPA."""
+        if not url:
+            return False
+        links = dict(row.get("links") or {})
+        existing = (links.get("dpa") or "").strip()
+        if not existing:
+            return enrich.apply_dpa_to_row(row, url)
+        if existing.rstrip("/") == url.rstrip("/"):
+            return False
+        if not dpa_is_portal_catalog(existing):
+            return False
+        if dpa_is_portal_catalog(url):
+            return False
+        links["dpa"] = url
+        row["links"] = links
+        return True
+
+    def file_list_url(row: dict, url: str) -> None:
+        """Point at the first-party page that printed names. Never clear a stored list URL."""
+        if not url:
+            return
+        links = dict(row.get("links") or {})
+        existing = (links.get("subprocessors") or "").strip()
+        if not existing:
+            enrich.apply_subprocessors_to_row(row, url)
+            return
+        if existing.rstrip("/") == url.rstrip("/"):
+            return
+        if dpa_is_portal_catalog(url) and not dpa_is_portal_catalog(existing):
+            return
+        links["subprocessors"] = url
+        row["links"] = links
+
     filed_dpa, filed_sub = [], []
     new_edges = []
     for slug, url in sorted(accepted_dpa.items()):
         row = enr_by[slug]
-        if enrich.apply_dpa_to_row(row, url):
+        if file_dpa_url(row, url):
             filed_dpa.append({"slug": slug, "name": row.get("name") or slug, "url": url})
 
     for slug, (url, procs) in sorted(accepted_sub.items()):
         row = enr_by[slug]
-        enrich.apply_subprocessors_to_row(row, url)
+        file_list_url(row, url)
         row["subprocessors"] = [pid for pid, _n, _e in procs]
         filed_sub.append({
             "slug": slug,
@@ -878,11 +982,13 @@ def main() -> int:
     report = {
         "generated_at": enr.get("generated_at"),
         "rule": (
-            "Next ~40 on-file companies whose DPA or subprocessors rule was open "
-            "and who already had a first-party public URL. DPA fills only from a "
-            "real first-party DPA. Named subprocessors fill only from a printed "
-            "first-party list of organization names. Dates, JS shells, login walls, "
-            "and portal hosts stay open."
+            "Next ~40 companies that already have a DPA on file and whose named "
+            "processors are empty. Named subprocessors fill only from printed "
+            "organization names in live first-party HTML. A stored list URL with "
+            "no printed names stays open. A DPA is filed only when a better "
+            "first-party DPA is newly found; an existing DPA is never dropped. "
+            "Dates, JS shells, login walls, download-only lists, affiliate-only "
+            "rows, and portal catalogs stay open."
         ),
         "batch": [rec["slug"] for rec in batch],
         "dpa_filed": filed_dpa,
