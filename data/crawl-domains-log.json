@@ -1,782 +1,590 @@
 {
-  "generated_at": "2026-08-26T16:52:57Z",
+  "generated_at": "2026-08-26T18:57:38Z",
   "method": "wikidata-wbsearchentities + wbgetentities P856; enwiki titles -> P856",
   "user_agent": "opentrust.center/1.0 (+https://opentrust.center)",
-  "note": "hourly top-up appended 54 verified P856 from unused Wikipedia software-company categories (wikipedia-free-software-companies, wikipedia-iot-companies, wikipedia-networking-software-companies); did not repeat exhausted lists (SaaS companies, cloud applications, cloud providers, CRN, CMC, S&P 500, UK/Israel/Canada/Germany/France/Australia/Netherlands/Sweden/Japan/Finland/Norway/switzerland/denmark/ireland/new-zealand/austria/belgium/poland/italy/spain/south-korea/czech/portugal/estonia/singapore/hungary/greece/taiwan/argentina/belarus/brazil/bulgaria/croatia/cyprus/iceland/latvia/luxembourg/philippines/romania/serbia/slovenia/south-africa/sri-lanka/turkey/ukraine/uruguay/china/hong-kong/india/russia/indonesia/malaysia/pakistan/vietnam/iran/lithuania/slovakia/colombia/nigeria/ghana/malta/kuwait/belize/palestine/rwanda/thailand/tunisia/cameroon/Business software, and the GIS/legal/engineering/EDI/health care/banking/educational/financial/CRM/ERP/POS/Macintosh/Audio software-company category leftovers)",
+  "note": "hourly top-up appended 1 verified P856 from unused Wikipedia software-company categories (wikipedia-artificial-intelligence-companies); did not repeat exhausted lists (SaaS companies, cloud applications, cloud providers, CRN, CMC, S&P 500, UK/Israel/Canada/Germany/France/Australia/Netherlands/Sweden/Japan/Finland/Norway/switzerland/denmark/ireland/new-zealand/austria/belgium/poland/italy/spain/south-korea/czech/portugal/estonia/singapore/hungary/greece/taiwan/argentina/belarus/brazil/bulgaria/croatia/cyprus/iceland/latvia/luxembourg/philippines/romania/serbia/slovenia/south-africa/sri-lanka/turkey/ukraine/uruguay/china/hong-kong/india/russia/indonesia/malaysia/pakistan/vietnam/iran/lithuania/slovakia/colombia/nigeria/ghana/malta/kuwait/belize/palestine/rwanda/thailand/tunisia/cameroon/Business software, and the GIS/legal/engineering/EDI/health care/banking/educational/financial/CRM/ERP/POS/Macintosh/Audio/networking/IoT/free-software/bioinformatics/dev/eda/supply-chain software-company category leftovers)",
   "counts": {
-    "appended": 54,
-    "resolved": 54,
-    "unresolved": 27,
-    "dropped_wrong_or_dup": 9,
+    "appended": 1,
+    "resolved": 1,
+    "unresolved": 86,
+    "dropped_wrong_or_dup": 11,
     "by_source": {
-      "wikipedia-networking-software-companies": 12,
-      "wikipedia-iot-companies": 22,
-      "wikipedia-free-software-companies": 20
+      "wikipedia-artificial-intelligence-companies": 1
     },
     "by_source_url": {
-      "https://en.wikipedia.org/wiki/Category:Networking_software_companies": 12,
-      "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies": 22,
-      "https://en.wikipedia.org/wiki/Category:Free_software_companies": 20
+      "https://en.wikipedia.org/wiki/Category:Artificial_intelligence_companies": 1
     }
   },
   "appended": [
     {
-      "name": "Arkeia Software",
-      "slug": "arkeia-software",
-      "domain": "arkeia.com",
-      "source": "wikipedia-networking-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Networking_software_companies",
+      "name": "Cognition AI",
+      "slug": "cognition-ai",
+      "domain": "cognition.ai",
+      "source": "wikipedia-artificial-intelligence-companies",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Artificial_intelligence_companies",
       "priority": 3,
-      "qid": "Q4791951",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Cumulus Networks",
-      "slug": "cumulus-networks",
-      "domain": "cumulusnetworks.com",
-      "source": "wikipedia-networking-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Networking_software_companies",
-      "priority": 3,
-      "qid": "Q15110072",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Kemp Technologies",
-      "slug": "kemp-technologies",
-      "domain": "kemptechnologies.com",
-      "source": "wikipedia-networking-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Networking_software_companies",
-      "priority": 3,
-      "qid": "Q6328512",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Mapilab",
-      "slug": "mapilab",
-      "domain": "mapilab.com",
-      "source": "wikipedia-networking-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Networking_software_companies",
-      "priority": 3,
-      "qid": "Q4043706",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Masergy Communications",
-      "slug": "masergy-communications",
-      "domain": "masergy.com",
-      "source": "wikipedia-networking-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Networking_software_companies",
-      "priority": 3,
-      "qid": "Q39049120",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Mobilitec",
-      "slug": "mobilitec",
-      "domain": "mobilitec.com",
-      "source": "wikipedia-networking-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Networking_software_companies",
-      "priority": 3,
-      "qid": "Q6887283",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "OPNET",
-      "slug": "opnet",
-      "domain": "opnet.com",
-      "source": "wikipedia-networking-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Networking_software_companies",
-      "priority": 3,
-      "qid": "Q610728",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Packet Design",
-      "slug": "packet-design",
-      "domain": "packetdesign.com",
-      "source": "wikipedia-networking-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Networking_software_companies",
-      "priority": 3,
-      "qid": "Q16962412",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Pica8",
-      "slug": "pica8",
-      "domain": "pica8.com",
-      "source": "wikipedia-networking-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Networking_software_companies",
-      "priority": 3,
-      "qid": "Q18154925",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Polaris Networks",
-      "slug": "polaris-networks",
-      "domain": "polarisnetworks.net",
-      "source": "wikipedia-networking-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Networking_software_companies",
-      "priority": 3,
-      "qid": "Q20011304",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Psytechnics",
-      "slug": "psytechnics",
-      "domain": "psytechnics.com",
-      "source": "wikipedia-networking-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Networking_software_companies",
-      "priority": 3,
-      "qid": "Q7256589",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "SevOne",
-      "slug": "sevone",
-      "domain": "sevone.com",
-      "source": "wikipedia-networking-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Networking_software_companies",
-      "priority": 3,
-      "qid": "Q7457067",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Ecube Labs",
-      "slug": "ecube-labs",
-      "domain": "ecubelabs.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q25052871",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Exosite",
-      "slug": "exosite",
-      "domain": "exosite.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q18150584",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Geotab",
-      "slug": "geotab",
-      "domain": "geotab.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q18164878",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Giatec Scientific",
-      "slug": "giatec-scientific",
-      "domain": "giatecscientific.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q24191266",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Google Nest",
-      "slug": "google-nest",
-      "domain": "store.google.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q2119882",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Ingenu",
-      "slug": "ingenu",
-      "domain": "ingenu.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q28222600",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Jasper Technologies",
-      "slug": "jasper-technologies",
-      "domain": "jasper.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q18153660",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Metromile",
-      "slug": "metromile",
-      "domain": "metromile.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q20714597",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Netatmo",
-      "slug": "netatmo",
-      "domain": "netatmo.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q20149838",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Nexiona Connectocrats",
-      "slug": "nexiona-connectocrats",
-      "domain": "nexiona.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q48732476",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Octo Telematics",
-      "slug": "octo-telematics",
-      "domain": "octotelematics.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q28449239",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "OpenPicus",
-      "slug": "openpicus",
-      "domain": "openpicus.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q7096542",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "PubNub",
-      "slug": "pubnub",
-      "domain": "pubnub.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q22077787",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Qardio",
-      "slug": "qardio",
-      "domain": "getqardio.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q25022018",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Signify N.V.",
-      "slug": "signify-n-v",
-      "domain": "signify.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q2336380",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "SmartThings",
-      "slug": "smartthings",
-      "domain": "smartthings.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q18378737",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "SolidRun",
-      "slug": "solidrun",
-      "domain": "solid-run.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q20988753",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Swisscom",
-      "slug": "swisscom",
-      "domain": "swisscom.ch",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q644324",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Veniam",
-      "slug": "veniam",
-      "domain": "veniam.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q22078084",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Withings",
-      "slug": "withings",
-      "domain": "withings.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q3569499",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Wyze Labs",
-      "slug": "wyze-labs",
-      "domain": "wyze.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q66068428",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Xively",
-      "slug": "xively",
-      "domain": "xively.com",
-      "source": "wikipedia-iot-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Internet_of_things_companies",
-      "priority": 3,
-      "qid": "Q5173965",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Actuate Corporation",
-      "slug": "actuate-corporation",
-      "domain": "actuate.com",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q497419",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Canonical",
-      "slug": "canonical",
-      "domain": "canonical.com",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q39064",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Collabora",
-      "slug": "collabora",
-      "domain": "collabora.com",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q5145791",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "DEFCAD",
-      "slug": "defcad",
-      "domain": "defcad.com",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q17051945",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Digium",
-      "slug": "digium",
-      "domain": "digium.com",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q461517",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "ECosCentric",
-      "slug": "ecoscentric",
-      "domain": "ecoscentric.com",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q5322813",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Elphel",
-      "slug": "elphel",
-      "domain": "elphel.com",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q1333294",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Endless OS Foundation",
-      "slug": "endless-os-foundation",
-      "domain": "endlessos.org",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q116647331",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "IXsystems",
-      "slug": "ixsystems",
-      "domain": "ixsystems.com",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q18152571",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "LibLime",
-      "slug": "liblime",
-      "domain": "liblime.com",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q6540333",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Mozilla Corporation",
-      "slug": "mozilla-corporation",
-      "domain": "mozilla.org",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q169925",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Mozilla China",
-      "slug": "mozilla-china",
-      "domain": "mozilla.com.cn",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q3087084",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Nexenta Systems",
-      "slug": "nexenta-systems",
-      "domain": "nexenta.com",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q16928036",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Open Invention Network",
-      "slug": "open-invention-network",
-      "domain": "openinventionnetwork.com",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q2025721",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Percona",
-      "slug": "percona",
-      "domain": "percona.com",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q7167174",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "SchedMD",
-      "slug": "schedmd",
-      "domain": "schedmd.com",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q17079467",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Sugar Labs",
-      "slug": "sugar-labs",
-      "domain": "sugarlabs.org",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q5935028",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "SUSE S.A.",
-      "slug": "suse-s-a",
-      "domain": "suse.com",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q14594782",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Vuze, Inc.",
-      "slug": "vuze-inc",
-      "domain": "vuze.com",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q7943725",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "ZeroC",
-      "slug": "zeroc",
-      "domain": "zeroc.com",
-      "source": "wikipedia-free-software-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Free_software_companies",
-      "priority": 3,
-      "qid": "Q8069474",
+      "qid": "Q126095776",
       "reason": "enwiki-title P856"
     }
   ],
   "dropped_wrong_p856": [
     {
-      "name": "Bluesmart",
-      "slug": "bluesmart",
-      "domain": "bluesmart.refr.cc",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Eve Systems",
-      "slug": "eve-systems",
-      "domain": "evehome.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Numerex",
-      "slug": "numerex",
-      "domain": "numerex.com",
+      "name": "Clustrix",
+      "slug": "clustrix",
+      "domain": "clustrix.com",
       "reason": "blocked-host"
     },
     {
-      "name": "Sigfox",
-      "slug": "sigfox",
-      "domain": "sigfox.com",
+      "name": "Fuzzy Logix",
+      "slug": "fuzzy-logix",
+      "domain": "fuzzylogix.com",
       "reason": "blocked-host"
     },
     {
-      "name": "Xped",
-      "slug": "xped",
-      "domain": "rayagroup.com.au",
+      "name": "Advanced Machine Intelligence Labs",
+      "slug": "advanced-machine-intelligence-labs",
+      "domain": "amilabs.xyz",
       "reason": "implausible-p856"
     },
     {
-      "name": "Eazel",
-      "slug": "eazel",
-      "domain": "web.archive.org",
+      "name": "DataStax",
+      "slug": "datastax",
+      "domain": "datastax.com",
       "reason": "blocked-host"
     },
     {
-      "name": "Koingo Software",
-      "slug": "koingo-software",
-      "domain": "koingosw.com",
+      "name": "H",
+      "slug": "h",
+      "domain": "hcompany.ai",
       "reason": "implausible-p856"
     },
     {
-      "name": "Network Applied Communication Laboratory",
-      "slug": "network-applied-communication-laboratory",
-      "domain": "netlab.jp",
-      "reason": "implausible-p856"
+      "name": "ICarbonX",
+      "slug": "icarbonx",
+      "domain": "icarbonx.com",
+      "reason": "blocked-host"
     },
     {
-      "name": "Sirius Corporation Ltd",
-      "slug": "sirius-corporation-ltd",
-      "domain": "siriusit.co.uk",
+      "name": "Neocortex AI",
+      "slug": "neocortex-ai",
+      "domain": "universalrobotics.com",
       "reason": "implausible-p856"
     }
   ],
   "unresolved": [
     {
-      "name": "6WIND",
-      "slug": "6wind",
+      "name": "Art Loss Register",
+      "slug": "art-loss-register",
+      "reason": "not-org no-org p31=['Q8513'] desc=international database",
+      "status": null
+    },
+    {
+      "name": "Art Recovery Group",
+      "slug": "art-recovery-group",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Central Desktop",
-      "slug": "central-desktop",
-      "reason": "not-org no-org p31=['Q474157'] desc=wiki hosting service",
-      "status": null
-    },
-    {
-      "name": "Consumers Software",
-      "slug": "consumers-software",
+      "name": "Diablo Data Systems",
+      "slug": "diablo-data-systems",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Minerva Networks",
-      "slug": "minerva-networks",
+      "name": "IFIS Publishing",
+      "slug": "ifis-publishing",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Mushroom Networks",
-      "slug": "mushroom-networks",
+      "name": "The Kodansha Kanji Learner's Dictionary",
+      "slug": "the-kodansha-kanji-learner-s-dictionary",
+      "reason": "not-org no-org p31=['Q23622', 'Q7725634'] desc=Japanese kanji dictionary by Jack Halpern",
+      "status": null
+    },
+    {
+      "name": "MotherDuck",
+      "slug": "motherduck",
+      "reason": "not-org no-org p31=['Q7397'] desc=cloud analytics platform",
+      "status": null
+    },
+    {
+      "name": "National Bike Registry",
+      "slug": "national-bike-registry",
+      "reason": "not-org no-org p31=['Q4907362'] desc=US bicycle registration database",
+      "status": null
+    },
+    {
+      "name": "Nature Portfolio",
+      "slug": "nature-portfolio",
+      "reason": "not-org no-org p31=['Q2085381', 'Q45400320', 'Q96888669'] desc=British publisher",
+      "status": null
+    },
+    {
+      "name": "Object Design, Incorporated",
+      "slug": "object-design-incorporated",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Speedify",
-      "slug": "speedify",
+      "name": "TheOfficialBoard",
+      "slug": "theofficialboard",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Advantech",
-      "slug": "advantech",
+      "name": "Resistance Database Initiative",
+      "slug": "resistance-database-initiative",
+      "reason": "not-org no-org p31=['Q43229'] desc=not-for-profit organisation",
+      "status": null
+    },
+    {
+      "name": "Rocket U2",
+      "slug": "rocket-u2",
+      "reason": "not-org no-org p31=['Q176165'] desc=database management system",
+      "status": null
+    },
+    {
+      "name": "SilverPlatter",
+      "slug": "silverplatter",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "YugabyteDB",
+      "slug": "yugabytedb",
+      "reason": "not-org no-org p31=['Q3932296', 'Q341', 'Q56273712', 'Q7005136', 'Q82231', 'Q506883'] desc=Transactional distributed SQL database",
+      "status": null
+    },
+    {
+      "name": "Inclov",
+      "slug": "inclov",
+      "reason": "not-org no-org p31=[] desc=Indian dating site",
+      "status": null
+    },
+    {
+      "name": "Harlequin",
+      "slug": "harlequin",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Lisp Machines",
+      "slug": "lisp-machines",
+      "reason": "not-org no-org p31=['Q1055701'] desc=computer manufacturer",
+      "status": null
+    },
+    {
+      "name": "Lucid Inc.",
+      "slug": "lucid-inc",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Symbolics",
+      "slug": "symbolics",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Thinking Machines Corporation",
+      "slug": "thinking-machines-corporation",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "4Paradigm",
+      "slug": "4paradigm",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Adaptive ML",
+      "slug": "adaptive-ml",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Aikido Security",
+      "slug": "aikido-security",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Akool",
+      "slug": "akool",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "All Turtles",
+      "slug": "all-turtles",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Antavo",
+      "slug": "antavo",
       "reason": "no-wikidata-item",
       "status": null
     },
     {
-      "name": "Brunata",
-      "slug": "brunata",
+      "name": "Art Recognition",
+      "slug": "art-recognition",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Connected car",
-      "slug": "connected-car",
-      "reason": "not-org no-org p31=[] desc=car that is equipped with Internet access",
+      "name": "Artisse AI",
+      "slug": "artisse-ai",
+      "reason": "not-org no-org p31=[] desc=personal photography application",
       "status": null
     },
     {
-      "name": "Cumulocity",
-      "slug": "cumulocity",
+      "name": "Astron",
+      "slug": "astron",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Develco Products",
-      "slug": "develco-products",
+      "name": "Australian Artificial Intelligence Institute",
+      "slug": "australian-artificial-intelligence-institute",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Garageio",
-      "slug": "garageio",
-      "reason": "not-org no-org p31=['Q35127'] desc=smart home garage door controller",
+      "name": "Talk:Automation Anywhere",
+      "slug": "talk-automation-anywhere",
+      "reason": "no-wikidata-item",
       "status": null
     },
     {
-      "name": "Helium Network",
-      "slug": "helium-network",
-      "reason": "not-org no-org p31=['Q11375'] desc=wireless network linked to cryptocurrency",
+      "name": "BabyX",
+      "slug": "babyx",
+      "reason": "not-org no-org p31=[] desc=AI-powered virtual infant",
       "status": null
     },
     {
-      "name": "Hoopo",
-      "slug": "hoopo",
+      "name": "Braintrust",
+      "slug": "braintrust",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Link Labs",
-      "slug": "link-labs",
+      "name": "Brighter AI Technologies",
+      "slug": "brighter-ai-technologies",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "PSA Certified",
-      "slug": "psa-certified",
-      "reason": "not-org no-org p31=[] desc=security certification scheme for the Internet of things",
-      "status": null
-    },
-    {
-      "name": "Subsea Internet of Things",
-      "slug": "subsea-internet-of-things",
-      "reason": "not-org no-org p31=[] desc=network of smart, wireless sensors and smart devices configured to provide actionable operational intelligence such as performance, condition and diagnostic information",
-      "status": null
-    },
-    {
-      "name": "Apatar",
-      "slug": "apatar",
-      "reason": "not-org no-org p31=['Q7397', 'Q15618646'] desc=",
-      "status": null
-    },
-    {
-      "name": "Caldera International",
-      "slug": "caldera-international",
+      "name": "Brilliant Labs",
+      "slug": "brilliant-labs",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Cygnus Solutions",
-      "slug": "cygnus-solutions",
+      "name": "Cluely",
+      "slug": "cluely",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "MariaDB",
-      "slug": "mariadb",
-      "reason": "not-org no-org p31=['Q3932296', 'Q506883'] desc=database management system, relational, open source, community developed fork of MySQL",
+      "name": "Codesmith",
+      "slug": "codesmith",
+      "reason": "not-org no-org p31=[] desc=Technology school",
       "status": null
     },
     {
-      "name": "NewsBlur",
-      "slug": "newsblur",
-      "reason": "not-org no-org p31=['Q189210', 'Q620615', 'Q498267'] desc=news aggregator",
-      "status": null
-    },
-    {
-      "name": "OSSICS",
-      "slug": "ossics",
+      "name": "Colloquis",
+      "slug": "colloquis",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Pantheon Systems",
-      "slug": "pantheon-systems",
-      "reason": "not-org no-org p31=['Q1330336'] desc=web framework",
+      "name": "Competition in artificial intelligence",
+      "slug": "competition-in-artificial-intelligence",
+      "reason": "not-org no-org p31=[] desc=rivalry between companies, nations, and researchers in developing AI technologies",
       "status": null
     },
     {
-      "name": "Project.net",
-      "slug": "project-net",
-      "reason": "not-org no-org p31=['Q341', 'Q167035'] desc=",
+      "name": "Contextual AI",
+      "slug": "contextual-ai",
+      "reason": "no-p856",
       "status": null
     },
     {
-      "name": "ScyllaDB",
-      "slug": "scylladb",
-      "reason": "not-org no-org p31=['Q176165', 'Q341', 'Q4822779', 'Q425567'] desc=free distributed NoSQL column-oriented data store",
+      "name": "Conversable",
+      "slug": "conversable",
+      "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Sleepycat Software",
-      "slug": "sleepycat-software",
+      "name": "Copyleaks",
+      "slug": "copyleaks",
+      "reason": "not-org no-org p31=['Q35127'] desc=plagiarism detection platform",
+      "status": null
+    },
+    {
+      "name": "Covariant",
+      "slug": "covariant",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Cradle",
+      "slug": "cradle",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Deeploy",
+      "slug": "deeploy",
+      "reason": "no-wikidata-item",
+      "status": null
+    },
+    {
+      "name": "Dxcover",
+      "slug": "dxcover",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Eudia",
+      "slug": "eudia",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Friend",
+      "slug": "friend",
+      "reason": "not-org no-org p31=['Q2424752'] desc=wearable AI chatbot",
+      "status": null
+    },
+    {
+      "name": "Gcore",
+      "slug": "gcore",
+      "reason": "not-org no-org p31=['Q1346018', 'Q72588'] desc=cloud service provider",
+      "status": null
+    },
+    {
+      "name": "GPTZero",
+      "slug": "gptzero",
+      "reason": "not-org no-org p31=['Q7397'] desc=content analysis tool",
+      "status": null
+    },
+    {
+      "name": "Gradient Labs",
+      "slug": "gradient-labs",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "HireVue",
+      "slug": "hirevue",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Io",
+      "slug": "io",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Lighthouse",
+      "slug": "lighthouse",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "LiveKit",
+      "slug": "livekit",
+      "reason": "no-wikidata-item",
+      "status": null
+    },
+    {
+      "name": "Lucidya",
+      "slug": "lucidya",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Metropolis Technologies",
+      "slug": "metropolis-technologies",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Mindstate Design Labs",
+      "slug": "mindstate-design-labs",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "ModelBest",
+      "slug": "modelbest",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Multiverse",
+      "slug": "multiverse",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Netradyne",
+      "slug": "netradyne",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "NeuralGarage",
+      "slug": "neuralgarage",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "NewsRx",
+      "slug": "newsrx",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Northern Data",
+      "slug": "northern-data",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Nostrada AI",
+      "slug": "nostrada-ai",
+      "reason": "no-wikidata-item",
+      "status": null
+    },
+    {
+      "name": "Onpassive",
+      "slug": "onpassive",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Parallel Web Systems",
+      "slug": "parallel-web-systems",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Poolside AI",
+      "slug": "poolside-ai",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Preamble",
+      "slug": "preamble",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Prometheus",
+      "slug": "prometheus",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Quantexa",
+      "slug": "quantexa",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Reflection AI",
+      "slug": "reflection-ai",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Ricursive",
+      "slug": "ricursive",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Second Nature",
+      "slug": "second-nature",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Signvrse",
+      "slug": "signvrse",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Six Little Dragons",
+      "slug": "six-little-dragons",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Sonatus",
+      "slug": "sonatus",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Soroco",
+      "slug": "soroco",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Spectre AI",
+      "slug": "spectre-ai",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Stargate LLC",
+      "slug": "stargate-llc",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Tailent Automation Platform",
+      "slug": "tailent-automation-platform",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Waabi",
+      "slug": "waabi",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "WeAreBrain",
+      "slug": "wearebrain",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Writesonic",
+      "slug": "writesonic",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "X Square Robot",
+      "slug": "x-square-robot",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Zerynth",
+      "slug": "zerynth",
       "reason": "no-p856",
       "status": null
     }
