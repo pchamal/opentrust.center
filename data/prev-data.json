@@ -1440,32 +1440,6 @@
    }
   },
   {
-   "domain": "anaplan.com",
-   "tier": "complete",
-   "certs": [
-    "CSA STAR",
-    "Cyber Essentials",
-    "ENS",
-    "ISO 27001",
-    "ISO 27017",
-    "ISO 27018",
-    "ISO 27701",
-    "ISO 42001",
-    "SOC 1 Type II",
-    "SOC 2 Type II",
-    "TX-RAMP"
-   ],
-   "instruments": {
-    "trust": "https://trust.anaplan.com",
-    "security": null,
-    "privacy": "https://www.anaplan.com/privacy-statement/",
-    "dpa": "https://www.anaplan.com/content/dam/anaplan/assets/documents/legal/anaplan-data-processing-addendum-dpa-ccpa-2022.pdf",
-    "subprocessors": null,
-    "status": "https://status.anaplan.com",
-    "bounty": null
-   }
-  },
-  {
    "domain": "elevenlabs.io",
    "tier": "complete",
    "certs": [
@@ -2832,25 +2806,6 @@
    }
   },
   {
-   "domain": "salesloft.com",
-   "tier": "substantial",
-   "certs": [
-    "CCPA",
-    "GDPR",
-    "ISO 27001",
-    "SOC 2 Type II"
-   ],
-   "instruments": {
-    "trust": "https://trust.salesloft.com",
-    "security": "https://www.salesloft.com/security-compliance",
-    "privacy": "https://www.salesloft.com/legal/privacy-notice",
-    "dpa": "https://www.salesloft.com/legal/data-processing-addendum",
-    "subprocessors": "https://trust.salesloft.com/subprocessors",
-    "status": "https://status.salesloft.com",
-    "bounty": null
-   }
-  },
-  {
    "domain": "canva.com",
    "tier": "substantial",
    "certs": [
@@ -3502,6 +3457,23 @@
    }
   },
   {
+   "domain": "salesloft.com",
+   "tier": "substantial",
+   "certs": [
+    "ISO 27001",
+    "SOC 2 Type II"
+   ],
+   "instruments": {
+    "trust": "https://trust.salesloft.com",
+    "security": "https://www.salesloft.com/security-compliance",
+    "privacy": "https://www.salesloft.com/legal/privacy-notice",
+    "dpa": "https://www.salesloft.com/legal/data-processing-addendum",
+    "subprocessors": "https://trust.salesloft.com/subprocessors",
+    "status": "https://status.salesloft.com",
+    "bounty": null
+   }
+  },
+  {
    "domain": "enterprisedb.com",
    "tier": "substantial",
    "certs": [
@@ -3851,6 +3823,23 @@
     "subprocessors": null,
     "status": null,
     "bounty": null
+   }
+  },
+  {
+   "domain": "peak.ai",
+   "tier": "substantial",
+   "certs": [
+    "ISO 27001",
+    "SOC 2"
+   ],
+   "instruments": {
+    "trust": "https://trust.peak.ai",
+    "security": "https://peak.ai/security/",
+    "privacy": "https://peak.ai/privacy-policy/",
+    "dpa": "https://peak.ai/data-processing-addendum/",
+    "subprocessors": "https://trust.peak.ai/subprocessors",
+    "status": "https://status.peak.ai",
+    "bounty": "https://peak.ai/responsible-disclosure-policy/"
    }
   },
   {
@@ -5095,25 +5084,6 @@
    }
   },
   {
-   "domain": "sarvam.ai",
-   "tier": "on-file",
-   "certs": [
-    "ISO 27001",
-    "ISO 42001",
-    "SOC 2 Type I",
-    "SOC 2 Type II"
-   ],
-   "instruments": {
-    "trust": "https://sarvam.ai/trust-center",
-    "security": null,
-    "privacy": "https://www.sarvam.ai/privacy-policy",
-    "dpa": null,
-    "subprocessors": null,
-    "status": "https://status.sarvam.ai",
-    "bounty": null
-   }
-  },
-  {
    "domain": "zscaler.com",
    "tier": "on-file",
    "certs": [
@@ -6086,6 +6056,24 @@
    }
   },
   {
+   "domain": "sarvam.ai",
+   "tier": "on-file",
+   "certs": [
+    "ISO 27001",
+    "SOC 2 Type I",
+    "SOC 2 Type II"
+   ],
+   "instruments": {
+    "trust": "https://sarvam.ai/trust-center",
+    "security": null,
+    "privacy": "https://www.sarvam.ai/privacy-policy",
+    "dpa": null,
+    "subprocessors": null,
+    "status": "https://status.sarvam.ai",
+    "bounty": null
+   }
+  },
+  {
    "domain": "canto.com",
    "tier": "on-file",
    "certs": [
@@ -6493,20 +6481,6 @@
    }
   },
   {
-   "domain": "peak.ai",
-   "tier": "on-file",
-   "certs": [],
-   "instruments": {
-    "trust": "https://trust.peak.ai",
-    "security": "https://peak.ai/security/",
-    "privacy": "https://peak.ai/privacy-policy/",
-    "dpa": "https://peak.ai/data-processing-addendum/",
-    "subprocessors": "https://trust.peak.ai/subprocessors",
-    "status": "https://status.peak.ai",
-    "bounty": "https://peak.ai/responsible-disclosure-policy/"
-   }
-  },
-  {
    "domain": "nemetschek.com",
    "tier": "on-file",
    "certs": [
@@ -6878,6 +6852,20 @@
     "dpa": null,
     "subprocessors": "https://trust.telestream.net/subprocessors",
     "status": "https://status.telestream.net",
+    "bounty": null
+   }
+  },
+  {
+   "domain": "anaplan.com",
+   "tier": "on-file",
+   "certs": [],
+   "instruments": {
+    "trust": "https://trust.anaplan.com",
+    "security": null,
+    "privacy": "https://www.anaplan.com/privacy-statement/",
+    "dpa": "https://www.anaplan.com/content/dam/anaplan/assets/documents/legal/anaplan-data-processing-addendum-dpa-ccpa-2022.pdf",
+    "subprocessors": null,
+    "status": "https://status.anaplan.com",
     "bounty": null
    }
   },
@@ -8100,23 +8088,6 @@
    }
   },
   {
-   "domain": "translated.com",
-   "tier": "on-file",
-   "certs": [
-    "ISO 27001",
-    "ISO 9001"
-   ],
-   "instruments": {
-    "trust": "https://trust.translated.com",
-    "security": "https://trust.translated.com/?GererSite%2Frevisions=&amp;itemName=data_security&amp;itemUid=26115955-6428-446a-b597-1079bfb40357&amp;source=click",
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": "https://status.translated.com",
-    "bounty": null
-   }
-  },
-  {
    "domain": "braze.com",
    "tier": "silent",
    "certs": [
@@ -8830,6 +8801,20 @@
     "dpa": null,
     "subprocessors": null,
     "status": null,
+    "bounty": null
+   }
+  },
+  {
+   "domain": "translated.com",
+   "tier": "thin",
+   "certs": [],
+   "instruments": {
+    "trust": "https://trust.translated.com",
+    "security": "https://trust.translated.com/?GererSite%2Frevisions=&amp;itemName=data_security&amp;itemUid=26115955-6428-446a-b597-1079bfb40357&amp;source=click",
+    "privacy": null,
+    "dpa": null,
+    "subprocessors": null,
+    "status": "https://status.translated.com",
     "bounty": null
    }
   },
