@@ -309,6 +309,48 @@ PRIOR_ATTEMPTED = {
     "synerise",
     "01-communique",
     "01-ai",
+    # this cut — unread open years files with a stored first-party
+    # trust / privacy / about / security URL
+    "3d-systems",
+    "3i-infotech",
+    "a-o-smith",
+    "accenture",
+    "agilysys",
+    "aiforia-technologies-oyj",
+    "albemarle-corporation",
+    "alexandria-real-estate-equities",
+    "alfa-financial-software",
+    "alibaba",
+    "alkami",
+    "alliant-energy",
+    "amadeus",
+    "amdocs",
+    "ameren",
+    "american-electric-power",
+    "american-express",
+    "american-water-works",
+    "ametek",
+    "amgen",
+    "aptiv",
+    "arthur-j-gallagher-and-co",
+    "assurant",
+    "at-and-t",
+    "atmos-energy",
+    "aurora-innovation",
+    "backblaze",
+    "baker-hughes",
+    "becton-dickinson",
+    "beyond",
+    "blackrock",
+    "blue-yonder",
+    "bristol-myers-squibb",
+    "brown-forman",
+    "builders-firstsource",
+    "c-h-robinson",
+    "camden-property-trust",
+    "carrier-global",
+    "cboe-global-markets",
+    "cdk-global",
 }
 
 
@@ -339,6 +381,12 @@ def previous_batch() -> set[str]:
     return prior
 
 
+# Trust-URL-only years queue is exhausted. This cut walks open years
+# files that already store a first-party trust / privacy / about / security
+# URL. security.txt is not a security page.
+YEAR_QUEUE_LINKS = ("trust", "privacy", "about", "security")
+
+
 def latest_expand_slugs() -> list[str]:
     """Newest register expand first. Those rows are unread for years."""
     paths = sorted((DATA / "render").glob("expand-*.json"))
@@ -348,6 +396,36 @@ def latest_expand_slugs() -> list[str]:
     return [r.get("slug") for r in rows if r.get("slug")]
 
 
+def _link_url(value) -> str:
+    if isinstance(value, dict):
+        return public_url(value.get("url") or "")
+    return public_url(value or "")
+
+
+def first_party_year_links(public: dict, enr: dict) -> list[str]:
+    """Stored first-party trust / privacy / about / security URLs."""
+    out, seen = [], set()
+
+    def add(url: str) -> None:
+        u = public_url(url)
+        if not u.startswith("http"):
+            return
+        key = u.lower().rstrip("/")
+        if key in seen:
+            return
+        seen.add(key)
+        out.append(u)
+
+    links = enr.get("links") or {}
+    pub_links = public.get("links") or {}
+    inst = public.get("instruments") or {}
+    for key in YEAR_QUEUE_LINKS:
+        add(links.get(key) or "")
+        add(pub_links.get(key) or "")
+        add(_link_url(inst.get(key)))
+    return out
+
+
 def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]:
     wanted = requested_slugs()
     skip = set() if wanted else previous_batch()
@@ -355,13 +433,10 @@ def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]
     if wanted:
         rows = [by_pub[s] for s in wanted if s in by_pub]
     else:
-        # Found=True open-years queue is exhausted. Prefer the latest expand
-        # (silent rows with official domains), then any other unread open
-        # years file that already has a domain. A first-party about page
-        # can still name a year when no trust portal was found.
-        prefer = [by_pub[s] for s in latest_expand_slugs() if s in by_pub]
-        seen = {r.get("slug") for r in prefer}
-        rows = prefer + [r for r in public_rows if r.get("slug") not in seen]
+        # Trust-URL-only years queue is exhausted after PRIOR. Walk unread
+        # open-years files that already store a first-party trust, privacy,
+        # about, or security URL. Register order is the natural queue.
+        rows = list(public_rows)
     picked = []
     for row in rows:
         slug = row.get("slug") or ""
@@ -373,6 +448,8 @@ def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]
         if row.get("founded_year") or enr.get("founded_year"):
             continue
         if not enrich.has_official_domain(enr) and not enrich.has_official_domain(row):
+            continue
+        if not wanted and not first_party_year_links(row, enr):
             continue
         picked.append({
             "slug": slug,
@@ -410,6 +487,8 @@ def stored_year_urls(public: dict, enr: dict) -> list[str]:
     links = enr.get("links") or {}
     for key in ("about", "company", "press", "newsroom"):
         add(links.get(key) or "")
+    for url in first_party_year_links(public, enr):
+        add(url)
     return out
 
 
@@ -558,6 +637,12 @@ def year_quote(text: str, year: int, company_name: str = "") -> str:
     if not text or not year:
         return ""
     needle = str(year)
+    m = re.search(
+        rf'''["']foundingDate["']\s*:\s*["']{needle}(?:-\d{{2}}-\d{{2}})?["']''',
+        text or "",
+    )
+    if m:
+        return m.group(0)
     for raw in (text or "").split("."):
         bit = " ".join(raw.split())
         if needle not in bit:
@@ -761,13 +846,13 @@ def main() -> int:
     report = {
         "generated_at": enr.get("generated_at"),
         "rule": (
-            "Next ~40 unread open-years files that already had an official "
-            "domain, preferring the latest register expand. Silent rows are "
-            "eligible: a first-party about page can still name a year. A year "
-            "fills only when the live page names the company's founding year. "
-            "Wikipedia category/list pages, news articles, title-only prefix "
-            "matches, and 404s stay open. Prior year cuts, PR 104, PR 107, "
-            "PR 111, PR 115 leftovers, and PR 117 are on the skip list."
+            "Next ~40 unread open-years files that already store a first-party "
+            "trust, privacy, about, or security URL. The trust-URL-only queue "
+            "is exhausted after PRIOR. A year fills only when live first-party "
+            "HTML names founded, established, or foundingDate. Wikipedia, news, "
+            "title-only prefix matches, portal catalogs, JS shells, login/CMP "
+            "walls, investor/parent years, rebrand dates, and soft story-began "
+            "copy stay open. Prior year cuts through PR 124 are on the skip list."
         ),
         "batch": [rec["slug"] for rec in batch],
         "years_filed": filed,
