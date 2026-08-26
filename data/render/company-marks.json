@@ -1,144 +1,549 @@
 {
-  "generated_at": "2026-08-25T23:53:35Z",
-  "rule": "Leftover open trust-URL companies after PRIOR. Marks fill only when live first-party HTML names the company's own hold. Regulation-as-rights, aligned-with copy, FAQ examples, JS shells, and portal hosts stay open.",
+  "generated_at": "2026-08-26T00:58:01Z",
+  "rule": "Next ~40 unread empty-cert companies that already store a first-party trust / security / privacy URL. The trust-URL-only queue is exhausted after PRIOR. Marks fill only when that live page names the company's own hold. Regulation mentions (GDPR/CCPA as rights) and DPF as a transfer mechanism among SCCs stay open. Login walls, soft-404s, homepage bounces, PDFs, JS shells, and portal hosts stay open.",
   "batch": [
-    "bigid",
-    "commvault",
-    "clarivate",
-    "domo",
-    "sopra-steria"
+    "braze",
+    "glossgenius",
+    "brown-forman",
+    "american-water-works",
+    "character-ai",
+    "amcor",
+    "abbott-laboratories",
+    "american-international-group",
+    "aflac",
+    "jabil",
+    "micron-technology",
+    "valero-energy",
+    "aes-corporation",
+    "centene",
+    "corpay",
+    "materialise-nv",
+    "schr-dinger",
+    "zensar-technologies",
+    "on-semiconductor",
+    "globant",
+    "4dmedical-limited",
+    "bytedance",
+    "cyngn",
+    "system1",
+    "applied-digital",
+    "3d-systems",
+    "3i-infotech",
+    "a-o-smith",
+    "aiforia-technologies-oyj",
+    "albemarle-corporation",
+    "alexandria-real-estate-equities",
+    "alfa-financial-software",
+    "alkami",
+    "alliant-energy",
+    "amadeus",
+    "ameren",
+    "american-electric-power",
+    "american-express",
+    "ametek",
+    "amgen"
   ],
   "marks_filed": [
     {
-      "slug": "bigid",
-      "name": "BigID",
-      "url": "https://bigid.com/certifications-and-assessments/",
+      "slug": "alfa-financial-software",
+      "name": "Alfa Financial Software",
+      "url": "https://www.alfasystems.com/en-us/privacy-policy",
       "added": [
-        "SOC 2 Type II",
-        "SOC 3",
-        "PCI DSS",
-        "CSA STAR"
+        "ISO 27001",
+        "ISO 27018"
       ],
       "certs": [
-        "SOC 2 Type II",
-        "SOC 3",
-        "PCI DSS",
-        "CSA STAR"
+        "ISO 27001",
+        "ISO 27018"
       ]
     },
     {
-      "slug": "commvault",
-      "name": "Commvault",
-      "url": "https://www.commvault.com/privacy-policy",
+      "slug": "braze",
+      "name": "Braze",
+      "url": "https://www.braze.com/company/legal/privacy",
       "added": [
         "EU-US DPF"
       ],
       "certs": [
         "EU-US DPF"
-      ]
-    },
-    {
-      "slug": "clarivate",
-      "name": "Clarivate",
-      "url": "https://clarivate.com/trust-center/",
-      "added": [
-        "ISO 27001",
-        "ISO 27017",
-        "ISO 27018",
-        "ISO 27701",
-        "ISO 22301",
-        "ISO 27032",
-        "SOC 2 Type II",
-        "PCI DSS",
-        "FedRAMP",
-        "TX-RAMP",
-        "StateRAMP"
-      ],
-      "certs": [
-        "ISO 27001",
-        "ISO 27017",
-        "ISO 27018",
-        "ISO 27701",
-        "ISO 22301",
-        "ISO 27032",
-        "SOC 2 Type II",
-        "PCI DSS",
-        "FedRAMP",
-        "TX-RAMP",
-        "StateRAMP"
       ]
     }
   ],
   "stayed_open": [
     {
-      "slug": "domo",
-      "name": "Domo",
+      "slug": "glossgenius",
+      "name": "GlossGenius",
       "rule": "marks",
       "thin": false
     },
     {
-      "slug": "sopra-steria",
-      "name": "Sopra Steria",
+      "slug": "brown-forman",
+      "name": "Brown–Forman",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "american-water-works",
+      "name": "American Water Works",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "character-ai",
+      "name": "Character.AI",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "amcor",
+      "name": "Amcor",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "abbott-laboratories",
+      "name": "Abbott Laboratories",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "american-international-group",
+      "name": "American International Group",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "aflac",
+      "name": "Aflac",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "jabil",
+      "name": "Jabil",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "micron-technology",
+      "name": "Micron Technology",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "valero-energy",
+      "name": "Valero Energy",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "aes-corporation",
+      "name": "AES Corporation",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "centene",
+      "name": "Centene",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "corpay",
+      "name": "Corpay",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "materialise-nv",
+      "name": "Materialise NV",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "schr-dinger",
+      "name": "Schrödinger",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "zensar-technologies",
+      "name": "Zensar Technologies",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "on-semiconductor",
+      "name": "ON Semiconductor",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "globant",
+      "name": "Globant",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "4dmedical-limited",
+      "name": "4DMedical Limited",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "bytedance",
+      "name": "ByteDance",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "cyngn",
+      "name": "Cyngn",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "system1",
+      "name": "System1",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "applied-digital",
+      "name": "Applied Digital",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "3d-systems",
+      "name": "3D Systems",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "3i-infotech",
+      "name": "3i Infotech",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "a-o-smith",
+      "name": "A. O. Smith",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "aiforia-technologies-oyj",
+      "name": "Aiforia Technologies Oyj",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "albemarle-corporation",
+      "name": "Albemarle Corporation",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "alexandria-real-estate-equities",
+      "name": "Alexandria Real Estate Equities",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "alkami",
+      "name": "Alkami",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "alliant-energy",
+      "name": "Alliant Energy",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "amadeus",
+      "name": "Amadeus",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "ameren",
+      "name": "Ameren",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "american-electric-power",
+      "name": "American Electric Power",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "american-express",
+      "name": "American Express",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "ametek",
+      "name": "Ametek",
+      "rule": "marks",
+      "thin": false
+    },
+    {
+      "slug": "amgen",
+      "name": "Amgen",
       "rule": "marks",
       "thin": false
     }
   ],
   "rejected": [
     {
-      "slug": "bigid",
-      "url": "https://trust.bigid.com",
-      "final": "https://trust.bigid.com",
-      "reason": "js-portal",
-      "kind": "trust"
-    },
-    {
-      "slug": "bigid",
-      "url": "https://bigid.com/data-security-platform/",
-      "final": "https://bigid.com/data-security-platform/",
-      "reason": "no-named-marks",
-      "kind": "security"
-    },
-    {
-      "slug": "bigid",
-      "url": "https://bigid.com/privacy-suite/",
-      "final": "https://bigid.com/privacy-suite/",
+      "slug": "jabil",
+      "url": "https://jabil.com/privacy-policy.html",
+      "final": "https://jabil.com/privacy-policy.html",
       "reason": "no-named-marks",
       "kind": "privacy"
     },
     {
-      "slug": "commvault",
-      "url": "https://trust.commvault.com",
-      "final": "https://trust.commvault.com",
-      "reason": "js-portal",
-      "kind": "trust"
+      "slug": "american-international-group",
+      "url": "https://www.aig.com/privacy-policy",
+      "final": "https://www.aig.com/privacy-policy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
     },
     {
-      "slug": "commvault",
-      "url": "https://www.commvault.com/use-cases/data-compliance-and-regulations",
-      "final": "https://www.commvault.com/use-cases/data-compliance-and-regulations",
-      "reason": "regulation-only",
-      "kind": "security"
+      "slug": "american-international-group",
+      "url": "https://www.aig.com:443/privacy-policy",
+      "final": "https://www.aig.com:443/privacy-policy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
     },
     {
-      "slug": "clarivate",
-      "url": "https://clarivate.com/privacy-center/notices-policies/privacy-policy/",
-      "final": "https://clarivate.com/privacy-center/notices-policies/privacy-policy/",
+      "slug": "character-ai",
+      "url": "https://character.ai/privacy",
+      "final": "https://character.ai/privacy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "american-water-works",
+      "url": "https://amwater.com/corp/privacy-policy",
+      "final": "https://amwater.com/corp/privacy-policy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "brown-forman",
+      "url": "https://legal.brown-forman.com/privacy-policy/english",
+      "final": "https://legal.brown-forman.com/privacy-policy/english",
       "reason": "regulation-only",
       "kind": "privacy"
     },
     {
-      "slug": "domo",
-      "url": "https://domo.securitypal.com",
-      "final": "https://domo.securitypal.com",
-      "reason": "not-first-party",
-      "kind": "trust"
+      "slug": "valero-energy",
+      "url": "https://www.valero.com/privacy-statement",
+      "final": "https://www.valero.com/privacy-statement",
+      "reason": "no-named-marks",
+      "kind": "privacy"
     },
     {
-      "slug": "sopra-steria",
-      "url": "https://soprasteria.trust.site",
-      "final": "https://soprasteria.trust.site",
-      "reason": "not-first-party",
-      "kind": "trust"
+      "slug": "glossgenius",
+      "url": "https://glossgenius.com/legal/privacy",
+      "final": "https://glossgenius.com/legal/privacy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "amcor",
+      "url": "https://www.amcor.com/privacy_policy/privacy_policy",
+      "final": "https://www.amcor.com/privacy_policy/privacy_policy",
+      "reason": "regulation-only",
+      "kind": "privacy"
+    },
+    {
+      "slug": "aes-corporation",
+      "url": "https://www.aes.com/privacy-policy",
+      "final": "https://www.aes.com/privacy-policy",
+      "reason": "regulation-only",
+      "kind": "privacy"
+    },
+    {
+      "slug": "micron-technology",
+      "url": "https://www.micron.com/Privacy",
+      "final": "https://www.micron.com/Privacy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "schr-dinger",
+      "url": "https://www.schrodinger.com/privacy-policy/",
+      "final": "https://www.schrodinger.com/privacy-policy/",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "corpay",
+      "url": "https://www.corpay.com/privacy-policy",
+      "final": "https://www.corpay.com/privacy-policy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "globant",
+      "url": "https://www.globant.com/privacy-policy",
+      "final": "https://www.globant.com/privacy-policy",
+      "reason": "regulation-only",
+      "kind": "privacy"
+    },
+    {
+      "slug": "applied-digital",
+      "url": "https://www.applieddigital.com/privacy-policy",
+      "final": "https://www.applieddigital.com/privacy-policy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "system1",
+      "url": "https://system1.com/terms/privacy-policy",
+      "final": "https://system1.com/terms/privacy-policy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "on-semiconductor",
+      "url": "https://www.onsemi.com/privacy",
+      "final": "https://www.onsemi.com/privacy",
+      "reason": "regulation-only",
+      "kind": "privacy"
+    },
+    {
+      "slug": "cyngn",
+      "url": "https://www.cyngn.com/privacy",
+      "final": "https://www.cyngn.com/privacy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "3d-systems",
+      "url": "https://www.3dsystems.com/privacy-policy",
+      "final": "https://www.3dsystems.com/privacy-policy",
+      "reason": "regulation-only",
+      "kind": "privacy"
+    },
+    {
+      "slug": "materialise-nv",
+      "url": "https://www.materialise.com/en/data-privacy-notice",
+      "final": "https://www.materialise.com/en/data-privacy-notice",
+      "reason": "regulation-only",
+      "kind": "privacy"
+    },
+    {
+      "slug": "alexandria-real-estate-equities",
+      "url": "https://www.are.com/privacy-policy",
+      "final": "https://www.are.com/privacy-policy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "a-o-smith",
+      "url": "https://www.aosmith.com/privacy-policy",
+      "final": "https://www.aosmith.com/privacy-policy",
+      "reason": "regulation-only",
+      "kind": "privacy"
+    },
+    {
+      "slug": "aiforia-technologies-oyj",
+      "url": "https://www.aiforia.com/privacy-policy",
+      "final": "https://www.aiforia.com/privacy-policy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "albemarle-corporation",
+      "url": "https://www.albemarle.com/us/en/privacy-policy",
+      "final": "https://www.albemarle.com/us/en/privacy-policy",
+      "reason": "regulation-only",
+      "kind": "privacy"
+    },
+    {
+      "slug": "alliant-energy",
+      "url": "https://www.alliantenergy.com/terms-privacy-accessibility/privacy-policy",
+      "final": "https://www.alliantenergy.com/terms-privacy-accessibility/privacy-policy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "alkami",
+      "url": "https://www.alkami.com/privacy-policy/",
+      "final": "https://www.alkami.com/privacy-policy/",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "bytedance",
+      "url": "https://www.bytedance.com/privacy-statement",
+      "final": "https://www.bytedance.com/privacy-statement",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "american-express",
+      "url": "https://www.americanexpress.com/us/company/privacy-center/online-privacy-disclosures/",
+      "final": "https://www.americanexpress.com/us/company/privacy-center/online-privacy-disclosures/",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "ametek",
+      "url": "https://www.ametek.com/privacy",
+      "final": "https://www.ametek.com/privacy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "ameren",
+      "url": "https://www.ameren.com/privacy",
+      "final": "https://www.ameren.com/privacy",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "american-electric-power",
+      "url": "https://www.aep.com/privacy/",
+      "final": "https://www.aep.com/privacy/",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "amadeus",
+      "url": "https://amadeus.com/privacy-statement",
+      "final": "https://amadeus.com/privacy-statement",
+      "reason": "http-404",
+      "kind": "privacy"
+    },
+    {
+      "slug": "amgen",
+      "url": "https://www.amgen.com/privacy-statement",
+      "final": "https://www.amgen.com/privacy-statement",
+      "reason": "regulation-only",
+      "kind": "privacy"
+    },
+    {
+      "slug": "zensar-technologies",
+      "url": "https://www.zensar.com/privacy-notice",
+      "final": "https://www.zensar.com/privacy-notice",
+      "reason": "no-named-marks",
+      "kind": "privacy"
+    },
+    {
+      "slug": "3i-infotech",
+      "url": "https://www.3i-infotech.com/privacy-policy/",
+      "final": "https://www.3i-infotech.com/privacy-policy/",
+      "reason": "no-named-marks",
+      "kind": "privacy"
     }
   ]
 }

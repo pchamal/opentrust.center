@@ -242,6 +242,53 @@ def main() -> int:
         ) == "js-portal",
         "powered-by portal title stays unread",
     )
+    kept, why = hold_marks(
+        ["ISO 27001", "ISO 27018"],
+        "Our adherence to ISO 27018:2019 and ISO 27001:2013 certifications "
+        "underscores our dedication to maintaining robust security standards.",
+        "privacy",
+    )
+    check(kept == ["ISO 27001", "ISO 27018"], f"Alfa ISO certifications stay: {kept} {why}")
+    kept, why = hold_marks(
+        ["EU-US DPF"],
+        "Where available, Braze, Inc. complies with the EU-U.S. Data Privacy "
+        "Framework, the UK Extension to the EU-U.S. Data Privacy Framework, "
+        "and the Swiss-U.S. Data Privacy Framework (collectively, the "
+        "“Data Privacy Framework”) as set forth by the U.S. Department of Commerce.",
+        "privacy",
+    )
+    check(kept == ["EU-US DPF"], f"Braze DPF compliance claim stays: {kept} {why}")
+    kept, why = hold_marks(
+        ["HIPAA"],
+        "For HIPAA Patient Requests (All HIPPA forms)",
+        "privacy",
+    )
+    check(kept == [], f"Abbott HIPAA patient-request link stays open: {kept} {why}")
+    kept, why = hold_marks(
+        ["HIPAA"],
+        "HIPAA Notice of Privacy Practices. Aflac is fully committed to its "
+        "compliance with the HIPAA Rules, including the Privacy Rule. For its "
+        "HIPAA-covered insurance policies, Aflac is federally mandated to send "
+        "a notice. Rights which differ from those granted by HIPAA.",
+        "privacy",
+    )
+    check(kept == [], f"Aflac HIPAA notice stays open: {kept} {why}")
+    kept, why = hold_marks(
+        ["HIPAA"],
+        "Protected health information subject to the Health Insurance "
+        "Portability and Accountability Act (“HIPAA”). In such cases, we are "
+        "bound by more stringent legal and contractual obligations.",
+        "privacy",
+    )
+    check(kept == [], f"Centene HIPAA subject-to sentence stays open: {kept} {why}")
+    kept, why = hold_marks(
+        ["HIPAA"],
+        "In such cases, we act as a business associate to the health care "
+        "provider and will comply with the requirements of HIPAA with respect "
+        "to your protected health information.",
+        "privacy",
+    )
+    check(kept == [], f"4DMedical HIPAA business-associate sentence stays open: {kept} {why}")
 
     for rec in report.get("marks_filed") or []:
         slug, url, added = rec["slug"], rec["url"], rec["added"]
@@ -333,42 +380,47 @@ def main() -> int:
     check("Amazon Web Services" in zoom, "zoom still names AWS")
     check("0–100" not in index and "0-100" not in index, "no 0-100 score on AITI")
 
-    # This increment: leftover open trust-URL files after PRIOR.
+    # This increment: unread empty-cert files with a stored first-party
+    # trust / security / privacy URL. Trust-URL leftovers are exhausted.
     batch = report.get("batch") or []
-    want = ["bigid", "commvault", "clarivate", "domo", "sopra-steria"]
-    check(batch == want, f"batch is leftover five, got {batch}")
+    want = [
+        "braze", "glossgenius", "brown-forman", "american-water-works",
+        "character-ai", "amcor", "abbott-laboratories", "american-international-group",
+        "aflac", "jabil", "micron-technology", "valero-energy", "aes-corporation",
+        "centene", "corpay", "materialise-nv", "schr-dinger", "zensar-technologies",
+        "on-semiconductor", "globant", "4dmedical-limited", "bytedance", "cyngn",
+        "system1", "applied-digital", "3d-systems", "3i-infotech", "a-o-smith",
+        "aiforia-technologies-oyj", "albemarle-corporation",
+        "alexandria-real-estate-equities", "alfa-financial-software", "alkami",
+        "alliant-energy", "amadeus", "ameren", "american-electric-power",
+        "american-express", "ametek", "amgen",
+    ]
+    check(batch == want, f"batch is next unread 40, got {batch}")
     filed = {rec["slug"]: rec for rec in (report.get("marks_filed") or [])}
-    check(set(filed) == {"bigid", "commvault", "clarivate"}, f"filed slugs {sorted(filed)}")
+    check(set(filed) == {"braze", "alfa-financial-software"}, f"filed slugs {sorted(filed)}")
     stayed = {rec["slug"] for rec in (report.get("stayed_open") or [])}
-    check(stayed == {"domo", "sopra-steria"}, f"honest zeros {stayed}")
+    check(stayed == set(want) - set(filed), f"honest zeros {sorted(stayed)}")
     from file_company_marks import PRIOR_ATTEMPTED, select_batch
     for slug in batch:
         check(slug in PRIOR_ATTEMPTED, f"{slug} is on the next-increment skip list")
     leftover = select_batch(list(public["companies"]), by_enr)
     leftover_slugs = {r["slug"] for r in leftover}
     check(not leftover_slugs & set(batch), f"this batch is not retried, got {leftover_slugs & set(batch)}")
-    bigid_added = set(filed["bigid"]["added"])
+    check(filed["braze"]["added"] == ["EU-US DPF"], f"braze added {filed['braze']['added']}")
+    check("ISO 27001" not in filed["braze"]["added"], "braze nav ISO 27001 is not a hold")
     check(
-        {"SOC 2 Type II", "SOC 3", "PCI DSS", "CSA STAR"} <= bigid_added,
-        f"bigid added {sorted(bigid_added)}",
+        filed["alfa-financial-software"]["added"] == ["ISO 27001", "ISO 27018"],
+        f"alfa added {filed['alfa-financial-software']['added']}",
     )
-    check("ISO 27001" not in bigid_added, "bigid aligned-with ISO 27001 is not a hold")
-    check(filed["commvault"]["added"] == ["EU-US DPF"], f"commvault added {filed['commvault']['added']}")
-    clarivate_added = set(filed["clarivate"]["added"])
-    check(
-        {
-            "ISO 27001", "ISO 27017", "ISO 27018", "ISO 27701", "ISO 22301",
-            "ISO 27032", "SOC 2 Type II", "PCI DSS", "FedRAMP", "TX-RAMP", "StateRAMP",
-        } <= clarivate_added,
-        f"clarivate added {sorted(clarivate_added)}",
-    )
-    check("SOC 2 Type I" not in clarivate_added, "clarivate Type I definition is not a hold")
-    check("TISAX" not in clarivate_added, "clarivate FAQ TISAX question is not a hold")
-    check("NIST 800-53" not in clarivate_added, "clarivate NIST 800-53 framework sentence is not a hold")
+    for slug in ("abbott-laboratories", "aflac", "centene", "4dmedical-limited"):
+        pub = by_pub[slug]
+        check(not (pub.get("certs") or []), f"{slug} HIPAA notice is not a filed mark")
+        check((pub.get("file") or {}).get("marks") in (0, 10, False, None), f"{slug} marks glyph stays open")
     for slug in ("domo", "sopra-steria"):
         pub = by_pub[slug]
         check(not (pub.get("certs") or []), f"{slug} certs stay empty")
         check((pub.get("file") or {}).get("marks") in (0, 10, False, None), f"{slug} marks glyph stays open")
+    for slug in ("domo", "sopra-steria", "bigid"):
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check("Official page" in html, f"{slug} still prints Official page")
         visible = re.sub(r'https?://\S+', "", html)
@@ -382,6 +434,8 @@ def main() -> int:
             and "anecdotes" not in visible,
             f"{slug} named a portal vendor",
         )
+    check("SOC 2 Type II" in (by_pub["bigid"].get("certs") or []), "bigid prior SOC 2 Type II stays")
+    check("EU-US DPF" in (by_pub["commvault"].get("certs") or []), "commvault prior DPF stays")
     for slug in ("esko", "trustpilot", "toast", "snap", "superoffice", "genedata"):
         pub = by_pub[slug]
         check(not (pub.get("certs") or []), f"{slug} certs stay empty")
