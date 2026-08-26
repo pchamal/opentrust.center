@@ -14188,9 +14188,14 @@
       "title": "",
       "probed": 1,
       "source": "https://www.crn.com/news/security/2025/the-2025-security-100",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, SOC 3, PCI DSS, CSA STAR.",
       "list": "crn-security-100-2025",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "PCI DSS",
+        "CSA STAR"
+      ],
       "links": {
         "trust": "https://trust.bigid.com",
         "security_txt": "https://bigid.com/.well-known/security.txt",
@@ -14220,10 +14225,11 @@
         "snowflake"
       ],
       "disclosure": {
-        "score": 20,
-        "tier": "thin",
+        "score": 46,
+        "tier": "on-file",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "marks": 26
         }
       },
       "founded_year": 2016,
@@ -19615,9 +19621,11 @@
       "title": "",
       "probed": 1,
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: EU-US DPF.",
       "list": "companiesmarketcap-software",
-      "certs": [],
+      "certs": [
+        "EU-US DPF"
+      ],
       "links": {
         "trust": "https://trust.commvault.com",
         "privacy": "https://www.commvault.com/privacy-policy",
@@ -19626,10 +19634,11 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 24,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "marks": 4
         }
       }
     },
@@ -20122,9 +20131,21 @@
       "title": "",
       "probed": 13,
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: ISO 27001, ISO 27017, ISO 27018, ISO 27701, ISO 22301, ISO 27032 +5.",
       "list": "companiesmarketcap-software",
-      "certs": [],
+      "certs": [
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "ISO 27701",
+        "ISO 22301",
+        "ISO 27032",
+        "SOC 2 Type II",
+        "PCI DSS",
+        "FedRAMP",
+        "TX-RAMP",
+        "StateRAMP"
+      ],
       "links": {
         "trust": "https://clarivate.com/trust-center",
         "privacy": "https://clarivate.com/privacy-center/notices-policies/privacy-policy/",
@@ -20132,10 +20153,11 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
-        "tier": "thin",
+        "score": 60,
+        "tier": "on-file",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "marks": 40
         }
       },
       "founded_year": 2016,

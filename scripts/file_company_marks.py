@@ -414,6 +414,12 @@ PRIOR_ATTEMPTED = {
     "checkmarx",
     "zeta-global",
     "aqua-security",
+    # this cut — leftover open trust-URL files after PRIOR
+    "bigid",
+    "commvault",
+    "clarivate",
+    "domo",
+    "sopra-steria",
 }
 
 # Regulation-only lists stay thin. Real certs (SOC / ISO / FedRAMP / …) fill out.

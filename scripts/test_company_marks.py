@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -186,6 +187,43 @@ def main() -> int:
         "privacy",
     )
     check(kept == [], f"HIPAA BAA / shall-not-provide-PHI stays open: {kept} {why}")
+    kept, why = hold_marks(
+        ["SOC 2 Type II", "SOC 3", "PCI DSS", "CSA STAR"],
+        "BigID is SOC 2 certified, demonstrating that the platform and its "
+        "supporting processes, people, and controls are designed to help "
+        "keep customer data secure. BigID’s SOC 3 report provides a general-use "
+        "overview of the security, confidentiality, availability, and privacy "
+        "controls used to protect customer data. Its PCI compliance reflects "
+        "security controls that have been evaluated by an independent assessor. "
+        "BigID has also published its completed CAIQ self-assessment in the "
+        "CSA STAR Registry.",
+        "security",
+    )
+    check(
+        {"SOC 2 Type II", "SOC 3", "PCI DSS", "CSA STAR"} <= set(kept),
+        f"BigID first-party certification holds stay: {kept} {why}",
+    )
+    kept, why = hold_marks(
+        ["EU-US DPF", "GDPR"],
+        "Commvault has certified to the U.S. Department of Commerce that it adheres "
+        "to the EU-U.S. Data Privacy Framework Principles (EU-U.S. DPF Principles). "
+        "Commvault manages your data in compliance with the E.U.’s General Data "
+        "Protection Regulation (“GDPR”).",
+        "privacy",
+    )
+    check(kept == ["EU-US DPF"], f"Commvault DPF self-cert files, privacy GDPR stays open: {kept} {why}")
+    kept, why = hold_marks(
+        ["ISO 27001", "ISO 27017", "ISO 27018", "ISO 27701", "ISO 22301", "ISO 27032"],
+        "Clarivate maintains internationally recognized ISO certifications that "
+        "validate our security management practices. Clarivate PLC holds ISO 27001 "
+        "certification covering ISMS. Ex Libris is certified to multiple ISO "
+        "standards (22301, 27001, 27017, 27018, 27032, 27701).",
+        "trust",
+    )
+    check(
+        {"ISO 27001", "ISO 27017", "ISO 27018", "ISO 27701", "ISO 22301", "ISO 27032"} <= set(kept),
+        f"Clarivate first-party ISO holds stay: {kept} {why}",
+    )
     from file_company_marks import reject_reason
     # Title tail is a portal product line. Catalog chrome is not a hold.
     check(
@@ -295,17 +333,55 @@ def main() -> int:
     check("Amazon Web Services" in zoom, "zoom still names AWS")
     check("0–100" not in index and "0-100" not in index, "no 0-100 score on AITI")
 
-    # This increment: next 40 open/thin first-party trust URLs. Nothing printed.
+    # This increment: leftover open trust-URL files after PRIOR.
     batch = report.get("batch") or []
-    check(len(batch) == 40, f"batch is 40, got {len(batch)}")
-    check(not (report.get("marks_filed") or []), "this cut filed no marks")
-    check(len(report.get("stayed_open") or []) == 40, "40 stayed open")
+    want = ["bigid", "commvault", "clarivate", "domo", "sopra-steria"]
+    check(batch == want, f"batch is leftover five, got {batch}")
+    filed = {rec["slug"]: rec for rec in (report.get("marks_filed") or [])}
+    check(set(filed) == {"bigid", "commvault", "clarivate"}, f"filed slugs {sorted(filed)}")
+    stayed = {rec["slug"] for rec in (report.get("stayed_open") or [])}
+    check(stayed == {"domo", "sopra-steria"}, f"honest zeros {stayed}")
     from file_company_marks import PRIOR_ATTEMPTED, select_batch
     for slug in batch:
         check(slug in PRIOR_ATTEMPTED, f"{slug} is on the next-increment skip list")
     leftover = select_batch(list(public["companies"]), by_enr)
     leftover_slugs = {r["slug"] for r in leftover}
     check(not leftover_slugs & set(batch), f"this batch is not retried, got {leftover_slugs & set(batch)}")
+    bigid_added = set(filed["bigid"]["added"])
+    check(
+        {"SOC 2 Type II", "SOC 3", "PCI DSS", "CSA STAR"} <= bigid_added,
+        f"bigid added {sorted(bigid_added)}",
+    )
+    check("ISO 27001" not in bigid_added, "bigid aligned-with ISO 27001 is not a hold")
+    check(filed["commvault"]["added"] == ["EU-US DPF"], f"commvault added {filed['commvault']['added']}")
+    clarivate_added = set(filed["clarivate"]["added"])
+    check(
+        {
+            "ISO 27001", "ISO 27017", "ISO 27018", "ISO 27701", "ISO 22301",
+            "ISO 27032", "SOC 2 Type II", "PCI DSS", "FedRAMP", "TX-RAMP", "StateRAMP",
+        } <= clarivate_added,
+        f"clarivate added {sorted(clarivate_added)}",
+    )
+    check("SOC 2 Type I" not in clarivate_added, "clarivate Type I definition is not a hold")
+    check("TISAX" not in clarivate_added, "clarivate FAQ TISAX question is not a hold")
+    check("NIST 800-53" not in clarivate_added, "clarivate NIST 800-53 framework sentence is not a hold")
+    for slug in ("domo", "sopra-steria"):
+        pub = by_pub[slug]
+        check(not (pub.get("certs") or []), f"{slug} certs stay empty")
+        check((pub.get("file") or {}).get("marks") in (0, 10, False, None), f"{slug} marks glyph stays open")
+        html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
+        check("Official page" in html, f"{slug} still prints Official page")
+        visible = re.sub(r'https?://\S+', "", html)
+        visible = re.sub(r'href="[^"]+"', "", visible).lower()
+        check(
+            "safebase" not in visible
+            and "conveyor" not in visible
+            and "vanta" not in visible
+            and "securitypal" not in visible
+            and "sprinto" not in visible
+            and "anecdotes" not in visible,
+            f"{slug} named a portal vendor",
+        )
     for slug in ("esko", "trustpilot", "toast", "snap", "superoffice", "genedata"):
         pub = by_pub[slug]
         check(not (pub.get("certs") or []), f"{slug} certs stay empty")
