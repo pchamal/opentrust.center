@@ -106,57 +106,82 @@ def main() -> int:
     check("Amazon Web Services" in zoom, "zoom still names AWS")
     check("Concentration" not in (ROOT / "site" / "graph.html").read_text(encoding="utf-8"), "list dropped Concentration")
 
-    # This increment: unread first-party queue after PRIOR_ATTEMPTED (6 slugs).
+    # This increment: DPA already on file, named processors empty (~40 slugs).
+    expected_batch = [
+        "clio", "freshworks", "cato-networks", "snyk", "celonis", "veriff", "brex",
+        "vanta", "honeycomb", "lucidworks", "datalogics", "algolia", "pipedrive",
+        "attentive", "cs-disco", "synerise", "snowflake", "imperva", "idrive-inc",
+        "ramp", "evenup", "varonis-systems", "cloudflare", "sprout-social",
+        "darktrace", "launchdarkly", "deel", "red-canary", "guild", "classranked",
+        "mixpanel", "midjourney", "aerospike", "xai", "boomi-lp", "salt-security",
+        "caspio", "diebold-nixdorf", "paylocity", "procore",
+    ]
+    check(report.get("batch") == expected_batch, "batch is the 40 DPA-on-file empty-processor slugs")
     check(
-        report.get("batch") == ["y-soft", "tricentis", "trustly", "frosmo", "projectmanager-com", "esko"],
-        "batch is the six unread first-party slugs",
+        instrument_url(by_pub["brex"], "dpa") == "https://www.brex.com/legal/dpa",
+        "brex DPA upgraded from portal catalog to first-party HTML",
     )
-    ys = by_pub["y-soft"]
-    tr = by_pub["tricentis"]
-    fr = by_pub["frosmo"]
+    check((by_pub["brex"].get("file") or {}).get("dpa") == 20, "brex DPA printed")
     check(
-        instrument_url(ys, "dpa") == "https://www.ysoft.com/legal/data-protection-addendum",
-        "y-soft DPA filed from first-party HTML",
+        instrument_url(by_pub["freshworks"], "dpa")
+        == "https://www.freshworks.com/data-processing-addendum/",
+        "freshworks DPA upgraded from portal catalog to first-party HTML",
     )
-    check((ys.get("file") or {}).get("dpa") == 20, "y-soft DPA printed")
-    check(
-        instrument_url(tr, "dpa") == "https://www.tricentis.com/legal-information/data-processing-addendum",
-        "tricentis DPA filed from first-party legal path",
-    )
-    check((tr.get("file") or {}).get("dpa") == 20, "tricentis DPA printed")
-    check(not (tr.get("processors") or []), "tricentis named processors stay open")
-    fr_names = [p.get("name") for p in (fr.get("processors") or [])]
-    check("Hetzner Online AG" in fr_names, "frosmo names Hetzner Online AG")
-    check("Hetzner Finland Oy" in fr_names, "frosmo names Hetzner Finland Oy")
-    check(
-        any(n.startswith("Amazon Web Services") for n in fr_names),
-        "frosmo names Amazon Web Services",
-    )
-    check(not any("Frosmo" in (n or "") for n in fr_names), "frosmo affiliates are not subprocessors")
-    check(instrument_url(fr, "dpa") == "https://frosmo.com/data-processing-annex/", "frosmo DPA stays the stored annex")
-    for slug in ("trustly", "esko"):
+    check((by_pub["freshworks"].get("file") or {}).get("dpa") == 20, "freshworks DPA printed")
+    check(not (by_pub["freshworks"].get("processors") or []), "freshworks named processors stay open")
+    check(not (by_pub["brex"].get("processors") or []), "brex named processors stay open")
+
+    snyk_names = [p.get("name") for p in (by_pub["snyk"].get("processors") or [])]
+    check("Amplitude, Inc" in snyk_names, "snyk names Amplitude")
+    check("Datadog, Inc" in snyk_names and "OpenAI, LLC" in snyk_names, "snyk names Datadog and OpenAI")
+    check(not any((n or "").startswith("Snyk") for n in snyk_names), "snyk affiliates are not subprocessors")
+    check(len(snyk_names) == 30, f"snyk printed 30 third-party names, got {len(snyk_names)}")
+
+    alg_names = [p.get("name") for p in (by_pub["algolia"].get("processors") or [])]
+    check("Amazon Web Services, Inc" in alg_names, "algolia names AWS")
+    check("OpenAI" in alg_names and "Anthropic, PBC" in alg_names, "algolia names OpenAI and Anthropic")
+    check(not any((n or "").startswith("Algolia") for n in alg_names), "algolia affiliates are not subprocessors")
+
+    hc_names = [p.get("name") for p in (by_pub["honeycomb"].get("processors") or [])]
+    check("Amazon Web Services" in hc_names and "Anthropic" in hc_names, "honeycomb names AWS and Anthropic")
+    check(len(hc_names) == 7, f"honeycomb printed table has 7 names, got {len(hc_names)}")
+
+    id_names = [p.get("name") for p in (by_pub["idrive-inc"].get("processors") or [])]
+    check("Stripe, Inc" in id_names and "Talkdesk, Inc" in id_names, "idrive names Stripe and Talkdesk")
+    check("TrustCloud" not in id_names, "idrive portal vendor is not a processor")
+
+    boomi_names = [p.get("name") for p in (by_pub["boomi-lp"].get("processors") or [])]
+    check("Amazon Web Services Inc" in boomi_names, "boomi names AWS")
+    check("Snowflake Inc" in boomi_names, "boomi names Snowflake")
+
+    sprout_names = [p.get("name") for p in (by_pub["sprout-social"].get("processors") or [])]
+    check("ClickHouse, Inc" in sprout_names, "sprout-social names ClickHouse")
+    check("OpenAI, L.L.C" in sprout_names, "sprout-social names OpenAI")
+
+    for slug in ("ramp", "deel", "vanta", "midjourney", "clio", "celonis", "attentive", "imperva"):
         pub = by_pub[slug]
-        check(not instrument_url(pub, "dpa"), f"{slug} DPA stays open")
+        check(instrument_url(pub, "dpa"), f"{slug} existing DPA stays on file")
         check(not (pub.get("processors") or []), f"{slug} named processors stay open")
-    pm = by_pub["projectmanager-com"]
-    check(not instrument_url(pm, "dpa"), "projectmanager-com DPA stays open")
-    check(not (pm.get("processors") or []), "projectmanager-com named processors stay open")
-    check((pm.get("file") or {}).get("subprocessors") == 10, "projectmanager-com list URL stays dotted 10")
-    ys_html = (ROOT / "site" / "c" / "y-soft.html").read_text(encoding="utf-8")
-    tr_html = (ROOT / "site" / "c" / "tricentis.html").read_text(encoding="utf-8")
-    fr_html = (ROOT / "site" / "c" / "frosmo.html").read_text(encoding="utf-8")
-    check('target="_blank"' in ys_html and 'rel="noopener noreferrer"' in ys_html, "y-soft outbound opens a new tab")
-    check('target="_blank"' in tr_html and 'rel="noopener noreferrer"' in tr_html, "tricentis outbound opens a new tab")
-    check('target="_blank"' in fr_html and 'rel="noopener noreferrer"' in fr_html, "frosmo outbound opens a new tab")
-    check("wires-scroll" in ys_html and "wires-scroll" in tr_html and "wires-scroll" in fr_html, "rewritten dossiers keep the swipe wrapper")
-    check(
-        "vanta" not in ys_html.lower() and "vanta" not in tr_html.lower() and "vanta" not in fr_html.lower(),
-        "filed dossiers name no portal vendor",
-    )
-    check("safebase" not in tr_html.lower() and "drata" not in ys_html.lower(), "filed dossiers name no portal vendor")
+
+    filled_html = {}
+    for slug in ("snyk", "algolia", "honeycomb", "idrive-inc", "boomi-lp", "sprout-social", "brex", "freshworks"):
+        html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
+        filled_html[slug] = html
+        check('target="_blank"' in html and 'rel="noopener noreferrer"' in html, f"{slug} outbound opens a new tab")
+        check("wires-scroll" in html, f"{slug} rewritten dossier keeps the swipe wrapper")
+        visible = html.lower()
+        check(
+            "safebase" not in visible and "conveyor" not in visible and "drata" not in visible,
+            f"{slug} named a portal vendor",
+        )
+    check("vanta" not in filled_html["snyk"].lower() and "vanta" not in filled_html["algolia"].lower(), "filed lists name no portal vendor")
+    pronto_html = (ROOT / "site" / "c" / "pronto-software.html").read_text(encoding="utf-8")
+    check("Official page" in pronto_html, "Pronto Software still prints Official page")
 
     print(
-        f"ok increment-dpa y-soft/tricentis + frosmo {len(fr_names)} processors; "
+        f"ok increment-dpa brex/freshworks + "
+        f"{len(snyk_names)}+{len(alg_names)}+{len(hc_names)}+{len(id_names)}+"
+        f"{len(boomi_names)}+{len(sprout_names)} processors; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
     )
     return 0
