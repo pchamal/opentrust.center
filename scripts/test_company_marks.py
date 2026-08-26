@@ -274,6 +274,17 @@ def main() -> int:
     )
     check(kept == [], f"Aflac HIPAA notice stays open: {kept} {why}")
     kept, why = hold_marks(
+        ["SOC 2 Type II", "HITRUST", "PCI DSS", "HIPAA"],
+        "The data of patients/consumers is protected by HIPAA. "
+        "Security & compliance HITRUST CSF, SOC 2 Type 2 and PCI Level 1 certified",
+        "privacy",
+    )
+    check("HIPAA" not in kept, f"Phreesia HIPAA scope sentence stays open: {kept} {why}")
+    check(
+        {"SOC 2 Type II", "HITRUST", "PCI DSS"} <= set(kept),
+        f"Phreesia first-party certification holds stay: {kept} {why}",
+    )
+    kept, why = hold_marks(
         ["HIPAA"],
         "Protected health information subject to the Health Insurance "
         "Portability and Accountability Act (“HIPAA”). In such cases, we are "
@@ -488,35 +499,22 @@ def main() -> int:
     check("Amazon Web Services" in zoom, "zoom still names AWS")
     check("0–100" not in index and "0-100" not in index, "no 0-100 score on AITI")
 
-    # This increment: leftover empty-cert trust-URL file plus the next
-    # unread empty-cert files with a stored first-party privacy URL,
-    # then thin files to fill the ~40 walk.
+    # This increment: remaining thin files with a stored first-party
+    # privacy URL after leftover instrument walks and the empty-cert queue.
     batch = report.get("batch") or []
     want = [
-        "canonical", "travelport", "trip-com", "tucows", "twitter",
-        "txt-e-solutions", "uber", "uber-technologies", "unitedhealth-group",
-        "urgent-ly-inc", "verimatrix", "verisign", "verizon-communications",
-        "vitec-software", "vroom-com", "western-digital", "wipro",
-        "world-labs", "xero", "xunlei", "zillow", "zspace", "zuken",
-        "synap", "inmobi", "beck-technology", "lime-technologies",
-        "blackrock", "huawei", "planisware", "align-technology", "paycom",
-        "cellebrite", "agilysys", "alibaba", "amdocs", "at-and-t",
-        "backblaze", "cognizant", "fiserv",
+        "flex-ltd", "hp", "jfrog", "kingsoft", "metlife", "phreesia",
+        "rackspace", "semrush", "soundthinking", "ssc-technologies",
+        "synopsys", "thales", "unisys", "verisk", "yandex",
     ]
-    check(batch == want, f"batch is next unread 40, got {batch}")
+    check(batch == want, f"batch is remaining thin 15, got {batch}")
     filed = {rec["slug"]: rec for rec in (report.get("marks_filed") or [])}
+    check(set(filed) == {"phreesia"}, f"filed slugs {sorted(filed)}")
     check(
-        set(filed) == {"backblaze", "fiserv", "travelport", "trip-com", "verisign"},
-        f"filed slugs {sorted(filed)}",
+        filed["phreesia"]["added"] == ["SOC 2 Type II", "HITRUST", "PCI DSS"],
+        f"phreesia added {filed['phreesia']['added']}",
     )
-    check(filed["backblaze"]["added"] == ["EU-US DPF"], f"backblaze added {filed['backblaze']['added']}")
-    check(filed["fiserv"]["added"] == ["PCI DSS"], f"fiserv added {filed['fiserv']['added']}")
-    check(filed["travelport"]["added"] == ["EU-US DPF"], f"travelport added {filed['travelport']['added']}")
-    check(
-        filed["trip-com"]["added"] == ["SOC 2 Type II", "ISO 27001", "PCI DSS"],
-        f"trip-com added {filed['trip-com']['added']}",
-    )
-    check(filed["verisign"]["added"] == ["EU-US DPF"], f"verisign added {filed['verisign']['added']}")
+    check("HIPAA" not in filed["phreesia"]["added"], "phreesia HIPAA scope is not a hold")
     stayed = {rec["slug"] for rec in (report.get("stayed_open") or [])}
     check(stayed == set(want) - set(filed), f"honest zeros {sorted(stayed)}")
     from file_company_marks import PRIOR_ATTEMPTED, select_batch
@@ -525,6 +523,12 @@ def main() -> int:
     leftover = select_batch(list(public["companies"]), by_enr)
     leftover_slugs = {r["slug"] for r in leftover}
     check(not leftover_slugs & set(batch), f"this batch is not retried, got {leftover_slugs & set(batch)}")
+    for slug in (
+        "percona", "agility-robotics", "berkshire-grey", "sherpa-ai", "pubnub",
+        "foxit-software", "opengov", "aptean", "qad-redzone", "blackboard",
+    ):
+        check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
+        check(slug not in leftover_slugs, f"{slug} leftover is not retried")
     check(
         {"ISO 27001", "EU-US DPF"} <= set(by_pub["mitek-systems"].get("certs") or []),
         "mitek-systems prior ISO 27001 / DPF stays",
