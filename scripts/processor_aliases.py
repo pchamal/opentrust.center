@@ -334,6 +334,12 @@ REGISTER_ALIASES: dict[str, str] = {
     "clumio": "commvault",
     # Wire ids that land on rows filed in this increment.
     "hex-technologies": "hex",
+    "medidata-solutions": "dassault-systemes",
+    "toa-technologies": "oracle",
+    "rightnow-technologies": "oracle",
+    "firebase": "google",
+    "demandware": "salesforce",
+    "clarity": "microsoft",
     "knock-labs": "knock",
     # Same-company leftovers after the last named-processor batch.
     "neverbounce": "zoominfo",
