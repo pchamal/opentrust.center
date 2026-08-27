@@ -67,6 +67,26 @@ def main() -> int:
     check(canonical_processor_id("keybase", zoom_reg) == "zoom", "Keybase is Zoom")
     check(canonical_processor_id("saasbee-hefei", zoom_reg) == "zoom", "Saasbee Hefei is Zoom")
     check(canonical_processor_id("saasbee-software-hangzhou", zoom_reg) == "zoom", "Saasbee Hangzhou is Zoom")
+    cloud_reg = {**register, "84codes-cloudamqp": {"slug": "84codes-cloudamqp", "name": "CloudAMQP", "domain": "cloudamqp.com"}}
+    check(canonical_processor_id("84codes-dba-cloudamqp", cloud_reg) == "84codes-cloudamqp", "84codes dba CloudAMQP is CloudAMQP")
+    check(REGISTER_ALIASES["firebase-google"] == "google", "Firebase is Google")
+    pay_reg = {**register, "paypal": {"slug": "paypal", "name": "PayPal", "domain": "paypal.com"}}
+    check(canonical_processor_id("braintree", pay_reg) == "paypal", "Braintree is PayPal")
+    sheet_reg = {**register, "smartsheet": {"slug": "smartsheet", "name": "Smartsheet", "domain": "smartsheet.com"}}
+    check(canonical_processor_id("brandfolder", sheet_reg) == "smartsheet", "Brandfolder is Smartsheet")
+    verint_reg = {**register, "verint-systems": {"slug": "verint-systems", "name": "Verint Systems", "domain": "verint.com"}}
+    check(canonical_processor_id("calabrio", verint_reg) == "verint-systems", "Calabrio is Verint")
+    cp_reg = {**register, "check-point": {"slug": "check-point", "name": "Check Point", "domain": "checkpoint.com"}}
+    check(canonical_processor_id("avanan", cp_reg) == "check-point", "Avanan is Check Point")
+    vultr_reg = {**register, "vultr": {"slug": "vultr", "name": "Vultr", "domain": "vultr.com"}}
+    check(canonical_processor_id("the-constant-company-vultr", vultr_reg) == "vultr", "Constant Company is Vultr")
+    graf_reg = {**register, "grafana-labs": {"slug": "grafana-labs", "name": "Grafana Labs", "domain": "grafana.com"}}
+    check(canonical_processor_id("raintank-d-b-a-grafana-labs", graf_reg) == "grafana-labs", "Raintank is Grafana Labs")
+    aiven_reg = {**register, "aiven": {"slug": "aiven", "name": "Aiven", "domain": "aiven.io"}}
+    check(canonical_processor_id("aiven-apache-kafka", aiven_reg) == "aiven", "Aiven Kafka is Aiven")
+    check(canonical_processor_id("oracle-finland", register) == "oracle", "Oracle Finland is Oracle")
+    ovh_reg = {**register, "ovhcloud": {"slug": "ovhcloud", "name": "OVHcloud", "domain": "ovhcloud.com"}}
+    check(canonical_processor_id("ovh-sas", ovh_reg) == "ovhcloud", "OVH SAS is OVHcloud")
 
     subs = {
         "nodes": [
