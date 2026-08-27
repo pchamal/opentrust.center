@@ -969,7 +969,12 @@ def processor_display_name(edge: dict, node: dict, to: str) -> str:
 
 def register_slug_for(node: dict, by_slug: dict, by_domain: dict, by_name: dict | None = None) -> str | None:
     """Reuse an existing dossier slug. Do not invent a page."""
+    from scripts.processor_aliases import canonical_processor_id
+
     nid = node.get("id")
+    dest = canonical_processor_id(nid, by_slug) if nid else None
+    if dest and dest in by_slug:
+        return dest
     if nid and nid in by_slug:
         return nid
     domain = (node.get("domain") or "").lower()
@@ -2103,6 +2108,9 @@ def main() -> int:
     if not wires_path.exists():
         wires_path = ROOT / "data" / "subprocessors.json"
     edges_doc = load_json(wires_path, {"edges": [], "nodes": []})
+    from scripts.processor_aliases import apply_aliases_to_graph
+
+    apply_aliases_to_graph(edges_doc, companies_in)
     pretty_subprocessor_nodes(edges_doc)
     write_json(wires_path, edges_doc)
     data_wires = ROOT / "data" / "subprocessors.json"

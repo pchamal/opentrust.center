@@ -16,6 +16,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import enrich  # noqa: E402
+from processor_aliases import canonical_processor_id  # noqa: E402
 
 SITE = ROOT / "site"
 DATA = ROOT / "data"
@@ -835,7 +836,7 @@ def append_processor_edges(edges: list[dict], register: dict[str, dict]) -> None
     existing = {(e.get("from"), e.get("to")) for e in (subs.get("edges") or [])}
     proc_meta = {i: (n, d) for i, n, d, _a in enrich.PROCESSORS}
     for e in edges:
-        src_url, frm, to = e.get("source_url"), e.get("from"), e.get("to")
+        src_url, frm, to = e.get("source_url"), e.get("from"), canonical_processor_id(e.get("to"), register)
         if not src_url or not frm or not to or (frm, to) in existing:
             continue
         subs.setdefault("edges", []).append({

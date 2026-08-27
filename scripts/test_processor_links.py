@@ -77,6 +77,24 @@ def main() -> int:
         == "amazon-web-services",
         "aws node resolves to amazon-web-services",
     )
+    google_slug = {"google": {"slug": "google"}, **by_slug}
+    check(
+        register_slug_for({"id": "gcp", "name": "Google Cloud", "domain": "cloud.google.com"}, google_slug, by_domain, by_name)
+        == "google",
+        "gcp alias resolves to google",
+    )
+    ms_slug = {"microsoft": {"slug": "microsoft"}, **by_slug}
+    check(
+        register_slug_for({"id": "azure", "name": "Microsoft Azure", "domain": "azure.microsoft.com"}, ms_slug, by_domain, by_name)
+        == "microsoft",
+        "azure alias resolves to microsoft",
+    )
+    mail_slug = {"mailgun": {"slug": "mailgun"}, **by_slug}
+    check(
+        register_slug_for({"id": "mailgun-technologies", "name": "Mailgun Technologies, Inc"}, mail_slug, {}, {})
+        == "mailgun",
+        "mailgun-technologies alias resolves to mailgun",
+    )
     check(
         register_slug_for({"id": "google-gemini", "name": "Google Gemini"}, by_slug, by_domain, by_name)
         is None,
