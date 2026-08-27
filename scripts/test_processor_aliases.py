@@ -87,6 +87,29 @@ def main() -> int:
     check(canonical_processor_id("oracle-finland", register) == "oracle", "Oracle Finland is Oracle")
     ovh_reg = {**register, "ovhcloud": {"slug": "ovhcloud", "name": "OVHcloud", "domain": "ovhcloud.com"}}
     check(canonical_processor_id("ovh-sas", ovh_reg) == "ovhcloud", "OVH SAS is OVHcloud")
+    check(canonical_processor_id("ovh", ovh_reg) == "ovhcloud", "OVH is OVHcloud")
+    fico_reg = {**register, "fico": {"slug": "fico", "name": "FICO", "domain": "fico.com"}}
+    check(canonical_processor_id("fair-isaac", fico_reg) == "fico", "Fair Isaac is FICO")
+    check(canonical_processor_id("fair-isaac-deutschland", fico_reg) == "fico", "Fair Isaac Deutschland is FICO")
+    air_reg = {**register, "airtable": {"slug": "airtable", "name": "Airtable", "domain": "airtable.com"}}
+    check(canonical_processor_id("formagrid-uk", air_reg) == "airtable", "Formagrid is Airtable")
+    bob_reg = {**register, "hibob": {"slug": "hibob", "name": "HiBob", "domain": "hibob.com"}}
+    check(canonical_processor_id("hi-bob", bob_reg) == "hibob", "Hi Bob is HiBob")
+    check(canonical_processor_id("open-ai", {**register, "openai": {"slug": "openai", "name": "OpenAI", "domain": "openai.com"}}) == "openai", "Open AI is OpenAI")
+    five_reg = {**register, "fivetran": {"slug": "fivetran", "name": "Fivetran", "domain": "fivetran.com"}}
+    check(canonical_processor_id("census", five_reg) == "fivetran", "Census is Fivetran")
+    nice_reg = {**register, "nice": {"slug": "nice", "name": "NICE", "domain": "nice.com"}}
+    check(canonical_processor_id("cognigy", nice_reg) == "nice", "Cognigy is NICE")
+    check(canonical_processor_id("incontact", nice_reg) == "nice", "inContact is NICE")
+    check(REGISTER_ALIASES["cloudfare"] == "cloudflare", "Cloudfare typo is Cloudflare")
+    check(REGISTER_ALIASES["work-os"] == "workos", "Work OS is WorkOS")
+    check(REGISTER_ALIASES["x-ai"] == "xai", "X.AI is xAI")
+    tray_reg = {**register, "tray-ai": {"slug": "tray-ai", "name": "Tray.ai", "domain": "tray.ai"}}
+    check(canonical_processor_id("tray-io", tray_reg) == "tray-ai", "Tray.io is Tray.ai")
+    cart_reg = {**register, "cartesia": {"slug": "cartesia", "name": "Cartesia", "domain": "cartesia.ai"}}
+    check(canonical_processor_id("cartesia-ai", cart_reg) == "cartesia", "Cartesia AI is Cartesia")
+    check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
+    check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 
     subs = {
         "nodes": [
