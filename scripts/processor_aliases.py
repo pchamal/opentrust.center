@@ -362,6 +362,33 @@ REGISTER_ALIASES: dict[str, str] = {
     "reversing-labs-international": "reversing-labs",
     "wasabi-resources": "wasabi",
     "wasabi-technologies": "wasabi",
+    # Same-company leftovers after the last named-processor batch.
+    # Foundever Operating is already on the register (1659 expand).
+    "foundever": "foundever-operating",
+    # Kling is Kuaishou's video model. kwai is already on the register.
+    "kling-ai-pte": "kwai",
+    "kling": "kwai",
+    "kling-3-0": "kwai",
+    # Weavy AI now redirects to Figma Weave. figma is on the register.
+    "weavy-ai": "figma",
+    # Pinterest acquired tvScientific; homepage now prints Pinterest.
+    "tvscientific": "pinterest",
+    # Visa acquired Verifi (chargeback). visa is on the register.
+    "verifi": "visa",
+    # Wire ids that land on rows filed in this increment.
+    "hotjar": "contentsquare",
+    "zencoder": "brightcove",
+    "castle-global": "hive",
+    "castle-global-hive": "hive",
+    "temporal-cloud": "temporal",
+    "temporal-technologies": "temporal",
+    "skilljar-for-clickup-university": "skilljar",
+    "shoreline-labs-d-b-a-nightfall": "nightfall",
+    "superpowered-labs-dba-vapi": "vapi",
+    "here-north-america": "here",
+    "tines-automation": "tines",
+    "recall": "recall-ai",
+    "transloadit-ii": "transloadit",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
