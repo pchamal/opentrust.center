@@ -1,773 +1,611 @@
 {
-  "generated_at": "2026-08-27T01:48:41Z",
+  "generated_at": "2026-08-27T19:11:02Z",
   "method": "wikidata-wbsearchentities + wbgetentities P856; enwiki titles -> P856",
   "user_agent": "opentrust.center/1.0 (+https://opentrust.center)",
-  "note": "hourly top-up appended 75 verified P856 from unused Wikipedia software-company categories (wikipedia-financial-technology-companies); did not repeat exhausted lists (SaaS companies, cloud applications, cloud providers, CRN, CMC, S&P 500, UK/Israel/Canada/Germany/France/Australia/Netherlands/Sweden/Japan/Finland/Norway/switzerland/denmark/ireland/new-zealand/austria/belgium/poland/italy/spain/south-korea/czech/portugal/estonia/singapore/hungary/greece/taiwan/argentina/belarus/brazil/bulgaria/croatia/cyprus/iceland/latvia/luxembourg/philippines/romania/serbia/slovenia/south-africa/sri-lanka/turkey/ukraine/uruguay/china/hong-kong/india/russia/indonesia/malaysia/pakistan/vietnam/iran/lithuania/slovakia/colombia/nigeria/ghana/malta/kuwait/belize/palestine/rwanda/thailand/tunisia/cameroon/Business software, and the GIS/legal/engineering/EDI/health care/banking/educational/financial/CRM/ERP/POS/Macintosh/Audio/networking/IoT/free-software/bioinformatics/dev/eda/supply-chain/Database/Matchmaking/AI software-company category leftovers)",
+  "note": "hourly top-up appended 58 verified P856 from CRN Security 100 2023 leftover + Wikipedia Category:Cloud computing providers (and further unused software categories if needed); CMC software page 6+ was empty; did not repeat exhausted lists or S&P 500",
   "counts": {
-    "appended": 75,
-    "resolved": 75,
-    "unresolved": 62,
-    "dropped_wrong_or_dup": 16,
+    "appended": 58,
+    "resolved": 58,
+    "unresolved": 65,
+    "dropped_wrong_or_dup": 11,
     "by_source": {
-      "wikipedia-financial-technology-companies": 75
+      "wikipedia-content-delivery-networks": 10,
+      "wikipedia-payment-service-providers": 48
     },
     "by_source_url": {
-      "https://en.wikipedia.org/wiki/Category:Financial_technology_companies": 75
+      "https://en.wikipedia.org/wiki/Category:Content_delivery_networks": 10,
+      "https://en.wikipedia.org/wiki/Category:Payment_service_providers": 48
     }
   },
   "appended": [
     {
-      "name": "Affirm Holdings",
-      "slug": "affirm-holdings",
-      "domain": "affirm.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q65085822",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Ant International",
-      "slug": "ant-international",
-      "domain": "ant-intl.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q135234509",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Authorize.Net",
-      "slug": "authorize-net",
-      "domain": "authorize.net",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q4034612",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Bitvavo",
-      "slug": "bitvavo",
-      "domain": "bitvavo.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q133040428",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Bitwala",
-      "slug": "bitwala",
-      "domain": "bitwala.io",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q29471358",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Boku, Inc.",
-      "slug": "boku-inc",
-      "domain": "boku.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q4836201",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "BPAY",
-      "slug": "bpay",
-      "domain": "bpay.com.au",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q4836243",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Braintree",
-      "slug": "braintree",
-      "domain": "braintreepayments.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q4955939",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Chime",
-      "slug": "chime",
-      "domain": "chime.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q85752013",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Credible",
-      "slug": "credible",
-      "domain": "credible.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q65063477",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Datalogic",
-      "slug": "datalogic",
-      "domain": "datalogic.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q3702960",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "DLocal",
-      "slug": "dlocal",
-      "domain": "dlocal.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q107284209",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Earnest",
-      "slug": "earnest",
-      "domain": "meetearnest.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q18150164",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Eko Bharat Ventures Private Limited",
-      "slug": "eko-bharat-ventures-private-limited",
-      "domain": "eko.co.in",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q5350520",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Elavon",
-      "slug": "elavon",
-      "domain": "elavon.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q5353627",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Elliptic",
-      "slug": "elliptic",
-      "domain": "elliptic.co",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q65043718",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Ensygnia",
-      "slug": "ensygnia",
-      "domain": "ensygnia.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q19599418",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Envestnet",
-      "slug": "envestnet",
-      "domain": "envestnet.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q24915031",
+      "name": "CacheFly",
+      "slug": "cachefly",
+      "domain": "cachefly.com",
+      "source": "wikipedia-content-delivery-networks",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
+      "priority": 2,
+      "qid": "Q5015940",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Equiti Group",
-      "slug": "equiti-group",
-      "domain": "equiti.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q133827174",
+      "name": "CDNetworks",
+      "slug": "cdnetworks",
+      "domain": "cdnetworks.com",
+      "source": "wikipedia-content-delivery-networks",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
+      "priority": 2,
+      "qid": "Q5009977",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Ethos Technologies",
-      "slug": "ethos-technologies",
-      "domain": "ethos.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q134890340",
+      "name": "ChinaCache",
+      "slug": "chinacache",
+      "domain": "chinacache.com",
+      "source": "wikipedia-content-delivery-networks",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
+      "priority": 2,
+      "qid": "Q5099546",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Euronet Worldwide",
-      "slug": "euronet-worldwide",
-      "domain": "euronet.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q5412010",
+      "name": "DDoS-Guard",
+      "slug": "ddos-guard",
+      "domain": "ddos-guard.net",
+      "source": "wikipedia-content-delivery-networks",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
+      "priority": 2,
+      "qid": "Q25383150",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "First Data",
-      "slug": "first-data",
-      "domain": "firstdata.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q906406",
+      "name": "Edgio",
+      "slug": "edgio",
+      "domain": "edg.io",
+      "source": "wikipedia-content-delivery-networks",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
+      "priority": 2,
+      "qid": "Q6549207",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Freetrade",
-      "slug": "freetrade",
-      "domain": "freetrade.io",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q65065185",
+      "name": "GTT Communications",
+      "slug": "gtt-communications",
+      "domain": "gtt.net",
+      "source": "wikipedia-content-delivery-networks",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
+      "priority": 2,
+      "qid": "Q16982139",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "GoCardless",
-      "slug": "gocardless",
-      "domain": "gocardless.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q111418549",
+      "name": "Level 3 Communications",
+      "slug": "level-3-communications",
+      "domain": "level3.com",
+      "source": "wikipedia-content-delivery-networks",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
+      "priority": 2,
+      "qid": "Q322320",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "GoHenry",
-      "slug": "gohenry",
-      "domain": "gohenry.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q110976730",
+      "name": "MetaCDN",
+      "slug": "metacdn",
+      "domain": "metacdn.com",
+      "source": "wikipedia-content-delivery-networks",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
+      "priority": 2,
+      "qid": "Q6822270",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Green Dot Corporation",
-      "slug": "green-dot-corporation",
-      "domain": "greendot.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q16975278",
+      "name": "TW Telecom",
+      "slug": "tw-telecom",
+      "domain": "twtelecom.com",
+      "source": "wikipedia-content-delivery-networks",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
+      "priority": 2,
+      "qid": "Q7672563",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "GreenSky",
-      "slug": "greensky",
-      "domain": "greenskycredit.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "priority": 3,
-      "qid": "Q28403120",
+      "name": "Wangsu Science & Technology",
+      "slug": "wangsu-science-and-technology",
+      "domain": "en.wangsu.com",
+      "source": "wikipedia-content-delivery-networks",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
+      "priority": 2,
+      "qid": "Q30944755",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Home 365",
-      "slug": "home-365",
-      "domain": "home365.co",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "2C2P",
+      "slug": "2c2p",
+      "domain": "2c2p.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q132156734",
+      "qid": "Q18109301",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Hyosung",
-      "slug": "hyosung",
-      "domain": "hyosung.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Bancontact Payconiq Company",
+      "slug": "bancontact-payconiq-company",
+      "domain": "bancontactpayconiq.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q497254",
+      "qid": "Q56827109",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "ICapital",
-      "slug": "icapital",
-      "domain": "icapitalnetwork.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "BDO Pay",
+      "slug": "bdo-pay",
+      "domain": "bdo.com.ph",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q97498239",
+      "qid": "Q4854129",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "ID Finance",
-      "slug": "id-finance",
-      "domain": "idfinance.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Belkart",
+      "slug": "belkart",
+      "domain": "belkart.by",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q30633368",
+      "qid": "Q3918656",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Jirnexu",
-      "slug": "jirnexu",
-      "domain": "jirnexu.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "BillDesk",
+      "slug": "billdesk",
+      "domain": "billdesk.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q30324844",
+      "qid": "Q28170044",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Kuda Bank",
-      "slug": "kuda-bank",
-      "domain": "kuda.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Bilt Rewards",
+      "slug": "bilt-rewards",
+      "domain": "bilt.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q108919305",
+      "qid": "Q134396447",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "LandlordInvest",
-      "slug": "landlordinvest",
-      "domain": "landlordinvest.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "BitPay",
+      "slug": "bitpay",
+      "domain": "bitpay.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q30640347",
+      "qid": "Q17001443",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Moneris",
-      "slug": "moneris",
-      "domain": "moneris.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "BKash",
+      "slug": "bkash",
+      "domain": "bkash.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q6898958",
+      "qid": "Q16346003",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "N26",
-      "slug": "n26",
-      "domain": "n26.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Cardsave",
+      "slug": "cardsave",
+      "domain": "cardsave.net",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q27479372",
+      "qid": "Q5038802",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "NerdWallet",
-      "slug": "nerdwallet",
-      "domain": "nerdwallet.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Clinkle",
+      "slug": "clinkle",
+      "domain": "clinkle.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q6995964",
+      "qid": "Q13565474",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Oki Electric Industry",
-      "slug": "oki-electric-industry",
-      "domain": "oki.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Comgate",
+      "slug": "comgate",
+      "domain": "comgate.cz",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q786947",
+      "qid": "Q116894955",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Overbond",
-      "slug": "overbond",
-      "domain": "overbond.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Creditcall",
+      "slug": "creditcall",
+      "domain": "creditcall.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q55628177",
+      "qid": "Q5183705",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Paxos",
-      "slug": "paxos",
-      "domain": "paxos.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Dwolla",
+      "slug": "dwolla",
+      "domain": "dwolla.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q104844715",
+      "qid": "Q5318305",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Personetics Technologies",
-      "slug": "personetics-technologies",
-      "domain": "personetics.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Easypaisa",
+      "slug": "easypaisa",
+      "domain": "easypaisa.com.pk",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q60751447",
+      "qid": "Q65089529",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Prospa",
-      "slug": "prospa",
-      "domain": "prospa.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Edenred",
+      "slug": "edenred",
+      "domain": "edenred.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q133284115",
+      "qid": "Q3047407",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Prosus",
-      "slug": "prosus",
-      "domain": "prosus.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "EFunds Corporation",
+      "slug": "efunds-corporation",
+      "domain": "efunds.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q67389109",
+      "qid": "Q5322965",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Qiwi",
-      "slug": "qiwi",
-      "domain": "qiwi.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "EWay",
+      "slug": "eway",
+      "domain": "eway.com.au",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q4047736",
+      "qid": "Q5418939",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Qonto",
-      "slug": "qonto",
-      "domain": "qonto.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Flattr",
+      "slug": "flattr",
+      "domain": "flattr.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q56319259",
+      "qid": "Q1427443",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Rapyd",
-      "slug": "rapyd",
-      "domain": "rapyd.net",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Heartland Payment Systems",
+      "slug": "heartland-payment-systems",
+      "domain": "heartlandpaymentsystems.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q107061427",
+      "qid": "Q5692871",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Revolut",
-      "slug": "revolut",
-      "domain": "revolut.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Midpoint",
+      "slug": "midpoint",
+      "domain": "midpoint.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q22908307",
+      "qid": "Q22906915",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Rewire",
-      "slug": "rewire",
-      "domain": "rewire.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "MobiKwik",
+      "slug": "mobikwik",
+      "domain": "mobikwik.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q110829684",
+      "qid": "Q18390821",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Ripple Treasury",
-      "slug": "ripple-treasury",
-      "domain": "ripple.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Neteller",
+      "slug": "neteller",
+      "domain": "neteller.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q16904931",
+      "qid": "Q1978592",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Roofstock",
-      "slug": "roofstock",
-      "domain": "roofstock.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Nium",
+      "slug": "nium",
+      "domain": "nium.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q85847091",
+      "qid": "Q43080755",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "RSRCHXchange",
-      "slug": "rsrchxchange",
-      "domain": "rsrchxchange.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "North",
+      "slug": "north",
+      "domain": "north.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q24083503",
+      "qid": "Q7053720",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "SafeCharge",
-      "slug": "safecharge",
-      "domain": "safecharge.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Novalnet",
+      "slug": "novalnet",
+      "domain": "novalnet.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q60741187",
+      "qid": "Q104843510",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "SAS Institute",
-      "slug": "sas-institute",
-      "domain": "sas.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "PayPoint",
+      "slug": "paypoint",
+      "domain": "paypoint.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q1473820",
+      "qid": "Q7156561",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Sendwave",
-      "slug": "sendwave",
-      "domain": "sendwave.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Paysafe",
+      "slug": "paysafe",
+      "domain": "paysafe.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q110989838",
+      "qid": "Q1977666",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "SmartAsset",
-      "slug": "smartasset",
-      "domain": "smartasset.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Paytm",
+      "slug": "paytm",
+      "domain": "paytm.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q85801641",
+      "qid": "Q19757718",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "SoFi",
-      "slug": "sofi",
-      "domain": "sofi.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "PayU",
+      "slug": "payu",
+      "domain": "payu.pl",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q17020720",
+      "qid": "Q55641405",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Solaris",
-      "slug": "solaris",
-      "domain": "solarisgroup.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Payzone",
+      "slug": "payzone",
+      "domain": "payzone.ie",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q48741156",
+      "qid": "Q7156948",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Moniepoint Inc.",
-      "slug": "moniepoint-inc",
-      "domain": "moniepoint.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "PhonePe",
+      "slug": "phonepe",
+      "domain": "phonepe.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q116873326",
+      "qid": "Q30324297",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Spread Networks",
-      "slug": "spread-networks",
-      "domain": "spreadnetworks.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "PlaySpan",
+      "slug": "playspan",
+      "domain": "playspan.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q17082919",
+      "qid": "Q7203538",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Stash",
-      "slug": "stash",
-      "domain": "stash.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Razer Inc.",
+      "slug": "razer-inc",
+      "domain": "razer.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q30609598",
+      "qid": "Q367412",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "StreetShares",
-      "slug": "streetshares",
-      "domain": "streetshares.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Red Dot Payment",
+      "slug": "red-dot-payment",
+      "domain": "reddotpayment.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q25324198",
+      "qid": "Q19840621",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "SuperMoney",
-      "slug": "supermoney",
-      "domain": "supermoney.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Remita",
+      "slug": "remita",
+      "domain": "remita.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q54958870",
+      "qid": "Q123050338",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Thunes",
-      "slug": "thunes",
-      "domain": "thunes.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Sarvatra Technologies",
+      "slug": "sarvatra-technologies",
+      "domain": "sarvatra.tech",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q137124054",
+      "qid": "Q122227227",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Trading 212",
-      "slug": "trading-212",
-      "domain": "trading212.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Skrill",
+      "slug": "skrill",
+      "domain": "skrill.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q103843071",
+      "qid": "Q311277",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "TSYS",
-      "slug": "tsys",
-      "domain": "tsys.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "SparkBase",
+      "slug": "sparkbase",
+      "domain": "sparkbase.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q7671766",
+      "qid": "Q7573606",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Wealthfront",
-      "slug": "wealthfront",
-      "domain": "wealthfront.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "SumUp",
+      "slug": "sumup",
+      "domain": "sumup.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q18394708",
+      "qid": "Q30589666",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Wealthsimple",
-      "slug": "wealthsimple",
-      "domain": "wealthsimple.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Tipalti",
+      "slug": "tipalti",
+      "domain": "tipalti.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q24521620",
+      "qid": "Q109996844",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "WebID Solutions",
-      "slug": "webid-solutions",
-      "domain": "webid-solutions.de",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Veem",
+      "slug": "veem",
+      "domain": "veem.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q18632680",
+      "qid": "Q22077748",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "WebMoney",
-      "slug": "webmoney",
-      "domain": "webmoney.ru",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Venmo",
+      "slug": "venmo",
+      "domain": "venmo.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q2344958",
+      "qid": "Q24839341",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Willow Wealth",
-      "slug": "willow-wealth",
-      "domain": "willowwealth.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "WePay",
+      "slug": "wepay",
+      "domain": "go.wepay.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q107051897",
+      "qid": "Q7977212",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Worldline SA",
-      "slug": "worldline-sa",
-      "domain": "worldline.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Western Union",
+      "slug": "western-union",
+      "domain": "westernunion.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q2869596",
+      "qid": "Q861042",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Worldpay, Inc.",
-      "slug": "worldpay-inc",
-      "domain": "worldpay.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Wirecard",
+      "slug": "wirecard",
+      "domain": "wirecard.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q7915220",
+      "qid": "Q587325",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Yodlee",
-      "slug": "yodlee",
-      "domain": "yodlee.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Xoom",
+      "slug": "xoom",
+      "domain": "xoom.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q8054285",
+      "qid": "Q8044926",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "ZEN.com",
-      "slug": "zen-com",
-      "domain": "zen.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Xsolla",
+      "slug": "xsolla",
+      "domain": "xsolla.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q113540977",
+      "qid": "Q4053407",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "ZenBusiness",
-      "slug": "zenbusiness",
-      "domain": "zenbusiness.com",
-      "source": "wikipedia-financial-technology-companies",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
+      "name": "Zettle",
+      "slug": "zettle",
+      "domain": "zettle.com",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
       "priority": 3,
-      "qid": "Q125621231",
+      "qid": "Q16325128",
       "reason": "enwiki-title P856"
     }
   ],
   "dropped_wrong_p856": [
+    {
+      "name": "Edgecast",
+      "slug": "edgecast",
+      "domain": "verizondigitalmedia.com",
+      "reason": "implausible-p856"
+    },
     {
       "name": "Afriex",
       "slug": "afriex",
@@ -775,27 +613,21 @@
       "reason": "blocked-host"
     },
     {
-      "name": "Archax",
-      "slug": "archax",
-      "domain": "archax.com",
-      "reason": "blocked-host"
-    },
-    {
-      "name": "Avant",
-      "slug": "avant",
-      "domain": "readyforzero.com",
-      "reason": "blocked-host"
-    },
-    {
-      "name": "Black Knight, Inc.",
-      "slug": "black-knight-inc",
-      "domain": "bkfs.com",
+      "name": "Automatic Bank Services",
+      "slug": "automatic-bank-services",
+      "domain": "shva.co.il",
       "reason": "implausible-p856"
     },
     {
-      "name": "D+H",
-      "slug": "dplush",
-      "domain": "dhltd.com",
+      "name": "Bank Clearing Center",
+      "slug": "bank-clearing-center",
+      "domain": "masav.co.il",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Chase Payment Solutions",
+      "slug": "chase-payment-solutions",
+      "domain": "chasepaymentech.com",
       "reason": "implausible-p856"
     },
     {
@@ -805,40 +637,16 @@
       "reason": "blocked-host"
     },
     {
-      "name": "FinMkt",
-      "slug": "finmkt",
-      "domain": "crowdnetic.com",
+      "name": "Israel Credit Cards",
+      "slug": "israel-credit-cards",
+      "domain": "cal-online.co.il",
       "reason": "implausible-p856"
     },
     {
-      "name": "FIS",
-      "slug": "fis",
-      "domain": "fisglobal.com",
+      "name": "Mir",
+      "slug": "mir",
+      "domain": "mironline.ru",
       "reason": "implausible-p856"
-    },
-    {
-      "name": "GoodLeap",
-      "slug": "goodleap",
-      "domain": "paramountequity.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Murex",
-      "slug": "murex",
-      "domain": "murex.com",
-      "reason": "blocked-host"
-    },
-    {
-      "name": "Nasdaq Private Market",
-      "slug": "nasdaq-private-market",
-      "domain": "secondmarket.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Nayax",
-      "slug": "nayax",
-      "domain": "nayax.com",
-      "reason": "blocked-host"
     },
     {
       "name": "Nexi",
@@ -847,95 +655,161 @@
       "reason": "implausible-p856"
     },
     {
-      "name": "Numerix",
-      "slug": "numerix",
-      "domain": "numerix.com",
-      "reason": "blocked-host"
-    },
-    {
-      "name": "Opay",
-      "slug": "opay",
-      "domain": "opaybank.com",
+      "name": "Unified Settlement Information Space",
+      "slug": "unified-settlement-information-space",
+      "domain": "raschet.by",
       "reason": "implausible-p856"
     },
     {
-      "name": "WorldFirst",
-      "slug": "worldfirst",
-      "domain": "ant-intl.com",
+      "name": "Verve International",
+      "slug": "verve-international",
+      "domain": "myverveworld.com",
       "reason": "implausible-p856"
     }
   ],
   "unresolved": [
     {
-      "name": "Abra",
-      "slug": "abra",
-      "reason": "no-p856",
+      "name": "Content delivery network",
+      "slug": "content-delivery-network",
+      "reason": "not-org no-org p31=['Q4485156'] desc=layer in the Internet ecosystem addressing bottlenecks",
       "status": null
     },
     {
-      "name": "Allica Bank",
-      "slug": "allica-bank",
-      "reason": "no-p856",
+      "name": "Content delivery network interconnection",
+      "slug": "content-delivery-network-interconnection",
+      "reason": "not-org no-org p31=[] desc=interconnection between content delivery networks to mutually reduce costs",
       "status": null
     },
     {
-      "name": "ANote Music",
-      "slug": "anote-music",
-      "reason": "no-p856",
+      "name": "Amazon CloudFront",
+      "slug": "amazon-cloudfront",
+      "reason": "not-org no-org p31=['Q72588'] desc=content delivery network",
       "status": null
     },
     {
-      "name": "Axoni",
-      "slug": "axoni",
-      "reason": "no-p856",
+      "name": "Cdnjs",
+      "slug": "cdnjs",
+      "reason": "not-org no-org p31=['Q72588'] desc=free and open-source CDN service",
       "status": null
     },
     {
-      "name": "Birbank",
-      "slug": "birbank",
-      "reason": "not-org no-org p31=[] desc=Mobile banking application",
-      "status": null
-    },
-    {
-      "name": "Blik",
-      "slug": "blik",
-      "reason": "not-org no-org p31=['Q986008'] desc=mobile payment system",
-      "status": null
-    },
-    {
-      "name": "CAIS Group",
-      "slug": "cais-group",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "CIT Vericash",
-      "slug": "cit-vericash",
+      "name": "Edgenext",
+      "slug": "edgenext",
       "reason": "no-wikidata-item",
       "status": null
     },
     {
-      "name": "Clara",
-      "slug": "clara",
+      "name": "Gcore",
+      "slug": "gcore",
+      "reason": "not-org no-org p31=['Q1346018', 'Q72588'] desc=cloud service provider",
+      "status": null
+    },
+    {
+      "name": "Information-centric networking caching policies",
+      "slug": "information-centric-networking-caching-policies",
+      "reason": "not-org no-org p31=[] desc=",
+      "status": null
+    },
+    {
+      "name": "JSDelivr",
+      "slug": "jsdelivr",
+      "reason": "not-org no-org p31=['Q1130645', 'Q72588'] desc=free open-source CDN for developers",
+      "status": null
+    },
+    {
+      "name": "Open Connect",
+      "slug": "open-connect",
+      "reason": "not-org no-org p31=['Q72588'] desc=content delivery network by Netflix",
+      "status": null
+    },
+    {
+      "name": "StackPath",
+      "slug": "stackpath",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Computer Associates",
-      "slug": "computer-associates",
+      "name": "Payment service provider",
+      "slug": "payment-service-provider",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "CoreCard Corporation",
-      "slug": "corecard-corporation",
+      "name": "AfriGO",
+      "slug": "afrigo",
+      "reason": "no-wikidata-item",
+      "status": null
+    },
+    {
+      "name": "Airtel Payments Bank",
+      "slug": "airtel-payments-bank",
+      "reason": "not-org no-org p31=['Q19895173'] desc=Indian Payments Bank",
+      "status": null
+    },
+    {
+      "name": "Alipay",
+      "slug": "alipay",
+      "reason": "not-org no-org p31=['Q986008', 'Q431289', 'Q108273448', 'Q620615'] desc=third-party online payment platform in China",
+      "status": null
+    },
+    {
+      "name": "Antom",
+      "slug": "antom",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Corgi",
-      "slug": "corgi",
+      "name": "Bambora",
+      "slug": "bambora",
       "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "BharatPe",
+      "slug": "bharatpe",
+      "reason": "not-org no-org p31=['Q620615', 'Q986008'] desc=Mobile Payment Platform",
+      "status": null
+    },
+    {
+      "name": "Billpoint",
+      "slug": "billpoint",
+      "reason": "not-org no-org p31=['Q35127'] desc=Former money transfer service",
+      "status": null
+    },
+    {
+      "name": "Bunq",
+      "slug": "bunq",
+      "reason": "not-org no-org p31=['Q22687', 'Q60767305', 'Q39049085'] desc=Dutch mobile bank and neobank",
+      "status": null
+    },
+    {
+      "name": "C2it",
+      "slug": "c2it",
+      "reason": "not-org no-org p31=[] desc=Former money transfer service",
+      "status": null
+    },
+    {
+      "name": "Cashier as a service",
+      "slug": "cashier-as-a-service",
+      "reason": "not-org no-org p31=[] desc=use of a third party service as payment",
+      "status": null
+    },
+    {
+      "name": "CashU",
+      "slug": "cashu",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "CDS Global",
+      "slug": "cds-global",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "City Express Money Transfer",
+      "slug": "city-express-money-transfer",
+      "reason": "not-org no-org p31=[] desc=",
       "status": null
     },
     {
@@ -945,57 +819,21 @@
       "status": null
     },
     {
-      "name": "DailyPay",
-      "slug": "dailypay",
+      "name": "E-Clear",
+      "slug": "e-clear",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Datarails",
-      "slug": "datarails",
-      "reason": "no-p856",
+      "name": "GCash",
+      "slug": "gcash",
+      "reason": "not-org no-org p31=['Q1147226', 'Q1365703'] desc=Philippine mobile payments platform",
       "status": null
     },
     {
-      "name": "Deal sourcing",
-      "slug": "deal-sourcing",
-      "reason": "not-org no-org p31=[] desc=",
-      "status": null
-    },
-    {
-      "name": "Dyme",
-      "slug": "dyme",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Even.com",
-      "slug": "even-com",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Fennech Financial",
-      "slug": "fennech-financial",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Fexco",
-      "slug": "fexco",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "G2A",
-      "slug": "g2a",
-      "reason": "not-org no-org p31=['Q112194235'] desc=key reseller",
-      "status": null
-    },
-    {
-      "name": "GoPay",
-      "slug": "gopay",
-      "reason": "no-wikidata-item",
+      "name": "Giropay",
+      "slug": "giropay",
+      "reason": "not-org no-org p31=['Q351764', 'Q7406919'] desc=former online payment method of the German banking industry",
       "status": null
     },
     {
@@ -1011,50 +849,38 @@
       "status": null
     },
     {
-      "name": "Increase",
-      "slug": "increase",
+      "name": "IDEAL",
+      "slug": "ideal",
+      "reason": "not-org no-org p31=['Q986008'] desc=e-commerce payment system",
+      "status": null
+    },
+    {
+      "name": "Integration of UPI and NPI",
+      "slug": "integration-of-upi-and-npi",
+      "reason": "not-org no-org p31=[] desc=bilateral remittances between India and Nepal",
+      "status": null
+    },
+    {
+      "name": "Jio Payments Bank",
+      "slug": "jio-payments-bank",
+      "reason": "not-org no-org p31=['Q19895173'] desc=Indian payments bank",
+      "status": null
+    },
+    {
+      "name": "Kora",
+      "slug": "kora",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Infront",
-      "slug": "infront",
-      "reason": "no-wikidata-item",
-      "status": null
-    },
-    {
-      "name": "InSoil",
-      "slug": "insoil",
+      "name": "LianLian DigiTech",
+      "slug": "lianlian-digitech",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Kodenshi AUK Group",
-      "slug": "kodenshi-auk-group",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Kuna",
-      "slug": "kuna",
-      "reason": "not-org no-org p31=['Q25401607'] desc=Ukrainian cryptocurrency exchange",
-      "status": null
-    },
-    {
-      "name": "LightStream",
-      "slug": "lightstream",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Steve Lockshin",
-      "slug": "steve-lockshin",
-      "reason": "not-org no-org p31=['Q5'] desc=financial advisor and author",
-      "status": null
-    },
-    {
-      "name": "Longitude LLC",
-      "slug": "longitude-llc",
+      "name": "Live Group",
+      "slug": "live-group",
       "reason": "no-p856",
       "status": null
     },
@@ -1065,9 +891,9 @@
       "status": null
     },
     {
-      "name": "MaxMyInterest",
-      "slug": "maxmyinterest",
-      "reason": "no-p856",
+      "name": "Mi-Pay",
+      "slug": "mi-pay",
+      "reason": "not-org no-org p31=['Q620615'] desc=mobile payment system launched by Xiaomi",
       "status": null
     },
     {
@@ -1077,111 +903,81 @@
       "status": null
     },
     {
-      "name": "Neogov",
-      "slug": "neogov",
+      "name": "Nagad",
+      "slug": "nagad",
+      "reason": "not-org no-org p31=['Q837171'] desc=digital financial service in Bangladesh",
+      "status": null
+    },
+    {
+      "name": "New Payments Platform",
+      "slug": "new-payments-platform",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Nesto",
-      "slug": "nesto",
+      "name": "Octagonal plc",
+      "slug": "octagonal-plc",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Oobit",
-      "slug": "oobit",
-      "reason": "no-wikidata-item",
-      "status": null
-    },
-    {
-      "name": "Openpay",
-      "slug": "openpay",
+      "name": "OpenEdge",
+      "slug": "openedge",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "OpenPayd",
-      "slug": "openpayd",
+      "name": "Paya, Inc.",
+      "slug": "paya-inc",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Ozan Elektronik Para",
-      "slug": "ozan-elektronik-para",
+      "name": "PayDirect",
+      "slug": "paydirect",
+      "reason": "not-org no-org p31=['Q35127', 'Q6899301'] desc=Former money transfer service",
+      "status": null
+    },
+    {
+      "name": "PayMe",
+      "slug": "payme",
+      "reason": "not-org no-org p31=['Q7397'] desc=mobile payment service owned by HSBC",
+      "status": null
+    },
+    {
+      "name": "Payments Network Malaysia",
+      "slug": "payments-network-malaysia",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "PayPay",
-      "slug": "paypay",
-      "reason": "not-org no-org p31=['Q21484471'] desc=payment system",
+      "name": "Payrexx AG",
+      "slug": "payrexx-ag",
+      "reason": "not-org no-org p31=[] desc=Swiss payment service provider",
       "status": null
     },
     {
-      "name": "Pyth Network",
-      "slug": "pyth-network",
-      "reason": "not-org no-org p31=['Q43229'] desc=decentralized financial data oracle network",
-      "status": null
-    },
-    {
-      "name": "Qontis",
-      "slug": "qontis",
+      "name": "Pine Labs",
+      "slug": "pine-labs",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Raiz",
-      "slug": "raiz",
+      "name": "POLi Payments",
+      "slug": "poli-payments",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Ratio Tech",
-      "slug": "ratio-tech",
+      "name": "Rain",
+      "slug": "rain",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Republic",
-      "slug": "republic",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Rho Technologies",
-      "slug": "rho-technologies",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Ripio",
-      "slug": "ripio",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "SaverLife",
-      "slug": "saverlife",
-      "reason": "not-org no-org p31=[] desc=",
-      "status": null
-    },
-    {
-      "name": "ServiceHunter",
-      "slug": "servicehunter",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Settle Group",
-      "slug": "settle-group",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Slash",
-      "slug": "slash",
-      "reason": "no-p856",
+      "name": "Smscoin",
+      "slug": "smscoin",
+      "reason": "not-org no-org p31=['Q35127'] desc=Mobile payment systems provider",
       "status": null
     },
     {
@@ -1191,50 +987,74 @@
       "status": null
     },
     {
-      "name": "Tellus",
-      "slug": "tellus",
-      "reason": "not-org no-org p31=['Q3591545'] desc=American real estate-related financial services app",
+      "name": "Tata Neu",
+      "slug": "tata-neu",
+      "reason": "not-org no-org p31=['Q620615'] desc=multi-purpose super-app",
       "status": null
     },
     {
-      "name": "Tingo Group",
-      "slug": "tingo-group",
+      "name": "Telpay",
+      "slug": "telpay",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Topstep",
-      "slug": "topstep",
+      "name": "Thai QR Payment",
+      "slug": "thai-qr-payment",
+      "reason": "not-org no-org p31=['Q986008'] desc=Thailand's real-time payment and transfer infrastructure services",
+      "status": null
+    },
+    {
+      "name": "UnionPay",
+      "slug": "unionpay",
+      "reason": "not-org no-org p31=['Q620615'] desc=mobile payment application",
+      "status": null
+    },
+    {
+      "name": "Verifi",
+      "slug": "verifi",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Trust & Will",
-      "slug": "trust-and-will",
+      "name": "VugaPay",
+      "slug": "vugapay",
+      "reason": "not-org no-org p31=['Q7397'] desc=",
+      "status": null
+    },
+    {
+      "name": "WiPay",
+      "slug": "wipay",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Varo Bank",
-      "slug": "varo-bank",
-      "reason": "not-org no-org p31=['Q848507', 'Q22687', 'Q60767305', 'Q6579042'] desc=American national bank",
-      "status": null
-    },
-    {
-      "name": "Verafin",
-      "slug": "verafin",
+      "name": "YooKassa",
+      "slug": "yookassa",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Wayflyer",
-      "slug": "wayflyer",
+      "name": "YooMoney",
+      "slug": "yoomoney",
+      "reason": "not-org no-org p31=['Q1148747', 'Q35127'] desc=electronic payment system that implements the idea of electronic money",
+      "status": null
+    },
+    {
+      "name": "Zelle",
+      "slug": "zelle",
+      "reason": "not-org no-org p31=['Q986008', 'Q431289'] desc=digital payments network",
+      "status": null
+    },
+    {
+      "name": "Ziina",
+      "slug": "ziina",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "XTransfer",
-      "slug": "xtransfer",
+      "name": "Zong",
+      "slug": "zong",
       "reason": "no-p856",
       "status": null
     }
