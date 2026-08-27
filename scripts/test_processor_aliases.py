@@ -47,6 +47,17 @@ def main() -> int:
     check(canonical_processor_id("recaptcha", google_reg) == "google", "reCAPTCHA is Google")
     check(skip_processor("entity-name", "Entity Name"), "entity-name is garbage")
     check(REGISTER_ALIASES["baseten-labs-inc"] == "baseten", "baseten legal name aliases")
+    mail_reg = {**register, "mailchimp": {"slug": "mailchimp", "name": "Mailchimp", "domain": "mailchimp.com"}}
+    check(canonical_processor_id("the-rocket-science-group", mail_reg) == "mailchimp", "Rocket Science Group is Mailchimp")
+    check(REGISTER_ALIASES["the-rocket-science-group"] == "mailchimp", "mailchimp legal name aliases")
+    par_reg = {**register, "parallel": {"slug": "parallel", "name": "Parallel", "domain": "parallel.ai"}}
+    check(canonical_processor_id("parallel-web-systems", par_reg) == "parallel", "Parallel Web Systems is Parallel")
+    ibm_reg = {**register, "ibm": {"slug": "ibm", "name": "IBM", "domain": "ibm.com"}}
+    check(canonical_processor_id("international-business-machines-ibm", ibm_reg) == "ibm", "IBM legal name aliases")
+    ada_reg = {**register, "ada": {"slug": "ada", "name": "Ada", "domain": "ada.cx"}}
+    check(canonical_processor_id("ada-support", ada_reg) == "ada", "Ada Support is Ada")
+    check(REGISTER_ALIASES["google-gemini"] == "google", "Gemini is Google")
+    check(REGISTER_ALIASES["oracle-netsuite"] == "netsuite", "Oracle NetSuite keeps the NetSuite row")
 
     subs = {
         "nodes": [
@@ -73,6 +84,23 @@ def main() -> int:
     tos = {e["to"] for e in subs["edges"]}
     check(tos == {"amazon-web-services", "google"}, f"edges remapped, garbage dropped: {tos}")
     check(subs["aliases"]["aws"] == "amazon-web-services", "alias map is on the graph payload")
+
+    # Two published Google names stay two sourced rows, both on google.
+    two = {
+        "nodes": [
+            {"id": "google-gemini", "name": "Google Gemini", "kind": "processor", "in_register": False},
+            {"id": "gcp", "name": "Google Cloud", "kind": "processor", "in_register": False},
+            {"id": "anysphere", "name": "Anysphere", "kind": "company", "in_register": True},
+        ],
+        "edges": [
+            {"from": "anysphere", "to": "google-gemini", "source_url": "https://trust.cursor.com/subprocessors", "evidence": "Google Gemini"},
+            {"from": "anysphere", "to": "gcp", "source_url": "https://trust.cursor.com/subprocessors", "evidence": "Google Cloud Platform"},
+        ],
+    }
+    apply_aliases_to_graph(two, google_reg)
+    google_edges = [e for e in two["edges"] if e["to"] == "google"]
+    check(len(google_edges) == 2, f"two Google names stay: {google_edges}")
+    check({e["evidence"] for e in google_edges} == {"Google Gemini", "Google Cloud Platform"}, "published names stay")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch

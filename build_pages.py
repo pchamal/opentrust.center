@@ -2116,6 +2116,7 @@ def main() -> int:
     data_wires = ROOT / "data" / "subprocessors.json"
     if data_wires.resolve() != wires_path.resolve() and data_wires.exists():
         other = load_json(data_wires, {"edges": [], "nodes": []})
+        apply_aliases_to_graph(other, companies_in)
         pretty_subprocessor_nodes(other)
         write_json(data_wires, other)
     stamp_data_v(generated_at)

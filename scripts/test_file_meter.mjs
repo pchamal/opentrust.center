@@ -169,8 +169,8 @@ expect("register has no Score header", !/>\s*Score\s*</i.test(companiesHtml) && 
 expect("register Completeness header stays Completeness", /<button type="button">Completeness<\/button>/.test(companiesHtml));
 expect(
   "finder placeholder dropped old tier words",
-  companiesHtml.includes('placeholder="/ stripe, complete, fedramp moderate"') &&
-    !/placeholder="[^"]*\b(silent|thin|substantial)\b/.test(companiesHtml),
+  companiesHtml.includes('placeholder="/ stripe, on file, fedramp moderate"') &&
+    !/placeholder="[^"]*\b(silent|thin|substantial|complete)\b/.test(companiesHtml),
 );
 expect("legend is not a tooltip farm", !src.includes("title=") || !/file-rule[^>]*title=/.test(src));
 
@@ -224,12 +224,12 @@ const dossierHref = {
   Azure: "./microsoft.html",
   Baseten: "./baseten.html",
   "Google Cloud Platform": "./google.html",
+  "Google Gemini": "./google.html",
   Exa: "./exa.html",
   WorkOS: "./workos.html",
   Turbopuffer: "./turbopuffer.html",
 };
 const graphHref = {
-  "Google Gemini": "../graph.html#p=google-gemini",
   SpaceXAI: "../graph.html#p=spacexai",
 };
 expect(
