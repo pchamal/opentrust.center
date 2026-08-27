@@ -191,6 +191,14 @@ def main() -> int:
     check(canonical_processor_id("partner-hero", ph_reg) == "partnerhero", "Partner Hero is PartnerHero")
     dstny_reg = {**register, "dstny-automate-formerly-qunifi": {"slug": "dstny-automate-formerly-qunifi", "name": "Dstny", "domain": "dstny.com"}}
     check(canonical_processor_id("qunifi", dstny_reg) == "dstny-automate-formerly-qunifi", "Qunifi is Dstny Automate")
+    light_reg3 = {**register, "lightspeed-commerce": {"slug": "lightspeed-commerce", "name": "Lightspeed Commerce", "domain": "lightspeedhq.com"}}
+    check(canonical_processor_id("alcmene-s-r-l", light_reg3) == "lightspeed-commerce", "Alcmene is Lightspeed")
+    check(canonical_processor_id("atelier35", light_reg3) == "lightspeed-commerce", "Atelier35 is Lightspeed")
+    check(canonical_processor_id("simple-order", light_reg3) == "lightspeed-commerce", "Simple Order is Lightspeed")
+    audio_reg = {**register, "audiocodes": {"slug": "audiocodes", "name": "AudioCodes", "domain": "audiocodes.com"}}
+    check(canonical_processor_id("active-communications-europe", audio_reg) == "audiocodes", "Active Communications Europe is AudioCodes")
+    ramp_reg3 = {**register, "liveramp": {"slug": "liveramp", "name": "LiveRamp", "domain": "liveramp.com"}}
+    check(canonical_processor_id("diablo-ai", ramp_reg3) == "liveramp", "Diablo.ai is LiveRamp")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 
