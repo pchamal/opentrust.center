@@ -447,6 +447,11 @@ REGISTER_ALIASES: dict[str, str] = {
     # (same table as Rapid7 LLC / Rapid7 Ireland). Not RapidAPI. IntSights
     # already lands here. Do not invent a second Rapid7 dossier.
     "rapid": "rapid7",
+    # MorphL R&D SRL is an Algolia Group affiliate on Algolia's own
+    # infrastructure-and-sub-processors list (same table as Sajari).
+    # morphl.io is dead. Sajari already lands here. Do not invent a
+    # second Algolia dossier.
+    "morphl-r-d-srl": "algolia",
 }
 
 # Published header garbage. Not a company. Do not file or alias.

@@ -201,6 +201,8 @@ def main() -> int:
     check(canonical_processor_id("diablo-ai", ramp_reg3) == "liveramp", "Diablo.ai is LiveRamp")
     r7_reg = {**register, "rapid7": {"slug": "rapid7", "name": "Rapid7", "domain": "rapid7.com"}}
     check(canonical_processor_id("rapid", r7_reg) == "rapid7", "Rapid, Inc. is Rapid7, not RapidAPI")
+    algo_reg = {**register, "algolia": {"slug": "algolia", "name": "Algolia", "domain": "algolia.com"}}
+    check(canonical_processor_id("morphl-r-d-srl", algo_reg) == "algolia", "MorphL R&D SRL is Algolia")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 
