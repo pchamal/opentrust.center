@@ -74,7 +74,9 @@ PAGE_SKIP_RE = re.compile(
     r"\.(?:png|jpe?g|gif|svg|webp)(?:\?|$)|"
     r"customer-not-found|"
     r"/(?:blog|case|cases|news|press|solution|solutions|departments)/|"
-    r"birth-certificate",
+    r"birth-certificate|"
+    r"signin\.|/sso(?:\?|/|$)|SAMLRequest=|"
+    r"/anti-ddos(?:/|$)",
     re.I,
 )
 MARK_SKIP_RE = re.compile(

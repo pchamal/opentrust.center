@@ -503,11 +503,18 @@ REGISTER_ALIASES: dict[str, str] = {
     # Crossbeam acquired Reveal (2024). Crossbeam's own list marks Reveal SAS
     # as Affiliate / France. crossbeam-systems is on the register.
     "reveal-sas": "crossbeam-systems",
+    # Cloudinary's list names Amazon CloudFront. AWS is on the register.
+    "amazon-cloudfront": "amazon-web-services",
+    # Cloudinary names OpsGenie. Atlassian owns Opsgenie; the Turkish legal
+    # id already lands here.
+    "opsgenie": "atlassian",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
 SKIP_PROCESSOR_IDS = {
     "entity-name",
+    "n-a",
+    "na",
     "it",
     "customers-have-discretion-to-select-a-different-location",
     "bob-finance-module",
@@ -519,6 +526,9 @@ SKIP_PROCESSOR_IDS = {
 }
 SKIP_PROCESSOR_NAMES = {
     "entity name",
+    "n/a",
+    "n.a.",
+    "na",
     "it llc",
     "customers have discretion to select a different location",
     "bob finance module",

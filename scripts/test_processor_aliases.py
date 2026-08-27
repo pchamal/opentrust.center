@@ -46,6 +46,7 @@ def main() -> int:
     google_reg = {**register, "google": {"slug": "google", "name": "Google", "domain": "google.com"}}
     check(canonical_processor_id("recaptcha", google_reg) == "google", "reCAPTCHA is Google")
     check(skip_processor("entity-name", "Entity Name"), "entity-name is garbage")
+    check(skip_processor("n-a", "n/a"), "n/a is garbage")
     check(REGISTER_ALIASES["baseten-labs-inc"] == "baseten", "baseten legal name aliases")
     mail_reg = {**register, "mailchimp": {"slug": "mailchimp", "name": "Mailchimp", "domain": "mailchimp.com"}}
     check(canonical_processor_id("the-rocket-science-group", mail_reg) == "mailchimp", "Rocket Science Group is Mailchimp")
@@ -243,6 +244,9 @@ def main() -> int:
     check(canonical_processor_id("reveal-sas", xb_reg) == "crossbeam-systems", "Reveal SAS is Crossbeam")
     kiss_reg = {**register, "kiss-metrics": {"slug": "kiss-metrics", "name": "KISSmetrics", "domain": "kissmetrics.io"}}
     check(canonical_processor_id("kiss-metrics-usage-analytics", kiss_reg) == "kiss-metrics", "Kiss Metrics usage analytics is KISSmetrics")
+    check(canonical_processor_id("amazon-cloudfront", {**register, "amazon-web-services": register["amazon-web-services"]}) == "amazon-web-services", "CloudFront is AWS")
+    atl_reg = {**register, "atlassian": {"slug": "atlassian", "name": "Atlassian", "domain": "atlassian.com"}}
+    check(canonical_processor_id("opsgenie", atl_reg) == "atlassian", "OpsGenie is Atlassian")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 
