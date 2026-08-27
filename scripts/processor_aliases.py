@@ -219,6 +219,8 @@ REGISTER_ALIASES: dict[str, str] = {
     "braintrust-data": "braintrust",
     "oracle-finland": "oracle",
     "ovh-sas": "ovhcloud",
+    "censys-censys": "censys",
+    "civilized-discourse-construction-kit": "discourse",
     # Same-company leftovers after the last named-processor batch.
     "a100-row": "amazon-web-services",
     "a100-row-servicos-de-dados-brasil-ltda": "amazon-web-services",
