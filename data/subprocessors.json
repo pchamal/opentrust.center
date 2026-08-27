@@ -1423,12 +1423,6 @@
       "in_register": false
     },
     {
-      "id": "cognizant-worldwide",
-      "name": "Cognizant Worldwide",
-      "kind": "subprocessor",
-      "in_register": false
-    },
-    {
       "id": "wns-global-services",
       "name": "WNS Global Services",
       "kind": "company",
@@ -1528,12 +1522,6 @@
     {
       "id": "veryfi-inc",
       "name": "Veryfi Inc",
-      "kind": "subprocessor",
-      "in_register": false
-    },
-    {
-      "id": "checkout-technology-ltd",
-      "name": "Checkout Technology Ltd",
       "kind": "subprocessor",
       "in_register": false
     },
@@ -1667,9 +1655,10 @@
     },
     {
       "id": "posthog",
-      "name": "Posthog",
-      "kind": "subprocessor",
-      "in_register": false
+      "name": "PostHog",
+      "kind": "company",
+      "in_register": true,
+      "domain": "posthog.com"
     },
     {
       "id": "pylon",
@@ -1705,18 +1694,6 @@
       "domain": "bytedance.com"
     },
     {
-      "id": "creatify",
-      "name": "Creatify",
-      "kind": "subprocessor",
-      "in_register": false
-    },
-    {
-      "id": "fal",
-      "name": "Fal",
-      "kind": "subprocessor",
-      "in_register": false
-    },
-    {
       "id": "hive",
       "name": "Hive",
       "kind": "subprocessor",
@@ -1741,16 +1718,11 @@
       "in_register": false
     },
     {
-      "id": "oracle-cloud-infrastructure",
-      "name": "Oracle Cloud Infrastructure",
-      "kind": "subprocessor",
-      "in_register": false
-    },
-    {
       "id": "linear",
       "name": "Linear",
-      "kind": "subprocessor",
-      "in_register": false
+      "kind": "company",
+      "in_register": true,
+      "domain": "linear.app"
     },
     {
       "id": "discord-inc",
@@ -1774,8 +1746,9 @@
     {
       "id": "vultr",
       "name": "Vultr",
-      "kind": "subprocessor",
-      "in_register": false
+      "kind": "company",
+      "in_register": true,
+      "domain": "vultr.com"
     },
     {
       "id": "fluidstack",
@@ -1828,12 +1801,6 @@
       "in_register": false
     },
     {
-      "id": "crusoe-cloud",
-      "name": "Crusoe Cloud",
-      "kind": "subprocessor",
-      "in_register": false
-    },
-    {
       "id": "hypertec",
       "name": "Hypertec",
       "kind": "subprocessor",
@@ -1848,12 +1815,6 @@
     {
       "id": "northern-data-group",
       "name": "Northern Data Group",
-      "kind": "subprocessor",
-      "in_register": false
-    },
-    {
-      "id": "oracle-cloud",
-      "name": "Oracle Cloud",
       "kind": "subprocessor",
       "in_register": false
     },
@@ -1876,18 +1837,6 @@
       "in_register": false
     },
     {
-      "id": "slack-technologies-llc",
-      "name": "Slack Technologies Llc",
-      "kind": "subprocessor",
-      "in_register": false
-    },
-    {
-      "id": "pylon-labs-inc",
-      "name": "Pylon Labs Inc",
-      "kind": "subprocessor",
-      "in_register": false
-    },
-    {
       "id": "linear-orbit-inc",
       "name": "Linear Orbit Inc",
       "kind": "subprocessor",
@@ -1900,12 +1849,6 @@
       "in_register": false
     },
     {
-      "id": "crusoe-energy-system-llc",
-      "name": "Crusoe Energy System Llc",
-      "kind": "subprocessor",
-      "in_register": false
-    },
-    {
       "id": "ashby",
       "name": "Ashby",
       "kind": "subprocessor",
@@ -1914,30 +1857,6 @@
     {
       "id": "customer-io",
       "name": "Customer IO",
-      "kind": "subprocessor",
-      "in_register": false
-    },
-    {
-      "id": "deepgram-inc",
-      "name": "Deepgram Inc",
-      "kind": "subprocessor",
-      "in_register": false
-    },
-    {
-      "id": "fireworks-ai-inc",
-      "name": "Fireworks AI Inc",
-      "kind": "subprocessor",
-      "in_register": false
-    },
-    {
-      "id": "modal-labs-inc",
-      "name": "Modal Labs Inc",
-      "kind": "subprocessor",
-      "in_register": false
-    },
-    {
-      "id": "google-gemini",
-      "name": "Google Gemini",
       "kind": "subprocessor",
       "in_register": false
     },
@@ -1997,13 +1916,6 @@
       "in_register": false
     },
     {
-      "id": "adobe-e-sign",
-      "name": "Adobe e-sign",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "salesloft",
       "name": "Salesloft",
       "domain": "salesloft.com",
@@ -2039,20 +1951,6 @@
       "in_register": false
     },
     {
-      "id": "oracle-america-oracle",
-      "name": "Oracle America, Inc. Oracle",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "notion-labs-notion",
-      "name": "Notion Labs, Inc. Notion",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "censys-censys",
       "name": "Censys, Inc. Censys",
       "domain": "",
@@ -2062,13 +1960,6 @@
     {
       "id": "firecrawl",
       "name": "Firecrawl",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "grafana-labs-raintank",
-      "name": "Grafana Labs (Raintank, Inc.)",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -2118,27 +2009,20 @@
     {
       "id": "ada",
       "name": "Ada",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "ada.cx",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "vitally",
       "name": "Vitally",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "vitally.io",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "madkudu",
       "name": "MadKudu",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "microsoft-ireland-operations",
-      "name": "Microsoft Ireland Operations Limited",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -2152,10 +2036,10 @@
     },
     {
       "id": "gainsight",
-      "name": "Gainsight, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "Gainsight",
+      "domain": "gainsight.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "supportlogic",
@@ -2167,20 +2051,6 @@
     {
       "id": "castle-global",
       "name": "Castle Global Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "international-business-machines-ibm",
-      "name": "International Business Machines Corporation (IBM)",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "parallel-web-systems",
-      "name": "Parallel Web Systems Inc",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -2207,13 +2077,6 @@
       "in_register": true
     },
     {
-      "id": "gong-io",
-      "name": "Gong.io, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "mapbox",
       "name": "Mapbox, Inc",
       "domain": "",
@@ -2223,13 +2086,6 @@
     {
       "id": "partnerhero",
       "name": "PartnerHero, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "pylon-labs",
-      "name": "Pylon Labs, Inc",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -2265,20 +2121,6 @@
     {
       "id": "formagrid-uk",
       "name": "Formagrid UK Ltd",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "deepl-se",
-      "name": "DeepL SE",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "mistral-ai-sas",
-      "name": "Mistral AI SAS",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -2403,36 +2245,8 @@
       "in_register": false
     },
     {
-      "id": "google-vertex-ai",
-      "name": "Google Vertex AI",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "tenable-holdings",
-      "name": "Tenable Holdings, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "opsgenie-yaz-l-m-anonim-irketi",
       "name": "Opsgenie Yazılım Anonim Şirketi",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "google-resources",
-      "name": "Google Resources",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "backblaze-resources",
-      "name": "Backblaze Resources",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -2510,13 +2324,6 @@
     {
       "id": "x-ai",
       "name": "X.AI LLC",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "alibaba-cloud-us",
-      "name": "Alibaba Cloud US LLC",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -2767,22 +2574,8 @@
       "in_register": false
     },
     {
-      "id": "amazon-bedrock",
-      "name": "Amazon Bedrock",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "dvelp-sabio",
       "name": "DVELP/Sabio",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "gooddata",
-      "name": "GoodData Corporation",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -2804,9 +2597,9 @@
     {
       "id": "databank",
       "name": "DataBank",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "databank.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "lumen",
@@ -2823,22 +2616,8 @@
       "in_register": true
     },
     {
-      "id": "sisense-sf",
-      "name": "Sisense SF, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "etleap",
       "name": "Etleap Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "message-bird",
-      "name": "Message Bird",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -2887,10 +2666,10 @@
     },
     {
       "id": "user-testing",
-      "name": "User Testing, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "UserTesting",
+      "domain": "usertesting.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "oso-security",
@@ -2901,10 +2680,10 @@
     },
     {
       "id": "productboard",
-      "name": "ProductBoard, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "Productboard",
+      "domain": "productboard.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "rollbar",
@@ -3026,22 +2805,8 @@
       "in_register": false
     },
     {
-      "id": "glean-technologies",
-      "name": "Glean Technologies, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "hiddenlayer",
       "name": "HiddenLayer, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "decagon-ai",
-      "name": "Decagon AI, Inc",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -3327,13 +3092,6 @@
       "in_register": false
     },
     {
-      "id": "lightricks-ltda-ai",
-      "name": "Lightricks Ltda AI, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "luma-ai",
       "name": "Luma AI, Inc",
       "domain": "",
@@ -3343,13 +3101,6 @@
     {
       "id": "replicate",
       "name": "Replicate LLC",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "runway-ai",
-      "name": "Runway AI, Inc",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -3636,21 +3387,14 @@
     },
     {
       "id": "authzed",
-      "name": "Authzed, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "Authzed",
+      "domain": "authzed.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "maestroqa",
       "name": "MaestroQA",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "perplexity",
-      "name": "Perplexity",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -3665,16 +3409,16 @@
     {
       "id": "sendbird",
       "name": "Sendbird",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "sendbird.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "suki-ai",
       "name": "Suki AI",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "suki.ai",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "sumit-ai",
@@ -3684,78 +3428,8 @@
       "in_register": false
     },
     {
-      "id": "zvc-japan-k-k",
-      "name": "ZVC JAPAN K.K",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "zvc-netherlands",
-      "name": "ZVC Netherlands B.V",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "zvc-australia",
-      "name": "ZVC- Australia Pty Ltd",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "zvc-uk",
-      "name": "ZVC UK Ltd",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "zvc-france-sas",
-      "name": "ZVC France SAS",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "zvc-india-pvt",
-      "name": "ZVC India Pvt. Ltd",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "zvc-canada",
-      "name": "ZVC Canada, Ltd",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "keybase",
       "name": "Keybase, LLC",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "zvc-singapore-pte",
-      "name": "ZVC Singapore Pte. Ltd",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "zvc-germany",
-      "name": "ZVC Germany GmbH",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "zm-services-india-private",
-      "name": "ZM Services India Private Ltd",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -3783,10 +3457,10 @@
     },
     {
       "id": "workvivo",
-      "name": "Workvivo Limited",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "Workvivo",
+      "domain": "workvivo.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "brighthire",
@@ -3824,162 +3498,8 @@
       "in_register": false
     },
     {
-      "id": "amazon-data-services-argentina-s-r-l",
-      "name": "Amazon Data Services Argentina S.R.L",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-bahrain-w-l-l",
-      "name": "Amazon Data Services Bahrain W.L.L",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-belgium-srl",
-      "name": "Amazon Data Services Belgium SRL",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-costa-rica-s-r-l",
-      "name": "Amazon Data Services Costa Rica S.R.L",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-czech-republic-s-r-o",
-      "name": "Amazon Data Services Czech Republic s.r.o",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-denmark-aps",
-      "name": "Amazon Data Services Denmark ApS",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-ecuador-amznecu-cia-ltda",
-      "name": "Amazon Data Services Ecuador AMZNECU Cia. Ltda",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-estonia-o",
-      "name": "Amazon Data Services Estonia OÜ",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-france-sas",
-      "name": "Amazon Data Services France SAS",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-greece-single-member-ae",
-      "name": "Amazon Data Services Greece Single-Member AE",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-hungary-korl-tolt-felel-ss-g-t-rsas-g",
-      "name": "Amazon Data Services Hungary Korlátolt Felelősségű Társaság",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-italy-s-r-l",
-      "name": "Amazon Data Services Italy S.R.L",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-japan-g-k",
-      "name": "Amazon Data Services Japan G.K",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-malaysia-sdn-bhd",
-      "name": "Amazon Data Services Malaysia Sdn. Bhd",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-netherlands-n-v",
-      "name": "Amazon Data Services Netherlands N.V",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-norway-as",
-      "name": "Amazon Data Services Norway AS",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-panama-s-de-r-l",
-      "name": "Amazon Data Services Panama, S. de R.L",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-portugal-lda",
-      "name": "Amazon Data Services Portugal, Lda",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-romania-s-r-l",
-      "name": "Amazon Data Services Romania S.R.L",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "data-services-saudi-arabia-one-person-company",
       "name": "Data Services Saudi Arabia Limited One Person Company",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-spain-s-l-u",
-      "name": "Amazon Data Services Spain, S.L.U",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-data-services-zagreb-d-o-o",
-      "name": "Amazon Data Services Zagreb d.o.o",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-technological-services-sas",
-      "name": "Amazon Technological Services SAS",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -4015,13 +3535,6 @@
     {
       "id": "amcs-sg-private-singapore",
       "name": "AMCS SG Private Limited (Singapore)",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-support-services-costa-rica-srl",
-      "name": "Amazon Support Services Costa Rica, SRL",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -8325,20 +7838,6 @@
       "in_register": false
     },
     {
-      "id": "oracle-eloqua",
-      "name": "Oracle Eloqua",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "perimeter81",
-      "name": "Perimeter81",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "trolley",
       "name": "Trolley",
       "domain": "",
@@ -8495,9 +7994,9 @@
     {
       "id": "assemblyai",
       "name": "AssemblyAI",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "assemblyai.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "avalara",
@@ -8516,13 +8015,6 @@
     {
       "id": "braintree",
       "name": "Braintree",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "brave",
-      "name": "Brave",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -8619,13 +8111,6 @@
       "in_register": false
     },
     {
-      "id": "google-firebase-google-analytics-google-gemini",
-      "name": "Google Firebase, Google Analytics, Google Gemini",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "hyperdoc-recall-ai",
       "name": "Hyperdoc Inc. (Recall.ai)",
       "domain": "",
@@ -8675,13 +8160,6 @@
       "in_register": false
     },
     {
-      "id": "oracle-netsuite",
-      "name": "Oracle Netsuite",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "pdf",
       "name": "PDF.co",
       "domain": "",
@@ -8698,13 +8176,6 @@
     {
       "id": "recall",
       "name": "Recall",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "redis-labs",
-      "name": "Redis Labs, Ltd",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -8871,13 +8342,6 @@
       "in_register": false
     },
     {
-      "id": "exa-labs-public-preview",
-      "name": "Exa Labs, Inc. (Public Preview)",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "wasabi",
       "name": "Wasabi",
       "domain": "",
@@ -8927,13 +8391,6 @@
       "in_register": true
     },
     {
-      "id": "mail-chimp",
-      "name": "Mail Chimp",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "astronomer",
       "name": "Astronomer, Inc",
       "domain": "",
@@ -8957,13 +8414,6 @@
     {
       "id": "pmg-net",
       "name": "PMG.net",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "the-rocket-science-group",
-      "name": "The Rocket Science Group, LLC",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -9016,13 +8466,6 @@
       "domain": "stitchdata.com",
       "kind": "company",
       "in_register": true
-    },
-    {
-      "id": "oracle-cloud-infrastructure-oci",
-      "name": "Oracle Cloud Infrastructure (OCI)",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
     },
     {
       "id": "kentik",
@@ -9109,20 +8552,6 @@
       "in_register": false
     },
     {
-      "id": "linkedin-sales-navigator",
-      "name": "LinkedIn Sales Navigator",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "microsoft-office",
-      "name": "Microsoft Office",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "netsuite",
       "name": "NetSuite",
       "domain": "netsuite.com",
@@ -9153,13 +8582,6 @@
     {
       "id": "wso2-asgardeo",
       "name": "WSO2/Asgardeo",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "ada-support",
-      "name": "Ada Support, Inc",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -9201,10 +8623,10 @@
     },
     {
       "id": "enterpret",
-      "name": "Enterpret, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "Enterpret",
+      "domain": "enterpret.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "great-question",
@@ -9237,13 +8659,6 @@
     {
       "id": "wingify",
       "name": "Wingify",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "greenhouse",
-      "name": "Greenhouse",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -9286,9 +8701,9 @@
     {
       "id": "tray-ai",
       "name": "Tray.ai",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "tray.ai",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "zight-formerly-cloudapp",
@@ -9306,10 +8721,10 @@
     },
     {
       "id": "logz-io",
-      "name": "logz.io",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "Logz.io",
+      "domain": "logz.io",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "powtoon",
@@ -9328,13 +8743,6 @@
     {
       "id": "appcues-com",
       "name": "appcues.com",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "elevenlabs-io",
-      "name": "elevenlabs.io",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -9380,13 +8788,6 @@
       "domain": "kraken.tech",
       "kind": "company",
       "in_register": true
-    },
-    {
-      "id": "adobe-systems",
-      "name": "Adobe Systems Incorporated",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
     },
     {
       "id": "altus-group",
@@ -9438,13 +8839,6 @@
       "in_register": false
     },
     {
-      "id": "equinix-france-sas",
-      "name": "Equinix (France) SAS",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "ikoula",
       "name": "Ikoula",
       "domain": "",
@@ -9452,22 +8846,8 @@
       "in_register": false
     },
     {
-      "id": "linkedin-ireland-unlimited-company",
-      "name": "LinkedIn Ireland Unlimited Company",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "sfdc-ireland",
       "name": "SFDC Ireland Limited",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "oracle-israel",
-      "name": "Oracle Israel LTD",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -9508,13 +8888,6 @@
       "in_register": false
     },
     {
-      "id": "bandwidth",
-      "name": "Bandwidth Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "telnyx",
       "name": "Telnyx",
       "domain": "",
@@ -9550,22 +8923,8 @@
       "in_register": false
     },
     {
-      "id": "genesys-telecommunications-laboratories",
-      "name": "Genesys Telecommunications Laboratories, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "raintank-d-b-a-grafana-labs",
       "name": "Raintank Inc, d/b/a Grafana Labs",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "sendsafely-b2b",
-      "name": "SendSafely Inc (B2B)",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -9684,10 +9043,10 @@
     },
     {
       "id": "appcues",
-      "name": "Appcues, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "Appcues",
+      "domain": "appcues.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "cayan-tsys",
@@ -9914,13 +9273,6 @@
       "in_register": false
     },
     {
-      "id": "box-com",
-      "name": "Box.com",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "egnyte",
       "name": "Egnyte",
       "domain": "",
@@ -9965,13 +9317,6 @@
     {
       "id": "moneypenny",
       "name": "Moneypenny",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "netsuite-oracle",
-      "name": "Netsuite / Oracle",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -10098,13 +9443,6 @@
     {
       "id": "claranet",
       "name": "Claranet Limited",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "fireworksai",
-      "name": "FireworksAI",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -10250,13 +9588,6 @@
       "in_register": false
     },
     {
-      "id": "verint",
-      "name": "Verint",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "yellowai",
       "name": "YellowAI",
       "domain": "",
@@ -10299,13 +9630,6 @@
       "in_register": false
     },
     {
-      "id": "microsoft-365-copilot",
-      "name": "Microsoft 365 Copilot",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "mividas",
       "name": "Mividas",
       "domain": "",
@@ -10322,13 +9646,6 @@
     {
       "id": "spryng",
       "name": "Spryng BV",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "bitdefender-s-r-l",
-      "name": "Bitdefender S.R.L",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -10460,25 +9777,11 @@
       "in_register": false
     },
     {
-      "id": "google-analytics-optional-sub-processor",
-      "name": "Google Analytics (Optional Sub-processor)",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "bugsnag",
       "name": "Bugsnag",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "full-story",
-      "name": "Full Story",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "bugsnag.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "tray-io-optional-sub-processor",
@@ -10504,20 +9807,6 @@
     {
       "id": "upper-quadrant",
       "name": "Upper Quadrant",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "amazon-ses-optional-sub-processor",
-      "name": "Amazon SES (Optional Sub-processor)",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "google-firebase",
-      "name": "Google Firebase",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -10607,29 +9896,8 @@
       "in_register": false
     },
     {
-      "id": "segment-i-o",
-      "name": "Segment i.o, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "worketics-it-solutions",
       "name": "Worketics IT Solutions",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "dropbox-international-unlimited-company",
-      "name": "Dropbox International Unlimited Company",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "microsoft-clarity",
-      "name": "Microsoft Clarity",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -10812,9 +10080,9 @@
     {
       "id": "clerk",
       "name": "Clerk",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "clerk.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "sonar",
@@ -10822,13 +10090,6 @@
       "domain": "sonarsource.com",
       "kind": "company",
       "in_register": true
-    },
-    {
-      "id": "google-ireland",
-      "name": "Google Ireland Limited",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
     },
     {
       "id": "kaseya",
@@ -10943,25 +10204,11 @@
       "in_register": false
     },
     {
-      "id": "brevo-sendinblue",
-      "name": "Brevo (Sendinblue)",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "idrive-inc",
       "name": "IDrive Inc.",
       "domain": "idrive.com",
       "kind": "company",
       "in_register": true
-    },
-    {
-      "id": "surveymonkey-momentive",
-      "name": "SurveyMonkey (Momentive)",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
     },
     {
       "id": "zerobounce",
@@ -10987,13 +10234,6 @@
     {
       "id": "shoreline-labs-d-b-a-nightfall",
       "name": "Shoreline Labs, Inc. (d/b/a Nightfall)",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "orca-security-uk",
-      "name": "Orca Security UK Ltd",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -11036,13 +10276,6 @@
     {
       "id": "ipdata",
       "name": "ipdata LLC",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "postmark-activecampaign",
-      "name": "Postmark (ActiveCampaign, LLC)",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -11125,27 +10358,6 @@
       "in_register": false
     },
     {
-      "id": "sinch",
-      "name": "Sinch",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "abbyy-finereader",
-      "name": "ABBYY (FineReader)",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "check-point-software-technologies",
-      "name": "Check Point Software Technologies",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "welocalize",
       "name": "WeLocalize, Inc",
       "domain": "",
@@ -11169,13 +10381,6 @@
     {
       "id": "logic-monitor",
       "name": "Logic Monitor",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "mongo-db",
-      "name": "Mongo DB",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -23872,13 +23077,6 @@
       "in_register": false
     },
     {
-      "id": "hashicorp-cloud",
-      "name": "HashiCorp Cloud",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "hex-technologies",
       "name": "Hex Technologies Inc",
       "domain": "",
@@ -23956,13 +23154,6 @@
       "in_register": false
     },
     {
-      "id": "sumologic",
-      "name": "Sumologic",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "unbounce",
       "name": "Unbounce",
       "domain": "",
@@ -23989,6 +23180,13 @@
       "domain": "",
       "kind": "processor",
       "in_register": false
+    },
+    {
+      "id": "verint-systems",
+      "name": "Verint Systems",
+      "domain": "verint.com",
+      "kind": "company",
+      "in_register": true
     }
   ],
   "edges": [
@@ -24738,7 +23936,7 @@
     },
     {
       "from": "stripe",
-      "to": "cognizant-worldwide",
+      "to": "cognizant",
       "source_url": "https://stripe.com/legal/service-providers",
       "evidence": "cognizant-worldwide"
     },
@@ -24888,7 +24086,7 @@
     },
     {
       "from": "checkout",
-      "to": "checkout-technology-ltd",
+      "to": "checkout",
       "source_url": "https://trust.checkout.com/subprocessors",
       "evidence": "checkout-technology-ltd"
     },
@@ -25608,13 +24806,13 @@
     },
     {
       "from": "elevenlabs",
-      "to": "creatify",
+      "to": "creatify-ai",
       "source_url": "https://compliance.elevenlabs.io/subprocessors",
       "evidence": "creatify"
     },
     {
       "from": "elevenlabs",
-      "to": "fal",
+      "to": "fal-ai",
       "source_url": "https://compliance.elevenlabs.io/subprocessors",
       "evidence": "fal"
     },
@@ -25674,7 +24872,7 @@
     },
     {
       "from": "fireworks-ai",
-      "to": "oracle-cloud-infrastructure",
+      "to": "oracle",
       "source_url": "https://trust.fireworks.ai/subprocessors",
       "evidence": "oracle-cloud-infrastructure"
     },
@@ -25830,7 +25028,7 @@
     },
     {
       "from": "together-ai",
-      "to": "crusoe-cloud",
+      "to": "crusoe",
       "source_url": "https://trust.together.ai/subprocessors",
       "evidence": "crusoe-cloud"
     },
@@ -25860,7 +25058,7 @@
     },
     {
       "from": "together-ai",
-      "to": "oracle-cloud",
+      "to": "oracle",
       "source_url": "https://trust.together.ai/subprocessors",
       "evidence": "oracle-cloud"
     },
@@ -26016,13 +25214,13 @@
     },
     {
       "from": "fal-ai",
-      "to": "slack-technologies-llc",
+      "to": "slack",
       "source_url": "https://trust.fal.ai/subprocessors",
       "evidence": "slack-technologies-llc"
     },
     {
       "from": "fal-ai",
-      "to": "pylon-labs-inc",
+      "to": "pylon",
       "source_url": "https://trust.fal.ai/subprocessors",
       "evidence": "pylon-labs-inc"
     },
@@ -26052,7 +25250,7 @@
     },
     {
       "from": "fal-ai",
-      "to": "crusoe-energy-system-llc",
+      "to": "crusoe",
       "source_url": "https://trust.fal.ai/subprocessors",
       "evidence": "crusoe-energy-system-llc"
     },
@@ -26148,7 +25346,7 @@
     },
     {
       "from": "sierra",
-      "to": "deepgram-inc",
+      "to": "deepgram",
       "source_url": "https://trust.sierra.ai/subprocessors",
       "evidence": "deepgram-inc"
     },
@@ -26160,13 +25358,13 @@
     },
     {
       "from": "sierra",
-      "to": "fireworks-ai-inc",
+      "to": "fireworks-ai",
       "source_url": "https://trust.sierra.ai/subprocessors",
       "evidence": "fireworks-ai-inc"
     },
     {
       "from": "sierra",
-      "to": "modal-labs-inc",
+      "to": "modal",
       "source_url": "https://trust.sierra.ai/subprocessors",
       "evidence": "modal-labs-inc"
     },
@@ -26220,7 +25418,7 @@
     },
     {
       "from": "anysphere",
-      "to": "google-gemini",
+      "to": "google",
       "source_url": "https://trust.cursor.com/subprocessors",
       "evidence": "Google Gemini"
     },
@@ -26478,7 +25676,7 @@
     },
     {
       "from": "browserstack",
-      "to": "adobe-e-sign",
+      "to": "adobe",
       "source_url": "https://www.browserstack.com:443/sub-processors",
       "evidence": "Adobe e-sign"
     },
@@ -26574,7 +25772,7 @@
     },
     {
       "from": "tanium",
-      "to": "oracle-america-oracle",
+      "to": "oracle",
       "source_url": "https://www.tanium.com/subprocessors",
       "evidence": "Oracle America, Inc. Oracle"
     },
@@ -26592,7 +25790,7 @@
     },
     {
       "from": "tanium",
-      "to": "notion-labs-notion",
+      "to": "notion",
       "source_url": "https://www.tanium.com/subprocessors",
       "evidence": "Notion Labs, Inc. Notion"
     },
@@ -26664,7 +25862,7 @@
     },
     {
       "from": "zapier",
-      "to": "grafana-labs-raintank",
+      "to": "grafana-labs",
       "source_url": "https://zapier.com/legal/subprocessors",
       "evidence": "Grafana Labs (Raintank, Inc.)"
     },
@@ -26826,7 +26024,7 @@
     },
     {
       "from": "gong",
-      "to": "microsoft-ireland-operations",
+      "to": "microsoft",
       "source_url": "https://www.gong.io:443/legal/sub-processors",
       "evidence": "Microsoft Ireland Operations Limited"
     },
@@ -26982,7 +26180,7 @@
     },
     {
       "from": "airtable",
-      "to": "international-business-machines-ibm",
+      "to": "ibm",
       "source_url": "https://www.airtable.com/company/subprocessors",
       "evidence": "International Business Machines Corporation (IBM)"
     },
@@ -26994,7 +26192,7 @@
     },
     {
       "from": "airtable",
-      "to": "parallel-web-systems",
+      "to": "parallel",
       "source_url": "https://www.airtable.com/company/subprocessors",
       "evidence": "Parallel Web Systems Inc"
     },
@@ -27024,7 +26222,7 @@
     },
     {
       "from": "airtable",
-      "to": "gong-io",
+      "to": "gong",
       "source_url": "https://www.airtable.com/company/subprocessors",
       "evidence": "Gong.io, Inc"
     },
@@ -27042,7 +26240,7 @@
     },
     {
       "from": "airtable",
-      "to": "pylon-labs",
+      "to": "pylon",
       "source_url": "https://www.airtable.com/company/subprocessors",
       "evidence": "Pylon Labs, Inc"
     },
@@ -27138,13 +26336,13 @@
     },
     {
       "from": "harvey",
-      "to": "deepl-se",
+      "to": "deepl",
       "source_url": "https://www.harvey.ai/legal/subprocessors",
       "evidence": "DeepL SE"
     },
     {
       "from": "harvey",
-      "to": "mistral-ai-sas",
+      "to": "mistral-ai",
       "source_url": "https://www.harvey.ai/legal/subprocessors",
       "evidence": "Mistral AI SAS"
     },
@@ -27168,7 +26366,7 @@
     },
     {
       "from": "harvey",
-      "to": "parallel-web-systems",
+      "to": "parallel",
       "source_url": "https://www.harvey.ai/legal/subprocessors",
       "evidence": "Parallel Web Systems Inc"
     },
@@ -27408,7 +26606,7 @@
     },
     {
       "from": "atlassian",
-      "to": "google-vertex-ai",
+      "to": "google",
       "source_url": "https://www.atlassian.com/legal/sub-processors",
       "evidence": "Google Vertex AI"
     },
@@ -27432,7 +26630,7 @@
     },
     {
       "from": "atlassian",
-      "to": "tenable-holdings",
+      "to": "tenable",
       "source_url": "https://www.atlassian.com/legal/sub-processors",
       "evidence": "Tenable Holdings, Inc"
     },
@@ -27444,7 +26642,7 @@
     },
     {
       "from": "fastly",
-      "to": "google-resources",
+      "to": "google",
       "source_url": "https://docs.fastly.com/products/sub-processors",
       "evidence": "Google Resources"
     },
@@ -27462,7 +26660,7 @@
     },
     {
       "from": "fastly",
-      "to": "backblaze-resources",
+      "to": "backblaze",
       "source_url": "https://docs.fastly.com/products/sub-processors",
       "evidence": "Backblaze Resources"
     },
@@ -27582,7 +26780,7 @@
     },
     {
       "from": "runway",
-      "to": "alibaba-cloud-us",
+      "to": "alibaba-cloud",
       "source_url": "https://runwayml.com/customer-subprocessors",
       "evidence": "Alibaba Cloud US LLC"
     },
@@ -27972,7 +27170,7 @@
     },
     {
       "from": "twilio",
-      "to": "amazon-bedrock",
+      "to": "amazon-web-services",
       "source_url": "https://www.twilio.com/en-us/legal/sub-processors",
       "evidence": "Amazon Bedrock"
     },
@@ -28014,7 +27212,7 @@
     },
     {
       "from": "twilio",
-      "to": "gooddata",
+      "to": "gooddata-ai",
       "source_url": "https://www.twilio.com/en-us/legal/sub-processors",
       "evidence": "GoodData Corporation"
     },
@@ -28098,7 +27296,7 @@
     },
     {
       "from": "pagerduty",
-      "to": "sisense-sf",
+      "to": "sisense",
       "source_url": "https://www.pagerduty.com/subprocessors/",
       "evidence": "Sisense SF, Inc"
     },
@@ -28128,7 +27326,7 @@
     },
     {
       "from": "pagerduty",
-      "to": "message-bird",
+      "to": "messagebird",
       "source_url": "https://www.pagerduty.com/subprocessors/",
       "evidence": "Message Bird"
     },
@@ -28302,7 +27500,7 @@
     },
     {
       "from": "pagerduty",
-      "to": "international-business-machines-ibm",
+      "to": "ibm",
       "source_url": "https://www.pagerduty.com/subprocessors/",
       "evidence": "International Business Machines Corporation (IBM)"
     },
@@ -28674,7 +27872,7 @@
     },
     {
       "from": "gitlab",
-      "to": "glean-technologies",
+      "to": "glean",
       "source_url": "https://about.gitlab.com/privacy/subprocessors/",
       "evidence": "Glean Technologies, Inc"
     },
@@ -28686,7 +27884,7 @@
     },
     {
       "from": "gitlab",
-      "to": "decagon-ai",
+      "to": "decagon",
       "source_url": "https://about.gitlab.com/privacy/subprocessors/",
       "evidence": "Decagon AI, Inc"
     },
@@ -29022,7 +28220,7 @@
     },
     {
       "from": "figma",
-      "to": "lightricks-ltda-ai",
+      "to": "lightricks",
       "source_url": "https://www.figma.com/sub-processors/",
       "evidence": "Lightricks Ltda AI, Inc"
     },
@@ -29040,13 +28238,13 @@
     },
     {
       "from": "figma",
-      "to": "runway-ai",
+      "to": "runway",
       "source_url": "https://www.figma.com/sub-processors/",
       "evidence": "Runway AI, Inc"
     },
     {
       "from": "figma",
-      "to": "decagon-ai",
+      "to": "decagon",
       "source_url": "https://www.figma.com/sub-processors/",
       "evidence": "Decagon AI, Inc"
     },
@@ -29088,7 +28286,7 @@
     },
     {
       "from": "figma",
-      "to": "pylon-labs",
+      "to": "pylon",
       "source_url": "https://www.figma.com/sub-processors/",
       "evidence": "Pylon Labs, Inc"
     },
@@ -29490,7 +28688,7 @@
     },
     {
       "from": "zoom",
-      "to": "perplexity",
+      "to": "perplexity-ai",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "Perplexity"
     },
@@ -29550,43 +28748,43 @@
     },
     {
       "from": "zoom",
-      "to": "zvc-japan-k-k",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZVC JAPAN K.K"
     },
     {
       "from": "zoom",
-      "to": "zvc-netherlands",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZVC Netherlands B.V"
     },
     {
       "from": "zoom",
-      "to": "zvc-australia",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZVC- Australia Pty Ltd"
     },
     {
       "from": "zoom",
-      "to": "zvc-uk",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZVC UK Ltd"
     },
     {
       "from": "zoom",
-      "to": "zvc-france-sas",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZVC France SAS"
     },
     {
       "from": "zoom",
-      "to": "zvc-india-pvt",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZVC India Pvt. Ltd"
     },
     {
       "from": "zoom",
-      "to": "zvc-canada",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZVC Canada, Ltd"
     },
@@ -29598,19 +28796,19 @@
     },
     {
       "from": "zoom",
-      "to": "zvc-singapore-pte",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZVC Singapore Pte. Ltd"
     },
     {
       "from": "zoom",
-      "to": "zvc-germany",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZVC Germany GmbH"
     },
     {
       "from": "zoom",
-      "to": "zm-services-india-private",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZM Services India Private Ltd"
     },
@@ -29670,115 +28868,115 @@
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-argentina-s-r-l",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Argentina S.R.L"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-bahrain-w-l-l",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Bahrain W.L.L"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-belgium-srl",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Belgium SRL"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-costa-rica-s-r-l",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Costa Rica S.R.L"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-czech-republic-s-r-o",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Czech Republic s.r.o"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-denmark-aps",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Denmark ApS"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-ecuador-amznecu-cia-ltda",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Ecuador AMZNECU Cia. Ltda"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-estonia-o",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Estonia OÜ"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-france-sas",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services France SAS"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-greece-single-member-ae",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Greece Single-Member AE"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-hungary-korl-tolt-felel-ss-g-t-rsas-g",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Hungary Korlátolt Felelősségű Társaság"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-italy-s-r-l",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Italy S.R.L"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-japan-g-k",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Japan G.K"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-malaysia-sdn-bhd",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Malaysia Sdn. Bhd"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-netherlands-n-v",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Netherlands N.V"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-norway-as",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Norway AS"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-panama-s-de-r-l",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Panama, S. de R.L"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-portugal-lda",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Portugal, Lda"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-romania-s-r-l",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Romania S.R.L"
     },
@@ -29790,19 +28988,19 @@
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-spain-s-l-u",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Spain, S.L.U"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-data-services-zagreb-d-o-o",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Data Services Zagreb d.o.o"
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-technological-services-sas",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Technological Services SAS"
     },
@@ -29838,7 +29036,7 @@
     },
     {
       "from": "amazon-web-services",
-      "to": "amazon-support-services-costa-rica-srl",
+      "to": "amazon-web-services",
       "source_url": "https://aws.amazon.com/compliance/sub-processors/",
       "evidence": "Amazon Support Services Costa Rica, SRL"
     },
@@ -30546,13 +29744,13 @@
     },
     {
       "from": "sonicwall",
-      "to": "oracle-eloqua",
+      "to": "oracle",
       "source_url": "https://www.sonicwall.com/legal/sub-processors",
       "evidence": "Oracle Eloqua"
     },
     {
       "from": "sonicwall",
-      "to": "perimeter81",
+      "to": "perimeter-81",
       "source_url": "https://www.sonicwall.com/legal/sub-processors",
       "evidence": "Perimeter81"
     },
@@ -30828,7 +30026,7 @@
     },
     {
       "from": "zoom-video",
-      "to": "perplexity",
+      "to": "perplexity-ai",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "Perplexity"
     },
@@ -30894,43 +30092,43 @@
     },
     {
       "from": "zoom-video",
-      "to": "zvc-japan-k-k",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZVC JAPAN K.K"
     },
     {
       "from": "zoom-video",
-      "to": "zvc-netherlands",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZVC Netherlands B.V"
     },
     {
       "from": "zoom-video",
-      "to": "zvc-australia",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZVC- Australia Pty Ltd"
     },
     {
       "from": "zoom-video",
-      "to": "zvc-uk",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZVC UK Ltd"
     },
     {
       "from": "zoom-video",
-      "to": "zvc-france-sas",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZVC France SAS"
     },
     {
       "from": "zoom-video",
-      "to": "zvc-india-pvt",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZVC India Pvt. Ltd"
     },
     {
       "from": "zoom-video",
-      "to": "zvc-canada",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZVC Canada, Ltd"
     },
@@ -30942,19 +30140,19 @@
     },
     {
       "from": "zoom-video",
-      "to": "zvc-singapore-pte",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZVC Singapore Pte. Ltd"
     },
     {
       "from": "zoom-video",
-      "to": "zvc-germany",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZVC Germany GmbH"
     },
     {
       "from": "zoom-video",
-      "to": "zm-services-india-private",
+      "to": "zoom",
       "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
       "evidence": "ZM Services India Private Ltd"
     },
@@ -31362,7 +30560,7 @@
     },
     {
       "from": "clickup",
-      "to": "google-firebase-google-analytics-google-gemini",
+      "to": "google",
       "source_url": "https://clickup.com/terms/dpa/subprocessors",
       "evidence": "Google Firebase, Google Analytics, Google Gemini"
     },
@@ -31380,7 +30578,7 @@
     },
     {
       "from": "clickup",
-      "to": "oracle-netsuite",
+      "to": "netsuite",
       "source_url": "https://clickup.com/terms/dpa/subprocessors",
       "evidence": "Oracle Netsuite"
     },
@@ -31506,7 +30704,7 @@
     },
     {
       "from": "clickup",
-      "to": "brave",
+      "to": "brave-software",
       "source_url": "https://clickup.com/terms/dpa/subprocessors",
       "evidence": "Brave"
     },
@@ -31608,7 +30806,7 @@
     },
     {
       "from": "monday",
-      "to": "redis-labs",
+      "to": "redis",
       "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/",
       "evidence": "Redis Labs, Ltd"
     },
@@ -31914,7 +31112,7 @@
     },
     {
       "from": "digitalocean",
-      "to": "exa-labs-public-preview",
+      "to": "exa",
       "source_url": "https://www.digitalocean.com/trust/subprocessors",
       "evidence": "Exa Labs, Inc. (Public Preview)"
     },
@@ -31980,7 +31178,7 @@
     },
     {
       "from": "digitalocean",
-      "to": "mail-chimp",
+      "to": "mailchimp",
       "source_url": "https://www.digitalocean.com/trust/subprocessors",
       "evidence": "Mail Chimp"
     },
@@ -32088,7 +31286,7 @@
     },
     {
       "from": "jamf",
-      "to": "the-rocket-science-group",
+      "to": "mailchimp",
       "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
       "evidence": "The Rocket Science Group, LLC"
     },
@@ -32160,7 +31358,7 @@
     },
     {
       "from": "kentik",
-      "to": "oracle-cloud-infrastructure-oci",
+      "to": "oracle",
       "source_url": "https://www.kentik.com/legal/subprocessors/",
       "evidence": "Oracle Cloud Infrastructure (OCI)"
     },
@@ -32346,7 +31544,7 @@
     },
     {
       "from": "lilt",
-      "to": "linkedin-sales-navigator",
+      "to": "linkedin",
       "source_url": "https://lilt.com/legal/lilt-subprocessors",
       "evidence": "LinkedIn Sales Navigator"
     },
@@ -32358,7 +31556,7 @@
     },
     {
       "from": "lilt",
-      "to": "microsoft-office",
+      "to": "microsoft",
       "source_url": "https://lilt.com/legal/lilt-subprocessors",
       "evidence": "Microsoft Office"
     },
@@ -32448,7 +31646,7 @@
     },
     {
       "from": "dashlane",
-      "to": "ada-support",
+      "to": "ada",
       "source_url": "https://www.dashlane.com/privacy/subprocessors",
       "evidence": "Ada Support, Inc"
     },
@@ -32550,7 +31748,7 @@
     },
     {
       "from": "dashlane",
-      "to": "gong-io",
+      "to": "gong",
       "source_url": "https://www.dashlane.com/privacy/subprocessors",
       "evidence": "Gong.io Ltd"
     },
@@ -32628,7 +31826,7 @@
     },
     {
       "from": "dashlane",
-      "to": "greenhouse",
+      "to": "greenhouse-software",
       "source_url": "https://www.dashlane.com/privacy/subprocessors",
       "evidence": "Greenhouse"
     },
@@ -32862,7 +32060,7 @@
     },
     {
       "from": "powtoon",
-      "to": "elevenlabs-io",
+      "to": "elevenlabs",
       "source_url": "https://www.powtoon.com/dpa/sub-processors/",
       "evidence": "elevenlabs.io"
     },
@@ -32976,7 +32174,7 @@
     },
     {
       "from": "altus-group",
-      "to": "adobe-systems",
+      "to": "adobe",
       "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
       "evidence": "Adobe Systems Incorporated"
     },
@@ -33036,7 +32234,7 @@
     },
     {
       "from": "altus-group",
-      "to": "equinix-france-sas",
+      "to": "equinix",
       "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
       "evidence": "Equinix (France) SAS"
     },
@@ -33048,7 +32246,7 @@
     },
     {
       "from": "altus-group",
-      "to": "linkedin-ireland-unlimited-company",
+      "to": "linkedin",
       "source_url": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
       "evidence": "LinkedIn Ireland Unlimited Company"
     },
@@ -33090,13 +32288,13 @@
     },
     {
       "from": "audiocodes",
-      "to": "oracle-israel",
+      "to": "oracle",
       "source_url": "https://www.audiocodes.com/data-sub-processors",
       "evidence": "Oracle Israel LTD"
     },
     {
       "from": "audiocodes",
-      "to": "microsoft-ireland-operations",
+      "to": "microsoft",
       "source_url": "https://www.audiocodes.com/data-sub-processors",
       "evidence": "Microsoft Ireland Operations Limited"
     },
@@ -33150,7 +32348,7 @@
     },
     {
       "from": "audiocodes",
-      "to": "bandwidth",
+      "to": "bandwidth-inc",
       "source_url": "https://www.audiocodes.com/data-sub-processors",
       "evidence": "Bandwidth Inc"
     },
@@ -33210,7 +32408,7 @@
     },
     {
       "from": "sophos",
-      "to": "genesys-telecommunications-laboratories",
+      "to": "genesys",
       "source_url": "https://www.sophos.com/en-us/legal/sub-processor",
       "evidence": "Genesys Telecommunications Laboratories, Inc"
     },
@@ -33240,7 +32438,7 @@
     },
     {
       "from": "sophos",
-      "to": "sendsafely-b2b",
+      "to": "sendsafely",
       "source_url": "https://www.sophos.com/en-us/legal/sub-processor",
       "evidence": "SendSafely Inc (B2B)"
     },
@@ -33252,7 +32450,7 @@
     },
     {
       "from": "sophos",
-      "to": "ada-support",
+      "to": "ada",
       "source_url": "https://www.sophos.com/en-us/legal/sub-processor",
       "evidence": "Ada Support Inc"
     },
@@ -33570,7 +32768,7 @@
     },
     {
       "from": "lightspeed-commerce",
-      "to": "the-rocket-science-group",
+      "to": "mailchimp",
       "source_url": "https://www.lightspeedhq.com/legal/subprocessors/",
       "evidence": "The Rocket Science Group LLC"
     },
@@ -33744,7 +32942,7 @@
     },
     {
       "from": "arista-networks",
-      "to": "box-com",
+      "to": "box",
       "source_url": "https://www.arista.com/en/sub-processor",
       "evidence": "Box.com"
     },
@@ -33828,7 +33026,7 @@
     },
     {
       "from": "arista-networks",
-      "to": "netsuite-oracle",
+      "to": "netsuite",
       "source_url": "https://www.arista.com/en/sub-processor",
       "evidence": "Netsuite / Oracle"
     },
@@ -34074,7 +33272,7 @@
     },
     {
       "from": "ringcentral",
-      "to": "gooddata",
+      "to": "gooddata-ai",
       "source_url": "https://www.ringcentral.com/legal/dpa-subprocessor-list.html",
       "evidence": "GoodData Corporation"
     },
@@ -34098,7 +33296,7 @@
     },
     {
       "from": "ringcentral",
-      "to": "fireworksai",
+      "to": "fireworks-ai",
       "source_url": "https://www.ringcentral.com/legal/dpa-subprocessor-list.html",
       "evidence": "FireworksAI"
     },
@@ -34128,7 +33326,7 @@
     },
     {
       "from": "ringcentral",
-      "to": "redis-labs",
+      "to": "redis",
       "source_url": "https://www.ringcentral.com/legal/dpa-subprocessor-list.html",
       "evidence": "Redis Labs"
     },
@@ -34272,7 +33470,7 @@
     },
     {
       "from": "ringcentral",
-      "to": "verint",
+      "to": "verint-systems",
       "source_url": "https://www.ringcentral.com/legal/dpa-subprocessor-list.html",
       "evidence": "Verint"
     },
@@ -34284,7 +33482,7 @@
     },
     {
       "from": "malwarebytes",
-      "to": "ada-support",
+      "to": "ada",
       "source_url": "https://www.malwarebytes.com/legal/subprocessors",
       "evidence": "Ada Support Inc"
     },
@@ -34410,7 +33608,7 @@
     },
     {
       "from": "pexip",
-      "to": "microsoft-365-copilot",
+      "to": "microsoft",
       "source_url": "https://docs.pexip.com/partner/service/subprocessors.htm",
       "evidence": "Microsoft 365 Copilot"
     },
@@ -34488,7 +33686,7 @@
     },
     {
       "from": "watchguard",
-      "to": "bitdefender-s-r-l",
+      "to": "bitdefender",
       "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors",
       "evidence": "Bitdefender S.R.L"
     },
@@ -34728,7 +33926,7 @@
     },
     {
       "from": "episerver",
-      "to": "google-analytics-optional-sub-processor",
+      "to": "google",
       "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
       "evidence": "Google Analytics (Optional Sub-processor)"
     },
@@ -34752,7 +33950,7 @@
     },
     {
       "from": "episerver",
-      "to": "full-story",
+      "to": "fullstory",
       "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
       "evidence": "Full Story"
     },
@@ -34764,7 +33962,7 @@
     },
     {
       "from": "episerver",
-      "to": "bandwidth",
+      "to": "bandwidth-inc",
       "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
       "evidence": "Bandwidth"
     },
@@ -34788,7 +33986,7 @@
     },
     {
       "from": "episerver",
-      "to": "amazon-ses-optional-sub-processor",
+      "to": "amazon-web-services",
       "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
       "evidence": "Amazon SES (Optional Sub-processor)"
     },
@@ -34800,7 +33998,7 @@
     },
     {
       "from": "episerver",
-      "to": "google-gemini",
+      "to": "google",
       "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
       "evidence": "Google Gemini"
     },
@@ -34830,7 +34028,7 @@
     },
     {
       "from": "qlik",
-      "to": "google-firebase",
+      "to": "google",
       "source_url": "https://pages.qlik.com/qlik_subprocessor_list.html",
       "evidence": "Google Firebase"
     },
@@ -34980,7 +34178,7 @@
     },
     {
       "from": "meltwater",
-      "to": "segment-i-o",
+      "to": "segment",
       "source_url": "https://www.meltwater.com/en/privacy/subprocessors",
       "evidence": "Segment i.o, Inc"
     },
@@ -35010,7 +34208,7 @@
     },
     {
       "from": "meltwater",
-      "to": "dropbox-international-unlimited-company",
+      "to": "dropbox",
       "source_url": "https://www.meltwater.com/en/privacy/subprocessors",
       "evidence": "Dropbox International Unlimited Company"
     },
@@ -35022,7 +34220,7 @@
     },
     {
       "from": "meltwater",
-      "to": "microsoft-clarity",
+      "to": "microsoft",
       "source_url": "https://www.meltwater.com/en/privacy/subprocessors",
       "evidence": "Microsoft Clarity"
     },
@@ -35250,7 +34448,7 @@
     },
     {
       "from": "sonar",
-      "to": "google-ireland",
+      "to": "google",
       "source_url": "https://www.sonarsource.com/legal/sub-processors/",
       "evidence": "Google Ireland Limited"
     },
@@ -35520,7 +34718,7 @@
     },
     {
       "from": "idrive-inc",
-      "to": "brevo-sendinblue",
+      "to": "brevo",
       "source_url": "https://www.idrive.com/authorized-sub-processor",
       "evidence": "Brevo (Sendinblue)"
     },
@@ -35532,7 +34730,7 @@
     },
     {
       "from": "idrive-inc",
-      "to": "surveymonkey-momentive",
+      "to": "surveymonkey",
       "source_url": "https://www.idrive.com/authorized-sub-processor",
       "evidence": "SurveyMonkey (Momentive)"
     },
@@ -35652,7 +34850,7 @@
     },
     {
       "from": "snyk",
-      "to": "orca-security-uk",
+      "to": "orca-security",
       "source_url": "https://snyk.io/policies/subprocessors/",
       "evidence": "Orca Security UK Ltd"
     },
@@ -35736,7 +34934,7 @@
     },
     {
       "from": "snyk",
-      "to": "oracle-netsuite",
+      "to": "netsuite",
       "source_url": "https://snyk.io/policies/subprocessors/",
       "evidence": "Oracle Netsuite"
     },
@@ -35832,7 +35030,7 @@
     },
     {
       "from": "sprout-social",
-      "to": "postmark-activecampaign",
+      "to": "postmark",
       "source_url": "https://sproutsocial.com/legal/subprocessors/",
       "evidence": "Postmark (ActiveCampaign, LLC)"
     },
@@ -36024,13 +35222,13 @@
     },
     {
       "from": "blackboard",
-      "to": "sinch",
+      "to": "sinch-ab",
       "source_url": "https://www.blackboard.com/trust-center/sub-processors",
       "evidence": "Sinch"
     },
     {
       "from": "blackboard",
-      "to": "abbyy-finereader",
+      "to": "abbyy",
       "source_url": "https://www.blackboard.com/trust-center/sub-processors",
       "evidence": "ABBYY (FineReader)"
     },
@@ -36048,7 +35246,7 @@
     },
     {
       "from": "blackboard",
-      "to": "check-point-software-technologies",
+      "to": "check-point",
       "source_url": "https://www.blackboard.com/trust-center/sub-processors",
       "evidence": "Check Point Software Technologies"
     },
@@ -36084,7 +35282,7 @@
     },
     {
       "from": "blackboard",
-      "to": "mongo-db",
+      "to": "mongodb",
       "source_url": "https://www.blackboard.com/trust-center/sub-processors",
       "evidence": "Mongo DB"
     },
@@ -36270,7 +35468,7 @@
     },
     {
       "from": "friendliai",
-      "to": "microsoft-clarity",
+      "to": "microsoft",
       "source_url": "https://friendli.ai/subprocessors",
       "evidence": "Microsoft Corporation (Clarity)"
     },
@@ -36588,7 +35786,7 @@
     },
     {
       "from": "replit",
-      "to": "hashicorp-cloud",
+      "to": "hashicorp",
       "source_url": "https://replit.com/subprocessors",
       "evidence": "HashiCorp Cloud"
     },
@@ -36672,7 +35870,7 @@
     },
     {
       "from": "replit",
-      "to": "parallel-web-systems",
+      "to": "parallel",
       "source_url": "https://replit.com/subprocessors",
       "evidence": "Parallel Web Systems"
     },
@@ -36804,7 +36002,7 @@
     },
     {
       "from": "seekr",
-      "to": "oracle-cloud-infrastructure",
+      "to": "oracle",
       "source_url": "https://www.seekr.com/sub-processors/",
       "evidence": "Oracle Cloud Infrastructure"
     },
@@ -36828,7 +36026,7 @@
     },
     {
       "from": "seekr",
-      "to": "sumologic",
+      "to": "sumo-logic",
       "source_url": "https://www.seekr.com/sub-processors/",
       "evidence": "Sumologic"
     },
@@ -36924,7 +36122,7 @@
     },
     {
       "from": "digimarc",
-      "to": "aws",
+      "to": "amazon-web-services",
       "source_url": "https://www.digimarc.com/legal/sub-processors",
       "evidence": "Amazon Web Services, Inc"
     },
@@ -37014,7 +36212,7 @@
     },
     {
       "from": "world-labs",
-      "to": "aws",
+      "to": "amazon-web-services",
       "source_url": "https://www.worldlabs.ai/subprocessors",
       "evidence": "AWS"
     }
@@ -37037,6 +36235,124 @@
     "hetzner": "hetzner-online",
     "hetzner-finland": "hetzner-online",
     "exa-labs": "exa",
-    "recaptcha": "google"
+    "recaptcha": "google",
+    "the-rocket-science-group": "mailchimp",
+    "mail-chimp": "mailchimp",
+    "parallel-web-systems": "parallel",
+    "google-gemini": "google",
+    "google-ireland": "google",
+    "google-firebase": "google",
+    "google-vertex-ai": "google",
+    "google-resources": "google",
+    "google-analytics-optional-sub-processor": "google",
+    "google-firebase-google-analytics-google-gemini": "google",
+    "microsoft-clarity": "microsoft",
+    "microsoft-ireland-operations": "microsoft",
+    "microsoft-365-copilot": "microsoft",
+    "microsoft-office": "microsoft",
+    "international-business-machines-ibm": "ibm",
+    "gong-io": "gong",
+    "pylon-labs": "pylon",
+    "pylon-labs-inc": "pylon",
+    "redis-labs": "redis",
+    "decagon-ai": "decagon",
+    "bandwidth": "bandwidth-inc",
+    "gooddata": "gooddata-ai",
+    "perplexity": "perplexity-ai",
+    "modal-labs-inc": "modal",
+    "ada-support": "ada",
+    "oracle-cloud-infrastructure": "oracle",
+    "oracle-cloud-infrastructure-oci": "oracle",
+    "oracle-cloud": "oracle",
+    "oracle-america-oracle": "oracle",
+    "oracle-israel": "oracle",
+    "oracle-eloqua": "oracle",
+    "oracle-netsuite": "netsuite",
+    "netsuite-oracle": "netsuite",
+    "zvc-australia": "zoom",
+    "zvc-canada": "zoom",
+    "zvc-france-sas": "zoom",
+    "zvc-germany": "zoom",
+    "zvc-india-pvt": "zoom",
+    "zvc-japan-k-k": "zoom",
+    "zvc-netherlands": "zoom",
+    "zvc-singapore-pte": "zoom",
+    "zvc-uk": "zoom",
+    "zm-services-india-private": "zoom",
+    "amazon-bedrock": "amazon-web-services",
+    "amazon-ses-optional-sub-processor": "amazon-web-services",
+    "amazon-support-services-costa-rica-srl": "amazon-web-services",
+    "amazon-technological-services-sas": "amazon-web-services",
+    "amazon-data-services-argentina-s-r-l": "amazon-web-services",
+    "amazon-data-services-bahrain-w-l-l": "amazon-web-services",
+    "amazon-data-services-belgium-srl": "amazon-web-services",
+    "amazon-data-services-costa-rica-s-r-l": "amazon-web-services",
+    "amazon-data-services-czech-republic-s-r-o": "amazon-web-services",
+    "amazon-data-services-denmark-aps": "amazon-web-services",
+    "amazon-data-services-ecuador-amznecu-cia-ltda": "amazon-web-services",
+    "amazon-data-services-estonia-o": "amazon-web-services",
+    "amazon-data-services-france-sas": "amazon-web-services",
+    "amazon-data-services-greece-single-member-ae": "amazon-web-services",
+    "amazon-data-services-hungary-korl-tolt-felel-ss-g-t-rsas-g": "amazon-web-services",
+    "amazon-data-services-italy-s-r-l": "amazon-web-services",
+    "amazon-data-services-japan-g-k": "amazon-web-services",
+    "amazon-data-services-malaysia-sdn-bhd": "amazon-web-services",
+    "amazon-data-services-netherlands-n-v": "amazon-web-services",
+    "amazon-data-services-norway-as": "amazon-web-services",
+    "amazon-data-services-panama-s-de-r-l": "amazon-web-services",
+    "amazon-data-services-portugal-lda": "amazon-web-services",
+    "amazon-data-services-romania-s-r-l": "amazon-web-services",
+    "amazon-data-services-spain-s-l-u": "amazon-web-services",
+    "amazon-data-services-zagreb-d-o-o": "amazon-web-services",
+    "adobe-systems": "adobe",
+    "adobe-e-sign": "adobe",
+    "elevenlabs-io": "elevenlabs",
+    "message-bird": "messagebird",
+    "mongo-db": "mongodb",
+    "full-story": "fullstory",
+    "segment-i-o": "segment",
+    "sendsafely-b2b": "sendsafely",
+    "exa-labs-public-preview": "exa",
+    "fireworks-ai-inc": "fireworks-ai",
+    "fireworksai": "fireworks-ai",
+    "glean-technologies": "glean",
+    "slack-technologies-llc": "slack",
+    "linkedin-ireland-unlimited-company": "linkedin",
+    "linkedin-sales-navigator": "linkedin",
+    "deepgram-inc": "deepgram",
+    "deepl-se": "deepl",
+    "mistral-ai-sas": "mistral-ai",
+    "notion-labs-notion": "notion",
+    "hashicorp-cloud": "hashicorp",
+    "crusoe-cloud": "crusoe",
+    "crusoe-energy-system-llc": "crusoe",
+    "grafana-labs-raintank": "grafana-labs",
+    "check-point-software-technologies": "check-point",
+    "checkout-technology-ltd": "checkout",
+    "box-com": "box",
+    "brevo-sendinblue": "brevo",
+    "backblaze-resources": "backblaze",
+    "bitdefender-s-r-l": "bitdefender",
+    "cognizant-worldwide": "cognizant",
+    "genesys-telecommunications-laboratories": "genesys",
+    "dropbox-international-unlimited-company": "dropbox",
+    "equinix-france-sas": "equinix",
+    "orca-security-uk": "orca-security",
+    "sisense-sf": "sisense",
+    "tenable-holdings": "tenable",
+    "postmark-activecampaign": "postmark",
+    "alibaba-cloud-us": "alibaba-cloud",
+    "runway-ai": "runway",
+    "lightricks-ltda-ai": "lightricks",
+    "abbyy-finereader": "abbyy",
+    "greenhouse": "greenhouse-software",
+    "fal": "fal-ai",
+    "creatify": "creatify-ai",
+    "brave": "brave-software",
+    "verint": "verint-systems",
+    "sinch": "sinch-ab",
+    "sumologic": "sumo-logic",
+    "perimeter81": "perimeter-81",
+    "surveymonkey-momentive": "surveymonkey"
   }
 }
