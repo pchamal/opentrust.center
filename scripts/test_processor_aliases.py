@@ -203,6 +203,15 @@ def main() -> int:
     check(canonical_processor_id("rapid", r7_reg) == "rapid7", "Rapid, Inc. is Rapid7, not RapidAPI")
     algo_reg = {**register, "algolia": {"slug": "algolia", "name": "Algolia", "domain": "algolia.com"}}
     check(canonical_processor_id("morphl-r-d-srl", algo_reg) == "algolia", "MorphL R&D SRL is Algolia")
+    pyd_reg = {**register, "pydantic": {"slug": "pydantic", "name": "Pydantic", "domain": "pydantic.dev"}}
+    check(canonical_processor_id("pydantic-logfire", pyd_reg) == "pydantic", "Pydantic Logfire is Pydantic")
+    conga_reg = {**register, "conga": {"slug": "conga", "name": "Conga", "domain": "conga.com"}}
+    check(canonical_processor_id("appextremes-dba-conga", conga_reg) == "conga", "AppExtremes dba Conga is Conga")
+    check(canonical_processor_id("oracle-america-netsuite", {**register, "netsuite": {"slug": "netsuite", "name": "NetSuite", "domain": "netsuite.com"}}) == "netsuite", "Oracle America NetSuite is NetSuite")
+    docebo_reg = {**register, "docebo": {"slug": "docebo", "name": "Docebo", "domain": "docebo.com"}}
+    check(canonical_processor_id("docebo-na", docebo_reg) == "docebo", "Docebo NA is Docebo")
+    metro_reg = {**register, "metronome": {"slug": "metronome", "name": "Metronome", "domain": "metronome.com"}}
+    check(canonical_processor_id("metronome-holdings", metro_reg) == "metronome", "Metronome Holdings is Metronome")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 
