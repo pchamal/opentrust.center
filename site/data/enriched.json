@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T20:09:03Z",
+  "generated_at": "2026-08-27T20:46:21Z",
   "companies": [
     {
       "rank": 1,
@@ -90234,22 +90234,30 @@
       "name": "CloudAMQP",
       "slug": "84codes-cloudamqp",
       "domain": "cloudamqp.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.cloudamqp.com/legal/security_and_compliance.html",
+      "final_url": "https://www.cloudamqp.com/legal/security_and_compliance.html",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
       "source": "https://www.kraken.tech/legal/subprocessors",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, HIPAA.",
       "list": "named-processor-gap",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "SOC 2 Type II",
+        "HIPAA"
+      ],
+      "links": {
+        "security": "https://www.cloudamqp.com/legal/security_and_compliance.html"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 36,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "marks": 16
+        }
       }
     },
     {
@@ -92158,12 +92166,31 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "links": {
+        "dpa": "https://cloudmersive.com/data-processing-dpa",
+        "subprocessors": "https://cloudmersive.com/subprocessors"
+      },
+      "subprocessors": [
+        "google",
+        "amazon-web-services",
+        "microsoft",
+        "ovhcloud",
+        "fullstory",
+        "docusign",
+        "stripe",
+        "sendgrid",
+        "answerconnect",
+        "dropbox",
+        "freshworks",
+        "lambda"
+      ],
       "disclosure": {
-        "score": 0,
+        "score": 16,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "dpa": 8,
+          "processors": 8
+        }
       },
       "official_url": "https://cloudmersive.com/"
     },
@@ -92172,24 +92199,37 @@
       "name": "Cronofy",
       "slug": "cronofy",
       "domain": "cronofy.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.cronofy.com/compliance-center",
+      "final_url": "https://www.cronofy.com/compliance-center",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://docs.pexip.com/partner/service/subprocessors.htm",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, ISO 27018, ISO 27701.",
       "list": "named-processor-gap",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27018",
+        "ISO 27701"
+      ],
+      "links": {
+        "trust": "https://www.cronofy.com/compliance-center"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 56,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 30,
+          "longevity": 6
+        }
       },
-      "official_url": "https://www.cronofy.com/"
+      "official_url": "https://www.cronofy.com/",
+      "founded_year": 2014,
+      "founded_source": "https://www.cronofy.com/about"
     },
     {
       "rank": 3164,
@@ -92317,22 +92357,29 @@
       "name": "ChartMogul",
       "slug": "chartmogul",
       "domain": "chartmogul.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://chartmogul.com/security/",
+      "final_url": "https://chartmogul.com/security/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://snyk.io/policies/subprocessors/",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II.",
       "list": "named-processor-gap",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "SOC 2 Type II"
+      ],
+      "links": {
+        "security": "https://chartmogul.com/security/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 30,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "marks": 10
+        }
       },
       "official_url": "https://chartmogul.com/"
     },
@@ -92393,14 +92440,21 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "dpa": "https://www.cookieyes.com/dpa/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 11,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "dpa": 8,
+          "longevity": 3
+        }
       },
-      "official_url": "https://www.cookieyes.com/"
+      "official_url": "https://www.cookieyes.com/",
+      "founded_year": 2020,
+      "founded_source": "https://www.cookieyes.com/"
     },
     {
       "rank": 3171,
@@ -92513,22 +92567,39 @@
       "name": "Descope",
       "slug": "descope",
       "domain": "descope.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.descope.com/security-compliance",
+      "final_url": "https://www.descope.com/security-compliance",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://www.hibob.com/privacy/hibob-subsidiaries-and-sub-processors/",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, FedRAMP High.",
       "list": "named-processor-gap",
-      "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "FedRAMP High"
+      ],
+      "links": {
+        "security": "https://www.descope.com/security-compliance",
+        "subprocessors": "https://www.descope.com/sub-processors"
+      },
+      "subprocessors": [
+        "amazon-web-services",
+        "alphabet",
+        "microsoft",
+        "cloudflare",
+        "twilio"
+      ],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 60,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 32,
+          "processors": 8
+        }
       },
       "official_url": "https://www.descope.com/"
     },
@@ -92738,11 +92809,15 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "longevity": 10
+        }
       },
-      "official_url": "https://www.capgemini.com/"
+      "official_url": "https://www.capgemini.com/",
+      "founded_year": 1967,
+      "founded_source": "https://www.capgemini.com/"
     },
     {
       "rank": 3158,
@@ -92875,9 +92950,9 @@
       "name": "Discourse",
       "slug": "discourse",
       "domain": "discourse.org",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.discourse.org/security",
+      "final_url": "https://www.discourse.org/security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -92885,13 +92960,29 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "links": {
+        "security": "https://www.discourse.org/security",
+        "subprocessors": "https://www.discourse.org/subprocessors"
+      },
+      "subprocessors": [
+        "amazon-web-services",
+        "apple",
+        "automattic",
+        "equinix",
+        "google",
+        "keycdn"
+      ],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 34,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "processors": 8,
+          "longevity": 6
+        }
+      },
+      "founded_year": 2013,
+      "founded_source": "https://www.discourse.org/about"
     },
     {
       "rank": 3165,
@@ -94024,12 +94115,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "dpa": "https://knock.app/legal/data-processing-addendum"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "dpa": 8
+        }
       },
       "official_url": "https://knock.app/"
     },
@@ -94048,12 +94143,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "dpa": "https://www.imgix.com/data-processing-agreement"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "dpa": 8
+        }
       },
       "official_url": "https://www.imgix.com/"
     },
@@ -94331,9 +94430,9 @@
       "name": "HappyFox",
       "slug": "happyfox",
       "domain": "happyfox.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.happyfox.com/data-security/",
+      "final_url": "https://www.happyfox.com/data-security/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -94341,12 +94440,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.happyfox.com/data-security/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       },
       "official_url": "https://www.happyfox.com/"
     },
@@ -95256,10 +95359,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 2005,
+      "founded_source": "https://grow.cleverbridge.com/about"
     },
     {
       "rank": 3271,
@@ -95414,12 +95521,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "dpa": "https://www.eficode.com/data-processing-agreement"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "dpa": 8
+        }
       }
     },
     {
@@ -95538,13 +95649,20 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "dpa": "https://elasticemail.com/legal/data-processing-addendum"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 16,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "dpa": 8,
+          "longevity": 8
+        }
+      },
+      "founded_year": 2010,
+      "founded_source": "https://elasticemail.com/"
     },
     {
       "rank": 3283,
@@ -97989,10 +98107,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 2004,
+      "founded_source": "https://www.blitline.com/v4/home"
     },
     {
       "rank": 3360,
@@ -103431,6 +103553,137 @@
         "tier": "silent",
         "factors": {}
       }
+    },
+    {
+      "rank": 3571,
+      "name": "MI Brand Distillery",
+      "slug": "media-intelligence-brand-distillery",
+      "domain": "mibdistillery.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 23,
+      "source": "https://www.meltwater.com/en/privacy/subprocessors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      },
+      "official_url": "https://www.mibdistillery.com/"
+    },
+    {
+      "rank": 3572,
+      "name": "Scandit",
+      "slug": "scandit",
+      "domain": "scandit.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://www.digimarc.com/legal/sub-processors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {
+        "subprocessors": "https://www.scandit.com/privacy/subprocessors/"
+      },
+      "subprocessors": [
+        "amazon-web-services",
+        "google",
+        "hetzner-online"
+      ],
+      "disclosure": {
+        "score": 16,
+        "tier": "silent",
+        "factors": {
+          "processors": 8,
+          "longevity": 8
+        }
+      },
+      "official_url": "https://www.scandit.com/",
+      "founded_year": 2009,
+      "founded_source": "https://www.scandit.com/"
+    },
+    {
+      "rank": 3573,
+      "name": "Storyteq",
+      "slug": "storyteq",
+      "domain": "storyteq.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://www.smartsheet.com/legal/subprocessors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      },
+      "official_url": "https://storyteq.com/"
+    },
+    {
+      "rank": 3574,
+      "name": "AnswerConnect",
+      "slug": "answerconnect",
+      "domain": "answerconnect.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://cloudmersive.com/subprocessors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      },
+      "official_url": "https://www.answerconnect.com/"
+    },
+    {
+      "rank": 3575,
+      "name": "KeyCDN",
+      "slug": "keycdn",
+      "domain": "keycdn.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://www.discourse.org/subprocessors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      },
+      "official_url": "https://www.keycdn.com/"
     }
   ],
   "notes": "Public pages only. Incomplete by nature. No invented URLs, years, certs, or processors."
