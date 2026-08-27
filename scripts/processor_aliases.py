@@ -324,6 +324,17 @@ REGISTER_ALIASES: dict[str, str] = {
     "capgemini-america": "capgemini",
     "descope-technologies-israel-2022": "descope",
     "frontapp": "front",
+    # Same-company leftovers after the last named-processor batch.
+    "pega-japan": "pegasystems",
+    "habu": "liveramp",
+    "sajari": "algolia",
+    "sajari-a-k-a-search-io": "algolia",
+    "sajari-usa": "algolia",
+    "dns-made-easy": "digicert",
+    "clumio": "commvault",
+    # Wire ids that land on rows filed in this increment.
+    "hex-technologies": "hex",
+    "knock-labs": "knock",
 }
 
 # Published header garbage. Not a company. Do not file or alias.

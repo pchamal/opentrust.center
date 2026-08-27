@@ -108,6 +108,21 @@ def main() -> int:
     check(canonical_processor_id("tray-io", tray_reg) == "tray-ai", "Tray.io is Tray.ai")
     cart_reg = {**register, "cartesia": {"slug": "cartesia", "name": "Cartesia", "domain": "cartesia.ai"}}
     check(canonical_processor_id("cartesia-ai", cart_reg) == "cartesia", "Cartesia AI is Cartesia")
+    pega_reg = {**register, "pegasystems": {"slug": "pegasystems", "name": "Pegasystems", "domain": "pega.com"}}
+    check(canonical_processor_id("pega-japan", pega_reg) == "pegasystems", "Pega Japan is Pegasystems")
+    ramp_reg = {**register, "liveramp": {"slug": "liveramp", "name": "LiveRamp", "domain": "liveramp.com"}}
+    check(canonical_processor_id("habu", ramp_reg) == "liveramp", "Habu is LiveRamp")
+    algo_reg = {**register, "algolia": {"slug": "algolia", "name": "Algolia", "domain": "algolia.com"}}
+    check(canonical_processor_id("sajari-a-k-a-search-io", algo_reg) == "algolia", "Search.io is Algolia")
+    check(canonical_processor_id("sajari", algo_reg) == "algolia", "Sajari is Algolia")
+    digi_reg = {**register, "digicert": {"slug": "digicert", "name": "DigiCert", "domain": "digicert.com"}}
+    check(canonical_processor_id("dns-made-easy", digi_reg) == "digicert", "DNS Made Easy is DigiCert")
+    comm_reg = {**register, "commvault": {"slug": "commvault", "name": "Commvault", "domain": "commvault.com"}}
+    check(canonical_processor_id("clumio", comm_reg) == "commvault", "Clumio is Commvault")
+    hex_reg = {**register, "hex": {"slug": "hex", "name": "Hex", "domain": "hex.tech"}}
+    check(canonical_processor_id("hex-technologies", hex_reg) == "hex", "Hex Technologies is Hex")
+    knock_reg = {**register, "knock": {"slug": "knock", "name": "Knock", "domain": "knock.app"}}
+    check(canonical_processor_id("knock-labs", knock_reg) == "knock", "Knock Labs is Knock")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 
