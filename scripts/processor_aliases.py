@@ -335,6 +335,18 @@ REGISTER_ALIASES: dict[str, str] = {
     # Wire ids that land on rows filed in this increment.
     "hex-technologies": "hex",
     "knock-labs": "knock",
+    # Same-company leftovers after the last named-processor batch.
+    "neverbounce": "zoominfo",
+    "callinize-tenfold": "liveperson",
+    "voicebase": "liveperson",
+    "zecops-israel": "jamf",
+    "workcanvas-workassests": "monday",
+    "seedance-2-0": "bytedance",
+    "nuorder": "lightspeed-commerce",
+    # Databricks acquired Neon. databricks is on the register.
+    "neon": "databricks",
+    # Wire id that lands on the row filed in this increment.
+    "pineapple-technology-incident-io": "incident-io",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
