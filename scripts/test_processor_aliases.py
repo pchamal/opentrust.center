@@ -245,6 +245,26 @@ def main() -> int:
     check(len(google_edges) == 2, f"two Google names stay: {google_edges}")
     check({e["evidence"] for e in google_edges} == {"Google Gemini", "Google Cloud Platform"}, "published names stay")
 
+    ot_reg = {**register, "onetrust": {"slug": "onetrust", "name": "OneTrust", "domain": "onetrust.com"}}
+    check(canonical_processor_id("tugboat-logic", ot_reg) == "onetrust", "Tugboat Logic is OneTrust")
+    ust_reg = {**register, "ust": {"slug": "ust", "name": "UST", "domain": "ust.com"}}
+    check(canonical_processor_id("xpanxion", ust_reg) == "ust", "Xpanxion is UST")
+    telus_reg = {**register, "telus": {"slug": "telus", "name": "TELUS", "domain": "telus.com"}}
+    check(
+        canonical_processor_id("transactel-international-services-d-b-a-telus-international", telus_reg) == "telus",
+        "Transactel is TELUS",
+    )
+    freepik_reg = {**register, "freepik": {"slug": "freepik", "name": "Freepik", "domain": "freepik.com"}}
+    check(canonical_processor_id("freepik-company-s-l-u", freepik_reg) == "freepik", "Freepik Company is Freepik")
+    check(skip_processor("it", "IT LLC"), "it is garbage")
+    dell_reg = {**register, "dell-technologies": {"slug": "dell-technologies", "name": "Dell Technologies", "domain": "delltechnologies.com"}}
+    check(canonical_processor_id("dell", dell_reg) == "dell-technologies", "Dell is Dell Technologies")
+    check(canonical_processor_id("firebase", {**register, "google": register["google"]}) == "google", "Firebase is Google")
+    pp_reg = {**register, "proofpoint": {"slug": "proofpoint", "name": "Proofpoint", "domain": "proofpoint.com"}}
+    check(canonical_processor_id("proofpoint-systems", pp_reg) == "proofpoint", "Proofpoint Systems is Proofpoint")
+    lm_reg = {**register, "link-motion": {"slug": "link-motion", "name": "Link Motion", "domain": "link-motion.com"}}
+    check(canonical_processor_id("link-motion-inc", lm_reg) == "link-motion", "Link Motion Inc is Link Motion")
+
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch
 

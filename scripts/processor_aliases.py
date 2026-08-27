@@ -425,11 +425,30 @@ REGISTER_ALIASES: dict[str, str] = {
     "active-communications-europe": "audiocodes",
     # LiveRamp acquired Diablo.ai in 2021. habu / datafleets already land here.
     "diablo-ai": "liveramp",
+    # Same-company leftovers after the last named-processor batch.
+    # OneTrust acquired Tugboat Logic; tugboatlogic.com redirects to onetrust.com.
+    "tugboat-logic": "onetrust",
+    # UST Xpanxion; xpanxion.com redirects to ust.com. ust is on the register.
+    "xpanxion": "ust",
+    # Transactel / TELUS International lands on the TELUS row filed earlier.
+    "transactel-international-services-d-b-a-telus-international": "telus",
+    # Same brand, two published legal names on first-party lists.
+    "freepik-company-s-l-u": "freepik",
+    "zight-formerly-cloudplus": "zight-formerly-cloudapp",
+    "intouchcx-disrupt": "intouchcx",
+    "transunion-canada": "transunion-formerly-neustar-information-services",
+    "kiss-metrics-usage-analytics": "kiss-metrics",
+    # Same-company leftovers from Wikipedia top-up this hour.
+    "dell": "dell-technologies",
+    "firebase": "google",
+    "proofpoint-systems": "proofpoint",
+    "link-motion-inc": "link-motion",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
 SKIP_PROCESSOR_IDS = {
     "entity-name",
+    "it",
     "customers-have-discretion-to-select-a-different-location",
     "bob-finance-module",
     "optional-features-for-the-bob-finance-module",
@@ -440,6 +459,7 @@ SKIP_PROCESSOR_IDS = {
 }
 SKIP_PROCESSOR_NAMES = {
     "entity name",
+    "it llc",
     "customers have discretion to select a different location",
     "bob finance module",
     "optional features for the bob finance module",
