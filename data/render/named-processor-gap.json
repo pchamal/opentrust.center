@@ -1,79 +1,77 @@
 {
   "rule": "Named processor not on the register jumps the queue. Alias graph ids that are the same company as an existing slug. Completeness rates the file. Portal vendors are never named. Entity Name is garbage. Never invent a second dossier for an alias. Never invent domains.",
   "aliases_added": {
-    "the-rocket-science-group": "mailchimp",
-    "mail-chimp": "mailchimp",
-    "parallel-web-systems": "parallel",
-    "google-gemini": "google",
-    "microsoft-clarity": "microsoft",
-    "microsoft-ireland-operations": "microsoft",
-    "international-business-machines-ibm": "ibm",
-    "gong-io": "gong",
-    "pylon-labs": "pylon",
-    "redis-labs": "redis",
-    "decagon-ai": "decagon",
-    "bandwidth": "bandwidth-inc",
-    "gooddata": "gooddata-ai",
-    "perplexity": "perplexity-ai",
-    "modal-labs-inc": "modal",
-    "ada-support": "ada",
-    "oracle-cloud-infrastructure": "oracle",
-    "oracle-netsuite": "netsuite",
-    "zvc-*": "zoom",
-    "zm-services-india-private": "zoom",
-    "amazon-data-services-*": "amazon-web-services"
+    "marketo": "adobe",
+    "sparkpost": "messagebird",
+    "solvvy": "zoom",
+    "keybase": "zoom",
+    "saasbee-hefei": "zoom",
+    "saasbee-software-hangzhou": "zoom"
   },
   "filed": [
-    {"slug": "gainsight", "named_by": 6, "domain": "gainsight.com", "domain_source": "first-party-trust-page"},
-    {"slug": "vultr", "named_by": 3, "domain": "vultr.com", "domain_source": "first-party-docs"},
-    {"slug": "posthog", "named_by": 3, "domain": "posthog.com", "domain_source": "first-party-homepage"},
-    {"slug": "ada", "named_by": 3, "domain": "ada.cx", "domain_source": "first-party-docs"},
-    {"slug": "logz-io", "named_by": 2, "domain": "logz.io", "domain_source": "wikidata-p856"},
-    {"slug": "tray-ai", "named_by": 2, "domain": "tray.ai", "domain_source": "first-party-homepage"},
-    {"slug": "vitally", "named_by": 2, "domain": "vitally.io", "domain_source": "first-party-homepage"},
-    {"slug": "workvivo", "named_by": 2, "domain": "workvivo.com", "domain_source": "first-party-homepage"},
-    {"slug": "user-testing", "named_by": 2, "domain": "usertesting.com", "domain_source": "first-party-homepage"},
-    {"slug": "assemblyai", "named_by": 2, "domain": "assemblyai.com", "domain_source": "first-party-homepage"},
-    {"slug": "clerk", "named_by": 2, "domain": "clerk.com", "domain_source": "first-party-homepage"},
-    {"slug": "linear", "named_by": 2, "domain": "linear.app", "domain_source": "first-party-homepage"},
-    {"slug": "bugsnag", "named_by": 2, "domain": "bugsnag.com", "domain_source": "first-party-homepage"},
-    {"slug": "appcues", "named_by": 2, "domain": "appcues.com", "domain_source": "first-party-homepage"},
-    {"slug": "productboard", "named_by": 2, "domain": "productboard.com", "domain_source": "first-party-homepage"},
-    {"slug": "sendbird", "named_by": 2, "domain": "sendbird.com", "domain_source": "first-party-homepage"},
-    {"slug": "authzed", "named_by": 2, "domain": "authzed.com", "domain_source": "first-party-homepage"},
-    {"slug": "enterpret", "named_by": 2, "domain": "enterpret.com", "domain_source": "first-party-homepage"},
-    {"slug": "databank", "named_by": 2, "domain": "databank.com", "domain_source": "wikidata-p856"},
-    {"slug": "suki-ai", "named_by": 2, "domain": "suki.ai", "domain_source": "first-party-homepage"}
+    {"slug": "84codes-cloudamqp", "name": "CloudAMQP", "named_by": 2, "domain": "cloudamqp.com", "domain_source": "first-party-homepage"},
+    {"slug": "cinder", "name": "Cinder", "named_by": 2, "domain": "cinder.ai", "domain_source": "first-party-homepage"},
+    {"slug": "constella-intelligence", "name": "Constella Intelligence", "named_by": 2, "domain": "constella.ai", "domain_source": "first-party-homepage"},
+    {"slug": "cybersource", "name": "Cybersource", "named_by": 2, "domain": "cybersource.com", "domain_source": "wikidata-p856"},
+    {"slug": "maestroqa", "name": "MaestroQA", "named_by": 2, "domain": "maestroqa.com", "domain_source": "first-party-homepage"},
+    {"slug": "singlestore", "name": "SingleStore", "named_by": 2, "domain": "singlestore.com", "domain_source": "wikidata-p856"},
+    {"slug": "sutherland-global-services", "name": "Sutherland Global", "named_by": 2, "domain": "sutherlandglobal.com", "domain_source": "first-party-homepage"},
+    {"slug": "intuition-machines-hcaptcha", "name": "hCaptcha", "named_by": 2, "domain": "hcaptcha.com", "domain_source": "wikidata-p856"},
+    {"slug": "ownd-aps-parahelp", "name": "Parahelp", "named_by": 2, "domain": "parahelp.com", "domain_source": "first-party-homepage"}
   ],
   "skipped": [
-    {"slug": "ada-support", "named_by": 3, "reason": "same-company-alias-to-ada"},
-    {"slug": "parallel-web-systems", "named_by": 3, "reason": "same-company-alias-to-parallel"},
-    {"slug": "the-rocket-science-group", "named_by": 2, "reason": "same-company-alias-to-mailchimp"},
-    {"slug": "cybersource", "named_by": 2, "reason": "homepage-cloudflare-403"},
-    {"slug": "sparkpost", "named_by": 2, "reason": "rebrand-redirects-to-bird-not-filed"},
+    {"slug": "marketo", "named_by": 2, "reason": "same-company-alias-to-adobe"},
+    {"slug": "sparkpost", "named_by": 2, "reason": "same-company-alias-to-messagebird"},
+    {"slug": "solvvy", "named_by": 2, "reason": "same-company-alias-to-zoom"},
+    {"slug": "keybase", "named_by": 2, "reason": "same-company-alias-to-zoom"},
+    {"slug": "saasbee-hefei", "named_by": 2, "reason": "same-company-alias-to-zoom"},
+    {"slug": "saasbee-software-hangzhou", "named_by": 2, "reason": "same-company-alias-to-zoom"},
+    {"slug": "brighthire", "named_by": 2, "reason": "homepage-cloudflare-403"},
+    {"slug": "hyperdoc", "named_by": 2, "reason": "domain-unverified-parked-or-dead"},
+    {"slug": "sublime-security", "named_by": 2, "reason": "homepage-vercel-429"},
+    {"slug": "sumit-ai", "named_by": 2, "reason": "homepage-is-lander-not-company"},
+    {"slug": "verifi", "named_by": 2, "reason": "homepage-cloudflare-403-no-matching-p856"},
+    {"slug": "bonsai-technologies", "named_by": 2, "reason": "ambiguous-elasticsearch-vs-other-bonsai"},
     {"slug": "castle-global", "named_by": 2, "reason": "ambiguous-hive-vs-castle"},
     {"slug": "castle-global-hive", "named_by": 2, "reason": "ambiguous-hive-vs-castle"},
-    {"slug": "linkedin-marks", "reason": "rejected-learning-catalog-not-company-holds"}
+    {"slug": "kling-ai-pte", "named_by": 2, "reason": "product-only-kuaishou"}
   ],
   "optional_fill": {
-    "walked": ["sendgrid", "vonage", "nylas", "onesignal", "sendsafely", "pusher", "stytch", "postmark", "telesign", "taskus", "turbopuffer", "linkedin", "hetzner-online"],
-    "filed": ["nylas", "onesignal", "pusher", "postmark"],
-    "silent": ["sendgrid", "vonage", "sendsafely", "telesign", "taskus", "stytch", "turbopuffer", "hetzner-online", "linkedin"],
-    "sentry": "portal-host Official page only; vendor not named"
-  },
-  "withdrawn_marks": {
-    "rule": "GDPR/CCPA are regulation-as-rights. Portal-chrome marks stay unread. OneSignal silent file keeps no marks. HIPAA only with a first-party program/BAA page.",
-    "kept": {
-      "assemblyai": ["SOC 2 Type II", "SOC 2 Type I", "PCI DSS"],
-      "clerk": ["SOC 2 Type II", "HIPAA"],
-      "linear": ["SOC 2 Type II", "ISO 27001", "HIPAA"],
-      "enterpret": ["SOC 2 Type II"],
-      "productboard": ["SOC 2 Type II"],
-      "tray-ai": [],
-      "pusher": ["ISO 27001"],
-      "nylas": ["SOC 2 Type II", "ISO 27001", "ISO 27701", "PCI DSS", "HIPAA", "CSA STAR", "EU-US DPF"],
-      "onesignal": []
+    "walked": ["sendgrid", "vonage", "sendsafely", "stytch", "telesign", "taskus", "turbopuffer", "linkedin", "hetzner-online", "vultr", "logz-io", "sendbird", "vitally", "workvivo", "bugsnag"],
+    "filed": {
+      "stytch": ["status"],
+      "telesign": ["status"],
+      "turbopuffer": ["status", "privacy", "dpa"],
+      "linkedin": ["privacy", "dpa"],
+      "hetzner-online": ["privacy", "status"],
+      "logz-io": ["privacy", "status"],
+      "sendbird": ["privacy", "security"],
+      "vitally": ["security", "status", "privacy", "SOC 2"],
+      "workvivo": ["privacy", "security", "status", "subprocessors", "SOC 2 Type II", "ISO 27001"],
+      "bugsnag": ["security"]
+    },
+    "silent": ["sendgrid", "vonage", "sendsafely", "taskus", "vultr"],
+    "rejected": {
+      "logz-io/security": "blog-not-program-page",
+      "sendbird/status": "login-wall",
+      "sendbird/dpa": "marketing-host-pdf",
+      "sendbird/SOC 2": "catalog-sentence-with-gdpr-ccpa-hipaa",
+      "sendbird/HIPAA": "not-a-first-party-program-or-baa-page"
     }
   },
-  "remaining_true_missing_ge3": []
+  "withdrawn_marks": {
+    "rule": "GDPR/CCPA are regulation-as-rights. Portal-chrome marks stay unread. HIPAA only with a first-party program/BAA page.",
+    "cleared": {
+      "maestroqa": "secureframe-rippit-portal-chrome",
+      "ownd-aps-parahelp": "vanta-portal-chrome",
+      "cinder": "vanta-portal-no-first-party-marks",
+      "singlestore": "sprinto-trust-site-portal-chrome"
+    },
+    "kept": {
+      "vitally": ["SOC 2"],
+      "workvivo": ["SOC 2 Type II", "ISO 27001"],
+      "singlestore_year": 2013
+    }
+  },
+  "remaining_true_missing_ge2": 9
 }

@@ -162,6 +162,16 @@ REGISTER_ALIASES: dict[str, str] = {
     "sumologic": "sumo-logic",
     "perimeter81": "perimeter-81",
     "surveymonkey-momentive": "surveymonkey",
+    # Adobe acquired Marketo. adobe is on the register.
+    "marketo": "adobe",
+    # SparkPost is Bird / MessageBird. messagebird is on the register.
+    "sparkpost": "messagebird",
+    # Zoom acquisitions and China engineering entities. zoom is on the register.
+    # ZVC regional rows already land on zoom; do not invent a second dossier.
+    "solvvy": "zoom",
+    "keybase": "zoom",
+    "saasbee-hefei": "zoom",
+    "saasbee-software-hangzhou": "zoom",
 }
 
 # Published header garbage. Not a company. Do not file or alias.

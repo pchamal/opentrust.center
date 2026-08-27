@@ -58,6 +58,15 @@ def main() -> int:
     check(canonical_processor_id("ada-support", ada_reg) == "ada", "Ada Support is Ada")
     check(REGISTER_ALIASES["google-gemini"] == "google", "Gemini is Google")
     check(REGISTER_ALIASES["oracle-netsuite"] == "netsuite", "Oracle NetSuite keeps the NetSuite row")
+    adobe_reg = {**register, "adobe": {"slug": "adobe", "name": "Adobe", "domain": "adobe.com"}}
+    check(canonical_processor_id("marketo", adobe_reg) == "adobe", "Marketo is Adobe")
+    bird_reg = {**register, "messagebird": {"slug": "messagebird", "name": "MessageBird", "domain": "messagebird.com"}}
+    check(canonical_processor_id("sparkpost", bird_reg) == "messagebird", "SparkPost is MessageBird")
+    zoom_reg = {**register, "zoom": {"slug": "zoom", "name": "Zoom", "domain": "zoom.us"}}
+    check(canonical_processor_id("solvvy", zoom_reg) == "zoom", "Solvvy is Zoom")
+    check(canonical_processor_id("keybase", zoom_reg) == "zoom", "Keybase is Zoom")
+    check(canonical_processor_id("saasbee-hefei", zoom_reg) == "zoom", "Saasbee Hefei is Zoom")
+    check(canonical_processor_id("saasbee-software-hangzhou", zoom_reg) == "zoom", "Saasbee Hangzhou is Zoom")
 
     subs = {
         "nodes": [

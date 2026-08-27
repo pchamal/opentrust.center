@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T01:52:25Z",
+  "generated_at": "2026-08-27T02:14:57Z",
   "companies": [
     {
       "rank": 1,
@@ -87917,12 +87917,18 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-subprocessor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "privacy": "https://www.hetzner.com/legal/privacy-policy/",
+        "status": "https://status.hetzner.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 12,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6,
+          "privacy": 6
+        }
       }
     },
     {
@@ -88188,12 +88194,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.stytch.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       },
       "official_url": "https://stytch.com/"
     },
@@ -88247,12 +88257,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.telesign.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       },
       "official_url": "https://telesign.com/"
     },
@@ -88271,12 +88285,20 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.turbopuffer.com",
+        "privacy": "https://turbopuffer.com/privacy-policy",
+        "dpa": "https://turbopuffer.com/dpa.pdf"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 20,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "dpa": 8,
+          "status": 6,
+          "privacy": 6
+        }
       },
       "official_url": "https://turbopuffer.com/"
     },
@@ -88356,12 +88378,18 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "privacy": "https://www.linkedin.com/legal/privacy-policy",
+        "dpa": "https://www.linkedin.com/legal/l/dpa"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 14,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "dpa": 8,
+          "privacy": 6
+        }
       },
       "official_url": "https://www.linkedin.com/"
     },
@@ -89517,12 +89545,18 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "privacy": "https://logz.io/about-us/privacy-policy/",
+        "status": "https://status.logz.io"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 12,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6,
+          "privacy": 6
+        }
       }
     },
     {
@@ -89565,22 +89599,33 @@
       "name": "Vitally",
       "slug": "vitally",
       "domain": "vitally.io",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.vitally.io/security",
+      "final_url": "https://www.vitally.io/security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://zapier.com/legal/subprocessors",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Public trust center. On file: SOC 2.",
       "list": "named-processor-gap",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "SOC 2"
+      ],
+      "links": {
+        "security": "https://www.vitally.io/security",
+        "status": "https://status.vitally.io",
+        "privacy": "https://www.vitally.io/privacy-policy"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 36,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "marks": 4,
+          "status": 6,
+          "privacy": 6
+        }
       }
     },
     {
@@ -89588,22 +89633,41 @@
       "name": "Workvivo",
       "slug": "workvivo",
       "domain": "workvivo.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.workvivo.com/security/",
+      "final_url": "https://www.workvivo.com/security/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001.",
       "list": "named-processor-gap",
-      "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001"
+      ],
+      "links": {
+        "privacy": "https://www.workvivo.com/privacy-policy/",
+        "security": "https://www.workvivo.com/security/",
+        "status": "https://status.workvivo.com",
+        "subprocessors": "https://www.workvivo.com/subprocessors/"
+      },
+      "subprocessors": [
+        "amazon-web-services",
+        "sendbird",
+        "anthropic",
+        "zoom"
+      ],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 60,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 20,
+          "processors": 8,
+          "status": 6,
+          "privacy": 6
+        }
       }
     },
     {
@@ -89770,22 +89834,26 @@
       "name": "Bugsnag",
       "slug": "bugsnag",
       "domain": "bugsnag.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://docs.bugsnag.com/security/",
+      "final_url": "https://docs.bugsnag.com/security/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://www.optimizely.com/legal/sub-processors/third-party",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Trust portal found; marks not yet read from the public page.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://docs.bugsnag.com/security/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -89869,22 +89937,28 @@
       "name": "Sendbird",
       "slug": "sendbird",
       "domain": "sendbird.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://sendbird.com/security",
+      "final_url": "https://sendbird.com/security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Trust portal found; marks not yet read from the public page.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "privacy": "https://sendbird.com/privacy-notice",
+        "security": "https://sendbird.com/security"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 26,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "privacy": 6
+        }
       }
     },
     {
@@ -90022,6 +90096,244 @@
           "privacy": 6
         }
       }
+    },
+    {
+      "rank": 3087,
+      "name": "MaestroQA",
+      "slug": "maestroqa",
+      "domain": "maestroqa.com",
+      "found": true,
+      "trust_url": "https://trust.maestroqa.com",
+      "final_url": "https://trust.rippit.com/",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 4,
+      "source": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false",
+      "summary": "Trust portal found; marks not yet read from the public page.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.maestroqa.com",
+        "privacy": "https://www.maestroqa.com/privacy"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 26,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "privacy": 6
+        }
+      }
+    },
+    {
+      "rank": 3088,
+      "name": "Parahelp",
+      "slug": "ownd-aps-parahelp",
+      "domain": "parahelp.com",
+      "found": true,
+      "trust_url": "https://trust.parahelp.com",
+      "final_url": "https://trust.parahelp.com",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 3,
+      "source": "https://compliance.elevenlabs.io/subprocessors",
+      "summary": "Trust portal found; marks not yet read from the public page.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.parahelp.com",
+        "security": "https://parahelp.com/security"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
+      }
+    },
+    {
+      "rank": 3089,
+      "name": "Cinder",
+      "slug": "cinder",
+      "domain": "cinder.ai",
+      "found": true,
+      "trust_url": "https://trust.cinder.ai",
+      "final_url": "https://trust.cinder.ai",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 3,
+      "source": "https://trust.stability.ai/subprocessors",
+      "summary": "Trust portal found; marks not yet read from the public page.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.cinder.ai",
+        "privacy": "https://cinder.ai/privacy"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 26,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "privacy": 6
+        }
+      }
+    },
+    {
+      "rank": 3090,
+      "name": "Cybersource",
+      "slug": "cybersource",
+      "domain": "cybersource.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://www.fico.com/en/subprocessors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      }
+    },
+    {
+      "rank": 3091,
+      "name": "hCaptcha",
+      "slug": "intuition-machines-hcaptcha",
+      "domain": "hcaptcha.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 23,
+      "source": "https://www.kraken.tech/legal/subprocessors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      }
+    },
+    {
+      "rank": 3092,
+      "name": "CloudAMQP",
+      "slug": "84codes-cloudamqp",
+      "domain": "cloudamqp.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 23,
+      "source": "https://www.kraken.tech/legal/subprocessors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      }
+    },
+    {
+      "rank": 3093,
+      "name": "Sutherland Global",
+      "slug": "sutherland-global-services",
+      "domain": "sutherlandglobal.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 23,
+      "source": "https://www.ringcentral.com/legal/dpa-subprocessor-list.html",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      }
+    },
+    {
+      "rank": 3094,
+      "name": "Constella Intelligence",
+      "slug": "constella-intelligence",
+      "domain": "constella.ai",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 23,
+      "source": "https://www.sophos.com/en-us/legal/sub-processor",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      }
+    },
+    {
+      "rank": 3095,
+      "name": "SingleStore",
+      "slug": "singlestore",
+      "domain": "singlestore.com",
+      "found": true,
+      "trust_url": "https://singlestore.trust.site",
+      "final_url": "https://singlestore.trust.site",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 12,
+      "source": "https://www.hibob.com/privacy/hibob-subsidiaries-and-sub-processors/",
+      "summary": "Trust portal found; marks not yet read from the public page.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {
+        "trust": "https://singlestore.trust.site",
+        "privacy": "https://www.singlestore.com/privacy-notice/",
+        "status": "https://status.singlestore.com",
+        "bug_bounty": "https://www.singlestore.com/responsible-disclosure/",
+        "security": "https://www.singlestore.com/security/"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 44,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "status": 6,
+          "disclosure": 6,
+          "privacy": 6,
+          "longevity": 6
+        }
+      },
+      "founded_year": 2013,
+      "founded_source": "https://en.wikipedia.org/wiki/SingleStore"
     }
   ],
   "notes": "Public pages only. Incomplete by nature. No invented URLs, years, certs, or processors."
