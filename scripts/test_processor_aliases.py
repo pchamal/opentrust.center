@@ -247,6 +247,18 @@ def main() -> int:
     check(canonical_processor_id("amazon-cloudfront", {**register, "amazon-web-services": register["amazon-web-services"]}) == "amazon-web-services", "CloudFront is AWS")
     atl_reg = {**register, "atlassian": {"slug": "atlassian", "name": "Atlassian", "domain": "atlassian.com"}}
     check(canonical_processor_id("opsgenie", atl_reg) == "atlassian", "OpsGenie is Atlassian")
+    payu_reg = {**register, "payu": {"slug": "payu", "name": "PayU", "domain": "payu.pl"}}
+    check(canonical_processor_id("zooz", payu_reg) == "payu", "Zooz is PayU")
+    fn_reg = {**register, "fortinet": {"slug": "fortinet", "name": "Fortinet", "domain": "fortinet.com"}}
+    check(canonical_processor_id("perception-point", fn_reg) == "fortinet", "Perception Point is Fortinet")
+    eq_reg = {**register, "equifax": {"slug": "equifax", "name": "Equifax", "domain": "equifax.com"}}
+    check(canonical_processor_id("kount", eq_reg) == "equifax", "Kount is Equifax")
+    within_reg = {**register, "within": {"slug": "within", "name": "Within", "domain": "within.ai"}}
+    check(canonical_processor_id("klarity", within_reg) == "within", "Klarity is Within")
+    rad_reg = {**register, "radiant": {"slug": "radiant", "name": "Radiant", "domain": "radiant.co"}}
+    check(canonical_processor_id("ori-industries", rad_reg) == "radiant", "Ori Industries is Radiant")
+    ap_reg = {**register, "apryse": {"slug": "apryse", "name": "Apryse", "domain": "apryse.com"}}
+    check(canonical_processor_id("bcl-technologies", ap_reg) == "apryse", "BCL Technologies is Apryse")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 

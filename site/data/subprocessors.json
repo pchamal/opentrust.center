@@ -1747,12 +1747,6 @@
       "domain": "northerndata.de"
     },
     {
-      "id": "ori-industries",
-      "name": "Ori Industries",
-      "kind": "subprocessor",
-      "in_register": false
-    },
-    {
       "id": "voltage-park",
       "name": "Voltage Park",
       "kind": "company",
@@ -2310,13 +2304,6 @@
       "domain": "ironscales.com",
       "kind": "company",
       "in_register": true
-    },
-    {
-      "id": "klarity",
-      "name": "Klarity",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
     },
     {
       "id": "plextrac",
@@ -6772,10 +6759,10 @@
     },
     {
       "id": "saicom-voice-services",
-      "name": "Saicom Voice Services",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "Saicom",
+      "domain": "saicom.io",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "jt-jersey",
@@ -25111,13 +25098,6 @@
       "in_register": true
     },
     {
-      "id": "kount",
-      "name": "Kount",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "omni-analytics",
       "name": "Omni Analytics",
       "domain": "omni.co",
@@ -25552,13 +25532,6 @@
       "in_register": true
     },
     {
-      "id": "bcl-technologies",
-      "name": "BCL Technologies, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "convertapi-uab",
       "name": "ConvertAPI, UAB",
       "domain": "",
@@ -25783,39 +25756,25 @@
       "in_register": true
     },
     {
-      "id": "zooz",
-      "name": "Zooz",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "perception-point",
-      "name": "Perception Point",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "smint-io",
       "name": "Smint.io",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "smint.io",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "ziflow",
       "name": "Ziflow",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "ziflow.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "pindrop-security",
-      "name": "Pindrop Security Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "Pindrop",
+      "domain": "pindrop.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "tdcx",
@@ -25828,6 +25787,34 @@
       "id": "e-core",
       "name": "e-Core",
       "domain": "e-core.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "radiant",
+      "name": "Radiant",
+      "domain": "radiant.co",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "within",
+      "name": "Within",
+      "domain": "within.ai",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "equifax",
+      "name": "Equifax",
+      "domain": "equifax.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "apryse",
+      "name": "Apryse",
+      "domain": "apryse.com",
       "kind": "company",
       "in_register": true
     }
@@ -27707,7 +27694,7 @@
     },
     {
       "from": "together-ai",
-      "to": "ori-industries",
+      "to": "radiant",
       "source_url": "https://trust.together.ai/subprocessors",
       "evidence": "ori-industries"
     },
@@ -30305,7 +30292,7 @@
     },
     {
       "from": "rapid7",
-      "to": "klarity",
+      "to": "within",
       "source_url": "https://www.rapid7.com/legal/subprocessors/",
       "evidence": "Klarity"
     },
@@ -39293,7 +39280,7 @@
     },
     {
       "from": "recurly-com",
-      "to": "kount",
+      "to": "equifax",
       "source_url": "https://recurly.com/legal/privacy/subprocessors/",
       "evidence": "Kount"
     },
@@ -39731,7 +39718,7 @@
     },
     {
       "from": "conga",
-      "to": "bcl-technologies",
+      "to": "apryse",
       "source_url": "https://conga.com/privacy/subprocessors",
       "evidence": "BCL Technologies, Inc"
     },
@@ -39977,7 +39964,7 @@
     },
     {
       "from": "cloudinary",
-      "to": "zooz",
+      "to": "payu",
       "source_url": "https://cloudinary.com/trust/subprocessors",
       "evidence": "Zooz"
     },
@@ -39989,7 +39976,7 @@
     },
     {
       "from": "cloudinary",
-      "to": "perception-point",
+      "to": "fortinet",
       "source_url": "https://cloudinary.com/trust/subprocessors",
       "evidence": "Perception Point"
     },
@@ -40414,6 +40401,12 @@
     "e-core-solu-es-em-tecnologia-da-informa-iup-o-ltda": "e-core",
     "reveal-sas": "crossbeam-systems",
     "amazon-cloudfront": "amazon-web-services",
-    "opsgenie": "atlassian"
+    "opsgenie": "atlassian",
+    "zooz": "payu",
+    "perception-point": "fortinet",
+    "kount": "equifax",
+    "klarity": "within",
+    "ori-industries": "radiant",
+    "bcl-technologies": "apryse"
   }
 }

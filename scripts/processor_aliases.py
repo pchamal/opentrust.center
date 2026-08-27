@@ -508,6 +508,26 @@ REGISTER_ALIASES: dict[str, str] = {
     # Cloudinary names OpsGenie. Atlassian owns Opsgenie; the Turkish legal
     # id already lands here.
     "opsgenie": "atlassian",
+    # Same-company leftovers after the last named-processor batch.
+    # Cloudinary names Zooz (Payment Processing, Israel). PayU acquired Zooz
+    # / PaymentsOS. payu is on the register.
+    "zooz": "payu",
+    # Cloudinary names Perception Point. perception-point.io now redirects
+    # to Fortinet FortiMail Workspace Security. fortinet is on the register.
+    "perception-point": "fortinet",
+    # Recurly names Kount (fraud). Equifax acquired Kount. equifax is filed
+    # in this increment.
+    "kount": "equifax",
+    # Rapid7 names Klarity. Klarity is Within. within is filed in this
+    # increment.
+    "klarity": "within",
+    # Together.ai names Ori Industries. ori.co redirects to radiant.co and
+    # prints Radiant. radiant is filed in this increment.
+    "ori-industries": "radiant",
+    # Conga names BCL Technologies with privacy@pdftron.com. The BCL brand
+    # page now lives on Apryse (formerly PDFTron). apryse is filed in this
+    # increment.
+    "bcl-technologies": "apryse",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
