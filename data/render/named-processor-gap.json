@@ -1,199 +1,345 @@
 {
-  "rule": "Named processor not on the register jumps the queue. Alias graph ids that are the same company as an existing slug. Completeness rates the file. Portal vendors are never named. Entity Name is garbage. Never invent a second dossier for an alias. Never invent domains.",
-  "aliases_added": {
-    "foundever": "foundever-operating",
-    "kling-ai-pte": "kwai",
-    "kling": "kwai",
-    "kling-3-0": "kwai",
-    "weavy-ai": "figma",
-    "tvscientific": "pinterest",
-    "verifi": "visa",
-    "hotjar": "contentsquare",
-    "zencoder": "brightcove",
-    "castle-global": "hive",
-    "castle-global-hive": "hive",
-    "temporal-cloud": "temporal",
-    "temporal-technologies": "temporal",
-    "skilljar-for-clickup-university": "skilljar",
-    "shoreline-labs-d-b-a-nightfall": "nightfall",
-    "superpowered-labs-dba-vapi": "vapi",
-    "here-north-america": "here",
-    "tines-automation": "tines",
-    "recall": "recall-ai",
-    "transloadit-ii": "transloadit"
-  },
-  "filed": [
-    {"slug": "hive", "name": "Hive", "named_by": 2, "domain": "hive.com", "domain_source": "first-party-homepage"},
-    {"slug": "contentsquare", "name": "Contentsquare", "named_by": 1, "domain": "contentsquare.com", "domain_source": "first-party-homepage"},
-    {"slug": "brightcove", "name": "Brightcove", "named_by": 1, "domain": "brightcove.com", "domain_source": "first-party-homepage"},
-    {"slug": "webbula", "name": "Webbula", "named_by": 1, "domain": "webbula.com", "domain_source": "first-party-homepage"},
-    {"slug": "wingify", "name": "Wingify", "named_by": 1, "domain": "wingify.com", "domain_source": "first-party-homepage"},
-    {"slug": "wistia", "name": "Wistia", "named_by": 1, "domain": "wistia.com", "domain_source": "first-party-homepage"},
-    {"slug": "yoti", "name": "Yoti", "named_by": 1, "domain": "yoti.com", "domain_source": "first-party-homepage"},
-    {"slug": "zerobounce", "name": "ZeroBounce", "named_by": 1, "domain": "zerobounce.net", "domain_source": "first-party-homepage"},
-    {"slug": "recall-ai", "name": "Recall.ai", "named_by": 1, "domain": "recall.ai", "domain_source": "first-party-homepage"},
-    {"slug": "nightfall", "name": "Nightfall", "named_by": 1, "domain": "nightfall.ai", "domain_source": "first-party-homepage"},
-    {"slug": "smallestai", "name": "Smallest AI", "named_by": 1, "domain": "smallest.ai", "domain_source": "first-party-homepage"},
-    {"slug": "vapi", "name": "Vapi", "named_by": 1, "domain": "vapi.ai", "domain_source": "first-party-homepage"},
-    {"slug": "supportninja", "name": "SupportNinja", "named_by": 1, "domain": "supportninja.com", "domain_source": "first-party-homepage"},
-    {"slug": "synadia-cloud", "name": "Synadia", "named_by": 1, "domain": "synadia.com", "domain_source": "first-party-homepage"},
-    {"slug": "temporal", "name": "Temporal", "named_by": 1, "domain": "temporal.io", "domain_source": "first-party-homepage"},
-    {"slug": "tensorwave", "name": "TensorWave", "named_by": 1, "domain": "tensorwave.com", "domain_source": "first-party-homepage"},
-    {"slug": "thetalake", "name": "ThetaLake", "named_by": 1, "domain": "thetalake.com", "domain_source": "first-party-homepage"},
-    {"slug": "tines", "name": "Tines", "named_by": 1, "domain": "tines.com", "domain_source": "first-party-homepage"},
-    {"slug": "totango", "name": "Totango", "named_by": 1, "domain": "totango.com", "domain_source": "first-party-homepage"},
-    {"slug": "transloadit", "name": "Transloadit", "named_by": 1, "domain": "transloadit.com", "domain_source": "first-party-homepage"},
-    {"slug": "userfront", "name": "Userfront", "named_by": 1, "domain": "userfront.com", "domain_source": "first-party-homepage"},
-    {"slug": "veed", "name": "VEED", "named_by": 1, "domain": "veed.io", "domain_source": "first-party-homepage"},
-    {"slug": "very-good-security", "name": "Very Good Security", "named_by": 1, "domain": "verygoodsecurity.com", "domain_source": "first-party-homepage"},
-    {"slug": "voltage-park", "name": "Voltage Park", "named_by": 1, "domain": "voltagepark.com", "domain_source": "first-party-homepage"},
-    {"slug": "spycloud", "name": "SpyCloud", "named_by": 1, "domain": "spycloud.com", "domain_source": "first-party-homepage"},
-    {"slug": "skilljar", "name": "Skilljar", "named_by": 1, "domain": "skilljar.com", "domain_source": "first-party-homepage"},
-    {"slug": "satismeter-s-r-o", "name": "SatisMeter", "named_by": 1, "domain": "satismeter.com", "domain_source": "first-party-homepage"},
-    {"slug": "sms-magic", "name": "SMS Magic", "named_by": 1, "domain": "sms-magic.com", "domain_source": "first-party-homepage"},
-    {"slug": "here", "name": "HERE Technologies", "named_by": 1, "domain": "here.com", "domain_source": "first-party-homepage"},
-    {"slug": "timekit", "name": "Timekit", "named_by": 1, "domain": "timekit.io", "domain_source": "first-party-homepage"}
-  ],
-  "skipped": [
-    {"slug": "brighthire", "named_by": 2, "reason": "homepage-cloudflare-403"},
-    {"slug": "sublime-security", "named_by": 2, "reason": "homepage-vercel-429"},
-    {"slug": "sumit-ai", "named_by": 2, "reason": "homepage-is-lander-not-company"},
-    {"slug": "hyperdoc", "named_by": 2, "reason": "domain-unverified-parked-or-dead"},
-    {"slug": "bonsai-technologies", "named_by": 2, "reason": "ambiguous-elasticsearch-vs-other-bonsai"},
-    {"slug": "adjust", "named_by": 1, "reason": "homepage-429-no-matching-p856"},
-    {"slug": "6sense", "named_by": 1, "reason": "homepage-403-no-matching-p856"},
-    {"slug": "adaptive-mobile", "named_by": 1, "reason": "homepage-403-no-matching-p856"},
-    {"slug": "datadome-solutions", "named_by": 1, "reason": "homepage-403"},
-    {"slug": "iron-mountain", "named_by": 1, "reason": "homepage-vercel-429"},
-    {"slug": "ideogram-ai", "named_by": 1, "reason": "homepage-cloudflare-403"},
-    {"slug": "khoros", "named_by": 1, "reason": "homepage-cloudflare-403"},
-    {"slug": "horizoniq", "named_by": 1, "reason": "homepage-cloudflare-403"},
-    {"slug": "freepik", "named_by": 1, "reason": "homepage-403-security-filter"},
-    {"slug": "freepik-company-s-l-u", "named_by": 1, "reason": "freepik-homepage-403-security-filter"},
-    {"slug": "madkudu", "named_by": 1, "reason": "homepage-cloudflare-403"},
-    {"slug": "orum", "named_by": 1, "reason": "homepage-flagged-for-sale-or-ambiguous"},
-    {"slug": "plextrac", "named_by": 1, "reason": "homepage-cloudflare-403"},
-    {"slug": "printfection", "named_by": 1, "reason": "homepage-cloudflare-403"},
-    {"slug": "processout", "named_by": 1, "reason": "homepage-does-not-print-company-name"},
-    {"slug": "matillion", "named_by": 1, "reason": "homepage-js-shell-does-not-print-name"},
-    {"slug": "tugboat-logic", "named_by": 1, "reason": "onetrust-acquisition-portal-vendor-not-named"},
-    {"slug": "ppro-payment-services", "named_by": 1, "reason": "homepage-403"},
-    {"slug": "propay", "named_by": 1, "reason": "login-gated-not-a-company-homepage"},
-    {"slug": "pydantic-logfire", "named_by": 1, "reason": "homepage-prints-pydantic-not-logfire"},
-    {"slug": "redox", "named_by": 1, "reason": "homepage-403"},
-    {"slug": "rfpio", "named_by": 1, "reason": "rebranded-to-responsive-page-does-not-print-rfpio"},
-    {"slug": "rudderstack", "named_by": 1, "reason": "homepage-js-shell-does-not-print-name"},
-    {"slug": "runware", "named_by": 1, "reason": "homepage-js-shell-does-not-print-name"},
-    {"slug": "scandit", "named_by": 1, "reason": "homepage-js-shell-does-not-print-name"},
-    {"slug": "sendmarc", "named_by": 1, "reason": "homepage-403"},
-    {"slug": "sift", "named_by": 1, "reason": "homepage-403"},
-    {"slug": "trulioo", "named_by": 1, "reason": "homepage-403"},
-    {"slug": "upcloud", "named_by": 1, "reason": "homepage-403"},
-    {"slug": "uploadcare", "named_by": 1, "reason": "homepage-js-shell-does-not-print-name"},
-    {"slug": "upwind", "named_by": 1, "reason": "homepage-403"},
-    {"slug": "yellowai", "named_by": 1, "reason": "homepage-js-shell-does-not-print-name"},
-    {"slug": "welocalize", "named_by": 1, "reason": "homepage-is-wp-signup-not-company"},
-    {"slug": "wizy-io", "named_by": 1, "reason": "homepage-js-shell-does-not-print-name"},
-    {"slug": "worketics-it-solutions", "named_by": 1, "reason": "homepage-does-not-print-company-name"},
-    {"slug": "wpremote", "named_by": 1, "reason": "homepage-js-shell-does-not-print-name"},
-    {"slug": "x-rd", "named_by": 1, "reason": "homepage-is-lander-not-company"},
-    {"slug": "xpanxion", "named_by": 1, "reason": "homepage-403"},
-    {"slug": "zealep-business-solutions", "named_by": 1, "reason": "domain-unverified"},
-    {"slug": "zight-formerly-cloudapp", "named_by": 1, "reason": "homepage-cloudflare-403"},
-    {"slug": "zight-formerly-cloudplus", "named_by": 1, "reason": "homepage-cloudflare-403"},
-    {"slug": "zyyx", "named_by": 1, "reason": "homepage-does-not-print-latin-name"},
-    {"slug": "trolley", "named_by": 1, "reason": "homepage-403"},
-    {"slug": "validity", "named_by": 1, "reason": "homepage-js-shell-does-not-print-name"},
-    {"slug": "veryfi-inc", "named_by": 1, "reason": "homepage-js-shell-does-not-print-name"},
-    {"slug": "storyteq", "named_by": 1, "reason": "homepage-js-shell-does-not-print-name"},
-    {"slug": "solace-where-purchased-by-customer", "named_by": 1, "reason": "homepage-js-shell-does-not-print-name"},
-    {"slug": "spacexai", "named_by": 1, "reason": "domain-unverified"},
-    {"slug": "thorn", "named_by": 1, "reason": "homepage-403"},
-    {"slug": "susea-you-com", "named_by": 1, "reason": "homepage-does-not-print-you-com"},
-    {"slug": "neon", "named_by": 1, "reason": "already-aliased-to-databricks-dropped-queue-row"}
-  ],
-  "optional_fill": {
-    "walked": [
-      "contentsquare", "brightcove", "webbula", "wistia", "zerobounce", "recall-ai",
-      "nightfall", "smallestai", "vapi", "supportninja", "synadia-cloud", "temporal",
-      "thetalake", "tines", "veed", "very-good-security", "voltage-park", "sms-magic",
-      "transloadit", "yoti", "wingify", "skilljar", "tensorwave", "spycloud",
-      "totango", "satismeter-s-r-o", "userfront"
-    ],
-    "filed": {
-      "webbula": ["SOC 2", "security"],
-      "zerobounce": ["SOC 2 Type II", "ISO 27001", "PCI DSS", "dpa", "subprocessors", "security"],
-      "nightfall": ["SOC 2 Type II", "security"],
-      "synadia-cloud": ["SOC 2 Type I", "dpa", "subprocessors", "security"],
-      "temporal": ["SOC 2 Type II", "security"],
-      "tines": ["SOC 2 Type II", "dpa", "subprocessors", "security"],
-      "voltage-park": ["SOC 2 Type II", "ISO 27001", "security"],
-      "transloadit": ["SOC 2 Type II", "ISO 27001", "security"],
-      "yoti": ["SOC 2 Type II", "ISO 27001", "security"],
-      "wingify": ["SOC 2 Type II", "ISO 27001", "ISO 27701", "ISO 27017", "ISO 27018", "PCI DSS", "subprocessors", "security"],
-      "skilljar": ["SOC 2 Type II", "dpa", "security"]
+  "rule": "Named processor not on the register jumps the queue. Alias graph ids that are the same company as an existing register slug. Completeness rates the file. Portal vendors are never named. Entity Name is garbage. Never invent a second dossier for an alias. Never invent domains.",
+  "aliases_added": {},
+  "filed_this_hour": [
+    {
+      "slug": "sigma",
+      "name": "Sigma",
+      "domain": "sigmacomputing.com",
+      "found": true,
+      "trust_url": "https://security.sigmacomputing.com",
+      "certs": [],
+      "list": "named-processor-gap"
     },
-    "silent": ["hive", "here", "timekit"],
-    "rejected": {
-      "contentsquare/certs": "safebase-portal-chrome",
-      "brightcove/certs": "safebase-portal-chrome",
-      "wistia/certs": "securitypal-portal-chrome",
-      "recall-ai/certs": "vanta-portal-chrome",
-      "vapi/certs": "safebase-portal-chrome",
-      "smallestai/certs": "konfirmity-portal-chrome",
-      "thetalake/certs": "safebase-portal-chrome",
-      "very-good-security/certs": "safebase-portal-chrome",
-      "veed/certs": "vanta-portal-chrome",
-      "sms-magic/GDPR": "regulation-as-rights",
-      "supportninja/certs": "copied-sqreen-policy-not-supportninja-awards",
-      "zerobounce/HIPAA": "compliant-badge-not-a-baa-or-program-page",
-      "zerobounce/GDPR": "regulation-as-rights",
-      "zerobounce/CCPA": "regulation-as-rights",
-      "nightfall/HIPAA": "used-commonly-for-not-a-baa-or-program-page",
-      "temporal/HIPAA": "compliant-with-not-a-baa-or-program-page",
-      "temporal/GDPR": "regulation-as-rights",
-      "temporal/FedRAMP": "conveyor-portal-chrome",
-      "tines/FedRAMP": "self-host-for-fedramp-customers-not-authorized",
-      "tines/GDPR": "regulation-as-rights",
-      "voltage-park/HIPAA": "json-ld-credential-not-a-baa-or-program-page",
-      "webbula/GDPR": "regulation-as-rights",
-      "webbula/CCPA": "regulation-as-rights",
-      "transloadit/HIPAA": "listed-without-baa-or-program-page",
-      "transloadit/GDPR": "regulation-as-rights",
-      "transloadit/PCI DSS": "stripe-payment-processor-not-transloadit",
-      "skilljar/ISO 27001": "aws-facility-language-not-a-company-award",
-      "skilljar/FedRAMP": "aws-facility-language-not-a-company-award",
-      "tensorwave/certs": "dpa-data-class-and-footer-badge-not-awarded",
-      "spycloud/subprocessors": "vanta-portal-chrome"
-    }
-  },
-  "withdrawn_marks": {
-    "rule": "GDPR/CCPA are regulation-as-rights. Portal-chrome marks stay unread. HIPAA only with a first-party program/BAA page. In-progress audits are not awarded. Aligns-with is not awarded.",
-    "cleared": {
-      "safebase_vanta_conveyor_securitypal_konfirmity": "portal-chrome",
-      "gdpr_ccpa": "regulation-as-rights",
-      "supportninja_sqreen": "copied-third-party-policy",
-      "skilljar_aws": "aws-facility-language-not-a-company-award",
-      "tines_fedramp": "self-host-not-authorized"
+    {
+      "slug": "redox",
+      "name": "Redox",
+      "domain": "redoxengine.com",
+      "found": true,
+      "trust_url": "https://trust.redoxengine.com",
+      "certs": [],
+      "list": "named-processor-gap"
     },
-    "kept": {
-      "webbula": ["SOC 2"],
-      "zerobounce": ["SOC 2 Type II", "ISO 27001", "PCI DSS"],
-      "nightfall": ["SOC 2 Type II"],
-      "synadia-cloud": ["SOC 2 Type I"],
-      "temporal": ["SOC 2 Type II"],
-      "tines": ["SOC 2 Type II"],
-      "voltage-park": ["SOC 2 Type II", "ISO 27001"],
-      "transloadit": ["SOC 2 Type II", "ISO 27001"],
-      "yoti": ["SOC 2 Type II", "ISO 27001"],
-      "wingify": ["SOC 2 Type II", "ISO 27001", "ISO 27701", "ISO 27017", "ISO 27018", "PCI DSS"],
-      "skilljar": ["SOC 2 Type II"]
+    {
+      "slug": "aura-previously-pango-anchorfree",
+      "name": "Aura (Previously Pango, Anchorfree)",
+      "domain": "aura.com",
+      "found": true,
+      "trust_url": "https://trust.aura.com",
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "clearfeed",
+      "name": "ClearFeed, Inc",
+      "domain": "clearfeed.ai",
+      "found": true,
+      "trust_url": "https://clearfeed.trust.site",
+      "certs": [
+        "SOC 2 Type II",
+        "HIPAA",
+        "GDPR",
+        "CCPA"
+      ],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "compyl",
+      "name": "Compyl",
+      "domain": "compyl.com",
+      "found": true,
+      "trust_url": "https://trust.compyl.com",
+      "certs": [
+        "SOC 2 Type II"
+      ],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "conferma-ltd",
+      "name": "Conferma Ltd",
+      "domain": "conferma.com",
+      "found": true,
+      "trust_url": "https://trust.conferma.com",
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "captionhub",
+      "name": "CaptionHub",
+      "domain": "captionhub.com",
+      "found": true,
+      "trust_url": "https://trust.captionhub.com",
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "GDPR"
+      ],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "bluesnap",
+      "name": "BlueSnap Ltd",
+      "domain": "bluesnap.com",
+      "found": false,
+      "trust_url": null,
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "beetexting",
+      "name": "Beetexting",
+      "domain": "beetexting.com",
+      "found": false,
+      "trust_url": null,
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "clazar",
+      "name": "Clazar",
+      "domain": "clazar.io",
+      "found": true,
+      "trust_url": "https://clazar.io/security",
+      "certs": [
+        "SOC 2",
+        "SOC 1 Type II",
+        "ISO 27701",
+        "GDPR"
+      ],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "eon-io",
+      "name": "EON.io Ltd",
+      "domain": "eon.io",
+      "found": true,
+      "trust_url": "https://trust.eon.io",
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "cprime",
+      "name": "CPrime",
+      "domain": "cprime.com",
+      "found": false,
+      "trust_url": null,
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "datalab",
+      "name": "Datalab",
+      "domain": "datalab.to",
+      "found": false,
+      "trust_url": null,
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "sendmarc",
+      "name": "Sendmarc Inc",
+      "domain": "sendmarc.com",
+      "found": true,
+      "trust_url": "https://trust.sendmarc.com",
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001"
+      ],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "clusterpower",
+      "name": "Clusterpower",
+      "domain": "clusterpower.com",
+      "found": false,
+      "trust_url": null,
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "etleap",
+      "name": "Etleap Inc",
+      "domain": "etleap.com",
+      "found": true,
+      "trust_url": "https://trust.etleap.com",
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "armo-security",
+      "name": "ARMO Security",
+      "domain": "armosec.io",
+      "found": false,
+      "trust_url": null,
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "design-huddle",
+      "name": "Design Huddle LLC",
+      "domain": "designhuddle.com",
+      "found": true,
+      "trust_url": "https://trust.designhuddle.com",
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "blitline",
+      "name": "Blitline LLC",
+      "domain": "blitline.com",
+      "found": false,
+      "trust_url": null,
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "array-us",
+      "name": "Array US, Inc",
+      "domain": "array.com",
+      "found": false,
+      "trust_url": null,
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "anytech365",
+      "name": "Anytech365",
+      "domain": "anytech365.com",
+      "found": false,
+      "trust_url": null,
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "common-room",
+      "name": "Common Room",
+      "domain": "commonroom.io",
+      "found": false,
+      "trust_url": null,
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "era4",
+      "name": "Era4",
+      "domain": "era4.com",
+      "found": false,
+      "trust_url": null,
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "sift",
+      "name": "Sift",
+      "domain": "sift.com",
+      "found": false,
+      "trust_url": null,
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "singular-lab",
+      "name": "Singular Lab, Inc",
+      "domain": "singular.net",
+      "found": false,
+      "trust_url": null,
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "elastic-io",
+      "name": "Elastic.io GmbH",
+      "domain": "elastic.io",
+      "found": true,
+      "trust_url": "https://elastic.securitypal.com",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "ISO 27001",
+        "ISO 27701",
+        "FedRAMP",
+        "HIPAA",
+        "PCI DSS",
+        "CSA STAR",
+        "TISAX",
+        "IRAP",
+        "Cyber Essentials"
+      ],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "ci-hub",
+      "name": "CI Hub GmbH",
+      "domain": "ci-hub.com",
+      "found": false,
+      "trust_url": null,
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "customer-dynamics",
+      "name": "Customer Dynamics",
+      "domain": "customerdynamics.com",
+      "found": false,
+      "trust_url": null,
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "commetric",
+      "name": "Commetric Ltd",
+      "domain": "commetric.com",
+      "found": false,
+      "trust_url": null,
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "safeguard-global",
+      "name": "Safeguard Global",
+      "domain": "safeguardglobal.com",
+      "found": false,
+      "trust_url": null,
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "sontiq-a-transunion-company",
+      "name": "Sontiq, Inc. (a TransUnion company)",
+      "domain": "sontiq.com",
+      "found": true,
+      "trust_url": "https://sontiq.com/trust-center",
+      "certs": [],
+      "list": "named-processor-gap"
+    },
+    {
+      "slug": "relx-d-b-a-lexisnexis",
+      "name": "RELX Inc., d.b.a. LexisNexis",
+      "domain": "lexisnexis.com",
+      "found": true,
+      "trust_url": "https://trust.lexisnexis.com",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 2 Type I",
+        "SOC 3",
+        "ISO 27001",
+        "ISO 22301",
+        "ISO 9001",
+        "HIPAA",
+        "GDPR",
+        "CCPA",
+        "Cyber Essentials",
+        "NIST CSF"
+      ],
+      "list": "named-processor-gap"
     }
-  },
+  ],
+  "note": "Rebased onto #168/#169. Filed leftover named-by-1 gaps with verified first-party homepages not already on main. Skipped Neon (Databricks) and shoreline-labs (Nightfall). Wikipedia/CRN top-up resolved 0 new P856.",
   "register": {
-    "before": 3310,
-    "after": 3340
+    "before": 3340,
+    "after": 3372
   },
+  "remaining_true_missing": 272,
   "remaining_true_missing_ge2": 5,
-  "note": "After PR #168 (register 3310). Named-by ≥2 leftovers still stuck on 403/429/lander/dead/ambiguous except Castle Global (Hive), Kling (Kwai), and Verifi (Visa), which now alias onto existing rows. Dropped the leftover Neon queue row so expand does not invent a second Databricks dossier. No second dossier for an overlapping slug."
+  "generated_at": "2026-08-27T18:13:01Z"
 }
