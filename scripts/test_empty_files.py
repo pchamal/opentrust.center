@@ -15,7 +15,10 @@ from verify_empty_files import (  # noqa: E402
     FILE_KEYS,
     apply_page_to_row,
     classify_fetch,
+    clear_hit,
     file_sum,
+    is_clear_page_url,
+    is_named_processor,
     is_trust_page,
     parse_args,
     probed_of,
@@ -52,9 +55,13 @@ def rec(url: str, html: str, title: str, status: int = 200, final: str | None = 
 
 
 def test_parse_args() -> None:
-    check(parse_args([]) == {"unwalked": False, "apply": False, "slugs": []}, "default dry-run all zeros")
+    check(parse_args([]) == {"unwalked": False, "apply": False, "apply_audit": False, "slugs": []}, "default dry-run all zeros")
     check(parse_args(["--unwalked"])["unwalked"], "--unwalked")
-    check(parse_args(["--apply", "acme"]) == {"unwalked": False, "apply": True, "slugs": ["acme"]}, "apply + slug")
+    check(
+        parse_args(["--apply", "acme"])
+        == {"unwalked": False, "apply": True, "apply_audit": False, "slugs": ["acme"]},
+        "apply + slug",
+    )
     try:
         parse_args(["--invent"])
     except SystemExit:
@@ -81,12 +88,11 @@ def test_select_unwalked() -> None:
     zeros = select_zeros(public["companies"], enr_by)
     unwalked = select_zeros(public["companies"], enr_by, unwalked=True)
     check(all(file_sum(r) == 0 for r in public["companies"] if r["slug"] in {x["slug"] for x in zeros}), "zeros only")
-    check(len(unwalked) == 144, f"AITI silent_row probed==0 is 144, got {len(unwalked)}")
     check(all(x["probed"] == 0 for x in unwalked), "unwalked is probed==0")
     check(all(x["official_url"].startswith("http") for x in unwalked), "unwalked stores official_url")
     check(probed_of({"probed": 0}, {"probed": 4}) == 0, "public probed wins")
-    one = select_zeros(public["companies"], enr_by, slugs=["7ai", "stripe"])
-    check([x["slug"] for x in one] == ["7ai"], "argv slugs still require Completeness 0")
+    one = select_zeros(public["companies"], enr_by, slugs=["stripe"])
+    check(one == [], "filled or non-zero argv slugs stay out")
 
 
 def test_classify_fetch() -> None:
@@ -210,6 +216,37 @@ def test_apply_does_not_overwrite() -> None:
     check("safebase" not in json.dumps(empty).lower(), "no portal vendor on the row")
 
 
+def test_clear_hit_drops_unsure() -> None:
+    check(not is_clear_page_url("https://ex.com/wp-content/uploads/Security.png"), "PNG is not Official page")
+    check(not is_clear_page_url("https://ex.com/blog/trustworthy-ai"), "blog is not Official page")
+    check(not is_clear_page_url("https://ex.com/case/how-persona-increased-code-security"), "case study is not Official page")
+    check(not is_clear_page_url("https://ex.com/legal/privacy-policy"), "privacy-only is not Official page")
+    check(not is_clear_page_url("https://anam.ai/docs/security/privacy"), "privacy leaf is not Official page")
+    check(not is_named_processor("Annex 1A: List of Parties"), "DPA annex is not a processor")
+    check(not is_named_processor("The Parties"), "The Parties is not a processor")
+    check(not is_clear_page_url("https://www.prophetsecurity.ai/"), "homepage is not Official page")
+    check(is_clear_page_url("https://example.com/security"), "first-party /security is Official page")
+    check(is_clear_page_url("https://trust.mi.com"), "trust. host is Official page")
+    check(not is_named_processor("Technical and Organizational Security Measure"), "DPA annex header is not a processor")
+    check(not is_named_processor("Measures for user identification and authorization"), "TOM row is not a processor")
+    check(is_named_processor("Amazon Web Services"), "AWS is a processor")
+    dropped = clear_hit({
+        "page": {"url": "https://ex.com/wp-content/uploads/Security.png", "kind": "security"},
+        "marks": {"url": "https://ex.com/case/persona", "added": ["SOC 2"]},
+        "subprocessors": {
+            "url": "https://ex.com/legal/dpa",
+            "names": ["Technical and Organizational Security Measure", "Amazon Web Services"],
+        },
+        "dpa": {"url": "https://ex.com/legal/dpa"},
+        "years": {"year": 2022, "url": "https://ex.com/"},
+    })
+    check("page" not in dropped, "PNG page dropped")
+    check("marks" not in dropped, "case-study marks dropped")
+    check(dropped["subprocessors"]["names"] == ["Amazon Web Services"], "TOM rows dropped, AWS stays")
+    check(dropped["dpa"]["url"].endswith("/dpa"), "DPA stays")
+    check(dropped["years"]["year"] == 2022, "year stays")
+
+
 def test_seeds_start_from_domain_and_official() -> None:
     company = walk_company(
         {"slug": "example", "name": "Example", "official_url": "https://www.example.com/"},
@@ -232,12 +269,17 @@ def test_audit_when_present() -> None:
     by_pub = {c["slug"]: c for c in public["companies"]}
     by_enr = {c["slug"]: c for c in enr["companies"]}
     batch = report.get("batch") or []
-    check(isinstance(batch, list) and batch, "audit names a batch")
-    check(report.get("hits") is not None, "audit has hits")
-    check(report.get("stayed_open") is not None, "audit has stayed_open")
-    check(report.get("unreadable") is not None, "audit has unreadable")
+    check(len(batch) == 144, f"first slice walked 144 unwalked AITI zeros, got {len(batch)}")
+    check(report.get("apply") is True, "audit records the apply pass")
+    check(len(report.get("hits") or []) == 72, f"72 clear first-party fills, got {len(report.get('hits') or [])}")
+    check(len(report.get("unreadable") or []) == 8, "403/429/SPA/portal stay unreadable")
+    check(len(report.get("stayed_open") or []) == 64, "honest empties plus unsure proposals stay open")
     check(report.get("rejected") is not None, "audit has rejected")
     check(report.get("classes") is not None, "audit has classes")
+    unwalked = select_zeros(public["companies"], by_enr, unwalked=True)
+    check(len(unwalked) == 72, f"remaining Completeness-0 probed==0 is 72, got {len(unwalked)}")
+    check("7ai" not in {x["slug"] for x in unwalked}, "filed 7AI left the zero set")
+    check("ai21" in {x["slug"] for x in unwalked}, "unreadable ai21 stays Completeness 0")
     for slug in batch:
         check(slug in by_pub, f"{slug} is not an invented company")
         check(file_sum(by_pub[slug]) == 0 or slug in {h["slug"] for h in report.get("hits") or []},

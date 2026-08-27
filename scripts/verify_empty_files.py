@@ -68,6 +68,28 @@ PORTAL_VENDORS = {
     "vanta", "safebase", "drata", "securitypal", "conveyor",
     "whistic", "secureframe", "trustcloud", "wolfia", "sprinto",
 }
+# Official page is a first-party trust/security HTML file, not a blog,
+# product pitch, image, or DPA-annex header mistaken for a company.
+PAGE_SKIP_RE = re.compile(
+    r"\.(?:png|jpe?g|gif|svg|webp)(?:\?|$)|"
+    r"customer-not-found|"
+    r"/(?:blog|case|cases|news|press|solution|solutions|departments)/|"
+    r"birth-certificate",
+    re.I,
+)
+MARK_SKIP_RE = re.compile(
+    r"/(?:blog|case|cases|solution|solutions|departments)/",
+    re.I,
+)
+TOM_NAME_RE = re.compile(
+    r"^(?:technical and organizational|measures (?:of|for)|"
+    r"nature of the processing|purposes of processing|"
+    r"data subjects|special category|frequency of the transfer|"
+    r"duration of the processing|start date|the parties|parties. details|"
+    r"key contact|eu sccs|annex\b|list of parties|description of transfer)",
+    re.I,
+)
+PRIVACY_PATH_RE = re.compile(r"privacy|cookie", re.I)
 
 
 def load_json(path: Path, default):
@@ -85,12 +107,13 @@ def parse_args(argv: list[str] | None = None) -> dict:
     argv = list(sys.argv[1:] if argv is None else argv)
     flags = {a for a in argv if a.startswith("-")}
     slugs = [a.strip() for a in argv if a.strip() and not a.startswith("-")]
-    unknown = sorted(flags - {"--unwalked", "--apply"})
+    unknown = sorted(flags - {"--unwalked", "--apply", "--apply-audit"})
     if unknown:
         raise SystemExit(f"unknown flag: {unknown[0]}")
     return {
         "unwalked": "--unwalked" in flags,
         "apply": "--apply" in flags,
+        "apply_audit": "--apply-audit" in flags,
         "slugs": slugs,
     }
 
@@ -275,6 +298,8 @@ def classify_fetch(url: str, rec: dict, company: dict) -> str:
 
 def is_trust_page(url: str, rec: dict, company: dict) -> bool:
     """First-party self-hosted trust/security HTML. Portal vendors stay out."""
+    if not is_clear_page_url(url) and not is_clear_page_url(rec.get("final_url") or url):
+        return False
     if classify_fetch(url, rec, company) != "200 first-party HTML":
         return False
     fetched = {
@@ -388,6 +413,67 @@ def page_kind(url: str) -> str:
     return "security" if "security" in f"{enrich.host_of(url)} {enrich.path_of(url)}".lower() else "trust"
 
 
+def is_trust_host(url: str) -> bool:
+    host = enrich.host_of(url)
+    return host.startswith((
+        "trust.", "security.", "compliance.", "assurance.", "trustcenter.",
+    ))
+
+
+def is_clear_page_url(url: str) -> bool:
+    """Official page is a trust/security HTML path, not a blog or image."""
+    if not url or not str(url).startswith("http"):
+        return False
+    if PAGE_SKIP_RE.search(url):
+        return False
+    path = enrich.path_of(url)
+    leaf = path.rstrip("/").rsplit("/", 1)[-1]
+    if PRIVACY_PATH_RE.search(leaf):
+        return False
+    if PRIVACY_PATH_RE.search(path) and "security" not in path.lower() and "trust" not in path.lower():
+        return False
+    if (path in {"", "/"}) and not is_trust_host(url):
+        return False
+    return True
+
+
+def is_clear_mark_url(url: str) -> bool:
+    return bool(url) and str(url).startswith("http") and not MARK_SKIP_RE.search(url) and not PAGE_SKIP_RE.search(url)
+
+
+def is_named_processor(name: str) -> bool:
+    if not name or TOM_NAME_RE.search(name):
+        return False
+    return enrich.looks_like_org_name(name) and not enrich.looks_like_date_name(name)
+
+
+def clear_hit(hit: dict) -> dict:
+    """Keep only fetch-checked first-party holds. When unsure, leave open."""
+    out = {}
+    page = hit.get("page") or {}
+    if page.get("url") and is_clear_page_url(page["url"]):
+        out["page"] = page
+    marks = hit.get("marks") or {}
+    if marks.get("added") and is_clear_mark_url(marks.get("url") or ""):
+        out["marks"] = marks
+    if hit.get("dpa"):
+        out["dpa"] = hit["dpa"]
+    sub = hit.get("subprocessors") or {}
+    names = [n for n in (sub.get("names") or []) if is_named_processor(n)]
+    procs = [
+        (i, n, e) for i, n, e in (sub.get("procs") or [])
+        if is_named_processor(n)
+    ]
+    if names and sub.get("url"):
+        filed = {"url": sub["url"], "names": names}
+        if procs:
+            filed["procs"] = procs
+        out["subprocessors"] = filed
+    if hit.get("years"):
+        out["years"] = hit["years"]
+    return out
+
+
 def apply_page_to_row(row: dict, url: str, kind: str) -> bool:
     """File a first-party Official page. Never overwrite. Vendor stays unknown."""
     if not url or not str(url).startswith("http"):
@@ -463,7 +549,7 @@ def inspect_company(
             classes.append("hit")
 
         mark_kind = kind if kind in {"trust", "security", "privacy", "compliance"} else ""
-        if mark_kind or is_trust_page(url, page, company):
+        if (mark_kind or is_trust_page(url, page, company)) and is_clear_mark_url(final):
             live, hold_skip = hold_marks(marks_from_rec(page), rec_blob(page), mark_kind or "trust")
             if live:
                 if mark_hit is None or len(live) > len(mark_hit.get("added") or []):
@@ -491,7 +577,7 @@ def inspect_company(
             skip = enrich.cited_list_skip_reason(url, page, company)
             if not skip:
                 procs = enrich.published_processors_from_cited(company, page, url, register)
-                procs = [(i, n, e) for i, n, e in procs if not enrich.looks_like_date_name(n)]
+                procs = [(i, n, e) for i, n, e in procs if is_named_processor(n)]
                 if procs:
                     sub_hit = {
                         "url": public_url(final),
@@ -530,6 +616,7 @@ def inspect_company(
         }
     if year_hit:
         hit["years"] = year_hit
+    hit = clear_hit(hit)
 
     return {
         "slug": slug,
@@ -543,8 +630,47 @@ def inspect_company(
     }
 
 
+def apply_from_audit(enr: dict, report: dict, register: dict[str, dict]) -> tuple[list[dict], dict]:
+    """File clear first-party holds already recorded in the dry-run ledger."""
+    enr_by = {c["slug"]: c for c in enr.get("companies") or [] if c.get("slug")}
+    filed = []
+    filtered_hits = []
+    stayed = list(report.get("stayed_open") or [])
+    for rec in report.get("hits") or []:
+        slug = rec.get("slug") or ""
+        row = enr_by.get(slug)
+        if not row:
+            continue
+        raw = dict(rec)
+        raw.pop("slug", None)
+        raw.pop("name", None)
+        hit = clear_hit(raw)
+        if not hit:
+            stayed.append({
+                "slug": slug,
+                "name": rec.get("name") or slug,
+                "note": "proposed fill was not a clear first-party hold",
+            })
+            continue
+        applied = apply_hit(row, hit, register)
+        if applied:
+            filed.append({"slug": slug, "name": rec.get("name") or slug, **applied})
+            filtered_hits.append({"slug": slug, "name": rec.get("name") or slug, **{
+                k: ({kk: vv for kk, vv in v.items() if kk != "procs"} if isinstance(v, dict) else v)
+                for k, v in applied.items()
+            }})
+        else:
+            stayed.append({
+                "slug": slug,
+                "name": rec.get("name") or slug,
+                "note": "apply_* left the verified fill in place",
+            })
+    return filed, {**report, "apply": True, "hits": filtered_hits, "stayed_open": stayed}
+
+
 def apply_hit(row: dict, hit: dict, register: dict[str, dict]) -> dict:
     """File only missing first-party holds. Never overwrite a verified fill."""
+    hit = clear_hit(hit)
     filed = {}
     if hit.get("page"):
         url = hit["page"]["url"]
@@ -565,7 +691,14 @@ def apply_hit(row: dict, hit: dict, register: dict[str, dict]) -> dict:
             filed["dpa"] = {"url": url}
     if hit.get("subprocessors"):
         url = hit["subprocessors"]["url"]
-        procs = hit["subprocessors"].get("procs") or []
+        procs = list(hit["subprocessors"].get("procs") or [])
+        if not procs:
+            for name in hit["subprocessors"].get("names") or []:
+                if not is_named_processor(name):
+                    continue
+                pid, published = enrich.match_processor(name, register)
+                if pid:
+                    procs.append((pid, published, published))
         if procs and not (row.get("subprocessors") or []):
             enrich.apply_subprocessors_to_row(row, url)
             row["subprocessors"] = [pid for pid, _n, _e in procs]
@@ -662,6 +795,37 @@ def main(argv: list[str] | None = None) -> int:
     t0 = time.time()
     public = load_json(PUBLIC, {})
     enr = load_json(ENRICHED, {})
+    if opts["apply_audit"]:
+        report = load_json(REPORT, {})
+        if not (report.get("batch") or report.get("hits")):
+            raise SystemExit("no empty-file-audit.json to apply")
+        companies = list(enr.get("companies") or [])
+        register = {c["slug"]: c for c in companies if c.get("slug")}
+        filed, report = apply_from_audit(enr, report, register)
+        write_json(ENRICHED, enr)
+        write_json(DATA / "enriched.json", enr)
+        write_json(REPORT, report)
+        print(
+            f"apply-audit filed={len(filed)} stayed={len(report.get('stayed_open') or [])} "
+            f"unreadable={len(report.get('unreadable') or [])} in {time.time() - t0:.1f}s",
+            flush=True,
+        )
+        for row in filed:
+            bits = []
+            if row.get("page"):
+                bits.append(f"page {row['page']['url']}")
+            if row.get("marks"):
+                bits.append("+" + ", ".join(row["marks"]["added"]))
+            if row.get("dpa"):
+                bits.append("dpa")
+            if row.get("subprocessors"):
+                bits.append(f"sub {len(row['subprocessors'].get('names') or [])}")
+            if row.get("years"):
+                bits.append(f"year {row['years']['year']}")
+            print(f"  + {row['slug']} {' · '.join(bits)}", flush=True)
+        if filed:
+            rebuild_pages()
+        return 0
     public_rows = list(public.get("companies") or [])
     companies = list(enr.get("companies") or [])
     enr_by = {c["slug"]: c for c in companies if c.get("slug")}
