@@ -531,6 +531,14 @@ REGISTER_ALIASES: dict[str, str] = {
     # Cursor names SpaceXAI. Wikidata P856 for that published name is x.ai,
     # which is the existing xAI row. Do not invent a second dossier.
     "spacexai": "xai",
+    # Same-company leftovers after the last named-processor batch.
+    # Figma's own sub-processors list names Vmlapp Sweden AB as a Figma
+    # Entity. Figma's S-1 subsidiary exhibit lists the same Swedish row.
+    # weavy-ai already lands here. Do not invent a second Figma dossier.
+    "vmlapp-sweden": "figma",
+    # Powtoon prints Collosyan | Colossyan Inc. colossyan.com prints
+    # Colossyan. Filed in this increment.
+    "collosyan": "colossyan",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
