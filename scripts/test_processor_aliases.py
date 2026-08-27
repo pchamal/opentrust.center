@@ -172,6 +172,12 @@ def main() -> int:
     temp_reg = {**register, "temporal": {"slug": "temporal", "name": "Temporal", "domain": "temporal.io"}}
     check(canonical_processor_id("temporal-technologies", temp_reg) == "temporal", "Temporal Technologies is Temporal")
     check(canonical_processor_id("temporal-cloud", temp_reg) == "temporal", "Temporal Cloud is Temporal")
+    rec_reg = {**register, "recall-ai": {"slug": "recall-ai", "name": "Recall.ai", "domain": "recall.ai"}}
+    check(canonical_processor_id("hyperdoc-recall-ai", rec_reg) == "recall-ai", "Hyperdoc Recall.ai is Recall.ai")
+    sheet_reg2 = {**register, "smartsheet": {"slug": "smartsheet", "name": "Smartsheet", "domain": "smartsheet.com"}}
+    check(canonical_processor_id("on-brand-holdings-dba-outfit", sheet_reg2) == "smartsheet", "Outfit is Smartsheet")
+    check(canonical_processor_id("on-brand-australia-dba-outfit", sheet_reg2) == "smartsheet", "Outfit Australia is Smartsheet")
+    check(canonical_processor_id("on-brand-investments-dba-outfit", sheet_reg2) == "smartsheet", "Outfit Investments is Smartsheet")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 
