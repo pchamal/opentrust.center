@@ -443,6 +443,10 @@ REGISTER_ALIASES: dict[str, str] = {
     "firebase": "google",
     "proofpoint-systems": "proofpoint",
     "link-motion-inc": "link-motion",
+    # Rapid, Inc. is a Rapid7 group entity on Rapid7's own affiliate list
+    # (same table as Rapid7 LLC / Rapid7 Ireland). Not RapidAPI. IntSights
+    # already lands here. Do not invent a second Rapid7 dossier.
+    "rapid": "rapid7",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
