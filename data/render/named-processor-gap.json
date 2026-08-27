@@ -204,7 +204,7 @@
     {
       "slug": "partnerhero",
       "page": "https://www.partnerhero.com/security-center",
-      "marks": ["ISO 27001", "CCPA"]
+      "marks": ["ISO 27001"]
     },
     {
       "slug": "infobip",
@@ -213,13 +213,13 @@
     {
       "slug": "cloudinary",
       "page": "https://cloudinary.com/trust",
-      "marks": ["SOC 2 Type II", "HIPAA", "CCPA"],
+      "marks": ["SOC 2 Type II"],
       "subprocessors": 21
     },
     {
       "slug": "bandwidth-inc",
       "page": "https://www.bandwidth.com/security/",
-      "marks": ["SOC 2 Type II", "ISO 27001", "ISO 42001", "HIPAA", "GDPR", "CCPA"],
+      "marks": ["SOC 2 Type II", "ISO 27001", "ISO 42001"],
       "years": 1999
     }
   ],
@@ -238,5 +238,10 @@
   "remaining_ge2_slug": "bonsai-technologies",
   "dropped_instruments": 0,
   "register_count": 3653,
-  "generated_at": "2026-08-27T22:40:00Z"
+  "dropped_marks": {
+    "partnerhero": ["CCPA"],
+    "cloudinary": ["CCPA", "HIPAA"],
+    "bandwidth-inc": ["GDPR", "CCPA", "HIPAA"]
+  },
+  "generated_at": "2026-08-27T22:50:00Z"
 }
