@@ -13,6 +13,7 @@ const state = {
   edges: [],
   companies: new Map(),
   processors: [],
+  aliases: {},
   focus: 0,
   focusKey: "",
   sort: "name",
@@ -28,8 +29,16 @@ function thinness(row) {
   return (100 - score) / 100;
 }
 
-function registerSlug(node, companies) {
+function canonicalProcessorId(id, aliases) {
+  if (!id) return id;
+  const map = aliases || {};
+  return map[id] || id;
+}
+
+function registerSlug(node, companies, aliases) {
   if (!node) return null;
+  const id = canonicalProcessorId(node.id, aliases);
+  if (id && companies.has(id)) return id;
   if (node.id && companies.has(node.id)) return node.id;
   if (node.domain) {
     for (const c of companies.values()) {
@@ -125,19 +134,22 @@ function processorDisplayName(e, node, to) {
 }
 
 function normalizeEdges(wires, companies) {
+  const aliases = wires.aliases || {};
   const nodes = new Map((wires.nodes || []).map((n) => [n.id, n]));
   return (wires.edges || [])
     .filter((e) => {
       if (!e.source_url) return false;
-      const to = e.to || e.processor_slug || e.processor;
-      const node = nodes.get(to) || {};
+      const raw = e.to || e.processor_slug || e.processor;
+      const to = canonicalProcessorId(raw, aliases);
+      const node = nodes.get(to) || nodes.get(raw) || {};
       return !looksLikeDateName(node.name) && !looksLikeDateName(to) && !looksLikeDateName(e.evidence);
     })
     .map((e) => {
       const from = e.from || e.company;
-      const to = e.to || e.processor_slug || e.processor;
-      const node = nodes.get(to) || {};
-      const slug = registerSlug(node, companies) || (companies.has(to) ? to : e.processor_slug || null);
+      const raw = e.to || e.processor_slug || e.processor;
+      const to = canonicalProcessorId(raw, aliases);
+      const node = nodes.get(to) || nodes.get(raw) || {};
+      const slug = registerSlug({ ...node, id: to }, companies, aliases) || (companies.has(to) ? to : e.processor_slug || null);
       const domain = (node.domain || (slug && companies.get(slug) && companies.get(slug).domain) || "")
         .toLowerCase()
         .replace(/^www\./, "");
@@ -631,7 +643,7 @@ export function focusIdFromLocation(loc = window.location) {
 function processorIndex(id) {
   const fallback = defaultProcessorIndex(state.processors);
   if (!id) return fallback;
-  const key = String(id);
+  const key = String(canonicalProcessorId(id, state.aliases));
   if (looksLikeDateName(key)) return fallback;
   const i = state.processors.findIndex(
     (p) => p.id === key || p.slug === key || p.name === key,
@@ -860,6 +872,7 @@ async function load() {
     ]);
     state.icons = icons && typeof icons === "object" ? icons : { companies: {}, marks: {} };
     state.data = reg;
+    state.aliases = (wires && wires.aliases) || {};
     (reg.companies || []).forEach((c) => state.companies.set(c.slug, c));
     state.edges = normalizeEdges(wires, state.companies);
     state.processors = arrangeProcessors(

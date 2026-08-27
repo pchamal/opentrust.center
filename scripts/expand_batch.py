@@ -16,6 +16,12 @@ import crawl  # noqa: E402
 from merge_render import rescore, canon_cert  # noqa: E402
 from marks import extract_certs_from_html  # noqa: E402
 import enrich  # noqa: E402
+from processor_aliases import canonical_processor_id  # noqa: E402
+
+# Named processors already cited on first-party lists jump the queue
+# ahead of Wikipedia leftover walks. See scripts/_named_processor_gap.py.
+GAP_SOURCE = "named-processor-gap"
+GAP_SOURCES = {GAP_SOURCE, "named-subprocessor-gap"}
 
 DATA = ROOT / "data"
 QUEUE = DATA / "crawl-queue.json"
@@ -48,13 +54,28 @@ def next_batch(queue: dict, state: dict, n: int) -> list[dict]:
     cursor = int(state.get("cursor") or 0)
     have = {c["slug"] for c in load_json(ENRICHED, {}).get("companies", [])}
     picked = []
+    seen = set()
+    # Prefer named processors the register still lacks. Do not advance the
+    # leftover cursor for these; Wikipedia walks resume where they stopped.
+    for row in companies:
+        if len(picked) >= n:
+            break
+        if row.get("source") not in GAP_SOURCES:
+            continue
+        slug = row.get("slug")
+        if not row.get("domain") or not slug or slug in have or slug in seen:
+            continue
+        picked.append(row)
+        seen.add(slug)
     i = cursor
     while i < len(companies) and len(picked) < n:
         row = companies[i]
         i += 1
-        if not row.get("domain") or row.get("slug") in have:
+        slug = row.get("slug")
+        if not row.get("domain") or not slug or slug in have or slug in seen:
             continue
         picked.append(row)
+        seen.add(slug)
     state["cursor"] = i
     return picked
 
@@ -78,7 +99,7 @@ def merge_processor_edges(edges: list[dict], register: dict[str, dict]) -> None:
     proc_meta = {i: (n, d) for i, n, d, _a in enrich.PROCESSORS}
     for e in edges:
         src = e.get("source_url")
-        frm, to = e.get("from"), e.get("to")
+        frm, to = e.get("from"), canonical_processor_id(e.get("to"), register)
         if not src or not frm or not to or (frm, to) in existing:
             continue
         subs.setdefault("edges", []).append({

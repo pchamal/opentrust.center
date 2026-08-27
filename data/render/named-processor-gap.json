@@ -1,0 +1,50 @@
+{
+  "rule": "Named processor not on the register jumps the queue. Alias graph ids that are the same company as an existing slug. Rebased onto fe6bc834f: do not invent a second dossier for slugs expand already filed. Completeness rates the file. Portal vendors are never named. Entity Name is garbage.",
+  "aliases": {
+    "aws": "amazon-web-services",
+    "gcp": "google",
+    "azure": "microsoft",
+    "mailgun-technologies": "mailgun",
+    "google-workspace": "google",
+    "google-analytics": "google",
+    "newrelic": "new-relic",
+    "modal-labs": "modal",
+    "baseten-labs": "baseten",
+    "baseten-labs-inc": "baseten",
+    "sierra-technologies": "sierra",
+    "cerebras-systems": "cerebras",
+    "eleven-labs": "elevenlabs",
+    "oracle-america": "oracle",
+    "hetzner": "hetzner-online",
+    "hetzner-finland": "hetzner-online",
+    "exa-labs": "exa",
+    "recaptcha": "google"
+  },
+  "already_on_main": [
+    "sentry", "sendgrid", "fullstory", "auth0", "vonage", "tableau",
+    "nylas", "messagebird", "mux", "onesignal", "stitch", "hetzner-online"
+  ],
+  "filed": [
+    {"slug": "segment", "named_by": 10, "domain": "segment.com", "domain_source": "processor-catalog"},
+    {"slug": "workos", "named_by": 6, "domain": "workos.com", "domain_source": "first-party-homepage"},
+    {"slug": "sendsafely", "named_by": 5, "domain": "sendsafely.com", "domain_source": "first-party-homepage"},
+    {"slug": "pusher", "named_by": 5, "domain": "pusher.com", "domain_source": "first-party-homepage"},
+    {"slug": "pylon", "named_by": 4, "domain": "usepylon.com", "domain_source": "first-party-homepage"},
+    {"slug": "stytch", "named_by": 3, "domain": "stytch.com", "domain_source": "first-party-homepage"},
+    {"slug": "postmark", "named_by": 3, "domain": "postmarkapp.com", "domain_source": "first-party-homepage"},
+    {"slug": "telesign", "named_by": 3, "domain": "telesign.com", "domain_source": "first-party-homepage"},
+    {"slug": "taskus", "named_by": 3, "domain": "taskus.com", "domain_source": "first-party-homepage"},
+    {"slug": "turbopuffer", "named_by": 3, "domain": "turbopuffer.com", "domain_source": "first-party-homepage"},
+    {"slug": "iterable", "named_by": 3, "domain": "iterable.com", "domain_source": "first-party-homepage"},
+    {"slug": "linkedin", "named_by": 3, "domain": "linkedin.com", "domain_source": "first-party-homepage"},
+    {"slug": "exa", "named_by": 3, "domain": "exa.ai", "domain_source": "first-party-homepage"}
+  ],
+  "skipped": [
+    {"slug": "entity-name", "named_by": 3, "reason": "garbage-header"},
+    {"slug": "gainsight", "named_by": 6, "reason": "no-verified-official-domain"},
+    {"slug": "ada", "named_by": 3, "reason": "ambiguous-name-no-verified-domain"},
+    {"slug": "ada-support", "named_by": 3, "reason": "no-verified-official-domain"},
+    {"slug": "vultr", "named_by": 3, "reason": "homepage-unverified"},
+    {"slug": "parallel-web-systems", "named_by": 3, "reason": "no-verified-official-domain"}
+  ]
+}

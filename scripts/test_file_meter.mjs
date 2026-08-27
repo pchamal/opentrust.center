@@ -221,16 +221,16 @@ const dossierHref = {
   Vercel: "./vercel.html",
   Cloudflare: "./cloudflare.html",
   Together: "./together-ai.html",
+  Azure: "./microsoft.html",
+  Baseten: "./baseten.html",
+  "Google Cloud Platform": "./google.html",
+  Exa: "./exa.html",
+  WorkOS: "./workos.html",
+  Turbopuffer: "./turbopuffer.html",
 };
 const graphHref = {
   "Google Gemini": "../graph.html#p=google-gemini",
-  Turbopuffer: "../graph.html#p=turbopuffer",
-  Exa: "../graph.html#p=exa",
-  Azure: "../graph.html#p=azure",
-  Baseten: "../graph.html#p=baseten-labs-inc",
-  "Google Cloud Platform": "../graph.html#p=gcp",
   SpaceXAI: "../graph.html#p=spacexai",
-  WorkOS: "../graph.html#p=workos",
 };
 expect(
   "anysphere processors that have a file are links",
