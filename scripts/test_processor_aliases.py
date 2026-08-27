@@ -187,6 +187,10 @@ def main() -> int:
     check(canonical_processor_id("data-plus-math", ramp_reg2) == "liveramp", "Data Plus Math is LiveRamp")
     light_reg2 = {**register, "lightspeed-commerce": {"slug": "lightspeed-commerce", "name": "Lightspeed Commerce", "domain": "lightspeedhq.com"}}
     check(canonical_processor_id("payment-revolution", light_reg2) == "lightspeed-commerce", "Payment Revolution is Lightspeed")
+    ph_reg = {**register, "partnerhero": {"slug": "partnerhero", "name": "PartnerHero", "domain": "partnerhero.com"}}
+    check(canonical_processor_id("partner-hero", ph_reg) == "partnerhero", "Partner Hero is PartnerHero")
+    dstny_reg = {**register, "dstny-automate-formerly-qunifi": {"slug": "dstny-automate-formerly-qunifi", "name": "Dstny", "domain": "dstny.com"}}
+    check(canonical_processor_id("qunifi", dstny_reg) == "dstny-automate-formerly-qunifi", "Qunifi is Dstny Automate")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 

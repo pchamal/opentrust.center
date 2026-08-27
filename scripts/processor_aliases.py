@@ -407,6 +407,12 @@ REGISTER_ALIASES: dict[str, str] = {
     # Payment Revolution is ShopKeep Payments by Lightspeed. lightspeed-commerce
     # is on the register; shopkeep already lands here.
     "payment-revolution": "lightspeed-commerce",
+    # Same-company leftovers after the last named-processor batch.
+    # Partner Hero (Atlassian) and PartnerHero (Airtable) are one BPO.
+    "partner-hero": "partnerhero",
+    # Qunifi is now Dstny Automate. dstny-automate-formerly-qunifi is filed
+    # in this increment; qunifi.com redirects to dstny.com.
+    "qunifi": "dstny-automate-formerly-qunifi",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
