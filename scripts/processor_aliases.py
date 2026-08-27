@@ -389,6 +389,13 @@ REGISTER_ALIASES: dict[str, str] = {
     "tines-automation": "tines",
     "recall": "recall-ai",
     "transloadit-ii": "transloadit",
+    # Same-company leftovers after the last named-processor batch.
+    # Hyperdoc Inc. (Recall.ai) is the Recall.ai row already on the register.
+    "hyperdoc-recall-ai": "recall-ai",
+    # Outfit was acquired by Brandfolder; Brandfolder is Smartsheet.
+    "on-brand-australia-dba-outfit": "smartsheet",
+    "on-brand-holdings-dba-outfit": "smartsheet",
+    "on-brand-investments-dba-outfit": "smartsheet",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
