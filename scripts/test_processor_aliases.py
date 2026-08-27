@@ -136,6 +136,8 @@ def main() -> int:
     check(canonical_processor_id("seedance-2-0", byte_reg) == "bytedance", "Seedance is ByteDance")
     light_reg = {**register, "lightspeed-commerce": {"slug": "lightspeed-commerce", "name": "Lightspeed Commerce", "domain": "lightspeedhq.com"}}
     check(canonical_processor_id("nuorder", light_reg) == "lightspeed-commerce", "NuORDER is Lightspeed")
+    db_reg = {**register, "databricks": {"slug": "databricks", "name": "Databricks", "domain": "databricks.com"}}
+    check(canonical_processor_id("neon", db_reg) == "databricks", "Neon is Databricks")
     inc_reg = {**register, "incident-io": {"slug": "incident-io", "name": "incident.io", "domain": "incident.io"}}
     check(canonical_processor_id("pineapple-technology-incident-io", inc_reg) == "incident-io", "Pineapple Technology is incident.io")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")

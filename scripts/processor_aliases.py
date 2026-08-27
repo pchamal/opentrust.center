@@ -343,6 +343,8 @@ REGISTER_ALIASES: dict[str, str] = {
     "workcanvas-workassests": "monday",
     "seedance-2-0": "bytedance",
     "nuorder": "lightspeed-commerce",
+    # Databricks acquired Neon. databricks is on the register.
+    "neon": "databricks",
     # Wire id that lands on the row filed in this increment.
     "pineapple-technology-incident-io": "incident-io",
 }
