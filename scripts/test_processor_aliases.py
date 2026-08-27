@@ -123,6 +123,21 @@ def main() -> int:
     check(canonical_processor_id("hex-technologies", hex_reg) == "hex", "Hex Technologies is Hex")
     knock_reg = {**register, "knock": {"slug": "knock", "name": "Knock", "domain": "knock.app"}}
     check(canonical_processor_id("knock-labs", knock_reg) == "knock", "Knock Labs is Knock")
+    zoominfo_reg = {**register, "zoominfo": {"slug": "zoominfo", "name": "ZoomInfo", "domain": "zoominfo.com"}}
+    check(canonical_processor_id("neverbounce", zoominfo_reg) == "zoominfo", "NeverBounce is ZoomInfo")
+    live_reg = {**register, "liveperson": {"slug": "liveperson", "name": "LivePerson", "domain": "liveperson.com"}}
+    check(canonical_processor_id("voicebase", live_reg) == "liveperson", "VoiceBase is LivePerson")
+    check(canonical_processor_id("callinize-tenfold", live_reg) == "liveperson", "Tenfold is LivePerson")
+    jamf_reg = {**register, "jamf": {"slug": "jamf", "name": "Jamf", "domain": "jamf.com"}}
+    check(canonical_processor_id("zecops-israel", jamf_reg) == "jamf", "ZecOps is Jamf")
+    monday_reg = {**register, "monday": {"slug": "monday", "name": "monday.com", "domain": "monday.com"}}
+    check(canonical_processor_id("workcanvas-workassests", monday_reg) == "monday", "WorkCanvas is monday.com")
+    byte_reg = {**register, "bytedance": {"slug": "bytedance", "name": "ByteDance", "domain": "bytedance.com"}}
+    check(canonical_processor_id("seedance-2-0", byte_reg) == "bytedance", "Seedance is ByteDance")
+    light_reg = {**register, "lightspeed-commerce": {"slug": "lightspeed-commerce", "name": "Lightspeed Commerce", "domain": "lightspeedhq.com"}}
+    check(canonical_processor_id("nuorder", light_reg) == "lightspeed-commerce", "NuORDER is Lightspeed")
+    inc_reg = {**register, "incident-io": {"slug": "incident-io", "name": "incident.io", "domain": "incident.io"}}
+    check(canonical_processor_id("pineapple-technology-incident-io", inc_reg) == "incident-io", "Pineapple Technology is incident.io")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 
