@@ -140,6 +140,17 @@ def main() -> int:
     check(canonical_processor_id("neon", db_reg) == "databricks", "Neon is Databricks")
     inc_reg = {**register, "incident-io": {"slug": "incident-io", "name": "incident.io", "domain": "incident.io"}}
     check(canonical_processor_id("pineapple-technology-incident-io", inc_reg) == "incident-io", "Pineapple Technology is incident.io")
+    cp_reg2 = {**register, "check-point": {"slug": "check-point", "name": "Check Point", "domain": "checkpoint.com"}}
+    check(canonical_processor_id("checkpoint", cp_reg2) == "check-point", "Checkpoint is Check Point")
+    var_reg = {**register, "varonis": {"slug": "varonis", "name": "Varonis", "domain": "varonis.com"}}
+    check(canonical_processor_id("slashnext", var_reg) == "varonis", "SlashNext is Varonis")
+    readme_reg = {**register, "readme": {"slug": "readme", "name": "Readme", "domain": "readme.com"}}
+    check(canonical_processor_id("readme-io", readme_reg) == "readme", "ReadMe.io is Readme")
+    rl_reg = {**register, "reversing-labs": {"slug": "reversing-labs", "name": "Reversing Labs", "domain": "reversinglabs.com"}}
+    check(canonical_processor_id("reversing-labs-international", rl_reg) == "reversing-labs", "Reversing Labs International is ReversingLabs")
+    was_reg = {**register, "wasabi": {"slug": "wasabi", "name": "Wasabi", "domain": "wasabi.com"}}
+    check(canonical_processor_id("wasabi-resources", was_reg) == "wasabi", "Wasabi Resources is Wasabi")
+    check(canonical_processor_id("wasabi-technologies", was_reg) == "wasabi", "Wasabi Technologies is Wasabi")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 

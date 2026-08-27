@@ -353,6 +353,15 @@ REGISTER_ALIASES: dict[str, str] = {
     "neon": "databricks",
     # Wire id that lands on the row filed in this increment.
     "pineapple-technology-incident-io": "incident-io",
+    # Same-company leftovers after the last named-processor batch.
+    "checkpoint": "check-point",
+    # Varonis acquired SlashNext; slashnext.com now redirects to Varonis.
+    "slashnext": "varonis",
+    # Wire ids that land on rows filed in this increment.
+    "readme-io": "readme",
+    "reversing-labs-international": "reversing-labs",
+    "wasabi-resources": "wasabi",
+    "wasabi-technologies": "wasabi",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
