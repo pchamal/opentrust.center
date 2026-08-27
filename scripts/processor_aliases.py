@@ -396,6 +396,17 @@ REGISTER_ALIASES: dict[str, str] = {
     "on-brand-australia-dba-outfit": "smartsheet",
     "on-brand-holdings-dba-outfit": "smartsheet",
     "on-brand-investments-dba-outfit": "smartsheet",
+    # Same-company leftovers after the last named-processor batch.
+    # Hyperdoc Inc. is Recall.ai's legal name. recall-ai is on the register.
+    "hyperdoc": "recall-ai",
+    # LexisNexis Risk Solutions is the existing RELX / LexisNexis row.
+    "lexisnexis-risk-solutions": "relx-d-b-a-lexisnexis",
+    # LiveRamp acquired DataFleets and Data Plus Math. habu already lands here.
+    "datafleets": "liveramp",
+    "data-plus-math": "liveramp",
+    # Payment Revolution is ShopKeep Payments by Lightspeed. lightspeed-commerce
+    # is on the register; shopkeep already lands here.
+    "payment-revolution": "lightspeed-commerce",
 }
 
 # Published header garbage. Not a company. Do not file or alias.

@@ -178,6 +178,15 @@ def main() -> int:
     check(canonical_processor_id("on-brand-holdings-dba-outfit", sheet_reg2) == "smartsheet", "Outfit is Smartsheet")
     check(canonical_processor_id("on-brand-australia-dba-outfit", sheet_reg2) == "smartsheet", "Outfit Australia is Smartsheet")
     check(canonical_processor_id("on-brand-investments-dba-outfit", sheet_reg2) == "smartsheet", "Outfit Investments is Smartsheet")
+    rec_reg2 = {**register, "recall-ai": {"slug": "recall-ai", "name": "Recall.ai", "domain": "recall.ai"}}
+    check(canonical_processor_id("hyperdoc", rec_reg2) == "recall-ai", "Hyperdoc Inc is Recall.ai")
+    lex_reg = {**register, "relx-d-b-a-lexisnexis": {"slug": "relx-d-b-a-lexisnexis", "name": "LexisNexis", "domain": "lexisnexis.com"}}
+    check(canonical_processor_id("lexisnexis-risk-solutions", lex_reg) == "relx-d-b-a-lexisnexis", "LexisNexis Risk is LexisNexis")
+    ramp_reg2 = {**register, "liveramp": {"slug": "liveramp", "name": "LiveRamp", "domain": "liveramp.com"}}
+    check(canonical_processor_id("datafleets", ramp_reg2) == "liveramp", "DataFleets is LiveRamp")
+    check(canonical_processor_id("data-plus-math", ramp_reg2) == "liveramp", "Data Plus Math is LiveRamp")
+    light_reg2 = {**register, "lightspeed-commerce": {"slug": "lightspeed-commerce", "name": "Lightspeed Commerce", "domain": "lightspeedhq.com"}}
+    check(canonical_processor_id("payment-revolution", light_reg2) == "lightspeed-commerce", "Payment Revolution is Lightspeed")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 
