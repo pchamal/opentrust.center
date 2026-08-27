@@ -1,13 +1,46 @@
 {
   "rule": "Named processor not on the register jumps the queue. Alias graph ids that are the same company as an existing slug. Completeness rates the file. Portal vendors are never named. Entity Name is garbage. Never invent a second dossier for an alias. Never invent domains.",
   "aliases_added": {
-    "pydantic-logfire": "pydantic",
-    "appextremes-dba-conga": "conga",
-    "oracle-america-netsuite": "netsuite",
-    "docebo-na": "docebo",
-    "metronome-holdings": "metronome"
+    "250ok": "validity",
+    "processout": "checkout",
+    "email-data-source": "messagebird",
+    "neustar-info-services": "transunion-formerly-neustar-information-services",
+    "telus-international": "telus",
+    "propay": "global-payments",
+    "sirius-federal": "cdw",
+    "solace-where-purchased-by-customer": "solace",
+    "plansource-benefits-administration": "plansource",
+    "ppro-payment-services": "ppro"
   },
   "filed": [
+    {
+      "slug": "sumit-ai",
+      "name": "Sumit AI",
+      "named_by": 2,
+      "domain": "sumit-ai.com",
+      "domain_source": "first-party-homepage"
+    },
+    {
+      "slug": "iron-mountain",
+      "name": "Iron Mountain",
+      "named_by": 1,
+      "domain": "ironmountain.com",
+      "domain_source": "wikidata-p856"
+    },
+    {
+      "slug": "solace",
+      "name": "Solace",
+      "named_by": 1,
+      "domain": "solace.com",
+      "domain_source": "wikidata-p856"
+    },
+    {
+      "slug": "rfpio",
+      "name": "RFPIO",
+      "named_by": 1,
+      "domain": "rfpio.com",
+      "domain_source": "wikidata-p856"
+    },
     {
       "slug": "orum",
       "name": "Orum",
@@ -16,771 +49,40 @@
       "domain_source": "first-party-homepage"
     },
     {
-      "slug": "wpremote",
-      "name": "WP Remote",
+      "slug": "ppro",
+      "name": "PPRO",
       "named_by": 1,
-      "domain": "wpremote.com",
+      "domain": "ppro.com",
       "domain_source": "first-party-homepage"
     },
     {
-      "slug": "data-jar",
-      "name": "dataJAR",
+      "slug": "plansource",
+      "name": "PlanSource",
       "named_by": 1,
-      "domain": "datajar.co.uk",
+      "domain": "plansource.com",
       "domain_source": "first-party-homepage"
     },
     {
-      "slug": "pydantic",
-      "name": "Pydantic",
+      "slug": "crystal-televentures-pvt",
+      "name": "Crystal Televentures",
       "named_by": 1,
-      "domain": "pydantic.dev",
+      "domain": "crystalteleventures.com",
       "domain_source": "first-party-homepage"
     }
   ],
   "skipped": [
     {
-      "slug": "bonsai-technologies",
-      "named_by": 2,
-      "reason": "ambiguous-elasticsearch-vs-other-bonsai"
-    },
-    {
-      "slug": "sumit-ai",
-      "named_by": 2,
-      "reason": "homepage-is-lander-not-company"
-    },
-    {
-      "slug": "250ok",
-      "named_by": 1,
-      "reason": "validity-on-register-first-party-validity-does-not-present-250ok"
-    },
-    {
-      "slug": "a-g-consulting",
-      "named_by": 1,
-      "reason": "no-first-party-homepage-that-prints-the-name"
-    },
-    {
-      "slug": "active-communications-europe",
-      "named_by": 1,
-      "reason": "aliased-to-audiocodes"
-    },
-    {
-      "slug": "adaptive-mobile",
-      "named_by": 1,
-      "reason": "standing-skip-homepage-403"
-    },
-    {
-      "slug": "agile-management-experts",
-      "named_by": 1,
-      "reason": "homepage-prints-amx-not-agile-management-experts"
-    },
-    {
-      "slug": "alcmene-s-r-l",
-      "named_by": 1,
-      "reason": "aliased-to-lightspeed-commerce"
-    },
-    {
-      "slug": "atelier35",
-      "named_by": 1,
-      "reason": "aliased-to-lightspeed-commerce"
-    },
-    {
-      "slug": "avertech",
-      "named_by": 1,
-      "reason": "ambiguous-sonicwall-avertech-vs-indian-aws-avertech"
-    },
-    {
-      "slug": "basefarm-as",
-      "named_by": 1,
-      "reason": "homepage-now-orange-business-orange-not-on-register"
-    },
-    {
-      "slug": "bcl-technologies",
-      "named_by": 1,
-      "reason": "no-first-party-homepage-verified-this-hour"
-    },
-    {
-      "slug": "benjamin-mosse-consulting",
-      "named_by": 1,
-      "reason": "homepage-prints-mosse-security-not-benjamin-mosse-consulting"
-    },
-    {
-      "slug": "blue-ocean-contact-centres",
-      "named_by": 1,
-      "reason": "homepage-403"
-    },
-    {
-      "slug": "boldr",
-      "named_by": 1,
-      "reason": "homepage-is-lander-not-company"
-    },
-    {
-      "slug": "cc-cloud",
-      "named_by": 1,
-      "reason": "codecentric-subsidiary-codecentric-not-on-register-no-independent-homepage"
-    },
-    {
-      "slug": "cloud-support-technologies",
-      "named_by": 1,
-      "reason": "homepage-does-not-print-company-name"
-    },
-    {
-      "slug": "cognitive-intelligence",
-      "named_by": 1,
-      "reason": "ambiguous-multiple-cognitive-intelligence-firms"
-    },
-    {
-      "slug": "collosyan",
-      "named_by": 1,
-      "reason": "homepage-unreachable"
-    },
-    {
-      "slug": "convertapi-uab",
-      "named_by": 1,
-      "reason": "no-first-party-homepage-verified-this-hour"
-    },
-    {
-      "slug": "crystal-televentures-pvt",
-      "named_by": 1,
-      "reason": "homepage-prints-crystal-techventures-not-televentures"
-    },
-    {
-      "slug": "day-ai",
-      "named_by": 1,
-      "reason": "no-first-party-homepage-verified-this-hour"
-    },
-    {
-      "slug": "deft",
-      "named_by": 1,
-      "reason": "homepage-403"
-    },
-    {
-      "slug": "df-tech-fz",
-      "named_by": 1,
-      "reason": "homepage-is-lander-not-company"
-    },
-    {
-      "slug": "diablo-ai",
-      "named_by": 1,
-      "reason": "aliased-to-liveramp"
-    },
-    {
-      "slug": "dreamdata",
-      "named_by": 1,
-      "reason": "no-first-party-homepage-verified-this-hour"
-    },
-    {
-      "slug": "e-core-solu-es-em-tecnologia-da-informa-iup-o-ltda",
-      "named_by": 1,
-      "reason": "homepage-js-shell-does-not-print-name"
-    },
-    {
-      "slug": "eighth-intuition-sdn-bhd",
-      "named_by": 1,
-      "reason": "homepage-unreachable"
-    },
-    {
-      "slug": "email-data-source",
-      "named_by": 1,
-      "reason": "validity-on-register-first-party-validity-does-not-present-email-data-source"
-    },
-    {
-      "slug": "fineyear-human-resources-service",
-      "named_by": 1,
-      "reason": "homepage-prints-chinese-fangyuan-not-fineyear"
-    },
-    {
-      "slug": "formstack",
-      "named_by": 1,
-      "reason": "no-first-party-homepage-verified-this-hour"
-    },
-    {
-      "slug": "freepik-company-s-l-u",
-      "named_by": 1,
-      "reason": "standing-skip-freepik"
-    },
-    {
-      "slug": "frontline-call-center",
-      "named_by": 1,
-      "reason": "no-first-party-homepage-verified-this-hour"
-    },
-    {
-      "slug": "gcs",
-      "named_by": 1,
-      "reason": "short-generic-slug-ambiguous"
-    },
-    {
-      "slug": "gmi",
-      "named_by": 1,
-      "reason": "ambiguous-gmi-it-vs-other-gmi"
-    },
-    {
-      "slug": "gmo-globalsign",
-      "named_by": 1,
-      "reason": "no-first-party-homepage-verified-this-hour"
+      "slug": "spacexai",
+      "reason": "wikidata exact hit x.ai is xAI, already on the register as xai; Cursor's SpaceXAI is not filed as a second xAI dossier"
     },
     {
       "slug": "groove-networks-dba-groove",
-      "named_by": 1,
-      "reason": "homepage-now-helply-does-not-print-groove-as-company"
+      "reason": "enwiki Groove Networks is the 2005 Microsoft acquisition, not WatchGuard's published Groove"
     },
     {
-      "slug": "healthcast",
-      "named_by": 1,
-      "reason": "homepage-js-shell-does-not-print-name"
-    },
-    {
-      "slug": "impartner",
-      "named_by": 1,
-      "reason": "no-first-party-homepage-verified-this-hour"
-    },
-    {
-      "slug": "intersections",
-      "named_by": 1,
-      "reason": "homepage-unreachable"
-    },
-    {
-      "slug": "intouchcx-disrupt",
-      "named_by": 1,
-      "reason": "homepage-403"
-    },
-    {
-      "slug": "intraedge",
-      "named_by": 1,
-      "reason": "no-first-party-homepage-verified-this-hour"
-    },
-    {
-      "slug": "iron-mountain",
-      "named_by": 1,
-      "reason": "standing-skip-homepage-429-vercel"
-    },
-    {
-      "slug": "it",
-      "named_by": 1,
-      "reason": "garbage-slug-not-a-company"
-    },
-    {
-      "slug": "khoros",
-      "named_by": 1,
-      "reason": "filed-on-main-expand-4f62638"
-    },
-    {
-      "slug": "kiss-metrics",
-      "named_by": 1,
-      "reason": "standing-skip-homepage-403"
-    },
-    {
-      "slug": "kiss-metrics-usage-analytics",
-      "named_by": 1,
-      "reason": "standing-skip-kissmetrics"
-    },
-    {
-      "slug": "klarity",
-      "named_by": 1,
-      "reason": "standing-skip-redirects-to-within"
-    },
-    {
-      "slug": "kount",
-      "named_by": 1,
-      "reason": "standing-skip-homepage-now-equifax-equifax-not-on-register"
-    },
-    {
-      "slug": "launchboard-software",
-      "named_by": 1,
-      "reason": "homepage-is-ai-hardware-unverified-same-company-as-meltwater-subprocessor"
-    },
-    {
-      "slug": "madkudu",
-      "named_by": 1,
-      "reason": "standing-skip-homepage-403"
-    },
-    {
-      "slug": "media-connect",
-      "named_by": 1,
-      "reason": "short-generic-slug-ambiguous"
-    },
-    {
-      "slug": "morphl-r-d-srl",
-      "named_by": 1,
-      "reason": "aliased-to-algolia-group-affiliate-morphl-io-dead"
-    },
-    {
-      "slug": "mpower",
-      "named_by": 1,
-      "reason": "short-generic-slug-ambiguous-homepage-unreachable"
-    },
-    {
-      "slug": "multyware-associates",
-      "named_by": 1,
-      "reason": "homepage-404-no-working-first-party-page"
-    },
-    {
-      "slug": "nanonoble-pte",
-      "named_by": 1,
-      "reason": "homepage-is-hailuo-minimax-minimax-not-on-register"
-    },
-    {
-      "slug": "neustar-info-services",
-      "named_by": 1,
-      "reason": "transunion-on-register-first-party-transunion-and-neustar-403"
-    },
-    {
-      "slug": "ninestars-bulgaria-eood",
-      "named_by": 1,
-      "reason": "homepage-js-shell"
-    },
-    {
-      "slug": "ninja-partners",
-      "named_by": 1,
-      "reason": "no-first-party-homepage-verified-this-hour"
-    },
-    {
-      "slug": "norwin-technologies",
-      "named_by": 1,
-      "reason": "homepage-cloudflare-403"
-    },
-    {
-      "slug": "novemilla",
-      "named_by": 1,
-      "reason": "homepage-unreachable"
-    },
-    {
-      "slug": "nuera-communications-singapore-pte",
-      "named_by": 1,
-      "reason": "first-party-homepage-js-shell-still-prints-neither-nuera-nor-audiocodes"
-    },
-    {
-      "slug": "opstalent-spolka-z-o-o-sp-k",
-      "named_by": 1,
-      "reason": "homepage-js-shell"
-    },
-    {
-      "slug": "ori-industries",
-      "named_by": 1,
-      "reason": "homepage-now-radiant-radiant-not-on-register"
-    },
-    {
-      "slug": "outreach",
-      "named_by": 1,
-      "reason": "no-first-party-homepage-verified-this-hour"
-    },
-    {
-      "slug": "plansource-benefits-administration",
-      "named_by": 1,
-      "reason": "standing-skip-homepage-403"
-    },
-    {
-      "slug": "plextrac",
-      "named_by": 1,
-      "reason": "standing-skip-homepage-403"
-    },
-    {
-      "slug": "popout",
-      "named_by": 1,
-      "reason": "homepage-thin-ambiguous-popout-inc"
-    },
-    {
-      "slug": "ppro-payment-services",
-      "named_by": 1,
-      "reason": "standing-skip"
-    },
-    {
-      "slug": "printfection",
-      "named_by": 1,
-      "reason": "standing-skip-homepage-403"
-    },
-    {
-      "slug": "processout",
-      "named_by": 1,
-      "reason": "checkout-on-register-first-party-checkout-does-not-present-processout"
-    },
-    {
-      "slug": "propay",
-      "named_by": 1,
-      "reason": "standing-skip-homepage-unreachable"
-    },
-    {
-      "slug": "pros",
-      "named_by": 1,
-      "reason": "no-first-party-homepage-verified-this-hour"
-    },
-    {
-      "slug": "pydantic-logfire",
-      "named_by": 1,
-      "reason": "aliased-to-pydantic-logfire-is-pydantic-product"
-    },
-    {
-      "slug": "r-systems-international",
-      "named_by": 1,
-      "reason": "homepage-cloudfront-403"
-    },
-    {
-      "slug": "rapid",
-      "named_by": 1,
-      "reason": "aliased-to-rapid7-group-entity-not-rapidapi"
-    },
-    {
-      "slug": "reveal-sas",
-      "named_by": 1,
-      "reason": "homepage-now-crossbeam-crossbeam-not-on-register"
-    },
-    {
-      "slug": "rfpio",
-      "named_by": 1,
-      "reason": "standing-skip"
-    },
-    {
-      "slug": "rockwell-information-services",
-      "named_by": 1,
-      "reason": "homepage-is-login-does-not-print-company-name"
-    },
-    {
-      "slug": "rsi",
-      "named_by": 1,
-      "reason": "short-generic-slug-ambiguous"
-    },
-    {
-      "slug": "rtica-pfms-slu",
-      "named_by": 1,
-      "reason": "homepage-cloudflare-403"
-    },
-    {
-      "slug": "rudderstack",
-      "named_by": 1,
-      "reason": "standing-skip-homepage-js-shell-does-not-print-name"
-    },
-    {
-      "slug": "rule-56",
-      "named_by": 1,
-      "reason": "homepage-empty"
-    },
-    {
-      "slug": "runware",
-      "named_by": 1,
-      "reason": "standing-skip-homepage-js-shell-does-not-print-name"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "named_by": 1,
-      "reason": "homepage-cloudflare-403"
-    },
-    {
-      "slug": "sie",
-      "named_by": 1,
-      "reason": "homepage-is-sony-interactive-not-sie-co-ltd"
-    },
-    {
-      "slug": "simple-order",
-      "named_by": 1,
-      "reason": "aliased-to-lightspeed-commerce"
-    },
-    {
-      "slug": "sirius-federal",
-      "named_by": 1,
-      "reason": "homepage-dead-cdw-does-not-print-sirius"
-    },
-    {
-      "slug": "solace-where-purchased-by-customer",
-      "named_by": 1,
-      "reason": "standing-skip"
-    },
-    {
-      "slug": "spacexai",
-      "named_by": 1,
-      "reason": "standing-skip"
-    },
-    {
-      "slug": "spryng",
-      "named_by": 1,
-      "reason": "spryng-nl-403-spryng-io-is-different-company"
-    },
-    {
-      "slug": "susea",
-      "named_by": 1,
-      "reason": "standing-skip-you-com"
-    },
-    {
-      "slug": "susea-you-com",
-      "named_by": 1,
-      "reason": "standing-skip-you-com"
-    },
-    {
-      "slug": "sync",
-      "named_by": 1,
-      "reason": "ambiguous-sync-com-vs-other-sync"
-    },
-    {
-      "slug": "tdcx-my",
-      "named_by": 1,
-      "reason": "homepage-js-shell-does-not-print-name"
-    },
-    {
-      "slug": "telus-international",
-      "named_by": 1,
-      "reason": "homepage-403-still-ambiguous-separate-public-company-from-telus-inc"
-    },
-    {
-      "slug": "textel",
-      "named_by": 1,
-      "reason": "homepage-now-capacity-capacity-403-not-on-register"
-    },
-    {
-      "slug": "thorn",
-      "named_by": 1,
-      "reason": "standing-skip-homepage-403"
-    },
-    {
-      "slug": "transactel-international-services-d-b-a-telus-international",
-      "named_by": 1,
-      "reason": "telus-international-403-separate-from-telus-inc"
-    },
-    {
-      "slug": "transunion-canada",
-      "named_by": 1,
-      "reason": "homepage-cloudflare-403"
-    },
-    {
-      "slug": "trdt-brasil-tecnologia-ltda",
-      "named_by": 1,
-      "reason": "domain-for-sale"
-    },
-    {
-      "slug": "trustarc",
-      "named_by": 1,
-      "reason": "portal-vendor-never-named"
-    },
-    {
-      "slug": "tsengararu",
-      "named_by": 1,
-      "reason": "homepage-unreachable"
-    },
-    {
-      "slug": "tugboat-logic",
-      "named_by": 1,
-      "reason": "onetrust-acquisition-portal-vendor-not-named"
-    },
-    {
-      "slug": "ujwal",
-      "named_by": 1,
-      "reason": "homepage-is-personal-site-not-company"
-    },
-    {
-      "slug": "vivaops",
-      "named_by": 1,
-      "reason": "homepage-does-not-print-company-name"
-    },
-    {
-      "slug": "vmlapp-sweden",
-      "named_by": 1,
-      "reason": "homepage-403"
-    },
-    {
-      "slug": "worketics-it-solutions",
-      "named_by": 1,
-      "reason": "standing-skip"
-    },
-    {
-      "slug": "x-rd",
-      "named_by": 1,
-      "reason": "standing-skip"
-    },
-    {
-      "slug": "xpanxion",
-      "named_by": 1,
-      "reason": "standing-skip"
-    },
-    {
-      "slug": "zealep-business-solutions",
-      "named_by": 1,
-      "reason": "standing-skip"
-    },
-    {
-      "slug": "zight-formerly-cloudplus",
-      "named_by": 1,
-      "reason": "standing-skip"
-    },
-    {
-      "slug": "zuva",
-      "named_by": 1,
-      "reason": "no-first-party-homepage-verified-this-hour"
-    },
-    {
-      "slug": "zyyx",
-      "named_by": 1,
-      "reason": "standing-skip"
+      "slug": "basefarm-as",
+      "reason": "basefarm.com redirects to orange-business.com; Orange Business is not on the register; do not invent a second dossier"
     }
   ],
-  "optional_fill": {
-    "walked": [
-      "orum",
-      "wpremote",
-      "data-jar",
-      "pydantic"
-    ],
-    "filed": {
-      "pydantic": [
-        "page",
-        "SOC 2 Type II",
-        "HIPAA",
-        "dpa",
-        "subprocessors"
-      ]
-    },
-    "silent": [
-      "orum",
-      "wpremote",
-      "data-jar"
-    ],
-    "rejected": {
-      "orum-trust": "securitypal-portal-not-official-page"
-    }
-  },
-  "withdrawn_marks": {
-    "rule": "GDPR/CCPA are regulation-as-rights. Portal-chrome marks stay unread. HIPAA only with a first-party program/BAA page. In-progress audits are not awarded. Aligns-with is not awarded.",
-    "kept": {
-      "chartmogul": [
-        "SOC 2 Type II"
-      ],
-      "84codes-cloudamqp": [
-        "SOC 2 Type II",
-        "HIPAA"
-      ],
-      "descope": [
-        "SOC 2 Type II",
-        "ISO 27001",
-        "FedRAMP High"
-      ],
-      "cronofy": [
-        "SOC 2 Type II",
-        "ISO 27001",
-        "ISO 27018",
-        "ISO 27701"
-      ]
-    }
-  },
-  "completeness_0_named": {
-    "walked": 71,
-    "filled": 20,
-    "honest_empty": 40,
-    "unreadable": 11,
-    "filled_rows": {
-      "clickatell": [
-        "page"
-      ],
-      "anytech365": [
-        "page"
-      ],
-      "discord": [
-        "page"
-      ],
-      "egnyte": [
-        "SOC 2",
-        "ISO 27001",
-        "ISO 27018",
-        "CSA STAR",
-        "Cyber Essentials",
-        "subprocessors",
-        "years"
-      ],
-      "globallogic": [
-        "page",
-        "ISO 27001"
-      ],
-      "common-room": [
-        "page"
-      ],
-      "matillion": [
-        "page",
-        "SOC 2 Type II",
-        "SOC 1 Type II",
-        "SOC 3",
-        "ISO 27001",
-        "PCI DSS",
-        "CSA STAR",
-        "dpa",
-        "years"
-      ],
-      "conga": [
-        "page",
-        "SOC 2 Type II",
-        "ISO 27001",
-        "ISO 27701",
-        "PCI DSS",
-        "HIPAA",
-        "EU-US DPF",
-        "dpa",
-        "subprocessors"
-      ],
-      "armo-security": [
-        "page"
-      ],
-      "ci-hub": [
-        "years"
-      ],
-      "hive": [
-        "years"
-      ],
-      "intuition-machines-hcaptcha": [
-        "page",
-        "SOC 2 Type II",
-        "ISO 27001",
-        "ISO 27701",
-        "PCI DSS"
-      ],
-      "freedompay": [
-        "SOC 2 Type II",
-        "EU-US DPF"
-      ],
-      "monotype-imaging-holdings": [
-        "years"
-      ],
-      "prove-identity": [
-        "EU-US DPF"
-      ],
-      "ipqualityscore": [
-        "SOC 2 Type II",
-        "ISO 27001",
-        "dpa"
-      ],
-      "immunify360": [
-        "PCI DSS",
-        "HIPAA"
-      ],
-      "hypertec": [
-        "years"
-      ],
-      "ikoula": [
-        "ISO 27001"
-      ],
-      "veryfi-inc": [
-        "page",
-        "SOC 2 Type II",
-        "HIPAA",
-        "years"
-      ]
-    },
-    "note": "Second named-subprocessor Completeness-0 walk. Did not re-walk PR #175 honest-empty/unreadable. Product/marketing/services pages, SecurityPal portals, JS shells, GDPR/CCPA, footer-only claims, and HIPAA without a program/BAA page stayed open.",
-    "slices": {
-      "suggested": {
-        "walked": 41,
-        "filled": 11,
-        "honest_empty": 24,
-        "unreadable": 6
-      },
-      "denser": {
-        "walked": 30,
-        "filled": 9,
-        "honest_empty": 16,
-        "unreadable": 5
-      }
-    }
-  },
-  "register": {
-    "before": 3598,
-    "after": 3602,
-    "size": 3602
-  },
-  "remaining_true_missing_ge2": 2,
-  "remaining_true_missing": 96,
-  "note": "Alias pydantic-logfire onto pydantic after filing pydantic.dev. Also alias AppExtremes dba Conga, Oracle America NetSuite, Docebo NA, and Metronome Holdings onto existing rows. File Orum, WP Remote, and dataJAR on verified first-party homepages (silent). File Pydantic with first-party security page, SOC 2 Type II, HIPAA (BAA), DPA, and subprocessors. Validity/250ok, Email Data Source, Neustar, TELUS International, and ProcessOut left skipped after first-party checks this hour. Completeness-0 named-subprocessor fills: 20. True-missing \u22652 still Bonsai (ambiguous) and Sumit-AI (lander). DROPPED_INSTRUMENTS 0 after AITI restore.",
-  "updated_at": "2026-08-27T21:33:17Z"
+  "generated_at": "2026-08-27T22:00:11Z"
 }

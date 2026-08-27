@@ -212,6 +212,24 @@ def main() -> int:
     check(canonical_processor_id("docebo-na", docebo_reg) == "docebo", "Docebo NA is Docebo")
     metro_reg = {**register, "metronome": {"slug": "metronome", "name": "Metronome", "domain": "metronome.com"}}
     check(canonical_processor_id("metronome-holdings", metro_reg) == "metronome", "Metronome Holdings is Metronome")
+    val_reg = {**register, "validity": {"slug": "validity", "name": "Validity", "domain": "validity.com"}}
+    check(canonical_processor_id("250ok", val_reg) == "validity", "250ok is Validity")
+    co_reg = {**register, "checkout": {"slug": "checkout", "name": "Checkout.com", "domain": "checkout.com"}}
+    check(canonical_processor_id("processout", co_reg) == "checkout", "ProcessOut is Checkout.com")
+    bird_reg2 = {**register, "messagebird": {"slug": "messagebird", "name": "MessageBird", "domain": "messagebird.com"}}
+    check(canonical_processor_id("email-data-source", bird_reg2) == "messagebird", "Email Data Source is MessageBird")
+    tu_reg = {**register, "transunion-formerly-neustar-information-services": {"slug": "transunion-formerly-neustar-information-services", "name": "TransUnion", "domain": "transunion.com"}}
+    check(canonical_processor_id("neustar-info-services", tu_reg) == "transunion-formerly-neustar-information-services", "Neustar Info Services is TransUnion")
+    telus_reg2 = {**register, "telus": {"slug": "telus", "name": "TELUS", "domain": "telus.com"}}
+    check(canonical_processor_id("telus-international", telus_reg2) == "telus", "TELUS International is TELUS")
+    gp_reg = {**register, "global-payments": {"slug": "global-payments", "name": "Global Payments", "domain": "globalpayments.com"}}
+    check(canonical_processor_id("propay", gp_reg) == "global-payments", "ProPay is Global Payments")
+    cdw_reg = {**register, "cdw": {"slug": "cdw", "name": "CDW", "domain": "cdw.com"}}
+    check(canonical_processor_id("sirius-federal", cdw_reg) == "cdw", "Sirius Federal is CDW")
+    check(canonical_processor_id("microsoft-adcenter-analytics", {**register, "microsoft": register["microsoft"]}) == "microsoft", "adCenter Analytics is Microsoft")
+    ibm_reg2 = {**register, "ibm": {"slug": "ibm", "name": "IBM", "domain": "ibm.com"}}
+    check(canonical_processor_id("ibm-tivoli-storage-manager", ibm_reg2) == "ibm", "Tivoli Storage Manager is IBM")
+    check(canonical_processor_id("windows-live-onecare", {**register, "microsoft": register["microsoft"]}) == "microsoft", "OneCare is Microsoft")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 

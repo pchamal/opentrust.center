@@ -463,6 +463,36 @@ REGISTER_ALIASES: dict[str, str] = {
     "docebo-na": "docebo",
     # Metronome Holdings is the existing Metronome row (metronome.com).
     "metronome-holdings": "metronome",
+    # Same-company leftovers after the last named-processor batch.
+    # Validity acquired 250ok (2020); 250ok.com now prints Validity Everest.
+    "250ok": "validity",
+    # Checkout.com acquired ProcessOut (2020). checkout is on the register.
+    "processout": "checkout",
+    # SparkPost acquired Email Data Source / eDataSource; SparkPost is Bird.
+    # sparkpost already lands on messagebird.
+    "email-data-source": "messagebird",
+    # TransUnion acquired Neustar Information Services. transunion-canada already
+    # lands here.
+    "neustar-info-services": "transunion-formerly-neustar-information-services",
+    # Stripe names TELUS International; Transactel dba TELUS International already
+    # lands on telus.
+    "telus-international": "telus",
+    # TSYS acquired ProPay; Global Payments acquired TSYS. cayan-tsys already lands
+    # here. Lightspeed still publishes ProPay as a processor.
+    "propay": "global-payments",
+    # CDW acquired Sirius Computer Solutions; Sirius Federal is the federal
+    # subsidiary on GitLab's professional-services list.
+    "sirius-federal": "cdw",
+    # Wire ids that land on rows filed in this increment.
+    "solace-where-purchased-by-customer": "solace",
+    "plansource-benefits-administration": "plansource",
+    "ppro-payment-services": "ppro",
+    # Microsoft adCenter Analytics is a Microsoft advertising product.
+    "microsoft-adcenter-analytics": "microsoft",
+    # IBM Tivoli Storage Manager is IBM Storage Protect. ibm is on the register.
+    "ibm-tivoli-storage-manager": "ibm",
+    # Windows Live OneCare is a Microsoft product.
+    "windows-live-onecare": "microsoft",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
