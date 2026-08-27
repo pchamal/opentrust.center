@@ -1,1060 +1,2804 @@
 {
-  "generated_at": "2026-08-27T19:11:02Z",
+  "generated_at": "2026-08-27T22:52:17Z",
   "method": "wikidata-wbsearchentities + wbgetentities P856; enwiki titles -> P856",
   "user_agent": "opentrust.center/1.0 (+https://opentrust.center)",
-  "note": "hourly top-up appended 58 verified P856 from CRN Security 100 2023 leftover + Wikipedia Category:Cloud computing providers (and further unused software categories if needed); CMC software page 6+ was empty; did not repeat exhausted lists or S&P 500",
+  "note": "hourly top-up appended 146 verified P856 from CRN Security 100 2023 leftover + Wikipedia Category:Cloud computing providers (and further unused software categories if needed); CMC software page 6+ was empty; did not repeat exhausted lists or S&P 500",
   "counts": {
-    "appended": 58,
-    "resolved": 58,
-    "unresolved": 65,
-    "dropped_wrong_or_dup": 11,
+    "appended": 146,
+    "resolved": 146,
+    "unresolved": 190,
+    "dropped_wrong_or_dup": 30,
     "by_source": {
-      "wikipedia-content-delivery-networks": 10,
-      "wikipedia-payment-service-providers": 48
+      "wikipedia-software-sf-bay-area": 48,
+      "wikipedia-vpn-services": 9,
+      "wikipedia-tech-established-2018": 9,
+      "wikipedia-tech-established-2020": 9,
+      "wikipedia-online-companies-us": 71
     },
     "by_source_url": {
-      "https://en.wikipedia.org/wiki/Category:Content_delivery_networks": 10,
-      "https://en.wikipedia.org/wiki/Category:Payment_service_providers": 48
+      "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area": 48,
+      "https://en.wikipedia.org/wiki/Category:Virtual_private_network_services": 9,
+      "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2018": 9,
+      "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2020": 9,
+      "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States": 71
     }
   },
   "appended": [
     {
-      "name": "CacheFly",
-      "slug": "cachefly",
-      "domain": "cachefly.com",
-      "source": "wikipedia-content-delivery-networks",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
-      "priority": 2,
-      "qid": "Q5015940",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "CDNetworks",
-      "slug": "cdnetworks",
-      "domain": "cdnetworks.com",
-      "source": "wikipedia-content-delivery-networks",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
-      "priority": 2,
-      "qid": "Q5009977",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "ChinaCache",
-      "slug": "chinacache",
-      "domain": "chinacache.com",
-      "source": "wikipedia-content-delivery-networks",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
-      "priority": 2,
-      "qid": "Q5099546",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "DDoS-Guard",
-      "slug": "ddos-guard",
-      "domain": "ddos-guard.net",
-      "source": "wikipedia-content-delivery-networks",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
-      "priority": 2,
-      "qid": "Q25383150",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Edgio",
-      "slug": "edgio",
-      "domain": "edg.io",
-      "source": "wikipedia-content-delivery-networks",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
-      "priority": 2,
-      "qid": "Q6549207",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "GTT Communications",
-      "slug": "gtt-communications",
-      "domain": "gtt.net",
-      "source": "wikipedia-content-delivery-networks",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
-      "priority": 2,
-      "qid": "Q16982139",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Level 3 Communications",
-      "slug": "level-3-communications",
-      "domain": "level3.com",
-      "source": "wikipedia-content-delivery-networks",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
-      "priority": 2,
-      "qid": "Q322320",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "MetaCDN",
-      "slug": "metacdn",
-      "domain": "metacdn.com",
-      "source": "wikipedia-content-delivery-networks",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
-      "priority": 2,
-      "qid": "Q6822270",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "TW Telecom",
-      "slug": "tw-telecom",
-      "domain": "twtelecom.com",
-      "source": "wikipedia-content-delivery-networks",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
-      "priority": 2,
-      "qid": "Q7672563",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Wangsu Science & Technology",
-      "slug": "wangsu-science-and-technology",
-      "domain": "en.wangsu.com",
-      "source": "wikipedia-content-delivery-networks",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Content_delivery_networks",
-      "priority": 2,
-      "qid": "Q30944755",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "2C2P",
-      "slug": "2c2p",
-      "domain": "2c2p.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "247.ai",
+      "slug": "247-ai",
+      "domain": "247.ai",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q18109301",
+      "qid": "Q4631823",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Bancontact Payconiq Company",
-      "slug": "bancontact-payconiq-company",
-      "domain": "bancontactpayconiq.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Activant",
+      "slug": "activant",
+      "domain": "activant.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q56827109",
+      "qid": "Q4677451",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "BDO Pay",
-      "slug": "bdo-pay",
-      "domain": "bdo.com.ph",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "AppDynamics",
+      "slug": "appdynamics",
+      "domain": "appdynamics.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q4854129",
+      "qid": "Q4780783",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Belkart",
-      "slug": "belkart",
-      "domain": "belkart.by",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Avi Networks",
+      "slug": "avi-networks",
+      "domain": "avinetworks.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q3918656",
+      "qid": "Q30588945",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "BillDesk",
-      "slug": "billdesk",
-      "domain": "billdesk.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Be Inc.",
+      "slug": "be-inc",
+      "domain": "beincorporated.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q28170044",
+      "qid": "Q791615",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Bilt Rewards",
-      "slug": "bilt-rewards",
-      "domain": "bilt.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "BigPanda",
+      "slug": "bigpanda",
+      "domain": "bigpanda.io",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q134396447",
+      "qid": "Q23016661",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "BitPay",
-      "slug": "bitpay",
-      "domain": "bitpay.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Blockstream",
+      "slug": "blockstream",
+      "domain": "blockstream.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q17001443",
+      "qid": "Q24909896",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "BKash",
-      "slug": "bkash",
-      "domain": "bkash.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Broderbund",
+      "slug": "broderbund",
+      "domain": "broderbund.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q16346003",
+      "qid": "Q995863",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Cardsave",
-      "slug": "cardsave",
-      "domain": "cardsave.net",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Collaborative Drug Discovery",
+      "slug": "collaborative-drug-discovery",
+      "domain": "collaborativedrug.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q5038802",
+      "qid": "Q5145817",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Clinkle",
-      "slug": "clinkle",
-      "domain": "clinkle.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Course Hero",
+      "slug": "course-hero",
+      "domain": "coursehero.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q13565474",
+      "qid": "Q5178173",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Comgate",
-      "slug": "comgate",
-      "domain": "comgate.cz",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Envivio",
+      "slug": "envivio",
+      "domain": "envivio.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q116894955",
+      "qid": "Q18150455",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Creditcall",
-      "slug": "creditcall",
-      "domain": "creditcall.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Epicentric",
+      "slug": "epicentric",
+      "domain": "epicentric.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q5183705",
+      "qid": "Q5382501",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Dwolla",
-      "slug": "dwolla",
-      "domain": "dwolla.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Fungible Inc.",
+      "slug": "fungible-inc",
+      "domain": "fungible.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q5318305",
+      "qid": "Q85762302",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Easypaisa",
-      "slug": "easypaisa",
-      "domain": "easypaisa.com.pk",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Gluster",
+      "slug": "gluster",
+      "domain": "gluster.org",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q65089529",
+      "qid": "Q12014467",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Edenred",
-      "slug": "edenred",
-      "domain": "edenred.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "IdeaScale",
+      "slug": "ideascale",
+      "domain": "ideascale.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q3047407",
+      "qid": "Q5987852",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "EFunds Corporation",
-      "slug": "efunds-corporation",
-      "domain": "efunds.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Jotform",
+      "slug": "jotform",
+      "domain": "jotform.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q5322965",
+      "qid": "Q24959818",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "EWay",
-      "slug": "eway",
-      "domain": "eway.com.au",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Krisp",
+      "slug": "krisp",
+      "domain": "krisp.ai",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q5418939",
+      "qid": "Q111443563",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Flattr",
-      "slug": "flattr",
-      "domain": "flattr.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Macromedia",
+      "slug": "macromedia",
+      "domain": "macromedia.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q1427443",
+      "qid": "Q234946",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Heartland Payment Systems",
-      "slug": "heartland-payment-systems",
-      "domain": "heartlandpaymentsystems.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Marketo",
+      "slug": "marketo",
+      "domain": "marketo.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q5692871",
+      "qid": "Q6770934",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Midpoint",
-      "slug": "midpoint",
-      "domain": "midpoint.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Micromuse",
+      "slug": "micromuse",
+      "domain": "micromuse.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q22906915",
+      "qid": "Q6839697",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "MobiKwik",
-      "slug": "mobikwik",
-      "domain": "mobikwik.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "MobileIron",
+      "slug": "mobileiron",
+      "domain": "mobileiron.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q18390821",
+      "qid": "Q1941434",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Neteller",
-      "slug": "neteller",
-      "domain": "neteller.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Nervana Systems",
+      "slug": "nervana-systems",
+      "domain": "nervanasys.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q1978592",
+      "qid": "Q23924629",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Nium",
-      "slug": "nium",
-      "domain": "nium.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Oculus Story Studio",
+      "slug": "oculus-story-studio",
+      "domain": "storystudio.oculus.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q43080755",
+      "qid": "Q28401343",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "North",
-      "slug": "north",
-      "domain": "north.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "OSIsoft",
+      "slug": "osisoft",
+      "domain": "osisoft.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q7053720",
+      "qid": "Q7073023",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Novalnet",
-      "slug": "novalnet",
-      "domain": "novalnet.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "PARC",
+      "slug": "parc",
+      "domain": "parc.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q104843510",
+      "qid": "Q750428",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "PayPoint",
-      "slug": "paypoint",
-      "domain": "paypoint.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Pinnacle Systems",
+      "slug": "pinnacle-systems",
+      "domain": "pinnaclesys.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q7156561",
+      "qid": "Q1971715",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Paysafe",
-      "slug": "paysafe",
-      "domain": "paysafe.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Pivotal Software",
+      "slug": "pivotal-software",
+      "domain": "pivotal.io",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q1977666",
+      "qid": "Q16335785",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Paytm",
-      "slug": "paytm",
-      "domain": "paytm.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Q-Sensei",
+      "slug": "q-sensei",
+      "domain": "qsensei.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q19757718",
+      "qid": "Q7265285",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "PayU",
-      "slug": "payu",
-      "domain": "payu.pl",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Roxio",
+      "slug": "roxio",
+      "domain": "roxio.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q55641405",
+      "qid": "Q1464578",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Payzone",
-      "slug": "payzone",
-      "domain": "payzone.ie",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Sauce Labs",
+      "slug": "sauce-labs",
+      "domain": "saucelabs.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q7156948",
+      "qid": "Q21463469",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "PhonePe",
-      "slug": "phonepe",
-      "domain": "phonepe.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Scality",
+      "slug": "scality",
+      "domain": "scality.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q30324297",
+      "qid": "Q18155180",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "PlaySpan",
-      "slug": "playspan",
-      "domain": "playspan.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Seesmic",
+      "slug": "seesmic",
+      "domain": "seesmic.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q7203538",
+      "qid": "Q920662",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Razer Inc.",
-      "slug": "razer-inc",
-      "domain": "razer.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Sendmail, Inc.",
+      "slug": "sendmail-inc",
+      "domain": "sendmail.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q367412",
+      "qid": "Q7450241",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Red Dot Payment",
-      "slug": "red-dot-payment",
-      "domain": "reddotpayment.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Sybase",
+      "slug": "sybase",
+      "domain": "sybase.de",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q19840621",
+      "qid": "Q259966",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Remita",
-      "slug": "remita",
-      "domain": "remita.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "TeleNav",
+      "slug": "telenav",
+      "domain": "telenav.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q123050338",
+      "qid": "Q7695732",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Sarvatra Technologies",
-      "slug": "sarvatra-technologies",
-      "domain": "sarvatra.tech",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "The Yes",
+      "slug": "the-yes",
+      "domain": "theyes.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q122227227",
+      "qid": "Q108897901",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Skrill",
-      "slug": "skrill",
-      "domain": "skrill.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "TriNet",
+      "slug": "trinet",
+      "domain": "trinet.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q311277",
+      "qid": "Q7839814",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "SparkBase",
-      "slug": "sparkbase",
-      "domain": "sparkbase.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Udemy",
+      "slug": "udemy",
+      "domain": "udemy.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q7573606",
+      "qid": "Q7877165",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "SumUp",
-      "slug": "sumup",
-      "domain": "sumup.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "UserVoice",
+      "slug": "uservoice",
+      "domain": "uservoice.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q30589666",
+      "qid": "Q7901822",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Tipalti",
-      "slug": "tipalti",
-      "domain": "tipalti.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Veritas Technologies",
+      "slug": "veritas-technologies",
+      "domain": "veritas.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q109996844",
+      "qid": "Q498397",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Veem",
-      "slug": "veem",
-      "domain": "veem.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Vicarious",
+      "slug": "vicarious",
+      "domain": "vicarious.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q22077748",
+      "qid": "Q15991488",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Venmo",
-      "slug": "venmo",
-      "domain": "venmo.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Virsa Systems",
+      "slug": "virsa-systems",
+      "domain": "virsa.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q24839341",
+      "qid": "Q7934894",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "WePay",
-      "slug": "wepay",
-      "domain": "go.wepay.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "VSee",
+      "slug": "vsee",
+      "domain": "vsee.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q7977212",
+      "qid": "Q7907585",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Western Union",
-      "slug": "western-union",
-      "domain": "westernunion.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Vyond",
+      "slug": "vyond",
+      "domain": "vyond.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q861042",
+      "qid": "Q15913374",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Wirecard",
-      "slug": "wirecard",
-      "domain": "wirecard.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Wind River Systems",
+      "slug": "wind-river-systems",
+      "domain": "windriver.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q587325",
+      "qid": "Q1746945",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Xoom",
-      "slug": "xoom",
-      "domain": "xoom.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "WorkingPoint",
+      "slug": "workingpoint",
+      "domain": "workingpoint.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q8044926",
+      "qid": "Q8034887",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Xsolla",
-      "slug": "xsolla",
-      "domain": "xsolla.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "YouNoodle",
+      "slug": "younoodle",
+      "domain": "younoodle.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q4053407",
+      "qid": "Q17087223",
       "reason": "enwiki-title P856"
     },
     {
-      "name": "Zettle",
-      "slug": "zettle",
-      "domain": "zettle.com",
-      "source": "wikipedia-payment-service-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "name": "Zenprise",
+      "slug": "zenprise",
+      "domain": "zenprise.com",
+      "source": "wikipedia-software-sf-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
       "priority": 3,
-      "qid": "Q16325128",
+      "qid": "Q17091066",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Amnezia VPN",
+      "slug": "amnezia-vpn",
+      "domain": "amnezia.org",
+      "source": "wikipedia-vpn-services",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Virtual_private_network_services",
+      "priority": 3,
+      "qid": "Q119575323",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Hola",
+      "slug": "hola",
+      "domain": "hola.org",
+      "source": "wikipedia-vpn-services",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Virtual_private_network_services",
+      "priority": 3,
+      "qid": "Q18349753",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Ipidea",
+      "slug": "ipidea",
+      "domain": "ipidea.org",
+      "source": "wikipedia-vpn-services",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Virtual_private_network_services",
+      "priority": 3,
+      "qid": "Q137972415",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "IPVanish",
+      "slug": "ipvanish",
+      "domain": "ipvanish.com",
+      "source": "wikipedia-vpn-services",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Virtual_private_network_services",
+      "priority": 3,
+      "qid": "Q55614178",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Njalla",
+      "slug": "njalla",
+      "domain": "njal.la",
+      "source": "wikipedia-vpn-services",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Virtual_private_network_services",
+      "priority": 3,
+      "qid": "Q97174165",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "NordVPN",
+      "slug": "nordvpn",
+      "domain": "nordvpn.com",
+      "source": "wikipedia-vpn-services",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Virtual_private_network_services",
+      "priority": 3,
+      "qid": "Q48816099",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Nym Technologies",
+      "slug": "nym-technologies",
+      "domain": "nym.com",
+      "source": "wikipedia-vpn-services",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Virtual_private_network_services",
+      "priority": 3,
+      "qid": "Q133191757",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Private Internet Access",
+      "slug": "private-internet-access",
+      "domain": "privateinternetaccess.com",
+      "source": "wikipedia-vpn-services",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Virtual_private_network_services",
+      "priority": 3,
+      "qid": "Q17076224",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "SaferVPN",
+      "slug": "safervpn",
+      "domain": "safervpn.com",
+      "source": "wikipedia-vpn-services",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Virtual_private_network_services",
+      "priority": 3,
+      "qid": "Q47443781",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "G42",
+      "slug": "g42",
+      "domain": "g42.ai",
+      "source": "wikipedia-tech-established-2018",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2018",
+      "priority": 3,
+      "qid": "Q98918715",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Gabb Wireless",
+      "slug": "gabb-wireless",
+      "domain": "gabb.com",
+      "source": "wikipedia-tech-established-2018",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2018",
+      "priority": 3,
+      "qid": "Q140988467",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "IRocket",
+      "slug": "irocket",
+      "domain": "irocketusa.com",
+      "source": "wikipedia-tech-established-2018",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2018",
+      "priority": 3,
+      "qid": "Q130973838",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Kea Aerospace",
+      "slug": "kea-aerospace",
+      "domain": "keaaerospace.com",
+      "source": "wikipedia-tech-established-2018",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2018",
+      "priority": 3,
+      "qid": "Q117349300",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Minisforum",
+      "slug": "minisforum",
+      "domain": "minisforum.com",
+      "source": "wikipedia-tech-established-2018",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2018",
+      "priority": 3,
+      "qid": "Q136136056",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "SEA.AI",
+      "slug": "sea-ai",
+      "domain": "sea.ai",
+      "source": "wikipedia-tech-established-2018",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2018",
+      "priority": 3,
+      "qid": "Q138836202",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Skyroot Aerospace",
+      "slug": "skyroot-aerospace",
+      "domain": "skyroot.in",
+      "source": "wikipedia-tech-established-2018",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2018",
+      "priority": 3,
+      "qid": "Q98525422",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Space One",
+      "slug": "space-one",
+      "domain": "space-one.co.jp",
+      "source": "wikipedia-tech-established-2018",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2018",
+      "priority": 3,
+      "qid": "Q119658212",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Woven by Toyota, Inc.",
+      "slug": "woven-by-toyota-inc",
+      "domain": "woven-planet.global",
+      "source": "wikipedia-tech-established-2018",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2018",
+      "priority": 3,
+      "qid": "Q105653997",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Bambu Lab",
+      "slug": "bambu-lab",
+      "domain": "bambulab.com",
+      "source": "wikipedia-tech-established-2020",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2020",
+      "priority": 3,
+      "qid": "Q130369130",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Cosm",
+      "slug": "cosm",
+      "domain": "cosm.com",
+      "source": "wikipedia-tech-established-2020",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2020",
+      "priority": 3,
+      "qid": "Q131904716",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Curative",
+      "slug": "curative",
+      "domain": "curative.com",
+      "source": "wikipedia-tech-established-2020",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2020",
+      "priority": 3,
+      "qid": "Q107177015",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Deimos-One",
+      "slug": "deimos-one",
+      "domain": "deimosone.com",
+      "source": "wikipedia-tech-established-2020",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2020",
+      "priority": 3,
+      "qid": "Q105424981",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Holywater Tech",
+      "slug": "holywater-tech",
+      "domain": "holywater.tech",
+      "source": "wikipedia-tech-established-2020",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2020",
+      "priority": 3,
+      "qid": "Q135914740",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "KWAN-TEK",
+      "slug": "kwan-tek",
+      "domain": "kwan-tek.com",
+      "source": "wikipedia-tech-established-2020",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2020",
+      "priority": 3,
+      "qid": "Q126916023",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Sirius Space Services",
+      "slug": "sirius-space-services",
+      "domain": "sirius-space.services",
+      "source": "wikipedia-tech-established-2020",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2020",
+      "priority": 3,
+      "qid": "Q130784003",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Vontier",
+      "slug": "vontier",
+      "domain": "vontier.com",
+      "source": "wikipedia-tech-established-2020",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2020",
+      "priority": 3,
+      "qid": "Q101209850",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "VShojo",
+      "slug": "vshojo",
+      "domain": "vshojo.com",
+      "source": "wikipedia-tech-established-2020",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2020",
+      "priority": 3,
+      "qid": "Q102291256",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "AllBusiness.com",
+      "slug": "allbusiness-com",
+      "domain": "allbusiness.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q4728468",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "AppNexus",
+      "slug": "appnexus",
+      "domain": "appnexus.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q4780797",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Ask.com",
+      "slug": "ask-com",
+      "domain": "ask.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q847564",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Chess.com",
+      "slug": "chess-com",
+      "domain": "chess.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q16829376",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "ClassPass",
+      "slug": "classpass",
+      "domain": "classpass.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q19864979",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Connectifier",
+      "slug": "connectifier",
+      "domain": "connectifier.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q55608305",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Cotendo",
+      "slug": "cotendo",
+      "domain": "cotendo.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q5175333",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Dealflicks",
+      "slug": "dealflicks",
+      "domain": "dealflicks.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q28134474",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "DocHub",
+      "slug": "dochub",
+      "domain": "dochub.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q22907887",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Electronic Data Systems",
+      "slug": "electronic-data-systems",
+      "domain": "eds.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q691126",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Endicia",
+      "slug": "endicia",
+      "domain": "endicia.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q5318854",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Everfest",
+      "slug": "everfest",
+      "domain": "everfest.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q19879700",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "EveryScape",
+      "slug": "everyscape",
+      "domain": "everyscape.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q278558",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "FlightAware",
+      "slug": "flightaware",
+      "domain": "flightaware.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q5459118",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Foursquare",
+      "slug": "foursquare",
+      "domain": "foursquare.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q51709",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Gab",
+      "slug": "gab",
+      "domain": "gab.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q28134981",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Gettr",
+      "slug": "gettr",
+      "domain": "gettr.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q107392911",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "GlobalSpec",
+      "slug": "globalspec",
+      "domain": "globalspec.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q17054417",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Graphic.ly",
+      "slug": "graphic-ly",
+      "domain": "graphicly.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q5597120",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "GreatAuPair",
+      "slug": "greataupair",
+      "domain": "greataupair.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q22032098",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Hello Alfred",
+      "slug": "hello-alfred",
+      "domain": "helloalfred.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q22908867",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "HyperOffice",
+      "slug": "hyperoffice",
+      "domain": "hyperoffice.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q5958367",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "IArchives, Inc.",
+      "slug": "iarchives-inc",
+      "domain": "iarchives.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q5968480",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "IM Creator",
+      "slug": "im-creator",
+      "domain": "imcreator.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q17029339",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Indaba Music",
+      "slug": "indaba-music",
+      "domain": "indabamusic.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q6015608",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "InDrive",
+      "slug": "indrive",
+      "domain": "indrive.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q29960503",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Koofers",
+      "slug": "koofers",
+      "domain": "koofers.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q16927869",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "LegalZoom",
+      "slug": "legalzoom",
+      "domain": "legalzoom.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q6517346",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Liveops",
+      "slug": "liveops",
+      "domain": "liveops.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q19880864",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Lover.ly",
+      "slug": "lover-ly",
+      "domain": "lover.ly",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q17067845",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Markmonitor",
+      "slug": "markmonitor",
+      "domain": "markmonitor.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q892898",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "ModSquad",
+      "slug": "modsquad",
+      "domain": "modsquad.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q6823301",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Morning Consult",
+      "slug": "morning-consult",
+      "domain": "morningconsult.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q28401695",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "MyWay Village",
+      "slug": "myway-village",
+      "domain": "mywayvillage.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q6944907",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Theneeds",
+      "slug": "theneeds",
+      "domain": "theneeds.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q18643780",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Netpulse",
+      "slug": "netpulse",
+      "domain": "netpulse.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q6999882",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Next Jump",
+      "slug": "next-jump",
+      "domain": "nextjump.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q7021048",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Panther Express",
+      "slug": "panther-express",
+      "domain": "pantherexpress.net",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q7131782",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Paribus",
+      "slug": "paribus",
+      "domain": "paribus.co",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q28130206",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Payscale",
+      "slug": "payscale",
+      "domain": "payscale.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q7156560",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Personal, Inc.",
+      "slug": "personal-inc",
+      "domain": "personal.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q18154920",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "PFSweb",
+      "slug": "pfsweb",
+      "domain": "pfsweb.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q7119110",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "ProQuest Dialog",
+      "slug": "proquest-dialog",
+      "domain": "proquest.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q390532",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Punchbowl, Inc.",
+      "slug": "punchbowl-inc",
+      "domain": "punchbowl.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q7259968",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Radial, Inc.",
+      "slug": "radial-inc",
+      "domain": "radial.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q24259992",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Rocket Lawyer",
+      "slug": "rocket-lawyer",
+      "domain": "rocketlawyer.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q7355117",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Sandhills Global",
+      "slug": "sandhills-global",
+      "domain": "sandhills.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q7416261",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Sitejabber",
+      "slug": "sitejabber",
+      "domain": "sitejabber.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q18359151",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "SmugMug",
+      "slug": "smugmug",
+      "domain": "smugmug.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q507135",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "SodaHead.com",
+      "slug": "sodahead-com",
+      "domain": "sodahead.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q7553159",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "SpotHero",
+      "slug": "spothero",
+      "domain": "spothero.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q19881868",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Stamps.com",
+      "slug": "stamps-com",
+      "domain": "stamps.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q7597506",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "StickK",
+      "slug": "stickk",
+      "domain": "stickk.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q7616203",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Substack",
+      "slug": "substack",
+      "domain": "substack.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q63435709",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Swiftype",
+      "slug": "swiftype",
+      "domain": "swiftype.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q18386897",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "SysIQ, Inc.",
+      "slug": "sysiq-inc",
+      "domain": "sysiq.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q7663546",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Tawkers",
+      "slug": "tawkers",
+      "domain": "tawkers.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q18154795",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "TickerTags",
+      "slug": "tickertags",
+      "domain": "tickertags.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q29098101",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "TikTok USDS",
+      "slug": "tiktok-usds",
+      "domain": "usdsjv.tiktok.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q137907715",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Tokenzone",
+      "slug": "tokenzone",
+      "domain": "tokenzone.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q7813549",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Upverter",
+      "slug": "upverter",
+      "domain": "upverter.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q22909568",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Vagaro",
+      "slug": "vagaro",
+      "domain": "vagaro.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q110612747",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Vivisimo",
+      "slug": "vivisimo",
+      "domain": "vivisimo.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q4356880",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Viximo",
+      "slug": "viximo",
+      "domain": "viximo.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q7937970",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "WebstaurantStore",
+      "slug": "webstaurantstore",
+      "domain": "webstaurantstore.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q17183565",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Wheels Up",
+      "slug": "wheels-up",
+      "domain": "wheelsup.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q56273933",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Wingz",
+      "slug": "wingz",
+      "domain": "wingz.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q7800631",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Worldwide brands",
+      "slug": "worldwide-brands",
+      "domain": "worldwidebrands.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q28135944",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Yelp",
+      "slug": "yelp",
+      "domain": "yelp.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q2299611",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Yola",
+      "slug": "yola",
+      "domain": "yola.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q8054709",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Zirtual",
+      "slug": "zirtual",
+      "domain": "zirtual.com",
+      "source": "wikipedia-online-companies-us",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Online_companies_of_the_United_States",
+      "priority": 3,
+      "qid": "Q21189937",
       "reason": "enwiki-title P856"
     }
   ],
   "dropped_wrong_p856": [
     {
-      "name": "Edgecast",
-      "slug": "edgecast",
-      "domain": "verizondigitalmedia.com",
+      "name": "Akka.io",
+      "slug": "akka-io",
+      "domain": "lightbend.com",
       "reason": "implausible-p856"
     },
     {
-      "name": "Afriex",
-      "slug": "afriex",
-      "domain": "afriex.com",
+      "name": "Aldon Inc.",
+      "slug": "aldon-inc",
+      "domain": "rocketsoftware.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "AltspaceVR",
+      "slug": "altspacevr",
+      "domain": "altvr.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Apteligent",
+      "slug": "apteligent",
+      "domain": "crittercism.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Fortify Software",
+      "slug": "fortify-software",
+      "domain": "opentext.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Hitachi Data Systems",
+      "slug": "hitachi-data-systems",
+      "domain": "hitachivantara.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Layer0",
+      "slug": "layer0",
+      "domain": "moovweb.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "NeXT",
+      "slug": "next",
+      "domain": "web.archive.org",
       "reason": "blocked-host"
     },
     {
-      "name": "Automatic Bank Services",
-      "slug": "automatic-bank-services",
-      "domain": "shva.co.il",
+      "name": "PeopleSoft",
+      "slug": "peoplesoft",
+      "domain": "oracle.com",
       "reason": "implausible-p856"
     },
     {
-      "name": "Bank Clearing Center",
-      "slug": "bank-clearing-center",
-      "domain": "masav.co.il",
+      "name": "Reality Labs",
+      "slug": "reality-labs",
+      "domain": "oculus.com",
       "reason": "implausible-p856"
     },
     {
-      "name": "Chase Payment Solutions",
-      "slug": "chase-payment-solutions",
-      "domain": "chasepaymentech.com",
+      "name": "SalesforceIQ",
+      "slug": "salesforceiq",
+      "domain": "relateiq.com",
       "reason": "implausible-p856"
     },
     {
-      "name": "Finaro",
-      "slug": "finaro",
-      "domain": "credorax.com",
+      "name": "Tacit Software",
+      "slug": "tacit-software",
+      "domain": "oracle.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Taleo",
+      "slug": "taleo",
+      "domain": "oracle.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Cirata",
+      "slug": "cirata",
+      "domain": "wandisco.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Webex",
+      "slug": "webex",
+      "domain": "webex.com",
       "reason": "blocked-host"
     },
     {
-      "name": "Israel Credit Cards",
-      "slug": "israel-credit-cards",
-      "domain": "cal-online.co.il",
+      "name": "Widgetbox",
+      "slug": "widgetbox",
+      "domain": "widgetbox.com",
+      "reason": "blocked-host"
+    },
+    {
+      "name": "Kounta",
+      "slug": "kounta",
+      "domain": "lightspeedhq.com.au",
       "reason": "implausible-p856"
     },
     {
-      "name": "Mir",
-      "slug": "mir",
-      "domain": "mironline.ru",
+      "name": "Moldflow",
+      "slug": "moldflow",
+      "domain": "autodesk.com",
       "reason": "implausible-p856"
     },
     {
-      "name": "Nexi",
-      "slug": "nexi",
-      "domain": "nexigroup.com",
+      "name": "NIPO",
+      "slug": "nipo",
+      "domain": "niposoftware.com",
       "reason": "implausible-p856"
     },
     {
-      "name": "Unified Settlement Information Space",
-      "slug": "unified-settlement-information-space",
-      "domain": "raschet.by",
+      "name": "Quintiq",
+      "slug": "quintiq",
+      "domain": "3ds.com",
       "reason": "implausible-p856"
     },
     {
-      "name": "Verve International",
-      "slug": "verve-international",
-      "domain": "myverveworld.com",
+      "name": "Backbone Labs",
+      "slug": "backbone-labs",
+      "domain": "playbackbone.com",
       "reason": "implausible-p856"
+    },
+    {
+      "name": "Eve Systems",
+      "slug": "eve-systems",
+      "domain": "evehome.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "MediaKind",
+      "slug": "mediakind",
+      "domain": "tandbergtv.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Coco Robotics",
+      "slug": "coco-robotics",
+      "domain": "cocodelivery.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Redwire",
+      "slug": "redwire",
+      "domain": "rdw.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Archon Information Systems",
+      "slug": "archon-information-systems",
+      "domain": "archoninfosys.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Metromix",
+      "slug": "metromix",
+      "domain": "chicago.metromix.com",
+      "reason": "blocked-host"
+    },
+    {
+      "name": "Poplin",
+      "slug": "poplin",
+      "domain": "sudshare.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Siteworx",
+      "slug": "siteworx",
+      "domain": "siteworx.com",
+      "reason": "blocked-host"
     }
   ],
   "unresolved": [
     {
-      "name": "Content delivery network",
-      "slug": "content-delivery-network",
-      "reason": "not-org no-org p31=['Q4485156'] desc=layer in the Internet ecosystem addressing bottlenecks",
+      "name": "Alation",
+      "slug": "alation",
+      "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Content delivery network interconnection",
-      "slug": "content-delivery-network-interconnection",
-      "reason": "not-org no-org p31=[] desc=interconnection between content delivery networks to mutually reduce costs",
+      "name": "Altamira Software",
+      "slug": "altamira-software",
+      "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Amazon CloudFront",
-      "slug": "amazon-cloudfront",
-      "reason": "not-org no-org p31=['Q72588'] desc=content delivery network",
+      "name": "Application Networks",
+      "slug": "application-networks",
+      "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Cdnjs",
-      "slug": "cdnjs",
-      "reason": "not-org no-org p31=['Q72588'] desc=free and open-source CDN service",
+      "name": "Award Software",
+      "slug": "award-software",
+      "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Edgenext",
-      "slug": "edgenext",
+      "name": "Berkeley Systems",
+      "slug": "berkeley-systems",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Blaxxun",
+      "slug": "blaxxun",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Blue Martini Software",
+      "slug": "blue-martini-software",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Chordiant",
+      "slug": "chordiant",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Clever Machine",
+      "slug": "clever-machine",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "CloudTV",
+      "slug": "cloudtv",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Cluely",
+      "slug": "cluely",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Coda Project",
+      "slug": "coda-project",
+      "reason": "not-org no-org p31=['Q474157'] desc=cloud-based document editor that blends word-processing with spreadsheet and database functionality",
+      "status": null
+    },
+    {
+      "name": "Decillionix",
+      "slug": "decillionix",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Declara",
+      "slug": "declara",
+      "reason": "not-org no-org p31=['Q35127'] desc=",
+      "status": null
+    },
+    {
+      "name": "Dekko",
+      "slug": "dekko",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Delinea",
+      "slug": "delinea",
       "reason": "no-wikidata-item",
       "status": null
     },
     {
-      "name": "Gcore",
-      "slug": "gcore",
-      "reason": "not-org no-org p31=['Q1346018', 'Q72588'] desc=cloud service provider",
-      "status": null
-    },
-    {
-      "name": "Information-centric networking caching policies",
-      "slug": "information-centric-networking-caching-policies",
-      "reason": "not-org no-org p31=[] desc=",
-      "status": null
-    },
-    {
-      "name": "JSDelivr",
-      "slug": "jsdelivr",
-      "reason": "not-org no-org p31=['Q1130645', 'Q72588'] desc=free open-source CDN for developers",
-      "status": null
-    },
-    {
-      "name": "Open Connect",
-      "slug": "open-connect",
-      "reason": "not-org no-org p31=['Q72588'] desc=content delivery network by Netflix",
-      "status": null
-    },
-    {
-      "name": "StackPath",
-      "slug": "stackpath",
+      "name": "DigitalThink",
+      "slug": "digitalthink",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Payment service provider",
-      "slug": "payment-service-provider",
+      "name": "Emigre Fonts",
+      "slug": "emigre-fonts",
+      "reason": "not-org no-org p31=['Q377688'] desc=American type foundry",
+      "status": null
+    },
+    {
+      "name": "Firstup",
+      "slug": "firstup",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "AfriGO",
-      "slug": "afrigo",
+      "name": "Forterra Systems",
+      "slug": "forterra-systems",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Great Wave Software",
+      "slug": "great-wave-software",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Human Engineered Software",
+      "slug": "human-engineered-software",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Integrated Systems Inc.",
+      "slug": "integrated-systems-inc",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "July Systems",
+      "slug": "july-systems",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Justin.tv",
+      "slug": "justin-tv",
+      "reason": "not-org no-org p31=['Q59152282', 'Q35127', 'Q122759350'] desc=defunct live-streaming platform",
+      "status": null
+    },
+    {
+      "name": "Kana Software",
+      "slug": "kana-software",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Keynote Systems",
+      "slug": "keynote-systems",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Kinetica",
+      "slug": "kinetica",
+      "reason": "not-org no-org p31=['Q7397'] desc=OLAP database developed by Kinetica DB, Inc",
+      "status": null
+    },
+    {
+      "name": "Kiva Software",
+      "slug": "kiva-software",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Loom, Inc.",
+      "slug": "loom-inc",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Lumitrend",
+      "slug": "lumitrend",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Meebo",
+      "slug": "meebo",
+      "reason": "not-org no-org p31=['Q2462003', 'Q1668024'] desc=instant messaging client",
+      "status": null
+    },
+    {
+      "name": "Metaphor Computer Systems",
+      "slug": "metaphor-computer-systems",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "MicroPro International",
+      "slug": "micropro-international",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "NewsBlur",
+      "slug": "newsblur",
+      "reason": "not-org no-org p31=['Q189210', 'Q620615', 'Q498267'] desc=news aggregator",
+      "status": null
+    },
+    {
+      "name": "ObjectSecurity",
+      "slug": "objectsecurity",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Optimized Systems Software",
+      "slug": "optimized-systems-software",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Pantheon Systems",
+      "slug": "pantheon-systems",
+      "reason": "not-org no-org p31=['Q1330336'] desc=web framework",
+      "status": null
+    },
+    {
+      "name": "Paracomp",
+      "slug": "paracomp",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Pixo",
+      "slug": "pixo",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Portal Software",
+      "slug": "portal-software",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Posit Science Corporation",
+      "slug": "posit-science-corporation",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Quest KACE",
+      "slug": "quest-kace",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Remember the Milk",
+      "slug": "remember-the-milk",
+      "reason": "not-org no-org p31=['Q7397'] desc=web-based task- and time-management application",
+      "status": null
+    },
+    {
+      "name": "Rivian and Volkswagen Group Technologies",
+      "slug": "rivian-and-volkswagen-group-technologies",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Sage Intacct",
+      "slug": "sage-intacct",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Software Publishing Corporation",
+      "slug": "software-publishing-corporation",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Sonatus",
+      "slug": "sonatus",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Sonic Solutions",
+      "slug": "sonic-solutions",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Tidepool",
+      "slug": "tidepool",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Twitch",
+      "slug": "twitch",
+      "reason": "not-org no-org p31=['Q81989119', 'Q59152282', 'Q122759350', 'Q102336293', 'Q6576792', 'Q559856'] desc=American live-streaming platform",
+      "status": null
+    },
+    {
+      "name": "Underground Development",
+      "slug": "underground-development",
+      "reason": "not-org no-org p31=['Q210167'] desc=defunct American video game developer",
+      "status": null
+    },
+    {
+      "name": "Walker Interactive Products",
+      "slug": "walker-interactive-products",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "WeVideo",
+      "slug": "wevideo",
+      "reason": "not-org no-org p31=['Q1373429'] desc=video editing platform",
+      "status": null
+    },
+    {
+      "name": "WibiData",
+      "slug": "wibidata",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Yuku",
+      "slug": "yuku",
+      "reason": "not-org no-org p31=['Q35127'] desc=hosted Internet forum",
+      "status": null
+    },
+    {
+      "name": "Zip2",
+      "slug": "zip2",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Aristotle Metadata Registry",
+      "slug": "aristotle-metadata-registry",
+      "reason": "not-org no-org p31=['Q7397', 'Q3423635'] desc=",
+      "status": null
+    },
+    {
+      "name": "Arrow Research Corporation",
+      "slug": "arrow-research-corporation",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "ATI Global",
+      "slug": "ati-global",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "C2Net",
+      "slug": "c2net",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Cougar Software",
+      "slug": "cougar-software",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Culture Amp",
+      "slug": "culture-amp",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Grok Academy",
+      "slug": "grok-academy",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Imagineering Australia",
+      "slug": "imagineering-australia",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "LEAP Legal Software",
+      "slug": "leap-legal-software",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Leonardo.ai",
+      "slug": "leonardo-ai",
+      "reason": "not-org no-org p31=['Q7397', 'Q166142', 'Q96369982', 'Q113940039', 'Q117349473', 'Q113660857'] desc=image generator program",
+      "status": null
+    },
+    {
+      "name": "Morfik",
+      "slug": "morfik",
+      "reason": "not-org no-org p31=['Q13741'] desc=integrated development environment",
+      "status": null
+    },
+    {
+      "name": "Morfik FX",
+      "slug": "morfik-fx",
+      "reason": "not-org no-org p31=[] desc=tool for developing Ajax-based Webb applications",
+      "status": null
+    },
+    {
+      "name": "Norgate Data",
+      "slug": "norgate-data",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Openn Negotiation",
+      "slug": "openn-negotiation",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Snap Send Solve",
+      "slug": "snap-send-solve",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "SolveIT Software",
+      "slug": "solveit-software",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Sparx Systems",
+      "slug": "sparx-systems",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "112dB",
+      "slug": "112db",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Betty Blocks",
+      "slug": "betty-blocks",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Deeploy",
+      "slug": "deeploy",
       "reason": "no-wikidata-item",
       "status": null
     },
     {
-      "name": "Airtel Payments Bank",
-      "slug": "airtel-payments-bank",
-      "reason": "not-org no-org p31=['Q19895173'] desc=Indian Payments Bank",
+      "name": "Flitsmeister",
+      "slug": "flitsmeister",
+      "reason": "not-org no-org p31=['Q620615'] desc=Mobile traffic application",
       "status": null
     },
     {
-      "name": "Alipay",
-      "slug": "alipay",
-      "reason": "not-org no-org p31=['Q986008', 'Q431289', 'Q108273448', 'Q620615'] desc=third-party online payment platform in China",
-      "status": null
-    },
-    {
-      "name": "Antom",
-      "slug": "antom",
+      "name": "Planon",
+      "slug": "planon",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Bambora",
-      "slug": "bambora",
+      "name": "Radarsoft",
+      "slug": "radarsoft",
+      "reason": "not-org no-org p31=['Q210167', 'Q1137109'] desc=Dutch video game developer of the 1980s",
+      "status": null
+    },
+    {
+      "name": "Magic Lane",
+      "slug": "magic-lane",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "BharatPe",
-      "slug": "bharatpe",
-      "reason": "not-org no-org p31=['Q620615', 'Q986008'] desc=Mobile Payment Platform",
-      "status": null
-    },
-    {
-      "name": "Billpoint",
-      "slug": "billpoint",
-      "reason": "not-org no-org p31=['Q35127'] desc=Former money transfer service",
-      "status": null
-    },
-    {
-      "name": "Bunq",
-      "slug": "bunq",
-      "reason": "not-org no-org p31=['Q22687', 'Q60767305', 'Q39049085'] desc=Dutch mobile bank and neobank",
-      "status": null
-    },
-    {
-      "name": "C2it",
-      "slug": "c2it",
-      "reason": "not-org no-org p31=[] desc=Former money transfer service",
-      "status": null
-    },
-    {
-      "name": "Cashier as a service",
-      "slug": "cashier-as-a-service",
-      "reason": "not-org no-org p31=[] desc=use of a third party service as payment",
-      "status": null
-    },
-    {
-      "name": "CashU",
-      "slug": "cashu",
+      "name": "Tellent",
+      "slug": "tellent",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "CDS Global",
-      "slug": "cds-global",
+      "name": "WeAreBrain",
+      "slug": "wearebrain",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "City Express Money Transfer",
-      "slug": "city-express-money-transfer",
+      "name": "Atlas VPN",
+      "slug": "atlas-vpn",
+      "reason": "not-org no-org p31=['Q7397', 'Q56240391'] desc=virtual private network provider",
+      "status": null
+    },
+    {
+      "name": "Avast SecureLine VPN",
+      "slug": "avast-secureline-vpn",
+      "reason": "not-org no-org p31=['Q56240391', 'Q166142', 'Q141089604'] desc=subscription VPN service",
+      "status": null
+    },
+    {
+      "name": "BlackVPN",
+      "slug": "blackvpn",
       "reason": "not-org no-org p31=[] desc=",
       "status": null
     },
     {
-      "name": "CyberCash",
-      "slug": "cybercash",
-      "reason": "not-org no-org p31=['Q35127'] desc=Internet payment service, 1994\u20132001",
+      "name": "ExpressVPN",
+      "slug": "expressvpn",
+      "reason": "not-org no-org p31=['Q56240391'] desc=virtual private network provider",
       "status": null
     },
     {
-      "name": "E-Clear",
-      "slug": "e-clear",
+      "name": "Guardian Firewall",
+      "slug": "guardian-firewall",
+      "reason": "not-org no-org p31=[] desc=mobile application providing a virtual private network",
+      "status": null
+    },
+    {
+      "name": "HMA",
+      "slug": "hma",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "GCash",
-      "slug": "gcash",
-      "reason": "not-org no-org p31=['Q1147226', 'Q1365703'] desc=Philippine mobile payments platform",
+      "name": "Hotspot Shield",
+      "slug": "hotspot-shield",
+      "reason": "not-org no-org p31=['Q7397', 'Q312466'] desc=VPN service",
       "status": null
     },
     {
-      "name": "Giropay",
-      "slug": "giropay",
-      "reason": "not-org no-org p31=['Q351764', 'Q7406919'] desc=former online payment method of the German banking industry",
+      "name": "IPredator",
+      "slug": "ipredator",
+      "reason": "not-org no-org p31=['Q35127'] desc=VPN Proxy Provider",
       "status": null
     },
     {
-      "name": "Grey",
-      "slug": "grey",
+      "name": "IVPN",
+      "slug": "ivpn",
+      "reason": "not-org no-org p31=['Q56240391', 'Q7397'] desc=virtual private network provider",
+      "status": null
+    },
+    {
+      "name": "KeepSolid VPN Unlimited",
+      "slug": "keepsolid-vpn-unlimited",
+      "reason": "not-org no-org p31=['Q56240391', 'Q5583816', 'Q620615', 'Q15008073', 'Q40056', 'Q166142', 'Q7397', 'Q11320567'] desc=virtual private network service by KeepSolid",
+      "status": null
+    },
+    {
+      "name": "Mullvad",
+      "slug": "mullvad",
+      "reason": "not-org no-org p31=['Q56240391', 'Q506883'] desc=virtual private network provider",
+      "status": null
+    },
+    {
+      "name": "NordLayer",
+      "slug": "nordlayer",
+      "reason": "not-org no-org p31=['Q7397'] desc=network access security service",
+      "status": null
+    },
+    {
+      "name": "PrivadoVPN",
+      "slug": "privadovpn",
+      "reason": "not-org no-org p31=['Q7397'] desc=VPN provider",
+      "status": null
+    },
+    {
+      "name": "Proton VPN",
+      "slug": "proton-vpn",
+      "reason": "not-org no-org p31=['Q56240391', 'Q620615', 'Q874411', 'Q11320567'] desc=VPN service from Proton AG",
+      "status": null
+    },
+    {
+      "name": "PureVPN",
+      "slug": "purevpn",
+      "reason": "not-org no-org p31=['Q7397', 'Q56240391'] desc=commercial virtual private network service",
+      "status": null
+    },
+    {
+      "name": "Rsocks",
+      "slug": "rsocks",
+      "reason": "not-org no-org p31=[] desc=former Russian internet proxy service provider",
+      "status": null
+    },
+    {
+      "name": "Surfshark VPN",
+      "slug": "surfshark-vpn",
+      "reason": "no-wikidata-item",
+      "status": null
+    },
+    {
+      "name": "TunnelBear",
+      "slug": "tunnelbear",
+      "reason": "not-org no-org p31=['Q56240391', 'Q5583816'] desc=virtual private network provider",
+      "status": null
+    },
+    {
+      "name": "VPN service",
+      "slug": "vpn-service",
+      "reason": "not-org no-org p31=[] desc=provider offering access to virtual private network services",
+      "status": null
+    },
+    {
+      "name": "VPNBook",
+      "slug": "vpnbook",
+      "reason": "not-org no-org p31=['Q56240391'] desc=VPN service",
+      "status": null
+    },
+    {
+      "name": "VPNLab",
+      "slug": "vpnlab",
+      "reason": "not-org no-org p31=[] desc=criminal VPN service",
+      "status": null
+    },
+    {
+      "name": "Windscribe",
+      "slug": "windscribe",
+      "reason": "not-org no-org p31=['Q56240391'] desc=virtual private network provider",
+      "status": null
+    },
+    {
+      "name": "AIVF",
+      "slug": "aivf",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Hubtel",
-      "slug": "hubtel",
+      "name": "ArkEdge Space",
+      "slug": "arkedge-space",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "IDEAL",
-      "slug": "ideal",
-      "reason": "not-org no-org p31=['Q986008'] desc=e-commerce payment system",
+      "name": "Berxel Photonics Co. Ltd.",
+      "slug": "berxel-photonics-co-ltd",
+      "reason": "no-wikidata-item",
       "status": null
     },
     {
-      "name": "Integration of UPI and NPI",
-      "slug": "integration-of-upi-and-npi",
-      "reason": "not-org no-org p31=[] desc=bilateral remittances between India and Nepal",
-      "status": null
-    },
-    {
-      "name": "Jio Payments Bank",
-      "slug": "jio-payments-bank",
-      "reason": "not-org no-org p31=['Q19895173'] desc=Indian payments bank",
-      "status": null
-    },
-    {
-      "name": "Kora",
-      "slug": "kora",
+      "name": "Commonwealth Fusion Systems",
+      "slug": "commonwealth-fusion-systems",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "LianLian DigiTech",
-      "slug": "lianlian-digitech",
+      "name": "DotB",
+      "slug": "dotb",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Live Group",
-      "slug": "live-group",
+      "name": "Onpassive",
+      "slug": "onpassive",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Mangopay",
-      "slug": "mangopay",
+      "name": "PayPay",
+      "slug": "paypay",
+      "reason": "not-org no-org p31=['Q21484471'] desc=payment system",
+      "status": null
+    },
+    {
+      "name": "Saab Aeron\u00e1utica Montagens",
+      "slug": "saab-aeron-utica-montagens",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Mi-Pay",
-      "slug": "mi-pay",
-      "reason": "not-org no-org p31=['Q620615'] desc=mobile payment system launched by Xiaomi",
-      "status": null
-    },
-    {
-      "name": "Monzo",
-      "slug": "monzo",
-      "reason": "not-org no-org p31=['Q848507', 'Q620615', 'Q35127', 'Q43229'] desc=online bank based in the United Kingdom",
-      "status": null
-    },
-    {
-      "name": "Nagad",
-      "slug": "nagad",
-      "reason": "not-org no-org p31=['Q837171'] desc=digital financial service in Bangladesh",
-      "status": null
-    },
-    {
-      "name": "New Payments Platform",
-      "slug": "new-payments-platform",
+      "name": "Sensorium Corporation",
+      "slug": "sensorium-corporation",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Octagonal plc",
-      "slug": "octagonal-plc",
+      "name": "Chapter",
+      "slug": "chapter",
+      "reason": "no-wikidata-item",
+      "status": null
+    },
+    {
+      "name": "Dimers",
+      "slug": "dimers",
+      "reason": "not-org no-org p31=['Q19967801', 'Q431289'] desc=sports analytics and online gambling platform",
+      "status": null
+    },
+    {
+      "name": "Hadrian Automation",
+      "slug": "hadrian-automation",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "OpenEdge",
-      "slug": "openedge",
+      "name": "Heirloom Carbon Technologies",
+      "slug": "heirloom-carbon-technologies",
+      "reason": "not-org no-org p31=[] desc=",
+      "status": null
+    },
+    {
+      "name": "Latitude",
+      "slug": "latitude",
+      "reason": "not-org no-org p31=['Q43229'] desc=French privately-funded aerospace developer and manufacturer",
+      "status": null
+    },
+    {
+      "name": "Luyten 3D",
+      "slug": "luyten-3d",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Paya, Inc.",
-      "slug": "paya-inc",
+      "name": "Qstay",
+      "slug": "qstay",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "PayDirect",
-      "slug": "paydirect",
-      "reason": "not-org no-org p31=['Q35127', 'Q6899301'] desc=Former money transfer service",
-      "status": null
-    },
-    {
-      "name": "PayMe",
-      "slug": "payme",
-      "reason": "not-org no-org p31=['Q7397'] desc=mobile payment service owned by HSBC",
-      "status": null
-    },
-    {
-      "name": "Payments Network Malaysia",
-      "slug": "payments-network-malaysia",
+      "name": "Saab Sensores e Servi\u00e7os",
+      "slug": "saab-sensores-e-servi-os",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Payrexx AG",
-      "slug": "payrexx-ag",
-      "reason": "not-org no-org p31=[] desc=Swiss payment service provider",
+      "name": "Torch",
+      "slug": "torch",
+      "reason": "not-org no-org p31=[] desc=",
       "status": null
     },
     {
-      "name": "Pine Labs",
-      "slug": "pine-labs",
+      "name": "Adopt-a-Pet.com",
+      "slug": "adopt-a-pet-com",
+      "reason": "not-org no-org p31=['Q163740'] desc=online pet adoption organization and website",
+      "status": null
+    },
+    {
+      "name": "Adult Check",
+      "slug": "adult-check",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "POLi Payments",
-      "slug": "poli-payments",
+      "name": "Answers.com",
+      "slug": "answers-com",
+      "reason": "not-org no-org p31=['Q7265244', 'Q1076547'] desc=question-and-answer website",
+      "status": null
+    },
+    {
+      "name": "Bulletin",
+      "slug": "bulletin",
+      "reason": "not-org no-org p31=['Q35127'] desc=American online newsletter platform owned by Facebook",
+      "status": null
+    },
+    {
+      "name": "Candid",
+      "slug": "candid",
+      "reason": "not-org no-org p31=['Q163740', 'Q7094076'] desc=Non profit organization since 2019",
+      "status": null
+    },
+    {
+      "name": "Carolla Digital",
+      "slug": "carolla-digital",
+      "reason": "not-org no-org p31=['Q24581379'] desc=American podcast network",
+      "status": null
+    },
+    {
+      "name": "Clipix",
+      "slug": "clipix",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Rain",
-      "slug": "rain",
+      "name": "CollegeHumor",
+      "slug": "collegehumor",
+      "reason": "not-org no-org p31=['Q43229', 'Q35127'] desc=comedy website",
+      "status": null
+    },
+    {
+      "name": "ConsumerAffairs",
+      "slug": "consumeraffairs",
+      "reason": "not-org no-org p31=['Q35127'] desc=American customer review and news platform",
+      "status": null
+    },
+    {
+      "name": "Crunchbase",
+      "slug": "crunchbase",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Smscoin",
-      "slug": "smscoin",
-      "reason": "not-org no-org p31=['Q35127'] desc=Mobile payment systems provider",
+      "name": "Cucumbertown",
+      "slug": "cucumbertown",
+      "reason": "not-org no-org p31=['Q35127'] desc=food blogging platform (Defunct)",
       "status": null
     },
     {
-      "name": "Square",
-      "slug": "square",
-      "reason": "not-org no-org p31=['Q986008', 'Q431289'] desc=commerce and point-of-sale ecosystem operated by Block, Inc.",
-      "status": null
-    },
-    {
-      "name": "Tata Neu",
-      "slug": "tata-neu",
-      "reason": "not-org no-org p31=['Q620615'] desc=multi-purpose super-app",
-      "status": null
-    },
-    {
-      "name": "Telpay",
-      "slug": "telpay",
+      "name": "Daydream",
+      "slug": "daydream",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Thai QR Payment",
-      "slug": "thai-qr-payment",
-      "reason": "not-org no-org p31=['Q986008'] desc=Thailand's real-time payment and transfer infrastructure services",
-      "status": null
-    },
-    {
-      "name": "UnionPay",
-      "slug": "unionpay",
-      "reason": "not-org no-org p31=['Q620615'] desc=mobile payment application",
-      "status": null
-    },
-    {
-      "name": "Verifi",
-      "slug": "verifi",
+      "name": "Digiboo",
+      "slug": "digiboo",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "VugaPay",
-      "slug": "vugapay",
-      "reason": "not-org no-org p31=['Q7397'] desc=",
-      "status": null
-    },
-    {
-      "name": "WiPay",
-      "slug": "wipay",
+      "name": "Direct Hit Technologies",
+      "slug": "direct-hit-technologies",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "YooKassa",
-      "slug": "yookassa",
+      "name": "Everyday Health Group",
+      "slug": "everyday-health-group",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "YooMoney",
-      "slug": "yoomoney",
-      "reason": "not-org no-org p31=['Q1148747', 'Q35127'] desc=electronic payment system that implements the idea of electronic money",
+      "name": "Evite",
+      "slug": "evite",
+      "reason": "not-org no-org p31=['Q35127'] desc=social-planning website for creating, sending, and managing online invitations",
       "status": null
     },
     {
-      "name": "Zelle",
-      "slug": "zelle",
-      "reason": "not-org no-org p31=['Q986008', 'Q431289'] desc=digital payments network",
-      "status": null
-    },
-    {
-      "name": "Ziina",
-      "slug": "ziina",
+      "name": "Farmers Business Network",
+      "slug": "farmers-business-network",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Zong",
-      "slug": "zong",
+      "name": "Free Law Project",
+      "slug": "free-law-project",
+      "reason": "not-org no-org p31=['Q163740'] desc=organization",
+      "status": null
+    },
+    {
+      "name": "FreeWill",
+      "slug": "freewill",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Gaia Online",
+      "slug": "gaia-online",
+      "reason": "not-org no-org p31=['Q35127'] desc=anime-centered social media and forum website",
+      "status": null
+    },
+    {
+      "name": "Gazelle",
+      "slug": "gazelle",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Geekologie",
+      "slug": "geekologie",
+      "reason": "not-org no-org p31=['Q35127'] desc=website",
+      "status": null
+    },
+    {
+      "name": "GenealogyBank",
+      "slug": "genealogybank",
+      "reason": "not-org no-org p31=['Q35127', 'Q2001867'] desc=historic newspaper archive",
+      "status": null
+    },
+    {
+      "name": "GlobalScholar",
+      "slug": "globalscholar",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Good Deeds Global",
+      "slug": "good-deeds-global",
+      "reason": "not-org no-org p31=['Q35127'] desc=",
+      "status": null
+    },
+    {
+      "name": "GoodGuide",
+      "slug": "goodguide",
+      "reason": "not-org no-org p31=['Q620615'] desc=online service providing evaluations on various impacts of consumer products",
+      "status": null
+    },
+    {
+      "name": "GovWorks",
+      "slug": "govworks",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Help a Reporter Out",
+      "slug": "help-a-reporter-out",
+      "reason": "not-org no-org p31=['Q19967801'] desc=online service",
+      "status": null
+    },
+    {
+      "name": "Highlight",
+      "slug": "highlight",
+      "reason": "not-org no-org p31=['Q7397'] desc=social networking app",
+      "status": null
+    },
+    {
+      "name": "Involver, Inc.",
+      "slug": "involver-inc",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "IPrint.com",
+      "slug": "iprint-com",
+      "reason": "not-org no-org p31=[] desc=NASAQ symbol IPRT",
+      "status": null
+    },
+    {
+      "name": "Kerbango",
+      "slug": "kerbango",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Kialo",
+      "slug": "kialo",
+      "reason": "not-org no-org p31=['Q210980'] desc=online debate platform",
+      "status": null
+    },
+    {
+      "name": "Leafbuyer",
+      "slug": "leafbuyer",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Let Simon Decide",
+      "slug": "let-simon-decide",
+      "reason": "not-org no-org p31=['Q35127'] desc=online decision-making system",
+      "status": null
+    },
+    {
+      "name": "Loserkids.com",
+      "slug": "loserkids-com",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Mahalo.com",
+      "slug": "mahalo-com",
+      "reason": "not-org no-org p31=['Q15633582', 'Q256900', 'Q327349'] desc=web directory and question-and-answer site",
+      "status": null
+    },
+    {
+      "name": "MobileStorm",
+      "slug": "mobilestorm",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Mountain Project",
+      "slug": "mountain-project",
+      "reason": "not-org no-org p31=['Q35127', 'Q5155040'] desc=website for climbing",
+      "status": null
+    },
+    {
+      "name": "Myartspace",
+      "slug": "myartspace",
+      "reason": "not-org no-org p31=['Q35127'] desc=defunct social network site",
+      "status": null
+    },
+    {
+      "name": "MyToons",
+      "slug": "mytoons",
+      "reason": "not-org no-org p31=[] desc=Defund online business",
+      "status": null
+    },
+    {
+      "name": "Net Applications",
+      "slug": "net-applications",
+      "reason": "not-org no-org p31=[] desc=relative market adoption of web browsers",
+      "status": null
+    },
+    {
+      "name": "NetGalley",
+      "slug": "netgalley",
+      "reason": "not-org no-org p31=['Q35127'] desc=web site aimed towards the distribution of digital galley proofs of books",
+      "status": null
+    },
+    {
+      "name": "Nolo",
+      "slug": "nolo",
+      "reason": "not-org no-org p31=['Q2085381'] desc=formerly known as Nolo Press, a publisher of legal self-help material",
+      "status": null
+    },
+    {
+      "name": "Optimizely",
+      "slug": "optimizely",
+      "reason": "not-org no-org p31=['Q161726'] desc=American multinational Internet and technology corporation",
+      "status": null
+    },
+    {
+      "name": "Otalo.com",
+      "slug": "otalo-com",
+      "reason": "not-org no-org p31=['Q35127'] desc=",
+      "status": null
+    },
+    {
+      "name": "Pandesic",
+      "slug": "pandesic",
+      "reason": "not-org no-org p31=['Q1330336'] desc=",
+      "status": null
+    },
+    {
+      "name": "Panjiva",
+      "slug": "panjiva",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Parkjockey",
+      "slug": "parkjockey",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Parler",
+      "slug": "parler",
+      "reason": "not-org no-org p31=['Q3220391', 'Q92438'] desc=American alt-tech social networking service",
+      "status": null
+    },
+    {
+      "name": "PersonRatings.com",
+      "slug": "personratings-com",
+      "reason": "not-org no-org p31=[] desc=",
+      "status": null
+    },
+    {
+      "name": "Planet Soho",
+      "slug": "planet-soho",
+      "reason": "not-org no-org p31=['Q35127', 'Q7397'] desc=",
+      "status": null
+    },
+    {
+      "name": "RateMyTeachers",
+      "slug": "ratemyteachers",
+      "reason": "not-org no-org p31=['Q35127'] desc=review site used to rate teachers' popularity and performance",
+      "status": null
+    },
+    {
+      "name": "Safevote",
+      "slug": "safevote",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Scient",
+      "slug": "scient",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Show-Score",
+      "slug": "show-score",
+      "reason": "not-org no-org p31=['Q35127'] desc=Theatre review website",
+      "status": null
+    },
+    {
+      "name": "Social Blade",
+      "slug": "social-blade",
+      "reason": "not-org no-org p31=['Q35127'] desc=American\u00a0social media analytics\u00a0website",
+      "status": null
+    },
+    {
+      "name": "StatMuse",
+      "slug": "statmuse",
+      "reason": "not-org no-org p31=['Q29043181', 'Q117246174'] desc=American sports statistics website",
+      "status": null
+    },
+    {
+      "name": "Thinkspot",
+      "slug": "thinkspot",
+      "reason": "not-org no-org p31=['Q3220391'] desc=social networking site",
+      "status": null
+    },
+    {
+      "name": "Viddler",
+      "slug": "viddler",
+      "reason": "not-org no-org p31=['Q559856'] desc=online sales training platform",
+      "status": null
+    },
+    {
+      "name": "Walk Score",
+      "slug": "walk-score",
+      "reason": "not-org no-org p31=['Q35127'] desc=walkability indicator",
+      "status": null
+    },
+    {
+      "name": "Whisper",
+      "slug": "whisper",
+      "reason": "not-org no-org p31=['Q166142', 'Q620615', 'Q3220391'] desc=Android and iOS mobile app",
+      "status": null
+    },
+    {
+      "name": "Winnie",
+      "slug": "winnie",
+      "reason": "not-org no-org p31=['Q35127'] desc=application that helps parents go places with their children",
+      "status": null
+    },
+    {
+      "name": "Women's WIRE",
+      "slug": "women-s-wire",
+      "reason": "not-org no-org p31=['Q11371'] desc=internet service provider",
+      "status": null
+    },
+    {
+      "name": "Yebol",
+      "slug": "yebol",
+      "reason": "not-org no-org p31=['Q35127'] desc=defunct search engine",
+      "status": null
+    },
+    {
+      "name": "Zabasearch.com",
+      "slug": "zabasearch-com",
+      "reason": "not-org no-org p31=['Q35127'] desc=personal-information search engine",
+      "status": null
+    },
+    {
+      "name": "Zentropy Partners",
+      "slug": "zentropy-partners",
       "reason": "no-p856",
       "status": null
     }
