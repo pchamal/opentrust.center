@@ -30,6 +30,7 @@ from verify_empty_files import (  # noqa: E402
 PUBLIC = ROOT / "site" / "data.json"
 ENRICHED = ROOT / "site" / "data" / "enriched.json"
 REPORT = ROOT / "data" / "render" / "empty-file-audit.json"
+PRIOR_158 = ROOT / "data" / "render" / "empty-file-audit-158.json"
 CATALOG = {name for name, _p in MARK_PATTERNS}
 
 
@@ -260,30 +261,7 @@ def test_seeds_start_from_domain_and_official() -> None:
     check(any(".safebase.us" in u for u in kinds), "portal hosts stay in the usual-path set to classify")
 
 
-def test_audit_when_present() -> None:
-    if not REPORT.exists():
-        return
-    public = json.loads(PUBLIC.read_text())
-    enr = json.loads(ENRICHED.read_text())
-    report = json.loads(REPORT.read_text())
-    by_pub = {c["slug"]: c for c in public["companies"]}
-    by_enr = {c["slug"]: c for c in enr["companies"]}
-    batch = report.get("batch") or []
-    check(len(batch) == 144, f"first slice walked 144 unwalked AITI zeros, got {len(batch)}")
-    check(report.get("apply") is True, "audit records the apply pass")
-    check(len(report.get("hits") or []) == 72, f"72 clear first-party fills, got {len(report.get('hits') or [])}")
-    check(len(report.get("unreadable") or []) == 8, "403/429/SPA/portal stay unreadable")
-    check(len(report.get("stayed_open") or []) == 64, "honest empties plus unsure proposals stay open")
-    check(report.get("rejected") is not None, "audit has rejected")
-    check(report.get("classes") is not None, "audit has classes")
-    unwalked = select_zeros(public["companies"], by_enr, unwalked=True)
-    check(len(unwalked) == 72, f"remaining Completeness-0 probed==0 is 72, got {len(unwalked)}")
-    check("7ai" not in {x["slug"] for x in unwalked}, "filed 7AI left the zero set")
-    check("ai21" in {x["slug"] for x in unwalked}, "unreadable ai21 stays Completeness 0")
-    for slug in batch:
-        check(slug in by_pub, f"{slug} is not an invented company")
-        check(file_sum(by_pub[slug]) == 0 or slug in {h["slug"] for h in report.get("hits") or []},
-              f"{slug} was not a Completeness-0 row")
+def _check_hits(report: dict, by_pub: dict, by_enr: dict) -> None:
     for rec in report.get("hits") or []:
         slug = rec["slug"]
         for name in ((rec.get("marks") or {}).get("added") or []):
@@ -308,6 +286,43 @@ def test_audit_when_present() -> None:
         if report.get("apply") and rec.get("marks"):
             stored = by_enr[slug].get("certs") or []
             check(all(m in stored for m in rec["marks"]["added"]), f"{slug} stored certs missing")
+        if report.get("apply"):
+            check(file_sum(by_pub[slug]) > 0, f"{slug} fill left Completeness 0")
+
+
+def test_audit_when_present() -> None:
+    if not REPORT.exists():
+        return
+    public = json.loads(PUBLIC.read_text())
+    enr = json.loads(ENRICHED.read_text())
+    report = json.loads(REPORT.read_text())
+    by_pub = {c["slug"]: c for c in public["companies"]}
+    by_enr = {c["slug"]: c for c in enr["companies"]}
+    batch = report.get("batch") or []
+    check(len(batch) == 174, f"this slice walked 174 Completeness-0 stored-URL rows, got {len(batch)}")
+    check(report.get("mode") == "slugs", "this slice is the stored-URL class, not --unwalked")
+    check(report.get("apply") is True, "audit records the apply pass")
+    check(len(report.get("hits") or []) == 28, f"28 clear first-party fills, got {len(report.get('hits') or [])}")
+    check(len(report.get("unreadable") or []) == 4, "403/429/SPA/portal stay unreadable")
+    check(len(report.get("stayed_open") or []) == 142, "honest empties plus unsure proposals stay open")
+    check(report.get("rejected") is not None, "audit has rejected")
+    check(report.get("classes") is not None, "audit has classes")
+    unwalked = select_zeros(public["companies"], by_enr, unwalked=True)
+    check(len(unwalked) == 72, f"remaining Completeness-0 probed==0 is 72, got {len(unwalked)}")
+    check("7ai" not in {x["slug"] for x in unwalked}, "filed 7AI left the zero set")
+    check("ai21" in {x["slug"] for x in unwalked}, "unreadable ai21 stays Completeness 0")
+    check("xero" not in {x["slug"] for x in unwalked}, "filed Xero was not an unwalked AITI row")
+    for slug in batch:
+        check(slug in by_pub, f"{slug} is not an invented company")
+        check(file_sum(by_pub[slug]) == 0 or slug in {h["slug"] for h in report.get("hits") or []},
+              f"{slug} was not a Completeness-0 row")
+    _check_hits(report, by_pub, by_enr)
+    if PRIOR_158.exists():
+        prior = json.loads(PRIOR_158.read_text())
+        check(len(prior.get("batch") or []) == 144, "PRIOR #158 ledger still has the 144 unwalked batch")
+        check(len(prior.get("hits") or []) == 72, "PRIOR #158 ledger still has the 72 fills")
+        for rec in prior.get("hits") or []:
+            check(file_sum(by_pub[rec["slug"]]) > 0, f"#158 fill {rec['slug']} was undone")
 
 
 def main() -> int:

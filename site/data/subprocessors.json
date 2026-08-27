@@ -23975,6 +23975,20 @@
       "domain": "",
       "kind": "processor",
       "in_register": false
+    },
+    {
+      "id": "scandit",
+      "name": "Scandit AG",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "metronome",
+      "name": "Metronome",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
     }
   ],
   "edges": [
@@ -36907,6 +36921,102 @@
       "to": "google",
       "source_url": "https://www.superblocks.com/legal/subprocessors",
       "evidence": "Google Cloud Platform (GCP)"
+    },
+    {
+      "from": "digimarc",
+      "to": "amazon-web-services",
+      "source_url": "https://www.digimarc.com/legal/sub-processors",
+      "evidence": "Amazon Web Services, Inc"
+    },
+    {
+      "from": "digimarc",
+      "to": "google",
+      "source_url": "https://www.digimarc.com/legal/sub-processors",
+      "evidence": "Google LLC"
+    },
+    {
+      "from": "digimarc",
+      "to": "microsoft",
+      "source_url": "https://www.digimarc.com/legal/sub-processors",
+      "evidence": "Microsoft Corporation"
+    },
+    {
+      "from": "digimarc",
+      "to": "alibaba-cloud",
+      "source_url": "https://www.digimarc.com/legal/sub-processors",
+      "evidence": "Alibaba Cloud"
+    },
+    {
+      "from": "digimarc",
+      "to": "mongodb",
+      "source_url": "https://www.digimarc.com/legal/sub-processors",
+      "evidence": "MongoDB, Inc"
+    },
+    {
+      "from": "digimarc",
+      "to": "rapid7",
+      "source_url": "https://www.digimarc.com/legal/sub-processors",
+      "evidence": "Rapid7, LLC"
+    },
+    {
+      "from": "digimarc",
+      "to": "okta",
+      "source_url": "https://www.digimarc.com/legal/sub-processors",
+      "evidence": "Okta, Inc"
+    },
+    {
+      "from": "digimarc",
+      "to": "scandit",
+      "source_url": "https://www.digimarc.com/legal/sub-processors",
+      "evidence": "Scandit AG"
+    },
+    {
+      "from": "digimarc",
+      "to": "paypal",
+      "source_url": "https://www.digimarc.com/legal/sub-processors",
+      "evidence": "PayPal, Inc"
+    },
+    {
+      "from": "world-labs",
+      "to": "metronome",
+      "source_url": "https://www.worldlabs.ai/subprocessors",
+      "evidence": "Metronome"
+    },
+    {
+      "from": "world-labs",
+      "to": "posthog",
+      "source_url": "https://www.worldlabs.ai/subprocessors",
+      "evidence": "Posthog"
+    },
+    {
+      "from": "world-labs",
+      "to": "stripe",
+      "source_url": "https://www.worldlabs.ai/subprocessors",
+      "evidence": "Stripe"
+    },
+    {
+      "from": "world-labs",
+      "to": "google",
+      "source_url": "https://www.worldlabs.ai/subprocessors",
+      "evidence": "Google"
+    },
+    {
+      "from": "world-labs",
+      "to": "sentry",
+      "source_url": "https://www.worldlabs.ai/subprocessors",
+      "evidence": "Sentry"
+    },
+    {
+      "from": "world-labs",
+      "to": "openai",
+      "source_url": "https://www.worldlabs.ai/subprocessors",
+      "evidence": "OpenAI"
+    },
+    {
+      "from": "world-labs",
+      "to": "amazon-web-services",
+      "source_url": "https://www.worldlabs.ai/subprocessors",
+      "evidence": "AWS"
     }
   ],
   "aliases": {
