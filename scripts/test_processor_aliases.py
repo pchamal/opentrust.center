@@ -230,6 +230,19 @@ def main() -> int:
     ibm_reg2 = {**register, "ibm": {"slug": "ibm", "name": "IBM", "domain": "ibm.com"}}
     check(canonical_processor_id("ibm-tivoli-storage-manager", ibm_reg2) == "ibm", "Tivoli Storage Manager is IBM")
     check(canonical_processor_id("windows-live-onecare", {**register, "microsoft": register["microsoft"]}) == "microsoft", "OneCare is Microsoft")
+    you_reg = {**register, "susea": {"slug": "susea", "name": "You.com", "domain": "you.com"}}
+    check(canonical_processor_id("susea-you-com", you_reg) == "susea", "SuSea you.com is You.com")
+    tdcx_reg = {**register, "tdcx": {"slug": "tdcx", "name": "TDCX", "domain": "tdcx.com"}}
+    check(canonical_processor_id("tdcx-my", tdcx_reg) == "tdcx", "TDCX MY is TDCX")
+    ecore_reg = {**register, "e-core": {"slug": "e-core", "name": "e-Core", "domain": "e-core.com"}}
+    check(
+        canonical_processor_id("e-core-solu-es-em-tecnologia-da-informa-iup-o-ltda", ecore_reg) == "e-core",
+        "e-Core legal name is e-Core",
+    )
+    xb_reg = {**register, "crossbeam-systems": {"slug": "crossbeam-systems", "name": "Crossbeam", "domain": "crossbeam.com"}}
+    check(canonical_processor_id("reveal-sas", xb_reg) == "crossbeam-systems", "Reveal SAS is Crossbeam")
+    kiss_reg = {**register, "kiss-metrics": {"slug": "kiss-metrics", "name": "KISSmetrics", "domain": "kissmetrics.io"}}
+    check(canonical_processor_id("kiss-metrics-usage-analytics", kiss_reg) == "kiss-metrics", "Kiss Metrics usage analytics is KISSmetrics")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 

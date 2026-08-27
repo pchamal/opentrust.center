@@ -493,6 +493,16 @@ REGISTER_ALIASES: dict[str, str] = {
     "ibm-tivoli-storage-manager": "ibm",
     # Windows Live OneCare is a Microsoft product.
     "windows-live-onecare": "microsoft",
+    # Same-company leftovers after the last named-processor batch.
+    # Harvey publishes SuSea, Inc (you.com). you.com prints You.com.
+    "susea-you-com": "susea",
+    # Stripe names TDCX (MY) SDN. BHD. tdcx.com prints TDCX.
+    "tdcx-my": "tdcx",
+    # Atlassian names the Brazilian legal entity. e-core.com prints e-Core.
+    "e-core-solu-es-em-tecnologia-da-informa-iup-o-ltda": "e-core",
+    # Crossbeam acquired Reveal (2024). Crossbeam's own list marks Reveal SAS
+    # as Affiliate / France. crossbeam-systems is on the register.
+    "reveal-sas": "crossbeam-systems",
 }
 
 # Published header garbage. Not a company. Do not file or alias.

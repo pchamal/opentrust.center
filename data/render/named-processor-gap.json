@@ -1,79 +1,105 @@
 {
   "rule": "Named processor not on the register jumps the queue. Alias graph ids that are the same company as an existing slug. Completeness rates the file. Portal vendors are never named. Entity Name is garbage. Never invent a second dossier for an alias. Never invent domains.",
   "aliases_added": {
-    "250ok": "validity",
-    "processout": "checkout",
-    "email-data-source": "messagebird",
-    "neustar-info-services": "transunion-formerly-neustar-information-services",
-    "telus-international": "telus",
-    "propay": "global-payments",
-    "sirius-federal": "cdw",
-    "solace-where-purchased-by-customer": "solace",
-    "plansource-benefits-administration": "plansource",
-    "ppro-payment-services": "ppro"
+    "susea-you-com": "susea",
+    "tdcx-my": "tdcx",
+    "e-core-solu-es-em-tecnologia-da-informa-iup-o-ltda": "e-core",
+    "reveal-sas": "crossbeam-systems"
   },
   "filed": [
     {
-      "slug": "sumit-ai",
-      "name": "Sumit AI",
-      "named_by": 2,
-      "domain": "sumit-ai.com",
-      "domain_source": "first-party-homepage"
-    },
-    {
-      "slug": "iron-mountain",
-      "name": "Iron Mountain",
+      "slug": "formstack",
+      "name": "Formstack",
       "named_by": 1,
-      "domain": "ironmountain.com",
+      "domain": "formstack.com",
       "domain_source": "wikidata-p856"
     },
     {
-      "slug": "solace",
-      "name": "Solace",
+      "slug": "gmo-globalsign",
+      "name": "GMO GlobalSign",
       "named_by": 1,
-      "domain": "solace.com",
+      "domain": "globalsign.com",
       "domain_source": "wikidata-p856"
     },
     {
-      "slug": "rfpio",
-      "name": "RFPIO",
+      "slug": "impartner",
+      "name": "Impartner",
       "named_by": 1,
-      "domain": "rfpio.com",
+      "domain": "impartner.com",
+      "domain_source": "first-party-homepage"
+    },
+    {
+      "slug": "outreach",
+      "name": "Outreach",
+      "named_by": 1,
+      "domain": "outreach.io",
       "domain_source": "wikidata-p856"
     },
     {
-      "slug": "orum",
-      "name": "Orum",
+      "slug": "dreamdata",
+      "name": "Dreamdata",
       "named_by": 1,
-      "domain": "orum.com",
+      "domain": "dreamdata.io",
       "domain_source": "first-party-homepage"
     },
     {
-      "slug": "ppro",
-      "name": "PPRO",
+      "slug": "day-ai",
+      "name": "Day AI",
       "named_by": 1,
-      "domain": "ppro.com",
+      "domain": "day.ai",
       "domain_source": "first-party-homepage"
     },
     {
-      "slug": "plansource",
-      "name": "PlanSource",
+      "slug": "pros",
+      "name": "PROS",
       "named_by": 1,
-      "domain": "plansource.com",
+      "domain": "pros.com",
       "domain_source": "first-party-homepage"
     },
     {
-      "slug": "crystal-televentures-pvt",
-      "name": "Crystal Televentures",
+      "slug": "zuva",
+      "name": "Zuva",
       "named_by": 1,
-      "domain": "crystalteleventures.com",
+      "domain": "zuva.ai",
+      "domain_source": "first-party-homepage"
+    },
+    {
+      "slug": "kiss-metrics",
+      "name": "KISSmetrics",
+      "named_by": 1,
+      "domain": "kissmetrics.io",
+      "domain_source": "wikidata-p856"
+    },
+    {
+      "slug": "susea",
+      "name": "You.com",
+      "named_by": 1,
+      "domain": "you.com",
+      "domain_source": "first-party-homepage"
+    },
+    {
+      "slug": "tdcx",
+      "name": "TDCX",
+      "named_by": 1,
+      "domain": "tdcx.com",
+      "domain_source": "first-party-homepage"
+    },
+    {
+      "slug": "e-core",
+      "name": "e-Core",
+      "named_by": 1,
+      "domain": "e-core.com",
       "domain_source": "first-party-homepage"
     }
   ],
   "skipped": [
     {
+      "slug": "bonsai-technologies",
+      "reason": "named-by 2, Zoom list; ambiguous — standing skip"
+    },
+    {
       "slug": "spacexai",
-      "reason": "wikidata exact hit x.ai is xAI, already on the register as xai; Cursor's SpaceXAI is not filed as a second xAI dossier"
+      "reason": "Cursor names SpaceXAI; xAI is already on the register as xai; do not invent a second dossier"
     },
     {
       "slug": "groove-networks-dba-groove",
@@ -82,7 +108,87 @@
     {
       "slug": "basefarm-as",
       "reason": "basefarm.com redirects to orange-business.com; Orange Business is not on the register; do not invent a second dossier"
+    },
+    {
+      "slug": "kount",
+      "reason": "kount.com redirects to equifax.com; Equifax is not on the register; do not invent a second dossier"
+    },
+    {
+      "slug": "klarity",
+      "reason": "klarity.ai redirects to within.ai and no longer prints Klarity; do not invent a Within dossier"
+    },
+    {
+      "slug": "ori-industries",
+      "reason": "ori.co redirects to radiant.co/ori and prints Radiant; do not invent a Radiant dossier"
+    },
+    {
+      "slug": "sync",
+      "reason": "ElevenLabs list is a Vanta JS shell; cannot confirm which Sync company from live first-party HTML"
+    },
+    {
+      "slug": "popout",
+      "reason": "popout.com prints a live-events brand, not Lightspeed's Popout, Inc. shipping-management processor; no verified official domain"
+    },
+    {
+      "slug": "convertapi-uab",
+      "reason": "convertapi.com returned 403; no live first-party homepage this cut"
+    },
+    {
+      "slug": "trustarc",
+      "reason": "trustarc.com and truste.com returned 403; no live first-party homepage this cut"
+    },
+    {
+      "slug": "r-systems-international",
+      "reason": "rsystems.com returned 403; no live first-party homepage this cut"
+    },
+    {
+      "slug": "adaptive-mobile",
+      "reason": "adaptivemobile.com returned 403; no live first-party homepage this cut"
+    },
+    {
+      "slug": "boldr",
+      "reason": "Anthropic list is a Vanta JS shell; getboldr.ai prints Boldr AI, which is not confirmed as the named processor"
+    },
+    {
+      "slug": "deft",
+      "reason": "deft.com returned 403; no live first-party homepage this cut"
+    },
+    {
+      "slug": "healthcast",
+      "reason": "healthcast.com did not print a stable first-party brand this cut"
+    },
+    {
+      "slug": "intraedge",
+      "reason": "intraedge.com returned 403; no live first-party homepage this cut"
+    },
+    {
+      "slug": "spryng",
+      "reason": "spryng.nl returned 403; Wikidata spryng.fr is a different company"
+    },
+    {
+      "slug": "textel",
+      "reason": "textel.net returned 403; no live first-party homepage this cut"
+    },
+    {
+      "slug": "madkudu",
+      "reason": "madkudu.com returned 403; first-party-unverified"
+    },
+    {
+      "slug": "plextrac",
+      "reason": "plextrac.com returned 403; first-party-unverified"
+    },
+    {
+      "slug": "printfection",
+      "reason": "printfection.com returned 403; first-party-unverified"
+    },
+    {
+      "slug": "runware",
+      "reason": "runware.ai returned 200 but printed no Runware brand in first-party HTML"
+    },
+    {
+      "slug": "thorn",
+      "reason": "thorn.org returned 403; first-party-unverified"
     }
   ],
-  "generated_at": "2026-08-27T22:00:11Z"
+  "generated_at": "2026-08-27T22:28:00Z"
 }
