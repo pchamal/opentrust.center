@@ -413,6 +413,18 @@ REGISTER_ALIASES: dict[str, str] = {
     # Qunifi is now Dstny Automate. dstny-automate-formerly-qunifi is filed
     # in this increment; qunifi.com redirects to dstny.com.
     "qunifi": "dstny-automate-formerly-qunifi",
+    # Same-company leftovers after the last named-processor batch.
+    # Lightspeed affiliates already listed on lightspeedhq.com/legal/subprocessors.
+    # Payment Revolution / Vend / Ecwid / Kounta / NuORDER / ShopKeep / iKentoo
+    # already land here.
+    "alcmene-s-r-l": "lightspeed-commerce",
+    "atelier35": "lightspeed-commerce",
+    "simple-order": "lightspeed-commerce",
+    # AudioCodes acquired Active Communications Europe in 2015. audiocodes is
+    # on the register; ACE has no independent first-party homepage.
+    "active-communications-europe": "audiocodes",
+    # LiveRamp acquired Diablo.ai in 2021. habu / datafleets already land here.
+    "diablo-ai": "liveramp",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
