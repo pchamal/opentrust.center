@@ -151,6 +151,27 @@ def main() -> int:
     was_reg = {**register, "wasabi": {"slug": "wasabi", "name": "Wasabi", "domain": "wasabi.com"}}
     check(canonical_processor_id("wasabi-resources", was_reg) == "wasabi", "Wasabi Resources is Wasabi")
     check(canonical_processor_id("wasabi-technologies", was_reg) == "wasabi", "Wasabi Technologies is Wasabi")
+    found_reg = {**register, "foundever-operating": {"slug": "foundever-operating", "name": "Foundever", "domain": "foundever.com"}}
+    check(canonical_processor_id("foundever", found_reg) == "foundever-operating", "Foundever is Foundever Operating")
+    kwai_reg = {**register, "kwai": {"slug": "kwai", "name": "Kwai", "domain": "kuaishou.com"}}
+    check(canonical_processor_id("kling-ai-pte", kwai_reg) == "kwai", "Kling AI is Kuaishou")
+    check(canonical_processor_id("kling", kwai_reg) == "kwai", "Kling is Kuaishou")
+    fig_reg = {**register, "figma": {"slug": "figma", "name": "Figma", "domain": "figma.com"}}
+    check(canonical_processor_id("weavy-ai", fig_reg) == "figma", "Weavy AI is Figma")
+    pin_reg = {**register, "pinterest": {"slug": "pinterest", "name": "Pinterest", "domain": "pinterest.com"}}
+    check(canonical_processor_id("tvscientific", pin_reg) == "pinterest", "tvScientific is Pinterest")
+    visa_reg = {**register, "visa": {"slug": "visa", "name": "Visa", "domain": "corporate.visa.com"}}
+    check(canonical_processor_id("verifi", visa_reg) == "visa", "Verifi is Visa")
+    cs_reg = {**register, "contentsquare": {"slug": "contentsquare", "name": "Contentsquare", "domain": "contentsquare.com"}}
+    check(canonical_processor_id("hotjar", cs_reg) == "contentsquare", "Hotjar is Contentsquare")
+    bc_reg = {**register, "brightcove": {"slug": "brightcove", "name": "Brightcove", "domain": "brightcove.com"}}
+    check(canonical_processor_id("zencoder", bc_reg) == "brightcove", "Zencoder is Brightcove")
+    hive_reg = {**register, "hive": {"slug": "hive", "name": "Hive", "domain": "hive.com"}}
+    check(canonical_processor_id("castle-global", hive_reg) == "hive", "Castle Global is Hive")
+    check(canonical_processor_id("castle-global-hive", hive_reg) == "hive", "Castle Global Hive is Hive")
+    temp_reg = {**register, "temporal": {"slug": "temporal", "name": "Temporal", "domain": "temporal.io"}}
+    check(canonical_processor_id("temporal-technologies", temp_reg) == "temporal", "Temporal Technologies is Temporal")
+    check(canonical_processor_id("temporal-cloud", temp_reg) == "temporal", "Temporal Cloud is Temporal")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 
