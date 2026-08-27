@@ -452,6 +452,17 @@ REGISTER_ALIASES: dict[str, str] = {
     # morphl.io is dead. Sajari already lands here. Do not invent a
     # second Algolia dossier.
     "morphl-r-d-srl": "algolia",
+    # Seekr names Pydantic Logfire. pydantic.dev prints Pydantic as the
+    # company and Logfire as its product. Do not invent a second dossier.
+    "pydantic-logfire": "pydantic",
+    # Conga's own subprocessor list names AppExtremes, LLC dba Conga.
+    "appextremes-dba-conga": "conga",
+    # Same NetSuite legal id already mapped as oracle-netsuite.
+    "oracle-america-netsuite": "netsuite",
+    # Docebo NA is the existing Docebo row.
+    "docebo-na": "docebo",
+    # Metronome Holdings is the existing Metronome row (metronome.com).
+    "metronome-holdings": "metronome",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
