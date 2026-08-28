@@ -1,8 +1,10 @@
 {
   "rule": "Named processor not on the register jumps the queue. Alias graph ids that are the same company as an existing slug. Completeness rates the file. Portal vendors are never named. Entity Name is garbage. Never invent a second dossier for an alias. Never invent domains.",
-  "tip": "6181da1ce",
+  "tip": "a8cccc5c8",
   "register": 3913,
   "aliases_kept": {
+    "eighth-intuition-sdn-bhd": "fico",
+    "nanonoble-pte": "minimax-group",
     "healthcast": "identity-automation-lp",
     "spacexai": "xai",
     "vmlapp-sweden": "figma",
@@ -13,10 +15,7 @@
     "kuaishou-technology": "kwai",
     "trdt-brasil-tecnologia-ltda": "teradata"
   },
-  "aliases_added": {
-    "eighth-intuition-sdn-bhd": "fico",
-    "nanonoble-pte": "minimax-group"
-  },
+  "aliases_added": {},
   "aliases_refused": {
     "rsi": "RingCentral names RSI. Acronym collision with r-systems-international; no first-party identity.",
     "cc-cloud": "codecentric.de GTC prints cc cloud GmbH; codecentric is not on the register. Do not invent the parent.",
@@ -24,48 +23,20 @@
     "agile-management-experts": "amxconsulting.com prints AMX, not Agile Management Experts.",
     "df-tech-fz": "digital-future.me prints DigitalFuture, not DF Tech FZ-LLC.",
     "benjamin-mosse-consulting": "mosse-security.com prints Mossé Security, not Benjamin Mosse Consulting. Do not invent Mossé.",
-    "gcs": "gcs.ro prints Global Concept Solution. AudioCodes names GCS first-tier support Romania. Acronym collision; consulting lander is not verified as that support desk."
+    "gcs": "gcs.ro prints Global Concept Solution. AudioCodes names GCS first-tier support Romania. Acronym collision; consulting lander is not verified as that support desk.",
+    "madkudu": "madkudu.com now prints HG Insights; HG Insights is not on the register. Do not invent the parent.",
+    "adaptive-mobile": "acquired by Enea; Enea is not on the register. Do not invent the parent.",
+    "textel": "now Capacity; Capacity is not on the register. Do not invent the parent.",
+    "basefarm-as": "basefarm.com 302s to Orange Business; Orange is not on the register. Do not file Basefarm as Orange.",
+    "rtica-pfms-slu": "pandorafms.com/en/ prints Pandora FMS, not Ártica PFMS SLU. About/terms Cloudflare-blocked. Do not invent Pandora.",
+    "zealep-business-solutions": "zbiz.solutions prints ZBiz Solutions, not Zealep Business Solutions. Do not invent ZBiz."
   },
-  "filed": {
-    "opstalent-spolka-z-o-o-sp-k": {
-      "domain": "opstalent.com",
-      "official_url": "https://opstalent.com/",
-      "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors",
-      "note": "Title and first-party JSON print OpsTalent, Poland BPO / customer-experience support. Usual trust paths miss. Privacy/about are JS shells."
-    },
-    "worketics-it-solutions": {
-      "domain": "worketics.com",
-      "official_url": "https://www.worketics.com/",
-      "source_url": "https://www.meltwater.com/en/privacy/subprocessors",
-      "privacy": "https://www.worketics.com/privacy-policy/",
-      "note": "Homepage prints Worketics IT Solutions. Privacy URL stored. Marks not named."
-    },
-    "ninestars-bulgaria-eood": {
-      "domain": "ninestarsglobal.com",
-      "official_url": "https://www.ninestarsglobal.com/",
-      "source_url": "https://www.meltwater.com/en/privacy/subprocessors",
-      "note": "Homepage title prints Ninestars Global. Meltwater names Ninestars Bulgaria EOOD. Privacy paths 404 / JS title-only. Do not invent a second Ninestars dossier."
-    },
-    "sie": {
-      "domain": "sie.co.jp",
-      "official_url": "https://sie.co.jp/",
-      "source_url": "https://www.sophos.com/en-us/legal/sub-processor",
-      "year": 2004,
-      "year_url": "https://sie.co.jp/company/",
-      "note": "Homepage prints 株式会社エスアイイー / SIE. Year 2004 from first-party JSON-LD foundingDate on /company/. Privacy paths bounce to homepage."
-    }
-  },
-  "c0_fills": {
-    "deutsche-telekom": {
-      "page": "https://www.telekom.com/en/company/data-privacy-and-security/governance-security",
-      "note": "First-party Governance Security page prints Deutsche Telekom group security."
-    }
-  },
+  "filed": {},
+  "c0_fills": {},
   "c0_reverted_this_cut": {
-    "ovhcloud": "us.ovhcloud.com/security/game-ddos-protection/ is Game DDoS Protection product catalog, not Official page.",
-    "logz-io": "/platform/features/soc-2-compliance/ is product-feature copy, not a marks file.",
-    "reversing-labs": "trust-center is a JS Next shell; HIPAA came from a healthcare product lander.",
-    "cognizant-technology-solutions": "/security returned an empty body from this network."
+    "ovhcloud": "us.ovhcloud.com/security/ title is Network security and application protection — product catalog, not Official page. Same class as last-cut Game DDoS lander.",
+    "reversing-labs": "www.reversinglabs.com/security is a JS Next shell (self.__next_f.push). trust-center remains a JS Next shell.",
+    "digicert": "walker proposed /signing/code-signing-certificates (Buy Code Signing Certificates) as Official page and PCI DSS from /tls-ssl/secure-email-smime-certificates customer-requirement copy. Product catalog, not a file."
   },
   "leftovers_after": 36,
   "leftovers_named_by_ge2": 1,
@@ -88,5 +59,5 @@
     "basefarm-as",
     "intersections"
   ],
-  "notes": "Rebased onto 6181da1ce (hourly expand after PR #184; register 3909 + 4 filed = 3913). Did not re-file Whatnot, Turbo, Datavant, CesiumAstro, Integris IT, or other expand rows. eighth-intuition-sdn-bhd → fico: FICO first-party subprocessors table now prints Eighth Intuition Sdn. Bhd as a Malaysia Corporate Affiliate. nanonoble-pte → minimax-group: MiniMax first-party terms on minimax.io print Nanonoble Pte. Ltd.; hailuoai.video prints Hailuo AI / MiniMax, not Nanonoble. Filed 4 named leftovers with verified first-party domains. Soft-retry leftovers unchanged (madkudu.com HG Insights; adaptive-mobile/Enea; textel/Capacity; avertech.in namesake; rsystems.com CloudFront 403). Preferred dense C0 still open: SendGrid Twilio host, OVHcloud product catalog, Vonage/NetSuite/Vultr/TransUnion http-0 or Cloudflare, Looker Google-product host, Redis portal host. Portal vendors never named. DROPPED_INSTRUMENTS 0."
+  "notes": "Started from origin/main a8cccc5c8 (PR #185; register 3913). Hourly expand had not landed. No leftover graph id was the same company as an existing register slug. Soft-retry parents (HG Insights, Enea, Capacity, Orange) are still off the register — alias refused. No leftover homepage HTML printed this same company: vivaops.ai 404; blueocean.ca Cloudflare 403; rule56.io Wix JS shell does not print Rule 56; cloudsupport.co.in prints CloudSupport, not Cloud Support Technologies; fineyear.com prints 常州方圆外企服务有限公司 / 智汇方圆, not Fineyear Human Resources Service Ltd; pandorafms.com/en/ prints Pandora FMS, not Ártica PFMS; zbiz.solutions prints ZBiz, not Zealep. rsystems.com still CloudFront 403. Completeness-0 walker on 25 dense named processors proposed three dishonest instruments (OVHcloud product catalog, ReversingLabs JS shell, DigiCert buy-certificates + PCI customer-requirement copy) — not applied. Preferred dense C0 still open: SendGrid Twilio host / http-0, OVHcloud product catalog, Vonage/NetSuite/Vultr/TransUnion http-0, Looker Google-product host / http-0, Redis portal host / http-0. Did not re-file Deutsche Telekom Official page. Cognition AITI source-line kept. Portal vendors never named. DROPPED_INSTRUMENTS 0. Register 3913 → 3913."
 }
