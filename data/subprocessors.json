@@ -25786,13 +25786,6 @@
       "in_register": true
     },
     {
-      "id": "microsoft-teams",
-      "name": "Microsoft Teams",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "enpass",
       "name": "Enpass",
       "domain": "enpass.io",
@@ -43142,7 +43135,7 @@
     },
     {
       "from": "matterport",
-      "to": "microsoft-teams",
+      "to": "microsoft",
       "source_url": "https://matterport.com/legal/matterport-subprocessors",
       "evidence": "Microsoft Teams"
     },
@@ -43181,6 +43174,396 @@
       "to": "zuora",
       "source_url": "https://matterport.com/legal/matterport-subprocessors",
       "evidence": "Zuora"
+    },
+    {
+      "from": "sendbird",
+      "to": "amazon-web-services",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Amazon Web Services, Inc"
+    },
+    {
+      "from": "sendbird",
+      "to": "anthropic",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Anthropic"
+    },
+    {
+      "from": "sendbird",
+      "to": "assemblyai",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "AssemblyAI"
+    },
+    {
+      "from": "sendbird",
+      "to": "atlassian",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Atlassian Corporation Plc"
+    },
+    {
+      "from": "sendbird",
+      "to": "cartesia",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Cartesia"
+    },
+    {
+      "from": "sendbird",
+      "to": "cerebras",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Cerebras Systems, Inc"
+    },
+    {
+      "from": "sendbird",
+      "to": "clay",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Clay"
+    },
+    {
+      "from": "sendbird",
+      "to": "cohere",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Cohere"
+    },
+    {
+      "from": "sendbird",
+      "to": "datadog",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Datadog, Inc"
+    },
+    {
+      "from": "sendbird",
+      "to": "docusign",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Docusign"
+    },
+    {
+      "from": "sendbird",
+      "to": "fireworks-ai",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Fireworks AI"
+    },
+    {
+      "from": "sendbird",
+      "to": "fivetran",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "FiveTran"
+    },
+    {
+      "from": "sendbird",
+      "to": "friendliai",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "FriendliAI Corp"
+    },
+    {
+      "from": "sendbird",
+      "to": "google",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Google, Inc"
+    },
+    {
+      "from": "sendbird",
+      "to": "langfuse",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Langfuse"
+    },
+    {
+      "from": "sendbird",
+      "to": "leandata",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Leandata, Inc"
+    },
+    {
+      "from": "sendbird",
+      "to": "livekit",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "LiveKit"
+    },
+    {
+      "from": "sendbird",
+      "to": "looker",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Looker Data Sciences, Inc"
+    },
+    {
+      "from": "sendbird",
+      "to": "adobe",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Marketo, Inc"
+    },
+    {
+      "from": "sendbird",
+      "to": "messagebird",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "MessageBird"
+    },
+    {
+      "from": "sendbird",
+      "to": "microsoft",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Microsoft Azure (e.g., Azure OpenAI, Document Intelligence)"
+    },
+    {
+      "from": "sendbird",
+      "to": "openai",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "OpenAI"
+    },
+    {
+      "from": "sendbird",
+      "to": "panther-labs",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Panther Labs Inc"
+    },
+    {
+      "from": "sendbird",
+      "to": "stripe",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Stripe, Inc"
+    },
+    {
+      "from": "sendbird",
+      "to": "telnyx",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Telnyx"
+    },
+    {
+      "from": "sendbird",
+      "to": "twilio",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Twilio Inc"
+    },
+    {
+      "from": "sendbird",
+      "to": "vercel",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Vercel"
+    },
+    {
+      "from": "sendbird",
+      "to": "vonage",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Vonage"
+    },
+    {
+      "from": "sendbird",
+      "to": "wispr-flow",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Wispr Flow"
+    },
+    {
+      "from": "sendbird",
+      "to": "zapier",
+      "source_url": "https://sendbird.com/sub-processors",
+      "evidence": "Zapier"
+    },
+    {
+      "from": "user-testing",
+      "to": "amazon-web-services",
+      "source_url": "https://www.usertesting.com/privacy-center/subprocessors",
+      "evidence": "Amazon Web Services"
+    },
+    {
+      "from": "user-testing",
+      "to": "code42",
+      "source_url": "https://www.usertesting.com/privacy-center/subprocessors",
+      "evidence": "Code42"
+    },
+    {
+      "from": "user-testing",
+      "to": "crowdstrike",
+      "source_url": "https://www.usertesting.com/privacy-center/subprocessors",
+      "evidence": "CrowdStrike"
+    },
+    {
+      "from": "user-testing",
+      "to": "dbt-labs",
+      "source_url": "https://www.usertesting.com/privacy-center/subprocessors",
+      "evidence": "dbt Labs"
+    },
+    {
+      "from": "user-testing",
+      "to": "elevenlabs",
+      "source_url": "https://www.usertesting.com/privacy-center/subprocessors",
+      "evidence": "ElevenLabs"
+    },
+    {
+      "from": "user-testing",
+      "to": "google",
+      "source_url": "https://www.usertesting.com/privacy-center/subprocessors",
+      "evidence": "Firebase"
+    },
+    {
+      "from": "user-testing",
+      "to": "fivetran",
+      "source_url": "https://www.usertesting.com/privacy-center/subprocessors",
+      "evidence": "FiveTran"
+    },
+    {
+      "from": "user-testing",
+      "to": "liveblocks",
+      "source_url": "https://www.usertesting.com/privacy-center/subprocessors",
+      "evidence": "Liveblocks"
+    },
+    {
+      "from": "user-testing",
+      "to": "mandiant",
+      "source_url": "https://www.usertesting.com/privacy-center/subprocessors",
+      "evidence": "Mandiant"
+    },
+    {
+      "from": "user-testing",
+      "to": "mongodb",
+      "source_url": "https://www.usertesting.com/privacy-center/subprocessors",
+      "evidence": "MongoDB"
+    },
+    {
+      "from": "user-testing",
+      "to": "nightfall",
+      "source_url": "https://www.usertesting.com/privacy-center/subprocessors",
+      "evidence": "Nightfall"
+    },
+    {
+      "from": "user-testing",
+      "to": "nylas",
+      "source_url": "https://www.usertesting.com/privacy-center/subprocessors",
+      "evidence": "Nylas"
+    },
+    {
+      "from": "user-testing",
+      "to": "openai",
+      "source_url": "https://www.usertesting.com/privacy-center/subprocessors",
+      "evidence": "OpenAI OPCO LLC"
+    },
+    {
+      "from": "user-testing",
+      "to": "okta",
+      "source_url": "https://www.usertesting.com/privacy-center/subprocessors",
+      "evidence": "Okta"
+    },
+    {
+      "from": "user-testing",
+      "to": "segment",
+      "source_url": "https://www.usertesting.com/privacy-center/subprocessors",
+      "evidence": "Segment"
+    },
+    {
+      "from": "user-testing",
+      "to": "snowflake",
+      "source_url": "https://www.usertesting.com/privacy-center/subprocessors",
+      "evidence": "Snowflake"
+    },
+    {
+      "from": "user-testing",
+      "to": "zoom",
+      "source_url": "https://www.usertesting.com/privacy-center/subprocessors",
+      "evidence": "Zoom"
+    },
+    {
+      "from": "validity",
+      "to": "6sense",
+      "source_url": "https://www.validity.com/legal/subprocessors/",
+      "evidence": "6sense"
+    },
+    {
+      "from": "validity",
+      "to": "amazon-web-services",
+      "source_url": "https://www.validity.com/legal/subprocessors/",
+      "evidence": "Amazon Web Services"
+    },
+    {
+      "from": "validity",
+      "to": "atlassian",
+      "source_url": "https://www.validity.com/legal/subprocessors/",
+      "evidence": "Atlassian Corporation"
+    },
+    {
+      "from": "validity",
+      "to": "auth0",
+      "source_url": "https://www.validity.com/legal/subprocessors/",
+      "evidence": "Auth0"
+    },
+    {
+      "from": "validity",
+      "to": "clickhouse",
+      "source_url": "https://www.validity.com/legal/subprocessors/",
+      "evidence": "Clickhouse"
+    },
+    {
+      "from": "validity",
+      "to": "crowdstrike",
+      "source_url": "https://www.validity.com/legal/subprocessors/",
+      "evidence": "CrowdStrike"
+    },
+    {
+      "from": "validity",
+      "to": "customer-io",
+      "source_url": "https://www.validity.com/legal/subprocessors/",
+      "evidence": "Customer.io"
+    },
+    {
+      "from": "validity",
+      "to": "fivetran",
+      "source_url": "https://www.validity.com/legal/subprocessors/",
+      "evidence": "Fivetran"
+    },
+    {
+      "from": "validity",
+      "to": "gong",
+      "source_url": "https://www.validity.com/legal/subprocessors/",
+      "evidence": "Gong.io"
+    },
+    {
+      "from": "validity",
+      "to": "pendo",
+      "source_url": "https://www.validity.com/legal/subprocessors/",
+      "evidence": "Pendo.io"
+    },
+    {
+      "from": "validity",
+      "to": "productboard",
+      "source_url": "https://www.validity.com/legal/subprocessors/",
+      "evidence": "Productboard"
+    },
+    {
+      "from": "validity",
+      "to": "recurly-com",
+      "source_url": "https://www.validity.com/legal/subprocessors/",
+      "evidence": "Recurly"
+    },
+    {
+      "from": "validity",
+      "to": "salesforce",
+      "source_url": "https://www.validity.com/legal/subprocessors/",
+      "evidence": "Salesforce"
+    },
+    {
+      "from": "validity",
+      "to": "snowflake",
+      "source_url": "https://www.validity.com/legal/subprocessors/",
+      "evidence": "Snowflake"
+    },
+    {
+      "from": "validity",
+      "to": "stripe",
+      "source_url": "https://www.validity.com/legal/subprocessors/",
+      "evidence": "Stripe"
+    },
+    {
+      "from": "validity",
+      "to": "twilio",
+      "source_url": "https://www.validity.com/legal/subprocessors/",
+      "evidence": "Twilio"
+    },
+    {
+      "from": "validity",
+      "to": "zapier",
+      "source_url": "https://www.validity.com/legal/subprocessors/",
+      "evidence": "Zapier"
+    },
+    {
+      "from": "validity",
+      "to": "zuora",
+      "source_url": "https://www.validity.com/legal/subprocessors/",
+      "evidence": "Zuora"
     }
   ],
   "aliases": {
@@ -43216,6 +43599,7 @@
     "microsoft-ireland-operations": "microsoft",
     "microsoft-365-copilot": "microsoft",
     "microsoft-office": "microsoft",
+    "microsoft-teams": "microsoft",
     "microsoft-hosting-services": "microsoft",
     "international-business-machines-ibm": "ibm",
     "gong-io": "gong",
