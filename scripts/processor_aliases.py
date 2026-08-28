@@ -528,6 +528,9 @@ REGISTER_ALIASES: dict[str, str] = {
     # page now lives on Apryse (formerly PDFTron). apryse is filed in this
     # increment.
     "bcl-technologies": "apryse",
+    # Cursor names SpaceXAI. Wikidata P856 for that published name is x.ai,
+    # which is the existing xAI row. Do not invent a second dossier.
+    "spacexai": "xai",
 }
 
 # Published header garbage. Not a company. Do not file or alias.

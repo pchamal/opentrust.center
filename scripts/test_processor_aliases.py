@@ -259,6 +259,8 @@ def main() -> int:
     check(canonical_processor_id("ori-industries", rad_reg) == "radiant", "Ori Industries is Radiant")
     ap_reg = {**register, "apryse": {"slug": "apryse", "name": "Apryse", "domain": "apryse.com"}}
     check(canonical_processor_id("bcl-technologies", ap_reg) == "apryse", "BCL Technologies is Apryse")
+    xai_reg = {**register, "xai": {"slug": "xai", "name": "xAI", "domain": "x.ai"}}
+    check(canonical_processor_id("spacexai", xai_reg) == "xai", "SpaceXAI is xAI")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 
