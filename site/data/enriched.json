@@ -106020,23 +106020,35 @@
       "name": "PROS",
       "slug": "pros",
       "domain": "pros.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://pros.com/trust-security/",
+      "final_url": "https://pros.com/trust-security/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://conga.com/privacy/subprocessors",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2, ISO 27001, CSA STAR.",
       "list": "named-processor-gap",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "SOC 2",
+        "ISO 27001",
+        "CSA STAR"
+      ],
+      "links": {
+        "security": "https://pros.com/trust-security/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 48,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 18,
+          "longevity": 10
+        }
+      },
+      "founded_year": 1985,
+      "founded_source": "https://pros.com/trust-security/"
     },
     {
       "rank": 3644,
@@ -108119,26 +108131,31 @@
       "name": "Colossyan",
       "slug": "colossyan",
       "domain": "colossyan.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.colossyan.com/security/",
+      "final_url": "https://www.colossyan.com/security/",
       "vendor": "unknown",
       "title": "",
       "probed": 5,
       "source": "https://www.powtoon.com/dpa/sub-processors/",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II.",
       "list": "named-processor-gap",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II"
+      ],
       "links": {
         "security_txt": "https://www.colossyan.com/.well-known/security.txt",
         "privacy": "https://www.colossyan.com/privacy/",
-        "status": "https://status.colossyan.com"
+        "status": "https://status.colossyan.com",
+        "security": "https://www.colossyan.com/security/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 18,
-        "tier": "silent",
+        "score": 48,
+        "tier": "on-file",
         "factors": {
+          "portal": 20,
+          "marks": 10,
           "status": 6,
           "disclosure": 6,
           "privacy": 6
@@ -108192,11 +108209,15 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "longevity": 10
+        }
       },
-      "official_url": "https://www.zyyx.jp/"
+      "official_url": "https://www.zyyx.jp/",
+      "founded_year": 1994,
+      "founded_source": "https://www.zyyx.jp/"
     }
   ],
   "notes": "Public pages only. Incomplete by nature. No invented URLs, years, certs, or processors."
