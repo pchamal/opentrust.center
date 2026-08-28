@@ -562,6 +562,11 @@ REGISTER_ALIASES: dict[str, str] = {
     # tdata-malaysia-sdn-bhd, and tdc-colombia-limitada already land here.
     # Do not invent a second Teradata dossier.
     "trdt-brasil-tecnologia-ltda": "teradata",
+    # Identity Automation acquired HealthCast. identity-automation-lp is on
+    # the register (identityautomation.com still prints Identity Automation).
+    # gohealthcast.com is 404. healthcast.com is a different/empty namesake.
+    # Do not invent a second HealthCast dossier.
+    "healthcast": "identity-automation-lp",
 }
 
 # Published header garbage. Not a company. Do not file or alias.

@@ -1326,8 +1326,9 @@
     {
       "id": "boldr",
       "name": "Boldr",
-      "kind": "subprocessor",
-      "in_register": false
+      "kind": "company",
+      "in_register": true,
+      "domain": "boldrimpact.com"
     },
     {
       "id": "iterable",
@@ -2301,10 +2302,10 @@
     },
     {
       "id": "plextrac",
-      "name": "Plextrac",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "PlexTrac",
+      "domain": "plextrac.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "6sense",
@@ -2470,9 +2471,9 @@
     {
       "id": "norwin-technologies",
       "name": "Norwin Technologies LLC",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "norwintechnologies.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "df-tech-fz",
@@ -6873,9 +6874,9 @@
     {
       "id": "rockwell-information-services",
       "name": "Rockwell Information Services",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "rockinfo.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "calliduscloud",
@@ -7303,13 +7304,6 @@
       "domain": "datajar.co.uk",
       "kind": "company",
       "in_register": true
-    },
-    {
-      "id": "healthcast",
-      "name": "Healthcast, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
     },
     {
       "id": "identity-automation-lp",
@@ -7930,9 +7924,9 @@
     {
       "id": "printfection",
       "name": "Printfection",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "printfection.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "sublime-security",
@@ -8224,9 +8218,9 @@
     {
       "id": "r-systems-international",
       "name": "R Systems International Ltd",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "rsystems.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "opstalent-spolka-z-o-o-sp-k",
@@ -25458,9 +25452,9 @@
     {
       "id": "intraedge",
       "name": "IntraEdge, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "intraedge.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "impartner",
@@ -25794,9 +25788,9 @@
     {
       "id": "tavus",
       "name": "Tavus",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "tavus.io",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "gladia",
@@ -33897,7 +33891,7 @@
     },
     {
       "from": "jamf",
-      "to": "healthcast",
+      "to": "identity-automation-lp",
       "source_url": "https://www.jamf.com/trust-center/legal/jamf-sub-processors/",
       "evidence": "Healthcast, Inc"
     },
@@ -40476,6 +40470,7 @@
     "ninja-partners": "supportninja",
     "launchboard-software": "salesforce",
     "kuaishou-technology": "kwai",
-    "trdt-brasil-tecnologia-ltda": "teradata"
+    "trdt-brasil-tecnologia-ltda": "teradata",
+    "healthcast": "identity-automation-lp"
   }
 }

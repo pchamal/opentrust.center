@@ -273,6 +273,8 @@ def main() -> int:
     check(canonical_processor_id("kuaishou-technology", kwai_reg) == "kwai", "Kuaishou Technology is Kwai")
     tera_reg = {**register, "teradata": {"slug": "teradata", "name": "Teradata", "domain": "teradata.com"}}
     check(canonical_processor_id("trdt-brasil-tecnologia-ltda", tera_reg) == "teradata", "TRDT Brasil is Teradata")
+    ia_reg = {**register, "identity-automation-lp": {"slug": "identity-automation-lp", "name": "Identity Automation", "domain": "identityautomation.com"}}
+    check(canonical_processor_id("healthcast", ia_reg) == "identity-automation-lp", "HealthCast is Identity Automation")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 
