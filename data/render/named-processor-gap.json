@@ -1,7 +1,7 @@
 {
-  "generated": "2026-08-28T23:20:00Z",
+  "generated": "2026-08-28T23:50:00Z",
   "register": 4153,
-  "origin_main": "a5a4a916",
+  "origin_main": "64b00aa3",
   "mode": "c0-named-processor-fills",
   "leftovers_min1": 35,
   "leftovers_after": 35,
@@ -13,13 +13,14 @@
   "aliases_kept": [
     "aws → amazon-web-services",
     "gcp → google",
-    "azure → microsoft"
+    "azure → microsoft",
+    "marketo → adobe"
   ],
   "aliases_refused": [
     {
       "from": "sendgrid",
       "to": "twilio",
-      "reason": "sendgrid.com redirects to Twilio product host; first-party HTML does not print they are the same company. Do not copy Twilio marks/DPA."
+      "reason": "sendgrid.com 301s to Twilio product host; first-party HTML does not print they are the same company. Do not copy Twilio marks/DPA."
     },
     {
       "from": "looker",
@@ -27,78 +28,117 @@
       "reason": "looker.com 301s to cloud.google.com/looker; do not alias. Do not copy Google's file."
     },
     {
-      "from": "clearbit",
-      "to": null,
-      "reason": "Redis list prints Clearbit. Not on the register. Do not invent a leftover domain."
-    },
-    {
-      "from": "opensearch",
+      "from": "amazon",
       "to": "amazon-web-services",
-      "reason": "Redis list prints OpenSearch. Do not invent a leftover. Not aliased this cut."
+      "reason": "Mailchimp list prints Amazon. amazon.com is already on the register. Do not alias to AWS."
     }
   ],
   "newly_filed": [],
   "c0_fills": [
     {
-      "slug": "redis",
-      "named_by": 5,
-      "completeness_before": 0,
-      "completeness_after": 40,
-      "score_after": 28,
-      "tier_after": "silent",
-      "dpa": "https://redis.io/legal/data-processing-addendum-dpa/",
-      "subprocessors": "https://redis.io/legal/subprocessors/",
-      "privacy": "https://redis.io/legal/privacy-policy/",
+      "slug": "fullstory",
+      "named_by": 12,
+      "completeness_before": 20,
+      "completeness_after": 80,
+      "score_after": 74,
+      "tier_after": "substantial",
+      "dpa": "https://www.fullstory.com/legal/form-of-standard-dpa/",
+      "subprocessors": "https://www.fullstory.com/legal/subprocessor-list/",
+      "marks": [
+        "soc2-type-ii",
+        "iso-27001"
+      ],
+      "marks_url": "https://www.fullstory.com/legal/security-addendum/",
       "named": [
-        "anthropic",
-        "apollo-io",
-        "ashby",
-        "atlassian",
-        "glean",
         "google",
-        "leandata",
-        "lusha",
-        "adobe",
-        "okta",
-        "openai",
-        "netsuite",
-        "qualified-com",
-        "rox",
+        "fastly",
         "salesforce",
-        "snowflake",
-        "stripe",
-        "sumo-logic",
-        "trustarc",
-        "twilio",
         "zendesk",
-        "6sense",
-        "amazon-web-services",
-        "microsoft"
+        "adobe",
+        "openai",
+        "anthropic"
       ],
       "left_open": [
-        "Official page left open: trust.redis.io is SafeBase; /docs operate/rs/security is product docs; TOMs page is a DPA annex",
-        "Marks / years not printed as a catalog hold this cut ('open source origins in 2011' is not foundingDate)",
-        "Leftover names without a register slug (Clearbit, DealHub, Files.com, Openprise, OpenSearch, OwnBackup, People.ai, PlanHat, Rivery Technologies, Scalestack) not invented",
-        "Twilio Inc. (Sendgrid) mapped to twilio — sendgrid not aliased. Oracle Corporation (NetSuite) used existing oracle-netsuite → netsuite. google-workspace → google. aws → amazon-web-services. marketo → adobe (existing alias)"
+        "Official page stays trust.fullstory.com (SafeBase). Marks from first-party security addendum: most recent SOC 2 Type II audit report and ISO 27001 certificates",
+        "Years not printed as foundingDate on /about-us",
+        "marketo → adobe (existing alias). No leftovers"
       ]
     },
     {
-      "slug": "eficode",
-      "named_by": 1,
+      "slug": "mailchimp",
+      "named_by": 10,
       "completeness_before": 20,
       "completeness_after": 40,
-      "score_after": 24,
+      "score_after": 16,
       "tier_after": "silent",
-      "marks": [
-        "iso-27001",
-        "iso-27701"
+      "dpa_already": "https://mailchimp.com/legal/data-processing-addendum/",
+      "subprocessors": "https://mailchimp.com/legal/subprocessors/",
+      "named": [
+        "akamai",
+        "amazon",
+        "amplitude",
+        "fivetran",
+        "google",
+        "infobip",
+        "looker",
+        "microsoft",
+        "openai",
+        "percona",
+        "slack",
+        "taskus",
+        "twilio",
+        "zendesk"
       ],
-      "marks_url": "https://www.eficode.com/privacy-policy",
-      "dpa_already": "https://www.eficode.com/data-processing-agreement",
       "left_open": [
-        "First-party privacy HTML: 'Eficode is certified to ISO27001 and ISO27701 Information Security Standards' — filed",
-        "Client-story /security-by-design-compliance-by-default-at-cobham-satcom is not Official page",
-        "Named processors / years / Official page left open"
+        "DPA already on file. Privacy 301s to intuit.com — parent host, not copied",
+        "About / legal index are JS shells. Years / Official page / marks left open",
+        "Leftover names without a register slug (CodeScience, E-Hawk, El Camino, Finc3, R.R. Donnelley, SC Wedis Company SRL, SmartyStreets, TaxJar, Two Bulls, Tyrannosaurus Tech, Vextras LLC) not invented",
+        "Printed Amazon mapped to existing amazon row — not aliased to amazon-web-services"
+      ]
+    },
+    {
+      "slug": "iterable",
+      "named_by": 4,
+      "completeness_before": 40,
+      "completeness_after": 60,
+      "score_after": 66,
+      "tier_after": "on-file",
+      "subprocessors": "https://iterable.com/legal/iterable-sub-processors/",
+      "marks_already": [
+        "SOC 2 Type II",
+        "ISO 27001"
+      ],
+      "left_open": [
+        "DPA usual-path /legal/dpa 404. GDPR commitment page is not a DPA",
+        "Years not printed. trust.iterable.com stays Official page",
+        "Leftover names without a register slug (Bird Email, Digioh, Prequel, Prismatic, StreamNative) not invented",
+        "aws → amazon-web-services"
+      ]
+    },
+    {
+      "slug": "tray-ai",
+      "named_by": 5,
+      "completeness_before": 40,
+      "completeness_after": 60,
+      "score_after": 48,
+      "tier_after": "on-file",
+      "dpa_already": "https://tray.ai/legal/dpa/",
+      "subprocessors": "https://tray.ai/legal/sub-processors/",
+      "named": [
+        "amazon-web-services",
+        "datadog",
+        "twilio",
+        "openai",
+        "atlassian",
+        "google",
+        "intercom",
+        "slack",
+        "zendesk"
+      ],
+      "left_open": [
+        "List URL already on file; names newly parsed from first-party HTML",
+        "Marks / years left open. HIPAA on the list page not filed as a hold",
+        "Leftover Plan.nr Ltd not invented. aws → amazon-web-services"
       ]
     }
   ],
@@ -120,7 +160,7 @@
     },
     {
       "slug": "netsuite",
-      "named_by": 6,
+      "named_by": 7,
       "reason": "netsuite.com Access Denied"
     },
     {
@@ -129,44 +169,49 @@
       "reason": "standing 403 leftover"
     },
     {
-      "slug": "transunion-formerly-neustar-information-services",
-      "named_by": 3,
-      "reason": "standing 403 leftover"
-    },
-    {
-      "slug": "hive",
-      "named_by": 5,
-      "reason": "Framer shell — not re-walked"
-    },
-    {
-      "slug": "bytedance",
-      "named_by": 4,
-      "reason": "i18n shell — not re-walked"
-    },
-    {
       "slug": "equinix",
       "named_by": 7,
       "reason": "equinix.com Access Denied / HTTP 403"
     },
     {
-      "slug": "telesign",
-      "named_by": 3,
-      "reason": "telesign.com Cloudflare 'Just a moment' 403"
-    },
-    {
-      "slug": "mailchimp",
-      "named_by": 10,
-      "reason": "DPA already on file; subprocessors HTML printed no organization names (standing)"
-    },
-    {
-      "slug": "linkedin",
+      "slug": "hive",
       "named_by": 5,
-      "reason": "about.linkedin.com/transparency is a content Transparency Center, not Official page; LinkedIn Learning cybersecurity topic is not an ISO 42001 hold"
+      "reason": "Framer shell — policy-documents and /about print no catalog hold"
+    },
+    {
+      "slug": "bytedance",
+      "named_by": 4,
+      "reason": "i18n shell — /en/security and /en/privacy print no catalog hold"
+    },
+    {
+      "slug": "auth0",
+      "named_by": 9,
+      "reason": "auth0.com/privacy 301s to okta.com; docs print GDPR only. Do not copy Okta file"
+    },
+    {
+      "slug": "gainsight",
+      "named_by": 7,
+      "reason": "trust.gainsight.com is SafeBase; gainsight.com Cloudflare 403"
     },
     {
       "slug": "avalara",
       "named_by": 2,
-      "reason": "trust.avalara.com is a JS/CSS shell; year 2004 already on file"
+      "reason": "trust.avalara.com is a JS/CSS shell; legal.avalara.com is not extractable HTML"
+    },
+    {
+      "slug": "planet-labs",
+      "named_by": 0,
+      "reason": "trust.planet.com is Conveyor; /subprocessors /security /privacy are cookie/JS shells with no printed names or DPA"
+    },
+    {
+      "slug": "concentrix",
+      "named_by": 3,
+      "reason": "privacy already on file; /about ISO 42001 is marketing badge copy, not a hold"
+    },
+    {
+      "slug": "taskus",
+      "named_by": 3,
+      "reason": "privacy already on file; usual-path 403"
     }
   ],
   "standing_skips": [
@@ -187,24 +232,21 @@
     "avertech"
   ],
   "refused_this_cut": [
-    "digicert proposed Official page is a WeSellTrust mp4; PCI DSS quote is product-requirement copy — not filed",
-    "linkedin /transparency is a content Transparency Center — not Official page",
-    "linkedin Learning /topics/security-3 is a course catalog — ISO 42001 not copied",
-    "avalara trust.avalara.com JS/CSS shell — not Official page",
-    "solace /products/security is a product lander — not Official page",
-    "bria-ai /security-and-compliance is an Enterprise Visual AI product lander — marks already on file",
-    "tensorwave /products/fleet-management/security is a product lander — not Official page",
-    "spycloud /use-case/zero-trust is a use-case page — not Official page",
-    "mitek /use-cases/compliance is a use-case page — not Official page",
-    "prove /use-cases/compliance is a use-case page — not Official page",
-    "eficode client-story Cobham Satcom is not Official page",
-    "hornetsecurity homepage is not Official page; PCI/HIPAA on /it/azienda/ not added this cut",
-    "imgix privacy footer 'SOC 2 Compliant' badge — not filed",
-    "immunify360 DPA party is Cloud Linux Software, Inc. (CloudLinux) — name mismatch, not filed",
-    "ikoula homepage /fr is not Official page",
-    "redis trust.redis.io is SafeBase portal",
-    "concentrix / taskus / constella / dstny / sutherland first-party HTML named no catalog hold",
-    "taskus / cybersource / foundever / global-payments / inmoment / intouchcx / iren / sumit-ai / visa usual-path 403 / HTTP 0",
+    "sendgrid / looker / segment — do not alias or copy parent files",
+    "vonage / netsuite / equinix / vultr / taskus / gainsight.com HTTP 403 or Access Denied",
+    "hive Framer shell — no printed hold",
+    "bytedance i18n shell — no printed hold",
+    "auth0 privacy 301s to Okta; docs GDPR only — not copied",
+    "avalara legal.avalara.com not extractable HTML; trust.avalara.com JS shell",
+    "planet.com /subprocessors is a cookie/JS shell — names not printed",
+    "trust.fullstory.com / trust.gainsight.com / security.segment.com SafeBase — not Official-page upgrades",
+    "fullstory DPA 'e.g. ISO 27001 / SOC 2' is example language — marks taken from security addendum hold instead",
+    "concentrix /about ISO 42001 is marketing badge copy",
+    "pusher HIPAA is product-guidance copy; ISO 27001 already on file",
+    "qualified.com /legal/subprocessors printed cookie names — not a processor list",
+    "posthog.com/subprocessors is a JS shell",
+    "onesignal privacy HIPAA/GDPR/CCPA not added (marks already on file)",
+    "mailchimp privacy 301s to Intuit — parent host",
     "Do not invent leftover domains. Do not open a zero-fill named-by-1 PR"
   ]
 }
