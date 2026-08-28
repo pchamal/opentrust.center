@@ -269,6 +269,8 @@ def main() -> int:
     check(canonical_processor_id("ninja-partners", ninja_reg) == "supportninja", "Ninja Partners is SupportNinja")
     sf_reg = {**register, "salesforce": {"slug": "salesforce", "name": "Salesforce", "domain": "salesforce.com"}}
     check(canonical_processor_id("launchboard-software", sf_reg) == "salesforce", "Launchboard is Salesforce")
+    kwai_reg = {**register, "kwai": {"slug": "kwai", "name": "Kwai", "domain": "kuaishou.com"}}
+    check(canonical_processor_id("kuaishou-technology", kwai_reg) == "kwai", "Kuaishou Technology is Kwai")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 

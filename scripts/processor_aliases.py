@@ -553,6 +553,10 @@ REGISTER_ALIASES: dict[str, str] = {
     # Meltwater names Launchboard Software Inc. with Salesforce's privacy URL
     # on that row. salesforce is on the register.
     "launchboard-software": "salesforce",
+    # Vyond names Kuaishou Technology. kuaishou.com is the existing Kwai row
+    # (security.kuaishou.com already on file). Kling already lands here.
+    # Do not invent a second Kuaishou dossier.
+    "kuaishou-technology": "kwai",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
