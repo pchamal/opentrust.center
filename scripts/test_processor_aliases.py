@@ -36,6 +36,7 @@ def main() -> int:
     check(canonical_processor_id("azure", register) == "microsoft", "azure → microsoft")
     check(canonical_processor_id("microsoft-teams", register) == "microsoft", "Microsoft Teams is Microsoft")
     check(canonical_processor_id("google-workspace", register) == "google", "workspace → google")
+    check(canonical_processor_id("google-bigquery", register) == "google", "BigQuery is Google")
     check(canonical_processor_id("eleven-labs", register) == "elevenlabs", "eleven-labs → elevenlabs")
     check(canonical_processor_id("oracle-america", register) == "oracle", "oracle-america → oracle")
     check(canonical_processor_id("sentry", register) == "sentry", "unknown id stays")
