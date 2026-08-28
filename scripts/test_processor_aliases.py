@@ -34,6 +34,7 @@ def main() -> int:
     check(canonical_processor_id("aws", register) == "amazon-web-services", "aws → amazon-web-services")
     check(canonical_processor_id("gcp", register) == "google", "gcp → google")
     check(canonical_processor_id("azure", register) == "microsoft", "azure → microsoft")
+    check(canonical_processor_id("microsoft-teams", register) == "microsoft", "Microsoft Teams is Microsoft")
     check(canonical_processor_id("google-workspace", register) == "google", "workspace → google")
     check(canonical_processor_id("eleven-labs", register) == "elevenlabs", "eleven-labs → elevenlabs")
     check(canonical_processor_id("oracle-america", register) == "oracle", "oracle-america → oracle")

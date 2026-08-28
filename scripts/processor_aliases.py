@@ -52,6 +52,8 @@ REGISTER_ALIASES: dict[str, str] = {
     "microsoft-ireland-operations": "microsoft",
     "microsoft-365-copilot": "microsoft",
     "microsoft-office": "microsoft",
+    # Matterport names Microsoft Teams. microsoft is on the register.
+    "microsoft-teams": "microsoft",
     # Forethought prints Microsoft Hosting Services. microsoft is on the register.
     "microsoft-hosting-services": "microsoft",
     # IBM legal name on the wire.
