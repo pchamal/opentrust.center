@@ -29300,25 +29300,29 @@
       "name": "Deutsche Telekom",
       "slug": "deutsche-telekom",
       "domain": "telekom.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.telekom.com/en/company/data-privacy-and-security/governance-security",
+      "final_url": "https://www.telekom.com/en/company/data-privacy-and-security/governance-security",
       "vendor": "unknown",
       "title": "",
-      "probed": 23,
+      "probed": 112,
       "source": "https://en.wikipedia.org/wiki/List_of_largest_technology_companies_by_revenue",
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-largest-tech-by-revenue",
       "certs": [],
       "links": {
         "security_txt": "https://www.telekom.com/.well-known/security.txt",
-        "bug_bounty": "https://www.telekom.com/bugbounty"
+        "bug_bounty": "https://www.telekom.com/bugbounty",
+        "security": "https://www.telekom.com/en/company/data-privacy-and-security/governance-security"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 26,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "disclosure": 6
+        }
       }
     },
     {
@@ -112567,6 +112571,110 @@
         "tier": "silent",
         "factors": {}
       }
+    },
+    {
+      "rank": 3902,
+      "name": "Ninestars Bulgaria EOOD",
+      "slug": "ninestars-bulgaria-eood",
+      "domain": "ninestarsglobal.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 23,
+      "source": "https://www.meltwater.com/en/privacy/subprocessors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      },
+      "official_url": "https://www.ninestarsglobal.com/"
+    },
+    {
+      "rank": 3903,
+      "name": "Opstalent Spolka Z O.O. SP.K",
+      "slug": "opstalent-spolka-z-o-o-sp-k",
+      "domain": "opstalent.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 23,
+      "source": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      },
+      "official_url": "https://opstalent.com/"
+    },
+    {
+      "rank": 3904,
+      "name": "SIE Co.,Ltd",
+      "slug": "sie",
+      "domain": "sie.co.jp",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://www.sophos.com/en-us/legal/sub-processor",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 10,
+        "tier": "silent",
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "official_url": "https://sie.co.jp/",
+      "founded_year": 2004,
+      "founded_source": "https://sie.co.jp/company/"
+    },
+    {
+      "rank": 3905,
+      "name": "Worketics IT Solutions",
+      "slug": "worketics-it-solutions",
+      "domain": "worketics.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 23,
+      "source": "https://www.meltwater.com/en/privacy/subprocessors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {
+        "privacy": "https://www.worketics.com/privacy-policy/"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 6,
+        "tier": "silent",
+        "factors": {
+          "privacy": 6
+        }
+      },
+      "official_url": "https://www.worketics.com/"
     }
   ],
   "notes": "Public pages only. Incomplete by nature. No invented URLs, years, certs, or processors."

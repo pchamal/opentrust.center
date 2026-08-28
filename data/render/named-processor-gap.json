@@ -1,8 +1,9 @@
 {
   "rule": "Named processor not on the register jumps the queue. Alias graph ids that are the same company as an existing slug. Completeness rates the file. Portal vendors are never named. Entity Name is garbage. Never invent a second dossier for an alias. Never invent domains.",
-  "tip": "1879eb99b",
-  "register": 3869,
+  "tip": "6181da1ce",
+  "register": 3913,
   "aliases_kept": {
+    "healthcast": "identity-automation-lp",
     "spacexai": "xai",
     "vmlapp-sweden": "figma",
     "collosyan": "colossyan",
@@ -13,344 +14,61 @@
     "trdt-brasil-tecnologia-ltda": "teradata"
   },
   "aliases_added": {
-    "healthcast": "identity-automation-lp"
+    "eighth-intuition-sdn-bhd": "fico",
+    "nanonoble-pte": "minimax-group"
+  },
+  "aliases_refused": {
+    "rsi": "RingCentral names RSI. Acronym collision with r-systems-international; no first-party identity.",
+    "cc-cloud": "codecentric.de GTC prints cc cloud GmbH; codecentric is not on the register. Do not invent the parent.",
+    "ujwal": "thelevel.ai prints Level AI, not Ujwal. Level AI is not on the register.",
+    "agile-management-experts": "amxconsulting.com prints AMX, not Agile Management Experts.",
+    "df-tech-fz": "digital-future.me prints DigitalFuture, not DF Tech FZ-LLC.",
+    "benjamin-mosse-consulting": "mosse-security.com prints Mossé Security, not Benjamin Mosse Consulting. Do not invent Mossé.",
+    "gcs": "gcs.ro prints Global Concept Solution. AudioCodes names GCS first-tier support Romania. Acronym collision; consulting lander is not verified as that support desk."
   },
   "filed": {
-    "tavus": {
-      "domain": "tavus.io",
-      "official_url": "https://www.tavus.io/",
-      "source_url": "https://think.vyond.com/subprocessors",
-      "privacy": "https://www.tavus.io/privacy-policy",
-      "status": "https://status.tavus.io",
-      "year": 2020,
-      "year_url": "https://www.tavus.io/lp/ai-info-page",
-      "note": "Homepage prints Tavus: The Human Computing Company. Portal trust host stripped."
-    },
-    "plextrac": {
-      "domain": "plextrac.com",
-      "official_url": "https://plextrac.com/",
-      "source_url": "https://www.rapid7.com/legal/subprocessors/",
-      "privacy": "https://plextrac.com/privacy-policy/",
-      "note": "First-party homepage is PlexTrac offensive-security platform. Marks not extracted from news copy. crawl 403."
-    },
-    "printfection": {
-      "domain": "printfection.com",
-      "official_url": "https://www.printfection.com/",
-      "source_url": "https://www.arista.com/en/sub-processor",
-      "privacy": "https://legal.printfection.com/",
-      "note": "Homepage prints Printfection is now Swag Pro. Swag.com is not on the register; do not invent Swag. PDF privacy not extracted."
-    },
-    "intraedge": {
-      "domain": "intraedge.com",
-      "official_url": "https://intraedge.com/",
-      "source_url": "https://www.egnyte.com/subcontractors",
-      "privacy": "https://intraedge.com/privacy-policy/",
-      "note": "About page prints IntraEdge. Privacy HTML is GDPR-only."
-    },
-    "boldr": {
-      "domain": "boldrimpact.com",
-      "official_url": "https://boldrimpact.com/",
-      "source_url": "https://trust.anthropic.com/subprocessors",
-      "privacy": "https://boldrimpact.com/privacy-policy",
-      "note": "Anthropic names Boldr; first-party site is Boldr Impact. boldr.com is a namesake lander."
-    },
-    "r-systems-international": {
-      "domain": "rsystems.com",
-      "official_url": "https://www.rsystems.com/",
+    "opstalent-spolka-z-o-o-sp-k": {
+      "domain": "opstalent.com",
+      "official_url": "https://opstalent.com/",
       "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors",
-      "note": "Well-known official site. First-party HTML unreadable from this network (CloudFront 403). Do not alias rsi without first-party evidence."
+      "note": "Title and first-party JSON print OpsTalent, Poland BPO / customer-experience support. Usual trust paths miss. Privacy/about are JS shells."
     },
-    "norwin-technologies": {
-      "domain": "norwintechnologies.com",
-      "official_url": "https://norwintechnologies.com/",
-      "source_url": "https://about.gitlab.com/privacy/subprocessors/",
-      "year": 2003,
-      "year_url": "https://norwintechnologies.com/about-us/",
-      "note": "Homepage and about print Norwin Technologies. Founded in 2003 on first-party about. Privacy path soft-404s to homepage; not stored."
+    "worketics-it-solutions": {
+      "domain": "worketics.com",
+      "official_url": "https://www.worketics.com/",
+      "source_url": "https://www.meltwater.com/en/privacy/subprocessors",
+      "privacy": "https://www.worketics.com/privacy-policy/",
+      "note": "Homepage prints Worketics IT Solutions. Privacy URL stored. Marks not named."
     },
-    "rockwell-information-services": {
-      "domain": "rockinfo.com",
-      "official_url": "https://www.rockinfo.com/",
-      "source_url": "https://www.sonicwall.com/legal/sub-processors",
-      "page": "https://www.rockinfo.com/data-and-security/",
-      "privacy": "https://www.rockinfo.com/privacy-policy/",
-      "marks": [
-        "ISO 27001",
-        "ISO 9001"
-      ],
-      "note": "About and data-and-security print Rockwell Information Services. ISO holds from first-party security HTML. GDPR is regulation-only."
+    "ninestars-bulgaria-eood": {
+      "domain": "ninestarsglobal.com",
+      "official_url": "https://www.ninestarsglobal.com/",
+      "source_url": "https://www.meltwater.com/en/privacy/subprocessors",
+      "note": "Homepage title prints Ninestars Global. Meltwater names Ninestars Bulgaria EOOD. Privacy paths 404 / JS title-only. Do not invent a second Ninestars dossier."
+    },
+    "sie": {
+      "domain": "sie.co.jp",
+      "official_url": "https://sie.co.jp/",
+      "source_url": "https://www.sophos.com/en-us/legal/sub-processor",
+      "year": 2004,
+      "year_url": "https://sie.co.jp/company/",
+      "note": "Homepage prints 株式会社エスアイイー / SIE. Year 2004 from first-party JSON-LD foundingDate on /company/. Privacy paths bounce to homepage."
     }
   },
   "c0_fills": {
-    "telesign": {
-      "marks": [
-        "ISO 27001"
-      ],
-      "marks_url": "https://www.telesign.com/privacy-policy",
-      "privacy": "https://www.telesign.com/privacy-policy",
-      "quote": "Telesign is ISO 27001 certified for the provision of infrastructure, application development, SOC operations, cybersecurity and global delivery"
-    },
-    "taskus": {
-      "privacy": "https://www.taskus.com/privacy-policy/",
-      "note": "Privacy stored. About-page 2008 launch sentence is not a founded/established hold. Still Completeness-0 on page/marks/DPA/processors/years."
+    "deutsche-telekom": {
+      "page": "https://www.telekom.com/en/company/data-privacy-and-security/governance-security",
+      "note": "First-party Governance Security page prints Deutsche Telekom group security."
     }
   },
-  "leftovers_after": 42,
+  "c0_reverted_this_cut": {
+    "ovhcloud": "us.ovhcloud.com/security/game-ddos-protection/ is Game DDoS Protection product catalog, not Official page.",
+    "logz-io": "/platform/features/soc-2-compliance/ is product-feature copy, not a marks file.",
+    "reversing-labs": "trust-center is a JS Next shell; HIPAA came from a healthcare product lander.",
+    "cognizant-technology-solutions": "/security returned an empty body from this network."
+  },
+  "leftovers_after": 36,
   "leftovers_named_by_ge2": 1,
-  "leftovers": [
-    {
-      "slug": "bonsai-technologies",
-      "name": "Bonsai Technologies Inc",
-      "named_by": 2,
-      "source_url": "https://www.zoom.com/en/trust/subprocessors/?cms_guid=false"
-    },
-    {
-      "slug": "a-g-consulting",
-      "name": "A.G. Consulting Limited",
-      "named_by": 1,
-      "source_url": "https://www.meltwater.com/en/privacy/subprocessors"
-    },
-    {
-      "slug": "adaptive-mobile",
-      "name": "Adaptive Mobile",
-      "named_by": 1,
-      "source_url": "https://www.twilio.com/en-us/legal/sub-processors"
-    },
-    {
-      "slug": "agile-management-experts",
-      "name": "Agile Management Experts",
-      "named_by": 1,
-      "source_url": "https://www.smartsheet.com/legal/subprocessors"
-    },
-    {
-      "slug": "amacuro",
-      "name": "Amacuro",
-      "named_by": 1,
-      "source_url": "https://think.vyond.com/subprocessors"
-    },
-    {
-      "slug": "avertech",
-      "name": "Avertech",
-      "named_by": 1,
-      "source_url": "https://www.sonicwall.com/legal/sub-processors"
-    },
-    {
-      "slug": "basefarm-as",
-      "name": "Basefarm AS",
-      "named_by": 1,
-      "source_url": "https://www.meltwater.com/en/privacy/subprocessors"
-    },
-    {
-      "slug": "benjamin-mosse-consulting",
-      "name": "Benjamin Mosse Consulting Pty Ltd",
-      "named_by": 1,
-      "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
-    },
-    {
-      "slug": "blue-ocean-contact-centres",
-      "name": "Blue Ocean Contact Centres Inc",
-      "named_by": 1,
-      "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
-    },
-    {
-      "slug": "cc-cloud",
-      "name": "cc cloud GmbH",
-      "named_by": 1,
-      "source_url": "https://about.gitlab.com/privacy/subprocessors/"
-    },
-    {
-      "slug": "cloud-support-technologies",
-      "name": "Cloud Support Technologies",
-      "named_by": 1,
-      "source_url": "https://www.aftership.com/legal/subprocessors"
-    },
-    {
-      "slug": "cognitive-intelligence",
-      "name": "Cognitive Intelligence Corp",
-      "named_by": 1,
-      "source_url": "https://www.meltwater.com/en/privacy/subprocessors"
-    },
-    {
-      "slug": "deft",
-      "name": "Deft",
-      "named_by": 1,
-      "source_url": "https://www.kentik.com/legal/subprocessors/"
-    },
-    {
-      "slug": "df-tech-fz",
-      "name": "DF Tech FZ-LLC",
-      "named_by": 1,
-      "source_url": "https://about.gitlab.com/privacy/subprocessors/"
-    },
-    {
-      "slug": "eighth-intuition-sdn-bhd",
-      "name": "Eighth Intuition Sdn. Bhd",
-      "named_by": 1,
-      "source_url": "https://www.fico.com/en/subprocessors"
-    },
-    {
-      "slug": "fineyear-human-resources-service",
-      "name": "Fineyear Human Resources Service Ltd",
-      "named_by": 1,
-      "source_url": "https://www.meltwater.com/en/privacy/subprocessors"
-    },
-    {
-      "slug": "gcs",
-      "name": "GCS",
-      "named_by": 1,
-      "source_url": "https://www.audiocodes.com/data-sub-processors"
-    },
-    {
-      "slug": "gmi",
-      "name": "Gmi",
-      "named_by": 1,
-      "source_url": "https://trust.fireworks.ai/subprocessors"
-    },
-    {
-      "slug": "groove-networks-dba-groove",
-      "name": "Groove Networks, LLC dba Groove",
-      "named_by": 1,
-      "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
-    },
-    {
-      "slug": "intersections",
-      "name": "Intersections, LLC",
-      "named_by": 1,
-      "source_url": "https://www.dashlane.com/privacy/subprocessors"
-    },
-    {
-      "slug": "madkudu",
-      "name": "MadKudu",
-      "named_by": 1,
-      "source_url": "https://zapier.com/legal/subprocessors"
-    },
-    {
-      "slug": "media-connect",
-      "name": "Media Connect",
-      "named_by": 1,
-      "source_url": "https://www.meltwater.com/en/privacy/subprocessors"
-    },
-    {
-      "slug": "mpower",
-      "name": "Mpower",
-      "named_by": 1,
-      "source_url": "https://www.meltwater.com/en/privacy/subprocessors"
-    },
-    {
-      "slug": "multyware-associates",
-      "name": "Multyware Associates",
-      "named_by": 1,
-      "source_url": "https://www.meltwater.com/en/privacy/subprocessors"
-    },
-    {
-      "slug": "nanonoble-pte",
-      "name": "Nanonoble Pte. Ltd",
-      "named_by": 1,
-      "source_url": "https://runwayml.com/customer-subprocessors"
-    },
-    {
-      "slug": "ninestars-bulgaria-eood",
-      "name": "Ninestars Bulgaria EOOD",
-      "named_by": 1,
-      "source_url": "https://www.meltwater.com/en/privacy/subprocessors"
-    },
-    {
-      "slug": "novemilla",
-      "name": "Novemilla",
-      "named_by": 1,
-      "source_url": "https://www.meltwater.com/en/privacy/subprocessors"
-    },
-    {
-      "slug": "opstalent-spolka-z-o-o-sp-k",
-      "name": "Opstalent Spolka Z O.O. SP.K",
-      "named_by": 1,
-      "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
-    },
-    {
-      "slug": "popout",
-      "name": "Popout, Inc",
-      "named_by": 1,
-      "source_url": "https://www.lightspeedhq.com/legal/subprocessors/"
-    },
-    {
-      "slug": "rsi",
-      "name": "RSI",
-      "named_by": 1,
-      "source_url": "https://www.ringcentral.com/legal/dpa-subprocessor-list.html"
-    },
-    {
-      "slug": "rtica-pfms-slu",
-      "name": "Ártica PFMS SLU",
-      "named_by": 1,
-      "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
-    },
-    {
-      "slug": "rule-56",
-      "name": "Rule 56",
-      "named_by": 1,
-      "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
-    },
-    {
-      "slug": "runware",
-      "name": "Runware Ltd",
-      "named_by": 1,
-      "source_url": "https://runwayml.com/customer-subprocessors"
-    },
-    {
-      "slug": "sie",
-      "name": "SIE Co.,Ltd",
-      "named_by": 1,
-      "source_url": "https://www.sophos.com/en-us/legal/sub-processor"
-    },
-    {
-      "slug": "sync",
-      "name": "Sync",
-      "named_by": 1,
-      "source_url": "https://compliance.elevenlabs.io/subprocessors"
-    },
-    {
-      "slug": "textel",
-      "name": "Textel",
-      "named_by": 1,
-      "source_url": "https://www.ringcentral.com/legal/dpa-subprocessor-list.html"
-    },
-    {
-      "slug": "thorn",
-      "name": "Thorn",
-      "named_by": 1,
-      "source_url": "https://trust.stability.ai/subprocessors"
-    },
-    {
-      "slug": "tsengararu",
-      "name": "Tsengararu",
-      "named_by": 1,
-      "source_url": "https://www.meltwater.com/en/privacy/subprocessors"
-    },
-    {
-      "slug": "ujwal",
-      "name": "Ujwal Inc",
-      "named_by": 1,
-      "source_url": "https://www.smartsheet.com/legal/subprocessors"
-    },
-    {
-      "slug": "vivaops",
-      "name": "VivaOps LLC",
-      "named_by": 1,
-      "source_url": "https://about.gitlab.com/privacy/subprocessors/"
-    },
-    {
-      "slug": "worketics-it-solutions",
-      "name": "Worketics IT Solutions",
-      "named_by": 1,
-      "source_url": "https://www.meltwater.com/en/privacy/subprocessors"
-    },
-    {
-      "slug": "zealep-business-solutions",
-      "name": "Zealep Business Solutions",
-      "named_by": 1,
-      "source_url": "https://www.meltwater.com/en/privacy/subprocessors"
-    }
-  ],
   "soft_retry_still_open": [
     "madkudu",
     "adaptive-mobile",
@@ -370,87 +88,5 @@
     "basefarm-as",
     "intersections"
   ],
-  "c0_unreadable_this_cut": [
-    "cybersource",
-    "foundever-operating",
-    "global-payments",
-    "gooddata-ai",
-    "inmoment",
-    "intouchcx",
-    "iren",
-    "sumit-ai",
-    "visa",
-    "mastercard",
-    "mulesoft",
-    "scylladb",
-    "sift",
-    "wso2",
-    "bluesnap",
-    "dovetail",
-    "upcloud",
-    "adjust",
-    "datalab",
-    "rfpio",
-    "cyxtera",
-    "devoteam-sas",
-    "teleperformance-colombia",
-    "softserve",
-    "ust",
-    "fenix24",
-    "singular-lab",
-    "tokenx",
-    "sendgrid",
-    "ovhcloud",
-    "vonage",
-    "netsuite",
-    "vultr",
-    "transunion-formerly-neustar-information-services",
-    "looker",
-    "redis"
-  ],
-  "c0_honest_empty_this_cut": [
-    "stytch",
-    "constella-intelligence",
-    "dstny-automate-formerly-qunifi",
-    "sutherland-global-services",
-    "linode",
-    "payoneer",
-    "replicate",
-    "userfront",
-    "mullvad-vpn",
-    "pennylane-sas",
-    "name-com",
-    "creatify-ai",
-    "timekit",
-    "attribution",
-    "clusterpower",
-    "commetric",
-    "corewire",
-    "elegant-themes",
-    "era4",
-    "nutun",
-    "route-mobile",
-    "tanla-platforms",
-    "tdcx",
-    "array-us",
-    "claranet",
-    "colt-technology-services-group",
-    "persistent-systems",
-    "digitalradius",
-    "ktsl",
-    "moneypenny",
-    "netnumber-global-data-services",
-    "northern-data-group",
-    "one-more-cloud",
-    "par-tec-s-p-a",
-    "printui",
-    "saicom-voice-services",
-    "surveysensum-neurosensum-international-pte",
-    "telagility-d-b-a-sippio",
-    "ternpro-dba-slope",
-    "adfinis",
-    "apilayer",
-    "blogvault"
-  ],
-  "notes": "Rebased onto 1879eb99b (hourly expand after 8fe9eae / PR #183; register 3861 + 8 filed = 3869). Domain resolution this cut: Wikidata P856, naming-list printed website, or verified first-party homepage (title/legal name/about match). Did not copy domains from directories. healthcast → identity-automation-lp: Identity Automation acquired HealthCast; identity-automation-lp is on the register; gohealthcast.com is 404; healthcast.com is a different/empty namesake. Do not invent a second HealthCast dossier. Filed 8 named leftovers with verified first-party domains. Soft-retry leftovers: madkudu.com now prints HG Insights (HG Insights not on register); adaptive-mobile acquired by Enea (Enea not on register, Cloudflare 403); textel.com dead / now capacity.com/textel (Capacity not on register); avertech namesake (avertech.in is an Indian AWS MSP, not verified as SonicWall's Avertech). eighth-intuition-sdn-bhd acquired by FICO but FICO first-party HTML does not name it; no alias. rsi left leftover (acronym collision with R Systems). amacuro.de is German homecare, not Vyond's Amacuro. Ártica PFMS / pandorafms.com Cloudflare-blocked; no verified homepage print. Skipped Meltwater/Sophos/WatchGuard consulting and local BPO names with no first-party site. C0 preferred walk: us.ovhcloud.com/security/ is a Network Security product catalog, not Official page. SendGrid redirects to Twilio (not first-party). Looker is a Google-product host. Redis trust.redis.io is a portal host. Vonage/NetSuite/Vultr/TransUnion http-0 or Cloudflare. TeleSign ISO 27001 from first-party privacy HTML. TaskUs privacy stored; year left open. Portal vendors never named. DROPPED_INSTRUMENTS 0."
+  "notes": "Rebased onto 6181da1ce (hourly expand after PR #184; register 3909 + 4 filed = 3913). Did not re-file Whatnot, Turbo, Datavant, CesiumAstro, Integris IT, or other expand rows. eighth-intuition-sdn-bhd → fico: FICO first-party subprocessors table now prints Eighth Intuition Sdn. Bhd as a Malaysia Corporate Affiliate. nanonoble-pte → minimax-group: MiniMax first-party terms on minimax.io print Nanonoble Pte. Ltd.; hailuoai.video prints Hailuo AI / MiniMax, not Nanonoble. Filed 4 named leftovers with verified first-party domains. Soft-retry leftovers unchanged (madkudu.com HG Insights; adaptive-mobile/Enea; textel/Capacity; avertech.in namesake; rsystems.com CloudFront 403). Preferred dense C0 still open: SendGrid Twilio host, OVHcloud product catalog, Vonage/NetSuite/Vultr/TransUnion http-0 or Cloudflare, Looker Google-product host, Redis portal host. Portal vendors never named. DROPPED_INSTRUMENTS 0."
 }
