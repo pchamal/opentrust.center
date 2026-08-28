@@ -1,7 +1,7 @@
 {
-  "generated": "2026-08-28T22:26:00Z",
-  "register": 4113,
-  "origin_main": "81b4618b",
+  "generated": "2026-08-28T22:55:00Z",
+  "register": 4153,
+  "origin_main": "426ad6ab",
   "mode": "c0-named-processor-fills",
   "leftovers_min1": 35,
   "leftovers_after": 35,
@@ -11,9 +11,9 @@
   ],
   "aliases_added": [],
   "aliases_kept": [
-    "aws → amazon-web-services",
-    "gcp → google",
-    "azure → microsoft"
+    "aws \u2192 amazon-web-services",
+    "gcp \u2192 google",
+    "azure \u2192 microsoft"
   ],
   "aliases_refused": [
     {
@@ -27,426 +27,161 @@
       "reason": "looker.com 301s to cloud.google.com/looker; do not alias. Do not copy Google's file."
     },
     {
-      "from": "segment",
-      "to": "twilio",
-      "reason": "segment privacy/subprocessors already stored on twilio.com. Do not alias or copy Twilio's list onto Segment."
+      "from": "ibm-cloud-on-softlayer",
+      "to": "ibm",
+      "reason": "Telnyx list prints IBM Cloud on Softlayer. IBM is on the register; first-party HTML does not print they are the same company. Do not invent a leftover domain."
     },
     {
-      "from": "madkudu",
-      "to": "hg-insights",
-      "reason": "madkudu.com redirects to hginsights.com, Cloudflare 403; HG Insights not on register"
-    },
-    {
-      "from": "idera-inc",
-      "to": "idera",
-      "reason": "privacy 200s on ideracorp.com — not first-party for the idera.com row. Do not copy Idera Corp privacy."
+      "from": "microsoft-advertising",
+      "to": "microsoft",
+      "reason": "Telnyx list prints Microsoft Advertising. Do not invent a leftover. Not aliased this cut."
     }
   ],
   "newly_filed": [],
   "c0_fills": [
     {
-      "slug": "ping-identity",
+      "slug": "invoiceexpress",
       "named_by": 1,
       "completeness_before": 0,
-      "completeness_after": 20,
+      "completeness_after": 30,
       "score_after": 20,
-      "tier_after": "silent",
+      "tier_after": "thin",
+      "official_page": "https://invoicexpress.com/seguranca/",
+      "left_open": [
+        "First-party /seguranca/ is the Portuguese security file (title Seguran\u00e7a - InvoiceXpress) \u2014 filed as Official page",
+        "/politica-de-privacidade/ is first-party HTML but classify_as_privacy is false on that path \u2014 not filed",
+        "usual-path /dpa /legal/dpa 404. Marks / years not on the security HTML"
+      ]
+    },
+    {
+      "slug": "telnyx",
+      "named_by": 3,
+      "completeness_before": 30,
+      "completeness_after": 100,
+      "score_after": 78,
+      "tier_after": "substantial",
       "marks": [
         "soc2-type-ii",
-        "iso-27001"
+        "iso-27001",
+        "iso-27701",
+        "pci-dss"
       ],
-      "marks_url": "https://www.pingidentity.com/en-us/docs/legal/security-exhibit",
-      "privacy_already": "https://www.pingidentity.com/en-us/docs/legal/privacy",
-      "left_open": [
-        "/trust 200s to /en/lp/trust-every-digital-moment.html — marketing lander, not Official page",
-        "trust.pingidentity.com HTTP 0. usual-path /security /trust-center 404",
-        "Security exhibit prints Ping Identity will maintain SOC 2 and ISO 27001 and names a SOC 2 Type II audit report — filed. FedRAMP on the lander is product copy — not filed from that URL",
-        "DPA / subprocessors / years / Official page left open"
-      ]
-    },
-    {
-      "slug": "5c-ai-group-inc",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://5c.ai/privacy-policy",
-      "left_open": [
-        "usual-path /security /trust /dpa 404",
-        "DPA / subprocessors / years / Official page / marks not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "access-systems-uk-accesspay",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://accesspay.com/privacy-policy/",
-      "left_open": [
-        "usual-path /security /trust /dpa 404",
-        "DPA / subprocessors / years / Official page / marks not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "adfinis",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://www.adfinis.com/privacy-policy",
-      "left_open": [
-        "usual-path /security /trust /dpa 404",
-        "DPA / subprocessors / years / Official page / marks not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "aml-rightsource",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://www.amlrightsource.com/privacy-policy",
-      "left_open": [
-        "usual-path /security /trust /dpa 404",
-        "DPA / subprocessors / years / Official page / marks not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "bastionx",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://www.bastionx.io/privacy-policy",
-      "left_open": [
-        "/solutions/cybersecurity HIPAA is industry product copy ('Healthcare IT & HIPAA Compliance') — not a hold",
-        "DPA / subprocessors / years / Official page left open"
-      ]
-    },
-    {
-      "slug": "beetexting",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://beetexting.com/privacy-policy/",
-      "left_open": [
-        "usual-path /security /trust /dpa 404",
-        "DPA / subprocessors / years / Official page / marks not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "black-diamond-development",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://blackdiamond.dev/privacy-policy",
-      "left_open": [
-        "usual-path /security /trust /dpa 404",
-        "DPA / subprocessors / years / Official page / marks not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "commetric",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://commetric.com/privacy-notice/",
-      "left_open": [
-        "usual-path /security /trust /dpa 404",
-        "DPA / subprocessors / years / Official page / marks not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "link-mobility",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://www.linkmobility.com/legal/privacy",
-      "left_open": [
-        "usual-path /security /trust /dpa 404",
-        "DPA / subprocessors / years / Official page / marks not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "luma-ai",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://luma.ai/privacy-policy",
-      "left_open": [
-        "usual-path /security /trust /dpa 404",
-        "DPA / subprocessors / years / Official page / marks not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "mividas",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://www.mividas.com/privacy-policy/",
-      "left_open": [
-        "usual-path /security /trust /dpa 404",
-        "DPA / subprocessors / years / Official page / marks not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "mutare",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://www.mutare.com/privacy-policy/",
-      "left_open": [
-        "usual-path /security /trust /dpa 404",
-        "DPA / subprocessors / years / Official page / marks not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "name-com",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://www.name.com/privacy-policy",
-      "left_open": [
-        "usual-path /security /trust /dpa 404",
-        "DPA / subprocessors / years / Official page / marks not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "netnumber-global-data-services",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://netnumber.com/privacy-policy/",
-      "left_open": [
-        "usual-path /security /trust /dpa 404",
-        "DPA / subprocessors / years / Official page / marks not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "saicom-voice-services",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://saicom.io/privacy-policy/",
-      "left_open": [
-        "usual-path /security /trust /dpa 404",
-        "DPA / subprocessors / years / Official page / marks not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "support-zebra",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://supportzebra.com/privacy-policy",
-      "left_open": [
-        "usual-path /security /trust /dpa 404",
-        "DPA / subprocessors / years / Official page / marks not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "surveysensum-neurosensum-international-pte",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://www.surveysensum.com/privacy-policy",
-      "left_open": [
-        "usual-path /security /trust /dpa 404",
-        "DPA / subprocessors / years / Official page / marks not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "ternpro-dba-slope",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://slopepay.com/privacy",
-      "left_open": [
-        "usual-path /security /trust /dpa 404",
-        "DPA / subprocessors / years / Official page / marks not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "tokenx",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://tokenx.io/privacy-policy",
-      "left_open": [
-        "usual-path /security /trust /dpa 404",
-        "DPA / subprocessors / years / Official page / marks not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "wpremote",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://wpremote.com/privacy",
-      "left_open": [
-        "usual-path /security /trust /dpa 404",
-        "DPA / subprocessors / years / Official page / marks not on the privacy HTML"
-      ]
-    }
-  ],
-  "c20_fills": [
-    {
-      "slug": "pylon",
-      "named_by": 10,
-      "completeness_before": 50,
-      "completeness_after": 80,
-      "score_after": 89,
-      "tier_after": "substantial",
-      "dpa": "https://www.usepylon.com/legal/data-processing-agreement",
-      "named_processors_on_register": [
-        "amazon-web-services",
-        "anthropic",
-        "auth0",
-        "braintrust",
-        "cerebras",
-        "dbt-labs",
-        "fivetran",
+      "marks_url": "https://telnyx.com/security",
+      "dpa": "https://telnyx.com/legal/data-processing-addendum",
+      "subprocessors": "https://telnyx.com/legal/subprocessors",
+      "named": [
         "google",
-        "hex",
+        "amazon-web-services",
+        "microsoft",
+        "equinix",
+        "paypal",
+        "domo",
+        "cloudflare",
+        "atlassian",
+        "zoom",
+        "docusign",
+        "dropbox",
+        "fullstory",
+        "zendesk",
+        "adobe",
+        "segment",
+        "intercom",
+        "zapier",
         "mailgun",
-        "modal",
+        "proofpoint",
+        "onfido",
+        "xero",
+        "bill",
+        "dwolla",
+        "plaid",
         "openai",
-        "planetscale",
-        "posthog",
-        "postmark",
-        "pusher",
-        "snowflake",
-        "telnyx",
-        "together-ai",
-        "turbopuffer",
-        "workos"
+        "salesloft"
       ],
-      "subprocessors_already": "https://www.usepylon.com/subprocessors",
+      "years": 2009,
+      "year_source": "https://telnyx.com/security",
       "left_open": [
-        "Voyage AI and Matia on the first-party list are not on the register — no leftover domain invented",
-        "aws → amazon-web-services, gcp → google, modal-labs → modal (kept aliases)",
-        "Years not on the about HTML this cut"
+        "HIPAA is footer badge copy (ISO \u2022 PCI \u2022 HIPAA \u2022 GDPR \u2022 SOC2 Type II), not a certified hold \u2014 not filed",
+        "GDPR Compliant badge is regulation, not a catalog hold",
+        "Combined Salesforce/SalesforceIQ/Slack cell skipped. Leftover names without a register slug (Clearbit, Analytix, Fathom HQ, Vic.ai, IBM Cloud on Softlayer, Microsoft Advertising) not invented"
       ]
     },
     {
-      "slug": "grafana-labs",
-      "named_by": 6,
-      "completeness_before": 40,
-      "completeness_after": 60,
-      "score_after": 52,
+      "slug": "zight-formerly-cloudapp",
+      "named_by": 2,
+      "completeness_before": 30,
+      "completeness_after": 40,
+      "score_after": 30,
+      "tier_after": "thin",
+      "marks": [
+        "soc2-type-ii"
+      ],
+      "marks_url": "https://zight.com/trust-security",
+      "left_open": [
+        "ISO 27001 / SOC 1 / PCI DSS on that page are AWS infrastructure certs ('Built on AWS and audited against\u2026') \u2014 not filed",
+        "HIPAA is 'Scale plan, BAA available' \u2014 not a hold",
+        "GDPR is 'EU compliant' copy \u2014 not filed",
+        "DPA / named processors / years not on the trust-security HTML"
+      ]
+    },
+    {
+      "slug": "orb",
+      "named_by": 2,
+      "completeness_before": 30,
+      "completeness_after": 40,
+      "score_after": 46,
       "tier_after": "on-file",
-      "dpa": "https://grafana.com/legal/data-processing-agreement/",
+      "marks": [
+        "soc2-type-ii",
+        "soc1"
+      ],
+      "marks_url": "https://www.withorb.com/products/security-compliance",
       "left_open": [
-        "Named processors / years not on usual-path HTML this cut",
-        "Marks already on file"
+        "First-party HTML: 'Orb maintains SOC 1 and SOC 2 Type II certifications' \u2014 filed",
+        "DPA / named processors / years not on the security-compliance HTML"
       ]
     },
     {
-      "slug": "baseten",
-      "named_by": 7,
+      "slug": "heygen",
+      "named_by": 2,
       "completeness_before": 40,
       "completeness_after": 60,
-      "score_after": 80,
-      "tier_after": "substantial",
-      "dpa": "https://www.baseten.co/dpa/",
+      "score_after": 44,
+      "tier_after": "on-file",
+      "dpa": "https://www.heygen.com/data-processing-addendum",
       "left_open": [
-        "Named processors / years not on usual-path HTML this cut",
-        "Marks already on file"
+        "DPA HTML prints DATA PROCESSING ADDENDUM (effective October 2024) \u2014 filed",
+        "Named processors / years left open. Official page and marks already on file"
       ]
     },
     {
-      "slug": "linear",
-      "named_by": 3,
+      "slug": "workos",
+      "named_by": 11,
       "completeness_before": 70,
       "completeness_after": 90,
-      "score_after": 83,
+      "score_after": 79,
       "tier_after": "substantial",
       "years": 2019,
-      "year_source": "https://linear.app/about",
+      "year_source": "https://workos.com/security",
       "left_open": [
-        "Subprocessors URL already on file; named processors not printed in first-party HTML this cut",
+        "foundingDate 2019-05-20 on first-party /security \u2014 filed",
+        "Cited list URL already on file; named processors not printed in first-party HTML this cut",
         "Official page / marks / DPA already on file"
       ]
     },
     {
-      "slug": "hex",
-      "named_by": 2,
-      "completeness_before": 70,
-      "completeness_after": 80,
-      "score_after": 64,
-      "tier_after": "on-file",
-      "marks": [
-        "soc2-type-ii"
-      ],
-      "marks_url": "https://hex.tech/security/",
-      "left_open": [
-        "First-party /security HTML: 'obtained our SOC 2 Type II report' — filed. GDPR on that page is regulation copy — not filed",
-        "Years not on the about HTML this cut",
-        "Official page / DPA / named processors already on file"
-      ]
-    },
-    {
-      "slug": "maestroqa",
+      "slug": "supportninja",
       "named_by": 2,
       "completeness_before": 30,
       "completeness_after": 50,
-      "score_after": 32,
+      "score_after": 31,
       "tier_after": "thin",
-      "years": 2013,
-      "year_source": "https://www.maestroqa.com/",
+      "years": 2015,
+      "year_source": "https://www.supportninja.com/security",
       "left_open": [
-        "trust.rippit.com marks not copied (Rippit / portal host). Do not copy Secureframe",
-        "DPA / named processors / Official marks left open"
-      ]
-    },
-    {
-      "slug": "messagebird",
-      "named_by": 9,
-      "completeness_before": 50,
-      "completeness_after": 70,
-      "score_after": 53,
-      "tier_after": "on-file",
-      "years": 2011,
-      "year_source": "https://bird.com/about",
-      "left_open": [
-        "bird.com is first-party via the stored final_url trust.bird.com (registrable bird.com). foundingDate 2011 + 'Founded in 2011' on /about",
-        "Marks / named processors left open. DPA already on file at bird.com/legal/dpa"
+        "foundingDate 2015 on first-party /security \u2014 filed",
+        "PCI on that page is Bill.com / FirstData processor copy \u2014 not filed",
+        "HIPAA sentence is 'Sqreen is not subject to HIPAA' \u2014 not a hold",
+        "DPA / named processors / marks left open"
       ]
     }
   ],
@@ -464,92 +199,52 @@
     {
       "slug": "netsuite",
       "named_by": 6,
-      "reason": "netsuite.com Access Denied; status.netsuite.com is Oracle NetSuite status only"
+      "reason": "netsuite.com Access Denied"
     },
     {
       "slug": "looker",
       "named_by": 6,
-      "reason": "looker.com 301s to cloud.google.com/looker; do not alias or copy Google file"
+      "reason": "looker.com 301s to cloud.google.com/looker; do not alias"
     },
     {
       "slug": "tdcx",
       "named_by": 1,
-      "reason": "usual-path trust/security/privacy/dpa still 404 this cut. About HTML names no catalog hold"
+      "reason": "usual-path still 404 / no catalog hold this cut"
     },
     {
       "slug": "teleperformance-colombia",
       "named_by": 1,
-      "reason": "standing skip this cut — parent host; not re-walked"
+      "reason": "standing skip this cut \u2014 parent host"
     },
     {
       "slug": "userfront",
       "named_by": 1,
-      "reason": "privacy already on file. /security /trust /legal/dpa /legal/subprocessors still 404. About HTML names no year"
+      "reason": "privacy already on file; usual-path still 404"
     },
     {
       "slug": "timekit",
       "named_by": 1,
-      "reason": "timekit.io usual-path privacy/security/dpa/about still 404"
-    },
-    {
-      "slug": "browserbase",
-      "named_by": 2,
-      "reason": "DPA usual-path 302s to /sign-in?redirect= — login wall. Not filed"
-    },
-    {
-      "slug": "metronome",
-      "named_by": 2,
-      "reason": "/company/security SOC 2 / ISO 27001 / PCI DSS names cloud providers, not Metronome. Certifications heading has no own holds"
+      "reason": "timekit.io usual-path still 404"
     },
     {
       "slug": "cinder",
       "named_by": 2,
-      "reason": "trust.vanta.com portal. usual-path DPA 404. Years not on about HTML"
+      "reason": "trust.vanta.com portal \u2014 not re-walked"
     },
     {
-      "slug": "segment",
-      "named_by": 14,
-      "reason": "do not copy Twilio. 403 / parent list — not filed"
+      "slug": "ada",
+      "named_by": 6,
+      "reason": "security.ada.cx portal-host / HTTP 403 this cut"
     },
     {
-      "slug": "leaseweb-global",
+      "slug": "kwai",
+      "named_by": 5,
+      "reason": "security.kuaishou.com already on file; no marks/DPA/years in first-party HTML this cut"
+    },
+    {
+      "slug": "upper-quadrant",
       "named_by": 1,
-      "reason": "/privacy-policy 200 to a JS shell (title Leaseweb, 123 chars). classify_as_privacy true by path — not filed"
-    },
-    {
-      "slug": "idera-inc",
-      "named_by": 1,
-      "reason": "privacy 200s on ideracorp.com — not first-party for idera.com"
-    },
-    {
-      "slug": "f-secure",
-      "named_by": 1,
-      "reason": "usual-path 404 / HTTP 0 this cut. Privacy path not-privacy"
-    },
-    {
-      "slug": "onelogin",
-      "named_by": 1,
-      "reason": "usual-path HTTP 202 this cut"
-    },
-    {
-      "slug": "onespan",
-      "named_by": 1,
-      "reason": "usual-path 404 / no catalog hold / not-dpa / not-privacy"
-    },
-    {
-      "slug": "plextrac",
-      "named_by": 1,
-      "reason": "Cloudflare 403"
-    },
-    {
-      "slug": "horizoniq",
-      "named_by": 1,
-      "reason": "Cloudflare 403"
-    },
-    {
-      "slug": "pdf",
-      "named_by": 1,
-      "reason": "/knowledgebase/security names SOC/ISO/HIPAA as AWS data-center certs — not PDF.co holds. Not Official page"
+      "reason": "usual-path HTTP 0 / 404"
     }
   ],
   "standing_skips": [
@@ -570,21 +265,25 @@
     "avertech"
   ],
   "refused_this_cut": [
-    "browserbase DPA usual-path is a /sign-in login wall — not filed",
-    "maestroqa marks on trust.rippit.com — Rippit / portal host; Secureframe not copied",
-    "metronome /company/security SOC 2 is cloud-provider copy — not a hold",
-    "postmark /security SOC 1 is the data-center facility ('SSAE 16 SOC 1 accredited facility') — not Postmark's hold",
-    "pdf.co /knowledgebase/security SOC/ISO are Amazon AWS data-center certs — not filed",
-    "bastionx /solutions/cybersecurity HIPAA is industry product copy — not a hold",
-    "ping-identity /en/lp/trust-every-digital-moment.html is a marketing lander — not Official page",
-    "leaseweb /privacy-policy is a JS shell (title Leaseweb) — not filed",
-    "idera privacy lives on ideracorp.com — not first-party",
-    "acquire.ai /au/privacy-policy is a regional AU page — left open",
-    "tdcx / userfront / timekit usual-path still 404 — preferred C0 unchanged",
-    "cinder Vanta portal — portal vendor not named as first-party Official page",
-    "slack / okta / elastic / clickhouse / confluent usual-path DPA 404 this cut",
-    "cloudflare / salesloft / mixpanel / clerk / workos cited lists printed no organization names or were js-portal this cut",
-    "Voyage AI and Matia on Pylon's list are not on the register — no leftover domain invented",
+    "telnyx HIPAA is footer badge copy \u2014 not a certified hold",
+    "zight ISO/SOC 1/PCI are AWS facility certs \u2014 not filed",
+    "zight HIPAA is BAA-available product copy \u2014 not a hold",
+    "bugsnag /security printed no catalog hold this cut (SmartBear logo farm not copied)",
+    "authzed /teams/security-teams is a product lander \u2014 not Official page; SOC 2 not copied from that URL",
+    "supportninja PCI is Bill.com processor copy; HIPAA is 'not subject' \u2014 not filed",
+    "onelogin usual-path HTTP 202; app.onelogin.com/login is a login wall \u2014 not Official page",
+    "onespan /trust 200s to support.onespan.com/csm customer portal \u2014 not Official page",
+    "f-secure /en/legal/terms/mobile-security is product terms \u2014 not Official page",
+    "perimeter-81 trust.perimeter81.com is a 46-char JS shell \u2014 not Official page",
+    "deltax /security is compressed/unreadable HTML \u2014 not Official page",
+    "enhancor /security /trust /privacy keep the homepage title \u2014 homepage bounce",
+    "heygen /trust-and-safety 'ensure compliance' FAQ not used; DPA filed from the addendum HTML",
+    "mixpanel /legal/ai-compliance printed no catalog hold this cut",
+    "cerebras year 2015 on /company conflicts with stored 2016 \u2014 not overwritten",
+    "ada security.ada.cx portal / 403",
+    "legalinc /security 200s to portal.legalinc.com Dashboard \u2014 not Official page",
+    "mailshell /security is titled Gozoom Security \u2014 name mismatch, not filed",
+    "cloud-ace /security /trust homepage-bounce",
     "Do not invent leftover domains. Do not open a zero-fill named-by-1 PR"
   ]
 }
