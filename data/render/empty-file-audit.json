@@ -1,2014 +1,2740 @@
 {
-  "generated_at": "2026-08-27T23:16:15Z",
+  "generated_at": "2026-08-28T16:12:31Z",
   "mode": "slugs",
-  "apply": true,
+  "apply": false,
   "rule": "Completeness-0 validator. Completeness is the sum of five 0/10/20 file rules, not disclosure.score. Start from domain and official_url. Usual paths come from crawl.candidate_urls (the same set crawl.probe_company walks). Live pages are read with enrich.fetch_seed_page. Marks, DPA, named processors, and years use the existing extract / harvest / parse / apply_*. 403/429/SPA/portal stay unreadable. Portal vendors are never named. Dry-run writes only this ledger.",
   "batch": [
-    "smint-io",
-    "equifax",
-    "apryse",
-    "saicom-voice-services"
+    "sendgrid",
+    "ovhcloud",
+    "vonage",
+    "netsuite",
+    "vultr",
+    "taskus",
+    "transunion-formerly-neustar-information-services",
+    "telesign",
+    "looker",
+    "redis"
   ],
   "classes": {
-    "portal-host": 41,
-    "200 first-party HTML": 90,
-    "hit": 16,
-    "no-named-marks": 12,
-    "http-404": 196,
-    "regulation-only": 13,
-    "http-0": 14
+    "http-0": 49,
+    "portal-host": 65,
+    "not-first-party": 45,
+    "http-404": 79,
+    "200 first-party HTML": 11,
+    "hit": 1,
+    "no-named-marks": 8,
+    "http-403": 133
   },
   "hits": [
     {
-      "slug": "smint-io",
-      "name": "Smint.io",
+      "slug": "ovhcloud",
+      "name": "OVHcloud",
       "page": {
-        "url": "https://login.smint.io/Tenant",
-        "kind": "trust"
-      },
-      "marks": {
-        "url": "https://www.smint.io/security-at-smint-io/",
-        "added": [
-          "SOC 2 Type II"
-        ],
-        "quote": "We maintain SOC 2 Type 2 compliance since 2023."
-      },
-      "dpa": {
-        "url": "https://www.smint.io/data-processing-agreement/"
-      }
-    },
-    {
-      "slug": "equifax",
-      "name": "Equifax",
-      "page": {
-        "url": "https://www.equifax.com/about-equifax/security",
+        "url": "https://us.ovhcloud.com/security/",
         "kind": "security"
-      },
-      "marks": {
-        "url": "https://www.equifax.com/about-equifax/security",
-        "added": [
-          "FedRAMP",
-          "NIST CSF"
-        ],
-        "quote": "secutive years achieving a Security Maturity score that outperforms all major industry benchmarks ✓ FedRAMP Ready for Agency Authorization *2025 Equifax data Strategic Security Focus Security vulnerabilities demand more than just standard, static safeguards; t."
-      }
-    },
-    {
-      "slug": "apryse",
-      "name": "Apryse",
-      "page": {
-        "url": "https://apryse.com/capabilities/document-security",
-        "kind": "security"
-      },
-      "marks": {
-        "url": "https://apryse.com/security-compliance",
-        "added": [
-          "SOC 2 Type II",
-          "ISO 27001"
-        ],
-        "quote": "SOC 2 Attested We have successfully completed yearly SOC 2 Type II audits, verifying that our controls continue to meet the Trust Services Criteria for security, availability, and confidentiality."
       }
     }
   ],
-  "stayed_open": [
+  "stayed_open": [],
+  "unreadable": [
     {
-      "slug": "saicom-voice-services",
-      "name": "Saicom",
-      "note": "first-party HTML names no catalog hold"
+      "slug": "sendgrid",
+      "name": "SendGrid",
+      "reason": "http-0"
+    },
+    {
+      "slug": "vonage",
+      "name": "Vonage",
+      "reason": "http-0"
+    },
+    {
+      "slug": "netsuite",
+      "name": "NetSuite",
+      "reason": "http-0"
+    },
+    {
+      "slug": "vultr",
+      "name": "Vultr",
+      "reason": "http-0"
+    },
+    {
+      "slug": "taskus",
+      "name": "TaskUs",
+      "reason": "http-0"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "name": "TransUnion",
+      "reason": "http-0"
+    },
+    {
+      "slug": "telesign",
+      "name": "TeleSign",
+      "reason": "http-0"
+    },
+    {
+      "slug": "looker",
+      "name": "Looker",
+      "reason": "http-0"
+    },
+    {
+      "slug": "redis",
+      "name": "Redis",
+      "reason": "http-0"
     }
   ],
-  "unreadable": [],
   "rejected": [
     {
-      "slug": "smint-io",
-      "url": "https://smint-io.safebase.io",
-      "final": "https://smint-io.safebase.io",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint-io.safebase.us",
-      "final": "https://smint-io.safebase.us",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint-io.secureframetrust.com",
-      "final": "https://smint-io.secureframetrust.com",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smintio.safebase.us",
-      "final": "https://smintio.safebase.us",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smintio.safebase.io",
-      "final": "https://smintio.safebase.io",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint-io.trust.site",
-      "final": "https://smint-io.trust.site",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint-io.securitypal.com",
-      "final": "https://smint-io.securitypal.com",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smintio.secureframetrust.com",
-      "final": "https://smintio.secureframetrust.com",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.safebase.us",
-      "final": "https://smint.safebase.us",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.safebase.io",
-      "final": "https://smint.safebase.io",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smintio.securitypal.com",
-      "final": "https://smintio.securitypal.com",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smintio.trust.site",
-      "final": "https://smintio.trust.site",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.secureframetrust.com",
-      "final": "https://smint.secureframetrust.com",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.trust.site",
-      "final": "https://smint.trust.site",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.securitypal.com",
-      "final": "https://smint.securitypal.com",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://trustcenter.smint.io",
-      "final": "https://login.smint.io/Tenant",
-      "reason": "no-named-marks",
-      "kind": "trust"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://assurance.smint.io",
-      "final": "https://login.smint.io/Tenant",
-      "reason": "no-named-marks",
-      "kind": "compliance"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://security.smint.io",
-      "final": "https://login.smint.io/Tenant",
-      "reason": "no-named-marks",
-      "kind": "security"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://trust.smint.io",
-      "final": "https://login.smint.io/Tenant",
-      "reason": "no-named-marks",
-      "kind": "trust"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://compliance.smint.io",
-      "final": "https://login.smint.io/Tenant",
-      "reason": "no-named-marks",
-      "kind": "compliance"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/trust",
-      "final": "https://smint.io/trust",
-      "reason": "http-404",
-      "kind": "trust"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/trust-center",
-      "final": "https://smint.io/trust-center",
-      "reason": "http-404",
-      "kind": "trust"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://www.smint.io/privacy",
-      "final": "https://www.smint.io/privacy-policy/",
-      "reason": "regulation-only",
-      "kind": "privacy"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://www.smint.io/privacy-notice",
-      "final": "https://www.smint.io/privacy-notice",
-      "reason": "http-404",
-      "kind": "privacy"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://www.smint.io/privacy-statement",
-      "final": "https://www.smint.io/privacy-statement",
-      "reason": "http-404",
-      "kind": "privacy"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://www.smint.io/privacy-policy",
-      "final": "https://www.smint.io/privacy-policy/",
-      "reason": "regulation-only",
-      "kind": "privacy"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/privacy-notice",
-      "final": "https://smint.io/privacy-notice",
-      "reason": "http-404",
-      "kind": "privacy"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/privacy",
-      "final": "https://www.smint.io/privacy-policy/",
-      "reason": "regulation-only",
-      "kind": "privacy"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/privacy-statement",
-      "final": "https://smint.io/privacy-statement",
-      "reason": "http-404",
-      "kind": "privacy"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/privacy-policy",
-      "final": "https://www.smint.io/privacy-policy/",
-      "reason": "regulation-only",
-      "kind": "privacy"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://www.smint.io/trust",
-      "final": "https://www.smint.io/trust",
-      "reason": "http-404",
-      "kind": "trust"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/compliance",
-      "final": "https://smint.io/compliance",
-      "reason": "http-404",
-      "kind": "compliance"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://www.smint.io/trust-center",
-      "final": "https://www.smint.io/trust-center",
-      "reason": "http-404",
-      "kind": "trust"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://www.smint.io/compliance",
-      "final": "https://www.smint.io/compliance",
-      "reason": "http-404",
-      "kind": "compliance"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/about/us",
-      "final": "https://smint.io/about/us",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/company",
-      "final": "https://smint.io/company",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/about/company",
-      "final": "https://smint.io/about/company",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/legal/data-processing-addendum",
-      "final": "https://smint.io/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/policies/dpa",
-      "final": "https://smint.io/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/data-processing-addendum",
-      "final": "https://smint.io/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/dpa",
-      "final": "https://smint.io/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/policies/data-processing-addendum",
-      "final": "https://smint.io/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/terms/dpa",
-      "final": "https://smint.io/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/legal/dpa",
-      "final": "https://smint.io/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/gdpr/dpa",
-      "final": "https://smint.io/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/company/dpa",
-      "final": "https://smint.io/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/legal/gdpr/dpa",
-      "final": "https://smint.io/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/privacy/dpa",
-      "final": "https://smint.io/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/legal/processor-terms",
-      "final": "https://smint.io/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/legal/subprocessors",
-      "final": "https://smint.io/legal/subprocessors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/sub-processors",
-      "final": "https://smint.io/sub-processors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/subprocessors",
-      "final": "https://smint.io/subprocessors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/privacy/subprocessors",
-      "final": "https://smint.io/privacy/subprocessors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/legal/sub-processors",
-      "final": "https://smint.io/legal/sub-processors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/legal/service-providers",
-      "final": "https://smint.io/legal/service-providers",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/company/subprocessors",
-      "final": "https://smint.io/company/subprocessors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/legal/sub-processors-page",
-      "final": "https://smint.io/legal/sub-processors-page",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/trust/subprocessors",
-      "final": "https://smint.io/trust/subprocessors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/company/our-story",
-      "final": "https://smint.io/company/our-story",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/our-story",
-      "final": "https://smint.io/our-story",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/our-company",
-      "final": "https://smint.io/our-company",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/who-we-are",
-      "final": "https://smint.io/who-we-are",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/newsroom",
-      "final": "https://smint.io/newsroom",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/about/our-story",
-      "final": "https://smint.io/about/our-story",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "smint-io",
-      "url": "https://smint.io/en/company",
-      "final": "https://smint.io/en/company",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://security.equifax.com",
-      "final": "https://security.equifax.com",
+      "slug": "sendgrid",
+      "url": "https://security.sendgrid.com",
+      "final": "https://security.sendgrid.com",
       "reason": "http-0",
       "kind": "security"
     },
     {
-      "slug": "equifax",
-      "url": "https://compliance.equifax.com",
-      "final": "https://compliance.equifax.com",
+      "slug": "sendgrid",
+      "url": "https://compliance.sendgrid.com",
+      "final": "https://compliance.sendgrid.com",
       "reason": "http-0",
       "kind": "compliance"
     },
     {
-      "slug": "equifax",
-      "url": "https://assurance.equifax.com",
-      "final": "https://assurance.equifax.com",
-      "reason": "http-0",
-      "kind": "compliance"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://trustcenter.equifax.com",
-      "final": "https://trustcenter.equifax.com",
+      "slug": "sendgrid",
+      "url": "https://trustcenter.sendgrid.com",
+      "final": "https://trustcenter.sendgrid.com",
       "reason": "http-0",
       "kind": "trust"
     },
     {
-      "slug": "equifax",
-      "url": "https://trust.equifax.com",
-      "final": "https://trust.equifax.com",
-      "reason": "portal-host",
-      "kind": "trust"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/trust",
-      "final": "https://equifax.com/trust",
-      "reason": "http-404",
-      "kind": "trust"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/trust-center",
-      "final": "https://equifax.com/trust-center",
-      "reason": "http-404",
-      "kind": "trust"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.safebase.io",
-      "final": "https://equifax.safebase.io",
+      "slug": "sendgrid",
+      "url": "https://sendgrid.safebase.io",
+      "final": "https://sendgrid.safebase.io",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "equifax",
-      "url": "https://equifax.safebase.us",
-      "final": "https://equifax.safebase.us",
+      "slug": "sendgrid",
+      "url": "https://assurance.sendgrid.com",
+      "final": "https://assurance.sendgrid.com",
+      "reason": "http-0",
+      "kind": "compliance"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://trust.sendgrid.com",
+      "final": "https://trust.sendgrid.com",
+      "reason": "http-0",
+      "kind": "trust"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://sendgrid.safebase.us",
+      "final": "https://sendgrid.safebase.us",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "equifax",
-      "url": "https://equifax.secureframetrust.com",
-      "final": "https://equifax.secureframetrust.com",
+      "slug": "sendgrid",
+      "url": "https://sendgrid.com/trust-center",
+      "final": "https://www.twilio.com/en-us/sendgrid",
+      "reason": "not-first-party",
+      "kind": "trust"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://sendgrid.com/trust",
+      "final": "https://www.twilio.com/en-us/sendgrid",
+      "reason": "not-first-party",
+      "kind": "trust"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://sendgrid.com/privacy-notice",
+      "final": "https://www.twilio.com/en-us/sendgrid",
+      "reason": "not-first-party",
+      "kind": "privacy"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://sendgrid.com/privacy-policy",
+      "final": "https://www.twilio.com/en-us/sendgrid",
+      "reason": "not-first-party",
+      "kind": "privacy"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://www.sendgrid.com/privacy-notice",
+      "final": "https://www.twilio.com/en-us/sendgrid",
+      "reason": "not-first-party",
+      "kind": "privacy"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://sendgrid.secureframetrust.com",
+      "final": "https://sendgrid.secureframetrust.com",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "equifax",
-      "url": "https://equifax.trust.site",
-      "final": "https://equifax.trust.site",
+      "slug": "sendgrid",
+      "url": "https://sendgrid.securitypal.com",
+      "final": "https://sendgrid.securitypal.com",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "equifax",
-      "url": "https://equifax.securitypal.com",
-      "final": "https://equifax.securitypal.com",
+      "slug": "sendgrid",
+      "url": "https://www.sendgrid.com/privacy-statement",
+      "final": "https://www.twilio.com/en-us/sendgrid",
+      "reason": "not-first-party",
+      "kind": "privacy"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://sendgrid.com/privacy-statement",
+      "final": "https://www.twilio.com/en-us/sendgrid",
+      "reason": "not-first-party",
+      "kind": "privacy"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://sendgrid.trust.site",
+      "final": "https://sendgrid.trust.site",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "equifax",
-      "url": "https://www.equifax.com/privacy-policy",
-      "final": "https://www.equifax.com/privacy-policy",
-      "reason": "http-404",
+      "slug": "sendgrid",
+      "url": "https://www.sendgrid.com/compliance",
+      "final": "https://www.twilio.com/en-us/sendgrid",
+      "reason": "not-first-party",
+      "kind": "compliance"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://www.sendgrid.com/privacy-policy",
+      "final": "https://www.twilio.com/en-us/sendgrid",
+      "reason": "not-first-party",
       "kind": "privacy"
     },
     {
-      "slug": "equifax",
-      "url": "https://equifax.com/privacy",
-      "final": "https://www.equifax.com/privacy",
-      "reason": "regulation-only",
+      "slug": "sendgrid",
+      "url": "https://www.sendgrid.com/trust",
+      "final": "https://www.twilio.com/en-us/sendgrid",
+      "reason": "not-first-party",
+      "kind": "trust"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://sendgrid.com",
+      "final": "https://www.twilio.com/en-us/sendgrid",
+      "reason": "not-first-party",
+      "kind": "about"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://sendgrid.com/compliance",
+      "final": "https://www.twilio.com/en-us/sendgrid",
+      "reason": "not-first-party",
+      "kind": "compliance"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://www.sendgrid.com/trust-center",
+      "final": "https://www.twilio.com/en-us/sendgrid",
+      "reason": "not-first-party",
+      "kind": "trust"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://sendgrid.com/company",
+      "final": "https://www.twilio.com/en-us/sendgrid",
+      "reason": "not-first-party",
+      "kind": "about"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://sendgrid.com/security",
+      "final": "https://www.twilio.com/en-us/security",
+      "reason": "not-first-party",
+      "kind": "security"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://www.sendgrid.com/security",
+      "final": "https://www.twilio.com/en-us/security",
+      "reason": "not-first-party",
+      "kind": "security"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://sendgrid.com/about",
+      "final": "https://www.twilio.com/en-us/why-twilio",
+      "reason": "not-first-party",
+      "kind": "about"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://sendgrid.com/about-us",
+      "final": "https://www.twilio.com/en-us/why-twilio",
+      "reason": "not-first-party",
+      "kind": "about"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://sendgrid.com/about/company",
+      "final": "https://www.twilio.com/en-us/why-twilio",
+      "reason": "not-first-party",
+      "kind": "about"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://sendgrid.com/about/us",
+      "final": "https://www.twilio.com/en-us/why-twilio",
+      "reason": "not-first-party",
+      "kind": "about"
+    },
+    {
+      "slug": "sendgrid",
+      "url": "https://sendgrid.com/privacy",
+      "final": "https://www.twilio.com/en-us/legal/privacy",
+      "reason": "not-first-party",
       "kind": "privacy"
     },
     {
-      "slug": "equifax",
-      "url": "https://equifax.com/privacy-policy",
-      "final": "https://equifax.com/privacy-policy",
-      "reason": "http-404",
+      "slug": "sendgrid",
+      "url": "https://www.sendgrid.com/privacy",
+      "final": "https://www.twilio.com/en-us/legal/privacy",
+      "reason": "not-first-party",
       "kind": "privacy"
     },
     {
-      "slug": "equifax",
-      "url": "https://www.equifax.com/privacy-notice",
-      "final": "https://www.equifax.com/privacy-notice",
-      "reason": "http-404",
-      "kind": "privacy"
+      "slug": "ovhcloud",
+      "url": "https://trust.ovhcloud.com",
+      "final": "https://trust.ovhcloud.com",
+      "reason": "http-0",
+      "kind": "trust"
     },
     {
-      "slug": "equifax",
-      "url": "https://equifax.com/privacy-notice",
-      "final": "https://equifax.com/privacy-notice",
-      "reason": "http-404",
-      "kind": "privacy"
+      "slug": "ovhcloud",
+      "url": "https://compliance.ovhcloud.com",
+      "final": "https://compliance.ovhcloud.com",
+      "reason": "http-0",
+      "kind": "compliance"
     },
     {
-      "slug": "equifax",
-      "url": "https://www.equifax.com/privacy-statement",
-      "final": "https://www.equifax.com/privacy-statement",
-      "reason": "http-404",
-      "kind": "privacy"
+      "slug": "ovhcloud",
+      "url": "https://assurance.ovhcloud.com",
+      "final": "https://assurance.ovhcloud.com",
+      "reason": "http-0",
+      "kind": "compliance"
     },
     {
-      "slug": "equifax",
-      "url": "https://www.equifax.com/privacy",
-      "final": "https://www.equifax.com/privacy",
-      "reason": "regulation-only",
-      "kind": "privacy"
+      "slug": "ovhcloud",
+      "url": "https://trustcenter.ovhcloud.com",
+      "final": "https://trustcenter.ovhcloud.com",
+      "reason": "http-0",
+      "kind": "trust"
     },
     {
-      "slug": "equifax",
-      "url": "https://www.equifax.com/trust",
-      "final": "https://www.equifax.com/trust",
+      "slug": "ovhcloud",
+      "url": "https://security.ovhcloud.com",
+      "final": "https://security.ovhcloud.com",
+      "reason": "http-0",
+      "kind": "security"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/trust",
+      "final": "https://ovhcloud.com/trust",
       "reason": "http-404",
       "kind": "trust"
     },
     {
-      "slug": "equifax",
-      "url": "https://equifax.com/privacy-statement",
-      "final": "https://equifax.com/privacy-statement",
-      "reason": "http-404",
-      "kind": "privacy"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://www.equifax.com/trust-center",
-      "final": "https://www.equifax.com/trust-center",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/trust-center",
+      "final": "https://ovhcloud.com/trust-center",
       "reason": "http-404",
       "kind": "trust"
     },
     {
-      "slug": "equifax",
-      "url": "https://www.equifax.com/compliance",
-      "final": "https://www.equifax.com/compliance",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.safebase.io",
+      "final": "https://ovhcloud.safebase.io",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.safebase.us",
+      "final": "https://ovhcloud.safebase.us",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/security",
+      "final": "https://ovhcloud.com/security",
+      "reason": "http-404",
+      "kind": "security"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.secureframetrust.com",
+      "final": "https://ovhcloud.secureframetrust.com",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/privacy",
+      "final": "https://ovhcloud.com/privacy",
+      "reason": "http-404",
+      "kind": "privacy"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://www.ovhcloud.com/privacy",
+      "final": "https://www.ovhcloud.com/privacy",
+      "reason": "http-404",
+      "kind": "privacy"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.securitypal.com",
+      "final": "https://ovhcloud.securitypal.com",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://www.ovhcloud.com/privacy-policy",
+      "final": "https://www.ovhcloud.com/privacy-policy",
+      "reason": "http-404",
+      "kind": "privacy"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.trust.site",
+      "final": "https://ovhcloud.trust.site",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/privacy-policy",
+      "final": "https://ovhcloud.com/privacy-policy",
+      "reason": "http-404",
+      "kind": "privacy"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://www.ovhcloud.com/privacy-notice",
+      "final": "https://www.ovhcloud.com/privacy-notice",
+      "reason": "http-404",
+      "kind": "privacy"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/privacy-notice",
+      "final": "https://ovhcloud.com/privacy-notice",
+      "reason": "http-404",
+      "kind": "privacy"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://www.ovhcloud.com/privacy-statement",
+      "final": "https://www.ovhcloud.com/privacy-statement",
+      "reason": "http-404",
+      "kind": "privacy"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/privacy-statement",
+      "final": "https://ovhcloud.com/privacy-statement",
+      "reason": "http-404",
+      "kind": "privacy"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://www.ovhcloud.com/security",
+      "final": "https://www.ovhcloud.com/security",
+      "reason": "http-404",
+      "kind": "security"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://www.ovhcloud.com/trust",
+      "final": "https://www.ovhcloud.com/trust",
+      "reason": "http-404",
+      "kind": "trust"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://www.ovhcloud.com/compliance",
+      "final": "https://www.ovhcloud.com/compliance",
       "reason": "http-404",
       "kind": "compliance"
     },
     {
-      "slug": "equifax",
-      "url": "https://equifax.com/about",
-      "final": "https://equifax.com/about",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/compliance",
-      "final": "https://equifax.com/compliance",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/compliance",
+      "final": "https://ovhcloud.com/compliance",
       "reason": "http-404",
       "kind": "compliance"
     },
     {
-      "slug": "equifax",
-      "url": "https://equifax.com/about-us",
-      "final": "https://equifax.com/about-us",
+      "slug": "ovhcloud",
+      "url": "https://www.ovhcloud.com/trust-center",
+      "final": "https://www.ovhcloud.com/trust-center",
+      "reason": "http-404",
+      "kind": "trust"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/about",
+      "final": "https://ovhcloud.com/about",
       "reason": "http-404",
       "kind": "about"
     },
     {
-      "slug": "equifax",
-      "url": "https://equifax.com/about/company",
-      "final": "https://equifax.com/about/company",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/about-us",
+      "final": "https://ovhcloud.com/about-us",
       "reason": "http-404",
       "kind": "about"
     },
     {
-      "slug": "equifax",
-      "url": "https://equifax.com/about/us",
-      "final": "https://equifax.com/about/us",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/about/company",
+      "final": "https://ovhcloud.com/about/company",
       "reason": "http-404",
       "kind": "about"
     },
     {
-      "slug": "equifax",
-      "url": "https://equifax.com/company",
-      "final": "https://equifax.com/company",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/company",
+      "final": "https://ovhcloud.com/company",
       "reason": "http-404",
       "kind": "about"
     },
     {
-      "slug": "equifax",
-      "url": "https://www.equifax.com/personal/help/article-list/-/h/c/security-freeze/",
-      "final": "https://www.equifax.com/personal/help/article-list/-/h/c/security-freeze/",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/about/us",
+      "final": "https://ovhcloud.com/about/us",
+      "reason": "http-404",
+      "kind": "about"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/dpa",
+      "final": "https://ovhcloud.com/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/legal/dpa",
+      "final": "https://ovhcloud.com/legal/dpa",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://us.ovhcloud.com/security/",
+      "final": "https://us.ovhcloud.com/security/",
       "reason": "no-named-marks",
       "kind": "security"
     },
     {
-      "slug": "equifax",
-      "url": "https://www.equifax.com/personal/education/cybersecurity/",
-      "final": "https://www.equifax.com/personal/education/cybersecurity/",
+      "slug": "ovhcloud",
+      "url": "https://us.ovhcloud.com/identity-security-operations/logs-data-platform/",
+      "final": "https://us.ovhcloud.com/identity-security-operations/logs-data-platform/",
       "reason": "no-named-marks",
       "kind": "security"
     },
     {
-      "slug": "equifax",
-      "url": "https://equifax.com/dpa",
-      "final": "https://equifax.com/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/legal/dpa",
-      "final": "https://equifax.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/legal/data-processing-addendum",
-      "final": "https://equifax.com/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/legal/data-processing-agreement",
-      "final": "https://equifax.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/data-processing-addendum",
-      "final": "https://equifax.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/data-processing-agreement",
-      "final": "https://equifax.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/policies/data-processing-agreement",
-      "final": "https://equifax.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/policies/data-processing-addendum",
-      "final": "https://equifax.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/terms/dpa",
-      "final": "https://equifax.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/policies/dpa",
-      "final": "https://equifax.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/company/dpa",
-      "final": "https://equifax.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/gdpr/dpa",
-      "final": "https://equifax.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/privacy/dpa",
-      "final": "https://equifax.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/legal/gdpr/dpa",
-      "final": "https://equifax.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/legal/processor-terms",
-      "final": "https://equifax.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/data-processing",
-      "final": "https://equifax.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/subprocessors",
-      "final": "https://equifax.com/subprocessors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/legal/data-processing",
-      "final": "https://equifax.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://www.equifax.com/personal/my-privacy/",
-      "final": "https://www.equifax.com/personal/my-privacy/",
-      "reason": "regulation-only",
-      "kind": "privacy"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/sub-processors",
-      "final": "https://equifax.com/sub-processors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/legal/sub-processors",
-      "final": "https://equifax.com/legal/sub-processors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/legal/subprocessors",
-      "final": "https://equifax.com/legal/subprocessors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/legal/service-providers",
-      "final": "https://equifax.com/legal/service-providers",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/legal/sub-processors-page",
-      "final": "https://equifax.com/legal/sub-processors-page",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/company/subprocessors",
-      "final": "https://equifax.com/company/subprocessors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/company/about",
-      "final": "https://equifax.com/company/about",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/trust/subprocessors",
-      "final": "https://equifax.com/trust/subprocessors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/privacy/subprocessors",
-      "final": "https://equifax.com/privacy/subprocessors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/company/our-story",
-      "final": "https://equifax.com/company/our-story",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/our-story",
-      "final": "https://equifax.com/our-story",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/our-company",
-      "final": "https://equifax.com/our-company",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/en/about",
-      "final": "https://equifax.com/en/about",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/about/our-story",
-      "final": "https://equifax.com/about/our-story",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/en/company",
-      "final": "https://equifax.com/en/company",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/company/press",
-      "final": "https://equifax.com/company/press",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "equifax",
-      "url": "https://equifax.com/press",
-      "final": "https://equifax.com/press",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://trust.apryse.com",
-      "final": "https://trust.apryse.com",
-      "reason": "http-0",
-      "kind": "trust"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://security.apryse.com",
-      "final": "https://security.apryse.com",
-      "reason": "http-0",
-      "kind": "security"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://compliance.apryse.com",
-      "final": "https://compliance.apryse.com",
-      "reason": "http-0",
-      "kind": "compliance"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://assurance.apryse.com",
-      "final": "https://assurance.apryse.com",
-      "reason": "http-0",
-      "kind": "compliance"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://trustcenter.apryse.com",
-      "final": "https://trustcenter.apryse.com",
-      "reason": "http-0",
-      "kind": "trust"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.safebase.io",
-      "final": "https://apryse.safebase.io",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.safebase.us",
-      "final": "https://apryse.safebase.us",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.secureframetrust.com",
-      "final": "https://apryse.secureframetrust.com",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.trust.site",
-      "final": "https://apryse.trust.site",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.com/security",
-      "final": "https://apryse.com/security",
-      "reason": "http-404",
-      "kind": "security"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.securitypal.com",
-      "final": "https://apryse.securitypal.com",
-      "reason": "portal-host",
-      "kind": "portal"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.com/trust-center",
-      "final": "https://apryse.com/trust-center",
-      "reason": "http-404",
-      "kind": "trust"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.com/trust",
-      "final": "https://apryse.com/trust",
-      "reason": "http-404",
-      "kind": "trust"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.com/privacy-policy",
-      "final": "https://apryse.com/privacy-policy",
-      "reason": "http-404",
-      "kind": "privacy"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.com/privacy",
-      "final": "https://apryse.com/privacy",
-      "reason": "regulation-only",
-      "kind": "privacy"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://www.apryse.com/privacy-policy",
-      "final": "https://www.apryse.com/privacy-policy",
-      "reason": "http-404",
-      "kind": "privacy"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.com/privacy-notice",
-      "final": "https://apryse.com/privacy-notice",
-      "reason": "http-404",
-      "kind": "privacy"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://www.apryse.com/privacy",
-      "final": "https://apryse.com:443/privacy",
-      "reason": "regulation-only",
-      "kind": "privacy"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://www.apryse.com/privacy-statement",
-      "final": "https://www.apryse.com/privacy-statement",
-      "reason": "http-404",
-      "kind": "privacy"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://www.apryse.com/trust",
-      "final": "https://www.apryse.com/trust",
-      "reason": "http-404",
-      "kind": "trust"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://www.apryse.com/security",
-      "final": "https://www.apryse.com/security",
-      "reason": "http-404",
-      "kind": "security"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.com/about",
-      "final": "https://apryse.com/about",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.com/privacy-statement",
-      "final": "https://apryse.com/privacy-statement",
-      "reason": "http-404",
-      "kind": "privacy"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://www.apryse.com/privacy-notice",
-      "final": "https://www.apryse.com/privacy-notice",
-      "reason": "http-404",
-      "kind": "privacy"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://www.apryse.com/trust-center",
-      "final": "https://www.apryse.com/trust-center",
-      "reason": "http-404",
-      "kind": "trust"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.com/compliance",
-      "final": "https://apryse.com/compliance",
-      "reason": "http-404",
-      "kind": "compliance"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://www.apryse.com/compliance",
-      "final": "https://www.apryse.com/compliance",
-      "reason": "http-404",
-      "kind": "compliance"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.com/about-us",
-      "final": "https://apryse.com/about-us",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.com/about/us",
-      "final": "https://apryse.com/about/us",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.com/about/company",
-      "final": "https://apryse.com/about/company",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.com/en-ca/privacy",
-      "final": "https://apryse.com/en-ca/privacy",
-      "reason": "regulation-only",
-      "kind": "privacy"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.com:443/privacy",
-      "final": "https://apryse.com:443/privacy",
-      "reason": "regulation-only",
-      "kind": "privacy"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.com/en-gb/privacy",
-      "final": "https://apryse.com/en-gb/privacy",
-      "reason": "regulation-only",
-      "kind": "privacy"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.com/en-au/privacy",
-      "final": "https://apryse.com/en-au/privacy",
-      "reason": "regulation-only",
-      "kind": "privacy"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://docs.apryse.com/core/guides/features/security",
-      "final": "https://docs.apryse.com/core/guides/features/security",
+      "slug": "ovhcloud",
+      "url": "https://us.ovhcloud.com/identity-security-operations/identity-access-management/",
+      "final": "https://us.ovhcloud.com/identity-security-operations/identity-access-management/",
       "reason": "no-named-marks",
       "kind": "security"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/dpa",
-      "final": "https://apryse.com/dpa",
+      "slug": "ovhcloud",
+      "url": "https://us.ovhcloud.com/security/game-ddos-protection/",
+      "final": "https://us.ovhcloud.com/security/game-ddos-protection/",
+      "reason": "no-named-marks",
+      "kind": "security"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://us.ovhcloud.com/identity-security-operations/key-management-service/",
+      "final": "https://us.ovhcloud.com/identity-security-operations/key-management-service/",
+      "reason": "no-named-marks",
+      "kind": "security"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://us.ovhcloud.com/identity-security-operations/service-logs/",
+      "final": "https://us.ovhcloud.com/identity-security-operations/service-logs/",
+      "reason": "no-named-marks",
+      "kind": "security"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://us.ovhcloud.com/identity-security-operations/",
+      "final": "https://us.ovhcloud.com/identity-security-operations/",
+      "reason": "no-named-marks",
+      "kind": "security"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://us.ovhcloud.com/compliance/",
+      "final": "https://us.ovhcloud.com/compliance/",
+      "reason": "no-named-marks",
+      "kind": "compliance"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/legal/data-processing-agreement",
+      "final": "https://ovhcloud.com/legal/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/legal/data-processing-addendum",
-      "final": "https://apryse.com/legal/data-processing-addendum",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/legal/data-processing-addendum",
+      "final": "https://ovhcloud.com/legal/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/legal/dpa",
-      "final": "https://apryse.com/legal/dpa",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/data-processing-addendum",
+      "final": "https://ovhcloud.com/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/legal/data-processing-agreement",
-      "final": "https://apryse.com/legal/data-processing-agreement",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/data-processing-agreement",
+      "final": "https://ovhcloud.com/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/data-processing-addendum",
-      "final": "https://apryse.com/data-processing-addendum",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/policies/data-processing-addendum",
+      "final": "https://ovhcloud.com/policies/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/policies/data-processing-addendum",
-      "final": "https://apryse.com/policies/data-processing-addendum",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/terms/dpa",
+      "final": "https://ovhcloud.com/terms/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/data-processing-agreement",
-      "final": "https://apryse.com/data-processing-agreement",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/company/dpa",
+      "final": "https://ovhcloud.com/company/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/policies/data-processing-agreement",
-      "final": "https://apryse.com/policies/data-processing-agreement",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/policies/dpa",
+      "final": "https://ovhcloud.com/policies/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/policies/dpa",
-      "final": "https://apryse.com/policies/dpa",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/policies/data-processing-agreement",
+      "final": "https://ovhcloud.com/policies/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/terms/dpa",
-      "final": "https://apryse.com/terms/dpa",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/legal/gdpr/dpa",
+      "final": "https://ovhcloud.com/legal/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/company/dpa",
-      "final": "https://apryse.com/company/dpa",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/privacy/dpa",
+      "final": "https://ovhcloud.com/privacy/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/gdpr/dpa",
-      "final": "https://apryse.com/gdpr/dpa",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/legal/data-processing",
+      "final": "https://ovhcloud.com/legal/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/legal/processor-terms",
-      "final": "https://apryse.com/legal/processor-terms",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/legal/processor-terms",
+      "final": "https://ovhcloud.com/legal/processor-terms",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/privacy/dpa",
-      "final": "https://apryse.com/privacy/dpa",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/gdpr/dpa",
+      "final": "https://ovhcloud.com/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/legal/gdpr/dpa",
-      "final": "https://apryse.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.com/legal/data-processing",
-      "final": "https://apryse.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.com/data-processing",
-      "final": "https://apryse.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "apryse",
-      "url": "https://apryse.com/subprocessors",
-      "final": "https://apryse.com/subprocessors",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/subprocessors",
+      "final": "https://ovhcloud.com/subprocessors",
       "reason": "http-404",
       "kind": "subprocessors"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/sub-processors",
-      "final": "https://apryse.com/sub-processors",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/data-processing",
+      "final": "https://ovhcloud.com/data-processing",
+      "reason": "http-404",
+      "kind": "dpa"
+    },
+    {
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/sub-processors",
+      "final": "https://ovhcloud.com/sub-processors",
       "reason": "http-404",
       "kind": "subprocessors"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/legal/sub-processors",
-      "final": "https://apryse.com/legal/sub-processors",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/legal/subprocessors",
+      "final": "https://ovhcloud.com/legal/subprocessors",
       "reason": "http-404",
       "kind": "subprocessors"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/legal/subprocessors",
-      "final": "https://apryse.com/legal/subprocessors",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/privacy/subprocessors",
+      "final": "https://ovhcloud.com/privacy/subprocessors",
       "reason": "http-404",
       "kind": "subprocessors"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/privacy/subprocessors",
-      "final": "https://apryse.com/privacy/subprocessors",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/legal/sub-processors",
+      "final": "https://ovhcloud.com/legal/sub-processors",
       "reason": "http-404",
       "kind": "subprocessors"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/legal/service-providers",
-      "final": "https://apryse.com/legal/service-providers",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/legal/service-providers",
+      "final": "https://ovhcloud.com/legal/service-providers",
       "reason": "http-404",
       "kind": "subprocessors"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/company/subprocessors",
-      "final": "https://apryse.com/company/subprocessors",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/company/subprocessors",
+      "final": "https://ovhcloud.com/company/subprocessors",
       "reason": "http-404",
       "kind": "subprocessors"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/trust/subprocessors",
-      "final": "https://apryse.com/trust/subprocessors",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/trust/subprocessors",
+      "final": "https://ovhcloud.com/trust/subprocessors",
       "reason": "http-404",
       "kind": "subprocessors"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/legal/sub-processors-page",
-      "final": "https://apryse.com/legal/sub-processors-page",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/legal/sub-processors-page",
+      "final": "https://ovhcloud.com/legal/sub-processors-page",
       "reason": "http-404",
       "kind": "subprocessors"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/company/about",
-      "final": "https://apryse.com/company/about",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/company/our-story",
+      "final": "https://ovhcloud.com/company/our-story",
       "reason": "http-404",
       "kind": "about"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/our-story",
-      "final": "https://apryse.com/our-story",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/company/about",
+      "final": "https://ovhcloud.com/company/about",
       "reason": "http-404",
       "kind": "about"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/our-company",
-      "final": "https://apryse.com/our-company",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/our-story",
+      "final": "https://ovhcloud.com/our-story",
       "reason": "http-404",
       "kind": "about"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/who-we-are",
-      "final": "https://apryse.com/who-we-are",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/our-company",
+      "final": "https://ovhcloud.com/our-company",
       "reason": "http-404",
       "kind": "about"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/en/about",
-      "final": "https://apryse.com/en/about",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/who-we-are",
+      "final": "https://ovhcloud.com/who-we-are",
       "reason": "http-404",
       "kind": "about"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/about/our-story",
-      "final": "https://apryse.com/about/our-story",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/about/our-story",
+      "final": "https://ovhcloud.com/about/our-story",
       "reason": "http-404",
       "kind": "about"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/en/company",
-      "final": "https://apryse.com/en/company",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/en/about",
+      "final": "https://ovhcloud.com/en/about",
       "reason": "http-404",
       "kind": "about"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/newsroom",
-      "final": "https://apryse.com/newsroom",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/press",
+      "final": "https://ovhcloud.com/press",
       "reason": "http-404",
       "kind": "about"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/company/press",
-      "final": "https://apryse.com/company/press",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/en/company",
+      "final": "https://ovhcloud.com/en/company",
       "reason": "http-404",
       "kind": "about"
     },
     {
-      "slug": "apryse",
-      "url": "https://apryse.com/press",
-      "final": "https://apryse.com/press",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/newsroom",
+      "final": "https://ovhcloud.com/newsroom",
       "reason": "http-404",
       "kind": "about"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://trust.saicom.io",
-      "final": "https://trust.saicom.io",
+      "slug": "ovhcloud",
+      "url": "https://ovhcloud.com/company/press",
+      "final": "https://ovhcloud.com/company/press",
+      "reason": "http-404",
+      "kind": "about"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://trust.vonage.com",
+      "final": "https://trust.vonage.com",
       "reason": "http-0",
       "kind": "trust"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://security.saicom.io",
-      "final": "https://security.saicom.io",
+      "slug": "vonage",
+      "url": "https://security.vonage.com",
+      "final": "https://security.vonage.com",
       "reason": "http-0",
       "kind": "security"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://trustcenter.saicom.io",
-      "final": "https://trustcenter.saicom.io",
+      "slug": "vonage",
+      "url": "https://compliance.vonage.com",
+      "final": "https://compliance.vonage.com",
+      "reason": "http-0",
+      "kind": "compliance"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://assurance.vonage.com",
+      "final": "https://assurance.vonage.com",
+      "reason": "http-0",
+      "kind": "compliance"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://trustcenter.vonage.com",
+      "final": "https://trustcenter.vonage.com",
       "reason": "http-0",
       "kind": "trust"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://compliance.saicom.io",
-      "final": "https://compliance.saicom.io",
+      "slug": "vonage",
+      "url": "https://vonage.safebase.io",
+      "final": "https://vonage.safebase.io",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://vonage.com/trust",
+      "final": "https://vonage.com/trust",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://vonage.safebase.us",
+      "final": "https://vonage.safebase.us",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://vonage.com/trust-center",
+      "final": "https://vonage.com/trust-center",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://vonage.com/security",
+      "final": "https://vonage.com/security",
+      "reason": "http-403",
+      "kind": "security"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://www.vonage.com/privacy",
+      "final": "https://www.vonage.com/privacy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://vonage.secureframetrust.com",
+      "final": "https://vonage.secureframetrust.com",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://vonage.com/privacy",
+      "final": "https://vonage.com/privacy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://www.vonage.com/privacy-policy",
+      "final": "https://www.vonage.com/privacy-policy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://vonage.com/privacy-policy",
+      "final": "https://vonage.com/privacy-policy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://www.vonage.com/privacy-notice",
+      "final": "https://www.vonage.com/privacy-notice",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://vonage.com/privacy-notice",
+      "final": "https://vonage.com/privacy-notice",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://www.vonage.com/privacy-statement",
+      "final": "https://www.vonage.com/privacy-statement",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://vonage.securitypal.com",
+      "final": "https://vonage.securitypal.com",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://vonage.com/privacy-statement",
+      "final": "https://vonage.com/privacy-statement",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://www.vonage.com/security",
+      "final": "https://www.vonage.com/security",
+      "reason": "http-403",
+      "kind": "security"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://vonage.trust.site",
+      "final": "https://vonage.trust.site",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://www.vonage.com/trust",
+      "final": "https://www.vonage.com/trust",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://www.vonage.com/trust-center",
+      "final": "https://www.vonage.com/trust-center",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://www.vonage.com/compliance",
+      "final": "https://www.vonage.com/compliance",
+      "reason": "http-403",
+      "kind": "compliance"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://vonage.com/compliance",
+      "final": "https://vonage.com/compliance",
+      "reason": "http-403",
+      "kind": "compliance"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://vonage.com",
+      "final": "https://vonage.com",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://vonage.com/about",
+      "final": "https://vonage.com/about",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://vonage.com/about/company",
+      "final": "https://vonage.com/about/company",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://vonage.com/about-us",
+      "final": "https://vonage.com/about-us",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://vonage.com/company",
+      "final": "https://vonage.com/company",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "vonage",
+      "url": "https://vonage.com/about/us",
+      "final": "https://vonage.com/about/us",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://trust.netsuite.com",
+      "final": "https://trust.netsuite.com",
+      "reason": "http-0",
+      "kind": "trust"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://security.netsuite.com",
+      "final": "https://security.netsuite.com",
+      "reason": "http-0",
+      "kind": "security"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://compliance.netsuite.com",
+      "final": "https://compliance.netsuite.com",
       "reason": "http-0",
       "kind": "compliance"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://assurance.saicom.io",
-      "final": "https://assurance.saicom.io",
+      "slug": "netsuite",
+      "url": "https://trustcenter.netsuite.com",
+      "final": "https://trustcenter.netsuite.com",
+      "reason": "http-0",
+      "kind": "trust"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://assurance.netsuite.com",
+      "final": "https://assurance.netsuite.com",
       "reason": "http-0",
       "kind": "compliance"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom-voice-services.safebase.us",
-      "final": "https://saicom-voice-services.safebase.us",
+      "slug": "netsuite",
+      "url": "https://netsuite.safebase.io",
+      "final": "https://netsuite.safebase.io",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom-voice-services.safebase.io",
-      "final": "https://saicom-voice-services.safebase.io",
+      "slug": "netsuite",
+      "url": "https://netsuite.safebase.us",
+      "final": "https://netsuite.safebase.us",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom-voice-services.secureframetrust.com",
-      "final": "https://saicom-voice-services.secureframetrust.com",
+      "slug": "netsuite",
+      "url": "https://netsuite.secureframetrust.com",
+      "final": "https://netsuite.secureframetrust.com",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicomvoiceservices.safebase.us",
-      "final": "https://saicomvoiceservices.safebase.us",
+      "slug": "netsuite",
+      "url": "https://www.netsuite.com/privacy",
+      "final": "https://www.netsuite.com/privacy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://netsuite.securitypal.com",
+      "final": "https://netsuite.securitypal.com",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicomvoiceservices.safebase.io",
-      "final": "https://saicomvoiceservices.safebase.io",
+      "slug": "netsuite",
+      "url": "https://netsuite.com/privacy-statement",
+      "final": "https://netsuite.com/privacy-statement",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://netsuite.com/privacy-policy",
+      "final": "https://netsuite.com/privacy-policy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://netsuite.com/privacy-notice",
+      "final": "https://netsuite.com/privacy-notice",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://netsuite.trust.site",
+      "final": "https://netsuite.trust.site",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom-voice-services.trust.site",
-      "final": "https://saicom-voice-services.trust.site",
+      "slug": "netsuite",
+      "url": "https://www.netsuite.com/privacy-statement",
+      "final": "https://www.netsuite.com/privacy-statement",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://www.netsuite.com/trust",
+      "final": "https://www.netsuite.com/trust",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://www.netsuite.com/compliance",
+      "final": "https://www.netsuite.com/compliance",
+      "reason": "http-403",
+      "kind": "compliance"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://netsuite.com/security",
+      "final": "https://netsuite.com/security",
+      "reason": "http-403",
+      "kind": "security"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://netsuite.com/trust",
+      "final": "https://netsuite.com/trust",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://netsuite.com/trust-center",
+      "final": "https://netsuite.com/trust-center",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://www.netsuite.com/security",
+      "final": "https://www.netsuite.com/security",
+      "reason": "http-403",
+      "kind": "security"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://netsuite.com/about-us",
+      "final": "https://netsuite.com/about-us",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://netsuite.com/compliance",
+      "final": "https://netsuite.com/compliance",
+      "reason": "http-403",
+      "kind": "compliance"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://www.netsuite.com/privacy-notice",
+      "final": "https://www.netsuite.com/privacy-notice",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://www.netsuite.com/trust-center",
+      "final": "https://www.netsuite.com/trust-center",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://www.netsuite.com/privacy-policy",
+      "final": "https://www.netsuite.com/privacy-policy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://netsuite.com/privacy",
+      "final": "https://netsuite.com/privacy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://netsuite.com",
+      "final": "https://netsuite.com",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://netsuite.com/company",
+      "final": "https://netsuite.com/company",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://netsuite.com/about/us",
+      "final": "https://netsuite.com/about/us",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://netsuite.com/about",
+      "final": "https://netsuite.com/about",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "netsuite",
+      "url": "https://netsuite.com/about/company",
+      "final": "https://netsuite.com/about/company",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://security.vultr.com",
+      "final": "https://security.vultr.com",
+      "reason": "http-0",
+      "kind": "security"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://trust.vultr.com",
+      "final": "https://trust.vultr.com",
+      "reason": "http-0",
+      "kind": "trust"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://compliance.vultr.com",
+      "final": "https://compliance.vultr.com",
+      "reason": "http-0",
+      "kind": "compliance"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://assurance.vultr.com",
+      "final": "https://assurance.vultr.com",
+      "reason": "http-0",
+      "kind": "compliance"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://trustcenter.vultr.com",
+      "final": "https://trustcenter.vultr.com",
+      "reason": "http-0",
+      "kind": "trust"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://vultr.com/trust",
+      "final": "https://vultr.com/trust",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://vultr.com/trust-center",
+      "final": "https://vultr.com/trust-center",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://vultr.safebase.io",
+      "final": "https://vultr.safebase.io",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom-voice-services.securitypal.com",
-      "final": "https://saicom-voice-services.securitypal.com",
+      "slug": "vultr",
+      "url": "https://vultr.safebase.us",
+      "final": "https://vultr.safebase.us",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.safebase.us",
-      "final": "https://saicom.safebase.us",
+      "slug": "vultr",
+      "url": "https://vultr.com/security",
+      "final": "https://vultr.com/security",
+      "reason": "http-403",
+      "kind": "security"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://www.vultr.com/privacy",
+      "final": "https://www.vultr.com/privacy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://www.vultr.com/privacy-policy",
+      "final": "https://www.vultr.com/privacy-policy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://www.vultr.com/privacy-notice",
+      "final": "https://www.vultr.com/privacy-notice",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://vultr.com/privacy-policy",
+      "final": "https://vultr.com/privacy-policy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://vultr.com/privacy",
+      "final": "https://vultr.com/privacy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://vultr.com/privacy-notice",
+      "final": "https://vultr.com/privacy-notice",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://www.vultr.com/privacy-statement",
+      "final": "https://www.vultr.com/privacy-statement",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://www.vultr.com/security",
+      "final": "https://www.vultr.com/security",
+      "reason": "http-403",
+      "kind": "security"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://vultr.secureframetrust.com",
+      "final": "https://vultr.secureframetrust.com",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.safebase.io",
-      "final": "https://saicom.safebase.io",
+      "slug": "vultr",
+      "url": "https://www.vultr.com/compliance",
+      "final": "https://www.vultr.com/compliance",
+      "reason": "http-403",
+      "kind": "compliance"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://vultr.com/privacy-statement",
+      "final": "https://vultr.com/privacy-statement",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://www.vultr.com/trust",
+      "final": "https://www.vultr.com/trust",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://www.vultr.com/trust-center",
+      "final": "https://www.vultr.com/trust-center",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://vultr.com/compliance",
+      "final": "https://vultr.com/compliance",
+      "reason": "http-403",
+      "kind": "compliance"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://vultr.com",
+      "final": "https://vultr.com",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://vultr.com/about-us",
+      "final": "https://vultr.com/about-us",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://vultr.com/about/company",
+      "final": "https://vultr.com/about/company",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://vultr.com/about",
+      "final": "https://vultr.com/about",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://vultr.com/about/us",
+      "final": "https://vultr.com/about/us",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://vultr.securitypal.com",
+      "final": "https://vultr.securitypal.com",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicomvoiceservices.trust.site",
-      "final": "https://saicomvoiceservices.trust.site",
+      "slug": "vultr",
+      "url": "https://vultr.com/company",
+      "final": "https://vultr.com/company",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "vultr",
+      "url": "https://vultr.trust.site",
+      "final": "https://vultr.trust.site",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.secureframetrust.com",
-      "final": "https://saicom.secureframetrust.com",
+      "slug": "taskus",
+      "url": "https://trust.taskus.com",
+      "final": "https://trust.taskus.com",
+      "reason": "http-0",
+      "kind": "trust"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://security.taskus.com",
+      "final": "https://security.taskus.com",
+      "reason": "http-0",
+      "kind": "security"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://compliance.taskus.com",
+      "final": "https://compliance.taskus.com",
+      "reason": "http-0",
+      "kind": "compliance"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://assurance.taskus.com",
+      "final": "https://assurance.taskus.com",
+      "reason": "http-0",
+      "kind": "compliance"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://trustcenter.taskus.com",
+      "final": "https://trustcenter.taskus.com",
+      "reason": "http-0",
+      "kind": "trust"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://taskus.com/",
+      "final": "https://taskus.com/",
+      "reason": "http-403",
+      "kind": "official"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://taskus.safebase.io",
+      "final": "https://taskus.safebase.io",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicomvoiceservices.secureframetrust.com",
-      "final": "https://saicomvoiceservices.secureframetrust.com",
+      "slug": "taskus",
+      "url": "https://taskus.com/security",
+      "final": "https://taskus.com/security",
+      "reason": "http-403",
+      "kind": "security"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://taskus.com/trust-center",
+      "final": "https://taskus.com/trust-center",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://taskus.com/trust",
+      "final": "https://taskus.com/trust",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://taskus.safebase.us",
+      "final": "https://taskus.safebase.us",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.trust.site",
-      "final": "https://saicom.trust.site",
+      "slug": "taskus",
+      "url": "https://www.taskus.com/privacy",
+      "final": "https://www.taskus.com/privacy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://www.taskus.com/privacy-policy",
+      "final": "https://www.taskus.com/privacy-policy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://taskus.com/privacy",
+      "final": "https://taskus.com/privacy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://taskus.com/privacy-policy",
+      "final": "https://taskus.com/privacy-policy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://taskus.com/privacy-notice",
+      "final": "https://taskus.com/privacy-notice",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://www.taskus.com/privacy-notice",
+      "final": "https://www.taskus.com/privacy-notice",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://www.taskus.com/trust",
+      "final": "https://www.taskus.com/trust",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://taskus.com/privacy-statement",
+      "final": "https://taskus.com/privacy-statement",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://www.taskus.com/security",
+      "final": "https://www.taskus.com/security",
+      "reason": "http-403",
+      "kind": "security"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://www.taskus.com/privacy-statement",
+      "final": "https://www.taskus.com/privacy-statement",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://taskus.com/about",
+      "final": "https://taskus.com/about",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://taskus.com/compliance",
+      "final": "https://taskus.com/compliance",
+      "reason": "http-403",
+      "kind": "compliance"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://www.taskus.com/trust-center",
+      "final": "https://www.taskus.com/trust-center",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://www.taskus.com/compliance",
+      "final": "https://www.taskus.com/compliance",
+      "reason": "http-403",
+      "kind": "compliance"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://taskus.com/about-us",
+      "final": "https://taskus.com/about-us",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://taskus.com/about/us",
+      "final": "https://taskus.com/about/us",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://taskus.com/company",
+      "final": "https://taskus.com/company",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://taskus.secureframetrust.com",
+      "final": "https://taskus.secureframetrust.com",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.securitypal.com",
-      "final": "https://saicom.securitypal.com",
+      "slug": "taskus",
+      "url": "https://taskus.com/about/company",
+      "final": "https://taskus.com/about/company",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "taskus",
+      "url": "https://taskus.securitypal.com",
+      "final": "https://taskus.securitypal.com",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicomvoiceservices.securitypal.com",
-      "final": "https://saicomvoiceservices.securitypal.com",
+      "slug": "taskus",
+      "url": "https://taskus.trust.site",
+      "final": "https://taskus.trust.site",
       "reason": "portal-host",
       "kind": "portal"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/trust-center",
-      "final": "https://saicom.io/trust-center",
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://trust.transunion.com",
+      "final": "https://trust.transunion.com",
+      "reason": "http-0",
+      "kind": "trust"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://security.transunion.com",
+      "final": "https://security.transunion.com",
+      "reason": "http-0",
+      "kind": "security"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://compliance.transunion.com",
+      "final": "https://compliance.transunion.com",
+      "reason": "http-0",
+      "kind": "compliance"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://assurance.transunion.com",
+      "final": "https://assurance.transunion.com",
+      "reason": "http-0",
+      "kind": "compliance"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://trustcenter.transunion.com",
+      "final": "https://trustcenter.transunion.com",
+      "reason": "http-0",
+      "kind": "trust"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion-formerly-neustar-information-services.safebase.io",
+      "final": "https://transunion-formerly-neustar-information-services.safebase.io",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion.com/trust-center",
+      "final": "https://transunion.com/trust-center",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion.com/security",
+      "final": "https://transunion.com/security",
+      "reason": "http-403",
+      "kind": "security"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion.com/trust",
+      "final": "https://transunion.com/trust",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunionformerlyneustarinformationservices.safebase.io",
+      "final": "https://transunionformerlyneustarinformationservices.safebase.io",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion-formerly-neustar-information-services.safebase.us",
+      "final": "https://transunion-formerly-neustar-information-services.safebase.us",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion.safebase.io",
+      "final": "https://transunion.safebase.io",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunionformerlyneustarinformationservices.safebase.us",
+      "final": "https://transunionformerlyneustarinformationservices.safebase.us",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion.safebase.us",
+      "final": "https://transunion.safebase.us",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion.com/privacy",
+      "final": "https://transunion.com/privacy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion.com/privacy-policy",
+      "final": "https://transunion.com/privacy-policy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://www.transunion.com/privacy",
+      "final": "https://www.transunion.com/privacy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunionformerlyneustarinformationservices.secureframetrust.com",
+      "final": "https://transunionformerlyneustarinformationservices.secureframetrust.com",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion.com/privacy-notice",
+      "final": "https://transunion.com/privacy-notice",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://www.transunion.com/privacy-policy",
+      "final": "https://www.transunion.com/privacy-policy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://www.transunion.com/privacy-notice",
+      "final": "https://www.transunion.com/privacy-notice",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion.com/privacy-statement",
+      "final": "https://transunion.com/privacy-statement",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://www.transunion.com/trust",
+      "final": "https://www.transunion.com/trust",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://www.transunion.com/privacy-statement",
+      "final": "https://www.transunion.com/privacy-statement",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://www.transunion.com/security",
+      "final": "https://www.transunion.com/security",
+      "reason": "http-403",
+      "kind": "security"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion-formerly-neustar-information-services.securitypal.com",
+      "final": "https://transunion-formerly-neustar-information-services.securitypal.com",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunionformerlyneustarinformationservices.securitypal.com",
+      "final": "https://transunionformerlyneustarinformationservices.securitypal.com",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion.com/compliance",
+      "final": "https://transunion.com/compliance",
+      "reason": "http-403",
+      "kind": "compliance"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://www.transunion.com/compliance",
+      "final": "https://www.transunion.com/compliance",
+      "reason": "http-403",
+      "kind": "compliance"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion.com",
+      "final": "https://transunion.com",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://www.transunion.com/trust-center",
+      "final": "https://www.transunion.com/trust-center",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion.com/about",
+      "final": "https://transunion.com/about",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion.com/about/company",
+      "final": "https://transunion.com/about/company",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion.com/about-us",
+      "final": "https://transunion.com/about-us",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion-formerly-neustar-information-services.trust.site",
+      "final": "https://transunion-formerly-neustar-information-services.trust.site",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion.com/about/us",
+      "final": "https://transunion.com/about/us",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunionformerlyneustarinformationservices.trust.site",
+      "final": "https://transunionformerlyneustarinformationservices.trust.site",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion.com/company",
+      "final": "https://transunion.com/company",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion.securitypal.com",
+      "final": "https://transunion.securitypal.com",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion.trust.site",
+      "final": "https://transunion.trust.site",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion.secureframetrust.com",
+      "final": "https://transunion.secureframetrust.com",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "url": "https://transunion-formerly-neustar-information-services.secureframetrust.com",
+      "final": "https://transunion-formerly-neustar-information-services.secureframetrust.com",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://security.telesign.com",
+      "final": "https://security.telesign.com",
+      "reason": "http-0",
+      "kind": "security"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://compliance.telesign.com",
+      "final": "https://compliance.telesign.com",
+      "reason": "http-0",
+      "kind": "compliance"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://assurance.telesign.com",
+      "final": "https://assurance.telesign.com",
+      "reason": "http-0",
+      "kind": "compliance"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://trustcenter.telesign.com",
+      "final": "https://trustcenter.telesign.com",
+      "reason": "http-0",
+      "kind": "trust"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://telesign.com/trust",
+      "final": "https://telesign.com/trust",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://telesign.com/",
+      "final": "https://telesign.com/",
+      "reason": "http-403",
+      "kind": "official"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://telesign.com/trust-center",
+      "final": "https://telesign.com/trust-center",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://telesign.safebase.io",
+      "final": "https://telesign.safebase.io",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://telesign.com/security",
+      "final": "https://telesign.com/security",
+      "reason": "http-403",
+      "kind": "security"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://telesign.safebase.us",
+      "final": "https://telesign.safebase.us",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://telesign.com/privacy-policy",
+      "final": "https://telesign.com/privacy-policy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://telesign.com/privacy",
+      "final": "https://telesign.com/privacy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://telesign.com/privacy-notice",
+      "final": "https://telesign.com/privacy-notice",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://www.telesign.com/privacy",
+      "final": "https://www.telesign.com/privacy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://www.telesign.com/privacy-policy",
+      "final": "https://www.telesign.com/privacy-policy",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://www.telesign.com/privacy-notice",
+      "final": "https://www.telesign.com/privacy-notice",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://www.telesign.com/privacy-statement",
+      "final": "https://www.telesign.com/privacy-statement",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://telesign.com/privacy-statement",
+      "final": "https://telesign.com/privacy-statement",
+      "reason": "http-403",
+      "kind": "privacy"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://www.telesign.com/security",
+      "final": "https://www.telesign.com/security",
+      "reason": "http-403",
+      "kind": "security"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://telesign.com/compliance",
+      "final": "https://telesign.com/compliance",
+      "reason": "http-403",
+      "kind": "compliance"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://www.telesign.com/trust",
+      "final": "https://www.telesign.com/trust",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://telesign.com/about",
+      "final": "https://telesign.com/about",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://telesign.com/about-us",
+      "final": "https://telesign.com/about-us",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://www.telesign.com/trust-center",
+      "final": "https://www.telesign.com/trust-center",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://telesign.com/about/us",
+      "final": "https://telesign.com/about/us",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://telesign.com/about/company",
+      "final": "https://telesign.com/about/company",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://www.telesign.com/compliance",
+      "final": "https://www.telesign.com/compliance",
+      "reason": "http-403",
+      "kind": "compliance"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://telesign.com/company",
+      "final": "https://telesign.com/company",
+      "reason": "http-403",
+      "kind": "about"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://telesign.secureframetrust.com",
+      "final": "https://telesign.secureframetrust.com",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://telesign.securitypal.com",
+      "final": "https://telesign.securitypal.com",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://trust.telesign.com",
+      "final": "https://trust.telesign.com",
+      "reason": "http-403",
+      "kind": "trust"
+    },
+    {
+      "slug": "telesign",
+      "url": "https://telesign.trust.site",
+      "final": "https://telesign.trust.site",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "looker",
+      "url": "https://trust.looker.com",
+      "final": "https://trust.looker.com",
+      "reason": "http-0",
+      "kind": "trust"
+    },
+    {
+      "slug": "looker",
+      "url": "https://security.looker.com",
+      "final": "https://security.looker.com",
+      "reason": "http-0",
+      "kind": "security"
+    },
+    {
+      "slug": "looker",
+      "url": "https://compliance.looker.com",
+      "final": "https://compliance.looker.com",
+      "reason": "http-0",
+      "kind": "compliance"
+    },
+    {
+      "slug": "looker",
+      "url": "https://assurance.looker.com",
+      "final": "https://assurance.looker.com",
+      "reason": "http-0",
+      "kind": "compliance"
+    },
+    {
+      "slug": "looker",
+      "url": "https://trustcenter.looker.com",
+      "final": "https://trustcenter.looker.com",
+      "reason": "http-0",
+      "kind": "trust"
+    },
+    {
+      "slug": "looker",
+      "url": "https://looker.safebase.io",
+      "final": "https://looker.safebase.io",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "looker",
+      "url": "https://looker.safebase.us",
+      "final": "https://looker.safebase.us",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "looker",
+      "url": "https://looker.securitypal.com",
+      "final": "https://looker.securitypal.com",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "looker",
+      "url": "https://looker.secureframetrust.com",
+      "final": "https://looker.secureframetrust.com",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "looker",
+      "url": "https://looker.com/trust-center",
+      "final": "https://cloud.google.com/product-terms",
+      "reason": "not-first-party",
+      "kind": "trust"
+    },
+    {
+      "slug": "looker",
+      "url": "https://looker.trust.site",
+      "final": "https://looker.trust.site",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "looker",
+      "url": "https://looker.com/trust",
+      "final": "https://cloud.google.com/looker-bi",
+      "reason": "not-first-party",
+      "kind": "trust"
+    },
+    {
+      "slug": "looker",
+      "url": "https://looker.com/security",
+      "final": "https://cloud.google.com/looker-bi",
+      "reason": "not-first-party",
+      "kind": "security"
+    },
+    {
+      "slug": "looker",
+      "url": "https://looker.com/privacy-statement",
+      "final": "https://cloud.google.com/looker-bi",
+      "reason": "not-first-party",
+      "kind": "privacy"
+    },
+    {
+      "slug": "looker",
+      "url": "https://looker.com/privacy-notice",
+      "final": "https://cloud.google.com/looker-bi",
+      "reason": "not-first-party",
+      "kind": "privacy"
+    },
+    {
+      "slug": "looker",
+      "url": "https://looker.com/privacy-policy",
+      "final": "https://cloud.google.com/looker-bi",
+      "reason": "not-first-party",
+      "kind": "privacy"
+    },
+    {
+      "slug": "looker",
+      "url": "https://www.looker.com/privacy-policy",
+      "final": "https://cloud.google.com/looker-bi",
+      "reason": "not-first-party",
+      "kind": "privacy"
+    },
+    {
+      "slug": "looker",
+      "url": "https://www.looker.com/privacy-notice",
+      "final": "https://cloud.google.com/looker-bi",
+      "reason": "not-first-party",
+      "kind": "privacy"
+    },
+    {
+      "slug": "looker",
+      "url": "https://www.looker.com/security",
+      "final": "https://cloud.google.com/looker-bi",
+      "reason": "not-first-party",
+      "kind": "security"
+    },
+    {
+      "slug": "looker",
+      "url": "https://www.looker.com/privacy-statement",
+      "final": "https://cloud.google.com/looker-bi",
+      "reason": "not-first-party",
+      "kind": "privacy"
+    },
+    {
+      "slug": "looker",
+      "url": "https://looker.com/compliance",
+      "final": "https://cloud.google.com/looker-bi",
+      "reason": "not-first-party",
+      "kind": "compliance"
+    },
+    {
+      "slug": "looker",
+      "url": "https://www.looker.com/trust",
+      "final": "https://cloud.google.com/looker-bi",
+      "reason": "not-first-party",
+      "kind": "trust"
+    },
+    {
+      "slug": "looker",
+      "url": "https://www.looker.com/trust-center",
+      "final": "https://cloud.google.com/product-terms",
+      "reason": "not-first-party",
+      "kind": "trust"
+    },
+    {
+      "slug": "looker",
+      "url": "https://looker.com/privacy",
+      "final": "https://cloud.google.com/terms/cloud-acquisitions-privacy-notice",
+      "reason": "not-first-party",
+      "kind": "privacy"
+    },
+    {
+      "slug": "looker",
+      "url": "https://looker.com/about/company",
+      "final": "https://cloud.google.com/looker-bi",
+      "reason": "not-first-party",
+      "kind": "about"
+    },
+    {
+      "slug": "looker",
+      "url": "https://looker.com/about/us",
+      "final": "https://cloud.google.com/looker-bi",
+      "reason": "not-first-party",
+      "kind": "about"
+    },
+    {
+      "slug": "looker",
+      "url": "https://looker.com",
+      "final": "https://cloud.google.com/looker",
+      "reason": "not-first-party",
+      "kind": "about"
+    },
+    {
+      "slug": "looker",
+      "url": "https://www.looker.com/compliance",
+      "final": "https://cloud.google.com/looker-bi",
+      "reason": "not-first-party",
+      "kind": "compliance"
+    },
+    {
+      "slug": "looker",
+      "url": "https://looker.com/about",
+      "final": "https://cloud.google.com/looker-bi",
+      "reason": "not-first-party",
+      "kind": "about"
+    },
+    {
+      "slug": "looker",
+      "url": "https://www.looker.com/privacy",
+      "final": "https://cloud.google.com/terms/cloud-acquisitions-privacy-notice",
+      "reason": "not-first-party",
+      "kind": "privacy"
+    },
+    {
+      "slug": "looker",
+      "url": "https://looker.com/about-us",
+      "final": "https://cloud.google.com/looker-bi",
+      "reason": "not-first-party",
+      "kind": "about"
+    },
+    {
+      "slug": "looker",
+      "url": "https://looker.com/company",
+      "final": "https://cloud.google.com/looker-bi",
+      "reason": "not-first-party",
+      "kind": "about"
+    },
+    {
+      "slug": "redis",
+      "url": "https://trust.redislabs.com",
+      "final": "https://trust.redislabs.com",
+      "reason": "http-0",
+      "kind": "trust"
+    },
+    {
+      "slug": "redis",
+      "url": "https://security.redislabs.com",
+      "final": "https://security.redislabs.com",
+      "reason": "http-0",
+      "kind": "security"
+    },
+    {
+      "slug": "redis",
+      "url": "https://compliance.redislabs.com",
+      "final": "https://compliance.redislabs.com",
+      "reason": "http-0",
+      "kind": "compliance"
+    },
+    {
+      "slug": "redis",
+      "url": "https://assurance.redislabs.com",
+      "final": "https://assurance.redislabs.com",
+      "reason": "http-0",
+      "kind": "compliance"
+    },
+    {
+      "slug": "redis",
+      "url": "https://trustcenter.redislabs.com",
+      "final": "https://trustcenter.redislabs.com",
+      "reason": "http-0",
+      "kind": "trust"
+    },
+    {
+      "slug": "redis",
+      "url": "https://redislabs.com/trust",
+      "final": "https://redislabs.com/trust",
       "reason": "http-404",
       "kind": "trust"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/security",
-      "final": "https://saicom.io/security",
+      "slug": "redis",
+      "url": "https://redis.safebase.io",
+      "final": "https://redis.safebase.io",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "redis",
+      "url": "https://redis.safebase.us",
+      "final": "https://redis.safebase.us",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "redis",
+      "url": "https://redislabs.com/trust-center",
+      "final": "https://redislabs.com/trust-center",
+      "reason": "http-404",
+      "kind": "trust"
+    },
+    {
+      "slug": "redis",
+      "url": "https://redislabs.com/security",
+      "final": "https://redislabs.com/security",
       "reason": "http-404",
       "kind": "security"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/trust",
-      "final": "https://saicom.io/trust",
-      "reason": "http-404",
-      "kind": "trust"
+      "slug": "redis",
+      "url": "https://redislabs.safebase.io",
+      "final": "https://redislabs.safebase.io",
+      "reason": "portal-host",
+      "kind": "portal"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/privacy-notice",
-      "final": "https://saicom.io/privacy-notice",
-      "reason": "http-404",
-      "kind": "privacy"
+      "slug": "redis",
+      "url": "https://redislabs.safebase.us",
+      "final": "https://redislabs.safebase.us",
+      "reason": "portal-host",
+      "kind": "portal"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/privacy",
-      "final": "https://saicom.io/privacy-policy/",
-      "reason": "no-named-marks",
-      "kind": "privacy"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/privacy-statement",
-      "final": "https://saicom.io/privacy-statement",
+      "slug": "redis",
+      "url": "https://redislabs.com/privacy",
+      "final": "https://redislabs.com/privacy",
       "reason": "http-404",
       "kind": "privacy"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/privacy-policy",
-      "final": "https://saicom.io/privacy-policy/",
-      "reason": "no-named-marks",
-      "kind": "privacy"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://www.saicom.io/privacy-policy",
-      "final": "https://saicom.io/privacy-policy/",
-      "reason": "no-named-marks",
-      "kind": "privacy"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://www.saicom.io/privacy",
-      "final": "https://saicom.io/privacy-policy/",
-      "reason": "no-named-marks",
-      "kind": "privacy"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://www.saicom.io/privacy-statement",
-      "final": "https://www.saicom.io/privacy-statement",
+      "slug": "redis",
+      "url": "https://www.redislabs.com/privacy-policy",
+      "final": "https://www.redislabs.com/privacy-policy",
       "reason": "http-404",
       "kind": "privacy"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://www.saicom.io/privacy-notice",
-      "final": "https://www.saicom.io/privacy-notice",
+      "slug": "redis",
+      "url": "https://redislabs.com/privacy-policy",
+      "final": "https://redislabs.com/privacy-policy",
       "reason": "http-404",
       "kind": "privacy"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://www.saicom.io/security",
-      "final": "https://www.saicom.io/security",
+      "slug": "redis",
+      "url": "https://www.redislabs.com/privacy",
+      "final": "https://www.redislabs.com/privacy",
+      "reason": "http-404",
+      "kind": "privacy"
+    },
+    {
+      "slug": "redis",
+      "url": "https://redislabs.com/privacy-notice",
+      "final": "https://redislabs.com/privacy-notice",
+      "reason": "http-404",
+      "kind": "privacy"
+    },
+    {
+      "slug": "redis",
+      "url": "https://redis.secureframetrust.com",
+      "final": "https://redis.secureframetrust.com",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "redis",
+      "url": "https://redis.securitypal.com",
+      "final": "https://redis.securitypal.com",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "redis",
+      "url": "https://www.redislabs.com/privacy-notice",
+      "final": "https://www.redislabs.com/privacy-notice",
+      "reason": "http-404",
+      "kind": "privacy"
+    },
+    {
+      "slug": "redis",
+      "url": "https://redislabs.securitypal.com",
+      "final": "https://redislabs.securitypal.com",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "redis",
+      "url": "https://redis.trust.site",
+      "final": "https://redis.trust.site",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "redis",
+      "url": "https://redislabs.com/privacy-statement",
+      "final": "https://redislabs.com/privacy-statement",
+      "reason": "http-404",
+      "kind": "privacy"
+    },
+    {
+      "slug": "redis",
+      "url": "https://www.redislabs.com/privacy-statement",
+      "final": "https://www.redislabs.com/privacy-statement",
+      "reason": "http-404",
+      "kind": "privacy"
+    },
+    {
+      "slug": "redis",
+      "url": "https://redislabs.com/compliance",
+      "final": "https://redislabs.com/compliance",
+      "reason": "http-404",
+      "kind": "compliance"
+    },
+    {
+      "slug": "redis",
+      "url": "https://www.redislabs.com/security",
+      "final": "https://www.redislabs.com/security",
       "reason": "http-404",
       "kind": "security"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/compliance",
-      "final": "https://saicom.io/compliance",
+      "slug": "redis",
+      "url": "https://redislabs.secureframetrust.com",
+      "final": "https://redislabs.secureframetrust.com",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "redis",
+      "url": "https://redislabs.trust.site",
+      "final": "https://redislabs.trust.site",
+      "reason": "portal-host",
+      "kind": "portal"
+    },
+    {
+      "slug": "redis",
+      "url": "https://redislabs.com/about-us",
+      "final": "https://redislabs.com/about-us",
+      "reason": "http-404",
+      "kind": "about"
+    },
+    {
+      "slug": "redis",
+      "url": "https://www.redislabs.com/compliance",
+      "final": "https://www.redislabs.com/compliance",
       "reason": "http-404",
       "kind": "compliance"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://www.saicom.io/trust",
-      "final": "https://www.saicom.io/trust",
+      "slug": "redis",
+      "url": "https://www.redislabs.com/trust",
+      "final": "https://www.redislabs.com/trust",
       "reason": "http-404",
       "kind": "trust"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/about/company",
-      "final": "https://saicom.io/about/company",
+      "slug": "redis",
+      "url": "https://redislabs.com/about",
+      "final": "https://redislabs.com/about",
       "reason": "http-404",
       "kind": "about"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/about/us",
-      "final": "https://saicom.io/about/us",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/about-us",
-      "final": "https://saicom.io/about-us",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/company",
-      "final": "https://saicom.io/company",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://www.saicom.io/compliance",
-      "final": "https://www.saicom.io/compliance",
-      "reason": "http-404",
-      "kind": "compliance"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://www.saicom.io/trust-center",
-      "final": "https://www.saicom.io/trust-center",
+      "slug": "redis",
+      "url": "https://www.redislabs.com/trust-center",
+      "final": "https://www.redislabs.com/trust-center",
       "reason": "http-404",
       "kind": "trust"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/data-processing-agreement",
-      "final": "https://saicom.io/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/dpa",
-      "final": "https://saicom.io/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/legal/dpa",
-      "final": "https://saicom.io/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/legal/data-processing-agreement",
-      "final": "https://saicom.io/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/policies/dpa",
-      "final": "https://saicom.io/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/legal/data-processing-addendum",
-      "final": "https://saicom.io/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/policies/data-processing-addendum",
-      "final": "https://saicom.io/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/data-processing-addendum",
-      "final": "https://saicom.io/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/company/dpa",
-      "final": "https://saicom.io/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/terms/dpa",
-      "final": "https://saicom.io/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/gdpr/dpa",
-      "final": "https://saicom.io/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/policies/data-processing-agreement",
-      "final": "https://saicom.io/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/legal/processor-terms",
-      "final": "https://saicom.io/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/legal/gdpr/dpa",
-      "final": "https://saicom.io/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/privacy/dpa",
-      "final": "https://saicom.io/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/subprocessors",
-      "final": "https://saicom.io/subprocessors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/legal/data-processing",
-      "final": "https://saicom.io/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/data-processing",
-      "final": "https://saicom.io/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/legal/service-providers",
-      "final": "https://saicom.io/legal/service-providers",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/legal/sub-processors",
-      "final": "https://saicom.io/legal/sub-processors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/sub-processors",
-      "final": "https://saicom.io/sub-processors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/legal/subprocessors",
-      "final": "https://saicom.io/legal/subprocessors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/privacy/subprocessors",
-      "final": "https://saicom.io/privacy/subprocessors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/company/subprocessors",
-      "final": "https://saicom.io/company/subprocessors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/legal/sub-processors-page",
-      "final": "https://saicom.io/legal/sub-processors-page",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/trust/subprocessors",
-      "final": "https://saicom.io/trust/subprocessors",
-      "reason": "http-404",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/company/our-story",
-      "final": "https://saicom.io/company/our-story",
+      "slug": "redis",
+      "url": "https://redislabs.com/about/us",
+      "final": "https://redislabs.com/about/us",
       "reason": "http-404",
       "kind": "about"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/our-story",
-      "final": "https://saicom.io/our-story",
+      "slug": "redis",
+      "url": "https://redislabs.com/company",
+      "final": "https://redislabs.com/company",
       "reason": "http-404",
       "kind": "about"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/our-company",
-      "final": "https://saicom.io/our-company",
+      "slug": "redis",
+      "url": "https://redislabs.com/about/company",
+      "final": "https://redislabs.com/about/company",
       "reason": "http-404",
       "kind": "about"
     },
     {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/about/our-story",
-      "final": "https://saicom.io/about/our-story",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/en/company",
-      "final": "https://saicom.io/en/company",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/who-we-are",
-      "final": "https://saicom.io/who-we-are",
-      "reason": "http-404",
-      "kind": "about"
-    },
-    {
-      "slug": "saicom-voice-services",
-      "url": "https://saicom.io/newsroom",
-      "final": "https://saicom.io/newsroom",
-      "reason": "http-404",
+      "slug": "redis",
+      "url": "https://redislabs.com",
+      "final": "https://redis.io/",
+      "reason": "not-first-party",
       "kind": "about"
     }
   ]
