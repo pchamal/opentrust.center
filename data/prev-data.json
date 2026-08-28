@@ -3410,6 +3410,25 @@
    }
   },
   {
+   "domain": "workos.com",
+   "tier": "substantial",
+   "certs": [
+    "CCPA",
+    "GDPR",
+    "HIPAA",
+    "SOC 2 Type II"
+   ],
+   "instruments": {
+    "trust": "https://trust.workos.com",
+    "security": "https://workos.com/security",
+    "privacy": "https://workos.com/legal/privacy",
+    "dpa": "https://workos.com/legal/data-processing-addendum",
+    "subprocessors": "https://trust.workos.com/subprocessors",
+    "status": "https://status.workos.com",
+    "bounty": "https://workos.com/security/responsible-disclosure"
+   }
+  },
+  {
    "domain": "icims.com",
    "tier": "substantial",
    "certs": [
@@ -3452,6 +3471,25 @@
     "subprocessors": null,
     "status": "https://www.shopifystatus.com/",
     "bounty": "https://hackerone.com/shopify"
+   }
+  },
+  {
+   "domain": "telnyx.com",
+   "tier": "substantial",
+   "certs": [
+    "ISO 27001",
+    "ISO 27701",
+    "PCI DSS",
+    "SOC 2 Type II"
+   ],
+   "instruments": {
+    "trust": "https://telnyx.com/security",
+    "security": "https://telnyx.com/security",
+    "privacy": null,
+    "dpa": "https://telnyx.com/legal/data-processing-addendum",
+    "subprocessors": "https://telnyx.com/legal/subprocessors",
+    "status": null,
+    "bounty": null
    }
   },
   {
@@ -3819,25 +3857,6 @@
     "subprocessors": "https://conga.com/privacy/subprocessors",
     "status": null,
     "bounty": null
-   }
-  },
-  {
-   "domain": "workos.com",
-   "tier": "substantial",
-   "certs": [
-    "CCPA",
-    "GDPR",
-    "HIPAA",
-    "SOC 2 Type II"
-   ],
-   "instruments": {
-    "trust": "https://trust.workos.com",
-    "security": "https://workos.com/security",
-    "privacy": "https://workos.com/legal/privacy",
-    "dpa": "https://workos.com/legal/data-processing-addendum",
-    "subprocessors": "https://trust.workos.com/subprocessors",
-    "status": "https://status.workos.com",
-    "bounty": "https://workos.com/security/responsible-disclosure"
    }
   },
   {
@@ -10014,6 +10033,23 @@
    }
   },
   {
+   "domain": "withorb.com",
+   "tier": "on-file",
+   "certs": [
+    "SOC 1",
+    "SOC 2 Type II"
+   ],
+   "instruments": {
+    "trust": "https://security.withorb.com",
+    "security": "https://security.withorb.com",
+    "privacy": "https://www.withorb.com/privacy-policy",
+    "dpa": null,
+    "subprocessors": null,
+    "status": "https://status.withorb.com",
+    "bounty": null
+   }
+  },
+  {
    "domain": "reducto.ai",
    "tier": "on-file",
    "certs": [],
@@ -10539,6 +10575,25 @@
     "subprocessors": null,
     "status": null,
     "bounty": null
+   }
+  },
+  {
+   "domain": "heygen.com",
+   "tier": "on-file",
+   "certs": [
+    "CCPA",
+    "GDPR",
+    "SOC 2 Type II"
+   ],
+   "instruments": {
+    "trust": null,
+    "security": "https://www.heygen.com/security",
+    "privacy": null,
+    "dpa": "https://www.heygen.com/data-processing-addendum",
+    "subprocessors": null,
+    "status": null,
+    "bounty": null,
+    "ai": "https://www.heygen.com/trust-and-safety"
    }
   },
   {
@@ -12364,25 +12419,6 @@
    }
   },
   {
-   "domain": "heygen.com",
-   "tier": "thin",
-   "certs": [
-    "CCPA",
-    "GDPR",
-    "SOC 2 Type II"
-   ],
-   "instruments": {
-    "trust": null,
-    "security": "https://www.heygen.com/security",
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null,
-    "ai": "https://www.heygen.com/trust-and-safety"
-   }
-  },
-  {
    "domain": "livekit.com",
    "tier": "thin",
    "certs": [
@@ -13216,20 +13252,6 @@
    }
   },
   {
-   "domain": "withorb.com",
-   "tier": "thin",
-   "certs": [],
-   "instruments": {
-    "trust": "https://security.withorb.com",
-    "security": "https://security.withorb.com",
-    "privacy": "https://www.withorb.com/privacy-policy",
-    "dpa": null,
-    "subprocessors": null,
-    "status": "https://status.withorb.com",
-    "bounty": null
-   }
-  },
-  {
    "domain": "pindrop.com",
    "tier": "thin",
    "certs": [],
@@ -13353,6 +13375,20 @@
     "subprocessors": null,
     "status": null,
     "bounty": "https://www.soprasteria.com/.well-known/security.txt"
+   }
+  },
+  {
+   "domain": "supportninja.com",
+   "tier": "thin",
+   "certs": [],
+   "instruments": {
+    "trust": "https://supportninja.com/security",
+    "security": "https://www.supportninja.com/security",
+    "privacy": "https://www.supportninja.com/privacy",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
    }
   },
   {
@@ -13623,6 +13659,22 @@
     "trust": "https://webbula.com/trust",
     "security": "https://webbula.com/trust-and-security/",
     "privacy": "https://webbula.com/privacy-center/",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
+   "domain": "zight.com",
+   "tier": "thin",
+   "certs": [
+    "SOC 2 Type II"
+   ],
+   "instruments": {
+    "trust": "https://trust.zight.com",
+    "security": null,
+    "privacy": null,
     "dpa": null,
     "subprocessors": null,
     "status": null,
@@ -14353,20 +14405,6 @@
     "dpa": null,
     "subprocessors": null,
     "status": "https://status.spreedly.com",
-    "bounty": null
-   }
-  },
-  {
-   "domain": "supportninja.com",
-   "tier": "thin",
-   "certs": [],
-   "instruments": {
-    "trust": "https://supportninja.com/security",
-    "security": "https://www.supportninja.com/security",
-    "privacy": "https://www.supportninja.com/privacy",
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
     "bounty": null
    }
   },
@@ -16909,20 +16947,6 @@
    }
   },
   {
-   "domain": "telnyx.com",
-   "tier": "thin",
-   "certs": [],
-   "instruments": {
-    "trust": "https://telnyx.com/security",
-    "security": "https://telnyx.com/security",
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
    "domain": "toasttab.com",
    "tier": "thin",
    "certs": [],
@@ -17036,20 +17060,6 @@
     "status": null,
     "bounty": null,
     "ai": "https://trust.mi.com/pdf/Xiaomi_Trustworthy_AI_White_Paper_2021_EN.pdf"
-   }
-  },
-  {
-   "domain": "zight.com",
-   "tier": "thin",
-   "certs": [],
-   "instruments": {
-    "trust": "https://trust.zight.com",
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
    }
   },
   {
