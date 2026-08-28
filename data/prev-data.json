@@ -1567,6 +1567,26 @@
    }
   },
   {
+   "domain": "usepylon.com",
+   "tier": "substantial",
+   "certs": [
+    "GDPR",
+    "HIPAA",
+    "ISO 27001",
+    "ISO 42001",
+    "SOC 2 Type II"
+   ],
+   "instruments": {
+    "trust": "https://trust.usepylon.com",
+    "security": "https://www.usepylon.com/security",
+    "privacy": "https://www.usepylon.com/legal/privacy",
+    "dpa": "https://www.usepylon.com/legal/data-processing-agreement",
+    "subprocessors": "https://www.usepylon.com/subprocessors",
+    "status": "https://status.usepylon.com",
+    "bounty": "https://www.usepylon.com/security/vulnerability-disclosure-policy"
+   }
+  },
+  {
    "domain": "pronto.net",
    "tier": "substantial",
    "certs": [
@@ -2665,6 +2685,24 @@
    }
   },
   {
+   "domain": "linear.app",
+   "tier": "substantial",
+   "certs": [
+    "HIPAA",
+    "ISO 27001",
+    "SOC 2 Type II"
+   ],
+   "instruments": {
+    "trust": "https://trust.linear.app",
+    "security": "https://linear.app/security",
+    "privacy": "https://linear.app/privacy",
+    "dpa": "https://linear.app/dpa",
+    "subprocessors": "https://linear.app/subprocessors",
+    "status": "https://linear.app/status",
+    "bounty": "https://linear.app/bug-bounty"
+   }
+  },
+  {
    "domain": "cleo.com",
    "tier": "substantial",
    "certs": [
@@ -3059,26 +3097,6 @@
    }
   },
   {
-   "domain": "usepylon.com",
-   "tier": "substantial",
-   "certs": [
-    "GDPR",
-    "HIPAA",
-    "ISO 27001",
-    "ISO 42001",
-    "SOC 2 Type II"
-   ],
-   "instruments": {
-    "trust": "https://trust.usepylon.com",
-    "security": "https://www.usepylon.com/security",
-    "privacy": "https://www.usepylon.com/legal/privacy",
-    "dpa": null,
-    "subprocessors": "https://www.usepylon.com/subprocessors",
-    "status": "https://status.usepylon.com",
-    "bounty": "https://www.usepylon.com/security/vulnerability-disclosure-policy"
-   }
-  },
-  {
    "domain": "unity.com",
    "tier": "substantial",
    "certs": [
@@ -3141,6 +3159,29 @@
    }
   },
   {
+   "domain": "baseten.co",
+   "tier": "substantial",
+   "certs": [
+    "CCPA",
+    "CSA STAR",
+    "GDPR",
+    "HIPAA",
+    "ISO 27001",
+    "PCI DSS",
+    "SOC 2 Type II",
+    "SOC 3"
+   ],
+   "instruments": {
+    "trust": "https://trust.baseten.co",
+    "security": null,
+    "privacy": "https://www.baseten.co/privacy-policy/",
+    "dpa": "https://www.baseten.co/dpa/",
+    "subprocessors": null,
+    "status": "https://status.baseten.co",
+    "bounty": null
+   }
+  },
+  {
    "domain": "getdbt.com",
    "tier": "substantial",
    "certs": [
@@ -3165,24 +3206,6 @@
     "subprocessors": "https://trust.getdbt.com/subprocessors",
     "status": "https://status.getdbt.com",
     "bounty": null
-   }
-  },
-  {
-   "domain": "linear.app",
-   "tier": "substantial",
-   "certs": [
-    "HIPAA",
-    "ISO 27001",
-    "SOC 2 Type II"
-   ],
-   "instruments": {
-    "trust": "https://trust.linear.app",
-    "security": "https://linear.app/security",
-    "privacy": "https://linear.app/privacy",
-    "dpa": "https://linear.app/dpa",
-    "subprocessors": "https://linear.app/subprocessors",
-    "status": "https://linear.app/status",
-    "bounty": "https://linear.app/bug-bounty"
    }
   },
   {
@@ -4472,29 +4495,6 @@
     "dpa": null,
     "subprocessors": null,
     "status": "https://www.netlifystatus.com/",
-    "bounty": null
-   }
-  },
-  {
-   "domain": "baseten.co",
-   "tier": "substantial",
-   "certs": [
-    "CCPA",
-    "CSA STAR",
-    "GDPR",
-    "HIPAA",
-    "ISO 27001",
-    "PCI DSS",
-    "SOC 2 Type II",
-    "SOC 3"
-   ],
-   "instruments": {
-    "trust": "https://trust.baseten.co",
-    "security": null,
-    "privacy": "https://www.baseten.co/privacy-policy/",
-    "dpa": null,
-    "subprocessors": null,
-    "status": "https://status.baseten.co",
     "bounty": null
    }
   },
@@ -5893,6 +5893,22 @@
     "subprocessors": "https://day.ai/subprocessors",
     "status": "https://status.day.ai",
     "bounty": "https://day.ai/bug-bounty"
+   }
+  },
+  {
+   "domain": "hex.tech",
+   "tier": "on-file",
+   "certs": [
+    "SOC 2 Type II"
+   ],
+   "instruments": {
+    "trust": "https://trust.hex.tech",
+    "security": "https://hex.tech/security/",
+    "privacy": "https://learn.hex.tech/docs/legal/privacy",
+    "dpa": "https://learn.hex.tech/docs/legal/dpa",
+    "subprocessors": "https://learn.hex.tech/docs/legal/subprocessors",
+    "status": "https://status.hex.tech",
+    "bounty": "https://hackerone.com/hex"
    }
   },
   {
@@ -8128,20 +8144,6 @@
    }
   },
   {
-   "domain": "hex.tech",
-   "tier": "on-file",
-   "certs": [],
-   "instruments": {
-    "trust": "https://trust.hex.tech",
-    "security": "https://hex.tech/security/",
-    "privacy": "https://learn.hex.tech/docs/legal/privacy",
-    "dpa": "https://learn.hex.tech/docs/legal/dpa",
-    "subprocessors": "https://learn.hex.tech/docs/legal/subprocessors",
-    "status": "https://status.hex.tech",
-    "bounty": "https://hackerone.com/hex"
-   }
-  },
-  {
    "domain": "ideogram.ai",
    "tier": "on-file",
    "certs": [],
@@ -8268,6 +8270,20 @@
     "subprocessors": "https://trust.nemetschek.com/subprocessors",
     "status": null,
     "bounty": null
+   }
+  },
+  {
+   "domain": "messagebird.com",
+   "tier": "on-file",
+   "certs": [],
+   "instruments": {
+    "trust": "https://messagebird.com/trust",
+    "security": "https://trust.bird.com/?elqTrackId=0686160446eb4b349b4480874a5c0bf9&amp;elqaid=123356&amp;elqak=8AF54D5AB42CE4C0E672D795B1CB48F3ED81CF084D55E71A5E3C1C6A864F8F6ACD70&amp;elqat=2&amp;itemName=data_security&amp;itemUid=b90a8501-15b9-4c66-8bbd-888bd20cfce2&amp;source=click&amp;sp=true",
+    "privacy": "https://bird.com/legal/privacy",
+    "dpa": "https://bird.com/legal/dpa",
+    "subprocessors": null,
+    "status": "https://status.bird.com/",
+    "bounty": "https://hackerone.com/messagebird"
    }
   },
   {
@@ -8472,6 +8488,32 @@
     "subprocessors": "https://abnormal.ai/legal/subprocessors",
     "status": "https://status.abnormalsecurity.com",
     "bounty": null
+   }
+  },
+  {
+   "domain": "grafana.com",
+   "tier": "on-file",
+   "certs": [
+    "CSA STAR",
+    "EU-US DPF",
+    "FedRAMP",
+    "FedRAMP High",
+    "GDPR",
+    "ISO 22301",
+    "ISO 27001",
+    "PCI DSS",
+    "SOC 2",
+    "TISAX",
+    "TX-RAMP"
+   ],
+   "instruments": {
+    "trust": "https://trust.grafana.com",
+    "security": "https://grafana.com/security/",
+    "privacy": "https://grafana.com/legal/privacy-policy/",
+    "dpa": "https://grafana.com/legal/data-processing-agreement/",
+    "subprocessors": null,
+    "status": "https://status.grafana.com",
+    "bounty": "https://grafana.com/.well-known/security.txt"
    }
   },
   {
@@ -9954,20 +9996,6 @@
    }
   },
   {
-   "domain": "messagebird.com",
-   "tier": "on-file",
-   "certs": [],
-   "instruments": {
-    "trust": "https://messagebird.com/trust",
-    "security": "https://trust.bird.com/?elqTrackId=0686160446eb4b349b4480874a5c0bf9&amp;elqaid=123356&amp;elqak=8AF54D5AB42CE4C0E672D795B1CB48F3ED81CF084D55E71A5E3C1C6A864F8F6ACD70&amp;elqat=2&amp;itemName=data_security&amp;itemUid=b90a8501-15b9-4c66-8bbd-888bd20cfce2&amp;source=click&amp;sp=true",
-    "privacy": "https://bird.com/legal/privacy",
-    "dpa": "https://bird.com/legal/dpa",
-    "subprocessors": null,
-    "status": "https://status.bird.com/",
-    "bounty": "https://hackerone.com/messagebird"
-   }
-  },
-  {
    "domain": "onesignal.com",
    "tier": "silent",
    "certs": [
@@ -10511,32 +10539,6 @@
     "subprocessors": null,
     "status": null,
     "bounty": null
-   }
-  },
-  {
-   "domain": "grafana.com",
-   "tier": "on-file",
-   "certs": [
-    "CSA STAR",
-    "EU-US DPF",
-    "FedRAMP",
-    "FedRAMP High",
-    "GDPR",
-    "ISO 22301",
-    "ISO 27001",
-    "PCI DSS",
-    "SOC 2",
-    "TISAX",
-    "TX-RAMP"
-   ],
-   "instruments": {
-    "trust": "https://trust.grafana.com",
-    "security": "https://grafana.com/security/",
-    "privacy": "https://grafana.com/legal/privacy-policy/",
-    "dpa": null,
-    "subprocessors": null,
-    "status": "https://status.grafana.com",
-    "bounty": "https://grafana.com/.well-known/security.txt"
    }
   },
   {
@@ -13074,6 +13076,20 @@
    }
   },
   {
+   "domain": "maestroqa.com",
+   "tier": "thin",
+   "certs": [],
+   "instruments": {
+    "trust": "https://trust.maestroqa.com",
+    "security": null,
+    "privacy": "https://www.maestroqa.com/privacy",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
    "domain": "brightcove.com",
    "tier": "thin",
    "certs": [],
@@ -14231,20 +14247,6 @@
     "trust": "https://trustcenter.knoxsystems.com",
     "security": null,
     "privacy": "https://knoxsystems.com/policies/privacy-policy",
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
-   "domain": "maestroqa.com",
-   "tier": "thin",
-   "certs": [],
-   "instruments": {
-    "trust": "https://trust.maestroqa.com",
-    "security": null,
-    "privacy": "https://www.maestroqa.com/privacy",
     "dpa": null,
     "subprocessors": null,
     "status": null,
@@ -16700,6 +16702,25 @@
    }
   },
   {
+   "domain": "pingidentity.com",
+   "tier": "silent",
+   "certs": [
+    "CSA STAR",
+    "ISO 27001",
+    "SOC 2 Type II",
+    "TX-RAMP"
+   ],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://www.pingidentity.com/en-us/docs/legal/privacy",
+    "dpa": null,
+    "subprocessors": null,
+    "status": "https://status.pingidentity.com",
+    "bounty": "https://download.pingidentity.com/public/security.txt"
+   }
+  },
+  {
    "domain": "pulsarplatform.com",
    "tier": "thin",
    "certs": [
@@ -18517,6 +18538,20 @@
    }
   },
   {
+   "domain": "5c.ai",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://5c.ai/privacy-policy",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
    "domain": "aosmith.com",
    "tier": "silent",
    "certs": [],
@@ -18531,6 +18566,48 @@
    }
   },
   {
+   "domain": "accesspay.com",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://accesspay.com/privacy-policy/",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
+   "domain": "adfinis.com",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://www.adfinis.com/privacy-policy",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
+   "domain": "amlrightsource.com",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://www.amlrightsource.com/privacy-policy",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
    "domain": "attributionapp.com",
    "tier": "silent",
    "certs": [],
@@ -18538,6 +18615,48 @@
     "trust": null,
     "security": null,
     "privacy": "https://www.attributionapp.com/privacy",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
+   "domain": "bastionx.io",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://www.bastionx.io/privacy-policy",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
+   "domain": "beetexting.com",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://beetexting.com/privacy-policy/",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
+   "domain": "blackdiamond.dev",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://blackdiamond.dev/privacy-policy",
     "dpa": null,
     "subprocessors": null,
     "status": null,
@@ -18608,6 +18727,20 @@
     "trust": null,
     "security": null,
     "privacy": "https://www.coherent.com/legal/privacy-statement",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
+   "domain": "commetric.com",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://commetric.com/privacy-notice/",
     "dpa": null,
     "subprocessors": null,
     "status": null,
@@ -18758,6 +18891,90 @@
    }
   },
   {
+   "domain": "linkmobility.com",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://www.linkmobility.com/legal/privacy",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
+   "domain": "luma.ai",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://luma.ai/privacy-policy",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
+   "domain": "mividas.com",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://www.mividas.com/privacy-policy/",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
+   "domain": "mutare.com",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://www.mutare.com/privacy-policy/",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
+   "domain": "name.com",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://www.name.com/privacy-policy",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
+   "domain": "netnumber.com",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://netnumber.com/privacy-policy/",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
    "domain": "plextrac.com",
    "tier": "silent",
    "certs": [],
@@ -18828,6 +19045,62 @@
    }
   },
   {
+   "domain": "saicom.io",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://saicom.io/privacy-policy/",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
+   "domain": "slopepay.com",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://slopepay.com/privacy",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
+   "domain": "supportzebra.com",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://supportzebra.com/privacy-policy",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
+   "domain": "surveysensum.com",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://www.surveysensum.com/privacy-policy",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
    "domain": "sutherlandglobal.com",
    "tier": "silent",
    "certs": [],
@@ -18870,6 +19143,20 @@
    }
   },
   {
+   "domain": "tokenx.io",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://tokenx.io/privacy-policy",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
    "domain": "userfront.com",
    "tier": "silent",
    "certs": [],
@@ -18891,6 +19178,20 @@
     "trust": null,
     "security": null,
     "privacy": "https://www.worketics.com/privacy-policy/",
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
+   "domain": "wpremote.com",
+   "tier": "silent",
+   "certs": [],
+   "instruments": {
+    "trust": null,
+    "security": null,
+    "privacy": "https://wpremote.com/privacy",
     "dpa": null,
     "subprocessors": null,
     "status": null,
@@ -20306,20 +20607,6 @@
    }
   },
   {
-   "domain": "5c.ai",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
    "domain": "7shifts.com",
    "tier": "silent",
    "certs": [],
@@ -20548,20 +20835,6 @@
   },
   {
    "domain": "accessiway.com",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
-   "domain": "accesspay.com",
    "tier": "silent",
    "certs": [],
    "instruments": {
@@ -20954,20 +21227,6 @@
   },
   {
    "domain": "adfsolutions.com",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
-   "domain": "adfinis.com",
    "tier": "silent",
    "certs": [],
    "instruments": {
@@ -22187,20 +22446,6 @@
   },
   {
    "domain": "amitahealth.org",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
-   "domain": "amlrightsource.com",
    "tier": "silent",
    "certs": [],
    "instruments": {
@@ -24416,20 +24661,6 @@
    }
   },
   {
-   "domain": "bastionx.io",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
    "domain": "batchmaster.com",
    "tier": "silent",
    "certs": [],
@@ -24571,20 +24802,6 @@
   },
   {
    "domain": "bee-link.com",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
-   "domain": "beetexting.com",
    "tier": "silent",
    "certs": [],
    "instruments": {
@@ -25051,20 +25268,6 @@
   },
   {
    "domain": "bkash.com",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
-   "domain": "blackdiamond.dev",
    "tier": "silent",
    "certs": [],
    "instruments": {
@@ -28563,20 +28766,6 @@
   },
   {
    "domain": "comgate.cz",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
-   "domain": "commetric.com",
    "tier": "silent",
    "certs": [],
    "instruments": {
@@ -41971,20 +42160,6 @@
    }
   },
   {
-   "domain": "linkmobility.com",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
    "domain": "link-motion.com",
    "tier": "silent",
    "certs": [],
@@ -42462,20 +42637,6 @@
   },
   {
    "domain": "lu.com",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
-   "domain": "luma.ai",
    "tier": "silent",
    "certs": [],
    "instruments": {
@@ -44311,20 +44472,6 @@
    }
   },
   {
-   "domain": "mividas.com",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
    "domain": "mlab.com",
    "tier": "silent",
    "certs": [],
@@ -44958,20 +45105,6 @@
    }
   },
   {
-   "domain": "mutare.com",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
    "domain": "muzzylane.com",
    "tier": "silent",
    "certs": [],
@@ -45113,20 +45246,6 @@
   },
   {
    "domain": "nallatech.com",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
-   "domain": "name.com",
    "tier": "silent",
    "certs": [],
    "instruments": {
@@ -45593,20 +45712,6 @@
   },
   {
    "domain": "netmanage.com",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
-   "domain": "netnumber.com",
    "tier": "silent",
    "certs": [],
    "instruments": {
@@ -48537,23 +48642,6 @@
     "subprocessors": null,
     "status": null,
     "bounty": null
-   }
-  },
-  {
-   "domain": "pingidentity.com",
-   "tier": "silent",
-   "certs": [
-    "CSA STAR",
-    "TX-RAMP"
-   ],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": "https://www.pingidentity.com/en-us/docs/legal/privacy",
-    "dpa": null,
-    "subprocessors": null,
-    "status": "https://status.pingidentity.com",
-    "bounty": "https://download.pingidentity.com/public/security.txt"
    }
   },
   {
@@ -51760,20 +51848,6 @@
    }
   },
   {
-   "domain": "saicom.io",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
    "domain": "sakana.ai",
    "tier": "silent",
    "certs": [],
@@ -53695,20 +53769,6 @@
    }
   },
   {
-   "domain": "slopepay.com",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
    "domain": "smallpdf.com",
    "tier": "silent",
    "certs": [],
@@ -55425,20 +55485,6 @@
    }
   },
   {
-   "domain": "supportzebra.com",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
    "domain": "surgehq.ai",
    "tier": "silent",
    "certs": [],
@@ -55454,20 +55500,6 @@
   },
   {
    "domain": "surgisphere.com",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
-   "domain": "surveysensum.com",
    "tier": "silent",
    "certs": [],
    "instruments": {
@@ -57014,20 +57046,6 @@
   },
   {
    "domain": "tmwsystems.com",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
-   "domain": "tokenx.io",
    "tier": "silent",
    "certs": [],
    "instruments": {
@@ -60730,20 +60748,6 @@
   },
   {
    "domain": "wpengine.com",
-   "tier": "silent",
-   "certs": [],
-   "instruments": {
-    "trust": null,
-    "security": null,
-    "privacy": null,
-    "dpa": null,
-    "subprocessors": null,
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
-   "domain": "wpremote.com",
    "tier": "silent",
    "certs": [],
    "instruments": {
