@@ -557,6 +557,11 @@ REGISTER_ALIASES: dict[str, str] = {
     # (security.kuaishou.com already on file). Kling already lands here.
     # Do not invent a second Kuaishou dossier.
     "kuaishou-technology": "kwai",
+    # Teradata's own Group Entities table names TRDT Brasil Tecnologia Ltda
+    # next to Teradata US / Teradata Canada / TDC Colombia. pt-tdata-indonesia,
+    # tdata-malaysia-sdn-bhd, and tdc-colombia-limitada already land here.
+    # Do not invent a second Teradata dossier.
+    "trdt-brasil-tecnologia-ltda": "teradata",
 }
 
 # Published header garbage. Not a company. Do not file or alias.

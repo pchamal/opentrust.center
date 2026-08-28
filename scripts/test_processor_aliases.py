@@ -271,6 +271,8 @@ def main() -> int:
     check(canonical_processor_id("launchboard-software", sf_reg) == "salesforce", "Launchboard is Salesforce")
     kwai_reg = {**register, "kwai": {"slug": "kwai", "name": "Kwai", "domain": "kuaishou.com"}}
     check(canonical_processor_id("kuaishou-technology", kwai_reg) == "kwai", "Kuaishou Technology is Kwai")
+    tera_reg = {**register, "teradata": {"slug": "teradata", "name": "Teradata", "domain": "teradata.com"}}
+    check(canonical_processor_id("trdt-brasil-tecnologia-ltda", tera_reg) == "teradata", "TRDT Brasil is Teradata")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 
