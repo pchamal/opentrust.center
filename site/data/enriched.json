@@ -100846,9 +100846,9 @@
       "name": "InvoiceXpress",
       "slug": "invoiceexpress",
       "domain": "invoicexpress.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://invoicexpress.com/seguranca/",
+      "final_url": "https://invoicexpress.com/seguranca/",
       "vendor": "unknown",
       "title": "",
       "probed": 18,
@@ -100856,12 +100856,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://invoicexpress.com/seguranca/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
