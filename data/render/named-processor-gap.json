@@ -1,7 +1,7 @@
 {
-  "generated": "2026-08-29T00:00:00Z",
-  "register": 3953,
-  "origin_main": "c3c44746",
+  "generated": "2026-08-28T20:00:00Z",
+  "register": 4033,
+  "origin_main": "4b0c7879",
   "mode": "c0-named-processor-fills",
   "leftovers_min1": 35,
   "leftovers_after": 35,
@@ -85,71 +85,40 @@
   "newly_filed": [],
   "c0_fills": [
     {
-      "slug": "ovhcloud",
-      "named_by": 8,
-      "completeness_before": 0,
-      "completeness_after": 3,
-      "score_after": 80,
-      "tier_after": "substantial",
-      "official_page": "https://us.ovhcloud.com/compliance/",
-      "marks": [
-        "iso27001",
-        "iso27701",
-        "soc1",
-        "soc2",
-        "soc3",
-        "csa-star",
-        "pci-dss"
-      ],
-      "dpa": "https://us.ovhcloud.com/legal/data-processing-agreement/",
-      "privacy": "https://us.ovhcloud.com/legal/privacy-policy/",
-      "security_txt": "https://www.ovhcloud.com/.well-known/security.txt",
-      "bounty": "https://yeswehack.com/programs/ovh",
-      "left_open": [
-        "us.ovhcloud.com/security/ — product catalog (standing refusal from #187)",
-        "worldwide /en/security/ — same product-catalog class",
-        "HIPAA — hosting-healthcare / compliance-with copy",
-        "ISO 27017 / 27018 — grouped heading only",
-        "year 1999 — history page founds OVH, parser accepts OVH not OVHcloud"
-      ]
-    },
-    {
-      "slug": "gooddata-ai",
+      "slug": "stytch",
       "named_by": 3,
       "completeness_before": 0,
-      "completeness_after": 3,
-      "score_after": 39,
-      "tier_after": "thin",
-      "domain": "gooddata.ai",
-      "domain_was": "gooddata.com",
-      "official_page": "https://www.gooddata.ai/security/",
+      "completeness_after": 2,
+      "score_after": 52,
+      "tier_after": "on-file",
+      "official_page": "https://stytch.com/docs/resources/policies/security-and-trust/compliance/overview",
       "marks": [
-        "soc2"
+        "soc2",
+        "iso27001",
+        "pci-dss",
+        "eu-us-dpf"
       ],
-      "years": [2007],
+      "status": "https://status.stytch.com",
       "left_open": [
-        "ISO 27001 — Annex A mapping, not a certificate",
-        "ISO 22301 — follows",
-        "FedRAMP — self-hosted availability copy",
-        "HIPAA / GDPR / CCPA — compliance-with / privacy-law",
-        "privacy — legal-center hash, classify_as_privacy false"
+        "stytch.com/docs/.../security and .../privacy 302 to twilio.com — do not file Twilio as Official page, DPA, or privacy",
+        "security.twilio.com — Twilio Trust Center; retrieve-documents pointer only",
+        "GDPR — 'complies with' / help-you-comply copy on data-compliance",
+        "DPA — only Twilio data-protection-addendum is linked",
+        "privacy / security.txt / bounty / year — not on a first-party Stytch HTML hold"
       ]
     },
     {
-      "slug": "redis",
-      "named_by": 5,
+      "slug": "sutherland-global-services",
+      "named_by": 2,
       "completeness_before": 0,
       "completeness_after": 0,
       "score_after": 6,
       "tier_after": "silent",
-      "domain": "redislabs.com",
-      "alias_added": "redis.io",
-      "security_txt": "https://redis.io/.well-known/security.txt",
-      "bounty": "https://hackerone.com/redis-vdp",
+      "privacy": "https://www.sutherlandglobal.com/privacy-policy",
       "left_open": [
-        "trust.redis.io — SafeBase portal; do not file as Official page",
-        "privacy / about / subprocessors — JS Next shells",
-        "portal-chrome SOC 2 / ISO marks — not first-party attestation"
+        "/security and /compliance 200 to SVG assets — not Official page",
+        "no first-party trust/security/compliance HTML that names certificates",
+        "DPA / years not on the privacy page"
       ]
     }
   ],
@@ -183,6 +152,66 @@
       "slug": "transunion-formerly-neustar-information-services",
       "named_by": 3,
       "reason": "www.transunion.com Cloudflare 403; no transunion.html slug"
+    },
+    {
+      "slug": "equinix",
+      "named_by": 5,
+      "reason": "not Completeness 0 (CSA STAR already on public file from the STAR Registry). www.equinix.com IBX standards-compliance / security / trust / compliance / about are Akamai 403. Customer-portal Trust and Transparency / docs.equinix.com login walls are not Official page."
+    },
+    {
+      "slug": "concentrix",
+      "named_by": 3,
+      "reason": "/trust/ /compliance/ /trust-center/ are WordPress homepage fallbacks (schema url is the homepage). /security/ is a press archive. GDPR-only / legal/gdpr is not a DPA. Privacy already on file. Official page left open."
+    },
+    {
+      "slug": "taskus",
+      "named_by": 3,
+      "reason": "www.taskus.com Cloudflare 403 on trust/security/compliance/privacy/about. investors.taskus.com HTTP 0. Privacy already on file. Do not invent a trust URL."
+    },
+    {
+      "slug": "visa",
+      "named_by": 2,
+      "reason": "corporate.visa.com Cloudflare 403 / usual-path 404. www.visa.com/security lands on Visa Protect product page. Privacy is a Next.js shell titled pause."
+    },
+    {
+      "slug": "inmoment",
+      "named_by": 2,
+      "reason": "www.inmoment.com Cloudflare 403"
+    },
+    {
+      "slug": "intouchcx",
+      "named_by": 2,
+      "reason": "www.intouchcx.com Cloudflare 403"
+    },
+    {
+      "slug": "logz-io",
+      "named_by": 2,
+      "reason": "/security 301s to blog/security. /platform/features/soc-2-compliance/ is product copy ('Ensure SOC 2 compliance with Logz.io’s features'). Privacy+status already on file. Bounty page did not classify."
+    },
+    {
+      "slug": "global-payments",
+      "named_by": 2,
+      "reason": "www.globalpayments.com Cloudflare 403"
+    },
+    {
+      "slug": "cybersource",
+      "named_by": 2,
+      "reason": "usual-path 404. About-page PCI is 'simplify PCI DSS compliance' product pitch. Privacy 302s to visa.com."
+    },
+    {
+      "slug": "constella-intelligence",
+      "named_by": 2,
+      "reason": "constella.ai usual-path 404"
+    },
+    {
+      "slug": "foundever-operating",
+      "named_by": 2,
+      "reason": "www.foundever.com Cloudflare 403"
+    },
+    {
+      "slug": "iren",
+      "named_by": 2,
+      "reason": "usual-path 404 / homepage bounce. /legal/privacy-policy exists but looks_dead so classify_as_privacy is false."
     }
   ],
   "standing_skips": [
