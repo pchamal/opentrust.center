@@ -567,6 +567,16 @@ REGISTER_ALIASES: dict[str, str] = {
     # gohealthcast.com is 404. healthcast.com is a different/empty namesake.
     # Do not invent a second HealthCast dossier.
     "healthcast": "identity-automation-lp",
+    # FICO's own subprocessors table now prints Eighth Intuition Sdn. Bhd as
+    # a Malaysia Corporate Affiliate (same table as Fair Isaac Japan / Spain).
+    # Prior increment left this leftover because that first-party HTML did
+    # not name it. Do not invent a second FICO dossier.
+    "eighth-intuition-sdn-bhd": "fico",
+    # Runway names Nanonoble Pte. Ltd. MiniMax first-party terms on
+    # minimax.io print Nanonoble Pte. Ltd. as the company operating those
+    # services. minimax-group is on the register. hailuoai.video prints
+    # Hailuo AI / MiniMax, not Nanonoble — do not file that product host.
+    "nanonoble-pte": "minimax-group",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
