@@ -82876,23 +82876,59 @@
       "name": "Forethought Technologies",
       "slug": "forethought-technologies",
       "domain": "forethought.ai",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://forethought.ai/compliance",
+      "final_url": "https://forethought.ai/compliance",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
       "source": "https://en.wikipedia.org/wiki/Category:Artificial_intelligence_companies",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II.",
       "list": "wikipedia-artificial-intelligence-companies",
-      "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "certs": [
+        "SOC 2 Type II"
+      ],
+      "links": {
+        "trust": "https://forethought.ai/compliance",
+        "dpa": "https://forethought.ai/dpa",
+        "subprocessors": "https://forethought.ai/data-subprocessors"
+      },
+      "subprocessors": [
+        "amazon-web-services",
+        "mongodb",
+        "microsoft",
+        "google",
+        "cloudflare",
+        "openai",
+        "groq",
+        "mistral-ai",
+        "pusher",
+        "datadog",
+        "gladia",
+        "deepgram",
+        "elevenlabs",
+        "cartesia",
+        "daily",
+        "twilio",
+        "sendgrid",
+        "snowflake",
+        "sentry",
+        "appcues",
+        "gainsight"
+      ],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 50,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 10,
+          "dpa": 8,
+          "subprocessors": 8,
+          "longevity": 4
+        }
+      },
+      "founded_year": 2017,
+      "founded_source": "https://forethought.ai/"
     },
     {
       "rank": 2807,
@@ -98654,10 +98690,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 9,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 9
+        }
+      },
+      "founded_year": 2008,
+      "founded_source": "https://www.safeguardglobal.com/"
     },
     {
       "rank": 3371,
@@ -99011,10 +99051,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 2003,
+      "founded_source": "https://eztitles.com/about-us"
     },
     {
       "rank": 3383,
@@ -99678,22 +99722,29 @@
       "name": "SQLGrease",
       "slug": "sqlgrease",
       "domain": "sqlgrease.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://sqlgrease.com/Home/Security",
+      "final_url": "https://sqlgrease.com/Home/Security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://www.blackboard.com/trust-center/sub-processors",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2.",
       "list": "named-processor-gap",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "SOC 2"
+      ],
+      "links": {
+        "security": "https://sqlgrease.com/Home/Security"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 24,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "marks": 4
+        }
       }
     },
     {
@@ -99749,10 +99800,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1996,
+      "founded_source": "https://simwood.com/privacy/"
     },
     {
       "rank": 3408,
@@ -99823,10 +99878,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 7,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 7
+        }
+      },
+      "founded_year": 2012,
+      "founded_source": "https://www.listenfirstmedia.com/about-us/"
     },
     {
       "rank": 3411,
@@ -100185,10 +100244,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 3,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 3
+        }
+      },
+      "founded_year": 2020,
+      "founded_source": "https://www.variacode.com/"
     },
     {
       "rank": 3426,
@@ -101765,22 +101828,30 @@
       "name": "demicon",
       "slug": "demicon",
       "domain": "demicon.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://demicon.com/en/security",
+      "final_url": "https://demicon.com/en/security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://about.gitlab.com/privacy/subprocessors/",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: ISO 27001, ISO 9001.",
       "list": "named-processor-gap",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "ISO 27001",
+        "ISO 9001"
+      ],
+      "links": {
+        "security": "https://demicon.com/en/security"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 34,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "marks": 14
+        }
       }
     },
     {
