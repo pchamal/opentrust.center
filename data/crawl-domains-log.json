@@ -1,469 +1,1446 @@
 {
-  "generated_at": "2026-08-28T18:01:03Z",
-  "method": "wikidata P856 from unused Wikipedia categories (2018/2014/2019/2013 tech, cloud providers, Chicago companies, SF Bay software)",
+  "generated_at": "2026-08-28T20:02:49Z",
+  "method": "wikidata-wbsearchentities + wbgetentities P856; enwiki titles -> P856",
+  "user_agent": "opentrust.center/1.0 (+https://opentrust.center)",
+  "note": "hourly top-up appended 63 verified P856 from CRN Security 100 2023 leftover + Wikipedia Category:Cloud computing providers (and further unused software categories if needed); CMC software page 6+ was empty; did not repeat exhausted lists or S&P 500",
   "counts": {
-    "appended": 57,
-    "resolved": 57,
-    "unresolved": 179,
-    "dropped": 60
+    "appended": 63,
+    "resolved": 63,
+    "unresolved": 96,
+    "dropped_wrong_or_dup": 37,
+    "by_source": {
+      "wikipedia-tech-established-2011": 23,
+      "wikipedia-tech-established-2010": 22,
+      "wikipedia-tech-established-2024": 3,
+      "wikipedia-software-london": 15
+    },
+    "by_source_url": {
+      "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011": 23,
+      "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010": 22,
+      "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2024": 3,
+      "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_London": 15
+    }
   },
   "appended": [
     {
-      "name": "A Plus",
-      "slug": "a-plus",
-      "domain": "aplus.com",
-      "source": "wikipedia-tech-established-2014",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2014",
-      "qid": "Q19863963"
+      "name": "Airware",
+      "slug": "airware",
+      "domain": "airware.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q16970586",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Bridj",
-      "slug": "bridj",
-      "domain": "bridj.com",
-      "source": "wikipedia-tech-established-2014",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2014",
-      "qid": "Q22073782"
+      "name": "Appota Corporation",
+      "slug": "appota-corporation",
+      "domain": "appota.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q28449546",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Bright",
-      "slug": "bright",
-      "domain": "brig.ht",
-      "source": "wikipedia-tech-established-2014",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2014",
-      "qid": "Q25340016"
+      "name": "Aquaver",
+      "slug": "aquaver",
+      "domain": "aquaver.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q16000513",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Exos Aerospace",
-      "slug": "exos-aerospace",
-      "domain": "exosaero.com",
-      "source": "wikipedia-tech-established-2014",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2014",
-      "qid": "Q54263771"
+      "name": "ASUSTOR",
+      "slug": "asustor",
+      "domain": "asus.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q152864",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Mentimeter",
-      "slug": "mentimeter",
-      "domain": "mentimeter.com",
-      "source": "wikipedia-tech-established-2014",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2014",
-      "qid": "Q60741111"
+      "name": "Beelink",
+      "slug": "beelink",
+      "domain": "bee-link.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q136134991",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Natilus",
-      "slug": "natilus",
-      "domain": "natilus.co",
-      "source": "wikipedia-tech-established-2014",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2014",
-      "qid": "Q48810063"
+      "name": "Compello",
+      "slug": "compello",
+      "domain": "compello.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q18814873",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "SpinLaunch",
-      "slug": "spinlaunch",
-      "domain": "spinlaunch.com",
-      "source": "wikipedia-tech-established-2014",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2014",
-      "qid": "Q55633698"
+      "name": "First Light Fusion",
+      "slug": "first-light-fusion",
+      "domain": "firstlightfusion.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q111487512",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Starship Technologies",
-      "slug": "starship-technologies",
-      "domain": "starship.xyz",
-      "source": "wikipedia-tech-established-2014",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2014",
-      "qid": "Q25245388"
+      "name": "Inktank Storage",
+      "slug": "inktank-storage",
+      "domain": "inktank.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q6034685",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Dell",
-      "slug": "dell",
-      "domain": "dell.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "qid": "Q30873"
+      "name": "Maluuba",
+      "slug": "maluuba",
+      "domain": "maluuba.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q6745011",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Proofpoint Systems",
-      "slug": "proofpoint-systems",
-      "domain": "proofpoint.net",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "qid": "Q16967808"
+      "name": "Matterport",
+      "slug": "matterport",
+      "domain": "matterport.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q107520260",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "ServiceMax",
-      "slug": "servicemax",
-      "domain": "servicemax.com",
-      "source": "wikipedia-cloud-computing-providers",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "qid": "Q17092987"
+      "name": "OpenSesame Inc",
+      "slug": "opensesame-inc",
+      "domain": "opensesame.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q23926671",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "1871",
-      "slug": "1871",
-      "domain": "1871.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q24061023"
+      "name": "Peloton Technology",
+      "slug": "peloton-technology",
+      "domain": "peloton-tech.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q27150215",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Academy Chicago Publishers",
-      "slug": "academy-chicago-publishers",
-      "domain": "academychicago.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q4671344"
+      "name": "REE Automotive",
+      "slug": "ree-automotive",
+      "domain": "ree.auto",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q109609566",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Acquity Group",
-      "slug": "acquity-group",
-      "domain": "acquitygroup.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q4674790"
+      "name": "Roamler",
+      "slug": "roamler",
+      "domain": "roamler.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q25041288",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Adams Street Partners",
-      "slug": "adams-street-partners",
-      "domain": "adamsstreetpartners.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q119104411"
+      "name": "Spider9",
+      "slug": "spider9",
+      "domain": "spider9.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q7576996",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Allen Brothers",
-      "slug": "allen-brothers",
-      "domain": "allenbrothers.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q4731553"
+      "name": "Stratolaunch Systems",
+      "slug": "stratolaunch-systems",
+      "domain": "stratolaunch.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q620534",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Allied Van Lines",
-      "slug": "allied-van-lines",
-      "domain": "allied.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q4732608"
+      "name": "Tecmash",
+      "slug": "tecmash",
+      "domain": "tecmash.ru",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q30636556",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Altacast",
-      "slug": "altacast",
-      "domain": "altacast.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q5335742"
+      "name": "Tenthwave Digital",
+      "slug": "tenthwave-digital",
+      "domain": "tenthwave.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q17085026",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "AMITA Health",
-      "slug": "amita-health",
-      "domain": "amitahealth.org",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q43896903"
+      "name": "Thomson Video Networks",
+      "slug": "thomson-video-networks",
+      "domain": "thomson-networks.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q17032947",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Amoco",
-      "slug": "amoco",
-      "domain": "amoco.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q465952"
+      "name": "Trajectory Inc.",
+      "slug": "trajectory-inc",
+      "domain": "trajectory.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q20539354",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Amy's Candy Bar",
-      "slug": "amy-s-candy-bar",
-      "domain": "amyscandybar.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q16961406"
+      "name": "Verbling",
+      "slug": "verbling",
+      "domain": "verbling.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q28033164",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Aprimo",
-      "slug": "aprimo",
-      "domain": "aprimo.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q4782114"
+      "name": "Xenco Medical",
+      "slug": "xenco-medical",
+      "domain": "xencomedical.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q24896484",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Ariel Investments",
-      "slug": "ariel-investments",
-      "domain": "arielinvestments.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q16975304"
+      "name": "Zello",
+      "slug": "zello",
+      "domain": "zello.com",
+      "source": "wikipedia-tech-established-2011",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
+      "priority": 3,
+      "qid": "Q15712011",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "ArrayComm",
-      "slug": "arraycomm",
-      "domain": "arraycomm.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q4795873"
+      "name": "Adtile Technologies",
+      "slug": "adtile-technologies",
+      "domain": "adtile.me",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q23016610",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Baird & Warner",
-      "slug": "baird-warner",
-      "domain": "bairdwarner.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q4848606"
+      "name": "AngelPad",
+      "slug": "angelpad",
+      "domain": "angelpad.org",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q16975004",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Balaban and Katz",
-      "slug": "balaban-and-katz",
-      "domain": "balabanandkatz.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q4849719"
+      "name": "Bottlenose",
+      "slug": "bottlenose",
+      "domain": "bottlenose.com",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q4949086",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Bankers Life",
-      "slug": "bankers-life",
-      "domain": "bankerslife.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q4856264"
+      "name": "Element Materials Technology",
+      "slug": "element-materials-technology",
+      "domain": "element.com",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q30284976",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "BDO USA",
-      "slug": "bdo-usa",
-      "domain": "bdo.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q4835375"
+      "name": "EVgo",
+      "slug": "evgo",
+      "domain": "evgo.com",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q61803820",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "BDT & MSD Partners",
-      "slug": "bdt-msd-partners",
-      "domain": "bdtmsd.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q119840385"
+      "name": "Flutter",
+      "slug": "flutter",
+      "domain": "flutterapp.com",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q5462981",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Belly",
-      "slug": "belly",
-      "domain": "bellycard.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q17005335"
+      "name": "Gnowit",
+      "slug": "gnowit",
+      "domain": "gnowit.com",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q17126195",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Bixbee",
-      "slug": "bixbee",
-      "domain": "bixbee.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q7432642"
+      "name": "Hyperice",
+      "slug": "hyperice",
+      "domain": "hyperice.com",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q118409439",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Bucketfeet",
-      "slug": "bucketfeet",
-      "domain": "bucketfeet.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q16985582"
+      "name": "LinguaSys",
+      "slug": "linguasys",
+      "domain": "linguasys.net",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q20539327",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Bulley & Andrews",
-      "slug": "bulley-andrews",
-      "domain": "bulley.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q4996875"
+      "name": "Magic Leap",
+      "slug": "magic-leap",
+      "domain": "magicleap.com",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q18351488",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "C.D. Peacock",
-      "slug": "c-d-peacock",
-      "domain": "cdpeacock.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q25000196"
+      "name": "Narrative Science",
+      "slug": "narrative-science",
+      "domain": "narrativescience.com",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q17183195",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Caravan Tours",
-      "slug": "caravan-tours",
-      "domain": "caravan.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q5037783"
+      "name": "NextDC",
+      "slug": "nextdc",
+      "domain": "nextdc.com",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q55696290",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Cars.com",
-      "slug": "cars-com",
-      "domain": "cars.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q5046846"
+      "name": "NSO Group",
+      "slug": "nso-group",
+      "domain": "nsogroup.com",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q26701567",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Channel Awesome",
-      "slug": "channel-awesome",
-      "domain": "channelawesome.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q5072383"
+      "name": "PEZY Computing",
+      "slug": "pezy-computing",
+      "domain": "pezy.co.jp",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q24875478",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "CheapTickets",
-      "slug": "cheaptickets",
-      "domain": "cheaptickets.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q1068655"
+      "name": "Planet Labs",
+      "slug": "planet-labs",
+      "domain": "planet.com",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q17085620",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Chowbus",
-      "slug": "chowbus",
-      "domain": "chowbus.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q104833452"
+      "name": "Puli Space Technologies",
+      "slug": "puli-space-technologies",
+      "domain": "pulispace.com",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q1241536",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Cision",
-      "slug": "cision",
-      "domain": "cision.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q931233"
+      "name": "Satellogic",
+      "slug": "satellogic",
+      "domain": "satellogic.com",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q22669551",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "CIVC Partners",
-      "slug": "civc-partners",
-      "domain": "civc.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q5011948"
+      "name": "Seculert",
+      "slug": "seculert",
+      "domain": "seculert.com",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q7444794",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "CNA Financial",
-      "slug": "cna-financial",
-      "domain": "cna.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q5013072"
+      "name": "Simplee",
+      "slug": "simplee",
+      "domain": "www2.simplee.com",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q20870677",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Coeur Mining",
-      "slug": "coeur-mining",
-      "domain": "coeur.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q386193"
+      "name": "Skillshare",
+      "slug": "skillshare",
+      "domain": "skillshare.com",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q17157194",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Combined Insurance",
-      "slug": "combined-insurance",
-      "domain": "combinedinsurance.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q5150863"
+      "name": "Whisper Systems",
+      "slug": "whisper-systems",
+      "domain": "whispersys.com",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q7993932",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Coupon Cabin",
-      "slug": "coupon-cabin",
-      "domain": "couponcabin.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q17182155"
+      "name": "Workswell",
+      "slug": "workswell",
+      "domain": "workswell-thermal-camera.com",
+      "source": "wikipedia-tech-established-2010",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2010",
+      "priority": 3,
+      "qid": "Q41568097",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Cresset",
-      "slug": "cresset",
-      "domain": "cressetcapital.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q135192851"
+      "name": "Frankenburg Technologies",
+      "slug": "frankenburg-technologies",
+      "domain": "frankenburg.tech",
+      "source": "wikipedia-tech-established-2024",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2024",
+      "priority": 3,
+      "qid": "Q139377100",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Crowdspring",
-      "slug": "crowdspring",
-      "domain": "crowdspring.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q5189199"
+      "name": "General Matter",
+      "slug": "general-matter",
+      "domain": "generalmatter.com",
+      "source": "wikipedia-tech-established-2024",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2024",
+      "priority": 3,
+      "qid": "Q134369638",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Cushman & Wakefield",
-      "slug": "cushman-wakefield",
-      "domain": "cushmanwakefield.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q1146061"
+      "name": "Rethink Robotics",
+      "slug": "rethink-robotics",
+      "domain": "rethinkrobotics.com",
+      "source": "wikipedia-tech-established-2024",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2024",
+      "priority": 3,
+      "qid": "Q24913690",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Daprato Rigali Studios",
-      "slug": "daprato-rigali-studios",
-      "domain": "dapratorigali.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q28402727"
+      "name": "AdTaily",
+      "slug": "adtaily",
+      "domain": "adtaily.com",
+      "source": "wikipedia-software-london",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_London",
+      "priority": 3,
+      "qid": "Q4678099",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "DDB Worldwide",
-      "slug": "ddb-worldwide",
-      "domain": "ddb.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q1152240"
+      "name": "Carziqo",
+      "slug": "carziqo",
+      "domain": "carziqo.com",
+      "source": "wikipedia-software-london",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_London",
+      "priority": 3,
+      "qid": "Q140053271",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Devil's Due Publishing",
-      "slug": "devil-s-due-publishing",
-      "domain": "devilsdue.net",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q3025439"
+      "name": "Fidessa",
+      "slug": "fidessa",
+      "domain": "fidessa.com",
+      "source": "wikipedia-software-london",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_London",
+      "priority": 3,
+      "qid": "Q1411344",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Dr. Scholl's",
-      "slug": "dr-scholl-s",
-      "domain": "drscholls.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q17019662"
+      "name": "The Foundry Visionmongers",
+      "slug": "the-foundry-visionmongers",
+      "domain": "foundry.com",
+      "source": "wikipedia-software-london",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_London",
+      "priority": 3,
+      "qid": "Q7734962",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Eicoff",
-      "slug": "eicoff",
-      "domain": "eicoff.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q4647740"
+      "name": "FXpansion",
+      "slug": "fxpansion",
+      "domain": "fxpansion.com",
+      "source": "wikipedia-software-london",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_London",
+      "priority": 3,
+      "qid": "Q5427418",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "Encyclop\u00e6dia Britannica, Inc.",
-      "slug": "encyclop-dia-britannica-inc",
-      "domain": "corporate.britannica.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q2743906"
+      "name": "Gojimo",
+      "slug": "gojimo",
+      "domain": "gojimo.com",
+      "source": "wikipedia-software-london",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_London",
+      "priority": 3,
+      "qid": "Q19873565",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "ENHANCE International",
-      "slug": "enhance-international",
-      "domain": "enhance-international.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q24885079"
+      "name": "Green Man Gaming",
+      "slug": "green-man-gaming",
+      "domain": "greenmangaming.com",
+      "source": "wikipedia-software-london",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_London",
+      "priority": 3,
+      "qid": "Q5602848",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "EQ Office",
-      "slug": "eq-office",
-      "domain": "eqoffice.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q1347873"
+      "name": "Improbable",
+      "slug": "improbable",
+      "domain": "improbable.io",
+      "source": "wikipedia-software-london",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_London",
+      "priority": 3,
+      "qid": "Q50079115",
+      "reason": "enwiki-title P856"
     },
     {
-      "name": "FCB",
-      "slug": "fcb",
-      "domain": "fcb.com",
-      "source": "wikipedia-companies-chicago",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Companies_based_in_Chicago",
-      "qid": "Q1254500"
+      "name": "Kepler Interactive",
+      "slug": "kepler-interactive",
+      "domain": "kepler-interactive.com",
+      "source": "wikipedia-software-london",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_London",
+      "priority": 3,
+      "qid": "Q116786225",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Mediatonic",
+      "slug": "mediatonic",
+      "domain": "mediatonicgames.com",
+      "source": "wikipedia-software-london",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_London",
+      "priority": 3,
+      "qid": "Q15070396",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Outright Games",
+      "slug": "outright-games",
+      "domain": "outrightgames.com",
+      "source": "wikipedia-software-london",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_London",
+      "priority": 3,
+      "qid": "Q104519117",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Super Rare Games",
+      "slug": "super-rare-games",
+      "domain": "superraregames.com",
+      "source": "wikipedia-software-london",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_London",
+      "priority": 3,
+      "qid": "Q60775793",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Teliris",
+      "slug": "teliris",
+      "domain": "teliris.com",
+      "source": "wikipedia-software-london",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_London",
+      "priority": 3,
+      "qid": "Q7697332",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "This Place",
+      "slug": "this-place",
+      "domain": "thisplace.com",
+      "source": "wikipedia-software-london",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_London",
+      "priority": 3,
+      "qid": "Q30608811",
+      "reason": "enwiki-title P856"
+    },
+    {
+      "name": "Unibuddy",
+      "slug": "unibuddy",
+      "domain": "unibuddy.com",
+      "source": "wikipedia-software-london",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_London",
+      "priority": 3,
+      "qid": "Q115939782",
+      "reason": "enwiki-title P856"
     }
   ],
-  "previous_note": "hourly top-up appended 1 verified P856 from CRN Security 100 2023 leftover + Wikipedia Category:Cloud computing providers (and further unused software categories if needed); CMC software page 6+ was empty; did not repeat exhausted lists or S&P 500"
+  "dropped_wrong_p856": [
+    {
+      "name": "Practice XYZ",
+      "slug": "practice-xyz",
+      "domain": "info.apprennet.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Booyami",
+      "slug": "booyami",
+      "domain": "finagraph.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "BufferBox",
+      "slug": "bufferbox",
+      "domain": "bufferbox.com",
+      "reason": "blocked-host"
+    },
+    {
+      "name": "Rock My World, Inc.",
+      "slug": "rock-my-world-inc",
+      "domain": "rockmyrun.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "UVision Air",
+      "slug": "uvision-air",
+      "domain": "uvisionuav.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Clear Secure",
+      "slug": "clear-secure",
+      "domain": "clearme.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Co-Creation Hub",
+      "slug": "co-creation-hub",
+      "domain": "cchubnigeria.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "RATP Smart Systems",
+      "slug": "ratp-smart-systems",
+      "domain": "ixxi-mobility.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Shine Technologies",
+      "slug": "shine-technologies",
+      "domain": "shinemed.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Ukrainian Defense Industry",
+      "slug": "ukrainian-defense-industry",
+      "domain": "ukroboronprom.com.ua",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "X Development",
+      "slug": "x-development",
+      "domain": "x.company",
+      "reason": "blocked-host"
+    },
+    {
+      "name": "Huma",
+      "slug": "huma",
+      "domain": "medopad.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Webex CPaaS Solutions",
+      "slug": "webex-cpaas-solutions",
+      "domain": "imimobile.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "The World's Online Festival",
+      "slug": "the-world-s-online-festival",
+      "domain": "palringo.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Alida",
+      "slug": "alida",
+      "domain": "visioncritical.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Chemical Computing Group",
+      "slug": "chemical-computing-group",
+      "domain": "chemcomp.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Cognos",
+      "slug": "cognos",
+      "domain": "www-03.ibm.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Eicon",
+      "slug": "eicon",
+      "domain": "dialogic.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "International Road Dynamics",
+      "slug": "international-road-dynamics",
+      "domain": "irdinc.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "ISM - A Kyndryl Company",
+      "slug": "ism-a-kyndryl-company",
+      "domain": "ismcanada.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Koingo Software",
+      "slug": "koingo-software",
+      "domain": "koingosw.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Longview Solutions",
+      "slug": "longview-solutions",
+      "domain": "exact.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "MKS Inc.",
+      "slug": "mks-inc",
+      "domain": "ptc.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Nightingale Informatix Corporation",
+      "slug": "nightingale-informatix-corporation",
+      "domain": "nightingalemd.ca",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Northwind",
+      "slug": "northwind",
+      "domain": "maestropms.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Psion",
+      "slug": "psion",
+      "domain": "motorolasolutions.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Trapeze Software",
+      "slug": "trapeze-software",
+      "domain": "trapezegroup.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Waterloo Maple",
+      "slug": "waterloo-maple",
+      "domain": "maplesoft.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Wave Financial",
+      "slug": "wave-financial",
+      "domain": "waveapps.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "BVRP",
+      "slug": "bvrp",
+      "domain": "web.archive.org",
+      "reason": "blocked-host"
+    },
+    {
+      "name": "CAST",
+      "slug": "cast",
+      "domain": "castsoftware.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "DELMIA",
+      "slug": "delmia",
+      "domain": "3ds.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Murex",
+      "slug": "murex",
+      "domain": "murex.com",
+      "reason": "blocked-host"
+    },
+    {
+      "name": "Rakuten DX",
+      "slug": "rakuten-dx",
+      "domain": "aquafadas.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Sysload Software",
+      "slug": "sysload-software",
+      "domain": "orsyp.com",
+      "reason": "implausible-p856"
+    }
+  ],
+  "unresolved": [
+    {
+      "name": "Automate Ads",
+      "slug": "automate-ads",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "BudgIT",
+      "slug": "budgit",
+      "reason": "not-org no-org p31=['Q43229'] desc=Nigerian civic organization",
+      "status": null
+    },
+    {
+      "name": "Crowdfunder",
+      "slug": "crowdfunder",
+      "reason": "not-org no-org p31=['Q42336871'] desc=British crowdfunding platform",
+      "status": null
+    },
+    {
+      "name": "Geofeedia",
+      "slug": "geofeedia",
+      "reason": "not-org no-org p31=['Q7397'] desc=social media intelligence platform that associates social media posts with geographic locations",
+      "status": null
+    },
+    {
+      "name": "Innovecs",
+      "slug": "innovecs",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "NVS Telematic Systems",
+      "slug": "nvs-telematic-systems",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "SpaceIL",
+      "slug": "spaceil",
+      "reason": "not-org no-org p31=['Q163740'] desc=Israeli organization working on landing a spacecraft on the moon",
+      "status": null
+    },
+    {
+      "name": "Titan Aerospace",
+      "slug": "titan-aerospace",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Yamsafer",
+      "slug": "yamsafer",
+      "reason": "not-org no-org p31=['Q35127'] desc=",
+      "status": null
+    },
+    {
+      "name": "CopperEgg",
+      "slug": "copperegg",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "EventMobi",
+      "slug": "eventmobi",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Jack'd",
+      "slug": "jack-d",
+      "reason": "not-org no-org p31=['Q28134845'] desc=chat and dating app",
+      "status": null
+    },
+    {
+      "name": "Kevel",
+      "slug": "kevel",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Multibeam Corporation",
+      "slug": "multibeam-corporation",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Nubera",
+      "slug": "nubera",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "OwlTing Group",
+      "slug": "owlting-group",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "RecargaPay",
+      "slug": "recargapay",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Says Sdn Bhd",
+      "slug": "says-sdn-bhd",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Sponsume",
+      "slug": "sponsume",
+      "reason": "not-org no-org p31=['Q35127'] desc=",
+      "status": null
+    },
+    {
+      "name": "Storyful",
+      "slug": "storyful",
+      "reason": "not-org no-org p31=['Q192283'] desc=social media and news intelligence agency",
+      "status": null
+    },
+    {
+      "name": "Starlab Space",
+      "slug": "starlab-space",
+      "reason": "not-org no-org p31=['Q109358230'] desc=planned low-Earth-orbit space station developed by Starlab Space",
+      "status": null
+    },
+    {
+      "name": "Airfinity",
+      "slug": "airfinity",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Dingit.tv",
+      "slug": "dingit-tv",
+      "reason": "not-org no-org p31=['Q35127'] desc=video streaming site",
+      "status": null
+    },
+    {
+      "name": "The Instruction Set",
+      "slug": "the-instruction-set",
+      "reason": "not-org no-org p31=['Q5'] desc=British entrepreneur and author",
+      "status": null
+    },
+    {
+      "name": "Kano Computing",
+      "slug": "kano-computing",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "London Studio",
+      "slug": "london-studio",
+      "reason": "not-org no-org p31=['Q210167'] desc=in-house Sony Interactive Entertainment developer located in London",
+      "status": null
+    },
+    {
+      "name": "Luxology",
+      "slug": "luxology",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Mousebreaker",
+      "slug": "mousebreaker",
+      "reason": "not-org no-org p31=['Q35127'] desc=website",
+      "status": null
+    },
+    {
+      "name": "Omnisend",
+      "slug": "omnisend",
+      "reason": "not-org no-org p31=['Q1254596'] desc=e-commerce email marketing and SMS platform",
+      "status": null
+    },
+    {
+      "name": "Pando Health",
+      "slug": "pando-health",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Playworks Digital",
+      "slug": "playworks-digital",
+      "reason": "no-wikidata-item",
+      "status": null
+    },
+    {
+      "name": "Project Panther Bidco",
+      "slug": "project-panther-bidco",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Quantexa",
+      "slug": "quantexa",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "RiverSoft",
+      "slug": "riversoft",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Rockstar London",
+      "slug": "rockstar-london",
+      "reason": "not-org no-org p31=['Q210167'] desc=British video game developer",
+      "status": null
+    },
+    {
+      "name": "Rocksteady Studios",
+      "slug": "rocksteady-studios",
+      "reason": "not-org no-org p31=['Q210167'] desc=British video game developer",
+      "status": null
+    },
+    {
+      "name": "Simian Squared",
+      "slug": "simian-squared",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Team Soho",
+      "slug": "team-soho",
+      "reason": "not-org no-org p31=['Q210167'] desc=video game developer",
+      "status": null
+    },
+    {
+      "name": "Touchpress",
+      "slug": "touchpress",
+      "reason": "not-org no-org p31=['Q2085381'] desc=app developer and publisher",
+      "status": null
+    },
+    {
+      "name": "Ustwo",
+      "slug": "ustwo",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "V7",
+      "slug": "v7",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Ve Global",
+      "slug": "ve-global",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Whatjobs",
+      "slug": "whatjobs",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Yayzy",
+      "slug": "yayzy",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Achievers",
+      "slug": "achievers",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Consilient",
+      "slug": "consilient",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Consumers Software",
+      "slug": "consumers-software",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Corel",
+      "slug": "corel",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Creo",
+      "slug": "creo",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Enomaly",
+      "slug": "enomaly",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Equitrac",
+      "slug": "equitrac",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "FSA Corporation",
+      "slug": "fsa-corporation",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "GoldWave",
+      "slug": "goldwave",
+      "reason": "not-org no-org p31=['Q758870'] desc=digital audio editor and recording application",
+      "status": null
+    },
+    {
+      "name": "I4i",
+      "slug": "i4i",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "IBwave Solutions",
+      "slug": "ibwave-solutions",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Late Night Software",
+      "slug": "late-night-software",
+      "reason": "not-org no-org p31=['Q7397'] desc=Macintosh source-code editor",
+      "status": null
+    },
+    {
+      "name": "Lavalys",
+      "slug": "lavalys",
+      "reason": "not-org no-org p31=['Q312466', 'Q178285'] desc=system information, diagnostics, and auditing program",
+      "status": null
+    },
+    {
+      "name": "Lillymo Games",
+      "slug": "lillymo-games",
+      "reason": "not-org no-org p31=['Q210167'] desc=video game developer",
+      "status": null
+    },
+    {
+      "name": "Lucidea",
+      "slug": "lucidea",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Medworxx",
+      "slug": "medworxx",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "NUANS",
+      "slug": "nuans",
+      "reason": "not-org no-org p31=['Q35127'] desc=",
+      "status": null
+    },
+    {
+      "name": "Object Technology International",
+      "slug": "object-technology-international",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Protus",
+      "slug": "protus",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Psion Teklogix",
+      "slug": "psion-teklogix",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Quaid Software",
+      "slug": "quaid-software",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "S-FRAME Software",
+      "slug": "s-frame-software",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "SafetyLine Lone Worker",
+      "slug": "safetyline-lone-worker",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Sage 300",
+      "slug": "sage-300",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Scientific Vector Language",
+      "slug": "scientific-vector-language",
+      "reason": "not-org no-org p31=['Q9143'] desc=programming language",
+      "status": null
+    },
+    {
+      "name": "Solium",
+      "slug": "solium",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Sparrow BioAcoustics",
+      "slug": "sparrow-bioacoustics",
+      "reason": "no-wikidata-item",
+      "status": null
+    },
+    {
+      "name": "Spoonity",
+      "slug": "spoonity",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Sydney Development Corporation",
+      "slug": "sydney-development-corporation",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Synex Systems Corporation",
+      "slug": "synex-systems-corporation",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Tehama Inc.",
+      "slug": "tehama-inc",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Teledyne CARIS",
+      "slug": "teledyne-caris",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Yangaroo",
+      "slug": "yangaroo",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Zerofootprint",
+      "slug": "zerofootprint",
+      "reason": "not-org no-org p31=['Q43229'] desc=organization",
+      "status": null
+    },
+    {
+      "name": "6WIND",
+      "slug": "6wind",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Adaptive ML",
+      "slug": "adaptive-ml",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Alsys",
+      "slug": "alsys",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Ave!Comics",
+      "slug": "ave-comics",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Buzzinbees",
+      "slug": "buzzinbees",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Chorus Syst\u00e8mes SA",
+      "slug": "chorus-syst-mes-sa",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Connecthings",
+      "slug": "connecthings",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "DxOMark",
+      "slug": "dxomark",
+      "reason": "not-org no-org p31=['Q35127'] desc=website which includes reviews and scores for digital camera models",
+      "status": null
+    },
+    {
+      "name": "Fireworld",
+      "slug": "fireworld",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "KDS",
+      "slug": "kds",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Kubity",
+      "slug": "kubity",
+      "reason": "not-org no-org p31=['Q10929058'] desc=Kubity is a one-click cloud-based 3D communication tool that works on desktop computers, the web, smartphones, tablets, augmented reality gear, and virtual reality glasses.",
+      "status": null
+    },
+    {
+      "name": "MicroEJ",
+      "slug": "microej",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Naboo Group",
+      "slug": "naboo-group",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Odisei",
+      "slug": "odisei",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Pegs'n Co",
+      "slug": "pegs-n-co",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Skaleet",
+      "slug": "skaleet",
+      "reason": "not-org no-org p31=[] desc=digital banking platform",
+      "status": null
+    },
+    {
+      "name": "Tiller Systems",
+      "slug": "tiller-systems",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Viadeo",
+      "slug": "viadeo",
+      "reason": "not-org no-org p31=['Q3457058', 'Q6576792', 'Q43229'] desc=social networking service",
+      "status": null
+    }
+  ]
 }
