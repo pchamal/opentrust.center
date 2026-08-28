@@ -1,6 +1,6 @@
 {
   "rule": "Named processor not on the register jumps the queue. Alias graph ids that are the same company as an existing slug. Completeness rates the file. Portal vendors are never named. Entity Name is garbage. Never invent a second dossier for an alias. Never invent domains.",
-  "tip": "f6cd067ef",
+  "tip": "0507df26f",
   "register": 3821,
   "aliases_kept": {
     "spacexai": "xai",
@@ -11,45 +11,17 @@
     "mistral": "mistral-ai",
     "kuaishou-technology": "kwai"
   },
-  "aliases_added": {},
-  "filed": [
-    {
-      "slug": "gladia",
-      "name": "Gladia",
-      "domain": "gladia.io",
-      "page": "https://www.gladia.io/security",
-      "marks": [
-        "SOC 2 Type I",
-        "SOC 2 Type II"
-      ],
-      "dpa": "https://www.gladia.io/data-process-agreement",
-      "named_by": 1,
-      "source_url": "https://forethought.ai/data-subprocessors"
-    }
-  ],
+  "aliases_added": {
+    "trdt-brasil-tecnologia-ltda": "teradata"
+  },
+  "filed": [],
   "c0_fills": {
-    "hetzner-online": {
-      "page": "https://www.hetzner.com/unternehmen/zertifizierung/",
-      "marks": [
-        "ISO 27001"
-      ]
-    },
-    "zuva": {
-      "marks": [
-        "SOC 2 Type II"
-      ],
-      "marks_url": "https://zuva.ai/privacy/"
-    },
-    "solace": {
-      "marks": [
-        "SOC 2 Type II",
-        "ISO 27001",
-        "CSA STAR"
-      ],
-      "marks_url": "https://solace.com/products/security/"
+    "wns-global-services": {
+      "year": 1996,
+      "year_url": "https://www.wns.com/about-us"
     }
   },
-  "leftovers_after": 52,
+  "leftovers_after": 51,
   "leftovers_named_by_ge2": 1,
   "leftovers": [
     {
@@ -329,12 +301,6 @@
       "source_url": "https://trust.stability.ai/subprocessors"
     },
     {
-      "slug": "trdt-brasil-tecnologia-ltda",
-      "name": "TRDT Brasil Tecnologia Ltda",
-      "named_by": 1,
-      "source_url": "https://www.teradata.com/privacy/data-processing-addendum/sub-processors"
-    },
-    {
       "slug": "tsengararu",
       "name": "Tsengararu",
       "named_by": 1,
@@ -376,8 +342,93 @@
     "healthcast",
     "boldr",
     "avertech",
-    "tavus",
-    "dolby"
+    "tavus"
   ],
-  "notes": "Rebased onto f6cd067ef after hourly expand (register 3820). kuaishou-technology \u2192 kwai already on main from expand \u2014 not re-added. Dolby already on main from expand as a silent row \u2014 not re-filed. Gladia, Hetzner ISO 27001, Zuva SOC 2 Type II, Solace SOC 2/ISO 27001/CSA STAR kept. Did not invent domains. DROPPED_INSTRUMENTS 0."
+  "standing_skips": [
+    "bonsai-technologies",
+    "gmi",
+    "sync",
+    "deft",
+    "runware",
+    "thorn",
+    "popout",
+    "groove-networks-dba-groove",
+    "basefarm-as",
+    "intersections"
+  ],
+  "c0_unreadable_this_cut": [
+    "cybersource",
+    "foundever-operating",
+    "global-payments",
+    "gooddata-ai",
+    "inmoment",
+    "intouchcx",
+    "iren",
+    "sumit-ai",
+    "visa",
+    "mastercard",
+    "mulesoft",
+    "scylladb",
+    "sift",
+    "wso2",
+    "bluesnap",
+    "dovetail",
+    "upcloud",
+    "adjust",
+    "datalab",
+    "rfpio",
+    "cyxtera",
+    "devoteam-sas",
+    "teleperformance-colombia",
+    "softserve",
+    "ust",
+    "fenix24",
+    "singular-lab",
+    "tokenx"
+  ],
+  "c0_honest_empty_this_cut": [
+    "stytch",
+    "constella-intelligence",
+    "dstny-automate-formerly-qunifi",
+    "sutherland-global-services",
+    "linode",
+    "payoneer",
+    "replicate",
+    "userfront",
+    "mullvad-vpn",
+    "pennylane-sas",
+    "name-com",
+    "creatify-ai",
+    "timekit",
+    "attribution",
+    "clusterpower",
+    "commetric",
+    "corewire",
+    "elegant-themes",
+    "era4",
+    "nutun",
+    "route-mobile",
+    "tanla-platforms",
+    "tdcx",
+    "array-us",
+    "claranet",
+    "colt-technology-services-group",
+    "persistent-systems",
+    "digitalradius",
+    "ktsl",
+    "moneypenny",
+    "netnumber-global-data-services",
+    "northern-data-group",
+    "one-more-cloud",
+    "par-tec-s-p-a",
+    "printui",
+    "saicom-voice-services",
+    "surveysensum-neurosensum-international-pte",
+    "telagility-d-b-a-sippio",
+    "ternpro-dba-slope",
+    "adfinis",
+    "apilayer",
+    "blogvault"
+  ],
+  "notes": "Rebased onto 0507df26f (register 3821). Leftover 52 were no-domain consulting / local names: Wikidata P856 miss for every leftover except standing skips; source lists named no official website except Basefarm (standing skip, orange-business.com redirect). trdt-brasil-tecnologia-ltda \u2192 teradata: Teradata's own Group Entities table names TRDT Brasil Tecnologia Ltda next to Teradata US / Teradata Canada / TDC Colombia. Did not invent domains. Did not file footer-only CEQUENS marks, academy/product pages (CPrime, Ciklum, Carahsoft, CloudWave, AML RightSource, LSEG scam-awareness Security Centre, Deutsche Telekom nav hub). WNS year 1996 from about-us JSON-LD. SendGrid / OVHcloud / Vonage / NetSuite / Vultr / TaskUs / TransUnion / TeleSign / Looker / Redis still unreadable. Intersections left open. DROPPED_INSTRUMENTS 0."
 }
