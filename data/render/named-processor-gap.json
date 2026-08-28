@@ -1,7 +1,7 @@
 {
-  "generated": "2026-08-28T22:55:00Z",
+  "generated": "2026-08-28T23:20:00Z",
   "register": 4153,
-  "origin_main": "426ad6ab",
+  "origin_main": "a5a4a916",
   "mode": "c0-named-processor-fills",
   "leftovers_min1": 35,
   "leftovers_after": 35,
@@ -11,9 +11,9 @@
   ],
   "aliases_added": [],
   "aliases_kept": [
-    "aws \u2192 amazon-web-services",
-    "gcp \u2192 google",
-    "azure \u2192 microsoft"
+    "aws → amazon-web-services",
+    "gcp → google",
+    "azure → microsoft"
   ],
   "aliases_refused": [
     {
@@ -27,161 +27,78 @@
       "reason": "looker.com 301s to cloud.google.com/looker; do not alias. Do not copy Google's file."
     },
     {
-      "from": "ibm-cloud-on-softlayer",
-      "to": "ibm",
-      "reason": "Telnyx list prints IBM Cloud on Softlayer. IBM is on the register; first-party HTML does not print they are the same company. Do not invent a leftover domain."
+      "from": "clearbit",
+      "to": null,
+      "reason": "Redis list prints Clearbit. Not on the register. Do not invent a leftover domain."
     },
     {
-      "from": "microsoft-advertising",
-      "to": "microsoft",
-      "reason": "Telnyx list prints Microsoft Advertising. Do not invent a leftover. Not aliased this cut."
+      "from": "opensearch",
+      "to": "amazon-web-services",
+      "reason": "Redis list prints OpenSearch. Do not invent a leftover. Not aliased this cut."
     }
   ],
   "newly_filed": [],
   "c0_fills": [
     {
-      "slug": "invoiceexpress",
-      "named_by": 1,
+      "slug": "redis",
+      "named_by": 5,
       "completeness_before": 0,
-      "completeness_after": 30,
-      "score_after": 20,
-      "tier_after": "thin",
-      "official_page": "https://invoicexpress.com/seguranca/",
-      "left_open": [
-        "First-party /seguranca/ is the Portuguese security file (title Seguran\u00e7a - InvoiceXpress) \u2014 filed as Official page",
-        "/politica-de-privacidade/ is first-party HTML but classify_as_privacy is false on that path \u2014 not filed",
-        "usual-path /dpa /legal/dpa 404. Marks / years not on the security HTML"
-      ]
-    },
-    {
-      "slug": "telnyx",
-      "named_by": 3,
-      "completeness_before": 30,
-      "completeness_after": 100,
-      "score_after": 78,
-      "tier_after": "substantial",
-      "marks": [
-        "soc2-type-ii",
-        "iso-27001",
-        "iso-27701",
-        "pci-dss"
-      ],
-      "marks_url": "https://telnyx.com/security",
-      "dpa": "https://telnyx.com/legal/data-processing-addendum",
-      "subprocessors": "https://telnyx.com/legal/subprocessors",
+      "completeness_after": 40,
+      "score_after": 28,
+      "tier_after": "silent",
+      "dpa": "https://redis.io/legal/data-processing-addendum-dpa/",
+      "subprocessors": "https://redis.io/legal/subprocessors/",
+      "privacy": "https://redis.io/legal/privacy-policy/",
       "named": [
-        "google",
-        "amazon-web-services",
-        "microsoft",
-        "equinix",
-        "paypal",
-        "domo",
-        "cloudflare",
+        "anthropic",
+        "apollo-io",
+        "ashby",
         "atlassian",
-        "zoom",
-        "docusign",
-        "dropbox",
-        "fullstory",
-        "zendesk",
+        "glean",
+        "google",
+        "leandata",
+        "lusha",
         "adobe",
-        "segment",
-        "intercom",
-        "zapier",
-        "mailgun",
-        "proofpoint",
-        "onfido",
-        "xero",
-        "bill",
-        "dwolla",
-        "plaid",
+        "okta",
         "openai",
-        "salesloft"
+        "netsuite",
+        "qualified-com",
+        "rox",
+        "salesforce",
+        "snowflake",
+        "stripe",
+        "sumo-logic",
+        "trustarc",
+        "twilio",
+        "zendesk",
+        "6sense",
+        "amazon-web-services",
+        "microsoft"
       ],
-      "years": 2009,
-      "year_source": "https://telnyx.com/security",
       "left_open": [
-        "HIPAA is footer badge copy (ISO \u2022 PCI \u2022 HIPAA \u2022 GDPR \u2022 SOC2 Type II), not a certified hold \u2014 not filed",
-        "GDPR Compliant badge is regulation, not a catalog hold",
-        "Combined Salesforce/SalesforceIQ/Slack cell skipped. Leftover names without a register slug (Clearbit, Analytix, Fathom HQ, Vic.ai, IBM Cloud on Softlayer, Microsoft Advertising) not invented"
+        "Official page left open: trust.redis.io is SafeBase; /docs operate/rs/security is product docs; TOMs page is a DPA annex",
+        "Marks / years not printed as a catalog hold this cut ('open source origins in 2011' is not foundingDate)",
+        "Leftover names without a register slug (Clearbit, DealHub, Files.com, Openprise, OpenSearch, OwnBackup, People.ai, PlanHat, Rivery Technologies, Scalestack) not invented",
+        "Twilio Inc. (Sendgrid) mapped to twilio — sendgrid not aliased. Oracle Corporation (NetSuite) used existing oracle-netsuite → netsuite. google-workspace → google. aws → amazon-web-services. marketo → adobe (existing alias)"
       ]
     },
     {
-      "slug": "zight-formerly-cloudapp",
-      "named_by": 2,
-      "completeness_before": 30,
+      "slug": "eficode",
+      "named_by": 1,
+      "completeness_before": 20,
       "completeness_after": 40,
-      "score_after": 30,
-      "tier_after": "thin",
+      "score_after": 24,
+      "tier_after": "silent",
       "marks": [
-        "soc2-type-ii"
+        "iso-27001",
+        "iso-27701"
       ],
-      "marks_url": "https://zight.com/trust-security",
+      "marks_url": "https://www.eficode.com/privacy-policy",
+      "dpa_already": "https://www.eficode.com/data-processing-agreement",
       "left_open": [
-        "ISO 27001 / SOC 1 / PCI DSS on that page are AWS infrastructure certs ('Built on AWS and audited against\u2026') \u2014 not filed",
-        "HIPAA is 'Scale plan, BAA available' \u2014 not a hold",
-        "GDPR is 'EU compliant' copy \u2014 not filed",
-        "DPA / named processors / years not on the trust-security HTML"
-      ]
-    },
-    {
-      "slug": "orb",
-      "named_by": 2,
-      "completeness_before": 30,
-      "completeness_after": 40,
-      "score_after": 46,
-      "tier_after": "on-file",
-      "marks": [
-        "soc2-type-ii",
-        "soc1"
-      ],
-      "marks_url": "https://www.withorb.com/products/security-compliance",
-      "left_open": [
-        "First-party HTML: 'Orb maintains SOC 1 and SOC 2 Type II certifications' \u2014 filed",
-        "DPA / named processors / years not on the security-compliance HTML"
-      ]
-    },
-    {
-      "slug": "heygen",
-      "named_by": 2,
-      "completeness_before": 40,
-      "completeness_after": 60,
-      "score_after": 44,
-      "tier_after": "on-file",
-      "dpa": "https://www.heygen.com/data-processing-addendum",
-      "left_open": [
-        "DPA HTML prints DATA PROCESSING ADDENDUM (effective October 2024) \u2014 filed",
-        "Named processors / years left open. Official page and marks already on file"
-      ]
-    },
-    {
-      "slug": "workos",
-      "named_by": 11,
-      "completeness_before": 70,
-      "completeness_after": 90,
-      "score_after": 79,
-      "tier_after": "substantial",
-      "years": 2019,
-      "year_source": "https://workos.com/security",
-      "left_open": [
-        "foundingDate 2019-05-20 on first-party /security \u2014 filed",
-        "Cited list URL already on file; named processors not printed in first-party HTML this cut",
-        "Official page / marks / DPA already on file"
-      ]
-    },
-    {
-      "slug": "supportninja",
-      "named_by": 2,
-      "completeness_before": 30,
-      "completeness_after": 50,
-      "score_after": 31,
-      "tier_after": "thin",
-      "years": 2015,
-      "year_source": "https://www.supportninja.com/security",
-      "left_open": [
-        "foundingDate 2015 on first-party /security \u2014 filed",
-        "PCI on that page is Bill.com / FirstData processor copy \u2014 not filed",
-        "HIPAA sentence is 'Sqreen is not subject to HIPAA' \u2014 not a hold",
-        "DPA / named processors / marks left open"
+        "First-party privacy HTML: 'Eficode is certified to ISO27001 and ISO27701 Information Security Standards' — filed",
+        "Client-story /security-by-design-compliance-by-default-at-cobham-satcom is not Official page",
+        "Named processors / years / Official page left open"
       ]
     }
   ],
@@ -192,8 +109,13 @@
       "reason": "sendgrid.com 301s to Twilio product host; do not alias or copy Twilio file"
     },
     {
+      "slug": "looker",
+      "named_by": 8,
+      "reason": "looker.com 301s to cloud.google.com/looker; do not alias"
+    },
+    {
       "slug": "vonage",
-      "named_by": 7,
+      "named_by": 8,
       "reason": "vonage.com HTTP 403"
     },
     {
@@ -202,49 +124,49 @@
       "reason": "netsuite.com Access Denied"
     },
     {
-      "slug": "looker",
-      "named_by": 6,
-      "reason": "looker.com 301s to cloud.google.com/looker; do not alias"
+      "slug": "vultr",
+      "named_by": 4,
+      "reason": "standing 403 leftover"
     },
     {
-      "slug": "tdcx",
-      "named_by": 1,
-      "reason": "usual-path still 404 / no catalog hold this cut"
+      "slug": "transunion-formerly-neustar-information-services",
+      "named_by": 3,
+      "reason": "standing 403 leftover"
     },
     {
-      "slug": "teleperformance-colombia",
-      "named_by": 1,
-      "reason": "standing skip this cut \u2014 parent host"
-    },
-    {
-      "slug": "userfront",
-      "named_by": 1,
-      "reason": "privacy already on file; usual-path still 404"
-    },
-    {
-      "slug": "timekit",
-      "named_by": 1,
-      "reason": "timekit.io usual-path still 404"
-    },
-    {
-      "slug": "cinder",
-      "named_by": 2,
-      "reason": "trust.vanta.com portal \u2014 not re-walked"
-    },
-    {
-      "slug": "ada",
-      "named_by": 6,
-      "reason": "security.ada.cx portal-host / HTTP 403 this cut"
-    },
-    {
-      "slug": "kwai",
+      "slug": "hive",
       "named_by": 5,
-      "reason": "security.kuaishou.com already on file; no marks/DPA/years in first-party HTML this cut"
+      "reason": "Framer shell — not re-walked"
     },
     {
-      "slug": "upper-quadrant",
-      "named_by": 1,
-      "reason": "usual-path HTTP 0 / 404"
+      "slug": "bytedance",
+      "named_by": 4,
+      "reason": "i18n shell — not re-walked"
+    },
+    {
+      "slug": "equinix",
+      "named_by": 7,
+      "reason": "equinix.com Access Denied / HTTP 403"
+    },
+    {
+      "slug": "telesign",
+      "named_by": 3,
+      "reason": "telesign.com Cloudflare 'Just a moment' 403"
+    },
+    {
+      "slug": "mailchimp",
+      "named_by": 10,
+      "reason": "DPA already on file; subprocessors HTML printed no organization names (standing)"
+    },
+    {
+      "slug": "linkedin",
+      "named_by": 5,
+      "reason": "about.linkedin.com/transparency is a content Transparency Center, not Official page; LinkedIn Learning cybersecurity topic is not an ISO 42001 hold"
+    },
+    {
+      "slug": "avalara",
+      "named_by": 2,
+      "reason": "trust.avalara.com is a JS/CSS shell; year 2004 already on file"
     }
   ],
   "standing_skips": [
@@ -265,25 +187,24 @@
     "avertech"
   ],
   "refused_this_cut": [
-    "telnyx HIPAA is footer badge copy \u2014 not a certified hold",
-    "zight ISO/SOC 1/PCI are AWS facility certs \u2014 not filed",
-    "zight HIPAA is BAA-available product copy \u2014 not a hold",
-    "bugsnag /security printed no catalog hold this cut (SmartBear logo farm not copied)",
-    "authzed /teams/security-teams is a product lander \u2014 not Official page; SOC 2 not copied from that URL",
-    "supportninja PCI is Bill.com processor copy; HIPAA is 'not subject' \u2014 not filed",
-    "onelogin usual-path HTTP 202; app.onelogin.com/login is a login wall \u2014 not Official page",
-    "onespan /trust 200s to support.onespan.com/csm customer portal \u2014 not Official page",
-    "f-secure /en/legal/terms/mobile-security is product terms \u2014 not Official page",
-    "perimeter-81 trust.perimeter81.com is a 46-char JS shell \u2014 not Official page",
-    "deltax /security is compressed/unreadable HTML \u2014 not Official page",
-    "enhancor /security /trust /privacy keep the homepage title \u2014 homepage bounce",
-    "heygen /trust-and-safety 'ensure compliance' FAQ not used; DPA filed from the addendum HTML",
-    "mixpanel /legal/ai-compliance printed no catalog hold this cut",
-    "cerebras year 2015 on /company conflicts with stored 2016 \u2014 not overwritten",
-    "ada security.ada.cx portal / 403",
-    "legalinc /security 200s to portal.legalinc.com Dashboard \u2014 not Official page",
-    "mailshell /security is titled Gozoom Security \u2014 name mismatch, not filed",
-    "cloud-ace /security /trust homepage-bounce",
+    "digicert proposed Official page is a WeSellTrust mp4; PCI DSS quote is product-requirement copy — not filed",
+    "linkedin /transparency is a content Transparency Center — not Official page",
+    "linkedin Learning /topics/security-3 is a course catalog — ISO 42001 not copied",
+    "avalara trust.avalara.com JS/CSS shell — not Official page",
+    "solace /products/security is a product lander — not Official page",
+    "bria-ai /security-and-compliance is an Enterprise Visual AI product lander — marks already on file",
+    "tensorwave /products/fleet-management/security is a product lander — not Official page",
+    "spycloud /use-case/zero-trust is a use-case page — not Official page",
+    "mitek /use-cases/compliance is a use-case page — not Official page",
+    "prove /use-cases/compliance is a use-case page — not Official page",
+    "eficode client-story Cobham Satcom is not Official page",
+    "hornetsecurity homepage is not Official page; PCI/HIPAA on /it/azienda/ not added this cut",
+    "imgix privacy footer 'SOC 2 Compliant' badge — not filed",
+    "immunify360 DPA party is Cloud Linux Software, Inc. (CloudLinux) — name mismatch, not filed",
+    "ikoula homepage /fr is not Official page",
+    "redis trust.redis.io is SafeBase portal",
+    "concentrix / taskus / constella / dstny / sutherland first-party HTML named no catalog hold",
+    "taskus / cybersource / foundever / global-payments / inmoment / intouchcx / iren / sumit-ai / visa usual-path 403 / HTTP 0",
     "Do not invent leftover domains. Do not open a zero-fill named-by-1 PR"
   ]
 }

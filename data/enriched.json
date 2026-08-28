@@ -58289,14 +58289,45 @@
       "certs": [],
       "links": {
         "security_txt": "https://redis.io/.well-known/security.txt",
-        "bug_bounty": "https://hackerone.com/redis-vdp"
+        "bug_bounty": "https://hackerone.com/redis-vdp",
+        "dpa": "https://redis.io/legal/data-processing-addendum-dpa/",
+        "subprocessors": "https://redis.io/legal/subprocessors/",
+        "privacy": "https://redis.io/legal/privacy-policy/"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "anthropic",
+        "apollo-io",
+        "ashby",
+        "atlassian",
+        "glean",
+        "google",
+        "leandata",
+        "lusha",
+        "adobe",
+        "okta",
+        "openai",
+        "netsuite",
+        "qualified-com",
+        "rox",
+        "salesforce",
+        "snowflake",
+        "stripe",
+        "sumo-logic",
+        "trustarc",
+        "twilio",
+        "zendesk",
+        "6sense",
+        "amazon-web-services",
+        "microsoft"
+      ],
       "disclosure": {
-        "score": 6,
+        "score": 28,
         "tier": "silent",
         "factors": {
-          "disclosure": 6
+          "dpa": 8,
+          "processors": 8,
+          "disclosure": 6,
+          "privacy": 6
         }
       },
       "aliases": [
@@ -96078,15 +96109,19 @@
       "source": "https://about.gitlab.com/privacy/subprocessors/",
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
-      "certs": [],
+      "certs": [
+        "ISO 27001",
+        "ISO 27701"
+      ],
       "links": {
         "dpa": "https://www.eficode.com/data-processing-agreement"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 8,
+        "score": 24,
         "tier": "silent",
         "factors": {
+          "marks": 16,
           "dpa": 8
         }
       }
