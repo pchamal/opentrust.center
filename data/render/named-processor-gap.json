@@ -1,16 +1,16 @@
 {
-  "generated": "2026-08-28T21:20:00Z",
+  "generated": "2026-08-28T21:39:00Z",
   "register": 4073,
-  "origin_main": "dfaba033",
+  "origin_main": "0e6976ab",
   "mode": "c0-named-processor-fills",
-  "leftovers_min1": 36,
+  "leftovers_min1": 35,
   "leftovers_after": 35,
   "remaining_ge2": 1,
   "remaining_ge2_slugs": [
     "bonsai-technologies"
   ],
   "aliases_added": [
-    "microsoft-teams → microsoft"
+    "google-bigquery → google"
   ],
   "aliases_kept": [
     "aws → amazon-web-services",
@@ -19,9 +19,19 @@
   ],
   "aliases_refused": [
     {
-      "from": "maestroqa",
-      "to": "rippit",
-      "reason": "trust.maestroqa.com 302s to trust.rippit.com (Secureframe). First-party HTML does not print they are the same company. Do not copy Rippit marks."
+      "from": "shopkeep",
+      "to": "lightspeed-commerce",
+      "reason": "shopkeep.com 302s to lightspeedhq.com/shopkeep/ (ShopKeep by Lightspeed). Register already keeps shopkeep as its own row (shopkeep-com → shopkeep). Do not collapse into lightspeed-commerce. Do not copy Lightspeed file."
+    },
+    {
+      "from": "rfpio",
+      "to": "responsive",
+      "reason": "rfpio.com 301s to responsive.io. Responsive is not on the register. Do not invent a Responsive row or copy Responsive DPA/security."
+    },
+    {
+      "from": "code42",
+      "to": "mimecast",
+      "reason": "code42.com 301s to mimecast.com/products/incydr. First-party HTML does not print they are the same company. Do not copy Mimecast file."
     },
     {
       "from": "segment",
@@ -36,7 +46,7 @@
     {
       "from": "looker",
       "to": "google",
-      "reason": "looker.com redirects to cloud.google.com/looker; do not alias. Do not copy Google's file."
+      "reason": "looker.com 301s to cloud.google.com/looker; do not alias. Do not copy Google's file."
     },
     {
       "from": "madkudu",
@@ -47,222 +57,98 @@
   "newly_filed": [],
   "c0_fills": [
     {
-      "slug": "reversing-labs",
-      "named_by": 2,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://www.reversinglabs.com/privacy-policy",
-      "left_open": [
-        "/trust-center /security /compliance 200 to a Next.js homepage shell (title reversinglabs; Gartner/Spectra marketing). Not Official page",
-        "HIPAA on /healthcare-cybersecurity is 'enforce HIPAA compliance' product pitch — not a hold",
-        "GDPR / CCPA on the privacy page are regulation copy",
-        "DPA / subprocessors / years not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "replicate",
+      "slug": "keycdn",
       "named_by": 1,
       "completeness_before": 0,
       "completeness_after": 0,
       "score_after": 6,
       "tier_after": "silent",
-      "privacy": "https://replicate.com/privacy",
+      "privacy": "https://www.keycdn.com/privacy",
       "left_open": [
-        "usual-path trust/security/compliance did not print a catalog hold",
-        "DPA / subprocessors / years not on the privacy HTML"
+        "usual-path /security 404",
+        "GDPR / Privacy Shield on the privacy page are regulation / vendor copy — not holds",
+        "DPA / subprocessors / years / Official page not on the privacy or about HTML"
       ]
     },
     {
-      "slug": "tanla-platforms",
+      "slug": "ipdata",
       "named_by": 1,
       "completeness_before": 0,
       "completeness_after": 0,
       "score_after": 6,
       "tier_after": "silent",
-      "privacy": "https://www.tanla.com/privacy-policy",
+      "privacy": "https://ipdata.co/privacy.html",
       "left_open": [
-        "usual-path trust/security/compliance did not print a catalog hold",
-        "GDPR / CCPA on the privacy page are regulation copy",
-        "DPA / subprocessors / years not on the privacy HTML"
-      ]
-    },
-    {
-      "slug": "totango",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 20,
-      "score_after": 22,
-      "tier_after": "silent",
-      "dpa": "https://www.totango.com/legal/data-processing-agreement",
-      "privacy_already": "https://www.totango.com/legal/privacy-policy",
-      "subprocessors_already": "https://www.totango.com/legal/subprocessors",
-      "left_open": [
-        "Named processors on the stored list URL not printed in first-party HTML this cut",
-        "About-page 2017 is Catalyst (founded 2017) merger copy — not Totango's year",
-        "Official page left open"
+        "privacy HTML is regulation-only on marks",
+        "DPA / subprocessors / years / Official page not on the privacy HTML"
       ]
     }
   ],
   "c20_fills": [
     {
-      "slug": "recall-ai",
-      "named_by": 5,
+      "slug": "semrush",
+      "named_by": 1,
       "completeness_before": 20,
       "completeness_after": 60,
-      "score_after": 45,
-      "tier_after": "on-file",
-      "dpa": "https://www.recall.ai/data-processing-agreement",
-      "years": 2020,
-      "year_source": "https://www.recall.ai/",
-      "subprocessors_already": "https://security.recall.ai/subprocessors",
-      "left_open": [
-        "Named processors on security.recall.ai/subprocessors not printed in first-party HTML this cut",
-        "SOC 2 / ISO 27001 / HIPAA on the privacy page are 'example' portal links — not holds",
-        "Official page already on file"
-      ]
-    },
-    {
-      "slug": "user-testing",
-      "named_by": 2,
-      "completeness_before": 20,
-      "completeness_after": 60,
-      "score_after": 48,
-      "tier_after": "on-file",
-      "dpa": "https://www.usertesting.com/privacy-center/data-processing-agreement",
-      "subprocessors": "https://www.usertesting.com/privacy-center/subprocessors",
+      "score_after": 30,
+      "tier_after": "silent",
+      "dpa": "https://www.semrush.com/company/legal/dpa/",
+      "marks": [
+        "pci-dss"
+      ],
+      "marks_url": "https://www.semrush.com/company/security/",
+      "subprocessors": "https://www.semrush.com/company/legal/sub-processors/",
       "named_processors_on_register": [
         "amazon-web-services",
-        "code42",
-        "crowdstrike",
-        "dbt-labs",
-        "elevenlabs",
+        "amplitude",
+        "equinix",
         "google",
-        "fivetran",
-        "liveblocks",
-        "mandiant",
-        "mongodb",
-        "nightfall",
-        "nylas",
-        "openai",
-        "okta",
-        "segment",
-        "snowflake",
-        "zoom"
+        "intercom",
+        "salesloft",
+        "salesforce"
       ],
+      "privacy_already": "https://www.semrush.com/company/legal/privacy-policy/",
       "left_open": [
-        "Teston, UserZoom entities, Panisero, User Interviews, Coalfire, and Rev printed on that list are not on the register — no leftover domain invented",
-        "EU-US DPF on the privacy page certifies UserZoom Technologies, Inc., not UserTesting — not copied",
-        "Official page already on file"
+        "CSA STAR already on file from the STAR Registry",
+        "PCI DSS Level 1 is a QSA-audited certificate on /company/security — filed. CCPA / LGPD on that page are regulation copy — not filed",
+        "The Vanity Project LLC printed on the sub-processor list is not on the register — no leftover domain invented",
+        "Google BigQuery on that list aliases to google (same company as Google Cloud Platform)",
+        "/company/security is not Official page (is_trust_page false). /company/trust 404",
+        "Years not on the about HTML"
       ]
     },
     {
-      "slug": "wasabi",
-      "named_by": 3,
-      "completeness_before": 20,
-      "completeness_after": 40,
-      "score_after": 28,
-      "tier_after": "thin",
-      "dpa": "https://wasabi.com/legal/data-processing-agreement",
-      "left_open": [
-        "SOC 2 / PCI DSS on /cloud-object-storage/security are data-center holds ('top tier data centers that are SOC 2 compliant'), not a company certificate",
-        "Official page already on file"
-      ]
-    },
-    {
-      "slug": "sendbird",
-      "named_by": 3,
-      "completeness_before": 20,
-      "completeness_after": 40,
-      "score_after": 34,
-      "tier_after": "thin",
-      "subprocessors": "https://sendbird.com/sub-processors",
-      "named_processors_on_register": [
-        "amazon-web-services",
-        "anthropic",
-        "assemblyai",
-        "atlassian",
-        "cartesia",
-        "cerebras",
-        "clay",
-        "cohere",
-        "datadog",
-        "docusign",
-        "fireworks-ai",
-        "fivetran",
-        "friendliai",
-        "google",
-        "langfuse",
-        "leandata",
-        "livekit",
-        "looker",
-        "adobe",
-        "messagebird",
-        "microsoft",
-        "openai",
-        "panther-labs",
-        "stripe",
-        "telnyx",
-        "twilio",
-        "vercel",
-        "vonage",
-        "wispr-flow",
-        "zapier"
+      "slug": "sentry",
+      "named_by": 36,
+      "completeness_before": 60,
+      "completeness_after": 90,
+      "score_after": 87,
+      "tier_after": "substantial",
+      "marks": [
+        "soc2-type-ii",
+        "iso-27001",
+        "hipaa"
       ],
+      "marks_url": "https://sentry.io/security/",
+      "years": 2011,
+      "year_source": "https://sentry.io/welcome/",
+      "dpa_already": "https://sentry.io/legal/dpa/",
+      "subprocessors_already": "https://sentry.io/legal/subprocessors/",
       "left_open": [
-        "Official page already on file. /security title is a product lander; 'frameworks include GDPR, CCPA, HIPAA, and SOC 2 Type 2' is landscape copy — not a hold",
-        "Marketo-host PDF get.sendbird.com/rs/.../Sendbird_Customer_Data_Processing_Agreement_V4_2.pdf refused as DPA",
-        "Alta.AI, Centralize, CyberHaven, Lexion, Functional Software, NHN Cloud, Supabase, Twingate, VESSL AI, ZeroEntropy printed on that list are not on the register — no leftover domain invented"
-      ]
-    },
-    {
-      "slug": "validity",
-      "named_by": 2,
-      "completeness_before": 20,
-      "completeness_after": 40,
-      "score_after": 34,
-      "tier_after": "thin",
-      "subprocessors": "https://www.validity.com/legal/subprocessors/",
-      "named_processors_on_register": [
-        "6sense",
-        "amazon-web-services",
-        "atlassian",
-        "auth0",
-        "clickhouse",
-        "crowdstrike",
-        "customer-io",
-        "fivetran",
-        "gong",
-        "pendo",
-        "productboard",
-        "recurly-com",
-        "salesforce",
-        "snowflake",
-        "stripe",
-        "twilio",
-        "zapier",
-        "zuora"
-      ],
-      "left_open": [
-        "DataSet, ChurnZero, MacStadium, Melissa Data, Walnut, VWO, Worldpay printed on that list are not on the register — no leftover domain invented",
-        "EU-US DPF on the privacy page was not a clear self-cert of Validity — left open",
+        "Named processors on sentry.io/legal/subprocessors not printed in first-party HTML this cut (list URL already on file)",
         "Official page already on file"
       ]
     },
     {
-      "slug": "auth0",
-      "named_by": 7,
-      "completeness_before": 20,
-      "completeness_after": 40,
-      "score_after": 44,
-      "tier_after": "on-file",
-      "years": 2013,
-      "year_source": "https://auth0.com/",
+      "slug": "hubspot",
+      "named_by": 15,
+      "completeness_before": 80,
+      "completeness_after": 100,
+      "score_after": 94,
+      "tier_after": "complete",
+      "dpa": "https://legal.hubspot.com/dpa",
       "left_open": [
-        "Okta privacy / security.okta.com / vulnerability-reporting-policy are parent-company hosts — not copied onto Auth0",
-        "Marks / DPA / subprocessors not on auth0.com/security this cut",
-        "Official page already on file"
+        "Official page / marks / named processors / years already on file"
       ]
     }
   ],
@@ -373,6 +259,91 @@
       "reason": "not Completeness 0 (years 2012 + privacy already on file). /en/security /security /en/compliance /trust are i18n JS shells (title ByteDance, body is the locale map). security.bytedance.com is a CSS-only shell. Official page left open."
     },
     {
+      "slug": "sift",
+      "named_by": 1,
+      "reason": "sift.com Cloudflare 403 on trust/security/privacy/dpa/about. trust.sift.com HTTP 0"
+    },
+    {
+      "slug": "scylladb",
+      "named_by": 1,
+      "reason": "www.scylladb.com HTTP 429 this cut. trust.scylladb.com HTTP 0"
+    },
+    {
+      "slug": "softserve",
+      "named_by": 1,
+      "reason": "www.softserveinc.com usual-path 302 Loading wall"
+    },
+    {
+      "slug": "sapient",
+      "named_by": 1,
+      "reason": "/privacy 200 to a JS shell (title Privacy | Publicis Sapient; classify_as_privacy false). /security /trust 404"
+    },
+    {
+      "slug": "sfeir",
+      "named_by": 1,
+      "reason": "walker hit /secteurs/banque/ — sector lander, not Official page"
+    },
+    {
+      "slug": "shopkeep",
+      "named_by": 1,
+      "reason": "shopkeep.com 302s to lightspeedhq.com — parent-company host; do not copy Lightspeed file. shopkeep row stays"
+    },
+    {
+      "slug": "singular-lab",
+      "named_by": 1,
+      "reason": "www.singular.net Cloudflare 403"
+    },
+    {
+      "slug": "spryng",
+      "named_by": 1,
+      "reason": "www.spryng.nl Cloudflare 403"
+    },
+    {
+      "slug": "tdcx",
+      "named_by": 1,
+      "reason": "about HTML names no catalog hold. /privacy-policy /security /trust /legal/dpa 404"
+    },
+    {
+      "slug": "tata-communications",
+      "named_by": 1,
+      "reason": "walker hit /cyber-security-solutions — product lander, not Official page"
+    },
+    {
+      "slug": "teleperformance-colombia",
+      "named_by": 1,
+      "reason": "teleperformance.com HTTP 0 this cut. Domain is the parent host"
+    },
+    {
+      "slug": "ust",
+      "named_by": 1,
+      "reason": "www.ust.com Cloudflare 403"
+    },
+    {
+      "slug": "timekit",
+      "named_by": 1,
+      "reason": "timekit.io usual-path privacy/security/dpa/about 404"
+    },
+    {
+      "slug": "userfront",
+      "named_by": 1,
+      "reason": "privacy already on file. /security /trust /legal/dpa /legal/subprocessors 404. About HTML names no year"
+    },
+    {
+      "slug": "rfpio",
+      "named_by": 1,
+      "reason": "rfpio.com 301s to responsive.io — not first-party for this slug. Responsive not on register"
+    },
+    {
+      "slug": "code42",
+      "named_by": 1,
+      "reason": "code42.com 301s to mimecast.com — parent-company host; do not copy Mimecast file"
+    },
+    {
+      "slug": "rubrik",
+      "named_by": 1,
+      "reason": "www.rubrik.com Access Denied 403 on trust/security/compliance/legal/about"
+    },
+    {
       "slug": "onesignal",
       "named_by": 3,
       "reason": "just filled page · marks in #189 / privacy+marks+status in #190"
@@ -440,7 +411,7 @@
     {
       "slug": "reversing-labs",
       "named_by": 2,
-      "reason": "this increment filed privacy only. /trust-center is a Next.js homepage shell — not Official page"
+      "reason": "#191 filed privacy only. /trust-center is a Next.js homepage shell — not Official page"
     },
     {
       "slug": "sumit-ai",
@@ -506,16 +477,24 @@
     "avertech"
   ],
   "refused_this_cut": [
-    "browserbase DPA is /sign-in?redirect= data-processing-addendum — login wall",
-    "segment subprocessors harvested from twilio.com — parent list, not filed",
-    "sendbird DPA PDF on get.sendbird.com Marketo host — not filed",
-    "maestroqa marks from trust.rippit.com Secureframe — not filed",
-    "cinder HIPAA footer badges — not filed",
-    "metronome SOC 2 is cloud-provider copy — not filed",
-    "recall-ai privacy-page SOC/ISO/HIPAA example links — not filed",
-    "supportninja PCI/GDPR operational and regulation copy — not filed",
-    "wasabi SOC 2 is data-center copy — not filed",
-    "sendbird GDPR/CCPA/HIPAA/SOC 2 'frameworks include' — not filed",
-    "totango year 2017 is Catalyst merger copy — not filed"
+    "sift / scylladb / softserve / singular-lab / spryng / ust / rubrik / iron-mountain Cloudflare 403 / 429 / 0 / Loading wall",
+    "rfpio → responsive.io not on register — not filed",
+    "shopkeep / code42 parent-company hosts — Lightspeed / Mimecast file not copied",
+    "sfeir /tata-communications / jack-henry / filestack / grab / accelq / carahsoft / datamotion / infinicept / data-jar / cloudwave / dolby walker hits were product, academy, award, ebook, 404, or mp4 — not Official page",
+    "ciklum /risk-and-compliance/ is ethics / code of conduct — not Official page",
+    "ciklum HIPAA on /services/digital-assurance-services/ is case-study product copy — not a hold",
+    "e-core /privacy-policy titles Quality Policy; ISO 27001 quote empty — not filed as privacy or mark",
+    "cognizant /security empty title — not Official page",
+    "sapient /privacy is a JS shell — classify_as_privacy false",
+    "rackspace /compliance is GRC services ('compliance assistance') — not Official page; HIPAA is a customer testimonial",
+    "turbopuffer about-page SOC 2 is staff joke copy ('loves SOC2 auditors') — not a hold",
+    "mailchimp subprocessors HTML prints no organization names this cut; privacy 301s to intuit.com — parent host",
+    "linkedin DPA already on file; extracted 'processors' are LinkedIn product names (Talent/Hire, Learning) — not filed",
+    "gainsight / telesign Cloudflare 403",
+    "fullstory usual-path DPA / subprocessors / trust 404",
+    "segment 403 / Twilio parent list — not filed",
+    "zendesk subprocessors usual-path 404 this cut",
+    "salesforce DPA PDF /legal/dpa 404 — left open",
+    "The Vanity Project LLC on Semrush's list is not on the register — no leftover domain invented"
   ]
 }

@@ -47,6 +47,8 @@ REGISTER_ALIASES: dict[str, str] = {
     "google-resources": "google",
     "google-analytics-optional-sub-processor": "google",
     "google-firebase-google-analytics-google-gemini": "google",
+    # Semrush names Google BigQuery next to Google Cloud Platform.
+    "google-bigquery": "google",
     # Microsoft products / regional entities.
     "microsoft-clarity": "microsoft",
     "microsoft-ireland-operations": "microsoft",
