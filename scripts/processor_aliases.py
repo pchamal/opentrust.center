@@ -52,6 +52,8 @@ REGISTER_ALIASES: dict[str, str] = {
     "microsoft-ireland-operations": "microsoft",
     "microsoft-365-copilot": "microsoft",
     "microsoft-office": "microsoft",
+    # Forethought prints Microsoft Hosting Services. microsoft is on the register.
+    "microsoft-hosting-services": "microsoft",
     # IBM legal name on the wire.
     "international-business-machines-ibm": "ibm",
     # Same-company legal / product ids already on the register.
@@ -277,6 +279,8 @@ REGISTER_ALIASES: dict[str, str] = {
     "lambda-inc": "lambda",
     "lambda-labs": "lambda",
     "mistral-compute": "mistral-ai",
+    # Forethought prints Mistral. mistral-ai is on the register.
+    "mistral": "mistral-ai",
     "tanla-digital-labs-fz": "tanla-platforms",
     "bria-artificial-intelligence": "bria-ai",
     "vast": "vast-data",
@@ -423,6 +427,10 @@ REGISTER_ALIASES: dict[str, str] = {
     # AudioCodes acquired Active Communications Europe in 2015. audiocodes is
     # on the register; ACE has no independent first-party homepage.
     "active-communications-europe": "audiocodes",
+    # AudioCodes' own group-subprocessor table names Nuera Communications
+    # Singapore PTE LTD next to AudioCodes regional entities. AudioCodes
+    # acquired Nuera in 2006. Do not invent a second dossier.
+    "nuera-communications-singapore-pte": "audiocodes",
     # LiveRamp acquired Diablo.ai in 2021. habu / datafleets already land here.
     "diablo-ai": "liveramp",
     # Same-company leftovers after the last named-processor batch.

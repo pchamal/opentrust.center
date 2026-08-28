@@ -7690,13 +7690,6 @@
       "in_register": true
     },
     {
-      "id": "nuera-communications-singapore-pte",
-      "name": "Nuera Communications Singapore PTE LTD",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "blue-ocean-contact-centres",
       "name": "Blue Ocean Contact Centres Inc",
       "domain": "",
@@ -25818,6 +25811,13 @@
       "domain": "",
       "kind": "processor",
       "in_register": false
+    },
+    {
+      "id": "gladia",
+      "name": "Gladia",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
     }
   ],
   "edges": [
@@ -34961,7 +34961,7 @@
     },
     {
       "from": "audiocodes",
-      "to": "nuera-communications-singapore-pte",
+      "to": "audiocodes",
       "source_url": "https://www.audiocodes.com/data-sub-processors",
       "evidence": "Nuera Communications Singapore PTE LTD"
     },
@@ -40082,6 +40082,132 @@
       "to": "fal-ai",
       "source_url": "https://think.vyond.com/subprocessors",
       "evidence": "fal.ai"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "amazon-web-services",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "Amazon Web Services, Inc"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "mongodb",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "MongoDB"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "microsoft",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "Microsoft Hosting Services"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "google",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "Google, Inc"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "cloudflare",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "Cloudflare"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "openai",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "OpenAI"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "groq",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "Groq"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "mistral-ai",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "Mistral"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "pusher",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "Pusher"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "datadog",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "Datadog"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "gladia",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "Gladia"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "deepgram",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "Deepgram"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "elevenlabs",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "ElevenLabs"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "cartesia",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "Cartesia"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "daily",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "Daily.co"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "twilio",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "Twilio"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "sendgrid",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "SendGrid, Inc"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "snowflake",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "Snowflake Inc"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "sentry",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "Sentry"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "appcues",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "Appcues"
+    },
+    {
+      "from": "forethought-technologies",
+      "to": "gainsight",
+      "source_url": "https://forethought.ai/data-subprocessors",
+      "evidence": "Gainsight"
     }
   ],
   "aliases": {
@@ -40117,6 +40243,7 @@
     "microsoft-ireland-operations": "microsoft",
     "microsoft-365-copilot": "microsoft",
     "microsoft-office": "microsoft",
+    "microsoft-hosting-services": "microsoft",
     "international-business-machines-ibm": "ibm",
     "gong-io": "gong",
     "pylon-labs": "pylon",
@@ -40326,6 +40453,7 @@
     "lambda-inc": "lambda",
     "lambda-labs": "lambda",
     "mistral-compute": "mistral-ai",
+    "mistral": "mistral-ai",
     "tanla-digital-labs-fz": "tanla-platforms",
     "bria-artificial-intelligence": "bria-ai",
     "vast": "vast-data",
@@ -40437,6 +40565,7 @@
     "atelier35": "lightspeed-commerce",
     "simple-order": "lightspeed-commerce",
     "active-communications-europe": "audiocodes",
+    "nuera-communications-singapore-pte": "audiocodes",
     "diablo-ai": "liveramp",
     "tugboat-logic": "onetrust",
     "xpanxion": "ust",

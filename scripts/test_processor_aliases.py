@@ -334,6 +334,13 @@ def main() -> int:
     check(canonical_processor_id("proofpoint-systems", pp_reg) == "proofpoint", "Proofpoint Systems is Proofpoint")
     lm_reg = {**register, "link-motion": {"slug": "link-motion", "name": "Link Motion", "domain": "link-motion.com"}}
     check(canonical_processor_id("link-motion-inc", lm_reg) == "link-motion", "Link Motion Inc is Link Motion")
+    ac_reg = {**register, "audiocodes": {"slug": "audiocodes", "name": "AudioCodes", "domain": "audiocodes.com"}}
+    check(canonical_processor_id("nuera-communications-singapore-pte", ac_reg) == "audiocodes", "Nuera Singapore is AudioCodes")
+    check(canonical_processor_id("active-communications-europe", ac_reg) == "audiocodes", "ACE is AudioCodes")
+    ms_reg = {**register, "microsoft": register["microsoft"]}
+    check(canonical_processor_id("microsoft-hosting-services", ms_reg) == "microsoft", "Microsoft Hosting Services is Microsoft")
+    mis_reg = {**register, "mistral-ai": {"slug": "mistral-ai", "name": "Mistral AI", "domain": "mistral.ai"}}
+    check(canonical_processor_id("mistral", mis_reg) == "mistral-ai", "Mistral is Mistral AI")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch
