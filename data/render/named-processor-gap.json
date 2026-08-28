@@ -1,7 +1,7 @@
 {
-  "generated": "2026-08-28T20:00:00Z",
+  "generated": "2026-08-28T20:30:00Z",
   "register": 4033,
-  "origin_main": "4b0c7879",
+  "origin_main": "d6e6c0d0",
   "mode": "c0-named-processor-fills",
   "leftovers_min1": 35,
   "leftovers_after": 35,
@@ -80,45 +80,121 @@
       "from": "looker",
       "to": "google",
       "reason": "looker.com redirects to cloud.google.com/looker; do not alias. Do not copy Google's file."
+    },
+    {
+      "from": "qunifi",
+      "to": "dstny-automate-formerly-qunifi",
+      "reason": "already aliased on the graph. dstny.com usual-path 404; qunifi.com 301s to dstny.com/solutions (product ecosystem). No first-party trust/privacy/compliance HTML that names instruments."
     }
   ],
   "newly_filed": [],
   "c0_fills": [
     {
-      "slug": "stytch",
-      "named_by": 3,
+      "slug": "echoworx",
+      "named_by": 1,
       "completeness_before": 0,
-      "completeness_after": 2,
-      "score_after": 52,
-      "tier_after": "on-file",
-      "official_page": "https://stytch.com/docs/resources/policies/security-and-trust/compliance/overview",
+      "completeness_after": 40,
+      "score_after": 38,
+      "tier_after": "thin",
+      "official_page": "https://echoworx.com/email-encryption/standards-security/",
       "marks": [
         "soc2",
-        "iso27001",
-        "pci-dss",
-        "eu-us-dpf"
+        "pci-dss"
       ],
-      "status": "https://status.stytch.com",
+      "privacy": "https://echoworx.com/privacy-policy/",
       "left_open": [
-        "stytch.com/docs/.../security and .../privacy 302 to twilio.com — do not file Twilio as Official page, DPA, or privacy",
-        "security.twilio.com — Twilio Trust Center; retrieve-documents pointer only",
-        "GDPR — 'complies with' / help-you-comply copy on data-compliance",
-        "DPA — only Twilio data-protection-addendum is linked",
-        "privacy / security.txt / bounty / year — not on a first-party Stytch HTML hold"
+        "DORA / NIS2 / GDPR on that page are regulation landscape ('made security a board-level mandate'), not company holds",
+        "FIPS 140-3 is meta/HSM copy (AWS KMS HSMs), not a company certificate hold",
+        "DPA / subprocessors / years not on the certifications or privacy HTML"
       ]
     },
     {
-      "slug": "sutherland-global-services",
-      "named_by": 2,
+      "slug": "digital-realty",
+      "named_by": 1,
       "completeness_before": 0,
       "completeness_after": 0,
       "score_after": 6,
       "tier_after": "silent",
-      "privacy": "https://www.sutherlandglobal.com/privacy-policy",
+      "privacy": "https://www.digitalrealty.com/about/legal/privacy",
       "left_open": [
-        "/security and /compliance 200 to SVG assets — not Official page",
-        "no first-party trust/security/compliance HTML that names certificates",
+        "/data-centers/design/certifications-compliance is a facility filter catalog (Apply filter / No results were found), not Official page",
+        "usual-path /security /trust /compliance 404",
         "DPA / years not on the privacy page"
+      ]
+    },
+    {
+      "slug": "cequens-fze",
+      "named_by": 1,
+      "completeness_before": 0,
+      "completeness_after": 0,
+      "score_after": 6,
+      "tier_after": "silent",
+      "privacy": "https://www.cequens.com/privacy-policy",
+      "left_open": [
+        "SOC 2 / ISO 27001 / PCI DSS footer badges also print on 404 pages — not filed as marks",
+        "/security /trust /compliance /trust-center 404",
+        "DPA / years not on the privacy page"
+      ]
+    },
+    {
+      "slug": "cprime",
+      "named_by": 1,
+      "completeness_before": 0,
+      "completeness_after": 0,
+      "score_after": 6,
+      "tier_after": "silent",
+      "privacy": "https://www.cprime.com/privacy-policy/",
+      "left_open": [
+        "privacy HTML says Cprime is 'actively undergoing' SOC 2 Type 2 — in-progress is not a hold",
+        "/security /trust /compliance 404"
+      ]
+    },
+    {
+      "slug": "claranet",
+      "named_by": 1,
+      "completeness_before": 0,
+      "completeness_after": 0,
+      "score_after": 6,
+      "tier_after": "silent",
+      "privacy": "https://www.claranet.com/privacy-policy/",
+      "left_open": [
+        "first-party HTML names no catalog hold beyond privacy"
+      ]
+    },
+    {
+      "slug": "elegant-themes",
+      "named_by": 1,
+      "completeness_before": 0,
+      "completeness_after": 0,
+      "score_after": 6,
+      "tier_after": "silent",
+      "privacy": "https://www.elegantthemes.com/policy/privacy/",
+      "left_open": [
+        "first-party HTML names no catalog hold beyond privacy"
+      ]
+    },
+    {
+      "slug": "blogvault",
+      "named_by": 1,
+      "completeness_before": 0,
+      "completeness_after": 0,
+      "score_after": 6,
+      "tier_after": "silent",
+      "privacy": "https://blogvault.net/privacy-policy/",
+      "left_open": [
+        "first-party HTML names no catalog hold beyond privacy"
+      ]
+    },
+    {
+      "slug": "attribution",
+      "named_by": 1,
+      "completeness_before": 0,
+      "completeness_after": 0,
+      "score_after": 6,
+      "tier_after": "silent",
+      "privacy": "https://www.attributionapp.com/privacy",
+      "left_open": [
+        "first-party HTML names no catalog hold beyond privacy"
       ]
     }
   ],
@@ -212,6 +288,171 @@
       "slug": "iren",
       "named_by": 2,
       "reason": "usual-path 404 / homepage bounce. /legal/privacy-policy exists but looks_dead so classify_as_privacy is false."
+    },
+    {
+      "slug": "dstny-automate-formerly-qunifi",
+      "named_by": 2,
+      "reason": "dstny.com usual-path trust/privacy/security/compliance 404. qunifi.com 301s to dstny.com/solutions (product ecosystem). Homepage HTML names Dstny but no catalog hold."
+    },
+    {
+      "slug": "hive",
+      "named_by": 5,
+      "reason": "not Completeness 0 (years 2016 already on file from hive.com/about). /security 200s to /policy-documents/security but HTML is a Framer homepage shell (title remains the marketing lander; no SOC/ISO/security body). trust.hive.com / security.hive.com HTTP 0. Privacy path classifies by URL but prints the same shell — not filed. Status host was flaky (200 then 0)."
+    },
+    {
+      "slug": "bytedance",
+      "named_by": 4,
+      "reason": "not Completeness 0 (years 2012 + privacy already on file). /en/security /security /en/compliance /trust are i18n JS shells (title ByteDance, body is the locale map). security.bytedance.com is a CSS-only shell. Official page left open."
+    },
+    {
+      "slug": "onesignal",
+      "named_by": 3,
+      "reason": "not Completeness 0 (DPA already on file). This increment filed privacy + SOC 2 Type II / ISO 27001 / ISO 27701 from onesignal.com/privacy + status.onesignal.com. Completeness 20→40. /security /trust /compliance 404. HIPAA on the privacy page is 'provides a platform to support HIPAA compliance' + BAA — not a hold. Official page left open."
+    },
+    {
+      "slug": "avalara",
+      "named_by": 2,
+      "reason": "not Completeness 0 (years 2004 already on file). /trust 301s to /us/en/about/why-avalara.html (marketing). trust.avalara.com is portal JS — portal vendor not named; Official page left open. This increment filed status.avalara.com only."
+    },
+    {
+      "slug": "kiss-metrics",
+      "named_by": 2,
+      "reason": "not Completeness 0 (years 2008 already on file from kissmetrics.io/privacy). /security /trust /compliance 404. This increment filed privacy. Official page left open."
+    },
+    {
+      "slug": "knock",
+      "named_by": 2,
+      "reason": "not Completeness 0 (DPA already on file). This increment filed privacy + subprocessors URL + register-only named processors from knock.app/legal/subprocessors + status.knock.app. Completeness 20→40. /security /trust /compliance 404. Omni and Prequel printed on that list are not on the register — no leftover row invented. DPA 'adherence to SOC 2 Type II controls' is not a certification hold. Official page left open."
+    },
+    {
+      "slug": "stytch",
+      "named_by": 3,
+      "reason": "just filled page · marks in #189"
+    },
+    {
+      "slug": "sutherland-global-services",
+      "named_by": 2,
+      "reason": "just filed privacy only in #189"
+    },
+    {
+      "slug": "redis",
+      "named_by": 5,
+      "reason": "#188 disclosure only; trust.redis.io is a portal, not Official page. Portal vendor not named."
+    },
+    {
+      "slug": "adjust",
+      "named_by": 1,
+      "reason": "usual-path walk is js-shell|login-wall"
+    },
+    {
+      "slug": "bluesnap",
+      "named_by": 1,
+      "reason": "HTTP 530"
+    },
+    {
+      "slug": "dovetail",
+      "named_by": 1,
+      "reason": "usual-path walk is not-first-party"
+    },
+    {
+      "slug": "devo",
+      "named_by": 1,
+      "reason": "HTTP 0"
+    },
+    {
+      "slug": "webroot",
+      "named_by": 1,
+      "reason": "privacy 302s to opentext.com — parent-company host; do not copy OpenText privacy"
+    },
+    {
+      "slug": "unbabel",
+      "named_by": 1,
+      "reason": "privacy 302s to unbabeltmp.tpweb-stage.com staging host — not first-party Official privacy"
+    }
+  ],
+  "c20_fills": [
+    {
+      "slug": "onesignal",
+      "named_by": 3,
+      "completeness_before": 20,
+      "completeness_after": 40,
+      "score_after": 46,
+      "tier_after": "silent",
+      "privacy": "https://onesignal.com/privacy",
+      "marks": [
+        "soc2-type-ii",
+        "iso27001",
+        "iso27701"
+      ],
+      "status": "https://status.onesignal.com",
+      "dpa_already": "https://onesignal.com/dpa",
+      "left_open": [
+        "/security /trust /compliance 404 — Official page left open",
+        "HIPAA is 'support HIPAA compliance' + BAA on Enterprise — not a hold",
+        "GDPR / CCPA on the privacy page are regulation copy"
+      ]
+    },
+    {
+      "slug": "knock",
+      "named_by": 2,
+      "completeness_before": 20,
+      "completeness_after": 40,
+      "score_after": 28,
+      "tier_after": "silent",
+      "privacy": "https://knock.app/legal/privacy-policy",
+      "subprocessors": "https://knock.app/legal/subprocessors",
+      "status": "https://status.knock.app/",
+      "dpa_already": "https://knock.app/legal/data-processing-addendum",
+      "named_processors_on_register": [
+        "amazon-web-services",
+        "anthropic",
+        "clickhouse",
+        "cloudflare",
+        "datadog",
+        "intercom",
+        "launchdarkly",
+        "openai",
+        "orb",
+        "posthog",
+        "pylon",
+        "segment",
+        "sentry",
+        "slack",
+        "stripe",
+        "postmark",
+        "workos"
+      ],
+      "left_open": [
+        "Official page — usual-path 404; docs.knock.app/security is developer docs",
+        "Omni and Prequel named on the list are not on the register — no leftover domain invented",
+        "SOC 2 Type II on the DPA is 'adherence to SOC 2 Type II controls', not a hold"
+      ]
+    },
+    {
+      "slug": "kiss-metrics",
+      "named_by": 2,
+      "completeness_before": 20,
+      "completeness_after": 20,
+      "score_after": 15,
+      "tier_after": "silent",
+      "privacy": "https://kissmetrics.io/privacy",
+      "left_open": [
+        "/security /trust /compliance 404"
+      ]
+    },
+    {
+      "slug": "avalara",
+      "named_by": 2,
+      "completeness_before": 20,
+      "completeness_after": 20,
+      "score_after": 16,
+      "tier_after": "silent",
+      "status": "https://status.avalara.com/",
+      "left_open": [
+        "trust.avalara.com is portal JS — portal vendor not named; Official page left open",
+        "/trust bounces to Why Avalara marketing",
+        "privacy path 302s to legal.avalara.com/dpa#privacynotice (not classified as privacy)"
+      ]
     }
   ],
   "standing_skips": [
