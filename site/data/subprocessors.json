@@ -2378,10 +2378,10 @@
     },
     {
       "id": "zyyx",
-      "name": "ZYYX Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "ZYYX",
+      "domain": "zyyx.jp",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "cloud-ace",
@@ -2427,10 +2427,10 @@
     },
     {
       "id": "x-rd",
-      "name": "X-RD Pty Ltd",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "x-RD",
+      "domain": "x-rd.com.au",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "vivaops",
@@ -2606,13 +2606,6 @@
       "domain": "premiertalentpartners.com",
       "kind": "company",
       "in_register": true
-    },
-    {
-      "id": "vmlapp-sweden",
-      "name": "Vmlapp Sweden AB",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
     },
     {
       "id": "taskus",
@@ -7590,13 +7583,6 @@
       "domain": "ciklum.com",
       "kind": "company",
       "in_register": true
-    },
-    {
-      "id": "collosyan",
-      "name": "Collosyan",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
     },
     {
       "id": "heygen",
@@ -25811,6 +25797,13 @@
       "domain": "apryse.com",
       "kind": "company",
       "in_register": true
+    },
+    {
+      "id": "colossyan",
+      "name": "Colossyan",
+      "domain": "colossyan.com",
+      "kind": "company",
+      "in_register": true
     }
   ],
   "edges": [
@@ -30892,7 +30885,7 @@
     },
     {
       "from": "figma",
-      "to": "vmlapp-sweden",
+      "to": "figma",
       "source_url": "https://www.figma.com/sub-processors/",
       "evidence": "Vmlapp Sweden AB"
     },
@@ -34660,7 +34653,7 @@
     },
     {
       "from": "powtoon",
-      "to": "collosyan",
+      "to": "colossyan",
       "source_url": "https://www.powtoon.com/dpa/sub-processors/",
       "evidence": "Collosyan"
     },
@@ -40402,6 +40395,8 @@
     "klarity": "within",
     "ori-industries": "radiant",
     "bcl-technologies": "apryse",
-    "spacexai": "xai"
+    "spacexai": "xai",
+    "vmlapp-sweden": "figma",
+    "collosyan": "colossyan"
   }
 }

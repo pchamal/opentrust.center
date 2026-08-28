@@ -261,6 +261,10 @@ def main() -> int:
     check(canonical_processor_id("bcl-technologies", ap_reg) == "apryse", "BCL Technologies is Apryse")
     xai_reg = {**register, "xai": {"slug": "xai", "name": "xAI", "domain": "x.ai"}}
     check(canonical_processor_id("spacexai", xai_reg) == "xai", "SpaceXAI is xAI")
+    fig_reg2 = {**register, "figma": {"slug": "figma", "name": "Figma", "domain": "figma.com"}}
+    check(canonical_processor_id("vmlapp-sweden", fig_reg2) == "figma", "Vmlapp Sweden is Figma")
+    colo_reg = {**register, "colossyan": {"slug": "colossyan", "name": "Colossyan", "domain": "colossyan.com"}}
+    check(canonical_processor_id("collosyan", colo_reg) == "colossyan", "Collosyan is Colossyan")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 
