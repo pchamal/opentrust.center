@@ -1,64 +1,55 @@
 {
   "rule": "Named processor not on the register jumps the queue. Alias graph ids that are the same company as an existing slug. Completeness rates the file. Portal vendors are never named. Entity Name is garbage. Never invent a second dossier for an alias. Never invent domains.",
-  "tip": "55be55b97",
-  "register": 3780,
+  "tip": "f6cd067ef",
+  "register": 3821,
   "aliases_kept": {
     "spacexai": "xai",
     "vmlapp-sweden": "figma",
-    "collosyan": "colossyan"
-  },
-  "aliases_added": {
+    "collosyan": "colossyan",
     "nuera-communications-singapore-pte": "audiocodes",
     "microsoft-hosting-services": "microsoft",
-    "mistral": "mistral-ai"
+    "mistral": "mistral-ai",
+    "kuaishou-technology": "kwai"
   },
-  "filed": [],
+  "aliases_added": {},
+  "filed": [
+    {
+      "slug": "gladia",
+      "name": "Gladia",
+      "domain": "gladia.io",
+      "page": "https://www.gladia.io/security",
+      "marks": [
+        "SOC 2 Type I",
+        "SOC 2 Type II"
+      ],
+      "dpa": "https://www.gladia.io/data-process-agreement",
+      "named_by": 1,
+      "source_url": "https://forethought.ai/data-subprocessors"
+    }
+  ],
   "c0_fills": {
-    "forethought-technologies": {
-      "page": "https://forethought.ai/compliance",
+    "hetzner-online": {
+      "page": "https://www.hetzner.com/unternehmen/zertifizierung/",
+      "marks": [
+        "ISO 27001"
+      ]
+    },
+    "zuva": {
       "marks": [
         "SOC 2 Type II"
       ],
-      "dpa": "https://forethought.ai/dpa",
-      "subprocessors": "https://forethought.ai/data-subprocessors",
-      "year": 2017,
-      "year_url": "https://forethought.ai/"
+      "marks_url": "https://zuva.ai/privacy/"
     },
-    "sqlgrease": {
-      "page": "https://sqlgrease.com/Home/Security",
+    "solace": {
       "marks": [
-        "SOC 2"
-      ]
-    },
-    "demicon": {
-      "page": "https://demicon.com/en/security",
-      "marks": [
+        "SOC 2 Type II",
         "ISO 27001",
-        "ISO 9001"
-      ]
-    },
-    "variacode-software-s-p-a": {
-      "year": 2020,
-      "year_url": "https://www.variacode.com/"
-    },
-    "safeguard-global": {
-      "year": 2008,
-      "year_url": "https://www.safeguardglobal.com/"
-    },
-    "quintype-technologies-d-b-a-listenfirst-media": {
-      "year": 2012,
-      "year_url": "https://www.listenfirstmedia.com/about-us/"
-    },
-    "eztitles": {
-      "year": 2003,
-      "year_url": "https://eztitles.com/about-us"
-    },
-    "simwood-esms": {
-      "year": 1996,
-      "year_url": "https://simwood.com/privacy/"
+        "CSA STAR"
+      ],
+      "marks_url": "https://solace.com/products/security/"
     }
   },
-  "leftovers_after": 55,
+  "leftovers_after": 52,
   "leftovers_named_by_ge2": 1,
   "leftovers": [
     {
@@ -152,12 +143,6 @@
       "source_url": "https://about.gitlab.com/privacy/subprocessors/"
     },
     {
-      "slug": "dolby",
-      "name": "Dolby",
-      "named_by": 1,
-      "source_url": "https://think.vyond.com/subprocessors"
-    },
-    {
       "slug": "eighth-intuition-sdn-bhd",
       "name": "Eighth Intuition Sdn. Bhd",
       "named_by": 1,
@@ -174,12 +159,6 @@
       "name": "GCS",
       "named_by": 1,
       "source_url": "https://www.audiocodes.com/data-sub-processors"
-    },
-    {
-      "slug": "gladia",
-      "name": "Gladia",
-      "named_by": 1,
-      "source_url": "https://forethought.ai/data-subprocessors"
     },
     {
       "slug": "gmi",
@@ -210,12 +189,6 @@
       "name": "IntraEdge, Inc",
       "named_by": 1,
       "source_url": "https://www.egnyte.com/subcontractors"
-    },
-    {
-      "slug": "kuaishou-technology",
-      "name": "Kuaishou Technology",
-      "named_by": 1,
-      "source_url": "https://think.vyond.com/subprocessors"
     },
     {
       "slug": "madkudu",
@@ -392,7 +365,7 @@
       "source_url": "https://www.meltwater.com/en/privacy/subprocessors"
     }
   ],
-  "soft_retry_still_blocked": [
+  "soft_retry_still_open": [
     "madkudu",
     "plextrac",
     "printfection",
@@ -403,20 +376,8 @@
     "healthcast",
     "boldr",
     "avertech",
-    "cloud-support-technologies",
-    "cognitive-intelligence",
-    "frontline-call-center",
-    "launchboard-software",
-    "nanonoble-pte",
-    "ninja-partners",
-    "norwin-technologies",
-    "rule-56",
-    "vivaops",
-    "cc-cloud",
-    "df-tech-fz",
-    "agile-management-experts",
-    "blue-ocean-contact-centres",
-    "ujwal"
+    "tavus",
+    "dolby"
   ],
-  "notes": "Rebased onto 55be55b97 after expand. Register 3780. ConvertAPI already on main from expand \u2014 not re-filed. Nuera Communications Singapore lands on audiocodes. Forethought named Microsoft Hosting Services and Mistral; those land on microsoft / mistral-ai. Leftover new-row queue thinner than ~12 after honest domain checks. Intersections LLC left open. Completeness-0 fills kept. Did not print GDPR/CCPA as marks. DROPPED_INSTRUMENTS 0."
+  "notes": "Rebased onto f6cd067ef after hourly expand (register 3820). kuaishou-technology \u2192 kwai already on main from expand \u2014 not re-added. Dolby already on main from expand as a silent row \u2014 not re-filed. Gladia, Hetzner ISO 27001, Zuva SOC 2 Type II, Solace SOC 2/ISO 27001/CSA STAR kept. Did not invent domains. DROPPED_INSTRUMENTS 0."
 }
