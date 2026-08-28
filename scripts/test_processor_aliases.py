@@ -265,6 +265,10 @@ def main() -> int:
     check(canonical_processor_id("vmlapp-sweden", fig_reg2) == "figma", "Vmlapp Sweden is Figma")
     colo_reg = {**register, "colossyan": {"slug": "colossyan", "name": "Colossyan", "domain": "colossyan.com"}}
     check(canonical_processor_id("collosyan", colo_reg) == "colossyan", "Collosyan is Colossyan")
+    ninja_reg = {**register, "supportninja": {"slug": "supportninja", "name": "SupportNinja", "domain": "supportninja.com"}}
+    check(canonical_processor_id("ninja-partners", ninja_reg) == "supportninja", "Ninja Partners is SupportNinja")
+    sf_reg = {**register, "salesforce": {"slug": "salesforce", "name": "Salesforce", "domain": "salesforce.com"}}
+    check(canonical_processor_id("launchboard-software", sf_reg) == "salesforce", "Launchboard is Salesforce")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 

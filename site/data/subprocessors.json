@@ -8390,13 +8390,6 @@
       "in_register": false
     },
     {
-      "id": "launchboard-software",
-      "name": "Launchboard Software Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "rfpio",
       "name": "RFPIO",
       "domain": "rfpio.com",
@@ -25514,9 +25507,9 @@
     {
       "id": "convertapi-uab",
       "name": "ConvertAPI, UAB",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "convertapi.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "formstack",
@@ -25540,18 +25533,11 @@
       "in_register": true
     },
     {
-      "id": "ninja-partners",
-      "name": "Ninja Partners, LLC",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "frontline-call-center",
       "name": "Frontline Call Center, LLC",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "frontline.group",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "day-ai",
@@ -25804,6 +25790,34 @@
       "domain": "colossyan.com",
       "kind": "company",
       "in_register": true
+    },
+    {
+      "id": "amacuro",
+      "name": "Amacuro",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "dolby",
+      "name": "Dolby",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "tavus",
+      "name": "Tavus",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "kuaishou-technology",
+      "name": "Kuaishou Technology",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
     }
   ],
   "edges": [
@@ -36723,7 +36737,7 @@
     },
     {
       "from": "meltwater",
-      "to": "launchboard-software",
+      "to": "salesforce",
       "source_url": "https://www.meltwater.com/en/privacy/subprocessors",
       "evidence": "Launchboard Software Inc"
     },
@@ -39765,7 +39779,7 @@
     },
     {
       "from": "conga",
-      "to": "ninja-partners",
+      "to": "supportninja",
       "source_url": "https://conga.com/privacy/subprocessors",
       "evidence": "Ninja Partners, LLC"
     },
@@ -39996,6 +40010,78 @@
       "to": "pindrop-security",
       "source_url": "https://www.bandwidth.com/legal/subprocessors/",
       "evidence": "Pindrop Security Inc"
+    },
+    {
+      "from": "vyond",
+      "to": "amazon",
+      "source_url": "https://think.vyond.com/subprocessors",
+      "evidence": "Amazon"
+    },
+    {
+      "from": "vyond",
+      "to": "zendesk",
+      "source_url": "https://think.vyond.com/subprocessors",
+      "evidence": "ZenDesk"
+    },
+    {
+      "from": "vyond",
+      "to": "amacuro",
+      "source_url": "https://think.vyond.com/subprocessors",
+      "evidence": "Amacuro"
+    },
+    {
+      "from": "vyond",
+      "to": "microsoft",
+      "source_url": "https://think.vyond.com/subprocessors",
+      "evidence": "Microsoft"
+    },
+    {
+      "from": "vyond",
+      "to": "dolby",
+      "source_url": "https://think.vyond.com/subprocessors",
+      "evidence": "Dolby"
+    },
+    {
+      "from": "vyond",
+      "to": "openai",
+      "source_url": "https://think.vyond.com/subprocessors",
+      "evidence": "OpenAI"
+    },
+    {
+      "from": "vyond",
+      "to": "tavus",
+      "source_url": "https://think.vyond.com/subprocessors",
+      "evidence": "Tavus"
+    },
+    {
+      "from": "vyond",
+      "to": "heygen",
+      "source_url": "https://think.vyond.com/subprocessors",
+      "evidence": "HeyGen"
+    },
+    {
+      "from": "vyond",
+      "to": "google",
+      "source_url": "https://think.vyond.com/subprocessors",
+      "evidence": "Google"
+    },
+    {
+      "from": "vyond",
+      "to": "elevenlabs",
+      "source_url": "https://think.vyond.com/subprocessors",
+      "evidence": "ElevenLabs"
+    },
+    {
+      "from": "vyond",
+      "to": "kuaishou-technology",
+      "source_url": "https://think.vyond.com/subprocessors",
+      "evidence": "Kuaishou Technology"
+    },
+    {
+      "from": "vyond",
+      "to": "fal-ai",
+      "source_url": "https://think.vyond.com/subprocessors",
+      "evidence": "fal.ai"
     }
   ],
   "aliases": {
@@ -40397,6 +40483,8 @@
     "bcl-technologies": "apryse",
     "spacexai": "xai",
     "vmlapp-sweden": "figma",
-    "collosyan": "colossyan"
+    "collosyan": "colossyan",
+    "ninja-partners": "supportninja",
+    "launchboard-software": "salesforce"
   }
 }

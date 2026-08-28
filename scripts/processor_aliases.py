@@ -539,6 +539,12 @@ REGISTER_ALIASES: dict[str, str] = {
     # Powtoon prints Collosyan | Colossyan Inc. colossyan.com prints
     # Colossyan. Filed in this increment.
     "collosyan": "colossyan",
+    # Conga names Ninja Partners, LLC with privacy contact @supportninja.com.
+    # supportninja is already on the register. Do not invent a second dossier.
+    "ninja-partners": "supportninja",
+    # Meltwater names Launchboard Software Inc. with Salesforce's privacy URL
+    # on that row. salesforce is on the register.
+    "launchboard-software": "salesforce",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
