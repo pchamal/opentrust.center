@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-29T01:22:11Z",
+  "generated": "2026-08-29T01:37:11Z",
   "register": 4234,
   "origin_main": "650443fe47",
   "mode": "c0-named-processor-fills",
@@ -58,20 +58,30 @@
       "domain": "hellobonsai.com",
       "named_by": 2,
       "completeness_before": null,
-      "completeness_after": 20,
-      "score_after": 20,
-      "tier_after": "silent",
+      "completeness_after": 80,
+      "score_after": 58,
+      "tier_after": "on-file",
+      "page": "https://trust.hellobonsai.com/",
+      "marks": [
+        "soc-2-type-ii"
+      ],
+      "marks_url": "https://trust.hellobonsai.com/",
       "privacy": "https://www.hellobonsai.com/legal/privacy",
       "dpa": "https://www.hellobonsai.com/legal/dpa",
       "status": "https://status.hellobonsai.com/",
+      "subprocessors": "https://trust.hellobonsai.com/subprocessors",
       "source": "https://www.zoom.com/en/trust/subprocessors/",
       "left_open": [
         "True-missing named processor. Official domain hellobonsai.com from first-party homepage. Do not alias to Zoom",
+        "Official page from first-party Trust Center HTML at trust.hellobonsai.com. Filed",
+        "SOC 2 Type II named on the Trust Center Compliance section / SOC 2 Type II Audit Report 2025. Filed",
+        "GDPR and CCPA sit as regulation compliance copy — not marks",
+        "Named processors from trust.hellobonsai.com/subprocessors (26 published names). Google Drive collapsed into google. NeverBounce uses existing zoominfo alias. Segment and SendGrid kept as themselves — do not copy Twilio",
+        "Unmapped published names added as graph processor nodes only, no invented domains: crunchy-data-solutions, apideck, jam-dev, oneschema, render, seon",
         "Privacy Policy at /legal/privacy classifies. Filed",
         "Data Processing Addendum at /legal/dpa classifies (printed landing + first-party DPA PDF). Filed",
         "status.hellobonsai.com prints Bonsai status. Filed",
-        "trust.hellobonsai.com is named from first-party legal nav as Trust & Security Center / Subprocessors — Cloudflare 403 this cut. Official page / marks / named processors left open",
-        "/security /trust /legal/security 404. /legal/subprocessors lands on CCPA notice — not a processor list"
+        "Founded year not printed on Trust Center or legal pages. Years left open"
       ]
     }
   ],
@@ -271,7 +281,9 @@
     "cybersource about PCI DSS is product-compliance copy",
     "reversing-labs about-page SOC 2 image alt is a badge",
     "netsuite www host is Akamai 403 — do not copy Oracle",
-    "vultr.com / vonage.com / equinix.com / taskus.com / intouchcx.com / foundever.com WAF 403 — do not invent unread instruments",
+    "vultr.com / vonage.com / equinix.com / taskus.com / intouchcx.com / foundever.com WAF 403 — browser retry still blocked; do not invent unread instruments",
+    "Bonsai GDPR/CCPA listed on the Trust Center Compliance section — regulation copy, not marks",
+    "Do not alias Bonsai SendGrid or Segment to Twilio",
     "Do not invent leftover domains. named-by ≥2 not on register is now empty"
   ]
 }

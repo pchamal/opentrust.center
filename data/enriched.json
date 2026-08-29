@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T01:22:11Z",
+  "generated_at": "2026-08-29T01:37:11Z",
   "companies": [
     {
       "rank": 1,
@@ -120948,28 +120948,55 @@
       "name": "Bonsai",
       "slug": "bonsai-technologies",
       "domain": "hellobonsai.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://trust.hellobonsai.com/",
+      "final_url": "https://trust.hellobonsai.com/",
       "vendor": "unknown",
       "title": "",
-      "probed": 24,
+      "probed": 32,
       "source": "https://www.zoom.com/en/trust/subprocessors/",
-      "summary": "No public trust center on the usual paths. Privacy, DPA, and status stored. trust.hellobonsai.com is Cloudflare-walled this cut. Do not alias to Zoom.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II.",
       "list": "named-processor-gap",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II"
+      ],
       "links": {
+        "trust": "https://trust.hellobonsai.com/",
         "privacy": "https://www.hellobonsai.com/legal/privacy",
         "dpa": "https://www.hellobonsai.com/legal/dpa",
-        "status": "https://status.hellobonsai.com/"
+        "status": "https://status.hellobonsai.com/",
+        "subprocessors": "https://trust.hellobonsai.com/subprocessors"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "amazon-web-services",
+        "digitalocean",
+        "heroku",
+        "cloudflare",
+        "cronofy",
+        "deel",
+        "elastic",
+        "google",
+        "intercom",
+        "knock",
+        "mixpanel",
+        "zoominfo",
+        "paypal",
+        "redis",
+        "retool",
+        "segment",
+        "stitch",
+        "stripe",
+        "sendgrid"
+      ],
       "official_url": "https://www.hellobonsai.com/",
       "disclosure": {
-        "score": 20,
-        "tier": "silent",
+        "score": 58,
+        "tier": "on-file",
         "factors": {
+          "portal": 20,
+          "marks": 10,
           "dpa": 8,
+          "processors": 8,
           "status": 6,
           "privacy": 6
         }
