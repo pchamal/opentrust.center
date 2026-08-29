@@ -1,18 +1,18 @@
 {
-  "generated": "2026-08-29T01:37:11Z",
-  "register": 4234,
-  "origin_main": "650443fe47",
-  "mode": "c0-named-processor-fills",
-  "leftovers_min1": 35,
-  "leftovers_after": 34,
+  "generated": "2026-08-29T02:20:00Z",
+  "register": 4279,
+  "origin_main": "d96fb14a34",
+  "mode": "bonsai-named-plus-c0-fills",
+  "leftovers_min1": 40,
+  "leftovers_after": 35,
   "remaining_ge2": 0,
   "remaining_ge2_slugs": [],
   "aliases_added": [],
   "aliases_kept": [
-    "aws \u2192 amazon-web-services",
-    "gcp \u2192 google",
-    "azure \u2192 microsoft",
-    "marketo \u2192 adobe"
+    "aws → amazon-web-services",
+    "gcp → google",
+    "azure → microsoft",
+    "marketo → adobe"
   ],
   "aliases_refused": [
     {
@@ -49,148 +49,286 @@
       "from": "madkudu",
       "to": "hg-insights",
       "reason": "Do not alias MadKudu to HG Insights or copy the parent file."
+    },
+    {
+      "from": "bonsai-technologies",
+      "to": "zoom",
+      "reason": "Do not alias Bonsai to Zoom. Affiliate, not the same register row."
+    },
+    {
+      "from": "crunchy-data-solutions",
+      "to": "snowflake",
+      "reason": "crunchydata.com privacy 301s to snowflake.com. First-party footer still prints Crunchy Data Solutions, Inc. Do not alias or copy Snowflake's file."
+    },
+    {
+      "from": "jam-dev",
+      "to": "jamf",
+      "reason": "jam.dev prints Jam (bug recorder). jamf is a different company already on the register."
     }
   ],
   "newly_filed": [
     {
-      "slug": "bonsai-technologies",
-      "name": "Bonsai",
-      "domain": "hellobonsai.com",
-      "named_by": 2,
+      "slug": "crunchy-data-solutions",
+      "name": "Crunchy Data",
+      "domain": "crunchydata.com",
+      "named_by": 1,
       "completeness_before": null,
-      "completeness_after": 80,
-      "score_after": 58,
-      "tier_after": "on-file",
-      "page": "https://trust.hellobonsai.com/",
+      "completeness_after": 40,
+      "score_after": 36,
+      "tier_after": "thin",
+      "page": "https://www.crunchydata.com/security",
       "marks": [
         "soc-2-type-ii"
       ],
-      "marks_url": "https://trust.hellobonsai.com/",
-      "privacy": "https://www.hellobonsai.com/legal/privacy",
-      "dpa": "https://www.hellobonsai.com/legal/dpa",
-      "status": "https://status.hellobonsai.com/",
-      "subprocessors": "https://trust.hellobonsai.com/subprocessors",
-      "source": "https://www.zoom.com/en/trust/subprocessors/",
+      "marks_url": "https://www.crunchydata.com/security",
+      "status": "https://status.crunchydata.com",
+      "source": "https://trust.hellobonsai.com/subprocessors",
       "left_open": [
-        "True-missing named processor. Official domain hellobonsai.com from first-party homepage. Do not alias to Zoom",
-        "Official page from first-party Trust Center HTML at trust.hellobonsai.com. Filed",
-        "SOC 2 Type II named on the Trust Center Compliance section / SOC 2 Type II Audit Report 2025. Filed",
-        "GDPR and CCPA sit as regulation compliance copy — not marks",
-        "Named processors from trust.hellobonsai.com/subprocessors (26 published names). Google Drive collapsed into google. NeverBounce uses existing zoominfo alias. Segment and SendGrid kept as themselves — do not copy Twilio",
-        "Unmapped published names added as graph processor nodes only, no invented domains: crunchy-data-solutions, apideck, jam-dev, oneschema, render, seon",
-        "Privacy Policy at /legal/privacy classifies. Filed",
-        "Data Processing Addendum at /legal/dpa classifies (printed landing + first-party DPA PDF). Filed",
-        "status.hellobonsai.com prints Bonsai status. Filed",
-        "Founded year not printed on Trust Center or legal pages. Years left open"
+        "True-missing Bonsai-named processor. Official domain crunchydata.com from first-party homepage that prints Crunchy Data / Crunchy Data Solutions, Inc.",
+        "Official page from first-party /security HTML. Filed",
+        "SOC 2 Type 2 report for Crunchy Bridge named on that page. Filed",
+        "status.crunchydata.com prints Crunchy Data status. Filed",
+        "Privacy href 301s to snowflake.com — different host. Do not copy Snowflake. Privacy left open",
+        "Usual-path DPA 404. Copyright 2018–2026 is not a founded year. Named processors left open"
+      ]
+    },
+    {
+      "slug": "apideck",
+      "name": "Apideck",
+      "domain": "apideck.com",
+      "named_by": 1,
+      "completeness_before": null,
+      "completeness_after": 80,
+      "score_after": 47,
+      "tier_after": "on-file",
+      "page": "https://compliance.apideck.com/certifications",
+      "marks": [
+        "soc-2-type-ii"
+      ],
+      "marks_url": "https://compliance.apideck.com/certifications",
+      "dpa": "https://compliance.apideck.com/dpa",
+      "status": "https://status.apideck.com",
+      "founded_year": 2019,
+      "founded_source": "https://www.apideck.com/about",
+      "source": "https://trust.hellobonsai.com/subprocessors",
+      "left_open": [
+        "True-missing Bonsai-named processor. Official domain apideck.com from first-party homepage schema.org Organization name=Apideck",
+        "Official page from first-party Compliance Center /certifications HTML. Filed",
+        "SOC 2 Type 2 Certified printed on that page. Filed",
+        "DPA at compliance.apideck.com/dpa classifies. Filed",
+        "About prints 'Apideck was founded in 2019 in Antwerp, Belgium'. Filed",
+        "status.apideck.com prints Apideck Status. Filed",
+        "GDPR/CCPA on the Compliance Center are regulation copy — not marks",
+        "Privacy is an iubenda host / first-party /privacy 500. Do not file a third-party CMP. Named processors page is a JS shell without a printed table. Left open"
+      ]
+    },
+    {
+      "slug": "jam-dev",
+      "name": "Jam",
+      "domain": "jam.dev",
+      "named_by": 1,
+      "completeness_before": null,
+      "completeness_after": 40,
+      "score_after": 42,
+      "tier_after": "on-file",
+      "page": "https://jam.dev/docs/security",
+      "marks": [
+        "soc-2-type-ii"
+      ],
+      "marks_url": "https://jam.dev/docs/security",
+      "privacy": "https://jam.dev/legal/privacy-policy",
+      "status": "https://status.jam.dev",
+      "source": "https://trust.hellobonsai.com/subprocessors",
+      "left_open": [
+        "True-missing Bonsai-named processor. Official domain jam.dev from first-party homepage that prints Jam. Published name is Jam.dev. Do not alias to Jamf",
+        "Official page from first-party /docs/security HTML. Filed",
+        "SOC 2 Type II Compliant named on that page. Filed",
+        "HIPAA is Coming soon — not a named hold",
+        "GDPR Compliant is regulation copy — not a mark",
+        "Privacy Policy at /legal/privacy-policy classifies. Filed",
+        "status.jam.dev prints Jam status. Filed",
+        "Usual-path DPA 404. About prints no founded year. Named processors left open"
+      ]
+    },
+    {
+      "slug": "oneschema",
+      "name": "OneSchema",
+      "domain": "oneschema.co",
+      "named_by": 1,
+      "completeness_before": null,
+      "completeness_after": 40,
+      "score_after": 46,
+      "tier_after": "on-file",
+      "page": "https://www.oneschema.co/security",
+      "marks": [
+        "soc-2-type-ii",
+        "soc-3"
+      ],
+      "marks_url": "https://www.oneschema.co/security",
+      "privacy": "https://www.oneschema.co/privacy-notice",
+      "status": "https://status.oneschema.co",
+      "source": "https://trust.hellobonsai.com/subprocessors",
+      "left_open": [
+        "True-missing Bonsai-named processor. Official domain oneschema.co from first-party homepage that prints OneSchema",
+        "Official page from first-party /security HTML. Filed",
+        "SOC 2 Type II and SOC 3 named on that page. Filed",
+        "HIPAA is a BAA offer for covered entities — not a catalog hold",
+        "GDPR/CCPA sit as regulation / DPA copy — not marks",
+        "Privacy Policy at /privacy-notice classifies. Filed",
+        "status.oneschema.co prints OneSchema Status. Filed",
+        "DPA is named on /security but usual-path DPA URLs 404. Years left open. trust/security/compliance subdomains are login walls — not filed"
+      ]
+    },
+    {
+      "slug": "render",
+      "name": "Render",
+      "domain": "render.com",
+      "named_by": 1,
+      "completeness_before": null,
+      "completeness_after": 100,
+      "score_after": 82,
+      "tier_after": "substantial",
+      "page": "https://render.com/security",
+      "marks": [
+        "soc-2-type-ii",
+        "iso-27001",
+        "eu-us-dpf"
+      ],
+      "marks_url": "https://render.com/security",
+      "privacy": "https://render.com/privacy",
+      "dpa": "https://render.com/dpa",
+      "status": "https://status.render.com",
+      "subprocessors": "https://render.com/security",
+      "founded_year": 2018,
+      "founded_source": "https://render.com/about",
+      "source": "https://trust.hellobonsai.com/subprocessors",
+      "left_open": [
+        "True-missing Bonsai-named processor. Official domain render.com from first-party homepage that prints Render",
+        "Official page from first-party Security and Trust HTML. Filed",
+        "SOC 2 Type 2, ISO 27001, and EU-US Data Privacy Framework named on that page. Filed",
+        "HIPAA is a BAA / HIPAA-ready product offer — not a catalog hold",
+        "GDPR is regulation / DPA copy — not a mark",
+        "DPA at /dpa classifies. Filed",
+        "Privacy Policy at /privacy classifies. Filed",
+        "Named processors from the Subprocessors table on /security (AWS, GCP, Cloudflare, ClickHouse). Unmapped names not invented",
+        "About prints founded 2018. Filed",
+        "status.render.com prints Render Status. security.txt classifies. Filed"
       ]
     }
   ],
   "c0_fills": [
     {
-      "slug": "logz-io",
+      "slug": "ashby",
       "named_by": 2,
-      "completeness_before": 0,
-      "completeness_after": 20,
-      "score_after": 18,
-      "tier_after": "silent",
-      "founded_year": 2014,
-      "founded_source": "https://logz.io/about-us/",
-      "privacy_already": "https://logz.io/about-us/privacy-policy/",
-      "status_already": "https://status.logz.io",
-      "left_open": [
-        "About page timeline prints '2014 Founded in Tel Aviv, Israel'. Filed",
-        "/security lands on /blog/security — blog, not an Official page",
-        "DPA / marks / named processors left open"
-      ]
-    },
-    {
-      "slug": "unbabel",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 40,
-      "score_after": 46,
-      "tier_after": "on-file",
-      "page": "https://unbabel.com/security/",
-      "marks": [
-        "iso-27001",
-        "eu-us-dpf"
-      ],
-      "marks_url": "https://unbabel.com/security/",
-      "privacy": "https://unbabel.com/privacy-policy/",
-      "status": "https://status.unbabel.com/",
-      "left_open": [
-        "/security is first-party Security HTML. Filed as Official page",
-        "ISO 27001: 'Unbabel is certified against the ISO27001 standards'. Filed",
-        "EU-US DPF: certified under the EU-U.S. Data Privacy Framework. Filed",
-        "ISO 9001 is 'pursuing' / expected 2024 — not a named hold. Skip",
-        "GDPR/CCPA sit as regulation compliance copy — not marks",
-        "About prints TransPerfect 1992, not an Unbabel founded year. DPA / named processors 404 on usual paths"
-      ]
-    },
-    {
-      "slug": "rudderstack",
-      "named_by": 1,
-      "completeness_before": 0,
+      "completeness_before": 20,
       "completeness_after": 40,
       "score_after": 48,
       "tier_after": "on-file",
-      "page": "https://www.rudderstack.com/security/",
       "marks": [
         "soc-2-type-ii"
       ],
-      "marks_url": "https://www.rudderstack.com/security/",
-      "privacy": "https://www.rudderstack.com/privacy-policy/",
-      "status": "https://status.rudderstack.com/",
-      "bounty": "https://www.rudderstack.com/vulnerability-disclosure-policy/",
+      "marks_url": "https://www.ashbyhq.com/resources/security",
       "left_open": [
-        "/security names 'We have obtained SOC 2 Type 2 compliance'. Filed Official page + SOC 2 Type II",
-        "HIPAA is a BAA offer for PHI — not a catalog hold",
-        "GDPR is regulation copy — not a mark",
-        "Usual-path DPA 404. About prints no founded year"
+        "First-party /resources/security prints 'Ashby is SOC2 compliant and Type 2 audited annually'. Filed SOC 2 Type II",
+        "trust.ashbyhq.com is a portal host — marks not read from that shell",
+        "DPA / named processors / years left open"
       ]
     },
     {
-      "slug": "netsuite",
-      "named_by": 7,
+      "slug": "ably",
+      "named_by": 1,
+      "completeness_before": 20,
+      "completeness_after": 40,
+      "score_after": 46,
+      "tier_after": "on-file",
+      "dpa": "https://ably.com/data-processing-addendum",
+      "left_open": [
+        "DPA at /data-processing-addendum classifies. Filed",
+        "SOC 2 / ISO 27001 on that DPA are Amazon Web Services facility copy — not Ably holds. Skip",
+        "/legals/sub-processors is first-party HTML without a printed name table this cut. Names left open"
+      ]
+    },
+    {
+      "slug": "hive",
+      "named_by": 5,
+      "completeness_before": 20,
+      "completeness_after": 20,
+      "score_after": 17,
+      "tier_after": "silent",
+      "privacy": "https://hive.com/policy-documents/privacy-policy",
+      "status": "https://status.hive.com",
+      "founded_already": 2016,
+      "left_open": [
+        "Privacy Policy classifies first-party. Filed",
+        "status.hive.com prints Hive Status. Filed",
+        "/policy-documents/security is a Framer shell with the homepage title and no named hold. Official page left open"
+      ]
+    },
+    {
+      "slug": "upcloud",
+      "named_by": 1,
       "completeness_before": 0,
       "completeness_after": 0,
       "score_after": 6,
       "tier_after": "silent",
-      "status": "https://status.netsuite.com/",
+      "status": "https://status.upcloud.com",
       "left_open": [
-        "status.netsuite.com prints Oracle NetSuite Service Status. Filed",
-        "www.netsuite.com usual paths are Akamai 403. Official page / marks / DPA / privacy / years left open. Do not copy Oracle's file"
+        "status.upcloud.com prints UpCloud Status. Filed",
+        "Official page / marks / DPA / privacy / years left open"
       ]
     },
     {
-      "slug": "cybersource",
-      "named_by": 2,
+      "slug": "beetexting",
+      "named_by": 1,
+      "completeness_before": 0,
+      "completeness_after": 0,
+      "score_after": 12,
+      "tier_after": "silent",
+      "status": "https://status.beetexting.com",
+      "privacy_already": "https://beetexting.com/privacy-policy/",
+      "left_open": [
+        "status.beetexting.com prints Beetexting Status. Filed",
+        "Privacy already on file. Official page / marks / DPA / years left open"
+      ]
+    },
+    {
+      "slug": "creatify-ai",
+      "named_by": 1,
       "completeness_before": 0,
       "completeness_after": 0,
       "score_after": 6,
       "tier_after": "silent",
-      "status": "https://status.cybersource.com/",
+      "status": "https://status.creatify.ai",
       "left_open": [
-        "status.cybersource.com prints Cybersource Status. Filed",
-        "Privacy 301s to visa.com — different host. Do not copy Visa",
-        "About 'simplify PCI DSS compliance' is product copy — not a named hold",
-        "Official page / marks / DPA / years left open"
+        "status.creatify.ai prints Creatify.ai Status. Filed",
+        "/privacy lands on the product homepage title. Official page / marks / DPA / privacy / years left open"
       ]
     },
     {
-      "slug": "reversing-labs",
+      "slug": "timekit",
+      "named_by": 1,
+      "completeness_before": 0,
+      "completeness_after": 0,
+      "score_after": 6,
+      "tier_after": "silent",
+      "status": "https://status.timekit.io",
+      "left_open": [
+        "status.timekit.io prints Timekit Status. Filed",
+        "Official page / marks / DPA / privacy / years left open"
+      ]
+    },
+    {
+      "slug": "dstny-automate-formerly-qunifi",
       "named_by": 2,
       "completeness_before": 0,
       "completeness_after": 0,
       "score_after": 12,
       "tier_after": "silent",
-      "privacy_already": "https://www.reversinglabs.com/privacy-policy",
-      "status": "https://status.reversinglabs.com/",
+      "security_txt": "https://www.dstny.com/.well-known/security.txt",
+      "privacy_already": "https://www.dstny.com/website-privacy-policy",
       "left_open": [
-        "status.reversinglabs.com is a first-party status host. Filed",
-        "Privacy already on file",
-        "About-page image alt 'AICPA SOC 2 Type II Certified' is a badge, not a trust/security hold. Skip",
-        "/security /trust /dpa return JS shells with homepage title. Official page / marks / DPA / years left open"
+        "security.txt classifies first-party. Filed",
+        "Privacy already on file. /about-us is a careers lander. Official page / marks / DPA / years left open"
       ]
     }
   ],
@@ -218,7 +356,7 @@
     {
       "slug": "vultr",
       "named_by": 4,
-      "reason": "vultr.com Cloudflare 403. docs.vultr.com footer names /trust-center /legal/privacy /legal/subprocessors — those hosts stayed 403. Do not file unread pages"
+      "reason": "vultr.com Cloudflare 403. Do not file unread pages"
     },
     {
       "slug": "taskus",
@@ -249,6 +387,11 @@
       "slug": "constella-intelligence",
       "named_by": 2,
       "reason": "Privacy already on file. About prints no founded year. Usual-path security/DPA not on file"
+    },
+    {
+      "slug": "seon",
+      "named_by": 1,
+      "reason": "Bonsai-named leftover. seon.io and seon.com Cloudflare 403 this cut. Do not invent a domain"
     }
   ],
   "standing_skips": [
@@ -266,24 +409,24 @@
     "adaptive-mobile",
     "textel",
     "avertech",
-    "vonage",
-    "equinix",
-    "vultr"
+    "seon"
   ],
   "refused_this_cut": [
-    "Do not alias bonsai-technologies to zoom — affiliate, not the same register row",
-    "sendgrid.com 301s to Twilio — do not copy Twilio's file onto SendGrid",
-    "looker.com 301s to Google Cloud — do not copy Google's file onto Looker",
-    "shopkeep → lightspeed, code42 → mimecast, madkudu → hg-insights still refused",
-    "unbabel ISO 9001 is pursuing / expected 2024 — not a named hold",
-    "rudderstack HIPAA is a BAA offer; GDPR is regulation copy",
-    "cybersource privacy 301s to visa.com — do not invent a second domain",
-    "cybersource about PCI DSS is product-compliance copy",
-    "reversing-labs about-page SOC 2 image alt is a badge",
-    "netsuite www host is Akamai 403 — do not copy Oracle",
-    "vultr.com / vonage.com / equinix.com / taskus.com / intouchcx.com / foundever.com WAF 403 — browser retry still blocked; do not invent unread instruments",
-    "Bonsai GDPR/CCPA listed on the Trust Center Compliance section — regulation copy, not marks",
-    "Do not alias Bonsai SendGrid or Segment to Twilio",
-    "Do not invent leftover domains. named-by ≥2 not on register is now empty"
+    "Do not invent seon.io / seon.com — both 403; first-party HTML unread",
+    "madkudu.com / adaptivemobile.com / textel.net 403 — do not invent leftover domains",
+    "crunchydata.com privacy 301s to snowflake.com — do not copy Snowflake or alias Crunchy Data",
+    "jam-dev is not jamf",
+    "OneSchema HIPAA is a BAA offer; GDPR/CCPA are regulation copy",
+    "Jam HIPAA is Coming soon; GDPR is regulation copy",
+    "Render HIPAA is a BAA / HIPAA-ready product offer; GDPR is regulation copy",
+    "Apideck GDPR/CCPA are regulation copy; privacy is iubenda — not first-party",
+    "Apideck about-page SOC 2 was not used; mark is from /certifications HTML",
+    "Ably DPA names AWS SOC 2 / ISO 27001 — do not copy AWS marks onto Ably",
+    "BugSnag /security ISO-27001 and CSA STAR are image alt badges — not holds",
+    "Hive /policy-documents/security is a Framer homepage shell",
+    "Black Diamond every path returns the same homepage title — JS shell, unread",
+    "Gainsight / Ada / LeanData / AuthZed / BrightHire trust hosts are portal JS — marks unread",
+    "Stitch /security 301s to Qlik — do not copy the parent file",
+    "sendgrid→twilio, looker→google, shopkeep→lightspeed, code42→mimecast, madkudu→hg-insights, bonsai-technologies→zoom still refused"
   ]
 }

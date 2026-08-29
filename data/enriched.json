@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T02:09:22Z",
+  "generated_at": "2026-08-29T02:15:20Z",
   "companies": [
     {
       "rank": 1,
@@ -42577,12 +42577,16 @@
       "summary": "",
       "list": "cb-insights-ai-100-2026",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.creatify.ai"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       },
       "aiti_lists": [
         "cb-insights-ai-100-2026"
@@ -90901,14 +90905,16 @@
         "security": "https://security.ably.com",
         "security_txt": "https://ably.com/.well-known/security.txt",
         "privacy": "https://ably.com/privacy",
-        "status": "https://status.ably.com"
+        "status": "https://status.ably.com",
+        "dpa": "https://ably.com/data-processing-addendum"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 38,
-        "tier": "thin",
+        "score": 46,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
+          "dpa": 8,
           "status": 6,
           "disclosure": 6,
           "privacy": 6
@@ -91032,9 +91038,11 @@
       "title": "",
       "probed": 4,
       "source": "https://trust.mercor.com/subprocessors",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II.",
       "list": "named-processor-gap",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II"
+      ],
       "links": {
         "trust": "https://trust.ashbyhq.com",
         "privacy": "https://www.ashbyhq.com/resources/privacy",
@@ -91044,10 +91052,11 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 38,
-        "tier": "thin",
+        "score": 48,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 10,
           "status": 6,
           "disclosure": 6,
           "privacy": 6
@@ -97826,12 +97835,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "privacy": "https://hive.com/policy-documents/privacy-policy",
+        "status": "https://status.hive.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 5,
+        "score": 17,
         "tier": "silent",
         "factors": {
+          "status": 6,
+          "privacy": 6,
           "longevity": 5
         }
       },
@@ -98250,12 +98264,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.timekit.io"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -98634,13 +98652,15 @@
       "list": "named-processor-gap",
       "certs": [],
       "links": {
-        "privacy": "https://beetexting.com/privacy-policy/"
+        "privacy": "https://beetexting.com/privacy-policy/",
+        "status": "https://status.beetexting.com"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 6,
+        "score": 12,
         "tier": "silent",
         "factors": {
+          "status": 6,
           "privacy": 6
         }
       }
@@ -100921,13 +100941,15 @@
       "list": "named-processor-gap",
       "certs": [],
       "links": {
-        "privacy": "https://www.dstny.com/website-privacy-policy"
+        "privacy": "https://www.dstny.com/website-privacy-policy",
+        "security_txt": "https://www.dstny.com/.well-known/security.txt"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 6,
+        "score": 12,
         "tier": "silent",
         "factors": {
+          "disclosure": 6,
           "privacy": 6
         }
       }
@@ -103649,12 +103671,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.upcloud.com"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -121933,6 +121959,199 @@
         "score": 0,
         "tier": "silent",
         "factors": {}
+      }
+    },
+    {
+      "rank": 4275,
+      "name": "Crunchy Data",
+      "slug": "crunchy-data-solutions",
+      "domain": "crunchydata.com",
+      "found": true,
+      "trust_url": "https://www.crunchydata.com/security",
+      "final_url": "https://www.crunchydata.com/security",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 28,
+      "source": "https://trust.hellobonsai.com/subprocessors",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II.",
+      "list": "named-processor-gap",
+      "certs": [
+        "SOC 2 Type II"
+      ],
+      "links": {
+        "security": "https://www.crunchydata.com/security",
+        "status": "https://status.crunchydata.com"
+      },
+      "subprocessors": [],
+      "official_url": "https://www.crunchydata.com/",
+      "disclosure": {
+        "score": 36,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "marks": 10,
+          "status": 6
+        }
+      }
+    },
+    {
+      "rank": 4276,
+      "name": "Apideck",
+      "slug": "apideck",
+      "domain": "apideck.com",
+      "found": true,
+      "trust_url": "https://compliance.apideck.com/certifications",
+      "final_url": "https://compliance.apideck.com/certifications",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 32,
+      "source": "https://trust.hellobonsai.com/subprocessors",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II.",
+      "list": "named-processor-gap",
+      "certs": [
+        "SOC 2 Type II"
+      ],
+      "links": {
+        "trust": "https://compliance.apideck.com/certifications",
+        "dpa": "https://compliance.apideck.com/dpa",
+        "status": "https://status.apideck.com"
+      },
+      "subprocessors": [],
+      "official_url": "https://www.apideck.com/",
+      "founded_year": 2019,
+      "founded_source": "https://www.apideck.com/about",
+      "disclosure": {
+        "score": 47,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 10,
+          "dpa": 8,
+          "status": 6,
+          "longevity": 3
+        }
+      }
+    },
+    {
+      "rank": 4277,
+      "name": "Jam",
+      "slug": "jam-dev",
+      "domain": "jam.dev",
+      "found": true,
+      "trust_url": "https://jam.dev/docs/security",
+      "final_url": "https://jam.dev/docs/security",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 28,
+      "source": "https://trust.hellobonsai.com/subprocessors",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II.",
+      "list": "named-processor-gap",
+      "certs": [
+        "SOC 2 Type II"
+      ],
+      "links": {
+        "security": "https://jam.dev/docs/security",
+        "privacy": "https://jam.dev/legal/privacy-policy",
+        "status": "https://status.jam.dev"
+      },
+      "subprocessors": [],
+      "official_url": "https://jam.dev/",
+      "disclosure": {
+        "score": 42,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 10,
+          "status": 6,
+          "privacy": 6
+        }
+      }
+    },
+    {
+      "rank": 4278,
+      "name": "OneSchema",
+      "slug": "oneschema",
+      "domain": "oneschema.co",
+      "found": true,
+      "trust_url": "https://www.oneschema.co/security",
+      "final_url": "https://www.oneschema.co/security",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 28,
+      "source": "https://trust.hellobonsai.com/subprocessors",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, SOC 3.",
+      "list": "named-processor-gap",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3"
+      ],
+      "links": {
+        "security": "https://www.oneschema.co/security",
+        "privacy": "https://www.oneschema.co/privacy-notice",
+        "status": "https://status.oneschema.co"
+      },
+      "subprocessors": [],
+      "official_url": "https://www.oneschema.co/",
+      "disclosure": {
+        "score": 46,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 14,
+          "status": 6,
+          "privacy": 6
+        }
+      }
+    },
+    {
+      "rank": 4279,
+      "name": "Render",
+      "slug": "render",
+      "domain": "render.com",
+      "found": true,
+      "trust_url": "https://render.com/security",
+      "final_url": "https://render.com/security",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 36,
+      "source": "https://trust.hellobonsai.com/subprocessors",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, EU-US DPF.",
+      "list": "named-processor-gap",
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "EU-US DPF"
+      ],
+      "links": {
+        "security": "https://render.com/security",
+        "dpa": "https://render.com/dpa",
+        "privacy": "https://render.com/privacy",
+        "status": "https://status.render.com",
+        "subprocessors": "https://render.com/security",
+        "security_txt": "https://render.com/.well-known/security.txt"
+      },
+      "subprocessors": [
+        "amazon-web-services",
+        "google",
+        "cloudflare",
+        "clickhouse"
+      ],
+      "official_url": "https://render.com/",
+      "founded_year": 2018,
+      "founded_source": "https://render.com/about",
+      "disclosure": {
+        "score": 82,
+        "tier": "substantial",
+        "factors": {
+          "portal": 20,
+          "marks": 24,
+          "dpa": 8,
+          "processors": 8,
+          "status": 6,
+          "disclosure": 6,
+          "privacy": 6,
+          "longevity": 4
+        }
       }
     }
   ],
