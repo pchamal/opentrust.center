@@ -7803,13 +7803,6 @@
       "in_register": true
     },
     {
-      "id": "popout",
-      "name": "Popout, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "sisense",
       "name": "Sisense",
       "domain": "sisense.com",
@@ -30152,6 +30145,13 @@
       "domain": "wiquest.com",
       "kind": "company",
       "in_register": true
+    },
+    {
+      "id": "shippo",
+      "name": "Shippo",
+      "domain": "goshippo.com",
+      "kind": "company",
+      "in_register": true
     }
   ],
   "edges": [
@@ -39631,7 +39631,7 @@
     },
     {
       "from": "lightspeed-commerce",
-      "to": "popout",
+      "to": "shippo",
       "source_url": "https://www.lightspeedhq.com/legal/subprocessors/",
       "evidence": "Popout, Inc"
     },
@@ -46333,6 +46333,7 @@
     "eighth-intuition-sdn-bhd": "fico",
     "nanonoble-pte": "minimax-group",
     "sendgrid": "twilio",
-    "looker": "google"
+    "looker": "google",
+    "popout": "shippo"
   }
 }

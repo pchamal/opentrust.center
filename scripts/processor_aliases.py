@@ -596,6 +596,10 @@ REGISTER_ALIASES: dict[str, str] = {
     # "Looker documentation | Google Cloud Documentation". google is on
     # the register. Do not copy Google's file onto the empty looker shell.
     "looker": "google",
+    # Lightspeed names Popout, Inc. for shipping management. Popout, Inc.
+    # d/b/a Shippo. Wikidata Q25303179 P856 is goshippo.com. Do not invent
+    # a second Popout dossier.
+    "popout": "shippo",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
