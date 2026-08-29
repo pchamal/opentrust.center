@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T03:13:13Z",
+  "generated_at": "2026-08-29T03:17:39Z",
   "companies": [
     {
       "rank": 1,
@@ -40934,16 +40934,18 @@
       "links": {
         "security": "https://openrouter.ai/security",
         "dpa": "https://openrouter.ai/data-processing-agreement",
-        "privacy": "https://openrouter.ai/privacy"
+        "privacy": "https://openrouter.ai/privacy",
+        "status": "https://status.openrouter.ai/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 34,
-        "tier": "thin",
+        "score": 40,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
           "dpa": 8,
-          "privacy": 6
+          "privacy": 6,
+          "status": 6
         }
       },
       "aiti_lists": [
@@ -43778,14 +43780,17 @@
       "certs": [
         "SOC 2 Type II"
       ],
-      "links": {},
+      "links": {
+        "status": "https://status.parallel.ai/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 11,
+        "score": 17,
         "tier": "silent",
         "factors": {
           "marks": 10,
-          "longevity": 1
+          "longevity": 1,
+          "status": 6
         }
       },
       "aiti_lists": [
@@ -58305,7 +58310,12 @@
       "source": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-cloud-computing-providers",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 42001",
+        "CSA STAR"
+      ],
       "links": {
         "security_txt": "https://redis.io/.well-known/security.txt",
         "bug_bounty": "https://hackerone.com/redis-vdp",
@@ -58340,9 +58350,10 @@
         "microsoft"
       ],
       "disclosure": {
-        "score": 28,
+        "score": 58,
         "tier": "silent",
         "factors": {
+          "marks": 30,
           "dpa": 8,
           "processors": 8,
           "disclosure": 6,
@@ -87556,7 +87567,9 @@
       ],
       "links": {
         "security": "https://www.nylas.com/security",
-        "subprocessors": "https://www.nylas.com/security/subprocessors/"
+        "subprocessors": "https://www.nylas.com/security/subprocessors/",
+        "privacy": "https://www.nylas.com/privacy-policy/",
+        "status": "https://status-v3.nylas.com/"
       },
       "subprocessors": [
         "aws",
@@ -87605,12 +87618,14 @@
         "zoom"
       ],
       "disclosure": {
-        "score": 68,
-        "tier": "on-file",
+        "score": 80,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
           "marks": 40,
-          "processors": 8
+          "processors": 8,
+          "status": 6,
+          "privacy": 6
         }
       }
     },
@@ -88386,9 +88401,15 @@
       "title": "",
       "probed": 4,
       "source": "https://webflow.com/legal/subprocessors",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2, ISO 27001, ISO 27017, ISO 27018, HIPAA.",
       "list": "named-processor-gap",
-      "certs": [],
+      "certs": [
+        "SOC 2",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "HIPAA"
+      ],
       "links": {
         "trust": "https://security.segment.com",
         "security": "https://security.segment.com",
@@ -88398,10 +88419,11 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 40,
+        "score": 68,
         "tier": "on-file",
         "factors": {
           "portal": 20,
+          "marks": 28,
           "processors": 8,
           "status": 6,
           "privacy": 6
@@ -88469,10 +88491,11 @@
       "title": "",
       "probed": 32,
       "source": "https://www.airtable.com/company/subprocessors",
-      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, HIPAA.",
       "list": "named-processor-gap",
       "certs": [
-        "SOC 2 Type II"
+        "SOC 2 Type II",
+        "HIPAA"
       ],
       "links": {
         "security": "https://explore.sendsafely.com/security/",
@@ -88480,11 +88503,11 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 36,
-        "tier": "thin",
+        "score": 42,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
-          "marks": 10,
+          "marks": 16,
           "privacy": 6
         }
       },
@@ -88508,15 +88531,17 @@
         "ISO 27001"
       ],
       "links": {
-        "security": "https://pusher.com/security/"
+        "security": "https://pusher.com/security/",
+        "status": "https://status.pusher.com/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 30,
+        "score": 36,
         "tier": "thin",
         "factors": {
           "portal": 20,
-          "marks": 10
+          "marks": 10,
+          "status": 6
         }
       },
       "official_url": "https://pusher.com/"
@@ -90782,15 +90807,17 @@
         "HIPAA"
       ],
       "links": {
-        "security": "https://www.cloudamqp.com/legal/security_and_compliance.html"
+        "security": "https://www.cloudamqp.com/legal/security_and_compliance.html",
+        "status": "https://status.cloudamqp.com/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 36,
-        "tier": "thin",
+        "score": 42,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
-          "marks": 16
+          "marks": 16,
+          "status": 6
         }
       }
     },
@@ -94791,21 +94818,25 @@
       "name": "Knock",
       "slug": "knock",
       "domain": "knock.app",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://docs.knock.app/developer-tools/security",
+      "final_url": "https://docs.knock.app/developer-tools/security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://zapier.com/legal/subprocessors",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, HIPAA.",
       "list": "named-processor-gap",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "HIPAA"
+      ],
       "links": {
         "dpa": "https://knock.app/legal/data-processing-addendum",
         "privacy": "https://knock.app/legal/privacy-policy",
         "subprocessors": "https://knock.app/legal/subprocessors",
-        "status": "https://status.knock.app/"
+        "status": "https://status.knock.app/",
+        "security": "https://docs.knock.app/developer-tools/security"
       },
       "subprocessors": [
         "amazon-web-services",
@@ -94827,13 +94858,15 @@
         "workos"
       ],
       "disclosure": {
-        "score": 28,
-        "tier": "silent",
+        "score": 64,
+        "tier": "on-file",
         "factors": {
+          "portal": 20,
+          "marks": 16,
           "dpa": 8,
-          "privacy": 6,
-          "subprocessors": 8,
-          "status": 6
+          "processors": 8,
+          "status": 6,
+          "privacy": 6
         }
       },
       "official_url": "https://knock.app/"
@@ -123142,6 +123175,34 @@
         "tier": "silent",
         "factors": {}
       }
+    },
+    {
+      "rank": 4321,
+      "name": "SEON",
+      "slug": "seon",
+      "domain": "seon.io",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 3,
+      "source": "https://trust.hellobonsai.com/subprocessors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {
+        "status": "https://status.seon.io/"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 6,
+        "tier": "silent",
+        "factors": {
+          "status": 6
+        }
+      },
+      "official_url": "https://docs.seon.io/"
     }
   ],
   "notes": "Public pages only. Incomplete by nature. No invented URLs, years, certs, or processors."
