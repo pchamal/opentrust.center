@@ -1,7 +1,7 @@
 {
-  "generated": "2026-08-29T00:30:42Z",
+  "generated": "2026-08-29T00:52:25Z",
   "register": 4193,
-  "origin_main": "59914096",
+  "origin_main": "cc7f44273a",
   "mode": "c0-named-processor-fills",
   "leftovers_min1": 35,
   "leftovers_after": 35,
@@ -11,16 +11,16 @@
   ],
   "aliases_added": [],
   "aliases_kept": [
-    "aws → amazon-web-services",
-    "gcp → google",
-    "azure → microsoft",
-    "marketo → adobe"
+    "aws \u2192 amazon-web-services",
+    "gcp \u2192 google",
+    "azure \u2192 microsoft",
+    "marketo \u2192 adobe"
   ],
   "aliases_refused": [
     {
       "from": "sendgrid",
       "to": "twilio",
-      "reason": "sendgrid.com 301s to Twilio product host; first-party HTML does not print they are the same company. Do not copy Twilio marks/DPA."
+      "reason": "sendgrid.com 301s to Twilio product/legal hosts; first-party HTML does not print they are the same company. Do not copy Twilio marks/DPA."
     },
     {
       "from": "looker",
@@ -36,176 +36,148 @@
       "from": "amazon",
       "to": "amazon-web-services",
       "reason": "amazon.com is already on the register. Do not alias to AWS."
+    },
+    {
+      "from": "dovetailapp.com",
+      "to": "dovetail.com",
+      "reason": "dovetailapp.com privacy 301s to dovetail.com \u2014 different host. Do not invent a second domain."
     }
   ],
   "newly_filed": [],
   "c0_fills": [
     {
-      "slug": "digicert",
-      "named_by": 2,
-      "completeness_before": 0,
-      "completeness_after": 40,
-      "score_after": 40,
+      "slug": "turbopuffer",
+      "named_by": 4,
+      "completeness_before": 20,
+      "completeness_after": 60,
+      "score_after": 44,
       "tier_after": "on-file",
-      "page": "https://www.digicert.com/webtrust-audits",
+      "page": "https://turbopuffer.com/docs/security",
       "marks": [
-        "soc-2-type-ii",
-        "iso-27001"
+        "soc-2"
       ],
-      "marks_url": "https://www.digicert.com/webtrust-audits",
+      "marks_url": "https://turbopuffer.com/docs/security",
+      "privacy_already": "https://turbopuffer.com/privacy-policy",
+      "dpa_already": "https://turbopuffer.com/dpa.pdf",
       "left_open": [
-        "/webtrust-audits prints DigiCert Global Accreditations: SOC 2 Type II (A-Lign / BDO) and ISO 27001 (BDO Sanyu, Japan). Filed as Official page + marks",
-        "/subprocessors HTML is change-history <li> prose plus a PDF at /content/dam/digicert/pdfs/legal/sub-processor-list.pdf — not a table or labeled span. Names not extracted",
-        "privacy.digicert.com/policies is a JS shell. /privacy-center is a hub — classify_as_privacy false. DPA usual-path 404. Years not on /about"
+        "/docs/security is first-party Security & Compliance HTML. Filed as Official page",
+        "SOC 2 report is named on that page. Filed",
+        "HIPAA is a BAA request for PHI customers \u2014 not a catalog hold",
+        "GDPR/CCPA sit under Data Protection as DPA/regulation copy \u2014 not marks",
+        "Report request links a Drata host \u2014 not filed, not named on the public file",
+        "About memo dates 2023 and 'since 2025' are not a founded year"
       ]
     },
     {
-      "slug": "london-stock-exchange-group",
+      "slug": "accelq",
       "named_by": 1,
       "completeness_before": 0,
-      "completeness_after": 30,
-      "score_after": 26,
+      "completeness_after": 50,
+      "score_after": 34,
       "tier_after": "thin",
-      "page": "https://www.lseg.com/en/security-centre",
-      "privacy": "https://www.lseg.com/en/policies/privacy-statement",
+      "page": "https://www.accelq.com/security-policy/",
+      "dpa": "https://www.accelq.com/dpa/",
+      "privacy": "https://www.accelq.com/privacypolicy/",
       "left_open": [
-        "Security Centre is first-party HTML on LSEG's own cyber-resilience hold. Filed as Official page",
-        "Privacy Statement classifies. Filed",
-        "DPA / named processors / marks / years not on usual-path HTML. /en/about-us/history names AIM 1995 — not LSEG founding"
+        "Information Security Management System (ISMS) Policy is first-party HTML. Filed as Official page",
+        "DPA classifies. Filed",
+        "Privacy Policy classifies. Filed",
+        "ISO 27001:2013 and SOC are 'in line with' the ISMS \u2014 not a named hold. Marks left open",
+        "About prints no founded/established year. Named processors not on usual-path HTML"
       ]
     },
     {
-      "slug": "link-mobility",
+      "slug": "filestack",
       "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 30,
-      "score_after": 26,
-      "tier_after": "thin",
-      "page": "https://www.linkmobility.com/legal/privacy/information-security",
-      "privacy_already": "https://www.linkmobility.com/legal/privacy",
-      "left_open": [
-        "Information Security Policy is printed first-party HTML. Filed as Official page",
-        "/legal/privacy/sub-processors title exists; names are a JS shell — not a table. Not extracted",
-        "Privacy already on file. About says 'Founded 25+ years ago' — not a year. GDPR/NIS2 on the policy are regulations, not marks"
-      ]
-    },
-    {
-      "slug": "dstny-automate-formerly-qunifi",
-      "named_by": 2,
       "completeness_before": 0,
       "completeness_after": 0,
       "score_after": 6,
       "tier_after": "silent",
-      "privacy": "https://www.dstny.com/website-privacy-policy",
+      "privacy": "https://www.filestack.com/privacy/",
       "left_open": [
-        "Website Privacy Policy classifies first-party. Filed",
-        "/security-and-privacy is a privacy-titled page — not an Official security instrument. DPA / marks / years / named processors left open"
+        "Privacy Policy classifies first-party. Filed",
+        "/security lands on /features/#security \u2014 product copy, not an Official page",
+        "About prints no founded/established year. DPA / marks / named processors left open"
       ]
     },
     {
-      "slug": "constella-intelligence",
-      "named_by": 2,
+      "slug": "f-secure",
+      "named_by": 1,
       "completeness_before": 0,
       "completeness_after": 0,
       "score_after": 6,
       "tier_after": "silent",
-      "privacy": "https://constella.ai/policies/website-privacy-policy/",
+      "privacy": "https://www.f-secure.com/en/legal/privacy/statement",
       "left_open": [
-        "Website Privacy Policy classifies first-party. Filed",
-        "Homepage 'satisfy strict regulatory compliance (GDPR/SOC2)' is industry/customer copy — not Constella's hold. About prints no year. DPA usual-path bounced to a 2026 blog"
+        "Privacy statement classifies first-party. Filed",
+        "/en/legal is a principles hub \u2014 not the privacy instrument. Status and security.txt already on file",
+        "Official page / marks / DPA / years / named processors left open"
+      ]
+    },
+    {
+      "slug": "acquire-asia-pacific-philippines",
+      "named_by": 1,
+      "completeness_before": 0,
+      "completeness_after": 0,
+      "score_after": 6,
+      "tier_after": "silent",
+      "privacy": "https://acquire.ai/au/privacy-policy/",
+      "left_open": [
+        "Global Privacy Policy AU classifies first-party on acquire.ai. Filed",
+        "Usual-path /security /dpa 404. Official page / marks / years left open"
       ]
     }
   ],
   "preferred_c0_left_open": [
     {
-      "slug": "mastercard",
+      "slug": "sendgrid",
+      "named_by": 21,
+      "reason": "sendgrid.com trust/privacy/security 301 to twilio.com. Do not copy Twilio. security.txt 403"
+    },
+    {
+      "slug": "looker",
+      "named_by": 9,
+      "reason": "looker.com 301s to cloud.google.com. Do not copy Google"
+    },
+    {
+      "slug": "amazon",
+      "named_by": 2,
+      "reason": "/security is customer-service help. /trust is Trust Golf. trust.amazon.com and security.amazon.com are login walls. Privacy help-center path does not classify. Do not copy AWS"
+    },
+    {
+      "slug": "sumit-ai",
+      "named_by": 2,
+      "reason": "sumit-ai.com Cloudflare 403 / JS challenge"
+    },
+    {
+      "slug": "kiss-metrics",
+      "named_by": 2,
+      "reason": "Privacy already on file. No Official page / DPA / marks on usual-path HTML"
+    },
+    {
+      "slug": "adjust",
       "named_by": 1,
-      "reason": "mastercard.com Access Denied / HTTP 403"
+      "reason": "trust.adjust.com is HyperComply JS. adjust.com Vercel 429/403"
     },
     {
-      "slug": "global-payments",
-      "named_by": 2,
-      "reason": "globalpayments.com Cloudflare 403"
-    },
-    {
-      "slug": "cybersource",
-      "named_by": 2,
-      "reason": "/company and /about 'simplify PCI DSS compliance' is product copy — not a hold"
-    },
-    {
-      "slug": "logz-io",
-      "named_by": 2,
-      "reason": "/security 301s to /blog/security/. /about-us prints no founded year. DPA / processors usual-path 404"
-    },
-    {
-      "slug": "reversing-labs",
-      "named_by": 2,
-      "reason": "/company/about-us SOC 2 Type II is an image caption (certifications@2x filename). Trust/DPA/subprocessor paths are the same HubSpot shell. Privacy already on file"
-    },
-    {
-      "slug": "inmoment",
-      "named_by": 2,
-      "reason": "inmoment.com Cloudflare 403"
-    },
-    {
-      "slug": "sutherland-global-services",
-      "named_by": 2,
-      "reason": "/about-us prints no founded/established year. Privacy already on file. DPA / marks / Official page not on usual-path HTML"
-    },
-    {
-      "slug": "intouchcx",
-      "named_by": 2,
-      "reason": "intouchcx.com Cloudflare 403"
-    },
-    {
-      "slug": "foundever-operating",
-      "named_by": 2,
-      "reason": "foundever.com Cloudflare 403"
-    },
-    {
-      "slug": "concentrix",
-      "named_by": 3,
-      "reason": "/trust /compliance /certificates /dpa /subprocessors are empty WordPress shells. /about prints no year. ISO 42001 about-page badge still refused. Privacy already on file"
-    },
-    {
-      "slug": "jack-henry",
+      "slug": "bluesnap",
       "named_by": 1,
-      "reason": "/who-we-are prints no founded year. Privacy already on file. DPA / marks / Official page not on usual-path HTML"
+      "reason": "bluesnap.com Cloudflare 403"
     },
     {
-      "slug": "tdcx",
+      "slug": "dovetail",
       "named_by": 1,
-      "reason": "/about is a JS shell — no printed title, year, or marks"
+      "reason": "dovetailapp.com privacy 301s to dovetail.com \u2014 different host. Do not invent a domain"
     },
     {
-      "slug": "teleperformance-colombia",
+      "slug": "adfinis",
       "named_by": 1,
-      "reason": "teleperformance.com 301s to tp.com. Usual-path 404 on the old host. Do not invent a tp.com row"
+      "reason": "Privacy already on file. ISO 9001 / ISO 27001 sit on /about-us Certifications \u2014 not a trust/security page this cut. 'Since 2000' is not a founded year"
     },
     {
-      "slug": "apilayer",
-      "named_by": 1,
-      "reason": "/legal and /privacy 404"
-    },
-    {
-      "slug": "singular-lab",
-      "named_by": 1,
-      "reason": "singular.net Cloudflare 403"
-    },
-    {
-      "slug": "transunion-formerly-neustar-information-services",
-      "named_by": 3,
-      "reason": "transunion.com Cloudflare 403"
-    },
-    {
-      "slug": "leandata",
-      "named_by": 3,
-      "reason": "trust.leandata.com is SafeBase. /certification/ is a product training page, not catalog holds"
-    },
-    {
-      "slug": "telesign",
-      "named_by": 3,
-      "reason": "telesign.com Cloudflare 403 on /legal this cut. ISO 27001 already on file"
+      "slug": "onesignal",
+      "named_by": null,
+      "reason": "Already marks+DPA. trust.onesignal.com / security.onesignal.com redirect to dashboard JS"
     }
   ],
   "standing_skips": [
@@ -226,16 +198,15 @@
     "avertech"
   ],
   "refused_this_cut": [
-    "digicert /subprocessors is change-history <li> plus a PDF — not a table. Names not extracted",
-    "privacy.digicert.com is a JS shell. /privacy-center hub does not classify as the privacy instrument",
-    "constella.ai homepage GDPR/SOC2 is industry/customer compliance copy — not Constella's hold",
-    "cybersource /company 'simplify PCI DSS compliance' is product copy",
-    "reversinglabs /company/about-us SOC 2 Type II is an image caption — not a printed hold",
-    "linkmobility /legal/privacy/sub-processors is a JS shell — names not printed",
-    "concentrix /trust /dpa /certificates /subprocessors are empty WordPress shells. ISO 42001 about-page badge not retried",
-    "leandata trust.leandata.com SafeBase unread. /certification/ is training, not marks",
-    "mastercard.com / globalpayments.com / inmoment / intouchcx / foundever / singular.net / transunion.com / telesign.com HTTP 403",
-    "sendgrid→twilio and looker→google still refused",
-    "Do not invent leftover domains. bonsai-technologies remains the standing named-by≥2 skip"
+    "sendgrid.com 301s to Twilio \u2014 do not copy Twilio's file onto SendGrid",
+    "looker.com 301s to Google Cloud \u2014 do not copy Google's file onto Looker",
+    "turbopuffer HIPAA is a BAA request; GDPR/CCPA are DPA/regulation copy",
+    "accelq ISO 27001:2013 / SOC are 'in line with' the ISMS \u2014 not a named hold",
+    "filestack /security is a product features hash",
+    "adfinis /en/solutions/security is a product Security Journey page",
+    "cequens footer 'SOC 2 Certified / ISO 27001 Certified / PCI DSS Compliant' is a footer badge",
+    "amazon.com /security is customer-service help; do not copy AWS",
+    "dovetailapp.com privacy 301s to dovetail.com \u2014 do not invent a second domain",
+    "Do not invent leftover domains. bonsai-technologies remains the standing named-by\u22652 skip"
   ]
 }

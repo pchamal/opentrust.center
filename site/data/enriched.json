@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T00:30:42Z",
+  "generated_at": "2026-08-29T00:52:25Z",
   "companies": [
     {
       "rank": 1,
@@ -20619,13 +20619,16 @@
       "certs": [],
       "links": {
         "status": "https://status.f-secure.com",
-        "security_txt": "https://www.f-secure.com/.well-known/security.txt"
+        "security_txt": "https://www.f-secure.com/.well-known/security.txt",
+        "privacy": "https://www.f-secure.com/en/legal/privacy/statement"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "privacy": 6
+        }
       }
     },
     {
@@ -88675,26 +88678,31 @@
       "name": "Turbopuffer",
       "slug": "turbopuffer",
       "domain": "turbopuffer.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://turbopuffer.com/docs/security",
+      "final_url": "https://turbopuffer.com/docs/security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://trust.anthropic.com/subprocessors",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2.",
       "list": "named-processor-gap",
-      "certs": [],
+      "certs": [
+        "SOC 2"
+      ],
       "links": {
         "status": "https://status.turbopuffer.com",
         "privacy": "https://turbopuffer.com/privacy-policy",
-        "dpa": "https://turbopuffer.com/dpa.pdf"
+        "dpa": "https://turbopuffer.com/dpa.pdf",
+        "security": "https://turbopuffer.com/docs/security"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
-        "tier": "silent",
+        "score": 44,
+        "tier": "on-file",
         "factors": {
+          "portal": 20,
+          "marks": 4,
           "dpa": 8,
           "status": 6,
           "privacy": 6
@@ -91451,22 +91459,30 @@
       "name": "ACCELQ",
       "slug": "accelq",
       "domain": "accelq.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.accelq.com/security-policy/",
+      "final_url": "https://www.accelq.com/security-policy/",
       "vendor": "unknown",
       "title": "",
       "probed": 74,
       "source": "https://www.arista.com/en/sub-processor",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. No marks extracted from the public HTML.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.accelq.com/security-policy/",
+        "dpa": "https://www.accelq.com/dpa/",
+        "privacy": "https://www.accelq.com/privacypolicy/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 34,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "dpa": 8,
+          "privacy": 6
+        }
       },
       "official_url": "https://www.accelq.com/"
     },
@@ -93187,12 +93203,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "privacy": "https://www.filestack.com/privacy/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "privacy": 6
+        }
       },
       "official_url": "https://www.filestack.com/"
     },
@@ -102851,12 +102871,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "privacy": "https://acquire.ai/au/privacy-policy/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "privacy": 6
+        }
       }
     },
     {
