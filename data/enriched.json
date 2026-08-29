@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T01:08:24Z",
+  "generated_at": "2026-08-29T01:22:11Z",
   "companies": [
     {
       "rank": 1,
@@ -57885,17 +57885,21 @@
       "final_url": null,
       "vendor": "unknown",
       "title": "",
-      "probed": 32,
+      "probed": 40,
       "source": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "No public trust center on the usual paths. Status URL stored; www.netsuite.com is Akamai 403 this cut.",
       "list": "wikipedia-cloud-computing-providers",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.netsuite.com/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -83718,22 +83722,34 @@
       "name": "Unbabel",
       "slug": "unbabel",
       "domain": "unbabel.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://unbabel.com/security/",
+      "final_url": "https://unbabel.com/security/",
       "vendor": "unknown",
       "title": "",
-      "probed": 13,
+      "probed": 24,
       "source": "https://en.wikipedia.org/wiki/Category:Artificial_intelligence_companies",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: ISO 27001, EU-US DPF.",
       "list": "wikipedia-artificial-intelligence-companies",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "ISO 27001",
+        "EU-US DPF"
+      ],
+      "links": {
+        "security": "https://unbabel.com/security/",
+        "privacy": "https://unbabel.com/privacy-policy/",
+        "status": "https://status.unbabel.com/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 46,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 14,
+          "status": 6,
+          "privacy": 6
+        }
       }
     },
     {
@@ -89966,9 +89982,9 @@
       "final_url": null,
       "vendor": "unknown",
       "title": "",
-      "probed": 23,
+      "probed": 28,
       "source": "https://www.powtoon.com/dpa/sub-processors/",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "No public trust center on the usual paths. Privacy and status stored. About page prints founded 2014 in Tel Aviv.",
       "list": "named-processor-gap",
       "certs": [],
       "links": {
@@ -89977,13 +89993,16 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 12,
+        "score": 18,
         "tier": "silent",
         "factors": {
           "status": 6,
-          "privacy": 6
+          "privacy": 6,
+          "longevity": 6
         }
-      }
+      },
+      "founded_year": 2014,
+      "founded_source": "https://logz.io/about-us/"
     },
     {
       "rank": 3031,
@@ -90690,17 +90709,21 @@
       "final_url": null,
       "vendor": "unknown",
       "title": "",
-      "probed": 13,
+      "probed": 24,
       "source": "https://www.fico.com/en/subprocessors",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "No public trust center on the usual paths. Status URL stored. Privacy 301s to visa.com \u2014 not filed. About PCI DSS is product-compliance copy.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "status": "https://status.cybersource.com/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "status": 6
+        }
       }
     },
     {
@@ -96840,19 +96863,21 @@
       "final_url": null,
       "vendor": "unknown",
       "title": "",
-      "probed": 18,
+      "probed": 28,
       "source": "https://www.sophos.com/en-us/legal/sub-processor",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "No public trust center on the usual paths. Privacy and status stored. About-page SOC 2 image alt is not a named hold.",
       "list": "named-processor-gap",
       "certs": [],
       "links": {
-        "privacy": "https://www.reversinglabs.com/privacy-policy"
+        "privacy": "https://www.reversinglabs.com/privacy-policy",
+        "status": "https://status.reversinglabs.com/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 6,
+        "score": 12,
         "tier": "silent",
         "factors": {
+          "status": 6,
           "privacy": 6
         }
       }
@@ -104812,22 +104837,35 @@
       "name": "RudderStack",
       "slug": "rudderstack",
       "domain": "rudderstack.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.rudderstack.com/security/",
+      "final_url": "https://www.rudderstack.com/security/",
       "vendor": "unknown",
       "title": "",
-      "probed": 13,
+      "probed": 24,
       "source": "https://learn.hex.tech/docs/legal/subprocessors",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II.",
       "list": "named-processor-gap",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "SOC 2 Type II"
+      ],
+      "links": {
+        "security": "https://www.rudderstack.com/security/",
+        "privacy": "https://www.rudderstack.com/privacy-policy/",
+        "status": "https://status.rudderstack.com/",
+        "bug_bounty": "https://www.rudderstack.com/vulnerability-disclosure-policy/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 48,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 10,
+          "status": 6,
+          "disclosure": 6,
+          "privacy": 6
+        }
       }
     },
     {
@@ -120903,6 +120941,38 @@
         "score": 0,
         "tier": "silent",
         "factors": {}
+      }
+    },
+    {
+      "rank": 4234,
+      "name": "Bonsai",
+      "slug": "bonsai-technologies",
+      "domain": "hellobonsai.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 24,
+      "source": "https://www.zoom.com/en/trust/subprocessors/",
+      "summary": "No public trust center on the usual paths. Privacy, DPA, and status stored. trust.hellobonsai.com is Cloudflare-walled this cut. Do not alias to Zoom.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {
+        "privacy": "https://www.hellobonsai.com/legal/privacy",
+        "dpa": "https://www.hellobonsai.com/legal/dpa",
+        "status": "https://status.hellobonsai.com/"
+      },
+      "subprocessors": [],
+      "official_url": "https://www.hellobonsai.com/",
+      "disclosure": {
+        "score": 20,
+        "tier": "silent",
+        "factors": {
+          "dpa": 8,
+          "status": 6,
+          "privacy": 6
+        }
       }
     }
   ],

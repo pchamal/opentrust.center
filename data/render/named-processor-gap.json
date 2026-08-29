@@ -1,14 +1,12 @@
 {
-  "generated": "2026-08-29T00:52:25Z",
-  "register": 4193,
-  "origin_main": "cc7f44273a",
+  "generated": "2026-08-29T01:22:11Z",
+  "register": 4234,
+  "origin_main": "650443fe47",
   "mode": "c0-named-processor-fills",
   "leftovers_min1": 35,
-  "leftovers_after": 35,
-  "remaining_ge2": 1,
-  "remaining_ge2_slugs": [
-    "bonsai-technologies"
-  ],
+  "leftovers_after": 34,
+  "remaining_ge2": 0,
+  "remaining_ge2_slugs": [],
   "aliases_added": [],
   "aliases_kept": [
     "aws \u2192 amazon-web-services",
@@ -38,93 +36,151 @@
       "reason": "amazon.com is already on the register. Do not alias to AWS."
     },
     {
-      "from": "dovetailapp.com",
-      "to": "dovetail.com",
-      "reason": "dovetailapp.com privacy 301s to dovetail.com \u2014 different host. Do not invent a second domain."
+      "from": "shopkeep",
+      "to": "lightspeed",
+      "reason": "Do not alias ShopKeep to Lightspeed or copy the parent file."
+    },
+    {
+      "from": "code42",
+      "to": "mimecast",
+      "reason": "Do not alias Code42 to Mimecast or copy the parent file."
+    },
+    {
+      "from": "madkudu",
+      "to": "hg-insights",
+      "reason": "Do not alias MadKudu to HG Insights or copy the parent file."
     }
   ],
-  "newly_filed": [],
+  "newly_filed": [
+    {
+      "slug": "bonsai-technologies",
+      "name": "Bonsai",
+      "domain": "hellobonsai.com",
+      "named_by": 2,
+      "completeness_before": null,
+      "completeness_after": 20,
+      "score_after": 20,
+      "tier_after": "silent",
+      "privacy": "https://www.hellobonsai.com/legal/privacy",
+      "dpa": "https://www.hellobonsai.com/legal/dpa",
+      "status": "https://status.hellobonsai.com/",
+      "source": "https://www.zoom.com/en/trust/subprocessors/",
+      "left_open": [
+        "True-missing named processor. Official domain hellobonsai.com from first-party homepage. Do not alias to Zoom",
+        "Privacy Policy at /legal/privacy classifies. Filed",
+        "Data Processing Addendum at /legal/dpa classifies (printed landing + first-party DPA PDF). Filed",
+        "status.hellobonsai.com prints Bonsai status. Filed",
+        "trust.hellobonsai.com is named from first-party legal nav as Trust & Security Center / Subprocessors — Cloudflare 403 this cut. Official page / marks / named processors left open",
+        "/security /trust /legal/security 404. /legal/subprocessors lands on CCPA notice — not a processor list"
+      ]
+    }
+  ],
   "c0_fills": [
     {
-      "slug": "turbopuffer",
-      "named_by": 4,
-      "completeness_before": 20,
-      "completeness_after": 60,
-      "score_after": 44,
+      "slug": "logz-io",
+      "named_by": 2,
+      "completeness_before": 0,
+      "completeness_after": 20,
+      "score_after": 18,
+      "tier_after": "silent",
+      "founded_year": 2014,
+      "founded_source": "https://logz.io/about-us/",
+      "privacy_already": "https://logz.io/about-us/privacy-policy/",
+      "status_already": "https://status.logz.io",
+      "left_open": [
+        "About page timeline prints '2014 Founded in Tel Aviv, Israel'. Filed",
+        "/security lands on /blog/security — blog, not an Official page",
+        "DPA / marks / named processors left open"
+      ]
+    },
+    {
+      "slug": "unbabel",
+      "named_by": 1,
+      "completeness_before": 0,
+      "completeness_after": 40,
+      "score_after": 46,
       "tier_after": "on-file",
-      "page": "https://turbopuffer.com/docs/security",
+      "page": "https://unbabel.com/security/",
       "marks": [
-        "soc-2"
+        "iso-27001",
+        "eu-us-dpf"
       ],
-      "marks_url": "https://turbopuffer.com/docs/security",
-      "privacy_already": "https://turbopuffer.com/privacy-policy",
-      "dpa_already": "https://turbopuffer.com/dpa.pdf",
+      "marks_url": "https://unbabel.com/security/",
+      "privacy": "https://unbabel.com/privacy-policy/",
+      "status": "https://status.unbabel.com/",
       "left_open": [
-        "/docs/security is first-party Security & Compliance HTML. Filed as Official page",
-        "SOC 2 report is named on that page. Filed",
-        "HIPAA is a BAA request for PHI customers \u2014 not a catalog hold",
-        "GDPR/CCPA sit under Data Protection as DPA/regulation copy \u2014 not marks",
-        "Report request links a Drata host \u2014 not filed, not named on the public file",
-        "About memo dates 2023 and 'since 2025' are not a founded year"
+        "/security is first-party Security HTML. Filed as Official page",
+        "ISO 27001: 'Unbabel is certified against the ISO27001 standards'. Filed",
+        "EU-US DPF: certified under the EU-U.S. Data Privacy Framework. Filed",
+        "ISO 9001 is 'pursuing' / expected 2024 — not a named hold. Skip",
+        "GDPR/CCPA sit as regulation compliance copy — not marks",
+        "About prints TransPerfect 1992, not an Unbabel founded year. DPA / named processors 404 on usual paths"
       ]
     },
     {
-      "slug": "accelq",
+      "slug": "rudderstack",
       "named_by": 1,
       "completeness_before": 0,
-      "completeness_after": 50,
-      "score_after": 34,
-      "tier_after": "thin",
-      "page": "https://www.accelq.com/security-policy/",
-      "dpa": "https://www.accelq.com/dpa/",
-      "privacy": "https://www.accelq.com/privacypolicy/",
+      "completeness_after": 40,
+      "score_after": 48,
+      "tier_after": "on-file",
+      "page": "https://www.rudderstack.com/security/",
+      "marks": [
+        "soc-2-type-ii"
+      ],
+      "marks_url": "https://www.rudderstack.com/security/",
+      "privacy": "https://www.rudderstack.com/privacy-policy/",
+      "status": "https://status.rudderstack.com/",
+      "bounty": "https://www.rudderstack.com/vulnerability-disclosure-policy/",
       "left_open": [
-        "Information Security Management System (ISMS) Policy is first-party HTML. Filed as Official page",
-        "DPA classifies. Filed",
-        "Privacy Policy classifies. Filed",
-        "ISO 27001:2013 and SOC are 'in line with' the ISMS \u2014 not a named hold. Marks left open",
-        "About prints no founded/established year. Named processors not on usual-path HTML"
+        "/security names 'We have obtained SOC 2 Type 2 compliance'. Filed Official page + SOC 2 Type II",
+        "HIPAA is a BAA offer for PHI — not a catalog hold",
+        "GDPR is regulation copy — not a mark",
+        "Usual-path DPA 404. About prints no founded year"
       ]
     },
     {
-      "slug": "filestack",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "privacy": "https://www.filestack.com/privacy/",
-      "left_open": [
-        "Privacy Policy classifies first-party. Filed",
-        "/security lands on /features/#security \u2014 product copy, not an Official page",
-        "About prints no founded/established year. DPA / marks / named processors left open"
-      ]
-    },
-    {
-      "slug": "f-secure",
-      "named_by": 1,
+      "slug": "netsuite",
+      "named_by": 7,
       "completeness_before": 0,
       "completeness_after": 0,
       "score_after": 6,
       "tier_after": "silent",
-      "privacy": "https://www.f-secure.com/en/legal/privacy/statement",
+      "status": "https://status.netsuite.com/",
       "left_open": [
-        "Privacy statement classifies first-party. Filed",
-        "/en/legal is a principles hub \u2014 not the privacy instrument. Status and security.txt already on file",
-        "Official page / marks / DPA / years / named processors left open"
+        "status.netsuite.com prints Oracle NetSuite Service Status. Filed",
+        "www.netsuite.com usual paths are Akamai 403. Official page / marks / DPA / privacy / years left open. Do not copy Oracle's file"
       ]
     },
     {
-      "slug": "acquire-asia-pacific-philippines",
-      "named_by": 1,
+      "slug": "cybersource",
+      "named_by": 2,
       "completeness_before": 0,
       "completeness_after": 0,
       "score_after": 6,
       "tier_after": "silent",
-      "privacy": "https://acquire.ai/au/privacy-policy/",
+      "status": "https://status.cybersource.com/",
       "left_open": [
-        "Global Privacy Policy AU classifies first-party on acquire.ai. Filed",
-        "Usual-path /security /dpa 404. Official page / marks / years left open"
+        "status.cybersource.com prints Cybersource Status. Filed",
+        "Privacy 301s to visa.com — different host. Do not copy Visa",
+        "About 'simplify PCI DSS compliance' is product copy — not a named hold",
+        "Official page / marks / DPA / years left open"
+      ]
+    },
+    {
+      "slug": "reversing-labs",
+      "named_by": 2,
+      "completeness_before": 0,
+      "completeness_after": 0,
+      "score_after": 12,
+      "tier_after": "silent",
+      "privacy_already": "https://www.reversinglabs.com/privacy-policy",
+      "status": "https://status.reversinglabs.com/",
+      "left_open": [
+        "status.reversinglabs.com is a first-party status host. Filed",
+        "Privacy already on file",
+        "About-page image alt 'AICPA SOC 2 Type II Certified' is a badge, not a trust/security hold. Skip",
+        "/security /trust /dpa return JS shells with homepage title. Official page / marks / DPA / years left open"
       ]
     }
   ],
@@ -140,48 +196,52 @@
       "reason": "looker.com 301s to cloud.google.com. Do not copy Google"
     },
     {
+      "slug": "vonage",
+      "named_by": 8,
+      "reason": "vonage.com Cloudflare 403 / JS challenge this cut"
+    },
+    {
+      "slug": "equinix",
+      "named_by": 7,
+      "reason": "equinix.com Akamai 403 this cut"
+    },
+    {
+      "slug": "vultr",
+      "named_by": 4,
+      "reason": "vultr.com Cloudflare 403. docs.vultr.com footer names /trust-center /legal/privacy /legal/subprocessors — those hosts stayed 403. Do not file unread pages"
+    },
+    {
+      "slug": "taskus",
+      "named_by": 4,
+      "reason": "Privacy already on file. Cloudflare 403 on usual-path HTML this cut"
+    },
+    {
+      "slug": "concentrix",
+      "named_by": 3,
+      "reason": "Privacy already on file. /security is Security Archives (blog). /legal is a policy index, no DPA. About prints no founded year"
+    },
+    {
       "slug": "amazon",
       "named_by": 2,
-      "reason": "/security is customer-service help. /trust is Trust Golf. trust.amazon.com and security.amazon.com are login walls. Privacy help-center path does not classify. Do not copy AWS"
+      "reason": "/security is customer-service help. /trust is Trust Golf. Do not copy AWS"
     },
     {
-      "slug": "sumit-ai",
+      "slug": "intouchcx",
       "named_by": 2,
-      "reason": "sumit-ai.com Cloudflare 403 / JS challenge"
+      "reason": "intouchcx.com Cloudflare 403"
     },
     {
-      "slug": "kiss-metrics",
+      "slug": "foundever-operating",
       "named_by": 2,
-      "reason": "Privacy already on file. No Official page / DPA / marks on usual-path HTML"
+      "reason": "foundever.com Cloudflare 403"
     },
     {
-      "slug": "adjust",
-      "named_by": 1,
-      "reason": "trust.adjust.com is HyperComply JS. adjust.com Vercel 429/403"
-    },
-    {
-      "slug": "bluesnap",
-      "named_by": 1,
-      "reason": "bluesnap.com Cloudflare 403"
-    },
-    {
-      "slug": "dovetail",
-      "named_by": 1,
-      "reason": "dovetailapp.com privacy 301s to dovetail.com \u2014 different host. Do not invent a domain"
-    },
-    {
-      "slug": "adfinis",
-      "named_by": 1,
-      "reason": "Privacy already on file. ISO 9001 / ISO 27001 sit on /about-us Certifications \u2014 not a trust/security page this cut. 'Since 2000' is not a founded year"
-    },
-    {
-      "slug": "onesignal",
-      "named_by": null,
-      "reason": "Already marks+DPA. trust.onesignal.com / security.onesignal.com redirect to dashboard JS"
+      "slug": "constella-intelligence",
+      "named_by": 2,
+      "reason": "Privacy already on file. About prints no founded year. Usual-path security/DPA not on file"
     }
   ],
   "standing_skips": [
-    "bonsai-technologies",
     "gmi",
     "sync",
     "deft",
@@ -195,18 +255,23 @@
     "madkudu",
     "adaptive-mobile",
     "textel",
-    "avertech"
+    "avertech",
+    "vonage",
+    "equinix",
+    "vultr"
   ],
   "refused_this_cut": [
-    "sendgrid.com 301s to Twilio \u2014 do not copy Twilio's file onto SendGrid",
-    "looker.com 301s to Google Cloud \u2014 do not copy Google's file onto Looker",
-    "turbopuffer HIPAA is a BAA request; GDPR/CCPA are DPA/regulation copy",
-    "accelq ISO 27001:2013 / SOC are 'in line with' the ISMS \u2014 not a named hold",
-    "filestack /security is a product features hash",
-    "adfinis /en/solutions/security is a product Security Journey page",
-    "cequens footer 'SOC 2 Certified / ISO 27001 Certified / PCI DSS Compliant' is a footer badge",
-    "amazon.com /security is customer-service help; do not copy AWS",
-    "dovetailapp.com privacy 301s to dovetail.com \u2014 do not invent a second domain",
-    "Do not invent leftover domains. bonsai-technologies remains the standing named-by\u22652 skip"
+    "Do not alias bonsai-technologies to zoom — affiliate, not the same register row",
+    "sendgrid.com 301s to Twilio — do not copy Twilio's file onto SendGrid",
+    "looker.com 301s to Google Cloud — do not copy Google's file onto Looker",
+    "shopkeep → lightspeed, code42 → mimecast, madkudu → hg-insights still refused",
+    "unbabel ISO 9001 is pursuing / expected 2024 — not a named hold",
+    "rudderstack HIPAA is a BAA offer; GDPR is regulation copy",
+    "cybersource privacy 301s to visa.com — do not invent a second domain",
+    "cybersource about PCI DSS is product-compliance copy",
+    "reversing-labs about-page SOC 2 image alt is a badge",
+    "netsuite www host is Akamai 403 — do not copy Oracle",
+    "vultr.com / vonage.com / equinix.com / taskus.com / intouchcx.com / foundever.com WAF 403 — do not invent unread instruments",
+    "Do not invent leftover domains. named-by ≥2 not on register is now empty"
   ]
 }
