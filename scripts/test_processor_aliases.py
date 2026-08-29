@@ -283,6 +283,11 @@ def main() -> int:
     check(canonical_processor_id("eighth-intuition-sdn-bhd", fico_reg2) == "fico", "Eighth Intuition is FICO")
     mm_reg = {**register, "minimax-group": {"slug": "minimax-group", "name": "MiniMax Group", "domain": "minimax.io"}}
     check(canonical_processor_id("nanonoble-pte", mm_reg) == "minimax-group", "Nanonoble is MiniMax")
+    tw_reg = {**register, "twilio": {"slug": "twilio", "name": "Twilio", "domain": "twilio.com"}}
+    check(canonical_processor_id("sendgrid", tw_reg) == "twilio", "SendGrid is Twilio")
+    check(REGISTER_ALIASES["sendgrid"] == "twilio", "sendgrid aliases to twilio")
+    check(canonical_processor_id("looker", {**register, "google": register["google"]}) == "google", "Looker is Google")
+    check(REGISTER_ALIASES["looker"] == "google", "looker aliases to google")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 

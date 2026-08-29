@@ -1303,13 +1303,6 @@
       "in_register": true
     },
     {
-      "id": "sendgrid",
-      "name": "SendGrid",
-      "domain": "sendgrid.com",
-      "kind": "company",
-      "in_register": true
-    },
-    {
       "id": "auth0",
       "name": "Auth0",
       "domain": "auth0.com",
@@ -1874,13 +1867,6 @@
       "in_register": true
     },
     {
-      "id": "looker",
-      "name": "Looker",
-      "domain": "looker.com",
-      "kind": "company",
-      "in_register": true
-    },
-    {
       "id": "pinecone",
       "name": "Pinecone",
       "domain": "pinecone.io",
@@ -2051,9 +2037,9 @@
     {
       "id": "runware",
       "name": "Runware Ltd",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "runware.ai",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "ideogram-ai",
@@ -30495,7 +30481,7 @@
     },
     {
       "from": "klaviyo",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://trust.klaviyo.com/subprocessors",
       "evidence": "SendGrid"
     },
@@ -30579,7 +30565,7 @@
     },
     {
       "from": "proofpoint",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://www.proofpoint.com/us/legal/trust/subprocessors",
       "evidence": "SendGrid"
     },
@@ -31641,7 +31627,7 @@
     },
     {
       "from": "writer",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "http://writer.com/legal/subprocessors/",
       "evidence": "SendGrid"
     },
@@ -32529,7 +32515,7 @@
     },
     {
       "from": "glean",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://www.glean.com/legal/subprocessors",
       "evidence": "SendGrid, Inc"
     },
@@ -32859,7 +32845,7 @@
     },
     {
       "from": "zapier",
-      "to": "looker",
+      "to": "google",
       "source_url": "https://zapier.com/legal/subprocessors",
       "evidence": "Looker"
     },
@@ -35229,7 +35215,7 @@
     },
     {
       "from": "figma",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://www.figma.com/sub-processors/",
       "evidence": "SendGrid, Inc"
     },
@@ -36405,7 +36391,7 @@
     },
     {
       "from": "bigid",
-      "to": "looker",
+      "to": "google",
       "source_url": "https://bigid.com/sub-processors/",
       "evidence": "Looker"
     },
@@ -36435,7 +36421,7 @@
     },
     {
       "from": "bigid",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://bigid.com/sub-processors/",
       "evidence": "Sendgrid"
     },
@@ -37287,7 +37273,7 @@
     },
     {
       "from": "checkr",
-      "to": "looker",
+      "to": "google",
       "source_url": "https://checkr.com/legal/sub-processor-list",
       "evidence": "Looker"
     },
@@ -37329,7 +37315,7 @@
     },
     {
       "from": "checkr",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://checkr.com/legal/sub-processor-list",
       "evidence": "Sendgrid"
     },
@@ -38133,7 +38119,7 @@
     },
     {
       "from": "digitalocean",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://www.digitalocean.com/trust/subprocessors",
       "evidence": "Sendgrid"
     },
@@ -38313,7 +38299,7 @@
     },
     {
       "from": "kentik",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://www.kentik.com/legal/subprocessors/",
       "evidence": "Sendgrid"
     },
@@ -38529,7 +38515,7 @@
     },
     {
       "from": "lilt",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://lilt.com/legal/lilt-subprocessors",
       "evidence": "SendGrid"
     },
@@ -38595,7 +38581,7 @@
     },
     {
       "from": "dashlane",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://www.dashlane.com/privacy/subprocessors",
       "evidence": "Sendgrid, Inc"
     },
@@ -38841,7 +38827,7 @@
     },
     {
       "from": "crossbeam-systems",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://www.crossbeam.com/legal/subprocessors",
       "evidence": "Sendgrid"
     },
@@ -39039,7 +39025,7 @@
     },
     {
       "from": "alvao",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://www.alvao.com/en/trust-center",
       "evidence": "SendGrid"
     },
@@ -39669,7 +39655,7 @@
     },
     {
       "from": "lightspeed-commerce",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://www.lightspeedhq.com/legal/subprocessors/",
       "evidence": "SendGrid, Inc"
     },
@@ -40863,7 +40849,7 @@
     },
     {
       "from": "episerver",
-      "to": "looker",
+      "to": "google",
       "source_url": "https://www.optimizely.com/legal/sub-processors/third-party",
       "evidence": "Looker a Google company"
     },
@@ -41757,7 +41743,7 @@
     },
     {
       "from": "snyk",
-      "to": "looker",
+      "to": "google",
       "source_url": "https://snyk.io/policies/subprocessors/",
       "evidence": "Looker"
     },
@@ -42051,7 +42037,7 @@
     },
     {
       "from": "aftership",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://www.aftership.com/legal/subprocessors",
       "evidence": "Sendgrid"
     },
@@ -42237,7 +42223,7 @@
     },
     {
       "from": "blackboard",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://www.blackboard.com/trust-center/sub-processors",
       "evidence": "Sendgrid"
     },
@@ -42573,7 +42559,7 @@
     },
     {
       "from": "reevo",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://reevo.ai/subprocessors",
       "evidence": "SendGrid"
     },
@@ -42747,7 +42733,7 @@
     },
     {
       "from": "replit",
-      "to": "looker",
+      "to": "google",
       "source_url": "https://replit.com/subprocessors",
       "evidence": "Looker Studio"
     },
@@ -42999,7 +42985,7 @@
     },
     {
       "from": "superblocks",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://www.superblocks.com/legal/subprocessors",
       "evidence": "SendGrid"
     },
@@ -43647,7 +43633,7 @@
     },
     {
       "from": "recurly-com",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://recurly.com/legal/privacy/subprocessors/",
       "evidence": "Sendgrid"
     },
@@ -43791,7 +43777,7 @@
     },
     {
       "from": "cloudmersive",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://cloudmersive.com/subprocessors",
       "evidence": "SendGrid"
     },
@@ -44265,7 +44251,7 @@
     },
     {
       "from": "cloudinary",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://cloudinary.com/trust/subprocessors",
       "evidence": "SendGrid"
     },
@@ -44559,7 +44545,7 @@
     },
     {
       "from": "matterport",
-      "to": "looker",
+      "to": "google",
       "source_url": "https://matterport.com/legal/matterport-subprocessors",
       "evidence": "Looker"
     },
@@ -44721,7 +44707,7 @@
     },
     {
       "from": "sendbird",
-      "to": "looker",
+      "to": "google",
       "source_url": "https://sendbird.com/sub-processors",
       "evidence": "Looker Data Sciences, Inc"
     },
@@ -45555,7 +45541,7 @@
     },
     {
       "from": "mailchimp",
-      "to": "looker",
+      "to": "google",
       "source_url": "https://mailchimp.com/legal/subprocessors/",
       "evidence": "Looker"
     },
@@ -45903,7 +45889,7 @@
     },
     {
       "from": "bonsai-technologies",
-      "to": "sendgrid",
+      "to": "twilio",
       "source_url": "https://trust.hellobonsai.com/subprocessors",
       "evidence": "SendGrid"
     },
@@ -46345,6 +46331,8 @@
     "trdt-brasil-tecnologia-ltda": "teradata",
     "healthcast": "identity-automation-lp",
     "eighth-intuition-sdn-bhd": "fico",
-    "nanonoble-pte": "minimax-group"
+    "nanonoble-pte": "minimax-group",
+    "sendgrid": "twilio",
+    "looker": "google"
   }
 }

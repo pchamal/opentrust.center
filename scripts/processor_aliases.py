@@ -584,6 +584,18 @@ REGISTER_ALIASES: dict[str, str] = {
     # services. minimax-group is on the register. hailuoai.video prints
     # Hailuo AI / MiniMax, not Nanonoble — do not file that product host.
     "nanonoble-pte": "minimax-group",
+    # sendgrid.com 301s to twilio.com/en-us/sendgrid. Twilio first-party HTML
+    # prints "Twilio SendGrid Email and Marketing Campaigns" and the title
+    # "SendGrid Email API and Email Marketing Campaigns | Twilio".
+    # twilio is on the register with a rich file. Do not invent a second
+    # SendGrid ledger or copy Twilio marks onto the empty sendgrid shell.
+    "sendgrid": "twilio",
+    # looker.com 301s to cloud.google.com/looker. Google Cloud first-party
+    # HTML titles "Looker business intelligence platform embedded analytics
+    # | Google Cloud". Docs live at docs.cloud.google.com/looker/docs as
+    # "Looker documentation | Google Cloud Documentation". google is on
+    # the register. Do not copy Google's file onto the empty looker shell.
+    "looker": "google",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
