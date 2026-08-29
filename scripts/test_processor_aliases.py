@@ -88,6 +88,8 @@ def main() -> int:
     aiven_reg = {**register, "aiven": {"slug": "aiven", "name": "Aiven", "domain": "aiven.io"}}
     check(canonical_processor_id("aiven-apache-kafka", aiven_reg) == "aiven", "Aiven Kafka is Aiven")
     check(canonical_processor_id("oracle-finland", register) == "oracle", "Oracle Finland is Oracle")
+    check(canonical_processor_id("oracle-systems-olaya-saudi-arabia", register) == "oracle", "Oracle Systems Limited Olaya is Oracle")
+    check(REGISTER_ALIASES["oracle-systems-limited"] == "oracle", "Oracle Systems Limited is Oracle")
     ovh_reg = {**register, "ovhcloud": {"slug": "ovhcloud", "name": "OVHcloud", "domain": "ovhcloud.com"}}
     check(canonical_processor_id("ovh-sas", ovh_reg) == "ovhcloud", "OVH SAS is OVHcloud")
     check(canonical_processor_id("ovh", ovh_reg) == "ovhcloud", "OVH is OVHcloud")

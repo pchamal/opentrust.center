@@ -78,6 +78,9 @@ REGISTER_ALIASES: dict[str, str] = {
     "oracle-america-oracle": "oracle",
     "oracle-israel": "oracle",
     "oracle-eloqua": "oracle",
+    # Infobip list prints Oracle Systems Limited (Olaya, Saudi Arabia).
+    "oracle-systems-limited": "oracle",
+    "oracle-systems-olaya-saudi-arabia": "oracle",
     "oracle-netsuite": "netsuite",
     "netsuite-oracle": "netsuite",
     # Zoom Video Communications regional entities. zoom is on the register.
