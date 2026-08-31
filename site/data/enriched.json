@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T17:59:12Z",
+  "generated_at": "2026-08-31T18:33:07Z",
   "companies": [
     {
       "rank": 1,
@@ -17089,16 +17089,19 @@
       "source": "https://en.wikipedia.org/wiki/List_of_Fortune_500_computer_software_and_information_companies",
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500-tech",
-      "certs": [],
+      "certs": [
+        "ISO 42001"
+      ],
       "links": {
         "privacy": "https://www.concentrix.com/privacy-policy/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 6,
+        "score": 12,
         "tier": "silent",
         "factors": {
-          "privacy": 6
+          "privacy": 6,
+          "marks": 6
         }
       }
     },
@@ -42624,14 +42627,16 @@
       "list": "cb-insights-ai-100-2026",
       "certs": [],
       "links": {
-        "status": "https://status.creatify.ai"
+        "status": "https://status.creatify.ai",
+        "privacy": "https://creatify.ai/privacy"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 6,
+        "score": 12,
         "tier": "silent",
         "factors": {
-          "status": 6
+          "status": 6,
+          "privacy": 6
         }
       },
       "aiti_lists": [
@@ -126121,6 +126126,44 @@
         "score": 0,
         "tier": "silent",
         "factors": {}
+      }
+    },
+    {
+      "rank": 4442,
+      "name": "Clari",
+      "slug": "clari",
+      "domain": "clari.com",
+      "found": true,
+      "trust_url": "https://www.clari.com/security/",
+      "final_url": "https://www.clari.com/security/",
+      "vendor": "unknown",
+      "title": "Security | Clari",
+      "probed": 8,
+      "source": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, ISO 27701.",
+      "list": "named-processor-gap",
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27701"
+      ],
+      "links": {
+        "privacy": "https://www.clari.com/privacy/",
+        "status": "https://trust.clari.com/",
+        "trust": "https://www.clari.com/security/",
+        "security": "https://www.clari.com/security/"
+      },
+      "subprocessors": [],
+      "official_url": "https://www.clari.com/",
+      "disclosure": {
+        "score": 58,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 26,
+          "privacy": 6,
+          "status": 6
+        }
       }
     }
   ],

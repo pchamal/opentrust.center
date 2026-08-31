@@ -615,6 +615,11 @@ REGISTER_ALIASES: dict[str, str] = {
     # titled "Welcoming Semmle to GitHub". github is on the register. Do not
     # copy GitHub's file onto the empty semmle shell.
     "semmle": "github",
+    # Clari first-party HTML titles "Groove by Clari - Sales Engagement and
+    # Prospecting | Clari" at www.clari.com/products/groove/. groove.co 200s
+    # to that Clari homepage. clari is on the register. Do not copy Clari's
+    # file onto the empty groove-networks-dba-groove shell.
+    "groove-networks-dba-groove": "clari",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
