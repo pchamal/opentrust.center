@@ -2,7 +2,7 @@
 
 export const GATE_KEY = "ot_human_v1";
 export const GATE_MS = 30 * 60 * 1000;
-export const DATA_V = "2026-08-31T20:59:32Z";
+export const DATA_V = "2026-08-31T21:55:25Z";
 export const FILE_KEYS = ["page", "marks", "dpa", "subprocessors", "years"];
 export const FILE_LABELS = {
   page: "page",
