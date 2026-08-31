@@ -2098,13 +2098,6 @@
       "in_register": true
     },
     {
-      "id": "semmle",
-      "name": "Semmle",
-      "domain": "semmle.com",
-      "kind": "company",
-      "in_register": true
-    },
-    {
       "id": "singlestore",
       "name": "SingleStore",
       "domain": "singlestore.com",
@@ -6847,13 +6840,6 @@
       "id": "rockwell-information-services",
       "name": "Rockwell Information Services",
       "domain": "rockinfo.com",
-      "kind": "company",
-      "in_register": true
-    },
-    {
-      "id": "calliduscloud",
-      "name": "CallidusCloud",
-      "domain": "calliduscloud.com",
       "kind": "company",
       "in_register": true
     },
@@ -15912,13 +15898,6 @@
       "id": "skytap",
       "name": "Skytap",
       "domain": "skytap.com",
-      "kind": "company",
-      "in_register": true
-    },
-    {
-      "id": "shopkeep",
-      "name": "ShopKeep",
-      "domain": "shopkeep.com",
       "kind": "company",
       "in_register": true
     },
@@ -33919,7 +33898,7 @@
     },
     {
       "from": "github",
-      "to": "semmle",
+      "to": "github",
       "source_url": "https://docs.github.com/en/site-policy/privacy-policies/github-subprocessors",
       "evidence": "Semmle Inc"
     },
@@ -36649,7 +36628,7 @@
     },
     {
       "from": "sonicwall",
-      "to": "calliduscloud",
+      "to": "sap",
       "source_url": "https://www.sonicwall.com/legal/sub-processors",
       "evidence": "CallidusCloud"
     },
@@ -39775,7 +39754,7 @@
     },
     {
       "from": "lightspeed-commerce",
-      "to": "shopkeep",
+      "to": "lightspeed-commerce",
       "source_url": "https://www.lightspeedhq.com/legal/subprocessors/",
       "evidence": "ShopKeep.com Ltd"
     },
@@ -46084,7 +46063,8 @@
     "island-technology": "island",
     "dayzero-software-superblocks": "superblocks",
     "linear-orbit-inc": "linear",
-    "shopkeep-com": "shopkeep",
+    "shopkeep": "lightspeed-commerce",
+    "shopkeep-com": "lightspeed-commerce",
     "concentrix-catalyst": "concentrix",
     "concentrix-cvg-customer-management-group": "concentrix",
     "palantir-federal-cloud-service-pfcs": "palantir",
@@ -46334,6 +46314,8 @@
     "nanonoble-pte": "minimax-group",
     "sendgrid": "twilio",
     "looker": "google",
-    "popout": "shippo"
+    "popout": "shippo",
+    "calliduscloud": "sap",
+    "semmle": "github"
   }
 }

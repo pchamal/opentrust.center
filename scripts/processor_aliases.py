@@ -200,7 +200,13 @@ REGISTER_ALIASES: dict[str, str] = {
     "island-technology": "island",
     "dayzero-software-superblocks": "superblocks",
     "linear-orbit-inc": "linear",
-    "shopkeep-com": "shopkeep",
+    # ShopKeep POS is now ShopKeep by Lightspeed. shopkeep.com 301s to
+    # lightspeedhq.com/shopkeep, titled "ShopKeep POS is Now ShopKeep by
+    # Lightspeed". lightspeed-commerce is on the register. Vend / Ecwid /
+    # Kounta / NuORDER / Payment Revolution already land here. Do not copy
+    # Lightspeed's file onto the empty shopkeep shell.
+    "shopkeep": "lightspeed-commerce",
+    "shopkeep-com": "lightspeed-commerce",
     "concentrix-catalyst": "concentrix",
     "concentrix-cvg-customer-management-group": "concentrix",
     "palantir-federal-cloud-service-pfcs": "palantir",
@@ -600,6 +606,15 @@ REGISTER_ALIASES: dict[str, str] = {
     # d/b/a Shippo. Wikidata Q25303179 P856 is goshippo.com. Do not invent
     # a second Popout dossier.
     "popout": "shippo",
+    # SAP acquired CallidusCloud. calliduscloud.com now serves SAP's
+    # acquired-brands page titled "What is CallidusCloud | Sales Performance
+    # Management". sap is on the register. Do not copy SAP's file onto the
+    # empty calliduscloud shell.
+    "calliduscloud": "sap",
+    # GitHub acquired Semmle. semmle.com 301s to GitHub's first-party blog
+    # titled "Welcoming Semmle to GitHub". github is on the register. Do not
+    # copy GitHub's file onto the empty semmle shell.
+    "semmle": "github",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
