@@ -136,6 +136,15 @@ def main() -> int:
         ["ISO 27001", "ISO 22301", "PCI DSS"],
         "dubber first-party ISMS/BCMS holds",
     )
+    eq(
+        extract_certs_from_html(
+            "<p>9.4. Protiviti Italia è certificata secondo gli standard "
+            "ISO/IEC 27001 e ISO/IEC 27701, nei limiti e secondo il perimetro "
+            "delle rispettive certificazioni applicabili.</p>"
+        ),
+        ["ISO 27001", "ISO 27701"],
+        "protiviti italy first-party ISO holds",
+    )
     print("ok")
     return 0
 
