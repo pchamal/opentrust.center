@@ -30148,10 +30148,10 @@
     },
     {
       "id": "branch-metrics",
-      "name": "Branch Metrics, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "Branch Metrics",
+      "domain": "branch.io",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "responsive",
@@ -30180,6 +30180,13 @@
       "domain": "arsys.es",
       "kind": "company",
       "in_register": true
+    },
+    {
+      "id": "software-minds",
+      "name": "Software Minds, Inc",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
     }
   ],
   "edges": [
@@ -46148,6 +46155,54 @@
       "to": "salesforce",
       "source_url": "https://namely.com/legal/data-processing-addendum/",
       "evidence": "Salesforce, Inc."
+    },
+    {
+      "from": "branch-metrics",
+      "to": "amazon-web-services",
+      "source_url": "https://legal.branch.io/saas/subprocessor-list/",
+      "evidence": "Amazon Web Services, Inc"
+    },
+    {
+      "from": "branch-metrics",
+      "to": "zendesk",
+      "source_url": "https://legal.branch.io/saas/subprocessor-list/",
+      "evidence": "Zendesk"
+    },
+    {
+      "from": "branch-metrics",
+      "to": "atlassian",
+      "source_url": "https://legal.branch.io/saas/subprocessor-list/",
+      "evidence": "Atlassian"
+    },
+    {
+      "from": "branch-metrics",
+      "to": "software-minds",
+      "source_url": "https://legal.branch.io/saas/subprocessor-list/",
+      "evidence": "Software Minds, Inc"
+    },
+    {
+      "from": "branch-metrics",
+      "to": "datagrail",
+      "source_url": "https://legal.branch.io/saas/subprocessor-list/",
+      "evidence": "DataGrail, Inc"
+    },
+    {
+      "from": "branch-metrics",
+      "to": "auth0",
+      "source_url": "https://legal.branch.io/saas/subprocessor-list/",
+      "evidence": "Auth0"
+    },
+    {
+      "from": "branch-metrics",
+      "to": "anthropic",
+      "source_url": "https://legal.branch.io/saas/subprocessor-list/",
+      "evidence": "Anthropic"
+    },
+    {
+      "from": "branch-metrics",
+      "to": "thoughtspot",
+      "source_url": "https://legal.branch.io/saas/subprocessor-list/",
+      "evidence": "Thoughtspot, LLC"
     }
   ],
   "aliases": {

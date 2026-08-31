@@ -148,6 +148,36 @@ expect(
 );
 expect("arsys is not ionos", arsys && arsys.slug === "arsys" && bySlug.ionos && bySlug.ionos.domain === "ionos.com");
 
+const branch = bySlug["branch-metrics"];
+const branchHtml = fileIndexHtml(branch);
+expect(
+  "branch page · DPA · processors Completeness is 60",
+  branch &&
+    branch.found === true &&
+    branch.trust_url === "https://www.branch.io/security" &&
+    ((branch.instruments || {}).dpa || {}).url === "https://legal.branch.io/saas/branch-saas-dpa/" &&
+    ((branch.instruments || {}).subprocessors || {}).url === "https://legal.branch.io/saas/subprocessor-list/" &&
+    fileFlags(branch).page === 20 &&
+    fileFlags(branch).marks === 10 &&
+    fileFlags(branch).dpa === 20 &&
+    fileFlags(branch).subprocessors === 20 &&
+    fileFlags(branch).years === 0 &&
+    fileScore(fileFlags(branch)) === 70 &&
+    ruleOn(branchHtml)[0] === true &&
+    ruleOn(branchHtml)[2] === true &&
+    ruleOn(branchHtml)[3] === true,
+);
+expect("branch Conveyor portal is not Official page", branch && !String(branch.trust_url || "").includes("trust.branch.io"));
+expect(
+  "branch named processors cross-link existing slugs",
+  branch &&
+    (branch.processors || []).some((p) => p.slug === "amazon-web-services") &&
+    (branch.processors || []).some((p) => p.slug === "zendesk") &&
+    (branch.processors || []).some((p) => p.id === "software-minds" && !p.slug) &&
+    (branch.processors || []).length === 8,
+);
+expect("branch marks stay unread", branch && !(branch.certs || []).length);
+
 const filestack = bySlug.filestack;
 expect(
   "filestack /features is not Official page",

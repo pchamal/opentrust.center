@@ -743,6 +743,33 @@ def main() -> int:
     )
     check((by_pub["kumospace"].get("file") or {}).get("dpa") in (0, False, None), "kumospace DPA stays open")
     check((by_pub["kumospace"].get("file") or {}).get("years") in (0, False, None), "kumospace years stay open")
+    check((by_pub["branch-metrics"].get("certs") or []) == [], f"branch certs {by_pub['branch-metrics'].get('certs')}")
+    check("HIPAA" not in (by_pub["branch-metrics"].get("certs") or []), "branch HIPAA-eligible copy stays open")
+    check("GDPR" not in (by_pub["branch-metrics"].get("certs") or []), "branch GDPR privacy-principle nav stays open")
+    check("SOC 2" not in (by_pub["branch-metrics"].get("certs") or []), "branch Conveyor SOC 2 stays unread")
+    check("ISO 27001" not in (by_pub["branch-metrics"].get("certs") or []), "branch Conveyor ISO stays unread")
+    check((by_pub["branch-metrics"].get("file") or {}).get("marks") == 10, "branch marks stay dotted")
+    check((by_pub["branch-metrics"].get("file") or {}).get("page") == 20, "branch Official page prints")
+    check(by_pub["branch-metrics"].get("found") is True, "branch Official page is on file")
+    check(
+        by_pub["branch-metrics"].get("trust_url") == "https://www.branch.io/security",
+        "branch Official page is first-party /security",
+    )
+    check("trust.branch.io" not in (by_pub["branch-metrics"].get("trust_url") or ""), "branch Official page is not the Conveyor portal")
+    check(
+        ((by_pub["branch-metrics"].get("instruments") or {}).get("privacy") or {}).get("url")
+        == "https://legal.branch.io/saas/privacy-policy/",
+        "branch privacy URL stays on file",
+    )
+    kept, why = hold_marks(
+        ["HIPAA"],
+        "HIPAA compliance assistance Customers that must safeguard protected health "
+        "information (PHI) can enter into a Business Associate Agreement (BAA) with "
+        "Branch for HIPAA-eligible solutions. Advanced Compliance provides enhanced "
+        "security configurations to support HIPAA-aligned handling.",
+        "security",
+    )
+    check(kept == [] and why in {"regulation-only", "no-named-marks"}, f"branch HIPAA-eligible BAA stays open: {kept} {why}")
     for slug in ("canonical", "beck-technology", "world-labs", "synap", "lime-technologies", "inmobi"):
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check("Official page" in html, f"{slug} still prints Official page")

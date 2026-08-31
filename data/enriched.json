@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T23:00:45Z",
+  "generated_at": "2026-08-31T23:26:01Z",
   "companies": [
     {
       "rank": 1,
@@ -129391,6 +129391,49 @@
         }
       },
       "official_url": "https://namely.com/"
+    },
+    {
+      "rank": 4576,
+      "name": "Branch Metrics",
+      "slug": "branch-metrics",
+      "domain": "branch.io",
+      "found": true,
+      "trust_url": "https://www.branch.io/security",
+      "final_url": "https://www.branch.io/security",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 14,
+      "source": "https://www.plume.com/legal/subprocessors/",
+      "summary": "Official page on file. DPA and named processors cited from first-party Branch Legal HTML.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {
+        "security": "https://www.branch.io/security",
+        "privacy": "https://legal.branch.io/saas/privacy-policy/",
+        "dpa": "https://legal.branch.io/saas/branch-saas-dpa/",
+        "subprocessors": "https://legal.branch.io/saas/subprocessor-list/"
+      },
+      "subprocessors": [
+        "amazon-web-services",
+        "zendesk",
+        "atlassian",
+        "software-minds",
+        "datagrail",
+        "auth0",
+        "anthropic",
+        "thoughtspot"
+      ],
+      "disclosure": {
+        "score": 42,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "privacy": 6,
+          "dpa": 8,
+          "subprocessors": 8
+        }
+      },
+      "official_url": "https://www.branch.io/"
     }
   ],
   "notes": "Public pages only. Incomplete by nature. No invented URLs, years, certs, or processors."
