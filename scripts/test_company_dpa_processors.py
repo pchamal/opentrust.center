@@ -261,6 +261,22 @@ def main() -> int:
         "AITI cognition named-processor source-line stays",
     )
 
+    # This cut: Plume first-party subcontractor table at /legal/subprocessors/.
+    plume_names = [p.get("name") for p in (by_pub["plume"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["plume"], "subprocessors")
+        == "https://www.plume.com/legal/subprocessors/",
+        "plume list URL stays the first-party subcontractor table",
+    )
+    check((by_pub["plume"].get("file") or {}).get("subprocessors") == 20, "plume list printed")
+    check("AWS, Amazon.com, Inc" in plume_names, "plume names AWS, Amazon.com, Inc")
+    check("Okta Inc" in plume_names, "plume names Okta Inc")
+    check("Databricks Inc" in plume_names, "plume names Databricks Inc")
+    check("Mobile Apps" not in plume_names, "plume section header Mobile Apps stays off file")
+    check(len(plume_names) == 19, f"plume printed 19 named processors, got {len(plume_names)}")
+    plume_html = (ROOT / "site" / "c" / "plume.html").read_text(encoding="utf-8")
+    check("https://www.plume.com/legal/subprocessors/" in plume_html, "plume dossier keeps the list URL")
+
     print(
         f"ok increment-dpa privacy-page-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"

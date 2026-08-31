@@ -1,13 +1,16 @@
 {
-  "generated": "2026-08-31T19:06:00Z",
+  "generated": "2026-08-31T19:30:00Z",
   "register": 4447,
-  "origin_main": "85ce7391c0",
+  "origin_main": "3796e27dec",
   "mode": "leftover-plus-c0-fills",
   "leftovers_min1": 31,
-  "leftovers_after": 31,
+  "leftovers_after": 35,
   "remaining_ge2": 0,
   "remaining_ge2_slugs": [],
-  "aliases_added": [],
+  "aliases_added": [
+    "perimeter-81 → check-point",
+    "perimeter81 → check-point"
+  ],
   "aliases_kept": [
     "shopkeep → lightspeed-commerce",
     "calliduscloud → sap",
@@ -15,7 +18,8 @@
     "sendgrid → twilio",
     "looker → google",
     "popout → shippo",
-    "groove-networks-dba-groove → clari"
+    "groove-networks-dba-groove → clari",
+    "perimeter-81 → check-point"
   ],
   "aliases_refused": [
     {
@@ -46,132 +50,72 @@
     {
       "from": "code42",
       "to": "mimecast",
-      "reason": "Still refused. Homepage is Incydr; Mimecast HTML does not print Code42."
-    },
-    {
-      "from": "perimeter-81",
-      "to": "check-point",
-      "reason": "Still refused. No printable first-party hold that names both."
+      "reason": "Still refused. code42.com 301s to Mimecast Incydr. Mimecast homepage and Incydr HTML do not print Code42."
     },
     {
       "from": "rfpio",
       "to": "responsive",
-      "reason": "Still refused. Responsive is not on the register."
+      "reason": "Still refused. rfpio.com 301s to responsive.io. Responsive is not on the register."
     }
   ],
   "newly_filed": [],
-  "c0_fills": [
+  "c0_fills": [],
+  "expand_fills": [
     {
-      "slug": "protiviti",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 20,
-      "score_after": 22,
-      "tier_after": "silent",
-      "marks": [
-        "ISO 27001",
-        "ISO 27701"
-      ],
-      "marks_url": "https://www.protiviti.com/it-it/privacy-policy",
-      "privacy": "https://www.protiviti.com/us-en/privacy-policy",
+      "slug": "plume",
+      "named_by": 0,
+      "completeness_before": 50,
+      "completeness_after": 60,
+      "marks": [],
+      "processors_url": "https://www.plume.com/legal/subprocessors/",
+      "processor_count": 19,
       "left_open": [
-        "Protiviti Italy Privacy Notice HTML prints: Protiviti Italia è certificata secondo gli standard ISO/IEC 27001 e ISO/IEC 27701, nei limiti e secondo il perimetro delle rispettive certificazioni applicabili. Italian 404 chrome prints none of those — not CEQUENS. Filed those two.",
-        "SOX prints on US/global 404 chrome (Looks like this page needs some auditing). CEQUENS. Not filed.",
-        "Privacy Notice | Protiviti US at /us-en/privacy-policy classifies. Filed as privacy. Completeness stays marks-only — privacy is not a five-box factor.",
-        "No Official page. /gl-en/cybersecurity-consulting is a services pitch, not a hold. DPA, named processors, and years left open."
+        "Named processors parsed from the first-party Subcontractor Name table. Section header Mobile Apps dropped.",
+        "DPA paths 404. Years: about HTML prints no founded/established sentence the parser accepts.",
+        "ISO 27001 / ISO 27701 already on file. GDPR already stored; not newly filed."
       ]
     }
   ],
   "preferred_c0_left_open": [
     {
+      "slug": "vonage",
+      "named_by": 8,
+      "reason": "Usual paths http-0 / 403. vonage.safebase.io is a portal host."
+    },
+    {
+      "slug": "netsuite",
+      "named_by": 7,
+      "reason": "Usual paths http-0 / 403. netsuite.safebase.io is a portal host."
+    },
+    {
+      "slug": "equinix",
+      "named_by": 7,
+      "reason": "equinix.com Access Denied 403 on trust, security, compliance, and about-us. CSA STAR already on file."
+    },
+    {
+      "slug": "taskus",
+      "named_by": 4,
+      "reason": "taskus.com Cloudflare 403 on homepage and usual paths."
+    },
+    {
+      "slug": "vultr",
+      "named_by": 4,
+      "reason": "Usual paths http-0 / 403."
+    },
+    {
+      "slug": "reversing-labs",
+      "named_by": 2,
+      "reason": "/trust is a Next.js JS shell with empty title. HIPAA on /healthcare-cybersecurity is industry copy (enforce HIPAA compliance). Not a hold."
+    },
+    {
       "slug": "visa",
       "named_by": 2,
-      "reason": "Privacy already stored. About HTML prints 1958 Bank of America / 2007 Visa Inc. merger — year parser returns none. No named marks or first-party DPA HTML."
+      "reason": "Preferred C0 left open last cut. No new first-party instrument this cut."
     },
     {
       "slug": "transunion-formerly-neustar-information-services",
       "named_by": 3,
-      "reason": "transunion.com Cloudflare 403 on privacy, legal/privacy, and about-us"
-    },
-    {
-      "slug": "intouchcx",
-      "named_by": 2,
-      "reason": "intouchcx.com Cloudflare 403 / Just a moment on usual privacy paths"
-    },
-    {
-      "slug": "foundever-operating",
-      "named_by": 2,
-      "reason": "foundever.com Cloudflare 403 / Just a moment on usual privacy paths"
-    },
-    {
-      "slug": "dstny-automate-formerly-qunifi",
-      "named_by": 2,
-      "reason": "Privacy already stored. /security-and-privacy is another privacy page; mentions a data processing agreement but no first-party DPA HTML. About prints no year the parser accepts."
-    },
-    {
-      "slug": "constella-intelligence",
-      "named_by": 2,
-      "reason": "Privacy already stored. Homepage SOC 2 is satisfy strict regulatory compliance (GDPR/SOC2) — product pitch, not a hold. /dpa bounced to a blog post. about-us prints no founded year."
-    },
-    {
-      "slug": "global-payments",
-      "named_by": 2,
-      "reason": "globalpayments.com Cloudflare 403 / Just a moment on privacy and compliance paths"
-    },
-    {
-      "slug": "inmoment",
-      "named_by": 2,
-      "reason": "inmoment.com Cloudflare 403 / Just a moment on privacy paths"
-    },
-    {
-      "slug": "sift",
-      "named_by": 1,
-      "reason": "sift.com Cloudflare 403 / Just a moment on privacy and /security"
-    },
-    {
-      "slug": "jack-henry",
-      "named_by": 1,
-      "reason": "Privacy already stored. who-we-are prints both 1976 open-for-business and 1977 incorporated. Parser would pick one year only if unique — two founding years on the same page. Left open."
-    },
-    {
-      "slug": "mastercard",
-      "named_by": 1,
-      "reason": "mastercard.com / mastercard.us 403 Access Denied"
-    },
-    {
-      "slug": "fluidstack",
-      "named_by": 1,
-      "reason": "fluidstack.io usual privacy/security/about paths 404"
-    },
-    {
-      "slug": "nutun",
-      "named_by": 1,
-      "reason": "Homepage and about-us readable this cut; privacy paths 404. About prints no named marks or founded year."
-    },
-    {
-      "slug": "aml-rightsource",
-      "named_by": 1,
-      "reason": "Privacy already stored. ISO 27001 still prints on 404 chrome — CEQUENS rule. Not filed."
-    },
-    {
-      "slug": "legalinc-com",
-      "named_by": 1,
-      "reason": "legalinc.com paths land on Dashboard | Legalinc login/JS shell"
-    },
-    {
-      "slug": "softserve",
-      "named_by": 1,
-      "reason": "softserveinc.com 403 on usual paths"
-    },
-    {
-      "slug": "agap2it",
-      "named_by": 1,
-      "reason": "agap2-it.pt homepage readable this cut; prints no named marks or founded year. /en/ 404."
-    },
-    {
-      "slug": "sutherland-global-services",
-      "named_by": 2,
-      "reason": "Privacy already stored. About-us prints 1987 1990 Since 1987 — timeline. Year parser returns none. /security and /compliance are SVG assets."
+      "reason": "Preferred C0 left open last cut. Not re-touched."
     }
   ],
   "standing_skips": [
@@ -192,26 +136,26 @@
     "thorn",
     "deft"
   ],
+  "new_leftovers_from_plume": [
+    "ookla",
+    "samknows",
+    "branch-metrics",
+    "cognitive-systems"
+  ],
   "refused_this_cut": [
     "Leftover source lists print name + purpose + location, never an official domain. Do not invent leftover domains.",
-    "True-missing named_by ≥2 is empty. Leftovers stay at 31.",
+    "True-missing named_by ≥2 is empty. Original leftovers stay at 31. Plume's table added four named-by-1 leftovers without official domains (Ookla, SamKnows, Branch Metrics, Cognitive Systems). Leftover count 31 → 35.",
     "MadKudu / HG Insights / Thorn / Deft / Textel / Adaptive Mobile still Cloudflare 403 — do not invent leftover domains",
     "sendgrid→twilio and looker→google left untouched — redirect alone is not enough",
     "madkudu→hg-insights still refused; help/docs hosts print HG Insights; madkudu.com and hginsights.com still 403",
     "intersections→aura — aura.com does not print Intersections",
     "adaptive-mobile→csg-international — CSG homepage does not print Adaptive Mobile",
-    "code42→mimecast, perimeter-81→check-point, rfpio→responsive still refused",
-    "Carahsoft FedRAMP / GovRAMP / CMMC are Solutions Portfolio nav labels and print on 404 chrome — CEQUENS",
-    "CloudWave HIPAA Security Risk Assessments is a sold service and prints on 404 chrome — CEQUENS",
-    "BastionX HIPAA is Healthcare IT & HIPAA Compliance industry copy — not a hold",
-    "Commetric ISO 42001 prints on 404 chrome — CEQUENS",
-    "PayU SOC1 / PCI DSS print on 404 chrome as Payment Security nav — CEQUENS",
-    "Protiviti SOX prints on 404 chrome — CEQUENS",
-    "OneLogin app.onelogin.com/login is a login wall — not an Official page",
-    "security.ncrvoyix.com is Aqua Enterprise JS chrome — not an Official page",
-    "Leaseweb /cyber-security is a product pitch; legal/compliance is a JS shell",
-    "DeltaX /security returned gzip binary with no printable hold",
-    "Hashboard usual paths are a JS lander redirect to /lander",
-    "Basefarm homepage is orange-business.com — not first-party; do not copy Orange marks"
+    "code42→mimecast still refused — Incydr / Mimecast HTML does not print Code42",
+    "rfpio→responsive still refused — Responsive is not on the register",
+    "C0 named-processor walk is an honest zero-fill. Vonage / NetSuite / TaskUs / Vultr / Sumit AI unreadable. Reversing Labs /trust is a JS shell; healthcare HIPAA is industry copy.",
+    "Walker-proposed Official pages refused: SupportZebra /trust is a WordPress blog post; Filestack /features is a product page; Beetexting SMS checklist is a blog; Cognizant /security is empty; Grab /sg/security-guide-driver is a driver guide; Webroot Chromebook product; Tata Communications cyber-security-solutions pitch; Runware /trust is a Next.js shell; AccessPay UK SOx Resource Hub is a sold service; Cprime /learning/certifications is a training catalog and privacy still prints undergoing SOC 2; Black Diamond /security is an 83-byte lander.",
+    "Appen SOC 2 & ISO 27001 certified prints on 404 chrome — CEQUENS. trust.appen.com is UpGuard. DPA 404.",
+    "Bluebeam usual paths Cloudflare 403. Playlist trust is SafeBase. Quest trust is Vanta.",
+    "Preferred C0 left open last cut (Visa, TransUnion, InTouchCX, Foundever, Global Payments, InMoment, Sift, Mastercard) were not re-touched."
   ]
 }

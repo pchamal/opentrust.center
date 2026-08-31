@@ -301,6 +301,11 @@ def main() -> int:
     clari_reg = {**register, "clari": {"slug": "clari", "name": "Clari", "domain": "clari.com"}}
     check(canonical_processor_id("groove-networks-dba-groove", clari_reg) == "clari", "Groove is Clari")
     check(REGISTER_ALIASES["groove-networks-dba-groove"] == "clari", "groove-networks-dba-groove aliases to clari")
+    cp_reg = {**register, "check-point": {"slug": "check-point", "name": "Check Point", "domain": "checkpoint.com"}}
+    check(canonical_processor_id("perimeter-81", cp_reg) == "check-point", "Perimeter 81 is Check Point")
+    check(canonical_processor_id("perimeter81", cp_reg) == "check-point", "perimeter81 is Check Point")
+    check(REGISTER_ALIASES["perimeter-81"] == "check-point", "perimeter-81 aliases to check-point")
+    check(REGISTER_ALIASES["perimeter81"] == "check-point", "perimeter81 aliases to check-point")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 
