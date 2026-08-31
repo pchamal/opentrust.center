@@ -90943,14 +90943,21 @@
       "list": "named-processor-gap",
       "certs": [],
       "links": {
-        "privacy": "https://constella.ai/policies/website-privacy-policy/"
+        "privacy": "https://constella.ai/policies/website-privacy-policy/",
+        "dpa": "https://constella.ai/policies/dpa/",
+        "subprocessors": "https://constella.ai/policies/dpa/"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "amazon-web-services",
+        "arsys"
+      ],
       "disclosure": {
-        "score": 6,
+        "score": 22,
         "tier": "silent",
         "factors": {
-          "privacy": 6
+          "privacy": 6,
+          "dpa": 8,
+          "subprocessors": 8
         }
       }
     },
@@ -128362,6 +128369,30 @@
       "certs": [],
       "links": {},
       "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      }
+    },
+    {
+      "rank": 4533,
+      "name": "Arsys",
+      "slug": "arsys",
+      "domain": "arsys.es",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://constella.ai/policies/dpa/",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "official_url": "https://www.arsys.es/",
       "disclosure": {
         "score": 0,
         "tier": "silent",

@@ -113,6 +113,51 @@ expect(
     fileScore(fileFlags(softcat)) === 40,
 );
 
+const constella = bySlug["constella-intelligence"];
+const constellaHtml = fileIndexHtml(constella);
+expect(
+  "constella DPA · processors Completeness is 40",
+  constella &&
+    ((constella.instruments || {}).dpa || {}).url === "https://constella.ai/policies/dpa/" &&
+    fileFlags(constella).dpa === 20 &&
+    fileFlags(constella).subprocessors === 20 &&
+    fileFlags(constella).page === 0 &&
+    fileFlags(constella).marks === 0 &&
+    fileFlags(constella).years === 0 &&
+    fileScore(fileFlags(constella)) === 40 &&
+    ruleOn(constellaHtml)[2] === true &&
+    ruleOn(constellaHtml)[3] === true,
+);
+expect("constella Official page stays open", constella && constella.found === false && !constella.trust_url);
+expect(
+  "constella Exhibit B names AWS and Arsys",
+  constella &&
+    (constella.processors || []).some((p) => p.slug === "amazon-web-services") &&
+    (constella.processors || []).some((p) => p.slug === "arsys") &&
+    (constella.processors || []).length === 2,
+);
+
+const arsys = bySlug.arsys;
+expect(
+  "arsys is a domain-only Completeness-0 row on arsys.es",
+  arsys &&
+    arsys.domain === "arsys.es" &&
+    arsys.found === false &&
+    !arsys.trust_url &&
+    fileScore(fileFlags(arsys)) === 0,
+);
+expect("arsys is not ionos", arsys && arsys.slug === "arsys" && bySlug.ionos && bySlug.ionos.domain === "ionos.com");
+
+const filestack = bySlug.filestack;
+expect(
+  "filestack /features is not Official page",
+  filestack &&
+    filestack.found === false &&
+    !filestack.trust_url &&
+    fileFlags(filestack).page === 0 &&
+    fileScore(fileFlags(filestack)) === 0,
+);
+
 const src = readFileSync(new URL("../site/register.js", import.meta.url), "utf8");
 expect("register draws the file index", src.includes("fileIndexHtml"));
 expect("register has no N of 5 markup", !src.includes("file-cov") && !src.includes("file-meter") && !src.includes(" of 5"));
