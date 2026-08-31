@@ -665,6 +665,67 @@ def main() -> int:
     check("ISO 27001" not in (by_pub["responsive"].get("certs") or []), "responsive product-page ISO stays open")
     check("GDPR" not in (by_pub["responsive"].get("certs") or []), "responsive GDPR-compliant copy stays open")
     check((by_pub["rfpio"].get("certs") or []) == [], "empty rfpio shell does not copy Responsive marks")
+    check((by_pub["aml-rightsource"].get("certs") or []) == [], "aml-rightsource 404 Q-Mark chrome is not a hold")
+    check((by_pub["aml-rightsource"].get("file") or {}).get("marks") in (0, 10, False, None), "aml-rightsource marks stay open")
+    check((by_pub["aml-rightsource"].get("file") or {}).get("page") == 0, "aml-rightsource Official page stays open")
+    check(
+        ((by_pub["aml-rightsource"].get("instruments") or {}).get("privacy") or {}).get("url")
+        == "https://www.amlrightsource.com/privacy-policy",
+        "aml-rightsource privacy URL stays on file",
+    )
+    li_certs = set(by_pub["linkedin"].get("certs") or [])
+    check(
+        {"SOC 2", "ISO 27001", "ISO 27018", "ISO 22301", "PCI DSS"} <= li_certs,
+        f"linkedin trust-and-compliance holds {sorted(li_certs)}",
+    )
+    check("CCPA" not in li_certs, "linkedin DPA CCPA stays open")
+    check("GDPR" not in li_certs, "linkedin DPA GDPR stays open")
+    check((by_pub["linkedin"].get("file") or {}).get("marks") == 20, "linkedin marks print")
+    check((by_pub["linkedin"].get("file") or {}).get("page") == 20, "linkedin Official page prints")
+    check(by_pub["linkedin"].get("found") is True, "linkedin Official page is on file")
+    check(
+        by_pub["linkedin"].get("trust_url") == "https://security.linkedin.com/trust-and-compliance",
+        "linkedin trust URL is first-party Trust and Compliance",
+    )
+    check("safebase" not in (by_pub["linkedin"].get("trust_url") or ""), "linkedin Official page is not the portal")
+    check(
+        {"ISO 27001", "ISO 9001", "ISO 22301", "ISO 20000-1"} <= set(by_pub["softcat"].get("certs") or []),
+        f"softcat about-us ISO holds {by_pub['softcat'].get('certs')}",
+    )
+    check((by_pub["softcat"].get("file") or {}).get("marks") == 20, "softcat marks print")
+    check((by_pub["softcat"].get("file") or {}).get("years") == 20, "softcat years stay")
+    check((by_pub["softcat"].get("file") or {}).get("page") == 0, "softcat portal is not Official page")
+    check(by_pub["softcat"].get("found") is False, "softcat Official page stays open")
+    check(not by_pub["softcat"].get("trust_url"), "softcat portal is not the Official page URL")
+    check(
+        ((by_pub["softcat"].get("instruments") or {}).get("trust") or {}).get("url")
+        == "https://trust.softcat.com",
+        "softcat trust instrument keeps the portal URL as a link",
+    )
+    check("GDPR" not in (by_pub["softcat"].get("certs") or []), "softcat privacy GDPR stays open")
+    kept, why = hold_marks(
+        ["SOC 2", "ISO 27001", "ISO 27018", "ISO 22301", "PCI DSS"],
+        "Our Smart Trust Center offers customers access to LinkedIn’s latest security "
+        "reports and documents, including ISO certifications and our SOC 2 report. "
+        "ISO 27001 The International Organization for Standardization 27001 Standard. "
+        "ISO 27018 covers privacy protections. ISO 22301 is the standard for Business "
+        "Continuity. PCI DSS The Payment Card Industry Data Security Standards.",
+        "trust",
+    )
+    check(
+        kept == ["SOC 2", "ISO 27001", "ISO 27018", "ISO 22301", "PCI DSS"],
+        f"LinkedIn Trust and Compliance holds stay: {kept} {why}",
+    )
+    kept, why = hold_marks(
+        ["ISO 27001", "ISO 9001", "ISO 22301", "ISO 20000-1"],
+        "we also carry ISO standards 27001 (InfoSec), ISO 9001 (Quality), "
+        "22301 (Business Continuity) and ISO20000 (Service Management).",
+        "about",
+    )
+    check(
+        kept == ["ISO 27001", "ISO 9001", "ISO 22301", "ISO 20000-1"],
+        f"Softcat about-us four ISO holds stay: {kept} {why}",
+    )
     for slug in ("canonical", "beck-technology", "world-labs", "synap", "lime-technologies", "inmobi"):
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check("Official page" in html, f"{slug} still prints Official page")

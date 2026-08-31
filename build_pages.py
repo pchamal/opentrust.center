@@ -772,9 +772,14 @@ def _named_processor_list(row: dict) -> bool:
 
 def file_flags(row: dict, disc: dict | None = None) -> dict:
     """Bind each rule to 0 / 10 / 20 on this row. Not a factor score."""
-    page_on = bool(row.get("found") and (row.get("trust_url") or row.get("final_url")))
-    if not page_on:
-        page_on = _instrument_url(row, "trust") or _instrument_url(row, "security")
+    # A portal trust URL is never Official page. Softcat expand filed
+    # trust.softcat.com only; that host stays an instrument link.
+    if (row.get("slug") or "") == "softcat":
+        page_on = False
+    else:
+        page_on = bool(row.get("found") and (row.get("trust_url") or row.get("final_url")))
+        if not page_on:
+            page_on = _instrument_url(row, "trust") or _instrument_url(row, "security")
     crawl = row.get("_crawl") or {}
     page_wall = crawl.get("http_status") == 403 or _recorded_wall(
         (row.get("instruments") or {}).get("trust")
@@ -1010,6 +1015,11 @@ def enrich_company(
     )
     official = row.get("trust_url") or links.get("trust") or links.get("security") or row.get("final_url") or ""
     if not found:
+        official = ""
+    # Portal host is never Official page. Softcat expand filed trust.softcat.com
+    # only; that URL stays an instrument link. Official page stays open.
+    if slug == "softcat":
+        found = False
         official = ""
     certs = sorted((c for c in (row.get("certs") or []) if c), key=lambda x: str(x).lower())
     attestations = [map_cert(c) for c in certs]

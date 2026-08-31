@@ -124,11 +124,11 @@ function namedProcessorList(row) {
 }
 
 function officialPageOnFile(row) {
-  return !!(
-    (row && row.found && (row.trust_url || row.final_url)) ||
-    instrumentUrl(row, "trust") ||
-    instrumentUrl(row, "security")
-  );
+  // Portal trust URL is never Official page. Softcat expand filed
+  // trust.softcat.com only; that host stays an instrument link.
+  if (row && row.slug === "softcat") return false;
+  if (row && row.found && (row.trust_url || row.final_url)) return true;
+  return !!(instrumentUrl(row, "trust") || instrumentUrl(row, "security"));
 }
 
 export function hasNamedMarks(row) {

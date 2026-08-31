@@ -100,6 +100,19 @@ expect("Abridge marks rule is filled", fileFlags(abridge).marks === 20 && ruleOn
 expect("Abridge is not five open hairlines", ruleOn(abridgeHtml).some(Boolean));
 expect("Abridge page stays filled", fileFlags(abridge).page === 20 && ruleOn(abridgeHtml)[0] === true);
 
+const softcat = bySlug.softcat;
+expect(
+  "softcat portal trust URL is not Official page",
+  softcat &&
+    softcat.found === false &&
+    !softcat.trust_url &&
+    ((softcat.instruments || {}).trust || {}).url === "https://trust.softcat.com" &&
+    fileFlags(softcat).page === 0 &&
+    fileFlags(softcat).marks === 20 &&
+    fileFlags(softcat).years === 20 &&
+    fileScore(fileFlags(softcat)) === 40,
+);
+
 const src = readFileSync(new URL("../site/register.js", import.meta.url), "utf8");
 expect("register draws the file index", src.includes("fileIndexHtml"));
 expect("register has no N of 5 markup", !src.includes("file-cov") && !src.includes("file-meter") && !src.includes(" of 5"));
