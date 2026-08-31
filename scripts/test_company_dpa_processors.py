@@ -277,6 +277,37 @@ def main() -> int:
     plume_html = (ROOT / "site" / "c" / "plume.html").read_text(encoding="utf-8")
     check("https://www.plume.com/legal/subprocessors/" in plume_html, "plume dossier keeps the list URL")
 
+    # This cut: Responsive first-party DPA + subprocessor table; RFPIO aliases here.
+    check(
+        instrument_url(by_pub["responsive"], "dpa") == "https://www.responsive.io/legal/dpa",
+        "responsive DPA stays the first-party addendum",
+    )
+    check((by_pub["responsive"].get("file") or {}).get("dpa") == 20, "responsive DPA prints")
+    check(
+        instrument_url(by_pub["responsive"], "subprocessors")
+        == "https://www.responsive.io/legal/dpa-sub-processor-list",
+        "responsive list URL stays the first-party table",
+    )
+    check((by_pub["responsive"].get("file") or {}).get("subprocessors") == 20, "responsive list printed")
+    responsive_names = [p.get("name") for p in (by_pub["responsive"].get("processors") or [])]
+    check("Amazon Web Services (“AWS”) aws.amazon.com" in responsive_names, "responsive names AWS")
+    check("MongoDB mongodb.com" in responsive_names, "responsive names MongoDB")
+    check("OpenAI openai.com" in responsive_names, "responsive names OpenAI")
+    check(
+        "RFPIO India Private Limited Responsive.io" not in responsive_names,
+        "responsive self-affiliate RFPIO India stays off file",
+    )
+    check(len(responsive_names) == 9, f"responsive printed 9 named processors, got {len(responsive_names)}")
+    responsive_html = (ROOT / "site" / "c" / "responsive.html").read_text(encoding="utf-8")
+    check("https://www.responsive.io/legal/dpa" in responsive_html, "responsive dossier keeps the DPA URL")
+    check(
+        "https://www.responsive.io/legal/dpa-sub-processor-list" in responsive_html,
+        "responsive dossier keeps the list URL",
+    )
+    meltwater_html = (ROOT / "site" / "c" / "meltwater.html").read_text(encoding="utf-8")
+    check("./responsive.html\">RFPIO</a>" in meltwater_html, "Meltwater RFPIO wire lands on Responsive")
+    check((by_pub["rfpio"].get("file") or {}).get("dpa") in (0, False, None), "empty rfpio shell does not copy Responsive DPA")
+
     print(
         f"ok increment-dpa privacy-page-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"

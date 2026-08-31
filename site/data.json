@@ -39567,8 +39567,8 @@
         },
         {
           "name": "RFPIO",
-          "slug": "rfpio",
-          "id": "rfpio",
+          "slug": "responsive",
+          "id": "responsive",
           "source_url": "https://www.meltwater.com/en/privacy/subprocessors"
         },
         {
@@ -65370,7 +65370,7 @@
         },
         {
           "name": "Ookla, LLC",
-          "slug": null,
+          "slug": "ookla",
           "id": "ookla",
           "source_url": "https://www.plume.com/legal/subprocessors/"
         },
@@ -65388,7 +65388,7 @@
         },
         {
           "name": "Cognitive Systems Corp",
-          "slug": null,
+          "slug": "cognitive-systems",
           "id": "cognitive-systems",
           "source_url": "https://www.plume.com/legal/subprocessors/"
         },
@@ -136046,7 +136046,8 @@
       "probed_at": "2026-08-31T20:10:23Z",
       "certs": [
         "CSA STAR",
-        "TX-RAMP"
+        "TX-RAMP",
+        "ISO 27001"
       ],
       "attestations": [
         {
@@ -136057,6 +136058,11 @@
         {
           "id": "tx-ramp",
           "name": "TX-RAMP",
+          "weight": 4
+        },
+        {
+          "id": "iso-27001",
+          "name": "ISO 27001",
           "weight": 4
         }
       ],
@@ -136078,11 +136084,11 @@
       },
       "processors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
         "factors": {
           "page": 0,
-          "marks": 0,
+          "marks": 10,
           "dpa": 0,
           "processors": 0,
           "status": 0,
@@ -323984,23 +323990,400 @@
         "http_status": null
       },
       "list_rank": 3011
+    },
+    {
+      "rank": 4488,
+      "name": "Responsive",
+      "slug": "responsive",
+      "domain": "responsive.io",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "list": "named-processor-gap",
+      "source": "https://www.meltwater.com/en/privacy/subprocessors",
+      "source_url": "https://www.meltwater.com/en/privacy/subprocessors",
+      "probed": 8,
+      "probed_at": "2026-08-31T20:10:23Z",
+      "certs": [
+        "EU-US DPF"
+      ],
+      "attestations": [
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        }
+      ],
+      "summary": "",
+      "founded_year": null,
+      "founded_source": null,
+      "instruments": {
+        "trust": null,
+        "security": null,
+        "privacy": {
+          "url": "https://www.responsive.io/legal/privacy-policy",
+          "host": "responsive.io",
+          "seen": "2026-08-31"
+        },
+        "dpa": {
+          "url": "https://www.responsive.io/legal/dpa",
+          "host": "responsive.io",
+          "seen": "2026-08-31"
+        },
+        "subprocessors": {
+          "url": "https://www.responsive.io/legal/dpa-sub-processor-list",
+          "host": "responsive.io",
+          "seen": "2026-08-31"
+        },
+        "status": null,
+        "bounty": null
+      },
+      "processors": [
+        {
+          "name": "Amazon Web Services (“AWS”) aws.amazon.com",
+          "slug": "amazon-web-services",
+          "id": "amazon-web-services",
+          "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list"
+        },
+        {
+          "name": "MongoDB mongodb.com",
+          "slug": "mongodb",
+          "id": "mongodb",
+          "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list"
+        },
+        {
+          "name": "Zendesk zendesk.com",
+          "slug": "zendesk",
+          "id": "zendesk",
+          "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list"
+        },
+        {
+          "name": "DevRev https://devrev.ai/",
+          "slug": "devrev",
+          "id": "devrev",
+          "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list"
+        },
+        {
+          "name": "Google Cloud cloud.google.com",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list"
+        },
+        {
+          "name": "Microsoft Azure azure.microsoft.com",
+          "slug": "microsoft",
+          "id": "microsoft",
+          "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list"
+        },
+        {
+          "name": "DeepL deepl.com",
+          "slug": "deepl",
+          "id": "deepl",
+          "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list"
+        },
+        {
+          "name": "ProWritingAid prowritingaid.com",
+          "slug": "prowritingaid",
+          "id": "prowritingaid",
+          "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list"
+        },
+        {
+          "name": "OpenAI openai.com",
+          "slug": "openai",
+          "id": "openai",
+          "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list"
+        }
+      ],
+      "disclosure": {
+        "score": 26,
+        "tier": "silent",
+        "factors": {
+          "page": 0,
+          "marks": 4,
+          "dpa": 8,
+          "processors": 8,
+          "status": 0,
+          "bounty": 0,
+          "privacy": 6,
+          "years": 0
+        }
+      },
+      "tier": "silent",
+      "file": {
+        "page": 0,
+        "marks": 20,
+        "dpa": 20,
+        "subprocessors": 20,
+        "years": 0
+      },
+      "_crawl": {
+        "vendor": null,
+        "title": "",
+        "http_status": null
+      },
+      "official_url": "https://www.responsive.io/",
+      "list_rank": 4488
+    },
+    {
+      "rank": 4489,
+      "name": "Ookla",
+      "slug": "ookla",
+      "domain": "ookla.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "list": "named-processor-gap",
+      "source": "https://www.plume.com/legal/subprocessors/",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "probed": 8,
+      "probed_at": "2026-08-31T20:10:23Z",
+      "certs": [
+        "EU-US DPF"
+      ],
+      "attestations": [
+        {
+          "id": "eu-us-dpf",
+          "name": "EU-US DPF",
+          "weight": 4
+        }
+      ],
+      "summary": "",
+      "founded_year": null,
+      "founded_source": null,
+      "instruments": {
+        "trust": null,
+        "security": null,
+        "privacy": {
+          "url": "https://www.ookla.com/privacy",
+          "host": "ookla.com",
+          "seen": "2026-08-31"
+        },
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bounty": null
+      },
+      "processors": [],
+      "disclosure": {
+        "score": 10,
+        "tier": "silent",
+        "factors": {
+          "page": 0,
+          "marks": 4,
+          "dpa": 0,
+          "processors": 0,
+          "status": 0,
+          "bounty": 0,
+          "privacy": 6,
+          "years": 0
+        }
+      },
+      "tier": "silent",
+      "file": {
+        "page": 0,
+        "marks": 20,
+        "dpa": 0,
+        "subprocessors": 0,
+        "years": 0
+      },
+      "_crawl": {
+        "vendor": null,
+        "title": "",
+        "http_status": null
+      },
+      "official_url": "https://www.ookla.com/",
+      "list_rank": 4489
+    },
+    {
+      "rank": 4490,
+      "name": "Cognitive Systems",
+      "slug": "cognitive-systems",
+      "domain": "cognitivesystems.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "list": "named-processor-gap",
+      "source": "https://www.plume.com/legal/subprocessors/",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "probed": 6,
+      "probed_at": "2026-08-31T20:10:23Z",
+      "certs": [],
+      "attestations": [],
+      "summary": "",
+      "founded_year": null,
+      "founded_source": null,
+      "instruments": {
+        "trust": null,
+        "security": null,
+        "privacy": null,
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bounty": null
+      },
+      "processors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {
+          "page": 0,
+          "marks": 0,
+          "dpa": 0,
+          "processors": 0,
+          "status": 0,
+          "bounty": 0,
+          "privacy": 0,
+          "years": 0
+        }
+      },
+      "tier": "silent",
+      "file": {
+        "page": 0,
+        "marks": 0,
+        "dpa": 0,
+        "subprocessors": 0,
+        "years": 0
+      },
+      "_crawl": {
+        "vendor": null,
+        "title": "",
+        "http_status": null
+      },
+      "official_url": "https://www.cognitivesystems.com/",
+      "list_rank": 4490
+    },
+    {
+      "rank": 4491,
+      "name": "ProWritingAid",
+      "slug": "prowritingaid",
+      "domain": "prowritingaid.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "list": "named-processor-gap",
+      "source": "https://www.responsive.io/legal/dpa-sub-processor-list",
+      "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list",
+      "probed": 5,
+      "probed_at": "2026-08-31T20:10:23Z",
+      "certs": [],
+      "attestations": [],
+      "summary": "",
+      "founded_year": null,
+      "founded_source": null,
+      "instruments": {
+        "trust": null,
+        "security": null,
+        "privacy": null,
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bounty": null
+      },
+      "processors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {
+          "page": 0,
+          "marks": 0,
+          "dpa": 0,
+          "processors": 0,
+          "status": 0,
+          "bounty": 0,
+          "privacy": 0,
+          "years": 0
+        }
+      },
+      "tier": "silent",
+      "file": {
+        "page": 0,
+        "marks": 0,
+        "dpa": 0,
+        "subprocessors": 0,
+        "years": 0
+      },
+      "_crawl": {
+        "vendor": null,
+        "title": "",
+        "http_status": null
+      },
+      "official_url": "https://prowritingaid.com/",
+      "list_rank": 4491
+    },
+    {
+      "rank": 4492,
+      "name": "DevRev",
+      "slug": "devrev",
+      "domain": "devrev.ai",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "list": "named-processor-gap",
+      "source": "https://www.responsive.io/legal/dpa-sub-processor-list",
+      "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list",
+      "probed": 5,
+      "probed_at": "2026-08-31T20:10:23Z",
+      "certs": [],
+      "attestations": [],
+      "summary": "",
+      "founded_year": null,
+      "founded_source": null,
+      "instruments": {
+        "trust": null,
+        "security": null,
+        "privacy": null,
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bounty": null
+      },
+      "processors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {
+          "page": 0,
+          "marks": 0,
+          "dpa": 0,
+          "processors": 0,
+          "status": 0,
+          "bounty": 0,
+          "privacy": 0,
+          "years": 0
+        }
+      },
+      "tier": "silent",
+      "file": {
+        "page": 0,
+        "marks": 0,
+        "dpa": 0,
+        "subprocessors": 0,
+        "years": 0
+      },
+      "_crawl": {
+        "vendor": null,
+        "title": "",
+        "http_status": null
+      },
+      "official_url": "https://devrev.ai/",
+      "list_rank": 4492
     }
   ],
   "found": 953,
-  "total": 4487,
+  "total": 4492,
   "coverage": {
-    "companies": 4487,
+    "companies": 4492,
     "years": 660,
-    "certs_companies": 742,
-    "edges": 2646,
+    "certs_companies": 744,
+    "edges": 2655,
     "top_processors": [
       {
         "id": "amazon-web-services",
-        "n": 184
+        "n": 185
       },
       {
         "id": "google",
-        "n": 134
+        "n": 135
       },
       {
         "id": "twilio",
@@ -324009,14 +324392,14 @@
     ],
     "links": {
       "security_txt": 320,
-      "dpa": 341,
-      "privacy": 1019,
+      "dpa": 342,
+      "privacy": 1021,
       "status": 572,
       "bug_bounty": 270,
-      "subprocessors": 488
+      "subprocessors": 489
     },
     "tiers": {
-      "silent": 3546,
+      "silent": 3551,
       "thin": 293,
       "on-file": 431,
       "substantial": 157,
