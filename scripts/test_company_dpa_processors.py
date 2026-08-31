@@ -403,6 +403,77 @@ def main() -> int:
             f"{slug} Completeness is 0",
         )
 
+    # This cut: Branch Metrics leftover. First-party /security is Official page.
+    # legal.branch.io DPA and Subprocessor List print. Conveyor stays off Official page.
+    check(
+        instrument_url(by_pub["branch-metrics"], "dpa")
+        == "https://legal.branch.io/saas/branch-saas-dpa/",
+        "branch DPA stays the first-party Branch SaaS DPA",
+    )
+    check(
+        instrument_url(by_pub["branch-metrics"], "subprocessors")
+        == "https://legal.branch.io/saas/subprocessor-list/",
+        "branch list stays the first-party Subprocessor List",
+    )
+    check((by_pub["branch-metrics"].get("file") or {}).get("dpa") == 20, "branch DPA prints")
+    check((by_pub["branch-metrics"].get("file") or {}).get("subprocessors") == 20, "branch processors print")
+    check((by_pub["branch-metrics"].get("file") or {}).get("page") == 20, "branch Official page prints")
+    check((by_pub["branch-metrics"].get("file") or {}).get("marks") == 10, "branch marks stay dotted — page on file, none extracted")
+    check((by_pub["branch-metrics"].get("file") or {}).get("years") in (0, False, None), "branch years stay open")
+    check(by_pub["branch-metrics"].get("found") is True, "branch Official page is on file")
+    check(
+        by_pub["branch-metrics"].get("trust_url") == "https://www.branch.io/security",
+        "branch Official page is first-party /security",
+    )
+    check("conveyor" not in (by_pub["branch-metrics"].get("trust_url") or "").lower(), "branch Official page is not the Conveyor portal")
+    check(by_pub["branch-metrics"]["domain"] == "branch.io", "branch official domain is branch.io")
+    branch_names = [p.get("name") for p in (by_pub["branch-metrics"].get("processors") or [])]
+    branch_slugs = [p.get("slug") for p in (by_pub["branch-metrics"].get("processors") or [])]
+    check("Amazon Web Services, Inc" in branch_names, "branch names Amazon Web Services, Inc")
+    check("Zendesk" in branch_names, "branch names Zendesk")
+    check("Atlassian" in branch_names, "branch names Atlassian")
+    check("Software Minds, Inc" in branch_names, "branch names Software Minds, Inc")
+    check("DataGrail, Inc" in branch_names, "branch names DataGrail, Inc")
+    check("Auth0" in branch_names, "branch names Auth0")
+    check("Anthropic" in branch_names, "branch names Anthropic")
+    check("Thoughtspot, LLC" in branch_names, "branch names Thoughtspot, LLC")
+    check(
+        set(s for s in branch_slugs if s)
+        == {
+            "amazon-web-services",
+            "zendesk",
+            "atlassian",
+            "datagrail",
+            "auth0",
+            "anthropic",
+            "thoughtspot",
+        },
+        f"branch processor slugs {branch_slugs}",
+    )
+    check(None in branch_slugs, "software-minds stays off the register")
+    check(len(branch_names) == 8, f"branch printed 8 named processors, got {len(branch_names)}")
+    branch_html = (ROOT / "site" / "c" / "branch-metrics.html").read_text(encoding="utf-8")
+    check("https://legal.branch.io/saas/branch-saas-dpa/" in branch_html, "branch dossier keeps the DPA URL")
+    check("https://legal.branch.io/saas/subprocessor-list/" in branch_html, "branch dossier keeps the list URL")
+    check("./amazon-web-services.html\">Amazon Web Services, Inc" in branch_html, "branch AWS cross-links to the existing file")
+    check("./zendesk.html\">Zendesk" in branch_html, "branch Zendesk cross-links to the existing file")
+    check("./atlassian.html\">Atlassian" in branch_html, "branch Atlassian cross-links to the existing file")
+    check("./datagrail.html\">DataGrail, Inc" in branch_html, "branch DataGrail cross-links to the existing file")
+    check("./auth0.html\">Auth0" in branch_html, "branch Auth0 cross-links to the existing file")
+    check("./anthropic.html\">Anthropic" in branch_html, "branch Anthropic cross-links to the existing file")
+    check("./thoughtspot.html\">Thoughtspot, LLC" in branch_html, "branch Thoughtspot cross-links to the existing file")
+    check("../graph.html#p=software-minds\">Software Minds, Inc" in branch_html, "software-minds stays a graph leftover")
+    check("conveyor" not in branch_html.lower(), "branch dossier does not name Conveyor")
+    check("trust.branch.io" not in branch_html, "branch dossier does not cite the Conveyor portal")
+    check("<h1>Branch Metrics</h1>" in branch_html, "branch dossier is its own file")
+    plume_html = (ROOT / "site" / "c" / "plume.html").read_text(encoding="utf-8")
+    check("./branch-metrics.html\">Branch Metrics, Inc" in plume_html, "Plume Branch Metrics wire lands on the new file")
+    check(
+        (by_enr["branch-metrics"].get("links") or {}).get("dpa")
+        == "https://legal.branch.io/saas/branch-saas-dpa/",
+        "branch enriched DPA URL stays",
+    )
+
     print(
         f"ok increment-dpa privacy-page-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"

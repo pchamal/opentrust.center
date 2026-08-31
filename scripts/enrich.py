@@ -326,6 +326,13 @@ SPECIAL_URLS = {
     "vercel": [("https://vercel.com/legal/dpa", "dpa"), ("https://www.vercel-status.com", "status")],
     "canva": [("https://www.canva.com/policies/subprocessors/", "subprocessors")],
     "microsoft": [("https://status.cloud.microsoft", "status")],
+    # Branch Metrics leftover. legal.branch.io is first-party of branch.io.
+    # trust.branch.io is a Conveyor portal — not Official page, not a mark source.
+    "branch-metrics": [
+        ("https://legal.branch.io/saas/branch-saas-dpa/", "dpa"),
+        ("https://legal.branch.io/saas/subprocessor-list/", "subprocessors"),
+        ("https://legal.branch.io/saas/privacy-policy/", "privacy"),
+    ],
 }
 
 _MONTH = (

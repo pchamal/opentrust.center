@@ -1,8 +1,8 @@
 {
-  "generated": "2026-08-31T23:10:00Z",
-  "register": 4575,
-  "origin_main": "3d927f3477",
-  "mode": "leftover-queue-plus-first-party-fills",
+  "generated": "2026-08-31T23:26:00Z",
+  "register": 4576,
+  "origin_main": "29abfcf348",
+  "mode": "leftover-named-processor-plus-first-party-fills",
   "leftovers_min1": 33,
   "leftovers_after": 33,
   "remaining_ge2": 0,
@@ -23,27 +23,27 @@
     {
       "from": "conversocial",
       "to": "verint-systems",
-      "reason": "conversocial.com 301s to Verint private-messaging product HTML. Verint homepage and /our-company print Calabrio is Now Verint and do not print Conversocial. Destination must print the acquired name. Do not copy Verint's file onto the empty conversocial shell."
+      "reason": "Still refused. Verint HTML prints Calabrio is Now Verint and does not print Conversocial."
     },
     {
       "from": "conversocial",
       "to": "khoros",
-      "reason": "khoros.com Cloudflare 403. Destination HTML was not readable this cut. Do not invent an alias."
+      "reason": "Still refused. Destination must print Conversocial. Not re-walked this cut."
     },
     {
       "from": "madkudu",
       "to": "hg-insights",
-      "reason": "Still refused. madkudu.com and hginsights.com still Cloudflare 403."
+      "reason": "Still refused. Standing 403 skip. Do not invent an alias onto an empty shell."
     },
     {
       "from": "intersections",
       "to": "aura",
-      "reason": "aura.com homepage and /about print Aura, not Intersections. Do not invent an alias."
+      "reason": "Still refused. aura.com does not print Intersections."
     },
     {
       "from": "adaptive-mobile",
       "to": "csg-international",
-      "reason": "CSG International is on the register (csgi.com). Homepage does not print Adaptive Mobile."
+      "reason": "Still refused. CSG homepage does not print Adaptive Mobile."
     },
     {
       "from": "code42",
@@ -53,128 +53,48 @@
     {
       "from": "samknows",
       "to": "ookla",
-      "reason": "samknows.com Access Denied 403. ookla.com homepage and about do not print SamKnows."
+      "reason": "Still refused. samknows.com 403s to ThousandEyes. ookla.com homepage and about do not print SamKnows."
     },
     {
       "from": "arsys",
       "to": "ionos",
-      "reason": "IONOS Group sister brand. STRATO is already a separate register row (strato-ag). Destination must not receive a copied parent file."
+      "reason": "Still refused. IONOS Group sister brand. STRATO is already a separate register row."
     },
     {
       "from": "basefarm-as",
       "to": "orange",
-      "reason": "Still refused. Destination HTML does not print Basefarm. basefarm-as already has its own register row."
+      "reason": "Still refused. Destination HTML does not print Basefarm."
     },
     {
       "from": "stitch",
       "to": "qlik",
-      "reason": "Portal redirect. Do not name portal vendors."
+      "reason": "Still refused. Portal redirect. Do not name portal vendors."
     }
   ],
   "newly_filed": [
     {
-      "slug": "kumospace",
-      "name": "Kumospace",
-      "domain": "kumospace.com",
-      "named_by": 0,
+      "slug": "branch-metrics",
+      "name": "Branch Metrics",
+      "domain": "branch.io",
+      "named_by": 1,
       "completeness_before": null,
-      "completeness_after": 40,
-      "score_after": 30,
-      "tier_after": "thin",
-      "page": "https://www.kumospace.com/security",
-      "marks": ["SOC 2"],
-      "official_url": "https://www.kumospace.com/",
-      "left_open": [
-        "Secure Video Conferencing & Data Security - Kumospace at /security is first-party HTML. Body prints Fully SOC 2 Compliant Kumospace has successfully undergone SOC 2 examination and audit. Filed as Official page and SOC 2.",
-        "HIPAA on that page is paid-plan product copy (Users wishing to make their Kumospace HIPAA compliant … under Kumospace paid plans). Not a hold.",
-        "GDPR-compliant copy is not a mark.",
-        "Privacy Policy | Kumospace Values your Privacy at /privacy is first-party HTML. Filed as privacy. Completeness does not score privacy.",
-        "Usual DPA / subprocessors are title-only shells (108 visible characters). Years: about page prints When the pandemic hit and no founded year the parser accepts."
-      ]
-    },
-    {
-      "slug": "namely",
-      "name": "Namely",
-      "domain": "namely.com",
-      "named_by": 0,
-      "completeness_before": null,
-      "completeness_after": 40,
-      "score_after": 22,
-      "tier_after": "silent",
-      "dpa": "https://namely.com/legal/data-processing-addendum/",
-      "processors_url": "https://namely.com/legal/data-processing-addendum/",
-      "processor_count": 4,
-      "privacy": "https://namely.com/privacy/",
-      "left_open": [
-        "Data Processing Addendum at /legal/data-processing-addendum/ is first-party HTML. Title Data Processing Addendum. Body prints Namely, Inc., a Delaware corporation, and ANNEX III LIST OF EU/UK SUB-PROCESSORS Last updated: March 14, 2022. Filed as DPA.",
-        "Annex III names Amazon Web Services, Inc.; HubSpot, Inc.; Google (Alphabet, Inc.); Salesforce, Inc. All four land on existing register rows. Completeness DPA · processors = 40.",
-        "Homepage and /security bounce are product landers. trust.namely.com is a customer login (Trust Automation Inc. on Namely), not Namely's Official page. Official page stays open.",
-        "Our Story HTML prints Namely Merges with Vensure Employer + PrismHR. Vensure / PrismHR are not on the register. Do not invent an alias."
-      ]
-    },
-    {
-      "slug": "conversocial",
-      "name": "Conversocial",
-      "domain": "conversocial.com",
-      "named_by": 0,
-      "completeness_before": null,
-      "completeness_after": 0,
-      "score_after": 0,
-      "tier_after": "silent",
-      "page": null,
+      "completeness_after": 60,
+      "score_after": 42,
+      "tier_after": "on-file",
+      "page": "https://www.branch.io/security",
       "marks": [],
-      "official_url": "https://www.conversocial.com/",
+      "dpa": "https://legal.branch.io/saas/branch-saas-dpa/",
+      "processors_url": "https://legal.branch.io/saas/subprocessor-list/",
+      "processor_count": 8,
+      "privacy": "https://legal.branch.io/saas/privacy-policy/",
+      "official_url": "https://www.branch.io/",
       "left_open": [
-        "conversocial.com 301s to Verint private-messaging product HTML titled Customer Engagement on Private Messaging Channels | Verint. Verint HTML prints Calabrio is Now Verint and does not print Conversocial. Alias refused. Do not copy Verint's file.",
-        "Usual trust / security / DPA / subprocessors are not first-party Conversocial pages. Completeness 0."
-      ]
-    },
-    {
-      "slug": "emplifi",
-      "name": "Emplifi",
-      "domain": "emplifi.io",
-      "named_by": 0,
-      "completeness_before": null,
-      "completeness_after": 0,
-      "score_after": 0,
-      "tier_after": "silent",
-      "page": null,
-      "marks": [],
-      "official_url": "https://www.emplifi.io/",
-      "left_open": [
-        "emplifi.io and usual trust / security / DPA / privacy paths are Cloudflare 403 (Just a moment). Completeness 0 / domain-only."
-      ]
-    },
-    {
-      "slug": "letgo",
-      "name": "Letgo",
-      "domain": "letgo.com",
-      "named_by": 0,
-      "completeness_before": null,
-      "completeness_after": 0,
-      "score_after": 0,
-      "tier_after": "silent",
-      "page": null,
-      "marks": [],
-      "official_url": "https://www.letgo.com/",
-      "left_open": [
-        "letgo.com homepage and usual paths are empty JS shells (title-only). Completeness 0 / domain-only."
-      ]
-    },
-    {
-      "slug": "digital-assembly",
-      "name": "Digital Assembly",
-      "domain": "digital-assembly.com",
-      "named_by": 0,
-      "completeness_before": null,
-      "completeness_after": 0,
-      "score_after": 0,
-      "tier_after": "silent",
-      "page": null,
-      "marks": [],
-      "official_url": null,
-      "left_open": [
-        "digital-assembly.com homepage http-0. Domain stays the queued Wikipedia host. No official_url invented. Completeness 0."
+        "Plume leftover Branch Metrics, Inc. First-party HTML at branch.io prints Branch and Branch Metrics, Inc. Filed as a new parent. Do not invent branch.io — homepage, /security, and legal.branch.io were readable first-party HTML this cut.",
+        "Keeping Mobile Data Secure & Private with Data Security | Branch at /security is first-party HTML. Filed as Official page. trust.branch.io titles Branch Trust Center | Powered by Conveyor. Portal. Not Official page. Marks on that host stay unread.",
+        "Branch SaaS DPA at legal.branch.io/saas/branch-saas-dpa/ is first-party HTML. Title Branch SaaS DPA – Branch Legal. Body prints This Data Processing Addendum (“DPA”) forms part of Branch Metrics, Inc.’s Main Services Agreement. Filed as DPA.",
+        "Subprocessor List at legal.branch.io/saas/subprocessor-list/ is first-party HTML. Version 8, last updated June 1, 2026. Prints Amazon Web Services, Inc.; Zendesk; Atlassian; Software Minds, Inc.; DataGrail, Inc.; Auth0; Anthropic; Thoughtspot, LLC. Seven land on existing register rows. Software Minds stays a leftover (no domain on the list). Completeness page · DPA · processors = 60.",
+        "Privacy Policy at legal.branch.io/saas/privacy-policy/ prints Branch Metrics, Inc. Filed as privacy. Completeness does not score privacy.",
+        "HIPAA on /security is HIPAA-eligible / BAA / Advanced Compliance product copy. Not a hold. GDPR & CCPA are privacy-principle nav. Not marks. Years: /about prints no founded year the parser accepts."
       ]
     }
   ],
@@ -182,34 +102,44 @@
   "expand_fills": [],
   "preferred_c0_left_open": [
     {
+      "slug": "hive",
+      "named_by": 5,
+      "reason": "Thin Completeness-20 (years). Preferred C0 not re-walked after the Branch leftover fill. Framer JS shell on the last cut."
+    },
+    {
+      "slug": "telesign",
+      "named_by": 3,
+      "reason": "Thin Completeness-20 (ISO 27001 already on file). Usual paths Cloudflare 403 on the last cut. Not re-walked after Branch."
+    },
+    {
       "slug": "visa",
       "named_by": 0,
-      "reason": "Privacy already on file. /security bounced to Visa Protect product HTML. Legal lander is not a DPA. About page prints no founded year."
+      "reason": "Privacy already on file. /security bounced to Visa Protect product HTML. Left open."
     },
     {
       "slug": "jack-henry",
       "named_by": 0,
-      "reason": "Privacy already on file. Who We Are prints five decades since our company was founded by Jack Henry and Jerry Hall — not a year the parser accepts. Usual trust / DPA 404."
+      "reason": "Privacy already on file. Who We Are prints no founded year the parser accepts. Left open."
     },
     {
       "slug": "legalinc-com",
       "named_by": 0,
-      "reason": "www.legalinc.com and usual paths bounce to portal.legalinc.com login (Dashboard | Legalinc). Stay 0."
+      "reason": "Usual paths bounce to portal.legalinc.com login. Stay 0."
     },
     {
       "slug": "agap2it",
       "named_by": 0,
-      "reason": "Homepage titles agap2IT. /ciberseguranca and /sobre-nos 404. 20 anos video copy is not a founded year."
+      "reason": "Homepage titles agap2IT. Usual trust / DPA 404. Left open."
     },
     {
       "slug": "sutherland-global-services",
       "named_by": 0,
-      "reason": "Homepage and about-us are title-only JS shells. /security bounced to an SVG. Privacy already stored."
+      "reason": "Homepage and about-us are title-only JS shells. Privacy already stored."
     },
     {
       "slug": "dstny-automate-formerly-qunifi",
       "named_by": 0,
-      "reason": "Website Privacy Policy already on file. /about-us is a careers lander. Usual trust / security / DPA / subprocessors 404."
+      "reason": "Website Privacy Policy already on file. Usual trust / DPA 404."
     },
     {
       "slug": "sumit-ai",
@@ -217,19 +147,9 @@
       "reason": "sumit-ai.com homepage and usual paths unreadable (http-0 / Cloudflare 403)."
     },
     {
-      "slug": "hive",
-      "named_by": 5,
-      "reason": "Thin Completeness-20 (years). /policy-documents/security and privacy title the product lander — Framer JS shell."
-    },
-    {
-      "slug": "telesign",
-      "named_by": 3,
-      "reason": "Thin Completeness-20 (ISO 27001 already on file). Usual paths Cloudflare 403 / Just a moment."
-    },
-    {
       "slug": "aml-rightsource",
       "named_by": 0,
-      "reason": "ISO 27001 Q-Mark is 404 chrome. Stays 0."
+      "reason": "ISO 27001 Q-Mark is 404 chrome. Stays 0. Not refiled."
     }
   ],
   "standing_skips": [
@@ -259,7 +179,6 @@
     "amacuro",
     "benjamin-mosse-consulting",
     "blue-ocean-contact-centres",
-    "branch-metrics",
     "cc-cloud",
     "cloud-support-technologies",
     "cognitive-intelligence",
@@ -274,22 +193,21 @@
     "rtica-pfms-slu",
     "rule-56",
     "samknows",
+    "software-minds",
     "tsengararu",
     "ujwal",
     "vivaops",
     "zealep-business-solutions"
   ],
   "refused_this_cut": [
-    "True-missing named_by ≥2 stays empty. Leftover graph stays 33. Register 4569 → 4575 after filing six Wikipedia NYC leftovers.",
-    "Source lists still print leftover names with purpose and location only. Do not invent leftover domains.",
-    "conversocial→verint-systems refused — Verint HTML does not print Conversocial. Do not copy Verint onto the empty shell.",
-    "conversocial→khoros refused — khoros.com Cloudflare 403.",
-    "madkudu→hg-insights, intersections→aura, adaptive-mobile→csg-international, code42→mimecast, samknows→ookla, arsys→ionos, basefarm-as→orange still hold.",
-    "Digital Assembly homepage http-0. Domain stays the queued host. No official_url invented.",
-    "Emplifi Cloudflare 403. Letgo empty JS shell. Both Completeness 0.",
-    "Kumospace HIPAA paid-plan copy and GDPR-compliant copy stay open.",
-    "Namely trust.namely.com is a customer login, not Official page.",
-    "Preferred C0 still open: Visa, Jack Henry, Legalinc, agap2IT, Sutherland, Dstny Automate, Sumit AI, Hive, Telesign. AML RightSource stays 0.",
+    "True-missing named_by ≥2 stays empty. Leftover graph stays 33 (branch-metrics left; software-minds entered from Branch's list). Register 4575 → 4576.",
+    "Source lists still print leftover names with purpose and location only. Meltwater leftover rows print country and SCC, not a domain. Do not invent leftover domains.",
+    "samknows→ookla still refused — ookla.com does not print SamKnows. samknows.com 403s to ThousandEyes.",
+    "conversocial→verint-systems, conversocial→khoros, madkudu→hg-insights, intersections→aura, adaptive-mobile→csg-international, code42→mimecast, arsys→ionos, basefarm-as→orange, stitch→qlik still hold.",
+    "trust.branch.io is a Conveyor portal. Not Official page. SOC 2 / ISO marks on that host stay unread.",
+    "Branch /security HIPAA is HIPAA-eligible / BAA / Advanced Compliance product copy. Not a hold.",
+    "Cognitive Intelligence is not Cognitive Systems (already filed). Not aliased.",
+    "Preferred C0 still open: Hive, Telesign, Visa, Jack Henry, Legalinc, agap2IT, Sutherland, Dstny Automate, Sumit AI. AML RightSource stays 0.",
     "Standing 403/JS not re-walked: TransUnion, InTouchCX, Foundever, Global Payments, InMoment, Sift, Mastercard, Fluidstack, Nutun, SoftServe."
   ]
 }
