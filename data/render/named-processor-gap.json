@@ -1,7 +1,7 @@
 {
-  "generated": "2026-08-31T17:45:00Z",
-  "register": 4401,
-  "origin_main": "b5032fa5ba",
+  "generated": "2026-08-31T18:20:00Z",
+  "register": 4441,
+  "origin_main": "4c4e454f3f",
   "mode": "leftover-plus-c0-fills",
   "leftovers_min1": 32,
   "leftovers_after": 32,
@@ -30,22 +30,22 @@
     {
       "from": "madkudu",
       "to": "hg-insights",
-      "reason": "docs.madkudu.com and help.madkudu.com print HG Insights Platform Help Center. Do not alias or copy the parent file. madkudu.com is Cloudflare 403. HG Insights is not on the register."
+      "reason": "docs.madkudu.com / help.madkudu.com still print HG Insights Platform Help Center. madkudu.com is Cloudflare 403. HG Insights is not on the register. Do not alias or copy a parent file."
     },
     {
       "from": "groove-networks-dba-groove",
       "to": "clari",
-      "reason": "groove.co 301s to clari.com. Clari is not on the register. Redirect alone is not enough."
+      "reason": "groove.co 200s to clari.com titled Enterprise Revenue Orchestration | Clari. Clari is not on the register. Redirect alone is not enough."
     },
     {
       "from": "intersections",
       "to": "aura",
-      "reason": "aura.com prints Aura, not Intersections. Do not invent an alias."
+      "reason": "aura.com prints Aura, not Intersections. intersections.com did not return HTML this cut. Do not invent an alias."
     },
     {
       "from": "adaptive-mobile",
       "to": "csg-international",
-      "reason": "CSG International is on the register (csgi.com). Homepage and usual about paths do not print Adaptive Mobile. adaptivemobile.com is Cloudflare 403. Destination must print the acquired name."
+      "reason": "CSG International is on the register (csgi.com). Homepage does not print Adaptive Mobile. adaptivemobile.com is Cloudflare 403. Destination must print the acquired name."
     },
     {
       "from": "code42",
@@ -55,7 +55,7 @@
     {
       "from": "perimeter-81",
       "to": "check-point",
-      "reason": "Still refused. WAF 202, no printable first-party hold."
+      "reason": "Still refused. No printable first-party hold that names both."
     },
     {
       "from": "rfpio",
@@ -66,70 +66,41 @@
   "newly_filed": [],
   "c0_fills": [
     {
-      "slug": "lumen-technologies",
+      "slug": "rackspace",
       "named_by": 1,
       "completeness_before": 0,
       "completeness_after": 40,
-      "score_after": 60,
+      "score_after": 66,
       "tier_after": "on-file",
-      "page": "https://www.lumen.com/en-us/about/legal/trust-center.html",
+      "page": "https://www.rackspace.com/compliance",
       "marks": [
-        "SOC 2 Type II",
-        "SOC 1 Type II",
+        "SOC 2",
+        "SOC 1",
+        "SOC 3",
         "ISO 27001",
-        "HIPAA"
+        "ISO 9001",
+        "FedRAMP",
+        "HITRUST",
+        "PCI DSS",
+        "HIPAA",
+        "CMMC",
+        "NIST 800-53",
+        "NIST 800-171",
+        "TISAX"
       ],
-      "marks_url": "https://www.lumen.com/en-us/about/legal/trust-center/security-and-compliance/compliance-and-audit.html",
-      "privacy": "https://www.lumen.com/en-us/about/legal/privacy-notice.html",
+      "marks_url": "https://www.rackspace.com/compliance",
+      "privacy_already": "https://www.rackspace.com/information/legal/privacystatement",
       "left_open": [
-        "Official page from first-party HTML titled Trust Center | Lumen. No portal host.",
-        "Compliance and Audit HTML names SOC 1 Type 2 / SOC 2 Type 2 Lumen reports, ISO 27001 Certificate – Lumen, and Lumen HIPAA Technology Solution Services Report. Filed those four.",
-        "Privacy Notice at /en-us/about/legal/privacy-notice.html classifies. Filed.",
-        "processing-lumen-services.html is product Privacy Data Sheets, not a DPA. DPA left open.",
-        "Named processors and years left open."
+        "Official page from first-party HTML titled Governance, Risk, & Compliance Services | Rackspace Technology. Heading prints Rackspace Technology Compliance Certifications and Security Standards. No portal host.",
+        "Compliance Certifications table names SOC 1 / SOC 2 / SOC 3, ISO/IEC 27001, ISO 9001, FedRAMP JAB P-ATO, HITRUST, PCI DSS Level 1, HIPAA, CMMC, NIST 800-53, NIST 800-171, and TISAX. Existing hold_marks parser kept those thirteen. Filed.",
+        "Privacy Notice already stored. Factor filled.",
+        "DPA and named processors left open — first-party DPA/list HTML did not print this cut.",
+        "Years left open."
       ]
     },
     {
-      "slug": "cybersource",
+      "slug": "amazon",
       "named_by": 2,
-      "completeness_before": 0,
-      "completeness_after": 40,
-      "score_after": 22,
-      "tier_after": "silent",
-      "dpa": "https://www.cybersource.com/en-us/about/dpa.html",
-      "marks": [
-        "PCI DSS"
-      ],
-      "marks_url": "https://www.cybersource.com/en-us/about/dpa.html",
-      "left_open": [
-        "First-party HTML titled Cybersource Data Processing Agreement | Cybersource. Filed as DPA.",
-        "DPA body prints Cybersource Corporation certified as compliant with PCI DSS applicable to it. Filed PCI DSS from that sentence, not from nav 'simplify PCI DSS compliance' (that product string also prints on 404).",
-        "CCPA / PIPEDA on the DPA are regulation names, not marks. Not filed.",
-        "Privacy 301s to visa.com — not first-party. Not filed.",
-        "No first-party trust/security/compliance Official page. Page left open.",
-        "Named processors and years left open."
-      ]
-    },
-    {
-      "slug": "e-core",
-      "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 20,
-      "score_after": 16,
-      "tier_after": "silent",
-      "years": 1999,
-      "years_url": "https://www.e-core.com/about",
-      "privacy": "https://www.e-core.com/privacy-policy",
-      "left_open": [
-        "About HTML prints Founded in 1999, e-Core is a global consulting and engineering company. Filed 1999.",
-        "Privacy policy at /privacy-policy classifies. Filed.",
-        "ISO-27001 on that page is 'best practices, such as NIST, SANS, OWASP, ISO-27002, and ISO-27001' — not a certification hold. Marks left open.",
-        "No first-party trust/security/compliance Official page. Page, DPA, and named processors left open."
-      ]
-    },
-    {
-      "slug": "netstars",
-      "named_by": 1,
       "completeness_before": 0,
       "completeness_after": 20,
       "score_after": 14,
@@ -137,14 +108,41 @@
       "marks": [
         "PCI DSS"
       ],
-      "marks_url": "https://www.netstars.co.jp/about/",
-      "privacy": "https://www.netstars.co.jp/privacypolicy/",
+      "marks_url": "https://www.amazon.com/gp/help/customer/display.html?nodeId=GX7NJQ4ZB8MHFRNJ",
+      "privacy": "https://www.amazon.com/gp/help/customer/display.html?nodeId=GX7NJQ4ZB8MHFRNJ",
       "left_open": [
-        "Company profile HTML prints PCIDSS Ver4.0.1完全準拠 with registration number SYPQ233UG1TP. Filed PCI DSS. String is not on 404 chrome.",
-        "Privacy policy at /privacypolicy/ classifies. Filed.",
-        "設立 2009年2月12日 is on the same about page. Existing year parser does not accept Japanese 設立. Years left open — do not invent.",
-        "PrivacyMark 認定番号 is not a catalog mark. Not filed.",
-        "No first-party trust/security/compliance Official page. Page, DPA, and named processors left open."
+        "First-party Privacy Notice on amazon.com. Filed as privacy.",
+        "Notice body prints We follow the Payment Card Industry Data Security Standard (PCI DSS) when handling credit card data. Filed PCI DSS from that sentence. Not a third-party processor PCI mention.",
+        "amazon.com/security is customer-service help. amazon.com/trust is Trust Golf. No first-party trust/security Official page. Page left open.",
+        "Do not copy amazon-web-services marks onto the Amazon retail row.",
+        "DPA, named processors, and years left open."
+      ]
+    },
+    {
+      "slug": "model-n",
+      "named_by": 0,
+      "completeness_before": 60,
+      "completeness_after": 60,
+      "score_after": 70,
+      "tier_after": "substantial",
+      "page": "https://www.modeln.com/security/",
+      "marks": [
+        "ISO 27001"
+      ],
+      "marks_url": "https://www.modeln.com/security/",
+      "marks_already": [
+        "SOC 2 Type II",
+        "SOC 1 Type II",
+        "CSA STAR"
+      ],
+      "privacy_already": "https://www.modeln.com/privacy-policy/",
+      "left_open": [
+        "This morning's expand stored Official page at trust.modeln.com. That host is SafeBase (__SB_CONFIG__ NEXT_PUBLIC_TRAY_PARTNER_ID=safebase). Portal hosts are never Official pages. Unfiled as Official page.",
+        "First-party www.modeln.com/security/ titled Security - Model N. Cards print Model N Achieves ISO/IEC 27001 Certification; SOC 1 Type II report; SOC 2 Type II report; certified by Cloud Security Alliance for Star level 2. 404 chrome prints none of those — not CEQUENS. Official page pointed at that first-party URL. Filed ISO 27001.",
+        "SOC 1 Type II, SOC 2 Type II, and CSA STAR already on file from the expand. Kept.",
+        "GDPR / CCPA cards print Model N complies with — regulation names, not marks. Existing expand rows left as they were; not newly filed.",
+        "DPF card prints certified by the Department of Commerce for the Data Privacy Framework. Existing DPF self-cert parser did not match that phrasing. Left open — do not invent.",
+        "DPA paths /dpa and /legal/dpa 404. Named processors appear only on the SafeBase portal JSON-LD. Unread. Years stay on the Wikipedia source already on file."
       ]
     }
   ],
@@ -316,19 +314,23 @@
   ],
   "refused_this_cut": [
     "No leftover aliases had first-party HTML that prints both names on a register destination",
-    "Leftover source lists print name + purpose + location, never an official domain. Do not invent leftover domains.",
+    "Leftover source lists print name + purpose + location, never an official domain. Meltwater / GitLab / Twilio / Smartsheet / Sophos / RingCentral tables checked this cut. Do not invent leftover domains.",
     "MadKudu / Thorn / Deft / Textel / Adaptive Mobile still Cloudflare 403 — do not invent leftover domains",
     "sendgrid→twilio and looker→google left untouched — redirect alone is not enough",
     "madkudu→hg-insights still refused; help/docs hosts print HG Insights; madkudu.com still 403",
-    "groove.co→clari — Clari not on the register; redirect alone is not enough",
-    "intersections→aura — aura.com does not print Intersections",
+    "groove.co→clari — Clari not on the register; homepage now titles Clari; redirect alone is not enough",
+    "intersections→aura — aura.com does not print Intersections; intersections.com http-0",
     "adaptive-mobile→csg-international — CSG homepage does not print Adaptive Mobile",
     "code42→mimecast, perimeter-81→check-point, rfpio→responsive still refused",
-    "AML RightSource Q-Mark (ISO 27001) image alt also prints on 404 — CEQUENS rule",
-    "e-Core ISO-27001 is a best-practices list, not a certification hold",
-    "NETSTARS 設立 2009 is Japanese established copy the year parser does not accept — left open",
-    "Concentrix /trust-center is JS chrome titled Concentrix, same as 404",
-    "CyberSource About 'simplify PCI DSS compliance' also prints on 404 — filed PCI only from the DPA certified-as-compliant sentence",
+    "bluebeam.com/security and legal/security / DPA / privacy are Cloudflare 403 this cut — expand Official-page URLs left unread",
+    "trust.modeln.com is SafeBase — not an Official page and not a mark source",
+    "Model N DPF card phrasing did not match the existing self-cert parser — left open",
+    "Cprime privacy prints actively undergoing SOC 2 Type 2 certification process — not a hold. Not filed.",
+    "Auth0 /security 301s to Okta SafeBase. Do not copy Okta onto the Auth0 shell.",
+    "Gainsight / PostHog / LeanData trust hosts are SafeBase. LangChain trust is Vanta. Unread.",
+    "Mailchimp /about/security is JS chrome with no named marks. Not filed as Official page.",
+    "AccessPay about prints 2012 | AccessPay is founded — year parser rejects the pipe timeline. Left open.",
+    "Claranet about-us prints 1996 - 1997 Established — date-range timeline. Left open.",
     "Preferred C0 403s: TransUnion, InTouchCX, Foundever, Global Payments, InMoment, Sift, Mastercard"
   ]
 }
