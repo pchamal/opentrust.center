@@ -288,6 +288,16 @@ def main() -> int:
     check(REGISTER_ALIASES["sendgrid"] == "twilio", "sendgrid aliases to twilio")
     check(canonical_processor_id("looker", {**register, "google": register["google"]}) == "google", "Looker is Google")
     check(REGISTER_ALIASES["looker"] == "google", "looker aliases to google")
+    light_reg4 = {**register, "lightspeed-commerce": {"slug": "lightspeed-commerce", "name": "Lightspeed Commerce", "domain": "lightspeedhq.com"}}
+    check(canonical_processor_id("shopkeep", light_reg4) == "lightspeed-commerce", "ShopKeep is Lightspeed")
+    check(canonical_processor_id("shopkeep-com", light_reg4) == "lightspeed-commerce", "shopkeep.com is Lightspeed")
+    check(REGISTER_ALIASES["shopkeep"] == "lightspeed-commerce", "shopkeep aliases to lightspeed-commerce")
+    sap_reg = {**register, "sap": {"slug": "sap", "name": "SAP", "domain": "sap.com"}}
+    check(canonical_processor_id("calliduscloud", sap_reg) == "sap", "CallidusCloud is SAP")
+    check(REGISTER_ALIASES["calliduscloud"] == "sap", "calliduscloud aliases to sap")
+    gh_reg = {**register, "github": {"slug": "github", "name": "GitHub", "domain": "github.com"}}
+    check(canonical_processor_id("semmle", gh_reg) == "github", "Semmle is GitHub")
+    check(REGISTER_ALIASES["semmle"] == "github", "semmle aliases to github")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 
