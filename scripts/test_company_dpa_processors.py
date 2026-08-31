@@ -349,6 +349,60 @@ def main() -> int:
     check("ionos" not in arsys_html.lower(), "arsys dossier does not copy IONOS")
     check("https://www.arsys.es/" in arsys_html, "arsys dossier keeps arsys.es")
 
+    # This cut: Namely first-party Data Processing Addendum. Annex III names four
+    # EU/UK sub-processors. Official page stays open. Conversocial is not Verint.
+    check(
+        instrument_url(by_pub["namely"], "dpa")
+        == "https://namely.com/legal/data-processing-addendum/",
+        "namely DPA stays the first-party Data Processing Addendum",
+    )
+    check((by_pub["namely"].get("file") or {}).get("dpa") == 20, "namely DPA prints")
+    check((by_pub["namely"].get("file") or {}).get("subprocessors") == 20, "namely Annex III processors print")
+    check((by_pub["namely"].get("file") or {}).get("page") in (0, False, None), "namely Official page stays open")
+    check((by_pub["namely"].get("file") or {}).get("marks") in (0, False, None), "namely marks stay open")
+    check((by_pub["namely"].get("file") or {}).get("years") in (0, False, None), "namely years stay open")
+    namely_names = [p.get("name") for p in (by_pub["namely"].get("processors") or [])]
+    namely_slugs = [p.get("slug") for p in (by_pub["namely"].get("processors") or [])]
+    check("Amazon Web Services, Inc." in namely_names, "namely names Amazon Web Services, Inc.")
+    check("HubSpot, Inc." in namely_names, "namely names HubSpot, Inc.")
+    check("Google (Alphabet, Inc.)" in namely_names, "namely names Google (Alphabet, Inc.)")
+    check("Salesforce, Inc." in namely_names, "namely names Salesforce, Inc.")
+    check(
+        namely_slugs == ["amazon-web-services", "hubspot", "google", "salesforce"],
+        f"namely processor slugs {namely_slugs}",
+    )
+    check(len(namely_names) == 4, f"namely printed 4 Annex III processors, got {len(namely_names)}")
+    namely_html = (ROOT / "site" / "c" / "namely.html").read_text(encoding="utf-8")
+    check(
+        "https://namely.com/legal/data-processing-addendum/" in namely_html,
+        "namely dossier keeps the DPA URL",
+    )
+    check("./amazon-web-services.html\">Amazon Web Services" in namely_html, "namely AWS cross-links to the existing file")
+    check("./hubspot.html\">HubSpot" in namely_html, "namely HubSpot cross-links to the existing file")
+    check("./google.html\">Google" in namely_html, "namely Google cross-links to the existing file")
+    check("./salesforce.html\">Salesforce" in namely_html, "namely Salesforce cross-links to the existing file")
+    check(
+        (by_enr["namely"].get("links") or {}).get("dpa")
+        == "https://namely.com/legal/data-processing-addendum/",
+        "namely enriched DPA URL stays",
+    )
+    check(by_pub["conversocial"]["domain"] == "conversocial.com", "conversocial official domain stays conversocial.com")
+    check(by_pub["conversocial"].get("found") is False, "conversocial Verint product page is not Official page")
+    check(
+        sum(int((by_pub["conversocial"].get("file") or {}).get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years")) == 0,
+        "conversocial Completeness is 0",
+    )
+    conversocial_html = (ROOT / "site" / "c" / "conversocial.html").read_text(encoding="utf-8")
+    check("<h1>Conversocial</h1>" in conversocial_html, "conversocial dossier is its own file")
+    check("verint" not in conversocial_html.lower(), "conversocial dossier does not copy Verint")
+    check((by_pub["verint-systems"].get("found") is True), "verint-systems file stays on its own row")
+    for slug in ("emplifi", "letgo", "digital-assembly"):
+        check(by_pub[slug].get("found") is False, f"{slug} usual paths did not invent Official page")
+        check(
+            sum(int((by_pub[slug].get("file") or {}).get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years")) == 0,
+            f"{slug} Completeness is 0",
+        )
+
     print(
         f"ok increment-dpa privacy-page-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"

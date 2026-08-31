@@ -726,6 +726,23 @@ def main() -> int:
         kept == ["ISO 27001", "ISO 9001", "ISO 22301", "ISO 20000-1"],
         f"Softcat about-us four ISO holds stay: {kept} {why}",
     )
+    check((by_pub["kumospace"].get("certs") or []) == ["SOC 2"], f"kumospace certs {by_pub['kumospace'].get('certs')}")
+    check("HIPAA" not in (by_pub["kumospace"].get("certs") or []), "kumospace paid-plan HIPAA stays open")
+    check("GDPR" not in (by_pub["kumospace"].get("certs") or []), "kumospace GDPR-compliant copy stays open")
+    check((by_pub["kumospace"].get("file") or {}).get("marks") == 20, "kumospace SOC 2 prints")
+    check((by_pub["kumospace"].get("file") or {}).get("page") == 20, "kumospace Official page prints")
+    check(by_pub["kumospace"].get("found") is True, "kumospace Official page is on file")
+    check(
+        by_pub["kumospace"].get("trust_url") == "https://www.kumospace.com/security",
+        "kumospace Official page is first-party /security",
+    )
+    check(
+        ((by_pub["kumospace"].get("instruments") or {}).get("privacy") or {}).get("url")
+        == "https://www.kumospace.com/privacy",
+        "kumospace privacy URL stays on file",
+    )
+    check((by_pub["kumospace"].get("file") or {}).get("dpa") in (0, False, None), "kumospace DPA stays open")
+    check((by_pub["kumospace"].get("file") or {}).get("years") in (0, False, None), "kumospace years stay open")
     for slug in ("canonical", "beck-technology", "world-labs", "synap", "lime-technologies", "inmobi"):
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check("Official page" in html, f"{slug} still prints Official page")

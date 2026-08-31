@@ -314,6 +314,9 @@ def main() -> int:
     check(REGISTER_ALIASES["deepl-deepl-com"] == "deepl", "deepl-deepl-com aliases to deepl")
     check("arsys" not in REGISTER_ALIASES, "Arsys is not aliased to IONOS")
     check(REGISTER_ALIASES.get("arsys") != "ionos", "arsys must not map to ionos")
+    check("conversocial" not in REGISTER_ALIASES, "Conversocial is not aliased to Verint")
+    check(REGISTER_ALIASES.get("conversocial") != "verint-systems", "conversocial must not map to verint-systems")
+    check(REGISTER_ALIASES.get("conversocial") != "khoros", "conversocial must not map to khoros")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 
