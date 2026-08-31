@@ -1,15 +1,15 @@
 {
-  "generated": "2026-08-31T19:30:00Z",
-  "register": 4447,
-  "origin_main": "3796e27dec",
+  "generated": "2026-08-31T20:15:00Z",
+  "register": 4492,
+  "origin_main": "3934060b9a3d",
   "mode": "leftover-plus-c0-fills",
-  "leftovers_min1": 31,
-  "leftovers_after": 35,
+  "leftovers_min1": 35,
+  "leftovers_after": 33,
   "remaining_ge2": 0,
   "remaining_ge2_slugs": [],
   "aliases_added": [
-    "perimeter-81 → check-point",
-    "perimeter81 → check-point"
+    "rfpio → responsive",
+    "deepl-deepl-com → deepl"
   ],
   "aliases_kept": [
     "shopkeep → lightspeed-commerce",
@@ -19,7 +19,8 @@
     "looker → google",
     "popout → shippo",
     "groove-networks-dba-groove → clari",
-    "perimeter-81 → check-point"
+    "perimeter-81 → check-point",
+    "rfpio → responsive"
   ],
   "aliases_refused": [
     {
@@ -35,87 +36,174 @@
     {
       "from": "madkudu",
       "to": "hg-insights",
-      "reason": "docs.madkudu.com / help.madkudu.com still print HG Insights Platform Help Center. madkudu.com is Cloudflare 403. hginsights.com is Cloudflare 403 on homepage, trust, security, and privacy. HG Insights cannot be filed this cut. Do not invent a domain or alias onto an empty shell."
+      "reason": "docs.madkudu.com / help.madkudu.com still print HG Insights Platform Help Center. madkudu.com and hginsights.com still Cloudflare 403. HG Insights cannot be filed this cut. Do not invent a domain or alias onto an empty shell."
     },
     {
       "from": "intersections",
       "to": "aura",
-      "reason": "aura.com prints Aura, not Intersections. Do not invent an alias."
+      "reason": "aura.com homepage and /about print Aura, not Intersections. Do not invent an alias."
     },
     {
       "from": "adaptive-mobile",
       "to": "csg-international",
-      "reason": "CSG International is on the register (csgi.com). Homepage titles CSG | Customer Engagement, Billing & Payment Solutions and does not print Adaptive Mobile. adaptivemobile.com is Cloudflare 403. Destination must print the acquired name."
+      "reason": "CSG International is on the register (csgi.com). Homepage titles CSG | Customer Engagement, Billing & Payment Solutions and does not print Adaptive Mobile. Destination must print the acquired name."
     },
     {
       "from": "code42",
       "to": "mimecast",
-      "reason": "Still refused. code42.com 301s to Mimecast Incydr. Mimecast homepage and Incydr HTML do not print Code42."
+      "reason": "Still refused. Mimecast homepage and Incydr HTML do not print Code42."
     },
     {
-      "from": "rfpio",
-      "to": "responsive",
-      "reason": "Still refused. rfpio.com 301s to responsive.io. Responsive is not on the register."
+      "from": "samknows",
+      "to": "ookla",
+      "reason": "samknows.com Access Denied 403. ookla.com homepage and about do not print SamKnows. Do not invent an alias."
     }
   ],
-  "newly_filed": [],
-  "c0_fills": [],
-  "expand_fills": [
+  "newly_filed": [
     {
-      "slug": "plume",
-      "named_by": 0,
-      "completeness_before": 50,
+      "slug": "responsive",
+      "name": "Responsive",
+      "domain": "responsive.io",
+      "named_by": 1,
+      "completeness_before": null,
       "completeness_after": 60,
-      "marks": [],
-      "processors_url": "https://www.plume.com/legal/subprocessors/",
-      "processor_count": 19,
+      "score_after": 26,
+      "tier_after": "silent",
+      "page": null,
+      "marks": [
+        "EU-US DPF"
+      ],
+      "marks_url": "https://www.responsive.io/legal/privacy-policy",
+      "privacy": "https://www.responsive.io/legal/privacy-policy",
+      "dpa": "https://www.responsive.io/legal/dpa",
+      "processors_url": "https://www.responsive.io/legal/dpa-sub-processor-list",
+      "processor_count": 9,
       "left_open": [
-        "Named processors parsed from the first-party Subcontractor Name table. Section header Mobile Apps dropped.",
-        "DPA paths 404. Years: about HTML prints no founded/established sentence the parser accepts.",
-        "ISO 27001 / ISO 27701 already on file. GDPR already stored; not newly filed."
+        "rfpio.com 301s to www.responsive.io, titled #1 AI RFP Software & G2 Market Leader, which prints RFPIO. About titles Driving Your Success Is Our Mission | Responsive and prints We've always been Responsive. Now it's official. plus 2015 RFPIO founded. DPA HTML names RFPIO, Inc. d/b/a Responsive. Official domain from first-party HTML. Filed as a new parent. Do not copy this file onto the empty rfpio shell.",
+        "Privacy Policy | Responsive at /legal/privacy-policy. Responsive has certified to the U.S. Department of Commerce that it adheres to the EU-U.S. Data Privacy Framework Principles. Filed EU-US DPF. GDPR Compliant / CCPA Compliant on /product/security stay open.",
+        "Data Processing Addendum (DPA) | Responsive at /legal/dpa. First-party HTML. Filed.",
+        "Sub Processor List | Responsive at /legal/dpa-sub-processor-list. Nine named processors from the Entity Name tables. RFPIO India Private Limited dropped as the same company. Section headers dropped.",
+        "Official page left open. trust.responsive.io is a JS shell (Please enable JavaScript). /product/security is a product pitch (Respond with confidence / Request demo). /product/trust-center is a Trust Center product. AICPA SOC2 / ISO 27001 / ISO 27701 / ISO 42001 / STAR Level 1 on the product page not filed.",
+        "Years left open. About prints 2015 RFPIO founded plus 2021 / 2024 / 2025 milestones. Parser would not take a unique year."
+      ]
+    },
+    {
+      "slug": "ookla",
+      "name": "Ookla",
+      "domain": "ookla.com",
+      "named_by": 1,
+      "completeness_before": null,
+      "completeness_after": 20,
+      "score_after": 10,
+      "tier_after": "silent",
+      "page": null,
+      "marks": [
+        "EU-US DPF"
+      ],
+      "marks_url": "https://www.ookla.com/privacy",
+      "privacy": "https://www.ookla.com/privacy",
+      "left_open": [
+        "Homepage titles Ookla® | Unmatched network and connectivity insights. About titles About | Ookla®. Official domain from first-party HTML that prints Ookla. Plume leftover.",
+        "Ookla Privacy Policy at /privacy. Ookla has certified to the U.S. Department of Commerce that it adheres to the EU-U.S. Data Privacy Framework Principles. 404 chrome does not print DPF — not CEQUENS. Filed EU-US DPF. GDPR on the same page is not a certification hold.",
+        "Trust / security / DPA / subprocessors 404. About prints no founded year the parser accepts. Do not alias onto Accenture — Accenture pages do not print Ookla."
+      ]
+    },
+    {
+      "slug": "cognitive-systems",
+      "name": "Cognitive Systems",
+      "domain": "cognitivesystems.com",
+      "named_by": 1,
+      "completeness_before": null,
+      "completeness_after": 0,
+      "score_after": 0,
+      "tier_after": "silent",
+      "page": null,
+      "marks": [],
+      "left_open": [
+        "Homepage titles Spatial Intelligence Platform | Cognitive Systems. Official domain from first-party HTML that prints the leftover name. Visible body is the title only — JS shell. Instruments stay open."
+      ]
+    },
+    {
+      "slug": "prowritingaid",
+      "name": "ProWritingAid",
+      "domain": "prowritingaid.com",
+      "named_by": 1,
+      "completeness_before": null,
+      "completeness_after": 0,
+      "score_after": 0,
+      "tier_after": "silent",
+      "page": null,
+      "marks": [],
+      "left_open": [
+        "Responsive's first-party Sub Processor List prints ProWritingAid prowritingaid.com. Homepage titles ProWritingAid | The Complete Toolkit for Storytellers. Official domain from first-party HTML. Usual privacy/security paths 404/405. GDPR on the lander is not a hold. Instruments stay open."
+      ]
+    },
+    {
+      "slug": "devrev",
+      "name": "DevRev",
+      "domain": "devrev.ai",
+      "named_by": 1,
+      "completeness_before": null,
+      "completeness_after": 0,
+      "score_after": 0,
+      "tier_after": "silent",
+      "page": null,
+      "marks": [],
+      "left_open": [
+        "Responsive's first-party Sub Processor List prints DevRev https://devrev.ai/. Official domain from that first-party table. Homepage and usual paths 429 Vercel Security Checkpoint. Instruments stay open."
       ]
     }
   ],
+  "c0_fills": [
+    {
+      "slug": "accenture",
+      "named_by": 1,
+      "completeness_before": 20,
+      "completeness_after": 20,
+      "score_after": 10,
+      "tier_after": "silent",
+      "marks": [
+        "ISO 27001"
+      ],
+      "marks_url": "https://www.accenture.com/us-en/support/privacy-policy",
+      "privacy_already": "https://www.accenture.com/us-en/support/privacy-policy",
+      "left_open": [
+        "Privacy Statement HTML prints We hold an ISO27001 certification. 404 chrome does not print 27001 — not CEQUENS. Filed ISO 27001 next to marketplace CSA STAR and TX-RAMP already on the public file. Completeness stays 20.",
+        "/security bounced to cybersecurity consulting services — product pitch. No Official page. DPA paths not filed. Years left open."
+      ]
+    }
+  ],
+  "expand_fills": [],
   "preferred_c0_left_open": [
     {
-      "slug": "vonage",
-      "named_by": 8,
-      "reason": "Usual paths http-0 / 403. vonage.safebase.io is a portal host."
-    },
-    {
-      "slug": "netsuite",
-      "named_by": 7,
-      "reason": "Usual paths http-0 / 403. netsuite.safebase.io is a portal host."
-    },
-    {
-      "slug": "equinix",
-      "named_by": 7,
-      "reason": "equinix.com Access Denied 403 on trust, security, compliance, and about-us. CSA STAR already on file."
-    },
-    {
-      "slug": "taskus",
-      "named_by": 4,
-      "reason": "taskus.com Cloudflare 403 on homepage and usual paths."
-    },
-    {
-      "slug": "vultr",
-      "named_by": 4,
-      "reason": "Usual paths http-0 / 403."
-    },
-    {
-      "slug": "reversing-labs",
+      "slug": "sutherland-global-services",
       "named_by": 2,
-      "reason": "/trust is a Next.js JS shell with empty title. HIPAA on /healthcare-cybersecurity is industry copy (enforce HIPAA compliance). Not a hold."
+      "reason": "Homepage and about-us titles readable; about-us visible body is title-only JS shell. Privacy already stored. /security bounced to an SVG. No named marks or founded year."
     },
     {
-      "slug": "visa",
+      "slug": "sumit-ai",
       "named_by": 2,
-      "reason": "Preferred C0 left open last cut. No new first-party instrument this cut."
+      "reason": "sumit-ai.com Cloudflare 403 / Just a moment on homepage and usual paths."
     },
     {
-      "slug": "transunion-formerly-neustar-information-services",
+      "slug": "constella-intelligence",
+      "named_by": 2,
+      "reason": "Homepage SOC 2 is still product-pitch compliance copy. /dpa bounced to a blog post. Not re-filed."
+    },
+    {
+      "slug": "filestack",
+      "named_by": 2,
+      "reason": "/security bounced to /features/#security — product page, already refused. 404 chrome prints SOC 2 — CEQUENS. Not filed."
+    },
+    {
+      "slug": "hive",
+      "named_by": 5,
+      "reason": "Thin Completeness-20 (years). /policy-documents/security and privacy title the product lander — Framer JS shell. No new first-party instrument."
+    },
+    {
+      "slug": "telesign",
       "named_by": 3,
-      "reason": "Preferred C0 left open last cut. Not re-touched."
+      "reason": "Thin Completeness-20 (ISO 27001 already on file). Usual paths Cloudflare 403 / Just a moment."
     }
   ],
   "standing_skips": [
@@ -136,26 +224,23 @@
     "thorn",
     "deft"
   ],
-  "new_leftovers_from_plume": [
-    "ookla",
-    "samknows",
+  "leftovers_still_domainless": [
     "branch-metrics",
-    "cognitive-systems"
+    "samknows"
   ],
   "refused_this_cut": [
-    "Leftover source lists print name + purpose + location, never an official domain. Do not invent leftover domains.",
-    "True-missing named_by ≥2 is empty. Original leftovers stay at 31. Plume's table added four named-by-1 leftovers without official domains (Ookla, SamKnows, Branch Metrics, Cognitive Systems). Leftover count 31 → 35.",
+    "True-missing named_by ≥2 stays empty. Leftovers 35 → 33 after filing Ookla and Cognitive Systems with official domains from first-party HTML.",
+    "SamKnows: samknows.com Access Denied 403. ookla.com does not print SamKnows. Do not invent a domain or alias.",
+    "Branch Metrics: branch.io Cloudflare 403 on homepage, about, legal, privacy, and security. Do not invent a domain.",
     "MadKudu / HG Insights / Thorn / Deft / Textel / Adaptive Mobile still Cloudflare 403 — do not invent leftover domains",
     "sendgrid→twilio and looker→google left untouched — redirect alone is not enough",
     "madkudu→hg-insights still refused; help/docs hosts print HG Insights; madkudu.com and hginsights.com still 403",
     "intersections→aura — aura.com does not print Intersections",
     "adaptive-mobile→csg-international — CSG homepage does not print Adaptive Mobile",
     "code42→mimecast still refused — Incydr / Mimecast HTML does not print Code42",
-    "rfpio→responsive still refused — Responsive is not on the register",
-    "C0 named-processor walk is an honest zero-fill. Vonage / NetSuite / TaskUs / Vultr / Sumit AI unreadable. Reversing Labs /trust is a JS shell; healthcare HIPAA is industry copy.",
-    "Walker-proposed Official pages refused: SupportZebra /trust is a WordPress blog post; Filestack /features is a product page; Beetexting SMS checklist is a blog; Cognizant /security is empty; Grab /sg/security-guide-driver is a driver guide; Webroot Chromebook product; Tata Communications cyber-security-solutions pitch; Runware /trust is a Next.js shell; AccessPay UK SOx Resource Hub is a sold service; Cprime /learning/certifications is a training catalog and privacy still prints undergoing SOC 2; Black Diamond /security is an 83-byte lander.",
-    "Appen SOC 2 & ISO 27001 certified prints on 404 chrome — CEQUENS. trust.appen.com is UpGuard. DPA 404.",
-    "Bluebeam usual paths Cloudflare 403. Playlist trust is SafeBase. Quest trust is Vanta.",
-    "Preferred C0 left open last cut (Visa, TransUnion, InTouchCX, Foundever, Global Payments, InMoment, Sift, Mastercard) were not re-touched."
+    "rfpio→responsive now filed. Responsive is on the register. Empty rfpio shell left untouched.",
+    "Walker-proposed Official pages still refused: SupportZebra /trust blog, Filestack /features, Beetexting SMS checklist, Cognizant /security empty, Grab driver guide, Webroot Chromebook product, Tata Communications cyber-security-solutions pitch, Runware /trust JS shell, AccessPay UK SOx Resource Hub, Cprime /learning/certifications (privacy still says undergoing SOC 2), Black Diamond /security 83-byte lander.",
+    "Standing 403 / portal C0 named processors not re-walked: vonage, netsuite, equinix, taskus, vultr, reversing-labs, visa, transunion, intouchcx, foundever, global-payments, inmoment, sift, mastercard.",
+    "Appen / Bluebeam / Playlist / Quest / Plume DPA not retried."
   ]
 }

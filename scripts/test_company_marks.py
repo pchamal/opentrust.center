@@ -652,6 +652,19 @@ def main() -> int:
     )
     check("SOX" not in (by_pub["protiviti"].get("certs") or []), "protiviti 404 SOX chrome stays open")
     check((by_pub["protiviti"].get("file") or {}).get("marks") == 20, "protiviti marks print")
+    check(
+        {"CSA STAR", "TX-RAMP", "ISO 27001"} <= set(by_pub["accenture"].get("certs") or []),
+        f"accenture keeps marketplace marks and first-party ISO 27001 {by_pub['accenture'].get('certs')}",
+    )
+    check("GDPR" not in (by_pub["accenture"].get("certs") or []), "accenture privacy GDPR stays open")
+    check((by_pub["ookla"].get("certs") or []) == ["EU-US DPF"], f"ookla certs {by_pub['ookla'].get('certs')}")
+    check("GDPR" not in (by_pub["ookla"].get("certs") or []), "ookla privacy GDPR stays open")
+    check((by_pub["ookla"].get("file") or {}).get("marks") == 20, "ookla DPF prints")
+    check((by_pub["responsive"].get("certs") or []) == ["EU-US DPF"], f"responsive certs {by_pub['responsive'].get('certs')}")
+    check("SOC 2" not in (by_pub["responsive"].get("certs") or []), "responsive product-page SOC stays open")
+    check("ISO 27001" not in (by_pub["responsive"].get("certs") or []), "responsive product-page ISO stays open")
+    check("GDPR" not in (by_pub["responsive"].get("certs") or []), "responsive GDPR-compliant copy stays open")
+    check((by_pub["rfpio"].get("certs") or []) == [], "empty rfpio shell does not copy Responsive marks")
     for slug in ("canonical", "beck-technology", "world-labs", "synap", "lime-technologies", "inmobi"):
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check("Official page" in html, f"{slug} still prints Official page")

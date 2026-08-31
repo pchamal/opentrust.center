@@ -2281,7 +2281,7 @@
     },
     {
       "id": "6sense",
-      "name": "6Sense",
+      "name": "6sense",
       "domain": "6sense.com",
       "kind": "company",
       "in_register": true
@@ -2344,7 +2344,7 @@
     },
     {
       "id": "demicon",
-      "name": "Demicon",
+      "name": "demicon",
       "domain": "demicon.com",
       "kind": "company",
       "in_register": true
@@ -2379,7 +2379,7 @@
     },
     {
       "id": "corewire",
-      "name": "Corewire",
+      "name": "corewire",
       "domain": "corewire.de",
       "kind": "company",
       "in_register": true
@@ -4094,7 +4094,7 @@
     },
     {
       "id": "8x8",
-      "name": "8X8",
+      "name": "8x8",
       "domain": "8x8.com",
       "kind": "company",
       "in_register": true
@@ -6222,7 +6222,7 @@
     },
     {
       "id": "hims",
-      "name": "Hims",
+      "name": "hims",
       "domain": "forhims.com",
       "kind": "company",
       "in_register": true
@@ -6299,7 +6299,7 @@
     },
     {
       "id": "wework",
-      "name": "Wework",
+      "name": "wework",
       "domain": "wework.com",
       "kind": "company",
       "in_register": true
@@ -6852,7 +6852,7 @@
     },
     {
       "id": "360insights",
-      "name": "360Insights",
+      "name": "360insights",
       "domain": "360insights.com",
       "kind": "company",
       "in_register": true
@@ -8314,13 +8314,6 @@
       "in_register": true
     },
     {
-      "id": "rfpio",
-      "name": "RFPIO",
-      "domain": "rfpio.com",
-      "kind": "company",
-      "in_register": true
-    },
-    {
       "id": "worketics-it-solutions",
       "name": "Worketics IT Solutions",
       "domain": "worketics.com",
@@ -8602,7 +8595,7 @@
     },
     {
       "id": "ipdata",
-      "name": "Ipdata",
+      "name": "ipdata",
       "domain": "ipdata.co",
       "kind": "company",
       "in_register": true
@@ -12039,7 +12032,7 @@
     },
     {
       "id": "depthfirst",
-      "name": "Depthfirst",
+      "name": "depthfirst",
       "domain": "depthfirst.com",
       "kind": "company",
       "in_register": true
@@ -15364,7 +15357,7 @@
     },
     {
       "id": "iboss",
-      "name": "Iboss",
+      "name": "iboss",
       "domain": "iboss.com",
       "kind": "company",
       "in_register": true
@@ -19529,7 +19522,7 @@
     },
     {
       "id": "8i",
-      "name": "8I",
+      "name": "8i",
       "domain": "8i.com",
       "kind": "company",
       "in_register": true
@@ -22056,7 +22049,7 @@
     },
     {
       "id": "3scale",
-      "name": "3Scale",
+      "name": "3scale",
       "domain": "3scale.net",
       "kind": "company",
       "in_register": true
@@ -23764,7 +23757,7 @@
     },
     {
       "id": "7shifts",
-      "name": "7Shifts",
+      "name": "7shifts",
       "domain": "7shifts.com",
       "kind": "company",
       "in_register": true
@@ -30127,10 +30120,10 @@
     },
     {
       "id": "ookla",
-      "name": "Ookla, LLC",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "Ookla",
+      "domain": "ookla.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "plume",
@@ -30148,10 +30141,10 @@
     },
     {
       "id": "cognitive-systems",
-      "name": "Cognitive Systems Corp",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "Cognitive Systems",
+      "domain": "cognitivesystems.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "branch-metrics",
@@ -30159,6 +30152,27 @@
       "domain": "",
       "kind": "processor",
       "in_register": false
+    },
+    {
+      "id": "responsive",
+      "name": "Responsive",
+      "domain": "responsive.io",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "prowritingaid",
+      "name": "ProWritingAid",
+      "domain": "prowritingaid.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "devrev",
+      "name": "DevRev",
+      "domain": "devrev.ai",
+      "kind": "company",
+      "in_register": true
     }
   ],
   "edges": [
@@ -41096,7 +41110,7 @@
     },
     {
       "from": "meltwater",
-      "to": "rfpio",
+      "to": "responsive",
       "source_url": "https://www.meltwater.com/en/privacy/subprocessors",
       "evidence": "RFPIO"
     },
@@ -46037,6 +46051,60 @@
       "to": "branch-metrics",
       "source_url": "https://www.plume.com/legal/subprocessors/",
       "evidence": "Branch Metrics, Inc"
+    },
+    {
+      "from": "responsive",
+      "to": "amazon-web-services",
+      "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list",
+      "evidence": "Amazon Web Services (“AWS”) aws.amazon.com"
+    },
+    {
+      "from": "responsive",
+      "to": "mongodb",
+      "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list",
+      "evidence": "MongoDB mongodb.com"
+    },
+    {
+      "from": "responsive",
+      "to": "zendesk",
+      "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list",
+      "evidence": "Zendesk zendesk.com"
+    },
+    {
+      "from": "responsive",
+      "to": "devrev",
+      "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list",
+      "evidence": "DevRev https://devrev.ai/"
+    },
+    {
+      "from": "responsive",
+      "to": "google",
+      "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list",
+      "evidence": "Google Cloud cloud.google.com"
+    },
+    {
+      "from": "responsive",
+      "to": "microsoft",
+      "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list",
+      "evidence": "Microsoft Azure azure.microsoft.com"
+    },
+    {
+      "from": "responsive",
+      "to": "deepl",
+      "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list",
+      "evidence": "DeepL deepl.com"
+    },
+    {
+      "from": "responsive",
+      "to": "prowritingaid",
+      "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list",
+      "evidence": "ProWritingAid prowritingaid.com"
+    },
+    {
+      "from": "responsive",
+      "to": "openai",
+      "source_url": "https://www.responsive.io/legal/dpa-sub-processor-list",
+      "evidence": "OpenAI openai.com"
     }
   ],
   "aliases": {
@@ -46460,6 +46528,8 @@
     "calliduscloud": "sap",
     "semmle": "github",
     "groove-networks-dba-groove": "clari",
-    "perimeter-81": "check-point"
+    "perimeter-81": "check-point",
+    "rfpio": "responsive",
+    "deepl-deepl-com": "deepl"
   }
 }

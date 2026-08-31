@@ -306,6 +306,12 @@ def main() -> int:
     check(canonical_processor_id("perimeter81", cp_reg) == "check-point", "perimeter81 is Check Point")
     check(REGISTER_ALIASES["perimeter-81"] == "check-point", "perimeter-81 aliases to check-point")
     check(REGISTER_ALIASES["perimeter81"] == "check-point", "perimeter81 aliases to check-point")
+    resp_reg = {**register, "responsive": {"slug": "responsive", "name": "Responsive", "domain": "responsive.io"}}
+    check(canonical_processor_id("rfpio", resp_reg) == "responsive", "RFPIO is Responsive")
+    check(REGISTER_ALIASES["rfpio"] == "responsive", "rfpio aliases to responsive")
+    deepl_reg = {**register, "deepl": {"slug": "deepl", "name": "DeepL", "domain": "deepl.com"}}
+    check(canonical_processor_id("deepl-deepl-com", deepl_reg) == "deepl", "DeepL deepl.com is DeepL")
+    check(REGISTER_ALIASES["deepl-deepl-com"] == "deepl", "deepl-deepl-com aliases to deepl")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 

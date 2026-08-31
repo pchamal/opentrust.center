@@ -626,6 +626,18 @@ REGISTER_ALIASES: dict[str, str] = {
     # check-point is on the register. Do not copy Check Point's file
     # onto the empty perimeter-81 shell.
     "perimeter-81": "check-point",
+    # Responsive first-party HTML at www.responsive.io/about titles
+    # "Driving Your Success Is Our Mission | Responsive" and prints
+    # "We've always been Responsive. Now it's official." plus
+    # "2015 RFPIO founded". rfpio.com 301s to www.responsive.io,
+    # titled "#1 AI RFP Software & G2 Market Leader", which prints
+    # RFPIO. DPA HTML names "RFPIO, Inc. d/b/a Responsive".
+    # responsive is on the register. Do not copy Responsive's file
+    # onto the empty rfpio shell.
+    "rfpio": "responsive",
+    # Responsive's first-party subprocessor table prints
+    # "DeepL deepl.com". deepl is on the register.
+    "deepl-deepl-com": "deepl",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
