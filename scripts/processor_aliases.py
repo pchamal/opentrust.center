@@ -169,7 +169,7 @@ REGISTER_ALIASES: dict[str, str] = {
     "verint": "verint-systems",
     "sinch": "sinch-ab",
     "sumologic": "sumo-logic",
-    "perimeter81": "perimeter-81",
+    "perimeter81": "check-point",
     "surveymonkey-momentive": "surveymonkey",
     # Adobe acquired Marketo. adobe is on the register.
     "marketo": "adobe",
@@ -620,6 +620,12 @@ REGISTER_ALIASES: dict[str, str] = {
     # to that Clari homepage. clari is on the register. Do not copy Clari's
     # file onto the empty groove-networks-dba-groove shell.
     "groove-networks-dba-groove": "clari",
+    # Check Point first-party HTML at sase.checkpoint.com titles
+    # "Check Point SASE - Perimeter 81" and prints "Check Point SASE
+    # (Formerly Perimeter 81)" in the meta description and JSON-LD.
+    # check-point is on the register. Do not copy Check Point's file
+    # onto the empty perimeter-81 shell.
+    "perimeter-81": "check-point",
 }
 
 # Published header garbage. Not a company. Do not file or alias.

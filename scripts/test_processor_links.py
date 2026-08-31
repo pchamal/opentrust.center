@@ -129,6 +129,15 @@ def main() -> int:
     check("Amazon Web Services" in zoom_html, "zoom dossier still names AWS")
     liveramp_html = (ROOT / "site" / "c" / "liveramp.html").read_text(encoding="utf-8")
     check(">Date<" not in liveramp_html and "graph.html#p=date\"" not in liveramp_html, "liveramp dropped Date header")
+    sonicwall_html = (ROOT / "site" / "c" / "sonicwall.html").read_text(encoding="utf-8")
+    check(
+        'href="./check-point.html">Perimeter81</a>' in sonicwall_html,
+        "SonicWall Perimeter81 wire lands on the Check Point dossier",
+    )
+    check(
+        'href="./perimeter-81.html">Perimeter81</a>' not in sonicwall_html,
+        "SonicWall does not keep a second Perimeter 81 dossier wire",
+    )
     print("ok")
     return 0
 

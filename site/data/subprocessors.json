@@ -15286,13 +15286,6 @@
       "in_register": true
     },
     {
-      "id": "perimeter-81",
-      "name": "Perimeter 81",
-      "domain": "perimeter81.com",
-      "kind": "company",
-      "in_register": true
-    },
-    {
       "id": "tripwire",
       "name": "Tripwire",
       "domain": "tripwire.com",
@@ -30131,6 +30124,41 @@
       "domain": "clari.com",
       "kind": "company",
       "in_register": true
+    },
+    {
+      "id": "ookla",
+      "name": "Ookla, LLC",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "plume",
+      "name": "Plume",
+      "domain": "plume.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "samknows",
+      "name": "SamKnows LTD",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "cognitive-systems",
+      "name": "Cognitive Systems Corp",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "branch-metrics",
+      "name": "Branch Metrics, Inc",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
     }
   ],
   "edges": [
@@ -36652,7 +36680,7 @@
     },
     {
       "from": "sonicwall",
-      "to": "perimeter-81",
+      "to": "check-point",
       "source_url": "https://www.sonicwall.com/legal/sub-processors",
       "evidence": "Perimeter81"
     },
@@ -45895,6 +45923,120 @@
       "to": "clickhouse",
       "source_url": "https://render.com/security",
       "evidence": "ClickHouse Inc"
+    },
+    {
+      "from": "plume",
+      "to": "amazon-web-services",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "evidence": "AWS, Amazon.com, Inc"
+    },
+    {
+      "from": "plume",
+      "to": "okta",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "evidence": "Okta Inc"
+    },
+    {
+      "from": "plume",
+      "to": "databricks",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "evidence": "Databricks Inc"
+    },
+    {
+      "from": "plume",
+      "to": "fivetran",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "evidence": "Fivetran Inc"
+    },
+    {
+      "from": "plume",
+      "to": "salesforce",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "evidence": "Salesforce, Inc"
+    },
+    {
+      "from": "plume",
+      "to": "maxmind",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "evidence": "MaxMind, Inc"
+    },
+    {
+      "from": "plume",
+      "to": "ookla",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "evidence": "Ookla, LLC"
+    },
+    {
+      "from": "plume",
+      "to": "samknows",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "evidence": "SamKnows LTD"
+    },
+    {
+      "from": "plume",
+      "to": "braze",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "evidence": "Braze Inc"
+    },
+    {
+      "from": "plume",
+      "to": "cognitive-systems",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "evidence": "Cognitive Systems Corp"
+    },
+    {
+      "from": "plume",
+      "to": "akamai",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "evidence": "Akamai Technologies Inc"
+    },
+    {
+      "from": "plume",
+      "to": "twilio",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "evidence": "Twilio Inc"
+    },
+    {
+      "from": "plume",
+      "to": "accenture",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "evidence": "Accenture"
+    },
+    {
+      "from": "plume",
+      "to": "google",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "evidence": "Google LLC"
+    },
+    {
+      "from": "plume",
+      "to": "apple",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "evidence": "Apple Inc"
+    },
+    {
+      "from": "plume",
+      "to": "mixpanel",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "evidence": "MixPanel, Inc"
+    },
+    {
+      "from": "plume",
+      "to": "filestack",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "evidence": "Filestack, Inc"
+    },
+    {
+      "from": "plume",
+      "to": "pubnub",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "evidence": "PubNub Inc"
+    },
+    {
+      "from": "plume",
+      "to": "branch-metrics",
+      "source_url": "https://www.plume.com/legal/subprocessors/",
+      "evidence": "Branch Metrics, Inc"
     }
   ],
   "aliases": {
@@ -46037,7 +46179,7 @@
     "verint": "verint-systems",
     "sinch": "sinch-ab",
     "sumologic": "sumo-logic",
-    "perimeter81": "perimeter-81",
+    "perimeter81": "check-point",
     "surveymonkey-momentive": "surveymonkey",
     "marketo": "adobe",
     "sparkpost": "messagebird",
@@ -46317,6 +46459,7 @@
     "popout": "shippo",
     "calliduscloud": "sap",
     "semmle": "github",
-    "groove-networks-dba-groove": "clari"
+    "groove-networks-dba-groove": "clari",
+    "perimeter-81": "check-point"
   }
 }
