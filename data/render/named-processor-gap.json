@@ -1,7 +1,7 @@
 {
-  "generated": "2026-08-31T16:50:00Z",
+  "generated": "2026-08-31T17:45:00Z",
   "register": 4401,
-  "origin_main": "c35b83f807",
+  "origin_main": "b5032fa5ba",
   "mode": "leftover-plus-c0-fills",
   "leftovers_min1": 32,
   "leftovers_after": 32,
@@ -66,67 +66,223 @@
   "newly_filed": [],
   "c0_fills": [
     {
-      "slug": "scylladb",
+      "slug": "lumen-technologies",
       "named_by": 1,
       "completeness_before": 0,
       "completeness_after": 40,
-      "score_after": 56,
+      "score_after": 60,
       "tier_after": "on-file",
-      "page": "https://www.scylladb.com/trust-center/",
+      "page": "https://www.lumen.com/en-us/about/legal/trust-center.html",
       "marks": [
-        "SOC 2",
+        "SOC 2 Type II",
+        "SOC 1 Type II",
         "ISO 27001",
-        "ISO 27017",
-        "ISO 27018",
+        "HIPAA"
+      ],
+      "marks_url": "https://www.lumen.com/en-us/about/legal/trust-center/security-and-compliance/compliance-and-audit.html",
+      "privacy": "https://www.lumen.com/en-us/about/legal/privacy-notice.html",
+      "left_open": [
+        "Official page from first-party HTML titled Trust Center | Lumen. No portal host.",
+        "Compliance and Audit HTML names SOC 1 Type 2 / SOC 2 Type 2 Lumen reports, ISO 27001 Certificate – Lumen, and Lumen HIPAA Technology Solution Services Report. Filed those four.",
+        "Privacy Notice at /en-us/about/legal/privacy-notice.html classifies. Filed.",
+        "processing-lumen-services.html is product Privacy Data Sheets, not a DPA. DPA left open.",
+        "Named processors and years left open."
+      ]
+    },
+    {
+      "slug": "cybersource",
+      "named_by": 2,
+      "completeness_before": 0,
+      "completeness_after": 40,
+      "score_after": 22,
+      "tier_after": "silent",
+      "dpa": "https://www.cybersource.com/en-us/about/dpa.html",
+      "marks": [
         "PCI DSS"
       ],
-      "marks_url": "https://www.scylladb.com/trust-center/",
-      "privacy": "https://www.scylladb.com/privacy/",
+      "marks_url": "https://www.cybersource.com/en-us/about/dpa.html",
       "left_open": [
-        "Official page from first-party HTML titled ScyllaDB Trust Center | ScyllaDB. No portal host.",
-        "Prints ScyllaDB has been certified to be compliant with the following standards: SOC 2, PCI-DSS, ISO 27001, ISO 27017, ISO 27018. Filed those five.",
-        "Privacy Policy at /privacy/ classifies. Filed.",
-        "First-party href to /data-processing-agreement/ is on the privacy and legal-center pages. Destination 429 this cut. DPA left open.",
-        "/data-privacy-framework/ 429 this cut. EU-US DPF left open.",
+        "First-party HTML titled Cybersource Data Processing Agreement | Cybersource. Filed as DPA.",
+        "DPA body prints Cybersource Corporation certified as compliant with PCI DSS applicable to it. Filed PCI DSS from that sentence, not from nav 'simplify PCI DSS compliance' (that product string also prints on 404).",
+        "CCPA / PIPEDA on the DPA are regulation names, not marks. Not filed.",
+        "Privacy 301s to visa.com — not first-party. Not filed.",
+        "No first-party trust/security/compliance Official page. Page left open.",
         "Named processors and years left open."
+      ]
+    },
+    {
+      "slug": "e-core",
+      "named_by": 1,
+      "completeness_before": 0,
+      "completeness_after": 20,
+      "score_after": 16,
+      "tier_after": "silent",
+      "years": 1999,
+      "years_url": "https://www.e-core.com/about",
+      "privacy": "https://www.e-core.com/privacy-policy",
+      "left_open": [
+        "About HTML prints Founded in 1999, e-Core is a global consulting and engineering company. Filed 1999.",
+        "Privacy policy at /privacy-policy classifies. Filed.",
+        "ISO-27001 on that page is 'best practices, such as NIST, SANS, OWASP, ISO-27002, and ISO-27001' — not a certification hold. Marks left open.",
+        "No first-party trust/security/compliance Official page. Page, DPA, and named processors left open."
+      ]
+    },
+    {
+      "slug": "netstars",
+      "named_by": 1,
+      "completeness_before": 0,
+      "completeness_after": 20,
+      "score_after": 14,
+      "tier_after": "silent",
+      "marks": [
+        "PCI DSS"
+      ],
+      "marks_url": "https://www.netstars.co.jp/about/",
+      "privacy": "https://www.netstars.co.jp/privacypolicy/",
+      "left_open": [
+        "Company profile HTML prints PCIDSS Ver4.0.1完全準拠 with registration number SYPQ233UG1TP. Filed PCI DSS. String is not on 404 chrome.",
+        "Privacy policy at /privacypolicy/ classifies. Filed.",
+        "設立 2009年2月12日 is on the same about page. Existing year parser does not accept Japanese 設立. Years left open — do not invent.",
+        "PrivacyMark 認定番号 is not a catalog mark. Not filed.",
+        "No first-party trust/security/compliance Official page. Page, DPA, and named processors left open."
       ]
     }
   ],
   "preferred_c0_left_open": [
     {
+      "slug": "concentrix",
+      "named_by": 3,
+      "reason": "Privacy already stored. /trust-center and /trust are JS chrome titled Concentrix (same as 404). No named marks. About page prints no founded year."
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "named_by": 3,
+      "reason": "transunion.com Cloudflare 403 on privacy, legal/privacy, and about-us"
+    },
+    {
+      "slug": "visa",
+      "named_by": 2,
+      "reason": "Privacy already stored. About and privacy HTML print no named marks, DPA, or founded year"
+    },
+    {
+      "slug": "intouchcx",
+      "named_by": 2,
+      "reason": "intouchcx.com Cloudflare 403 / Just a moment on usual privacy paths"
+    },
+    {
+      "slug": "foundever-operating",
+      "named_by": 2,
+      "reason": "foundever.com Cloudflare 403 / Just a moment on usual privacy paths"
+    },
+    {
+      "slug": "dstny-automate-formerly-qunifi",
+      "named_by": 2,
+      "reason": "Privacy already stored. /security-and-privacy is another privacy page; mentions a data processing agreement but no first-party DPA HTML. About prints no year."
+    },
+    {
+      "slug": "constella-intelligence",
+      "named_by": 2,
+      "reason": "Privacy already stored. /dpa bounced to a blog post. about-us prints no founded year or marks"
+    },
+    {
+      "slug": "global-payments",
+      "named_by": 2,
+      "reason": "globalpayments.com Cloudflare 403 / Just a moment on privacy and compliance paths"
+    },
+    {
+      "slug": "inmoment",
+      "named_by": 2,
+      "reason": "inmoment.com Cloudflare 403 / Just a moment on privacy paths"
+    },
+    {
+      "slug": "sift",
+      "named_by": 1,
+      "reason": "sift.com Cloudflare 403 / Just a moment on privacy and /security"
+    },
+    {
+      "slug": "jack-henry",
+      "named_by": 1,
+      "reason": "Privacy already stored. who-we-are and privacy print no named marks or founded year"
+    },
+    {
+      "slug": "mastercard",
+      "named_by": 1,
+      "reason": "mastercard.com / mastercard.us 403 Access Denied"
+    },
+    {
+      "slug": "fluidstack",
+      "named_by": 1,
+      "reason": "fluidstack.io usual paths 404"
+    },
+    {
+      "slug": "creatify-ai",
+      "named_by": 1,
+      "reason": "/privacy is a JS SPA titled the product lander. No named marks"
+    },
+    {
+      "slug": "nutun",
+      "named_by": 1,
+      "reason": "nutun.com privacy paths 404"
+    },
+    {
+      "slug": "aml-rightsource",
+      "named_by": 1,
+      "reason": "Privacy already stored. Q-Mark (ISO 27001) image alt also prints on 404 chrome — CEQUENS rule. Not filed."
+    },
+    {
+      "slug": "legalinc-com",
+      "named_by": 1,
+      "reason": "legalinc.com paths land on Dashboard | Legalinc login/JS shell"
+    },
+    {
+      "slug": "softserve",
+      "named_by": 1,
+      "reason": "softserveinc.com 302 Loading / 403 on usual paths"
+    },
+    {
+      "slug": "agap2it",
+      "named_by": 1,
+      "reason": "agap2-it.pt usual paths http-0 / 404"
+    },
+    {
+      "slug": "sutherland-global-services",
+      "named_by": 2,
+      "reason": "Privacy already stored. About-us prints no new marks, DPA, or founded year. /security and /compliance are SVG assets."
+    },
+    {
       "slug": "ada",
       "named_by": 6,
-      "reason": "security.ada.cx title is Ada Trust Center | Powered by SafeBase. Portal unread for marks. ada.cx Cloudflare 403"
+      "reason": "Standing skip. security.ada.cx is SafeBase-titled. Portal unread."
     },
     {
       "slug": "exa",
       "named_by": 6,
-      "reason": "trust.exa.ai is an unread portal shell. exa.ai/dpa 302s to an S3 PDF — not first-party HTML"
+      "reason": "Standing skip. DPA PDF on S3."
     },
     {
       "slug": "oracle",
       "named_by": 19,
-      "reason": "Standing skip. Do not copy a parent file"
+      "reason": "Standing skip. Do not copy a parent file."
     },
     {
       "slug": "linkedin",
       "named_by": 5,
-      "reason": "DPA already on file. security.linkedin.com lands on Transparency Center with no named marks."
+      "reason": "Standing skip. DPA already on file. No named marks."
     },
     {
       "slug": "vonage",
       "named_by": 8,
-      "reason": "Standing skip. vonage.com captcha / JS challenge"
+      "reason": "Standing skip."
     },
     {
       "slug": "netsuite",
       "named_by": 7,
-      "reason": "Standing skip. Do not copy Oracle"
+      "reason": "Standing skip. Do not copy Oracle."
     },
     {
       "slug": "equinix",
       "named_by": 7,
-      "reason": "Standing skip. equinix.com unread"
+      "reason": "Standing skip."
     },
     {
       "slug": "sendgrid",
@@ -137,26 +293,6 @@
       "slug": "looker",
       "named_by": 0,
       "reason": "Do not copy Google's file onto the empty looker shell"
-    },
-    {
-      "slug": "taskus",
-      "named_by": 4,
-      "reason": "Usual paths portal-host / unread this cut"
-    },
-    {
-      "slug": "hive",
-      "named_by": 5,
-      "reason": "Framer SPA. Privacy and status already on file. No catalog marks in first-party HTML"
-    },
-    {
-      "slug": "telesign",
-      "named_by": 3,
-      "reason": "telesign.com Cloudflare 403. ISO 27001 already on file. status.telesign.com already stored"
-    },
-    {
-      "slug": "reversing-labs",
-      "named_by": 2,
-      "reason": "Privacy and status already stored. About-page SOC 2 image alt is not a named hold (same refusal already on the clerk line). /security is a JS shell — not Official page. Healthcare HIPAA is product copy."
     }
   ],
   "standing_skips": [
@@ -179,20 +315,20 @@
     "deft"
   ],
   "refused_this_cut": [
+    "No leftover aliases had first-party HTML that prints both names on a register destination",
+    "Leftover source lists print name + purpose + location, never an official domain. Do not invent leftover domains.",
+    "MadKudu / Thorn / Deft / Textel / Adaptive Mobile still Cloudflare 403 — do not invent leftover domains",
     "sendgrid→twilio and looker→google left untouched — redirect alone is not enough",
     "madkudu→hg-insights still refused; help/docs hosts print HG Insights; madkudu.com still 403",
     "groove.co→clari — Clari not on the register; redirect alone is not enough",
     "intersections→aura — aura.com does not print Intersections",
-    "adaptive-mobile→csg-international — CSG homepage does not print Adaptive Mobile; adaptivemobile.com 403",
+    "adaptive-mobile→csg-international — CSG homepage does not print Adaptive Mobile",
     "code42→mimecast, perimeter-81→check-point, rfpio→responsive still refused",
-    "Leftover source lists print name + purpose + location, never an official domain. Do not invent leftover domains.",
-    "GCS on AudioCodes is GCS - Computer Generated Solutions, Romania S.R.L — no printed domain; CGS not on the register",
-    "Consulting / BPO / ambiguous leftover names left empty (Meltwater / GitLab / Sophos / Smartsheet professional-services rows)",
-    "Reversing Labs About-page SOC 2 image alt is not a named hold; /security JS shell is not Official page; healthcare HIPAA is product copy",
-    "Filestack /features, Beetexting SMS compliance resources, and Webroot Chromebook product are not Official pages",
-    "Appen trust.appen.com is UpGuard Trust Center — portal unread. SOC 2 / ISO 27001 strings also print on 404 chrome — same hold refused in #190 / #204 CEQUENS",
-    "CCPA/GDPR regulation names dropped. Footer-badge strings that also print on 404 are not marks",
-    "MadKudu / Thorn / Deft / Textel / Adaptive Mobile still Cloudflare 403 — do not invent leftover domains",
-    "ScyllaDB DPA and Data Privacy Framework destinations 429 this cut — left open"
+    "AML RightSource Q-Mark (ISO 27001) image alt also prints on 404 — CEQUENS rule",
+    "e-Core ISO-27001 is a best-practices list, not a certification hold",
+    "NETSTARS 設立 2009 is Japanese established copy the year parser does not accept — left open",
+    "Concentrix /trust-center is JS chrome titled Concentrix, same as 404",
+    "CyberSource About 'simplify PCI DSS compliance' also prints on 404 — filed PCI only from the DPA certified-as-compliant sentence",
+    "Preferred C0 403s: TransUnion, InTouchCX, Foundever, Global Payments, InMoment, Sift, Mastercard"
   ]
 }
