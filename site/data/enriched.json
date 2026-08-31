@@ -97206,22 +97206,35 @@
       "name": "ScyllaDB",
       "slug": "scylladb",
       "domain": "scylladb.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.scylladb.com/trust-center/",
+      "final_url": "https://www.scylladb.com/trust-center/",
       "vendor": "unknown",
-      "title": "",
-      "probed": 13,
+      "title": "ScyllaDB Trust Center | ScyllaDB",
+      "probed": 40,
       "source": "https://www.optimizely.com/legal/sub-processors/third-party",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2, ISO 27001, ISO 27017, ISO 27018, PCI DSS.",
       "list": "named-processor-gap",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "SOC 2",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "PCI DSS"
+      ],
+      "links": {
+        "trust": "https://www.scylladb.com/trust-center/",
+        "privacy": "https://www.scylladb.com/privacy/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 56,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 30,
+          "privacy": 6
+        }
       }
     },
     {

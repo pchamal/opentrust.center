@@ -1,19 +1,20 @@
 {
-  "generated": "2026-08-29T03:17:39Z",
-  "register": 4321,
-  "origin_main": "3dfa2ec08a",
+  "generated": "2026-08-31T16:50:00Z",
+  "register": 4401,
+  "origin_main": "c35b83f807",
   "mode": "leftover-plus-c0-fills",
-  "leftovers_min1": 30,
-  "leftovers_after": 29,
+  "leftovers_min1": 32,
+  "leftovers_after": 32,
   "remaining_ge2": 0,
   "remaining_ge2_slugs": [],
   "aliases_added": [],
   "aliases_kept": [
-    "aws \u2192 amazon-web-services",
-    "gcp \u2192 google",
-    "azure \u2192 microsoft",
-    "marketo \u2192 adobe",
-    "popout \u2192 shippo (landed on main hourly expand)"
+    "shopkeep → lightspeed-commerce",
+    "calliduscloud → sap",
+    "semmle → github",
+    "sendgrid → twilio",
+    "looker → google",
+    "popout → shippo"
   ],
   "aliases_refused": [
     {
@@ -29,195 +30,65 @@
     {
       "from": "madkudu",
       "to": "hg-insights",
-      "reason": "docs.madkudu.com and help.madkudu.com print HG Insights Platform Help Center. Do not alias or copy the parent file. madkudu.com is Cloudflare 403."
+      "reason": "docs.madkudu.com and help.madkudu.com print HG Insights Platform Help Center. Do not alias or copy the parent file. madkudu.com is Cloudflare 403. HG Insights is not on the register."
     },
     {
       "from": "groove-networks-dba-groove",
       "to": "clari",
-      "reason": "groove.co 301s to clari.com. Clari is not on the register. clari.com/groove is 404. Redirect alone is not enough."
+      "reason": "groove.co 301s to clari.com. Clari is not on the register. Redirect alone is not enough."
     },
     {
       "from": "intersections",
       "to": "aura",
-      "reason": "aura.com prints Aura, not Intersections. Do not invent an alias. intersections.com did not return HTML this cut."
-    }
-  ],
-  "newly_filed": [
+      "reason": "aura.com prints Aura, not Intersections. Do not invent an alias."
+    },
     {
-      "slug": "seon",
-      "name": "SEON",
-      "domain": "seon.io",
-      "named_by": 1,
-      "completeness_before": null,
-      "completeness_after": 0,
-      "score_after": 6,
-      "tier_after": "silent",
-      "status": "https://status.seon.io/",
-      "source": "https://trust.hellobonsai.com/subprocessors",
-      "left_open": [
-        "True-missing leftover. Official domain seon.io from first-party docs HTML titled Dashboard - SEON Docs and trust.seon.io titled SEON Trust Center",
-        "status.seon.io prints SEON. Fraud Fighters status. Filed",
-        "trust.seon.io is a Vanta portal shell (assets.vanta.com). Unread. Official page / marks / DPA / named processors / years left open",
-        "seon.io homepage, /privacy, /legal/dpa, /about, /security are Cloudflare 403 this cut"
-      ]
+      "from": "adaptive-mobile",
+      "to": "csg-international",
+      "reason": "CSG International is on the register (csgi.com). Homepage and usual about paths do not print Adaptive Mobile. adaptivemobile.com is Cloudflare 403. Destination must print the acquired name."
+    },
+    {
+      "from": "code42",
+      "to": "mimecast",
+      "reason": "Still refused. Homepage is Incydr; Mimecast HTML does not print Code42."
+    },
+    {
+      "from": "perimeter-81",
+      "to": "check-point",
+      "reason": "Still refused. WAF 202, no printable first-party hold."
+    },
+    {
+      "from": "rfpio",
+      "to": "responsive",
+      "reason": "Still refused. Responsive is not on the register."
     }
   ],
+  "newly_filed": [],
   "c0_fills": [
     {
-      "slug": "redis",
-      "named_by": 6,
-      "completeness_before": 40,
-      "completeness_after": 60,
-      "score_after": 58,
-      "tier_after": "silent",
-      "marks": [
-        "SOC 2 Type II",
-        "ISO 27001",
-        "ISO 42001",
-        "CSA STAR"
-      ],
-      "marks_url": "https://trust.redis.io/",
-      "dpa_already": "https://redis.io/legal/data-processing-addendum-dpa/",
-      "privacy_already": "https://redis.io/legal/privacy-policy/",
-      "subprocessors_already": "https://redis.io/legal/subprocessors/",
-      "left_open": [
-        "trust.redis.io is SafeBase (__SB_CONFIG__ NEXT_PUBLIC_TRAY_PARTNER_ID=safebase). Portal hosts are never Official page. Unfiled",
-        "Printed document holds on that page: SOC 2 Type 2 Report, ISO 27001 Certificate, ISO 42001 Certificate, ISO / CSA STAR Summary Report. Filed those four",
-        "ISO 27017 / 27018 / 27701 / 22301 / 9001, PCI DSS, HIPAA, FIPS 140-3 appear only on the SafeBase certifications catalog. redis.io homepage / about / DPA / privacy print none of them. Dropped",
-        "DPA, privacy, and named processors already on redis.io. Kept",
-        "Years left open"
-      ]
-    },
-    {
-      "slug": "knock",
-      "named_by": 3,
-      "completeness_before": 40,
-      "completeness_after": 80,
-      "score_after": 64,
+      "slug": "scylladb",
+      "named_by": 1,
+      "completeness_before": 0,
+      "completeness_after": 40,
+      "score_after": 56,
       "tier_after": "on-file",
-      "page": "https://docs.knock.app/developer-tools/security",
-      "marks": [
-        "SOC 2 Type II",
-        "HIPAA"
-      ],
-      "marks_url": "https://docs.knock.app/developer-tools/security",
-      "dpa_already": "https://knock.app/legal/data-processing-addendum",
-      "left_open": [
-        "Official page from first-party Security at Knock docs HTML (title Security at Knock | Knock Docs). Filed",
-        "Prints Knock is SOC 2 Type 2 compliant and HIPAA compliant. Filed",
-        "GDPR certified is regulation copy \u2014 not a catalog hold. Dropped",
-        "CCPA is listed without a certification hold. Not filed",
-        "About prints no founded year. Years left open"
-      ]
-    },
-    {
-      "slug": "segment",
-      "named_by": 16,
-      "completeness_before": 40,
-      "completeness_after": 50,
-      "score_after": 68,
-      "tier_after": "on-file",
+      "page": "https://www.scylladb.com/trust-center/",
       "marks": [
         "SOC 2",
         "ISO 27001",
         "ISO 27017",
         "ISO 27018",
-        "HIPAA"
+        "PCI DSS"
       ],
-      "marks_url": "https://security.segment.com/",
+      "marks_url": "https://www.scylladb.com/trust-center/",
+      "privacy": "https://www.scylladb.com/privacy/",
       "left_open": [
-        "Marks from first-party Segment Trust Center Compliance section: SOC 2 Documents, ISO/IEC 27001, ISO/IEC 27017:2015, ISO/IEC 27018:2019, HIPAA. Filed",
-        "CCPA and GDPR on that heading are regulation names \u2014 not marks",
-        "segment.com/legal/dpa 301s to Twilio DPA. Do not copy Twilio's file. DPA / named processors / years left open",
-        "Existing privacy and subprocessors URLs already point at twilio.com \u2014 left as stored; not re-read"
-      ]
-    },
-    {
-      "slug": "sendsafely",
-      "named_by": 6,
-      "completeness_before": 40,
-      "completeness_after": 40,
-      "score_after": 42,
-      "tier_after": "on-file",
-      "marks_added": [
-        "HIPAA"
-      ],
-      "marks_url": "https://explore.sendsafely.com/security/",
-      "left_open": [
-        "Security Overview prints SOC2 Type 2 report (already on file) and names HIPAA on the compliance list. Filed HIPAA",
-        "CCPA / GDPR on that nav are regulation names \u2014 not marks",
-        "DPA and subprocessors paths 403 this cut. About prints no founded year"
-      ]
-    },
-    {
-      "slug": "pusher",
-      "named_by": 7,
-      "completeness_before": 40,
-      "completeness_after": 40,
-      "score_after": 36,
-      "tier_after": "thin",
-      "status": "https://status.pusher.com/",
-      "left_open": [
-        "status.pusher.com prints Pusher Status. Filed",
-        "HIPAA on /security is 'how to address HIPAA compliance' articles \u2014 not a hold",
-        "GDPR sentence points at MessageBird certifications. Do not copy the parent file",
-        "ISO 27001 already on file. DPA / privacy / subprocessors 404. Years left open"
-      ]
-    },
-    {
-      "slug": "nylas",
-      "named_by": 4,
-      "completeness_before": 60,
-      "completeness_after": 60,
-      "score_after": 80,
-      "tier_after": "substantial",
-      "privacy": "https://www.nylas.com/privacy-policy/",
-      "status": "https://status-v3.nylas.com/",
-      "left_open": [
-        "Privacy Policy at /privacy-policy/ classifies. Filed",
-        "status-v3.nylas.com prints Nylas status. Filed",
-        "CCPA is 'CCPA \u2026 ready' marketing \u2014 not a mark",
-        "Usual-path DPA 404. About / company print no founded year"
-      ]
-    },
-    {
-      "slug": "84codes-cloudamqp",
-      "named_by": 4,
-      "completeness_before": 40,
-      "completeness_after": 40,
-      "score_after": 42,
-      "tier_after": "on-file",
-      "status": "https://status.cloudamqp.com/",
-      "left_open": [
-        "status.cloudamqp.com prints CloudAMQP Status. Filed",
-        "Usual-path DPA / subprocessors / privacy 404. 84codes.com/about is not first-party to cloudamqp.com"
-      ]
-    },
-    {
-      "slug": "openrouter",
-      "named_by": 4,
-      "completeness_before": 50,
-      "completeness_after": 50,
-      "score_after": 40,
-      "tier_after": "on-file",
-      "status": "https://status.openrouter.ai/",
-      "left_open": [
-        "status.openrouter.ai prints OpenRouter status. Filed",
-        "Security page names no catalog marks. DPA already on file. Years left open"
-      ]
-    },
-    {
-      "slug": "parallel",
-      "named_by": 4,
-      "completeness_before": 40,
-      "completeness_after": 40,
-      "score_after": 17,
-      "tier_after": "silent",
-      "status": "https://status.parallel.ai/",
-      "left_open": [
-        "status.parallel.ai prints Parallel AI Status. Filed",
-        "trust.parallel.ai is an unread portal shell. Official page left open",
-        "Usual-path DPA / privacy / subprocessors 404"
+        "Official page from first-party HTML titled ScyllaDB Trust Center | ScyllaDB. No portal host.",
+        "Prints ScyllaDB has been certified to be compliant with the following standards: SOC 2, PCI-DSS, ISO 27001, ISO 27017, ISO 27018. Filed those five.",
+        "Privacy Policy at /privacy/ classifies. Filed.",
+        "First-party href to /data-processing-agreement/ is on the privacy and legal-center pages. Destination 429 this cut. DPA left open.",
+        "/data-privacy-framework/ 429 this cut. EU-US DPF left open.",
+        "Named processors and years left open."
       ]
     }
   ],
@@ -230,17 +101,17 @@
     {
       "slug": "exa",
       "named_by": 6,
-      "reason": "trust.exa.ai is an unread portal shell. exa.ai/dpa 302s to an S3 PDF \u2014 not first-party HTML"
+      "reason": "trust.exa.ai is an unread portal shell. exa.ai/dpa 302s to an S3 PDF — not first-party HTML"
     },
     {
       "slug": "oracle",
       "named_by": 19,
-      "reason": "oracle.com Akamai 403 this cut. Do not copy a parent file"
+      "reason": "Standing skip. Do not copy a parent file"
     },
     {
       "slug": "linkedin",
       "named_by": 5,
-      "reason": "DPA already on file. security.linkedin.com lands on Transparency Center with no named marks. Subprocessors 400"
+      "reason": "DPA already on file. security.linkedin.com lands on Transparency Center with no named marks."
     },
     {
       "slug": "vonage",
@@ -266,6 +137,26 @@
       "slug": "looker",
       "named_by": 0,
       "reason": "Do not copy Google's file onto the empty looker shell"
+    },
+    {
+      "slug": "taskus",
+      "named_by": 4,
+      "reason": "Usual paths portal-host / unread this cut"
+    },
+    {
+      "slug": "hive",
+      "named_by": 5,
+      "reason": "Framer SPA. Privacy and status already on file. No catalog marks in first-party HTML"
+    },
+    {
+      "slug": "telesign",
+      "named_by": 3,
+      "reason": "telesign.com Cloudflare 403. ISO 27001 already on file. status.telesign.com already stored"
+    },
+    {
+      "slug": "reversing-labs",
+      "named_by": 2,
+      "reason": "Privacy and status already stored. About-page SOC 2 image alt is not a named hold (same refusal already on the clerk line). /security is a JS shell — not Official page. Healthcare HIPAA is product copy."
     }
   ],
   "standing_skips": [
@@ -288,16 +179,20 @@
     "deft"
   ],
   "refused_this_cut": [
-    "sendgrid\u2192twilio and looker\u2192google left untouched \u2014 redirect alone is not enough",
-    "madkudu\u2192hg-insights still refused; help/docs hosts print HG Insights",
-    "groove.co\u2192clari \u2014 Clari not on the register; redirect alone is not enough",
-    "intersections\u2192aura \u2014 aura.com does not print Intersections",
-    "SEON trust.seon.io is Vanta \u2014 unread portal shell",
-    "Pusher HIPAA how-to articles and MessageBird GDPR copy \u2014 not Pusher holds",
-    "CCPA/GDPR regulation names dropped on Segment, Redis, SendSafely, Knock, Nylas",
-    "Exa DPA PDF lives on amazonaws.com \u2014 not first-party",
-    "Ada SafeBase-titled trust center unread for marks",
-    "MadKudu / Thorn / Deft / Textel / Adaptive Mobile Cloudflare 403 \u2014 do not invent leftover domains",
-    "popout\u2192shippo already on main (Lightspeed names Popout, Inc. d/b/a Shippo). Do not invent a second Popout dossier."
+    "sendgrid→twilio and looker→google left untouched — redirect alone is not enough",
+    "madkudu→hg-insights still refused; help/docs hosts print HG Insights; madkudu.com still 403",
+    "groove.co→clari — Clari not on the register; redirect alone is not enough",
+    "intersections→aura — aura.com does not print Intersections",
+    "adaptive-mobile→csg-international — CSG homepage does not print Adaptive Mobile; adaptivemobile.com 403",
+    "code42→mimecast, perimeter-81→check-point, rfpio→responsive still refused",
+    "Leftover source lists print name + purpose + location, never an official domain. Do not invent leftover domains.",
+    "GCS on AudioCodes is GCS - Computer Generated Solutions, Romania S.R.L — no printed domain; CGS not on the register",
+    "Consulting / BPO / ambiguous leftover names left empty (Meltwater / GitLab / Sophos / Smartsheet professional-services rows)",
+    "Reversing Labs About-page SOC 2 image alt is not a named hold; /security JS shell is not Official page; healthcare HIPAA is product copy",
+    "Filestack /features, Beetexting SMS compliance resources, and Webroot Chromebook product are not Official pages",
+    "Appen trust.appen.com is UpGuard Trust Center — portal unread. SOC 2 / ISO 27001 strings also print on 404 chrome — same hold refused in #190 / #204 CEQUENS",
+    "CCPA/GDPR regulation names dropped. Footer-badge strings that also print on 404 are not marks",
+    "MadKudu / Thorn / Deft / Textel / Adaptive Mobile still Cloudflare 403 — do not invent leftover domains",
+    "ScyllaDB DPA and Data Privacy Framework destinations 429 this cut — left open"
   ]
 }
