@@ -1,7 +1,7 @@
 {
-  "generated": "2026-08-31T21:55:00Z",
-  "register": 4533,
-  "origin_main": "b142380865",
+  "generated": "2026-08-31T22:45:00Z",
+  "register": 4569,
+  "origin_main": "3d927f3477",
   "mode": "leftover-plus-c0-fills",
   "leftovers_min1": 33,
   "leftovers_after": 33,
@@ -59,44 +59,38 @@
       "from": "arsys",
       "to": "ionos",
       "reason": "IONOS Group sister brand. STRATO is already a separate register row (strato-ag). Destination must not receive a copied parent file. Arsys is filed as its own arsys.es row."
+    },
+    {
+      "from": "basefarm-as",
+      "to": "orange-business",
+      "reason": "basefarm.com redirects to orange-business.com. Orange Business homepage prints Orange Business certifications (ISO 27001, SOC 2 Type II, TISAX) and does not print Basefarm. Alias only when destination first-party HTML prints the acquired name."
+    },
+    {
+      "from": "stitch",
+      "to": "qlik",
+      "reason": "stitchdata.com/security redirects to security.qlik.com (SafeBase Powered-by). Qlik portal title does not make an alias. Destination first-party HTML was not used to copy Qlik marks onto Stitch. Left the Stitch row untouched."
     }
   ],
-  "newly_filed": [
+  "newly_filed": [],
+  "c0_fills": [],
+  "thin_fills": [
     {
-      "slug": "arsys",
-      "name": "Arsys",
-      "domain": "arsys.es",
-      "named_by": 1,
-      "completeness_before": null,
-      "completeness_after": 0,
-      "score_after": 0,
-      "tier_after": "silent",
-      "page": null,
-      "marks": [],
-      "official_url": "https://www.arsys.es/",
-      "left_open": [
-        "Constella Exhibit B prints Arsys (Web/Hosting services). Official domain arsys.es from first-party https://www.arsys.es/quienes-somos and https://www.arsys.es/legal/privacidad (Arsys Internet S.L.U.). Filed as a new parent. Do not alias to ionos. IONOS Group sister brand; STRATO is already a separate row (strato-ag). Do not copy IONOS’s file onto Arsys.",
-        "Usual trust / security / DPA / subprocessors on arsys.es are JS shells or 404. Completeness 0 / domain-only. Official page, marks, DPA, processors, years stay open."
-      ]
-    }
-  ],
-  "c0_fills": [
-    {
-      "slug": "constella-intelligence",
+      "slug": "bugsnag",
+      "name": "Bugsnag",
       "named_by": 2,
-      "completeness_before": 0,
+      "completeness_before": 20,
       "completeness_after": 40,
-      "score_after": 22,
-      "tier_after": "silent",
-      "dpa": "https://constella.ai/policies/dpa/",
-      "processors_url": "https://constella.ai/policies/dpa/",
-      "processor_count": 2,
-      "privacy_already": "https://constella.ai/policies/website-privacy-policy/",
+      "score_before": 20,
+      "score_after": 34,
+      "tier_after": "thin",
+      "page": "https://docs.bugsnag.com/security/",
+      "marks": ["ISO 27001", "CSA STAR"],
+      "marks_url": "https://www.bugsnag.com/security/",
       "left_open": [
-        "Data Processing Amendment | Constella Intelligence at /policies/dpa/ is first-party HTML. Title DPA | Constella Intelligence. Body prints Constella Intelligence, Inc. Data Processing Amendment This Data Processing Amendment (this “DPA” or this “Amendment”). Filed as DPA. Kept.",
-        "Exhibit B is published on that same page: Amazon Web Services (Web/Hosting services) and Arsys (Web/Hosting services). Filed both. AWS aliases to the existing amazon-web-services row. Arsys is a new register row on arsys.es. Completeness DPA · processors = 40.",
-        "Homepage SOC 2 is still product-pitch compliance copy. Not filed as Official page or marks.",
-        "Years left open. /about-us/ titles About Us | Constella Intelligence and prints no founded year the parser accepts."
+        "Official page stays https://docs.bugsnag.com/security/ (BugSnag docs › Security). First-party. Not remade.",
+        "Marks filed from first-party https://www.bugsnag.com/security/ titled BugSnag Security. Visible copy: BugSnag is a secure and compliant error monitoring solution… We meet the industry's strictest certifications for security, privacy, and control. Certifications and Compliance. HTML prints img alt=\"ISO-27001\" and img alt=\"CSA STAR logo\". Filed ISO 27001 and CSA STAR. Completeness page · marks = 40.",
+        "alt=\"SOC logo\" and alt=\"PCI Logo\" are not catalog holds. SOC 2 and PCI DSS stay open.",
+        "DPA / named processors / years stay open. /legal /dpa 404. About / company 404. SmartBear DPA at smartbear.com/legal/data-processing-addendum/ is not first-party for the BugSnag row. Do not copy the parent file."
       ]
     }
   ],
@@ -105,32 +99,32 @@
     {
       "slug": "dstny-automate-formerly-qunifi",
       "named_by": 2,
-      "reason": "Website Privacy Policy | Dstny is readable first-party HTML with no named marks. /about-us is a careers lander. Usual trust / security / DPA / subprocessors 404. Homepage is a product pitch."
+      "reason": "Not retried. Prior cut: Website Privacy Policy | Dstny is readable first-party HTML with no named marks. /about-us is a careers lander. Usual trust / security / DPA / subprocessors 404."
     },
     {
       "slug": "sutherland-global-services",
       "named_by": 2,
-      "reason": "Homepage and about-us titles readable; visible body is title-only JS shell. Privacy already stored. /security bounced to an SVG. No named marks or founded year."
+      "reason": "Not retried. Prior cut: Homepage and about-us titles readable; visible body is title-only JS shell. Privacy already stored. No named marks or founded year."
     },
     {
       "slug": "sumit-ai",
       "named_by": 2,
-      "reason": "sumit-ai.com homepage and usual paths unreadable (http-0 / Cloudflare 403)."
+      "reason": "Not retried. sumit-ai.com homepage and usual paths unreadable (http-0 / Cloudflare 403)."
     },
     {
       "slug": "filestack",
       "named_by": 2,
-      "reason": "/security bounced to /features/#security — product page, already refused as Official page. Walker proposed /features again. Not filed. Usual DPA / subprocessors 404. 404 chrome prints SOC 2 — CEQUENS."
+      "reason": "Not retried. /security bounced to /features/#security — product page, already refused as Official page."
     },
     {
       "slug": "hive",
       "named_by": 5,
-      "reason": "Thin Completeness-20 (years). /policy-documents/security and privacy title the product lander — Framer JS shell. No new first-party instrument."
+      "reason": "Not retried. Thin Completeness-20 (years). /policy-documents/security and privacy title the product lander — Framer JS shell."
     },
     {
       "slug": "telesign",
       "named_by": 3,
-      "reason": "Thin Completeness-20 (ISO 27001 already on file). Usual paths Cloudflare 403 / Just a moment."
+      "reason": "Not retried. Thin Completeness-20 (ISO 27001 already on file). Usual paths Cloudflare 403 / Just a moment."
     }
   ],
   "standing_skips": [
@@ -177,30 +171,117 @@
     "vivaops",
     "zealep-business-solutions"
   ],
+  "a_queue_left_open": [
+    {
+      "slug": "gainsight",
+      "reason": "trust.gainsight.com titles Gainsight Trust Center | Powered by SafeBase. html_len matches the generic SafeBase shell (196604). www.gainsight.com Cloudflare 403 Just a moment. Marks / DPA / processors / years stay open. Do not file SafeBase catalog chrome."
+    },
+    {
+      "slug": "ada",
+      "reason": "security.ada.cx titles Ada Trust Center | Powered by SafeBase. Same SafeBase shell. www.ada.cx/security and homepage Cloudflare 403 Attention Required. Marks / DPA / processors / years stay open."
+    },
+    {
+      "slug": "leandata",
+      "reason": "trust.leandata.com titles LeanData Trust Center | Powered by SafeBase. Same SafeBase shell. /company has no founded year the parser accepts. Privacy HIPAA/CCPA is regulation-only. Marks / DPA / processors / years stay open."
+    },
+    {
+      "slug": "brighthire",
+      "reason": "trust.brighthire.com titles Brighthire Trust Center | Powered by SafeBase. Same SafeBase shell. Not filed."
+    },
+    {
+      "slug": "cinder",
+      "reason": "Homepage extractor hits SOC 2 inside Webflow JSON / CSS, not a printed hold sentence. About HIPAA is a footer badge JSON key. trust.cinder.ai is a thin Vanta host (637 bytes visible). Privacy HIPAA/GDPR is regulation-only. Not filed."
+    },
+    {
+      "slug": "ownd-aps-parahelp",
+      "reason": "parahelp.com is a Framer JS shell. SOC 2 prints on 404 chrome. Not filed."
+    },
+    {
+      "slug": "avalara",
+      "reason": "Founded 2004 already on file (Completeness years = 20). legal.avalara.com/dpa is a binary/JS shell (empty title, no classify_as_dpa). trust.avalara.com empty title. No new first-party instrument."
+    },
+    {
+      "slug": "logz-io",
+      "reason": "Years 2014 already on file. No new first-party marks / DPA this cut."
+    },
+    {
+      "slug": "kiss-metrics",
+      "reason": "Years 2008 already on file. No new first-party instrument."
+    },
+    {
+      "slug": "boldr",
+      "reason": "Years 2017 already on file. No new first-party instrument."
+    },
+    {
+      "slug": "iren",
+      "reason": "Years 2018 already on file. No new first-party instrument."
+    }
+  ],
+  "c0_left_open": [
+    {
+      "slug": "adjust",
+      "reason": "www.adjust.com Vercel Security Checkpoint 429. trust.adjust.com is HyperComply JS shell (title HyperComply, 728 bytes visible). Not filed."
+    },
+    {
+      "slug": "blogvault",
+      "reason": "/security bounced to homepage. About / privacy / GDPR-ready pages are first-party HTML with no named marks or founded year the parser accepts. /dpa 404."
+    },
+    {
+      "slug": "array-us",
+      "reason": "/security is a product pitch (embedded fintech). /legal is an empty-title JS shell. /legal/dpa 403. No named marks."
+    },
+    {
+      "slug": "bluesnap",
+      "reason": "www.bluesnap.com Cloudflare 403 Just a moment."
+    },
+    {
+      "slug": "basefarm-as",
+      "reason": "basefarm.com redirects to Orange Business. Orange homepage does not print Basefarm. Alias refused. Do not copy Orange marks."
+    },
+    {
+      "slug": "bastionx",
+      "reason": "Homepage SOC 2 is EazyGRC Continuous SOC2 compliance automation — a product they sell, not a hold. HIPAA is Healthcare IT & HIPAA Compliance industry nav. 404 chrome also prints HIPAA. Not filed."
+    },
+    {
+      "slug": "apilayer",
+      "reason": "Homepage first-party HTML. No named marks / DPA / year."
+    },
+    {
+      "slug": "answerconnect",
+      "reason": "Homepage first-party HTML. No named marks / DPA / year."
+    },
+    {
+      "slug": "5c-ai-group-inc",
+      "reason": "Homepage first-party HTML. No named marks / DPA / year."
+    },
+    {
+      "slug": "beetexting",
+      "reason": "/security 404. Standing skip from walker-proposed SMS checklist still holds."
+    },
+    {
+      "slug": "access-systems-uk-accesspay",
+      "reason": "/security 404. ISO 20022 on cash-management copy is a payments standard, not ISO 27001."
+    },
+    {
+      "slug": "broadcom",
+      "reason": "/security bounced to Newsroom. Visible body is title-thin JS."
+    }
+  ],
   "refused_this_cut": [
-    "True-missing named_by ≥2 stays empty. Leftovers stay 33. Register 4532 → 4533 after filing Arsys from Constella Exhibit B. Source lists print leftover names with purpose and location only. Do not invent leftover domains.",
-    "Arsys is not aliased to ionos. IONOS Group sister brand; STRATO already has its own row.",
-    "Meltwater / GitLab / Vyond / Smartsheet / RingCentral / Plume / Sophos / SonicWall / Dashlane / Zapier / Kentik / AudioCodes / WatchGuard first-party tables still print leftover names with purpose and location only.",
-    "AfterShip leftover source list Cloudflare 403 (Just a moment). WatchGuard HTML prints Ártica PFMS SLU next to purpose and location, not a domain.",
-    "GCS on AudioCodes is GCS - Computer Generated Solutions, Romania S.R.L — no domain. No CGS row on the register. Do not invent cgsinc.com.",
-    "SamKnows: samknows.com Access Denied 403. ookla.com does not print SamKnows. Do not invent a domain or alias.",
-    "Branch Metrics: branch.io Cloudflare 403. Do not invent a domain.",
-    "MadKudu / HG Insights / Thorn / Deft / Textel / Adaptive Mobile still Cloudflare 403 — do not invent leftover domains",
-    "sendgrid→twilio and looker→google left untouched — redirect alone is not enough",
-    "rfpio empty shell left untouched — do not copy Responsive onto it.",
-    "madkudu→hg-insights still refused; help/docs hosts print HG Insights; madkudu.com and hginsights.com still 403",
-    "intersections→aura — aura.com does not print Intersections",
-    "adaptive-mobile→csg-international — CSG homepage does not print Adaptive Mobile",
-    "code42→mimecast still refused — Incydr / Mimecast HTML does not print Code42",
-    "samknows→ookla still refused — ookla.com does not print SamKnows",
-    "Dstny Automate (named_by=2 C0) privacy HTML prints no marks. Usual paths 404.",
-    "Filestack /features still refused as Official page.",
-    "Help Scout /company/legal/dpa/ /security/ /privacy/ are JS shells (empty title, CSS-only visible body). Not filed.",
-    "Lightspeed Systems and Monetate first-party usual paths Cloudflare 403. Portal hosts stay URL-only.",
-    "Softcat Official page still open. trust.softcat.com stays a portal host, not Official page. Marks · years already on file from #212.",
-    "Walker-proposed Official pages still refused: SupportZebra /trust blog, Filestack /features, Beetexting SMS checklist, Cognizant /security empty, Grab driver guide, Webroot Chromebook product, Tata Communications cyber-security-solutions pitch, Runware /trust JS shell, AccessPay UK SOx Resource Hub, Cprime /learning/certifications (privacy still says undergoing SOC 2), Black Diamond /security 83-byte lander.",
-    "Standing 403 / portal C0 named processors not re-walked: vonage, netsuite, equinix, taskus, vultr, reversing-labs, visa, transunion, intouchcx, foundever, global-payments, inmoment, sift, mastercard.",
-    "LinkedIn / Softcat marks path / AML RightSource not re-touched.",
-    "Appen / Bluebeam / Playlist / Quest / Plume DPA not retried."
+    "True-missing named_by ≥2 stays empty. Leftovers stay 33. Register stays 4569. No leftover domains invented.",
+    "SafeBase Powered-by portals on Gainsight, Ada, LeanData, Brighthire, and Stitch→Qlik stay unread. Generic SafeBase shell html_len≈196604. reject_reason js-portal.",
+    "basefarm-as→Orange Business refused — destination HTML does not print Basefarm.",
+    "stitch→qlik refused — SafeBase redirect is not an alias.",
+    "BugSnag SOC logo / PCI logo alts are not catalog holds.",
+    "SmartBear DPA is not first-party for the BugSnag row. Do not copy the parent file.",
+    "Cinder homepage SOC 2 / About HIPAA badge JSON not filed.",
+    "BastionX EazyGRC SOC2 product and HIPAA industry nav not filed.",
+    "Parahelp Framer 404 SOC 2 chrome not filed.",
+    "Adjust HyperComply / Vercel 429, BlogVault homepage bounce, Array product pitch, Bluesnap 403.",
+    "preferred_c0_left_open blockers not retried: dstny-automate, sutherland-global-services, sumit-ai, filestack, hive, telesign.",
+    "Standing 403 / portal C0 named processors not re-walked: vonage, netsuite, equinix, taskus, vultr, reversing-labs, visa, transunion, intouchcx, foundever, global-payments, inmoment, sift, mastercard, help-scout, lightspeed-systems, monetate.",
+    "sendgrid→twilio and looker→google left untouched — redirect alone is not enough.",
+    "madkudu→hg-insights, intersections→aura, adaptive-mobile→csg, code42→mimecast, samknows→ookla, arsys→ionos still refused.",
+    "Soft retries still Cloudflare 403: madkudu, adaptive-mobile, textel, thorn, deft."
   ]
 }

@@ -113,6 +113,26 @@ expect(
     fileScore(fileFlags(softcat)) === 40,
 );
 
+const bugsnag = bySlug.bugsnag;
+const bugsnagHtml = fileIndexHtml(bugsnag);
+expect(
+  "bugsnag page · marks Completeness is 40",
+  bugsnag &&
+    bugsnag.found === true &&
+    bugsnag.trust_url === "https://docs.bugsnag.com/security/" &&
+    (bugsnag.certs || []).includes("ISO 27001") &&
+    (bugsnag.certs || []).includes("CSA STAR") &&
+    !(bugsnag.certs || []).includes("SOC 2") &&
+    !(bugsnag.certs || []).includes("PCI DSS") &&
+    fileFlags(bugsnag).page === 20 &&
+    fileFlags(bugsnag).marks === 20 &&
+    fileFlags(bugsnag).dpa === 0 &&
+    fileFlags(bugsnag).years === 0 &&
+    fileScore(fileFlags(bugsnag)) === 40 &&
+    ruleOn(bugsnagHtml)[0] === true &&
+    ruleOn(bugsnagHtml)[1] === true,
+);
+
 const constella = bySlug["constella-intelligence"];
 const constellaHtml = fileIndexHtml(constella);
 expect(
@@ -286,10 +306,9 @@ const dossierHref = {
   Exa: "./exa.html",
   WorkOS: "./workos.html",
   Turbopuffer: "./turbopuffer.html",
+  SpaceXAI: "./xai.html",
 };
-const graphHref = {
-  SpaceXAI: "../graph.html#p=spacexai",
-};
+const graphHref = {};
 expect(
   "anysphere processors that have a file are links",
   procCells.every((cell, i) => {

@@ -653,6 +653,18 @@ def main() -> int:
     check("SOX" not in (by_pub["protiviti"].get("certs") or []), "protiviti 404 SOX chrome stays open")
     check((by_pub["protiviti"].get("file") or {}).get("marks") == 20, "protiviti marks print")
     check(
+        {"ISO 27001", "CSA STAR"} <= set(by_pub["bugsnag"].get("certs") or []),
+        f"bugsnag first-party security holds {by_pub['bugsnag'].get('certs')}",
+    )
+    check("SOC 2" not in (by_pub["bugsnag"].get("certs") or []), "bugsnag SOC logo alt is not SOC 2")
+    check("PCI DSS" not in (by_pub["bugsnag"].get("certs") or []), "bugsnag PCI logo alt is not PCI DSS")
+    check((by_pub["bugsnag"].get("file") or {}).get("marks") == 20, "bugsnag marks print")
+    check((by_pub["bugsnag"].get("file") or {}).get("page") == 20, "bugsnag Official page stays")
+    check(
+        by_pub["bugsnag"].get("trust_url") == "https://docs.bugsnag.com/security/",
+        "bugsnag Official page stays the docs security page",
+    )
+    check(
         {"CSA STAR", "TX-RAMP", "ISO 27001"} <= set(by_pub["accenture"].get("certs") or []),
         f"accenture keeps marketplace marks and first-party ISO 27001 {by_pub['accenture'].get('certs')}",
     )
