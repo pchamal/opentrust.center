@@ -312,6 +312,8 @@ def main() -> int:
     deepl_reg = {**register, "deepl": {"slug": "deepl", "name": "DeepL", "domain": "deepl.com"}}
     check(canonical_processor_id("deepl-deepl-com", deepl_reg) == "deepl", "DeepL deepl.com is DeepL")
     check(REGISTER_ALIASES["deepl-deepl-com"] == "deepl", "deepl-deepl-com aliases to deepl")
+    check("arsys" not in REGISTER_ALIASES, "Arsys is not aliased to IONOS")
+    check(REGISTER_ALIASES.get("arsys") != "ionos", "arsys must not map to ionos")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 

@@ -309,23 +309,45 @@ def main() -> int:
     check((by_pub["rfpio"].get("file") or {}).get("dpa") in (0, False, None), "empty rfpio shell does not copy Responsive DPA")
 
     # This cut: Constella first-party Data Processing Amendment at /policies/dpa/.
+    # Exhibit B on that same page names two Authorized Sub-Processors.
     check(
         instrument_url(by_pub["constella-intelligence"], "dpa")
         == "https://constella.ai/policies/dpa/",
         "constella DPA stays the first-party Data Processing Amendment",
     )
     check((by_pub["constella-intelligence"].get("file") or {}).get("dpa") == 20, "constella DPA prints")
+    check((by_pub["constella-intelligence"].get("file") or {}).get("subprocessors") == 20, "constella Exhibit B processors print")
     check((by_pub["constella-intelligence"].get("file") or {}).get("page") in (0, False, None), "constella Official page stays open")
     check((by_pub["constella-intelligence"].get("file") or {}).get("marks") in (0, False, None), "constella homepage SOC 2 pitch stays open")
-    check(not (by_pub["constella-intelligence"].get("processors") or []), "constella Exhibit B list stays unpublished")
+    check((by_pub["constella-intelligence"].get("file") or {}).get("years") in (0, False, None), "constella years stay open")
+    constella_names = [p.get("name") for p in (by_pub["constella-intelligence"].get("processors") or [])]
+    constella_slugs = [p.get("slug") for p in (by_pub["constella-intelligence"].get("processors") or [])]
+    check(
+        "Amazon Web Services (Web/Hosting services)" in constella_names,
+        "constella names Amazon Web Services from Exhibit B",
+    )
+    check("Arsys (Web/Hosting services)" in constella_names, "constella names Arsys from Exhibit B")
+    check(constella_slugs == ["amazon-web-services", "arsys"], f"constella processor slugs {constella_slugs}")
+    check(len(constella_names) == 2, f"constella printed 2 Exhibit B processors, got {len(constella_names)}")
     constella_html = (ROOT / "site" / "c" / "constella-intelligence.html").read_text(encoding="utf-8")
     check("https://constella.ai/policies/dpa/" in constella_html, "constella dossier keeps the DPA URL")
-    check('aria-label="DPA"' in constella_html, "constella identity spoken is DPA")
+    check("./amazon-web-services.html\">Amazon Web Services" in constella_html, "constella AWS cross-links to the existing file")
+    check("./arsys.html\">Arsys" in constella_html, "constella Arsys cross-links to its own file")
+    check("ionos" not in constella_html.lower(), "constella does not send Arsys to IONOS")
     check(
         (by_enr["constella-intelligence"].get("links") or {}).get("dpa")
         == "https://constella.ai/policies/dpa/",
         "constella enriched DPA URL stays",
     )
+    check(by_pub["arsys"]["domain"] == "arsys.es", "arsys official domain is arsys.es")
+    check((by_pub["arsys"].get("file") or {}).get("page") in (0, False, None), "arsys Official page stays open")
+    check(sum(int((by_pub["arsys"].get("file") or {}).get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years")) == 0, "arsys Completeness is 0")
+    check(by_pub["arsys"].get("found") is False, "arsys usual paths did not invent Official page")
+    check((by_pub["ionos"].get("domain") or "") == "ionos.com", "ionos row stays ionos.com")
+    arsys_html = (ROOT / "site" / "c" / "arsys.html").read_text(encoding="utf-8")
+    check("<h1>Arsys</h1>" in arsys_html, "arsys dossier is its own file")
+    check("ionos" not in arsys_html.lower(), "arsys dossier does not copy IONOS")
+    check("https://www.arsys.es/" in arsys_html, "arsys dossier keeps arsys.es")
 
     print(
         f"ok increment-dpa privacy-page-queue {len(expected_batch)} walked; "

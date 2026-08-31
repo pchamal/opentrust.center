@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-31T21:45:00Z",
-  "register": 4532,
+  "generated": "2026-08-31T21:55:00Z",
+  "register": 4533,
   "origin_main": "b142380865",
   "mode": "leftover-plus-c0-fills",
   "leftovers_min1": 33,
@@ -54,23 +54,47 @@
       "from": "samknows",
       "to": "ookla",
       "reason": "samknows.com Access Denied 403. ookla.com homepage and about do not print SamKnows. Do not invent an alias."
+    },
+    {
+      "from": "arsys",
+      "to": "ionos",
+      "reason": "IONOS Group sister brand. STRATO is already a separate register row (strato-ag). Destination must not receive a copied parent file. Arsys is filed as its own arsys.es row."
     }
   ],
-  "newly_filed": [],
+  "newly_filed": [
+    {
+      "slug": "arsys",
+      "name": "Arsys",
+      "domain": "arsys.es",
+      "named_by": 1,
+      "completeness_before": null,
+      "completeness_after": 0,
+      "score_after": 0,
+      "tier_after": "silent",
+      "page": null,
+      "marks": [],
+      "official_url": "https://www.arsys.es/",
+      "left_open": [
+        "Constella Exhibit B prints Arsys (Web/Hosting services). Official domain arsys.es from first-party https://www.arsys.es/quienes-somos and https://www.arsys.es/legal/privacidad (Arsys Internet S.L.U.). Filed as a new parent. Do not alias to ionos. IONOS Group sister brand; STRATO is already a separate row (strato-ag). Do not copy IONOS’s file onto Arsys.",
+        "Usual trust / security / DPA / subprocessors on arsys.es are JS shells or 404. Completeness 0 / domain-only. Official page, marks, DPA, processors, years stay open."
+      ]
+    }
+  ],
   "c0_fills": [
     {
       "slug": "constella-intelligence",
       "named_by": 2,
       "completeness_before": 0,
-      "completeness_after": 20,
-      "score_after": 14,
+      "completeness_after": 40,
+      "score_after": 22,
       "tier_after": "silent",
       "dpa": "https://constella.ai/policies/dpa/",
+      "processors_url": "https://constella.ai/policies/dpa/",
+      "processor_count": 2,
       "privacy_already": "https://constella.ai/policies/website-privacy-policy/",
       "left_open": [
-        "Data Processing Amendment | Constella Intelligence at /policies/dpa/ is first-party HTML. Title DPA | Constella Intelligence. Body prints Constella Intelligence, Inc. Data Processing Amendment This Data Processing Amendment (this “DPA” or this “Amendment”). Filed as DPA. Completeness 0 → 20.",
-        "Prior cut said /dpa bounced to a blog. That is a different path. /policies/dpa/ is the addendum.",
-        "Authorized Sub-Processor is defined. Exhibit B / the List is promised by email or another means — no public named-processor table. /policies/subprocessors/ 404. Processors stay open.",
+        "Data Processing Amendment | Constella Intelligence at /policies/dpa/ is first-party HTML. Title DPA | Constella Intelligence. Body prints Constella Intelligence, Inc. Data Processing Amendment This Data Processing Amendment (this “DPA” or this “Amendment”). Filed as DPA. Kept.",
+        "Exhibit B is published on that same page: Amazon Web Services (Web/Hosting services) and Arsys (Web/Hosting services). Filed both. AWS aliases to the existing amazon-web-services row. Arsys is a new register row on arsys.es. Completeness DPA · processors = 40.",
         "Homepage SOC 2 is still product-pitch compliance copy. Not filed as Official page or marks.",
         "Years left open. /about-us/ titles About Us | Constella Intelligence and prints no founded year the parser accepts."
       ]
@@ -154,7 +178,8 @@
     "zealep-business-solutions"
   ],
   "refused_this_cut": [
-    "True-missing named_by ≥2 stays empty. Leftovers stay 33. Source lists print name + purpose + location, never an official domain. Do not invent leftover domains.",
+    "True-missing named_by ≥2 stays empty. Leftovers stay 33. Register 4532 → 4533 after filing Arsys from Constella Exhibit B. Source lists print leftover names with purpose and location only. Do not invent leftover domains.",
+    "Arsys is not aliased to ionos. IONOS Group sister brand; STRATO already has its own row.",
     "Meltwater / GitLab / Vyond / Smartsheet / RingCentral / Plume / Sophos / SonicWall / Dashlane / Zapier / Kentik / AudioCodes / WatchGuard first-party tables still print leftover names with purpose and location only.",
     "AfterShip leftover source list Cloudflare 403 (Just a moment). WatchGuard HTML prints Ártica PFMS SLU next to purpose and location, not a domain.",
     "GCS on AudioCodes is GCS - Computer Generated Solutions, Romania S.R.L — no domain. No CGS row on the register. Do not invent cgsinc.com.",
