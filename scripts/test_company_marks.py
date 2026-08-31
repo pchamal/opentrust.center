@@ -646,6 +646,12 @@ def main() -> int:
     check("GDPR" not in (by_pub["verisign"].get("certs") or []), "verisign privacy GDPR is not a hold")
     check("CSA STAR" in (by_pub["huawei"].get("certs") or []), "huawei CSA STAR stays")
     check("TX-RAMP" in (by_pub["cognizant"].get("certs") or []), "cognizant TX-RAMP stays")
+    check(
+        {"ISO 27001", "ISO 27701"} <= set(by_pub["protiviti"].get("certs") or []),
+        f"protiviti Italy ISO holds {by_pub['protiviti'].get('certs')}",
+    )
+    check("SOX" not in (by_pub["protiviti"].get("certs") or []), "protiviti 404 SOX chrome stays open")
+    check((by_pub["protiviti"].get("file") or {}).get("marks") == 20, "protiviti marks print")
     for slug in ("canonical", "beck-technology", "world-labs", "synap", "lime-technologies", "inmobi"):
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check("Official page" in html, f"{slug} still prints Official page")
