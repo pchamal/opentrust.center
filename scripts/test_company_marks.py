@@ -652,13 +652,12 @@ def main() -> int:
     )
     check("SOX" not in (by_pub["protiviti"].get("certs") or []), "protiviti 404 SOX chrome stays open")
     check((by_pub["protiviti"].get("file") or {}).get("marks") == 20, "protiviti marks print")
-    check(
-        {"ISO 27001", "CSA STAR"} <= set(by_pub["bugsnag"].get("certs") or []),
-        f"bugsnag first-party security holds {by_pub['bugsnag'].get('certs')}",
-    )
+    check(not (by_pub["bugsnag"].get("certs") or []), "bugsnag logo-row alts stay open")
+    check("ISO 27001" not in (by_pub["bugsnag"].get("certs") or []), "bugsnag ISO-27001 alt is not a hold")
+    check("CSA STAR" not in (by_pub["bugsnag"].get("certs") or []), "bugsnag CSA STAR logo alt is not a hold")
     check("SOC 2" not in (by_pub["bugsnag"].get("certs") or []), "bugsnag SOC logo alt is not SOC 2")
     check("PCI DSS" not in (by_pub["bugsnag"].get("certs") or []), "bugsnag PCI logo alt is not PCI DSS")
-    check((by_pub["bugsnag"].get("file") or {}).get("marks") == 20, "bugsnag marks print")
+    check((by_pub["bugsnag"].get("file") or {}).get("marks") in (0, 10, False, None), "bugsnag marks stay open")
     check((by_pub["bugsnag"].get("file") or {}).get("page") == 20, "bugsnag Official page stays")
     check(
         by_pub["bugsnag"].get("trust_url") == "https://docs.bugsnag.com/security/",

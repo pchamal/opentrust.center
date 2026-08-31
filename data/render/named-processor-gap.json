@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-31T22:52:00Z",
+  "generated": "2026-08-31T22:55:00Z",
   "register": 4569,
   "origin_main": "3d927f3477",
   "expand_absorbed": {
@@ -116,24 +116,23 @@
   ],
   "newly_filed": [],
   "c0_fills": [],
-  "thin_fills": [
+  "thin_fills": [],
+  "clerk_hold": [
     {
       "slug": "bugsnag",
       "name": "Bugsnag",
       "named_by": 2,
       "completeness_before": 20,
-      "completeness_after": 40,
-      "score_before": 20,
-      "score_after": 34,
+      "completeness_after": 20,
+      "score_after": 20,
       "tier_after": "thin",
       "page": "https://docs.bugsnag.com/security/",
-      "marks": ["ISO 27001", "CSA STAR"],
-      "marks_url": "https://www.bugsnag.com/security/",
+      "official_page": "on",
+      "marks": [],
       "left_open": [
-        "Official page stays https://docs.bugsnag.com/security/ (BugSnag docs › Security). First-party. Not remade.",
-        "Marks filed from first-party https://www.bugsnag.com/security/ titled BugSnag Security. Visible copy: BugSnag is a secure and compliant error monitoring solution… We meet the industry's strictest certifications for security, privacy, and control. Certifications and Compliance. HTML prints img alt=\"ISO-27001\" and img alt=\"CSA STAR logo\". Filed ISO 27001 and CSA STAR. Completeness page · marks = 40.",
-        "alt=\"SOC logo\" and alt=\"PCI Logo\" are not catalog holds. SOC 2 and PCI DSS stay open.",
-        "DPA / named processors / years stay open. /legal /dpa 404. About / company 404. SmartBear DPA at smartbear.com/legal/data-processing-addendum/ is not first-party for the BugSnag row. Do not copy the parent file."
+        "Official page stays https://docs.bugsnag.com/security/ (BugSnag docs › Security). Completeness page = 20 is honest. Do not drop the Official page.",
+        "Clerk hold: drop ISO 27001 and CSA STAR. They are img alts on https://www.bugsnag.com/security/ (alt=\"ISO-27001\", alt=\"CSA STAR logo\") in a logo row with PCI Logo and SOC logo. The page body does not name ISO 27001 or CSA STAR. Docs Official page does not name them either. Same class as other badge/logo-alt refusals. All four logos stay open.",
+        "Marks · DPA · processors · years stay open. Completeness stays 20 (page only)."
       ]
     }
   ],
@@ -315,7 +314,7 @@
     "SafeBase Powered-by portals on Gainsight, Ada, LeanData, Brighthire, and Stitch→Qlik stay unread. Generic SafeBase shell html_len≈196604. reject_reason js-portal.",
     "basefarm-as→Orange Business refused — destination HTML does not print Basefarm.",
     "stitch→qlik refused — SafeBase redirect is not an alias.",
-    "BugSnag SOC logo / PCI logo alts are not catalog holds.",
+    "Clerk hold: BugSnag logo-row alts are not holds. alt=\"ISO-27001\", alt=\"CSA STAR logo\", alt=\"SOC logo\", alt=\"PCI Logo\" on www.bugsnag.com/security/ stay open. Page body and docs Official page do not name the marks. Completeness stays 20 (page only).",
     "SmartBear DPA is not first-party for the BugSnag row. Do not copy the parent file.",
     "Cinder homepage SOC 2 / About HIPAA badge JSON not filed.",
     "BastionX EazyGRC SOC2 product and HIPAA industry nav not filed.",

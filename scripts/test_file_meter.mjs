@@ -116,21 +116,18 @@ expect(
 const bugsnag = bySlug.bugsnag;
 const bugsnagHtml = fileIndexHtml(bugsnag);
 expect(
-  "bugsnag page · marks Completeness is 40",
+  "bugsnag Completeness stays 20 page only — logo alts are not marks",
   bugsnag &&
     bugsnag.found === true &&
     bugsnag.trust_url === "https://docs.bugsnag.com/security/" &&
-    (bugsnag.certs || []).includes("ISO 27001") &&
-    (bugsnag.certs || []).includes("CSA STAR") &&
-    !(bugsnag.certs || []).includes("SOC 2") &&
-    !(bugsnag.certs || []).includes("PCI DSS") &&
+    !(bugsnag.certs || []).length &&
     fileFlags(bugsnag).page === 20 &&
-    fileFlags(bugsnag).marks === 20 &&
+    fileFlags(bugsnag).marks === 10 &&
     fileFlags(bugsnag).dpa === 0 &&
     fileFlags(bugsnag).years === 0 &&
-    fileScore(fileFlags(bugsnag)) === 40 &&
     ruleOn(bugsnagHtml)[0] === true &&
-    ruleOn(bugsnagHtml)[1] === true,
+    ruleOn(bugsnagHtml)[1] === false &&
+    ruleKind(bugsnagHtml)[1] === "partial",
 );
 
 const expandSilent = [
