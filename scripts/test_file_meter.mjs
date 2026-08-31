@@ -113,6 +113,30 @@ expect(
     fileScore(fileFlags(softcat)) === 40,
 );
 
+const constella = bySlug["constella-intelligence"];
+const constellaHtml = fileIndexHtml(constella);
+expect(
+  "constella DPA is on file and Completeness is 20",
+  constella &&
+    ((constella.instruments || {}).dpa || {}).url === "https://constella.ai/policies/dpa/" &&
+    fileFlags(constella).dpa === 20 &&
+    fileFlags(constella).page === 0 &&
+    fileFlags(constella).marks === 0 &&
+    fileScore(fileFlags(constella)) === 20 &&
+    ruleOn(constellaHtml)[2] === true,
+);
+expect("constella Official page stays open", constella && constella.found === false && !constella.trust_url);
+
+const filestack = bySlug.filestack;
+expect(
+  "filestack /features is not Official page",
+  filestack &&
+    filestack.found === false &&
+    !filestack.trust_url &&
+    fileFlags(filestack).page === 0 &&
+    fileScore(fileFlags(filestack)) === 0,
+);
+
 const src = readFileSync(new URL("../site/register.js", import.meta.url), "utf8");
 expect("register draws the file index", src.includes("fileIndexHtml"));
 expect("register has no N of 5 markup", !src.includes("file-cov") && !src.includes("file-meter") && !src.includes(" of 5"));

@@ -1,7 +1,7 @@
 {
-  "generated": "2026-08-31T21:20:00Z",
+  "generated": "2026-08-31T21:45:00Z",
   "register": 4532,
-  "origin_main": "21fb58d479",
+  "origin_main": "b142380865",
   "mode": "leftover-plus-c0-fills",
   "leftovers_min1": 33,
   "leftovers_after": 33,
@@ -59,85 +59,54 @@
   "newly_filed": [],
   "c0_fills": [
     {
-      "slug": "linkedin",
-      "named_by": 5,
-      "completeness_before": 20,
-      "completeness_after": 60,
-      "score_after": 64,
-      "tier_after": "on-file",
-      "page": "https://security.linkedin.com/trust-and-compliance",
-      "marks": [
-        "SOC 2",
-        "ISO 27001",
-        "ISO 27018",
-        "ISO 22301",
-        "PCI DSS"
-      ],
-      "marks_url": "https://security.linkedin.com/trust-and-compliance",
-      "dpa_already": "https://www.linkedin.com/legal/l/dpa",
-      "privacy_already": "https://www.linkedin.com/legal/privacy-policy",
-      "left_open": [
-        "Trust and Compliance at security.linkedin.com/trust-and-compliance is first-party HTML. Title Trust and Compliance. Lists ISO 27001, ISO 27018, ISO 22301, PCI DSS, and a SOC 2 report. Filed as Official page plus those marks. DPA already on file at /legal/l/dpa.",
-        "CCPA / GDPR on the DPA stay open. No named-processor table on the trust page. Years left open."
-      ]
-    }
-  ],
-  "expand_fills": [
-    {
-      "slug": "softcat",
-      "named_by": 0,
-      "completeness_before": 50,
-      "completeness_after": 40,
-      "score_after": 44,
+      "slug": "constella-intelligence",
+      "named_by": 2,
+      "completeness_before": 0,
+      "completeness_after": 20,
+      "score_after": 14,
       "tier_after": "silent",
-      "marks": [
-        "ISO 27001",
-        "ISO 9001",
-        "ISO 22301",
-        "ISO 20000-1"
-      ],
-      "marks_url": "https://www.softcat.com/about-us",
+      "dpa": "https://constella.ai/policies/dpa/",
+      "privacy_already": "https://constella.ai/policies/website-privacy-policy/",
       "left_open": [
-        "Who We Are | Softcat at /about-us prints we also carry ISO standards 27001 (InfoSec), ISO 9001 (Quality), 22301 (Business Continuity) and ISO20000 (Service Management). Filed all four. Marks are from first-party about-us prose, not the portal.",
-        "trust.softcat.com is a portal host (Powered by SafeBase). Expand filed that URL only. It is not Official page. The trust instrument row keeps the URL as a link, URL-only. DPA and processors stay open. Years 1993 stay. Completeness is marks · years = 40."
+        "Data Processing Amendment | Constella Intelligence at /policies/dpa/ is first-party HTML. Title DPA | Constella Intelligence. Body prints Constella Intelligence, Inc. Data Processing Amendment This Data Processing Amendment (this “DPA” or this “Amendment”). Filed as DPA. Completeness 0 → 20.",
+        "Prior cut said /dpa bounced to a blog. That is a different path. /policies/dpa/ is the addendum.",
+        "Authorized Sub-Processor is defined. Exhibit B / the List is promised by email or another means — no public named-processor table. /policies/subprocessors/ 404. Processors stay open.",
+        "Homepage SOC 2 is still product-pitch compliance copy. Not filed as Official page or marks.",
+        "Years left open. /about-us/ titles About Us | Constella Intelligence and prints no founded year the parser accepts."
       ]
     }
   ],
+  "expand_fills": [],
   "preferred_c0_left_open": [
     {
       "slug": "dstny-automate-formerly-qunifi",
       "named_by": 2,
-      "reason": "Densest unskipped C0. Website Privacy Policy | Dstny is readable first-party HTML with no named marks. /about-us is a careers lander. Usual trust / security / DPA / subprocessors 404. Homepage is a product pitch."
+      "reason": "Website Privacy Policy | Dstny is readable first-party HTML with no named marks. /about-us is a careers lander. Usual trust / security / DPA / subprocessors 404. Homepage is a product pitch."
     },
     {
       "slug": "sutherland-global-services",
       "named_by": 2,
-      "reason": "Preferred C0 left open in #211. Not re-touched."
+      "reason": "Homepage and about-us titles readable; visible body is title-only JS shell. Privacy already stored. /security bounced to an SVG. No named marks or founded year."
     },
     {
       "slug": "sumit-ai",
       "named_by": 2,
-      "reason": "Preferred C0 left open in #211. Not re-touched."
-    },
-    {
-      "slug": "constella-intelligence",
-      "named_by": 2,
-      "reason": "Preferred C0 left open in #211. Not re-touched."
+      "reason": "sumit-ai.com homepage and usual paths unreadable (http-0 / Cloudflare 403)."
     },
     {
       "slug": "filestack",
       "named_by": 2,
-      "reason": "Preferred C0 left open in #211. Not re-touched."
+      "reason": "/security bounced to /features/#security — product page, already refused as Official page. Walker proposed /features again. Not filed. Usual DPA / subprocessors 404. 404 chrome prints SOC 2 — CEQUENS."
     },
     {
       "slug": "hive",
       "named_by": 5,
-      "reason": "Preferred C0/C20 left open in #211. Not re-touched."
+      "reason": "Thin Completeness-20 (years). /policy-documents/security and privacy title the product lander — Framer JS shell. No new first-party instrument."
     },
     {
       "slug": "telesign",
       "named_by": 3,
-      "reason": "Preferred C20 left open in #211. Not re-touched."
+      "reason": "Thin Completeness-20 (ISO 27001 already on file). Usual paths Cloudflare 403 / Just a moment."
     }
   ],
   "standing_skips": [
@@ -186,7 +155,8 @@
   ],
   "refused_this_cut": [
     "True-missing named_by ≥2 stays empty. Leftovers stay 33. Source lists print name + purpose + location, never an official domain. Do not invent leftover domains.",
-    "AfterShip leftover source list Cloudflare 403 (Just a moment). WatchGuard HTML did not print Artica next to a domain.",
+    "Meltwater / GitLab / Vyond / Smartsheet / RingCentral / Plume / Sophos / SonicWall / Dashlane / Zapier / Kentik / AudioCodes / WatchGuard first-party tables still print leftover names with purpose and location only.",
+    "AfterShip leftover source list Cloudflare 403 (Just a moment). WatchGuard HTML prints Ártica PFMS SLU next to purpose and location, not a domain.",
     "GCS on AudioCodes is GCS - Computer Generated Solutions, Romania S.R.L — no domain. No CGS row on the register. Do not invent cgsinc.com.",
     "SamKnows: samknows.com Access Denied 403. ookla.com does not print SamKnows. Do not invent a domain or alias.",
     "Branch Metrics: branch.io Cloudflare 403. Do not invent a domain.",
@@ -199,11 +169,13 @@
     "code42→mimecast still refused — Incydr / Mimecast HTML does not print Code42",
     "samknows→ookla still refused — ookla.com does not print SamKnows",
     "Dstny Automate (named_by=2 C0) privacy HTML prints no marks. Usual paths 404.",
-    "Adjust / BlueSnap usual paths 403 or Vercel checkpoint.",
+    "Filestack /features still refused as Official page.",
+    "Help Scout /company/legal/dpa/ /security/ /privacy/ are JS shells (empty title, CSS-only visible body). Not filed.",
+    "Lightspeed Systems and Monetate first-party usual paths Cloudflare 403. Portal hosts stay URL-only.",
+    "Softcat Official page still open. trust.softcat.com stays a portal host, not Official page. Marks · years already on file from #212.",
     "Walker-proposed Official pages still refused: SupportZebra /trust blog, Filestack /features, Beetexting SMS checklist, Cognizant /security empty, Grab driver guide, Webroot Chromebook product, Tata Communications cyber-security-solutions pitch, Runware /trust JS shell, AccessPay UK SOx Resource Hub, Cprime /learning/certifications (privacy still says undergoing SOC 2), Black Diamond /security 83-byte lander.",
     "Standing 403 / portal C0 named processors not re-walked: vonage, netsuite, equinix, taskus, vultr, reversing-labs, visa, transunion, intouchcx, foundever, global-payments, inmoment, sift, mastercard.",
-    "Preferred C0 left open in #211 (Sutherland, Sumit AI, Constella, Filestack, Hive, Telesign) were not re-touched.",
-    "Appen / Bluebeam / Playlist / Quest / Plume DPA not retried.",
-    "AML RightSource ISO 27001 dropped. Privacy policy body does not name ISO 27001. The only hit is a HubSpot footer image Q-Mark (ISO 27001).png, also present on a 404. Site chrome on a 404 is not a hold (CEQUENS / Appen / Protiviti SOX). Completeness 0. Privacy URL stays on file."
+    "LinkedIn / Softcat marks path / AML RightSource not re-touched.",
+    "Appen / Bluebeam / Playlist / Quest / Plume DPA not retried."
   ]
 }

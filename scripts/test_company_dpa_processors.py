@@ -308,6 +308,25 @@ def main() -> int:
     check("./responsive.html\">RFPIO</a>" in meltwater_html, "Meltwater RFPIO wire lands on Responsive")
     check((by_pub["rfpio"].get("file") or {}).get("dpa") in (0, False, None), "empty rfpio shell does not copy Responsive DPA")
 
+    # This cut: Constella first-party Data Processing Amendment at /policies/dpa/.
+    check(
+        instrument_url(by_pub["constella-intelligence"], "dpa")
+        == "https://constella.ai/policies/dpa/",
+        "constella DPA stays the first-party Data Processing Amendment",
+    )
+    check((by_pub["constella-intelligence"].get("file") or {}).get("dpa") == 20, "constella DPA prints")
+    check((by_pub["constella-intelligence"].get("file") or {}).get("page") in (0, False, None), "constella Official page stays open")
+    check((by_pub["constella-intelligence"].get("file") or {}).get("marks") in (0, False, None), "constella homepage SOC 2 pitch stays open")
+    check(not (by_pub["constella-intelligence"].get("processors") or []), "constella Exhibit B list stays unpublished")
+    constella_html = (ROOT / "site" / "c" / "constella-intelligence.html").read_text(encoding="utf-8")
+    check("https://constella.ai/policies/dpa/" in constella_html, "constella dossier keeps the DPA URL")
+    check('aria-label="DPA"' in constella_html, "constella identity spoken is DPA")
+    check(
+        (by_enr["constella-intelligence"].get("links") or {}).get("dpa")
+        == "https://constella.ai/policies/dpa/",
+        "constella enriched DPA URL stays",
+    )
+
     print(
         f"ok increment-dpa privacy-page-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
