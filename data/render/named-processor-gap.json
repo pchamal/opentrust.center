@@ -1,8 +1,8 @@
 {
-  "generated": "2026-08-31T21:55:00Z",
-  "register": 4533,
-  "origin_main": "b142380865",
-  "mode": "leftover-plus-c0-fills",
+  "generated": "2026-08-31T23:10:00Z",
+  "register": 4575,
+  "origin_main": "3d927f3477",
+  "mode": "leftover-queue-plus-first-party-fills",
   "leftovers_min1": 33,
   "leftovers_after": 33,
   "remaining_ge2": 0,
@@ -21,19 +21,19 @@
   ],
   "aliases_refused": [
     {
-      "from": "sendgrid",
-      "to": "twilio",
-      "reason": "Already on the alias map from #202. Redirect alone is not enough; do not copy Twilio marks/DPA onto the empty sendgrid shell. Left untouched this cut."
+      "from": "conversocial",
+      "to": "verint-systems",
+      "reason": "conversocial.com 301s to Verint private-messaging product HTML. Verint homepage and /our-company print Calabrio is Now Verint and do not print Conversocial. Destination must print the acquired name. Do not copy Verint's file onto the empty conversocial shell."
     },
     {
-      "from": "looker",
-      "to": "google",
-      "reason": "Already on the alias map from #202. Redirect alone is not enough; do not copy Google's file onto the empty looker shell. Left untouched this cut."
+      "from": "conversocial",
+      "to": "khoros",
+      "reason": "khoros.com Cloudflare 403. Destination HTML was not readable this cut. Do not invent an alias."
     },
     {
       "from": "madkudu",
       "to": "hg-insights",
-      "reason": "docs.madkudu.com / help.madkudu.com still print HG Insights Platform Help Center. madkudu.com and hginsights.com still Cloudflare 403. HG Insights cannot be filed this cut. Do not invent a domain or alias onto an empty shell."
+      "reason": "Still refused. madkudu.com and hginsights.com still Cloudflare 403."
     },
     {
       "from": "intersections",
@@ -43,7 +43,7 @@
     {
       "from": "adaptive-mobile",
       "to": "csg-international",
-      "reason": "CSG International is on the register (csgi.com). Homepage titles CSG | Customer Engagement, Billing & Payment Solutions and does not print Adaptive Mobile. Destination must print the acquired name."
+      "reason": "CSG International is on the register (csgi.com). Homepage does not print Adaptive Mobile."
     },
     {
       "from": "code42",
@@ -53,84 +53,183 @@
     {
       "from": "samknows",
       "to": "ookla",
-      "reason": "samknows.com Access Denied 403. ookla.com homepage and about do not print SamKnows. Do not invent an alias."
+      "reason": "samknows.com Access Denied 403. ookla.com homepage and about do not print SamKnows."
     },
     {
       "from": "arsys",
       "to": "ionos",
-      "reason": "IONOS Group sister brand. STRATO is already a separate register row (strato-ag). Destination must not receive a copied parent file. Arsys is filed as its own arsys.es row."
+      "reason": "IONOS Group sister brand. STRATO is already a separate register row (strato-ag). Destination must not receive a copied parent file."
+    },
+    {
+      "from": "basefarm-as",
+      "to": "orange",
+      "reason": "Still refused. Destination HTML does not print Basefarm. basefarm-as already has its own register row."
+    },
+    {
+      "from": "stitch",
+      "to": "qlik",
+      "reason": "Portal redirect. Do not name portal vendors."
     }
   ],
   "newly_filed": [
     {
-      "slug": "arsys",
-      "name": "Arsys",
-      "domain": "arsys.es",
-      "named_by": 1,
+      "slug": "kumospace",
+      "name": "Kumospace",
+      "domain": "kumospace.com",
+      "named_by": 0,
+      "completeness_before": null,
+      "completeness_after": 40,
+      "score_after": 30,
+      "tier_after": "thin",
+      "page": "https://www.kumospace.com/security",
+      "marks": ["SOC 2"],
+      "official_url": "https://www.kumospace.com/",
+      "left_open": [
+        "Secure Video Conferencing & Data Security - Kumospace at /security is first-party HTML. Body prints Fully SOC 2 Compliant Kumospace has successfully undergone SOC 2 examination and audit. Filed as Official page and SOC 2.",
+        "HIPAA on that page is paid-plan product copy (Users wishing to make their Kumospace HIPAA compliant … under Kumospace paid plans). Not a hold.",
+        "GDPR-compliant copy is not a mark.",
+        "Privacy Policy | Kumospace Values your Privacy at /privacy is first-party HTML. Filed as privacy. Completeness does not score privacy.",
+        "Usual DPA / subprocessors are title-only shells (108 visible characters). Years: about page prints When the pandemic hit and no founded year the parser accepts."
+      ]
+    },
+    {
+      "slug": "namely",
+      "name": "Namely",
+      "domain": "namely.com",
+      "named_by": 0,
+      "completeness_before": null,
+      "completeness_after": 40,
+      "score_after": 22,
+      "tier_after": "silent",
+      "dpa": "https://namely.com/legal/data-processing-addendum/",
+      "processors_url": "https://namely.com/legal/data-processing-addendum/",
+      "processor_count": 4,
+      "privacy": "https://namely.com/privacy/",
+      "left_open": [
+        "Data Processing Addendum at /legal/data-processing-addendum/ is first-party HTML. Title Data Processing Addendum. Body prints Namely, Inc., a Delaware corporation, and ANNEX III LIST OF EU/UK SUB-PROCESSORS Last updated: March 14, 2022. Filed as DPA.",
+        "Annex III names Amazon Web Services, Inc.; HubSpot, Inc.; Google (Alphabet, Inc.); Salesforce, Inc. All four land on existing register rows. Completeness DPA · processors = 40.",
+        "Homepage and /security bounce are product landers. trust.namely.com is a customer login (Trust Automation Inc. on Namely), not Namely's Official page. Official page stays open.",
+        "Our Story HTML prints Namely Merges with Vensure Employer + PrismHR. Vensure / PrismHR are not on the register. Do not invent an alias."
+      ]
+    },
+    {
+      "slug": "conversocial",
+      "name": "Conversocial",
+      "domain": "conversocial.com",
+      "named_by": 0,
       "completeness_before": null,
       "completeness_after": 0,
       "score_after": 0,
       "tier_after": "silent",
       "page": null,
       "marks": [],
-      "official_url": "https://www.arsys.es/",
+      "official_url": "https://www.conversocial.com/",
       "left_open": [
-        "Constella Exhibit B prints Arsys (Web/Hosting services). Official domain arsys.es from first-party https://www.arsys.es/quienes-somos and https://www.arsys.es/legal/privacidad (Arsys Internet S.L.U.). Filed as a new parent. Do not alias to ionos. IONOS Group sister brand; STRATO is already a separate row (strato-ag). Do not copy IONOS’s file onto Arsys.",
-        "Usual trust / security / DPA / subprocessors on arsys.es are JS shells or 404. Completeness 0 / domain-only. Official page, marks, DPA, processors, years stay open."
+        "conversocial.com 301s to Verint private-messaging product HTML titled Customer Engagement on Private Messaging Channels | Verint. Verint HTML prints Calabrio is Now Verint and does not print Conversocial. Alias refused. Do not copy Verint's file.",
+        "Usual trust / security / DPA / subprocessors are not first-party Conversocial pages. Completeness 0."
       ]
-    }
-  ],
-  "c0_fills": [
+    },
     {
-      "slug": "constella-intelligence",
-      "named_by": 2,
-      "completeness_before": 0,
-      "completeness_after": 40,
-      "score_after": 22,
+      "slug": "emplifi",
+      "name": "Emplifi",
+      "domain": "emplifi.io",
+      "named_by": 0,
+      "completeness_before": null,
+      "completeness_after": 0,
+      "score_after": 0,
       "tier_after": "silent",
-      "dpa": "https://constella.ai/policies/dpa/",
-      "processors_url": "https://constella.ai/policies/dpa/",
-      "processor_count": 2,
-      "privacy_already": "https://constella.ai/policies/website-privacy-policy/",
+      "page": null,
+      "marks": [],
+      "official_url": "https://www.emplifi.io/",
       "left_open": [
-        "Data Processing Amendment | Constella Intelligence at /policies/dpa/ is first-party HTML. Title DPA | Constella Intelligence. Body prints Constella Intelligence, Inc. Data Processing Amendment This Data Processing Amendment (this “DPA” or this “Amendment”). Filed as DPA. Kept.",
-        "Exhibit B is published on that same page: Amazon Web Services (Web/Hosting services) and Arsys (Web/Hosting services). Filed both. AWS aliases to the existing amazon-web-services row. Arsys is a new register row on arsys.es. Completeness DPA · processors = 40.",
-        "Homepage SOC 2 is still product-pitch compliance copy. Not filed as Official page or marks.",
-        "Years left open. /about-us/ titles About Us | Constella Intelligence and prints no founded year the parser accepts."
+        "emplifi.io and usual trust / security / DPA / privacy paths are Cloudflare 403 (Just a moment). Completeness 0 / domain-only."
+      ]
+    },
+    {
+      "slug": "letgo",
+      "name": "Letgo",
+      "domain": "letgo.com",
+      "named_by": 0,
+      "completeness_before": null,
+      "completeness_after": 0,
+      "score_after": 0,
+      "tier_after": "silent",
+      "page": null,
+      "marks": [],
+      "official_url": "https://www.letgo.com/",
+      "left_open": [
+        "letgo.com homepage and usual paths are empty JS shells (title-only). Completeness 0 / domain-only."
+      ]
+    },
+    {
+      "slug": "digital-assembly",
+      "name": "Digital Assembly",
+      "domain": "digital-assembly.com",
+      "named_by": 0,
+      "completeness_before": null,
+      "completeness_after": 0,
+      "score_after": 0,
+      "tier_after": "silent",
+      "page": null,
+      "marks": [],
+      "official_url": null,
+      "left_open": [
+        "digital-assembly.com homepage http-0. Domain stays the queued Wikipedia host. No official_url invented. Completeness 0."
       ]
     }
   ],
+  "c0_fills": [],
   "expand_fills": [],
   "preferred_c0_left_open": [
     {
-      "slug": "dstny-automate-formerly-qunifi",
-      "named_by": 2,
-      "reason": "Website Privacy Policy | Dstny is readable first-party HTML with no named marks. /about-us is a careers lander. Usual trust / security / DPA / subprocessors 404. Homepage is a product pitch."
+      "slug": "visa",
+      "named_by": 0,
+      "reason": "Privacy already on file. /security bounced to Visa Protect product HTML. Legal lander is not a DPA. About page prints no founded year."
+    },
+    {
+      "slug": "jack-henry",
+      "named_by": 0,
+      "reason": "Privacy already on file. Who We Are prints five decades since our company was founded by Jack Henry and Jerry Hall — not a year the parser accepts. Usual trust / DPA 404."
+    },
+    {
+      "slug": "legalinc-com",
+      "named_by": 0,
+      "reason": "www.legalinc.com and usual paths bounce to portal.legalinc.com login (Dashboard | Legalinc). Stay 0."
+    },
+    {
+      "slug": "agap2it",
+      "named_by": 0,
+      "reason": "Homepage titles agap2IT. /ciberseguranca and /sobre-nos 404. 20 anos video copy is not a founded year."
     },
     {
       "slug": "sutherland-global-services",
-      "named_by": 2,
-      "reason": "Homepage and about-us titles readable; visible body is title-only JS shell. Privacy already stored. /security bounced to an SVG. No named marks or founded year."
+      "named_by": 0,
+      "reason": "Homepage and about-us are title-only JS shells. /security bounced to an SVG. Privacy already stored."
+    },
+    {
+      "slug": "dstny-automate-formerly-qunifi",
+      "named_by": 0,
+      "reason": "Website Privacy Policy already on file. /about-us is a careers lander. Usual trust / security / DPA / subprocessors 404."
     },
     {
       "slug": "sumit-ai",
-      "named_by": 2,
+      "named_by": 0,
       "reason": "sumit-ai.com homepage and usual paths unreadable (http-0 / Cloudflare 403)."
-    },
-    {
-      "slug": "filestack",
-      "named_by": 2,
-      "reason": "/security bounced to /features/#security — product page, already refused as Official page. Walker proposed /features again. Not filed. Usual DPA / subprocessors 404. 404 chrome prints SOC 2 — CEQUENS."
     },
     {
       "slug": "hive",
       "named_by": 5,
-      "reason": "Thin Completeness-20 (years). /policy-documents/security and privacy title the product lander — Framer JS shell. No new first-party instrument."
+      "reason": "Thin Completeness-20 (years). /policy-documents/security and privacy title the product lander — Framer JS shell."
     },
     {
       "slug": "telesign",
       "named_by": 3,
       "reason": "Thin Completeness-20 (ISO 27001 already on file). Usual paths Cloudflare 403 / Just a moment."
+    },
+    {
+      "slug": "aml-rightsource",
+      "named_by": 0,
+      "reason": "ISO 27001 Q-Mark is 404 chrome. Stays 0."
     }
   ],
   "standing_skips": [
@@ -142,14 +241,17 @@
     "madkudu",
     "adaptive-mobile",
     "textel",
-    "avertech"
-  ],
-  "soft_retries_still_open": [
-    "madkudu",
-    "adaptive-mobile",
-    "textel",
-    "thorn",
-    "deft"
+    "avertech",
+    "transunion",
+    "intouchcx",
+    "foundever",
+    "global-payments",
+    "inmoment",
+    "sift",
+    "mastercard",
+    "fluidstack",
+    "nutun",
+    "softserve"
   ],
   "leftovers_still_domainless": [
     "a-g-consulting",
@@ -178,29 +280,16 @@
     "zealep-business-solutions"
   ],
   "refused_this_cut": [
-    "True-missing named_by ≥2 stays empty. Leftovers stay 33. Register 4532 → 4533 after filing Arsys from Constella Exhibit B. Source lists print leftover names with purpose and location only. Do not invent leftover domains.",
-    "Arsys is not aliased to ionos. IONOS Group sister brand; STRATO already has its own row.",
-    "Meltwater / GitLab / Vyond / Smartsheet / RingCentral / Plume / Sophos / SonicWall / Dashlane / Zapier / Kentik / AudioCodes / WatchGuard first-party tables still print leftover names with purpose and location only.",
-    "AfterShip leftover source list Cloudflare 403 (Just a moment). WatchGuard HTML prints Ártica PFMS SLU next to purpose and location, not a domain.",
-    "GCS on AudioCodes is GCS - Computer Generated Solutions, Romania S.R.L — no domain. No CGS row on the register. Do not invent cgsinc.com.",
-    "SamKnows: samknows.com Access Denied 403. ookla.com does not print SamKnows. Do not invent a domain or alias.",
-    "Branch Metrics: branch.io Cloudflare 403. Do not invent a domain.",
-    "MadKudu / HG Insights / Thorn / Deft / Textel / Adaptive Mobile still Cloudflare 403 — do not invent leftover domains",
-    "sendgrid→twilio and looker→google left untouched — redirect alone is not enough",
-    "rfpio empty shell left untouched — do not copy Responsive onto it.",
-    "madkudu→hg-insights still refused; help/docs hosts print HG Insights; madkudu.com and hginsights.com still 403",
-    "intersections→aura — aura.com does not print Intersections",
-    "adaptive-mobile→csg-international — CSG homepage does not print Adaptive Mobile",
-    "code42→mimecast still refused — Incydr / Mimecast HTML does not print Code42",
-    "samknows→ookla still refused — ookla.com does not print SamKnows",
-    "Dstny Automate (named_by=2 C0) privacy HTML prints no marks. Usual paths 404.",
-    "Filestack /features still refused as Official page.",
-    "Help Scout /company/legal/dpa/ /security/ /privacy/ are JS shells (empty title, CSS-only visible body). Not filed.",
-    "Lightspeed Systems and Monetate first-party usual paths Cloudflare 403. Portal hosts stay URL-only.",
-    "Softcat Official page still open. trust.softcat.com stays a portal host, not Official page. Marks · years already on file from #212.",
-    "Walker-proposed Official pages still refused: SupportZebra /trust blog, Filestack /features, Beetexting SMS checklist, Cognizant /security empty, Grab driver guide, Webroot Chromebook product, Tata Communications cyber-security-solutions pitch, Runware /trust JS shell, AccessPay UK SOx Resource Hub, Cprime /learning/certifications (privacy still says undergoing SOC 2), Black Diamond /security 83-byte lander.",
-    "Standing 403 / portal C0 named processors not re-walked: vonage, netsuite, equinix, taskus, vultr, reversing-labs, visa, transunion, intouchcx, foundever, global-payments, inmoment, sift, mastercard.",
-    "LinkedIn / Softcat marks path / AML RightSource not re-touched.",
-    "Appen / Bluebeam / Playlist / Quest / Plume DPA not retried."
+    "True-missing named_by ≥2 stays empty. Leftover graph stays 33. Register 4569 → 4575 after filing six Wikipedia NYC leftovers.",
+    "Source lists still print leftover names with purpose and location only. Do not invent leftover domains.",
+    "conversocial→verint-systems refused — Verint HTML does not print Conversocial. Do not copy Verint onto the empty shell.",
+    "conversocial→khoros refused — khoros.com Cloudflare 403.",
+    "madkudu→hg-insights, intersections→aura, adaptive-mobile→csg-international, code42→mimecast, samknows→ookla, arsys→ionos, basefarm-as→orange still hold.",
+    "Digital Assembly homepage http-0. Domain stays the queued host. No official_url invented.",
+    "Emplifi Cloudflare 403. Letgo empty JS shell. Both Completeness 0.",
+    "Kumospace HIPAA paid-plan copy and GDPR-compliant copy stay open.",
+    "Namely trust.namely.com is a customer login, not Official page.",
+    "Preferred C0 still open: Visa, Jack Henry, Legalinc, agap2IT, Sutherland, Dstny Automate, Sumit AI, Hive, Telesign. AML RightSource stays 0.",
+    "Standing 403/JS not re-walked: TransUnion, InTouchCX, Foundever, Global Payments, InMoment, Sift, Mastercard, Fluidstack, Nutun, SoftServe."
   ]
 }
