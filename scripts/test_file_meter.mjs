@@ -133,6 +133,31 @@ expect(
     ruleOn(bugsnagHtml)[1] === true,
 );
 
+const expandSilent = [
+  "semantria", "rallypoint", "telerik", "softech", "rocket-software", "permabit",
+  "skyhook-wireless", "verivo", "tripadvisor", "ngp-van", "teletype-co", "unitrends",
+  "quark", "cherwell-software", "wanderu-inc", "starwind-software", "simple-energy",
+  "nuance-communications", "josh-ai", "raindance-communications", "p2-energy-solutions",
+  "alinean", "video-professor", "wellspring-worldwide", "asg-technologies", "blueware",
+  "inner-four", "sumtotal-systems", "tactician-corporation", "b-scada", "vistagy",
+  "veveo", "getresponse", "emc-corporation", "tech-data", "guide",
+];
+expect(
+  "3d927f3477 expand rows stay silent — not Official page, not marks",
+  expandSilent.length === 36 &&
+    expandSilent.every((slug) => {
+      const row = bySlug[slug];
+      return (
+        row &&
+        row.found === false &&
+        !row.trust_url &&
+        !(row.certs || []).length &&
+        fileFlags(row).page === 0 &&
+        fileFlags(row).marks === 0
+      );
+    }),
+);
+
 const constella = bySlug["constella-intelligence"];
 const constellaHtml = fileIndexHtml(constella);
 expect(
