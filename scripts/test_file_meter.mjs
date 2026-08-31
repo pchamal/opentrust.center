@@ -286,10 +286,9 @@ const dossierHref = {
   Exa: "./exa.html",
   WorkOS: "./workos.html",
   Turbopuffer: "./turbopuffer.html",
+  SpaceXAI: "./xai.html",
 };
-const graphHref = {
-  SpaceXAI: "../graph.html#p=spacexai",
-};
+const graphHref = {};
 expect(
   "anysphere processors that have a file are links",
   procCells.every((cell, i) => {
