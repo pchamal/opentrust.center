@@ -17868,25 +17868,44 @@
       "name": "Rackspace",
       "slug": "rackspace",
       "domain": "rackspace.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.rackspace.com/compliance",
+      "final_url": "https://www.rackspace.com/compliance",
       "vendor": "unknown",
-      "title": "",
+      "title": "Governance, Risk, & Compliance Services | Rackspace Technology",
       "probed": 13,
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2, SOC 1, SOC 3, ISO 27001, ISO 9001, FedRAMP +7.",
       "list": "companiesmarketcap-software",
-      "certs": [],
+      "certs": [
+        "SOC 2",
+        "SOC 1",
+        "SOC 3",
+        "ISO 27001",
+        "ISO 9001",
+        "FedRAMP",
+        "HITRUST",
+        "PCI DSS",
+        "HIPAA",
+        "CMMC",
+        "NIST 800-53",
+        "NIST 800-171",
+        "TISAX"
+      ],
       "links": {
         "security_txt": "https://www.rackspace.com:443/.well-known/security.txt",
-        "privacy": "https://www.rackspace.com/information/legal/privacystatement"
+        "privacy": "https://www.rackspace.com/information/legal/privacystatement",
+        "trust": "https://www.rackspace.com/compliance"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 66,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "privacy": 6,
+          "marks": 40
+        }
       }
     },
     {
@@ -25055,18 +25074,24 @@
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "No public trust center found on the usual paths. Marks cited from public HTML: PCI DSS.",
       "list": "wikipedia-fortune-500",
-      "certs": [],
+      "certs": [
+        "PCI DSS"
+      ],
       "links": {
         "security_txt": "https://www.amazon.com/.well-known/security.txt",
-        "bug_bounty": "https://hackerone.com/amazonvrp"
+        "bug_bounty": "https://hackerone.com/amazonvrp",
+        "privacy": "https://www.amazon.com/gp/help/customer/display.html?nodeId=GX7NJQ4ZB8MHFRNJ"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 14,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "privacy": 6,
+          "marks": 8
+        }
       },
       "aiti_lists": [
         "arena-org"
@@ -124795,35 +124820,36 @@
       "slug": "model-n",
       "domain": "modeln.com",
       "found": true,
-      "trust_url": "https://trust.modeln.com",
-      "final_url": "https://trust.modeln.com",
+      "trust_url": "https://www.modeln.com/security/",
+      "final_url": "https://www.modeln.com/security/",
       "vendor": "unknown",
-      "title": "",
+      "title": "Security - Model N",
       "probed": 3,
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_California",
-      "summary": "Public trust center. On file: SOC 2 Type II, SOC 1 Type II, GDPR, CCPA, CSA STAR.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, SOC 1 Type II, GDPR, CCPA, CSA STAR, ISO 27001.",
       "list": "wikipedia-software-california",
       "certs": [
         "SOC 2 Type II",
         "SOC 1 Type II",
         "GDPR",
         "CCPA",
-        "CSA STAR"
+        "CSA STAR",
+        "ISO 27001"
       ],
       "links": {
-        "trust": "https://trust.modeln.com",
+        "trust": "https://www.modeln.com/security/",
         "privacy": "https://www.modeln.com/privacy-policy/",
         "security": "https://www.modeln.com/security/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 60,
-        "tier": "on-file",
+        "score": 70,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
-          "certs": 24,
           "privacy": 6,
-          "longevity": 10
+          "longevity": 10,
+          "marks": 34
         }
       },
       "founded_year": 1999,
