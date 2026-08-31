@@ -8160,13 +8160,6 @@
       "in_register": true
     },
     {
-      "id": "groove-networks-dba-groove",
-      "name": "Groove Networks, LLC dba Groove",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "r-systems-international",
       "name": "R Systems International Ltd",
       "domain": "rsystems.com",
@@ -30131,6 +30124,13 @@
       "domain": "goshippo.com",
       "kind": "company",
       "in_register": true
+    },
+    {
+      "id": "clari",
+      "name": "Clari",
+      "domain": "clari.com",
+      "kind": "company",
+      "in_register": true
     }
   ],
   "edges": [
@@ -40624,7 +40624,7 @@
     },
     {
       "from": "watchguard",
-      "to": "groove-networks-dba-groove",
+      "to": "clari",
       "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors",
       "evidence": "Groove Networks, LLC dba Groove"
     },
@@ -46316,6 +46316,7 @@
     "looker": "google",
     "popout": "shippo",
     "calliduscloud": "sap",
-    "semmle": "github"
+    "semmle": "github",
+    "groove-networks-dba-groove": "clari"
   }
 }

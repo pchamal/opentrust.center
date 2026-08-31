@@ -298,6 +298,9 @@ def main() -> int:
     gh_reg = {**register, "github": {"slug": "github", "name": "GitHub", "domain": "github.com"}}
     check(canonical_processor_id("semmle", gh_reg) == "github", "Semmle is GitHub")
     check(REGISTER_ALIASES["semmle"] == "github", "semmle aliases to github")
+    clari_reg = {**register, "clari": {"slug": "clari", "name": "Clari", "domain": "clari.com"}}
+    check(canonical_processor_id("groove-networks-dba-groove", clari_reg) == "clari", "Groove is Clari")
+    check(REGISTER_ALIASES["groove-networks-dba-groove"] == "clari", "groove-networks-dba-groove aliases to clari")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
 
