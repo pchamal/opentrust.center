@@ -366,6 +366,15 @@ def test_report_years_landed() -> None:
     faculty = by_pub["faculty"]
     check(faculty.get("founded_year") == 2014, "Faculty year 2014 stays")
     check(faculty.get("founded_source") == "https://faculty.ai/en-gb", "Faculty source stays")
+    teleport = by_pub["teleport"]
+    check(teleport.get("founded_year") == 2015, "Teleport year 2015 from first-party foundingDate")
+    check(teleport.get("founded_source") == "https://goteleport.com/about", "Teleport year source is /about")
+    check((teleport.get("file") or {}).get("years") in (True, 20), "Teleport years rule prints")
+    tel_html = (ROOT / "site" / "c" / "teleport.html").read_text(encoding="utf-8")
+    check("founded · 2015" in tel_html, "Teleport dossier prints 2015")
+    check("https://goteleport.com/about" in tel_html, "Teleport dossier cites about source")
+    check("ISO 27701" not in tel_html, "Teleport SafeBase JSON-LD ISO 27701 stays open")
+    check("PCI DSS" not in tel_html, "Teleport SafeBase JSON-LD PCI DSS stays open")
     prior = {
         "appian": 1999,
         "esentire": 2001,

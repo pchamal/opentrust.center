@@ -1289,6 +1289,13 @@ def main() -> int:
     check(by_pub["summit"].get("found") is False, "summit homepage is not Official page")
     check(by_pub["enea"].get("found") is False, "enea Official page stays open")
     check(by_pub["gmi-cloud"].get("found") is False, "gmi-cloud Official page stays open")
+    check((by_pub["gmi-cloud"].get("certs") or []) == [], "gmi-cloud about-page SOC 2 / ISO 27001 chips stay open")
+    check("ISO 27701" not in (by_pub["teleport"].get("certs") or []), "teleport SafeBase JSON-LD ISO 27701 stays open")
+    check("PCI DSS" not in (by_pub["teleport"].get("certs") or []), "teleport SafeBase JSON-LD PCI DSS stays open")
+    check(
+        {"SOC 2 Type II", "ISO 27001", "HIPAA"} <= set(by_pub["teleport"].get("certs") or []),
+        f"teleport visible security holds stay {by_pub['teleport'].get('certs')}",
+    )
     check(by_pub["hg-insights"].get("found") is False, "hg-insights SafeBase portal is not Official page")
     check(not by_pub["hg-insights"].get("trust_url"), "hg-insights has no invented Official page")
     check(
