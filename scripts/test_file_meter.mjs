@@ -673,6 +673,77 @@ expect(
     fileScore(fileFlags(woopra)) === 20,
 );
 
+const accesspay = bySlug["access-systems-uk-accesspay"];
+expect(
+  "accesspay Completeness is years = 20",
+  accesspay &&
+    accesspay.found === false &&
+    !accesspay.trust_url &&
+    accesspay.founded_year === 2012 &&
+    accesspay.founded_source === "https://accesspay.com/about" &&
+    fileFlags(accesspay).page === 0 &&
+    fileFlags(accesspay).marks === 0 &&
+    fileFlags(accesspay).dpa === 0 &&
+    fileFlags(accesspay).years === 20 &&
+    fileScore(fileFlags(accesspay)) === 20,
+);
+
+const xrd = bySlug["x-rd"];
+expect(
+  "x-rd Completeness is years = 20",
+  xrd &&
+    xrd.found === false &&
+    !xrd.trust_url &&
+    xrd.founded_year === 2019 &&
+    xrd.founded_source === "https://www.x-rd.com.au/about-us" &&
+    fileFlags(xrd).page === 0 &&
+    fileFlags(xrd).marks === 0 &&
+    fileFlags(xrd).years === 20 &&
+    fileScore(fileFlags(xrd)) === 20,
+);
+
+const invoka = bySlug["invoka-consulting"];
+expect(
+  "invoka Completeness is years = 20",
+  invoka &&
+    invoka.found === false &&
+    !invoka.trust_url &&
+    invoka.founded_year === 2022 &&
+    invoka.founded_source === "https://invokaconsulting.com/about" &&
+    fileFlags(invoka).page === 0 &&
+    fileFlags(invoka).marks === 0 &&
+    fileFlags(invoka).years === 20 &&
+    fileScore(fileFlags(invoka)) === 20,
+);
+
+const primeConsulting = bySlug["prime-consulting-group-solutions"];
+expect(
+  "prime-consulting Completeness is years = 20",
+  primeConsulting &&
+    primeConsulting.found === false &&
+    !primeConsulting.trust_url &&
+    primeConsulting.founded_year === 2022 &&
+    primeConsulting.founded_source === "https://primeconsulting.com/about-us" &&
+    fileFlags(primeConsulting).page === 0 &&
+    fileFlags(primeConsulting).marks === 0 &&
+    fileFlags(primeConsulting).years === 20 &&
+    fileScore(fileFlags(primeConsulting)) === 20,
+);
+
+const carahsoft = bySlug["carahsoft-technology"];
+expect(
+  "carahsoft Completeness is years = 20",
+  carahsoft &&
+    carahsoft.found === false &&
+    !carahsoft.trust_url &&
+    carahsoft.founded_year === 2004 &&
+    carahsoft.founded_source === "https://www.carahsoft.com/about" &&
+    fileFlags(carahsoft).page === 0 &&
+    fileFlags(carahsoft).marks === 0 &&
+    fileFlags(carahsoft).years === 20 &&
+    fileScore(fileFlags(carahsoft)) === 20,
+);
+
 const tropic = bySlug.tropic;
 expect(
   "tropic Completeness is subprocessors = 20",

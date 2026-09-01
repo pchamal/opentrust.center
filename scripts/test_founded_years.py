@@ -530,6 +530,32 @@ def test_spekit_cyberhaven_woopra_years_landed() -> None:
     check("https://www.woopra.com/company/about" in woopra_html, "Woopra dossier cites about source")
 
 
+def test_c0_named_processor_years_landed() -> None:
+    """This increment filed AccessPay 2012, x-RD 2019, Invoka 2022, Prime 2022, Carahsoft 2004."""
+    import json
+    public = json.loads((ROOT / "site" / "data.json").read_text())
+    enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
+    by_pub = {c["slug"]: c for c in public["companies"]}
+    by_enr = {c["slug"]: c for c in enr["companies"]}
+    cases = [
+        ("access-systems-uk-accesspay", 2012, "https://accesspay.com/about", "AccessPay"),
+        ("x-rd", 2019, "https://www.x-rd.com.au/about-us", "x-RD"),
+        ("invoka-consulting", 2022, "https://invokaconsulting.com/about", "Invoka"),
+        ("prime-consulting-group-solutions", 2022, "https://primeconsulting.com/about-us", "Prime"),
+        ("carahsoft-technology", 2004, "https://www.carahsoft.com/about", "Carahsoft"),
+    ]
+    for slug, year, source, label in cases:
+        pub, row = by_pub[slug], by_enr[slug]
+        check(pub.get("founded_year") == year, f"{label} public year {year}")
+        check(row.get("founded_year") == year, f"{label} enriched year {year}")
+        check(pub.get("founded_source") == source, f"{label} year source is first-party about")
+        check((pub.get("file") or {}).get("years") in (True, 20), f"{label} years rule prints")
+        check(pub.get("found") is False, f"{label} Official page stays open")
+        html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
+        check(f"founded · {year}" in html, f"{label} dossier prints {year}")
+        check(source in html, f"{label} dossier cites about source")
+
+
 def main() -> int:
     test_prefix_is_not_a_match()
     test_official_site_only()
@@ -538,6 +564,7 @@ def main() -> int:
     test_teleport_year_landed()
     test_ketch_inkeep_years_landed()
     test_spekit_cyberhaven_woopra_years_landed()
+    test_c0_named_processor_years_landed()
     # Live company-years.json is a later leftover walk (WNS). Do not hang
     # this increment's year asserts on that stale report suite.
     print("ok")
