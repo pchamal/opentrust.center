@@ -292741,19 +292741,138 @@
         "security": null,
         "privacy": null,
         "dpa": null,
-        "subprocessors": null,
+        "subprocessors": {
+          "url": "https://docs.rootly.com/configuration/subprocessors",
+          "host": "docs.rootly.com",
+          "seen": "2026-09-01"
+        },
         "status": null,
         "bounty": null
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "Amazon Web Services",
+          "slug": "amazon-web-services",
+          "id": "amazon-web-services",
+          "source_url": "https://docs.rootly.com/configuration/subprocessors"
+        },
+        {
+          "name": "Cloudflare",
+          "slug": "cloudflare",
+          "id": "cloudflare",
+          "source_url": "https://docs.rootly.com/configuration/subprocessors"
+        },
+        {
+          "name": "ClickHouse Cloud",
+          "slug": "clickhouse",
+          "id": "clickhouse",
+          "source_url": "https://docs.rootly.com/configuration/subprocessors"
+        },
+        {
+          "name": "QuotaGuard",
+          "slug": "quotaguard",
+          "id": "quotaguard",
+          "source_url": "https://docs.rootly.com/configuration/subprocessors"
+        },
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "id": "openai",
+          "source_url": "https://docs.rootly.com/configuration/subprocessors"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic",
+          "id": "anthropic",
+          "source_url": "https://docs.rootly.com/configuration/subprocessors"
+        },
+        {
+          "name": "Braintrust",
+          "slug": "braintrust",
+          "id": "braintrust",
+          "source_url": "https://docs.rootly.com/configuration/subprocessors"
+        },
+        {
+          "name": "Recall.ai",
+          "slug": "recall-ai",
+          "id": "recall-ai",
+          "source_url": "https://docs.rootly.com/configuration/subprocessors"
+        },
+        {
+          "name": "AssemblyAI (via Recall.ai)",
+          "slug": "assemblyai",
+          "id": "assemblyai",
+          "source_url": "https://docs.rootly.com/configuration/subprocessors"
+        },
+        {
+          "name": "Twilio",
+          "slug": "twilio",
+          "id": "twilio",
+          "source_url": "https://docs.rootly.com/configuration/subprocessors"
+        },
+        {
+          "name": "Mailgun (Sinch AB)",
+          "slug": "mailgun",
+          "id": "mailgun",
+          "source_url": "https://docs.rootly.com/configuration/subprocessors"
+        },
+        {
+          "name": "Firebase Cloud Messaging",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://docs.rootly.com/configuration/subprocessors"
+        },
+        {
+          "name": "Apple Push Notification service",
+          "slug": "apple",
+          "id": "apple",
+          "source_url": "https://docs.rootly.com/configuration/subprocessors"
+        },
+        {
+          "name": "Pushy",
+          "slug": "pushy",
+          "id": "pushy",
+          "source_url": "https://docs.rootly.com/configuration/subprocessors"
+        },
+        {
+          "name": "Datadog",
+          "slug": "datadog",
+          "id": "datadog",
+          "source_url": "https://docs.rootly.com/configuration/subprocessors"
+        },
+        {
+          "name": "Sentry",
+          "slug": "sentry",
+          "id": "sentry",
+          "source_url": "https://docs.rootly.com/configuration/subprocessors"
+        },
+        {
+          "name": "pganalyze (Duboce Labs, Inc.)",
+          "slug": "pganalyze-duboce-labs",
+          "id": "pganalyze-duboce-labs",
+          "source_url": "https://docs.rootly.com/configuration/subprocessors"
+        },
+        {
+          "name": "LaunchDarkly",
+          "slug": "launchdarkly",
+          "id": "launchdarkly",
+          "source_url": "https://docs.rootly.com/configuration/subprocessors"
+        },
+        {
+          "name": "Short.io",
+          "slug": "short-io",
+          "id": "short-io",
+          "source_url": "https://docs.rootly.com/configuration/subprocessors"
+        }
+      ],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
         "factors": {
           "page": 0,
           "marks": 0,
           "dpa": 0,
-          "processors": 0,
+          "processors": 8,
           "status": 0,
           "bounty": 0,
           "privacy": 0,
@@ -292765,7 +292884,7 @@
         "page": 0,
         "marks": 0,
         "dpa": 0,
-        "subprocessors": 0,
+        "subprocessors": 20,
         "years": 0
       },
       "_crawl": {
@@ -345417,6 +345536,238 @@
         "http_status": null
       },
       "list_rank": 4665
+    },
+    {
+      "rank": 4831,
+      "name": "QuotaGuard",
+      "slug": "quotaguard",
+      "domain": "quotaguard.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "list": "named-processor-gap",
+      "source": "https://docs.rootly.com/configuration/subprocessors",
+      "source_url": "https://docs.rootly.com/configuration/subprocessors",
+      "probed": 13,
+      "probed_at": "2026-09-01T22:54:22Z",
+      "certs": [],
+      "attestations": [],
+      "summary": "",
+      "founded_year": 2013,
+      "founded_source": "https://www.quotaguard.com/about",
+      "instruments": {
+        "trust": null,
+        "security": null,
+        "privacy": null,
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bounty": null
+      },
+      "processors": [],
+      "disclosure": {
+        "score": 6,
+        "tier": "silent",
+        "factors": {
+          "page": 0,
+          "marks": 0,
+          "dpa": 0,
+          "processors": 0,
+          "status": 0,
+          "bounty": 0,
+          "privacy": 0,
+          "years": 6
+        }
+      },
+      "tier": "silent",
+      "file": {
+        "page": 0,
+        "marks": 0,
+        "dpa": 0,
+        "subprocessors": 0,
+        "years": 20
+      },
+      "_crawl": {
+        "vendor": null,
+        "title": "",
+        "http_status": null
+      },
+      "official_url": "https://www.quotaguard.com",
+      "list_rank": 4831
+    },
+    {
+      "rank": 4832,
+      "name": "Pushy",
+      "slug": "pushy",
+      "domain": "pushy.me",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "list": "named-processor-gap",
+      "source": "https://docs.rootly.com/configuration/subprocessors",
+      "source_url": "https://docs.rootly.com/configuration/subprocessors",
+      "probed": 13,
+      "probed_at": "2026-09-01T22:54:22Z",
+      "certs": [],
+      "attestations": [],
+      "summary": "",
+      "founded_year": null,
+      "founded_source": null,
+      "instruments": {
+        "trust": null,
+        "security": null,
+        "privacy": null,
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bounty": null
+      },
+      "processors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {
+          "page": 0,
+          "marks": 0,
+          "dpa": 0,
+          "processors": 0,
+          "status": 0,
+          "bounty": 0,
+          "privacy": 0,
+          "years": 0
+        }
+      },
+      "tier": "silent",
+      "file": {
+        "page": 0,
+        "marks": 0,
+        "dpa": 0,
+        "subprocessors": 0,
+        "years": 0
+      },
+      "_crawl": {
+        "vendor": null,
+        "title": "",
+        "http_status": null
+      },
+      "official_url": "https://pushy.me",
+      "list_rank": 4832
+    },
+    {
+      "rank": 4833,
+      "name": "pganalyze (Duboce Labs, Inc.)",
+      "slug": "pganalyze-duboce-labs",
+      "domain": "pganalyze.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "list": "named-processor-gap",
+      "source": "https://docs.rootly.com/configuration/subprocessors",
+      "source_url": "https://docs.rootly.com/configuration/subprocessors",
+      "probed": 13,
+      "probed_at": "2026-09-01T22:54:22Z",
+      "certs": [],
+      "attestations": [],
+      "summary": "",
+      "founded_year": null,
+      "founded_source": null,
+      "instruments": {
+        "trust": null,
+        "security": null,
+        "privacy": null,
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bounty": null
+      },
+      "processors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {
+          "page": 0,
+          "marks": 0,
+          "dpa": 0,
+          "processors": 0,
+          "status": 0,
+          "bounty": 0,
+          "privacy": 0,
+          "years": 0
+        }
+      },
+      "tier": "silent",
+      "file": {
+        "page": 0,
+        "marks": 0,
+        "dpa": 0,
+        "subprocessors": 0,
+        "years": 0
+      },
+      "_crawl": {
+        "vendor": null,
+        "title": "",
+        "http_status": null
+      },
+      "official_url": "https://pganalyze.com",
+      "list_rank": 4833
+    },
+    {
+      "rank": 4834,
+      "name": "Short.io",
+      "slug": "short-io",
+      "domain": "short.io",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "list": "named-processor-gap",
+      "source": "https://docs.rootly.com/configuration/subprocessors",
+      "source_url": "https://docs.rootly.com/configuration/subprocessors",
+      "probed": 13,
+      "probed_at": "2026-09-01T22:54:22Z",
+      "certs": [],
+      "attestations": [],
+      "summary": "",
+      "founded_year": null,
+      "founded_source": null,
+      "instruments": {
+        "trust": null,
+        "security": null,
+        "privacy": null,
+        "dpa": null,
+        "subprocessors": null,
+        "status": null,
+        "bounty": null
+      },
+      "processors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {
+          "page": 0,
+          "marks": 0,
+          "dpa": 0,
+          "processors": 0,
+          "status": 0,
+          "bounty": 0,
+          "privacy": 0,
+          "years": 0
+        }
+      },
+      "tier": "silent",
+      "file": {
+        "page": 0,
+        "marks": 0,
+        "dpa": 0,
+        "subprocessors": 0,
+        "years": 0
+      },
+      "_crawl": {
+        "vendor": null,
+        "title": "",
+        "http_status": null
+      },
+      "official_url": "https://short.io",
+      "list_rank": 4834
     }
   ],
   "found": 982,

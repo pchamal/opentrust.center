@@ -1,12 +1,73 @@
 {
-  "generated": "2026-09-01T22:58:00Z",
-  "register": 4830,
+  "generated": "2026-09-01T23:50:00Z",
+  "register": 4834,
   "mode": "named-processor-gap-then-c0-fills",
   "leftovers_min1_at_hour_start": 24,
   "leftovers_min1": 24,
-  "named_processor_resolved_enqueued": [],
-  "named_processor_aliased_this_hour": [],
-  "aliases_added": [],
+  "named_processor_resolved_enqueued": [
+    {
+      "slug": "quotaguard",
+      "name": "QuotaGuard",
+      "domain": "quotaguard.com",
+      "official_url": "https://www.quotaguard.com",
+      "source_url": "https://docs.rootly.com/configuration/subprocessors"
+    },
+    {
+      "slug": "pushy",
+      "name": "Pushy",
+      "domain": "pushy.me",
+      "official_url": "https://pushy.me",
+      "source_url": "https://docs.rootly.com/configuration/subprocessors"
+    },
+    {
+      "slug": "pganalyze-duboce-labs",
+      "name": "pganalyze (Duboce Labs, Inc.)",
+      "domain": "pganalyze.com",
+      "official_url": "https://pganalyze.com",
+      "source_url": "https://docs.rootly.com/configuration/subprocessors"
+    },
+    {
+      "slug": "short-io",
+      "name": "Short.io",
+      "domain": "short.io",
+      "official_url": "https://short.io",
+      "source_url": "https://docs.rootly.com/configuration/subprocessors"
+    }
+  ],
+  "named_processor_aliased_this_hour": [
+    {
+      "from": "mailgun-sinch",
+      "to": "mailgun",
+      "reason": "Rootly first-party docs table prints Mailgun (Sinch AB). mailgun is on the register."
+    },
+    {
+      "from": "firebase-cloud-messaging",
+      "to": "google",
+      "reason": "Rootly prints Firebase Cloud Messaging. firebase already aliases to google."
+    },
+    {
+      "from": "clickhouse-cloud",
+      "to": "clickhouse",
+      "reason": "Rootly prints ClickHouse Cloud. clickhouse is on the register."
+    },
+    {
+      "from": "assemblyai-via-recall-ai",
+      "to": "assemblyai",
+      "reason": "Rootly prints AssemblyAI (via Recall.ai). assemblyai is on the register. Recall.ai is listed separately."
+    },
+    {
+      "from": "apple-push-notification-service",
+      "to": "apple",
+      "reason": "Rootly prints Apple Push Notification service. apple is on the register."
+    }
+  ],
+  "aliases_added": [
+    "mailgun-sinch",
+    "firebase-cloud-messaging",
+    "clickhouse-cloud",
+    "assemblyai-via-recall-ai",
+    "apple-push-notification-service"
+  ],
   "aliases_refused": [
     {
       "slug": "gcs",
@@ -14,27 +75,27 @@
     },
     {
       "slug": "rsi",
-      "reason": "RingCentral short name. Ambiguous. Expand on main already filed an rsi.ch row, so the live gap no longer lists rsi. Do not guess this leftover onto that row or any other."
+      "reason": "RingCentral short name. Ambiguous. Expand on main already filed an rsi.ch row. Do not guess this leftover onto that row or any other."
     },
     {
       "slug": "sync",
-      "reason": "ElevenLabs Trust Center is a Vanta portal; published name is still the short word sync. Expand on main already filed a sync.com row, so the live gap no longer lists sync. Ambiguous. Do not guess."
+      "reason": "ElevenLabs Trust Center is a Vanta portal; published name is still the short word sync. Expand on main already filed a sync.com row. Ambiguous. Do not guess."
     },
     {
       "slug": "software-minds",
-      "reason": "Branch names Software Minds, Inc. Naming list Cloudflare-walled this walk. Standing refusal: softwaremind.com is Software Mind, different legal name, not on register."
+      "reason": "Branch names Software Minds, Inc. Standing refusal: softwaremind.com is Software Mind, different legal name, not on register. Do not invent a domain."
     },
     {
       "slug": "regalix",
-      "reason": "LinkedIn names Regalix, Inc. Campaign optimization services USA (Palo Alto, CA). No official homepage domain on that first-party list."
+      "reason": "LinkedIn names Regalix, Inc. No official homepage domain on that first-party list. No Wikidata P856."
     },
     {
       "slug": "vivaops",
-      "reason": "GitLab names VivaOps LLC North America Professional Services. No official homepage domain on that first-party list."
+      "reason": "GitLab names VivaOps LLC North America Professional Services. No official homepage domain on that first-party list. No Wikidata P856."
     },
     {
       "slug": "cc-cloud",
-      "reason": "GitLab names cc cloud GmbH Germany Professional Services. No official homepage domain. cccloud.de is for sale."
+      "reason": "GitLab names cc cloud GmbH Germany Professional Services. No official homepage domain. cccloud.de is for sale. No Wikidata P856."
     },
     {
       "slug": "rtica-pfms-slu",
@@ -54,7 +115,7 @@
     },
     {
       "slug": "amacuro",
-      "reason": "Vyond boutique name. No first-party proven domain."
+      "reason": "Vyond boutique name. Wikidata Q4739000 is a disambiguation page with no P856."
     },
     {
       "slug": "avertech",
@@ -106,7 +167,7 @@
     },
     {
       "slug": "ujwal",
-      "reason": "Smartsheet boutique name. No first-party proven domain."
+      "reason": "Smartsheet boutique name. Wikidata hits are a given name and a disambiguation page. No P856."
     },
     {
       "slug": "zealep-business-solutions",
@@ -115,16 +176,25 @@
   ],
   "filed": [
     {
-      "slug": "sfeir",
-      "name": "SFEIR",
+      "slug": "rootly",
+      "name": "Rootly",
+      "kind": "subprocessors",
+      "url": "https://docs.rootly.com/configuration/subprocessors",
+      "names": 19,
+      "completeness_before": 0,
+      "completeness_after": 20
+    },
+    {
+      "slug": "quotaguard",
+      "name": "QuotaGuard",
       "kind": "years",
-      "year": 1985,
-      "url": "https://www.sfeir.com/en/company/history",
-      "quote": "Milestones 1985 — SFEIR is founded.",
+      "year": 2013,
+      "url": "https://www.quotaguard.com/about",
+      "quote": "\"foundingDate\": \"2013\"",
       "completeness_before": 0,
       "completeness_after": 20
     }
   ],
   "remaining_ge2_slugs": [],
-  "note": "Rebased onto expand-register (ac60604; register 4830). This file stays this cut's Completeness hour, not the expand walk. Live gap script remains leftovers_min1=24, remaining_ge2 empty — same 24 domain-less boutique/BPO names as PR 232. No new register row. No alias. Standing refusals stay (software-minds ≠ softwaremind.com; rsi/sync short names already absorbed by expand rsi.ch / sync.com rows and stay ambiguous; regalix/vivaops/cc-cloud/rtica-pfms-slu and Meltwater/Sophos/Smartsheet/Vyond/SonicWall/GitLab boutique names domain-less; gcs prints Computer Generated Solutions without a homepage). Completeness fill on a Completeness-0 named-processor row: SFEIR first-party /en/company/history milestone '1985 — SFEIR is founded.' Year parser now accepts the em-dash timeline form and walks /company/history. Official page · marks · DPA · subprocessors stay open on SFEIR. Honest refusals this walk: Userfront /about is a JS shell with no founded sentence; R Systems Cloudflare 403; Publicis Sapient /company has no founded sentence; Elegant Themes /about is a CSS/JS shell; KeyCDN /gdpr still tells customers to open a support request for a DPA; Filestack /about is a JS shell and /security homepage-bounces to /features/; reversing-labs /security and black-diamond /security are empty JS shells (PR 233 fileable page hits stay unfiled); iMerit page + marks already on file from PR 233; Ordway / Beetexting last-batch C0 reaudit stays. Accion Labs, Ciklum, Devoteam, SoftServe, Persistent, Bee Engineering, Agap2IT, AnswerConnect, Successive, Worketics, and Ninestars history/about paths had no official-site founded sentence. Draft PR 39 left unmerged. Adish 2014, Datamato 2012, Kickbox subprocessors, sift-science → sift, AccessPay / x-RD / Invoka / Prime / Carahsoft years, and iMerit marks stay."
+  "note": "Live gap leftovers_min1 24→24, remaining_ge2 empty. Standing refusals stay (software-minds ≠ softwaremind.com; rsi/sync short names already absorbed by expand rsi.ch / sync.com rows and stay ambiguous; regalix/vivaops/cc-cloud/rtica-pfms-slu and Meltwater/Sophos/Smartsheet/Vyond/SonicWall/GitLab boutique names domain-less; gcs prints Computer Generated Solutions without a homepage; Amacuro/Ujwal Wikidata hits are disambiguation/given-name with no P856). Rootly first-party docs HTML at docs.rootly.com/configuration/subprocessors prints a named-processor table. Completeness 0→20 on an already-on-register named processor (subprocessors). Official page stays open: rootly.com/security is a product lander (Rootly for Security Teams); security.rootly.com is a portal host. Marks stay unread (product-page SOC2/HIPAA/GDPR/CCPA chips). DPA is a Google Drive download, not first-party HTML. Years stay open (/about 403). Same table prints official homepage hrefs for four leftovers not on the register — QuotaGuard quotaguard.com, Pushy pushy.me, pganalyze pganalyze.com, Short.io short.io — filed as new named-processor-gap rows with those proven domains only. No invented slugs. QuotaGuard /about JSON-LD foundingDate 2013 files years (0→20). Pushy / pganalyze / Short.io about paths have no founded sentence this walk. Aliases added so Rootly's printed product/legal names land on existing register rows: mailgun-sinch → mailgun, firebase-cloud-messaging → google, clickhouse-cloud → clickhouse, assemblyai-via-recall-ai → assemblyai, apple-push-notification-service → apple (sendgrid → twilio and amazon-bedrock → amazon-web-services already on file). Soft-wall misses this walk: vonage/netsuite/vultr/taskus/sift/pandadoc 403/portal; seon Vanta; runware/tokenx empty JS; supportzebra /trust bounced to a churn blog; syniverse/tata product landers. Draft PR 39 left unmerged. styles.css SHA unchanged. SFEIR 1985, Adish 2014, Datamato 2012, Kickbox subprocessors, and iMerit marks stay."
 }

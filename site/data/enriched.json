@@ -132930,12 +132930,36 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "links": {
+        "subprocessors": "https://docs.rootly.com/configuration/subprocessors"
+      },
+      "subprocessors": [
+        "amazon-web-services",
+        "cloudflare",
+        "clickhouse",
+        "quotaguard",
+        "openai",
+        "anthropic",
+        "braintrust",
+        "recall-ai",
+        "assemblyai",
+        "twilio",
+        "mailgun",
+        "google",
+        "apple",
+        "pushy",
+        "datadog",
+        "sentry",
+        "pganalyze-duboce-labs",
+        "launchdarkly",
+        "short-io"
+      ],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "subprocessors": 8
+        }
       },
       "official_url": "https://rootly.com/"
     },
@@ -135865,6 +135889,106 @@
         "tier": "silent",
         "factors": {}
       }
+    },
+    {
+      "rank": 4831,
+      "name": "QuotaGuard",
+      "slug": "quotaguard",
+      "domain": "quotaguard.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://docs.rootly.com/configuration/subprocessors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 6,
+        "tier": "silent",
+        "factors": {
+          "longevity": 6
+        }
+      },
+      "official_url": "https://www.quotaguard.com",
+      "founded_year": 2013,
+      "founded_source": "https://www.quotaguard.com/about"
+    },
+    {
+      "rank": 4832,
+      "name": "Pushy",
+      "slug": "pushy",
+      "domain": "pushy.me",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://docs.rootly.com/configuration/subprocessors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      },
+      "official_url": "https://pushy.me"
+    },
+    {
+      "rank": 4833,
+      "name": "pganalyze (Duboce Labs, Inc.)",
+      "slug": "pganalyze-duboce-labs",
+      "domain": "pganalyze.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://docs.rootly.com/configuration/subprocessors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      },
+      "official_url": "https://pganalyze.com"
+    },
+    {
+      "rank": 4834,
+      "name": "Short.io",
+      "slug": "short-io",
+      "domain": "short.io",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://docs.rootly.com/configuration/subprocessors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      },
+      "official_url": "https://short.io"
     }
   ],
   "notes": "Public pages only. Incomplete by nature. No invented URLs, years, certs, or processors."

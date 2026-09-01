@@ -819,6 +819,47 @@ expect(
     fileScore(fileFlags(kickbox)) === 20,
 );
 
+const rootly = bySlug.rootly;
+expect(
+  "rootly Completeness is subprocessors = 20",
+  rootly &&
+    rootly.found === false &&
+    !rootly.trust_url &&
+    ((rootly.instruments || {}).subprocessors || {}).url ===
+      "https://docs.rootly.com/configuration/subprocessors" &&
+    (rootly.processors || []).some((p) => p.slug === "amazon-web-services" && p.name === "Amazon Web Services") &&
+    (rootly.processors || []).some((p) => p.slug === "mailgun" && p.name === "Mailgun (Sinch AB)") &&
+    (rootly.processors || []).some((p) => p.slug === "google" && p.name === "Firebase Cloud Messaging") &&
+    (rootly.processors || []).some((p) => p.slug === "quotaguard" && p.name === "QuotaGuard") &&
+    !(rootly.processors || []).some((p) => p.id === "mailgun-sinch") &&
+    !(rootly.processors || []).some((p) => p.id === "aws") &&
+    !(rootly.certs || []).length &&
+    !rootly.founded_year &&
+    fileFlags(rootly).page === 0 &&
+    fileFlags(rootly).marks === 0 &&
+    fileFlags(rootly).dpa === 0 &&
+    fileFlags(rootly).subprocessors === 20 &&
+    fileFlags(rootly).years === 0 &&
+    fileScore(fileFlags(rootly)) === 20,
+);
+
+const quotaguard = bySlug.quotaguard;
+expect(
+  "quotaguard Completeness is years = 20",
+  quotaguard &&
+    quotaguard.found === false &&
+    !quotaguard.trust_url &&
+    quotaguard.domain === "quotaguard.com" &&
+    quotaguard.founded_year === 2013 &&
+    quotaguard.founded_source === "https://www.quotaguard.com/about" &&
+    fileFlags(quotaguard).page === 0 &&
+    fileFlags(quotaguard).marks === 0 &&
+    fileFlags(quotaguard).dpa === 0 &&
+    fileFlags(quotaguard).subprocessors === 0 &&
+    fileFlags(quotaguard).years === 20 &&
+    fileScore(fileFlags(quotaguard)) === 20,
+);
+
 const nylas = bySlug.nylas;
 expect(
   "nylas Completeness is page · marks · subprocessors = 60",
