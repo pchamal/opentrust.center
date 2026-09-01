@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-01T18:45:00Z",
+  "generated": "2026-09-01T19:20:00Z",
   "register": 4746,
   "mode": "named-processor-gap-then-c0-fills",
   "leftovers_min1_at_hour_start": 27,
@@ -26,19 +26,19 @@
     },
     {
       "slug": "regalix",
-      "reason": "No resolvable official domain from first-party HTML."
+      "reason": "LinkedIn names Regalix, Inc. No official homepage domain on that first-party list."
     },
     {
       "slug": "vivaops",
-      "reason": "No resolvable official domain from first-party HTML."
+      "reason": "GitLab names VivaOps LLC. No official homepage domain on that first-party list."
     },
     {
       "slug": "cc-cloud",
-      "reason": "No resolvable official domain. cccloud.de is for sale."
+      "reason": "GitLab names cc cloud GmbH. No official homepage domain. cccloud.de is for sale."
     },
     {
       "slug": "rtica-pfms-slu",
-      "reason": "No resolvable official domain from first-party HTML."
+      "reason": "WatchGuard names Ártica PFMS SLU. No official homepage domain on that first-party list."
     },
     {
       "slug": "a-g-consulting",
@@ -70,7 +70,7 @@
     },
     {
       "slug": "cloud-support-technologies",
-      "reason": "AfterShip boutique name. No first-party proven domain."
+      "reason": "AfterShip boutique name. AfterShip list Cloudflare-walled this walk."
     },
     {
       "slug": "cognitive-intelligence",
@@ -119,16 +119,26 @@
   ],
   "filed": [
     {
-      "slug": "teleport",
-      "name": "Teleport",
+      "slug": "ketch",
+      "name": "Ketch",
       "kind": "years",
-      "year": 2015,
-      "url": "https://goteleport.com/about",
-      "quote": "\"foundingDate\":\"2015\"",
-      "completeness_before": 60,
-      "completeness_after": 80
+      "year": 2020,
+      "url": "https://www.ketch.com/about",
+      "quote": "\"foundingDate\":\"2020\"",
+      "completeness_before": 40,
+      "completeness_after": 60
+    },
+    {
+      "slug": "inkeep",
+      "name": "Inkeep",
+      "kind": "years",
+      "year": 2023,
+      "url": "https://inkeep.com/about",
+      "quote": "\"foundingDate\":\"2023\"",
+      "completeness_before": 40,
+      "completeness_after": 60
     }
   ],
   "remaining_ge2_slugs": [],
-  "note": "Hour start leftovers_min1=27, remaining_ge2 empty. No leftover alias or new register row. Standing refusals from PR 226 unchanged. Completeness fill: Teleport first-party JSON-LD foundingDate 2015 on goteleport.com/about (same field on /security). ISO 27701 and PCI DSS stay open — JSON-LD hasCredential points at SafeBase trust.goteleport.com; visible security HTML only prints SOC 2 Type II, ISO 27001, HIPAA. Subprocessors stay open (SafeBase). GMI Cloud about-page SOC 2 / ISO 27001 marketing chips stay open. ReversingLabs about-page SOC 2 image caption stays open."
+  "note": "Hour start leftovers_min1=27, remaining_ge2 empty. Re-checked leftover naming lists; none print an official homepage domain, and no destination first-party HTML newly prints a leftover name. Completeness fills: Ketch first-party JSON-LD foundingDate 2020 on ketch.com/about (marks · DPA already on file; Official page stays open — /security /trust /compliance 404; subprocessors 301 to trust.ketch.com portal). Inkeep first-party JSON-LD foundingDate 2023 on inkeep.com/about (page · marks already on file; DPA stays open — /policies/dpa is a PDF). PandaDoc usual paths 429 Vercel checkpoint. Capacity usual paths Cloudflare 403. Softcat /security /trust /compliance 404; trust.softcat.com stays portal. Woopra /security /trust /dpa 404. FreeAgent / Wave usual trust paths 404. GMI Cloud about-page chips stay open. ReversingLabs about-page SOC 2 image caption stays open. Teleport 2015 stays."
 }
