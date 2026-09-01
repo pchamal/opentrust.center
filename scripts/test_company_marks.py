@@ -1190,28 +1190,24 @@ def main() -> int:
     check("https://trust.validity.com" in va_html, "validity dossier cites Official page")
     check("EU-US DPF" in va_html, "validity dossier prints EU-US DPF")
 
-    kept, why = hold_marks(
-        ["SOC 2", "GDPR", "CCPA"],
-        "Audit logging SOC2 certified GDPR & CCPA Built in the Open authzed/spicedb",
-        "",
-    )
-    check("SOC 2" in kept, f"authzed about SOC2 certified files: {kept} {why}")
     check(by_pub["authzed"].get("found") is True, "authzed Official page is on file")
     check(
         by_pub["authzed"].get("trust_url") == "https://security.authzed.com",
         "authzed Official page stays the existing portal",
     )
-    check((by_pub["authzed"].get("certs") or []) == ["SOC 2"], f"authzed certs {by_pub['authzed'].get('certs')}")
+    check((by_pub["authzed"].get("certs") or []) == [], f"authzed certs stay empty {by_pub['authzed'].get('certs')}")
+    check("SOC 2" not in (by_pub["authzed"].get("certs") or []), "authzed Secure First SOC2 chip stays open")
     check("GDPR" not in (by_pub["authzed"].get("certs") or []), "authzed GDPR chip stays open")
     check("CCPA" not in (by_pub["authzed"].get("certs") or []), "authzed CCPA chip stays open")
     check((by_pub["authzed"].get("file") or {}).get("page") == 20, "authzed Official page prints")
-    check((by_pub["authzed"].get("file") or {}).get("marks") == 20, "authzed marks print")
+    check((by_pub["authzed"].get("file") or {}).get("marks") == 10, "authzed marks stay dotted — page on file, none extracted")
     check((by_pub["authzed"].get("file") or {}).get("dpa") in (0, False, None), "authzed DPA stays open")
     check((by_pub["authzed"].get("file") or {}).get("years") in (0, False, None), "authzed years stay open")
     az_html = (ROOT / "site" / "c" / "authzed.html").read_text(encoding="utf-8")
     check("<h1>Authzed</h1>" in az_html, "authzed dossier is its own file")
     check("https://security.authzed.com" in az_html, "authzed dossier cites Official page")
-    check("SOC 2" in az_html, "authzed dossier prints SOC 2")
+    check("SOC 2" not in az_html, "authzed dossier does not print SOC 2 chip")
+    check("SOC2" not in az_html, "authzed dossier does not print SOC2 chip")
     check("GDPR" not in az_html, "authzed dossier does not print GDPR chip")
     check("CCPA" not in az_html, "authzed dossier does not print CCPA chip")
 

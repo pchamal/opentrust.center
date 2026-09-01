@@ -522,20 +522,21 @@ expect(
 
 const authzed = bySlug.authzed;
 expect(
-  "authzed Completeness is page · marks = 40",
+  "authzed Completeness is page only (marks open)",
   authzed &&
     authzed.found === true &&
     authzed.trust_url === "https://security.authzed.com" &&
-    (authzed.certs || []).includes("SOC 2") &&
+    !(authzed.certs || []).length &&
+    !(authzed.certs || []).includes("SOC 2") &&
     !(authzed.certs || []).includes("GDPR") &&
     !(authzed.certs || []).includes("CCPA") &&
     !authzed.founded_year &&
     fileFlags(authzed).page === 20 &&
-    fileFlags(authzed).marks === 20 &&
+    fileFlags(authzed).marks === 10 &&
     fileFlags(authzed).dpa === 0 &&
     fileFlags(authzed).subprocessors === 0 &&
     fileFlags(authzed).years === 0 &&
-    fileScore(fileFlags(authzed)) === 40,
+    fileScore(fileFlags(authzed)) === 30,
 );
 
 const src = readFileSync(new URL("../site/register.js", import.meta.url), "utf8");

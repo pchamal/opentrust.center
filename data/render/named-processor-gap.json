@@ -43,25 +43,14 @@
         "HIPAA stays open. Privacy page is HIPAA compliant plus a BAA on the Enterprise Plan.",
         "DPA DPF is a transfer-mechanism clause, not a self-cert. Years stay open."
       ]
-    },
-    {
-      "slug": "authzed",
-      "name": "Authzed",
-      "domain": "authzed.com",
-      "named_by": 2,
-      "completeness_before": 20,
-      "completeness_after": 40,
-      "official_page": "https://security.authzed.com",
-      "marks": ["SOC 2"],
-      "source": "https://authzed.com/why-authzed",
-      "left_open": [
-        "Official page stays https://security.authzed.com.",
-        "SOC 2 from about: SOC2 certified. GDPR and CCPA stay open as chips beside that hold.",
-        "DPA, named processors, and years stay open."
-      ]
     }
   ],
   "clerk_holds": [
+    {
+      "slug": "authzed",
+      "name": "Authzed",
+      "reason": "About-page Secure First list is marketing chips: Encryption at rest, isolated deployments, SOC2 certified, GDPR & CCPA. Same class as homepage chips, not first-party certification prose. Official page stays https://security.authzed.com. Marks stay open."
+    },
     {
       "slug": "vonage",
       "name": "Vonage",
@@ -241,7 +230,8 @@
     "Standing alias refusals kept. MadKudu / Thorn / Textel / Adaptive Mobile / SamKnows still unresolved (403 / http-0).",
     "Vonage, Equinix, NetSuite, Vultr, TransUnion, IntouchCX, InMoment, Foundever, and Global Payments usual paths 403 or unreadable this cut.",
     "Gainsight and Auth0 SafeBase portals stay unread. Mailchimp 2001 year parser miss. Wasabi 2017 year parser miss (Wasabi sits outside the window; datacenter SOC 2 / ISO stay open).",
-    "OneSignal HIPAA-compliant + BAA stays open. OneSignal DPA DPF is a transfer mechanism, not a self-cert. Authzed GDPR/CCPA chips stay open.",
+    "OneSignal HIPAA-compliant + BAA stays open. OneSignal DPA DPF is a transfer mechanism, not a self-cert.",
+    "Authzed about-page Secure First list (SOC2 certified, GDPR & CCPA) is marketing chips, not certification prose. Marks stay open. Official page stays https://security.authzed.com.",
     "OpenRouter DPA Schedule 2 'SOC 2 Type II control framework' is a security-control bullet, not a certification."
   ]
 }
