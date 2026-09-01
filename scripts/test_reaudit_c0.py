@@ -188,6 +188,17 @@ def test_live_ledger_when_present() -> None:
     batch = payload.get("last_batch") or []
     check(len(batch) <= DEFAULT_LIMIT, f"paced batch stays at {DEFAULT_LIMIT}, got {len(batch)}")
     check(len(batch) > 0, "first batch wrote last_batch")
+    check(len(batch) == 30, f"first cut probed 30 Completeness-0 rows, got {len(batch)}")
+    summary = payload.get("summary") or {}
+    check(summary.get("filled") == 1, f"first cut filed 1 honest fill, got {summary.get('filled')}")
+    check("imerit" in batch, "first cut probed imerit")
+    imerit = entries.get("imerit") or {}
+    check(imerit.get("filed") is True, "imerit ledger row records the apply")
+    check(imerit.get("could_fill") == ["page", "marks"], f"imerit could_fill {imerit.get('could_fill')}")
+    check((imerit.get("hit") or {}).get("page", {}).get("url") == "https://imerit.ai/compliance-and-certifications/", "imerit Official page in ledger")
+    added = ((imerit.get("hit") or {}).get("marks") or {}).get("added") or []
+    check("GDPR" not in added, "imerit ledger does not file GDPR")
+    check("HIPAA" not in added, "imerit ledger does not file HIPAA")
     for slug in batch:
         rec = entries.get(slug) or {}
         check(rec.get("domain"), f"{slug} ledger row is missing a domain")
