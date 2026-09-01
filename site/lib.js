@@ -126,7 +126,8 @@ function namedProcessorList(row) {
 function officialPageOnFile(row) {
   // Portal trust URL is never Official page. Softcat expand filed
   // trust.softcat.com only; that host stays an instrument link.
-  if (row && row.slug === "softcat") return false;
+  // Virtuozzo expand filed virtuozzo.trust.site the same way.
+  if (row && (row.slug === "softcat" || row.slug === "virtuozzo")) return false;
   if (row && row.found && (row.trust_url || row.final_url)) return true;
   return !!(instrumentUrl(row, "trust") || instrumentUrl(row, "security"));
 }

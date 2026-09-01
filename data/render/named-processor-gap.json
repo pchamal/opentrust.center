@@ -1,7 +1,7 @@
 {
-  "generated": "2026-08-31T23:26:00Z",
-  "register": 4576,
-  "origin_main": "29abfcf348",
+  "generated": "2026-09-01T00:20:00Z",
+  "register": 4616,
+  "origin_main": "9b86333de4",
   "mode": "leftover-named-processor-plus-first-party-fills",
   "leftovers_min1": 33,
   "leftovers_after": 33,
@@ -21,19 +21,29 @@
   ],
   "aliases_refused": [
     {
+      "from": "jack-henry-and-associates",
+      "to": "jack-henry",
+      "reason": "jackhenry.com first-party HTML prints Jack Henry™. Associates in that HTML are employees, not Jack Henry & Associates. Facebook /JackHenryAssociates is not first-party. Do not alias. Do not alias hive → hiveage."
+    },
+    {
+      "from": "samknows",
+      "to": "ookla",
+      "reason": "Still refused. samknows.com 403s to ThousandEyes. ookla.com does not print SamKnows."
+    },
+    {
       "from": "conversocial",
       "to": "verint-systems",
-      "reason": "Still refused. Verint HTML prints Calabrio is Now Verint and does not print Conversocial."
+      "reason": "Still refused. Standing. Destination HTML does not print Conversocial."
     },
     {
       "from": "conversocial",
       "to": "khoros",
-      "reason": "Still refused. Destination must print Conversocial. Not re-walked this cut."
+      "reason": "Still refused. Standing."
     },
     {
       "from": "madkudu",
       "to": "hg-insights",
-      "reason": "Still refused. Standing 403 skip. Do not invent an alias onto an empty shell."
+      "reason": "Still refused. Standing 403 skip."
     },
     {
       "from": "intersections",
@@ -48,17 +58,12 @@
     {
       "from": "code42",
       "to": "mimecast",
-      "reason": "Still refused. Mimecast homepage and Incydr HTML do not print Code42."
-    },
-    {
-      "from": "samknows",
-      "to": "ookla",
-      "reason": "Still refused. samknows.com 403s to ThousandEyes. ookla.com homepage and about do not print SamKnows."
+      "reason": "Still refused. Standing."
     },
     {
       "from": "arsys",
       "to": "ionos",
-      "reason": "Still refused. IONOS Group sister brand. STRATO is already a separate register row."
+      "reason": "Still refused. IONOS Group sister brand. STRATO stays strato-ag."
     },
     {
       "from": "basefarm-as",
@@ -68,123 +73,111 @@
     {
       "from": "stitch",
       "to": "qlik",
-      "reason": "Still refused. Portal redirect. Do not name portal vendors."
+      "reason": "Still refused. Portal redirect."
+    },
+    {
+      "from": "cognitive-intelligence",
+      "to": "cognitive-systems",
+      "reason": "Still refused. Different companies."
     }
   ],
-  "newly_filed": [
+  "newly_filed": [],
+  "c0_fills": [
     {
-      "slug": "branch-metrics",
-      "name": "Branch Metrics",
-      "domain": "branch.io",
+      "slug": "cloud-ace",
+      "name": "Cloud Ace",
+      "domain": "cloud-ace.jp",
       "named_by": 1,
-      "completeness_before": null,
-      "completeness_after": 60,
-      "score_after": 42,
-      "tier_after": "on-file",
-      "page": "https://www.branch.io/security",
-      "marks": [],
-      "dpa": "https://legal.branch.io/saas/branch-saas-dpa/",
-      "processors_url": "https://legal.branch.io/saas/subprocessor-list/",
-      "processor_count": 8,
-      "privacy": "https://legal.branch.io/saas/privacy-policy/",
-      "official_url": "https://www.branch.io/",
+      "completeness_before": 0,
+      "completeness_after": 20,
+      "marks": ["ISO 27001", "ISO 9001"],
+      "source": "https://cloud-ace.jp/company/overview/",
       "left_open": [
-        "Plume leftover Branch Metrics, Inc. First-party HTML at branch.io prints Branch and Branch Metrics, Inc. Filed as a new parent. Do not invent branch.io — homepage, /security, and legal.branch.io were readable first-party HTML this cut.",
-        "Keeping Mobile Data Secure & Private with Data Security | Branch at /security is first-party HTML. Filed as Official page. trust.branch.io titles Branch Trust Center | Powered by Conveyor. Portal. Not Official page. Marks on that host stay unread.",
-        "Branch SaaS DPA at legal.branch.io/saas/branch-saas-dpa/ is first-party HTML. Title Branch SaaS DPA – Branch Legal. Body prints This Data Processing Addendum (“DPA”) forms part of Branch Metrics, Inc.’s Main Services Agreement. Filed as DPA.",
-        "Subprocessor List at legal.branch.io/saas/subprocessor-list/ is first-party HTML. Version 8, last updated June 1, 2026. Prints Amazon Web Services, Inc.; Zendesk; Atlassian; Software Minds, Inc.; DataGrail, Inc.; Auth0; Anthropic; Thoughtspot, LLC. Seven land on existing register rows. Software Minds stays a leftover (no domain on the list). Completeness page · DPA · processors = 60.",
-        "Privacy Policy at legal.branch.io/saas/privacy-policy/ prints Branch Metrics, Inc. Filed as privacy. Completeness does not score privacy.",
-        "HIPAA on /security is HIPAA-eligible / BAA / Advanced Compliance product copy. Not a hold. GDPR & CCPA are privacy-principle nav. Not marks. Years: /about prints no founded year the parser accepts."
+        "Official page stays open. Company overview is not a trust or security page.",
+        "Years stay open. History HTML prints 2016 分社化 / 設立 in Japanese; the year parser does not accept it."
       ]
     }
   ],
-  "c0_fills": [],
-  "expand_fills": [],
+  "clerk_holds": [
+    {
+      "slug": "cequens-fze",
+      "name": "CEQUENS",
+      "domain": "cequens.com",
+      "named_by": 1,
+      "completeness": 0,
+      "marks": [],
+      "reason": "Homepage marketing chips and certificate img alts (SOC 2, ISO 27001, PCI DSS) are Bugsnag-class chrome, not first-party assurance prose. Type II is not printed. Official page stays open. Privacy URL stays."
+    }
+  ],
+  "expand_fills": [
+    {
+      "slug": "virtuozzo",
+      "name": "Virtuozzo",
+      "action": "trust-instrument-url-only",
+      "completeness_before": 60,
+      "completeness_after": 20,
+      "left_open": [
+        "virtuozzo.trust.site is a portal vendor host. Restored as links.trust only. Not Official page. Not a mark. Portal SOC 2 unread.",
+        "virtuozzo.com 403s. No first-party security or trust HTML this cut.",
+        "Years stay (expand already filed)."
+      ]
+    }
+  ],
   "preferred_c0_left_open": [
     {
-      "slug": "hive",
-      "named_by": 5,
-      "reason": "Thin Completeness-20 (years). Preferred C0 not re-walked after the Branch leftover fill. Framer JS shell on the last cut."
-    },
-    {
-      "slug": "telesign",
-      "named_by": 3,
-      "reason": "Thin Completeness-20 (ISO 27001 already on file). Usual paths Cloudflare 403 on the last cut. Not re-walked after Branch."
-    },
-    {
-      "slug": "visa",
-      "named_by": 0,
-      "reason": "Privacy already on file. /security bounced to Visa Protect product HTML. Left open."
-    },
-    {
-      "slug": "jack-henry",
-      "named_by": 0,
-      "reason": "Privacy already on file. Who We Are prints no founded year the parser accepts. Left open."
-    },
-    {
-      "slug": "legalinc-com",
-      "named_by": 0,
-      "reason": "Usual paths bounce to portal.legalinc.com login. Stay 0."
-    },
-    {
-      "slug": "agap2it",
-      "named_by": 0,
-      "reason": "Homepage titles agap2IT. Usual trust / DPA 404. Left open."
-    },
-    {
-      "slug": "sutherland-global-services",
-      "named_by": 0,
-      "reason": "Homepage and about-us are title-only JS shells. Privacy already stored."
+      "slug": "sumit-ai",
+      "named_by": 2,
+      "reason": "sumit-ai.com homepage, /security, /privacy Cloudflare 403. trust.sumit-ai.com does not resolve."
     },
     {
       "slug": "dstny-automate-formerly-qunifi",
-      "named_by": 0,
-      "reason": "Website Privacy Policy already on file. Usual trust / DPA 404."
+      "named_by": 2,
+      "reason": "Website Privacy Policy already on file. /security /trust /dpa 404. /security-and-privacy is another privacy page. Mentions a data processing agreement in prose; no first-party DPA HTML URL. Security White Paper is PDF."
     },
     {
-      "slug": "sumit-ai",
-      "named_by": 0,
-      "reason": "sumit-ai.com homepage and usual paths unreadable (http-0 / Cloudflare 403)."
+      "slug": "sutherland-global-services",
+      "named_by": 2,
+      "reason": "Homepage and about-us are title-only JS shells. /trust-center 404. /security and /compliance bounce to SVG assets. Privacy already stored. No first-party marks, DPA, processors, or years printed."
     },
     {
-      "slug": "aml-rightsource",
+      "slug": "jack-henry",
+      "named_by": 1,
+      "reason": "Privacy already on file. /security /trust 404. Who We Are prints 1976 to 2026 and founded by Jack Henry and Jerry Hall. Parser returns no year. Product cybersecurity pages are not Official page."
+    },
+    {
+      "slug": "jack-henry-and-associates",
       "named_by": 0,
-      "reason": "ISO 27001 Q-Mark is 404 chrome. Stays 0. Not refiled."
+      "reason": "Same jackhenry.com host. First-party HTML does not print Jack Henry & Associates as the company. Not aliased."
+    },
+    {
+      "slug": "legalinc-com",
+      "named_by": 1,
+      "reason": "Homepage and usual paths title Dashboard | Legalinc. Login. Stay 0."
+    },
+    {
+      "slug": "agap2it",
+      "named_by": 1,
+      "reason": "Homepage titles agap2IT. Usual trust / DPA / privacy 404. News ISO 56001 is not a catalog hold."
     }
-  ],
-  "standing_skips": [
-    "gmi",
-    "sync",
-    "deft",
-    "thorn",
-    "intersections",
-    "madkudu",
-    "adaptive-mobile",
-    "textel",
-    "avertech",
-    "transunion",
-    "intouchcx",
-    "foundever",
-    "global-payments",
-    "inmoment",
-    "sift",
-    "mastercard",
-    "fluidstack",
-    "nutun",
-    "softserve"
   ],
   "leftovers_still_domainless": [
     "a-g-consulting",
+    "adaptive-mobile",
     "agile-management-experts",
     "amacuro",
+    "avertech",
     "benjamin-mosse-consulting",
     "blue-ocean-contact-centres",
     "cc-cloud",
     "cloud-support-technologies",
     "cognitive-intelligence",
+    "deft",
     "df-tech-fz",
     "fineyear-human-resources-service",
     "gcs",
+    "gmi",
+    "intersections",
+    "madkudu",
     "media-connect",
     "mpower",
     "multyware-associates",
@@ -194,20 +187,23 @@
     "rule-56",
     "samknows",
     "software-minds",
+    "sync",
+    "textel",
+    "thorn",
     "tsengararu",
     "ujwal",
     "vivaops",
     "zealep-business-solutions"
   ],
   "refused_this_cut": [
-    "True-missing named_by ≥2 stays empty. Leftover graph stays 33 (branch-metrics left; software-minds entered from Branch's list). Register 4575 → 4576.",
-    "Source lists still print leftover names with purpose and location only. Meltwater leftover rows print country and SCC, not a domain. Do not invent leftover domains.",
-    "samknows→ookla still refused — ookla.com does not print SamKnows. samknows.com 403s to ThousandEyes.",
-    "conversocial→verint-systems, conversocial→khoros, madkudu→hg-insights, intersections→aura, adaptive-mobile→csg-international, code42→mimecast, arsys→ionos, basefarm-as→orange, stitch→qlik still hold.",
-    "trust.branch.io is a Conveyor portal. Not Official page. SOC 2 / ISO marks on that host stay unread.",
-    "Branch /security HIPAA is HIPAA-eligible / BAA / Advanced Compliance product copy. Not a hold.",
-    "Cognitive Intelligence is not Cognitive Systems (already filed). Not aliased.",
-    "Preferred C0 still open: Hive, Telesign, Visa, Jack Henry, Legalinc, agap2IT, Sutherland, Dstny Automate, Sumit AI. AML RightSource stays 0.",
-    "Standing 403/JS not re-walked: TransUnion, InTouchCX, Foundever, Global Payments, InMoment, Sift, Mastercard, Fluidstack, Nutun, SoftServe."
+    "True-missing named_by ≥2 stays empty. Leftover graph stays 33. Register stays 4616.",
+    "Source lists still print leftover names with purpose and location only. No leftover domain invented. software-minds has no Wikidata P856 and no domain on the Branch list (list 403 this cut).",
+    "Standing alias refusals hold. jack-henry-and-associates is not aliased to jack-henry. hive is not aliased to hiveage.",
+    "Soft-retry 403s skipped: MadKudu, Thorn, Deft, Textel, Adaptive Mobile.",
+    "Preferred C0 403/portal/empty: Sumit AI, Dstny, Sutherland, Jack Henry, Legalinc, agap2IT.",
+    "Adjust Vercel 429/403. BlueSnap Cloudflare 403. BastionX SOC 2 / HIPAA are product copy. Beetexting ISO 27001 is expected 2H2025.",
+    "netdocuments TrustShare JS shell. podium Trust Center JS shell. pluralsight SafeBase portal. Help Scout /company/legal/dpa/ is a CSS/JS shell.",
+    "CEQUENS homepage chips / certificate img alts unread (SOC 2, ISO 27001, PCI DSS). Bugsnag class. Official page stays open. Privacy URL stays. Completeness 0.",
+    "virtuozzo.trust.site restored as trust instrument URL-only. Not Official page. Not a mark. Portal SOC 2 unread. virtuozzo.com 403. Years stay. Completeness years = 20."
   ]
 }
