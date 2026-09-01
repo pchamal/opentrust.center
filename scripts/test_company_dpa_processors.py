@@ -638,6 +638,8 @@ def main() -> int:
     check("Twilio Segment" in nylas_names, "nylas names Twilio Segment")
     check("Gong.io" in nylas_names, "nylas names Gong.io")
     check("MadKudu" in nylas_names, "nylas names MadKudu")
+    check("hg-insights" in nylas_slugs, "nylas MadKudu uses the HG Insights file")
+    check("madkudu" not in nylas_slugs, "nylas does not invent a second MadKudu dossier")
     check("amazon-web-services" in nylas_slugs, "nylas AWS uses the existing file")
     check("google" in nylas_slugs, "nylas GCP uses the Google file")
     check("segment" in nylas_slugs, "nylas Twilio Segment uses the Segment file")
@@ -659,6 +661,23 @@ def main() -> int:
     check("./gong.html\">Gong.io" in ny_html, "nylas Gong.io uses the Gong alias")
     check("./apollo-io.html\">Apollo" in ny_html, "nylas Apollo cross-links to Apollo.io")
     check("./teleport.html" in ny_html, "nylas Gravitational cross-links to Teleport")
+    check("./hg-insights.html\">MadKudu" in ny_html, "nylas MadKudu cross-links to HG Insights")
+
+    check(
+        instrument_url(by_pub["hg-insights"], "dpa") == "https://hginsights.com/dpa/",
+        "hg-insights DPA is first-party HTML",
+    )
+    check((by_pub["hg-insights"].get("file") or {}).get("dpa") == 20, "hg-insights DPA prints")
+    check(
+        ((by_pub["hg-insights"].get("instruments") or {}).get("privacy") or {}).get("url")
+        == "https://hginsights.com/privacy-policy/",
+        "hg-insights privacy is first-party HTML",
+    )
+    dashlane_names = [p.get("name") for p in (by_pub["dashlane"].get("processors") or [])]
+    dashlane_slugs = [p.get("slug") for p in (by_pub["dashlane"].get("processors") or [])]
+    check(any("Intersections" in (n or "") for n in dashlane_names), "dashlane names Intersections")
+    check("aura-previously-pango-anchorfree" in dashlane_slugs, "dashlane Intersections uses the Aura file")
+    check("intersections" not in dashlane_slugs, "dashlane does not invent a second Aura dossier")
 
     check(
         instrument_url(by_pub["teleport"], "dpa") == "https://goteleport.com/legal/dpa/",

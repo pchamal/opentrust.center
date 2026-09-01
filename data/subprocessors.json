@@ -1890,13 +1890,6 @@
       "in_register": true
     },
     {
-      "id": "madkudu",
-      "name": "MadKudu",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "ipqualityscore",
       "name": "IPQualityScore",
       "domain": "ipqualityscore.com",
@@ -7376,13 +7369,6 @@
       "domain": "dashlane.com",
       "kind": "company",
       "in_register": true
-    },
-    {
-      "id": "intersections",
-      "name": "Intersections, LLC",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
     },
     {
       "id": "spycloud",
@@ -30315,6 +30301,13 @@
       "domain": "capacity.com",
       "kind": "company",
       "in_register": true
+    },
+    {
+      "id": "hg-insights",
+      "name": "HG Insights",
+      "domain": "hginsights.com",
+      "kind": "company",
+      "in_register": true
     }
   ],
   "edges": [
@@ -33092,7 +33085,7 @@
     },
     {
       "from": "zapier",
-      "to": "madkudu",
+      "to": "hg-insights",
       "source_url": "https://zapier.com/legal/subprocessors",
       "evidence": "MadKudu"
     },
@@ -38738,7 +38731,7 @@
     },
     {
       "from": "dashlane",
-      "to": "intersections",
+      "to": "aura-previously-pango-anchorfree",
       "source_url": "https://www.dashlane.com/privacy/subprocessors",
       "evidence": "Intersections, LLC"
     },
@@ -46496,7 +46489,7 @@
     },
     {
       "from": "nylas",
-      "to": "madkudu",
+      "to": "hg-insights",
       "source_url": "https://www.nylas.com/security/subprocessors/",
       "evidence": "MadKudu"
     },
@@ -47273,6 +47266,8 @@
     "textel": "capacity",
     "deft": "summit",
     "adaptive-mobile": "enea",
-    "gmi": "gmi-cloud"
+    "gmi": "gmi-cloud",
+    "madkudu": "hg-insights",
+    "intersections": "aura-previously-pango-anchorfree"
   }
 }
