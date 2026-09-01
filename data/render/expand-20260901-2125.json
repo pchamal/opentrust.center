@@ -1,0 +1,110 @@
+{
+  "batch": "expand",
+  "rows": [
+    {
+      "rank": 4747,
+      "name": "Sync",
+      "slug": "sync",
+      "domain": "sync.com",
+      "found": true,
+      "trust_url": "https://trust.sync.com",
+      "final_url": "https://trust.sync.com",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 4,
+      "source": "https://compliance.elevenlabs.io/subprocessors",
+      "summary": "Public trust center. On file: HIPAA, GDPR.",
+      "list": "named-processor-gap",
+      "certs": [
+        "HIPAA",
+        "GDPR"
+      ],
+      "links": {
+        "trust": "https://trust.sync.com",
+        "privacy": "https://www.sync.com/privacy/",
+        "status": "https://status.sync.com",
+        "security": "https://www.sync.com/secure-cloud-storage/"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 41,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "certs": 9,
+          "status": 6,
+          "privacy": 6
+        }
+      }
+    },
+    {
+      "rank": 4748,
+      "name": "Deft",
+      "slug": "deft",
+      "domain": "deft.co",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://www.kentik.com/legal/subprocessors/",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      }
+    },
+    {
+      "rank": 4749,
+      "name": "Mpower",
+      "slug": "mpower",
+      "domain": "mpower.co",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://www.meltwater.com/en/privacy/subprocessors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      }
+    },
+    {
+      "rank": 4750,
+      "name": "RSI",
+      "slug": "rsi",
+      "domain": "rsi.ch",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://www.ringcentral.com/legal/dpa-subprocessor-list.html",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      }
+    }
+  ]
+}
