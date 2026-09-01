@@ -1270,6 +1270,26 @@ def main() -> int:
         "language-i-o privacy is first-party HTML",
     )
 
+    check(by_pub["capacity"].get("found") is True, "capacity Official page is on file")
+    check(
+        by_pub["capacity"].get("trust_url") == "https://capacity.com/security/",
+        "capacity Official page is first-party /security",
+    )
+    check((by_pub["capacity"].get("certs") or []) == ["SOC 2 Type II"], f"capacity certs {by_pub['capacity'].get('certs')}")
+    check("GDPR" not in (by_pub["capacity"].get("certs") or []), "capacity GDPR certified comma-list stays open")
+    check("HIPAA" not in (by_pub["capacity"].get("certs") or []), "capacity HIPAA certified comma-list stays open")
+    check((by_pub["capacity"].get("file") or {}).get("page") == 20, "capacity Official page prints")
+    check((by_pub["capacity"].get("file") or {}).get("marks") == 20, "capacity marks print")
+    cap_html = (ROOT / "site" / "c" / "capacity.html").read_text(encoding="utf-8")
+    check("<h1>Capacity</h1>" in cap_html, "capacity dossier is its own file")
+    check("https://capacity.com/security/" in cap_html, "capacity dossier cites Official page")
+    check("SOC 2 Type II" in cap_html, "capacity dossier prints SOC 2 Type II")
+    check(by_pub["ai-media"].get("found") is False, "ai-media Vanta portal is not Official page")
+    check((by_pub["ai-media"].get("certs") or []) == [], "ai-media knowledge-hub announcement stays open")
+    check(by_pub["summit"].get("found") is False, "summit homepage is not Official page")
+    check(by_pub["enea"].get("found") is False, "enea Official page stays open")
+    check(by_pub["gmi-cloud"].get("found") is False, "gmi-cloud Official page stays open")
+
     check("HIPAA" not in (by_pub["onesignal"].get("certs") or []), "onesignal HIPAA-compliant BAA stays open")
     check(by_pub["onesignal"].get("found") is False, "onesignal Official page stays open")
     check(not by_pub["onesignal"].get("trust_url"), "onesignal privacy is not Official page")

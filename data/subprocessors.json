@@ -1550,8 +1550,9 @@
     {
       "id": "thorn",
       "name": "Thorn",
-      "kind": "subprocessor",
-      "in_register": false
+      "kind": "company",
+      "in_register": true,
+      "domain": "thorn.org"
     },
     {
       "id": "cinder",
@@ -1684,12 +1685,6 @@
       "kind": "company",
       "in_register": true,
       "domain": "iren.com"
-    },
-    {
-      "id": "gmi",
-      "name": "Gmi",
-      "kind": "subprocessor",
-      "in_register": false
     },
     {
       "id": "era4",
@@ -2131,13 +2126,6 @@
       "domain": "forest.app",
       "kind": "company",
       "in_register": true
-    },
-    {
-      "id": "adaptive-mobile",
-      "name": "Adaptive Mobile",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
     },
     {
       "id": "dvelp-sabio",
@@ -7292,13 +7280,6 @@
       "in_register": true
     },
     {
-      "id": "deft",
-      "name": "Deft",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "domo",
       "name": "Domo",
       "domain": "domo.com",
@@ -8081,13 +8062,6 @@
       "domain": "spinsci.com",
       "kind": "company",
       "in_register": true
-    },
-    {
-      "id": "textel",
-      "name": "Textel",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
     },
     {
       "id": "thetalake",
@@ -30133,13 +30107,6 @@
       "in_register": true
     },
     {
-      "id": "samknows",
-      "name": "SamKnows LTD",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "cognitive-systems",
       "name": "Cognitive Systems",
       "domain": "cognitivesystems.com",
@@ -30219,9 +30186,9 @@
     {
       "id": "ordway",
       "name": "Ordway",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "ordwaylabs.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "pandadoc",
@@ -30260,17 +30227,17 @@
     },
     {
       "id": "telecom-italia-sparkle-spa",
-      "name": "Telecom Italia Sparkle SPA",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "Telecom Italia Sparkle",
+      "domain": "tisparkle.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "shenzhen-montnets-technology-development",
-      "name": "Shenzhen Montnets Technology Development Co. Ltd",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "Shenzhen Montnets Technology Development",
+      "domain": "montnets.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "syniverse-technologies",
@@ -30281,28 +30248,14 @@
     },
     {
       "id": "ai-media",
-      "name": "Ai-Media, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "Ai-Media",
+      "domain": "ai-media.tv",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "ai-data-innovation",
       "name": "AI Data Innovation Corporation",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "crm-services-india-private",
-      "name": "CRM Services India Private Limited",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "eeg-enterprises",
-      "name": "EEG Enterprises, Inc",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -30332,6 +30285,34 @@
       "id": "teleport",
       "name": "Teleport",
       "domain": "goteleport.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "gmi-cloud",
+      "name": "GMI Cloud",
+      "domain": "gmicloud.ai",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "enea",
+      "name": "Enea",
+      "domain": "enea.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "summit",
+      "name": "Summit",
+      "domain": "summithq.com",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "capacity",
+      "name": "Capacity",
+      "domain": "capacity.com",
       "kind": "company",
       "in_register": true
     }
@@ -32121,7 +32102,7 @@
     },
     {
       "from": "fireworks-ai",
-      "to": "gmi",
+      "to": "gmi-cloud",
       "source_url": "https://trust.fireworks.ai/subprocessors",
       "evidence": "gmi"
     },
@@ -34263,7 +34244,7 @@
     },
     {
       "from": "twilio",
-      "to": "adaptive-mobile",
+      "to": "enea",
       "source_url": "https://www.twilio.com/en-us/legal/sub-processors",
       "evidence": "Adaptive Mobile"
     },
@@ -38523,7 +38504,7 @@
     },
     {
       "from": "kentik",
-      "to": "deft",
+      "to": "summit",
       "source_url": "https://www.kentik.com/legal/subprocessors/",
       "evidence": "Deft"
     },
@@ -40557,7 +40538,7 @@
     },
     {
       "from": "ringcentral",
-      "to": "textel",
+      "to": "capacity",
       "source_url": "https://www.ringcentral.com/legal/dpa-subprocessor-list.html",
       "evidence": "Textel"
     },
@@ -46143,7 +46124,7 @@
     },
     {
       "from": "plume",
-      "to": "samknows",
+      "to": "cisco",
       "source_url": "https://www.plume.com/legal/subprocessors/",
       "evidence": "SamKnows LTD"
     },
@@ -46731,13 +46712,13 @@
     },
     {
       "from": "linkedin",
-      "to": "crm-services-india-private",
+      "to": "teleperformance-colombia",
       "source_url": "https://www.linkedin.com/legal/l/customer-subprocessors",
       "evidence": "CRM Services India Private Limited"
     },
     {
       "from": "linkedin",
-      "to": "eeg-enterprises",
+      "to": "ai-media",
       "source_url": "https://www.linkedin.com/legal/l/customer-subprocessors",
       "evidence": "EEG Enterprises, Inc"
     },
@@ -47285,6 +47266,13 @@
     "ypiresia-800-teleperformance-single-member": "teleperformance-colombia",
     "apollo": "apollo-io",
     "nsone": "ibm",
-    "gravitational-teleport": "teleport"
+    "gravitational-teleport": "teleport",
+    "crm-services-india-private": "teleperformance-colombia",
+    "samknows": "cisco",
+    "eeg-enterprises": "ai-media",
+    "textel": "capacity",
+    "deft": "summit",
+    "adaptive-mobile": "enea",
+    "gmi": "gmi-cloud"
   }
 }

@@ -277,8 +277,13 @@ def main() -> int:
     check("Databricks Inc" in plume_names, "plume names Databricks Inc")
     check("Mobile Apps" not in plume_names, "plume section header Mobile Apps stays off file")
     check(len(plume_names) == 19, f"plume printed 19 named processors, got {len(plume_names)}")
+    check("SamKnows LTD" in plume_names, "plume names SamKnows LTD")
+    plume_slugs = [p.get("slug") for p in (by_pub["plume"].get("processors") or [])]
+    check("cisco" in plume_slugs, "plume SamKnows uses the Cisco file")
+    check("samknows" not in plume_slugs, "plume does not invent a second SamKnows dossier")
     plume_html = (ROOT / "site" / "c" / "plume.html").read_text(encoding="utf-8")
     check("https://www.plume.com/legal/subprocessors/" in plume_html, "plume dossier keeps the list URL")
+    check("./cisco.html" in plume_html, "plume SamKnows cross-links to Cisco")
 
     # This cut: Responsive first-party DPA + subprocessor table; RFPIO aliases here.
     check(
@@ -589,6 +594,11 @@ def main() -> int:
     check("hcl-tech" in linkedin_slugs, "linkedin HCL America uses the HCLTech file")
     check("teleperformance-colombia" in linkedin_slugs, "linkedin Ypiresia 800 uses the Teleperformance file")
     check("ibm" in linkedin_slugs, "linkedin NSONE uses the IBM file")
+    check("ai-media" in linkedin_slugs, "linkedin Ai-Media uses the new file")
+    check(linkedin_slugs.count("teleperformance-colombia") == 2, "linkedin Ypiresia 800 and CRM Services India land on Teleperformance")
+    check(linkedin_slugs.count("ai-media") == 2, "linkedin Ai-Media and EEG Enterprises land on Ai-Media")
+    check("crm-services-india-private" not in linkedin_slugs, "linkedin does not invent a second Teleperformance dossier")
+    check("eeg-enterprises" not in linkedin_slugs, "linkedin does not invent a second Ai-Media dossier")
     check("tata-communications-ireland" not in linkedin_slugs, "linkedin does not invent a second Tata dossier")
     check("hcl-america" not in linkedin_slugs, "linkedin does not invent a second HCL dossier")
     check("nsone" not in linkedin_slugs, "linkedin does not invent a second NS1 dossier")
@@ -634,6 +644,7 @@ def main() -> int:
     check("gong" in nylas_slugs, "nylas Gong.io uses the Gong file")
     check("apollo-io" in nylas_slugs, "nylas Apollo uses the Apollo.io file")
     check("teleport" in nylas_slugs, "nylas Gravitational uses the Teleport file")
+    check("ordway" in nylas_slugs, "nylas Ordway uses the new file")
     check("apollo" not in nylas_slugs, "nylas does not invent a second Apollo dossier")
     check("gravitational-teleport" not in nylas_slugs, "nylas does not invent a second Teleport dossier")
     check("twilio" not in nylas_slugs, "nylas Twilio Segment is not filed as Twilio")
@@ -662,6 +673,27 @@ def main() -> int:
     check((by_pub["ketch"].get("file") or {}).get("dpa") == 20, "ketch DPA prints")
     check(by_pub["ketch"].get("found") is False, "ketch Vanta portal is not Official page")
     check(not by_pub["ketch"].get("trust_url"), "ketch has no invented Official page")
+
+    check(
+        ((by_pub["ai-media"].get("instruments") or {}).get("privacy") or {}).get("url")
+        == "https://www.ai-media.tv/privacy-policy/",
+        "ai-media privacy is first-party HTML",
+    )
+    check(by_pub["ai-media"].get("found") is False, "ai-media Vanta portal is not Official page")
+    check(
+        ((by_pub["ordway"].get("instruments") or {}).get("privacy") or {}).get("url")
+        == "https://ordwaylabs.com/privacy/",
+        "ordway privacy is first-party HTML",
+    )
+    check(
+        ((by_pub["thorn"].get("instruments") or {}).get("privacy") or {}).get("url")
+        == "https://www.thorn.org/privacy-policy/",
+        "thorn privacy is first-party HTML",
+    )
+    check(
+        instrument_url(by_pub["capacity"], "dpa") in (None, ""),
+        "capacity DPA stays open",
+    )
 
     print(
         f"ok increment-dpa privacy-page-queue {len(expected_batch)} walked; "

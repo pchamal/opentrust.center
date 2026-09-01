@@ -337,6 +337,32 @@ def main() -> int:
     tel_reg = {**register, "teleport": {"slug": "teleport", "name": "Teleport", "domain": "goteleport.com"}}
     check(canonical_processor_id("gravitational-teleport", tel_reg) == "teleport", "Gravitational (Teleport) is Teleport")
     check(REGISTER_ALIASES["gravitational-teleport"] == "teleport", "gravitational-teleport aliases to teleport")
+    tp_reg2 = {**register, "teleperformance-colombia": {"slug": "teleperformance-colombia", "name": "Teleperformance", "domain": "teleperformance.com"}}
+    check(
+        canonical_processor_id("crm-services-india-private", tp_reg2) == "teleperformance-colombia",
+        "CRM Services India is Teleperformance",
+    )
+    check(REGISTER_ALIASES["crm-services-india-private"] == "teleperformance-colombia", "crm-services-india-private aliases to teleperformance-colombia")
+    cisco_reg = {**register, "cisco": {"slug": "cisco", "name": "Cisco", "domain": "cisco.com"}}
+    check(canonical_processor_id("samknows", cisco_reg) == "cisco", "SamKnows is Cisco")
+    check(REGISTER_ALIASES["samknows"] == "cisco", "samknows aliases to cisco")
+    check(REGISTER_ALIASES.get("samknows") != "ookla", "samknows must not map to ookla")
+    aim_reg = {**register, "ai-media": {"slug": "ai-media", "name": "Ai-Media", "domain": "ai-media.tv"}}
+    check(canonical_processor_id("eeg-enterprises", aim_reg) == "ai-media", "EEG Enterprises is Ai-Media")
+    check(REGISTER_ALIASES["eeg-enterprises"] == "ai-media", "eeg-enterprises aliases to ai-media")
+    cap_reg = {**register, "capacity": {"slug": "capacity", "name": "Capacity", "domain": "capacity.com"}}
+    check(canonical_processor_id("textel", cap_reg) == "capacity", "Textel is Capacity")
+    check(REGISTER_ALIASES["textel"] == "capacity", "textel aliases to capacity")
+    sum_reg = {**register, "summit": {"slug": "summit", "name": "Summit", "domain": "summithq.com"}}
+    check(canonical_processor_id("deft", sum_reg) == "summit", "Deft is Summit")
+    check(REGISTER_ALIASES["deft"] == "summit", "deft aliases to summit")
+    enea_reg = {**register, "enea": {"slug": "enea", "name": "Enea", "domain": "enea.com"}}
+    check(canonical_processor_id("adaptive-mobile", enea_reg) == "enea", "Adaptive Mobile is Enea")
+    check(REGISTER_ALIASES["adaptive-mobile"] == "enea", "adaptive-mobile aliases to enea")
+    check(REGISTER_ALIASES.get("adaptive-mobile") != "csg-international", "adaptive-mobile must not map to csg-international")
+    gmi_reg = {**register, "gmi-cloud": {"slug": "gmi-cloud", "name": "GMI Cloud", "domain": "gmicloud.ai"}}
+    check(canonical_processor_id("gmi", gmi_reg) == "gmi-cloud", "Gmi is GMI Cloud")
+    check(REGISTER_ALIASES["gmi"] == "gmi-cloud", "gmi aliases to gmi-cloud")
     check("madkudu" not in REGISTER_ALIASES, "MadKudu is not aliased; HG Insights is not on the register")
     check(REGISTER_ALIASES.get("madkudu") != "hg-insights", "madkudu must not map to hg-insights")
     check("arsys" not in REGISTER_ALIASES, "Arsys is not aliased to IONOS")
