@@ -726,7 +726,31 @@ REGISTER_ALIASES: dict[str, str] = {
     # aura-previously-pango-anchorfree is already on the register
     # (aura.com). Do not invent a second Aura dossier.
     "intersections": "aura-previously-pango-anchorfree",
+    # Wikidata P856 for these leftover names is the existing register domain.
+    # Do not invent a second dossier.
+    "kaspersky": "kaspersky-lab",
+    "magic-software-enterprises": "magic-software",
+    "hcltech": "hcl-tech",
+    "ibm-india": "ibm",
+    "intuit-india": "intuit",
+    "microsoft-india": "microsoft",
+    "samsung-india-software-centre": "samsung-electronics",
+    "qihoo-360": "360-security-technology",
+    "tieto": "tietoevry",
+    # P856 now the acquirer already on the register.
+    "lumension-security": "ivanti",
+    "moldflow": "autodesk",
+    "google-security-operations": "chronicle-security",
+    "nitrosecurity": "mcafee",
+    "netscreen-technologies": "juniper-networks",
+    "xcitium": "comodo-cybersecurity",
+    "quintiq": "dassault-systemes",
+    "mercury-interactive": "hp",
+    "clarified-networks": "synopsys",
+    "codenomicon": "synopsys",
+    "netwitness": "emc-corporation",
 }
+
 
 # Published header garbage. Not a company. Do not file or alias.
 SKIP_PROCESSOR_IDS = {

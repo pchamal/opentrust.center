@@ -1,28 +1,81 @@
 {
-  "generated": "2026-09-01T17:41:00Z",
-  "register": 4732,
-  "leftovers_min1": 27,
-  "mode": "alias-then-file-verified-leftovers",
-  "aliases_added": [
+  "generated": "2026-09-01T18:23:58Z",
+  "register": 4746,
+  "mode": "named-processor-gap-resolve-then-wikipedia-p856",
+  "leftovers_min1_at_hour_start": 41,
+  "named_processor_resolved_enqueued": [],
+  "named_processor_aliased_this_hour": [],
+  "wikipedia_p856_enqueued": [
     {
-      "from": "madkudu",
-      "to": "hg-insights",
-      "source": "https://hginsights.com/about/"
+      "slug": "freeagent",
+      "domain": "freeagent.com",
+      "reason": "enwiki-title P856"
     },
     {
-      "from": "intersections",
-      "to": "aura-previously-pango-anchorfree",
-      "source": "https://www.aura.com/about"
+      "slug": "koingo-software",
+      "domain": "koingosw.com",
+      "reason": "enwiki-title P856; name token is prefix of P856 label"
+    },
+    {
+      "slug": "nightingale-informatix-corporation",
+      "domain": "nightingalemd.ca",
+      "reason": "enwiki-title P856; name token is prefix of P856 label"
+    },
+    {
+      "slug": "trapeze-software",
+      "domain": "trapezegroup.com",
+      "reason": "enwiki-title P856; name token is prefix of P856 label"
+    },
+    {
+      "slug": "waterloo-maple",
+      "domain": "maplesoft.com",
+      "reason": "enwiki-title P856; name token is prefix of P856 label"
+    },
+    {
+      "slug": "wave-financial",
+      "domain": "waveapps.com",
+      "reason": "enwiki-title P856; name token is prefix of P856 label"
+    },
+    {
+      "slug": "cast",
+      "domain": "castsoftware.com",
+      "reason": "enwiki-title P856; name token is prefix of P856 label"
+    },
+    {
+      "slug": "servage-ab",
+      "domain": "servagegroup.se",
+      "reason": "enwiki-title P856; name token is prefix of P856 label"
+    },
+    {
+      "slug": "eagle-investment-systems",
+      "domain": "eagleinvsys.com",
+      "reason": "enwiki-title P856; name token is prefix of P856 label"
+    },
+    {
+      "slug": "profile-systems-and-software",
+      "domain": "profilesw.com",
+      "reason": "enwiki-title P856; name token is prefix of P856 label"
+    },
+    {
+      "slug": "jeeves-information-systems",
+      "domain": "jeeveserp.com",
+      "reason": "enwiki-title P856; name token is prefix of P856 label"
+    },
+    {
+      "slug": "dolphin-interconnect-solutions",
+      "domain": "dolphinics.com",
+      "reason": "enwiki-title P856; name token is prefix of P856 label"
+    },
+    {
+      "slug": "sybo",
+      "domain": "sybogames.com",
+      "reason": "enwiki-title P856; name token is prefix of P856 label"
+    },
+    {
+      "slug": "insyde-software",
+      "domain": "insydesw.com",
+      "reason": "enwiki-title P856; name token is prefix of P856 label"
     }
   ],
-  "aliases_refused": [
-    "gcs->computer-generated-solutions",
-    "software-minds->software-mind",
-    "rsi",
-    "sync"
-  ],
-  "filed": [
-    "hg-insights"
-  ],
-  "remaining_ge2_slugs": []
+  "note": "Hour start gap=41, Wikidata/naming-list resolved 0. PRs #225/#226 on origin/main aliased several leftovers (madkudu, intersections, \u2026) before this rebase. This hour appended 14 Wikipedia P856 rows (1 domain_plausible + 13 short-name prefix false-negatives) and filed them silent."
 }
