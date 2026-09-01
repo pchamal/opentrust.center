@@ -765,6 +765,60 @@ expect(
     fileScore(fileFlags(tropic)) === 20,
 );
 
+const adish = bySlug.adish;
+expect(
+  "adish Completeness is years = 20",
+  adish &&
+    adish.found === false &&
+    !adish.trust_url &&
+    adish.founded_year === 2014 &&
+    adish.founded_source === "https://adish.biz/about/overview" &&
+    fileFlags(adish).page === 0 &&
+    fileFlags(adish).marks === 0 &&
+    fileFlags(adish).dpa === 0 &&
+    fileFlags(adish).subprocessors === 0 &&
+    fileFlags(adish).years === 20 &&
+    fileScore(fileFlags(adish)) === 20,
+);
+
+const datamato = bySlug["datamato-technologies-private"];
+expect(
+  "datamato Completeness is years = 20",
+  datamato &&
+    datamato.found === false &&
+    !datamato.trust_url &&
+    datamato.founded_year === 2012 &&
+    datamato.founded_source === "https://datamato.com/about/overview" &&
+    fileFlags(datamato).page === 0 &&
+    fileFlags(datamato).marks === 0 &&
+    fileFlags(datamato).dpa === 0 &&
+    fileFlags(datamato).subprocessors === 0 &&
+    fileFlags(datamato).years === 20 &&
+    fileScore(fileFlags(datamato)) === 20,
+);
+
+const kickbox = bySlug.kickbox;
+expect(
+  "kickbox Completeness is subprocessors = 20",
+  kickbox &&
+    kickbox.found === false &&
+    !kickbox.trust_url &&
+    ((kickbox.instruments || {}).subprocessors || {}).url ===
+      "https://docs.kickbox.com/docs/subprocessors" &&
+    (kickbox.processors || []).some((p) => p.slug === "stripe" && p.name === "Stripe") &&
+    (kickbox.processors || []).some((p) => p.slug === "sift" && p.name === "Sift Science") &&
+    (kickbox.processors || []).some((p) => p.slug === "amazon-web-services" && p.name === "Amazon AWS") &&
+    !(kickbox.processors || []).some((p) => p.id === "sift-science") &&
+    !(kickbox.certs || []).length &&
+    !kickbox.founded_year &&
+    fileFlags(kickbox).page === 0 &&
+    fileFlags(kickbox).marks === 0 &&
+    fileFlags(kickbox).dpa === 0 &&
+    fileFlags(kickbox).subprocessors === 20 &&
+    fileFlags(kickbox).years === 0 &&
+    fileScore(fileFlags(kickbox)) === 20,
+);
+
 const nylas = bySlug.nylas;
 expect(
   "nylas Completeness is page · marks · subprocessors = 60",

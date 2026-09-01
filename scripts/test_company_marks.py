@@ -1309,6 +1309,13 @@ def main() -> int:
         "kickbox privacy is first-party docs HTML",
     )
     check(
+        ((by_pub["kickbox"].get("instruments") or {}).get("subprocessors") or {}).get("url")
+        == "https://docs.kickbox.com/docs/subprocessors",
+        "kickbox subprocessors list is first-party docs HTML",
+    )
+    check((by_pub["kickbox"].get("file") or {}).get("subprocessors") == 20, "kickbox named processors print")
+    check("eu-us dpf" not in [str(c).lower() for c in (by_pub["kickbox"].get("certs") or [])], "kickbox DPF stays unread")
+    check(
         ((by_pub["imerit"].get("instruments") or {}).get("privacy") or {}).get("url")
         == "https://imerit.ai/privacy-policy/",
         "imerit privacy is first-party HTML",

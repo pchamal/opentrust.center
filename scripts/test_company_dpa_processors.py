@@ -739,6 +739,29 @@ def main() -> int:
     check("./google.html\">Google Cloud Platform" in tropic_html, "tropic GCP cross-links")
     check("./omni-analytics.html\">Omni" in tropic_html, "tropic Omni cross-links to Omni Analytics")
     check("../graph.html#p=omni" not in tropic_html, "tropic Omni is no longer a leftover map node")
+    check(
+        instrument_url(by_pub["kickbox"], "subprocessors")
+        == "https://docs.kickbox.com/docs/subprocessors",
+        "kickbox list is first-party docs HTML",
+    )
+    check((by_pub["kickbox"].get("file") or {}).get("subprocessors") == 20, "kickbox processors print")
+    kickbox_names = [p.get("name") for p in (by_pub["kickbox"].get("processors") or [])]
+    kickbox_slugs = [p.get("slug") for p in (by_pub["kickbox"].get("processors") or [])]
+    kickbox_ids = [p.get("id") for p in (by_pub["kickbox"].get("processors") or [])]
+    check("Stripe" in kickbox_names, "kickbox names Stripe")
+    check("Sift Science" in kickbox_names, "kickbox names Sift Science")
+    check("Amazon AWS" in kickbox_names, "kickbox names Amazon AWS")
+    check("sift" in kickbox_slugs, "kickbox Sift Science uses the existing Sift file")
+    check("amazon-web-services" in kickbox_slugs, "kickbox AWS uses the existing file")
+    check("sift-science" not in kickbox_ids, "kickbox does not keep a raw sift-science wire id")
+    check("aws" not in kickbox_ids, "kickbox does not keep a raw aws wire id")
+    check(by_pub["kickbox"].get("found") is False, "kickbox Official page stays open")
+    check((by_pub["kickbox"].get("certs") or []) == [], "kickbox DPF / Vanta marks stay unread")
+    kickbox_html = (ROOT / "site" / "c" / "kickbox.html").read_text(encoding="utf-8")
+    check("<h1>Kickbox</h1>" in kickbox_html, "kickbox dossier is its own file")
+    check("https://docs.kickbox.com/docs/subprocessors" in kickbox_html, "kickbox dossier cites the list")
+    check("./sift.html\">Sift Science" in kickbox_html, "kickbox Sift Science cross-links to Sift")
+    check("../graph.html#p=sift-science" not in kickbox_html, "kickbox Sift Science is no longer a leftover map node")
 
     check(
         ((by_pub["ai-media"].get("instruments") or {}).get("privacy") or {}).get("url")

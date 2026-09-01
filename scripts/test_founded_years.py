@@ -531,7 +531,7 @@ def test_spekit_cyberhaven_woopra_years_landed() -> None:
 
 
 def test_c0_named_processor_years_landed() -> None:
-    """This increment filed AccessPay 2012, x-RD 2019, Invoka 2022, Prime 2022, Carahsoft 2004."""
+    """PR 231 years stay. This increment filed Adish 2014 and Datamato 2012."""
     import json
     public = json.loads((ROOT / "site" / "data.json").read_text())
     enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
@@ -543,6 +543,8 @@ def test_c0_named_processor_years_landed() -> None:
         ("invoka-consulting", 2022, "https://invokaconsulting.com/about", "Invoka"),
         ("prime-consulting-group-solutions", 2022, "https://primeconsulting.com/about-us", "Prime"),
         ("carahsoft-technology", 2004, "https://www.carahsoft.com/about", "Carahsoft"),
+        ("adish", 2014, "https://adish.biz/about/overview", "Adish"),
+        ("datamato-technologies-private", 2012, "https://datamato.com/about/overview", "Datamato"),
     ]
     for slug, year, source, label in cases:
         pub, row = by_pub[slug], by_enr[slug]

@@ -96503,10 +96503,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 6
+        }
+      },
+      "founded_year": 2014,
+      "founded_source": "https://adish.biz/about/overview"
     },
     {
       "rank": 3279,
@@ -102920,10 +102924,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 7,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 7
+        }
+      },
+      "founded_year": 2012,
+      "founded_source": "https://datamato.com/about/overview"
     },
     {
       "rank": 3499,
@@ -132839,9 +132847,22 @@
       "certs": [],
       "links": {
         "privacy": "https://docs.kickbox.com/docs/privacy-policy",
-        "status": "https://status.kickbox.com"
+        "status": "https://status.kickbox.com",
+        "subprocessors": "https://docs.kickbox.com/docs/subprocessors"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "stripe",
+        "paypal",
+        "loggly",
+        "sift",
+        "freshworks",
+        "intercom",
+        "amazon-web-services",
+        "google",
+        "cloudflare",
+        "slack",
+        "filestack"
+      ],
       "disclosure": {
         "score": 12,
         "tier": "silent",

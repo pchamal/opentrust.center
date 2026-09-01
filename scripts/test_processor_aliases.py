@@ -374,6 +374,10 @@ def main() -> int:
     check(canonical_processor_id("omni", omni_reg) == "omni-analytics", "Omni is Omni Analytics")
     check(REGISTER_ALIASES["omni"] == "omni-analytics", "omni aliases to omni-analytics")
     check(REGISTER_ALIASES.get("omni") != "the-omni-group", "omni must not map to The Omni Group")
+    sift_reg = {**register, "sift": {"slug": "sift", "name": "Sift", "domain": "sift.com"}}
+    check(canonical_processor_id("sift-science", sift_reg) == "sift", "Sift Science is Sift")
+    check(REGISTER_ALIASES["sift-science"] == "sift", "sift-science aliases to sift")
+    check(REGISTER_ALIASES.get("sift-science") != "sift-science", "sift-science must not keep a second dossier")
     check("arsys" not in REGISTER_ALIASES, "Arsys is not aliased to IONOS")
     check(REGISTER_ALIASES.get("arsys") != "ionos", "arsys must not map to ionos")
     check("conversocial" not in REGISTER_ALIASES, "Conversocial is not aliased to Verint")
