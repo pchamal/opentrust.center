@@ -684,7 +684,7 @@ expect(
     (tropic.processors || []).length === 16 &&
     (tropic.processors || []).some((p) => p.slug === "amazon-web-services") &&
     (tropic.processors || []).some((p) => p.slug === "google") &&
-    (tropic.processors || []).some((p) => p.id === "omni" && !p.slug) &&
+    (tropic.processors || []).some((p) => p.slug === "omni-analytics" && p.name === "Omni") &&
     !tropic.founded_year &&
     fileFlags(tropic).page === 0 &&
     fileFlags(tropic).marks === 0 &&
