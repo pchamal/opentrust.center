@@ -1320,6 +1320,56 @@ def main() -> int:
         == "https://imerit.ai/privacy-policy/",
         "imerit privacy is first-party HTML",
     )
+    # This cut: first-party Completeness page + marks on iMerit.
+    # Healthcare lander is not Official page. GDPR welcome / HIPAA-enablement stay open.
+    kept, why = hold_marks(
+        ["SOC 2 Type II", "ISO 27001", "ISO 9001", "TISAX"],
+        "iMerit has completed formal certifications. Our SOC 2 Type 2 attestation "
+        "is a testament to our commitment. iMerit participates in rigorous audits "
+        "every 3 years to remain ISO 27001 compliant. iMerit underwent a systematic "
+        "examination of the quality management system for ISO 9001:2015. iMerit "
+        "undergoes regular TISAX assessments.",
+        "trust",
+    )
+    check(
+        kept == ["SOC 2 Type II", "ISO 27001", "ISO 9001", "TISAX"],
+        f"imerit first-party holds file: {kept} {why}",
+    )
+    kept, why = hold_marks(
+        ["GDPR"],
+        "iMerit welcomes GDPR as an important step forward. The company’s security "
+        "policies have been thoroughly evaluated for GDPR compliance. iMerit is "
+        "committed to complying with GDPR in providing services to customers.",
+        "trust",
+    )
+    check(kept == [] and why in {"regulation-only", "no-named-marks"}, f"imerit GDPR welcome stays open: {kept} {why}")
+    check(by_pub["imerit"].get("found") is True, "imerit Official page is on file")
+    check(
+        by_pub["imerit"].get("trust_url") == "https://imerit.ai/compliance-and-certifications/",
+        "imerit Official page is first-party compliance HTML",
+    )
+    check(
+        by_pub["imerit"].get("trust_url")
+        != "https://imerit.ai/domains/medical-ai/regulatory-compliance-for-healthcare-ai/",
+        "imerit healthcare lander is not Official page",
+    )
+    check(
+        set(by_pub["imerit"].get("certs") or []) == {"SOC 2 Type II", "ISO 27001", "ISO 9001", "TISAX"},
+        f"imerit first-party holds {by_pub['imerit'].get('certs')}",
+    )
+    check("GDPR" not in (by_pub["imerit"].get("certs") or []), "imerit GDPR stays open")
+    check("HIPAA" not in (by_pub["imerit"].get("certs") or []), "imerit HIPAA-enablement stays open")
+    check((by_pub["imerit"].get("file") or {}).get("page") == 20, "imerit Official page prints")
+    check((by_pub["imerit"].get("file") or {}).get("marks") == 20, "imerit marks print")
+    im_html = (ROOT / "site" / "c" / "imerit.html").read_text(encoding="utf-8")
+    check("<h1>iMerit</h1>" in im_html, "imerit dossier is its own file")
+    check("https://imerit.ai/compliance-and-certifications/" in im_html, "imerit dossier cites Official page")
+    check("SOC 2 Type II" in im_html, "imerit dossier prints SOC 2 Type II")
+    check("ISO 27001" in im_html, "imerit dossier prints ISO 27001")
+    check("ISO 9001" in im_html, "imerit dossier prints ISO 9001")
+    check("TISAX" in im_html, "imerit dossier prints TISAX")
+    check("GDPR" not in im_html, "imerit dossier does not print GDPR")
+    check("HIPAA" not in im_html, "imerit dossier does not print HIPAA")
     check(
         ((by_pub["language-i-o"].get("instruments") or {}).get("privacy") or {}).get("url")
         == "https://languageio.com/legal/privacy-policy/",
