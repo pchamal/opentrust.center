@@ -757,6 +757,14 @@ REGISTER_ALIASES: dict[str, str] = {
     "clarified-networks": "synopsys",
     "codenomicon": "synopsys",
     "netwitness": "emc-corporation",
+    # Same-company leftovers after this hour's Wikipedia top-up.
+    # Intel Ireland is Intel's Irish subsidiary; intel is on the register.
+    "intel-ireland": "intel",
+    # Hitachi Data Systems rebranded to Hitachi Vantara; hitachi is on the register.
+    "hitachi-data-systems": "hitachi",
+    # Samsung R&D Institute India-Bengaluru is a Samsung Electronics unit.
+    "samsung-randd-institute-india-bengaluru": "samsung-electronics",
+
 }
 
 
