@@ -304,6 +304,56 @@ expect(
     fileScore(fileFlags(filestack)) === 0,
 );
 
+const horizoniq = bySlug.horizoniq;
+expect(
+  "horizoniq compliance Completeness is page · marks = 40",
+  horizoniq &&
+    horizoniq.found === true &&
+    horizoniq.trust_url === "https://www.horizoniq.com/compliance/" &&
+    (horizoniq.certs || []).includes("SOC 2 Type II") &&
+    (horizoniq.certs || []).includes("ISO 27001") &&
+    (horizoniq.certs || []).includes("PCI DSS") &&
+    !(horizoniq.certs || []).includes("HIPAA") &&
+    !horizoniq.founded_year &&
+    fileFlags(horizoniq).page === 20 &&
+    fileFlags(horizoniq).marks === 20 &&
+    fileFlags(horizoniq).years === 0 &&
+    fileScore(fileFlags(horizoniq)) === 40,
+);
+
+const hive = bySlug.hive;
+expect(
+  "hive security policy Completeness is page · marks · years = 60",
+  hive &&
+    hive.found === true &&
+    hive.trust_url === "https://hive.com/policy-documents/security" &&
+    (hive.certs || []).includes("SOC 2") &&
+    !(hive.certs || []).includes("SOC 2 Type II") &&
+    !(hive.certs || []).includes("ISO 27001") &&
+    (hive.certs || []).includes("EU-US DPF") &&
+    hive.founded_year === 2016 &&
+    fileFlags(hive).page === 20 &&
+    fileFlags(hive).marks === 20 &&
+    fileFlags(hive).years === 20 &&
+    fileScore(fileFlags(hive)) === 60,
+);
+
+const datamotion = bySlug.datamotion;
+expect(
+  "datamotion company-overview Completeness is marks · years = 40",
+  datamotion &&
+    datamotion.found === false &&
+    !datamotion.trust_url &&
+    (datamotion.certs || []).includes("HITRUST") &&
+    !(datamotion.certs || []).includes("FedRAMP") &&
+    !(datamotion.certs || []).includes("HIPAA") &&
+    datamotion.founded_year === 1999 &&
+    fileFlags(datamotion).page === 0 &&
+    fileFlags(datamotion).marks === 20 &&
+    fileFlags(datamotion).years === 20 &&
+    fileScore(fileFlags(datamotion)) === 40,
+);
+
 const src = readFileSync(new URL("../site/register.js", import.meta.url), "utf8");
 expect("register draws the file index", src.includes("fileIndexHtml"));
 expect("register has no N of 5 markup", !src.includes("file-cov") && !src.includes("file-meter") && !src.includes(" of 5"));

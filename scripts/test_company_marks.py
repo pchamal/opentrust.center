@@ -909,6 +909,73 @@ def main() -> int:
     rt_html = (ROOT / "site" / "c" / "releaseteam.html").read_text(encoding="utf-8")
     check("<h1>ReleaseTEAM</h1>" in rt_html, "releaseteam dossier is its own file")
     check("founded · 1999" in rt_html, "releaseteam dossier year")
+    # This cut: HorizonIQ first-party /compliance. "We hold PCI DSS 3.0,
+    # SOC 2 Type II, and ISO 27001 certifications." About-page 1996 is Internap.
+    check(by_pub["horizoniq"].get("found") is True, "horizoniq Official page is on file")
+    check(
+        by_pub["horizoniq"].get("trust_url") == "https://www.horizoniq.com/compliance/",
+        "horizoniq Official page is first-party /compliance",
+    )
+    check(
+        {"SOC 2 Type II", "ISO 27001", "PCI DSS"} <= set(by_pub["horizoniq"].get("certs") or []),
+        f"horizoniq first-party holds {by_pub['horizoniq'].get('certs')}",
+    )
+    check("HIPAA" not in (by_pub["horizoniq"].get("certs") or []), "horizoniq homepage HIPAA stays open")
+    check(by_pub["horizoniq"].get("founded_year") in (None, 0, False), "horizoniq Internap 1996 stays open")
+    check((by_pub["horizoniq"].get("file") or {}).get("page") == 20, "horizoniq Official page prints")
+    check((by_pub["horizoniq"].get("file") or {}).get("marks") == 20, "horizoniq marks print")
+    check((by_pub["horizoniq"].get("file") or {}).get("years") in (0, False, None), "horizoniq years stay open")
+    hq_html = (ROOT / "site" / "c" / "horizoniq.html").read_text(encoding="utf-8")
+    check("<h1>HorizonIQ</h1>" in hq_html, "horizoniq dossier is its own file")
+    check("https://www.horizoniq.com/compliance/" in hq_html, "horizoniq dossier cites Official page")
+    check("SOC 2 Type II" in hq_html, "horizoniq dossier prints SOC 2 Type II")
+    check("ISO 27001" in hq_html, "horizoniq dossier prints ISO 27001")
+    # Hive first-party security policy. We are SOC2 certified. Hosting ISO
+    # 27001 accredited stays open. Privacy DPF is a Commerce self-cert.
+    check(by_pub["hive"].get("found") is True, "hive Official page is on file")
+    check(
+        by_pub["hive"].get("trust_url") == "https://hive.com/policy-documents/security",
+        "hive Official page is first-party /policy-documents/security",
+    )
+    check("SOC 2" in (by_pub["hive"].get("certs") or []), f"hive SOC 2 {by_pub['hive'].get('certs')}")
+    check("SOC 2 Type II" not in (by_pub["hive"].get("certs") or []), "hive does not invent Type II")
+    check("ISO 27001" not in (by_pub["hive"].get("certs") or []), "hive hosting ISO 27001 stays open")
+    check("EU-US DPF" in (by_pub["hive"].get("certs") or []), "hive DPF self-cert prints")
+    check(by_pub["hive"].get("founded_year") == 2016, "hive year 2016 stays")
+    check((by_pub["hive"].get("file") or {}).get("page") == 20, "hive Official page prints")
+    check((by_pub["hive"].get("file") or {}).get("marks") == 20, "hive marks print")
+    check((by_pub["hive"].get("file") or {}).get("years") == 20, "hive years stay")
+    hive_html = (ROOT / "site" / "c" / "hive.html").read_text(encoding="utf-8")
+    check("<h1>Hive</h1>" in hive_html, "hive dossier is its own file")
+    check("https://hive.com/policy-documents/security" in hive_html, "hive dossier cites Official page")
+    check("SOC 2" in hive_html, "hive dossier prints SOC 2")
+    check("ISO 27001" not in hive_html, "hive dossier does not print hosting ISO 27001")
+    check("hiveage" not in hive_html.lower(), "hive is not aliased to hiveage")
+    # DataMotion company-overview HITRUST + 1999. Overview is not Official page.
+    # Homepage FedRAMP is Azure's. HIPAA is product / customer-quote language.
+    check(by_pub["datamotion"].get("found") is False, "datamotion company overview is not Official page")
+    check(not by_pub["datamotion"].get("trust_url"), "datamotion has no invented Official page")
+    check((by_pub["datamotion"].get("certs") or []) == ["HITRUST"], f"datamotion certs {by_pub['datamotion'].get('certs')}")
+    check("FedRAMP" not in (by_pub["datamotion"].get("certs") or []), "datamotion Azure FedRAMP stays open")
+    check("HIPAA" not in (by_pub["datamotion"].get("certs") or []), "datamotion HIPAA product copy stays open")
+    check("PCI DSS" not in (by_pub["datamotion"].get("certs") or []), "datamotion PCI-DSS among compliance-across stays open")
+    check(by_pub["datamotion"].get("founded_year") == 1999, "datamotion year 1999")
+    check(
+        by_pub["datamotion"].get("founded_source") == "https://datamotion.com/company-overview/",
+        "datamotion year source is first-party company overview",
+    )
+    check((by_pub["datamotion"].get("file") or {}).get("page") in (0, False, None), "datamotion Official page stays open")
+    check((by_pub["datamotion"].get("file") or {}).get("marks") == 20, "datamotion HITRUST prints")
+    check((by_pub["datamotion"].get("file") or {}).get("years") == 20, "datamotion years print")
+    dm_html = (ROOT / "site" / "c" / "datamotion.html").read_text(encoding="utf-8")
+    check("<h1>Datamotion</h1>" in dm_html or "<h1>DataMotion</h1>" in dm_html, "datamotion dossier is its own file")
+    check("HITRUST" in dm_html, "datamotion dossier prints HITRUST")
+    check("founded · 1999" in dm_html, "datamotion dossier year")
+    check("Official page · not on file" in dm_html, "datamotion Official page stays open")
+    # Preferred C0 left open: product cybersecurity / login dashboard.
+    check(by_pub["legalinc-com"].get("found") is False, "legalinc dashboard is not Official page")
+    check(not by_pub["legalinc-com"].get("trust_url"), "legalinc has no invented Official page")
+    check((by_pub["filestack"].get("file") or {}).get("page") in (0, False, None), "filestack features is not Official page")
     kept, why = hold_marks(
         ["HIPAA"],
         "HIPAA compliance assistance Customers that must safeguard protected health "
