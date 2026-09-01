@@ -774,7 +774,8 @@ def file_flags(row: dict, disc: dict | None = None) -> dict:
     """Bind each rule to 0 / 10 / 20 on this row. Not a factor score."""
     # A portal trust URL is never Official page. Softcat expand filed
     # trust.softcat.com only; that host stays an instrument link.
-    if (row.get("slug") or "") == "softcat":
+    # Virtuozzo expand filed virtuozzo.trust.site the same way.
+    if (row.get("slug") or "") in {"softcat", "virtuozzo"}:
         page_on = False
     else:
         page_on = bool(row.get("found") and (row.get("trust_url") or row.get("final_url")))
@@ -1018,7 +1019,8 @@ def enrich_company(
         official = ""
     # Portal host is never Official page. Softcat expand filed trust.softcat.com
     # only; that URL stays an instrument link. Official page stays open.
-    if slug == "softcat":
+    # Virtuozzo expand filed virtuozzo.trust.site the same way.
+    if slug in {"softcat", "virtuozzo"}:
         found = False
         official = ""
     certs = sorted((c for c in (row.get("certs") or []) if c), key=lambda x: str(x).lower())

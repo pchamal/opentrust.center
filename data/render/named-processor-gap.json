@@ -96,32 +96,28 @@
         "Official page stays open. Company overview is not a trust or security page.",
         "Years stay open. History HTML prints 2016 分社化 / 設立 in Japanese; the year parser does not accept it."
       ]
-    },
+    }
+  ],
+  "clerk_holds": [
     {
       "slug": "cequens-fze",
       "name": "CEQUENS",
       "domain": "cequens.com",
       "named_by": 1,
-      "completeness_before": 0,
-      "completeness_after": 20,
-      "marks": ["SOC 2", "ISO 27001", "PCI DSS"],
-      "source": "https://www.cequens.com/",
-      "left_open": [
-        "Official page stays open. Homepage is not a trust or security page.",
-        "GDPR Compliant in the same footer is not a hold.",
-        "ISO 27017 Certificate and ISO 27018 Certificate are logo-row img alts. Not filed."
-      ]
+      "completeness": 0,
+      "marks": [],
+      "reason": "Homepage marketing chips and certificate img alts (SOC 2, ISO 27001, PCI DSS) are Bugsnag-class chrome, not first-party assurance prose. Type II is not printed. Official page stays open. Privacy URL stays."
     }
   ],
   "expand_fills": [
     {
       "slug": "virtuozzo",
       "name": "Virtuozzo",
-      "action": "unfile-portal-official-page",
+      "action": "trust-instrument-url-only",
       "completeness_before": 60,
       "completeness_after": 20,
       "left_open": [
-        "virtuozzo.trust.site is a portal vendor host. Not Official page. Portal SOC 2 unread.",
+        "virtuozzo.trust.site is a portal vendor host. Restored as links.trust only. Not Official page. Not a mark. Portal SOC 2 unread.",
         "virtuozzo.com 403s. No first-party security or trust HTML this cut.",
         "Years stay (expand already filed)."
       ]
@@ -207,6 +203,7 @@
     "Preferred C0 403/portal/empty: Sumit AI, Dstny, Sutherland, Jack Henry, Legalinc, agap2IT.",
     "Adjust Vercel 429/403. BlueSnap Cloudflare 403. BastionX SOC 2 / HIPAA are product copy. Beetexting ISO 27001 is expected 2H2025.",
     "netdocuments TrustShare JS shell. podium Trust Center JS shell. pluralsight SafeBase portal. Help Scout /company/legal/dpa/ is a CSS/JS shell.",
-    "virtuozzo.trust.site portal unfiled as Official page. Portal SOC 2 unread. virtuozzo.com 403."
+    "CEQUENS homepage chips / certificate img alts unread (SOC 2, ISO 27001, PCI DSS). Bugsnag class. Official page stays open. Privacy URL stays. Completeness 0.",
+    "virtuozzo.trust.site restored as trust instrument URL-only. Not Official page. Not a mark. Portal SOC 2 unread. virtuozzo.com 403. Years stay. Completeness years = 20."
   ]
 }

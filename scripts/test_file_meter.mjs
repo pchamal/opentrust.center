@@ -194,18 +194,17 @@ expect(
 
 const cequens = bySlug["cequens-fze"];
 expect(
-  "cequens marks Completeness is 20",
+  "cequens Completeness stays 0",
   cequens &&
     cequens.found === false &&
     !cequens.trust_url &&
-    (cequens.certs || []).includes("SOC 2") &&
-    (cequens.certs || []).includes("ISO 27001") &&
-    (cequens.certs || []).includes("PCI DSS") &&
-    !(cequens.certs || []).includes("ISO 27017") &&
-    !(cequens.certs || []).includes("GDPR") &&
+    !(cequens.certs || []).length &&
+    ((cequens.instruments || {}).privacy || {}).url === "https://www.cequens.com/privacy-policy" &&
     fileFlags(cequens).page === 0 &&
-    fileFlags(cequens).marks === 20 &&
-    fileScore(fileFlags(cequens)) === 20,
+    fileFlags(cequens).marks === 0 &&
+    fileFlags(cequens).dpa === 0 &&
+    fileFlags(cequens).years === 0 &&
+    fileScore(fileFlags(cequens)) === 0,
 );
 
 const virtuozzo = bySlug.virtuozzo;
@@ -215,6 +214,7 @@ expect(
     virtuozzo.found === false &&
     !virtuozzo.trust_url &&
     !(virtuozzo.certs || []).length &&
+    ((virtuozzo.instruments || {}).trust || {}).url === "https://virtuozzo.trust.site" &&
     virtuozzo.founded_year === 1997 &&
     fileFlags(virtuozzo).page === 0 &&
     fileFlags(virtuozzo).marks === 0 &&
