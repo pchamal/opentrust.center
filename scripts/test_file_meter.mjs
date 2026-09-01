@@ -404,6 +404,99 @@ expect(
     fileScore(fileFlags(liveblocks)) === 70,
 );
 
+const messagebird = bySlug.messagebird;
+expect(
+  "messagebird Completeness is page · marks · DPA · years = 80",
+  messagebird &&
+    messagebird.found === true &&
+    messagebird.trust_url === "https://messagebird.com/trust" &&
+    (messagebird.certs || []).includes("ISO 27001") &&
+    (messagebird.certs || []).includes("EU-US DPF") &&
+    messagebird.founded_year === 2011 &&
+    fileFlags(messagebird).page === 20 &&
+    fileFlags(messagebird).marks === 20 &&
+    fileFlags(messagebird).dpa === 20 &&
+    fileFlags(messagebird).years === 20 &&
+    fileScore(fileFlags(messagebird)) === 80,
+);
+
+const qualified = bySlug["qualified-com"];
+expect(
+  "qualified Completeness is page · marks · DPA · subprocessors = 70",
+  qualified &&
+    qualified.found === true &&
+    qualified.trust_url === "https://trust.qualified.com" &&
+    (qualified.certs || []).includes("SOC 2 Type II") &&
+    !(qualified.certs || []).includes("HIPAA") &&
+    !qualified.founded_year &&
+    fileFlags(qualified).page === 20 &&
+    fileFlags(qualified).marks === 20 &&
+    fileFlags(qualified).dpa === 20 &&
+    fileFlags(qualified).subprocessors === 10 &&
+    fileFlags(qualified).years === 0 &&
+    fileScore(fileFlags(qualified)) === 70,
+);
+
+const openrouter = bySlug.openrouter;
+expect(
+  "openrouter Completeness is page · marks · DPA = 60",
+  openrouter &&
+    openrouter.found === true &&
+    openrouter.trust_url === "https://openrouter.ai/security" &&
+    (openrouter.certs || []).includes("SOC 2 Type II") &&
+    !openrouter.founded_year &&
+    fileFlags(openrouter).page === 20 &&
+    fileFlags(openrouter).marks === 20 &&
+    fileFlags(openrouter).dpa === 20 &&
+    fileFlags(openrouter).years === 0 &&
+    fileScore(fileFlags(openrouter)) === 60,
+);
+
+const apollo = bySlug["apollo-io"];
+expect(
+  "apollo Completeness is page · marks · DPA = 60",
+  apollo &&
+    apollo.found === true &&
+    apollo.trust_url === "https://trust.apollo.io" &&
+    (apollo.certs || []).includes("EU-US DPF") &&
+    !(apollo.certs || []).includes("SOC 2 Type II") &&
+    !apollo.founded_year &&
+    fileFlags(apollo).page === 20 &&
+    fileFlags(apollo).marks === 20 &&
+    fileFlags(apollo).dpa === 20 &&
+    fileFlags(apollo).years === 0 &&
+    fileScore(fileFlags(apollo)) === 60,
+);
+
+const maestroqa = bySlug.maestroqa;
+expect(
+  "maestroqa Completeness is page · marks · years = 60",
+  maestroqa &&
+    maestroqa.found === true &&
+    maestroqa.trust_url === "https://trust.maestroqa.com" &&
+    (maestroqa.certs || []).includes("EU-US DPF") &&
+    maestroqa.founded_year === 2013 &&
+    fileFlags(maestroqa).page === 20 &&
+    fileFlags(maestroqa).marks === 20 &&
+    fileFlags(maestroqa).years === 20 &&
+    fileScore(fileFlags(maestroqa)) === 60,
+);
+
+const validity = bySlug.validity;
+expect(
+  "validity Completeness is page · marks · subprocessors = 60",
+  validity &&
+    validity.found === true &&
+    validity.trust_url === "https://trust.validity.com" &&
+    (validity.certs || []).includes("EU-US DPF") &&
+    !validity.founded_year &&
+    fileFlags(validity).page === 20 &&
+    fileFlags(validity).marks === 20 &&
+    fileFlags(validity).subprocessors === 20 &&
+    fileFlags(validity).years === 0 &&
+    fileScore(fileFlags(validity)) === 60,
+);
+
 const src = readFileSync(new URL("../site/register.js", import.meta.url), "utf8");
 expect("register draws the file index", src.includes("fileIndexHtml"));
 expect("register has no N of 5 markup", !src.includes("file-cov") && !src.includes("file-meter") && !src.includes(" of 5"));
