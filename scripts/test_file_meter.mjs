@@ -354,6 +354,56 @@ expect(
     fileScore(fileFlags(datamotion)) === 40,
 );
 
+const appcues = bySlug.appcues;
+expect(
+  "appcues Completeness is page · marks · DPA · subprocessors = 70",
+  appcues &&
+    appcues.found === true &&
+    appcues.trust_url === "https://trust.appcues.com" &&
+    (appcues.certs || []).includes("SOC 2 Type II") &&
+    (appcues.certs || []).includes("EU-US DPF") &&
+    !appcues.founded_year &&
+    fileFlags(appcues).page === 20 &&
+    fileFlags(appcues).marks === 20 &&
+    fileFlags(appcues).dpa === 20 &&
+    fileFlags(appcues).subprocessors === 10 &&
+    fileFlags(appcues).years === 0 &&
+    fileScore(fileFlags(appcues)) === 70,
+);
+
+const rollbar = bySlug.rollbar;
+expect(
+  "rollbar Completeness is page · marks · DPA = 60",
+  rollbar &&
+    rollbar.found === true &&
+    rollbar.trust_url === "https://rollbar.com/security" &&
+    (rollbar.certs || []).includes("SOC 2 Type II") &&
+    (rollbar.certs || []).includes("SOC 3") &&
+    !(rollbar.certs || []).includes("ISO 27001") &&
+    !(rollbar.certs || []).includes("HIPAA") &&
+    fileFlags(rollbar).page === 20 &&
+    fileFlags(rollbar).marks === 20 &&
+    fileFlags(rollbar).dpa === 20 &&
+    fileFlags(rollbar).years === 0 &&
+    fileScore(fileFlags(rollbar)) === 60,
+);
+
+const liveblocks = bySlug.liveblocks;
+expect(
+  "liveblocks Completeness is page · marks · DPA · subprocessors = 70",
+  liveblocks &&
+    liveblocks.found === true &&
+    liveblocks.trust_url === "https://liveblocks.secureframetrust.com" &&
+    (liveblocks.certs || []).includes("SOC 2 Type II") &&
+    !(liveblocks.certs || []).includes("HIPAA") &&
+    fileFlags(liveblocks).page === 20 &&
+    fileFlags(liveblocks).marks === 20 &&
+    fileFlags(liveblocks).dpa === 20 &&
+    fileFlags(liveblocks).subprocessors === 10 &&
+    fileFlags(liveblocks).years === 0 &&
+    fileScore(fileFlags(liveblocks)) === 70,
+);
+
 const src = readFileSync(new URL("../site/register.js", import.meta.url), "utf8");
 expect("register draws the file index", src.includes("fileIndexHtml"));
 expect("register has no N of 5 markup", !src.includes("file-cov") && !src.includes("file-meter") && !src.includes(" of 5"));
