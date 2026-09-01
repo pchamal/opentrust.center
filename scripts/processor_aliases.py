@@ -651,6 +651,33 @@ REGISTER_ALIASES: dict[str, str] = {
     "tdcx-my-sdn-bhd": "tdcx",
     "tdcx-services-dba-tdcx-spain": "tdcx",
     "tdcx-services-dba-tdcx-portugal-unipessoal-lda": "tdcx",
+    # LinkedIn names Tata Communications Ireland Ltd. Tata Communications'
+    # first-party subsidiary list (tatacommunications.com) names
+    # TATA COMMUNICATIONS (IRELAND) D.A.C. tata-communications is on the
+    # register. Do not invent a second dossier.
+    "tata-communications-ireland": "tata-communications",
+    # LinkedIn names HCL America Inc. and HCL Technologies Corporate
+    # Services Ltd. HCLTech first-party HTML prints HCL America Inc as a
+    # wholly owned subsidiary of HCL Technologies, and hosts
+    # "74 HCL Technologies Corporate Services Limited" on hcltech.com.
+    # hcl-tech is on the register. Do not invent a second HCL dossier.
+    "hcl-america": "hcl-tech",
+    "hcl-technologies-corporate-services": "hcl-tech",
+    # LinkedIn names Ypiresia 800 - Teleperformance Single Member S.A.
+    # GLEIF parent is TELEPERFORMANCE SE. The existing Teleperformance
+    # row is teleperformance-colombia (teleperformance.com). Do not invent
+    # a second Teleperformance dossier.
+    "ypiresia-800-teleperformance-single-member": "teleperformance-colombia",
+    # Nylas first-party subprocessor table prints Apollo for Lead
+    # Generation. apollo.io is the existing Apollo.io row.
+    "apollo": "apollo-io",
+    # LinkedIn names NSONE, Inc. for DNS. ns1.com now 301s to IBM's
+    # first-party product page titled "IBM NS1 Connect". ibm is on the
+    # register. Do not copy IBM's file onto an empty nsone shell.
+    "nsone": "ibm",
+    # Nylas prints Gravitational (Teleport). Official homepage
+    # goteleport.com titles Teleport. Filed in this increment.
+    "gravitational-teleport": "teleport",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
