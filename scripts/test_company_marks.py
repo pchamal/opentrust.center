@@ -831,6 +831,84 @@ def main() -> int:
         "<h1>Jack Henry &amp; Associates</h1>" in (ROOT / "site" / "c" / "jack-henry-and-associates.html").read_text(encoding="utf-8"),
         "jack-henry-and-associates dossier stays a separate file",
     )
+    # This cut: ProWritingAid first-party Trust Center. SOC 2 Security compliance
+    # prose. Do not invent Type II. Privacy URL is first-party HTML.
+    check(by_pub["prowritingaid"].get("found") is True, "prowritingaid Official page is on file")
+    check(
+        by_pub["prowritingaid"].get("trust_url") == "https://prowritingaid.com/trust-center",
+        "prowritingaid Official page is first-party /trust-center",
+    )
+    check((by_pub["prowritingaid"].get("certs") or []) == ["SOC 2"], f"prowritingaid certs {by_pub['prowritingaid'].get('certs')}")
+    check("SOC 2 Type II" not in (by_pub["prowritingaid"].get("certs") or []), "prowritingaid does not invent Type II")
+    check((by_pub["prowritingaid"].get("file") or {}).get("page") == 20, "prowritingaid Official page prints")
+    check((by_pub["prowritingaid"].get("file") or {}).get("marks") == 20, "prowritingaid SOC 2 prints")
+    check(
+        ((by_pub["prowritingaid"].get("instruments") or {}).get("privacy") or {}).get("url")
+        == "https://prowritingaid.com/en/Home/Privacy",
+        "prowritingaid privacy URL is on file",
+    )
+    pwa_html = (ROOT / "site" / "c" / "prowritingaid.html").read_text(encoding="utf-8")
+    check("<h1>ProWritingAid</h1>" in pwa_html, "prowritingaid dossier is its own file")
+    check("https://prowritingaid.com/trust-center" in pwa_html, "prowritingaid dossier cites Official page")
+    check("SOC 2" in pwa_html, "prowritingaid dossier prints SOC 2")
+    # MaxMind commitment-to-security: SOC 2 Type II audit, own SOC 3 report,
+    # DPF self-cert. ISO 27001 is "based on" the standard — not a hold.
+    # GDPR/CCPA stay open. Years 2002 from first-party our-story HTML.
+    check(by_pub["maxmind"].get("found") is True, "maxmind Official page is on file")
+    check(
+        by_pub["maxmind"].get("trust_url")
+        == "https://www.maxmind.com/en/company/commitment-to-security",
+        "maxmind Official page is first-party commitment-to-security",
+    )
+    check(
+        {"SOC 2 Type II", "SOC 3", "EU-US DPF"} <= set(by_pub["maxmind"].get("certs") or []),
+        f"maxmind first-party holds {by_pub['maxmind'].get('certs')}",
+    )
+    check("ISO 27001" not in (by_pub["maxmind"].get("certs") or []), "maxmind ISO 27001 based-on stays open")
+    check("GDPR" not in (by_pub["maxmind"].get("certs") or []), "maxmind privacy GDPR stays open")
+    check("CCPA" not in (by_pub["maxmind"].get("certs") or []), "maxmind privacy CCPA stays open")
+    check(by_pub["maxmind"].get("founded_year") == 2002, "maxmind year 2002")
+    check((by_pub["maxmind"].get("file") or {}).get("page") == 20, "maxmind Official page prints")
+    check((by_pub["maxmind"].get("file") or {}).get("marks") == 20, "maxmind marks print")
+    check((by_pub["maxmind"].get("file") or {}).get("years") == 20, "maxmind years print")
+    mm_html = (ROOT / "site" / "c" / "maxmind.html").read_text(encoding="utf-8")
+    check("<h1>MaxMind</h1>" in mm_html, "maxmind dossier is its own file")
+    check("SOC 2 Type II" in mm_html, "maxmind dossier prints SOC 2 Type II")
+    check("SOC 3" in mm_html, "maxmind dossier prints SOC 3")
+    check("ISO 27001" not in mm_html, "maxmind dossier does not print based-on ISO 27001")
+    # OTTRA about-page prose. Homepage ISO / Cyber Essentials img alts unread.
+    # About is not Official page. Years stay open (since 2020).
+    check(
+        {"ISO 27001", "Cyber Essentials"} <= set(by_pub["ottra"].get("certs") or []),
+        f"ottra first-party holds {by_pub['ottra'].get('certs')}",
+    )
+    check(by_pub["ottra"].get("found") is False, "ottra about is not Official page")
+    check(not by_pub["ottra"].get("trust_url"), "ottra has no invented Official page")
+    check((by_pub["ottra"].get("file") or {}).get("page") in (0, False, None), "ottra Official page stays open")
+    check((by_pub["ottra"].get("file") or {}).get("marks") == 20, "ottra marks print")
+    check((by_pub["ottra"].get("file") or {}).get("years") in (0, False, None), "ottra years stay open")
+    ottra_html = (ROOT / "site" / "c" / "ottra.html").read_text(encoding="utf-8")
+    check("<h1>OTTRA</h1>" in ottra_html, "ottra dossier is its own file")
+    check("ISO 27001" in ottra_html, "ottra dossier prints ISO 27001")
+    check("Cyber Essentials" in ottra_html, "ottra dossier prints Cyber Essentials")
+    check("Official page · not on file" in ottra_html, "ottra Official page stays open")
+    # ReleaseTEAM founded 1999 from first-party about HTML. Privacy URL on file.
+    # Official page stays open.
+    check(by_pub["releaseteam"].get("founded_year") == 1999, "releaseteam year 1999")
+    check(
+        by_pub["releaseteam"].get("founded_source") == "https://www.releaseteam.com/about/",
+        "releaseteam year source is first-party about",
+    )
+    check((by_pub["releaseteam"].get("file") or {}).get("years") == 20, "releaseteam years print")
+    check(by_pub["releaseteam"].get("found") is False, "releaseteam Official page stays open")
+    check(
+        ((by_pub["releaseteam"].get("instruments") or {}).get("privacy") or {}).get("url")
+        == "https://www.releaseteam.com/privacy-policy/",
+        "releaseteam privacy URL is on file",
+    )
+    rt_html = (ROOT / "site" / "c" / "releaseteam.html").read_text(encoding="utf-8")
+    check("<h1>ReleaseTEAM</h1>" in rt_html, "releaseteam dossier is its own file")
+    check("founded · 1999" in rt_html, "releaseteam dossier year")
     kept, why = hold_marks(
         ["HIPAA"],
         "HIPAA compliance assistance Customers that must safeguard protected health "

@@ -473,6 +473,21 @@ def main() -> int:
         == "https://legal.branch.io/saas/branch-saas-dpa/",
         "branch enriched DPA URL stays",
     )
+    # This cut: Route Mobile first-party DPA HTML. ISO 27001 is contractor
+    # language on that DPA, not Route Mobile's own hold.
+    check(
+        instrument_url(by_pub["route-mobile"], "dpa") == "https://routemobile.com/dpa/",
+        "route-mobile DPA is first-party HTML",
+    )
+    check((by_pub["route-mobile"].get("file") or {}).get("dpa") == 20, "route-mobile DPA prints")
+    check((by_pub["route-mobile"].get("file") or {}).get("page") in (0, False, None), "route-mobile Official page stays open")
+    check((by_pub["route-mobile"].get("certs") or []) == [], "route-mobile DPA contractor ISO stays unread")
+    check("ISO 27001" not in (by_pub["route-mobile"].get("certs") or []), "route-mobile does not file contractor ISO 27001")
+    check(by_pub["route-mobile"].get("found") is False, "route-mobile DPA is not Official page")
+    rm_html = (ROOT / "site" / "c" / "route-mobile.html").read_text(encoding="utf-8")
+    check("<h1>Route Mobile</h1>" in rm_html, "route-mobile dossier is its own file")
+    check("https://routemobile.com/dpa/" in rm_html, "route-mobile dossier keeps the DPA URL")
+    check("ISO 27001" not in rm_html, "route-mobile dossier does not print contractor ISO 27001")
 
     print(
         f"ok increment-dpa privacy-page-queue {len(expected_batch)} walked; "

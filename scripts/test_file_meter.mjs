@@ -222,6 +222,78 @@ expect(
     fileScore(fileFlags(virtuozzo)) === 20,
 );
 
+const prowritingaid = bySlug.prowritingaid;
+expect(
+  "prowritingaid Trust Center Completeness is page · marks = 40",
+  prowritingaid &&
+    prowritingaid.found === true &&
+    prowritingaid.trust_url === "https://prowritingaid.com/trust-center" &&
+    (prowritingaid.certs || []).includes("SOC 2") &&
+    !(prowritingaid.certs || []).includes("SOC 2 Type II") &&
+    fileFlags(prowritingaid).page === 20 &&
+    fileFlags(prowritingaid).marks === 20 &&
+    fileFlags(prowritingaid).years === 0 &&
+    fileScore(fileFlags(prowritingaid)) === 40,
+);
+
+const maxmind = bySlug.maxmind;
+expect(
+  "maxmind security page Completeness is page · marks · years = 60",
+  maxmind &&
+    maxmind.found === true &&
+    maxmind.trust_url === "https://www.maxmind.com/en/company/commitment-to-security" &&
+    (maxmind.certs || []).includes("SOC 2 Type II") &&
+    (maxmind.certs || []).includes("SOC 3") &&
+    (maxmind.certs || []).includes("EU-US DPF") &&
+    !(maxmind.certs || []).includes("ISO 27001") &&
+    maxmind.founded_year === 2002 &&
+    fileFlags(maxmind).page === 20 &&
+    fileFlags(maxmind).marks === 20 &&
+    fileFlags(maxmind).years === 20 &&
+    fileScore(fileFlags(maxmind)) === 60,
+);
+
+const ottra = bySlug.ottra;
+expect(
+  "ottra about-page marks Completeness is 20",
+  ottra &&
+    ottra.found === false &&
+    !ottra.trust_url &&
+    (ottra.certs || []).includes("ISO 27001") &&
+    (ottra.certs || []).includes("Cyber Essentials") &&
+    fileFlags(ottra).page === 0 &&
+    fileFlags(ottra).marks === 20 &&
+    fileFlags(ottra).years === 0 &&
+    fileScore(fileFlags(ottra)) === 20,
+);
+
+const releaseteam = bySlug.releaseteam;
+expect(
+  "releaseteam year Completeness is 20",
+  releaseteam &&
+    releaseteam.found === false &&
+    !releaseteam.trust_url &&
+    releaseteam.founded_year === 1999 &&
+    fileFlags(releaseteam).page === 0 &&
+    fileFlags(releaseteam).marks === 0 &&
+    fileFlags(releaseteam).years === 20 &&
+    fileScore(fileFlags(releaseteam)) === 20,
+);
+
+const routeMobile = bySlug["route-mobile"];
+expect(
+  "route-mobile DPA Completeness is 20",
+  routeMobile &&
+    routeMobile.found === false &&
+    !routeMobile.trust_url &&
+    !(routeMobile.certs || []).length &&
+    ((routeMobile.instruments || {}).dpa || {}).url === "https://routemobile.com/dpa/" &&
+    fileFlags(routeMobile).page === 0 &&
+    fileFlags(routeMobile).marks === 0 &&
+    fileFlags(routeMobile).dpa === 20 &&
+    fileScore(fileFlags(routeMobile)) === 20,
+);
+
 const filestack = bySlug.filestack;
 expect(
   "filestack /features is not Official page",
