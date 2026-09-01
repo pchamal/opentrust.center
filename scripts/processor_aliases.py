@@ -726,6 +726,14 @@ REGISTER_ALIASES: dict[str, str] = {
     # aura-previously-pango-anchorfree is already on the register
     # (aura.com). Do not invent a second Aura dossier.
     "intersections": "aura-previously-pango-anchorfree",
+    # Tropic first-party subprocessors table prints "Omni / Omni
+    # Analytics, Inc. / https://omni.co/" for in-app dashboards.
+    # omni-analytics is already on the register (omni.co). Prior hour
+    # left the short name open because The Omni Group / others share
+    # it; the destination row on that same Tropic list is now the
+    # proof. Do not invent a second Omni dossier or alias to
+    # the-omni-group / omnigroup.com.
+    "omni": "omni-analytics",
     # Wikidata P856 for these leftover names is the existing register domain.
     # Do not invent a second dossier.
     "kaspersky": "kaspersky-lab",

@@ -370,6 +370,10 @@ def main() -> int:
     check(canonical_processor_id("intersections", aura_reg) == "aura-previously-pango-anchorfree", "Intersections is Aura")
     check(REGISTER_ALIASES["intersections"] == "aura-previously-pango-anchorfree", "intersections aliases to aura-previously-pango-anchorfree")
     check(REGISTER_ALIASES.get("intersections") != "aura", "intersections must not invent a second Aura slug")
+    omni_reg = {**register, "omni-analytics": {"slug": "omni-analytics", "name": "Omni Analytics", "domain": "omni.co"}}
+    check(canonical_processor_id("omni", omni_reg) == "omni-analytics", "Omni is Omni Analytics")
+    check(REGISTER_ALIASES["omni"] == "omni-analytics", "omni aliases to omni-analytics")
+    check(REGISTER_ALIASES.get("omni") != "the-omni-group", "omni must not map to The Omni Group")
     check("arsys" not in REGISTER_ALIASES, "Arsys is not aliased to IONOS")
     check(REGISTER_ALIASES.get("arsys") != "ionos", "arsys must not map to ionos")
     check("conversocial" not in REGISTER_ALIASES, "Conversocial is not aliased to Verint")

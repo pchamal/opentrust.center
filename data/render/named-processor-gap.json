@@ -1,12 +1,20 @@
 {
-  "generated": "2026-09-01T19:45:00Z",
+  "generated": "2026-09-01T20:20:00Z",
   "register": 4746,
   "mode": "named-processor-gap-then-c0-fills",
-  "leftovers_min1_at_hour_start": 27,
-  "leftovers_min1": 28,
+  "leftovers_min1_at_hour_start": 28,
+  "leftovers_min1": 27,
   "named_processor_resolved_enqueued": [],
-  "named_processor_aliased_this_hour": [],
-  "aliases_added": [],
+  "named_processor_aliased_this_hour": [
+    "omni"
+  ],
+  "aliases_added": [
+    {
+      "from": "omni",
+      "to": "omni-analytics",
+      "source": "https://www.tropicapp.io/legal/subprocessors"
+    }
+  ],
   "aliases_refused": [
     {
       "slug": "gcs",
@@ -115,59 +123,9 @@
     {
       "slug": "zealep-business-solutions",
       "reason": "Meltwater boutique name. No first-party proven domain."
-    },
-    {
-      "slug": "omni",
-      "reason": "Tropic names Omni. Ambiguous short name (Omni Analytics omni.co, The Omni Group omnigroup.com, and others). Destination first-party HTML was not used to invent an alias. No proven official domain on the Tropic list."
     }
   ],
-  "filed": [
-    {
-      "slug": "spekit",
-      "name": "Spekit",
-      "kind": "years+dpa",
-      "year": 2018,
-      "url": "https://www.spekit.com/about-us",
-      "dpa_url": "https://www.spekit.com/legal/dpa",
-      "quote": "\"foundingDate\": \"2018\" · This DPA is intended to govern Customer’s provision and Company’s Processing of Customer Personal Data pursuant to the Agreement.",
-      "completeness_before": 0,
-      "completeness_after": 40,
-      "rules": "DPA · years"
-    },
-    {
-      "slug": "cyberhaven",
-      "name": "Cyberhaven",
-      "kind": "years",
-      "year": 2016,
-      "url": "https://www.cyberhaven.com/about",
-      "quote": "\"foundingDate\": \"2016\"",
-      "completeness_before": 0,
-      "completeness_after": 20,
-      "rules": "years"
-    },
-    {
-      "slug": "woopra",
-      "name": "Woopra",
-      "kind": "years",
-      "year": 2012,
-      "url": "https://www.woopra.com/company/about",
-      "quote": "Woopra was founded in 2012 by two engineers",
-      "completeness_before": 0,
-      "completeness_after": 20,
-      "rules": "years"
-    },
-    {
-      "slug": "tropic",
-      "name": "Tropic",
-      "kind": "subprocessors",
-      "url": "https://www.tropicapp.io/legal/subprocessors",
-      "quote": "Subprocessors | Tropic names Amazon Web Services, Google Cloud Platform, Omni, and 13 other printed firms",
-      "named": 16,
-      "completeness_before": 0,
-      "completeness_after": 20,
-      "rules": "subprocessors"
-    }
-  ],
+  "filed": [],
   "remaining_ge2_slugs": [],
-  "note": "Hour start leftovers_min1=27, remaining_ge2 empty, leftovers after this hour=28 (Tropic printed Omni; short name is ambiguous — Omni Analytics / The Omni Group / others — so no alias and no invented domain). Re-checked leftover naming lists; none print an official homepage domain, and no destination first-party HTML newly prints a leftover name. Completeness fills on C0 named-processor rows already on the register: Spekit first-party JSON-LD foundingDate 2018 on spekit.com/about-us and first-party DPA HTML at /legal/dpa (Official page stays open — /security 301s to a blog; about-page SOC 2 chip stays open). Cyberhaven first-party JSON-LD foundingDate 2016 on cyberhaven.com/about (/security 404). Woopra first-party 'founded in 2012' on woopra.com/company/about (/security /trust /dpa 404; privacy DPF unread as a privacy page). Tropic first-party named-processor table at tropicapp.io/legal/subprocessors (aws→amazon-web-services, gcp→google; Omni stays a map node; '2019 Founded' timeline does not parse). PandaDoc usual paths 429 Vercel checkpoint. Adjust /security 429. Onfido / DataGrail / Sift Cloudflare 403. Capacity DPA stays open. Softcat trust.softcat.com stays portal. FreeAgent / Wave usual trust paths 404. GMI Cloud about-page chips stay open. ReversingLabs about-page SOC 2 image caption stays open. Spekit /security blog SOC 2 Type II stays unread as Official page. Rootly /security is a product pitch. Uploadcare DPA is a Google Drive PDF. Ketch 2020, Inkeep 2023, and Teleport 2015 stay."
+  "note": "Hour start leftovers_min1=28, remaining_ge2 empty, leftovers after this hour=27. Tropic first-party subprocessors table prints Omni / Omni Analytics, Inc. / https://omni.co/ for in-app dashboards. omni-analytics is already on the register (omni.co, Official page · marks on file). Alias omni→omni-analytics; Tropic dossier now cross-links to that file. Do not alias to the-omni-group / omnigroup.com. Re-checked leftover naming lists (Meltwater, Smartsheet, LinkedIn, Vyond, SonicWall, Sophos, GitLab, AudioCodes, WatchGuard); remaining leftovers still print no official homepage domain. AfterShip and Branch lists Cloudflare-walled this walk. Standing refusals stay (software-minds ≠ softwaremind.com; rsi/sync short names ambiguous; regalix/vivaops/cc-cloud/rtica-pfms-slu and Meltwater/Sophos/Smartsheet/Vyond/SonicWall boutique names domain-less). Completeness walk on C0/thin named-processor rows: Vonage / NetSuite / TaskUs / Vultr / TransUnion / Ai-Media / Foundever / InMoment / IntouchCX / Sumit AI Cloudflare 403. Capacity usual paths now Cloudflare 403. DevRev 429. Code42 redirects to Mimecast Incydr (not first-party). Filestack /security bounces to features#security. Dovetail trust.dovetail.com is a Vanta portal. Uploadcare /products/security SOC 2 Type II / HIPAA are image-alt chips; DPA stays a Google Drive PDF. GMI Cloud about-page chips stay open. Rootly /security stays a product pitch (DORA unread). BastionX HIPAA is on solutions marketing pages. Softcat /about-us prints '1993 Softcat was founded' — years already on file from Wikipedia; Completeness stays marks · years = 40; trust.softcat.com stays portal. PandaDoc usual paths 429. Adjust /security 429. Onfido / DataGrail / Sift Cloudflare 403. FreeAgent / Wave usual trust paths 404. ReversingLabs about-page SOC 2 image caption stays open. Spekit /security blog not Official page. Ketch Official page still open. Spekit DPA · 2018, Cyberhaven 2016, Woopra 2012, Tropic subprocessors, Ketch 2020, Inkeep 2023, and Teleport 2015 stay."
 }
