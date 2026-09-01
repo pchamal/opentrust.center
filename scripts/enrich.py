@@ -371,8 +371,9 @@ OFFICIAL_FOUNDED_REVERSE = re.compile(
     re.I,
 )
 # Timeline copy: "2012 Fivetran is founded out of Y Combinator"
+# Milestone em-dash: "1985 — SFEIR is founded."
 YEAR_THEN_FOUNDED = re.compile(
-    rf"(?:^|[^\d])({_YEAR_TOKEN})\s+(?:[A-Z][\w.&'-]*\s+){{0,8}}(?:is|was|were)\s+(?:founded|established|incorporated)\b",
+    rf"(?:^|[^\d])({_YEAR_TOKEN})\s*[-–—]?\s+(?:[A-Z][\w.&'-]*\s+){{0,8}}(?:is|was|were)\s+(?:founded|established|incorporated)\b",
 )
 FOUNDING_DATE_FIELD = re.compile(
     rf"""(?:foundingDate|founding_date|dateFounded|yearFounded)\s*"?\s*[=:]\s*"?({_YEAR_TOKEN})""",
@@ -420,14 +421,15 @@ THIRD_PARTY_YEAR_HOSTS = {
 }
 ABOUT_PATHS = (
     "/about", "/about-us", "/about/company", "/about/us",
-    "/company", "/company/about", "/company/our-story",
-    "/our-story", "/our-company", "/who-we-are",
-    "/about/our-story", "/en/about", "/en/company",
+    "/company", "/company/about", "/company/our-story", "/company/history",
+    "/our-story", "/our-company", "/our-history", "/who-we-are",
+    "/about/our-story", "/about/history", "/en/about", "/en/company",
+    "/en/company/history",
     "/press", "/newsroom", "/company/press",
 )
 ABOUT_HREF = re.compile(
-    r"/(?:about(?:-us)?|our-story|our-company|who-we-are|newsroom|press)(?:/|$)"
-    r"|/company(?:/(?:about|our-story|who-we-are|press))?/?$",
+    r"/(?:about(?:-us)?|our-story|our-company|our-history|who-we-are|newsroom|press)(?:/|$)"
+    r"|/company(?:/(?:about|our-story|who-we-are|press|history))?/?$",
     re.I,
 )
 YEAR_PAGE_SKIP = re.compile(

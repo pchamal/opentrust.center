@@ -89,6 +89,13 @@ def test_parse_founded_sentence() -> None:
         parse_official_founded_year("2012 Fivetran is founded out of Y Combinator", "Fivetran") == 2012,
         "timeline year-then-founded",
     )
+    check(
+        parse_official_founded_year(
+            "Milestones 1985 — SFEIR is founded. 2000 — The Luxembourg office opens.",
+            "SFEIR",
+        ) == 1985,
+        "milestone em-dash year-then-founded",
+    )
     check(parse_official_founded_year("© 2024 Example Inc. All rights reserved.") is None, "copyright is not founding")
     check(parse_official_founded_year("Since 2020 we have offered SOC 2.") is None, "since YYYY alone is not founding")
     check(parse_official_founded_year("ISO/IEC 27001:2022 and SOC 2 Type II.") is None, "cert year is not founding")
@@ -531,7 +538,7 @@ def test_spekit_cyberhaven_woopra_years_landed() -> None:
 
 
 def test_c0_named_processor_years_landed() -> None:
-    """PR 231 years stay. This increment filed Adish 2014 and Datamato 2012."""
+    """PR 231/232 years stay. This increment filed SFEIR 1985."""
     import json
     public = json.loads((ROOT / "site" / "data.json").read_text())
     enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
@@ -545,6 +552,7 @@ def test_c0_named_processor_years_landed() -> None:
         ("carahsoft-technology", 2004, "https://www.carahsoft.com/about", "Carahsoft"),
         ("adish", 2014, "https://adish.biz/about/overview", "Adish"),
         ("datamato-technologies-private", 2012, "https://datamato.com/about/overview", "Datamato"),
+        ("sfeir", 1985, "https://www.sfeir.com/en/company/history", "SFEIR"),
     ]
     for slug, year, source, label in cases:
         pub, row = by_pub[slug], by_enr[slug]
