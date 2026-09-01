@@ -1,7 +1,7 @@
 {
-  "generated": "2026-09-01T03:20:00Z",
+  "generated": "2026-09-01T15:40:00Z",
   "register": 4704,
-  "origin_main": "59b10a8000",
+  "origin_main": "d32511566e",
   "mode": "leftover-named-processor-plus-first-party-fills",
   "leftovers_min1": 33,
   "leftovers_after": 33,
@@ -28,85 +28,69 @@
   "newly_filed": [],
   "c0_fills": [
     {
-      "slug": "messagebird",
-      "name": "MessageBird",
-      "domain": "messagebird.com",
-      "named_by": 9,
-      "completeness_before": 70,
-      "completeness_after": 80,
-      "official_page": "https://messagebird.com/trust",
-      "marks": ["ISO 27001", "EU-US DPF"],
-      "source": "https://bird.com/legal/dpa",
-      "left_open": [
-        "Official page stays the existing portal. Years stay 2011.",
-        "ISO 27001 from DPA: We are ISO 27001 certified. EU-US DPF from privacy Commerce self-cert.",
-        "HIPAA stays open. Named processors stay open."
-      ]
-    },
-    {
-      "slug": "qualified-com",
-      "name": "Qualified",
-      "domain": "qualified.com",
-      "named_by": 4,
-      "completeness_before": 60,
-      "completeness_after": 70,
-      "official_page": "https://trust.qualified.com",
-      "marks": ["SOC 2 Type II"],
-      "source": "https://www.qualified.com/legal/dpa",
-      "left_open": [
-        "Official page stays the existing portal. Years stay open.",
-        "SOC 2 Type II from DPA: Qualified agrees that it will maintain a SOC2/Type II certification.",
-        "HIPAA stays open. Sensitive Data definition names HIPAA among GLBA/FCRA/GDPR."
-      ]
-    },
-    {
-      "slug": "apollo-io",
-      "name": "Apollo.io",
-      "domain": "apollo.io",
-      "named_by": 2,
-      "completeness_before": 50,
+      "slug": "onesignal",
+      "name": "OneSignal",
+      "domain": "onesignal.com",
+      "named_by": 3,
+      "completeness_before": 40,
       "completeness_after": 60,
-      "official_page": "https://trust.apollo.io",
-      "marks": ["EU-US DPF"],
-      "source": "https://www.apollo.io/dpa",
+      "official_page": null,
+      "marks": ["SOC 2 Type II", "ISO 27001", "ISO 27701"],
+      "source": "https://onesignal.com/list-of-subprocessors",
       "left_open": [
-        "Official page stays the existing portal. Years stay open.",
-        "EU-US DPF from DPA: Apollo participates in and certifies compliance with the Data Privacy Framework.",
-        "SOC 2 Type II stays open. Prose is datacenter physical controls audited for SOC 2 Type II."
-      ]
-    },
-    {
-      "slug": "maestroqa",
-      "name": "MaestroQA",
-      "domain": "maestroqa.com",
-      "named_by": 2,
-      "completeness_before": 50,
-      "completeness_after": 60,
-      "official_page": "https://trust.maestroqa.com",
-      "marks": ["EU-US DPF"],
-      "source": "https://www.maestroqa.com/privacy",
-      "left_open": [
-        "Official page stays the existing portal. Years stay 2013.",
-        "EU-US DPF from privacy: Maestro has certified to the U.S. Department of Commerce."
-      ]
-    },
-    {
-      "slug": "validity",
-      "name": "Validity",
-      "domain": "validity.com",
-      "named_by": 2,
-      "completeness_before": 50,
-      "completeness_after": 60,
-      "official_page": "https://trust.validity.com",
-      "marks": ["EU-US DPF"],
-      "source": "https://www.validity.com/privacy-policy/",
-      "left_open": [
-        "Official page stays the existing portal. Years stay open.",
-        "EU-US DPF from privacy: Validity has certified to the U.S. Department of Commerce."
+        "Official page stays open. onesignal.com/privacy is the privacy instrument, not Official page.",
+        "Existing marks stay SOC 2 Type II, ISO 27001, ISO 27701 from prior first-party HTML.",
+        "HIPAA stays open. Privacy page is HIPAA compliant plus a BAA on the Enterprise Plan.",
+        "DPA DPF is a transfer-mechanism clause, not a self-cert. Years stay open."
       ]
     }
   ],
   "clerk_holds": [
+    {
+      "slug": "authzed",
+      "name": "Authzed",
+      "reason": "About-page Secure First list is marketing chips: Encryption at rest, isolated deployments, SOC2 certified, GDPR & CCPA. Same class as homepage chips, not first-party certification prose. Official page stays https://security.authzed.com. Marks stay open."
+    },
+    {
+      "slug": "vonage",
+      "name": "Vonage",
+      "reason": "vonage.com usual paths 403 this cut. trust.vonage.com and security.vonage.com http-0."
+    },
+    {
+      "slug": "equinix",
+      "name": "Equinix",
+      "reason": "equinix.com usual paths Access Denied 403 this cut. trust.equinix.com http-0."
+    },
+    {
+      "slug": "netsuite",
+      "name": "NetSuite",
+      "reason": "www.netsuite.com stays Akamai 403. oracle.com privacy also 403 this cut. Status URL already stored."
+    },
+    {
+      "slug": "vultr",
+      "name": "Vultr",
+      "reason": "vultr.com Cloudflare challenge 403. trust.vultr.com http-0."
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "name": "TransUnion",
+      "reason": "transunion.com Cloudflare challenge 403. trust.transunion.com http-0."
+    },
+    {
+      "slug": "gainsight",
+      "name": "Gainsight",
+      "reason": "www.gainsight.com Cloudflare challenge 403. trust.gainsight.com titles Powered by SafeBase. Marks stay unread."
+    },
+    {
+      "slug": "auth0",
+      "name": "Auth0",
+      "reason": "auth0.com/security lands on Okta Security Trust Center | Powered by SafeBase. Marks stay unread. Official page stays https://auth0.com/security."
+    },
+    {
+      "slug": "mailchimp",
+      "name": "Mailchimp",
+      "reason": "About page prints Founded in Atlanta in 2001 but the year parser returns no year (company name sits outside the 90-character window). DPF on the DPA is a definition, not a self-cert. Official page stays open."
+    },
     {
       "slug": "openrouter",
       "name": "OpenRouter",
@@ -118,11 +102,6 @@
       "reason": "/features/ is a product catalog. Not Official page."
     },
     {
-      "slug": "reversing-labs",
-      "name": "Reversing Labs",
-      "reason": "/trust-center is a title-empty JS shell. HIPAA is a healthcare product lander. Prior increment reverted the same pair."
-    },
-    {
       "slug": "jack-henry",
       "name": "Jack Henry",
       "reason": "Product cybersecurity page is not Official page. Standing preferred C0."
@@ -131,29 +110,54 @@
       "slug": "legalinc-com",
       "name": "Legalinc",
       "reason": "portal.legalinc.com/trust-center titles Dashboard | Legalinc. Login."
-    },
-    {
-      "slug": "mediactive",
-      "name": "Mediactive",
-      "reason": "2009 blog post Trusting Unsourced Quotations is not Official page."
-    },
-    {
-      "slug": "create-without-limits-technologies-dba-enhancor",
-      "name": "Enhancor",
-      "reason": "/trust is the same homepage SPA shell. No first-party hold."
-    },
-    {
-      "slug": "devoteam-sas",
-      "name": "Devoteam",
-      "reason": "/en-pt/compliance names BOLDINT, S.A. certificates. Entity ISO is not the Devoteam row."
-    },
-    {
-      "slug": "access-systems-uk-accesspay",
-      "name": "AccessPay",
-      "reason": "About timeline prints 2012 founded. Year parser returns no year when later timeline beats sit on the same page."
     }
   ],
   "preferred_c0_left_open": [
+    {
+      "slug": "vonage",
+      "named_by": 8,
+      "reason": "Standing soft-retry 403. No new first-party HTML path this cut."
+    },
+    {
+      "slug": "equinix",
+      "named_by": 7,
+      "reason": "Standing soft-retry 403. No new first-party HTML path this cut."
+    },
+    {
+      "slug": "netsuite",
+      "named_by": 7,
+      "reason": "www.netsuite.com is Akamai 403 this cut. Status URL already stored."
+    },
+    {
+      "slug": "vultr",
+      "named_by": 4,
+      "reason": "Cloudflare challenge 403. No new first-party HTML path this cut."
+    },
+    {
+      "slug": "transunion-formerly-neustar-information-services",
+      "named_by": 3,
+      "reason": "Cloudflare challenge 403. No new first-party HTML path this cut."
+    },
+    {
+      "slug": "intouchcx",
+      "named_by": 2,
+      "reason": "Usual paths unreadable this cut."
+    },
+    {
+      "slug": "inmoment",
+      "named_by": 2,
+      "reason": "Usual paths unreadable this cut."
+    },
+    {
+      "slug": "foundever-operating",
+      "named_by": 2,
+      "reason": "foundever.com Cloudflare challenge 403."
+    },
+    {
+      "slug": "global-payments",
+      "named_by": 2,
+      "reason": "globalpayments.com Cloudflare challenge 403."
+    },
     {
       "slug": "sumit-ai",
       "named_by": 2,
@@ -221,11 +225,13 @@
     "zealep-business-solutions"
   ],
   "refused_this_cut": [
-    "True-missing named_by ≥2 stays empty. Leftover graph stays 33 domain-less. Register 4696; this cut files no new rows.",
+    "True-missing named_by ≥2 stays empty. Leftover graph stays 33 domain-less. Register 4704; this cut files no new rows.",
     "No leftover domain invented. rsi.ch is Swiss radio, not RingCentral RSI. sync.com is not the ElevenLabs Sync node. mpower.co is not Meltwater Mpower. deft.co is the agentic coding platform, not Kentik colo Deft. softwaremind.com is Software Mind, not Branch Software Minds, Inc. amacuro.com is a lander.",
     "Standing alias refusals kept. MadKudu / Thorn / Textel / Adaptive Mobile / SamKnows still unresolved (403 / http-0).",
-    "OpenRouter DPA Schedule 2 'SOC 2 Type II control framework' is a security-control bullet, not a certification. Same class as MaxMind based-on. Marks stay open. Official page stays https://openrouter.ai/security.",
-    "PlanetScale DPA 'may be audited against SSAE 18 SOC 2' stays open. Recall.ai nav example chips stay open. Postmark DPA marks are AWS/Deft. SupportNinja PCI is the payment processor's. Cinder footer HIPAA chip stays open.",
-    "MessageBird privacy 'certifications including SOC 2 Type II compliance' not filed this cut."
+    "Vonage, Equinix, NetSuite, Vultr, TransUnion, IntouchCX, InMoment, Foundever, and Global Payments usual paths 403 or unreadable this cut.",
+    "Gainsight and Auth0 SafeBase portals stay unread. Mailchimp 2001 year parser miss. Wasabi 2017 year parser miss (Wasabi sits outside the window; datacenter SOC 2 / ISO stay open).",
+    "OneSignal HIPAA-compliant + BAA stays open. OneSignal DPA DPF is a transfer mechanism, not a self-cert.",
+    "Authzed about-page Secure First list (SOC2 certified, GDPR & CCPA) is marketing chips, not certification prose. Marks stay open. Official page stays https://security.authzed.com.",
+    "OpenRouter DPA Schedule 2 'SOC 2 Type II control framework' is a security-control bullet, not a certification."
   ]
 }

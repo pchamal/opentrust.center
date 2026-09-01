@@ -87522,7 +87522,7 @@
       "title": "",
       "probed": 13,
       "source": "https://www.atlassian.com/legal/sub-processors",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "No public trust center on the usual paths. DPA and named subprocessors on file from first-party HTML.",
       "list": "named-subprocessor-gap",
       "certs": [
         "SOC 2 Type II",
@@ -87532,17 +87532,28 @@
       "links": {
         "dpa": "https://onesignal.com/dpa",
         "privacy": "https://onesignal.com/privacy",
-        "status": "https://status.onesignal.com/"
+        "status": "https://status.onesignal.com/",
+        "subprocessors": "https://onesignal.com/list-of-subprocessors"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "intercom",
+        "cloudflare",
+        "census",
+        "google",
+        "rollbar",
+        "filestack",
+        "mailgun",
+        "twilio"
+      ],
       "disclosure": {
-        "score": 46,
+        "score": 54,
         "tier": "silent",
         "factors": {
-          "dpa": 8,
-          "privacy": 6,
           "marks": 26,
-          "status": 6
+          "dpa": 8,
+          "processors": 8,
+          "status": 6,
+          "privacy": 6
         }
       }
     },

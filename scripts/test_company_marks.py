@@ -1189,6 +1189,32 @@ def main() -> int:
     check("<h1>Validity</h1>" in va_html, "validity dossier is its own file")
     check("https://trust.validity.com" in va_html, "validity dossier cites Official page")
     check("EU-US DPF" in va_html, "validity dossier prints EU-US DPF")
+
+    check(by_pub["authzed"].get("found") is True, "authzed Official page is on file")
+    check(
+        by_pub["authzed"].get("trust_url") == "https://security.authzed.com",
+        "authzed Official page stays the existing portal",
+    )
+    check((by_pub["authzed"].get("certs") or []) == [], f"authzed certs stay empty {by_pub['authzed'].get('certs')}")
+    check("SOC 2" not in (by_pub["authzed"].get("certs") or []), "authzed Secure First SOC2 chip stays open")
+    check("GDPR" not in (by_pub["authzed"].get("certs") or []), "authzed GDPR chip stays open")
+    check("CCPA" not in (by_pub["authzed"].get("certs") or []), "authzed CCPA chip stays open")
+    check((by_pub["authzed"].get("file") or {}).get("page") == 20, "authzed Official page prints")
+    check((by_pub["authzed"].get("file") or {}).get("marks") == 10, "authzed marks stay dotted — page on file, none extracted")
+    check((by_pub["authzed"].get("file") or {}).get("dpa") in (0, False, None), "authzed DPA stays open")
+    check((by_pub["authzed"].get("file") or {}).get("years") in (0, False, None), "authzed years stay open")
+    az_html = (ROOT / "site" / "c" / "authzed.html").read_text(encoding="utf-8")
+    check("<h1>Authzed</h1>" in az_html, "authzed dossier is its own file")
+    check("https://security.authzed.com" in az_html, "authzed dossier cites Official page")
+    check("SOC 2" not in az_html, "authzed dossier does not print SOC 2 chip")
+    check("SOC2" not in az_html, "authzed dossier does not print SOC2 chip")
+    check("GDPR" not in az_html, "authzed dossier does not print GDPR chip")
+    check("CCPA" not in az_html, "authzed dossier does not print CCPA chip")
+
+    check("HIPAA" not in (by_pub["onesignal"].get("certs") or []), "onesignal HIPAA-compliant BAA stays open")
+    check(by_pub["onesignal"].get("found") is False, "onesignal Official page stays open")
+    check(not by_pub["onesignal"].get("trust_url"), "onesignal privacy is not Official page")
+
     # Preferred C0 left open: product cybersecurity / login dashboard.
     check(by_pub["legalinc-com"].get("found") is False, "legalinc dashboard is not Official page")
     check(not by_pub["legalinc-com"].get("trust_url"), "legalinc has no invented Official page")
