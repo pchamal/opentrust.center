@@ -585,6 +585,13 @@ def main() -> int:
     check("code42" in linkedin_slugs, "linkedin Code 42 uses the Code42 file")
     check("tdcx" in linkedin_slugs, "linkedin TDCX uses the existing file")
     check("concentrix" in linkedin_slugs, "linkedin Concentrix uses the existing file")
+    check("tata-communications" in linkedin_slugs, "linkedin Tata Communications Ireland uses the Tata Communications file")
+    check("hcl-tech" in linkedin_slugs, "linkedin HCL America uses the HCLTech file")
+    check("teleperformance-colombia" in linkedin_slugs, "linkedin Ypiresia 800 uses the Teleperformance file")
+    check("ibm" in linkedin_slugs, "linkedin NSONE uses the IBM file")
+    check("tata-communications-ireland" not in linkedin_slugs, "linkedin does not invent a second Tata dossier")
+    check("hcl-america" not in linkedin_slugs, "linkedin does not invent a second HCL dossier")
+    check("nsone" not in linkedin_slugs, "linkedin does not invent a second NS1 dossier")
     check(linkedin_slugs.count("tdcx") == 1, "linkedin TDCX regional rows collapse to one file")
     check(linkedin_slugs.count("concentrix") == 1, "linkedin Concentrix regional rows collapse to one file")
     check(len(linkedin_names) == 34, f"linkedin printed 34 named processors, got {len(linkedin_names)}")
@@ -625,6 +632,10 @@ def main() -> int:
     check("google" in nylas_slugs, "nylas GCP uses the Google file")
     check("segment" in nylas_slugs, "nylas Twilio Segment uses the Segment file")
     check("gong" in nylas_slugs, "nylas Gong.io uses the Gong file")
+    check("apollo-io" in nylas_slugs, "nylas Apollo uses the Apollo.io file")
+    check("teleport" in nylas_slugs, "nylas Gravitational uses the Teleport file")
+    check("apollo" not in nylas_slugs, "nylas does not invent a second Apollo dossier")
+    check("gravitational-teleport" not in nylas_slugs, "nylas does not invent a second Teleport dossier")
     check("twilio" not in nylas_slugs, "nylas Twilio Segment is not filed as Twilio")
     check(nylas_slugs.count("google") == 1, "nylas GCP / Gemini / Looker collapse to one Google file")
     check(len(nylas_names) == 40, f"nylas printed 40 named processors, got {len(nylas_names)}")
@@ -635,6 +646,22 @@ def main() -> int:
     check("./google.html\">Google Cloud Platform" in ny_html, "nylas GCP cross-links to the Google file")
     check("./segment.html\">Twilio Segment" in ny_html, "nylas Twilio Segment uses the Segment alias")
     check("./gong.html\">Gong.io" in ny_html, "nylas Gong.io uses the Gong alias")
+    check("./apollo-io.html\">Apollo" in ny_html, "nylas Apollo cross-links to Apollo.io")
+    check("./teleport.html" in ny_html, "nylas Gravitational cross-links to Teleport")
+
+    check(
+        instrument_url(by_pub["teleport"], "dpa") == "https://goteleport.com/legal/dpa/",
+        "teleport DPA is first-party HTML",
+    )
+    check((by_pub["teleport"].get("file") or {}).get("dpa") == 20, "teleport DPA prints")
+    check((by_enr["teleport"].get("links") or {}).get("subprocessors") in (None, ""), "teleport Vanta list stays unread")
+    check(
+        instrument_url(by_pub["ketch"], "dpa") == "https://www.ketch.com/data-processing-addendum",
+        "ketch DPA is first-party HTML",
+    )
+    check((by_pub["ketch"].get("file") or {}).get("dpa") == 20, "ketch DPA prints")
+    check(by_pub["ketch"].get("found") is False, "ketch Vanta portal is not Official page")
+    check(not by_pub["ketch"].get("trust_url"), "ketch has no invented Official page")
 
     print(
         f"ok increment-dpa privacy-page-queue {len(expected_batch)} walked; "

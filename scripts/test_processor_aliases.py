@@ -314,6 +314,31 @@ def main() -> int:
     deepl_reg = {**register, "deepl": {"slug": "deepl", "name": "DeepL", "domain": "deepl.com"}}
     check(canonical_processor_id("deepl-deepl-com", deepl_reg) == "deepl", "DeepL deepl.com is DeepL")
     check(REGISTER_ALIASES["deepl-deepl-com"] == "deepl", "deepl-deepl-com aliases to deepl")
+    tata_reg = {**register, "tata-communications": {"slug": "tata-communications", "name": "Tata Communications", "domain": "tatacommunications.com"}}
+    check(canonical_processor_id("tata-communications-ireland", tata_reg) == "tata-communications", "Tata Communications Ireland is Tata Communications")
+    check(REGISTER_ALIASES["tata-communications-ireland"] == "tata-communications", "tata-communications-ireland aliases to tata-communications")
+    hcl_reg = {**register, "hcl-tech": {"slug": "hcl-tech", "name": "HCL Technologies", "domain": "hcltech.com"}}
+    check(canonical_processor_id("hcl-america", hcl_reg) == "hcl-tech", "HCL America is HCLTech")
+    check(canonical_processor_id("hcl-technologies-corporate-services", hcl_reg) == "hcl-tech", "HCL Technologies Corporate Services is HCLTech")
+    check(REGISTER_ALIASES["hcl-america"] == "hcl-tech", "hcl-america aliases to hcl-tech")
+    check(REGISTER_ALIASES["hcl-technologies-corporate-services"] == "hcl-tech", "hcl-technologies-corporate-services aliases to hcl-tech")
+    tp_reg = {**register, "teleperformance-colombia": {"slug": "teleperformance-colombia", "name": "Teleperformance", "domain": "teleperformance.com"}}
+    check(
+        canonical_processor_id("ypiresia-800-teleperformance-single-member", tp_reg) == "teleperformance-colombia",
+        "Ypiresia 800 is Teleperformance",
+    )
+    check(REGISTER_ALIASES["ypiresia-800-teleperformance-single-member"] == "teleperformance-colombia", "ypiresia-800 aliases to teleperformance-colombia")
+    ap_reg = {**register, "apollo-io": {"slug": "apollo-io", "name": "Apollo.io", "domain": "apollo.io"}}
+    check(canonical_processor_id("apollo", ap_reg) == "apollo-io", "Nylas Apollo is Apollo.io")
+    check(REGISTER_ALIASES["apollo"] == "apollo-io", "apollo aliases to apollo-io")
+    ibm_ns1 = {**register, "ibm": {"slug": "ibm", "name": "IBM", "domain": "ibm.com"}}
+    check(canonical_processor_id("nsone", ibm_ns1) == "ibm", "NSONE is IBM")
+    check(REGISTER_ALIASES["nsone"] == "ibm", "nsone aliases to ibm")
+    tel_reg = {**register, "teleport": {"slug": "teleport", "name": "Teleport", "domain": "goteleport.com"}}
+    check(canonical_processor_id("gravitational-teleport", tel_reg) == "teleport", "Gravitational (Teleport) is Teleport")
+    check(REGISTER_ALIASES["gravitational-teleport"] == "teleport", "gravitational-teleport aliases to teleport")
+    check("madkudu" not in REGISTER_ALIASES, "MadKudu is not aliased; HG Insights is not on the register")
+    check(REGISTER_ALIASES.get("madkudu") != "hg-insights", "madkudu must not map to hg-insights")
     check("arsys" not in REGISTER_ALIASES, "Arsys is not aliased to IONOS")
     check(REGISTER_ALIASES.get("arsys") != "ionos", "arsys must not map to ionos")
     check("conversocial" not in REGISTER_ALIASES, "Conversocial is not aliased to Verint")

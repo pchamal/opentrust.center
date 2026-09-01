@@ -30189,46 +30189,32 @@
       "in_register": false
     },
     {
-      "id": "apollo",
-      "name": "Apollo",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "cyberhaven",
       "name": "Cyberhaven",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "gravitational-teleport",
-      "name": "Gravitational (Teleport)",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "cyberhaven.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "inkeep",
       "name": "Inkeep",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "inkeep.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "ketch",
       "name": "Ketch",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "ketch.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "kickbox",
       "name": "Kickbox",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "kickbox.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "ordway",
@@ -30246,24 +30232,24 @@
     },
     {
       "id": "rootly",
-      "name": "Rootly, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "Rootly",
+      "domain": "rootly.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "spekit",
       "name": "Spekit",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "spekit.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "tropic",
       "name": "Tropic",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "tropicapp.io",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "woopra",
@@ -30271,13 +30257,6 @@
       "domain": "woopra.com",
       "kind": "company",
       "in_register": true
-    },
-    {
-      "id": "nsone",
-      "name": "NSONE, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
     },
     {
       "id": "telecom-italia-sparkle-spa",
@@ -30295,17 +30274,10 @@
     },
     {
       "id": "syniverse-technologies",
-      "name": "Syniverse Technologies, LLC",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "tata-communications-ireland",
-      "name": "Tata Communications Ireland Ltd",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "Syniverse Technologies",
+      "domain": "syniverse.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "ai-media",
@@ -30336,32 +30308,18 @@
       "in_register": false
     },
     {
-      "id": "hcl-america",
-      "name": "HCL America Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "hcl-technologies-corporate-services",
-      "name": "HCL Technologies Corporate Services Ltd",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "imerit",
-      "name": "iMerit, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "iMerit",
+      "domain": "imerit.ai",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "language-i-o",
-      "name": "Language I/O LLC",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "name": "Language I/O",
+      "domain": "languageio.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "regalix",
@@ -30371,11 +30329,11 @@
       "in_register": false
     },
     {
-      "id": "ypiresia-800-teleperformance-single-member",
-      "name": "Ypiresia 800 - Teleperformance Single Member S.A",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "id": "teleport",
+      "name": "Teleport",
+      "domain": "goteleport.com",
+      "kind": "company",
+      "in_register": true
     }
   ],
   "edges": [
@@ -46461,7 +46419,7 @@
     },
     {
       "from": "nylas",
-      "to": "apollo",
+      "to": "apollo-io",
       "source_url": "https://www.nylas.com/security/subprocessors/",
       "evidence": "Apollo"
     },
@@ -46527,7 +46485,7 @@
     },
     {
       "from": "nylas",
-      "to": "gravitational-teleport",
+      "to": "teleport",
       "source_url": "https://www.nylas.com/security/subprocessors/",
       "evidence": "Gravitational (Teleport)"
     },
@@ -46707,7 +46665,7 @@
     },
     {
       "from": "linkedin",
-      "to": "nsone",
+      "to": "ibm",
       "source_url": "https://www.linkedin.com/legal/l/customer-subprocessors",
       "evidence": "NSONE, Inc"
     },
@@ -46743,7 +46701,7 @@
     },
     {
       "from": "linkedin",
-      "to": "tata-communications-ireland",
+      "to": "tata-communications",
       "source_url": "https://www.linkedin.com/legal/l/customer-subprocessors",
       "evidence": "Tata Communications Ireland Ltd"
     },
@@ -46785,13 +46743,13 @@
     },
     {
       "from": "linkedin",
-      "to": "hcl-america",
+      "to": "hcl-tech",
       "source_url": "https://www.linkedin.com/legal/l/customer-subprocessors",
       "evidence": "HCL America Inc"
     },
     {
       "from": "linkedin",
-      "to": "hcl-technologies-corporate-services",
+      "to": "hcl-tech",
       "source_url": "https://www.linkedin.com/legal/l/customer-subprocessors",
       "evidence": "HCL Technologies Corporate Services Ltd"
     },
@@ -46869,7 +46827,7 @@
     },
     {
       "from": "linkedin",
-      "to": "ypiresia-800-teleperformance-single-member",
+      "to": "teleperformance-colombia",
       "source_url": "https://www.linkedin.com/legal/l/customer-subprocessors",
       "evidence": "Ypiresia 800 - Teleperformance Single Member S.A"
     },
@@ -47320,6 +47278,13 @@
     "tdcx-information-consulting-shanghai": "tdcx",
     "tdcx-my-sdn-bhd": "tdcx",
     "tdcx-services-dba-tdcx-spain": "tdcx",
-    "tdcx-services-dba-tdcx-portugal-unipessoal-lda": "tdcx"
+    "tdcx-services-dba-tdcx-portugal-unipessoal-lda": "tdcx",
+    "tata-communications-ireland": "tata-communications",
+    "hcl-america": "hcl-tech",
+    "hcl-technologies-corporate-services": "hcl-tech",
+    "ypiresia-800-teleperformance-single-member": "teleperformance-colombia",
+    "apollo": "apollo-io",
+    "nsone": "ibm",
+    "gravitational-teleport": "teleport"
   }
 }

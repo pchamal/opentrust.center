@@ -1211,6 +1211,65 @@ def main() -> int:
     check("GDPR" not in az_html, "authzed dossier does not print GDPR chip")
     check("CCPA" not in az_html, "authzed dossier does not print CCPA chip")
 
+    check(by_pub["teleport"].get("found") is True, "teleport Official page is on file")
+    check(
+        by_pub["teleport"].get("trust_url") == "https://goteleport.com/security/",
+        "teleport Official page is first-party /security",
+    )
+    check("trust.goteleport.com" not in (by_pub["teleport"].get("trust_url") or ""), "teleport Official page is not the Vanta portal")
+    check(
+        {"SOC 2 Type II", "ISO 27001", "HIPAA"} <= set(by_pub["teleport"].get("certs") or []),
+        f"teleport first-party holds {by_pub['teleport'].get('certs')}",
+    )
+    check("GDPR" not in (by_pub["teleport"].get("certs") or []), "teleport DPA GDPR stays open")
+    check((by_pub["teleport"].get("file") or {}).get("page") == 20, "teleport Official page prints")
+    check((by_pub["teleport"].get("file") or {}).get("marks") == 20, "teleport marks print")
+    tp_html = (ROOT / "site" / "c" / "teleport.html").read_text(encoding="utf-8")
+    check("<h1>Teleport</h1>" in tp_html, "teleport dossier is its own file")
+    check("https://goteleport.com/security/" in tp_html, "teleport dossier cites Official page")
+    check("SOC 2 Type II" in tp_html, "teleport dossier prints SOC 2 Type II")
+
+    check(by_pub["inkeep"].get("found") is True, "inkeep Official page is on file")
+    check(
+        by_pub["inkeep"].get("trust_url") == "https://inkeep.com/security",
+        "inkeep Official page is first-party /security",
+    )
+    check((by_pub["inkeep"].get("certs") or []) == ["SOC 2 Type II"], f"inkeep certs {by_pub['inkeep'].get('certs')}")
+    check("GDPR" not in (by_pub["inkeep"].get("certs") or []), "inkeep GDPR-compliant stays open")
+    check((by_pub["inkeep"].get("file") or {}).get("page") == 20, "inkeep Official page prints")
+    check((by_pub["inkeep"].get("file") or {}).get("marks") == 20, "inkeep marks print")
+    ik_html = (ROOT / "site" / "c" / "inkeep.html").read_text(encoding="utf-8")
+    check("<h1>Inkeep</h1>" in ik_html, "inkeep dossier is its own file")
+    check("https://inkeep.com/security" in ik_html, "inkeep dossier cites Official page")
+
+    check(
+        {"SOC 2 Type II", "ISO 27001"} <= set(by_pub["ketch"].get("certs") or []),
+        f"ketch DPA holds {by_pub['ketch'].get('certs')}",
+    )
+    check("GDPR" not in (by_pub["ketch"].get("certs") or []), "ketch DPA GDPR definition stays open")
+    check("CCPA" not in (by_pub["ketch"].get("certs") or []), "ketch DPA CCPA section stays open")
+    check(by_pub["ketch"].get("found") is False, "ketch Official page stays open")
+    check((by_pub["ketch"].get("file") or {}).get("marks") == 20, "ketch marks print")
+    check((by_pub["ketch"].get("file") or {}).get("page") in (0, False, None), "ketch Official page stays open")
+
+    check((by_pub["kickbox"].get("certs") or []) == [], f"kickbox certs stay empty {by_pub['kickbox'].get('certs')}")
+    check(by_pub["kickbox"].get("found") is False, "kickbox Vanta portal is not Official page")
+    check(
+        ((by_pub["kickbox"].get("instruments") or {}).get("privacy") or {}).get("url")
+        == "https://docs.kickbox.com/docs/privacy-policy",
+        "kickbox privacy is first-party docs HTML",
+    )
+    check(
+        ((by_pub["imerit"].get("instruments") or {}).get("privacy") or {}).get("url")
+        == "https://imerit.ai/privacy-policy/",
+        "imerit privacy is first-party HTML",
+    )
+    check(
+        ((by_pub["language-i-o"].get("instruments") or {}).get("privacy") or {}).get("url")
+        == "https://languageio.com/legal/privacy-policy/",
+        "language-i-o privacy is first-party HTML",
+    )
+
     check("HIPAA" not in (by_pub["onesignal"].get("certs") or []), "onesignal HIPAA-compliant BAA stays open")
     check(by_pub["onesignal"].get("found") is False, "onesignal Official page stays open")
     check(not by_pub["onesignal"].get("trust_url"), "onesignal privacy is not Official page")
