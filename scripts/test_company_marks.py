@@ -972,6 +972,77 @@ def main() -> int:
     check("HITRUST" in dm_html, "datamotion dossier prints HITRUST")
     check("founded · 1999" in dm_html, "datamotion dossier year")
     check("Official page · not on file" in dm_html, "datamotion Official page stays open")
+    # This cut: Appcues DPA SOC 2 Type 2 audit + privacy DPF self-cert.
+    # Official page stays the existing portal. Years stay open.
+    kept, why = hold_marks(
+        ["SOC 2 Type II"],
+        "Appcues has completed a SOC 2 Type 2 audit of the security of the Subscription Service.",
+        "dpa",
+    )
+    check(kept == ["SOC 2 Type II"], f"appcues DPA Type 2 audit files: {kept} {why}")
+    kept, why = hold_marks(
+        ["EU-US DPF"],
+        "Appcues has certified to the U.S. Department of Commerce that it adheres "
+        "to the EU-U.S. Data Privacy Framework Principles.",
+        "privacy",
+    )
+    check(kept == ["EU-US DPF"], f"appcues privacy DPF self-cert files: {kept} {why}")
+    check(by_pub["appcues"].get("found") is True, "appcues Official page is on file")
+    check(
+        by_pub["appcues"].get("trust_url") == "https://trust.appcues.com",
+        "appcues Official page stays the existing portal",
+    )
+    check(
+        {"SOC 2 Type II", "EU-US DPF"} <= set(by_pub["appcues"].get("certs") or []),
+        f"appcues first-party holds {by_pub['appcues'].get('certs')}",
+    )
+    check(by_pub["appcues"].get("founded_year") in (None, 0, False), "appcues years stay open")
+    check((by_pub["appcues"].get("file") or {}).get("page") == 20, "appcues Official page prints")
+    check((by_pub["appcues"].get("file") or {}).get("marks") == 20, "appcues marks print")
+    check((by_pub["appcues"].get("file") or {}).get("years") in (0, False, None), "appcues years stay open")
+    ac_html = (ROOT / "site" / "c" / "appcues.html").read_text(encoding="utf-8")
+    check("<h1>Appcues</h1>" in ac_html, "appcues dossier is its own file")
+    check("https://trust.appcues.com" in ac_html, "appcues dossier cites Official page")
+    check("SOC 2 Type II" in ac_html, "appcues dossier prints SOC 2 Type II")
+    check("EU-US DPF" in ac_html, "appcues dossier prints EU-US DPF")
+    # Rollbar first-party security docs. Type I superseded. ISO "chosen to
+    # become compliant" and HIPAA Compliant SaaS stay open.
+    check(by_pub["rollbar"].get("found") is True, "rollbar Official page is on file")
+    check(
+        by_pub["rollbar"].get("trust_url") == "https://rollbar.com/security",
+        "rollbar Official page stays first-party /security",
+    )
+    check(
+        {"SOC 2 Type II", "SOC 3"} <= set(by_pub["rollbar"].get("certs") or []),
+        f"rollbar first-party holds {by_pub['rollbar'].get('certs')}",
+    )
+    check("SOC 2 Type I" not in (by_pub["rollbar"].get("certs") or []), "rollbar Type I superseded")
+    check("ISO 27001" not in (by_pub["rollbar"].get("certs") or []), "rollbar ISO pursuing stays open")
+    check("HIPAA" not in (by_pub["rollbar"].get("certs") or []), "rollbar HIPAA Compliant SaaS stays open")
+    check((by_pub["rollbar"].get("file") or {}).get("page") == 20, "rollbar Official page prints")
+    check((by_pub["rollbar"].get("file") or {}).get("marks") == 20, "rollbar marks print")
+    rb_html = (ROOT / "site" / "c" / "rollbar.html").read_text(encoding="utf-8")
+    check("<h1>Rollbar, Inc</h1>" in rb_html, "rollbar dossier is its own file")
+    check("https://rollbar.com/security" in rb_html, "rollbar dossier cites Official page")
+    check("SOC 2 Type II" in rb_html, "rollbar dossier prints SOC 2 Type II")
+    check("SOC 3" in rb_html, "rollbar dossier prints SOC 3")
+    check("ISO 27001" not in rb_html, "rollbar dossier does not print pursuing ISO 27001")
+    # Liveblocks first-party /security. SOC 2 Type II only. HIPAA add-on open.
+    # Official page stays the existing SecureFrame portal.
+    check(by_pub["liveblocks"].get("found") is True, "liveblocks Official page is on file")
+    check(
+        by_pub["liveblocks"].get("trust_url") == "https://liveblocks.secureframetrust.com",
+        "liveblocks Official page stays the existing portal",
+    )
+    check((by_pub["liveblocks"].get("certs") or []) == ["SOC 2 Type II"], f"liveblocks certs {by_pub['liveblocks'].get('certs')}")
+    check("HIPAA" not in (by_pub["liveblocks"].get("certs") or []), "liveblocks HIPAA add-on stays open")
+    check((by_pub["liveblocks"].get("file") or {}).get("page") == 20, "liveblocks Official page prints")
+    check((by_pub["liveblocks"].get("file") or {}).get("marks") == 20, "liveblocks marks print")
+    lb_html = (ROOT / "site" / "c" / "liveblocks.html").read_text(encoding="utf-8")
+    check("<h1>Liveblocks</h1>" in lb_html, "liveblocks dossier is its own file")
+    check("https://liveblocks.secureframetrust.com" in lb_html, "liveblocks dossier cites Official page")
+    check("SOC 2 Type II" in lb_html, "liveblocks dossier prints SOC 2 Type II")
+    check("HIPAA" not in lb_html, "liveblocks dossier does not print HIPAA add-on")
     # Preferred C0 left open: product cybersecurity / login dashboard.
     check(by_pub["legalinc-com"].get("found") is False, "legalinc dashboard is not Official page")
     check(not by_pub["legalinc-com"].get("trust_url"), "legalinc has no invented Official page")
