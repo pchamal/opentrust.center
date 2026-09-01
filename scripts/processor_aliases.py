@@ -678,6 +678,42 @@ REGISTER_ALIASES: dict[str, str] = {
     # Nylas prints Gravitational (Teleport). Official homepage
     # goteleport.com titles Teleport. Filed in this increment.
     "gravitational-teleport": "teleport",
+    # LinkedIn names CRM Services India Private Limited. Teleperformance
+    # first-party CSR page on tp.com prints "Teleperformance Global
+    # Business Private Limited (TPGBPL) (formerly known as CRM Services
+    # India Private Limited)". Ypiresia 800 already lands here. Do not
+    # invent a second Teleperformance dossier.
+    "crm-services-india-private": "teleperformance-colombia",
+    # Plume names SamKnows LTD. samknows.com 301s to Cisco ThousandEyes
+    # Connected Devices. Cisco first-party HTML titles "Cisco completes
+    # SamKnows acquisition". Prior ookla target is stale — Cisco bought
+    # SamKnows after Ookla. cisco is on the register. Do not copy Cisco's
+    # file onto an empty samknows shell.
+    "samknows": "cisco",
+    # LinkedIn names EEG Enterprises, Inc for captioning. eegent.com 301s
+    # to Ai-Media's first-party acquisition page titled "EEG Technologies
+    # Proudly Part of AI-Media". Filed in this increment.
+    "eeg-enterprises": "ai-media",
+    # RingCentral names Textel. textel.net 301s to Capacity's first-party
+    # SMS page titled "SMS AI Agents … Capacity" with company=textel.net.
+    # Filed in this increment.
+    "textel": "capacity",
+    # Kentik names Deft. deft.com 301s to summithq.com, titled
+    # "Summit | Cloud, Data Center, and IT Services". Summit first-party
+    # legal HTML prints ServerCentral, LLC (“Summit”) for former Deft /
+    # ServerCentral customers. Filed in this increment.
+    "deft": "summit",
+    # Twilio names Adaptive Mobile. adaptivemobile.com 301s to Enea's
+    # first-party mobile-network-security page titled
+    # "Mobile Network Security | Enea", which prints Adaptive Messaging
+    # Firewall. Enea first-party press release: "Enea Completes
+    # Acquisition of AdaptiveMobile Security". Prior csg-international
+    # target is stale. Filed in this increment.
+    "adaptive-mobile": "enea",
+    # Fireworks names Gmi next to IREN / Era4. gmicloud.ai titles
+    # "AI Cloud for Compute, Inference & Agents | GMI Cloud". Filed
+    # in this increment.
+    "gmi": "gmi-cloud",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
