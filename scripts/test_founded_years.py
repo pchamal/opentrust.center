@@ -538,7 +538,7 @@ def test_spekit_cyberhaven_woopra_years_landed() -> None:
 
 
 def test_c0_named_processor_years_landed() -> None:
-    """PR 231/232 years stay. This increment filed SFEIR 1985."""
+    """PR 231/232/234 years stay. This increment filed QuotaGuard 2013."""
     import json
     public = json.loads((ROOT / "site" / "data.json").read_text())
     enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
@@ -553,6 +553,7 @@ def test_c0_named_processor_years_landed() -> None:
         ("adish", 2014, "https://adish.biz/about/overview", "Adish"),
         ("datamato-technologies-private", 2012, "https://datamato.com/about/overview", "Datamato"),
         ("sfeir", 1985, "https://www.sfeir.com/en/company/history", "SFEIR"),
+        ("quotaguard", 2013, "https://www.quotaguard.com/about", "QuotaGuard"),
     ]
     for slug, year, source, label in cases:
         pub, row = by_pub[slug], by_enr[slug]

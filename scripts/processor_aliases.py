@@ -741,6 +741,15 @@ REGISTER_ALIASES: dict[str, str] = {
     # and url https://sift.com/. sift is already on the register
     # (sift.com). Do not invent a second Sift dossier.
     "sift-science": "sift",
+    # Rootly first-party docs table prints these product / legal names.
+    # Each destination is already on the register. Do not invent a
+    # second dossier for Mailgun, Firebase, ClickHouse, AssemblyAI,
+    # or Apple Push Notification service.
+    "mailgun-sinch": "mailgun",
+    "firebase-cloud-messaging": "google",
+    "clickhouse-cloud": "clickhouse",
+    "assemblyai-via-recall-ai": "assemblyai",
+    "apple-push-notification-service": "apple",
     # Wikidata P856 for these leftover names is the existing register domain.
     # Do not invent a second dossier.
     "kaspersky": "kaspersky-lab",
