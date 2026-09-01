@@ -1289,6 +1289,22 @@ def main() -> int:
     check(by_pub["summit"].get("found") is False, "summit homepage is not Official page")
     check(by_pub["enea"].get("found") is False, "enea Official page stays open")
     check(by_pub["gmi-cloud"].get("found") is False, "gmi-cloud Official page stays open")
+    check(by_pub["hg-insights"].get("found") is False, "hg-insights SafeBase portal is not Official page")
+    check(not by_pub["hg-insights"].get("trust_url"), "hg-insights has no invented Official page")
+    check(
+        (by_pub["hg-insights"].get("certs") or []) == ["EU-US DPF", "SOC 2 Type II"],
+        f"hg-insights certs {by_pub['hg-insights'].get('certs')}",
+    )
+    check("GDPR" not in (by_pub["hg-insights"].get("certs") or []), "hg-insights GDPR definition stays open")
+    check("HIPAA" not in (by_pub["hg-insights"].get("certs") or []), "hg-insights HIPAA exclusion stays open")
+    check((by_pub["hg-insights"].get("file") or {}).get("page") in (0, False, None), "hg-insights Official page stays open")
+    check((by_pub["hg-insights"].get("file") or {}).get("marks") == 20, "hg-insights marks print")
+    hg_html = (ROOT / "site" / "c" / "hg-insights.html").read_text(encoding="utf-8")
+    check("<h1>HG Insights</h1>" in hg_html, "hg-insights dossier is its own file")
+    check("https://hginsights.com/privacy-policy/" in hg_html, "hg-insights dossier cites first-party privacy")
+    check("SOC 2 Type II" in hg_html, "hg-insights dossier prints SOC 2 Type II")
+    check("EU-US DPF" in hg_html, "hg-insights dossier prints EU-US DPF")
+    check("https://trust.hginsights.com" not in hg_html, "hg-insights dossier does not cite SafeBase as Official page")
 
     check("HIPAA" not in (by_pub["onesignal"].get("certs") or []), "onesignal HIPAA-compliant BAA stays open")
     check(by_pub["onesignal"].get("found") is False, "onesignal Official page stays open")

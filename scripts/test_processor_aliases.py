@@ -363,8 +363,13 @@ def main() -> int:
     gmi_reg = {**register, "gmi-cloud": {"slug": "gmi-cloud", "name": "GMI Cloud", "domain": "gmicloud.ai"}}
     check(canonical_processor_id("gmi", gmi_reg) == "gmi-cloud", "Gmi is GMI Cloud")
     check(REGISTER_ALIASES["gmi"] == "gmi-cloud", "gmi aliases to gmi-cloud")
-    check("madkudu" not in REGISTER_ALIASES, "MadKudu is not aliased; HG Insights is not on the register")
-    check(REGISTER_ALIASES.get("madkudu") != "hg-insights", "madkudu must not map to hg-insights")
+    hg_reg = {**register, "hg-insights": {"slug": "hg-insights", "name": "HG Insights", "domain": "hginsights.com"}}
+    check(canonical_processor_id("madkudu", hg_reg) == "hg-insights", "MadKudu is HG Insights")
+    check(REGISTER_ALIASES["madkudu"] == "hg-insights", "madkudu aliases to hg-insights")
+    aura_reg = {**register, "aura-previously-pango-anchorfree": {"slug": "aura-previously-pango-anchorfree", "name": "Aura (Previously Pango, Anchorfree)", "domain": "aura.com"}}
+    check(canonical_processor_id("intersections", aura_reg) == "aura-previously-pango-anchorfree", "Intersections is Aura")
+    check(REGISTER_ALIASES["intersections"] == "aura-previously-pango-anchorfree", "intersections aliases to aura-previously-pango-anchorfree")
+    check(REGISTER_ALIASES.get("intersections") != "aura", "intersections must not invent a second Aura slug")
     check("arsys" not in REGISTER_ALIASES, "Arsys is not aliased to IONOS")
     check(REGISTER_ALIASES.get("arsys") != "ionos", "arsys must not map to ionos")
     check("conversocial" not in REGISTER_ALIASES, "Conversocial is not aliased to Verint")

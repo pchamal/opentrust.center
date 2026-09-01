@@ -714,6 +714,18 @@ REGISTER_ALIASES: dict[str, str] = {
     # "AI Cloud for Compute, Inference & Agents | GMI Cloud". Filed
     # in this increment.
     "gmi": "gmi-cloud",
+    # Zapier and Nylas name MadKudu. HG Insights first-party /about
+    # milestone prints "AUG – 2025 Acquires MadKudu". First-party
+    # privacy HTML lists madkudu.com as a connected HG Insights
+    # domain. Filed in this increment. Do not copy HG Insights' file
+    # onto an empty madkudu shell.
+    "madkudu": "hg-insights",
+    # Dashlane names Intersections, LLC for VPN. Aura first-party
+    # /about timeline prints "2018 … acquire Intersections Inc. and
+    # Identity Guard" and "2019 Rebranded as Aura". Destination
+    # aura-previously-pango-anchorfree is already on the register
+    # (aura.com). Do not invent a second Aura dossier.
+    "intersections": "aura-previously-pango-anchorfree",
 }
 
 # Published header garbage. Not a company. Do not file or alias.

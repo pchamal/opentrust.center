@@ -154,6 +154,8 @@ EXTRA_GUESSES = {
     "adaptive-mobile": ["enea.com"],
     "gmi-cloud": ["gmicloud.ai"],
     "gmi": ["gmicloud.ai"],
+    "hg-insights": ["hginsights.com"],
+    "madkudu": ["hginsights.com"],
     "shenzhen-montnets-technology-development": ["montnets.com"],
     "blackpoint-cyber": ["blackpointcyber.com"],
     "cynomi": ["cynomi.com"],
