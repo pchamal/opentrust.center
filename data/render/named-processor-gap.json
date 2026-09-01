@@ -1,24 +1,16 @@
 {
-  "generated": "2026-09-01T20:20:00Z",
+  "generated": "2026-09-01T20:50:00Z",
   "register": 4746,
   "mode": "named-processor-gap-then-c0-fills",
-  "leftovers_min1_at_hour_start": 28,
+  "leftovers_min1_at_hour_start": 27,
   "leftovers_min1": 27,
   "named_processor_resolved_enqueued": [],
-  "named_processor_aliased_this_hour": [
-    "omni"
-  ],
-  "aliases_added": [
-    {
-      "from": "omni",
-      "to": "omni-analytics",
-      "source": "https://www.tropicapp.io/legal/subprocessors"
-    }
-  ],
+  "named_processor_aliased_this_hour": [],
+  "aliases_added": [],
   "aliases_refused": [
     {
       "slug": "gcs",
-      "reason": "AudioCodes expands to Computer Generated Solutions; cgsinc.com Cloudflare-walled; not on register. No proven official domain."
+      "reason": "AudioCodes still prints GCS - Computer Generated Solutions, Romania S.R.L. No official homepage domain on that first-party list. cgsinc.com not on the register."
     },
     {
       "slug": "rsi",
@@ -26,7 +18,7 @@
     },
     {
       "slug": "sync",
-      "reason": "ElevenLabs / GitLab / Smartsheet short name. Ambiguous. Do not guess."
+      "reason": "ElevenLabs Trust Center is a Vanta portal; published name is still the short word sync. Ambiguous. Do not guess."
     },
     {
       "slug": "software-minds",
@@ -34,15 +26,15 @@
     },
     {
       "slug": "regalix",
-      "reason": "LinkedIn names Regalix, Inc. No official homepage domain on that first-party list."
+      "reason": "LinkedIn names Regalix, Inc. Campaign optimization services USA (Palo Alto, CA). No official homepage domain on that first-party list."
     },
     {
       "slug": "vivaops",
-      "reason": "GitLab names VivaOps LLC. No official homepage domain on that first-party list."
+      "reason": "GitLab names VivaOps LLC North America Professional Services. No official homepage domain on that first-party list."
     },
     {
       "slug": "cc-cloud",
-      "reason": "GitLab names cc cloud GmbH. No official homepage domain. cccloud.de is for sale."
+      "reason": "GitLab names cc cloud GmbH Germany Professional Services. No official homepage domain. cccloud.de is for sale."
     },
     {
       "slug": "rtica-pfms-slu",
@@ -125,7 +117,58 @@
       "reason": "Meltwater boutique name. No first-party proven domain."
     }
   ],
-  "filed": [],
+  "filed": [
+    {
+      "slug": "access-systems-uk-accesspay",
+      "name": "AccessPay",
+      "kind": "years",
+      "year": 2012,
+      "url": "https://accesspay.com/about",
+      "quote": "2012 | AccessPay is founded by Ali Moiyed",
+      "completeness_before": 0,
+      "completeness_after": 20
+    },
+    {
+      "slug": "x-rd",
+      "name": "x-RD",
+      "kind": "years",
+      "year": 2019,
+      "url": "https://www.x-rd.com.au/about-us",
+      "quote": "The company was founded in 2019 by veterans, scientists, engineers and consultants",
+      "completeness_before": 0,
+      "completeness_after": 20
+    },
+    {
+      "slug": "invoka-consulting",
+      "name": "Invoka Consulting",
+      "kind": "years",
+      "year": 2022,
+      "url": "https://invokaconsulting.com/about",
+      "quote": "Invoka was founded in 2022 to do one thing well",
+      "completeness_before": 0,
+      "completeness_after": 20
+    },
+    {
+      "slug": "prime-consulting-group-solutions",
+      "name": "Prime Consulting Group",
+      "kind": "years",
+      "year": 2022,
+      "url": "https://primeconsulting.com/about-us",
+      "quote": "PCG was founded in 2022 by James Green and Shawn Cerretani",
+      "completeness_before": 0,
+      "completeness_after": 20
+    },
+    {
+      "slug": "carahsoft-technology",
+      "name": "Carahsoft Technology Corp",
+      "kind": "years",
+      "year": 2004,
+      "url": "https://www.carahsoft.com/about",
+      "quote": "Founded in 2004, Carahsoft has grown to 4,000 team members and is headquartered in Reston, VA.",
+      "completeness_before": 0,
+      "completeness_after": 20
+    }
+  ],
   "remaining_ge2_slugs": [],
-  "note": "Hour start leftovers_min1=28, remaining_ge2 empty, leftovers after this hour=27. Tropic first-party subprocessors table prints Omni / Omni Analytics, Inc. / https://omni.co/ for in-app dashboards. omni-analytics is already on the register (omni.co, Official page · marks on file). Alias omni→omni-analytics; Tropic dossier now cross-links to that file. Do not alias to the-omni-group / omnigroup.com. Re-checked leftover naming lists (Meltwater, Smartsheet, LinkedIn, Vyond, SonicWall, Sophos, GitLab, AudioCodes, WatchGuard); remaining leftovers still print no official homepage domain. AfterShip and Branch lists Cloudflare-walled this walk. Standing refusals stay (software-minds ≠ softwaremind.com; rsi/sync short names ambiguous; regalix/vivaops/cc-cloud/rtica-pfms-slu and Meltwater/Sophos/Smartsheet/Vyond/SonicWall boutique names domain-less). Completeness walk on C0/thin named-processor rows: Vonage / NetSuite / TaskUs / Vultr / TransUnion / Ai-Media / Foundever / InMoment / IntouchCX / Sumit AI Cloudflare 403. Capacity usual paths now Cloudflare 403. DevRev 429. Code42 redirects to Mimecast Incydr (not first-party). Filestack /security bounces to features#security. Dovetail trust.dovetail.com is a Vanta portal. Uploadcare /products/security SOC 2 Type II / HIPAA are image-alt chips; DPA stays a Google Drive PDF. GMI Cloud about-page chips stay open. Rootly /security stays a product pitch (DORA unread). BastionX HIPAA is on solutions marketing pages. Softcat /about-us prints '1993 Softcat was founded' — years already on file from Wikipedia; Completeness stays marks · years = 40; trust.softcat.com stays portal. PandaDoc usual paths 429. Adjust /security 429. Onfido / DataGrail / Sift Cloudflare 403. FreeAgent / Wave usual trust paths 404. ReversingLabs about-page SOC 2 image caption stays open. Spekit /security blog not Official page. Ketch Official page still open. Spekit DPA · 2018, Cyberhaven 2016, Woopra 2012, Tropic subprocessors, Ketch 2020, Inkeep 2023, and Teleport 2015 stay."
+  "note": "Hour start leftovers_min1=27, remaining_ge2 empty, leftovers after this hour=27. Re-read leftover naming lists. Meltwater, Smartsheet, LinkedIn, Vyond, SonicWall, Sophos, GitLab, AudioCodes, and WatchGuard still print leftover legal names without an official homepage domain. AfterShip and Branch lists Cloudflare-walled this walk. ElevenLabs subprocessors is a Vanta portal. Standing refusals stay (software-minds ≠ softwaremind.com; rsi/sync short names ambiguous; regalix/vivaops/cc-cloud/rtica-pfms-slu and Meltwater/Sophos/Smartsheet/Vyond/SonicWall/GitLab boutique names domain-less). No new alias to an existing register slug. Completeness fills on Completeness-0 named-processor rows: AccessPay first-party about timeline '2012 | AccessPay is founded by Ali Moiyed'. x-RD first-party about 'The company was founded in 2019 by veterans…'. Invoka first-party about 'Invoka was founded in 2022'. Prime Consulting first-party about 'PCG was founded in 2022 by James Green and Shawn Cerretani'. Carahsoft first-party about 'Founded in 2004, Carahsoft has grown to 4,000 team members'. Official page · marks · DPA · subprocessors stay open on those five. Honest refusals this walk: pdf.co about names the PDF Association founded in 2006, not PDF.co. PayU foundingDate 2002 lives on poland.payu.com, not the filed payu.pl host. Upper Quadrant about is a FOUNDED 2001 label, not a founded sentence. Vonage / NetSuite / TaskUs / Vultr / TransUnion / Ai-Media / Foundever / InMoment / IntouchCX / Sumit AI / WSO2 / UpCloud / Thorn / Summit / SEON / Plextrac / UST Cloudflare 403. AfterShip / Branch Cloudflare 403. TokenX / SupportZebra usual paths are JS shells. Arsys /legal/dpa is a CSS shell, not a printed DPA. Spekit DPA · 2018, Cyberhaven 2016, Woopra 2012, Tropic subprocessors, Ketch 2020, Inkeep 2023, Teleport 2015, and Omni → Omni Analytics stay."
 }
