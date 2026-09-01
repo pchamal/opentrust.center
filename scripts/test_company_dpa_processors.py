@@ -685,6 +685,9 @@ def main() -> int:
     )
     check((by_pub["teleport"].get("file") or {}).get("dpa") == 20, "teleport DPA prints")
     check((by_enr["teleport"].get("links") or {}).get("subprocessors") in (None, ""), "teleport Vanta list stays unread")
+    check(by_pub["teleport"].get("founded_year") == 2015, "teleport year is first-party foundingDate")
+    check(by_pub["teleport"].get("founded_source") == "https://goteleport.com/about", "teleport year source is /about")
+    check((by_pub["teleport"].get("file") or {}).get("years") == 20, "teleport years print")
     check(
         instrument_url(by_pub["ketch"], "dpa") == "https://www.ketch.com/data-processing-addendum",
         "ketch DPA is first-party HTML",

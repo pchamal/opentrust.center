@@ -563,6 +563,29 @@ expect(
     fileScore(fileFlags(linkedin)) === 80,
 );
 
+const teleport = bySlug.teleport;
+expect(
+  "teleport Completeness is page · marks · DPA · years = 80",
+  teleport &&
+    teleport.found === true &&
+    teleport.trust_url === "https://goteleport.com/security/" &&
+    ((teleport.instruments || {}).dpa || {}).url === "https://goteleport.com/legal/dpa/" &&
+    !((teleport.instruments || {}).subprocessors || {}).url &&
+    (teleport.certs || []).includes("SOC 2 Type II") &&
+    (teleport.certs || []).includes("ISO 27001") &&
+    (teleport.certs || []).includes("HIPAA") &&
+    !(teleport.certs || []).includes("ISO 27701") &&
+    !(teleport.certs || []).includes("PCI DSS") &&
+    teleport.founded_year === 2015 &&
+    teleport.founded_source === "https://goteleport.com/about" &&
+    fileFlags(teleport).page === 20 &&
+    fileFlags(teleport).marks === 20 &&
+    fileFlags(teleport).dpa === 20 &&
+    fileFlags(teleport).subprocessors === 0 &&
+    fileFlags(teleport).years === 20 &&
+    fileScore(fileFlags(teleport)) === 80,
+);
+
 const nylas = bySlug.nylas;
 expect(
   "nylas Completeness is page · marks · subprocessors = 60",
