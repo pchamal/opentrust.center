@@ -638,6 +638,19 @@ REGISTER_ALIASES: dict[str, str] = {
     # Responsive's first-party subprocessor table prints
     # "DeepL deepl.com". deepl is on the register.
     "deepl-deepl-com": "deepl",
+    # LinkedIn customer-subprocessors table. Same-company legal /
+    # regional ids already on the register.
+    "microsoft-and-its-affiliates": "microsoft",
+    "concentrix-international-europe": "concentrix",
+    "message-systems-dba-sparkpost": "messagebird",
+    "momentive-fka-surveymonkey": "surveymonkey",
+    "oracle-china-software-system": "oracle",
+    "code-42-software": "code42",
+    "tdcx-digilab-india-private": "tdcx",
+    "tdcx-information-consulting-shanghai": "tdcx",
+    "tdcx-my-sdn-bhd": "tdcx",
+    "tdcx-services-dba-tdcx-spain": "tdcx",
+    "tdcx-services-dba-tdcx-portugal-unipessoal-lda": "tdcx",
 }
 
 # Published header garbage. Not a company. Do not file or alias.
@@ -646,6 +659,11 @@ SKIP_PROCESSOR_IDS = {
     "n-a",
     "na",
     "it",
+    "services-as-applicable",
+    "talent-hire",
+    "learning",
+    "sales-solutions",
+    "marketing-solutions",
     "customers-have-discretion-to-select-a-different-location",
     "bob-finance-module",
     "optional-features-for-the-bob-finance-module",
@@ -660,6 +678,11 @@ SKIP_PROCESSOR_NAMES = {
     "n.a.",
     "na",
     "it llc",
+    "services (as applicable)",
+    "talent/hire",
+    "learning",
+    "sales solutions",
+    "marketing solutions",
     "customers have discretion to select a different location",
     "bob finance module",
     "optional features for the bob finance module",

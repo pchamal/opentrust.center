@@ -1,13 +1,69 @@
 {
-  "generated": "2026-09-01T15:40:00Z",
+  "generated": "2026-09-01T16:10:00Z",
   "register": 4704,
-  "origin_main": "d32511566e",
+  "origin_main": "9a2e07beab",
   "mode": "leftover-named-processor-plus-first-party-fills",
-  "leftovers_min1": 33,
-  "leftovers_after": 33,
-  "remaining_ge2": 0,
-  "remaining_ge2_slugs": [],
-  "aliases_added": [],
+  "leftovers_min1": 60,
+  "leftovers_after": 60,
+  "remaining_ge2": 1,
+  "remaining_ge2_slugs": ["madkudu"],
+  "aliases_added": [
+    {
+      "from": "microsoft-and-its-affiliates",
+      "to": "microsoft",
+      "reason": "LinkedIn customer-subprocessors prints Microsoft Corporation and its Affiliates. microsoft is on the register."
+    },
+    {
+      "from": "concentrix-international-europe",
+      "to": "concentrix",
+      "reason": "LinkedIn names Concentrix International Europe B.V. concentrix is on the register."
+    },
+    {
+      "from": "message-systems-dba-sparkpost",
+      "to": "messagebird",
+      "reason": "LinkedIn names Message Systems, Inc. dba Sparkpost. sparkpost already lands on messagebird."
+    },
+    {
+      "from": "momentive-fka-surveymonkey",
+      "to": "surveymonkey",
+      "reason": "LinkedIn names Momentive, Inc. (fka SurveyMonkey, Inc.). surveymonkey is on the register."
+    },
+    {
+      "from": "oracle-china-software-system",
+      "to": "oracle",
+      "reason": "LinkedIn names Oracle (China) Software System Co., Ltd. oracle is on the register."
+    },
+    {
+      "from": "code-42-software",
+      "to": "code42",
+      "reason": "LinkedIn names Code 42 Software Inc. code42 is on the register."
+    },
+    {
+      "from": "tdcx-digilab-india-private",
+      "to": "tdcx",
+      "reason": "LinkedIn names TDCX Digilab India Private Limited. tdcx is on the register."
+    },
+    {
+      "from": "tdcx-information-consulting-shanghai",
+      "to": "tdcx",
+      "reason": "LinkedIn names TDCX Information Consulting (Shanghai) Co., Ltd. tdcx is on the register."
+    },
+    {
+      "from": "tdcx-my-sdn-bhd",
+      "to": "tdcx",
+      "reason": "LinkedIn names TDCX (MY) SDN. BHD. tdcx-my already lands on tdcx."
+    },
+    {
+      "from": "tdcx-services-dba-tdcx-spain",
+      "to": "tdcx",
+      "reason": "LinkedIn names TDCX Services, S.A. dba TDCX Spain. tdcx is on the register."
+    },
+    {
+      "from": "tdcx-services-dba-tdcx-portugal-unipessoal-lda",
+      "to": "tdcx",
+      "reason": "LinkedIn names TDCX Services, dba TDCX PORTUGAL UNIPESSOAL LDA. tdcx is on the register."
+    }
+  ],
   "aliases_refused": [
     {
       "from": "jack-henry-and-associates",
@@ -23,96 +79,161 @@
       "from": "hive",
       "to": "hiveage",
       "reason": "Standing. Hive project-management is not Hiveage."
+    },
+    {
+      "from": "apollo",
+      "to": "apollo-io",
+      "reason": "Nylas prints Apollo. apollo-io is Apollo.io. Not the same first-party file."
+    },
+    {
+      "from": "pusher",
+      "to": "messagebird",
+      "reason": "pusher.com/legal 301s to bird.com, but pusher.com/security is still a Pusher-branded file with its own ISO 27001. Do not collapse the dossier."
     }
   ],
   "newly_filed": [],
   "c0_fills": [
     {
-      "slug": "onesignal",
-      "name": "OneSignal",
-      "domain": "onesignal.com",
-      "named_by": 3,
-      "completeness_before": 40,
-      "completeness_after": 60,
-      "official_page": null,
-      "marks": ["SOC 2 Type II", "ISO 27001", "ISO 27701"],
-      "source": "https://onesignal.com/list-of-subprocessors",
+      "slug": "linkedin",
+      "name": "LinkedIn",
+      "domain": "linkedin.com",
+      "named_by": 5,
+      "completeness_before": 60,
+      "completeness_after": 80,
+      "official_page": "https://security.linkedin.com/trust-and-compliance",
+      "marks": ["ISO 22301", "ISO 27001", "ISO 27018", "PCI DSS", "SOC 2"],
+      "source": "https://www.linkedin.com/legal/l/customer-subprocessors",
       "left_open": [
-        "Official page stays open. onesignal.com/privacy is the privacy instrument, not Official page.",
-        "Existing marks stay SOC 2 Type II, ISO 27001, ISO 27701 from prior first-party HTML.",
-        "HIPAA stays open. Privacy page is HIPAA compliant plus a BAA on the Enterprise Plan.",
-        "DPA DPF is a transfer-mechanism clause, not a self-cert. Years stay open."
+        "Official page stays https://security.linkedin.com/trust-and-compliance. Years stay open.",
+        "DPA stays https://www.linkedin.com/legal/l/dpa. DPA product-line table (Talent/Hire, Learning, Sales Solutions, Marketing Solutions) is not a named-processor list.",
+        "34 printed names after same-company aliases. Domain-less leftovers stay off the register."
+      ]
+    },
+    {
+      "slug": "nylas",
+      "name": "Nylas",
+      "domain": "nylas.com",
+      "named_by": 4,
+      "completeness_before": 50,
+      "completeness_after": 60,
+      "official_page": "https://www.nylas.com/security",
+      "marks": ["CSA STAR", "EU-US DPF", "HIPAA", "ISO 27001", "ISO 27701", "PCI DSS", "SOC 2 Type II"],
+      "source": "https://www.nylas.com/security/subprocessors/",
+      "left_open": [
+        "Official page stays https://www.nylas.com/security. Years stay open.",
+        "DPA stays open. Usual /dpa paths 404 this cut.",
+        "URL-only subprocessors upgraded to 40 printed names. Twilio Segment is Segment. GCP / Gemini / Looker land on Google."
       ]
     }
   ],
   "clerk_holds": [
     {
-      "slug": "authzed",
-      "name": "Authzed",
-      "reason": "About-page Secure First list is marketing chips: Encryption at rest, isolated deployments, SOC2 certified, GDPR & CCPA. Same class as homepage chips, not first-party certification prose. Official page stays https://security.authzed.com. Marks stay open."
+      "slug": "madkudu",
+      "name": "MadKudu",
+      "reason": "Now named_by=2 (Zapier + Nylas). Still domain-less. Do not invent a domain."
+    },
+    {
+      "slug": "slack",
+      "name": "Slack",
+      "reason": "slack.com/terms-of-service/data-processing titles Data Processing Addendum but the body is a JS shell. slack.com/slack-subprocessors 301s to a Salesforce PDF. PDF-only stays open."
+    },
+    {
+      "slug": "deepgram",
+      "name": "Deepgram",
+      "reason": "/privacy/subprocessors is a Next.js shell. Extractor returned no printed names."
+    },
+    {
+      "slug": "wasabi",
+      "name": "Wasabi",
+      "reason": "/legal/sub-processors titles Wasabi Sub Processors but printed no organization names this cut. Year parser still misses 2017."
+    },
+    {
+      "slug": "taskus",
+      "name": "TaskUs",
+      "reason": "taskus.com usual paths Cloudflare 403. trust.taskus.com http-0. Densest Completeness-0 named processor this cut."
+    },
+    {
+      "slug": "ada",
+      "name": "Ada",
+      "reason": "security.ada.cx titles Ada Trust Center | Powered by SafeBase. ada.cx usual paths Cloudflare 403."
+    },
+    {
+      "slug": "hetzner-online",
+      "name": "Hetzner Online GmbH",
+      "reason": "About page prints founded in 1997 but the year parser returns no year (Hetzner sits outside the 90-character window)."
     },
     {
       "slug": "vonage",
       "name": "Vonage",
-      "reason": "vonage.com usual paths 403 this cut. trust.vonage.com and security.vonage.com http-0."
+      "reason": "Standing soft-retry. No new first-party HTML path this cut."
     },
     {
       "slug": "equinix",
       "name": "Equinix",
-      "reason": "equinix.com usual paths Access Denied 403 this cut. trust.equinix.com http-0."
+      "reason": "Standing soft-retry. No new first-party HTML path this cut."
     },
     {
       "slug": "netsuite",
       "name": "NetSuite",
-      "reason": "www.netsuite.com stays Akamai 403. oracle.com privacy also 403 this cut. Status URL already stored."
+      "reason": "Standing soft-retry. No new first-party HTML path this cut."
     },
     {
       "slug": "vultr",
       "name": "Vultr",
-      "reason": "vultr.com Cloudflare challenge 403. trust.vultr.com http-0."
+      "reason": "Standing soft-retry. No new first-party HTML path this cut."
     },
     {
       "slug": "transunion-formerly-neustar-information-services",
       "name": "TransUnion",
-      "reason": "transunion.com Cloudflare challenge 403. trust.transunion.com http-0."
+      "reason": "Standing soft-retry. No new first-party HTML path this cut."
     },
     {
       "slug": "gainsight",
       "name": "Gainsight",
-      "reason": "www.gainsight.com Cloudflare challenge 403. trust.gainsight.com titles Powered by SafeBase. Marks stay unread."
+      "reason": "Standing. SafeBase portal unread."
     },
     {
       "slug": "auth0",
       "name": "Auth0",
-      "reason": "auth0.com/security lands on Okta Security Trust Center | Powered by SafeBase. Marks stay unread. Official page stays https://auth0.com/security."
+      "reason": "Standing. SafeBase portal unread."
     },
     {
-      "slug": "mailchimp",
-      "name": "Mailchimp",
-      "reason": "About page prints Founded in Atlanta in 2001 but the year parser returns no year (company name sits outside the 90-character window). DPF on the DPA is a definition, not a self-cert. Official page stays open."
+      "slug": "authzed",
+      "name": "Authzed",
+      "reason": "Standing. About-page Secure First list is marketing chips."
     },
     {
       "slug": "openrouter",
       "name": "OpenRouter",
-      "reason": "DPA Schedule 2 lists SOC 2 Type II control framework as a security-control bullet, not a certification. Same class as MaxMind based-on. Marks stay open. Official page stays https://openrouter.ai/security."
+      "reason": "Standing. DPA Schedule 2 SOC 2 Type II control framework is not a certification."
     },
     {
       "slug": "filestack",
       "name": "Filestack",
-      "reason": "/features/ is a product catalog. Not Official page."
+      "reason": "Standing. /features/ is a product catalog. Not Official page."
     },
     {
       "slug": "jack-henry",
       "name": "Jack Henry",
-      "reason": "Product cybersecurity page is not Official page. Standing preferred C0."
+      "reason": "Standing. Product cybersecurity page is not Official page."
     },
     {
       "slug": "legalinc-com",
       "name": "Legalinc",
-      "reason": "portal.legalinc.com/trust-center titles Dashboard | Legalinc. Login."
+      "reason": "Standing. portal.legalinc.com/trust-center titles Dashboard | Legalinc. Login."
+    },
+    {
+      "slug": "mailchimp",
+      "name": "Mailchimp",
+      "reason": "Standing. About page 2001 year parser miss."
     }
   ],
   "preferred_c0_left_open": [
+    {
+      "slug": "taskus",
+      "named_by": 4,
+      "reason": "Cloudflare 403 this cut. No new first-party HTML path."
+    },
     {
       "slug": "vonage",
       "named_by": 8,
@@ -126,112 +247,114 @@
     {
       "slug": "netsuite",
       "named_by": 7,
-      "reason": "www.netsuite.com is Akamai 403 this cut. Status URL already stored."
+      "reason": "Standing soft-retry. Status URL already stored."
     },
     {
       "slug": "vultr",
       "named_by": 4,
-      "reason": "Cloudflare challenge 403. No new first-party HTML path this cut."
+      "reason": "Standing soft-retry 403. No new first-party HTML path this cut."
     },
     {
       "slug": "transunion-formerly-neustar-information-services",
       "named_by": 3,
-      "reason": "Cloudflare challenge 403. No new first-party HTML path this cut."
+      "reason": "Standing soft-retry 403. No new first-party HTML path this cut."
     },
     {
       "slug": "intouchcx",
       "named_by": 2,
-      "reason": "Usual paths unreadable this cut."
+      "reason": "Standing. Usual paths unreadable this cut."
     },
     {
       "slug": "inmoment",
       "named_by": 2,
-      "reason": "Usual paths unreadable this cut."
+      "reason": "Standing. Usual paths unreadable this cut."
     },
     {
       "slug": "foundever-operating",
       "named_by": 2,
-      "reason": "foundever.com Cloudflare challenge 403."
+      "reason": "Standing. foundever.com Cloudflare challenge 403."
     },
     {
       "slug": "global-payments",
       "named_by": 2,
-      "reason": "globalpayments.com Cloudflare challenge 403."
+      "reason": "Standing. globalpayments.com Cloudflare challenge 403."
     },
     {
       "slug": "sumit-ai",
       "named_by": 2,
       "reason": "Standing soft-retry 403. No new first-party HTML path this cut."
-    },
-    {
-      "slug": "dstny-automate-formerly-qunifi",
-      "named_by": 2,
-      "reason": "First-party HTML names no catalog hold. Privacy already on file."
-    },
-    {
-      "slug": "sutherland-global-services",
-      "named_by": 2,
-      "reason": "First-party HTML names no catalog hold. Privacy already on file."
-    },
-    {
-      "slug": "jack-henry",
-      "named_by": 1,
-      "reason": "Product cybersecurity page is not Official page. Year parser still returns no year."
-    },
-    {
-      "slug": "legalinc-com",
-      "named_by": 1,
-      "reason": "Trust-center titles Dashboard | Legalinc. Login. Stay 0."
-    },
-    {
-      "slug": "agap2it",
-      "named_by": 1,
-      "reason": "Usual paths unreadable / no catalog hold this cut."
     }
   ],
   "leftovers_still_domainless": [
     "a-g-consulting",
     "adaptive-mobile",
     "agile-management-experts",
+    "ai-data-innovation",
+    "ai-media",
     "amacuro",
+    "apollo",
     "avertech",
     "benjamin-mosse-consulting",
     "blue-ocean-contact-centres",
     "cc-cloud",
     "cloud-support-technologies",
     "cognitive-intelligence",
+    "crm-services-india-private",
+    "cyberhaven",
     "deft",
     "df-tech-fz",
+    "eeg-enterprises",
     "fineyear-human-resources-service",
     "gcs",
     "gmi",
+    "gravitational-teleport",
+    "hcl-america",
+    "hcl-technologies-corporate-services",
+    "imerit",
+    "inkeep",
     "intersections",
+    "ketch",
+    "kickbox",
+    "language-i-o",
     "madkudu",
     "media-connect",
     "mpower",
     "multyware-associates",
     "novemilla",
+    "nsone",
+    "ordway",
+    "pandadoc",
+    "regalix",
+    "rootly",
     "rsi",
     "rtica-pfms-slu",
     "rule-56",
     "samknows",
+    "shenzhen-montnets-technology-development",
     "software-minds",
+    "spekit",
     "sync",
+    "syniverse-technologies",
+    "tata-communications-ireland",
+    "telecom-italia-sparkle-spa",
     "textel",
     "thorn",
+    "tropic",
     "tsengararu",
     "ujwal",
     "vivaops",
+    "woopra",
+    "ypiresia-800-teleperformance-single-member",
     "zealep-business-solutions"
   ],
   "refused_this_cut": [
-    "True-missing named_by ≥2 stays empty. Leftover graph stays 33 domain-less. Register 4704; this cut files no new rows.",
-    "No leftover domain invented. rsi.ch is Swiss radio, not RingCentral RSI. sync.com is not the ElevenLabs Sync node. mpower.co is not Meltwater Mpower. deft.co is the agentic coding platform, not Kentik colo Deft. softwaremind.com is Software Mind, not Branch Software Minds, Inc. amacuro.com is a lander.",
-    "Standing alias refusals kept. MadKudu / Thorn / Textel / Adaptive Mobile / SamKnows still unresolved (403 / http-0).",
-    "Vonage, Equinix, NetSuite, Vultr, TransUnion, IntouchCX, InMoment, Foundever, and Global Payments usual paths 403 or unreadable this cut.",
-    "Gainsight and Auth0 SafeBase portals stay unread. Mailchimp 2001 year parser miss. Wasabi 2017 year parser miss (Wasabi sits outside the window; datacenter SOC 2 / ISO stay open).",
-    "OneSignal HIPAA-compliant + BAA stays open. OneSignal DPA DPF is a transfer mechanism, not a self-cert.",
-    "Authzed about-page Secure First list (SOC2 certified, GDPR & CCPA) is marketing chips, not certification prose. Marks stay open. Official page stays https://security.authzed.com.",
-    "OpenRouter DPA Schedule 2 'SOC 2 Type II control framework' is a security-control bullet, not a certification."
+    "True-missing named_by ≥2 is MadKudu only, still domain-less. Leftover graph is 60 domain-less (was 33). Register 4704; this cut files no new rows.",
+    "No leftover domain invented. MadKudu / Thorn / Textel / Adaptive Mobile / SamKnows still unresolved.",
+    "LinkedIn DPA product-line table (Talent/Hire, Learning, Sales Solutions, Marketing Solutions) is not a named-processor list.",
+    "Slack DPA is a JS shell. Slack subprocessors 301 to a Salesforce PDF.",
+    "Deepgram /privacy/subprocessors and Wasabi /legal/sub-processors printed no extractor names this cut.",
+    "TaskUs, Ada, Vonage, Equinix, NetSuite, Vultr, TransUnion usual paths 403 or SafeBase this cut.",
+    "Hetzner 1997 and Mailchimp 2001 year-parser misses. Pusher is not collapsed onto MessageBird.",
+    "Nylas Apollo is not aliased to apollo-io. Standing leftover refusals unchanged. No Design Bot remakes."
   ]
 }

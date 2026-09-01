@@ -106,7 +106,7 @@ PROCESSORS = [
     ("gcp", "Google Cloud", "cloud.google.com", [r"google cloud platform", r"google cloud", r"\bGCP\b"]),
     ("azure", "Microsoft Azure", "azure.microsoft.com", [r"microsoft azure", r"\bAzure\b"]),
     ("cloudflare", "Cloudflare", "cloudflare.com", [r"\bCloudflare\b"]),
-    ("twilio", "Twilio", "twilio.com", [r"\bTwilio\b"]),
+    ("twilio", "Twilio", "twilio.com", [r"\bTwilio\b(?!\s+Segment)"]),
     ("stripe", "Stripe", "stripe.com", [r"\bStripe\b"]),
     ("sendgrid", "SendGrid", "sendgrid.com", [r"\bSendGrid\b"]),
     ("datadog", "Datadog", "datadoghq.com", [r"\bDatadog\b"]),

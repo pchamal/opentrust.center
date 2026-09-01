@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from enrich import cell_text, looks_like_date_name  # noqa: E402
+from enrich import cell_text, looks_like_date_name, match_processor  # noqa: E402
 
 PUBLIC = ROOT / "site" / "data.json"
 ENRICHED = ROOT / "site" / "data" / "enriched.json"
@@ -43,6 +43,8 @@ def main() -> int:
     check(looks_like_date_name("Date"), "Date header is a date")
     check(not looks_like_date_name("Amazon Web Services"), "AWS is not a date")
     check(cell_text("Google Inc. UPDATED") == "Google Inc", "CMS UPDATED badge is not the published name")
+    check(match_processor("Twilio Segment")[0] == "segment", "Twilio Segment is Segment, not Twilio")
+    check(match_processor("Twilio")[0] == "twilio", "Twilio alone stays Twilio")
 
     for row in public["companies"]:
         for proc in row.get("processors") or []:
@@ -544,6 +546,95 @@ def main() -> int:
         == "https://onesignal.com/list-of-subprocessors",
         "onesignal enriched list URL stays",
     )
+
+    # This cut: LinkedIn first-party customer-subprocessors table. DPA product
+    # lines (Talent/Hire, Learning, Sales Solutions) stay unread. Sparkpost /
+    # Momentive / TDCX / Code 42 / Microsoft affiliates land on existing files.
+    check(
+        instrument_url(by_pub["linkedin"], "dpa") == "https://www.linkedin.com/legal/l/dpa",
+        "linkedin DPA stays the first-party addendum",
+    )
+    check(
+        instrument_url(by_pub["linkedin"], "subprocessors")
+        == "https://www.linkedin.com/legal/l/customer-subprocessors",
+        "linkedin list is the first-party customer-subprocessors table",
+    )
+    check((by_pub["linkedin"].get("file") or {}).get("dpa") == 20, "linkedin DPA prints")
+    check((by_pub["linkedin"].get("file") or {}).get("subprocessors") == 20, "linkedin processors print")
+    check((by_pub["linkedin"].get("file") or {}).get("page") == 20, "linkedin Official page stays")
+    check((by_pub["linkedin"].get("file") or {}).get("marks") == 20, "linkedin marks stay")
+    check((by_pub["linkedin"].get("file") or {}).get("years") in (0, False, None), "linkedin years stay open")
+    linkedin_names = [p.get("name") for p in (by_pub["linkedin"].get("processors") or [])]
+    linkedin_slugs = [p.get("slug") for p in (by_pub["linkedin"].get("processors") or [])]
+    check("Microsoft Corporation and its Affiliates" in linkedin_names, "linkedin names Microsoft affiliates")
+    check("Amazon Web Services, Inc" in linkedin_names, "linkedin names AWS")
+    check("Box.com, Inc" in linkedin_names, "linkedin names Box")
+    check("Message Systems, Inc. dba Sparkpost" in linkedin_names, "linkedin names Sparkpost")
+    check("Momentive, Inc. (fka SurveyMonkey, Inc.)" in linkedin_names, "linkedin names Momentive")
+    check("Code 42 Software Inc" in linkedin_names, "linkedin names Code 42")
+    check("TDCX Digilab India Private Limited" in linkedin_names, "linkedin names TDCX")
+    check("Talent/Hire" not in linkedin_names, "linkedin DPA Talent/Hire product line stays unread")
+    check("Learning" not in linkedin_names, "linkedin DPA Learning product line stays unread")
+    check("Sales Solutions" not in linkedin_names, "linkedin DPA Sales Solutions product line stays unread")
+    check("Marketing Solutions" not in linkedin_names, "linkedin DPA Marketing Solutions product line stays unread")
+    check("microsoft" in linkedin_slugs, "linkedin Microsoft affiliates use the Microsoft file")
+    check("amazon-web-services" in linkedin_slugs, "linkedin AWS uses the existing file")
+    check("box" in linkedin_slugs, "linkedin Box uses the existing file")
+    check("messagebird" in linkedin_slugs, "linkedin Sparkpost uses the MessageBird file")
+    check("surveymonkey" in linkedin_slugs, "linkedin Momentive uses the SurveyMonkey file")
+    check("code42" in linkedin_slugs, "linkedin Code 42 uses the Code42 file")
+    check("tdcx" in linkedin_slugs, "linkedin TDCX uses the existing file")
+    check("concentrix" in linkedin_slugs, "linkedin Concentrix uses the existing file")
+    check(linkedin_slugs.count("tdcx") == 1, "linkedin TDCX regional rows collapse to one file")
+    check(linkedin_slugs.count("concentrix") == 1, "linkedin Concentrix regional rows collapse to one file")
+    check(len(linkedin_names) == 34, f"linkedin printed 34 named processors, got {len(linkedin_names)}")
+    li_html = (ROOT / "site" / "c" / "linkedin.html").read_text(encoding="utf-8")
+    check("<h1>LinkedIn</h1>" in li_html, "linkedin dossier is its own file")
+    check("https://www.linkedin.com/legal/l/dpa" in li_html, "linkedin dossier keeps the DPA URL")
+    check("https://www.linkedin.com/legal/l/customer-subprocessors" in li_html, "linkedin dossier keeps the list URL")
+    check("./microsoft.html\">Microsoft Corporation and its Affiliates" in li_html, "linkedin Microsoft cross-links to the existing file")
+    check("./amazon-web-services.html\">Amazon Web Services, Inc" in li_html, "linkedin AWS cross-links to the existing file")
+    check("./box.html\">Box.com, Inc" in li_html, "linkedin Box cross-links to the existing file")
+    check("./messagebird.html\">Message Systems, Inc. dba Sparkpost" in li_html, "linkedin Sparkpost uses the MessageBird alias")
+    check("./surveymonkey.html\">Momentive, Inc. (fka SurveyMonkey, Inc.)" in li_html, "linkedin Momentive uses the SurveyMonkey alias")
+    check("./code42.html\">Code 42 Software Inc" in li_html, "linkedin Code 42 cross-links to the existing file")
+    check("./tdcx.html\">TDCX Digilab India Private Limited" in li_html, "linkedin TDCX cross-links to the existing file")
+    check("Talent/Hire" not in li_html, "linkedin dossier does not print DPA product lines")
+
+    # This cut: Nylas first-party /security/subprocessors table. URL-only list
+    # upgrades to printed names. Twilio Segment is Segment. GCP / Gemini / Looker
+    # land on Google. Gong.io lands on Gong. DPA stays open.
+    check(
+        instrument_url(by_pub["nylas"], "subprocessors")
+        == "https://www.nylas.com/security/subprocessors/",
+        "nylas list is the first-party Subprocessors table",
+    )
+    check((by_pub["nylas"].get("file") or {}).get("subprocessors") == 20, "nylas processors print")
+    check((by_pub["nylas"].get("file") or {}).get("dpa") in (0, False, None), "nylas DPA stays open")
+    check((by_pub["nylas"].get("file") or {}).get("page") == 20, "nylas Official page stays")
+    check((by_pub["nylas"].get("file") or {}).get("marks") == 20, "nylas marks stay")
+    check((by_pub["nylas"].get("file") or {}).get("years") in (0, False, None), "nylas years stay open")
+    nylas_names = [p.get("name") for p in (by_pub["nylas"].get("processors") or [])]
+    nylas_slugs = [p.get("slug") for p in (by_pub["nylas"].get("processors") or [])]
+    check("Amazon Web Services" in nylas_names, "nylas names AWS")
+    check("Google Cloud Platform" in nylas_names, "nylas names GCP")
+    check("Twilio Segment" in nylas_names, "nylas names Twilio Segment")
+    check("Gong.io" in nylas_names, "nylas names Gong.io")
+    check("MadKudu" in nylas_names, "nylas names MadKudu")
+    check("amazon-web-services" in nylas_slugs, "nylas AWS uses the existing file")
+    check("google" in nylas_slugs, "nylas GCP uses the Google file")
+    check("segment" in nylas_slugs, "nylas Twilio Segment uses the Segment file")
+    check("gong" in nylas_slugs, "nylas Gong.io uses the Gong file")
+    check("twilio" not in nylas_slugs, "nylas Twilio Segment is not filed as Twilio")
+    check(nylas_slugs.count("google") == 1, "nylas GCP / Gemini / Looker collapse to one Google file")
+    check(len(nylas_names) == 40, f"nylas printed 40 named processors, got {len(nylas_names)}")
+    ny_html = (ROOT / "site" / "c" / "nylas.html").read_text(encoding="utf-8")
+    check("<h1>Nylas</h1>" in ny_html, "nylas dossier is its own file")
+    check("https://www.nylas.com/security/subprocessors/" in ny_html, "nylas dossier keeps the list URL")
+    check("./amazon-web-services.html\">Amazon Web Services" in ny_html, "nylas AWS cross-links to the existing file")
+    check("./google.html\">Google Cloud Platform" in ny_html, "nylas GCP cross-links to the Google file")
+    check("./segment.html\">Twilio Segment" in ny_html, "nylas Twilio Segment uses the Segment alias")
+    check("./gong.html\">Gong.io" in ny_html, "nylas Gong.io uses the Gong alias")
 
     print(
         f"ok increment-dpa privacy-page-queue {len(expected_batch)} walked; "
