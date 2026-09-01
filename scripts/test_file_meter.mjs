@@ -178,6 +178,50 @@ expect(
 );
 expect("branch marks stay unread", branch && !(branch.certs || []).length);
 
+const cloudAce = bySlug["cloud-ace"];
+expect(
+  "cloud-ace marks Completeness is 20",
+  cloudAce &&
+    cloudAce.found === false &&
+    !cloudAce.trust_url &&
+    (cloudAce.certs || []).includes("ISO 27001") &&
+    (cloudAce.certs || []).includes("ISO 9001") &&
+    fileFlags(cloudAce).page === 0 &&
+    fileFlags(cloudAce).marks === 20 &&
+    fileFlags(cloudAce).years === 0 &&
+    fileScore(fileFlags(cloudAce)) === 20,
+);
+
+const cequens = bySlug["cequens-fze"];
+expect(
+  "cequens marks Completeness is 20",
+  cequens &&
+    cequens.found === false &&
+    !cequens.trust_url &&
+    (cequens.certs || []).includes("SOC 2") &&
+    (cequens.certs || []).includes("ISO 27001") &&
+    (cequens.certs || []).includes("PCI DSS") &&
+    !(cequens.certs || []).includes("ISO 27017") &&
+    !(cequens.certs || []).includes("GDPR") &&
+    fileFlags(cequens).page === 0 &&
+    fileFlags(cequens).marks === 20 &&
+    fileScore(fileFlags(cequens)) === 20,
+);
+
+const virtuozzo = bySlug.virtuozzo;
+expect(
+  "virtuozzo portal is not Official page",
+  virtuozzo &&
+    virtuozzo.found === false &&
+    !virtuozzo.trust_url &&
+    !(virtuozzo.certs || []).length &&
+    virtuozzo.founded_year === 1997 &&
+    fileFlags(virtuozzo).page === 0 &&
+    fileFlags(virtuozzo).marks === 0 &&
+    fileFlags(virtuozzo).years === 20 &&
+    fileScore(fileFlags(virtuozzo)) === 20,
+);
+
 const filestack = bySlug.filestack;
 expect(
   "filestack /features is not Official page",

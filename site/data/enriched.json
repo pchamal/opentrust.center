@@ -99632,18 +99632,23 @@
       "title": "",
       "probed": 23,
       "source": "https://aws.amazon.com/compliance/sub-processors/",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "No public trust center found on the usual paths. SOC 2, ISO 27001, and PCI DSS cited from first-party homepage HTML.",
       "list": "named-processor-gap",
-      "certs": [],
+      "certs": [
+        "SOC 2",
+        "ISO 27001",
+        "PCI DSS"
+      ],
       "links": {
         "privacy": "https://www.cequens.com/privacy-policy"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 6,
+        "score": 28,
         "tier": "silent",
         "factors": {
-          "privacy": 6
+          "privacy": 6,
+          "marks": 22
         }
       }
     },
@@ -104196,15 +104201,20 @@
       "title": "",
       "probed": 75,
       "source": "https://about.gitlab.com/privacy/subprocessors/",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "No public trust center found on the usual paths. ISO 27001 and ISO 9001 cited from first-party company overview HTML.",
       "list": "named-processor-gap",
-      "certs": [],
+      "certs": [
+        "ISO 27001",
+        "ISO 9001"
+      ],
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 14,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "marks": 14
+        }
       }
     },
     {
@@ -129773,28 +129783,22 @@
       "name": "Virtuozzo",
       "slug": "virtuozzo",
       "domain": "virtuozzo.com",
-      "found": true,
-      "trust_url": "https://virtuozzo.trust.site",
-      "final_url": "https://virtuozzo.trust.site",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
       "vendor": "unknown",
       "title": "",
       "probed": 12,
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_Washington_(state)",
-      "summary": "Public trust center. On file: SOC 2.",
+      "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-washington",
-      "certs": [
-        "SOC 2"
-      ],
-      "links": {
-        "trust": "https://virtuozzo.trust.site"
-      },
+      "certs": [],
+      "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 34,
-        "tier": "thin",
+        "score": 10,
+        "tier": "silent",
         "factors": {
-          "portal": 20,
-          "certs": 4,
           "longevity": 10
         }
       },

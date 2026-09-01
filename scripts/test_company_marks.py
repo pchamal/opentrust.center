@@ -761,6 +761,67 @@ def main() -> int:
         == "https://legal.branch.io/saas/privacy-policy/",
         "branch privacy URL stays on file",
     )
+    # This cut: Cloud Ace company-overview ISO holds. Homepage is not Official page.
+    check(
+        {"ISO 27001", "ISO 9001"} <= set(by_pub["cloud-ace"].get("certs") or []),
+        f"cloud-ace first-party ISO holds {by_pub['cloud-ace'].get('certs')}",
+    )
+    check((by_pub["cloud-ace"].get("file") or {}).get("marks") == 20, "cloud-ace marks print")
+    check((by_pub["cloud-ace"].get("file") or {}).get("page") in (0, False, None), "cloud-ace Official page stays open")
+    check(by_pub["cloud-ace"].get("found") is False, "cloud-ace company overview is not Official page")
+    check(not by_pub["cloud-ace"].get("trust_url"), "cloud-ace has no invented Official page")
+    check((by_pub["cloud-ace"].get("file") or {}).get("years") in (0, False, None), "cloud-ace years stay open")
+    ace_html = (ROOT / "site" / "c" / "cloud-ace.html").read_text(encoding="utf-8")
+    check("<h1>Cloud Ace</h1>" in ace_html, "cloud-ace dossier is its own file")
+    check("ISO 27001" in ace_html, "cloud-ace dossier prints ISO 27001")
+    check("ISO 9001" in ace_html, "cloud-ace dossier prints ISO 9001")
+    # This cut: CEQUENS homepage footer prose. Img-alt 27017/27018 and GDPR Compliant stay open.
+    check(
+        {"SOC 2", "ISO 27001", "PCI DSS"} <= set(by_pub["cequens-fze"].get("certs") or []),
+        f"cequens first-party footer holds {by_pub['cequens-fze'].get('certs')}",
+    )
+    check("ISO 27017" not in (by_pub["cequens-fze"].get("certs") or []), "cequens ISO 27017 img alt stays open")
+    check("ISO 27018" not in (by_pub["cequens-fze"].get("certs") or []), "cequens ISO 27018 img alt stays open")
+    check("GDPR" not in (by_pub["cequens-fze"].get("certs") or []), "cequens GDPR Compliant stays open")
+    check((by_pub["cequens-fze"].get("file") or {}).get("marks") == 20, "cequens marks print")
+    check((by_pub["cequens-fze"].get("file") or {}).get("page") in (0, False, None), "cequens Official page stays open")
+    check(by_pub["cequens-fze"].get("found") is False, "cequens homepage is not Official page")
+    ceq_html = (ROOT / "site" / "c" / "cequens-fze.html").read_text(encoding="utf-8")
+    check("<h1>CEQUENS</h1>" in ceq_html, "cequens dossier is its own file")
+    check("SOC 2" in ceq_html, "cequens dossier prints SOC 2")
+    check("ISO 27001" in ceq_html, "cequens dossier prints ISO 27001")
+    check("PCI DSS" in ceq_html, "cequens dossier prints PCI DSS")
+    kept, why = hold_marks(
+        ["SOC 2", "ISO 27001", "PCI DSS", "GDPR"],
+        "GDPR Compliant SOC 2 Certified ISO 27001 Certified PCI DSS Compliant",
+        "homepage",
+    )
+    check(
+        kept == ["SOC 2", "ISO 27001", "PCI DSS"],
+        f"CEQUENS footer holds stay; GDPR Compliant open: {kept} {why}",
+    )
+    # This cut: Virtuozzo portal is not Official page. Portal SOC 2 unread. Years stay.
+    check(by_pub["virtuozzo"].get("found") is False, "virtuozzo Official page stays open")
+    check(not by_pub["virtuozzo"].get("trust_url"), "virtuozzo portal is not Official page")
+    check((by_pub["virtuozzo"].get("certs") or []) == [], "virtuozzo portal SOC 2 stays unread")
+    check((by_pub["virtuozzo"].get("file") or {}).get("page") in (0, False, None), "virtuozzo page stays open")
+    check((by_pub["virtuozzo"].get("file") or {}).get("marks") in (0, False, None), "virtuozzo marks stay open")
+    check((by_pub["virtuozzo"].get("file") or {}).get("years") == 20, "virtuozzo years stay")
+    vz_html = (ROOT / "site" / "c" / "virtuozzo.html").read_text(encoding="utf-8")
+    check("<h1>Virtuozzo</h1>" in vz_html, "virtuozzo dossier is its own file")
+    check("virtuozzo.trust.site" not in vz_html, "virtuozzo dossier does not cite the portal")
+    check("trust.site" not in vz_html.lower(), "virtuozzo dossier does not name the portal vendor host")
+    check("sprinto" not in vz_html.lower(), "virtuozzo dossier names no portal vendor")
+    check(by_pub["jack-henry"].get("found") is False, "jack-henry Official page stays open")
+    check(by_pub["jack-henry-and-associates"].get("found") is False, "jack-henry-and-associates stays its own empty file")
+    check(by_pub["jack-henry"]["domain"] == "jackhenry.com", "jack-henry domain stays jackhenry.com")
+    check(by_pub["jack-henry-and-associates"]["domain"] == "jackhenry.com", "jack-henry-and-associates keeps the same printed domain")
+    jh_html = (ROOT / "site" / "c" / "jack-henry.html").read_text(encoding="utf-8")
+    check("<h1>Jack Henry</h1>" in jh_html, "jack-henry dossier is its own file")
+    check(
+        "<h1>Jack Henry &amp; Associates</h1>" in (ROOT / "site" / "c" / "jack-henry-and-associates.html").read_text(encoding="utf-8"),
+        "jack-henry-and-associates dossier stays a separate file",
+    )
     kept, why = hold_marks(
         ["HIPAA"],
         "HIPAA compliance assistance Customers that must safeguard protected health "
