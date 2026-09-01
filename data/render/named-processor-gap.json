@@ -1,7 +1,7 @@
 {
-  "generated": "2026-09-01T02:13:00Z",
-  "register": 4696,
-  "origin_main": "b7359ead56",
+  "generated": "2026-09-01T03:20:00Z",
+  "register": 4704,
+  "origin_main": "59b10a8000",
   "mode": "leftover-named-processor-plus-first-party-fills",
   "leftovers_min1": 33,
   "leftovers_after": 33,
@@ -28,53 +28,90 @@
   "newly_filed": [],
   "c0_fills": [
     {
-      "slug": "appcues",
-      "name": "Appcues",
-      "domain": "appcues.com",
+      "slug": "messagebird",
+      "name": "MessageBird",
+      "domain": "messagebird.com",
+      "named_by": 9,
+      "completeness_before": 70,
+      "completeness_after": 80,
+      "official_page": "https://messagebird.com/trust",
+      "marks": ["ISO 27001", "EU-US DPF"],
+      "source": "https://bird.com/legal/dpa",
+      "left_open": [
+        "Official page stays the existing portal. Years stay 2011.",
+        "ISO 27001 from DPA: We are ISO 27001 certified. EU-US DPF from privacy Commerce self-cert.",
+        "HIPAA stays open. Named processors stay open."
+      ]
+    },
+    {
+      "slug": "qualified-com",
+      "name": "Qualified",
+      "domain": "qualified.com",
       "named_by": 4,
       "completeness_before": 60,
       "completeness_after": 70,
-      "official_page": "https://trust.appcues.com",
-      "marks": ["SOC 2 Type II", "EU-US DPF"],
-      "source": "https://www.appcues.com/data-processing-addendum",
+      "official_page": "https://trust.qualified.com",
+      "marks": ["SOC 2 Type II"],
+      "source": "https://www.qualified.com/legal/dpa",
       "left_open": [
         "Official page stays the existing portal. Years stay open.",
-        "SOC 2 Type II from DPA: Appcues has completed a SOC 2 Type 2 audit. EU-US DPF from privacy self-cert."
+        "SOC 2 Type II from DPA: Qualified agrees that it will maintain a SOC2/Type II certification.",
+        "HIPAA stays open. Sensitive Data definition names HIPAA among GLBA/FCRA/GDPR."
       ]
     },
     {
-      "slug": "rollbar",
-      "name": "Rollbar, Inc",
-      "domain": "rollbar.com",
+      "slug": "apollo-io",
+      "name": "Apollo.io",
+      "domain": "apollo.io",
       "named_by": 2,
       "completeness_before": 50,
       "completeness_after": 60,
-      "official_page": "https://rollbar.com/security",
-      "marks": ["SOC 2 Type II", "SOC 3"],
-      "source": "https://docs.rollbar.com/docs/security",
+      "official_page": "https://trust.apollo.io",
+      "marks": ["EU-US DPF"],
+      "source": "https://www.apollo.io/dpa",
       "left_open": [
-        "SOC 2 Type I superseded by Type II.",
-        "ISO 27001 stays open. Prose says chosen to become compliant, not a hold.",
-        "HIPAA Compliant SaaS stays open."
+        "Official page stays the existing portal. Years stay open.",
+        "EU-US DPF from DPA: Apollo participates in and certifies compliance with the Data Privacy Framework.",
+        "SOC 2 Type II stays open. Prose is datacenter physical controls audited for SOC 2 Type II."
       ]
     },
     {
-      "slug": "liveblocks",
-      "name": "Liveblocks",
-      "domain": "liveblocks.io",
+      "slug": "maestroqa",
+      "name": "MaestroQA",
+      "domain": "maestroqa.com",
       "named_by": 2,
-      "completeness_before": 60,
-      "completeness_after": 70,
-      "official_page": "https://liveblocks.secureframetrust.com",
-      "marks": ["SOC 2 Type II"],
-      "source": "https://liveblocks.io/security",
+      "completeness_before": 50,
+      "completeness_after": 60,
+      "official_page": "https://trust.maestroqa.com",
+      "marks": ["EU-US DPF"],
+      "source": "https://www.maestroqa.com/privacy",
       "left_open": [
-        "Official page stays the existing SecureFrame portal. Marks cited from first-party /security, not the portal.",
-        "HIPAA stays open. Prose is supports HIPAA as an add-on."
+        "Official page stays the existing portal. Years stay 2013.",
+        "EU-US DPF from privacy: Maestro has certified to the U.S. Department of Commerce."
+      ]
+    },
+    {
+      "slug": "validity",
+      "name": "Validity",
+      "domain": "validity.com",
+      "named_by": 2,
+      "completeness_before": 50,
+      "completeness_after": 60,
+      "official_page": "https://trust.validity.com",
+      "marks": ["EU-US DPF"],
+      "source": "https://www.validity.com/privacy-policy/",
+      "left_open": [
+        "Official page stays the existing portal. Years stay open.",
+        "EU-US DPF from privacy: Validity has certified to the U.S. Department of Commerce."
       ]
     }
   ],
   "clerk_holds": [
+    {
+      "slug": "openrouter",
+      "name": "OpenRouter",
+      "reason": "DPA Schedule 2 lists SOC 2 Type II control framework as a security-control bullet, not a certification. Same class as MaxMind based-on. Marks stay open. Official page stays https://openrouter.ai/security."
+    },
     {
       "slug": "filestack",
       "name": "Filestack",
@@ -184,9 +221,11 @@
     "zealep-business-solutions"
   ],
   "refused_this_cut": [
-    "True-missing named_by ≥2 stays empty. Leftover graph stays 33 domain-less. Register 4696 after main crawl batch; this cut files no new rows.",
-    "No leftover domain invented. rsi.ch is Swiss radio, not RingCentral RSI. sync.com is not the ElevenLabs Sync node. mpower.co is not Meltwater Mpower. deft.co is the agentic coding platform, not Kentik colo Deft.",
-    "Standing alias refusals kept. MadKudu / Thorn / Textel / Adaptive Mobile / SamKnows still unresolved.",
-    "Vonage / Vultr / TransUnion / UpCloud / Adjust Cloudflare or portal. CEQUENS chips unread. Virtuozzo portal not restored as Official page."
+    "True-missing named_by ≥2 stays empty. Leftover graph stays 33 domain-less. Register 4696; this cut files no new rows.",
+    "No leftover domain invented. rsi.ch is Swiss radio, not RingCentral RSI. sync.com is not the ElevenLabs Sync node. mpower.co is not Meltwater Mpower. deft.co is the agentic coding platform, not Kentik colo Deft. softwaremind.com is Software Mind, not Branch Software Minds, Inc. amacuro.com is a lander.",
+    "Standing alias refusals kept. MadKudu / Thorn / Textel / Adaptive Mobile / SamKnows still unresolved (403 / http-0).",
+    "OpenRouter DPA Schedule 2 'SOC 2 Type II control framework' is a security-control bullet, not a certification. Same class as MaxMind based-on. Marks stay open. Official page stays https://openrouter.ai/security.",
+    "PlanetScale DPA 'may be audited against SSAE 18 SOC 2' stays open. Recall.ai nav example chips stay open. Postmark DPA marks are AWS/Deft. SupportNinja PCI is the payment processor's. Cinder footer HIPAA chip stays open.",
+    "MessageBird privacy 'certifications including SOC 2 Type II compliance' not filed this cut."
   ]
 }

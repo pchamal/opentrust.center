@@ -1043,6 +1043,152 @@ def main() -> int:
     check("https://liveblocks.secureframetrust.com" in lb_html, "liveblocks dossier cites Official page")
     check("SOC 2 Type II" in lb_html, "liveblocks dossier prints SOC 2 Type II")
     check("HIPAA" not in lb_html, "liveblocks dossier does not print HIPAA add-on")
+    # This cut: first-party Completeness fills on already-on-register named processors.
+    # MessageBird DPA ISO hold + privacy DPF self-cert. Official page stays the portal.
+    kept, why = hold_marks(
+        ["ISO 27001"],
+        "We are ISO 27001 certified, the globally recognised information security "
+        "standards for Information Security Management Systems (ISMS).",
+        "dpa",
+    )
+    check(kept == ["ISO 27001"], f"messagebird DPA ISO 27001 certified files: {kept} {why}")
+    kept, why = hold_marks(
+        ["EU-US DPF"],
+        "Bird.com Inc. (\"Bird USA\") has certified to the U.S. Department of Commerce "
+        "that it adheres to the EU-U.S. Data Privacy Framework Principles.",
+        "privacy",
+    )
+    check(kept == ["EU-US DPF"], f"messagebird privacy DPF self-cert files: {kept} {why}")
+    check(by_pub["messagebird"].get("found") is True, "messagebird Official page is on file")
+    check(
+        by_pub["messagebird"].get("trust_url") == "https://messagebird.com/trust",
+        "messagebird Official page stays the existing portal",
+    )
+    check(
+        {"ISO 27001", "EU-US DPF"} <= set(by_pub["messagebird"].get("certs") or []),
+        f"messagebird first-party holds {by_pub['messagebird'].get('certs')}",
+    )
+    check("HIPAA" not in (by_pub["messagebird"].get("certs") or []), "messagebird HIPAA stays open")
+    check("SOC 2 Type II" not in (by_pub["messagebird"].get("certs") or []), "messagebird privacy including-SOC stays open")
+    check(by_pub["messagebird"].get("founded_year") == 2011, "messagebird years stay")
+    check((by_pub["messagebird"].get("file") or {}).get("page") == 20, "messagebird Official page prints")
+    check((by_pub["messagebird"].get("file") or {}).get("marks") == 20, "messagebird marks print")
+    check((by_pub["messagebird"].get("file") or {}).get("years") == 20, "messagebird years stay")
+    mb_html = (ROOT / "site" / "c" / "messagebird.html").read_text(encoding="utf-8")
+    check("<h1>MessageBird</h1>" in mb_html, "messagebird dossier is its own file")
+    check("https://messagebird.com/trust" in mb_html, "messagebird dossier cites Official page")
+    check("ISO 27001" in mb_html, "messagebird dossier prints ISO 27001")
+    check("EU-US DPF" in mb_html, "messagebird dossier prints EU-US DPF")
+    # Qualified DPA: maintain SOC 2 Type II. HIPAA is a Sensitive Data definition.
+    kept, why = hold_marks(
+        ["SOC 2 Type II"],
+        "Qualified agrees that it will maintain a SOC2/Type II certification "
+        "with respect to its Security Measures.",
+        "dpa",
+    )
+    check(kept == ["SOC 2 Type II"], f"qualified DPA Type II files: {kept} {why}")
+    check(by_pub["qualified-com"].get("found") is True, "qualified Official page is on file")
+    check(
+        by_pub["qualified-com"].get("trust_url") == "https://trust.qualified.com",
+        "qualified Official page stays the existing portal",
+    )
+    check((by_pub["qualified-com"].get("certs") or []) == ["SOC 2 Type II"], f"qualified certs {by_pub['qualified-com'].get('certs')}")
+    check("HIPAA" not in (by_pub["qualified-com"].get("certs") or []), "qualified HIPAA definition stays open")
+    check(by_pub["qualified-com"].get("founded_year") in (None, 0, False), "qualified years stay open")
+    check((by_pub["qualified-com"].get("file") or {}).get("page") == 20, "qualified Official page prints")
+    check((by_pub["qualified-com"].get("file") or {}).get("marks") == 20, "qualified marks print")
+    check((by_pub["qualified-com"].get("file") or {}).get("years") in (0, False, None), "qualified years stay open")
+    q_html = (ROOT / "site" / "c" / "qualified-com.html").read_text(encoding="utf-8")
+    check("<h1>Qualified</h1>" in q_html, "qualified dossier is its own file")
+    check("https://trust.qualified.com" in q_html, "qualified dossier cites Official page")
+    check("SOC 2 Type II" in q_html, "qualified dossier prints SOC 2 Type II")
+    check("HIPAA" not in q_html, "qualified dossier does not print HIPAA definition")
+    # OpenRouter DPA Schedule 2 lists "SOC 2 Type II control framework" as a
+    # security-control bullet, not a certification. Same class as MaxMind
+    # "based on the standard." Marks stay open. Official page stays /security.
+    check(by_pub["openrouter"].get("found") is True, "openrouter Official page is on file")
+    check(
+        by_pub["openrouter"].get("trust_url") == "https://openrouter.ai/security",
+        "openrouter Official page stays first-party /security",
+    )
+    check(not (by_pub["openrouter"].get("certs") or []), f"openrouter control-framework stays open {by_pub['openrouter'].get('certs')}")
+    check("SOC 2 Type II" not in (by_pub["openrouter"].get("certs") or []), "openrouter Type II control framework stays open")
+    check(by_pub["openrouter"].get("founded_year") in (None, 0, False), "openrouter years stay open")
+    check((by_pub["openrouter"].get("file") or {}).get("page") == 20, "openrouter Official page prints")
+    check((by_pub["openrouter"].get("file") or {}).get("marks") in (0, 10, False, None), "openrouter marks stay open")
+    check((by_pub["openrouter"].get("file") or {}).get("dpa") == 20, "openrouter DPA stays")
+    or_html = (ROOT / "site" / "c" / "openrouter.html").read_text(encoding="utf-8")
+    check("<h1>OpenRouter</h1>" in or_html, "openrouter dossier is its own file")
+    check("https://openrouter.ai/security" in or_html, "openrouter dossier cites Official page")
+    check("SOC 2 Type II" not in or_html, "openrouter dossier does not print control-framework Type II")
+    check("Marks cited from public HTML" not in or_html, "openrouter clerk does not cite a dropped mark")
+    # Apollo DPA: datacenter SOC 2 stays open. DPF participate-and-certify files.
+    kept, why = hold_marks(
+        ["EU-US DPF"],
+        "At the time of the execution of the Agreement, Apollo participates in and "
+        "certifies compliance with the Data Privacy Framework. The Data Privacy "
+        "Framework self-certification programs are operated by the U.S. Department of Commerce.",
+        "dpa",
+    )
+    check(kept == ["EU-US DPF"], f"apollo DPA DPF certify files: {kept} {why}")
+    check(by_pub["apollo-io"].get("found") is True, "apollo Official page is on file")
+    check(
+        by_pub["apollo-io"].get("trust_url") == "https://trust.apollo.io",
+        "apollo Official page stays the existing portal",
+    )
+    check((by_pub["apollo-io"].get("certs") or []) == ["EU-US DPF"], f"apollo certs {by_pub['apollo-io'].get('certs')}")
+    check("SOC 2 Type II" not in (by_pub["apollo-io"].get("certs") or []), "apollo datacenter SOC 2 stays open")
+    check(by_pub["apollo-io"].get("founded_year") in (None, 0, False), "apollo years stay open")
+    check((by_pub["apollo-io"].get("file") or {}).get("page") == 20, "apollo Official page prints")
+    check((by_pub["apollo-io"].get("file") or {}).get("marks") == 20, "apollo marks print")
+    ap_html = (ROOT / "site" / "c" / "apollo-io.html").read_text(encoding="utf-8")
+    check("<h1>Apollo.io</h1>" in ap_html, "apollo dossier is its own file")
+    check("https://trust.apollo.io" in ap_html, "apollo dossier cites Official page")
+    check("EU-US DPF" in ap_html, "apollo dossier prints EU-US DPF")
+    check("SOC 2" not in ap_html, "apollo dossier does not print datacenter SOC 2")
+    # MaestroQA privacy DPF self-cert. Official page stays the portal.
+    kept, why = hold_marks(
+        ["EU-US DPF"],
+        "Maestro has certified to the U.S. Department of Commerce that it adheres "
+        "to the EU-U.S. Data Privacy Framework Principles.",
+        "privacy",
+    )
+    check(kept == ["EU-US DPF"], f"maestroqa privacy DPF self-cert files: {kept} {why}")
+    check(by_pub["maestroqa"].get("found") is True, "maestroqa Official page is on file")
+    check(
+        by_pub["maestroqa"].get("trust_url") == "https://trust.maestroqa.com",
+        "maestroqa Official page stays the existing portal",
+    )
+    check((by_pub["maestroqa"].get("certs") or []) == ["EU-US DPF"], f"maestroqa certs {by_pub['maestroqa'].get('certs')}")
+    check(by_pub["maestroqa"].get("founded_year") == 2013, "maestroqa years stay")
+    check((by_pub["maestroqa"].get("file") or {}).get("page") == 20, "maestroqa Official page prints")
+    check((by_pub["maestroqa"].get("file") or {}).get("marks") == 20, "maestroqa marks print")
+    check((by_pub["maestroqa"].get("file") or {}).get("years") == 20, "maestroqa years stay")
+    mq_html = (ROOT / "site" / "c" / "maestroqa.html").read_text(encoding="utf-8")
+    check("<h1>MaestroQA</h1>" in mq_html, "maestroqa dossier is its own file")
+    check("https://trust.maestroqa.com" in mq_html, "maestroqa dossier cites Official page")
+    check("EU-US DPF" in mq_html, "maestroqa dossier prints EU-US DPF")
+    # Validity privacy DPF self-cert. Official page stays the portal. Years stay open.
+    kept, why = hold_marks(
+        ["EU-US DPF"],
+        "Validity has certified to the U.S. Department of Commerce that it adheres "
+        "to the EU-U.S. Data Privacy Framework Principles.",
+        "privacy",
+    )
+    check(kept == ["EU-US DPF"], f"validity privacy DPF self-cert files: {kept} {why}")
+    check(by_pub["validity"].get("found") is True, "validity Official page is on file")
+    check(
+        by_pub["validity"].get("trust_url") == "https://trust.validity.com",
+        "validity Official page stays the existing portal",
+    )
+    check((by_pub["validity"].get("certs") or []) == ["EU-US DPF"], f"validity certs {by_pub['validity'].get('certs')}")
+    check(by_pub["validity"].get("founded_year") in (None, 0, False), "validity years stay open")
+    check((by_pub["validity"].get("file") or {}).get("page") == 20, "validity Official page prints")
+    check((by_pub["validity"].get("file") or {}).get("marks") == 20, "validity marks print")
+    va_html = (ROOT / "site" / "c" / "validity.html").read_text(encoding="utf-8")
+    check("<h1>Validity</h1>" in va_html, "validity dossier is its own file")
+    check("https://trust.validity.com" in va_html, "validity dossier cites Official page")
+    check("EU-US DPF" in va_html, "validity dossier prints EU-US DPF")
     # Preferred C0 left open: product cybersecurity / login dashboard.
     check(by_pub["legalinc-com"].get("found") is False, "legalinc dashboard is not Official page")
     check(not by_pub["legalinc-com"].get("trust_url"), "legalinc has no invented Official page")
