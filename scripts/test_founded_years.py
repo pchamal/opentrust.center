@@ -366,15 +366,6 @@ def test_report_years_landed() -> None:
     faculty = by_pub["faculty"]
     check(faculty.get("founded_year") == 2014, "Faculty year 2014 stays")
     check(faculty.get("founded_source") == "https://faculty.ai/en-gb", "Faculty source stays")
-    teleport = by_pub["teleport"]
-    check(teleport.get("founded_year") == 2015, "Teleport year 2015 from first-party foundingDate")
-    check(teleport.get("founded_source") == "https://goteleport.com/about", "Teleport year source is /about")
-    check((teleport.get("file") or {}).get("years") in (True, 20), "Teleport years rule prints")
-    tel_html = (ROOT / "site" / "c" / "teleport.html").read_text(encoding="utf-8")
-    check("founded · 2015" in tel_html, "Teleport dossier prints 2015")
-    check("https://goteleport.com/about" in tel_html, "Teleport dossier cites about source")
-    check("ISO 27701" not in tel_html, "Teleport SafeBase JSON-LD ISO 27701 stays open")
-    check("PCI DSS" not in tel_html, "Teleport SafeBase JSON-LD PCI DSS stays open")
     prior = {
         "appian": 1999,
         "esentire": 2001,
@@ -459,11 +450,31 @@ def test_report_years_landed() -> None:
         check((pub.get("file") or {}).get("years") in (0, None, False), f"{slug} years rule open")
 
 
+def test_teleport_year_landed() -> None:
+    """This increment filed Teleport 2015 from first-party foundingDate."""
+    import json
+    public = json.loads((ROOT / "site" / "data.json").read_text())
+    enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
+    by_pub = {c["slug"]: c for c in public["companies"]}
+    by_enr = {c["slug"]: c for c in enr["companies"]}
+    pub, row = by_pub["teleport"], by_enr["teleport"]
+    check(pub.get("founded_year") == 2015, "Teleport public year 2015")
+    check(row.get("founded_year") == 2015, "Teleport enriched year 2015")
+    check(pub.get("founded_source") == "https://goteleport.com/about", "Teleport year source is /about")
+    check((pub.get("file") or {}).get("years") in (True, 20), "Teleport years rule prints")
+    html = (ROOT / "site" / "c" / "teleport.html").read_text(encoding="utf-8")
+    check("founded · 2015" in html, "Teleport dossier prints 2015")
+    check("https://goteleport.com/about" in html, "Teleport dossier cites about source")
+    check("ISO 27701" not in html, "Teleport SafeBase JSON-LD ISO 27701 stays open")
+    check("PCI DSS" not in html, "Teleport SafeBase JSON-LD PCI DSS stays open")
+
+
 def main() -> int:
     test_prefix_is_not_a_match()
     test_official_site_only()
     test_parse_founded_sentence()
     test_apply_rejects_wiki_and_keeps_existing()
+    test_teleport_year_landed()
     test_report_years_landed()
     print("ok")
     return 0
