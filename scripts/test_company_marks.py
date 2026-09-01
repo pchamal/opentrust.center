@@ -1069,6 +1069,7 @@ def main() -> int:
         f"messagebird first-party holds {by_pub['messagebird'].get('certs')}",
     )
     check("HIPAA" not in (by_pub["messagebird"].get("certs") or []), "messagebird HIPAA stays open")
+    check("SOC 2 Type II" not in (by_pub["messagebird"].get("certs") or []), "messagebird privacy including-SOC stays open")
     check(by_pub["messagebird"].get("founded_year") == 2011, "messagebird years stay")
     check((by_pub["messagebird"].get("file") or {}).get("page") == 20, "messagebird Official page prints")
     check((by_pub["messagebird"].get("file") or {}).get("marks") == 20, "messagebird marks print")
@@ -1102,27 +1103,25 @@ def main() -> int:
     check("https://trust.qualified.com" in q_html, "qualified dossier cites Official page")
     check("SOC 2 Type II" in q_html, "qualified dossier prints SOC 2 Type II")
     check("HIPAA" not in q_html, "qualified dossier does not print HIPAA definition")
-    # OpenRouter DPA names SOC 2 Type II as a security control. Years stay open.
-    kept, why = hold_marks(
-        ["SOC 2 Type II"],
-        "Security controls include the following: SOC 2 Type II control framework. "
-        "TLS 1.2+ encryption in transit; AES-256 at rest.",
-        "dpa",
-    )
-    check(kept == ["SOC 2 Type II"], f"openrouter DPA Type II framework files: {kept} {why}")
+    # OpenRouter DPA Schedule 2 lists "SOC 2 Type II control framework" as a
+    # security-control bullet, not a certification. Same class as MaxMind
+    # "based on the standard." Marks stay open. Official page stays /security.
     check(by_pub["openrouter"].get("found") is True, "openrouter Official page is on file")
     check(
         by_pub["openrouter"].get("trust_url") == "https://openrouter.ai/security",
         "openrouter Official page stays first-party /security",
     )
-    check((by_pub["openrouter"].get("certs") or []) == ["SOC 2 Type II"], f"openrouter certs {by_pub['openrouter'].get('certs')}")
+    check(not (by_pub["openrouter"].get("certs") or []), f"openrouter control-framework stays open {by_pub['openrouter'].get('certs')}")
+    check("SOC 2 Type II" not in (by_pub["openrouter"].get("certs") or []), "openrouter Type II control framework stays open")
     check(by_pub["openrouter"].get("founded_year") in (None, 0, False), "openrouter years stay open")
     check((by_pub["openrouter"].get("file") or {}).get("page") == 20, "openrouter Official page prints")
-    check((by_pub["openrouter"].get("file") or {}).get("marks") == 20, "openrouter marks print")
+    check((by_pub["openrouter"].get("file") or {}).get("marks") in (0, 10, False, None), "openrouter marks stay open")
+    check((by_pub["openrouter"].get("file") or {}).get("dpa") == 20, "openrouter DPA stays")
     or_html = (ROOT / "site" / "c" / "openrouter.html").read_text(encoding="utf-8")
     check("<h1>OpenRouter</h1>" in or_html, "openrouter dossier is its own file")
     check("https://openrouter.ai/security" in or_html, "openrouter dossier cites Official page")
-    check("SOC 2 Type II" in or_html, "openrouter dossier prints SOC 2 Type II")
+    check("SOC 2 Type II" not in or_html, "openrouter dossier does not print control-framework Type II")
+    check("Marks cited from public HTML" not in or_html, "openrouter clerk does not cite a dropped mark")
     # Apollo DPA: datacenter SOC 2 stays open. DPF participate-and-certify files.
     kept, why = hold_marks(
         ["EU-US DPF"],

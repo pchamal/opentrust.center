@@ -1,7 +1,7 @@
 {
-  "generated": "2026-09-01T03:10:00Z",
-  "register": 4696,
-  "origin_main": "8d34e3bcc5",
+  "generated": "2026-09-01T03:20:00Z",
+  "register": 4704,
+  "origin_main": "59b10a8000",
   "mode": "leftover-named-processor-plus-first-party-fills",
   "leftovers_min1": 33,
   "leftovers_after": 33,
@@ -60,21 +60,6 @@
       ]
     },
     {
-      "slug": "openrouter",
-      "name": "OpenRouter",
-      "domain": "openrouter.ai",
-      "named_by": 4,
-      "completeness_before": 50,
-      "completeness_after": 60,
-      "official_page": "https://openrouter.ai/security",
-      "marks": ["SOC 2 Type II"],
-      "source": "https://openrouter.ai/data-processing-agreement",
-      "left_open": [
-        "Official page stays first-party /security. Years stay open.",
-        "SOC 2 Type II from DPA security controls: SOC 2 Type II control framework."
-      ]
-    },
-    {
       "slug": "apollo-io",
       "name": "Apollo.io",
       "domain": "apollo.io",
@@ -122,6 +107,11 @@
     }
   ],
   "clerk_holds": [
+    {
+      "slug": "openrouter",
+      "name": "OpenRouter",
+      "reason": "DPA Schedule 2 lists SOC 2 Type II control framework as a security-control bullet, not a certification. Same class as MaxMind based-on. Marks stay open. Official page stays https://openrouter.ai/security."
+    },
     {
       "slug": "filestack",
       "name": "Filestack",
@@ -234,6 +224,8 @@
     "True-missing named_by ≥2 stays empty. Leftover graph stays 33 domain-less. Register 4696; this cut files no new rows.",
     "No leftover domain invented. rsi.ch is Swiss radio, not RingCentral RSI. sync.com is not the ElevenLabs Sync node. mpower.co is not Meltwater Mpower. deft.co is the agentic coding platform, not Kentik colo Deft. softwaremind.com is Software Mind, not Branch Software Minds, Inc. amacuro.com is a lander.",
     "Standing alias refusals kept. MadKudu / Thorn / Textel / Adaptive Mobile / SamKnows still unresolved (403 / http-0).",
-    "PlanetScale DPA 'may be audited against SSAE 18 SOC 2' stays open. Recall.ai nav example chips stay open. Postmark DPA marks are AWS/Deft. SupportNinja PCI is the payment processor's. Cinder footer HIPAA chip stays open."
+    "OpenRouter DPA Schedule 2 'SOC 2 Type II control framework' is a security-control bullet, not a certification. Same class as MaxMind based-on. Marks stay open. Official page stays https://openrouter.ai/security.",
+    "PlanetScale DPA 'may be audited against SSAE 18 SOC 2' stays open. Recall.ai nav example chips stay open. Postmark DPA marks are AWS/Deft. SupportNinja PCI is the payment processor's. Cinder footer HIPAA chip stays open.",
+    "MessageBird privacy 'certifications including SOC 2 Type II compliance' not filed this cut."
   ]
 }

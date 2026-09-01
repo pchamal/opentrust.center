@@ -439,17 +439,19 @@ expect(
 
 const openrouter = bySlug.openrouter;
 expect(
-  "openrouter Completeness is page · marks · DPA = 60",
+  "openrouter Completeness is page · DPA (marks open)",
   openrouter &&
     openrouter.found === true &&
     openrouter.trust_url === "https://openrouter.ai/security" &&
-    (openrouter.certs || []).includes("SOC 2 Type II") &&
+    !(openrouter.certs || []).includes("SOC 2 Type II") &&
+    !(openrouter.certs || []).length &&
     !openrouter.founded_year &&
     fileFlags(openrouter).page === 20 &&
-    fileFlags(openrouter).marks === 20 &&
+    fileFlags(openrouter).marks === 10 &&
     fileFlags(openrouter).dpa === 20 &&
+    fileFlags(openrouter).subprocessors === 0 &&
     fileFlags(openrouter).years === 0 &&
-    fileScore(fileFlags(openrouter)) === 60,
+    fileScore(fileFlags(openrouter)) === 50,
 );
 
 const apollo = bySlug["apollo-io"];
