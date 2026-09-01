@@ -702,6 +702,41 @@ def main() -> int:
     check(by_pub["inkeep"].get("founded_source") == "https://inkeep.com/about", "inkeep year source is /about")
     check((by_pub["inkeep"].get("file") or {}).get("years") == 20, "inkeep years print")
     check(instrument_url(by_pub["inkeep"], "dpa") in (None, ""), "inkeep DPA PDF stays unread")
+    check(
+        instrument_url(by_pub["spekit"], "dpa") == "https://www.spekit.com/legal/dpa",
+        "spekit DPA is first-party HTML",
+    )
+    check((by_pub["spekit"].get("file") or {}).get("dpa") == 20, "spekit DPA prints")
+    check(by_pub["spekit"].get("found") is False, "spekit Official page stays open")
+    check(not by_pub["spekit"].get("trust_url"), "spekit has no invented Official page")
+    check(by_pub["spekit"].get("founded_year") == 2018, "spekit year is first-party foundingDate")
+    check(by_pub["spekit"].get("founded_source") == "https://www.spekit.com/about-us", "spekit year source is /about-us")
+    check((by_pub["spekit"].get("file") or {}).get("years") == 20, "spekit years print")
+    check(
+        instrument_url(by_pub["tropic"], "subprocessors")
+        == "https://www.tropicapp.io/legal/subprocessors",
+        "tropic list is first-party HTML",
+    )
+    check((by_pub["tropic"].get("file") or {}).get("subprocessors") == 20, "tropic processors print")
+    tropic_names = [p.get("name") for p in (by_pub["tropic"].get("processors") or [])]
+    tropic_slugs = [p.get("slug") for p in (by_pub["tropic"].get("processors") or [])]
+    tropic_ids = [p.get("id") for p in (by_pub["tropic"].get("processors") or [])]
+    check("Amazon Web Services" in tropic_names, "tropic names AWS")
+    check("Google Cloud Platform" in tropic_names, "tropic names GCP")
+    check("Omni" in tropic_names, "tropic names Omni")
+    check("amazon-web-services" in tropic_slugs, "tropic AWS uses the existing file")
+    check("google" in tropic_slugs, "tropic GCP uses the Google file")
+    check("aws" not in tropic_ids, "tropic does not keep a raw aws wire id")
+    check("gcp" not in tropic_ids, "tropic does not keep a raw gcp wire id")
+    check("omni" in tropic_ids, "tropic Omni stays a map node")
+    check("omni" not in tropic_slugs, "tropic does not invent an Omni dossier")
+    check(len(tropic_names) == 16, f"tropic printed 16 named processors, got {len(tropic_names)}")
+    tropic_html = (ROOT / "site" / "c" / "tropic.html").read_text(encoding="utf-8")
+    check("<h1>Tropic</h1>" in tropic_html, "tropic dossier is its own file")
+    check("https://www.tropicapp.io/legal/subprocessors" in tropic_html, "tropic dossier cites the list")
+    check("./amazon-web-services.html\">Amazon Web Services" in tropic_html, "tropic AWS cross-links")
+    check("./google.html\">Google Cloud Platform" in tropic_html, "tropic GCP cross-links")
+    check("../graph.html#p=omni\">Omni" in tropic_html, "tropic Omni stays on the map")
 
     check(
         ((by_pub["ai-media"].get("instruments") or {}).get("privacy") or {}).get("url")

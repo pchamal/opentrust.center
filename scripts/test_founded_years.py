@@ -496,6 +496,40 @@ def test_ketch_inkeep_years_landed() -> None:
     check("policies/dpa.pdf" not in inkeep_html, "Inkeep DPA PDF stays unread")
 
 
+def test_spekit_cyberhaven_woopra_years_landed() -> None:
+    """This increment filed Spekit 2018, Cyberhaven 2016, Woopra 2012."""
+    import json
+    public = json.loads((ROOT / "site" / "data.json").read_text())
+    enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
+    by_pub = {c["slug"]: c for c in public["companies"]}
+    by_enr = {c["slug"]: c for c in enr["companies"]}
+    spekit_pub, spekit_row = by_pub["spekit"], by_enr["spekit"]
+    check(spekit_pub.get("founded_year") == 2018, "Spekit public year 2018")
+    check(spekit_row.get("founded_year") == 2018, "Spekit enriched year 2018")
+    check(spekit_pub.get("founded_source") == "https://www.spekit.com/about-us", "Spekit year source is /about-us")
+    check((spekit_pub.get("file") or {}).get("years") in (True, 20), "Spekit years rule prints")
+    check(spekit_pub.get("found") is False, "Spekit Official page stays open")
+    spekit_html = (ROOT / "site" / "c" / "spekit.html").read_text(encoding="utf-8")
+    check("founded · 2018" in spekit_html, "Spekit dossier prints 2018")
+    check("https://www.spekit.com/about-us" in spekit_html, "Spekit dossier cites about source")
+    cyber_pub, cyber_row = by_pub["cyberhaven"], by_enr["cyberhaven"]
+    check(cyber_pub.get("founded_year") == 2016, "Cyberhaven public year 2016")
+    check(cyber_row.get("founded_year") == 2016, "Cyberhaven enriched year 2016")
+    check(cyber_pub.get("founded_source") == "https://www.cyberhaven.com/about", "Cyberhaven year source is /about")
+    check((cyber_pub.get("file") or {}).get("years") in (True, 20), "Cyberhaven years rule prints")
+    cyber_html = (ROOT / "site" / "c" / "cyberhaven.html").read_text(encoding="utf-8")
+    check("founded · 2016" in cyber_html, "Cyberhaven dossier prints 2016")
+    check("https://www.cyberhaven.com/about" in cyber_html, "Cyberhaven dossier cites about source")
+    woopra_pub, woopra_row = by_pub["woopra"], by_enr["woopra"]
+    check(woopra_pub.get("founded_year") == 2012, "Woopra public year 2012")
+    check(woopra_row.get("founded_year") == 2012, "Woopra enriched year 2012")
+    check(woopra_pub.get("founded_source") == "https://www.woopra.com/company/about", "Woopra year source is /company/about")
+    check((woopra_pub.get("file") or {}).get("years") in (True, 20), "Woopra years rule prints")
+    woopra_html = (ROOT / "site" / "c" / "woopra.html").read_text(encoding="utf-8")
+    check("founded · 2012" in woopra_html, "Woopra dossier prints 2012")
+    check("https://www.woopra.com/company/about" in woopra_html, "Woopra dossier cites about source")
+
+
 def main() -> int:
     test_prefix_is_not_a_match()
     test_official_site_only()
@@ -503,6 +537,7 @@ def main() -> int:
     test_apply_rejects_wiki_and_keeps_existing()
     test_teleport_year_landed()
     test_ketch_inkeep_years_landed()
+    test_spekit_cyberhaven_woopra_years_landed()
     # Live company-years.json is a later leftover walk (WNS). Do not hang
     # this increment's year asserts on that stale report suite.
     print("ok")

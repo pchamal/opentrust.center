@@ -184599,8 +184599,8 @@
       "certs": [],
       "attestations": [],
       "summary": "",
-      "founded_year": null,
-      "founded_source": null,
+      "founded_year": 2016,
+      "founded_source": "https://www.cyberhaven.com/about",
       "instruments": {
         "trust": null,
         "security": null,
@@ -184612,7 +184612,7 @@
       },
       "processors": [],
       "disclosure": {
-        "score": 0,
+        "score": 5,
         "tier": "silent",
         "factors": {
           "page": 0,
@@ -184622,7 +184622,7 @@
           "status": 0,
           "bounty": 0,
           "privacy": 0,
-          "years": 0
+          "years": 5
         }
       },
       "tier": "silent",
@@ -184631,7 +184631,7 @@
         "marks": 0,
         "dpa": 0,
         "subprocessors": 0,
-        "years": 0
+        "years": 20
       },
       "_crawl": {
         "vendor": null,
@@ -303440,39 +303440,43 @@
       "certs": [],
       "attestations": [],
       "summary": "",
-      "founded_year": null,
-      "founded_source": null,
+      "founded_year": 2018,
+      "founded_source": "https://www.spekit.com/about-us",
       "instruments": {
         "trust": null,
         "security": null,
         "privacy": null,
-        "dpa": null,
+        "dpa": {
+          "url": "https://www.spekit.com/legal/dpa",
+          "host": "spekit.com",
+          "seen": "2026-09-01"
+        },
         "subprocessors": null,
         "status": null,
         "bounty": null
       },
       "processors": [],
       "disclosure": {
-        "score": 0,
+        "score": 12,
         "tier": "silent",
         "factors": {
           "page": 0,
           "marks": 0,
-          "dpa": 0,
+          "dpa": 8,
           "processors": 0,
           "status": 0,
           "bounty": 0,
           "privacy": 0,
-          "years": 0
+          "years": 4
         }
       },
       "tier": "silent",
       "file": {
         "page": 0,
         "marks": 0,
-        "dpa": 0,
+        "dpa": 20,
         "subprocessors": 0,
-        "years": 0
+        "years": 20
       },
       "_crawl": {
         "vendor": null,
@@ -319840,19 +319844,119 @@
         "security": null,
         "privacy": null,
         "dpa": null,
-        "subprocessors": null,
+        "subprocessors": {
+          "url": "https://www.tropicapp.io/legal/subprocessors",
+          "host": "tropicapp.io",
+          "seen": "2026-09-01"
+        },
         "status": null,
         "bounty": null
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "Amazon Web Services",
+          "id": "amazon-web-services",
+          "source_url": "https://www.tropicapp.io/legal/subprocessors",
+          "slug": "amazon-web-services"
+        },
+        {
+          "name": "Datadog",
+          "id": "datadog",
+          "source_url": "https://www.tropicapp.io/legal/subprocessors",
+          "slug": "datadog"
+        },
+        {
+          "name": "Dropbox",
+          "id": "dropbox",
+          "source_url": "https://www.tropicapp.io/legal/subprocessors",
+          "slug": "dropbox"
+        },
+        {
+          "name": "Elasticsearch",
+          "id": "elastic",
+          "source_url": "https://www.tropicapp.io/legal/subprocessors",
+          "slug": "elastic"
+        },
+        {
+          "name": "FiveTran",
+          "id": "fivetran",
+          "source_url": "https://www.tropicapp.io/legal/subprocessors",
+          "slug": "fivetran"
+        },
+        {
+          "name": "Gong",
+          "id": "gong",
+          "source_url": "https://www.tropicapp.io/legal/subprocessors",
+          "slug": "gong"
+        },
+        {
+          "name": "Google Cloud Platform",
+          "id": "google",
+          "source_url": "https://www.tropicapp.io/legal/subprocessors",
+          "slug": "google"
+        },
+        {
+          "name": "Omni",
+          "id": "omni",
+          "source_url": "https://www.tropicapp.io/legal/subprocessors"
+        },
+        {
+          "name": "OpenAI",
+          "id": "openai",
+          "source_url": "https://www.tropicapp.io/legal/subprocessors",
+          "slug": "openai"
+        },
+        {
+          "name": "Postmark",
+          "id": "postmark",
+          "source_url": "https://www.tropicapp.io/legal/subprocessors",
+          "slug": "postmark"
+        },
+        {
+          "name": "Sentry",
+          "id": "sentry",
+          "source_url": "https://www.tropicapp.io/legal/subprocessors",
+          "slug": "sentry"
+        },
+        {
+          "name": "Sigma",
+          "id": "sigma",
+          "source_url": "https://www.tropicapp.io/legal/subprocessors",
+          "slug": "sigma"
+        },
+        {
+          "name": "Slack",
+          "id": "slack",
+          "source_url": "https://www.tropicapp.io/legal/subprocessors",
+          "slug": "slack"
+        },
+        {
+          "name": "Workato",
+          "id": "workato",
+          "source_url": "https://www.tropicapp.io/legal/subprocessors",
+          "slug": "workato"
+        },
+        {
+          "name": "Zapier",
+          "id": "zapier",
+          "source_url": "https://www.tropicapp.io/legal/subprocessors",
+          "slug": "zapier"
+        },
+        {
+          "name": "Zoom",
+          "id": "zoom",
+          "source_url": "https://www.tropicapp.io/legal/subprocessors",
+          "slug": "zoom"
+        }
+      ],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
         "factors": {
           "page": 0,
           "marks": 0,
           "dpa": 0,
-          "processors": 0,
+          "processors": 8,
           "status": 0,
           "bounty": 0,
           "privacy": 0,
@@ -319864,7 +319968,7 @@
         "page": 0,
         "marks": 0,
         "dpa": 0,
-        "subprocessors": 0,
+        "subprocessors": 20,
         "years": 0
       },
       "_crawl": {
@@ -334584,8 +334688,8 @@
       "certs": [],
       "attestations": [],
       "summary": "",
-      "founded_year": null,
-      "founded_source": null,
+      "founded_year": 2012,
+      "founded_source": "https://www.woopra.com/company/about",
       "instruments": {
         "trust": null,
         "security": null,
@@ -334597,7 +334701,7 @@
       },
       "processors": [],
       "disclosure": {
-        "score": 0,
+        "score": 7,
         "tier": "silent",
         "factors": {
           "page": 0,
@@ -334607,7 +334711,7 @@
           "status": 0,
           "bounty": 0,
           "privacy": 0,
-          "years": 0
+          "years": 7
         }
       },
       "tier": "silent",
@@ -334616,7 +334720,7 @@
         "marks": 0,
         "dpa": 0,
         "subprocessors": 0,
-        "years": 0
+        "years": 20
       },
       "_crawl": {
         "vendor": null,

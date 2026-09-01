@@ -625,6 +625,75 @@ expect(
     fileScore(fileFlags(inkeep)) === 60,
 );
 
+const spekit = bySlug.spekit;
+expect(
+  "spekit Completeness is DPA · years = 40",
+  spekit &&
+    spekit.found === false &&
+    !spekit.trust_url &&
+    ((spekit.instruments || {}).dpa || {}).url === "https://www.spekit.com/legal/dpa" &&
+    !((spekit.instruments || {}).subprocessors || {}).url &&
+    !(spekit.certs || []).length &&
+    spekit.founded_year === 2018 &&
+    spekit.founded_source === "https://www.spekit.com/about-us" &&
+    fileFlags(spekit).page === 0 &&
+    fileFlags(spekit).marks === 0 &&
+    fileFlags(spekit).dpa === 20 &&
+    fileFlags(spekit).subprocessors === 0 &&
+    fileFlags(spekit).years === 20 &&
+    fileScore(fileFlags(spekit)) === 40,
+);
+
+const cyberhaven = bySlug.cyberhaven;
+expect(
+  "cyberhaven Completeness is years = 20",
+  cyberhaven &&
+    cyberhaven.found === false &&
+    !cyberhaven.trust_url &&
+    cyberhaven.founded_year === 2016 &&
+    cyberhaven.founded_source === "https://www.cyberhaven.com/about" &&
+    fileFlags(cyberhaven).page === 0 &&
+    fileFlags(cyberhaven).marks === 0 &&
+    fileFlags(cyberhaven).dpa === 0 &&
+    fileFlags(cyberhaven).years === 20 &&
+    fileScore(fileFlags(cyberhaven)) === 20,
+);
+
+const woopra = bySlug.woopra;
+expect(
+  "woopra Completeness is years = 20",
+  woopra &&
+    woopra.found === false &&
+    !woopra.trust_url &&
+    woopra.founded_year === 2012 &&
+    woopra.founded_source === "https://www.woopra.com/company/about" &&
+    fileFlags(woopra).page === 0 &&
+    fileFlags(woopra).marks === 0 &&
+    fileFlags(woopra).years === 20 &&
+    fileScore(fileFlags(woopra)) === 20,
+);
+
+const tropic = bySlug.tropic;
+expect(
+  "tropic Completeness is subprocessors = 20",
+  tropic &&
+    tropic.found === false &&
+    !tropic.trust_url &&
+    ((tropic.instruments || {}).subprocessors || {}).url ===
+      "https://www.tropicapp.io/legal/subprocessors" &&
+    (tropic.processors || []).length === 16 &&
+    (tropic.processors || []).some((p) => p.slug === "amazon-web-services") &&
+    (tropic.processors || []).some((p) => p.slug === "google") &&
+    (tropic.processors || []).some((p) => p.id === "omni" && !p.slug) &&
+    !tropic.founded_year &&
+    fileFlags(tropic).page === 0 &&
+    fileFlags(tropic).marks === 0 &&
+    fileFlags(tropic).dpa === 0 &&
+    fileFlags(tropic).subprocessors === 20 &&
+    fileFlags(tropic).years === 0 &&
+    fileScore(fileFlags(tropic)) === 20,
+);
+
 const nylas = bySlug.nylas;
 expect(
   "nylas Completeness is page · marks · subprocessors = 60",
