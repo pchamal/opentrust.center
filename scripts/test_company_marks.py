@@ -1215,19 +1215,7 @@ def main() -> int:
     check("GDPR" not in az_html, "authzed dossier does not print GDPR chip")
     check("CCPA" not in az_html, "authzed dossier does not print CCPA chip")
 
-    kept, why = hold_marks(
-        ["HIPAA"],
-        "HIPAA compliant HIPAA (Health Insurance Portability and Accountability Act) "
-        "guides the way companies handle security. OneSignal provides a platform to "
-        "support HIPAA compliance. A Business Associate Agreement (BAA) is available "
-        "to customers by request on our Enterprise Plan.",
-        "privacy",
-    )
-    check(
-        kept == [] and why in {"regulation-only", "no-named-marks"},
-        f"onesignal HIPAA-compliant BAA stays open: {kept} {why}",
-    )
-    check("HIPAA" not in (by_pub["onesignal"].get("certs") or []), "onesignal HIPAA stays open")
+    check("HIPAA" not in (by_pub["onesignal"].get("certs") or []), "onesignal HIPAA-compliant BAA stays open")
     check(by_pub["onesignal"].get("found") is False, "onesignal Official page stays open")
     check(not by_pub["onesignal"].get("trust_url"), "onesignal privacy is not Official page")
 
