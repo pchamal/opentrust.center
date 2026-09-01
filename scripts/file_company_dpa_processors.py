@@ -16,7 +16,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import enrich  # noqa: E402
-from processor_aliases import canonical_processor_id  # noqa: E402
+from processor_aliases import canonical_processor_id, skip_processor  # noqa: E402
 
 SITE = ROOT / "site"
 DATA = ROOT / "data"
@@ -1083,7 +1083,11 @@ def main() -> int:
                 rejected.append({"slug": slug, "url": public_url(url), "final": public_url(final), "reason": "no-printed-names", "kind": "subprocessors"})
                 continue
             dated = [n for _i, n, _e in procs if enrich.looks_like_date_name(n)]
-            procs = [(i, n, e) for i, n, e in procs if not enrich.looks_like_date_name(n)]
+            procs = [
+                (i, n, e)
+                for i, n, e in procs
+                if not enrich.looks_like_date_name(n) and not skip_processor(i, n)
+            ]
             if dated:
                 rejected.append({"slug": slug, "url": public_url(url), "reason": "date-shaped-names", "kind": "subprocessors", "dropped": dated})
             if not procs:

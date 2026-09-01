@@ -49,6 +49,8 @@ def main() -> int:
     check(canonical_processor_id("recaptcha", google_reg) == "google", "reCAPTCHA is Google")
     check(skip_processor("entity-name", "Entity Name"), "entity-name is garbage")
     check(skip_processor("n-a", "n/a"), "n/a is garbage")
+    check(skip_processor("talent-hire", "Talent/Hire"), "LinkedIn DPA product line is garbage")
+    check(skip_processor("learning", "Learning"), "LinkedIn Learning product line is garbage")
     check(REGISTER_ALIASES["baseten-labs-inc"] == "baseten", "baseten legal name aliases")
     mail_reg = {**register, "mailchimp": {"slug": "mailchimp", "name": "Mailchimp", "domain": "mailchimp.com"}}
     check(canonical_processor_id("the-rocket-science-group", mail_reg) == "mailchimp", "Rocket Science Group is Mailchimp")
@@ -389,6 +391,22 @@ def main() -> int:
     check(canonical_processor_id("microsoft-hosting-services", ms_reg) == "microsoft", "Microsoft Hosting Services is Microsoft")
     mis_reg = {**register, "mistral-ai": {"slug": "mistral-ai", "name": "Mistral AI", "domain": "mistral.ai"}}
     check(canonical_processor_id("mistral", mis_reg) == "mistral-ai", "Mistral is Mistral AI")
+    check(
+        canonical_processor_id("microsoft-and-its-affiliates", {**register, "microsoft": register["microsoft"]})
+        == "microsoft",
+        "Microsoft Corporation and its Affiliates is Microsoft",
+    )
+    conc_reg = {**register, "concentrix": {"slug": "concentrix", "name": "Concentrix", "domain": "concentrix.com"}}
+    check(canonical_processor_id("concentrix-international-europe", conc_reg) == "concentrix", "Concentrix Europe is Concentrix")
+    check(canonical_processor_id("message-systems-dba-sparkpost", bird_reg) == "messagebird", "Message Systems dba Sparkpost is MessageBird")
+    sm_reg = {**register, "surveymonkey": {"slug": "surveymonkey", "name": "SurveyMonkey", "domain": "surveymonkey.com"}}
+    check(canonical_processor_id("momentive-fka-surveymonkey", sm_reg) == "surveymonkey", "Momentive fka SurveyMonkey is SurveyMonkey")
+    check(canonical_processor_id("oracle-china-software-system", {**register, "oracle": register["oracle"]}) == "oracle", "Oracle China is Oracle")
+    c42_reg = {**register, "code42": {"slug": "code42", "name": "Code42", "domain": "code42.com"}}
+    check(canonical_processor_id("code-42-software", c42_reg) == "code42", "Code 42 Software is Code42")
+    tdcx_reg2 = {**register, "tdcx": {"slug": "tdcx", "name": "TDCX", "domain": "tdcx.com"}}
+    check(canonical_processor_id("tdcx-my-sdn-bhd", tdcx_reg2) == "tdcx", "TDCX MY SDN BHD is TDCX")
+    check(canonical_processor_id("tdcx-digilab-india-private", tdcx_reg2) == "tdcx", "TDCX Digilab India is TDCX")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch

@@ -539,6 +539,53 @@ expect(
     fileScore(fileFlags(authzed)) === 30,
 );
 
+const linkedin = bySlug.linkedin;
+expect(
+  "linkedin Completeness is page · marks · DPA · subprocessors = 80",
+  linkedin &&
+    linkedin.found === true &&
+    linkedin.trust_url === "https://security.linkedin.com/trust-and-compliance" &&
+    ((linkedin.instruments || {}).dpa || {}).url === "https://www.linkedin.com/legal/l/dpa" &&
+    ((linkedin.instruments || {}).subprocessors || {}).url ===
+      "https://www.linkedin.com/legal/l/customer-subprocessors" &&
+    (linkedin.processors || []).length === 34 &&
+    (linkedin.processors || []).some((p) => p.slug === "microsoft") &&
+    (linkedin.processors || []).some((p) => p.slug === "messagebird") &&
+    (linkedin.processors || []).some((p) => p.slug === "surveymonkey") &&
+    (linkedin.processors || []).some((p) => p.slug === "tdcx") &&
+    !(linkedin.processors || []).some((p) => p.name === "Talent/Hire") &&
+    !linkedin.founded_year &&
+    fileFlags(linkedin).page === 20 &&
+    fileFlags(linkedin).marks === 20 &&
+    fileFlags(linkedin).dpa === 20 &&
+    fileFlags(linkedin).subprocessors === 20 &&
+    fileFlags(linkedin).years === 0 &&
+    fileScore(fileFlags(linkedin)) === 80,
+);
+
+const nylas = bySlug.nylas;
+expect(
+  "nylas Completeness is page · marks · subprocessors = 60",
+  nylas &&
+    nylas.found === true &&
+    nylas.trust_url === "https://www.nylas.com/security" &&
+    ((nylas.instruments || {}).subprocessors || {}).url ===
+      "https://www.nylas.com/security/subprocessors/" &&
+    (nylas.processors || []).length === 40 &&
+    (nylas.processors || []).some((p) => p.slug === "segment" && p.name === "Twilio Segment") &&
+    (nylas.processors || []).some((p) => p.slug === "google") &&
+    (nylas.processors || []).some((p) => p.slug === "gong") &&
+    !(nylas.processors || []).some((p) => p.slug === "twilio") &&
+    !((nylas.instruments || {}).dpa || {}).url &&
+    !nylas.founded_year &&
+    fileFlags(nylas).page === 20 &&
+    fileFlags(nylas).marks === 20 &&
+    fileFlags(nylas).dpa === 0 &&
+    fileFlags(nylas).subprocessors === 20 &&
+    fileFlags(nylas).years === 0 &&
+    fileScore(fileFlags(nylas)) === 60,
+);
+
 const src = readFileSync(new URL("../site/register.js", import.meta.url), "utf8");
 expect("register draws the file index", src.includes("fileIndexHtml"));
 expect("register has no N of 5 markup", !src.includes("file-cov") && !src.includes("file-meter") && !src.includes(" of 5"));
