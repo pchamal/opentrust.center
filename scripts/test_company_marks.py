@@ -1238,9 +1238,13 @@ def main() -> int:
     check("GDPR" not in (by_pub["inkeep"].get("certs") or []), "inkeep GDPR-compliant stays open")
     check((by_pub["inkeep"].get("file") or {}).get("page") == 20, "inkeep Official page prints")
     check((by_pub["inkeep"].get("file") or {}).get("marks") == 20, "inkeep marks print")
+    check(by_pub["inkeep"].get("founded_year") == 2023, "inkeep year is first-party foundingDate")
+    check((by_pub["inkeep"].get("file") or {}).get("years") == 20, "inkeep years print")
     ik_html = (ROOT / "site" / "c" / "inkeep.html").read_text(encoding="utf-8")
     check("<h1>Inkeep</h1>" in ik_html, "inkeep dossier is its own file")
     check("https://inkeep.com/security" in ik_html, "inkeep dossier cites Official page")
+    check("founded · 2023" in ik_html, "inkeep dossier prints 2023")
+    check("https://inkeep.com/about" in ik_html, "inkeep dossier cites about source")
 
     check(
         {"SOC 2 Type II", "ISO 27001"} <= set(by_pub["ketch"].get("certs") or []),
@@ -1251,6 +1255,11 @@ def main() -> int:
     check(by_pub["ketch"].get("found") is False, "ketch Official page stays open")
     check((by_pub["ketch"].get("file") or {}).get("marks") == 20, "ketch marks print")
     check((by_pub["ketch"].get("file") or {}).get("page") in (0, False, None), "ketch Official page stays open")
+    check(by_pub["ketch"].get("founded_year") == 2020, "ketch year is first-party foundingDate")
+    check((by_pub["ketch"].get("file") or {}).get("years") == 20, "ketch years print")
+    ketch_html = (ROOT / "site" / "c" / "ketch.html").read_text(encoding="utf-8")
+    check("founded · 2020" in ketch_html, "ketch dossier prints 2020")
+    check("https://www.ketch.com/about" in ketch_html, "ketch dossier cites about source")
 
     check((by_pub["kickbox"].get("certs") or []) == [], f"kickbox certs stay empty {by_pub['kickbox'].get('certs')}")
     check(by_pub["kickbox"].get("found") is False, "kickbox Vanta portal is not Official page")

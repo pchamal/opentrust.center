@@ -586,6 +586,45 @@ expect(
     fileScore(fileFlags(teleport)) === 80,
 );
 
+const ketch = bySlug.ketch;
+expect(
+  "ketch Completeness is marks · DPA · years = 60",
+  ketch &&
+    ketch.found === false &&
+    !ketch.trust_url &&
+    ((ketch.instruments || {}).dpa || {}).url === "https://www.ketch.com/data-processing-addendum" &&
+    !((ketch.instruments || {}).subprocessors || {}).url &&
+    (ketch.certs || []).includes("SOC 2 Type II") &&
+    (ketch.certs || []).includes("ISO 27001") &&
+    ketch.founded_year === 2020 &&
+    ketch.founded_source === "https://www.ketch.com/about" &&
+    fileFlags(ketch).page === 0 &&
+    fileFlags(ketch).marks === 20 &&
+    fileFlags(ketch).dpa === 20 &&
+    fileFlags(ketch).subprocessors === 0 &&
+    fileFlags(ketch).years === 20 &&
+    fileScore(fileFlags(ketch)) === 60,
+);
+
+const inkeep = bySlug.inkeep;
+expect(
+  "inkeep Completeness is page · marks · years = 60",
+  inkeep &&
+    inkeep.found === true &&
+    inkeep.trust_url === "https://inkeep.com/security" &&
+    !((inkeep.instruments || {}).dpa || {}).url &&
+    !((inkeep.instruments || {}).subprocessors || {}).url &&
+    (inkeep.certs || []).includes("SOC 2 Type II") &&
+    inkeep.founded_year === 2023 &&
+    inkeep.founded_source === "https://inkeep.com/about" &&
+    fileFlags(inkeep).page === 20 &&
+    fileFlags(inkeep).marks === 20 &&
+    fileFlags(inkeep).dpa === 0 &&
+    fileFlags(inkeep).subprocessors === 0 &&
+    fileFlags(inkeep).years === 20 &&
+    fileScore(fileFlags(inkeep)) === 60,
+);
+
 const nylas = bySlug.nylas;
 expect(
   "nylas Completeness is page · marks · subprocessors = 60",

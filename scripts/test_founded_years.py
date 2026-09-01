@@ -451,7 +451,7 @@ def test_report_years_landed() -> None:
 
 
 def test_teleport_year_landed() -> None:
-    """This increment filed Teleport 2015 from first-party foundingDate."""
+    """Prior increment filed Teleport 2015 from first-party foundingDate."""
     import json
     public = json.loads((ROOT / "site" / "data.json").read_text())
     enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
@@ -469,12 +469,40 @@ def test_teleport_year_landed() -> None:
     check("PCI DSS" not in html, "Teleport SafeBase JSON-LD PCI DSS stays open")
 
 
+def test_ketch_inkeep_years_landed() -> None:
+    """This increment filed Ketch 2020 and Inkeep 2023 from first-party foundingDate."""
+    import json
+    public = json.loads((ROOT / "site" / "data.json").read_text())
+    enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
+    by_pub = {c["slug"]: c for c in public["companies"]}
+    by_enr = {c["slug"]: c for c in enr["companies"]}
+    ketch_pub, ketch_row = by_pub["ketch"], by_enr["ketch"]
+    check(ketch_pub.get("founded_year") == 2020, "Ketch public year 2020")
+    check(ketch_row.get("founded_year") == 2020, "Ketch enriched year 2020")
+    check(ketch_pub.get("founded_source") == "https://www.ketch.com/about", "Ketch year source is /about")
+    check((ketch_pub.get("file") or {}).get("years") in (True, 20), "Ketch years rule prints")
+    check(ketch_pub.get("found") is False, "Ketch Official page stays open")
+    ketch_html = (ROOT / "site" / "c" / "ketch.html").read_text(encoding="utf-8")
+    check("founded · 2020" in ketch_html, "Ketch dossier prints 2020")
+    check("https://www.ketch.com/about" in ketch_html, "Ketch dossier cites about source")
+    inkeep_pub, inkeep_row = by_pub["inkeep"], by_enr["inkeep"]
+    check(inkeep_pub.get("founded_year") == 2023, "Inkeep public year 2023")
+    check(inkeep_row.get("founded_year") == 2023, "Inkeep enriched year 2023")
+    check(inkeep_pub.get("founded_source") == "https://inkeep.com/about", "Inkeep year source is /about")
+    check((inkeep_pub.get("file") or {}).get("years") in (True, 20), "Inkeep years rule prints")
+    inkeep_html = (ROOT / "site" / "c" / "inkeep.html").read_text(encoding="utf-8")
+    check("founded · 2023" in inkeep_html, "Inkeep dossier prints 2023")
+    check("https://inkeep.com/about" in inkeep_html, "Inkeep dossier cites about source")
+    check("policies/dpa.pdf" not in inkeep_html, "Inkeep DPA PDF stays unread")
+
+
 def main() -> int:
     test_prefix_is_not_a_match()
     test_official_site_only()
     test_parse_founded_sentence()
     test_apply_rejects_wiki_and_keeps_existing()
     test_teleport_year_landed()
+    test_ketch_inkeep_years_landed()
     test_report_years_landed()
     print("ok")
     return 0

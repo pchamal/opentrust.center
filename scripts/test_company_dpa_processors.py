@@ -695,6 +695,13 @@ def main() -> int:
     check((by_pub["ketch"].get("file") or {}).get("dpa") == 20, "ketch DPA prints")
     check(by_pub["ketch"].get("found") is False, "ketch Vanta portal is not Official page")
     check(not by_pub["ketch"].get("trust_url"), "ketch has no invented Official page")
+    check(by_pub["ketch"].get("founded_year") == 2020, "ketch year is first-party foundingDate")
+    check(by_pub["ketch"].get("founded_source") == "https://www.ketch.com/about", "ketch year source is /about")
+    check((by_pub["ketch"].get("file") or {}).get("years") == 20, "ketch years print")
+    check(by_pub["inkeep"].get("founded_year") == 2023, "inkeep year is first-party foundingDate")
+    check(by_pub["inkeep"].get("founded_source") == "https://inkeep.com/about", "inkeep year source is /about")
+    check((by_pub["inkeep"].get("file") or {}).get("years") == 20, "inkeep years print")
+    check(instrument_url(by_pub["inkeep"], "dpa") in (None, ""), "inkeep DPA PDF stays unread")
 
     check(
         ((by_pub["ai-media"].get("instruments") or {}).get("privacy") or {}).get("url")
