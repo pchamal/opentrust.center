@@ -499,6 +499,45 @@ expect(
     fileScore(fileFlags(validity)) === 60,
 );
 
+const onesignal = bySlug.onesignal;
+expect(
+  "onesignal Completeness is marks · DPA · subprocessors = 60",
+  onesignal &&
+    onesignal.found === false &&
+    !onesignal.trust_url &&
+    (onesignal.certs || []).includes("SOC 2 Type II") &&
+    (onesignal.certs || []).includes("ISO 27001") &&
+    (onesignal.certs || []).includes("ISO 27701") &&
+    !(onesignal.certs || []).includes("HIPAA") &&
+    ((onesignal.instruments || {}).dpa || {}).url === "https://onesignal.com/dpa" &&
+    ((onesignal.instruments || {}).subprocessors || {}).url === "https://onesignal.com/list-of-subprocessors" &&
+    !onesignal.founded_year &&
+    fileFlags(onesignal).page === 0 &&
+    fileFlags(onesignal).marks === 20 &&
+    fileFlags(onesignal).dpa === 20 &&
+    fileFlags(onesignal).subprocessors === 20 &&
+    fileFlags(onesignal).years === 0 &&
+    fileScore(fileFlags(onesignal)) === 60,
+);
+
+const authzed = bySlug.authzed;
+expect(
+  "authzed Completeness is page · marks = 40",
+  authzed &&
+    authzed.found === true &&
+    authzed.trust_url === "https://security.authzed.com" &&
+    (authzed.certs || []).includes("SOC 2") &&
+    !(authzed.certs || []).includes("GDPR") &&
+    !(authzed.certs || []).includes("CCPA") &&
+    !authzed.founded_year &&
+    fileFlags(authzed).page === 20 &&
+    fileFlags(authzed).marks === 20 &&
+    fileFlags(authzed).dpa === 0 &&
+    fileFlags(authzed).subprocessors === 0 &&
+    fileFlags(authzed).years === 0 &&
+    fileScore(fileFlags(authzed)) === 40,
+);
+
 const src = readFileSync(new URL("../site/register.js", import.meta.url), "utf8");
 expect("register draws the file index", src.includes("fileIndexHtml"));
 expect("register has no N of 5 markup", !src.includes("file-cov") && !src.includes("file-meter") && !src.includes(" of 5"));

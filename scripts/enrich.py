@@ -1017,7 +1017,8 @@ UI_NAME_TAIL_RE = re.compile(
     r"sub-?processor lists?\s*>?|"
     r"no subprocessors|"
     r"available upon request|"
-    r"subprocessors?\s*>"
+    r"subprocessors?\s*>|"
+    r"updated"
     r")\s*$",
     re.I,
 )
@@ -1816,7 +1817,8 @@ UI_NAME_TAIL_RE = re.compile(
     r"sub-?processor lists?\s*>?|"
     r"no subprocessors|"
     r"available upon request|"
-    r"subprocessors?\s*>"
+    r"subprocessors?\s*>|"
+    r"updated"
     r")\s*$",
     re.I,
 )

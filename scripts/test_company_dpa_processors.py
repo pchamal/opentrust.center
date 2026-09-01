@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from enrich import looks_like_date_name  # noqa: E402
+from enrich import cell_text, looks_like_date_name  # noqa: E402
 
 PUBLIC = ROOT / "site" / "data.json"
 ENRICHED = ROOT / "site" / "data" / "enriched.json"
@@ -42,6 +42,7 @@ def main() -> int:
     check(looks_like_date_name("Date of change"), "Date of change is a date")
     check(looks_like_date_name("Date"), "Date header is a date")
     check(not looks_like_date_name("Amazon Web Services"), "AWS is not a date")
+    check(cell_text("Google Inc. UPDATED") == "Google Inc", "CMS UPDATED badge is not the published name")
 
     for row in public["companies"]:
         for proc in row.get("processors") or []:
@@ -488,6 +489,61 @@ def main() -> int:
     check("<h1>Route Mobile</h1>" in rm_html, "route-mobile dossier is its own file")
     check("https://routemobile.com/dpa/" in rm_html, "route-mobile dossier keeps the DPA URL")
     check("ISO 27001" not in rm_html, "route-mobile dossier does not print contractor ISO 27001")
+
+    # This cut: OneSignal first-party list-of-subprocessors table. Official page
+    # stays open. Privacy-page HIPAA-compliant + BAA stays unread. Census Inc is
+    # the standing Fivetran alias (Fivetran acquired Census).
+    check(
+        instrument_url(by_pub["onesignal"], "dpa") == "https://onesignal.com/dpa",
+        "onesignal DPA stays the first-party addendum",
+    )
+    check(
+        instrument_url(by_pub["onesignal"], "subprocessors")
+        == "https://onesignal.com/list-of-subprocessors",
+        "onesignal list is the first-party List of subprocessors",
+    )
+    check((by_pub["onesignal"].get("file") or {}).get("dpa") == 20, "onesignal DPA prints")
+    check((by_pub["onesignal"].get("file") or {}).get("subprocessors") == 20, "onesignal processors print")
+    check((by_pub["onesignal"].get("file") or {}).get("page") in (0, False, None), "onesignal Official page stays open")
+    check((by_pub["onesignal"].get("file") or {}).get("marks") == 20, "onesignal marks stay")
+    check((by_pub["onesignal"].get("file") or {}).get("years") in (0, False, None), "onesignal years stay open")
+    check(by_pub["onesignal"].get("found") is False, "onesignal privacy is not Official page")
+    check("HIPAA" not in (by_pub["onesignal"].get("certs") or []), "onesignal HIPAA-compliant BAA stays unread")
+    onesignal_names = [p.get("name") for p in (by_pub["onesignal"].get("processors") or [])]
+    onesignal_slugs = [p.get("slug") for p in (by_pub["onesignal"].get("processors") or [])]
+    check("Intercom Inc" in onesignal_names, "onesignal names Intercom Inc")
+    check("Cloudflare Inc" in onesignal_names, "onesignal names Cloudflare Inc")
+    check("Census Inc" in onesignal_names, "onesignal names Census Inc")
+    check("Google Inc" in onesignal_names, "onesignal names Google Inc")
+    check("Rollbar Inc" in onesignal_names, "onesignal names Rollbar Inc")
+    check("Filestack Inc" in onesignal_names, "onesignal names Filestack Inc")
+    check("Mailgun Inc" in onesignal_names, "onesignal names Mailgun Inc")
+    check("Twilio Inc" in onesignal_names, "onesignal names Twilio Inc")
+    check(
+        onesignal_slugs
+        == ["intercom", "cloudflare", "fivetran", "google", "rollbar", "filestack", "mailgun", "twilio"],
+        f"onesignal processor slugs {onesignal_slugs}",
+    )
+    check(len(onesignal_names) == 8, f"onesignal printed 8 named processors, got {len(onesignal_names)}")
+    os_html = (ROOT / "site" / "c" / "onesignal.html").read_text(encoding="utf-8")
+    check("<h1>OneSignal</h1>" in os_html, "onesignal dossier is its own file")
+    check("https://onesignal.com/dpa" in os_html, "onesignal dossier keeps the DPA URL")
+    check("https://onesignal.com/list-of-subprocessors" in os_html, "onesignal dossier keeps the list URL")
+    check("./intercom.html\">Intercom Inc" in os_html, "onesignal Intercom cross-links to the existing file")
+    check("./cloudflare.html\">Cloudflare Inc" in os_html, "onesignal Cloudflare cross-links to the existing file")
+    check("./fivetran.html\">Census Inc" in os_html, "onesignal Census Inc uses the standing Fivetran alias")
+    check("./google.html\">Google Inc" in os_html, "onesignal Google cross-links to the existing file")
+    check("./rollbar.html\">Rollbar Inc" in os_html, "onesignal Rollbar cross-links to the existing file")
+    check("./filestack.html\">Filestack Inc" in os_html, "onesignal Filestack cross-links to the existing file")
+    check("./mailgun.html\">Mailgun Inc" in os_html, "onesignal Mailgun cross-links to the existing file")
+    check("./twilio.html\">Twilio Inc" in os_html, "onesignal Twilio cross-links to the existing file")
+    check("HIPAA" not in os_html, "onesignal dossier does not print HIPAA-compliant BAA")
+    check("Official page · not on file" in os_html, "onesignal Official page stays not on file")
+    check(
+        (by_enr["onesignal"].get("links") or {}).get("subprocessors")
+        == "https://onesignal.com/list-of-subprocessors",
+        "onesignal enriched list URL stays",
+    )
 
     print(
         f"ok increment-dpa privacy-page-queue {len(expected_batch)} walked; "
