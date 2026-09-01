@@ -123985,7 +123985,11 @@
           "seen": "2026-09-01"
         },
         "dpa": null,
-        "subprocessors": null,
+        "subprocessors": {
+          "url": "https://docs.kickbox.com/docs/subprocessors",
+          "host": "docs.kickbox.com",
+          "seen": "2026-09-01"
+        },
         "status": {
           "url": "https://status.kickbox.com",
           "host": "status.kickbox.com",
@@ -123993,7 +123997,74 @@
         },
         "bounty": null
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "Amazon AWS",
+          "slug": "amazon-web-services",
+          "id": "amazon-web-services",
+          "source_url": "https://docs.kickbox.com/docs/subprocessors"
+        },
+        {
+          "name": "Braintree",
+          "slug": "paypal",
+          "id": "paypal",
+          "source_url": "https://docs.kickbox.com/docs/subprocessors"
+        },
+        {
+          "name": "Cloudflare",
+          "slug": "cloudflare",
+          "id": "cloudflare",
+          "source_url": "https://docs.kickbox.com/docs/subprocessors"
+        },
+        {
+          "name": "FileStack",
+          "slug": "filestack",
+          "id": "filestack",
+          "source_url": "https://docs.kickbox.com/docs/subprocessors"
+        },
+        {
+          "name": "Freshdesk",
+          "slug": "freshworks",
+          "id": "freshworks",
+          "source_url": "https://docs.kickbox.com/docs/subprocessors"
+        },
+        {
+          "name": "Google Analytics",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://docs.kickbox.com/docs/subprocessors"
+        },
+        {
+          "name": "Intercom",
+          "slug": "intercom",
+          "id": "intercom",
+          "source_url": "https://docs.kickbox.com/docs/subprocessors"
+        },
+        {
+          "name": "Loggly",
+          "slug": "loggly",
+          "id": "loggly",
+          "source_url": "https://docs.kickbox.com/docs/subprocessors"
+        },
+        {
+          "name": "Sift Science",
+          "slug": "sift",
+          "id": "sift",
+          "source_url": "https://docs.kickbox.com/docs/subprocessors"
+        },
+        {
+          "name": "Slack",
+          "slug": "slack",
+          "id": "slack",
+          "source_url": "https://docs.kickbox.com/docs/subprocessors"
+        },
+        {
+          "name": "Stripe",
+          "slug": "stripe",
+          "id": "stripe",
+          "source_url": "https://docs.kickbox.com/docs/subprocessors"
+        }
+      ],
       "disclosure": {
         "score": 12,
         "tier": "silent",
@@ -124013,7 +124084,7 @@
         "page": 0,
         "marks": 0,
         "dpa": 0,
-        "subprocessors": 0,
+        "subprocessors": 20,
         "years": 0
       },
       "_crawl": {
@@ -143274,8 +143345,8 @@
       "certs": [],
       "attestations": [],
       "summary": "",
-      "founded_year": null,
-      "founded_source": null,
+      "founded_year": 2014,
+      "founded_source": "https://adish.biz/about/overview",
       "instruments": {
         "trust": null,
         "security": null,
@@ -143287,7 +143358,7 @@
       },
       "processors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
         "factors": {
           "page": 0,
@@ -143297,7 +143368,7 @@
           "status": 0,
           "bounty": 0,
           "privacy": 0,
-          "years": 0
+          "years": 6
         }
       },
       "tier": "silent",
@@ -143306,7 +143377,7 @@
         "marks": 0,
         "dpa": 0,
         "subprocessors": 0,
-        "years": 0
+        "years": 20
       },
       "_crawl": {
         "vendor": null,
@@ -187838,8 +187909,8 @@
       "certs": [],
       "attestations": [],
       "summary": "",
-      "founded_year": null,
-      "founded_source": null,
+      "founded_year": 2012,
+      "founded_source": "https://datamato.com/about/overview",
       "instruments": {
         "trust": null,
         "security": null,
@@ -187851,7 +187922,7 @@
       },
       "processors": [],
       "disclosure": {
-        "score": 0,
+        "score": 7,
         "tier": "silent",
         "factors": {
           "page": 0,
@@ -187861,7 +187932,7 @@
           "status": 0,
           "bounty": 0,
           "privacy": 0,
-          "years": 0
+          "years": 7
         }
       },
       "tier": "silent",
@@ -187870,7 +187941,7 @@
         "marks": 0,
         "dpa": 0,
         "subprocessors": 0,
-        "years": 0
+        "years": 20
       },
       "_crawl": {
         "vendor": null,

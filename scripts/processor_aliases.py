@@ -734,6 +734,13 @@ REGISTER_ALIASES: dict[str, str] = {
     # proof. Do not invent a second Omni dossier or alias to
     # the-omni-group / omnigroup.com.
     "omni": "omni-analytics",
+    # Kickbox first-party subprocessors table prints "Sift Science"
+    # (fraud and abuse prevention, 123 Mission St). Sift's own
+    # homepage JSON-LD Organization names the company "Sift" with
+    # alternateName "Sift Science", "Sift Science, Inc.", "Sift.com"
+    # and url https://sift.com/. sift is already on the register
+    # (sift.com). Do not invent a second Sift dossier.
+    "sift-science": "sift",
     # Wikidata P856 for these leftover names is the existing register domain.
     # Do not invent a second dossier.
     "kaspersky": "kaspersky-lab",
