@@ -830,6 +830,10 @@ CMMC_PRODUCT_RE = re.compile(
     r"cmmc\s+(?:readiness|consult|services?|solutions?|training)",
     re.I,
 )
+IRAP_NOT_HOLD_RE = re.compile(
+    r"not\s+required|not\s+applicable|n/?a\b|in\s+progress|pending\b",
+    re.I,
+)
 PCI_PROCESSOR_RE = re.compile(
     r"(?:payment|third[- ]party|our)\s+process(?:or|ors|ing)|"
     r"payments?\s+are\s+managed|"
@@ -966,6 +970,9 @@ def first_party_candidates(public: dict, enr: dict) -> list[tuple[str, str]]:
     add("enr_final", enr.get("final_url") or "")
     for key in (*kinds, *extra_kinds):
         add(key, instrument_url(public, key))
+    slug = public.get("slug") or enr.get("slug") or ""
+    for url, hint in enrich.SPECIAL_URLS.get(slug, []):
+        add(hint if hint in {"trust", "security", "privacy", "dpa", "subprocessors"} else "security", url)
     return out
 
 
@@ -1022,6 +1029,9 @@ def well_known_mark_candidates(enr: dict) -> list[tuple[str, str]]:
 
     for url in enrich.privacy_probe_urls_for(enr, core_only=True):
         add("privacy", url)
+    slug = enr.get("slug") or ""
+    for url, hint in enrich.SPECIAL_URLS.get(slug, []):
+        add(hint if hint in {"trust", "security", "privacy", "dpa", "subprocessors"} else "security", url)
     for domain in enrich.hosts_for(enr)[:1]:
         for kind, path in (
             ("security", "/security"),
@@ -1225,6 +1235,19 @@ def cmmc_is_hold(blob: str) -> bool:
     return hold
 
 
+def irap_is_hold(blob: str) -> bool:
+    """IRAP next to Not Required / Pending is not a hold."""
+    if not blob:
+        return False
+    hold = False
+    for m in re.finditer(r"\birap\b", blob, re.I):
+        window = blob[max(0, m.start() - 80): min(len(blob), m.end() + 80)]
+        if IRAP_NOT_HOLD_RE.search(window):
+            continue
+        hold = True
+    return hold
+
+
 def gdpr_is_hold(blob: str) -> bool:
     """A 'GDPR compliant' / meet-requirements sentence is not a certification hold."""
     if not blob:
@@ -1272,6 +1295,8 @@ def hold_marks(named: list[str], blob: str, kind: str = "") -> tuple[list[str], 
         if name == "HIPAA" and not hipaa_is_hold(blob):
             continue
         if name == "CMMC" and not cmmc_is_hold(blob):
+            continue
+        if name == "IRAP" and not irap_is_hold(blob):
             continue
         if name == "GDPR" and not gdpr_is_hold(blob):
             continue

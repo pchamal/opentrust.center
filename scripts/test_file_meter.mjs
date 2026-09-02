@@ -1815,6 +1815,74 @@ expect(
   })(),
 );
 expect(
+  "vonage Completeness is marks; docs certifications is not Official page",
+  (() => {
+    const row = bySlug.vonage;
+    const certs = row.certs || [];
+    return (
+      row &&
+      row.domain === "vonage.com" &&
+      row.found === false &&
+      !row.trust_url &&
+      certs.includes("SOC 2 Type II") &&
+      certs.includes("ISO 27001") &&
+      certs.includes("CSA STAR") &&
+      !certs.includes("IRAP") &&
+      fileFlags(row).page === 0 &&
+      fileFlags(row).marks === 20 &&
+      fileFlags(row).dpa === 0 &&
+      fileFlags(row).subprocessors === 0 &&
+      fileFlags(row).years === 0 &&
+      fileScore(fileFlags(row)) === 20 &&
+      ruleOn(fileIndexHtml(row))[0] === false &&
+      ruleOn(fileIndexHtml(row))[1] === true
+    );
+  })(),
+);
+expect(
+  "vultr Completeness is marks; docs compliance is not Official page",
+  (() => {
+    const row = bySlug.vultr;
+    const certs = row.certs || [];
+    return (
+      row &&
+      row.domain === "vultr.com" &&
+      row.found === false &&
+      !row.trust_url &&
+      certs.includes("SOC 2 Type II") &&
+      certs.includes("ISO 27001") &&
+      !certs.includes("GDPR") &&
+      fileFlags(row).page === 0 &&
+      fileFlags(row).marks === 20 &&
+      fileFlags(row).dpa === 0 &&
+      fileFlags(row).subprocessors === 0 &&
+      fileFlags(row).years === 0 &&
+      fileScore(fileFlags(row)) === 20 &&
+      ruleOn(fileIndexHtml(row))[0] === false &&
+      ruleOn(fileIndexHtml(row))[1] === true
+    );
+  })(),
+);
+expect(
+  "netsuite Completeness stays 0; Akamai 403 is not a hold",
+  (() => {
+    const row = bySlug.netsuite;
+    return (
+      row &&
+      row.domain === "netsuite.com" &&
+      row.found === false &&
+      !row.trust_url &&
+      !(row.certs || []).length &&
+      fileFlags(row).page === 0 &&
+      fileFlags(row).marks === 0 &&
+      fileFlags(row).dpa === 0 &&
+      fileFlags(row).subprocessors === 0 &&
+      fileFlags(row).years === 0 &&
+      fileScore(fileFlags(row)) === 0
+    );
+  })(),
+);
+expect(
   "slope Completeness stays 0; informal SOC Type 1/2 is not Type II",
   (() => {
     const row = bySlug["ternpro-dba-slope"];

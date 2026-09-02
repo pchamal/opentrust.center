@@ -333,6 +333,24 @@ SPECIAL_URLS = {
         ("https://legal.branch.io/saas/subprocessor-list/", "subprocessors"),
         ("https://legal.branch.io/saas/privacy-policy/", "privacy"),
     ],
+    # vonage.com is Cloudflare 403. developer.vonage.com first-party HTML
+    # titles "Regulatory Certifications" and prints "This page documents the
+    # certifications held by Vonage". Not Official page (docs, not /security).
+    "vonage": [
+        (
+            "https://developer.vonage.com/en/getting-started/concepts/regulatory-certifications",
+            "security",
+        ),
+    ],
+    # vultr.com is Cloudflare 403. docs.vultr.com first-party HTML names
+    # independently audited SOC 2 Type II / ISO holds. Trust-center stays
+    # unread. The DPA FAQ is request-only — not a published DPA.
+    "vultr": [
+        (
+            "https://docs.vultr.com/support/platform/compliance/how-can-i-access-vultrs-compliance-reports",
+            "security",
+        ),
+    ],
 }
 
 _MONTH = (
