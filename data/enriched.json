@@ -139423,15 +139423,19 @@
       "title": "",
       "probed": 18,
       "source": "https://weaviate.io/subprocessors",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "No public trust center found on the usual paths. DPA cited from first-party Voyage AI HTML.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "dpa": "https://www.voyageai.com/dpa"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "dpa": 8
+        }
       },
       "official_url": "https://www.voyageai.com/",
       "founded_year": null,

@@ -1162,13 +1162,12 @@ def main() -> int:
         == 20,
         "loops Completeness is DPA only",
     )
-    for slug in ("lightdash", "voyage-ai"):
-        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
-        check(
-            sum(int((by_pub[slug].get("file") or {}).get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years"))
-            == 0,
-            f"{slug} Completeness is 0",
-        )
+    check(by_pub["lightdash"].get("found") is False, "lightdash Official page stays open")
+    check(
+        sum(int((by_pub["lightdash"].get("file") or {}).get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years"))
+        == 0,
+        "lightdash Completeness is 0",
+    )
     check("regalix" not in by_pub, "regalix does not invent a second dossier")
     check("saasgenie" not in by_pub, "saasgenie does not invent a second dossier")
     check(by_pub["fwd-deploy"]["domain"] == "fwddeploy.ai", "fwd-deploy domain is fwddeploy.ai")
@@ -1293,6 +1292,38 @@ def main() -> int:
     )
     check((by_pub["loops"].get("file") or {}).get("dpa") == 20, "loops DPA prints")
     check(not (by_pub["loops"].get("processors") or []), "loops named processors stay open")
+    # This cut: first-party Completeness DPA on Voyage AI. Footer SOC 2 /
+    # HIPAA chips stay unread. DPA annex headers stay unread as processors.
+    # Do not alias to MongoDB. Official page stays open.
+    check(
+        instrument_url(by_pub["voyage-ai"], "dpa") == "https://www.voyageai.com/dpa",
+        "voyage-ai DPA is first-party HTML",
+    )
+    check((by_pub["voyage-ai"].get("file") or {}).get("dpa") == 20, "voyage-ai DPA prints")
+    check(by_pub["voyage-ai"].get("found") is False, "voyage-ai Official page stays open")
+    check(not by_pub["voyage-ai"].get("trust_url"), "voyage-ai homepage is not Official page")
+    check(not (by_pub["voyage-ai"].get("certs") or []), "voyage-ai footer chips stay unread")
+    check((by_pub["voyage-ai"].get("file") or {}).get("marks") in (0, False, None), "voyage-ai marks stay open")
+    check((by_pub["voyage-ai"].get("file") or {}).get("page") in (0, False, None), "voyage-ai Official page stays open")
+    check(not (by_pub["voyage-ai"].get("processors") or []), "voyage-ai DPA annex headers stay unread")
+    check(
+        (by_pub["voyage-ai"].get("file") or {}).get("subprocessors") in (0, False, None),
+        "voyage-ai processors stay open",
+    )
+    check(by_pub["voyage-ai"].get("founded_year") in (None, 0, False), "voyage-ai years stay open")
+    check(
+        sum(int((by_pub["voyage-ai"].get("file") or {}).get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years"))
+        == 20,
+        "voyage-ai Completeness is DPA only",
+    )
+    voyage_html = (ROOT / "site" / "c" / "voyage-ai.html").read_text(encoding="utf-8")
+    check("<h1>Voyage AI</h1>" in voyage_html, "voyage-ai dossier is its own file")
+    check("https://www.voyageai.com/dpa" in voyage_html, "voyage-ai dossier cites the DPA")
+    check("Official page · not on file" in voyage_html, "voyage-ai Official page stays open")
+    check("SOC 2" not in voyage_html, "voyage-ai dossier does not print footer SOC 2")
+    check("HIPAA" not in voyage_html, "voyage-ai dossier does not print footer HIPAA")
+    check("mongodb" not in voyage_html.lower(), "voyage-ai is not aliased to MongoDB")
+    check("vanta" not in voyage_html.lower(), "voyage-ai dossier names no portal vendor")
 
     print(
         f"ok increment-dpa privacy-page-queue {len(expected_batch)} walked; "
