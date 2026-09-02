@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-02T01:50:40Z",
-  "gap": 24,
+  "generated_at": "2026-09-02T02:50:32Z",
+  "gap": 29,
   "wikidata_resolved": [],
   "enqueued_candidates": [],
   "homepage_hits": [],
-  "unresolved_n": 24,
+  "unresolved_n": 29,
   "unresolved": [
     {
       "slug": "a-g-consulting",
@@ -27,6 +27,12 @@
     {
       "slug": "amacuro",
       "name": "Amacuro",
+      "reason": "no-org-with-official-website",
+      "status": "unresolved"
+    },
+    {
+      "slug": "apricity",
+      "name": "Apricity",
       "reason": "no-org-with-official-website",
       "status": "unresolved"
     },
@@ -85,6 +91,12 @@
       "status": "unresolved"
     },
     {
+      "slug": "mako-it-lab-pvt",
+      "name": "Mako IT Lab Pvt Ltd",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
       "slug": "media-connect",
       "name": "Media Connect",
       "reason": "no-wikidata-hits",
@@ -121,6 +133,12 @@
       "status": "unresolved"
     },
     {
+      "slug": "saasgenie",
+      "name": "SaasGenie",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
       "slug": "software-minds",
       "name": "Software Minds, Inc",
       "reason": "no-wikidata-hits",
@@ -139,6 +157,12 @@
       "status": "unresolved"
     },
     {
+      "slug": "vector",
+      "name": "Vector",
+      "reason": "no-org-with-official-website",
+      "status": "unresolved"
+    },
+    {
       "slug": "vivaops",
       "name": "VivaOps LLC",
       "reason": "no-wikidata-hits",
@@ -149,7 +173,25 @@
       "name": "Zealep Business Solutions",
       "reason": "no-wikidata-hits",
       "status": "unresolved"
+    },
+    {
+      "slug": "swan",
+      "name": "Swan",
+      "reason": "rejected-wikidata-wrong-org-swan.sk",
+      "status": "unresolved"
     }
   ],
-  "already_aliased": []
+  "already_aliased": [],
+  "rejected_false_wikidata": [
+    {
+      "name": "Swan",
+      "slug": "swan",
+      "domain": "swan.sk",
+      "source": "named-processor-gap",
+      "source_url": "https://www.rime.ai/rime-subprocessors",
+      "named_by": 1,
+      "reason": "exact",
+      "reject_reason": "wikidata-swan-sk-is-slovak-telecom-not-rime-naming"
+    }
+  ]
 }
