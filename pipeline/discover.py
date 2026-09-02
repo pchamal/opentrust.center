@@ -245,7 +245,7 @@ async def verify_lead(client: httpx.AsyncClient, domain: str, url: str) -> dict 
 
 async def discover_domain(client: httpx.AsyncClient, ig: InsForge,
                           deep_sem: asyncio.Semaphore, row: dict,
-                          verify_cap: int = 10) -> dict:
+                          verify_cap: int = 10, use_search: bool = False) -> dict:
     domain = row["domain"].lower()
     base_hosts = [f"https://{domain}", f"https://www.{domain}"]
     leads: dict[str, dict] = {}
@@ -284,7 +284,7 @@ async def discover_domain(client: httpx.AsyncClient, ig: InsForge,
             if line.lower().startswith("sitemap:"):
                 sm_status, _, sm_body = await fetch(client, line.split(":", 1)[1].strip())
                 break
-    if sm_body:
+    if     sm_body:
         locs = re.findall(r"<loc>([^<]+)</loc>", sm_body)[:400]
         n = 0
         for loc in locs:
@@ -293,6 +293,33 @@ async def discover_domain(client: httpx.AsyncClient, ig: InsForge,
             if anchor_is_lead(loc, ""):
                 add(loc, "sitemap")
                 n += 1
+
+    # Search: DuckDuckGo HTML site-restricted query — no API key,
+    # surfaces URLs not linked from the homepage but indexed.
+    if use_search:
+        try:
+            q = f"site:{domain} (trust OR security OR compliance)"
+            status, _, body = await fetch(
+                client,
+                "https://html.duckduckgo.com/html/?q=" + re.sub(r"\s+", "+", q.strip()),
+            )
+            if status == 200 and body:
+                tree = HTMLParser(body)
+                for node in tree.css("a.result__url, a.result__a")[:20]:
+                    href = node.attributes.get("href") or ""
+                    if "uddg=" in href:
+                        href = re.search(r"uddg=([^&]+)", href)
+                        href = __import__("urllib.parse", fromlist=["unquote"]).unquote(href.group(1)) if href else ""
+                    else:
+                        href = node.text(strip=True)
+                        if href and not href.startswith("http"):
+                            href = "https://" + href
+                    if not href or "duckduckgo.com" in href:
+                        continue
+                    if same_site(href, domain):
+                        add(href, "search")
+        except Exception:
+            pass
 
     existing = await ig.existing_keys(client, domain)
     fresh = [v for k, v in leads.items() if k not in existing]
@@ -337,6 +364,8 @@ async def main() -> int:
     ap.add_argument("--limit", type=int, default=25)
     ap.add_argument("--tier", default="silent")
     ap.add_argument("--only", default="")
+    ap.add_argument("--search", action="store_true", help="also mine DuckDuckGo site: search")
+    ap.add_argument("--resume", action="store_true", help="skip domains already in ot_leads")
     args = ap.parse_args()
 
     data = json.loads(DATA_JSON.read_text())
@@ -357,13 +386,41 @@ async def main() -> int:
     ig = InsForge()
     deep_sem = asyncio.Semaphore(2)
     started = now_iso()
+    # Skip domains already scanned when sweeping without --only (keeps sweeps incremental).
+    # Disabled by default for thorough runs; enable with --resume to skip.
+    if getattr(args, "resume", False) and not args.only:
+        try:
+            scanned: set[str] = set()
+            async with httpx.AsyncClient(timeout=httpx.Timeout(10)) as _c:
+                off = 0
+                while True:
+                    rr = await _c.get(
+                        f"{ig.base}/api/database/records/ot_leads",
+                        params={"select": "domain", "limit": 500, "offset": off},
+                        headers=ig.headers,
+                    )
+                    batch = rr.json() if rr.status_code == 200 else []
+                    for r in batch:
+                        d = (r.get("domain") or "").lower()
+                        if d:
+                            scanned.add(d)
+                    if len(batch) < 500:
+                        break
+                    off += 500
+            before = len(seeds)
+            seeds = [r for r in seeds if (r.get("domain") or "").lower() not in scanned]
+            if len(seeds) < before:
+                print(f"skipping {before - len(seeds)} already-scanned domains · {len(seeds)} remaining in this tier")
+        except Exception as exc:
+            print(f"skip-scanned check failed ({exc}) — scanning all requested domains")
+
     results: list[dict] = []
     limits = httpx.Limits(max_connections=10)
     async with httpx.AsyncClient(timeout=TIMEOUT, limits=limits,
                                  follow_redirects=True) as client:
         for row in seeds:
             try:
-                results.append(await discover_domain(client, ig, deep_sem, row))
+                results.append(await discover_domain(client, ig, deep_sem, row, use_search=args.search))
             except Exception as exc:
                 print(f"  {row['domain']:<32} error {exc}")
         totals = {

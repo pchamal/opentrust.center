@@ -67,7 +67,6 @@ CERT_WEIGHT = {
     "nist 800-171": 5,
     "nist csf": 4,
     "c5": 4,
-    "ens": 8,
     "ismap": 4,
     "sox": 4,
     "eu-us dpf": 4,
@@ -131,7 +130,6 @@ CERT_ID = {
     "cmmc l2": "cmmc-l2",
     "cmmc l1": "cmmc-l1",
     "c5": "c5",
-    "ens": "ens",
     "ismap": "ismap",
     "sox": "sox",
     "eu-us dpf": "eu-us-dpf",
@@ -296,7 +294,7 @@ FAVICON = "../favicon.svg"
 
 VENDOR_HOST_RE = re.compile(
     r"(^|\.)(safebase\.us|safebase\.com|vanta\.com|conveyor\.com|wolfia\.\w+|"
-    r"securitypal\.com|drata\.com|secureframe\.com|secureframetrust\.com|whistic\.com|"
+    r"securitypal\.com|drata\.com|secureframe\.com|whistic\.com|"
     r"sprinto\.com|trustcloud\.com)$",
     re.I,
 )
@@ -772,15 +770,9 @@ def _named_processor_list(row: dict) -> bool:
 
 def file_flags(row: dict, disc: dict | None = None) -> dict:
     """Bind each rule to 0 / 10 / 20 on this row. Not a factor score."""
-    # A portal trust URL is never Official page. Softcat expand filed
-    # trust.softcat.com only; that host stays an instrument link.
-    # Virtuozzo expand filed virtuozzo.trust.site the same way.
-    if (row.get("slug") or "") in {"softcat", "virtuozzo"}:
-        page_on = False
-    else:
-        page_on = bool(row.get("found") and (row.get("trust_url") or row.get("final_url")))
-        if not page_on:
-            page_on = _instrument_url(row, "trust") or _instrument_url(row, "security")
+    page_on = bool(row.get("found") and (row.get("trust_url") or row.get("final_url")))
+    if not page_on:
+        page_on = _instrument_url(row, "trust") or _instrument_url(row, "security")
     crawl = row.get("_crawl") or {}
     page_wall = crawl.get("http_status") == 403 or _recorded_wall(
         (row.get("instruments") or {}).get("trust")
@@ -975,17 +967,7 @@ def processor_display_name(edge: dict, node: dict, to: str) -> str:
 
 def register_slug_for(node: dict, by_slug: dict, by_domain: dict, by_name: dict | None = None) -> str | None:
     """Reuse an existing dossier slug. Do not invent a page."""
-    from scripts.processor_aliases import canonical_processor_id
-
-    # A leftover map node stays a leftover. Do not follow aliases (LiveKit
-    # SpaceXAI is not xAI just because Cursor's table was).
-    if node.get("in_register") is False:
-        return None
-
     nid = node.get("id")
-    dest = canonical_processor_id(nid, by_slug) if nid else None
-    if dest and dest in by_slug:
-        return dest
     if nid and nid in by_slug:
         return nid
     domain = (node.get("domain") or "").lower()
@@ -1021,12 +1003,6 @@ def enrich_company(
     )
     official = row.get("trust_url") or links.get("trust") or links.get("security") or row.get("final_url") or ""
     if not found:
-        official = ""
-    # Portal host is never Official page. Softcat expand filed trust.softcat.com
-    # only; that URL stays an instrument link. Official page stays open.
-    # Virtuozzo expand filed virtuozzo.trust.site the same way.
-    if slug in {"softcat", "virtuozzo"}:
-        found = False
         official = ""
     certs = sorted((c for c in (row.get("certs") or []) if c), key=lambda x: str(x).lower())
     attestations = [map_cert(c) for c in certs]
@@ -1242,41 +1218,11 @@ def public_fedramp(raw) -> dict | None:
     }
 
 
-def is_outbound_href(url: str) -> bool:
-    """Leave-the-origin http(s). In-site paths, hashes, and mailto stay same-tab."""
-    href = (url or "").strip()
-    if not href or href.startswith(("#", "/", "./", "../", "mailto:")):
-        return False
-    if not href.startswith(("http://", "https://")):
-        return False
-    try:
-        host = href.split("/", 3)[2].split("@")[-1].split(":")[0].lower()
-    except IndexError:
-        return False
-    return host != "opentrust.center" and not host.endswith(".opentrust.center")
-
-
-def outbound_attrs(url: str) -> str:
-    if not is_outbound_href(url):
-        return ""
-    return ' target="_blank" rel="noopener noreferrer"'
-
-
 def official_a(url: str, text: str) -> str:
     return (
-        f'<a class="official" href="{escape(url)}"{outbound_attrs(url)}>'
+        f'<a class="official" href="{escape(url)}" rel="noopener noreferrer">'
         f"{escape(text)}</a>"
     )
-
-
-def outbound_a(url: str, text: str) -> str:
-    return f'<a href="{escape(url)}"{outbound_attrs(url)}>{escape(text)}</a>'
-
-
-def wires_scroll(inner: str) -> str:
-    """Phone swipe wrapper. Table stays a table; the wrapper scrolls."""
-    body = inner.strip("\n")
-    return f'    <div class="wires-scroll">\n{body}\n    </div>'
 
 
 def fedramp_status_word(status: str) -> str:
@@ -1508,7 +1454,7 @@ def fedramp_block(row: dict, generated_at: str = "") -> str:
     if authz is not None:
         extras.append(f"authorizations {escape(str(authz))}")
     cite = (
-        f'Filed from the {outbound_a(FEDRAMP_MARKET, "FedRAMP Marketplace")}'
+        f'Filed from the <a href="{escape(FEDRAMP_MARKET)}">FedRAMP Marketplace</a>'
     )
     if extras:
         cite = cite + " · " + " · ".join(extras)
@@ -1519,7 +1465,7 @@ def fedramp_block(row: dict, generated_at: str = "") -> str:
             offering = str(p.get("offering") or "").strip()
             href = str(p.get("url") or "").strip() or FEDRAMP_MARKET
             rows.append(
-                f"<tr><td>{outbound_a(href, offering)}</td>"
+                f'<tr><td><a href="{escape(href)}">{escape(offering)}</a></td>'
                 f"<td>{cell(fedramp_status_word(p.get('status') or ''))}</td>"
                 f"{filed_cell(str(p.get('impact_level') or '').strip())}"
                 f"{filed_cell(fmt_day(p.get('auth_date') or ''))}</tr>"
@@ -1527,21 +1473,18 @@ def fedramp_block(row: dict, generated_at: str = "") -> str:
         body = "".join(rows)
     else:
         body = f"<tr><td colspan=\"4\">{cell(None)}</td></tr>"
-    table = (
-        '    <table class="inst filed" data-table="fedramp">\n'
+    lines = [
+        '    <p class="sec-kicker">FedRAMP</p>',
+        f"    {caption}",
+        '    <table class="inst filed" data-table="fedramp">',
         '      <thead><tr>'
         + sort_th("offering", "Offering")
         + sort_th("status", "Status")
         + sort_th("impact", "Impact level")
         + sort_th("date", "Auth date")
-        + "</tr></thead>\n"
-        f"      <tbody>{body}</tbody>\n"
-        "    </table>"
-    )
-    lines = [
-        '    <p class="sec-kicker">FedRAMP</p>',
-        f"    {caption}",
-        wires_scroll(table),
+        + "</tr></thead>",
+        f"      <tbody>{body}</tbody>",
+        "    </table>",
     ]
     return "\n".join(lines) + "\n"
 
@@ -1561,25 +1504,22 @@ def star_block(row: dict) -> str:
         offering = str(p.get("offering") or p.get("csp") or "").strip()
         href = str(p.get("url") or "").strip() or STAR_REGISTRY
         rows.append(
-            f"<tr><td>{outbound_a(href, offering)}</td>"
+            f'<tr><td><a href="{escape(href)}">{escape(offering)}</a></td>'
             f"{filed_cell('')}"
             f"{filed_cell('')}"
             f"{filed_cell(fmt_day(p.get('listed_since') or ''))}</tr>"
         )
     cite = (
-        f'Filed from the {outbound_a(STAR_REGISTRY, "CSA STAR Registry")}'
-    )
-    table = (
-        '    <table class="inst filed">\n'
-        '      <thead><tr><th scope="col">Listing</th><th scope="col">Status</th>'
-        '<th scope="col">Level</th><th scope="col">Listed since</th></tr></thead>\n'
-        f'      <tbody>{"".join(rows)}</tbody>\n'
-        "    </table>"
+        f'Filed from the <a href="{escape(STAR_REGISTRY)}">CSA STAR Registry</a>'
     )
     return (
         '    <p class="sec-kicker">CSA STAR</p>\n'
         f'    <p class="src-line">{cite}.</p>\n'
-        f"{wires_scroll(table)}\n"
+        '    <table class="inst filed">\n'
+        '      <thead><tr><th scope="col">Listing</th><th scope="col">Status</th>'
+        '<th scope="col">Level</th><th scope="col">Listed since</th></tr></thead>\n'
+        f'      <tbody>{"".join(rows)}</tbody>\n'
+        "    </table>\n"
     )
 
 
@@ -1598,28 +1538,25 @@ def ramp_block(row: dict, key: str, heading: str, cite_html: str, level_label: s
         offering = str(p.get("offering") or "").strip()
         href = str(p.get("url") or "").strip() or market
         rows.append(
-            f"<tr><td>{outbound_a(href, offering) if href else escape(offering)}</td>"
+            f'<tr><td><a href="{escape(href)}">{escape(offering)}</a></td>'
             f"<td>{cell(str(p.get('status') or '').strip() or None)}</td>"
             f"{filed_cell(str(p.get('impact_level') or p.get('level') or '').strip())}"
             f"{filed_cell(fmt_day(p.get('auth_date') or ''))}</tr>"
         )
-    table = (
+    return (
+        f'    <p class="sec-kicker">{escape(heading)}</p>\n'
+        f'    <p class="src-line">{cite_html}.</p>\n'
         '    <table class="inst filed">\n'
         f'      <thead><tr><th scope="col">Offering</th><th scope="col">Status</th>'
         f'<th scope="col">{escape(level_label)}</th><th scope="col">Auth date</th></tr></thead>\n'
         f'      <tbody>{"".join(rows)}</tbody>\n'
-        "    </table>"
-    )
-    return (
-        f'    <p class="sec-kicker">{escape(heading)}</p>\n'
-        f'    <p class="src-line">{cite_html}.</p>\n'
-        f"{wires_scroll(table)}\n"
+        "    </table>\n"
     )
 
 
 def stateramp_block(row: dict) -> str:
     cite = (
-        f'Filed from the {outbound_a(STATERAMP_MARKET, "GovRAMP Authorized Product List")}'
+        f'Filed from the <a href="{escape(STATERAMP_MARKET)}">GovRAMP Authorized Product List</a>'
         " · StateRAMP name, same program"
     )
     return ramp_block(row, "stateramp", "StateRAMP", cite, "Impact level")
@@ -1627,7 +1564,7 @@ def stateramp_block(row: dict) -> str:
 
 def txramp_block(row: dict) -> str:
     cite = (
-        f'Filed from the {outbound_a(TXRAMP_MARKET, "TX-RAMP certified cloud products")}'
+        f'Filed from the <a href="{escape(TXRAMP_MARKET)}">TX-RAMP certified cloud products</a>'
         " list"
     )
     return ramp_block(row, "txramp", "TX-RAMP", cite, "Level")
@@ -1661,7 +1598,6 @@ def processor_cell(p: dict) -> str:
 
 def processors_block(procs: list[dict], generated_at: str = "", list_url: str = "") -> str:
     proc_head = (
-        '    <div class="wires-scroll">\n'
         '    <table class="inst filed" data-table="processors">\n'
         f'      <thead><tr>{sort_th("processor", "Processor", "asc")}</tr></thead>\n'
     )
@@ -1684,8 +1620,7 @@ def processors_block(procs: list[dict], generated_at: str = "", list_url: str = 
             f"{cite}"
             f"{proc_head}"
             f"      <tbody>{proc_rows}</tbody>\n"
-            "    </table>\n"
-            "    </div>"
+            "    </table>"
         )
     if list_url:
         shown = cite_url(list_url)
@@ -1698,8 +1633,7 @@ def processors_block(procs: list[dict], generated_at: str = "", list_url: str = 
         '    <p class="sec-kicker">Named processors</p>\n'
         f"{proc_head}"
         f"      <tbody><tr><td>{cell(None)}</td></tr></tbody>\n"
-        "    </table>\n"
-        "    </div>"
+        "    </table>"
     )
 
 
@@ -1722,7 +1656,7 @@ def fedramp_spine(row: dict) -> str:
             spine_item(
                 escape(offering),
                 f"FedRAMP marketplace · {escape(status)} · {escape(level)} · last reviewed {escape(auth)} · "
-                f'{outbound_a(href, "View source")}',
+                f'<a href="{escape(href)}">View source</a>',
                 "source",
             )
         )
@@ -1804,7 +1738,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     year = row.get("founded_year")
     year_src = row.get("founded_source")
     if year:
-        year_html = f"{year} · {outbound_a(year_src, 'source')}" if year_src else str(year)
+        year_html = f'{year} · <a href="{escape(year_src)}">source</a>' if year_src else str(year)
     else:
         year_html = '<span class="absent">not on file</span>'
 
@@ -1891,31 +1825,10 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     sub = inst.get("subprocessors")
     if isinstance(sub, dict) and sub.get("url"):
         list_url = sub["url"]
-    ai = row.get("ai_processors") or {}
-    if not procs and isinstance(ai, dict) and ai.get("names"):
-        # Cited AITI named-processor source-lines stay on the dossier
-        # when the register processors list is empty.
-        procs = []
-        for raw in ai.get("names") or []:
-            if isinstance(raw, dict):
-                proc_name = str(raw.get("name") or "").strip()
-                if not proc_name:
-                    continue
-                procs.append({
-                    "name": proc_name,
-                    "slug": raw.get("slug"),
-                    "id": raw.get("id"),
-                    "source_url": raw.get("source_url") or ai.get("source_url"),
-                })
-            else:
-                proc_name = str(raw or "").strip()
-                if proc_name:
-                    procs.append({"name": proc_name, "source_url": ai.get("source_url")})
-        list_url = list_url or (ai.get("source_url") or "")
     clerk = row.get("summary") or ""
     clerk_html = f'<p class="clerk">{link_mark_words(clerk, atts)}</p>' if clerk else ""
     outbound = (
-        official_a(url, "Official page")
+        f'<a class="official" href="{escape(url)}" rel="noopener noreferrer">Official page</a>'
         if found and url
         else '<span class="absent">Official page · not on file</span>'
     )
@@ -1982,12 +1895,10 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     </section>
 
     <p class="sec-kicker">Instruments</p>
-    <div class="wires-scroll">
     <table class="inst" data-table="instruments">
       <thead><tr>{sort_th("instrument", "Instrument")}{sort_th("host", "Host")}{sort_th("seen", "Last seen")}</tr></thead>
       <tbody>{"".join(inst_rows)}</tbody>
     </table>
-    </div>
 
     <p class="sec-kicker">Marks</p>
     {mark_list}
@@ -2125,15 +2036,11 @@ def main() -> int:
     if not wires_path.exists():
         wires_path = ROOT / "data" / "subprocessors.json"
     edges_doc = load_json(wires_path, {"edges": [], "nodes": []})
-    from scripts.processor_aliases import apply_aliases_to_graph
-
-    apply_aliases_to_graph(edges_doc, companies_in)
     pretty_subprocessor_nodes(edges_doc)
     write_json(wires_path, edges_doc)
     data_wires = ROOT / "data" / "subprocessors.json"
     if data_wires.resolve() != wires_path.resolve() and data_wires.exists():
         other = load_json(data_wires, {"edges": [], "nodes": []})
-        apply_aliases_to_graph(other, companies_in)
         pretty_subprocessor_nodes(other)
         write_json(data_wires, other)
     stamp_data_v(generated_at)
