@@ -1227,7 +1227,6 @@ for (const slug of [
   "fwd-deploy",
   "software-mind",
   "marketstar",
-  "codecentric",
   "ai-data-innovations",
   "cloud-support-technologies",
   "mosse-security",
@@ -1285,12 +1284,28 @@ expect(
 
 const neon = bySlug.neon;
 expect(
-  "neon is a domain-only Completeness-0 row on neon.tech",
+  "neon Completeness is page · marks = 40",
   neon &&
     neon.domain === "neon.tech" &&
-    neon.found === false &&
-    !neon.trust_url &&
-    fileScore(fileFlags(neon)) === 0,
+    neon.found === true &&
+    neon.trust_url === "https://neon.com/security" &&
+    !String(neon.trust_url || "").includes("trust.neon.com") &&
+    (neon.certs || []).includes("SOC 2 Type II") &&
+    (neon.certs || []).includes("SOC 3") &&
+    (neon.certs || []).includes("ISO 27001") &&
+    (neon.certs || []).includes("ISO 27701") &&
+    !(neon.certs || []).includes("GDPR") &&
+    !(neon.certs || []).includes("CCPA") &&
+    !(neon.certs || []).includes("HIPAA") &&
+    !(neon.certs || []).includes("FedRAMP") &&
+    !(neon.certs || []).includes("PCI DSS") &&
+    !neon.founded_year &&
+    fileFlags(neon).page === 20 &&
+    fileFlags(neon).marks === 20 &&
+    fileFlags(neon).dpa === 0 &&
+    fileFlags(neon).subprocessors === 0 &&
+    fileFlags(neon).years === 0 &&
+    fileScore(fileFlags(neon)) === 40,
 );
 expect("neon is not databricks", neon && neon.slug === "neon" && bySlug.databricks && bySlug.databricks.domain === "databricks.com");
 
@@ -1586,6 +1601,42 @@ expect(
     fileScore(fileFlags(tanla)) === 20 &&
     ruleOn(fileIndexHtml(tanla))[0] === false &&
     ruleOn(fileIndexHtml(tanla))[4] === true,
+);
+const e2b = bySlug.e2b;
+expect(
+  "e2b Completeness is marks; Vanta portal is not Official page",
+  e2b &&
+    e2b.domain === "e2b.dev" &&
+    e2b.found === false &&
+    !e2b.trust_url &&
+    (e2b.certs || []).includes("SOC 2 Type II") &&
+    !(e2b.certs || []).includes("HIPAA") &&
+    fileFlags(e2b).page === 0 &&
+    fileFlags(e2b).marks === 20 &&
+    fileFlags(e2b).dpa === 0 &&
+    fileFlags(e2b).subprocessors === 0 &&
+    fileFlags(e2b).years === 0 &&
+    fileScore(fileFlags(e2b)) === 20 &&
+    ruleOn(fileIndexHtml(e2b))[0] === false &&
+    ruleOn(fileIndexHtml(e2b))[1] === true,
+);
+const codecentric = bySlug.codecentric;
+expect(
+  "codecentric Completeness is marks; product IT-security page is not Official page",
+  codecentric &&
+    codecentric.domain === "codecentric.de" &&
+    codecentric.found === false &&
+    !codecentric.trust_url &&
+    (codecentric.certs || []).includes("ISO 27001") &&
+    (codecentric.certs || []).includes("TISAX") &&
+    fileFlags(codecentric).page === 0 &&
+    fileFlags(codecentric).marks === 20 &&
+    fileFlags(codecentric).dpa === 0 &&
+    fileFlags(codecentric).subprocessors === 0 &&
+    fileFlags(codecentric).years === 0 &&
+    fileScore(fileFlags(codecentric)) === 20 &&
+    ruleOn(fileIndexHtml(codecentric))[0] === false &&
+    ruleOn(fileIndexHtml(codecentric))[1] === true,
 );
 const coralogix = bySlug.coralogix;
 expect(
