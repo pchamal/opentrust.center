@@ -1695,6 +1695,47 @@ def main() -> int:
     check("HIPAA" not in nl_html, "nextlink dossier does not print HIPAA")
     check("Official page · not on file" in nl_html, "nextlink Official page stays open")
 
+    check(by_pub["userfront"].get("found") is False, "userfront Official page stays open")
+    check(not by_pub["userfront"].get("trust_url"), "userfront solutions page is not Official page")
+    check(
+        (by_pub["userfront"].get("certs") or []) == ["SOC 2 Type II"],
+        "userfront files SOC 2 Type II from first-party FAQ hold",
+    )
+    check((by_pub["userfront"].get("file") or {}).get("marks") == 20, "userfront marks print")
+    check((by_pub["userfront"].get("file") or {}).get("page") in (0, False, None), "userfront Official page stays open")
+    uf_html = (ROOT / "site" / "c" / "userfront.html").read_text(encoding="utf-8")
+    check("<h1>Userfront</h1>" in uf_html, "userfront dossier is its own file")
+    check("SOC 2 Type II" in uf_html, "userfront dossier prints SOC 2 Type II")
+    check("Official page · not on file" in uf_html, "userfront Official page stays open")
+    kept, why = hold_marks(
+        ["SOC 2 Type II"],
+        "Is Userfront SOC 2 compliant? Yes, Userfront is SOC 2 Type 2 compliant "
+        "across all 5 Trust Services Criteria. Userfront is monitored continuously "
+        "by Drata and audited annually for SOC 2 compliance by Ernst & Young.",
+        "security",
+    )
+    check(kept == ["SOC 2 Type II"] and why is None, f"userfront first-person FAQ hold files: {kept} {why}")
+
+    check(by_pub["ternpro-dba-slope"].get("found") is False, "slope Official page stays open")
+    check(not by_pub["ternpro-dba-slope"].get("trust_url"), "slope product page is not Official page")
+    check(
+        (by_pub["ternpro-dba-slope"].get("certs") or []) == ["SOC 2 Type II"],
+        "slope files SOC 2 Type II from first-party platform hold",
+    )
+    check((by_pub["ternpro-dba-slope"].get("file") or {}).get("marks") == 20, "slope marks print")
+    check((by_pub["ternpro-dba-slope"].get("file") or {}).get("page") in (0, False, None), "slope Official page stays open")
+    sl_html = (ROOT / "site" / "c" / "ternpro-dba-slope.html").read_text(encoding="utf-8")
+    check("<h1>Slope</h1>" in sl_html, "slope dossier is its own file")
+    check("SOC 2 Type II" in sl_html, "slope dossier prints SOC 2 Type II")
+    check("Official page · not on file" in sl_html, "slope Official page stays open")
+    kept, why = hold_marks(
+        ["SOC 2 Type II"],
+        "Slope’s platform is SOC Type 1 and Type 2 compliant, meaning your data "
+        "is safe in the cloud.",
+        "security",
+    )
+    check(kept == ["SOC 2 Type II"] and why is None, f"slope first-person platform hold files: {kept} {why}")
+
     check(by_pub["ai-data-innovations"].get("found") is False, "ai-data-innovations Official page stays open")
     check(not by_pub["ai-data-innovations"].get("trust_url"), "ai-data-innovations homepage is not Official page")
     check(

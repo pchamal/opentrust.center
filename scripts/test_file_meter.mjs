@@ -1761,6 +1761,48 @@ expect(
     ruleOn(fileIndexHtml(nextlink))[0] === false &&
     ruleOn(fileIndexHtml(nextlink))[1] === true,
 );
+expect(
+  "userfront Completeness is marks; solutions page is not Official page",
+  (() => {
+    const row = bySlug.userfront;
+    return (
+      row &&
+      row.domain === "userfront.com" &&
+      row.found === false &&
+      !row.trust_url &&
+      (row.certs || []).includes("SOC 2 Type II") &&
+      fileFlags(row).page === 0 &&
+      fileFlags(row).marks === 20 &&
+      fileFlags(row).dpa === 0 &&
+      fileFlags(row).subprocessors === 0 &&
+      fileFlags(row).years === 0 &&
+      fileScore(fileFlags(row)) === 20 &&
+      ruleOn(fileIndexHtml(row))[0] === false &&
+      ruleOn(fileIndexHtml(row))[1] === true
+    );
+  })(),
+);
+expect(
+  "slope Completeness is marks; product page is not Official page",
+  (() => {
+    const row = bySlug["ternpro-dba-slope"];
+    return (
+      row &&
+      row.domain === "slopepay.com" &&
+      row.found === false &&
+      !row.trust_url &&
+      (row.certs || []).includes("SOC 2 Type II") &&
+      fileFlags(row).page === 0 &&
+      fileFlags(row).marks === 20 &&
+      fileFlags(row).dpa === 0 &&
+      fileFlags(row).subprocessors === 0 &&
+      fileFlags(row).years === 0 &&
+      fileScore(fileFlags(row)) === 20 &&
+      ruleOn(fileIndexHtml(row))[0] === false &&
+      ruleOn(fileIndexHtml(row))[1] === true
+    );
+  })(),
+);
 const coralogix = bySlug.coralogix;
 expect(
   "coralogix Completeness is DPA; SafeBase portal is not Official page",
