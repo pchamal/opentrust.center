@@ -15932,8 +15932,6 @@
       "probed": 18,
       "probed_at": "2026-09-02T02:23:03Z",
       "certs": [
-        "GDPR",
-        "HIPAA",
         "ISO 27001",
         "ISO 42001",
         "PCI DSS",
@@ -15941,16 +15939,6 @@
         "SOC 3"
       ],
       "attestations": [
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
         {
           "id": "iso-27001",
           "name": "ISO 27001",
@@ -15977,7 +15965,7 @@
           "weight": 4
         }
       ],
-      "summary": "Public trust center. On file: SOC 2 Type II, SOC 3, ISO 27001, ISO 42001, HIPAA, PCI DSS, GDPR.",
+      "summary": "Official page is first-party Trust Center. Holds SOC 2 Type II, SOC 3, ISO 27001, ISO 42001, and PCI DSS from certified / report / attest prose.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -37478,28 +37466,10 @@
       "probed": 12,
       "probed_at": "2026-09-02T02:23:03Z",
       "certs": [
-        "CCPA",
-        "GDPR",
-        "HIPAA",
         "ISO 27001",
         "SOC 2 Type II"
       ],
       "attestations": [
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
         {
           "id": "iso-27001",
           "name": "ISO 27001",
@@ -37511,7 +37481,7 @@
           "weight": 10
         }
       ],
-      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, HIPAA, GDPR, CCPA.",
+      "summary": "Official page is first-party Trust Center (not the portal). Holds SOC 2 Type II and ISO 27001 from certified prose.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -43428,44 +43398,28 @@
       "slug": "inworld",
       "domain": "inworld.ai",
       "found": true,
-      "trust_url": "https://trust.inworld.ai",
-      "final_url": "https://trust.inworld.ai",
+      "trust_url": "https://inworld.ai/security",
+      "final_url": "https://inworld.ai/security",
       "list": "named-processor-gap",
       "source": "https://livekit.com/legal/sub-processors",
       "source_url": "https://livekit.com/legal/sub-processors",
       "probed": 6,
       "probed_at": "2026-09-02T02:23:03Z",
       "certs": [
-        "GDPR",
-        "HIPAA",
         "SOC 2 Type II"
       ],
       "attestations": [
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
         {
           "id": "soc-2-type-ii",
           "name": "SOC 2 Type II",
           "weight": 10
         }
       ],
-      "summary": "Public trust center. On file: SOC 2 Type II, HIPAA, GDPR.",
+      "summary": "Official page is first-party Security (SOC 2 Type II certified). Portal host trust.inworld.ai is URL-only.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
-        "trust": {
-          "url": "https://trust.inworld.ai",
-          "host": "trust.inworld.ai",
-          "seen": "2026-09-02"
-        },
+        "trust": null,
         "security": {
           "url": "https://inworld.ai/security",
           "host": "inworld.ai",
@@ -51063,22 +51017,16 @@
       "probed": 13,
       "probed_at": "2026-09-02T02:23:03Z",
       "certs": [
-        "HIPAA",
         "SOC 2 Type II"
       ],
       "attestations": [
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
         {
           "id": "soc-2-type-ii",
           "name": "SOC 2 Type II",
           "weight": 10
         }
       ],
-      "summary": "Public trust center. On file: SOC 2 Type II, HIPAA.",
+      "summary": "Official page is first-party Trust / Security. Holds SOC 2 Type II from report / independent-audit prose.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -60856,23 +60804,9 @@
       "source_url": "https://www.rocketlane.com/legal/sub-processors",
       "probed": 13,
       "probed_at": "2026-09-02T02:23:03Z",
-      "certs": [
-        "HIPAA",
-        "SOC 2"
-      ],
-      "attestations": [
-        {
-          "id": "hipaa",
-          "name": "HIPAA",
-          "weight": 6
-        },
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2",
-          "weight": 4
-        }
-      ],
-      "summary": "Public trust center. On file: SOC 2, HIPAA.",
+      "certs": [],
+      "attestations": [],
+      "summary": "Official page is first-party Security. Stay-compliant SOC 2 / HIPAA copy is not a named certification hold.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -60977,7 +60911,7 @@
       "tier": "on-file",
       "file": {
         "page": 20,
-        "marks": 20,
+        "marks": 10,
         "dpa": 20,
         "subprocessors": 20,
         "years": 0
@@ -70024,22 +69958,10 @@
       "probed": 13,
       "probed_at": "2026-09-02T02:23:03Z",
       "certs": [
-        "CCPA",
-        "GDPR",
         "SOC 1 Type II",
         "SOC 2 Type II"
       ],
       "attestations": [
-        {
-          "id": "ccpa-cpra",
-          "name": "CCPA",
-          "weight": 3
-        },
-        {
-          "id": "gdpr",
-          "name": "GDPR",
-          "weight": 3
-        },
         {
           "id": "soc-1-type-ii",
           "name": "SOC 1 Type II",
@@ -70051,7 +69973,7 @@
           "weight": 10
         }
       ],
-      "summary": "Public trust center. On file: SOC 2 Type II, SOC 1 Type II, GDPR, CCPA.",
+      "summary": "Official page is first-party Security. Holds SOC 2 Type II and SOC 1 Type II from report / attest prose.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -354404,7 +354326,7 @@
   "coverage": {
     "companies": 4968,
     "years": 702,
-    "certs_companies": 782,
+    "certs_companies": 781,
     "edges": 2903,
     "top_processors": [
       {

@@ -1426,10 +1426,13 @@ def main() -> int:
         "cockroach-labs Official page is first-party /trust-center",
     )
     check(
-        {"SOC 2 Type II", "SOC 3", "ISO 27001", "ISO 42001", "HIPAA", "PCI DSS"}
+        {"SOC 2 Type II", "SOC 3", "ISO 27001", "ISO 42001", "PCI DSS"}
         <= set(by_pub["cockroach-labs"].get("certs") or []),
         f"cockroach-labs first-party holds {by_pub['cockroach-labs'].get('certs')}",
     )
+    check("HIPAA" not in (by_pub["cockroach-labs"].get("certs") or []), "cockroach-labs HIPAA-ready stays open")
+    check("GDPR" not in (by_pub["cockroach-labs"].get("certs") or []), "cockroach-labs GDPR stays open")
+    check("CCPA" not in (by_pub["cockroach-labs"].get("certs") or []), "cockroach-labs CCPA stays open")
     check((by_pub["cockroach-labs"].get("file") or {}).get("page") == 20, "cockroach-labs Official page prints")
     check((by_pub["cockroach-labs"].get("file") or {}).get("marks") == 20, "cockroach-labs marks print")
     crdb_html = (ROOT / "site" / "c" / "cockroach-labs.html").read_text(encoding="utf-8")
@@ -1442,11 +1445,15 @@ def main() -> int:
         {"SOC 2 Type II", "SOC 1 Type II"} <= set(by_pub["metabase"].get("certs") or []),
         f"metabase first-party holds {by_pub['metabase'].get('certs')}",
     )
+    check("GDPR" not in (by_pub["metabase"].get("certs") or []), "metabase GDPR stays open")
+    check("CCPA" not in (by_pub["metabase"].get("certs") or []), "metabase CCPA stays open")
     check((by_pub["metabase"].get("file") or {}).get("marks") == 20, "metabase marks print")
     check(by_pub["weaviate"].get("found") is True, "weaviate Official page is on file")
     check(by_pub["weaviate"].get("trust_url") == "https://weaviate.io/security", "weaviate Official page is first-party /security")
-    check("SOC 2" in (by_pub["weaviate"].get("certs") or []), "weaviate prints SOC 2 from /security")
-    check((by_pub["weaviate"].get("file") or {}).get("marks") == 20, "weaviate marks print")
+    check((by_pub["weaviate"].get("certs") or []) == [], "weaviate stay-compliant SOC 2 / HIPAA stays open")
+    check("SOC 2" not in (by_pub["weaviate"].get("certs") or []), "weaviate SOC 2 stay-compliant stays open")
+    check("HIPAA" not in (by_pub["weaviate"].get("certs") or []), "weaviate HIPAA stay-compliant stays open")
+    check((by_pub["weaviate"].get("file") or {}).get("marks") == 10, "weaviate marks stay dotted")
     check(by_pub["scalekit"].get("found") is True, "scalekit Official page is on file")
     check(
         by_pub["scalekit"].get("trust_url") == "https://www.scalekit.com/trust-center",
@@ -1454,18 +1461,40 @@ def main() -> int:
     )
     check("scalekit.trust.site" not in (by_pub["scalekit"].get("trust_url") or ""), "scalekit Official page is not the portal")
     check(
-        {"SOC 2 Type II", "ISO 27001", "HIPAA"} <= set(by_pub["scalekit"].get("certs") or []),
+        {"SOC 2 Type II", "ISO 27001"} <= set(by_pub["scalekit"].get("certs") or []),
         f"scalekit first-party holds {by_pub['scalekit'].get('certs')}",
     )
+    check("HIPAA" not in (by_pub["scalekit"].get("certs") or []), "scalekit HIPAA-eligible stays open")
+    check("GDPR" not in (by_pub["scalekit"].get("certs") or []), "scalekit GDPR stays open")
+    check("CCPA" not in (by_pub["scalekit"].get("certs") or []), "scalekit CCPA stays open")
     sk_html = (ROOT / "site" / "c" / "scalekit.html").read_text(encoding="utf-8")
     check("<h1>Scalekit</h1>" in sk_html, "scalekit dossier is its own file")
     check("https://www.scalekit.com/trust-center" in sk_html, "scalekit dossier cites first-party Official page")
     check("scalekit.trust.site" not in sk_html, "scalekit dossier does not cite the portal as Official page")
     check("sprinto" not in sk_html.lower(), "scalekit dossier names no portal vendor")
     check(by_pub["inworld"].get("found") is True, "inworld Official page is on file")
+    check(
+        by_pub["inworld"].get("trust_url") == "https://inworld.ai/security",
+        "inworld Official page is first-party /security",
+    )
+    check("trust.inworld.ai" not in (by_pub["inworld"].get("trust_url") or ""), "inworld Official page is not the portal")
     check("SOC 2 Type II" in (by_pub["inworld"].get("certs") or []), "inworld prints SOC 2 Type II")
+    check("GDPR" not in (by_pub["inworld"].get("certs") or []), "inworld GDPR stays open")
+    check("CCPA" not in (by_pub["inworld"].get("certs") or []), "inworld CCPA stays open")
+    check("HIPAA" not in (by_pub["inworld"].get("certs") or []), "inworld HIPAA-compliant stays open")
+    inv_html = (ROOT / "site" / "c" / "inworld.html").read_text(encoding="utf-8")
+    check("<h1>Inworld</h1>" in inv_html, "inworld dossier is its own file")
+    inv_official = re.findall(
+        r'<a class="official" href="([^"]+)"[^>]*>Official page</a>',
+        inv_html,
+    )
+    check(inv_official == ["https://inworld.ai/security"], "inworld dossier Official page is first-party /security")
+    check("https://trust.inworld.ai" not in (by_pub["inworld"].get("trust_url") or ""), "inworld Official page URL is not the portal")
     check(by_pub["rime"].get("found") is True, "rime Official page is on file")
     check("SOC 2 Type II" in (by_pub["rime"].get("certs") or []), "rime prints SOC 2 Type II")
+    check("HIPAA" not in (by_pub["rime"].get("certs") or []), "rime HIPAA-compliant stays open")
+    check("GDPR" not in (by_pub["rime"].get("certs") or []), "rime GDPR stays open")
+    check("CCPA" not in (by_pub["rime"].get("certs") or []), "rime CCPA stays open")
     check(by_pub["loops"]["domain"] == "loops.so", "loops is the Loops.so email product")
     check(by_pub["lightdash"].get("found") is False, "lightdash Framer legal pages stay unread as Official page")
     check((by_pub["lightdash"].get("certs") or []) == [], "lightdash marks stay open")

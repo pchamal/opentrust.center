@@ -1067,6 +1067,16 @@ def main() -> int:
     check(instrument_url(by_pub["inworld"], "dpa") == "https://inworld.ai/data-processing-addendum", "inworld DPA is first-party HTML")
     check((by_pub["inworld"].get("file") or {}).get("dpa") == 20, "inworld DPA prints")
     check(
+        by_pub["inworld"].get("trust_url") == "https://inworld.ai/security",
+        "inworld Official page is first-party /security",
+    )
+    check("trust.inworld.ai" not in (by_pub["inworld"].get("trust_url") or ""), "inworld Official page is not the portal")
+    check(
+        instrument_url(by_pub["inworld"], "subprocessors") == "https://trust.inworld.ai/subprocessors",
+        "inworld subprocessors stay portal URL-only",
+    )
+    check((by_pub["inworld"].get("file") or {}).get("subprocessors") == 10, "inworld processors stay dotted")
+    check(
         instrument_url(by_pub["rime"], "subprocessors") == "https://www.rime.ai/rime-subprocessors",
         "rime list is first-party HTML",
     )

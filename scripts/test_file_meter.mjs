@@ -1026,6 +1026,18 @@ expect(
     fileFlags(cockroachLabs).years === 0 &&
     fileScore(fileFlags(cockroachLabs)) === 80,
 );
+expect(
+  "cockroach-labs marks stay SOC/ISO/PCI — HIPAA/GDPR/CCPA open",
+  cockroachLabs &&
+    (cockroachLabs.certs || []).includes("SOC 2 Type II") &&
+    (cockroachLabs.certs || []).includes("SOC 3") &&
+    (cockroachLabs.certs || []).includes("ISO 27001") &&
+    (cockroachLabs.certs || []).includes("ISO 42001") &&
+    (cockroachLabs.certs || []).includes("PCI DSS") &&
+    !(cockroachLabs.certs || []).includes("HIPAA") &&
+    !(cockroachLabs.certs || []).includes("GDPR") &&
+    !(cockroachLabs.certs || []).includes("CCPA"),
+);
 
 const scalekit = bySlug.scalekit;
 expect(
@@ -1043,6 +1055,110 @@ expect(
     fileFlags(scalekit).subprocessors === 0 &&
     fileFlags(scalekit).years === 0 &&
     fileScore(fileFlags(scalekit)) === 60,
+);
+expect(
+  "scalekit marks stay SOC 2 Type II and ISO 27001 — HIPAA/GDPR/CCPA open",
+  scalekit &&
+    (scalekit.certs || []).includes("SOC 2 Type II") &&
+    (scalekit.certs || []).includes("ISO 27001") &&
+    !(scalekit.certs || []).includes("HIPAA") &&
+    !(scalekit.certs || []).includes("GDPR") &&
+    !(scalekit.certs || []).includes("CCPA"),
+);
+
+const inworld = bySlug.inworld;
+expect(
+  "inworld Completeness is page · marks · DPA · subprocessors(10) = 70",
+  inworld &&
+    inworld.found === true &&
+    inworld.trust_url === "https://inworld.ai/security" &&
+    !String(inworld.trust_url || "").includes("trust.inworld.ai") &&
+    ((inworld.instruments || {}).dpa || {}).url === "https://inworld.ai/data-processing-addendum" &&
+    ((inworld.instruments || {}).subprocessors || {}).url === "https://trust.inworld.ai/subprocessors" &&
+    !(inworld.processors || []).length &&
+    fileFlags(inworld).page === 20 &&
+    fileFlags(inworld).marks === 20 &&
+    fileFlags(inworld).dpa === 20 &&
+    fileFlags(inworld).subprocessors === 10 &&
+    fileFlags(inworld).years === 0 &&
+    fileScore(fileFlags(inworld)) === 70,
+);
+expect(
+  "inworld marks stay SOC 2 Type II — GDPR/CCPA/HIPAA open",
+  inworld &&
+    (inworld.certs || []).includes("SOC 2 Type II") &&
+    !(inworld.certs || []).includes("GDPR") &&
+    !(inworld.certs || []).includes("CCPA") &&
+    !(inworld.certs || []).includes("HIPAA"),
+);
+
+const weaviate = bySlug.weaviate;
+expect(
+  "weaviate Completeness is page · marks(10) · DPA · subprocessors = 70",
+  weaviate &&
+    weaviate.found === true &&
+    weaviate.trust_url === "https://weaviate.io/security" &&
+    ((weaviate.instruments || {}).dpa || {}).url === "https://weaviate.io/dpa" &&
+    ((weaviate.instruments || {}).subprocessors || {}).url === "https://weaviate.io/subprocessors" &&
+    (weaviate.processors || []).some((p) => p.slug === "voyage-ai") &&
+    fileFlags(weaviate).page === 20 &&
+    fileFlags(weaviate).marks === 10 &&
+    fileFlags(weaviate).dpa === 20 &&
+    fileFlags(weaviate).subprocessors === 20 &&
+    fileFlags(weaviate).years === 0 &&
+    fileScore(fileFlags(weaviate)) === 70,
+);
+expect(
+  "weaviate stay-compliant SOC 2 / HIPAA stay open",
+  weaviate &&
+    !(weaviate.certs || []).length &&
+    !(weaviate.certs || []).includes("SOC 2") &&
+    !(weaviate.certs || []).includes("HIPAA"),
+);
+
+const metabase = bySlug.metabase;
+expect(
+  "metabase Completeness is page · marks = 40",
+  metabase &&
+    metabase.found === true &&
+    metabase.trust_url === "https://www.metabase.com/security" &&
+    fileFlags(metabase).page === 20 &&
+    fileFlags(metabase).marks === 20 &&
+    fileFlags(metabase).dpa === 0 &&
+    fileFlags(metabase).subprocessors === 0 &&
+    fileFlags(metabase).years === 0 &&
+    fileScore(fileFlags(metabase)) === 40,
+);
+expect(
+  "metabase marks stay SOC 2 Type II and SOC 1 Type II — GDPR/CCPA open",
+  metabase &&
+    (metabase.certs || []).includes("SOC 2 Type II") &&
+    (metabase.certs || []).includes("SOC 1 Type II") &&
+    !(metabase.certs || []).includes("GDPR") &&
+    !(metabase.certs || []).includes("CCPA"),
+);
+
+const rime = bySlug.rime;
+expect(
+  "rime Completeness is page · marks · subprocessors = 60",
+  rime &&
+    rime.found === true &&
+    rime.trust_url === "https://rime.ai/trust" &&
+    ((rime.instruments || {}).subprocessors || {}).url === "https://www.rime.ai/rime-subprocessors" &&
+    fileFlags(rime).page === 20 &&
+    fileFlags(rime).marks === 20 &&
+    fileFlags(rime).dpa === 0 &&
+    fileFlags(rime).subprocessors === 20 &&
+    fileFlags(rime).years === 0 &&
+    fileScore(fileFlags(rime)) === 60,
+);
+expect(
+  "rime marks stay SOC 2 Type II — HIPAA/GDPR/CCPA open",
+  rime &&
+    (rime.certs || []).includes("SOC 2 Type II") &&
+    !(rime.certs || []).includes("HIPAA") &&
+    !(rime.certs || []).includes("GDPR") &&
+    !(rime.certs || []).includes("CCPA"),
 );
 
 const loops = bySlug.loops;
