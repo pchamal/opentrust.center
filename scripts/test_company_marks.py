@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from enrich import apply_marks_to_row  # noqa: E402
+from enrich import apply_marks_to_row, hosts_for, is_first_party_url  # noqa: E402
 from file_company_marks import hold_marks  # noqa: E402
 from marks import MARK_PATTERNS  # noqa: E402
 
@@ -1581,6 +1581,68 @@ def main() -> int:
     check("Official page · not on file" in e2_html, "e2open Official page stays open")
     check("ssae18-soc1-and-soc2" not in e2_html, "e2open dossier does not file the JS-shell cert URL")
     check("iso-27001-certification" not in e2_html, "e2open dossier does not file the JS-shell ISO URL")
+
+    check(by_pub["neon"].get("found") is True, "neon Official page is on file")
+    check(
+        by_pub["neon"].get("trust_url") == "https://neon.com/security",
+        "neon Official page is first-party /security on the neon.com rebrand",
+    )
+    check("trust.neon.com" not in (by_pub["neon"].get("trust_url") or ""), "neon Official page is not the portal")
+    check(by_pub["neon"].get("domain") == "neon.tech", "neon register domain stays neon.tech")
+    check(
+        sorted(by_pub["neon"].get("certs") or []) == ["ISO 27001", "ISO 27701", "SOC 2 Type II", "SOC 3"],
+        "neon files its own SOC/ISO holds only",
+    )
+    check("GDPR" not in (by_pub["neon"].get("certs") or []), "neon GDPR stays open")
+    check("CCPA" not in (by_pub["neon"].get("certs") or []), "neon CCPA stays open")
+    check("HIPAA" not in (by_pub["neon"].get("certs") or []), "neon HIPAA-compliance sentence stays open")
+    check("FedRAMP" not in (by_pub["neon"].get("certs") or []), "neon AWS/Azure FedRAMP stays off file")
+    check("PCI DSS" not in (by_pub["neon"].get("certs") or []), "neon AWS/Azure PCI stays off file")
+    check((by_pub["neon"].get("file") or {}).get("page") == 20, "neon Official page prints")
+    check((by_pub["neon"].get("file") or {}).get("marks") == 20, "neon marks print")
+    check((by_pub["neon"].get("file") or {}).get("years") in (0, False, None), "neon first-commit year stays open")
+    neon_html = (ROOT / "site" / "c" / "neon.html").read_text(encoding="utf-8")
+    check("<h1>Neon</h1>" in neon_html, "neon dossier is its own file")
+    check("https://neon.com/security" in neon_html, "neon dossier cites Official page")
+    check("SOC 2 Type II" in neon_html, "neon dossier prints SOC 2 Type II")
+    check("ISO 27701" in neon_html, "neon dossier prints ISO 27701")
+    check("GDPR" not in neon_html, "neon dossier does not print GDPR")
+    check("CCPA" not in neon_html, "neon dossier does not print CCPA")
+    check("HIPAA" not in neon_html, "neon dossier does not print HIPAA")
+    check(by_pub["databricks"].get("domain") == "databricks.com", "neon is not databricks")
+    check("neon.com" in hosts_for({"domain": "neon.tech"}), "neon.tech first-party hosts include neon.com")
+    check(
+        is_first_party_url("https://neon.com/security", {"domain": "neon.tech", "name": "Neon", "slug": "neon"}),
+        "neon.com/security is first-party for the Neon row",
+    )
+
+    check(by_pub["e2b"].get("found") is False, "e2b Official page stays open")
+    check(not by_pub["e2b"].get("trust_url"), "e2b Vanta portal is not Official page")
+    check((by_pub["e2b"].get("certs") or []) == ["SOC 2 Type II"], "e2b files SOC 2 Type II from first-party docs HTML")
+    check("HIPAA" not in (by_pub["e2b"].get("certs") or []), "e2b HIPAA BAA request stays open")
+    check((by_pub["e2b"].get("file") or {}).get("marks") == 20, "e2b marks print")
+    check((by_pub["e2b"].get("file") or {}).get("page") in (0, False, None), "e2b Official page stays open")
+    e2b_html = (ROOT / "site" / "c" / "e2b.html").read_text(encoding="utf-8")
+    check("<h1>E2B</h1>" in e2b_html, "e2b dossier is its own file")
+    check("SOC 2 Type II" in e2b_html, "e2b dossier prints SOC 2 Type II")
+    check("HIPAA" not in e2b_html, "e2b dossier does not print HIPAA")
+    check("Official page · not on file" in e2b_html, "e2b Official page stays open")
+    check("vanta" not in e2b_html.lower(), "e2b dossier does not name the portal vendor")
+
+    check(by_pub["codecentric"].get("found") is False, "codecentric Official page stays open")
+    check(not by_pub["codecentric"].get("trust_url"), "codecentric product IT-security page is not Official page")
+    check(
+        sorted(by_pub["codecentric"].get("certs") or []) == ["ISO 27001", "TISAX"],
+        "codecentric files ISO 27001 and TISAX from About prose",
+    )
+    check((by_pub["codecentric"].get("file") or {}).get("marks") == 20, "codecentric marks print")
+    check((by_pub["codecentric"].get("file") or {}).get("page") in (0, False, None), "codecentric Official page stays open")
+    cc_html = (ROOT / "site" / "c" / "codecentric.html").read_text(encoding="utf-8")
+    check("<h1>codecentric</h1>" in cc_html, "codecentric dossier is its own file")
+    check("ISO 27001" in cc_html, "codecentric dossier prints ISO 27001")
+    check("TISAX" in cc_html, "codecentric dossier prints TISAX")
+    check("Official page · not on file" in cc_html, "codecentric Official page stays open")
+
     check(by_pub["pdf"].get("found") is True, "pdf Official page is on file")
     check(by_pub["pdf"].get("trust_url") == "https://pdf.co/security", "pdf Official page is first-party /security")
     check((by_pub["pdf"].get("certs") or []) == ["SOC 2 Type II"], "pdf files its own SOC 2 Type II only")

@@ -682,6 +682,7 @@ DOMAIN_ALIASES = {
     "x.ai": ["x.ai"],
     "anthropic.com": ["claude.com"],
     "episerver.com": ["optimizely.com"],
+    "neon.tech": ["neon.com"],
 }
 
 def hosts_for(company: dict) -> list[str]:
