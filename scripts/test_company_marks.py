@@ -1718,23 +1718,13 @@ def main() -> int:
 
     check(by_pub["ternpro-dba-slope"].get("found") is False, "slope Official page stays open")
     check(not by_pub["ternpro-dba-slope"].get("trust_url"), "slope product page is not Official page")
-    check(
-        (by_pub["ternpro-dba-slope"].get("certs") or []) == ["SOC 2 Type II"],
-        "slope files SOC 2 Type II from first-party platform hold",
-    )
-    check((by_pub["ternpro-dba-slope"].get("file") or {}).get("marks") == 20, "slope marks print")
+    check((by_pub["ternpro-dba-slope"].get("certs") or []) == [], "slope informal SOC Type 1/2 is not SOC 2 Type II")
+    check((by_pub["ternpro-dba-slope"].get("file") or {}).get("marks") in (0, False, None), "slope marks stay open")
     check((by_pub["ternpro-dba-slope"].get("file") or {}).get("page") in (0, False, None), "slope Official page stays open")
     sl_html = (ROOT / "site" / "c" / "ternpro-dba-slope.html").read_text(encoding="utf-8")
     check("<h1>Slope</h1>" in sl_html, "slope dossier is its own file")
-    check("SOC 2 Type II" in sl_html, "slope dossier prints SOC 2 Type II")
+    check("SOC 2 Type II" not in sl_html, "slope dossier does not print inferred SOC 2 Type II")
     check("Official page · not on file" in sl_html, "slope Official page stays open")
-    kept, why = hold_marks(
-        ["SOC 2 Type II"],
-        "Slope’s platform is SOC Type 1 and Type 2 compliant, meaning your data "
-        "is safe in the cloud.",
-        "security",
-    )
-    check(kept == ["SOC 2 Type II"] and why is None, f"slope first-person platform hold files: {kept} {why}")
 
     check(by_pub["ai-data-innovations"].get("found") is False, "ai-data-innovations Official page stays open")
     check(not by_pub["ai-data-innovations"].get("trust_url"), "ai-data-innovations homepage is not Official page")

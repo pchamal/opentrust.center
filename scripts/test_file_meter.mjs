@@ -1783,7 +1783,7 @@ expect(
   })(),
 );
 expect(
-  "slope Completeness is marks; product page is not Official page",
+  "slope Completeness stays 0; informal SOC Type 1/2 is not Type II",
   (() => {
     const row = bySlug["ternpro-dba-slope"];
     return (
@@ -1791,15 +1791,15 @@ expect(
       row.domain === "slopepay.com" &&
       row.found === false &&
       !row.trust_url &&
-      (row.certs || []).includes("SOC 2 Type II") &&
+      !(row.certs || []).length &&
       fileFlags(row).page === 0 &&
-      fileFlags(row).marks === 20 &&
+      fileFlags(row).marks === 0 &&
       fileFlags(row).dpa === 0 &&
       fileFlags(row).subprocessors === 0 &&
       fileFlags(row).years === 0 &&
-      fileScore(fileFlags(row)) === 20 &&
+      fileScore(fileFlags(row)) === 0 &&
       ruleOn(fileIndexHtml(row))[0] === false &&
-      ruleOn(fileIndexHtml(row))[1] === true
+      ruleOn(fileIndexHtml(row))[1] === false
     );
   })(),
 );
