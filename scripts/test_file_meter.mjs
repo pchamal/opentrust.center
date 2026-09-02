@@ -950,7 +950,7 @@ expect(
       "https://livekit.com/legal/sub-processors" &&
     (livekit.processors || []).length === 30 &&
     (livekit.processors || []).some((p) => p.id === "spacexai" && !p.slug && p.name === "SpaceXAI") &&
-    (livekit.processors || []).some((p) => p.id === "cockroach-labs" && !p.slug) &&
+    (livekit.processors || []).some((p) => p.slug === "cockroach-labs" && p.name === "Cockroach Labs") &&
     !livekit.founded_year &&
     fileFlags(livekit).page === 20 &&
     fileFlags(livekit).marks === 20 &&
@@ -996,6 +996,8 @@ expect(
     rocketlane.founded_source === "https://www.rocketlane.com/privacy-policy" &&
     (rocketlane.processors || []).some((p) => p.slug === "twilio" && p.name === "SendGrid / Twilio") &&
     (rocketlane.processors || []).some((p) => p.slug === "langchain" && p.name === "Langsmith") &&
+    (rocketlane.processors || []).some((p) => p.slug === "weaviate" && p.name === "Weaviate") &&
+    (rocketlane.processors || []).some((p) => p.slug === "scalekit" && p.name === "Scalekit") &&
     !(rocketlane.processors || []).some((p) => p.id === "aws") &&
     !(rocketlane.certs || []).length &&
     fileFlags(rocketlane).page === 20 &&
@@ -1004,6 +1006,61 @@ expect(
     fileFlags(rocketlane).subprocessors === 20 &&
     fileFlags(rocketlane).years === 20 &&
     fileScore(fileFlags(rocketlane)) === 90,
+);
+
+const cockroachLabs = bySlug["cockroach-labs"];
+expect(
+  "cockroach-labs Completeness is page · marks · DPA · subprocessors = 80",
+  cockroachLabs &&
+    cockroachLabs.found === true &&
+    cockroachLabs.domain === "cockroachlabs.com" &&
+    cockroachLabs.trust_url === "https://cockroachlabs.com/trust-center" &&
+    ((cockroachLabs.instruments || {}).dpa || {}).url ===
+      "https://www.cockroachlabs.com/cloud-terms-and-conditions/data-processing-addendum/" &&
+    (cockroachLabs.processors || []).some((p) => p.slug === "amazon-web-services") &&
+    !cockroachLabs.founded_year &&
+    fileFlags(cockroachLabs).page === 20 &&
+    fileFlags(cockroachLabs).marks === 20 &&
+    fileFlags(cockroachLabs).dpa === 20 &&
+    fileFlags(cockroachLabs).subprocessors === 20 &&
+    fileFlags(cockroachLabs).years === 0 &&
+    fileScore(fileFlags(cockroachLabs)) === 80,
+);
+
+const scalekit = bySlug.scalekit;
+expect(
+  "scalekit Completeness is page · marks · DPA = 60",
+  scalekit &&
+    scalekit.found === true &&
+    scalekit.trust_url === "https://www.scalekit.com/trust-center" &&
+    !String(scalekit.trust_url || "").includes("trust.site") &&
+    ((scalekit.instruments || {}).dpa || {}).url ===
+      "https://www.scalekit.com/legal/data-processing-agreement" &&
+    !(scalekit.processors || []).length &&
+    fileFlags(scalekit).page === 20 &&
+    fileFlags(scalekit).marks === 20 &&
+    fileFlags(scalekit).dpa === 20 &&
+    fileFlags(scalekit).subprocessors === 0 &&
+    fileFlags(scalekit).years === 0 &&
+    fileScore(fileFlags(scalekit)) === 60,
+);
+
+const loops = bySlug.loops;
+expect(
+  "loops Completeness stays 0 on loops.so",
+  loops &&
+    loops.domain === "loops.so" &&
+    loops.found === false &&
+    fileScore(fileFlags(loops)) === 0,
+);
+
+const voyageAi = bySlug["voyage-ai"];
+expect(
+  "voyage-ai Completeness stays 0 on voyageai.com",
+  voyageAi &&
+    voyageAi.domain === "voyageai.com" &&
+    voyageAi.found === false &&
+    fileScore(fileFlags(voyageAi)) === 0,
 );
 
 const supportlogic = bySlug.supportlogic;

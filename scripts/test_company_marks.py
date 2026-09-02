@@ -1419,6 +1419,58 @@ def main() -> int:
     check("EU-US DPF" in hg_html, "hg-insights dossier prints EU-US DPF")
     check("https://trust.hginsights.com" not in hg_html, "hg-insights dossier does not cite SafeBase as Official page")
 
+    # This cut: first-party HTML on leftover product vendors.
+    check(by_pub["cockroach-labs"].get("found") is True, "cockroach-labs Official page is on file")
+    check(
+        by_pub["cockroach-labs"].get("trust_url") == "https://cockroachlabs.com/trust-center",
+        "cockroach-labs Official page is first-party /trust-center",
+    )
+    check(
+        {"SOC 2 Type II", "SOC 3", "ISO 27001", "ISO 42001", "HIPAA", "PCI DSS"}
+        <= set(by_pub["cockroach-labs"].get("certs") or []),
+        f"cockroach-labs first-party holds {by_pub['cockroach-labs'].get('certs')}",
+    )
+    check((by_pub["cockroach-labs"].get("file") or {}).get("page") == 20, "cockroach-labs Official page prints")
+    check((by_pub["cockroach-labs"].get("file") or {}).get("marks") == 20, "cockroach-labs marks print")
+    crdb_html = (ROOT / "site" / "c" / "cockroach-labs.html").read_text(encoding="utf-8")
+    check("<h1>Cockroach Labs</h1>" in crdb_html, "cockroach-labs dossier is its own file")
+    check("https://cockroachlabs.com/trust-center" in crdb_html, "cockroach-labs dossier cites Official page")
+    check("SOC 2 Type II" in crdb_html, "cockroach-labs dossier prints SOC 2 Type II")
+    check(by_pub["metabase"].get("found") is True, "metabase Official page is on file")
+    check(by_pub["metabase"].get("trust_url") == "https://www.metabase.com/security", "metabase Official page is first-party /security")
+    check(
+        {"SOC 2 Type II", "SOC 1 Type II"} <= set(by_pub["metabase"].get("certs") or []),
+        f"metabase first-party holds {by_pub['metabase'].get('certs')}",
+    )
+    check((by_pub["metabase"].get("file") or {}).get("marks") == 20, "metabase marks print")
+    check(by_pub["weaviate"].get("found") is True, "weaviate Official page is on file")
+    check(by_pub["weaviate"].get("trust_url") == "https://weaviate.io/security", "weaviate Official page is first-party /security")
+    check("SOC 2" in (by_pub["weaviate"].get("certs") or []), "weaviate prints SOC 2 from /security")
+    check((by_pub["weaviate"].get("file") or {}).get("marks") == 20, "weaviate marks print")
+    check(by_pub["scalekit"].get("found") is True, "scalekit Official page is on file")
+    check(
+        by_pub["scalekit"].get("trust_url") == "https://www.scalekit.com/trust-center",
+        "scalekit Official page is first-party /trust-center",
+    )
+    check("scalekit.trust.site" not in (by_pub["scalekit"].get("trust_url") or ""), "scalekit Official page is not the portal")
+    check(
+        {"SOC 2 Type II", "ISO 27001", "HIPAA"} <= set(by_pub["scalekit"].get("certs") or []),
+        f"scalekit first-party holds {by_pub['scalekit'].get('certs')}",
+    )
+    sk_html = (ROOT / "site" / "c" / "scalekit.html").read_text(encoding="utf-8")
+    check("<h1>Scalekit</h1>" in sk_html, "scalekit dossier is its own file")
+    check("https://www.scalekit.com/trust-center" in sk_html, "scalekit dossier cites first-party Official page")
+    check("scalekit.trust.site" not in sk_html, "scalekit dossier does not cite the portal as Official page")
+    check("sprinto" not in sk_html.lower(), "scalekit dossier names no portal vendor")
+    check(by_pub["inworld"].get("found") is True, "inworld Official page is on file")
+    check("SOC 2 Type II" in (by_pub["inworld"].get("certs") or []), "inworld prints SOC 2 Type II")
+    check(by_pub["rime"].get("found") is True, "rime Official page is on file")
+    check("SOC 2 Type II" in (by_pub["rime"].get("certs") or []), "rime prints SOC 2 Type II")
+    check(by_pub["loops"]["domain"] == "loops.so", "loops is the Loops.so email product")
+    check(by_pub["lightdash"].get("found") is False, "lightdash Framer legal pages stay unread as Official page")
+    check((by_pub["lightdash"].get("certs") or []) == [], "lightdash marks stay open")
+    check(by_pub["voyage-ai"].get("found") is False, "voyage-ai Official page stays open")
+
     check("HIPAA" not in (by_pub["onesignal"].get("certs") or []), "onesignal HIPAA-compliant BAA stays open")
     check(by_pub["onesignal"].get("found") is False, "onesignal Official page stays open")
     check(not by_pub["onesignal"].get("trust_url"), "onesignal privacy is not Official page")

@@ -165,6 +165,15 @@ EXTRA_GUESSES = {
     "consensus-cloud-solutions": ["consensus.com"],
     "evercommerce": ["evercommerce.com"],
     "shoper": ["shoper.pl"],
+    "cockroach-labs": ["cockroachlabs.com"],
+    "metabase": ["metabase.com"],
+    "lightdash": ["lightdash.com"],
+    "loops": ["loops.so"],
+    "inworld": ["inworld.ai"],
+    "rime": ["rime.ai"],
+    "weaviate": ["weaviate.io"],
+    "scalekit": ["scalekit.com"],
+    "voyage-ai": ["voyageai.com"],
 }
 
 PORTAL_HOSTS = (

@@ -946,7 +946,13 @@ def main() -> int:
     check("https://livekit.com/legal/sub-processors" in livekit_html, "livekit dossier cites the list")
     check("../graph.html#p=spacexai\">SpaceXAI" in livekit_html, "livekit SpaceXAI stays a leftover map node")
     check("./xai.html\">SpaceXAI" not in livekit_html, "livekit does not send SpaceXAI to xAI")
-    check("../graph.html#p=cockroach-labs" in livekit_html, "livekit Cockroach Labs stays a leftover map node")
+    check("./cockroach-labs.html\">Cockroach Labs" in livekit_html, "livekit Cockroach Labs cross-links to the filed row")
+    check("../graph.html#p=cockroach-labs" not in livekit_html, "livekit Cockroach Labs is no longer a leftover map node")
+    check("./metabase.html\">Metabase" in livekit_html, "livekit Metabase cross-links to the filed row")
+    check("./lightdash.html\">Lightdash" in livekit_html, "livekit Lightdash cross-links to the filed row")
+    check("./loops.html\">Loops" in livekit_html, "livekit Loops cross-links to the filed row")
+    check("./inworld.html\">Inworld" in livekit_html, "livekit Inworld cross-links to the filed row")
+    check("./rime.html\">Rime" in livekit_html, "livekit Rime cross-links to the filed row")
     check(
         instrument_url(by_pub["retool"], "dpa") == "https://docs.retool.com/legal/dpa",
         "retool DPA is first-party docs HTML",
@@ -1018,7 +1024,65 @@ def main() -> int:
     check("https://www.rocketlane.com/legal/sub-processors" in rocket_html, "rocketlane dossier cites the list")
     check("./twilio.html\">SendGrid / Twilio" in rocket_html, "rocketlane SendGrid cross-links to Twilio")
     check("./langchain.html\">Langsmith" in rocket_html, "rocketlane Langsmith cross-links to LangChain")
-    check("../graph.html#p=weaviate" in rocket_html, "rocketlane Weaviate stays a leftover map node")
+    check("./weaviate.html\">Weaviate" in rocket_html, "rocketlane Weaviate cross-links to the filed row")
+    check("../graph.html#p=weaviate" not in rocket_html, "rocketlane Weaviate is no longer a leftover map node")
+    check("./scalekit.html\">Scalekit" in rocket_html, "rocketlane Scalekit cross-links to the filed row")
+    check("../graph.html#p=saasgenie" in rocket_html, "rocketlane SaasGenie stays a leftover map node")
+
+    # This cut: leftover product vendors from LiveKit / Rocketlane / Weaviate lists.
+    check(by_pub["cockroach-labs"]["domain"] == "cockroachlabs.com", "cockroach-labs domain is cockroachlabs.com")
+    check(
+        instrument_url(by_pub["cockroach-labs"], "dpa")
+        == "https://www.cockroachlabs.com/cloud-terms-and-conditions/data-processing-addendum/",
+        "cockroach-labs DPA is first-party HTML",
+    )
+    check(
+        instrument_url(by_pub["cockroach-labs"], "subprocessors")
+        == "https://www.cockroachlabs.com/cloud-terms-and-conditions/data-processing-addendum/cockroach-labs-sub-processors/",
+        "cockroach-labs list is first-party HTML",
+    )
+    check((by_pub["cockroach-labs"].get("file") or {}).get("dpa") == 20, "cockroach-labs DPA prints")
+    check((by_pub["cockroach-labs"].get("file") or {}).get("subprocessors") == 20, "cockroach-labs processors print")
+    crdb_slugs = [p.get("slug") for p in (by_pub["cockroach-labs"].get("processors") or [])]
+    check(crdb_slugs == ["amazon-web-services", "microsoft", "google", "stripe"], f"cockroach-labs slugs {crdb_slugs}")
+    check(by_pub["weaviate"]["domain"] == "weaviate.io", "weaviate domain is weaviate.io")
+    check(instrument_url(by_pub["weaviate"], "dpa") == "https://weaviate.io/dpa", "weaviate DPA is first-party HTML")
+    check(
+        instrument_url(by_pub["weaviate"], "subprocessors") == "https://weaviate.io/subprocessors",
+        "weaviate list is first-party HTML",
+    )
+    check((by_pub["weaviate"].get("file") or {}).get("dpa") == 20, "weaviate DPA prints")
+    check((by_pub["weaviate"].get("file") or {}).get("subprocessors") == 20, "weaviate processors print")
+    weav_slugs = [p.get("slug") for p in (by_pub["weaviate"].get("processors") or [])]
+    check("voyage-ai" in weav_slugs, "weaviate Voyage AI uses the filed row")
+    check("amazon-web-services" in weav_slugs, "weaviate AWS uses the existing file")
+    check(by_pub["scalekit"]["domain"] == "scalekit.com", "scalekit domain is scalekit.com")
+    check(
+        instrument_url(by_pub["scalekit"], "dpa")
+        == "https://www.scalekit.com/legal/data-processing-agreement",
+        "scalekit DPA is first-party HTML",
+    )
+    check((by_pub["scalekit"].get("file") or {}).get("dpa") == 20, "scalekit DPA prints")
+    check(not (by_pub["scalekit"].get("processors") or []), "scalekit named processors stay open")
+    check(instrument_url(by_pub["inworld"], "dpa") == "https://inworld.ai/data-processing-addendum", "inworld DPA is first-party HTML")
+    check((by_pub["inworld"].get("file") or {}).get("dpa") == 20, "inworld DPA prints")
+    check(
+        instrument_url(by_pub["rime"], "subprocessors") == "https://www.rime.ai/rime-subprocessors",
+        "rime list is first-party HTML",
+    )
+    check((by_pub["rime"].get("file") or {}).get("subprocessors") == 20, "rime processors print")
+    check(by_pub["loops"]["domain"] == "loops.so", "loops domain is loops.so email product")
+    check(by_pub["lightdash"]["domain"] == "lightdash.com", "lightdash domain is lightdash.com")
+    check(by_pub["voyage-ai"]["domain"] == "voyageai.com", "voyage-ai domain is voyageai.com")
+    for slug in ("loops", "lightdash", "voyage-ai"):
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(
+            sum(int((by_pub[slug].get("file") or {}).get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years"))
+            == 0,
+            f"{slug} Completeness is 0",
+        )
+    check("regalix" not in by_pub, "regalix stays a leftover — no official domain on the LinkedIn list")
+    check("saasgenie" not in by_pub, "saasgenie stays a leftover — implementation shop, no official domain")
 
     print(
         f"ok increment-dpa privacy-page-queue {len(expected_batch)} walked; "
