@@ -816,6 +816,66 @@ def main() -> int:
     check(by_pub["quotaguard"].get("found") is False, "quotaguard Official page stays open")
     check(by_pub["pushy"].get("found") is False, "pushy Official page stays open")
     check((by_pub["quotaguard"].get("file") or {}).get("years") == 20, "quotaguard years print")
+    check(
+        instrument_url(by_pub["pushy"], "dpa") == "https://pushy.me/data-processing-addendum",
+        "pushy DPA is first-party HTML",
+    )
+    check((by_pub["pushy"].get("file") or {}).get("dpa") == 20, "pushy DPA prints")
+    pushy_html = (ROOT / "site" / "c" / "pushy.html").read_text(encoding="utf-8")
+    check("https://pushy.me/data-processing-addendum" in pushy_html, "pushy dossier cites the DPA")
+    check(by_pub["pganalyze-duboce-labs"].get("found") is True, "pganalyze Official page is /security")
+    check(
+        by_pub["pganalyze-duboce-labs"].get("trust_url") == "https://pganalyze.com/security",
+        "pganalyze Official page URL is first-party security HTML",
+    )
+    check((by_pub["pganalyze-duboce-labs"].get("certs") or []) == [], "pganalyze AWS data-center marks stay unread")
+    check((by_pub["pganalyze-duboce-labs"].get("file") or {}).get("page") == 20, "pganalyze page prints")
+    pga_html = (ROOT / "site" / "c" / "pganalyze-duboce-labs.html").read_text(encoding="utf-8")
+    check("https://pganalyze.com/security" in pga_html, "pganalyze dossier cites /security")
+    check(
+        instrument_url(by_pub["short-io"], "subprocessors") == "https://short.io/privacy",
+        "short-io list is first-party privacy HTML",
+    )
+    check((by_pub["short-io"].get("file") or {}).get("subprocessors") == 20, "short-io processors print")
+    short_names = [p.get("name") for p in (by_pub["short-io"].get("processors") or [])]
+    short_slugs = [p.get("slug") for p in (by_pub["short-io"].get("processors") or [])]
+    short_ids = [p.get("id") for p in (by_pub["short-io"].get("processors") or [])]
+    check("Amazon Web Services" in short_names, "short-io names AWS")
+    check("Google (Sign-In)" in short_names, "short-io names Google (Sign-In)")
+    check("Google Ads" in short_names, "short-io names Google Ads")
+    check("Google Web Risk" in short_names, "short-io names Google Web Risk")
+    check("Google (Gemini)" in short_names, "short-io names Google (Gemini)")
+    check("Hivelocity" in short_names, "short-io names Hivelocity")
+    check("Telegram" in short_names, "short-io names Telegram")
+    check("SURBL" in short_names, "short-io names SURBL")
+    check("Let's Encrypt" in short_names, "short-io names Let's Encrypt")
+    check("amazon-web-services" in short_slugs, "short-io AWS uses the existing file")
+    check("google" in short_slugs, "short-io Google products use the Google file")
+    check("hivelocity" in short_slugs, "short-io Hivelocity uses the new file")
+    check("telegram" in short_slugs, "short-io Telegram uses the new file")
+    check("surbl" in short_slugs, "short-io SURBL uses the new file")
+    check("let-s-encrypt" in short_slugs, "short-io Let's Encrypt uses the new file")
+    check("aws" not in short_ids, "short-io does not keep a raw aws wire id")
+    check("google-sign-in" not in short_ids, "short-io does not keep a raw google-sign-in wire id")
+    check("google-ads" not in short_ids, "short-io does not keep a raw google-ads wire id")
+    check("google-web-risk" not in short_ids, "short-io does not keep a raw google-web-risk wire id")
+    check("google-gemini" not in short_ids, "short-io does not keep a raw google-gemini wire id")
+    check(by_pub["short-io"].get("found") is False, "short-io Official page stays open")
+    check(not by_pub["short-io"].get("founded_year"), "short-io years stay open (2015 vs 2016)")
+    short_html = (ROOT / "site" / "c" / "short-io.html").read_text(encoding="utf-8")
+    check("https://short.io/privacy" in short_html, "short-io dossier cites the list")
+    check("./google.html\">Google (Sign-In)" in short_html, "short-io Google Sign-In cross-links")
+    check("./google.html\">Google Ads" in short_html, "short-io Google Ads cross-links")
+    check("./hivelocity.html\">Hivelocity" in short_html, "short-io Hivelocity cross-links to the new file")
+    check("./telegram.html\">Telegram" in short_html, "short-io Telegram cross-links to the new file")
+    check("./surbl.html\">SURBL" in short_html, "short-io SURBL cross-links to the new file")
+    check("./let-s-encrypt.html\">Let&#x27;s Encrypt" in short_html, "short-io Let's Encrypt cross-links to the new file")
+    check(by_pub["hivelocity"].get("domain") == "hivelocity.net", "hivelocity domain is first-party proven")
+    check(by_pub["telegram"].get("domain") == "telegram.org", "telegram domain is first-party proven")
+    check(by_pub["surbl"].get("domain") == "surbl.org", "surbl domain is first-party proven")
+    check(by_pub["let-s-encrypt"].get("domain") == "letsencrypt.org", "let-s-encrypt domain is first-party proven")
+    check(by_pub["hivelocity"].get("found") is False, "hivelocity Official page stays open")
+    check(by_pub["telegram"].get("found") is False, "telegram Official page stays open")
 
     check(
         ((by_pub["ai-media"].get("instruments") or {}).get("privacy") or {}).get("url")

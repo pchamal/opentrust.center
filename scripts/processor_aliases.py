@@ -780,6 +780,16 @@ REGISTER_ALIASES: dict[str, str] = {
     "hitachi-data-systems": "hitachi",
     # Samsung R&D Institute India-Bengaluru is a Samsung Electronics unit.
     "samsung-randd-institute-india-bengaluru": "samsung-electronics",
+    # Short.io first-party subprocessors table prints these Google products
+    # with policies.google.com privacy hrefs. google-gemini already lands
+    # here. Do not invent a second Google dossier.
+    "google-sign-in": "google",
+    "google-ads": "google",
+    "google-web-risk": "google",
+    # Short.io prints Meta (WhatsApp) with whatsapp.com privacy href.
+    # meta is on the register (meta.com). Do not invent a second dossier.
+    "meta-whatsapp": "meta",
+    "whatsapp": "meta",
 
 }
 

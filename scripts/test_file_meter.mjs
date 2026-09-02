@@ -860,6 +860,67 @@ expect(
     fileScore(fileFlags(quotaguard)) === 20,
 );
 
+const pushy = bySlug.pushy;
+expect(
+  "pushy Completeness is DPA = 20",
+  pushy &&
+    pushy.found === false &&
+    !pushy.trust_url &&
+    ((pushy.instruments || {}).dpa || {}).url ===
+      "https://pushy.me/data-processing-addendum" &&
+    !(pushy.certs || []).length &&
+    !pushy.founded_year &&
+    fileFlags(pushy).page === 0 &&
+    fileFlags(pushy).marks === 0 &&
+    fileFlags(pushy).dpa === 20 &&
+    fileFlags(pushy).subprocessors === 0 &&
+    fileFlags(pushy).years === 0 &&
+    fileScore(fileFlags(pushy)) === 20,
+);
+
+const pganalyze = bySlug["pganalyze-duboce-labs"];
+expect(
+  "pganalyze Completeness is page = 20 (marks dotted)",
+  pganalyze &&
+    pganalyze.found === true &&
+    pganalyze.trust_url === "https://pganalyze.com/security" &&
+    !(pganalyze.certs || []).length &&
+    !pganalyze.founded_year &&
+    fileFlags(pganalyze).page === 20 &&
+    fileFlags(pganalyze).marks === 10 &&
+    fileFlags(pganalyze).dpa === 0 &&
+    fileFlags(pganalyze).subprocessors === 0 &&
+    fileFlags(pganalyze).years === 0 &&
+    fileScore(fileFlags(pganalyze)) === 30,
+);
+
+const shortIo = bySlug["short-io"];
+expect(
+  "short-io Completeness is subprocessors = 20",
+  shortIo &&
+    shortIo.found === false &&
+    !shortIo.trust_url &&
+    ((shortIo.instruments || {}).subprocessors || {}).url ===
+      "https://short.io/privacy" &&
+    (shortIo.processors || []).some((p) => p.slug === "amazon-web-services" && p.name === "Amazon Web Services") &&
+    (shortIo.processors || []).some((p) => p.slug === "google" && p.name === "Google (Sign-In)") &&
+    (shortIo.processors || []).some((p) => p.slug === "google" && p.name === "Google Ads") &&
+    (shortIo.processors || []).some((p) => p.slug === "hivelocity" && p.name === "Hivelocity") &&
+    (shortIo.processors || []).some((p) => p.slug === "telegram" && p.name === "Telegram") &&
+    (shortIo.processors || []).some((p) => p.slug === "surbl" && p.name === "SURBL") &&
+    (shortIo.processors || []).some((p) => p.slug === "let-s-encrypt" && p.name === "Let's Encrypt") &&
+    !(shortIo.processors || []).some((p) => p.id === "aws") &&
+    !(shortIo.processors || []).some((p) => p.id === "google-sign-in") &&
+    !(shortIo.certs || []).length &&
+    !shortIo.founded_year &&
+    fileFlags(shortIo).page === 0 &&
+    fileFlags(shortIo).marks === 0 &&
+    fileFlags(shortIo).dpa === 0 &&
+    fileFlags(shortIo).subprocessors === 20 &&
+    fileFlags(shortIo).years === 0 &&
+    fileScore(fileFlags(shortIo)) === 20,
+);
+
 const nylas = bySlug.nylas;
 expect(
   "nylas Completeness is page · marks · subprocessors = 60",

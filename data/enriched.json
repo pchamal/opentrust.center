@@ -135933,12 +135933,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "dpa": "https://pushy.me/data-processing-addendum"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "dpa": 8
+        }
       },
       "official_url": "https://pushy.me"
     },
@@ -135947,9 +135951,9 @@
       "name": "pganalyze (Duboce Labs, Inc.)",
       "slug": "pganalyze-duboce-labs",
       "domain": "pganalyze.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://pganalyze.com/security",
+      "final_url": "https://pganalyze.com/security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -135957,12 +135961,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://pganalyze.com/security"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       },
       "official_url": "https://pganalyze.com"
     },
@@ -135981,12 +135989,40 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "links": {
+        "subprocessors": "https://short.io/privacy"
+      },
+      "subprocessors": [
+        "amazon-web-services",
+        "hivelocity",
+        "sentry",
+        "stripe",
+        "paypal",
+        "apple",
+        "openai",
+        "google",
+        "google",
+        "google",
+        "google",
+        "posthog",
+        "intercom",
+        "telegram",
+        "twilio",
+        "intuition-machines-hcaptcha",
+        "maxmind",
+        "netcraft",
+        "surbl",
+        "let-s-encrypt",
+        "trustpilot",
+        "canny",
+        "readme"
+      ],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "subprocessors": 8
+        }
       },
       "official_url": "https://short.io"
     },
@@ -136909,6 +136945,102 @@
         "tier": "silent",
         "factors": {}
       }
+    },
+    {
+      "rank": 4875,
+      "name": "Hivelocity",
+      "slug": "hivelocity",
+      "domain": "hivelocity.net",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://short.io/privacy",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      },
+      "official_url": "https://www.hivelocity.net"
+    },
+    {
+      "rank": 4876,
+      "name": "Telegram",
+      "slug": "telegram",
+      "domain": "telegram.org",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://short.io/privacy",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      },
+      "official_url": "https://telegram.org"
+    },
+    {
+      "rank": 4877,
+      "name": "SURBL",
+      "slug": "surbl",
+      "domain": "surbl.org",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://short.io/privacy",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      },
+      "official_url": "https://www.surbl.org"
+    },
+    {
+      "rank": 4878,
+      "name": "Let's Encrypt",
+      "slug": "let-s-encrypt",
+      "domain": "letsencrypt.org",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 18,
+      "source": "https://short.io/privacy",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      },
+      "official_url": "https://letsencrypt.org"
     }
   ],
   "notes": "Public pages only. Incomplete by nature. No invented URLs, years, certs, or processors."
