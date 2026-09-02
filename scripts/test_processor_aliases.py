@@ -381,6 +381,9 @@ def main() -> int:
     check(REGISTER_ALIASES["mailgun-sinch"] == "mailgun", "mailgun-sinch aliases to mailgun")
     check(REGISTER_ALIASES["firebase-cloud-messaging"] == "google", "firebase-cloud-messaging aliases to google")
     check(REGISTER_ALIASES["clickhouse-cloud"] == "clickhouse", "clickhouse-cloud aliases to clickhouse")
+    lc_reg = {**register, "langchain": {"slug": "langchain", "name": "LangChain", "domain": "langchain.com"}}
+    check(canonical_processor_id("langsmith", lc_reg) == "langchain", "Langsmith is LangChain")
+    check(REGISTER_ALIASES["langsmith"] == "langchain", "langsmith aliases to langchain")
     check(REGISTER_ALIASES["assemblyai-via-recall-ai"] == "assemblyai", "assemblyai-via-recall-ai aliases to assemblyai")
     check(REGISTER_ALIASES["apple-push-notification-service"] == "apple", "apple-push-notification-service aliases to apple")
     check("arsys" not in REGISTER_ALIASES, "Arsys is not aliased to IONOS")

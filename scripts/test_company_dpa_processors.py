@@ -898,6 +898,118 @@ def main() -> int:
         "capacity DPA stays open",
     )
 
+    check(
+        instrument_url(by_pub["clari"], "dpa") == "https://www.clari.com/dpa/2026-02-10/",
+        "clari DPA is first-party HTML",
+    )
+    check((by_pub["clari"].get("file") or {}).get("dpa") == 20, "clari DPA prints")
+    check(not (by_pub["clari"].get("processors") or []), "clari named processors stay open")
+    clari_html = (ROOT / "site" / "c" / "clari.html").read_text(encoding="utf-8")
+    check("https://www.clari.com/dpa/2026-02-10/" in clari_html, "clari dossier cites the DPA")
+    check(
+        instrument_url(by_pub["supportlogic"], "dpa")
+        == "https://www.supportlogic.com/data-processing-addendum/",
+        "supportlogic DPA is first-party HTML",
+    )
+    check((by_pub["supportlogic"].get("file") or {}).get("dpa") == 20, "supportlogic DPA prints")
+    check(not (by_pub["supportlogic"].get("processors") or []), "supportlogic named processors stay open")
+    sl_html = (ROOT / "site" / "c" / "supportlogic.html").read_text(encoding="utf-8")
+    check(
+        "https://www.supportlogic.com/data-processing-addendum/" in sl_html,
+        "supportlogic dossier cites the DPA",
+    )
+    check(
+        instrument_url(by_pub["livekit"], "dpa")
+        == "https://livekit.com/legal/data-processing-addendum",
+        "livekit DPA is first-party HTML",
+    )
+    check(
+        instrument_url(by_pub["livekit"], "subprocessors")
+        == "https://livekit.com/legal/sub-processors",
+        "livekit list is first-party HTML",
+    )
+    check((by_pub["livekit"].get("file") or {}).get("dpa") == 20, "livekit DPA prints")
+    check((by_pub["livekit"].get("file") or {}).get("subprocessors") == 20, "livekit processors print")
+    livekit_names = [p.get("name") for p in (by_pub["livekit"].get("processors") or [])]
+    livekit_slugs = [p.get("slug") for p in (by_pub["livekit"].get("processors") or [])]
+    livekit_ids = [p.get("id") for p in (by_pub["livekit"].get("processors") or [])]
+    check("DigitalOcean" in livekit_names, "livekit names DigitalOcean")
+    check("SpaceXAI" in livekit_names, "livekit names SpaceXAI")
+    check("Cockroach Labs" in livekit_names, "livekit names Cockroach Labs")
+    check("digitalocean" in livekit_slugs, "livekit DigitalOcean uses the existing file")
+    check("xai" in livekit_slugs, "livekit SpaceXAI uses the xAI file")
+    check("spacexai" not in livekit_ids, "livekit does not keep a raw spacexai wire id")
+    check(len(livekit_names) == 30, f"livekit printed 30 named processors, got {len(livekit_names)}")
+    check(not by_pub["livekit"].get("founded_year"), "livekit years stay open")
+    livekit_html = (ROOT / "site" / "c" / "livekit.html").read_text(encoding="utf-8")
+    check("https://livekit.com/legal/data-processing-addendum" in livekit_html, "livekit dossier cites the DPA")
+    check("https://livekit.com/legal/sub-processors" in livekit_html, "livekit dossier cites the list")
+    check("./xai.html\">SpaceXAI" in livekit_html, "livekit SpaceXAI cross-links to xAI")
+    check("../graph.html#p=cockroach-labs" in livekit_html, "livekit Cockroach Labs stays a leftover map node")
+    check(
+        instrument_url(by_pub["retool"], "dpa") == "https://docs.retool.com/legal/dpa",
+        "retool DPA is first-party docs HTML",
+    )
+    check(
+        instrument_url(by_pub["retool"], "subprocessors")
+        == "https://docs.retool.com/legal/subprocessors",
+        "retool list is first-party docs HTML",
+    )
+    check((by_pub["retool"].get("file") or {}).get("dpa") == 20, "retool DPA prints")
+    check((by_pub["retool"].get("file") or {}).get("subprocessors") == 20, "retool processors print")
+    retool_names = [p.get("name") for p in (by_pub["retool"].get("processors") or [])]
+    retool_slugs = [p.get("slug") for p in (by_pub["retool"].get("processors") or [])]
+    retool_ids = [p.get("id") for p in (by_pub["retool"].get("processors") or [])]
+    check("Amazon Web Services, Inc" in retool_names, "retool names AWS")
+    check("Neon, Inc" in retool_names, "retool names Neon, Inc")
+    check("Temporal Technologies, Inc" in retool_names, "retool names Temporal")
+    check("amazon-web-services" in retool_slugs, "retool AWS uses the existing file")
+    check("databricks" in retool_slugs, "retool Neon uses the Databricks file")
+    check("temporal" in retool_slugs, "retool Temporal uses the existing file")
+    check("tavily" in retool_slugs, "retool Tavily uses the existing file")
+    check("aws" not in retool_ids, "retool does not keep a raw aws wire id")
+    check("neon" not in retool_ids, "retool does not keep a raw neon wire id")
+    check(len(retool_names) == 11, f"retool printed 11 named processors, got {len(retool_names)}")
+    retool_html = (ROOT / "site" / "c" / "retool.html").read_text(encoding="utf-8")
+    check("https://docs.retool.com/legal/dpa" in retool_html, "retool dossier cites the DPA")
+    check("https://docs.retool.com/legal/subprocessors" in retool_html, "retool dossier cites the list")
+    check("./amazon-web-services.html\">Amazon Web Services, Inc" in retool_html, "retool AWS cross-links")
+    check("./databricks.html\">Neon, Inc" in retool_html, "retool Neon cross-links to Databricks")
+    check("./temporal.html\">Temporal Technologies, Inc" in retool_html, "retool Temporal cross-links")
+    check(
+        instrument_url(by_pub["rocketlane"], "dpa")
+        == "https://www.rocketlane.com/legal/data-processing-agreement",
+        "rocketlane DPA is first-party HTML",
+    )
+    check(
+        instrument_url(by_pub["rocketlane"], "subprocessors")
+        == "https://www.rocketlane.com/legal/sub-processors",
+        "rocketlane list is first-party HTML",
+    )
+    check((by_pub["rocketlane"].get("file") or {}).get("dpa") == 20, "rocketlane DPA prints")
+    check((by_pub["rocketlane"].get("file") or {}).get("subprocessors") == 20, "rocketlane processors print")
+    rocket_names = [p.get("name") for p in (by_pub["rocketlane"].get("processors") or [])]
+    rocket_slugs = [p.get("slug") for p in (by_pub["rocketlane"].get("processors") or [])]
+    rocket_ids = [p.get("id") for p in (by_pub["rocketlane"].get("processors") or [])]
+    check("Amazon Web Services" in rocket_names, "rocketlane names AWS")
+    check("SendGrid / Twilio" in rocket_names, "rocketlane names SendGrid / Twilio")
+    check("Langsmith" in rocket_names, "rocketlane names Langsmith")
+    check("amazon-web-services" in rocket_slugs, "rocketlane AWS uses the existing file")
+    check("twilio" in rocket_slugs, "rocketlane SendGrid uses the Twilio file")
+    check("langchain" in rocket_slugs, "rocketlane Langsmith uses the LangChain file")
+    check("aws" not in rocket_ids, "rocketlane does not keep a raw aws wire id")
+    check("langsmith" not in rocket_ids, "rocketlane does not keep a raw langsmith wire id")
+    check(len(rocket_names) == 19, f"rocketlane printed 19 named processors, got {len(rocket_names)}")
+    rocket_html = (ROOT / "site" / "c" / "rocketlane.html").read_text(encoding="utf-8")
+    check(
+        "https://www.rocketlane.com/legal/data-processing-agreement" in rocket_html,
+        "rocketlane dossier cites the DPA",
+    )
+    check("https://www.rocketlane.com/legal/sub-processors" in rocket_html, "rocketlane dossier cites the list")
+    check("./twilio.html\">SendGrid / Twilio" in rocket_html, "rocketlane SendGrid cross-links to Twilio")
+    check("./langchain.html\">Langsmith" in rocket_html, "rocketlane Langsmith cross-links to LangChain")
+    check("../graph.html#p=weaviate" in rocket_html, "rocketlane Weaviate stays a leftover map node")
+
     print(
         f"ok increment-dpa privacy-page-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"

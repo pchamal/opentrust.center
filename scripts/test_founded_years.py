@@ -567,6 +567,34 @@ def test_c0_named_processor_years_landed() -> None:
         check(source in html, f"{label} dossier cites about source")
 
 
+def test_retool_rocketlane_years_landed() -> None:
+    """This increment filed Retool 2017 and Rocketlane 2020 from first-party foundingDate."""
+    import json
+    public = json.loads((ROOT / "site" / "data.json").read_text())
+    enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
+    by_pub = {c["slug"]: c for c in public["companies"]}
+    by_enr = {c["slug"]: c for c in enr["companies"]}
+    retool_pub, retool_row = by_pub["retool"], by_enr["retool"]
+    check(retool_pub.get("founded_year") == 2017, "Retool public year 2017")
+    check(retool_row.get("founded_year") == 2017, "Retool enriched year 2017")
+    check(retool_pub.get("founded_source") == "https://retool.com/about", "Retool year source is /about")
+    check((retool_pub.get("file") or {}).get("years") in (True, 20), "Retool years rule prints")
+    retool_html = (ROOT / "site" / "c" / "retool.html").read_text(encoding="utf-8")
+    check("founded · 2017" in retool_html, "Retool dossier prints 2017")
+    check("https://retool.com/about" in retool_html, "Retool dossier cites about source")
+    rocket_pub, rocket_row = by_pub["rocketlane"], by_enr["rocketlane"]
+    check(rocket_pub.get("founded_year") == 2020, "Rocketlane public year 2020")
+    check(rocket_row.get("founded_year") == 2020, "Rocketlane enriched year 2020")
+    check(
+        rocket_pub.get("founded_source") == "https://www.rocketlane.com/privacy-policy",
+        "Rocketlane year source is privacy JSON-LD foundingDate",
+    )
+    check((rocket_pub.get("file") or {}).get("years") in (True, 20), "Rocketlane years rule prints")
+    rocket_html = (ROOT / "site" / "c" / "rocketlane.html").read_text(encoding="utf-8")
+    check("founded · 2020" in rocket_html, "Rocketlane dossier prints 2020")
+    check("https://www.rocketlane.com/privacy-policy" in rocket_html, "Rocketlane dossier cites foundingDate source")
+
+
 def main() -> int:
     test_prefix_is_not_a_match()
     test_official_site_only()
@@ -576,6 +604,7 @@ def main() -> int:
     test_ketch_inkeep_years_landed()
     test_spekit_cyberhaven_woopra_years_landed()
     test_c0_named_processor_years_landed()
+    test_retool_rocketlane_years_landed()
     # Live company-years.json is a later leftover walk (WNS). Do not hang
     # this increment's year asserts on that stale report suite.
     print("ok")
