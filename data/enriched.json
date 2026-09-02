@@ -48676,13 +48676,19 @@
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_States",
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-us",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 1 Type II",
+        "ISO 27001"
+      ],
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 24,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "marks": 24
+        }
       }
     },
     {
@@ -76647,12 +76653,15 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 6,
+        "score": 16,
         "tier": "silent",
         "factors": {
-          "privacy": 6
+          "privacy": 6,
+          "longevity": 10
         }
-      }
+      },
+      "founded_year": 1999,
+      "founded_source": "https://www.tanla.com/lbs-trust-imperative"
     },
     {
       "rank": 2541,
@@ -139169,14 +139178,16 @@
       "list": "named-processor-gap",
       "certs": [],
       "links": {
-        "status": "https://status.loops.so"
+        "status": "https://status.loops.so",
+        "dpa": "https://loops.so/dpa"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 6,
+        "score": 14,
         "tier": "silent",
         "factors": {
-          "status": 6
+          "status": 6,
+          "dpa": 8
         }
       },
       "official_url": "https://loops.so/"

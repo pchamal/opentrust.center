@@ -1568,6 +1568,21 @@ def main() -> int:
     check("EU-US DPF" in hv_html, "hivelocity dossier prints DPF self-cert")
     check("CCPA" not in hv_html, "hivelocity dossier does not print CCPA")
     check("Official page · not on file" in hv_html, "hivelocity Official page stays open")
+    check(by_pub["e2open"].get("found") is False, "e2open Official page stays open")
+    check(not by_pub["e2open"].get("trust_url"), "e2open customer-security-policy is not Official page")
+    check(
+        sorted(by_pub["e2open"].get("certs") or []) == ["ISO 27001", "SOC 1 Type II", "SOC 2 Type II"],
+        "e2open files ISO 27001 and SSAE18 SOC 1/SOC 2 Type II only",
+    )
+    check((by_pub["e2open"].get("file") or {}).get("marks") == 20, "e2open marks print")
+    check((by_pub["e2open"].get("file") or {}).get("page") in (0, False, None), "e2open Official page stays open")
+    e2_html = (ROOT / "site" / "c" / "e2open.html").read_text(encoding="utf-8")
+    check("<h1>E2open</h1>" in e2_html, "e2open dossier is its own file")
+    check("SOC 2 Type II" in e2_html, "e2open dossier prints SOC 2 Type II")
+    check("SOC 1 Type II" in e2_html, "e2open dossier prints SOC 1 Type II")
+    check("ISO 27001" in e2_html, "e2open dossier prints ISO 27001")
+    check("Official page · not on file" in e2_html, "e2open Official page stays open")
+    check("customer-security-policy" not in e2_html, "e2open dossier does not file the customer obligations policy as Official page")
     check(by_pub["pdf"].get("found") is True, "pdf Official page is on file")
     check(by_pub["pdf"].get("trust_url") == "https://pdf.co/security", "pdf Official page is first-party /security")
     check((by_pub["pdf"].get("certs") or []) == ["SOC 2 Type II"], "pdf files its own SOC 2 Type II only")
