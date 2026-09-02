@@ -658,6 +658,56 @@ def test_payu_year_landed() -> None:
     check("https://poland.payu.com/o-nas/" in html, "PayU dossier cites year source")
 
 
+def test_ltx_jt_years_landed() -> None:
+    """This increment filed LTX 2024 and JT 1888 from first-party About prose."""
+    import json
+    public = json.loads((ROOT / "site" / "data.json").read_text())
+    enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
+    by_pub = {c["slug"]: c for c in public["companies"]}
+    by_enr = {c["slug"]: c for c in enr["companies"]}
+
+    pub, row = by_pub["ltx"], by_enr["ltx"]
+    check(pub.get("founded_year") == 2024, "LTX public year 2024")
+    check(row.get("founded_year") == 2024, "LTX enriched year 2024")
+    check(pub.get("founded_source") == "https://ltx.io/about-us", "LTX year source is first-party /about-us")
+    check((pub.get("file") or {}).get("years") in (True, 20), "LTX years rule prints")
+    check(pub.get("found") is False, "LTX Official page stays open")
+    html = (ROOT / "site" / "c" / "ltx.html").read_text(encoding="utf-8")
+    check("founded · 2024" in html, "LTX dossier prints 2024")
+    check("https://ltx.io/about-us" in html, "LTX dossier cites About source")
+    check(
+        parse_official_founded_year(
+            "Established in 2024, LTX is an AI company developing production-ready "
+            "creative infrastructure for enterprises, studios, and professional teams.",
+            "LTX",
+        )
+        == 2024,
+        "LTX Established in 2024 parses",
+    )
+
+    pub, row = by_pub["jt-jersey"], by_enr["jt-jersey"]
+    check(pub.get("founded_year") == 1888, "JT public year 1888")
+    check(row.get("founded_year") == 1888, "JT enriched year 1888")
+    check(
+        pub.get("founded_source") == "https://www.jtglobal.com/about-us/",
+        "JT year source is first-party /about-us/",
+    )
+    check((pub.get("file") or {}).get("years") in (True, 20), "JT years rule prints")
+    check(pub.get("found") is False, "JT Official page stays open")
+    html = (ROOT / "site" / "c" / "jt-jersey.html").read_text(encoding="utf-8")
+    check("founded · 1888" in html, "JT dossier prints 1888")
+    check("https://www.jtglobal.com/about-us/" in html, "JT dossier cites About source")
+    check(
+        parse_official_founded_year(
+            "Founded in 1888, JT (formerly Jersey Telecom) is headquartered in Jersey, "
+            "Channel Islands, and is the largest local operator.",
+            "JT",
+        )
+        == 1888,
+        "JT Founded in 1888 parses",
+    )
+
+
 def test_swan_year_landed() -> None:
     """This increment filed Swan 2024 from first-party JSON-LD foundingDate."""
     import json
@@ -689,6 +739,7 @@ def main() -> int:
     test_hivelocity_year_landed()
     test_tanla_year_landed()
     test_payu_year_landed()
+    test_ltx_jt_years_landed()
     test_swan_year_landed()
     # Live company-years.json is a later leftover walk (WNS). Do not hang
     # this increment's year asserts on that stale report suite.

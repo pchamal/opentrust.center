@@ -1695,6 +1695,33 @@ def main() -> int:
     check("HIPAA" not in nl_html, "nextlink dossier does not print HIPAA")
     check("Official page · not on file" in nl_html, "nextlink Official page stays open")
 
+    check(by_pub["ai-data-innovations"].get("found") is False, "ai-data-innovations Official page stays open")
+    check(not by_pub["ai-data-innovations"].get("trust_url"), "ai-data-innovations homepage is not Official page")
+    check(
+        sorted(by_pub["ai-data-innovations"].get("certs") or []) == ["ISO 27001", "SOC 2 Type I"],
+        "ai-data-innovations files ISO 27001 and SOC 2 Type I from homepage holds",
+    )
+    check("GDPR" not in (by_pub["ai-data-innovations"].get("certs") or []), "ai-data-innovations GDPR stays open")
+    check((by_pub["ai-data-innovations"].get("file") or {}).get("marks") == 20, "ai-data-innovations marks print")
+    check((by_pub["ai-data-innovations"].get("file") or {}).get("page") in (0, False, None), "ai-data-innovations Official page stays open")
+    adi_html = (ROOT / "site" / "c" / "ai-data-innovations.html").read_text(encoding="utf-8")
+    check("<h1>AI Data Innovations</h1>" in adi_html, "ai-data-innovations dossier is its own file")
+    check("ISO 27001" in adi_html, "ai-data-innovations dossier prints ISO 27001")
+    check("SOC 2 Type I" in adi_html, "ai-data-innovations dossier prints SOC 2 Type I")
+    check("Official page · not on file" in adi_html, "ai-data-innovations Official page stays open")
+    kept, why = hold_marks(
+        ["SOC 2 Type I", "ISO 27001", "GDPR"],
+        "AICPA SOC 2 Type I Our SOC 2 Type I attestation reflects our rigorous "
+        "adherence to industry-leading security principles. ISO 27001 Certified "
+        "As a globally recognized standard, our ISO 27001 certification signifies "
+        "that we have implemented a robust framework to manage security risks.",
+        "",
+    )
+    check(
+        sorted(kept) == ["ISO 27001", "SOC 2 Type I"] and why is None,
+        f"ai-data-innovations first-person homepage holds file: {kept} {why}",
+    )
+
     check(by_pub["pdf"].get("found") is True, "pdf Official page is on file")
     check(by_pub["pdf"].get("trust_url") == "https://pdf.co/security", "pdf Official page is first-party /security")
     check((by_pub["pdf"].get("certs") or []) == ["SOC 2 Type II"], "pdf files its own SOC 2 Type II only")
