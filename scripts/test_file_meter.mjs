@@ -1514,6 +1514,23 @@ expect(
     ruleOn(fileIndexHtml(pdfCo))[0] === true &&
     ruleOn(fileIndexHtml(pdfCo))[1] === true,
 );
+const coralogix = bySlug.coralogix;
+expect(
+  "coralogix Completeness is DPA; SafeBase portal is not Official page",
+  coralogix.found === false &&
+    !coralogix.trust_url &&
+    ((coralogix.instruments || {}).trust || {}).url === "https://trust.coralogix.com" &&
+    coralogix.instruments.dpa.url === "https://coralogix.com/data-processing-agreement/" &&
+    !(coralogix.certs || []).length &&
+    fileFlags(coralogix).page === 0 &&
+    fileFlags(coralogix).marks === 0 &&
+    fileFlags(coralogix).dpa === 20 &&
+    fileFlags(coralogix).subprocessors === 0 &&
+    fileFlags(coralogix).years === 0 &&
+    fileScore(fileFlags(coralogix)) === 20 &&
+    ruleOn(fileIndexHtml(coralogix))[0] === false &&
+    ruleOn(fileIndexHtml(coralogix))[2] === true,
+);
 const planview = bySlug.planview;
 expect(
   "URL-only subprocessors is 10 not 20",

@@ -58,6 +58,21 @@ def main() -> int:
     swan_html = (ROOT / "site" / "c" / "swan.html").read_text(encoding="utf-8")
     check("https://www.getswan.com/legal/dpa" in swan_html, "swan dossier cites the DPA")
     check("notion.site" not in swan_html, "swan dossier does not file the Notion processor shell")
+    check(
+        instrument_url(by_pub["coralogix"], "dpa")
+        == "https://coralogix.com/data-processing-agreement/",
+        "coralogix DPA is first-party HTML",
+    )
+    check((by_pub["coralogix"].get("file") or {}).get("dpa") == 20, "coralogix DPA prints")
+    check(by_pub["coralogix"].get("found") is False, "coralogix SafeBase portal is not Official page")
+    check(not by_pub["coralogix"].get("trust_url"), "coralogix portal is not the Official page URL")
+    check(
+        ((by_pub["coralogix"].get("instruments") or {}).get("trust") or {}).get("url")
+        == "https://trust.coralogix.com",
+        "coralogix trust instrument keeps the portal URL as a link",
+    )
+    check(not (by_pub["coralogix"].get("certs") or []), "coralogix footer chips stay unread")
+    check((by_pub["coralogix"].get("file") or {}).get("marks") in (0, False, None), "coralogix marks stay open")
 
     for row in public["companies"]:
         for proc in row.get("processors") or []:
@@ -1146,6 +1161,44 @@ def main() -> int:
     swan_html = (ROOT / "site" / "c" / "swan.html").read_text(encoding="utf-8")
     check("https://www.getswan.com/legal/dpa" in swan_html, "swan dossier cites the DPA")
     check("notion.site" not in swan_html, "swan dossier does not file the Notion processor shell")
+    # This cut: first-party Completeness DPA on Coralogix. SafeBase
+    # trust.coralogix.com is not Official page — URL-only instrument.
+    # Footer SOC/ISO/PCI/HIPAA chips stay unread. Usual first-party
+    # /security /trust /compliance paths 404 or bounce to the portal.
+    check(
+        instrument_url(by_pub["coralogix"], "dpa")
+        == "https://coralogix.com/data-processing-agreement/",
+        "coralogix DPA is first-party HTML",
+    )
+    check((by_pub["coralogix"].get("file") or {}).get("dpa") == 20, "coralogix DPA prints")
+    check(by_pub["coralogix"].get("found") is False, "coralogix SafeBase portal is not Official page")
+    check(not by_pub["coralogix"].get("trust_url"), "coralogix portal is not the Official page URL")
+    check(
+        ((by_pub["coralogix"].get("instruments") or {}).get("trust") or {}).get("url")
+        == "https://trust.coralogix.com",
+        "coralogix trust instrument keeps the portal URL as a link",
+    )
+    check(not (by_pub["coralogix"].get("certs") or []), "coralogix footer chips stay unread")
+    check((by_pub["coralogix"].get("file") or {}).get("marks") in (0, False, None), "coralogix marks stay open")
+    check((by_pub["coralogix"].get("file") or {}).get("page") in (0, False, None), "coralogix Official page stays open")
+    check(not (by_pub["coralogix"].get("processors") or []), "coralogix named processors stay open")
+    check(
+        (by_pub["coralogix"].get("file") or {}).get("subprocessors") in (0, False, None),
+        "coralogix processors stay open",
+    )
+    check(by_pub["coralogix"].get("founded_year") in (None, 0, False), "coralogix years stay open")
+    coralogix_html = (ROOT / "site" / "c" / "coralogix.html").read_text(encoding="utf-8")
+    check("<h1>Coralogix</h1>" in coralogix_html, "coralogix dossier is its own file")
+    check(
+        "https://coralogix.com/data-processing-agreement/" in coralogix_html,
+        "coralogix dossier cites the DPA",
+    )
+    check("https://trust.coralogix.com" in coralogix_html, "coralogix dossier cites the portal as an instrument URL")
+    check("Official page · not on file" in coralogix_html, "coralogix Official page stays open")
+    check("SOC 2" not in coralogix_html, "coralogix dossier does not print footer SOC 2")
+    check("ISO 27001" not in coralogix_html, "coralogix dossier does not print footer ISO 27001")
+    check("vanta" not in coralogix_html.lower(), "coralogix dossier names no portal vendor")
+    check("safebase" not in coralogix_html.lower(), "coralogix dossier names no portal vendor")
     linkedin_html = (ROOT / "site" / "c" / "linkedin.html").read_text(encoding="utf-8")
     check("./marketstar.html\">Regalix, Inc" in linkedin_html, "linkedin Regalix cross-links to MarketStar")
     check("./ai-data-innovations.html\">AI Data Innovation Corporation" in linkedin_html, "linkedin AI Data Innovation cross-links to the filed row")

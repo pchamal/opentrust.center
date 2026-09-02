@@ -127,7 +127,8 @@ function officialPageOnFile(row) {
   // Portal trust URL is never Official page. Softcat expand filed
   // trust.softcat.com only; that host stays an instrument link.
   // Virtuozzo expand filed virtuozzo.trust.site the same way.
-  if (row && (row.slug === "softcat" || row.slug === "virtuozzo")) return false;
+  // Coralogix trust.coralogix.com is SafeBase — URL-only, not Official page.
+  if (row && (row.slug === "softcat" || row.slug === "virtuozzo" || row.slug === "coralogix")) return false;
   if (row && row.found && (row.trust_url || row.final_url)) return true;
   return !!(instrumentUrl(row, "trust") || instrumentUrl(row, "security"));
 }
