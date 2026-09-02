@@ -30344,6 +30344,34 @@
       "domain": "short.io",
       "kind": "company",
       "in_register": true
+    },
+    {
+      "id": "hivelocity",
+      "name": "Hivelocity",
+      "domain": "hivelocity.net",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "telegram",
+      "name": "Telegram",
+      "domain": "telegram.org",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "surbl",
+      "name": "SURBL",
+      "domain": "surbl.org",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "let-s-encrypt",
+      "name": "Let's Encrypt",
+      "domain": "letsencrypt.org",
+      "kind": "company",
+      "in_register": true
     }
   ],
   "edges": [
@@ -47128,6 +47156,144 @@
       "to": "short-io",
       "source_url": "https://docs.rootly.com/configuration/subprocessors",
       "evidence": "Short.io"
+    },
+    {
+      "from": "short-io",
+      "to": "amazon-web-services",
+      "source_url": "https://short.io/privacy",
+      "evidence": "Amazon Web Services"
+    },
+    {
+      "from": "short-io",
+      "to": "hivelocity",
+      "source_url": "https://short.io/privacy",
+      "evidence": "Hivelocity"
+    },
+    {
+      "from": "short-io",
+      "to": "sentry",
+      "source_url": "https://short.io/privacy",
+      "evidence": "Sentry"
+    },
+    {
+      "from": "short-io",
+      "to": "stripe",
+      "source_url": "https://short.io/privacy",
+      "evidence": "Stripe"
+    },
+    {
+      "from": "short-io",
+      "to": "paypal",
+      "source_url": "https://short.io/privacy",
+      "evidence": "PayPal"
+    },
+    {
+      "from": "short-io",
+      "to": "apple",
+      "source_url": "https://short.io/privacy",
+      "evidence": "Apple"
+    },
+    {
+      "from": "short-io",
+      "to": "openai",
+      "source_url": "https://short.io/privacy",
+      "evidence": "OpenAI"
+    },
+    {
+      "from": "short-io",
+      "to": "google",
+      "source_url": "https://short.io/privacy",
+      "evidence": "Google (Sign-In)"
+    },
+    {
+      "from": "short-io",
+      "to": "posthog",
+      "source_url": "https://short.io/privacy",
+      "evidence": "PostHog"
+    },
+    {
+      "from": "short-io",
+      "to": "intercom",
+      "source_url": "https://short.io/privacy",
+      "evidence": "Intercom"
+    },
+    {
+      "from": "short-io",
+      "to": "telegram",
+      "source_url": "https://short.io/privacy",
+      "evidence": "Telegram"
+    },
+    {
+      "from": "short-io",
+      "to": "twilio",
+      "source_url": "https://short.io/privacy",
+      "evidence": "Twilio"
+    },
+    {
+      "from": "short-io",
+      "to": "intuition-machines-hcaptcha",
+      "source_url": "https://short.io/privacy",
+      "evidence": "hCaptcha"
+    },
+    {
+      "from": "short-io",
+      "to": "maxmind",
+      "source_url": "https://short.io/privacy",
+      "evidence": "MaxMind"
+    },
+    {
+      "from": "short-io",
+      "to": "netcraft",
+      "source_url": "https://short.io/privacy",
+      "evidence": "Netcraft"
+    },
+    {
+      "from": "short-io",
+      "to": "surbl",
+      "source_url": "https://short.io/privacy",
+      "evidence": "SURBL"
+    },
+    {
+      "from": "short-io",
+      "to": "let-s-encrypt",
+      "source_url": "https://short.io/privacy",
+      "evidence": "Let's Encrypt"
+    },
+    {
+      "from": "short-io",
+      "to": "trustpilot",
+      "source_url": "https://short.io/privacy",
+      "evidence": "Trustpilot"
+    },
+    {
+      "from": "short-io",
+      "to": "canny",
+      "source_url": "https://short.io/privacy",
+      "evidence": "Canny"
+    },
+    {
+      "from": "short-io",
+      "to": "readme",
+      "source_url": "https://short.io/privacy",
+      "evidence": "ReadMe"
+    },
+    {
+      "from": "short-io",
+      "to": "google",
+      "source_url": "https://short.io/privacy",
+      "evidence": "Google Ads"
+    },
+    {
+      "from": "short-io",
+      "to": "google",
+      "source_url": "https://short.io/privacy",
+      "evidence": "Google Web Risk"
+    },
+    {
+      "from": "short-io",
+      "to": "google",
+      "source_url": "https://short.io/privacy",
+      "evidence": "Google (Gemini)"
     }
   ],
   "aliases": {
@@ -47610,6 +47776,11 @@
     "netwitness": "emc-corporation",
     "intel-ireland": "intel",
     "hitachi-data-systems": "hitachi",
-    "samsung-randd-institute-india-bengaluru": "samsung-electronics"
+    "samsung-randd-institute-india-bengaluru": "samsung-electronics",
+    "google-sign-in": "google",
+    "google-ads": "google",
+    "google-web-risk": "google",
+    "meta-whatsapp": "meta",
+    "whatsapp": "meta"
   }
 }

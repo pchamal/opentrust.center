@@ -476,6 +476,13 @@ def main() -> int:
     tdcx_reg2 = {**register, "tdcx": {"slug": "tdcx", "name": "TDCX", "domain": "tdcx.com"}}
     check(canonical_processor_id("tdcx-my-sdn-bhd", tdcx_reg2) == "tdcx", "TDCX MY SDN BHD is TDCX")
     check(canonical_processor_id("tdcx-digilab-india-private", tdcx_reg2) == "tdcx", "TDCX Digilab India is TDCX")
+    google_reg2 = {**register, "google": register["google"]}
+    check(canonical_processor_id("google-sign-in", google_reg2) == "google", "Google Sign-In is Google")
+    check(canonical_processor_id("google-ads", google_reg2) == "google", "Google Ads is Google")
+    check(canonical_processor_id("google-web-risk", google_reg2) == "google", "Google Web Risk is Google")
+    meta_reg = {**register, "meta": {"slug": "meta", "name": "Meta", "domain": "meta.com"}}
+    check(canonical_processor_id("meta-whatsapp", meta_reg) == "meta", "Meta (WhatsApp) is Meta")
+    check(canonical_processor_id("whatsapp", meta_reg) == "meta", "WhatsApp is Meta")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch
