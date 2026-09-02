@@ -796,6 +796,52 @@ REGISTER_ALIASES: dict[str, str] = {
     # meta is on the register (meta.com). Do not invent a second dossier.
     "meta-whatsapp": "meta",
     "whatsapp": "meta",
+    # Same-company leftovers after this hour's named-processor batch.
+    # Rocketlane prints Apricity (US implementation). apricitygroup.com titles
+    # "Apricity Group | Lead-to-Ledger CRM, PSA & ERP Consulting". Filed in
+    # this increment.
+    "apricity": "apricity-group",
+    # Rocketlane prints Mako IT Lab Pvt Ltd. makoitlab.com titles
+    # "Software Development Company in US - Mako IT Lab". Filed in this
+    # increment.
+    "mako-it-lab-pvt": "mako-it-lab",
+    # Rocketlane prints SaasGenie. saasgenie.ai and saasgenie.com 301 to
+    # fwddeploy.ai, titled "fwdDeploy | Post-Sale Revenue Engineering for
+    # B2B Tech". First-party /about-us titles "Why saasgenie is now
+    # fwdDeploy". Do not invent a second dossier.
+    "saasgenie": "fwd-deploy",
+    # Branch prints Software Minds, Inc (Poland engineering support).
+    # softwareminds.com 301s to softwaremind.com, titled "Software
+    # Engineering Company – Software Mind". Filed in this increment.
+    "software-minds": "software-mind",
+    # LinkedIn prints Regalix, Inc (Palo Alto campaign optimization).
+    # MarketStar first-party /acquisition titles "Acquisition | Learn More
+    # About Our Acquisition of Regalix". marketstar.com titles MarketStar.
+    # Filed in this increment. Do not invent a second Regalix dossier.
+    "regalix": "marketstar",
+    # GitLab prints cc cloud GmbH. codecentric.de first-party GitLab
+    # solutions page prints "cc cloud GmbH, a subsidiary of codecentric
+    # AG". codecentric.de titles "codecentric AG | Creating the digital
+    # future together." Filed in this increment.
+    "cc-cloud": "codecentric",
+    # Smartsheet prints Ujwal Inc (customer support). thelevel.ai/legal/msa
+    # prints "Ujwal, Inc., a Delaware corporation doing business as Level
+    # AI". thelevel.ai titles Level AI. Filed in this increment.
+    "ujwal": "level-ai",
+    # LinkedIn prints AI Data Innovation Corporation (Dallas data labelling).
+    # aidatainnovations.com titles "Home - AI Data Innovations" and prints
+    # the Dallas office. Filed in this increment.
+    "ai-data-innovation": "ai-data-innovations",
+    # Smartsheet prints Agile Management Experts (Germany professional
+    # services). AMX first-party Delivery Hero case study prints "Agile
+    # Management Experts (AMX), a Smartsheet Platinum Partner based in
+    # Europe". amxconsulting.com titles AMX. Filed in this increment.
+    "agile-management-experts": "amx",
+    # SonicWall prints Avertech (marketing tool). averetek.com now serves
+    # e2open's homepage titled "Supply Chain Software: The Connected Supply
+    # Chain - e2open" (same title as e2open.com). e2open is already on the
+    # register. Do not invent a second Averetek dossier.
+    "avertech": "e2open",
 
 }
 

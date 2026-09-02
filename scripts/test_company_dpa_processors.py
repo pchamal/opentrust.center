@@ -455,10 +455,12 @@ def main() -> int:
             "auth0",
             "anthropic",
             "thoughtspot",
+            "software-mind",
         },
         f"branch processor slugs {branch_slugs}",
     )
-    check(None in branch_slugs, "software-minds stays off the register")
+    check("software-mind" in branch_slugs, "software-minds lands on the Software Mind file")
+    check(None not in branch_slugs, "branch leftover Software Minds is gone")
     check(len(branch_names) == 8, f"branch printed 8 named processors, got {len(branch_names)}")
     branch_html = (ROOT / "site" / "c" / "branch-metrics.html").read_text(encoding="utf-8")
     check("https://legal.branch.io/saas/branch-saas-dpa/" in branch_html, "branch dossier keeps the DPA URL")
@@ -470,7 +472,8 @@ def main() -> int:
     check("./auth0.html\">Auth0" in branch_html, "branch Auth0 cross-links to the existing file")
     check("./anthropic.html\">Anthropic" in branch_html, "branch Anthropic cross-links to the existing file")
     check("./thoughtspot.html\">Thoughtspot, LLC" in branch_html, "branch Thoughtspot cross-links to the existing file")
-    check("../graph.html#p=software-minds\">Software Minds, Inc" in branch_html, "software-minds stays a graph leftover")
+    check("./software-mind.html\">Software Minds, Inc" in branch_html, "branch Software Minds cross-links to Software Mind")
+    check("../graph.html#p=software-minds" not in branch_html, "software-minds is no longer a leftover map node")
     check("conveyor" not in branch_html.lower(), "branch dossier does not name Conveyor")
     check("trust.branch.io" not in branch_html, "branch dossier does not cite the Conveyor portal")
     check("<h1>Branch Metrics</h1>" in branch_html, "branch dossier is its own file")
@@ -1027,7 +1030,10 @@ def main() -> int:
     check("./weaviate.html\">Weaviate" in rocket_html, "rocketlane Weaviate cross-links to the filed row")
     check("../graph.html#p=weaviate" not in rocket_html, "rocketlane Weaviate is no longer a leftover map node")
     check("./scalekit.html\">Scalekit" in rocket_html, "rocketlane Scalekit cross-links to the filed row")
-    check("../graph.html#p=saasgenie" in rocket_html, "rocketlane SaasGenie stays a leftover map node")
+    check("./fwd-deploy.html\">SaasGenie" in rocket_html, "rocketlane SaasGenie cross-links to fwdDeploy")
+    check("../graph.html#p=saasgenie" not in rocket_html, "rocketlane SaasGenie is no longer a leftover map node")
+    check("./apricity-group.html\">Apricity" in rocket_html, "rocketlane Apricity cross-links to Apricity Group")
+    check("./mako-it-lab.html\">Mako IT Lab Pvt Ltd" in rocket_html, "rocketlane Mako IT Lab cross-links to the filed row")
 
     # This cut: leftover product vendors from LiveKit / Rocketlane / Weaviate lists.
     check(by_pub["cockroach-labs"]["domain"] == "cockroachlabs.com", "cockroach-labs domain is cockroachlabs.com")
@@ -1091,8 +1097,44 @@ def main() -> int:
             == 0,
             f"{slug} Completeness is 0",
         )
-    check("regalix" not in by_pub, "regalix stays a leftover — no official domain on the LinkedIn list")
-    check("saasgenie" not in by_pub, "saasgenie stays a leftover — implementation shop, no official domain")
+    check("regalix" not in by_pub, "regalix does not invent a second dossier")
+    check("saasgenie" not in by_pub, "saasgenie does not invent a second dossier")
+    check(by_pub["fwd-deploy"]["domain"] == "fwddeploy.ai", "fwd-deploy domain is fwddeploy.ai")
+    check(by_pub["apricity-group"]["domain"] == "apricitygroup.com", "apricity-group domain is apricitygroup.com")
+    check(by_pub["mako-it-lab"]["domain"] == "makoitlab.com", "mako-it-lab domain is makoitlab.com")
+    check(by_pub["software-mind"]["domain"] == "softwaremind.com", "software-mind domain is softwaremind.com")
+    check(by_pub["marketstar"]["domain"] == "marketstar.com", "marketstar domain is marketstar.com")
+    check(by_pub["codecentric"]["domain"] == "codecentric.de", "codecentric domain is codecentric.de")
+    check(by_pub["level-ai"]["domain"] == "thelevel.ai", "level-ai domain is thelevel.ai")
+    check(by_pub["level-ai"].get("trust_url") == "https://thelevel.ai/security", "level-ai Official page is first-party /security")
+    check("trust.thelevel.ai" not in (by_pub["level-ai"].get("trust_url") or ""), "level-ai Official page is not the Secureframe portal")
+    check(instrument_url(by_pub["level-ai"], "dpa") == "https://thelevel.ai/legal/dpa", "level-ai DPA URL is first-party")
+    check(instrument_url(by_pub["level-ai"], "subprocessors") == "https://thelevel.ai/legal/subprocessors", "level-ai subprocessors URL is first-party")
+    check((by_pub["level-ai"].get("file") or {}).get("page") == 20, "level-ai Official page prints")
+    check((by_pub["level-ai"].get("file") or {}).get("marks") == 10, "level-ai marks stay dotted — portal request labels unread")
+    check((by_pub["level-ai"].get("file") or {}).get("dpa") == 20, "level-ai DPA prints")
+    check((by_pub["level-ai"].get("file") or {}).get("subprocessors") == 10, "level-ai processors stay dotted")
+    check(not (by_pub["level-ai"].get("certs") or []), "level-ai portal GDPR/HIPAA stay off the mark list")
+    check(by_pub["ai-data-innovations"]["domain"] == "aidatainnovations.com", "ai-data-innovations domain is aidatainnovations.com")
+    check(by_pub["cloud-support-technologies"]["domain"] == "cloudsupport.co.in", "cloud-support-technologies domain is cloudsupport.co.in")
+    check(by_pub["amx"]["domain"] == "amxconsulting.com", "amx domain is amxconsulting.com")
+    check(by_pub["amx"].get("founded_year") == 2017, "amx year is the first-party 2017 press sentence")
+    check((by_pub["amx"].get("file") or {}).get("years") == 20, "amx years print")
+    check(by_pub["swan"]["domain"] == "getswan.com", "swan domain is getswan.com")
+    linkedin_html = (ROOT / "site" / "c" / "linkedin.html").read_text(encoding="utf-8")
+    check("./marketstar.html\">Regalix, Inc" in linkedin_html, "linkedin Regalix cross-links to MarketStar")
+    check("./ai-data-innovations.html\">AI Data Innovation Corporation" in linkedin_html, "linkedin AI Data Innovation cross-links to the filed row")
+    gitlab_html = (ROOT / "site" / "c" / "gitlab.html").read_text(encoding="utf-8")
+    check("./codecentric.html\">cc cloud GmbH" in gitlab_html, "gitlab cc cloud GmbH cross-links to codecentric")
+    smart_html = (ROOT / "site" / "c" / "smartsheet.html").read_text(encoding="utf-8")
+    check("./level-ai.html\">Ujwal Inc" in smart_html, "smartsheet Ujwal cross-links to Level AI")
+    check("./amx.html\">Agile Management Experts" in smart_html, "smartsheet Agile Management Experts cross-links to AMX")
+    sonic_html = (ROOT / "site" / "c" / "sonicwall.html").read_text(encoding="utf-8")
+    check("./e2open.html\">Avertech" in sonic_html, "sonicwall Avertech cross-links to E2open")
+    rime_html = (ROOT / "site" / "c" / "rime.html").read_text(encoding="utf-8")
+    check("./swan.html\">Swan" in rime_html, "rime Swan cross-links to the filed row")
+    after_html = (ROOT / "site" / "c" / "aftership.html").read_text(encoding="utf-8")
+    check("./cloud-support-technologies.html\">Cloud Support Technologies" in after_html, "aftership Cloud Support Technologies cross-links to the filed row")
 
     print(
         f"ok increment-dpa privacy-page-queue {len(expected_batch)} walked; "
