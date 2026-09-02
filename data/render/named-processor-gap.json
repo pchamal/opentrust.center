@@ -1,239 +1,392 @@
 {
-  "generated": "2026-09-02T01:50:00Z",
-  "register": 4919,
-  "mode": "named-processor-gap-then-c0-fills",
-  "leftovers_min1_at_hour_start": 24,
-  "leftovers_min1": 36,
-  "named_processor_resolved_enqueued": [
-    {
-      "slug": "neon",
-      "name": "Neon",
-      "domain": "neon.tech",
-      "source": "https://docs.retool.com/legal/subprocessors",
-      "reason": "Retool first-party subprocessors table names Neon, Inc. Clerk: Neon is neon.tech, not Databricks. Thin Completeness-0 row."
-    }
-  ],
-  "named_processor_aliased_this_hour": [
-    {
-      "from": "langsmith",
-      "to": "langchain",
-      "reason": "Rocketlane first-party sub-processors table prints Langsmith. langsmith already aliases to langchain on the register."
-    },
-    {
-      "from": "aws",
-      "to": "amazon-web-services",
-      "reason": "Retool and Rocketlane print Amazon Web Services. aws already aliases to amazon-web-services."
-    },
-    {
-      "from": "temporal-technologies",
-      "to": "temporal",
-      "reason": "Retool prints Temporal Technologies, Inc. temporal-technologies already aliases to temporal."
-    },
-    {
-      "from": "sendgrid",
-      "to": "twilio",
-      "reason": "Rocketlane prints SendGrid / Twilio. SendGrid already aliases to twilio."
-    }
-  ],
-  "aliases_added": [],
-  "aliases_refused": [
-    {
-      "slug": "gcs",
-      "reason": "AudioCodes still prints GCS - Computer Generated Solutions, Romania S.R.L. No official homepage domain on that first-party list. Do not invent a domain."
-    },
-    {
-      "slug": "software-minds",
-      "reason": "Branch names Software Minds, Inc. Standing refusal: softwaremind.com is Software Mind, different legal name. Do not invent a domain."
-    },
-    {
-      "slug": "regalix",
-      "reason": "LinkedIn names Regalix, Inc. No official homepage domain on that first-party list. No Wikidata P856."
-    },
-    {
-      "slug": "vivaops",
-      "reason": "GitLab names VivaOps LLC. No official homepage domain. No Wikidata P856."
-    },
-    {
-      "slug": "cc-cloud",
-      "reason": "GitLab names cc cloud GmbH. No official homepage domain. No Wikidata P856."
-    },
-    {
-      "slug": "rtica-pfms-slu",
-      "reason": "WatchGuard names Ártica PFMS SLU. No official homepage domain on that first-party list."
-    },
-    {
-      "slug": "amacuro",
-      "reason": "Vyond boutique name. Wikidata hits are a river / delta / bird. No P856."
-    },
-    {
-      "slug": "ujwal",
-      "reason": "Smartsheet boutique name. Wikidata miss. No P856."
-    },
+  "generated_note": "named processors not on register",
+  "generated_at": "2026-09-02T01:56:52Z",
+  "count": 35,
+  "rows": [
     {
       "slug": "a-g-consulting",
-      "reason": "Meltwater boutique name. No first-party proven domain. Wikidata miss."
+      "name": "A.G. Consulting Limited",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.meltwater.com/en/privacy/subprocessors",
+      "source_urls": [
+        "https://www.meltwater.com/en/privacy/subprocessors"
+      ],
+      "source": "named-processor-gap"
     },
     {
       "slug": "agile-management-experts",
-      "reason": "Smartsheet boutique name. No first-party proven domain. Wikidata miss."
+      "name": "Agile Management Experts",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.smartsheet.com/legal/subprocessors",
+      "source_urls": [
+        "https://www.smartsheet.com/legal/subprocessors"
+      ],
+      "source": "named-processor-gap"
     },
     {
       "slug": "ai-data-innovation",
-      "reason": "LinkedIn boutique name. No first-party proven domain. Wikidata miss."
+      "name": "AI Data Innovation Corporation",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.linkedin.com/legal/l/customer-subprocessors",
+      "source_urls": [
+        "https://www.linkedin.com/legal/l/customer-subprocessors"
+      ],
+      "source": "named-processor-gap"
     },
     {
-      "slug": "avertech",
-      "reason": "SonicWall boutique name. No first-party proven domain. Wikidata miss."
-    },
-    {
-      "slug": "benjamin-mosse-consulting",
-      "reason": "Sophos boutique name. No first-party proven domain. Wikidata miss."
-    },
-    {
-      "slug": "blue-ocean-contact-centres",
-      "reason": "Sophos boutique name. No first-party proven domain. Wikidata miss."
-    },
-    {
-      "slug": "cloud-support-technologies",
-      "reason": "AfterShip boutique name. No first-party proven domain. Wikidata miss."
-    },
-    {
-      "slug": "cognitive-intelligence",
-      "reason": "Meltwater boutique name. No first-party proven domain. Wikidata miss."
-    },
-    {
-      "slug": "df-tech-fz",
-      "reason": "GitLab boutique name. No first-party proven domain. Wikidata miss."
-    },
-    {
-      "slug": "fineyear-human-resources-service",
-      "reason": "Meltwater boutique name. No first-party proven domain. Wikidata miss."
-    },
-    {
-      "slug": "media-connect",
-      "reason": "Meltwater boutique name. No first-party proven domain. Wikidata miss."
-    },
-    {
-      "slug": "multyware-associates",
-      "reason": "Meltwater boutique name. No first-party proven domain. Wikidata miss."
-    },
-    {
-      "slug": "novemilla",
-      "reason": "Meltwater boutique name. No first-party proven domain. Wikidata miss."
-    },
-    {
-      "slug": "rule-56",
-      "reason": "Sophos boutique name. No first-party proven domain. Wikidata miss."
-    },
-    {
-      "slug": "tsengararu",
-      "reason": "Meltwater boutique name. No first-party proven domain. Wikidata miss."
-    },
-    {
-      "slug": "zealep-business-solutions",
-      "reason": "Meltwater boutique name. No first-party proven domain. Wikidata miss."
-    },
-    {
-      "slug": "cockroach-labs",
-      "reason": "LiveKit first-party sub-processors table names Cockroach Labs with no official homepage href. Do not invent cockroachlabs.com."
-    },
-    {
-      "slug": "inworld",
-      "reason": "LiveKit names Inworld with no official homepage href. Do not invent a domain."
-    },
-    {
-      "slug": "rime",
-      "reason": "LiveKit names Rime with no official homepage href. Do not invent a domain."
-    },
-    {
-      "slug": "metabase",
-      "reason": "LiveKit names Metabase with no official homepage href. Do not invent metabase.com."
-    },
-    {
-      "slug": "lightdash",
-      "reason": "LiveKit names Lightdash with no official homepage href. Do not invent a domain."
-    },
-    {
-      "slug": "loops",
-      "reason": "LiveKit names Loops with no official homepage href. Do not invent loops.so."
-    },
-    {
-      "slug": "scalekit",
-      "reason": "Rocketlane first-party sub-processors table names Scalekit with no official homepage href. Do not invent a domain."
-    },
-    {
-      "slug": "weaviate",
-      "reason": "Rocketlane names Weaviate with no official homepage href. Do not invent weaviate.io."
-    },
-    {
-      "slug": "mako-it-lab-pvt",
-      "reason": "Rocketlane names Mako IT Lab Pvt Ltd with no official homepage href. Do not invent a domain."
-    },
-    {
-      "slug": "saasgenie",
-      "reason": "Rocketlane names SaasGenie with no official homepage href. Do not invent a domain."
+      "slug": "amacuro",
+      "name": "Amacuro",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://think.vyond.com/subprocessors",
+      "source_urls": [
+        "https://think.vyond.com/subprocessors"
+      ],
+      "source": "named-processor-gap"
     },
     {
       "slug": "apricity",
-      "reason": "Rocketlane names Apricity with no official homepage href. Do not invent a domain."
+      "name": "Apricity",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.rocketlane.com/legal/sub-processors",
+      "source_urls": [
+        "https://www.rocketlane.com/legal/sub-processors"
+      ],
+      "source": "named-processor-gap"
     },
     {
-      "slug": "spacexai",
-      "reason": "LiveKit first-party sub-processors table prints SpaceXAI with no homepage or privacy href (not x.ai, not spacex.com). Do not force-alias to xai. Leftover map node."
+      "slug": "avertech",
+      "name": "Avertech",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.sonicwall.com/legal/sub-processors",
+      "source_urls": [
+        "https://www.sonicwall.com/legal/sub-processors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "benjamin-mosse-consulting",
+      "name": "Benjamin Mosse Consulting Pty Ltd",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.sophos.com/en-us/legal/sub-processor",
+      "source_urls": [
+        "https://www.sophos.com/en-us/legal/sub-processor"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "blue-ocean-contact-centres",
+      "name": "Blue Ocean Contact Centres Inc",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.sophos.com/en-us/legal/sub-processor",
+      "source_urls": [
+        "https://www.sophos.com/en-us/legal/sub-processor"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "cc-cloud",
+      "name": "cc cloud GmbH",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://about.gitlab.com/privacy/subprocessors/",
+      "source_urls": [
+        "https://about.gitlab.com/privacy/subprocessors/"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "cloud-support-technologies",
+      "name": "Cloud Support Technologies",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.aftership.com/legal/subprocessors",
+      "source_urls": [
+        "https://www.aftership.com/legal/subprocessors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "cockroach-labs",
+      "name": "Cockroach Labs",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://livekit.com/legal/sub-processors",
+      "source_urls": [
+        "https://livekit.com/legal/sub-processors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "cognitive-intelligence",
+      "name": "Cognitive Intelligence Corp",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.meltwater.com/en/privacy/subprocessors",
+      "source_urls": [
+        "https://www.meltwater.com/en/privacy/subprocessors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "df-tech-fz",
+      "name": "DF Tech FZ-LLC",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://about.gitlab.com/privacy/subprocessors/",
+      "source_urls": [
+        "https://about.gitlab.com/privacy/subprocessors/"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "fineyear-human-resources-service",
+      "name": "Fineyear Human Resources Service Ltd",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.meltwater.com/en/privacy/subprocessors",
+      "source_urls": [
+        "https://www.meltwater.com/en/privacy/subprocessors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "gcs",
+      "name": "GCS",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.audiocodes.com/data-sub-processors",
+      "source_urls": [
+        "https://www.audiocodes.com/data-sub-processors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "inworld",
+      "name": "Inworld",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://livekit.com/legal/sub-processors",
+      "source_urls": [
+        "https://livekit.com/legal/sub-processors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "lightdash",
+      "name": "Lightdash",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://livekit.com/legal/sub-processors",
+      "source_urls": [
+        "https://livekit.com/legal/sub-processors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "loops",
+      "name": "Loops",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://livekit.com/legal/sub-processors",
+      "source_urls": [
+        "https://livekit.com/legal/sub-processors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "mako-it-lab-pvt",
+      "name": "Mako IT Lab Pvt Ltd",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.rocketlane.com/legal/sub-processors",
+      "source_urls": [
+        "https://www.rocketlane.com/legal/sub-processors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "media-connect",
+      "name": "Media Connect",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.meltwater.com/en/privacy/subprocessors",
+      "source_urls": [
+        "https://www.meltwater.com/en/privacy/subprocessors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "metabase",
+      "name": "Metabase",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://livekit.com/legal/sub-processors",
+      "source_urls": [
+        "https://livekit.com/legal/sub-processors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "multyware-associates",
+      "name": "Multyware Associates",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.meltwater.com/en/privacy/subprocessors",
+      "source_urls": [
+        "https://www.meltwater.com/en/privacy/subprocessors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "novemilla",
+      "name": "Novemilla",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.meltwater.com/en/privacy/subprocessors",
+      "source_urls": [
+        "https://www.meltwater.com/en/privacy/subprocessors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "regalix",
+      "name": "Regalix, Inc",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.linkedin.com/legal/l/customer-subprocessors",
+      "source_urls": [
+        "https://www.linkedin.com/legal/l/customer-subprocessors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "rime",
+      "name": "Rime",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://livekit.com/legal/sub-processors",
+      "source_urls": [
+        "https://livekit.com/legal/sub-processors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "rtica-pfms-slu",
+      "name": "\u00c1rtica PFMS SLU",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors",
+      "source_urls": [
+        "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "rule-56",
+      "name": "Rule 56",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.sophos.com/en-us/legal/sub-processor",
+      "source_urls": [
+        "https://www.sophos.com/en-us/legal/sub-processor"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "saasgenie",
+      "name": "SaasGenie",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.rocketlane.com/legal/sub-processors",
+      "source_urls": [
+        "https://www.rocketlane.com/legal/sub-processors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "scalekit",
+      "name": "Scalekit",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.rocketlane.com/legal/sub-processors",
+      "source_urls": [
+        "https://www.rocketlane.com/legal/sub-processors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "software-minds",
+      "name": "Software Minds, Inc",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://legal.branch.io/saas/subprocessor-list/",
+      "source_urls": [
+        "https://legal.branch.io/saas/subprocessor-list/"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "tsengararu",
+      "name": "Tsengararu",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.meltwater.com/en/privacy/subprocessors",
+      "source_urls": [
+        "https://www.meltwater.com/en/privacy/subprocessors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "ujwal",
+      "name": "Ujwal Inc",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.smartsheet.com/legal/subprocessors",
+      "source_urls": [
+        "https://www.smartsheet.com/legal/subprocessors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "vivaops",
+      "name": "VivaOps LLC",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://about.gitlab.com/privacy/subprocessors/",
+      "source_urls": [
+        "https://about.gitlab.com/privacy/subprocessors/"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "weaviate",
+      "name": "Weaviate",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.rocketlane.com/legal/sub-processors",
+      "source_urls": [
+        "https://www.rocketlane.com/legal/sub-processors"
+      ],
+      "source": "named-processor-gap"
+    },
+    {
+      "slug": "zealep-business-solutions",
+      "name": "Zealep Business Solutions",
+      "domain": "",
+      "named_by": 1,
+      "source_url": "https://www.meltwater.com/en/privacy/subprocessors",
+      "source_urls": [
+        "https://www.meltwater.com/en/privacy/subprocessors"
+      ],
+      "source": "named-processor-gap"
     }
-  ],
-  "filed": [
-    {
-      "slug": "clari",
-      "name": "Clari",
-      "kind": "dpa",
-      "url": "https://www.clari.com/dpa/2026-02-10/",
-      "completeness_before": 40,
-      "completeness_after": 60
-    },
-    {
-      "slug": "livekit",
-      "name": "LiveKit",
-      "kind": "dpa-subprocessors",
-      "dpa_url": "https://livekit.com/legal/data-processing-addendum",
-      "url": "https://livekit.com/legal/sub-processors",
-      "names": 30,
-      "completeness_before": 40,
-      "completeness_after": 80
-    },
-    {
-      "slug": "retool",
-      "name": "Retool",
-      "kind": "dpa-subprocessors-years",
-      "dpa_url": "https://docs.retool.com/legal/dpa",
-      "url": "https://docs.retool.com/legal/subprocessors",
-      "names": 11,
-      "year": 2017,
-      "year_url": "https://retool.com/about",
-      "completeness_before": 40,
-      "completeness_after": 90
-    },
-    {
-      "slug": "rocketlane",
-      "name": "Rocketlane Corp",
-      "kind": "dpa-subprocessors-years",
-      "dpa_url": "https://www.rocketlane.com/legal/data-processing-agreement",
-      "url": "https://www.rocketlane.com/legal/sub-processors",
-      "names": 19,
-      "year": 2020,
-      "year_url": "https://www.rocketlane.com/privacy-policy",
-      "completeness_before": 40,
-      "completeness_after": 90
-    },
-    {
-      "slug": "supportlogic",
-      "name": "SupportLogic, Inc",
-      "kind": "dpa",
-      "url": "https://www.supportlogic.com/data-processing-addendum/",
-      "completeness_before": 40,
-      "completeness_after": 60
-    }
-  ],
-  "remaining_ge2_slugs": [],
-  "note": "Clerk correction after #237. Neon, Inc is neon.tech, not Databricks — filed a thin Completeness-0 row (register 4918→4919). LiveKit SpaceXAI has no x.ai href and stays a leftover map node; Cursor SpaceXAI still lands on xai. Langsmith→langchain stays. Completeness fills otherwise unchanged: Clari DPA 40→60, LiveKit DPA+list 40→80, Retool DPA+list+2017 40→90, Rocketlane DPA+list+2020 40→90, SupportLogic DPA 40→60. Leftovers_min1 35→36 (spacexai). Draft PR 39 left unmerged. styles.css unchanged."
+  ]
 }
