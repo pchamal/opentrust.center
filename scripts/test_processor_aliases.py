@@ -512,6 +512,36 @@ def main() -> int:
     meta_reg = {**register, "meta": {"slug": "meta", "name": "Meta", "domain": "meta.com"}}
     check(canonical_processor_id("meta-whatsapp", meta_reg) == "meta", "Meta (WhatsApp) is Meta")
     check(canonical_processor_id("whatsapp", meta_reg) == "meta", "WhatsApp is Meta")
+    apr_reg = {**register, "apricity-group": {"slug": "apricity-group", "name": "Apricity Group", "domain": "apricitygroup.com"}}
+    check(canonical_processor_id("apricity", apr_reg) == "apricity-group", "Apricity is Apricity Group")
+    check(REGISTER_ALIASES["apricity"] == "apricity-group", "apricity aliases to apricity-group")
+    mako_reg = {**register, "mako-it-lab": {"slug": "mako-it-lab", "name": "Mako IT Lab", "domain": "makoitlab.com"}}
+    check(canonical_processor_id("mako-it-lab-pvt", mako_reg) == "mako-it-lab", "Mako IT Lab Pvt Ltd is Mako IT Lab")
+    check(REGISTER_ALIASES["mako-it-lab-pvt"] == "mako-it-lab", "mako-it-lab-pvt aliases to mako-it-lab")
+    fwd_reg = {**register, "fwd-deploy": {"slug": "fwd-deploy", "name": "fwdDeploy", "domain": "fwddeploy.ai"}}
+    check(canonical_processor_id("saasgenie", fwd_reg) == "fwd-deploy", "SaasGenie is fwdDeploy")
+    check(REGISTER_ALIASES["saasgenie"] == "fwd-deploy", "saasgenie aliases to fwd-deploy")
+    smind_reg = {**register, "software-mind": {"slug": "software-mind", "name": "Software Mind", "domain": "softwaremind.com"}}
+    check(canonical_processor_id("software-minds", smind_reg) == "software-mind", "Software Minds is Software Mind")
+    check(REGISTER_ALIASES["software-minds"] == "software-mind", "software-minds aliases to software-mind")
+    mstar_reg = {**register, "marketstar": {"slug": "marketstar", "name": "MarketStar", "domain": "marketstar.com"}}
+    check(canonical_processor_id("regalix", mstar_reg) == "marketstar", "Regalix is MarketStar")
+    check(REGISTER_ALIASES["regalix"] == "marketstar", "regalix aliases to marketstar")
+    cc_reg = {**register, "codecentric": {"slug": "codecentric", "name": "codecentric", "domain": "codecentric.de"}}
+    check(canonical_processor_id("cc-cloud", cc_reg) == "codecentric", "cc cloud GmbH is codecentric")
+    check(REGISTER_ALIASES["cc-cloud"] == "codecentric", "cc-cloud aliases to codecentric")
+    level_reg = {**register, "level-ai": {"slug": "level-ai", "name": "Level AI", "domain": "thelevel.ai"}}
+    check(canonical_processor_id("ujwal", level_reg) == "level-ai", "Ujwal Inc is Level AI")
+    check(REGISTER_ALIASES["ujwal"] == "level-ai", "ujwal aliases to level-ai")
+    adi_reg = {**register, "ai-data-innovations": {"slug": "ai-data-innovations", "name": "AI Data Innovations", "domain": "aidatainnovations.com"}}
+    check(canonical_processor_id("ai-data-innovation", adi_reg) == "ai-data-innovations", "AI Data Innovation Corporation is AI Data Innovations")
+    check(REGISTER_ALIASES["ai-data-innovation"] == "ai-data-innovations", "ai-data-innovation aliases to ai-data-innovations")
+    amx_reg = {**register, "amx": {"slug": "amx", "name": "AMX", "domain": "amxconsulting.com"}}
+    check(canonical_processor_id("agile-management-experts", amx_reg) == "amx", "Agile Management Experts is AMX")
+    check(REGISTER_ALIASES["agile-management-experts"] == "amx", "agile-management-experts aliases to amx")
+    e2_reg = {**register, "e2open": {"slug": "e2open", "name": "E2open", "domain": "e2open.com"}}
+    check(canonical_processor_id("avertech", e2_reg) == "e2open", "Avertech is E2open")
+    check(REGISTER_ALIASES["avertech"] == "e2open", "avertech aliases to e2open")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch

@@ -173,7 +173,7 @@ expect(
   branch &&
     (branch.processors || []).some((p) => p.slug === "amazon-web-services") &&
     (branch.processors || []).some((p) => p.slug === "zendesk") &&
-    (branch.processors || []).some((p) => p.id === "software-minds" && !p.slug) &&
+    (branch.processors || []).some((p) => p.slug === "software-mind") &&
     (branch.processors || []).length === 8,
 );
 expect("branch marks stay unread", branch && !(branch.certs || []).length);
@@ -1178,6 +1178,59 @@ expect(
     voyageAi.found === false &&
     fileScore(fileFlags(voyageAi)) === 0,
 );
+
+const levelAi = bySlug["level-ai"];
+expect(
+  "level-ai Completeness is page · marks(10) · DPA · subprocessors(10) = 60",
+  levelAi &&
+    levelAi.found === true &&
+    levelAi.domain === "thelevel.ai" &&
+    levelAi.trust_url === "https://thelevel.ai/security" &&
+    !String(levelAi.trust_url || "").includes("trust.thelevel.ai") &&
+    ((levelAi.instruments || {}).dpa || {}).url === "https://thelevel.ai/legal/dpa" &&
+    ((levelAi.instruments || {}).subprocessors || {}).url === "https://thelevel.ai/legal/subprocessors" &&
+    !(levelAi.processors || []).length &&
+    !(levelAi.certs || []).length &&
+    fileFlags(levelAi).page === 20 &&
+    fileFlags(levelAi).marks === 10 &&
+    fileFlags(levelAi).dpa === 20 &&
+    fileFlags(levelAi).subprocessors === 10 &&
+    fileFlags(levelAi).years === 0 &&
+    fileScore(fileFlags(levelAi)) === 60,
+);
+
+const amx = bySlug.amx;
+expect(
+  "amx Completeness is years = 20",
+  amx &&
+    amx.domain === "amxconsulting.com" &&
+    amx.found === false &&
+    amx.founded_year === 2017 &&
+    fileFlags(amx).page === 0 &&
+    fileFlags(amx).marks === 0 &&
+    fileFlags(amx).dpa === 0 &&
+    fileFlags(amx).subprocessors === 0 &&
+    fileFlags(amx).years === 20 &&
+    fileScore(fileFlags(amx)) === 20,
+);
+
+for (const slug of [
+  "apricity-group",
+  "swan",
+  "mako-it-lab",
+  "fwd-deploy",
+  "software-mind",
+  "marketstar",
+  "codecentric",
+  "ai-data-innovations",
+  "cloud-support-technologies",
+]) {
+  const row = bySlug[slug];
+  expect(
+    `${slug} Completeness stays 0`,
+    row && row.found === false && fileScore(fileFlags(row)) === 0,
+  );
+}
 
 const supportlogic = bySlug.supportlogic;
 expect(
