@@ -1,21 +1,19 @@
 {
   "generated": "2026-09-02T01:50:00Z",
-  "register": 4918,
+  "register": 4919,
   "mode": "named-processor-gap-then-c0-fills",
   "leftovers_min1_at_hour_start": 24,
-  "leftovers_min1": 35,
-  "named_processor_resolved_enqueued": [],
+  "leftovers_min1": 36,
+  "named_processor_resolved_enqueued": [
+    {
+      "slug": "neon",
+      "name": "Neon",
+      "domain": "neon.tech",
+      "source": "https://docs.retool.com/legal/subprocessors",
+      "reason": "Retool first-party subprocessors table names Neon, Inc. Clerk: Neon is neon.tech, not Databricks. Thin Completeness-0 row."
+    }
+  ],
   "named_processor_aliased_this_hour": [
-    {
-      "from": "spacexai",
-      "to": "xai",
-      "reason": "LiveKit first-party sub-processors table prints SpaceXAI. spacexai already aliases to xai on the register."
-    },
-    {
-      "from": "neon",
-      "to": "databricks",
-      "reason": "Retool first-party subprocessors table prints Neon, Inc. neon already aliases to databricks on the register."
-    },
     {
       "from": "langsmith",
       "to": "langchain",
@@ -178,6 +176,10 @@
     {
       "slug": "apricity",
       "reason": "Rocketlane names Apricity with no official homepage href. Do not invent a domain."
+    },
+    {
+      "slug": "spacexai",
+      "reason": "LiveKit first-party sub-processors table prints SpaceXAI with no homepage or privacy href (not x.ai, not spacex.com). Do not force-alias to xai. Leftover map node."
     }
   ],
   "filed": [
@@ -233,5 +235,5 @@
     }
   ],
   "remaining_ge2_slugs": [],
-  "note": "Rebased onto main 3bbc6171da (hourly expand; register 4878→4918). Kept expand's 40 new trust-center rows and this increment's first-party Completeness fills. Live gap leftovers_min1 24→35. Standing domain-less leftovers stay (software-minds ≠ softwaremind.com; regalix/vivaops/cc-cloud/rtica-pfms-slu and Meltwater/Sophos/Smartsheet/Vyond/SonicWall/GitLab/AfterShip boutique names; gcs prints Computer Generated Solutions without a homepage; Amacuro/Ujwal Wikidata hits have no P856). No leftover gained a first-party homepage href this walk. Do not invent domains. On-register Completeness fills from already-stored first-party trust/security/privacy URLs: Clari DPA HTML at clari.com/dpa/2026-02-10/ (40→60). LiveKit DPA HTML at livekit.com/legal/data-processing-addendum and named-processor table at livekit.com/legal/sub-processors (40→80). SpaceXAI aliases to existing xai. Cockroach Labs / Inworld / Rime / Metabase / Lightdash / Loops print without homepage hrefs and stay leftovers. Retool docs.retool.com/legal/dpa and /legal/subprocessors (URL-only subprocessors 10→20) plus about JSON-LD foundingDate 2017 (40→90). Neon, Inc aliases to databricks; Temporal Technologies to temporal; AWS to amazon-web-services. Rocketlane legal/data-processing-agreement and legal/sub-processors plus privacy-policy JSON-LD foundingDate 2020 (40→90). Langsmith aliases to langchain; SendGrid / Twilio to twilio. Scalekit / Weaviate / Mako IT Lab / SaasGenie / Apricity print without homepage hrefs and stay leftovers. SupportLogic DPA HTML at supportlogic.com/data-processing-addendum/ (40→60). Official pages already on file (including Retool/Rocketlane portal hosts) stay. Marks unread this walk. No new register rows. Draft PR 39 left unmerged. styles.css SHA unchanged."
+  "note": "Clerk correction after #237. Neon, Inc is neon.tech, not Databricks — filed a thin Completeness-0 row (register 4918→4919). LiveKit SpaceXAI has no x.ai href and stays a leftover map node; Cursor SpaceXAI still lands on xai. Langsmith→langchain stays. Completeness fills otherwise unchanged: Clari DPA 40→60, LiveKit DPA+list 40→80, Retool DPA+list+2017 40→90, Rocketlane DPA+list+2020 40→90, SupportLogic DPA 40→60. Leftovers_min1 35→36 (spacexai). Draft PR 39 left unmerged. styles.css unchanged."
 }

@@ -30449,6 +30449,20 @@
       "domain": "",
       "kind": "processor",
       "in_register": false
+    },
+    {
+      "id": "neon",
+      "name": "Neon",
+      "domain": "neon.tech",
+      "kind": "company",
+      "in_register": true
+    },
+    {
+      "id": "spacexai",
+      "name": "SpaceXAI",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
     }
   ],
   "edges": [
@@ -43054,7 +43068,7 @@
     },
     {
       "from": "replit",
-      "to": "databricks",
+      "to": "neon",
       "source_url": "https://replit.com/subprocessors",
       "evidence": "Neon"
     },
@@ -47482,7 +47496,7 @@
     },
     {
       "from": "livekit",
-      "to": "xai",
+      "to": "spacexai",
       "source_url": "https://livekit.com/legal/sub-processors",
       "evidence": "SpaceXAI"
     },
@@ -47566,7 +47580,7 @@
     },
     {
       "from": "retool",
-      "to": "databricks",
+      "to": "neon",
       "source_url": "https://docs.retool.com/legal/subprocessors",
       "evidence": "Neon, Inc"
     },
@@ -48050,7 +48064,6 @@
     "workcanvas-workassests": "monday",
     "seedance-2-0": "bytedance",
     "nuorder": "lightspeed-commerce",
-    "neon": "databricks",
     "pineapple-technology-incident-io": "incident-io",
     "checkpoint": "check-point",
     "slashnext": "varonis",
