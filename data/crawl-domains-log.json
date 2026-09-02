@@ -1,2630 +1,296 @@
 {
-  "generated_at": "2026-09-02T18:57:20Z",
+  "generated_at": "2026-09-02T20:57:17Z",
   "method": "wikidata enwiki sitelink -> P856 only; no invented domains",
-  "user_agent": "opentrust.center/1.0 (+https://opentrust.center)",
-  "note": "hourly top-up appended 5 verified P856 from CRN Security 100 2023 leftover + Wikipedia tech-established 1915-1929 + EU/Asia software leftover + unused geo/sector categories (and further unused software categories if needed); CMC software page 6+ was empty; did not repeat exhausted lists or S&P 500",
+  "note": "second top-up slice appended 34",
   "counts": {
-    "appended": 5,
-    "resolved": 5,
-    "unresolved": 330,
-    "dropped_wrong_or_dup": 111,
+    "appended": 34,
+    "resolved": 34,
     "by_source": {
-      "wikipedia-telecom-us": 5
-    },
-    "by_source_url": {
-      "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_the_United_States": 5
+      "wikipedia-software-germany": 3,
+      "wikipedia-software-france": 2,
+      "wikipedia-software-uk": 11,
+      "wikipedia-software-bay-area": 7,
+      "wikipedia-software-nyc": 2,
+      "wikipedia-software-seattle": 2,
+      "wikipedia-tech-established-1909": 1,
+      "wikipedia-tech-established-1907": 1,
+      "wikipedia-tech-established-1906": 4,
+      "wikipedia-tech-established-1905": 1
     }
   },
   "appended": [
     {
-      "name": "Truvista Fiber",
-      "slug": "truvista-fiber",
-      "domain": "portal.truvista.net",
-      "source": "wikipedia-telecom-us",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_the_United_States",
-      "priority": 3,
-      "qid": "Q7847089",
-      "reason": "enwiki-title P856"
+      "name": "CompuGroup Medical",
+      "slug": "compugroup-medical",
+      "domain": "cgm.com",
+      "source": "wikipedia-software-germany",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Germany",
+      "qid": "Q1122033"
     },
     {
-      "name": "Verizon New Jersey",
-      "slug": "verizon-new-jersey",
-      "domain": "www22.verizon.com",
-      "source": "wikipedia-telecom-us",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_the_United_States",
-      "priority": 3,
-      "qid": "Q7921435",
-      "reason": "enwiki-title P856"
+      "name": "LaserSoft Imaging",
+      "slug": "lasersoft-imaging",
+      "domain": "silverfast.com",
+      "source": "wikipedia-software-germany",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Germany",
+      "qid": "Q323959"
     },
     {
-      "name": "Xfinity",
-      "slug": "xfinity",
-      "domain": "xfinity.com",
-      "source": "wikipedia-telecom-us",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_the_United_States",
-      "priority": 3,
-      "qid": "Q5151002",
-      "reason": "enwiki-title P856"
+      "name": "Lufthansa Systems",
+      "slug": "lufthansa-systems",
+      "domain": "lhsystems.de",
+      "source": "wikipedia-software-germany",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Germany",
+      "qid": "Q884611"
     },
     {
-      "name": "XO Communications",
-      "slug": "xo-communications",
-      "domain": "xo.com",
-      "source": "wikipedia-telecom-us",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_the_United_States",
-      "priority": 3,
-      "qid": "Q8042382",
-      "reason": "enwiki-title P856"
+      "name": "Rakuten DX",
+      "slug": "rakuten-dx",
+      "domain": "aquafadas.com",
+      "source": "wikipedia-software-france",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_France",
+      "qid": "Q2859143"
     },
     {
-      "name": "Zayo Group",
-      "slug": "zayo-group",
-      "domain": "zayo.com",
-      "source": "wikipedia-telecom-us",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_the_United_States",
-      "priority": 3,
-      "qid": "Q8067574",
-      "reason": "enwiki-title P856"
-    }
-  ],
-  "dropped_wrong_p856": [
-    {
-      "name": "Fairchild Camera and Instrument",
-      "slug": "fairchild-camera-and-instrument",
-      "domain": "fairchildimaging.com",
-      "reason": "implausible-p856"
+      "name": "Sysload Software",
+      "slug": "sysload-software",
+      "domain": "orsyp.com",
+      "source": "wikipedia-software-france",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_France",
+      "qid": "Q17143396"
     },
     {
-      "name": "KBP Instrument Design Bureau",
-      "slug": "kbp-instrument-design-bureau",
-      "domain": "kbptula.ru",
-      "reason": "implausible-p856"
+      "name": "Acision",
+      "slug": "acision",
+      "domain": "xura.com",
+      "source": "wikipedia-software-uk",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_Kingdom",
+      "qid": "Q4674207"
     },
     {
-      "name": "DIGI Group",
-      "slug": "digi-group",
-      "domain": "digisystem.com",
-      "reason": "implausible-p856"
+      "name": "ABM Intelligence",
+      "slug": "abm-intelligence",
+      "domain": "abmsoftware.com",
+      "source": "wikipedia-software-uk",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_Kingdom",
+      "qid": "Q4650336"
     },
     {
-      "name": "Taylor Woodrow",
-      "slug": "taylor-woodrow",
-      "domain": "taylorwimpey.com",
-      "reason": "implausible-p856"
+      "name": "ContractExpress",
+      "slug": "contractexpress",
+      "domain": "business-integrity.com",
+      "source": "wikipedia-software-uk",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_Kingdom",
+      "qid": "Q5165643"
     },
     {
-      "name": "Marelli Europe",
-      "slug": "marelli-europe",
-      "domain": "magnetimarelli.com",
-      "reason": "implausible-p856"
+      "name": "The Electronic Font Foundry",
+      "slug": "the-electronic-font-foundry",
+      "domain": "thefonts.com",
+      "source": "wikipedia-software-uk",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_Kingdom",
+      "qid": "Q7731735"
     },
     {
-      "name": "Jervis B. Webb Company",
-      "slug": "jervis-b-webb-company",
-      "domain": "daifuku.com",
-      "reason": "implausible-p856"
+      "name": "Mediasurface",
+      "slug": "mediasurface",
+      "domain": "alterian.com",
+      "source": "wikipedia-software-uk",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_Kingdom",
+      "qid": "Q16997512"
     },
     {
-      "name": "Panasonic",
-      "slug": "panasonic",
-      "domain": "holdings.panasonic",
-      "reason": "blocked-host"
+      "name": "MHR",
+      "slug": "mhr",
+      "domain": "mhrglobal.com",
+      "source": "wikipedia-software-uk",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_Kingdom",
+      "qid": "Q21061583"
     },
     {
-      "name": "Aerojet Rocketdyne",
-      "slug": "aerojet-rocketdyne",
-      "domain": "l3harris.com",
-      "reason": "implausible-p856"
+      "name": "Midas",
+      "slug": "midas",
+      "domain": "misys.com",
+      "source": "wikipedia-software-uk",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_Kingdom",
+      "qid": "Q4044250"
     },
     {
-      "name": "Black & Veatch",
-      "slug": "black-and-veatch",
-      "domain": "bv.com",
-      "reason": "implausible-p856"
+      "name": "NEC Software Solutions",
+      "slug": "nec-software-solutions",
+      "domain": "northgate-is.com",
+      "source": "wikipedia-software-uk",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_Kingdom",
+      "qid": "Q7059455"
     },
     {
-      "name": "Deluxe Media",
-      "slug": "deluxe-media",
-      "domain": "bydeluxe.com",
-      "reason": "implausible-p856"
+      "name": "Result Group",
+      "slug": "result-group",
+      "domain": "rentalresult.com",
+      "source": "wikipedia-software-uk",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_Kingdom",
+      "qid": "Q7316352"
     },
     {
-      "name": "Spacebring",
-      "slug": "spacebring",
-      "domain": "andcards.com",
-      "reason": "implausible-p856"
+      "name": "System Simulation",
+      "slug": "system-simulation",
+      "domain": "ssl.co.uk",
+      "source": "wikipedia-software-uk",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_Kingdom",
+      "qid": "Q7663685"
     },
     {
-      "name": "Vulcan",
-      "slug": "vulcan",
-      "domain": "vulcan.edu.pl",
-      "reason": "implausible-p856"
+      "name": "Volantis",
+      "slug": "volantis",
+      "domain": "antennasoftware.com",
+      "source": "wikipedia-software-uk",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_Kingdom",
+      "qid": "Q7939974"
     },
     {
-      "name": "Adaptive Simulations",
-      "slug": "adaptive-simulations",
-      "domain": "ingridcloud.com",
-      "reason": "implausible-p856"
+      "name": "Akka.io",
+      "slug": "akka-io",
+      "domain": "lightbend.com",
+      "source": "wikipedia-software-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
+      "qid": "Q7860966"
     },
     {
-      "name": "HMS Networks",
-      "slug": "hms-networks",
-      "domain": "anybus.com",
-      "reason": "implausible-p856"
+      "name": "AltspaceVR",
+      "slug": "altspacevr",
+      "domain": "altvr.com",
+      "source": "wikipedia-software-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
+      "qid": "Q25024989"
     },
     {
-      "name": "IMINT Image Intelligence AB",
-      "slug": "imint-image-intelligence-ab",
-      "domain": "vidhance.com",
-      "reason": "implausible-p856"
+      "name": "Apteligent",
+      "slug": "apteligent",
+      "domain": "crittercism.com",
+      "source": "wikipedia-software-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
+      "qid": "Q5186937"
     },
     {
-      "name": "Mag+",
-      "slug": "magplus",
-      "domain": "magplus.com",
-      "reason": "implausible-p856"
+      "name": "Hitachi Data Systems",
+      "slug": "hitachi-data-systems",
+      "domain": "hitachivantara.com",
+      "source": "wikipedia-software-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
+      "qid": "Q2055873"
     },
     {
-      "name": "ErgoGroup",
-      "slug": "ergogroup",
-      "domain": "evry.no",
-      "reason": "implausible-p856"
+      "name": "Layer0",
+      "slug": "layer0",
+      "domain": "moovweb.com",
+      "source": "wikipedia-software-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
+      "qid": "Q6908755"
     },
     {
-      "name": "Microsoft Development Center Norway",
-      "slug": "microsoft-development-center-norway",
-      "domain": "fastsearch.com",
-      "reason": "implausible-p856"
+      "name": "Reality Labs",
+      "slug": "reality-labs",
+      "domain": "oculus.com",
+      "source": "wikipedia-software-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
+      "qid": "Q16321326"
     },
     {
-      "name": "Visolit",
-      "slug": "visolit",
-      "domain": "telecomputing.no",
-      "reason": "implausible-p856"
+      "name": "SalesforceIQ",
+      "slug": "salesforceiq",
+      "domain": "relateiq.com",
+      "source": "wikipedia-software-bay-area",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_the_San_Francisco_Bay_Area",
+      "qid": "Q17092685"
     },
     {
-      "name": "DHI",
-      "slug": "dhi",
-      "domain": "dhigroup.com",
-      "reason": "implausible-p856"
+      "name": "Enterproid",
+      "slug": "enterproid",
+      "domain": "divide.com",
+      "source": "wikipedia-software-nyc",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_New_York_City",
+      "qid": "Q16992635"
     },
     {
-      "name": "C\u00faram Software",
-      "slug": "c-ram-software",
-      "domain": "curamsoftware.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Norkom",
-      "slug": "norkom",
-      "domain": "baesystems.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Workhuman",
-      "slug": "workhuman",
-      "domain": "globoforce.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Quintiq",
-      "slug": "quintiq",
-      "domain": "3ds.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Servi\u00e7o Federal de Processamento de Dados",
-      "slug": "servi-o-federal-de-processamento-de-dados",
-      "domain": "serpro.gov.br",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Snakk Media",
-      "slug": "snakk-media",
-      "domain": "snk.co.nz",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Vend",
-      "slug": "vend",
-      "domain": "vendhq.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Gamania",
-      "slug": "gamania",
-      "domain": "age-corp.jp",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Team and Concepts",
-      "slug": "team-and-concepts",
-      "domain": "tnc.hk",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Gravity Interactive",
-      "slug": "gravity-interactive",
-      "domain": "warpportal.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Mindspark Interactive Network",
-      "slug": "mindspark-interactive-network",
-      "domain": "iacapps.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Monster Games",
-      "slug": "monster-games",
-      "domain": "mgiracing.com",
-      "reason": "implausible-p856"
+      "name": "Zumobi",
+      "slug": "zumobi",
+      "domain": "ignitetech.com",
+      "source": "wikipedia-software-nyc",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_New_York_City",
+      "qid": "Q8075258"
     },
     {
       "name": "Relentless Studios",
       "slug": "relentless-studios",
       "domain": "amazongamestudios.com",
-      "reason": "implausible-p856"
+      "source": "wikipedia-software-seattle",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_Seattle",
+      "qid": "Q28129037"
     },
     {
-      "name": "Riedel Software Productions",
-      "slug": "riedel-software-productions",
-      "domain": "runningwithscissors.com",
-      "reason": "implausible-p856"
+      "name": "Tomofun",
+      "slug": "tomofun",
+      "domain": "furbo.com",
+      "source": "wikipedia-software-seattle",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_Seattle",
+      "qid": "Q24260671"
     },
     {
-      "name": "RockLive",
-      "slug": "rocklive",
-      "domain": "shots.com",
-      "reason": "implausible-p856"
+      "name": "Balfour Beatty",
+      "slug": "balfour-beatty",
+      "domain": "balfourbeatty.com",
+      "source": "wikipedia-tech-established-1909",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_1909",
+      "qid": "Q804920"
     },
     {
-      "name": "Silver Creek Entertainment",
-      "slug": "silver-creek-entertainment",
-      "domain": "silvercrk.com",
-      "reason": "implausible-p856"
+      "name": "Leupold & Stevens",
+      "slug": "leupold-and-stevens",
+      "domain": "leupold.com",
+      "source": "wikipedia-tech-established-1907",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_1907",
+      "qid": "Q6534605"
     },
     {
-      "name": "Victory Games",
-      "slug": "victory-games",
-      "domain": "avalonhill.com",
-      "reason": "implausible-p856"
+      "name": "Addtech",
+      "slug": "addtech",
+      "domain": "addtech.com",
+      "source": "wikipedia-tech-established-1906",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_1906",
+      "qid": "Q10400997"
     },
     {
-      "name": "1-800-FREE-411",
-      "slug": "1-800-free-411",
-      "domain": "marchex.com",
-      "reason": "implausible-p856"
+      "name": "Castolin Eutectic",
+      "slug": "castolin-eutectic",
+      "domain": "castolin.com",
+      "source": "wikipedia-tech-established-1906",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_1906",
+      "qid": "Q1049707"
     },
     {
-      "name": "Ace Communication Group",
-      "slug": "ace-communication-group",
-      "domain": "acegroup.cc",
-      "reason": "implausible-p856"
+      "name": "Esterline",
+      "slug": "esterline",
+      "domain": "esterline.com",
+      "source": "wikipedia-tech-established-1906",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_1906",
+      "qid": "Q18148411"
     },
     {
-      "name": "Amherst Telephone Company",
-      "slug": "amherst-telephone-company",
-      "domain": "wi-net.com",
-      "reason": "implausible-p856"
+      "name": "Rolls-Royce Holdings",
+      "slug": "rolls-royce-holdings",
+      "domain": "rolls-royce.com",
+      "source": "wikipedia-tech-established-1906",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_1906",
+      "qid": "Q243278"
     },
     {
-      "name": "Angel Incorporated",
-      "slug": "angel-incorporated",
-      "domain": "genesys.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Armstrong Telephone Company",
-      "slug": "armstrong-telephone-company",
-      "domain": "telephone.agoc.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Big River Telephone",
-      "slug": "big-river-telephone",
-      "domain": "bigrivercom.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Blue Ridge Communications",
-      "slug": "blue-ridge-communications",
-      "domain": "brctv.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Blue Stream",
-      "slug": "blue-stream",
-      "domain": "advancedcable.net",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Brightspeed of Eastern Kansas",
-      "slug": "brightspeed-of-eastern-kansas",
-      "domain": "embarq.centurylink.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Brightspeed of Kansas",
-      "slug": "brightspeed-of-kansas",
-      "domain": "centurylink.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Brightspeed of Northcentral Ohio",
-      "slug": "brightspeed-of-northcentral-ohio",
-      "domain": "centurylink.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Brightspeed of Texas",
-      "slug": "brightspeed-of-texas",
-      "domain": "centurylink.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Brightspeed of West Missouri",
-      "slug": "brightspeed-of-west-missouri",
-      "domain": "centurylink.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Cable One",
-      "slug": "cable-one",
-      "domain": "sparklight.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "C&P Telephone",
-      "slug": "candp-telephone",
-      "domain": "www22.verizon.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Central Telephone Company of Virginia",
-      "slug": "central-telephone-company-of-virginia",
-      "domain": "centurylink.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "CenturyTel of Adamsville",
-      "slug": "centurytel-of-adamsville",
-      "domain": "centurylink.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "CenturyTel of Arkansas",
-      "slug": "centurytel-of-arkansas",
-      "domain": "centurylink.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "CenturyTel of Chester",
-      "slug": "centurytel-of-chester",
-      "domain": "centurylink.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "CenturyTel of Claiborne",
-      "slug": "centurytel-of-claiborne",
-      "domain": "centurylink.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "CenturyTel of Colorado",
-      "slug": "centurytel-of-colorado",
-      "domain": "centurylink.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "CenturyTel of Port Aransas",
-      "slug": "centurytel-of-port-aransas",
-      "domain": "centurylink.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "CenturyTel of San Marcos",
-      "slug": "centurytel-of-san-marcos",
-      "domain": "centurylink.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "CenturyTel of South Arkansas",
-      "slug": "centurytel-of-south-arkansas",
-      "domain": "centurylink.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "CenturyTel of the Gem State",
-      "slug": "centurytel-of-the-gem-state",
-      "domain": "centurylink.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "CenturyTel of the Midwest-Kendall",
-      "slug": "centurytel-of-the-midwest-kendall",
-      "domain": "centurylink.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Citizens Telecommunications Company of California",
-      "slug": "citizens-telecommunications-company-of-california",
-      "domain": "west.frontier.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Citizens Telecommunications Company of Nebraska",
-      "slug": "citizens-telecommunications-company-of-nebraska",
-      "domain": "frontier.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Citizens Telecommunications Company of West Virginia",
-      "slug": "citizens-telecommunications-company-of-west-virginia",
-      "domain": "frontier.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Electric Lightwave",
-      "slug": "electric-lightwave",
-      "domain": "integratelecom.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Fidium Fiber",
-      "slug": "fidium-fiber",
-      "domain": "consolidated.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Focus Broadband",
-      "slug": "focus-broadband",
-      "domain": "atmc.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Frontier California",
-      "slug": "frontier-california",
-      "domain": "www22.verizon.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Full Service Network",
-      "slug": "full-service-network",
-      "domain": "fsntele.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Grand River Mutual Telephone",
-      "slug": "grand-river-mutual-telephone",
-      "domain": "grm.net",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Groundhog Technologies",
-      "slug": "groundhog-technologies",
-      "domain": "ghtinc.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Harrisonville Telephone Company",
-      "slug": "harrisonville-telephone-company",
-      "domain": "htc.net",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Hughes Systique Corporation",
-      "slug": "hughes-systique-corporation",
-      "domain": "hsc.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "IDT Corporation",
-      "slug": "idt-corporation",
-      "domain": "rafaelholdings.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Illinois Bell",
-      "slug": "illinois-bell",
-      "domain": "att.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Indiana Bell",
-      "slug": "indiana-bell",
-      "domain": "att.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Jaxtr",
-      "slug": "jaxtr",
-      "domain": "web.archive.org",
-      "reason": "blocked-host"
-    },
-    {
-      "name": "Likewize",
-      "slug": "likewize",
-      "domain": "brightstar.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Lumos Networks",
-      "slug": "lumos-networks",
-      "domain": "lumosfiber.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Matrix Business Technologies",
-      "slug": "matrix-business-technologies",
-      "domain": "matrixbt.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "New Jersey Bell Telephone Company",
-      "slug": "new-jersey-bell-telephone-company",
-      "domain": "www22.verizon.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "North State Communications",
-      "slug": "north-state-communications",
-      "domain": "lumosfiber.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Ohio Bell",
-      "slug": "ohio-bell",
-      "domain": "att.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Personal Communications Devices",
-      "slug": "personal-communications-devices",
-      "domain": "pcdphones.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Pioneer Telephone Cooperative",
-      "slug": "pioneer-telephone-cooperative",
-      "domain": "ptci.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Rapid Communications",
-      "slug": "rapid-communications",
-      "domain": "rapidcable.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "SNET America",
-      "slug": "snet-america",
-      "domain": "frontier.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "South Central Communications",
-      "slug": "south-central-communications",
-      "domain": "grm.net",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Telco Systems",
-      "slug": "telco-systems",
-      "domain": "batm.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Telephone and Data Systems",
-      "slug": "telephone-and-data-systems",
-      "domain": "tdsinc.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Telephone USA of Wisconsin",
-      "slug": "telephone-usa-of-wisconsin",
-      "domain": "centurylink.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Thales Defense & Security",
-      "slug": "thales-defense-and-security",
-      "domain": "thalesgroup.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Wide Open West",
-      "slug": "wide-open-west",
-      "domain": "wowway.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Wisconsin Bell",
-      "slug": "wisconsin-bell",
-      "domain": "att.com",
-      "reason": "implausible-p856"
+      "name": "Chemring Group",
+      "slug": "chemring-group",
+      "domain": "chemring.com",
+      "source": "wikipedia-tech-established-1905",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_1905",
+      "qid": "Q1069644"
     }
   ],
-  "unresolved": [
-    {
-      "name": "Kaspersky",
-      "slug": "kaspersky",
-      "reason": "close/prefix",
-      "status": "resolved"
-    },
-    {
-      "name": "Opswat",
-      "slug": "opswat",
-      "reason": "no-org-with-official-website",
-      "status": "unresolved"
-    },
-    {
-      "name": "Fortra",
-      "slug": "fortra",
-      "reason": "no-org-with-official-website",
-      "status": "unresolved"
-    },
-    {
-      "name": "Immuta",
-      "slug": "immuta",
-      "reason": "no-org-with-official-website",
-      "status": "unresolved"
-    },
-    {
-      "name": "Versa Networks",
-      "slug": "versa-networks",
-      "reason": "no-org-with-official-website",
-      "status": "unresolved"
-    },
-    {
-      "name": "Cado Security",
-      "slug": "cado-security",
-      "reason": "no-wikidata-hits",
-      "status": "unresolved"
-    },
-    {
-      "name": "Contrast Security",
-      "slug": "contrast-security",
-      "reason": "no-wikidata-hits",
-      "status": "unresolved"
-    },
-    {
-      "name": "Lacework",
-      "slug": "lacework",
-      "reason": "no-org-with-official-website",
-      "status": "unresolved"
-    },
-    {
-      "name": "Talon Cyber Security",
-      "slug": "talon-cyber-security",
-      "reason": "no-org-with-official-website",
-      "status": "unresolved"
-    },
-    {
-      "name": "vArmour",
-      "slug": "varmour",
-      "reason": "no-org-with-official-website",
-      "status": "unresolved"
-    },
-    {
-      "name": "ARINC",
-      "slug": "arinc",
-      "reason": "not-org no-org p31=['Q21980538'] desc=Aeronautical Radio, Incorporated",
-      "status": null
-    },
-    {
-      "name": "Grumman",
-      "slug": "grumman",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Painter Brothers",
-      "slug": "painter-brothers",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "United Technologies",
-      "slug": "united-technologies",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Avion Corporation",
-      "slug": "avion-corporation",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "North American Aviation",
-      "slug": "north-american-aviation",
-      "reason": "not-org no-org p31=['Q936518', 'Q15893266'] desc=former aerospace manufacturer in the United States",
-      "status": null
-    },
-    {
-      "name": "Cierva Autogiro Company",
-      "slug": "cierva-autogiro-company",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Pressed Steel Company",
-      "slug": "pressed-steel-company",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Recon Optical",
-      "slug": "recon-optical",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Atalanta Ltd",
-      "slug": "atalanta-ltd",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Douglas Aircraft Company",
-      "slug": "douglas-aircraft-company",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Allied Corporation",
-      "slug": "allied-corporation",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Clayton Wagons",
-      "slug": "clayton-wagons",
-      "reason": "not-org no-org p31=[] desc=",
-      "status": null
-    },
-    {
-      "name": "Cobham Technical Services",
-      "slug": "cobham-technical-services",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Denseisha",
-      "slug": "denseisha",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "ERA Technology",
-      "slug": "era-technology",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Air Navigation and Engineering Company",
-      "slug": "air-navigation-and-engineering-company",
-      "reason": "not-org no-org p31=['Q786820'] desc=British aircraft manufacturer",
-      "status": null
-    },
-    {
-      "name": "Birdsall Services Group",
-      "slug": "birdsall-services-group",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Commercial Solvents Corporation",
-      "slug": "commercial-solvents-corporation",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Optique & Pr\u00e9cision de Levallois",
-      "slug": "optique-and-pr-cision-de-levallois",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Tandy Corporation",
-      "slug": "tandy-corporation",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "The Metal Airscrew Company",
-      "slug": "the-metal-airscrew-company",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "TI Group",
-      "slug": "ti-group",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "English Electric",
-      "slug": "english-electric",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Fowler Airplane Corporation",
-      "slug": "fowler-airplane-corporation",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Riverbank Laboratories",
-      "slug": "riverbank-laboratories",
-      "reason": "not-org no-org p31=['Q839954', 'Q15243209'] desc=historic site in Riverbank Dr. Geneva, Illinois",
-      "status": null
-    },
-    {
-      "name": "Associated British Machine Tool Makers",
-      "slug": "associated-british-machine-tool-makers",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Snia",
-      "slug": "snia",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Vought",
-      "slug": "vought",
-      "reason": "not-org no-org p31=['Q936518'] desc=series of related aerospace companies",
-      "status": null
-    },
-    {
-      "name": "British Celanese",
-      "slug": "british-celanese",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Commercial Light Company",
-      "slug": "commercial-light-company",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "DeLuxe Color",
-      "slug": "deluxe-color",
-      "reason": "not-org no-org p31=['Q1439691'] desc=color film process",
-      "status": null
-    },
-    {
-      "name": "ITT Interconnect Solutions",
-      "slug": "itt-interconnect-solutions",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Beesfund",
-      "slug": "beesfund",
-      "reason": "not-org no-org p31=['Q35127'] desc=Polish equity crowdfunding platform",
-      "status": null
-    },
-    {
-      "name": "PhotoAid",
-      "slug": "photoaid",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "PSPaudioware",
-      "slug": "pspaudioware",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Responsly",
-      "slug": "responsly",
-      "reason": "not-org no-org p31=['Q7397'] desc=online survey platform",
-      "status": null
-    },
-    {
-      "name": "Zety",
-      "slug": "zety",
-      "reason": "no-wikidata-item",
-      "status": null
-    },
-    {
-      "name": "BankID",
-      "slug": "bankid",
-      "reason": "not-org no-org p31=[] desc=electronic identification system in Sweden",
-      "status": null
-    },
-    {
-      "name": "Decision Support Panel",
-      "slug": "decision-support-panel",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Fishbrain",
-      "slug": "fishbrain",
-      "reason": "not-org no-org p31=['Q7397'] desc=Social media app for fisherman",
-      "status": null
-    },
-    {
-      "name": "Flightradar24",
-      "slug": "flightradar24",
-      "reason": "not-org no-org p31=['Q1668024', 'Q35127', 'Q43229'] desc=Swedish internet-based service that shows real-time aircraft flight tracking information on a map",
-      "status": null
-    },
-    {
-      "name": "Neo4j",
-      "slug": "neo4j",
-      "reason": "not-org no-org p31=['Q218616', 'Q137916409', 'Q341'] desc=graph database management system implemented in Java",
-      "status": null
-    },
-    {
-      "name": "Polar Rose",
-      "slug": "polar-rose",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "PopCatcher",
-      "slug": "popcatcher",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Qbank",
-      "slug": "qbank",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Syncron",
-      "slug": "syncron",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Tradedoubler",
-      "slug": "tradedoubler",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Enonic XP",
-      "slug": "enonic-xp",
-      "reason": "not-org no-org p31=['Q131093'] desc=Web application platform",
-      "status": null
-    },
-    {
-      "name": "IncludeOS",
-      "slug": "includeos",
-      "reason": "not-org no-org p31=['Q9135'] desc=operating system",
-      "status": null
-    },
-    {
-      "name": "Infront",
-      "slug": "infront",
-      "reason": "no-wikidata-item",
-      "status": null
-    },
-    {
-      "name": "Itera ASA",
-      "slug": "itera-asa",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Itslearning",
-      "slug": "itslearning",
-      "reason": "not-org no-org p31=['Q35127', 'Q694007'] desc=k 12 learning management system",
-      "status": null
-    },
-    {
-      "name": "NEMS AS",
-      "slug": "nems-as",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Taskon",
-      "slug": "taskon",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Tiki Data",
-      "slug": "tiki-data",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Volue",
-      "slug": "volue",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "W3Schools",
-      "slug": "w3schools",
-      "reason": "not-org no-org p31=['Q35127'] desc=Web development information website",
-      "status": null
-    },
-    {
-      "name": "AudienceProject",
-      "slug": "audienceproject",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "ETI Telecom",
-      "slug": "eti-telecom",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Heimdal",
-      "slug": "heimdal",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Systematic Software Engineering",
-      "slug": "systematic-software-engineering",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Baltimore Technologies",
-      "slug": "baltimore-technologies",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "CR2",
-      "slug": "cr2",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Eiravato",
-      "slug": "eiravato",
-      "reason": "no-wikidata-item",
-      "status": null
-    },
-    {
-      "name": "Fluid UI",
-      "slug": "fluid-ui",
-      "reason": "not-org no-org p31=['Q1330336'] desc=browser-based wireframing and prototyping tool",
-      "status": null
-    },
-    {
-      "name": "Pulseway",
-      "slug": "pulseway",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "TerminusDB",
-      "slug": "terminusdb",
-      "reason": "not-org no-org p31=['Q137916409', 'Q341'] desc=open-source document graph database with Git-like version control for collaborative data management",
-      "status": null
-    },
-    {
-      "name": "MIC Datenverarbeitung",
-      "slug": "mic-datenverarbeitung",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "112dB",
-      "slug": "112db",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Betty Blocks",
-      "slug": "betty-blocks",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Deeploy",
-      "slug": "deeploy",
-      "reason": "no-wikidata-item",
-      "status": null
-    },
-    {
-      "name": "Flitsmeister",
-      "slug": "flitsmeister",
-      "reason": "not-org no-org p31=['Q620615'] desc=Mobile traffic application",
-      "status": null
-    },
-    {
-      "name": "Planon",
-      "slug": "planon",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Radarsoft",
-      "slug": "radarsoft",
-      "reason": "not-org no-org p31=['Q210167', 'Q1137109'] desc=Dutch video game developer of the 1980s",
-      "status": null
-    },
-    {
-      "name": "Magic Lane",
-      "slug": "magic-lane",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Tellent",
-      "slug": "tellent",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "WeAreBrain",
-      "slug": "wearebrain",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Elipse Software",
-      "slug": "elipse-software",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Softline",
-      "slug": "softline",
-      "reason": "not-org no-org p31=['Q7397'] desc=purchased by the Sage Group",
-      "status": null
-    },
-    {
-      "name": "Sweepsouth",
-      "slug": "sweepsouth",
-      "reason": "not-org no-org p31=[] desc=online platform for domestic cleaning services",
-      "status": null
-    },
-    {
-      "name": "Vision Software",
-      "slug": "vision-software",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Aerial Surveys",
-      "slug": "aerial-surveys",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Blitz Research",
-      "slug": "blitz-research",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Council of Country Code Administrators",
-      "slug": "council-of-country-code-administrators",
-      "reason": "not-org no-org p31=[] desc=non-profit organisation",
-      "status": null
-    },
-    {
-      "name": "Gaspy",
-      "slug": "gaspy",
-      "reason": "not-org no-org p31=[] desc=petrol monitoring app for New Zealand",
-      "status": null
-    },
-    {
-      "name": "Greentree Business Software",
-      "slug": "greentree-business-software",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Nextspace",
-      "slug": "nextspace",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "PikPok",
-      "slug": "pikpok",
-      "reason": "not-org no-org p31=['Q210167'] desc=New Zealand video game developer based on Wellington",
-      "status": null
-    },
-    {
-      "name": "Serato",
-      "slug": "serato",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Silverstripe CMS",
-      "slug": "silverstripe-cms",
-      "reason": "not-org no-org p31=['Q131093', 'Q1330336', 'Q118470621', 'Q1130645'] desc=open source content management system",
-      "status": null
-    },
-    {
-      "name": "Spidertracks",
-      "slug": "spidertracks",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Stickmen Studios",
-      "slug": "stickmen-studios",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Streamtime Software",
-      "slug": "streamtime-software",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Virtual Eye",
-      "slug": "virtual-eye",
-      "reason": "not-org no-org p31=[] desc=animation studio in New Zealand",
-      "status": null
-    },
-    {
-      "name": "WinGate",
-      "slug": "wingate",
-      "reason": "not-org no-org p31=['Q7397'] desc=Proxy server",
-      "status": null
-    },
-    {
-      "name": "C&E",
-      "slug": "cande",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Funtech",
-      "slug": "funtech",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "KKBox",
-      "slug": "kkbox",
-      "reason": "not-org no-org p31=['Q35127', 'Q23930024'] desc=music streaming service",
-      "status": null
-    },
-    {
-      "name": "Soft-World",
-      "slug": "soft-world",
-      "reason": "not-org no-org p31=['Q210167'] desc=Taiwanese game developer",
-      "status": null
-    },
-    {
-      "name": "Green Tomato Limited",
-      "slug": "green-tomato-limited",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Salarium",
-      "slug": "salarium",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Slowly",
-      "slug": "slowly",
-      "reason": "not-org no-org p31=['Q7397'] desc=Hong Kongese delayed messaging application",
-      "status": null
-    },
-    {
-      "name": "Sunwah \u2013 PearL Linux",
-      "slug": "sunwah-pearl-linux",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Zorpia",
-      "slug": "zorpia",
-      "reason": "not-org no-org p31=['Q35127'] desc=social networking service",
-      "status": null
-    },
-    {
-      "name": "17-Bit",
-      "slug": "17-bit",
-      "reason": "not-org no-org p31=['Q210167'] desc=indie video game developer",
-      "status": null
-    },
-    {
-      "name": "21st Street Games",
-      "slug": "21st-street-games",
-      "reason": "not-org no-org p31=['Q210167'] desc=design studio based in Manhattan's Flatiron District",
-      "status": null
-    },
-    {
-      "name": "Aggro Crab",
-      "slug": "aggro-crab",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "Arcen Games",
-      "slug": "arcen-games",
-      "reason": "not-org no-org p31=['Q210167'] desc=video game developer in the United States",
-      "status": null
-    },
-    {
-      "name": "Artificial Studios",
-      "slug": "artificial-studios",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "Artworx",
-      "slug": "artworx",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Avatar Reality",
-      "slug": "avatar-reality",
-      "reason": "not-org no-org p31=['Q210167'] desc=",
-      "status": null
-    },
-    {
-      "name": "BAP Interactive",
-      "slug": "bap-interactive",
-      "reason": "not-org no-org p31=['Q7889'] desc=1995 video game",
-      "status": null
-    },
-    {
-      "name": "BMG Interactive",
-      "slug": "bmg-interactive",
-      "reason": "not-org no-org p31=['Q1137109'] desc=American video game publisher",
-      "status": null
-    },
-    {
-      "name": "Callisto Corporation",
-      "slug": "callisto-corporation",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Celeris",
-      "slug": "celeris",
-      "reason": "not-org no-org p31=['Q7058673'] desc=video game series developed by Celeris",
-      "status": null
-    },
-    {
-      "name": "Cellufun",
-      "slug": "cellufun",
-      "reason": "not-org no-org p31=['Q210167'] desc=Social gaming community",
-      "status": null
-    },
-    {
-      "name": "Chromatic Games",
-      "slug": "chromatic-games",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Cinematronics, LLC",
-      "slug": "cinematronics-llc",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Cipher Prime",
-      "slug": "cipher-prime",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "Creat Studios",
-      "slug": "creat-studios",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "Critical Gameplay",
-      "slug": "critical-gameplay",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "Curse LLC",
-      "slug": "curse-llc",
-      "reason": "not-org no-org p31=['Q43229'] desc=corporation that owns a network of gaming-related websites",
-      "status": null
-    },
-    {
-      "name": "Darwin 3D",
-      "slug": "darwin-3d",
-      "reason": "not-org no-org p31=['Q5'] desc=American video game programmer",
-      "status": null
-    },
-    {
-      "name": "DigiFX Interactive",
-      "slug": "digifx-interactive",
-      "reason": "not-org no-org p31=['Q210167'] desc=defunct American video game developer",
-      "status": null
-    },
-    {
-      "name": "Digital Caf\u00e9",
-      "slug": "digital-caf",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Double Aught",
-      "slug": "double-aught",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "DoubleBear Productions",
-      "slug": "doublebear-productions",
-      "reason": "not-org no-org p31=['Q210167'] desc=video game developer",
-      "status": null
-    },
-    {
-      "name": "DreamRift",
-      "slug": "dreamrift",
-      "reason": "not-org no-org p31=['Q210167'] desc=American independent video game developer",
-      "status": null
-    },
-    {
-      "name": "Elsinore Multimedia",
-      "slug": "elsinore-multimedia",
-      "reason": "not-org no-org p31=['Q210167'] desc=video game developer in Hollywood, Florida",
-      "status": null
-    },
-    {
-      "name": "ENVER",
-      "slug": "enver",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Exis Interactive",
-      "slug": "exis-interactive",
-      "reason": "not-org no-org p31=['Q210167'] desc=American game developer",
-      "status": null
-    },
-    {
-      "name": "Fantasoft",
-      "slug": "fantasoft",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Finji",
-      "slug": "finji",
-      "reason": "not-org no-org p31=['Q5'] desc=video game designer (born 1982)",
-      "status": null
-    },
-    {
-      "name": "Fire Maple Games",
-      "slug": "fire-maple-games",
-      "reason": "not-org no-org p31=['Q210167'] desc=game development studio",
-      "status": null
-    },
-    {
-      "name": "First Star Software",
-      "slug": "first-star-software",
-      "reason": "not-org no-org p31=['Q210167', 'Q1137109'] desc=video game developer",
-      "status": null
-    },
-    {
-      "name": "Forgotten Empires",
-      "slug": "forgotten-empires",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "Forterra Systems",
-      "slug": "forterra-systems",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Fox Digital Entertainment",
-      "slug": "fox-digital-entertainment",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Freeverse Inc.",
-      "slug": "freeverse-inc",
-      "reason": "not-org no-org p31=['Q210167'] desc=American game developer and publisher",
-      "status": null
-    },
-    {
-      "name": "Gabriel Entertainment",
-      "slug": "gabriel-entertainment",
-      "reason": "not-org no-org p31=['Q210167'] desc=Indiana video game developer",
-      "status": null
-    },
-    {
-      "name": "Game Refuge",
-      "slug": "game-refuge",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "Game Titan",
-      "slug": "game-titan",
-      "reason": "not-org no-org p31=[] desc=Videogame developer",
-      "status": null
-    },
-    {
-      "name": "Gamenauts",
-      "slug": "gamenauts",
-      "reason": "not-org no-org p31=['Q210167'] desc=American Video game developer",
-      "status": null
-    },
-    {
-      "name": "GameSamba",
-      "slug": "gamesamba",
-      "reason": "not-org no-org p31=['Q1137109'] desc=American video game publisher",
-      "status": null
-    },
-    {
-      "name": "GameSim",
-      "slug": "gamesim",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "GlyphX",
-      "slug": "glyphx",
-      "reason": "not-org no-org p31=['Q210167'] desc=defunct US based CGI studio",
-      "status": null
-    },
-    {
-      "name": "Grey Dog Software",
-      "slug": "grey-dog-software",
-      "reason": "not-org no-org p31=['Q210167'] desc=American computer Games developer",
-      "status": null
-    },
-    {
-      "name": "Grumpyface Studios",
-      "slug": "grumpyface-studios",
-      "reason": "not-org no-org p31=['Q210167'] desc=American mobile game developer",
-      "status": null
-    },
-    {
-      "name": "Hayden Book Company",
-      "slug": "hayden-book-company",
-      "reason": "not-org no-org p31=['Q1137109'] desc=book publisher",
-      "status": null
-    },
-    {
-      "name": "Heuristic Park",
-      "slug": "heuristic-park",
-      "reason": "not-org no-org p31=['Q5'] desc=Video game designer and programmer",
-      "status": null
-    },
-    {
-      "name": "Hidden City Entertainment",
-      "slug": "hidden-city-entertainment",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Himalaya Studios",
-      "slug": "himalaya-studios",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "HipSoft",
-      "slug": "hipsoft",
-      "reason": "not-org no-org p31=['Q210167'] desc=video game developer",
-      "status": null
-    },
-    {
-      "name": "Holy Wow Studios",
-      "slug": "holy-wow-studios",
-      "reason": "not-org no-org p31=['Q7889'] desc=2022 video game",
-      "status": null
-    },
-    {
-      "name": "Ijji",
-      "slug": "ijji",
-      "reason": "not-org no-org p31=['Q35127'] desc=game portal website",
-      "status": null
-    },
-    {
-      "name": "Image Space Incorporated",
-      "slug": "image-space-incorporated",
-      "reason": "not-org no-org p31=['Q210167'] desc=Independent video game developer",
-      "status": null
-    },
-    {
-      "name": "Infamous Quests",
-      "slug": "infamous-quests",
-      "reason": "not-org no-org p31=['Q210167'] desc=independent video game developer",
-      "status": null
-    },
-    {
-      "name": "Inland Productions",
-      "slug": "inland-productions",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Iron Realms Entertainment",
-      "slug": "iron-realms-entertainment",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Island Officials",
-      "slug": "island-officials",
-      "reason": "not-org no-org p31=['Q210167'] desc=computer game developer",
-      "status": null
-    },
-    {
-      "name": "JV Games",
-      "slug": "jv-games",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "Kaneva",
-      "slug": "kaneva",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Kuma Reality Games",
-      "slug": "kuma-reality-games",
-      "reason": "not-org no-org p31=['Q210167', 'Q1137109'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "Lazy 8 Studios",
-      "slug": "lazy-8-studios",
-      "reason": "not-org no-org p31=['Q210167'] desc=independent game developer",
-      "status": null
-    },
-    {
-      "name": "Lock 'n Load Publishing",
-      "slug": "lock-n-load-publishing",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Magic Pixel Games",
-      "slug": "magic-pixel-games",
-      "reason": "not-org no-org p31=['Q210167'] desc=video game developer",
-      "status": null
-    },
-    {
-      "name": "Majesco",
-      "slug": "majesco",
-      "reason": "not-org no-org p31=['Q210167', 'Q1137109'] desc=American video game publisher and distributor based in Hazlet, New Jersey (formerly Majesco Sales Inc.)",
-      "status": null
-    },
-    {
-      "name": "Manifesto Games",
-      "slug": "manifesto-games",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Media Vision",
-      "slug": "media-vision",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Mega Cat Studios",
-      "slug": "mega-cat-studios",
-      "reason": "not-org no-org p31=['Q210167', 'Q1137109'] desc=video game developer and publisher",
-      "status": null
-    },
-    {
-      "name": "MetaArcade",
-      "slug": "metaarcade",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Meteor Games",
-      "slug": "meteor-games",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Mightier",
-      "slug": "mightier",
-      "reason": "not-org no-org p31=['Q7889'] desc=2017 video game",
-      "status": null
-    },
-    {
-      "name": "Mobalytics",
-      "slug": "mobalytics",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "ModRetro",
-      "slug": "modretro",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Mohawk Games",
-      "slug": "mohawk-games",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "Mountain King Studios",
-      "slug": "mountain-king-studios",
-      "reason": "not-org no-org p31=['Q210167'] desc=video game developer",
-      "status": null
-    },
-    {
-      "name": "Muse Games",
-      "slug": "muse-games",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Novel, Inc.",
-      "slug": "novel-inc",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "Oxide Games",
-      "slug": "oxide-games",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "Paragon 5",
-      "slug": "paragon-5",
-      "reason": "not-org no-org p31=['Q210167'] desc=video game developer",
-      "status": null
-    },
-    {
-      "name": "Persuasive Games",
-      "slug": "persuasive-games",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Piranha Interactive Publishing",
-      "slug": "piranha-interactive-publishing",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "PixelJAM Games",
-      "slug": "pixeljam-games",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game development studio",
-      "status": null
-    },
-    {
-      "name": "Playdek",
-      "slug": "playdek",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "Polyarc",
-      "slug": "polyarc",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "PVP Live Interactive",
-      "slug": "pvp-live-interactive",
-      "reason": "not-org no-org p31=['Q35127'] desc=esports news and statistics database website",
-      "status": null
-    },
-    {
-      "name": "Quicksilver Software",
-      "slug": "quicksilver-software",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "RAD Game Tools",
-      "slug": "rad-game-tools",
-      "reason": "not-org no-org p31=['Q26085352', 'Q146768'] desc=Video middleware created by RAD Game Tools.",
-      "status": null
-    },
-    {
-      "name": "Rainbow Studios",
-      "slug": "rainbow-studios",
-      "reason": "not-org no-org p31=['Q210167'] desc=video game developer based in the United States",
-      "status": null
-    },
-    {
-      "name": "Ripcord Games",
-      "slug": "ripcord-games",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Rogue Rocket Games",
-      "slug": "rogue-rocket-games",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "Sakevisual",
-      "slug": "sakevisual",
-      "reason": "not-org no-org p31=['Q210167'] desc=video game developer",
-      "status": null
-    },
-    {
-      "name": "Schell Games",
-      "slug": "schell-games",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "Sekretagent Productions",
-      "slug": "sekretagent-productions",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Seven Lights",
-      "slug": "seven-lights",
-      "reason": "not-org no-org p31=['Q210167'] desc=multiplayer online game developer",
-      "status": null
-    },
-    {
-      "name": "Signal Studios",
-      "slug": "signal-studios",
-      "reason": "not-org no-org p31=['Q210167'] desc=video game developer",
-      "status": null
-    },
-    {
-      "name": "Skystone Games",
-      "slug": "skystone-games",
-      "reason": "not-org no-org p31=['Q210167', 'Q1137109'] desc=American video game publisher and developer based in Belmont, California",
-      "status": null
-    },
-    {
-      "name": "Skyworks Interactive",
-      "slug": "skyworks-interactive",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "SmartCell Technology",
-      "slug": "smartcell-technology",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Soma Games",
-      "slug": "soma-games",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "Sony Pictures Mobile",
-      "slug": "sony-pictures-mobile",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Studio FOW",
-      "slug": "studio-fow",
-      "reason": "not-org no-org p31=['Q1107679', 'Q163740', 'Q210167', 'Q30941437'] desc=pornographic animation and erotic video game studio",
-      "status": null
-    },
-    {
-      "name": "Subatomic Studios",
-      "slug": "subatomic-studios",
-      "reason": "not-org no-org p31=['Q210167'] desc=independent video game developer",
-      "status": null
-    },
-    {
-      "name": "Sunstorm Interactive",
-      "slug": "sunstorm-interactive",
-      "reason": "not-org no-org p31=['Q210167'] desc=video game developer",
-      "status": null
-    },
-    {
-      "name": "Third Wire",
-      "slug": "third-wire",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "Tiger Style",
-      "slug": "tiger-style",
-      "reason": "not-org no-org p31=['Q210167'] desc=American independent video game studio",
-      "status": null
-    },
-    {
-      "name": "Tilting Point",
-      "slug": "tilting-point",
-      "reason": "not-org no-org p31=['Q1137109'] desc=video games publisher and developer",
-      "status": null
-    },
-    {
-      "name": "TinyCo",
-      "slug": "tinyco",
-      "reason": "not-org no-org p31=['Q210167'] desc=American mobile video game developer",
-      "status": null
-    },
-    {
-      "name": "Tri Synergy",
-      "slug": "tri-synergy",
-      "reason": "not-org no-org p31=['Q1137109'] desc=US based video game publisher",
-      "status": null
-    },
-    {
-      "name": "Trilobyte",
-      "slug": "trilobyte",
-      "reason": "not-org no-org p31=['Q210167'] desc=computer game developer",
-      "status": null
-    },
-    {
-      "name": "Valcon Games",
-      "slug": "valcon-games",
-      "reason": "not-org no-org p31=['Q210167', 'Q1137109'] desc=American video game developer and publisher",
-      "status": null
-    },
-    {
-      "name": "Vid Kidz",
-      "slug": "vid-kidz",
-      "reason": "not-org no-org p31=['Q210167'] desc=American video game developer",
-      "status": null
-    },
-    {
-      "name": "Virtual Heroes",
-      "slug": "virtual-heroes",
-      "reason": "not-org no-org p31=['Q210167'] desc=developer of serious games in Raleigh, North Carolina",
-      "status": null
-    },
-    {
-      "name": "Vision Scape Interactive",
-      "slug": "vision-scape-interactive",
-      "reason": "not-org no-org p31=['Q61475894'] desc=prototype video game",
-      "status": null
-    },
-    {
-      "name": "Wild Shadow Studios",
-      "slug": "wild-shadow-studios",
-      "reason": "not-org no-org p31=['Q7889'] desc=2011 video game",
-      "status": null
-    },
-    {
-      "name": "Winged Cloud",
-      "slug": "winged-cloud",
-      "reason": "not-org no-org p31=['Q7889'] desc=2014 video game",
-      "status": null
-    },
-    {
-      "name": "WisdomTools Enterprises",
-      "slug": "wisdomtools-enterprises",
-      "reason": "not-org no-org p31=['Q210167'] desc=",
-      "status": null
-    },
-    {
-      "name": "Z2",
-      "slug": "z2",
-      "reason": "not-org no-org p31=['Q210167'] desc=video game developer",
-      "status": null
-    },
-    {
-      "name": "Zojoi",
-      "slug": "zojoi",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Zynga Eugene",
-      "slug": "zynga-eugene",
-      "reason": "not-org no-org p31=['Q210167'] desc=American\u00a0video game developer",
-      "status": null
-    },
-    {
-      "name": "Zynga with Friends",
-      "slug": "zynga-with-friends",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "123Net",
-      "slug": "123net",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Alabama Telephone Company",
-      "slug": "alabama-telephone-company",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Alaska Power and Telephone Company",
-      "slug": "alaska-power-and-telephone-company",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Alltel",
-      "slug": "alltel",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Aloha Partners",
-      "slug": "aloha-partners",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Artemis Networks",
-      "slug": "artemis-networks",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "AT&T Communications",
-      "slug": "atandt-communications",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "AT&T Computer Systems",
-      "slug": "atandt-computer-systems",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Bell IP Holdings",
-      "slug": "bell-ip-holdings",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "BellSouth Telecommunications",
-      "slug": "bellsouth-telecommunications",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Brekeke PBX",
-      "slug": "brekeke-pbx",
-      "reason": "not-org no-org p31=['Q7397'] desc=",
-      "status": null
-    },
-    {
-      "name": "Brightspeed",
-      "slug": "brightspeed",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Broadpoint",
-      "slug": "broadpoint",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Cambium Networks",
-      "slug": "cambium-networks",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Carolina Telephone & Telegraph",
-      "slug": "carolina-telephone-and-telegraph",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Cavalier Telephone",
-      "slug": "cavalier-telephone",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "CenturyTel of Northwest Arkansas",
-      "slug": "centurytel-of-northwest-arkansas",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "CERFnet",
-      "slug": "cerfnet",
-      "reason": "not-org no-org p31=['Q7001190'] desc=early California-based Internet service provider",
-      "status": null
-    },
-    {
-      "name": "Citizens Utilities Rural",
-      "slug": "citizens-utilities-rural",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Cloud Communications Alliance",
-      "slug": "cloud-communications-alliance",
-      "reason": "not-org no-org p31=['Q163740'] desc=",
-      "status": null
-    },
-    {
-      "name": "Comdial",
-      "slug": "comdial",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Computer Communications Network",
-      "slug": "computer-communications-network",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "COMSAT Mobile Communications",
-      "slug": "comsat-mobile-communications",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Concert Communications Services",
-      "slug": "concert-communications-services",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Contel",
-      "slug": "contel",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Cross Telecom",
-      "slug": "cross-telecom",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Developing Solutions, Inc",
-      "slug": "developing-solutions-inc",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Farallon Computing",
-      "slug": "farallon-computing",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Frontier Communications ILEC Holdings",
-      "slug": "frontier-communications-ilec-holdings",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Frontier Communications of Connecticut",
-      "slug": "frontier-communications-of-connecticut",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Frontier Communications West Coast",
-      "slug": "frontier-communications-west-coast",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Gigabit Squared",
-      "slug": "gigabit-squared",
-      "reason": "not-org no-org p31=['Q43229'] desc=organization",
-      "status": null
-    },
-    {
-      "name": "Global Cloud Xchange",
-      "slug": "global-cloud-xchange",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Global Tower Partners",
-      "slug": "global-tower-partners",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Granby Telephone & Telegraph",
-      "slug": "granby-telephone-and-telegraph",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Greenlight Networks",
-      "slug": "greenlight-networks",
-      "reason": "not-org no-org p31=['Q11371'] desc=fiber-optic Internet service in Rochester, New York",
-      "status": null
-    },
-    {
-      "name": "Hitachi Cable Manchester",
-      "slug": "hitachi-cable-manchester",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "ImOn Communications",
-      "slug": "imon-communications",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Intrado",
-      "slug": "intrado",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "IPKall",
-      "slug": "ipkall",
-      "reason": "not-org no-org p31=[] desc=",
-      "status": null
-    },
-    {
-      "name": "ISACOMM",
-      "slug": "isacomm",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "ITXC Corporation",
-      "slug": "itxc-corporation",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Labtec",
-      "slug": "labtec",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Light Reading",
-      "slug": "light-reading",
-      "reason": "not-org no-org p31=['Q35127'] desc=telecommunications industry news website",
-      "status": null
-    },
-    {
-      "name": "Logic Wireless",
-      "slug": "logic-wireless",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Lorain Products Corporation",
-      "slug": "lorain-products-corporation",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "LotusFlare",
-      "slug": "lotusflare",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "MCI Systemhouse",
-      "slug": "mci-systemhouse",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "MI-Connection",
-      "slug": "mi-connection",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Minerva Networks",
-      "slug": "minerva-networks",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "MokiMobility",
-      "slug": "mokimobility",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Netspeak",
-      "slug": "netspeak",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Neustar",
-      "slug": "neustar",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Nextiva",
-      "slug": "nextiva",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Northwest Open Access Network",
-      "slug": "northwest-open-access-network",
-      "reason": "not-org no-org p31=[] desc=",
-      "status": null
-    },
-    {
-      "name": "Norvergence",
-      "slug": "norvergence",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Oceus Networks",
-      "slug": "oceus-networks",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Ofinno",
-      "slug": "ofinno",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Ogden Telephone",
-      "slug": "ogden-telephone",
-      "reason": "not-org no-org p31=[] desc=",
-      "status": null
-    },
-    {
-      "name": "Oriental Telephone Company",
-      "slug": "oriental-telephone-company",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Oxford West Telephone",
-      "slug": "oxford-west-telephone",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Pac-West Telecomm",
-      "slug": "pac-west-telecomm",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Pacific Telecom",
-      "slug": "pacific-telecom",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Page Communications Engineers",
-      "slug": "page-communications-engineers",
-      "reason": "not-org no-org p31=[] desc=",
-      "status": null
-    },
-    {
-      "name": "PrimeTel Communications",
-      "slug": "primetel-communications",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Primosphere Limited Partnership",
-      "slug": "primosphere-limited-partnership",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Project Mutual Telephone",
-      "slug": "project-mutual-telephone",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "PTAT Systems",
-      "slug": "ptat-systems",
-      "reason": "not-org no-org p31=[] desc=",
-      "status": null
-    },
-    {
-      "name": "Public Safety Spectrum Trust",
-      "slug": "public-safety-spectrum-trust",
-      "reason": "not-org no-org p31=['Q43229'] desc=non-profit organization which represents the radio spectrum needs of police, fire and ambulance agencies in the United States",
-      "status": null
-    },
-    {
-      "name": "Quack.com",
-      "slug": "quack-com",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Qualcomm",
-      "slug": "qualcomm",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Rivada Port Graham Solutions",
-      "slug": "rivada-port-graham-solutions",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "RtBrick",
-      "slug": "rtbrick",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Satellite Syndicated Systems",
-      "slug": "satellite-syndicated-systems",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Skyfire",
-      "slug": "skyfire",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "South Central Bell",
-      "slug": "south-central-bell",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Southern Telecom",
-      "slug": "southern-telecom",
-      "reason": "not-org no-org p31=[] desc=",
-      "status": null
-    },
-    {
-      "name": "Southwestern Bell",
-      "slug": "southwestern-bell",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "SpiderCloud Wireless",
-      "slug": "spidercloud-wireless",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Stanford Telecommunications",
-      "slug": "stanford-telecommunications",
-      "reason": "not-org no-org p31=[] desc=",
-      "status": null
-    },
-    {
-      "name": "Starlink",
-      "slug": "starlink",
-      "reason": "not-org no-org p31=['Q54806917', 'Q136937248'] desc=satellite constellation; space-based internet communication system",
-      "status": null
-    },
-    {
-      "name": "StarStar Mobile",
-      "slug": "starstar-mobile",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Stratos Global Corporation",
-      "slug": "stratos-global-corporation",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Taara",
-      "slug": "taara",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Tachus Fiber Internet",
-      "slug": "tachus-fiber-internet",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Tele-TV",
-      "slug": "tele-tv",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Telephone Systems International",
-      "slug": "telephone-systems-international",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Terremark",
-      "slug": "terremark",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "TVAnswer",
-      "slug": "tvanswer",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Ultra Mobile",
-      "slug": "ultra-mobile",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Veramark Technologies",
-      "slug": "veramark-technologies",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Verizon Maryland",
-      "slug": "verizon-maryland",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Verizon New York",
-      "slug": "verizon-new-york",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Verizon Pennsylvania",
-      "slug": "verizon-pennsylvania",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Westell",
-      "slug": "westell",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Xura",
-      "slug": "xura",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Zultys",
-      "slug": "zultys",
-      "reason": "no-p856",
-      "status": null
-    }
-  ]
+  "prior_slice_appended": 27
 }
