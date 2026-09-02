@@ -1227,7 +1227,6 @@ for (const slug of [
   "fwd-deploy",
   "software-mind",
   "marketstar",
-  "ai-data-innovations",
   "cloud-support-technologies",
   "mosse-security",
 ]) {
@@ -1680,6 +1679,71 @@ expect(
     ruleOn(fileIndexHtml(devopsEnabler))[1] === true,
 );
 const nextlink = bySlug["jsaunders-solutions-d-b-a-nextlink-labs"];
+expect(
+  "ai-data-innovations Completeness is marks; homepage is not Official page",
+  (() => {
+    const row = bySlug["ai-data-innovations"];
+    return (
+      row &&
+      row.domain === "aidatainnovations.com" &&
+      row.found === false &&
+      !row.trust_url &&
+      (row.certs || []).includes("ISO 27001") &&
+      (row.certs || []).includes("SOC 2 Type I") &&
+      !(row.certs || []).includes("GDPR") &&
+      fileFlags(row).page === 0 &&
+      fileFlags(row).marks === 20 &&
+      fileFlags(row).dpa === 0 &&
+      fileFlags(row).subprocessors === 0 &&
+      fileFlags(row).years === 0 &&
+      fileScore(fileFlags(row)) === 20 &&
+      ruleOn(fileIndexHtml(row))[0] === false &&
+      ruleOn(fileIndexHtml(row))[1] === true
+    );
+  })(),
+);
+expect(
+  "ltx Completeness is years; About is not Official page",
+  (() => {
+    const row = bySlug.ltx;
+    return (
+      row &&
+      row.domain === "ltx.io" &&
+      row.found === false &&
+      !row.trust_url &&
+      row.founded_year === 2024 &&
+      row.founded_source === "https://ltx.io/about-us" &&
+      fileFlags(row).page === 0 &&
+      fileFlags(row).marks === 0 &&
+      fileFlags(row).dpa === 0 &&
+      fileFlags(row).subprocessors === 0 &&
+      fileFlags(row).years === 20 &&
+      fileScore(fileFlags(row)) === 20 &&
+      ruleOn(fileIndexHtml(row))[4] === true
+    );
+  })(),
+);
+expect(
+  "jt-jersey Completeness is years; About is not Official page",
+  (() => {
+    const row = bySlug["jt-jersey"];
+    return (
+      row &&
+      row.domain === "jtglobal.com" &&
+      row.found === false &&
+      !row.trust_url &&
+      row.founded_year === 1888 &&
+      row.founded_source === "https://www.jtglobal.com/about-us/" &&
+      fileFlags(row).page === 0 &&
+      fileFlags(row).marks === 0 &&
+      fileFlags(row).dpa === 0 &&
+      fileFlags(row).subprocessors === 0 &&
+      fileFlags(row).years === 20 &&
+      fileScore(fileFlags(row)) === 20 &&
+      ruleOn(fileIndexHtml(row))[4] === true
+    );
+  })(),
+);
 expect(
   "nextlink Completeness is marks; HIPAA-compliant engineering stays open",
   nextlink &&
