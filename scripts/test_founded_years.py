@@ -595,6 +595,24 @@ def test_retool_rocketlane_years_landed() -> None:
     check("https://www.rocketlane.com/privacy-policy" in rocket_html, "Rocketlane dossier cites foundingDate source")
 
 
+def test_swan_year_landed() -> None:
+    """This increment filed Swan 2024 from first-party JSON-LD foundingDate."""
+    import json
+    public = json.loads((ROOT / "site" / "data.json").read_text())
+    enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
+    by_pub = {c["slug"]: c for c in public["companies"]}
+    by_enr = {c["slug"]: c for c in enr["companies"]}
+    pub, row = by_pub["swan"], by_enr["swan"]
+    check(pub.get("founded_year") == 2024, "Swan public year 2024")
+    check(row.get("founded_year") == 2024, "Swan enriched year 2024")
+    check(pub.get("founded_source") == "https://www.getswan.com/", "Swan year source is official homepage JSON-LD")
+    check((pub.get("file") or {}).get("years") in (True, 20), "Swan years rule prints")
+    check(pub.get("found") is False, "Swan Official page stays open")
+    html = (ROOT / "site" / "c" / "swan.html").read_text(encoding="utf-8")
+    check("founded · 2024" in html, "Swan dossier prints 2024")
+    check("https://www.getswan.com/" in html, "Swan dossier cites foundingDate source")
+
+
 def main() -> int:
     test_prefix_is_not_a_match()
     test_official_site_only()
@@ -605,6 +623,7 @@ def main() -> int:
     test_spekit_cyberhaven_woopra_years_landed()
     test_c0_named_processor_years_landed()
     test_retool_rocketlane_years_landed()
+    test_swan_year_landed()
     # Live company-years.json is a later leftover walk (WNS). Do not hang
     # this increment's year asserts on that stale report suite.
     print("ok")
