@@ -921,6 +921,108 @@ expect(
     fileScore(fileFlags(shortIo)) === 20,
 );
 
+const clari = bySlug.clari;
+expect(
+  "clari Completeness is page · marks · DPA = 60",
+  clari &&
+    clari.found === true &&
+    clari.trust_url === "https://www.clari.com/security/" &&
+    ((clari.instruments || {}).dpa || {}).url === "https://www.clari.com/dpa/2026-02-10/" &&
+    !(clari.processors || []).length &&
+    !clari.founded_year &&
+    fileFlags(clari).page === 20 &&
+    fileFlags(clari).marks === 20 &&
+    fileFlags(clari).dpa === 20 &&
+    fileFlags(clari).subprocessors === 0 &&
+    fileFlags(clari).years === 0 &&
+    fileScore(fileFlags(clari)) === 60,
+);
+
+const livekit = bySlug.livekit;
+expect(
+  "livekit Completeness is page · marks · DPA · subprocessors = 80",
+  livekit &&
+    livekit.found === true &&
+    livekit.trust_url === "https://livekit.com/security" &&
+    ((livekit.instruments || {}).dpa || {}).url ===
+      "https://livekit.com/legal/data-processing-addendum" &&
+    ((livekit.instruments || {}).subprocessors || {}).url ===
+      "https://livekit.com/legal/sub-processors" &&
+    (livekit.processors || []).length === 30 &&
+    (livekit.processors || []).some((p) => p.slug === "xai" && p.name === "SpaceXAI") &&
+    (livekit.processors || []).some((p) => p.id === "cockroach-labs" && !p.slug) &&
+    !livekit.founded_year &&
+    fileFlags(livekit).page === 20 &&
+    fileFlags(livekit).marks === 20 &&
+    fileFlags(livekit).dpa === 20 &&
+    fileFlags(livekit).subprocessors === 20 &&
+    fileFlags(livekit).years === 0 &&
+    fileScore(fileFlags(livekit)) === 80,
+);
+
+const retool = bySlug.retool;
+expect(
+  "retool Completeness is page · DPA · subprocessors · years = 90",
+  retool &&
+    retool.found === true &&
+    ((retool.instruments || {}).dpa || {}).url === "https://docs.retool.com/legal/dpa" &&
+    ((retool.instruments || {}).subprocessors || {}).url ===
+      "https://docs.retool.com/legal/subprocessors" &&
+    retool.founded_year === 2017 &&
+    retool.founded_source === "https://retool.com/about" &&
+    (retool.processors || []).some((p) => p.slug === "amazon-web-services") &&
+    (retool.processors || []).some((p) => p.slug === "databricks" && p.name === "Neon, Inc") &&
+    !(retool.processors || []).some((p) => p.id === "aws") &&
+    !(retool.certs || []).length &&
+    fileFlags(retool).page === 20 &&
+    fileFlags(retool).marks === 10 &&
+    fileFlags(retool).dpa === 20 &&
+    fileFlags(retool).subprocessors === 20 &&
+    fileFlags(retool).years === 20 &&
+    fileScore(fileFlags(retool)) === 90,
+);
+
+const rocketlane = bySlug.rocketlane;
+expect(
+  "rocketlane Completeness is page · DPA · subprocessors · years = 90",
+  rocketlane &&
+    rocketlane.found === true &&
+    ((rocketlane.instruments || {}).dpa || {}).url ===
+      "https://www.rocketlane.com/legal/data-processing-agreement" &&
+    ((rocketlane.instruments || {}).subprocessors || {}).url ===
+      "https://www.rocketlane.com/legal/sub-processors" &&
+    rocketlane.founded_year === 2020 &&
+    rocketlane.founded_source === "https://www.rocketlane.com/privacy-policy" &&
+    (rocketlane.processors || []).some((p) => p.slug === "twilio" && p.name === "SendGrid / Twilio") &&
+    (rocketlane.processors || []).some((p) => p.slug === "langchain" && p.name === "Langsmith") &&
+    !(rocketlane.processors || []).some((p) => p.id === "aws") &&
+    !(rocketlane.certs || []).length &&
+    fileFlags(rocketlane).page === 20 &&
+    fileFlags(rocketlane).marks === 10 &&
+    fileFlags(rocketlane).dpa === 20 &&
+    fileFlags(rocketlane).subprocessors === 20 &&
+    fileFlags(rocketlane).years === 20 &&
+    fileScore(fileFlags(rocketlane)) === 90,
+);
+
+const supportlogic = bySlug.supportlogic;
+expect(
+  "supportlogic Completeness is page · marks · DPA = 60",
+  supportlogic &&
+    supportlogic.found === true &&
+    supportlogic.trust_url === "https://www.supportlogic.com/security/" &&
+    ((supportlogic.instruments || {}).dpa || {}).url ===
+      "https://www.supportlogic.com/data-processing-addendum/" &&
+    !(supportlogic.processors || []).length &&
+    !supportlogic.founded_year &&
+    fileFlags(supportlogic).page === 20 &&
+    fileFlags(supportlogic).marks === 20 &&
+    fileFlags(supportlogic).dpa === 20 &&
+    fileFlags(supportlogic).subprocessors === 0 &&
+    fileFlags(supportlogic).years === 0 &&
+    fileScore(fileFlags(supportlogic)) === 60,
+);
+
 const nylas = bySlug.nylas;
 expect(
   "nylas Completeness is page · marks · subprocessors = 60",
