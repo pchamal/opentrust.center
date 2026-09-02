@@ -1235,7 +1235,7 @@ for (const slug of [
 
 const vector = bySlug.vector;
 expect(
-  "vector Completeness is page · marks · subprocessors(10) = 50",
+  "vector Completeness is page · marks(10) · subprocessors(10) = 40",
   vector &&
     vector.found === true &&
     vector.domain === "vector.co" &&
@@ -1245,14 +1245,18 @@ expect(
       "https://trust.vector.co/subprocessors" &&
     !((vector.instruments || {}).dpa || {}).url &&
     !(vector.processors || []).length &&
-    (vector.certs || []).includes("GDPR") &&
+    !(vector.certs || []).length &&
+    !(vector.certs || []).includes("GDPR") &&
+    !(vector.certs || []).includes("CCPA") &&
+    !(vector.certs || []).includes("PIPEDA") &&
+    !(vector.certs || []).includes("LGPD") &&
     !(vector.certs || []).includes("SOC 2 Type I") &&
     fileFlags(vector).page === 20 &&
-    fileFlags(vector).marks === 20 &&
+    fileFlags(vector).marks === 10 &&
     fileFlags(vector).dpa === 0 &&
     fileFlags(vector).subprocessors === 10 &&
     fileFlags(vector).years === 0 &&
-    fileScore(fileFlags(vector)) === 50,
+    fileScore(fileFlags(vector)) === 40,
 );
 
 const supportlogic = bySlug.supportlogic;

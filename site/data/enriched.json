@@ -140591,14 +140591,9 @@
       "title": "",
       "probed": 4,
       "source": "https://www.rime.ai/rime-subprocessors",
-      "summary": "First-party security page on file. Portal marks stay unread. SOC 2 Type I is preparing for audit. Subprocessors URL is the JS portal.",
+      "summary": "Official page on file. No marks extracted from the public HTML. SOC 2 Type I is preparing for audit.",
       "list": "named-processor-gap",
-      "certs": [
-        "GDPR",
-        "CCPA",
-        "PIPEDA",
-        "LGPD"
-      ],
+      "certs": [],
       "links": {
         "trust": "https://www.vector.co/security",
         "security": "https://www.vector.co/security",
@@ -140607,11 +140602,10 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 46,
-        "tier": "on-file",
+        "score": 34,
+        "tier": "thin",
         "factors": {
           "portal": 20,
-          "marks": 12,
           "processors": 8,
           "privacy": 6
         }
