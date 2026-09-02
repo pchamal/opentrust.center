@@ -1197,6 +1197,27 @@ expect(
     ruleOn(fileIndexHtml(voyageAi))[2] === true,
 );
 
+const grcs = bySlug.grcs;
+expect(
+  "grcs Completeness is years; homepage PCI 準拠支援 is not a mark",
+  grcs &&
+    grcs.domain === "grcs.co.jp" &&
+    grcs.found === false &&
+    !grcs.trust_url &&
+    !(grcs.certs || []).length &&
+    grcs.founded_year === 2005 &&
+    grcs.founded_source === "https://www.grcs.co.jp/" &&
+    fileFlags(grcs).page === 0 &&
+    fileFlags(grcs).marks === 0 &&
+    fileFlags(grcs).dpa === 0 &&
+    fileFlags(grcs).subprocessors === 0 &&
+    fileFlags(grcs).years === 20 &&
+    fileScore(fileFlags(grcs)) === 20 &&
+    ruleOn(fileIndexHtml(grcs))[0] === false &&
+    ruleOn(fileIndexHtml(grcs))[1] === false &&
+    ruleOn(fileIndexHtml(grcs))[4] === true,
+);
+
 const levelAi = bySlug["level-ai"];
 expect(
   "level-ai Completeness is page · marks(10) · DPA · subprocessors(10) = 60",
