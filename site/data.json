@@ -105342,9 +105342,9 @@
       "name": "Coralogix",
       "slug": "coralogix",
       "domain": "coralogix.com",
-      "found": true,
-      "trust_url": "https://trust.coralogix.com",
-      "final_url": "https://trust.coralogix.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
       "list": "named-processor-gap",
       "source": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/",
       "source_url": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/",
@@ -105352,7 +105352,7 @@
       "probed_at": "2026-09-02T16:53:15Z",
       "certs": [],
       "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "summary": "",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -105367,19 +105367,23 @@
           "host": "coralogix.com",
           "seen": "2026-09-02"
         },
-        "dpa": null,
+        "dpa": {
+          "url": "https://coralogix.com/data-processing-agreement/",
+          "host": "coralogix.com",
+          "seen": "2026-09-02"
+        },
         "subprocessors": null,
         "status": null,
         "bounty": null
       },
       "processors": [],
       "disclosure": {
-        "score": 26,
-        "tier": "thin",
+        "score": 14,
+        "tier": "silent",
         "factors": {
-          "page": 20,
+          "page": 0,
           "marks": 0,
-          "dpa": 0,
+          "dpa": 8,
           "processors": 0,
           "status": 0,
           "bounty": 0,
@@ -105387,16 +105391,16 @@
           "years": 0
         }
       },
-      "tier": "thin",
+      "tier": "silent",
       "file": {
-        "page": 20,
-        "marks": 10,
-        "dpa": 0,
+        "page": 0,
+        "marks": 0,
+        "dpa": 20,
         "subprocessors": 0,
         "years": 0
       },
       "_crawl": {
-        "vendor": "unknown",
+        "vendor": null,
         "title": "",
         "http_status": null
       },

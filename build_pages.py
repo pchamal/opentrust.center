@@ -741,6 +741,8 @@ def filed_disclosure(row: dict) -> dict:
 
 
 FILE_METER_KEYS = ("page", "marks", "dpa", "subprocessors", "years")
+# Portal hosts stay URL-only instruments. Never Official page.
+PORTAL_URL_ONLY_SLUGS = {"softcat", "virtuozzo", "coralogix"}
 
 
 def _instrument_url(row: dict, key: str) -> bool:
@@ -770,9 +772,12 @@ def _named_processor_list(row: dict) -> bool:
 
 def file_flags(row: dict, disc: dict | None = None) -> dict:
     """Bind each rule to 0 / 10 / 20 on this row. Not a factor score."""
-    page_on = bool(row.get("found") and (row.get("trust_url") or row.get("final_url")))
-    if not page_on:
-        page_on = _instrument_url(row, "trust") or _instrument_url(row, "security")
+    if row.get("slug") in PORTAL_URL_ONLY_SLUGS:
+        page_on = False
+    else:
+        page_on = bool(row.get("found") and (row.get("trust_url") or row.get("final_url")))
+        if not page_on:
+            page_on = _instrument_url(row, "trust") or _instrument_url(row, "security")
     crawl = row.get("_crawl") or {}
     page_wall = crawl.get("http_status") == 403 or _recorded_wall(
         (row.get("instruments") or {}).get("trust")
@@ -1002,6 +1007,9 @@ def enrich_company(
         or disc["factors"].get("page")
     )
     official = row.get("trust_url") or links.get("trust") or links.get("security") or row.get("final_url") or ""
+    if slug in PORTAL_URL_ONLY_SLUGS:
+        found = False
+        official = ""
     if not found:
         official = ""
     certs = sorted((c for c in (row.get("certs") or []) if c), key=lambda x: str(x).lower())
