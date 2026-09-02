@@ -83,6 +83,19 @@ def main() -> int:
     )
     check("trust.84codes.com" not in ca_html, "cloudamqp dossier does not file the portal as Official page")
     check(
+        instrument_url(by_pub["loops"], "dpa") == "https://loops.so/dpa",
+        "loops DPA is first-party HTML",
+    )
+    check((by_pub["loops"].get("file") or {}).get("dpa") == 20, "loops DPA prints")
+    check(by_pub["loops"].get("found") is False, "loops Official page stays open")
+    check(not (by_pub["loops"].get("processors") or []), "loops named processors stay open")
+    check((by_pub["loops"].get("file") or {}).get("subprocessors") in (0, False, None), "loops processors stay open")
+    check(by_pub["loops"].get("founded_year") in (None, 0, False), "loops years stay open")
+    loops_html = (ROOT / "site" / "c" / "loops.html").read_text(encoding="utf-8")
+    check("<h1>Loops</h1>" in loops_html, "loops dossier is its own file")
+    check("https://loops.so/dpa" in loops_html, "loops dossier cites the DPA")
+    check("Official page · not on file" in loops_html, "loops Official page stays open")
+    check(
         instrument_url(by_pub["coralogix"], "dpa")
         == "https://coralogix.com/data-processing-agreement/",
         "coralogix DPA is first-party HTML",
@@ -1142,7 +1155,14 @@ def main() -> int:
     check(by_pub["loops"]["domain"] == "loops.so", "loops domain is loops.so email product")
     check(by_pub["lightdash"]["domain"] == "lightdash.com", "lightdash domain is lightdash.com")
     check(by_pub["voyage-ai"]["domain"] == "voyageai.com", "voyage-ai domain is voyageai.com")
-    for slug in ("loops", "lightdash", "voyage-ai"):
+    check(by_pub["loops"].get("found") is False, "loops Official page stays open")
+    check((by_pub["loops"].get("file") or {}).get("dpa") == 20, "loops DPA prints")
+    check(
+        sum(int((by_pub["loops"].get("file") or {}).get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years"))
+        == 20,
+        "loops Completeness is DPA only",
+    )
+    for slug in ("lightdash", "voyage-ai"):
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
         check(
             sum(int((by_pub[slug].get("file") or {}).get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years"))
@@ -1265,6 +1285,14 @@ def main() -> int:
     )
     check((by_pub["84codes-cloudamqp"].get("file") or {}).get("dpa") == 20, "cloudamqp DPA prints")
     check(not (by_pub["84codes-cloudamqp"].get("processors") or []), "cloudamqp DPA annex headers stay unread")
+    # This cut: first-party Completeness DPA on Loops. Framer page prints
+    # the agreement opening. Official page stays open.
+    check(
+        instrument_url(by_pub["loops"], "dpa") == "https://loops.so/dpa",
+        "loops DPA is first-party HTML",
+    )
+    check((by_pub["loops"].get("file") or {}).get("dpa") == 20, "loops DPA prints")
+    check(not (by_pub["loops"].get("processors") or []), "loops named processors stay open")
 
     print(
         f"ok increment-dpa privacy-page-queue {len(expected_batch)} walked; "

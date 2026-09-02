@@ -1163,11 +1163,18 @@ expect(
 
 const loops = bySlug.loops;
 expect(
-  "loops Completeness stays 0 on loops.so",
+  "loops Completeness is DPA on loops.so",
   loops &&
     loops.domain === "loops.so" &&
     loops.found === false &&
-    fileScore(fileFlags(loops)) === 0,
+    !loops.trust_url &&
+    loops.instruments.dpa.url === "https://loops.so/dpa" &&
+    fileFlags(loops).page === 0 &&
+    fileFlags(loops).marks === 0 &&
+    fileFlags(loops).dpa === 20 &&
+    fileFlags(loops).subprocessors === 0 &&
+    fileFlags(loops).years === 0 &&
+    fileScore(fileFlags(loops)) === 20,
 );
 
 const voyageAi = bySlug["voyage-ai"];
@@ -1548,6 +1555,37 @@ expect(
     ruleOn(fileIndexHtml(hivelocity))[0] === false &&
     ruleOn(fileIndexHtml(hivelocity))[1] === true &&
     ruleOn(fileIndexHtml(hivelocity))[4] === true,
+);
+const e2open = bySlug.e2open;
+expect(
+  "e2open Completeness stays 0; title-only cert pages are not marks",
+  e2open.found === false &&
+    !e2open.trust_url &&
+    !(e2open.certs || []).length &&
+    fileFlags(e2open).page === 0 &&
+    fileFlags(e2open).marks === 0 &&
+    fileFlags(e2open).dpa === 0 &&
+    fileFlags(e2open).subprocessors === 0 &&
+    fileFlags(e2open).years === 0 &&
+    fileScore(fileFlags(e2open)) === 0 &&
+    ruleOn(fileIndexHtml(e2open))[0] === false &&
+    ruleOn(fileIndexHtml(e2open))[1] === false,
+);
+const tanla = bySlug["tanla-platforms"];
+expect(
+  "tanla Completeness is years; LBS article is not Official page",
+  tanla.found === false &&
+    !tanla.trust_url &&
+    tanla.founded_year === 1999 &&
+    tanla.founded_source === "https://www.tanla.com/lbs-trust-imperative" &&
+    fileFlags(tanla).page === 0 &&
+    fileFlags(tanla).marks === 0 &&
+    fileFlags(tanla).dpa === 0 &&
+    fileFlags(tanla).subprocessors === 0 &&
+    fileFlags(tanla).years === 20 &&
+    fileScore(fileFlags(tanla)) === 20 &&
+    ruleOn(fileIndexHtml(tanla))[0] === false &&
+    ruleOn(fileIndexHtml(tanla))[4] === true,
 );
 const coralogix = bySlug.coralogix;
 expect(

@@ -616,6 +616,27 @@ def test_hivelocity_year_landed() -> None:
     check("https://www.hivelocity.net/about/our-company/" in html, "Hivelocity dossier cites about source")
 
 
+def test_tanla_year_landed() -> None:
+    """This increment filed Tanla Platforms 1999 from first-party founder sentence."""
+    import json
+    public = json.loads((ROOT / "site" / "data.json").read_text())
+    enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
+    by_pub = {c["slug"]: c for c in public["companies"]}
+    by_enr = {c["slug"]: c for c in enr["companies"]}
+    pub, row = by_pub["tanla-platforms"], by_enr["tanla-platforms"]
+    check(pub.get("founded_year") == 1999, "Tanla public year 1999")
+    check(row.get("founded_year") == 1999, "Tanla enriched year 1999")
+    check(
+        pub.get("founded_source") == "https://www.tanla.com/lbs-trust-imperative",
+        "Tanla year source is first-party /lbs-trust-imperative",
+    )
+    check((pub.get("file") or {}).get("years") in (True, 20), "Tanla years rule prints")
+    check(pub.get("found") is False, "Tanla Official page stays open")
+    html = (ROOT / "site" / "c" / "tanla-platforms.html").read_text(encoding="utf-8")
+    check("founded · 1999" in html, "Tanla dossier prints 1999")
+    check("https://www.tanla.com/lbs-trust-imperative" in html, "Tanla dossier cites year source")
+
+
 def test_swan_year_landed() -> None:
     """This increment filed Swan 2024 from first-party JSON-LD foundingDate."""
     import json
@@ -645,6 +666,7 @@ def main() -> int:
     test_c0_named_processor_years_landed()
     test_retool_rocketlane_years_landed()
     test_hivelocity_year_landed()
+    test_tanla_year_landed()
     test_swan_year_landed()
     # Live company-years.json is a later leftover walk (WNS). Do not hang
     # this increment's year asserts on that stale report suite.
