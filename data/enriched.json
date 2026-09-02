@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T03:06:54Z",
+  "generated_at": "2026-09-02T15:30:00Z",
   "notes": "Public pages only. Incomplete by nature. No invented URLs, years, certs, or processors.",
   "companies": [
     {
@@ -140554,6 +140554,69 @@
         "factors": {}
       },
       "official_url": "https://cloudsupport.co.in/"
+    },
+    {
+      "rank": 5020,
+      "name": "Moss\u00e9 Security",
+      "slug": "mosse-security",
+      "domain": "mosse-security.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 18,
+      "source": "https://www.sophos.com/en-us/legal/sub-processor",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      },
+      "official_url": "https://www.mosse-security.com/"
+    },
+    {
+      "rank": 5021,
+      "name": "Vector",
+      "slug": "vector",
+      "domain": "vector.co",
+      "found": true,
+      "trust_url": "https://www.vector.co/security",
+      "final_url": "https://www.vector.co/security",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 4,
+      "source": "https://www.rime.ai/rime-subprocessors",
+      "summary": "First-party security page on file. Portal marks stay unread. SOC 2 Type I is preparing for audit. Subprocessors URL is the JS portal.",
+      "list": "named-processor-gap",
+      "certs": [
+        "GDPR",
+        "CCPA",
+        "PIPEDA",
+        "LGPD"
+      ],
+      "links": {
+        "trust": "https://www.vector.co/security",
+        "security": "https://www.vector.co/security",
+        "privacy": "https://www.vector.co/legal/privacy",
+        "subprocessors": "https://trust.vector.co/subprocessors"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 46,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 12,
+          "processors": 8,
+          "privacy": 6
+        }
+      },
+      "official_url": "https://www.vector.co/"
     }
   ]
 }

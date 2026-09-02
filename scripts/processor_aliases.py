@@ -842,6 +842,13 @@ REGISTER_ALIASES: dict[str, str] = {
     # Chain - e2open" (same title as e2open.com). e2open is already on the
     # register. Do not invent a second Averetek dossier.
     "avertech": "e2open",
+    # Sophos prints Benjamin Mosse Consulting Pty Ltd (Australia
+    # professional services). mosse-security.com titles "Mossé Security"
+    # and prints ABN 89 145 033 441 on every first-party page. ABR for
+    # that ABN names BENJAMIN MOSSE CONSULTING PTY. LTD. and lists the
+    # business name Mosse Security (from 09 Aug 2013). Filed in this
+    # increment. Do not invent a second dossier.
+    "benjamin-mosse-consulting": "mosse-security",
 
 }
 
