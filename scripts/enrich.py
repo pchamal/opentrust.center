@@ -3393,8 +3393,14 @@ def about_urls_for(company: dict) -> list[str]:
         seen.add(key)
         out.append(u)
 
+    official = (company.get("official_url") or "").strip()
+    add(official)
     for domain in hosts_for(company)[:1]:
         add(f"https://{domain}")
+        # Apex often NXDOMAIN / times out while www serves the official site
+        # (GRCS). Marks well-known paths already try www; years should too.
+        if not domain.startswith("www."):
+            add(f"https://www.{domain}")
         for path in ABOUT_PATHS:
             add(f"https://{domain}{path}")
     return out

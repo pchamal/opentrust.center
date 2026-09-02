@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from enrich import (  # noqa: E402
+    about_urls_for,
     apply_year_to_row,
     is_news_article_url,
     is_official_year_source,
@@ -76,6 +77,18 @@ def test_official_site_only() -> None:
     check(
         not is_official_year_source("https://checkr.com/company/careers", company),
         "careers is not about/company/press",
+    )
+    seeds = about_urls_for({"name": "GRCS", "slug": "grcs", "domain": "grcs.co.jp"})
+    check(
+        "https://www.grcs.co.jp" in seeds,
+        "years walker seeds www when apex is the register domain",
+    )
+    check(
+        "https://www.example.com" in about_urls_for(
+            {"name": "Example", "slug": "example", "domain": "example.com",
+             "official_url": "https://www.example.com/"}
+        ),
+        "official_url is a years seed",
     )
 
 
@@ -708,6 +721,35 @@ def test_ltx_jt_years_landed() -> None:
     )
 
 
+def test_grcs_year_landed() -> None:
+    """This increment filed GRCS 2005 from first-party homepage JSON-LD foundingDate."""
+    import json
+    public = json.loads((ROOT / "site" / "data.json").read_text())
+    enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
+    by_pub = {c["slug"]: c for c in public["companies"]}
+    by_enr = {c["slug"]: c for c in enr["companies"]}
+    pub, row = by_pub["grcs"], by_enr["grcs"]
+    check(pub.get("founded_year") == 2005, "GRCS public year 2005")
+    check(row.get("founded_year") == 2005, "GRCS enriched year 2005")
+    check(pub.get("founded_source") == "https://www.grcs.co.jp/", "GRCS year source is www homepage JSON-LD")
+    check((pub.get("file") or {}).get("years") in (True, 20), "GRCS years rule prints")
+    check(pub.get("found") is False, "GRCS Official page stays open")
+    check((pub.get("certs") or []) == [], "GRCS PCI DSS 準拠支援 consulting stays off file")
+    html = (ROOT / "site" / "c" / "grcs.html").read_text(encoding="utf-8")
+    check("founded · 2005" in html, "GRCS dossier prints 2005")
+    check("https://www.grcs.co.jp/" in html, "GRCS dossier cites foundingDate source")
+    check("PCI DSS" not in html, "GRCS dossier does not print consulting PCI DSS")
+    check(
+        parse_official_founded_year(
+            'コンサルタント／エンジニア×プロダクトによりワンストップでサービスを提供しています。", '
+            '"foundingDate": "2005-03", "founder": { "@type": "Person" }',
+            "GRCS",
+        )
+        == 2005,
+        "GRCS JSON-LD foundingDate 2005-03 parses",
+    )
+
+
 def test_swan_year_landed() -> None:
     """This increment filed Swan 2024 from first-party JSON-LD foundingDate."""
     import json
@@ -741,6 +783,7 @@ def main() -> int:
     test_payu_year_landed()
     test_ltx_jt_years_landed()
     test_swan_year_landed()
+    test_grcs_year_landed()
     # Live company-years.json is a later leftover walk (WNS). Do not hang
     # this increment's year asserts on that stale report suite.
     print("ok")
