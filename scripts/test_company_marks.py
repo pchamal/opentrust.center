@@ -1741,6 +1741,74 @@ def main() -> int:
     )
     check(kept == ["SOC 2 Type II"] and why is None, f"userfront first-person FAQ hold files: {kept} {why}")
 
+    check(by_pub["vonage"].get("found") is False, "vonage Official page stays open")
+    check(not by_pub["vonage"].get("trust_url"), "vonage docs certs page is not Official page")
+    check(
+        sorted(by_pub["vonage"].get("certs") or [])
+        == ["CSA STAR", "HIPAA", "ISO 27001", "PCI DSS", "SOC 2 Type II"],
+        "vonage files first-party Regulatory Certifications holds",
+    )
+    check("IRAP" not in (by_pub["vonage"].get("certs") or []), "vonage IRAP Not Required stays open")
+    check((by_pub["vonage"].get("file") or {}).get("marks") == 20, "vonage marks print")
+    check((by_pub["vonage"].get("file") or {}).get("page") in (0, False, None), "vonage Official page stays open")
+    vonage_html = (ROOT / "site" / "c" / "vonage.html").read_text(encoding="utf-8")
+    check("<h1>Vonage</h1>" in vonage_html, "vonage dossier is its own file")
+    check("SOC 2 Type II" in vonage_html, "vonage dossier prints SOC 2 Type II")
+    check("IRAP" not in vonage_html, "vonage dossier does not print IRAP")
+    check("Official page · not on file" in vonage_html, "vonage Official page stays open")
+    check("oracle" not in vonage_html.lower(), "vonage is not aliased")
+    kept, why = hold_marks(
+        ["SOC 2 Type II", "ISO 27001", "PCI DSS", "CSA STAR", "IRAP"],
+        "This page documents the certifications held by Vonage. "
+        "SOC 2 Type II Obtained. ISO 27001 Obtained. CSA Star. "
+        "PCI DSS Service Provider Certification. "
+        "IRAP Not Required Not Required Not Required Not Required.",
+        "security",
+    )
+    check(
+        sorted(kept) == ["CSA STAR", "ISO 27001", "PCI DSS", "SOC 2 Type II"] and why is None,
+        f"vonage IRAP Not Required stays open: {kept} {why}",
+    )
+
+    check(by_pub["vultr"].get("found") is False, "vultr Official page stays open")
+    check(not by_pub["vultr"].get("trust_url"), "vultr docs compliance page is not Official page")
+    check(
+        sorted(by_pub["vultr"].get("certs") or [])
+        == ["HIPAA", "ISO 20000-1", "ISO 27001", "ISO 27017", "ISO 27018", "SOC 2 Type II"],
+        "vultr files first-party compliance-report holds",
+    )
+    check("GDPR" not in (by_pub["vultr"].get("certs") or []), "vultr GDPR stays open")
+    check((by_pub["vultr"].get("file") or {}).get("marks") == 20, "vultr marks print")
+    check((by_pub["vultr"].get("file") or {}).get("page") in (0, False, None), "vultr Official page stays open")
+    vultr_html = (ROOT / "site" / "c" / "vultr.html").read_text(encoding="utf-8")
+    check("<h1>Vultr</h1>" in vultr_html, "vultr dossier is its own file")
+    check("SOC 2 Type II" in vultr_html, "vultr dossier prints SOC 2 Type II")
+    check("Official page · not on file" in vultr_html, "vultr Official page stays open")
+    kept, why = hold_marks(
+        ["SOC 2 Type II", "ISO 27001", "ISO 27017", "ISO 27018", "ISO 20000-1", "HIPAA", "GDPR"],
+        "These include certifications such as: SOC 2 Type II with HIPAA Security Rule "
+        "ISO/IEC 27001:2022 (Information Security) ISO/IEC 20000-1:2018 "
+        "(IT Service Management) ISO/IEC 27017:2015 (Cloud Security) "
+        "ISO/IEC 27018:2019 (PII Protection in Cloud).",
+        "security",
+    )
+    check(
+        sorted(kept)
+        == ["HIPAA", "ISO 20000-1", "ISO 27001", "ISO 27017", "ISO 27018", "SOC 2 Type II"]
+        and why is None,
+        f"vultr first-party compliance-report holds file: {kept} {why}",
+    )
+
+    check(by_pub["netsuite"].get("found") is False, "netsuite Official page stays open")
+    check((by_pub["netsuite"].get("certs") or []) == [], "netsuite Akamai 403 stays unread")
+    check((by_pub["netsuite"].get("file") or {}).get("marks") in (0, False, None), "netsuite marks stay open")
+    check(by_pub["netsuite"].get("slug") == "netsuite", "netsuite is not aliased to oracle")
+    check(by_pub["taskus"].get("found") is False, "taskus Official page stays open")
+    check((by_pub["taskus"].get("certs") or []) == [], "taskus Cloudflare 403 stays unread")
+    check(by_pub["filestack"].get("found") is False, "filestack Official page stays open")
+    check((by_pub["filestack"].get("certs") or []) == [], "filestack /security bounce stays unread")
+    check(by_pub["filestack"].get("slug") == "filestack", "filestack is not aliased to idera")
+
     check(by_pub["ternpro-dba-slope"].get("found") is False, "slope Official page stays open")
     check(not by_pub["ternpro-dba-slope"].get("trust_url"), "slope product page is not Official page")
     check((by_pub["ternpro-dba-slope"].get("certs") or []) == [], "slope informal SOC Type 1/2 is not SOC 2 Type II")
