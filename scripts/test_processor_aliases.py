@@ -144,7 +144,10 @@ def main() -> int:
     light_reg = {**register, "lightspeed-commerce": {"slug": "lightspeed-commerce", "name": "Lightspeed Commerce", "domain": "lightspeedhq.com"}}
     check(canonical_processor_id("nuorder", light_reg) == "lightspeed-commerce", "NuORDER is Lightspeed")
     db_reg = {**register, "databricks": {"slug": "databricks", "name": "Databricks", "domain": "databricks.com"}}
-    check(canonical_processor_id("neon", db_reg) == "databricks", "Neon is Databricks")
+    check(canonical_processor_id("neon", db_reg) == "neon", "Neon is not Databricks")
+    check("neon" not in REGISTER_ALIASES, "neon must not alias to Databricks")
+    neon_reg = {**register, "neon": {"slug": "neon", "name": "Neon", "domain": "neon.tech"}}
+    check(canonical_processor_id("neon", neon_reg) == "neon", "Neon keeps its own register row")
     inc_reg = {**register, "incident-io": {"slug": "incident-io", "name": "incident.io", "domain": "incident.io"}}
     check(canonical_processor_id("pineapple-technology-incident-io", inc_reg) == "incident-io", "Pineapple Technology is incident.io")
     cp_reg2 = {**register, "check-point": {"slug": "check-point", "name": "Check Point", "domain": "checkpoint.com"}}
@@ -266,7 +269,8 @@ def main() -> int:
     ap_reg = {**register, "apryse": {"slug": "apryse", "name": "Apryse", "domain": "apryse.com"}}
     check(canonical_processor_id("bcl-technologies", ap_reg) == "apryse", "BCL Technologies is Apryse")
     xai_reg = {**register, "xai": {"slug": "xai", "name": "xAI", "domain": "x.ai"}}
-    check(canonical_processor_id("spacexai", xai_reg) == "xai", "SpaceXAI is xAI")
+    check(canonical_processor_id("spacexai", xai_reg) == "xai", "SpaceXAI is xAI when the table href is x.ai")
+    check(REGISTER_ALIASES["spacexai"] == "xai", "spacexai aliases to xai")
     fig_reg2 = {**register, "figma": {"slug": "figma", "name": "Figma", "domain": "figma.com"}}
     check(canonical_processor_id("vmlapp-sweden", fig_reg2) == "figma", "Vmlapp Sweden is Figma")
     colo_reg = {**register, "colossyan": {"slug": "colossyan", "name": "Colossyan", "domain": "colossyan.com"}}
@@ -436,6 +440,28 @@ def main() -> int:
     google_edges = [e for e in two["edges"] if e["to"] == "google"]
     check(len(google_edges) == 2, f"two Google names stay: {google_edges}")
     check({e["evidence"] for e in google_edges} == {"Google Gemini", "Google Cloud Platform"}, "published names stay")
+
+    # LiveKit prints SpaceXAI with no x.ai href. Do not force-alias that wire.
+    live = {
+        "nodes": [
+            {"id": "spacexai", "name": "SpaceXAI", "kind": "processor", "in_register": False},
+            {"id": "xai", "name": "xAI", "domain": "x.ai", "kind": "company", "in_register": True},
+            {"id": "livekit", "name": "LiveKit", "kind": "company", "in_register": True},
+            {"id": "anysphere", "name": "Anysphere", "kind": "company", "in_register": True},
+        ],
+        "edges": [
+            {"from": "livekit", "to": "spacexai", "source_url": "https://livekit.com/legal/sub-processors", "evidence": "SpaceXAI"},
+            {"from": "anysphere", "to": "spacexai", "source_url": "https://trust.cursor.com/subprocessors", "evidence": "SpaceXAI"},
+        ],
+    }
+    apply_aliases_to_graph(live, xai_reg)
+    live_edges = [e for e in live["edges"] if e["from"] == "livekit"]
+    cursor_edges = [e for e in live["edges"] if e["from"] == "anysphere"]
+    check(live_edges == [{"from": "livekit", "to": "spacexai", "source_url": "https://livekit.com/legal/sub-processors", "evidence": "SpaceXAI"}], f"LiveKit SpaceXAI stays leftover: {live_edges}")
+    check(cursor_edges[0]["to"] == "xai", "Cursor SpaceXAI still lands on xAI")
+    ids = {n["id"] for n in live["nodes"]}
+    check("spacexai" in ids, "LiveKit leftover SpaceXAI node stays")
+    check("xai" in ids, "xAI register node stays")
 
     ot_reg = {**register, "onetrust": {"slug": "onetrust", "name": "OneTrust", "domain": "onetrust.com"}}
     check(canonical_processor_id("tugboat-logic", ot_reg) == "onetrust", "Tugboat Logic is OneTrust")

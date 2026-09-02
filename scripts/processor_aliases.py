@@ -12,6 +12,13 @@ from __future__ import annotations
 
 from pathlib import Path
 
+# First-party tables that print a name already in REGISTER_ALIASES but
+# have no homepage / privacy href for that row. Keep the leftover map
+# node. Cursor's SpaceXAI wire stays on xai (Wikidata P856 / prior fill).
+UNALIASED_WIRES: set[tuple[str, str]] = {
+    ("https://livekit.com/legal/sub-processors", "spacexai"),
+}
+
 # slug on the wire → existing register slug. Only applied when the
 # destination is already on the register.
 REGISTER_ALIASES: dict[str, str] = {
@@ -366,8 +373,7 @@ REGISTER_ALIASES: dict[str, str] = {
     "workcanvas-workassests": "monday",
     "seedance-2-0": "bytedance",
     "nuorder": "lightspeed-commerce",
-    # Databricks acquired Neon. databricks is on the register.
-    "neon": "databricks",
+    # Neon, Inc (neon.tech) is its own register row. Do not map to Databricks.
     # Wire id that lands on the row filed in this increment.
     "pineapple-technology-incident-io": "incident-io",
     # Same-company leftovers after the last named-processor batch.
@@ -901,7 +907,7 @@ def apply_aliases_to_graph(subs: dict, register=None) -> dict:
         src = e.get("source_url")
         if not frm or not to or not src:
             continue
-        dest = aliases.get(to, to)
+        dest = to if (src, to) in UNALIASED_WIRES else aliases.get(to, to)
         if skip_processor(dest, e.get("evidence") or ""):
             continue
         # Same dest can still carry two published names (Google Gemini and
@@ -936,8 +942,9 @@ def apply_aliases_to_graph(subs: dict, register=None) -> dict:
                     "in_register": dest in slugs,
                 }
 
+    live_dests = {e.get("to") for e in new_edges}
     for src, dest in aliases.items():
-        if src != dest:
+        if src != dest and src not in live_dests:
             nodes.pop(src, None)
         row = by_row.get(dest) or {}
         if dest in slugs:
@@ -975,10 +982,11 @@ def apply_aliases_to_graph(subs: dict, register=None) -> dict:
             # Keep register companies that already sat on the map; do not
             # dump the whole register onto the wire list.
             pass
-    # Drop alias leftovers that no edge names.
+    # Drop alias leftovers that no edge names. An unaliased wire (LiveKit
+    # SpaceXAI) still occupies its leftover node.
     kept = []
     for nid, node in nodes.items():
-        if nid in aliases and aliases[nid] != nid:
+        if nid in aliases and aliases[nid] != nid and nid not in live:
             continue
         if nid in live or node.get("in_register"):
             kept.append(node)

@@ -977,6 +977,11 @@ def register_slug_for(node: dict, by_slug: dict, by_domain: dict, by_name: dict 
     """Reuse an existing dossier slug. Do not invent a page."""
     from scripts.processor_aliases import canonical_processor_id
 
+    # A leftover map node stays a leftover. Do not follow aliases (LiveKit
+    # SpaceXAI is not xAI just because Cursor's table was).
+    if node.get("in_register") is False:
+        return None
+
     nid = node.get("id")
     dest = canonical_processor_id(nid, by_slug) if nid else None
     if dest and dest in by_slug:

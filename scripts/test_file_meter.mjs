@@ -949,7 +949,7 @@ expect(
     ((livekit.instruments || {}).subprocessors || {}).url ===
       "https://livekit.com/legal/sub-processors" &&
     (livekit.processors || []).length === 30 &&
-    (livekit.processors || []).some((p) => p.slug === "xai" && p.name === "SpaceXAI") &&
+    (livekit.processors || []).some((p) => p.id === "spacexai" && !p.slug && p.name === "SpaceXAI") &&
     (livekit.processors || []).some((p) => p.id === "cockroach-labs" && !p.slug) &&
     !livekit.founded_year &&
     fileFlags(livekit).page === 20 &&
@@ -971,7 +971,8 @@ expect(
     retool.founded_year === 2017 &&
     retool.founded_source === "https://retool.com/about" &&
     (retool.processors || []).some((p) => p.slug === "amazon-web-services") &&
-    (retool.processors || []).some((p) => p.slug === "databricks" && p.name === "Neon, Inc") &&
+    (retool.processors || []).some((p) => p.slug === "neon" && p.name === "Neon, Inc") &&
+    !(retool.processors || []).some((p) => p.slug === "databricks" && p.name === "Neon, Inc") &&
     !(retool.processors || []).some((p) => p.id === "aws") &&
     !(retool.certs || []).length &&
     fileFlags(retool).page === 20 &&
@@ -1022,6 +1023,17 @@ expect(
     fileFlags(supportlogic).years === 0 &&
     fileScore(fileFlags(supportlogic)) === 60,
 );
+
+const neon = bySlug.neon;
+expect(
+  "neon is a domain-only Completeness-0 row on neon.tech",
+  neon &&
+    neon.domain === "neon.tech" &&
+    neon.found === false &&
+    !neon.trust_url &&
+    fileScore(fileFlags(neon)) === 0,
+);
+expect("neon is not databricks", neon && neon.slug === "neon" && bySlug.databricks && bySlug.databricks.domain === "databricks.com");
 
 const nylas = bySlug.nylas;
 expect(
