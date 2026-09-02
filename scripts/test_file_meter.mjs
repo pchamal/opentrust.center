@@ -1179,11 +1179,22 @@ expect(
 
 const voyageAi = bySlug["voyage-ai"];
 expect(
-  "voyage-ai Completeness stays 0 on voyageai.com",
+  "voyage-ai Completeness is DPA; footer chips are not marks",
   voyageAi &&
     voyageAi.domain === "voyageai.com" &&
     voyageAi.found === false &&
-    fileScore(fileFlags(voyageAi)) === 0,
+    !voyageAi.trust_url &&
+    ((voyageAi.instruments || {}).dpa || {}).url === "https://www.voyageai.com/dpa" &&
+    !(voyageAi.certs || []).length &&
+    !(voyageAi.processors || []).length &&
+    fileFlags(voyageAi).page === 0 &&
+    fileFlags(voyageAi).marks === 0 &&
+    fileFlags(voyageAi).dpa === 20 &&
+    fileFlags(voyageAi).subprocessors === 0 &&
+    fileFlags(voyageAi).years === 0 &&
+    fileScore(fileFlags(voyageAi)) === 20 &&
+    ruleOn(fileIndexHtml(voyageAi))[0] === false &&
+    ruleOn(fileIndexHtml(voyageAi))[2] === true,
 );
 
 const levelAi = bySlug["level-ai"];
