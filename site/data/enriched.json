@@ -90951,15 +90951,17 @@
       ],
       "links": {
         "security": "https://www.cloudamqp.com/legal/security_and_compliance.html",
-        "status": "https://status.cloudamqp.com/"
+        "status": "https://status.cloudamqp.com/",
+        "dpa": "https://www.cloudamqp.com/legal/terms_of_service.html#data-processing-agreement"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 42,
+        "score": 50,
         "tier": "on-file",
         "factors": {
           "portal": 20,
           "marks": 16,
+          "dpa": 8,
           "status": 6
         }
       }
@@ -137060,15 +137062,23 @@
       "source": "https://short.io/privacy",
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
-      "certs": [],
+      "certs": [
+        "PCI DSS",
+        "EU-US DPF"
+      ],
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 22,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "marks": 12,
+          "longevity": 10
+        }
       },
-      "official_url": "https://www.hivelocity.net"
+      "official_url": "https://www.hivelocity.net",
+      "founded_year": 2002,
+      "founded_source": "https://www.hivelocity.net/about/our-company/"
     },
     {
       "rank": 4876,
