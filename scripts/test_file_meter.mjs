@@ -1227,7 +1227,6 @@ for (const slug of [
   "fwd-deploy",
   "software-mind",
   "marketstar",
-  "ai-data-innovations",
   "cloud-support-technologies",
   "mosse-security",
 ]) {

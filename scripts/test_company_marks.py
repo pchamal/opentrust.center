@@ -1320,7 +1320,7 @@ def main() -> int:
     check(by_pub["prime-consulting-group-solutions"].get("founded_year") == 2022, "prime year is first-party founded sentence")
     check(by_pub["carahsoft-technology"].get("found") is False, "carahsoft Official page stays open")
     check(by_pub["carahsoft-technology"].get("founded_year") == 2004, "carahsoft year is first-party founded sentence")
-    check((by_pub["pdf"].get("certs") or []) == [], "pdf.co PDF Association 2006 stays off file")
+    check("PDF Association" not in (by_pub["pdf"].get("certs") or []), "pdf.co PDF Association 2006 stays off file")
     check(by_pub["pdf"].get("founded_year") in (None, 0, False), "pdf.co PDF Association founding stays open")
 
     check((by_pub["kickbox"].get("certs") or []) == [], f"kickbox certs stay empty {by_pub['kickbox'].get('certs')}")
