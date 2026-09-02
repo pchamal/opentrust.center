@@ -1638,6 +1638,65 @@ expect(
     ruleOn(fileIndexHtml(codecentric))[0] === false &&
     ruleOn(fileIndexHtml(codecentric))[1] === true,
 );
+const payu = bySlug.payu;
+expect(
+  "payu Completeness is page · marks · years = 60",
+  payu &&
+    payu.domain === "payu.pl" &&
+    payu.found === true &&
+    payu.trust_url === "https://poland.payu.com/security/" &&
+    (payu.certs || []).includes("PCI DSS") &&
+    !(payu.certs || []).includes("SOC 1") &&
+    payu.founded_year === 2002 &&
+    payu.founded_source === "https://poland.payu.com/o-nas/" &&
+    fileFlags(payu).page === 20 &&
+    fileFlags(payu).marks === 20 &&
+    fileFlags(payu).dpa === 0 &&
+    fileFlags(payu).subprocessors === 0 &&
+    fileFlags(payu).years === 20 &&
+    fileScore(fileFlags(payu)) === 60 &&
+    ruleOn(fileIndexHtml(payu))[0] === true &&
+    ruleOn(fileIndexHtml(payu))[1] === true &&
+    ruleOn(fileIndexHtml(payu))[4] === true,
+);
+const devopsEnabler = bySlug["devops-enabler"];
+expect(
+  "devops-enabler Completeness is marks; About is not Official page",
+  devopsEnabler &&
+    devopsEnabler.domain === "devopsenabler.com" &&
+    devopsEnabler.found === false &&
+    !devopsEnabler.trust_url &&
+    (devopsEnabler.certs || []).includes("ISO 27001") &&
+    !(devopsEnabler.certs || []).includes("DORA") &&
+    !(devopsEnabler.certs || []).includes("SOC 2 Type II") &&
+    !(devopsEnabler.certs || []).includes("HIPAA") &&
+    fileFlags(devopsEnabler).page === 0 &&
+    fileFlags(devopsEnabler).marks === 20 &&
+    fileFlags(devopsEnabler).dpa === 0 &&
+    fileFlags(devopsEnabler).subprocessors === 0 &&
+    fileFlags(devopsEnabler).years === 0 &&
+    fileScore(fileFlags(devopsEnabler)) === 20 &&
+    ruleOn(fileIndexHtml(devopsEnabler))[0] === false &&
+    ruleOn(fileIndexHtml(devopsEnabler))[1] === true,
+);
+const nextlink = bySlug["jsaunders-solutions-d-b-a-nextlink-labs"];
+expect(
+  "nextlink Completeness is marks; HIPAA-compliant engineering stays open",
+  nextlink &&
+    nextlink.domain === "nextlinklabs.com" &&
+    nextlink.found === false &&
+    !nextlink.trust_url &&
+    (nextlink.certs || []).includes("SOC 2 Type I") &&
+    !(nextlink.certs || []).includes("HIPAA") &&
+    fileFlags(nextlink).page === 0 &&
+    fileFlags(nextlink).marks === 20 &&
+    fileFlags(nextlink).dpa === 0 &&
+    fileFlags(nextlink).subprocessors === 0 &&
+    fileFlags(nextlink).years === 0 &&
+    fileScore(fileFlags(nextlink)) === 20 &&
+    ruleOn(fileIndexHtml(nextlink))[0] === false &&
+    ruleOn(fileIndexHtml(nextlink))[1] === true,
+);
 const coralogix = bySlug.coralogix;
 expect(
   "coralogix Completeness is DPA; SafeBase portal is not Official page",

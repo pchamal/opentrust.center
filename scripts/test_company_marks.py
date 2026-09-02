@@ -1643,6 +1643,58 @@ def main() -> int:
     check("TISAX" in cc_html, "codecentric dossier prints TISAX")
     check("Official page · not on file" in cc_html, "codecentric Official page stays open")
 
+    check(by_pub["payu"].get("found") is True, "payu Official page is on file")
+    check(
+        by_pub["payu"].get("trust_url") == "https://poland.payu.com/security/",
+        "payu Official page is first-party /security on the poland.payu.com rebrand",
+    )
+    check(by_pub["payu"].get("domain") == "payu.pl", "payu register domain stays payu.pl")
+    check((by_pub["payu"].get("certs") or []) == ["PCI DSS"], "payu files PCI DSS Level 1 hold only")
+    check("SOC 1" not in (by_pub["payu"].get("certs") or []), "payu corporate footer SOC1 stays off file")
+    check((by_pub["payu"].get("file") or {}).get("page") == 20, "payu Official page prints")
+    check((by_pub["payu"].get("file") or {}).get("marks") == 20, "payu marks print")
+    check((by_pub["payu"].get("file") or {}).get("years") == 20, "payu years print")
+    payu_html = (ROOT / "site" / "c" / "payu.html").read_text(encoding="utf-8")
+    check("<h1>PayU</h1>" in payu_html, "payu dossier is its own file")
+    check("https://poland.payu.com/security/" in payu_html, "payu dossier cites Official page")
+    check("PCI DSS" in payu_html, "payu dossier prints PCI DSS")
+    check("SOC 1" not in payu_html, "payu dossier does not print corporate footer SOC1")
+    check("poland.payu.com" in hosts_for({"domain": "payu.pl"}), "payu.pl first-party hosts include poland.payu.com")
+    check(
+        is_first_party_url("https://poland.payu.com/security/", {"domain": "payu.pl", "name": "PayU", "slug": "payu"}),
+        "poland.payu.com/security is first-party for the PayU row",
+    )
+
+    check(by_pub["devops-enabler"].get("found") is False, "devops-enabler Official page stays open")
+    check(not by_pub["devops-enabler"].get("trust_url"), "devops-enabler About is not Official page")
+    check((by_pub["devops-enabler"].get("certs") or []) == ["ISO 27001"], "devops-enabler files ISO 27001 from About timeline")
+    check("DORA" not in (by_pub["devops-enabler"].get("certs") or []), "devops-enabler DORA metrics stay off file")
+    check("SOC 2 Type II" not in (by_pub["devops-enabler"].get("certs") or []), "devops-enabler homepage animation SOC 2 stays off file")
+    check("PCI DSS" not in (by_pub["devops-enabler"].get("certs") or []), "devops-enabler homepage animation PCI stays off file")
+    check("HIPAA" not in (by_pub["devops-enabler"].get("certs") or []), "devops-enabler homepage animation HIPAA stays off file")
+    check((by_pub["devops-enabler"].get("file") or {}).get("marks") == 20, "devops-enabler marks print")
+    check((by_pub["devops-enabler"].get("file") or {}).get("page") in (0, False, None), "devops-enabler Official page stays open")
+    de_html = (ROOT / "site" / "c" / "devops-enabler.html").read_text(encoding="utf-8")
+    check("<h1>DevOps Enabler</h1>" in de_html, "devops-enabler dossier is its own file")
+    check("ISO 27001" in de_html, "devops-enabler dossier prints ISO 27001")
+    check("DORA" not in de_html, "devops-enabler dossier does not print DORA metrics")
+    check("Official page · not on file" in de_html, "devops-enabler Official page stays open")
+
+    check(by_pub["jsaunders-solutions-d-b-a-nextlink-labs"].get("found") is False, "nextlink Official page stays open")
+    check(not by_pub["jsaunders-solutions-d-b-a-nextlink-labs"].get("trust_url"), "nextlink About is not Official page")
+    check(
+        (by_pub["jsaunders-solutions-d-b-a-nextlink-labs"].get("certs") or []) == ["SOC 2 Type I"],
+        "nextlink files SOC 2 Type I from About cert card",
+    )
+    check("HIPAA" not in (by_pub["jsaunders-solutions-d-b-a-nextlink-labs"].get("certs") or []), "nextlink HIPAA-compliant engineering stays open")
+    check((by_pub["jsaunders-solutions-d-b-a-nextlink-labs"].get("file") or {}).get("marks") == 20, "nextlink marks print")
+    check((by_pub["jsaunders-solutions-d-b-a-nextlink-labs"].get("file") or {}).get("page") in (0, False, None), "nextlink Official page stays open")
+    nl_html = (ROOT / "site" / "c" / "jsaunders-solutions-d-b-a-nextlink-labs.html").read_text(encoding="utf-8")
+    check("<h1>NextLink Labs</h1>" in nl_html, "nextlink dossier is its own file")
+    check("SOC 2 Type I" in nl_html, "nextlink dossier prints SOC 2 Type I")
+    check("HIPAA" not in nl_html, "nextlink dossier does not print HIPAA")
+    check("Official page · not on file" in nl_html, "nextlink Official page stays open")
+
     check(by_pub["pdf"].get("found") is True, "pdf Official page is on file")
     check(by_pub["pdf"].get("trust_url") == "https://pdf.co/security", "pdf Official page is first-party /security")
     check((by_pub["pdf"].get("certs") or []) == ["SOC 2 Type II"], "pdf files its own SOC 2 Type II only")
