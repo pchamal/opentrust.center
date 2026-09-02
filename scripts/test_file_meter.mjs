@@ -1216,7 +1216,6 @@ expect(
 
 for (const slug of [
   "apricity-group",
-  "swan",
   "mako-it-lab",
   "fwd-deploy",
   "software-mind",
@@ -1486,6 +1485,35 @@ expect("monday subprocessors follow the stored list", monday.instruments.subproc
 expect("amplitude subprocessors follow the stored list", amplitude.instruments.subprocessors.url === "https://www.amplitude.com/subprocessor-list" && amplitude.processors.length > 0 && fileFlags(amplitude).subprocessors === 20);
 expect("benchling subprocessors follow the stored list", benchling.instruments.subprocessors.url === "https://www.benchling.com/subprocessors" && benchling.processors.length > 0 && fileFlags(benchling).subprocessors === 20);
 expect("digitalocean subprocessors follow the stored list", digitalocean.instruments.subprocessors.url === "https://www.digitalocean.com/trust/subprocessors" && digitalocean.processors.length > 0 && fileFlags(digitalocean).subprocessors === 20);
+const swan = bySlug.swan;
+expect(
+  "swan Completeness is DPA · years",
+  swan.founded_year === 2024 &&
+    swan.instruments.dpa.url === "https://www.getswan.com/legal/dpa" &&
+    fileFlags(swan).dpa === 20 &&
+    fileFlags(swan).years === 20 &&
+    fileFlags(swan).page === 0 &&
+    fileFlags(swan).marks === 0 &&
+    fileFlags(swan).subprocessors === 0 &&
+    fileScore(fileFlags(swan)) === 40 &&
+    ruleOn(fileIndexHtml(swan))[2] === true &&
+    ruleOn(fileIndexHtml(swan))[4] === true,
+);
+const pdfCo = bySlug.pdf;
+expect(
+  "pdf Completeness is page · marks",
+  pdfCo.found === true &&
+    pdfCo.trust_url === "https://pdf.co/security" &&
+    (pdfCo.certs || []).includes("SOC 2 Type II") &&
+    fileFlags(pdfCo).page === 20 &&
+    fileFlags(pdfCo).marks === 20 &&
+    fileFlags(pdfCo).dpa === 0 &&
+    fileFlags(pdfCo).subprocessors === 0 &&
+    fileFlags(pdfCo).years === 0 &&
+    fileScore(fileFlags(pdfCo)) === 40 &&
+    ruleOn(fileIndexHtml(pdfCo))[0] === true &&
+    ruleOn(fileIndexHtml(pdfCo))[1] === true,
+);
 const planview = bySlug.planview;
 expect(
   "URL-only subprocessors is 10 not 20",

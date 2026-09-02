@@ -46,6 +46,19 @@ def main() -> int:
     check(match_processor("Twilio Segment")[0] == "segment", "Twilio Segment is Segment, not Twilio")
     check(match_processor("Twilio")[0] == "twilio", "Twilio alone stays Twilio")
 
+    check(
+        instrument_url(by_pub["swan"], "dpa") == "https://www.getswan.com/legal/dpa",
+        "swan DPA is first-party HTML",
+    )
+    check((by_pub["swan"].get("file") or {}).get("dpa") == 20, "swan DPA prints")
+    check((by_pub["swan"].get("file") or {}).get("years") == 20, "swan years print")
+    check(by_pub["swan"].get("found") is False, "swan Official page stays open")
+    check(not (by_pub["swan"].get("processors") or []), "swan Notion list stays unread")
+    check((by_pub["swan"].get("file") or {}).get("subprocessors") in (0, False, None), "swan processors stay open")
+    swan_html = (ROOT / "site" / "c" / "swan.html").read_text(encoding="utf-8")
+    check("https://www.getswan.com/legal/dpa" in swan_html, "swan dossier cites the DPA")
+    check("notion.site" not in swan_html, "swan dossier does not file the Notion processor shell")
+
     for row in public["companies"]:
         for proc in row.get("processors") or []:
             name = proc.get("name") if isinstance(proc, dict) else proc
@@ -1121,6 +1134,18 @@ def main() -> int:
     check(by_pub["amx"].get("founded_year") == 2017, "amx year is the first-party 2017 press sentence")
     check((by_pub["amx"].get("file") or {}).get("years") == 20, "amx years print")
     check(by_pub["swan"]["domain"] == "getswan.com", "swan domain is getswan.com")
+    check(
+        instrument_url(by_pub["swan"], "dpa") == "https://www.getswan.com/legal/dpa",
+        "swan DPA is first-party HTML",
+    )
+    check((by_pub["swan"].get("file") or {}).get("dpa") == 20, "swan DPA prints")
+    check((by_pub["swan"].get("file") or {}).get("years") == 20, "swan years print")
+    check(by_pub["swan"].get("found") is False, "swan Official page stays open")
+    check(not (by_pub["swan"].get("processors") or []), "swan Notion list stays unread")
+    check((by_pub["swan"].get("file") or {}).get("subprocessors") in (0, False, None), "swan processors stay open")
+    swan_html = (ROOT / "site" / "c" / "swan.html").read_text(encoding="utf-8")
+    check("https://www.getswan.com/legal/dpa" in swan_html, "swan dossier cites the DPA")
+    check("notion.site" not in swan_html, "swan dossier does not file the Notion processor shell")
     linkedin_html = (ROOT / "site" / "c" / "linkedin.html").read_text(encoding="utf-8")
     check("./marketstar.html\">Regalix, Inc" in linkedin_html, "linkedin Regalix cross-links to MarketStar")
     check("./ai-data-innovations.html\">AI Data Innovation Corporation" in linkedin_html, "linkedin AI Data Innovation cross-links to the filed row")
