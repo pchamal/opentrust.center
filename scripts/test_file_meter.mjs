@@ -1514,6 +1514,41 @@ expect(
     ruleOn(fileIndexHtml(pdfCo))[0] === true &&
     ruleOn(fileIndexHtml(pdfCo))[1] === true,
 );
+const cloudamqp = bySlug["84codes-cloudamqp"];
+expect(
+  "cloudamqp Completeness is page · marks · DPA",
+  cloudamqp.found === true &&
+    cloudamqp.trust_url === "https://www.cloudamqp.com/legal/security_and_compliance.html" &&
+    cloudamqp.instruments.dpa.url === "https://www.cloudamqp.com/legal/terms_of_service.html#data-processing-agreement" &&
+    fileFlags(cloudamqp).page === 20 &&
+    fileFlags(cloudamqp).marks === 20 &&
+    fileFlags(cloudamqp).dpa === 20 &&
+    fileFlags(cloudamqp).subprocessors === 0 &&
+    fileFlags(cloudamqp).years === 0 &&
+    fileScore(fileFlags(cloudamqp)) === 60 &&
+    ruleOn(fileIndexHtml(cloudamqp))[0] === true &&
+    ruleOn(fileIndexHtml(cloudamqp))[1] === true &&
+    ruleOn(fileIndexHtml(cloudamqp))[2] === true,
+);
+const hivelocity = bySlug.hivelocity;
+expect(
+  "hivelocity Completeness is marks · years; legal index is not Official page",
+  hivelocity.found === false &&
+    !hivelocity.trust_url &&
+    hivelocity.founded_year === 2002 &&
+    (hivelocity.certs || []).includes("PCI DSS") &&
+    (hivelocity.certs || []).includes("EU-US DPF") &&
+    !(hivelocity.certs || []).includes("CCPA") &&
+    fileFlags(hivelocity).page === 0 &&
+    fileFlags(hivelocity).marks === 20 &&
+    fileFlags(hivelocity).dpa === 0 &&
+    fileFlags(hivelocity).subprocessors === 0 &&
+    fileFlags(hivelocity).years === 20 &&
+    fileScore(fileFlags(hivelocity)) === 40 &&
+    ruleOn(fileIndexHtml(hivelocity))[0] === false &&
+    ruleOn(fileIndexHtml(hivelocity))[1] === true &&
+    ruleOn(fileIndexHtml(hivelocity))[4] === true,
+);
 const coralogix = bySlug.coralogix;
 expect(
   "coralogix Completeness is DPA; SafeBase portal is not Official page",

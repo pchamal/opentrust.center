@@ -595,6 +595,27 @@ def test_retool_rocketlane_years_landed() -> None:
     check("https://www.rocketlane.com/privacy-policy" in rocket_html, "Rocketlane dossier cites foundingDate source")
 
 
+def test_hivelocity_year_landed() -> None:
+    """This increment filed Hivelocity 2002 from first-party company history."""
+    import json
+    public = json.loads((ROOT / "site" / "data.json").read_text())
+    enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
+    by_pub = {c["slug"]: c for c in public["companies"]}
+    by_enr = {c["slug"]: c for c in enr["companies"]}
+    pub, row = by_pub["hivelocity"], by_enr["hivelocity"]
+    check(pub.get("founded_year") == 2002, "Hivelocity public year 2002")
+    check(row.get("founded_year") == 2002, "Hivelocity enriched year 2002")
+    check(
+        pub.get("founded_source") == "https://www.hivelocity.net/about/our-company/",
+        "Hivelocity year source is first-party /about/our-company/",
+    )
+    check((pub.get("file") or {}).get("years") in (True, 20), "Hivelocity years rule prints")
+    check(pub.get("found") is False, "Hivelocity Official page stays open")
+    html = (ROOT / "site" / "c" / "hivelocity.html").read_text(encoding="utf-8")
+    check("founded · 2002" in html, "Hivelocity dossier prints 2002")
+    check("https://www.hivelocity.net/about/our-company/" in html, "Hivelocity dossier cites about source")
+
+
 def test_swan_year_landed() -> None:
     """This increment filed Swan 2024 from first-party JSON-LD foundingDate."""
     import json
@@ -623,6 +644,7 @@ def main() -> int:
     test_spekit_cyberhaven_woopra_years_landed()
     test_c0_named_processor_years_landed()
     test_retool_rocketlane_years_landed()
+    test_hivelocity_year_landed()
     test_swan_year_landed()
     # Live company-years.json is a later leftover walk (WNS). Do not hang
     # this increment's year asserts on that stale report suite.

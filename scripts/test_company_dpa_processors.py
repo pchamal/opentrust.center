@@ -59,6 +59,30 @@ def main() -> int:
     check("https://www.getswan.com/legal/dpa" in swan_html, "swan dossier cites the DPA")
     check("notion.site" not in swan_html, "swan dossier does not file the Notion processor shell")
     check(
+        instrument_url(by_pub["84codes-cloudamqp"], "dpa")
+        == "https://www.cloudamqp.com/legal/terms_of_service.html#data-processing-agreement",
+        "cloudamqp DPA is the first-party ToS exhibit",
+    )
+    check((by_pub["84codes-cloudamqp"].get("file") or {}).get("dpa") == 20, "cloudamqp DPA prints")
+    check(
+        by_pub["84codes-cloudamqp"].get("trust_url")
+        == "https://www.cloudamqp.com/legal/security_and_compliance.html",
+        "cloudamqp Official page stays first-party security",
+    )
+    check(not (by_pub["84codes-cloudamqp"].get("processors") or []), "cloudamqp DPA annex headers stay unread")
+    check(
+        (by_pub["84codes-cloudamqp"].get("file") or {}).get("subprocessors") in (0, False, None),
+        "cloudamqp processors stay open",
+    )
+    check(by_pub["84codes-cloudamqp"].get("founded_year") in (None, 0, False), "cloudamqp launched-in year stays open")
+    ca_html = (ROOT / "site" / "c" / "84codes-cloudamqp.html").read_text(encoding="utf-8")
+    check("<h1>CloudAMQP</h1>" in ca_html, "cloudamqp dossier is its own file")
+    check(
+        "https://www.cloudamqp.com/legal/terms_of_service.html#data-processing-agreement" in ca_html,
+        "cloudamqp dossier cites the DPA exhibit",
+    )
+    check("trust.84codes.com" not in ca_html, "cloudamqp dossier does not file the portal as Official page")
+    check(
         instrument_url(by_pub["coralogix"], "dpa")
         == "https://coralogix.com/data-processing-agreement/",
         "coralogix DPA is first-party HTML",
@@ -1232,6 +1256,15 @@ def main() -> int:
     check("./mosse-security.html\">Benjamin Mosse Consulting Pty Ltd" in sophos_html, "sophos Benjamin Mosse Consulting cross-links to Mossé Security")
     after_html = (ROOT / "site" / "c" / "aftership.html").read_text(encoding="utf-8")
     check("./cloud-support-technologies.html\">Cloud Support Technologies" in after_html, "aftership Cloud Support Technologies cross-links to the filed row")
+    # This cut: first-party Completeness DPA on CloudAMQP (84codes).
+    # The ToS exhibit is the printed DPA. Annex headers stay unread.
+    check(
+        instrument_url(by_pub["84codes-cloudamqp"], "dpa")
+        == "https://www.cloudamqp.com/legal/terms_of_service.html#data-processing-agreement",
+        "cloudamqp DPA is the first-party ToS exhibit",
+    )
+    check((by_pub["84codes-cloudamqp"].get("file") or {}).get("dpa") == 20, "cloudamqp DPA prints")
+    check(not (by_pub["84codes-cloudamqp"].get("processors") or []), "cloudamqp DPA annex headers stay unread")
 
     print(
         f"ok increment-dpa privacy-page-queue {len(expected_batch)} walked; "
