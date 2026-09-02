@@ -1155,7 +1155,14 @@ def main() -> int:
     check(by_pub["loops"]["domain"] == "loops.so", "loops domain is loops.so email product")
     check(by_pub["lightdash"]["domain"] == "lightdash.com", "lightdash domain is lightdash.com")
     check(by_pub["voyage-ai"]["domain"] == "voyageai.com", "voyage-ai domain is voyageai.com")
-    for slug in ("loops", "lightdash", "voyage-ai"):
+    check(by_pub["loops"].get("found") is False, "loops Official page stays open")
+    check((by_pub["loops"].get("file") or {}).get("dpa") == 20, "loops DPA prints")
+    check(
+        sum(int((by_pub["loops"].get("file") or {}).get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years"))
+        == 20,
+        "loops Completeness is DPA only",
+    )
+    for slug in ("lightdash", "voyage-ai"):
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
         check(
             sum(int((by_pub[slug].get("file") or {}).get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years"))

@@ -1163,11 +1163,18 @@ expect(
 
 const loops = bySlug.loops;
 expect(
-  "loops Completeness stays 0 on loops.so",
+  "loops Completeness is DPA on loops.so",
   loops &&
     loops.domain === "loops.so" &&
     loops.found === false &&
-    fileScore(fileFlags(loops)) === 0,
+    !loops.trust_url &&
+    loops.instruments.dpa.url === "https://loops.so/dpa" &&
+    fileFlags(loops).page === 0 &&
+    fileFlags(loops).marks === 0 &&
+    fileFlags(loops).dpa === 20 &&
+    fileFlags(loops).subprocessors === 0 &&
+    fileFlags(loops).years === 0 &&
+    fileScore(fileFlags(loops)) === 20,
 );
 
 const voyageAi = bySlug["voyage-ai"];
@@ -1548,22 +1555,6 @@ expect(
     ruleOn(fileIndexHtml(hivelocity))[0] === false &&
     ruleOn(fileIndexHtml(hivelocity))[1] === true &&
     ruleOn(fileIndexHtml(hivelocity))[4] === true,
-);
-const loops = bySlug.loops;
-expect(
-  "loops Completeness is DPA; Official page stays open",
-  loops.found === false &&
-    !loops.trust_url &&
-    loops.instruments.dpa.url === "https://loops.so/dpa" &&
-    !(loops.certs || []).length &&
-    fileFlags(loops).page === 0 &&
-    fileFlags(loops).marks === 0 &&
-    fileFlags(loops).dpa === 20 &&
-    fileFlags(loops).subprocessors === 0 &&
-    fileFlags(loops).years === 0 &&
-    fileScore(fileFlags(loops)) === 20 &&
-    ruleOn(fileIndexHtml(loops))[0] === false &&
-    ruleOn(fileIndexHtml(loops))[2] === true,
 );
 const e2open = bySlug.e2open;
 expect(
