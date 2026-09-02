@@ -1,0 +1,62 @@
+{
+  "batch": "named-processor-gap",
+  "rows": [
+    {
+      "rank": 5020,
+      "name": "Moss\u00e9 Security",
+      "slug": "mosse-security",
+      "domain": "mosse-security.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 18,
+      "source": "https://www.sophos.com/en-us/legal/sub-processor",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      },
+      "official_url": "https://www.mosse-security.com/"
+    },
+    {
+      "rank": 5021,
+      "name": "Vector",
+      "slug": "vector",
+      "domain": "vector.co",
+      "found": true,
+      "trust_url": "https://www.vector.co/security",
+      "final_url": "https://www.vector.co/security",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 4,
+      "source": "https://www.rime.ai/rime-subprocessors",
+      "summary": "Official page on file. No marks extracted from the public HTML. SOC 2 Type I is preparing for audit.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {
+        "trust": "https://www.vector.co/security",
+        "security": "https://www.vector.co/security",
+        "privacy": "https://www.vector.co/legal/privacy",
+        "subprocessors": "https://trust.vector.co/subprocessors"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 34,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "processors": 8,
+          "privacy": 6
+        }
+      },
+      "official_url": "https://www.vector.co/"
+    }
+  ]
+}

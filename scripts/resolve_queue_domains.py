@@ -195,6 +195,9 @@ EXTRA_GUESSES = {
     "amx": ["amxconsulting.com"],
     "agile-management-experts": ["amxconsulting.com"],
     "avertech": ["e2open.com"],
+    "mosse-security": ["mosse-security.com"],
+    "benjamin-mosse-consulting": ["mosse-security.com"],
+    "vector": ["vector.co"],
 }
 
 PORTAL_HOSTS = (

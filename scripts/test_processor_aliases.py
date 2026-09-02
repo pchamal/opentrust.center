@@ -542,6 +542,9 @@ def main() -> int:
     e2_reg = {**register, "e2open": {"slug": "e2open", "name": "E2open", "domain": "e2open.com"}}
     check(canonical_processor_id("avertech", e2_reg) == "e2open", "Avertech is E2open")
     check(REGISTER_ALIASES["avertech"] == "e2open", "avertech aliases to e2open")
+    mosse_reg = {**register, "mosse-security": {"slug": "mosse-security", "name": "Mossé Security", "domain": "mosse-security.com"}}
+    check(canonical_processor_id("benjamin-mosse-consulting", mosse_reg) == "mosse-security", "Benjamin Mosse Consulting is Mossé Security")
+    check(REGISTER_ALIASES["benjamin-mosse-consulting"] == "mosse-security", "benjamin-mosse-consulting aliases to mosse-security")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch

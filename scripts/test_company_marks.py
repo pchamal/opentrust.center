@@ -167,6 +167,12 @@ def main() -> int:
     )
     check(kept == [] and why == "regulation-only", f"Sonar DPA GDPR/CCPA definitions stay open: {kept} {why}")
     kept, why = hold_marks(
+        ["GDPR", "CCPA", "PIPEDA", "LGPD"],
+        "Vector complies with GDPR, CCPA, PIPEDA, and LGPD. We are preparing for a SOC 2 Type I audit.",
+        "trust",
+    )
+    check(kept == [] and why == "regulation-only", f"Vector regulation-only list stays open: {kept} {why}")
+    kept, why = hold_marks(
         ["GDPR"],
         "In SuperOffice we are committed to protect and respect your privacy in "
         "compliance with EU- General Data Protection Regulation (GDPR) 2016/679, "
@@ -1495,6 +1501,31 @@ def main() -> int:
     check("HIPAA" not in (by_pub["rime"].get("certs") or []), "rime HIPAA-compliant stays open")
     check("GDPR" not in (by_pub["rime"].get("certs") or []), "rime GDPR stays open")
     check("CCPA" not in (by_pub["rime"].get("certs") or []), "rime CCPA stays open")
+    check(by_pub["vector"].get("found") is True, "vector Official page is on file")
+    check(
+        by_pub["vector"].get("trust_url") == "https://www.vector.co/security",
+        "vector Official page is first-party /security",
+    )
+    check("trust.vector.co" not in (by_pub["vector"].get("trust_url") or ""), "vector Official page is not the portal")
+    check((by_pub["vector"].get("certs") or []) == [], "vector regulation-only marks stay off file")
+    check("GDPR" not in (by_pub["vector"].get("certs") or []), "vector GDPR stays open")
+    check("CCPA" not in (by_pub["vector"].get("certs") or []), "vector CCPA stays open")
+    check("PIPEDA" not in (by_pub["vector"].get("certs") or []), "vector PIPEDA stays open")
+    check("LGPD" not in (by_pub["vector"].get("certs") or []), "vector LGPD stays open")
+    check("SOC 2 Type I" not in (by_pub["vector"].get("certs") or []), "vector SOC 2 Type I stays unread")
+    check((by_pub["vector"].get("file") or {}).get("marks") in (0, 10), "vector marks stay 0 or 10 dotted")
+    vec_html = (ROOT / "site" / "c" / "vector.html").read_text(encoding="utf-8")
+    check("<h1>Vector</h1>" in vec_html, "vector dossier is its own file")
+    vec_official = re.findall(
+        r'<a class="official" href="([^"]+)"[^>]*>Official page</a>',
+        vec_html,
+    )
+    check(vec_official == ["https://www.vector.co/security"], "vector dossier Official page is first-party /security")
+    check("hasCredential" not in vec_html, "vector dossier prints no regulation-only credentials")
+    check("GDPR" not in vec_html, "vector dossier does not print GDPR")
+    check("CCPA" not in vec_html, "vector dossier does not print CCPA")
+    check("PIPEDA" not in vec_html, "vector dossier does not print PIPEDA")
+    check("LGPD" not in vec_html, "vector dossier does not print LGPD")
     check(by_pub["loops"]["domain"] == "loops.so", "loops is the Loops.so email product")
     check(by_pub["lightdash"].get("found") is False, "lightdash Framer legal pages stay unread as Official page")
     check((by_pub["lightdash"].get("certs") or []) == [], "lightdash marks stay open")
