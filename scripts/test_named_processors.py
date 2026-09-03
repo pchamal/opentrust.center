@@ -12,8 +12,10 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from enrich import (  # noqa: E402
     cited_list_skip_reason,
     has_filed_names,
+    keep_org_processor_rows,
     looks_like_date_name,
     looks_like_org_name,
+    non_org_list_page_reason,
     processors_from_company,
     published_processors_from_html,
 )
@@ -262,6 +264,53 @@ def main() -> int:
     check(any("Brighthire" in n for n in zoom_names), f"zoom keeps Brighthire: {zoom_names}")
     check(not any(looks_like_date_name(n) for n in zoom_names), f"zoom drops dates: {zoom_names}")
     check(not any(i.endswith("2026") or i.endswith("2025") for i, _n, _e in zoom_filed), f"no date ids: {zoom_filed}")
+
+    # PR 263 page-class: OneTrust cookie table / SCC annex / Data Category table.
+    check(
+        non_org_list_page_reason("Cookie list", "my_onetrust_groups qualified_session", "") == "cookie-table",
+        "OneTrust cookie id refuses the page",
+    )
+    check(
+        non_org_list_page_reason(
+            "DPA",
+            "Role (controller/processor) Company number or equivalent",
+            "",
+        ) == "legal-annex",
+        "incident.io annex fields refuse the page",
+    )
+    check(
+        non_org_list_page_reason(
+            "Subprocessors",
+            "Data Category Identifiers Commercial Information Geolocation Data",
+            "",
+        ) == "data-category-table",
+        "Mapbox data-category table refuses the page",
+    )
+    check(
+        non_org_list_page_reason(
+            "Clazar DPA",
+            "Data Processing Addendum Amazon Web Services Google Cloud",
+            "<table><tr><td>Amazon Web Services</td></tr></table>",
+        ) is None,
+        "a DPA that prints org names is not refused",
+    )
+    junk_majority = [
+        ("data-subjects", "Data Subjects", "Data Subjects"),
+        ("uk-gdpr", "UK GDPR", "UK GDPR"),
+        ("eu-sccs", "EU SCCs", "EU SCCs"),
+        ("cloudflare", "Cloudflare", "Cloudflare"),
+    ]
+    check(keep_org_processor_rows(junk_majority) == [], "junk-majority table stays unread")
+    mixed = [
+        ("amazon-web-services", "Amazon Web Services", "Amazon Web Services"),
+        ("cloudflare", "Cloudflare", "Cloudflare"),
+        ("data-subjects", "Data Subjects", "Data Subjects"),
+    ]
+    mixed_kept = keep_org_processor_rows(mixed)
+    check(
+        [i for i, _n, _e in mixed_kept] == ["amazon-web-services", "cloudflare"],
+        f"one annex heading does not drop real orgs: {mixed_kept}",
+    )
 
     print("ok")
     return 0
