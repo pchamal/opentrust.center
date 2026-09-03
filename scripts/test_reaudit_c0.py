@@ -186,12 +186,14 @@ def test_live_ledger_when_present() -> None:
     payload = json.loads(path.read_text())
     entries = ledger_entries(payload)
     batch = payload.get("last_batch") or []
-    check(len(batch) <= DEFAULT_LIMIT, f"paced batch stays at {DEFAULT_LIMIT}, got {len(batch)}")
-    check(len(batch) > 0, "first batch wrote last_batch")
-    check(len(batch) == 30, f"first cut probed 30 Completeness-0 rows, got {len(batch)}")
     summary = payload.get("summary") or {}
-    check(summary.get("filled") == 1, f"first cut filed 1 honest fill, got {summary.get('filled')}")
-    check("imerit" in batch, "first cut probed imerit")
+    # Paced cut. Do not drain the Completeness-0 queue.
+    check(0 < len(batch) <= 40, f"paced last_batch, got {len(batch)}")
+    check(summary.get("batch") == len(batch), "summary.batch matches last_batch")
+
+    first = [slug for slug, rec in entries.items() if rec.get("date") == "2026-09-01"]
+    check(len(first) == 30, f"first cut still has 30 rows dated 2026-09-01, got {len(first)}")
+    check("imerit" in first, "first cut probed imerit")
     imerit = entries.get("imerit") or {}
     check(imerit.get("filed") is True, "imerit ledger row records the apply")
     check(imerit.get("could_fill") == ["page", "marks"], f"imerit could_fill {imerit.get('could_fill')}")
@@ -199,8 +201,14 @@ def test_live_ledger_when_present() -> None:
     added = ((imerit.get("hit") or {}).get("marks") or {}).get("added") or []
     check("GDPR" not in added, "imerit ledger does not file GDPR")
     check("HIPAA" not in added, "imerit ledger does not file HIPAA")
-    for slug in batch:
-        rec = entries.get(slug) or {}
+
+    second = [slug for slug in batch if (entries.get(slug) or {}).get("date") == "2026-09-03"]
+    check(len(second) == 35, f"second cut probed 35 Completeness-0 rows, got {len(second)}")
+    check(not set(second) & set(first), "second cut must be never-reaudited vs 2026-09-01")
+    check(summary.get("filled") == 0, f"second cut filed no honest fill, got {summary.get('filled')}")
+    check("lightdash" in second, "second cut starts at the next never-reaudited C0 row")
+
+    for slug, rec in entries.items():
         check(rec.get("domain"), f"{slug} ledger row is missing a domain")
         check(rec.get("date"), f"{slug} ledger row is missing an ISO date")
         check(isinstance(rec.get("probed"), list), f"{slug} probed URLs missing")
