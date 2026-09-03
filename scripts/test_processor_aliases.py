@@ -581,6 +581,27 @@ def main() -> int:
     front_reg = {**register, "front": {"slug": "front", "name": "Front", "domain": "front.com"}}
     check(canonical_processor_id("frontapp-sarl", front_reg) == "front", "FrontApp SARL is Front")
     check(REGISTER_ALIASES["frontapp-sarl"] == "front", "frontapp-sarl aliases to front")
+    sf_reg = {**register, "salesforce": {"slug": "salesforce", "name": "Salesforce", "domain": "salesforce.com"}}
+    check(canonical_processor_id("sales-force-crm", sf_reg) == "salesforce", "Sales Force CRM is Salesforce")
+    check(REGISTER_ALIASES["sales-force-crm"] == "salesforce", "sales-force-crm aliases to salesforce")
+    rc_reg = {**register, "ringcentral": {"slug": "ringcentral", "name": "RingCentral", "domain": "ringcentral.com"}}
+    check(canonical_processor_id("ring-central", rc_reg) == "ringcentral", "Ring Central is RingCentral")
+    check(REGISTER_ALIASES["ring-central"] == "ringcentral", "ring-central aliases to ringcentral")
+    hash_reg = {**register, "hashicorp": {"slug": "hashicorp", "name": "HashiCorp", "domain": "hashicorp.com"}}
+    check(canonical_processor_id("hashicorp-vault", hash_reg) == "hashicorp", "HashiCorp Vault is HashiCorp")
+    check(REGISTER_ALIASES["hashicorp-vault"] == "hashicorp", "hashicorp-vault aliases to hashicorp")
+    bd_reg = {**register, "bright-data": {"slug": "bright-data", "name": "Bright Data", "domain": "brightdata.com"}}
+    check(canonical_processor_id("brightdata", bd_reg) == "bright-data", "Brightdata is Bright Data")
+    check(REGISTER_ALIASES["brightdata"] == "bright-data", "brightdata aliases to bright-data")
+    summit_reg = {**register, "summit": {"slug": "summit", "name": "Summit", "domain": "summithq.com"}}
+    check(
+        canonical_processor_id("deft-formerly-known-as-servercentral", summit_reg) == "summit",
+        "Deft formerly ServerCentral is Summit",
+    )
+    check(
+        REGISTER_ALIASES["deft-formerly-known-as-servercentral"] == "summit",
+        "deft-formerly-known-as-servercentral aliases to summit",
+    )
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch

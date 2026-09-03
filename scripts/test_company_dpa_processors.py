@@ -246,108 +246,101 @@ def main() -> int:
 
     # This increment: upper-quadrant DPA-on-file / subprocessors queue (~40).
     expected_batch = [
-        "sam-labs",
-        "databank",
-        "ideogram-ai",
-        "ironclad",
-        "lovable",
-        "plain",
-        "rollbar",
-        "supportlogic",
-        "veed",
-        "sportradar",
-        "riverbed-technology",
-        "liveblocks",
-        "susea",
-        "bluebeam-software-inc",
-        "forethought-technologies",
-        "deepjudge",
-        "84codes-cloudamqp",
-        "intershop-communications",
-        "playerzero",
-        "6sense",
-        "edinvent-accredible",
-        "cartesia",
-        "cognition",
-        "jasper-ai",
-        "posthog",
-        "sigma",
-        "upwind",
-        "ziflow",
-        "hostinger",
-        "trulioo",
-        "apideck",
-        "lumana",
-        "ably",
-        "astronomer",
-        "smallestai",
-        "synadia-cloud",
-        "yellowai",
-        "recall-ai",
-        "apollo-io",
-        "client-success",
+        "heygen",
+        "skilljar",
+        "turbopuffer",
+        "ketch",
+        "braintrust",
+        "gladia",
+        "level-ai",
+        "partnerstack",
+        "lambdatest",
+        "latitude-sh",
+        "obsidian-security",
+        "openrouter",
+        "pinecone",
+        "surveysparrow",
+        "zello",
+        "modal",
+        "smint-io",
+        "forest-admin",
+        "postmark",
+        "accelq",
+        "adaptavist",
+        "giga",
+        "hg-insights",
+        "uber",
+        "uber-technologies",
+        "browser-use",
+        "wasabi",
+        "eficode",
+        "totango",
+        "simbian",
+        "anam",
+        "eliseai",
+        "lg-electronics",
+        "reflection",
+        "serval",
+        "spycloud",
+        "straiker",
+        "tally-solutions",
+        "swan",
+        "coralogix",
     ]
     check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
     check(not (report.get("dpa_filed") or []), "no DPA was newly filed")
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
-    check(len(filed_sub) == 8, f"eight named-processor lists filed, got {sorted(filed_sub)}")
+    check(len(filed_sub) == 4, f"four named-processor lists filed, got {sorted(filed_sub)}")
     check(
         set(filed_sub)
         == {
-            "apideck",
-            "client-success",
-            "forethought-technologies",
-            "jasper-ai",
-            "liveblocks",
-            "rollbar",
-            "sigma",
-            "synadia-cloud",
+            "coralogix",
+            "lambdatest",
+            "postmark",
+            "turbopuffer",
         },
         f"kept filings {sorted(filed_sub)}",
     )
-    check(filed_sub["apideck"]["url"] == "https://compliance.apideck.com/subprocessors", "apideck list URL")
-    check(len(filed_sub["apideck"]["names"]) == 11, "apideck 11 names")
     check(
-        filed_sub["client-success"]["url"] == "https://www.clientsuccess.com/list-of-sub-processors",
-        "client-success list URL",
+        filed_sub["coralogix"]["url"] == "https://coralogix.com/authorized-sub-processors/",
+        "coralogix list URL",
     )
-    check(len(filed_sub["client-success"]["names"]) == 10, "client-success 10 names")
+    check(len(filed_sub["coralogix"]["names"]) == 13, "coralogix 13 names")
     check(
-        filed_sub["forethought-technologies"]["url"] == "https://forethought.ai/data-subprocessors",
-        "forethought list URL",
+        filed_sub["lambdatest"]["url"] == "https://www.testmuai.com/legal/sub-processor/",
+        "lambdatest list URL",
     )
-    check(len(filed_sub["forethought-technologies"]["names"]) == 21, "forethought 21 names")
-    check(filed_sub["jasper-ai"]["url"] == "https://www.jasper.ai/legal/sub-processors", "jasper list URL")
-    check(len(filed_sub["jasper-ai"]["names"]) == 31, "jasper 31 names")
-    check(filed_sub["liveblocks"]["url"] == "https://liveblocks.io/subprocessors", "liveblocks list URL")
-    check(len(filed_sub["liveblocks"]["names"]) == 14, "liveblocks 14 names")
+    check(len(filed_sub["lambdatest"]["names"]) == 34, "lambdatest 34 names")
+    check(filed_sub["postmark"]["url"] == "https://postmarkapp.com/eu-privacy", "postmark list URL")
+    check(len(filed_sub["postmark"]["names"]) == 2, "postmark 2 names")
     check(
-        filed_sub["rollbar"]["url"] == "https://docs.rollbar.com/docs/data-subprocessors",
-        "rollbar list URL",
+        filed_sub["turbopuffer"]["url"] == "https://turbopuffer.com/docs/security/subprocessors",
+        "turbopuffer list URL",
     )
-    check(len(filed_sub["rollbar"]["names"]) == 14, "rollbar 14 names")
-    check(
-        filed_sub["sigma"]["url"] == "https://www.sigmacomputing.com/legal/subprocessors",
-        "sigma list URL",
-    )
-    check(len(filed_sub["sigma"]["names"]) == 20, "sigma 20 names")
-    check(
-        filed_sub["synadia-cloud"]["url"] == "https://www.synadia.com/legal/subprocessors",
-        "synadia list URL",
-    )
-    check(len(filed_sub["synadia-cloud"]["names"]) == 13, "synadia 13 names")
+    check(len(filed_sub["turbopuffer"]["names"]) == 17, "turbopuffer 17 names")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
-    check(len(stayed) == 32, f"32 slots stayed open, got {len(stayed)}")
+    check(len(stayed) == 36, f"36 slots stayed open, got {len(stayed)}")
     check(
         stayed == set(expected_batch) - set(filed_sub),
         f"stayed-open matches batch minus filings, got {sorted(stayed ^ (set(expected_batch) - set(filed_sub)))}",
     )
-    check("84codes-cloudamqp" in stayed, "CloudAMQP DPA/ToS annex fill stayed open")
-    check("84codes-cloudamqp" not in filed_sub, "CloudAMQP is not a filed named-processor list")
-    check(not (by_pub["84codes-cloudamqp"].get("processors") or []), "CloudAMQP names no processors")
+    check("modal" in stayed, "Modal DPA annex fill stayed open")
+    check("modal" not in filed_sub, "Modal is not a filed named-processor list")
+    check(not (by_pub["modal"].get("processors") or []), "Modal names no processors")
     check(
-        "subprocessors" not in ((by_enr["84codes-cloudamqp"].get("links") or {})),
-        "CloudAMQP links.subprocessors stays off the DPA URL",
+        "subprocessors" not in ((by_enr["modal"].get("links") or {})),
+        "Modal links.subprocessors stays off the DPA URL",
+    )
+    check("surveysparrow" in stayed, "SurveySparrow DPA annex fill stayed open")
+    check("surveysparrow" not in filed_sub, "SurveySparrow is not a filed named-processor list")
+    check(not (by_pub["surveysparrow"].get("processors") or []), "SurveySparrow names no processors")
+    check(
+        (by_enr["surveysparrow"].get("links") or {}).get("dpa") == "https://surveysparrow.com/legal/dpa/",
+        "SurveySparrow DPA stays on file",
+    )
+    check(
+        "subprocessors" not in ((by_enr["surveysparrow"].get("links") or {})),
+        "SurveySparrow links.subprocessors stays off the DPA URL",
     )
 
     for slug in stayed:
@@ -364,6 +357,7 @@ def main() -> int:
         "navan", "vercel", "backblaze", "1password", "peak", "translated",
         "anaplan", "sarvam-ai", "salesloft", "verint-systems", "thoughtspot",
         "uniphore", "arkose-labs", "clazar", "cognition-ai",
+        "sam-labs", "apideck", "client-success", "84codes-cloudamqp",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")
@@ -375,6 +369,19 @@ def main() -> int:
     cloud_html = (ROOT / "site" / "c" / "84codes-cloudamqp.html").read_text(encoding="utf-8")
     check(">Topic<" not in cloud_html, "CloudAMQP does not print DPA Topic as a processor")
     check("Retention period" not in cloud_html, "CloudAMQP does not print Retention period")
+    # PR 265 filings stay on file. CloudAMQP DPA annex drop stays unread.
+    check(len(by_pub["apideck"].get("processors") or []) == 11, "apideck 11 names stay")
+    check(len(by_pub["client-success"].get("processors") or []) == 10, "client-success 10 names stay")
+    check(len(by_pub["forethought-technologies"].get("processors") or []) == 21, "forethought 21 names stay")
+    check(len(by_pub["jasper-ai"].get("processors") or []) == 31, "jasper 31 names stay")
+    check(len(by_pub["liveblocks"].get("processors") or []) == 14, "liveblocks 14 names stay")
+    check(len(by_pub["rollbar"].get("processors") or []) == 14, "rollbar 14 names stay")
+    check(len(by_pub["sigma"].get("processors") or []) == 20, "sigma 20 names stay")
+    check(len(by_pub["synadia-cloud"].get("processors") or []) == 13, "synadia 13 names stay")
+    check(not (by_pub["84codes-cloudamqp"].get("processors") or []), "CloudAMQP names no processors")
+    modal_html = (ROOT / "site" / "c" / "modal.html").read_text(encoding="utf-8")
+    check("Technical and Organizational Security Measure" not in modal_html, "Modal does not print DPA TOM headings")
+    check("Measures of pseudonymisation" not in modal_html, "Modal does not print SCC annex measures")
     # PR 263 filings stay on file. Annex/cookie/data-category drops stay unread.
     check(len(by_pub["clazar"].get("processors") or []) == 17, "clazar 17 names stay")
     check(len(by_pub["daily"].get("processors") or []) == 22, "daily 22 names stay")
@@ -1295,10 +1302,10 @@ def main() -> int:
     swan_html = (ROOT / "site" / "c" / "swan.html").read_text(encoding="utf-8")
     check("https://www.getswan.com/legal/dpa" in swan_html, "swan dossier cites the DPA")
     check("notion.site" not in swan_html, "swan dossier does not file the Notion processor shell")
-    # This cut: first-party Completeness DPA on Coralogix. SafeBase
+    # Prior cut: first-party Completeness DPA on Coralogix. SafeBase
     # trust.coralogix.com is not Official page — URL-only instrument.
-    # Footer SOC/ISO/PCI/HIPAA chips stay unread. Usual first-party
-    # /security /trust /compliance paths 404 or bounce to the portal.
+    # Footer SOC/ISO/PCI/HIPAA chips stay unread. This cut files the
+    # first-party authorized-sub-processors list; Official page stays open.
     check(
         instrument_url(by_pub["coralogix"], "dpa")
         == "https://coralogix.com/data-processing-agreement/",
@@ -1315,10 +1322,12 @@ def main() -> int:
     check(not (by_pub["coralogix"].get("certs") or []), "coralogix footer chips stay unread")
     check((by_pub["coralogix"].get("file") or {}).get("marks") in (0, False, None), "coralogix marks stay open")
     check((by_pub["coralogix"].get("file") or {}).get("page") in (0, False, None), "coralogix Official page stays open")
-    check(not (by_pub["coralogix"].get("processors") or []), "coralogix named processors stay open")
+    check(len(by_pub["coralogix"].get("processors") or []) == 13, "coralogix 13 names print")
+    check((by_pub["coralogix"].get("file") or {}).get("subprocessors") == 20, "coralogix processors print")
     check(
-        (by_pub["coralogix"].get("file") or {}).get("subprocessors") in (0, False, None),
-        "coralogix processors stay open",
+        instrument_url(by_pub["coralogix"], "subprocessors")
+        == "https://coralogix.com/authorized-sub-processors/",
+        "coralogix list URL is the first-party authorized-sub-processors page",
     )
     check(by_pub["coralogix"].get("founded_year") in (None, 0, False), "coralogix years stay open")
     coralogix_html = (ROOT / "site" / "c" / "coralogix.html").read_text(encoding="utf-8")
@@ -1326,6 +1335,10 @@ def main() -> int:
     check(
         "https://coralogix.com/data-processing-agreement/" in coralogix_html,
         "coralogix dossier cites the DPA",
+    )
+    check(
+        "https://coralogix.com/authorized-sub-processors/" in coralogix_html,
+        "coralogix dossier cites the authorized-sub-processors list",
     )
     check("https://trust.coralogix.com" in coralogix_html, "coralogix dossier cites the portal as an instrument URL")
     check("Official page · not on file" in coralogix_html, "coralogix Official page stays open")
