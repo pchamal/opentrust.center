@@ -1605,6 +1605,26 @@ expect(
     ruleOn(fileIndexHtml(hivelocity))[1] === true &&
     ruleOn(fileIndexHtml(hivelocity))[4] === true,
 );
+const upperQuadrant = bySlug["upper-quadrant"];
+expect(
+  "upper-quadrant Completeness is years; about FOUNDED metric is not Official page",
+  upperQuadrant &&
+    upperQuadrant.domain === "upperquadrant.com" &&
+    upperQuadrant.found === false &&
+    !upperQuadrant.trust_url &&
+    !(upperQuadrant.certs || []).length &&
+    upperQuadrant.founded_year === 2001 &&
+    upperQuadrant.founded_source === "https://upperquadrant.com/company/about" &&
+    fileFlags(upperQuadrant).page === 0 &&
+    fileFlags(upperQuadrant).marks === 0 &&
+    fileFlags(upperQuadrant).dpa === 0 &&
+    fileFlags(upperQuadrant).subprocessors === 0 &&
+    fileFlags(upperQuadrant).years === 20 &&
+    fileScore(fileFlags(upperQuadrant)) === 20 &&
+    ruleOn(fileIndexHtml(upperQuadrant))[0] === false &&
+    ruleOn(fileIndexHtml(upperQuadrant))[1] === false &&
+    ruleOn(fileIndexHtml(upperQuadrant))[4] === true,
+);
 const e2open = bySlug.e2open;
 expect(
   "e2open Completeness is marks; certifications catalog is not Official page",
