@@ -365,6 +365,20 @@ SPECIAL_URLS = {
         ("https://www.arsys.es/legal/privacidad", "privacy"),
         ("https://www.arsys.es/quienes-somos", "security"),
     ],
+    # /security and /trust 404. First-party /certifications HTML names
+    # e2open's own ISO 27001 and SSAE18 SOC 1 / SOC 2 Type II reports.
+    # Customer-security-policy is customer obligations, not Official page.
+    # DPA redirects to wisetechglobal.com — not first-party.
+    "e2open": [
+        (
+            "https://www.e2open.com/certifications/iso-27001-certification/",
+            "security",
+        ),
+        (
+            "https://www.e2open.com/certifications/ssae18-soc1-and-soc2/",
+            "security",
+        ),
+    ],
 }
 
 _MONTH = (

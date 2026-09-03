@@ -1607,18 +1607,21 @@ expect(
 );
 const e2open = bySlug.e2open;
 expect(
-  "e2open Completeness stays 0; title-only cert pages are not marks",
+  "e2open Completeness is marks; certifications catalog is not Official page",
   e2open.found === false &&
     !e2open.trust_url &&
-    !(e2open.certs || []).length &&
+    (e2open.certs || []).includes("ISO 27001") &&
+    (e2open.certs || []).includes("SOC 2 Type II") &&
+    (e2open.certs || []).includes("SOC 1 Type II") &&
+    !e2open.founded_year &&
     fileFlags(e2open).page === 0 &&
-    fileFlags(e2open).marks === 0 &&
+    fileFlags(e2open).marks === 20 &&
     fileFlags(e2open).dpa === 0 &&
     fileFlags(e2open).subprocessors === 0 &&
     fileFlags(e2open).years === 0 &&
-    fileScore(fileFlags(e2open)) === 0 &&
+    fileScore(fileFlags(e2open)) === 20 &&
     ruleOn(fileIndexHtml(e2open))[0] === false &&
-    ruleOn(fileIndexHtml(e2open))[1] === false,
+    ruleOn(fileIndexHtml(e2open))[1] === true,
 );
 const tanla = bySlug["tanla-platforms"];
 expect(
