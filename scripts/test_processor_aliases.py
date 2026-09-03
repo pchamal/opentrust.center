@@ -417,6 +417,9 @@ def main() -> int:
     check(not skip_processor("cloudflare", "Cloudflare"), "Cloudflare is a real org")
     check(not skip_processor("google", "Google"), "Google is a real org")
     check(not skip_processor("sentry", "Sentry"), "Sentry is a real org")
+    check(skip_processor("topic", "Topic"), "CloudAMQP DPA Topic heading is garbage")
+    check(skip_processor("retention-period", "Retention period"), "Retention period heading is garbage")
+    check(REGISTER_ALIASES["g-suite"] == "google", "G Suite is Google")
 
     subs = {
         "nodes": [

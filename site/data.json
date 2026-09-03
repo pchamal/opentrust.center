@@ -51585,6 +51585,186 @@
     },
     {
       "rank": 307,
+      "name": "Rollbar, Inc",
+      "slug": "rollbar",
+      "domain": "rollbar.com",
+      "found": true,
+      "trust_url": "https://rollbar.com/security",
+      "final_url": "https://docs.rollbar.com/docs/security",
+      "list": "named-processor-gap",
+      "source": "https://www.pagerduty.com/subprocessors/",
+      "source_url": "https://www.pagerduty.com/subprocessors/",
+      "probed": 13,
+      "probed_at": "2026-09-03T16:58:38Z",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3"
+      ],
+      "attestations": [
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        },
+        {
+          "id": "soc-3",
+          "name": "SOC 3",
+          "weight": 4
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, SOC 3.",
+      "founded_year": null,
+      "founded_source": null,
+      "instruments": {
+        "trust": {
+          "url": "https://rollbar.com/security",
+          "host": "rollbar.com",
+          "seen": "2026-09-03"
+        },
+        "security": {
+          "url": "https://docs.rollbar.com/docs/security",
+          "host": "docs.rollbar.com",
+          "seen": "2026-09-03"
+        },
+        "privacy": {
+          "url": "https://docs.rollbar.com/docs/privacy-policy",
+          "host": "docs.rollbar.com",
+          "seen": "2026-09-03"
+        },
+        "dpa": {
+          "url": "https://docs.rollbar.com/docs/data-processing-agreement",
+          "host": "docs.rollbar.com",
+          "seen": "2026-09-03"
+        },
+        "subprocessors": {
+          "url": "https://docs.rollbar.com/docs/data-subprocessors",
+          "host": "docs.rollbar.com",
+          "seen": "2026-09-03"
+        },
+        "status": {
+          "url": "https://status.rollbar.com",
+          "host": "status.rollbar.com",
+          "seen": "2026-09-03"
+        },
+        "bounty": null
+      },
+      "processors": [
+        {
+          "name": "Google Cloud",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://docs.rollbar.com/docs/data-subprocessors"
+        },
+        {
+          "name": "Mailgun",
+          "slug": "mailgun",
+          "id": "mailgun",
+          "source_url": "https://docs.rollbar.com/docs/data-subprocessors"
+        },
+        {
+          "name": "GitHub",
+          "slug": "github",
+          "id": "github",
+          "source_url": "https://docs.rollbar.com/docs/data-subprocessors"
+        },
+        {
+          "name": "Slack",
+          "slug": "slack",
+          "id": "slack",
+          "source_url": "https://docs.rollbar.com/docs/data-subprocessors"
+        },
+        {
+          "name": "Hubspot",
+          "slug": "hubspot",
+          "id": "hubspot",
+          "source_url": "https://docs.rollbar.com/docs/data-subprocessors"
+        },
+        {
+          "name": "Linear",
+          "slug": "linear",
+          "id": "linear",
+          "source_url": "https://docs.rollbar.com/docs/data-subprocessors"
+        },
+        {
+          "name": "Headwayapp.co",
+          "slug": null,
+          "id": "headwayapp",
+          "source_url": "https://docs.rollbar.com/docs/data-subprocessors"
+        },
+        {
+          "name": "Segment",
+          "slug": "segment",
+          "id": "segment",
+          "source_url": "https://docs.rollbar.com/docs/data-subprocessors"
+        },
+        {
+          "name": "LaunchDarkly",
+          "slug": "launchdarkly",
+          "id": "launchdarkly",
+          "source_url": "https://docs.rollbar.com/docs/data-subprocessors"
+        },
+        {
+          "name": "Fivetran",
+          "slug": "fivetran",
+          "id": "fivetran",
+          "source_url": "https://docs.rollbar.com/docs/data-subprocessors"
+        },
+        {
+          "name": "Stripe",
+          "slug": "stripe",
+          "id": "stripe",
+          "source_url": "https://docs.rollbar.com/docs/data-subprocessors"
+        },
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "id": "openai",
+          "source_url": "https://docs.rollbar.com/docs/data-subprocessors"
+        },
+        {
+          "name": "Modal",
+          "slug": "modal",
+          "id": "modal",
+          "source_url": "https://docs.rollbar.com/docs/data-subprocessors"
+        },
+        {
+          "name": "Google Workspace",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://docs.rollbar.com/docs/data-subprocessors"
+        }
+      ],
+      "disclosure": {
+        "score": 62,
+        "tier": "on-file",
+        "factors": {
+          "page": 20,
+          "marks": 14,
+          "dpa": 8,
+          "processors": 8,
+          "status": 6,
+          "bounty": 0,
+          "privacy": 6,
+          "years": 0
+        }
+      },
+      "tier": "on-file",
+      "file": {
+        "page": 20,
+        "marks": 20,
+        "dpa": 20,
+        "subprocessors": 20,
+        "years": 0
+      },
+      "_crawl": {
+        "vendor": "unknown",
+        "title": "",
+        "http_status": null
+      },
+      "list_rank": 3288
+    },
+    {
+      "rank": 308,
       "name": "Zscaler",
       "slug": "zscaler",
       "domain": "zscaler.com",
@@ -51951,7 +52131,7 @@
       "list_rank": 183
     },
     {
-      "rank": 308,
+      "rank": 309,
       "name": "Dubber",
       "slug": "dubber",
       "domain": "dubber.net",
@@ -52042,7 +52222,7 @@
       "list_rank": 2242
     },
     {
-      "rank": 309,
+      "rank": 310,
       "name": "Gusto",
       "slug": "gusto",
       "domain": "gusto.com",
@@ -52139,7 +52319,7 @@
       "list_rank": 15
     },
     {
-      "rank": 310,
+      "rank": 311,
       "name": "Trello",
       "slug": "trello",
       "domain": "trello.com",
@@ -52224,7 +52404,7 @@
       "list_rank": 2995
     },
     {
-      "rank": 311,
+      "rank": 312,
       "name": "BigPanda",
       "slug": "bigpanda",
       "domain": "bigpanda.io",
@@ -52315,7 +52495,7 @@
       "list_rank": 3660
     },
     {
-      "rank": 312,
+      "rank": 313,
       "name": "Ramp",
       "slug": "ramp",
       "domain": "ramp.com",
@@ -52507,7 +52687,7 @@
       "list_rank": 6
     },
     {
-      "rank": 313,
+      "rank": 314,
       "name": "EvenUp",
       "slug": "evenup",
       "domain": "evenuplaw.com",
@@ -52601,7 +52781,7 @@
       "list_rank": 100
     },
     {
-      "rank": 314,
+      "rank": 315,
       "name": "Sam Labs",
       "slug": "sam-labs",
       "domain": "samlabs.com",
@@ -52700,7 +52880,7 @@
       "list_rank": 5416
     },
     {
-      "rank": 315,
+      "rank": 316,
       "name": "SAP",
       "slug": "sap",
       "domain": "sap.com",
@@ -52861,7 +53041,7 @@
       "list_rank": 164
     },
     {
-      "rank": 316,
+      "rank": 317,
       "name": "Pegasystems",
       "slug": "pegasystems",
       "domain": "pega.com",
@@ -53135,7 +53315,7 @@
       "list_rank": 428
     },
     {
-      "rank": 317,
+      "rank": 318,
       "name": "Afiniti",
       "slug": "afiniti",
       "domain": "afiniti.com",
@@ -53238,7 +53418,7 @@
       "list_rank": 1302
     },
     {
-      "rank": 318,
+      "rank": 319,
       "name": "Varonis Systems",
       "slug": "varonis-systems",
       "domain": "varonis.com",
@@ -53489,7 +53669,7 @@
       "list_rank": 477
     },
     {
-      "rank": 319,
+      "rank": 320,
       "name": "Trustly",
       "slug": "trustly",
       "domain": "trustly.com",
@@ -53580,7 +53760,7 @@
       "list_rank": 2295
     },
     {
-      "rank": 320,
+      "rank": 321,
       "name": "Cloudflare",
       "slug": "cloudflare",
       "domain": "cloudflare.com",
@@ -53761,7 +53941,7 @@
       "list_rank": 117
     },
     {
-      "rank": 321,
+      "rank": 322,
       "name": "Sprout Social",
       "slug": "sprout-social",
       "domain": "sproutsocial.com",
@@ -54048,7 +54228,7 @@
       "list_rank": 447
     },
     {
-      "rank": 322,
+      "rank": 323,
       "name": "Sumo Logic",
       "slug": "sumo-logic",
       "domain": "sumologic.com",
@@ -54264,7 +54444,7 @@
       "list_rank": 246
     },
     {
-      "rank": 323,
+      "rank": 324,
       "name": "Darktrace",
       "slug": "darktrace",
       "domain": "darktrace.com",
@@ -54456,7 +54636,7 @@
       "list_rank": 231
     },
     {
-      "rank": 324,
+      "rank": 325,
       "name": "LaunchDarkly",
       "slug": "launchdarkly",
       "domain": "launchdarkly.com",
@@ -54588,7 +54768,7 @@
       "list_rank": 90
     },
     {
-      "rank": 325,
+      "rank": 326,
       "name": "Clarivate",
       "slug": "clarivate",
       "domain": "clarivate.com",
@@ -54791,7 +54971,7 @@
       "list_rank": 405
     },
     {
-      "rank": 326,
+      "rank": 327,
       "name": "Harness",
       "slug": "harness",
       "domain": "harness.io",
@@ -54958,7 +55138,7 @@
       "list_rank": 77
     },
     {
-      "rank": 327,
+      "rank": 328,
       "name": "Deel",
       "slug": "deel",
       "domain": "deel.com",
@@ -55068,7 +55248,7 @@
       "list_rank": 9
     },
     {
-      "rank": 328,
+      "rank": 329,
       "name": "ABBYY",
       "slug": "abbyy",
       "domain": "abbyy.com",
@@ -55191,7 +55371,7 @@
       "list_rank": 1145
     },
     {
-      "rank": 329,
+      "rank": 330,
       "name": "Armis",
       "slug": "armis",
       "domain": "armis.com",
@@ -55320,7 +55500,7 @@
       "list_rank": 993
     },
     {
-      "rank": 330,
+      "rank": 331,
       "name": "Axonius",
       "slug": "axonius",
       "domain": "axonius.com",
@@ -55489,7 +55669,7 @@
       "list_rank": 73
     },
     {
-      "rank": 331,
+      "rank": 332,
       "name": "Cognism",
       "slug": "cognism",
       "domain": "cognism.com",
@@ -55583,7 +55763,7 @@
       "list_rank": 3158
     },
     {
-      "rank": 332,
+      "rank": 333,
       "name": "Descope",
       "slug": "descope",
       "domain": "descope.com",
@@ -55700,7 +55880,7 @@
       "list_rank": 3175
     },
     {
-      "rank": 333,
+      "rank": 334,
       "name": "Exabeam",
       "slug": "exabeam",
       "domain": "exabeam.com",
@@ -55815,7 +55995,7 @@
       "list_rank": 1013
     },
     {
-      "rank": 334,
+      "rank": 335,
       "name": "Five9",
       "slug": "five9",
       "domain": "five9.com",
@@ -55970,7 +56150,7 @@
       "list_rank": 268
     },
     {
-      "rank": 335,
+      "rank": 336,
       "name": "Geordie AI",
       "slug": "geordie-ai",
       "domain": "geordie.ai",
@@ -56073,7 +56253,7 @@
       "list_rank": 1248
     },
     {
-      "rank": 336,
+      "rank": 337,
       "name": "Heroku",
       "slug": "heroku",
       "domain": "heroku.com",
@@ -56184,7 +56364,7 @@
       "list_rank": 1788
     },
     {
-      "rank": 337,
+      "rank": 338,
       "name": "Lumen Technologies",
       "slug": "lumen-technologies",
       "domain": "lumen.com",
@@ -56275,7 +56455,7 @@
       "list_rank": 1600
     },
     {
-      "rank": 338,
+      "rank": 339,
       "name": "Red Canary",
       "slug": "red-canary",
       "domain": "redcanary.com",
@@ -56453,7 +56633,7 @@
       "list_rank": 244
     },
     {
-      "rank": 339,
+      "rank": 340,
       "name": "Workvivo",
       "slug": "workvivo",
       "domain": "workvivo.com",
@@ -56565,7 +56745,7 @@
       "list_rank": 3074
     },
     {
-      "rank": 340,
+      "rank": 341,
       "name": "Zoom",
       "slug": "zoom",
       "domain": "zoom.us",
@@ -56972,7 +57152,7 @@
       "list_rank": 182
     },
     {
-      "rank": 341,
+      "rank": 342,
       "name": "Aptean",
       "slug": "aptean",
       "domain": "aptean.com",
@@ -57057,7 +57237,7 @@
       "list_rank": 2628
     },
     {
-      "rank": 342,
+      "rank": 343,
       "name": "Netskope",
       "slug": "netskope",
       "domain": "netskope.com",
@@ -57211,7 +57391,7 @@
       "list_rank": 14
     },
     {
-      "rank": 343,
+      "rank": 344,
       "name": "Guild",
       "slug": "guild",
       "domain": "guild.com",
@@ -57296,7 +57476,7 @@
       "list_rank": 54
     },
     {
-      "rank": 344,
+      "rank": 345,
       "name": "Blackbaud",
       "slug": "blackbaud",
       "domain": "blackbaud.com",
@@ -57456,7 +57636,7 @@
       "list_rank": 385
     },
     {
-      "rank": 345,
+      "rank": 346,
       "name": "Replit",
       "slug": "replit",
       "domain": "replit.com",
@@ -57846,7 +58026,7 @@
       "list_rank": 1171
     },
     {
-      "rank": 346,
+      "rank": 347,
       "name": "EAB",
       "slug": "eab",
       "domain": "eab.com",
@@ -57939,7 +58119,7 @@
       "list_rank": 1438
     },
     {
-      "rank": 347,
+      "rank": 348,
       "name": "Cisco",
       "slug": "cisco",
       "domain": "cisco.com",
@@ -58135,7 +58315,7 @@
       "list_rank": 116
     },
     {
-      "rank": 348,
+      "rank": 349,
       "name": "SailPoint",
       "slug": "sailpoint",
       "domain": "sailpoint.com",
@@ -58457,7 +58637,7 @@
       "list_rank": 161
     },
     {
-      "rank": 349,
+      "rank": 350,
       "name": "Okta",
       "slug": "okta",
       "domain": "okta.com",
@@ -58736,7 +58916,7 @@
       "list_rank": 152
     },
     {
-      "rank": 350,
+      "rank": 351,
       "name": "Plaid",
       "slug": "plaid",
       "domain": "plaid.com",
@@ -58829,7 +59009,7 @@
       "list_rank": 29
     },
     {
-      "rank": 351,
+      "rank": 352,
       "name": "Confluent",
       "slug": "confluent",
       "domain": "confluent.io",
@@ -58955,7 +59135,7 @@
       "list_rank": 119
     },
     {
-      "rank": 352,
+      "rank": 353,
       "name": "Hugging Face",
       "slug": "hugging-face",
       "domain": "huggingface.co",
@@ -59054,7 +59234,7 @@
       "list_rank": 76
     },
     {
-      "rank": 353,
+      "rank": 354,
       "name": "Rippling",
       "slug": "rippling",
       "domain": "rippling.com",
@@ -59178,7 +59358,7 @@
       "list_rank": 16
     },
     {
-      "rank": 354,
+      "rank": 355,
       "name": "Fal AI",
       "slug": "fal-ai",
       "domain": "fal.ai",
@@ -59346,7 +59526,7 @@
       "list_rank": 88
     },
     {
-      "rank": 355,
+      "rank": 356,
       "name": "Perplexity AI",
       "slug": "perplexity-ai",
       "domain": "perplexity.ai",
@@ -59466,7 +59646,7 @@
       "list_rank": 26
     },
     {
-      "rank": 356,
+      "rank": 357,
       "name": "Dash0",
       "slug": "dash0",
       "domain": "dash0.com",
@@ -59563,7 +59743,7 @@
       "list_rank": 1237
     },
     {
-      "rank": 357,
+      "rank": 358,
       "name": "Blue Yonder",
       "slug": "blue-yonder",
       "domain": "blueyonder.com",
@@ -59667,7 +59847,7 @@
       "list_rank": 715
     },
     {
-      "rank": 358,
+      "rank": 359,
       "name": "Bonsai",
       "slug": "bonsai-technologies",
       "domain": "hellobonsai.com",
@@ -59904,7 +60084,7 @@
       "list_rank": 4234
     },
     {
-      "rank": 359,
+      "rank": 360,
       "name": "Collibra",
       "slug": "collibra",
       "domain": "collibra.com",
@@ -60054,7 +60234,7 @@
       "list_rank": 56
     },
     {
-      "rank": 360,
+      "rank": 361,
       "name": "Customer.io",
       "slug": "customer-io",
       "domain": "customer.io",
@@ -60187,7 +60367,7 @@
       "list_rank": 3179
     },
     {
-      "rank": 361,
+      "rank": 362,
       "name": "Panther",
       "slug": "panther-labs",
       "domain": "panther.com",
@@ -60278,7 +60458,7 @@
       "list_rank": 3401
     },
     {
-      "rank": 362,
+      "rank": 363,
       "name": "Pydantic",
       "slug": "pydantic",
       "domain": "pydantic.dev",
@@ -60449,7 +60629,7 @@
       "list_rank": 3602
     },
     {
-      "rank": 363,
+      "rank": 364,
       "name": "Qualified",
       "slug": "qualified-com",
       "domain": "qualified.com",
@@ -60535,7 +60715,7 @@
       "list_rank": 3116
     },
     {
-      "rank": 364,
+      "rank": 365,
       "name": "Redis",
       "slug": "redis",
       "domain": "redislabs.com",
@@ -60779,7 +60959,7 @@
       "list_rank": 1807
     },
     {
-      "rank": 365,
+      "rank": 366,
       "name": "Seekr",
       "slug": "seekr",
       "domain": "seekr.com",
@@ -60975,7 +61155,7 @@
       "list_rank": 1287
     },
     {
-      "rank": 366,
+      "rank": 367,
       "name": "Talkdesk",
       "slug": "talkdesk",
       "domain": "talkdesk.com",
@@ -61128,7 +61308,7 @@
       "list_rank": 30
     },
     {
-      "rank": 367,
+      "rank": 368,
       "name": "Tietoevry",
       "slug": "tietoevry",
       "domain": "tieto.com",
@@ -61231,7 +61411,7 @@
       "list_rank": 461
     },
     {
-      "rank": 368,
+      "rank": 369,
       "name": "Tinybird",
       "slug": "tinybird",
       "domain": "tinybird.co",
@@ -61320,7 +61500,7 @@
       "list_rank": 3292
     },
     {
-      "rank": 369,
+      "rank": 370,
       "name": "Weaviate",
       "slug": "weaviate",
       "domain": "weaviate.io",
@@ -61453,7 +61633,7 @@
       "list_rank": 4967
     },
     {
-      "rank": 370,
+      "rank": 371,
       "name": "Qualtrics",
       "slug": "qualtrics",
       "domain": "qualtrics.com",
@@ -61688,7 +61868,7 @@
       "list_rank": 199
     },
     {
-      "rank": 371,
+      "rank": 372,
       "name": "Frosmo",
       "slug": "frosmo",
       "domain": "frosmo.com",
@@ -61778,7 +61958,7 @@
       "list_rank": 2305
     },
     {
-      "rank": 372,
+      "rank": 373,
       "name": "MaintainX",
       "slug": "maintainx",
       "domain": "maintainx.com",
@@ -61893,7 +62073,7 @@
       "list_rank": 79
     },
     {
-      "rank": 373,
+      "rank": 374,
       "name": "ClassRanked",
       "slug": "classranked",
       "domain": "classranked.com",
@@ -61978,7 +62158,7 @@
       "list_rank": 1386
     },
     {
-      "rank": 374,
+      "rank": 375,
       "name": "Rocketlane Corp",
       "slug": "rocketlane",
       "domain": "rocketlane.com",
@@ -62174,7 +62354,7 @@
       "list_rank": 3293
     },
     {
-      "rank": 375,
+      "rank": 376,
       "name": "Sarvam AI",
       "slug": "sarvam-ai",
       "domain": "sarvam.ai",
@@ -62263,7 +62443,7 @@
       "list_rank": 2832
     },
     {
-      "rank": 376,
+      "rank": 377,
       "name": "Canto Software",
       "slug": "canto-software",
       "domain": "canto.com",
@@ -62370,7 +62550,7 @@
       "list_rank": 1385
     },
     {
-      "rank": 377,
+      "rank": 378,
       "name": "Impartner",
       "slug": "impartner",
       "domain": "impartner.com",
@@ -62463,7 +62643,7 @@
       "list_rank": 3648
     },
     {
-      "rank": 378,
+      "rank": 379,
       "name": "MindFire, Inc",
       "slug": "mindfire-inc",
       "domain": "mindfireinc.com",
@@ -62546,7 +62726,7 @@
       "list_rank": 1594
     },
     {
-      "rank": 379,
+      "rank": 380,
       "name": "Quickbase",
       "slug": "quickbase",
       "domain": "quickbase.com",
@@ -62623,7 +62803,7 @@
       "list_rank": 1920
     },
     {
-      "rank": 380,
+      "rank": 381,
       "name": "Smarsh",
       "slug": "smarsh",
       "domain": "smarsh.com",
@@ -62704,7 +62884,7 @@
       "list_rank": 4624
     },
     {
-      "rank": 381,
+      "rank": 382,
       "name": "Verint Systems",
       "slug": "verint-systems",
       "domain": "verint.com",
@@ -62785,7 +62965,7 @@
       "list_rank": 2854
     },
     {
-      "rank": 382,
+      "rank": 383,
       "name": "Mixpanel",
       "slug": "mixpanel",
       "domain": "mixpanel.com",
@@ -62886,7 +63066,7 @@
       "list_rank": 146
     },
     {
-      "rank": 383,
+      "rank": 384,
       "name": "Mapbox",
       "slug": "mapbox",
       "domain": "mapbox.com",
@@ -62967,7 +63147,7 @@
       "list_rank": 3246
     },
     {
-      "rank": 384,
+      "rank": 385,
       "name": "SentinelOne",
       "slug": "sentinelone",
       "domain": "sentinelone.com",
@@ -63192,7 +63372,7 @@
       "list_rank": 166
     },
     {
-      "rank": 385,
+      "rank": 386,
       "name": "Cronofy",
       "slug": "cronofy",
       "domain": "cronofy.com",
@@ -63280,7 +63460,7 @@
       "list_rank": 3163
     },
     {
-      "rank": 386,
+      "rank": 387,
       "name": "Midjourney",
       "slug": "midjourney",
       "domain": "midjourney.com",
@@ -63369,7 +63549,7 @@
       "list_rank": 68
     },
     {
-      "rank": 387,
+      "rank": 388,
       "name": "ClearFeed, Inc",
       "slug": "clearfeed",
       "domain": "clearfeed.ai",
@@ -63468,7 +63648,7 @@
       "list_rank": 3344
     },
     {
-      "rank": 388,
+      "rank": 389,
       "name": "Omilia",
       "slug": "omilia",
       "domain": "omilia.com",
@@ -63606,7 +63786,7 @@
       "list_rank": 3264
     },
     {
-      "rank": 389,
+      "rank": 390,
       "name": "Outreach",
       "slug": "outreach",
       "domain": "outreach.io",
@@ -63695,7 +63875,7 @@
       "list_rank": 3645
     },
     {
-      "rank": 390,
+      "rank": 391,
       "name": "Productboard",
       "slug": "productboard",
       "domain": "productboard.com",
@@ -63780,7 +63960,7 @@
       "list_rank": 3081
     },
     {
-      "rank": 391,
+      "rank": 392,
       "name": "ScyllaDB",
       "slug": "scylladb",
       "domain": "scylladb.com",
@@ -63877,7 +64057,7 @@
       "list_rank": 3304
     },
     {
-      "rank": 392,
+      "rank": 393,
       "name": "Temporal",
       "slug": "temporal",
       "domain": "temporal.io",
@@ -63966,7 +64146,7 @@
       "list_rank": 3317
     },
     {
-      "rank": 393,
+      "rank": 394,
       "name": "Youmail",
       "slug": "youmail",
       "domain": "youmail.com",
@@ -64047,7 +64227,7 @@
       "list_rank": 4171
     },
     {
-      "rank": 394,
+      "rank": 395,
       "name": "AlphaSense",
       "slug": "alphasense",
       "domain": "alpha-sense.com",
@@ -64146,7 +64326,7 @@
       "list_rank": 25
     },
     {
-      "rank": 395,
+      "rank": 396,
       "name": "Fastly",
       "slug": "fastly",
       "domain": "fastly.com",
@@ -64258,7 +64438,7 @@
       "list_rank": 130
     },
     {
-      "rank": 396,
+      "rank": 397,
       "name": "OpenSesame Inc",
       "slug": "opensesame-inc",
       "domain": "opensesame.com",
@@ -64339,7 +64519,7 @@
       "list_rank": 4040
     },
     {
-      "rank": 397,
+      "rank": 398,
       "name": "Aerospike",
       "slug": "aerospike",
       "domain": "aerospike.com",
@@ -64416,7 +64596,7 @@
       "list_rank": 1303
     },
     {
-      "rank": 398,
+      "rank": 399,
       "name": "Calm",
       "slug": "calm",
       "domain": "calm.com",
@@ -64493,7 +64673,7 @@
       "list_rank": 1370
     },
     {
-      "rank": 399,
+      "rank": 400,
       "name": "OpenGov",
       "slug": "opengov",
       "domain": "opengov.com",
@@ -64580,7 +64760,156 @@
       "list_rank": 2614
     },
     {
-      "rank": 400,
+      "rank": 401,
+      "name": "Apideck",
+      "slug": "apideck",
+      "domain": "apideck.com",
+      "found": true,
+      "trust_url": "https://compliance.apideck.com/certifications",
+      "final_url": "https://compliance.apideck.com/certifications",
+      "list": "named-processor-gap",
+      "source": "https://trust.hellobonsai.com/subprocessors",
+      "source_url": "https://trust.hellobonsai.com/subprocessors",
+      "probed": 32,
+      "probed_at": "2026-09-03T16:58:38Z",
+      "certs": [
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II.",
+      "founded_year": 2019,
+      "founded_source": "https://www.apideck.com/about",
+      "instruments": {
+        "trust": {
+          "url": "https://compliance.apideck.com/certifications",
+          "host": "compliance.apideck.com",
+          "seen": "2026-09-03"
+        },
+        "security": null,
+        "privacy": null,
+        "dpa": {
+          "url": "https://compliance.apideck.com/dpa",
+          "host": "compliance.apideck.com",
+          "seen": "2026-09-03"
+        },
+        "subprocessors": {
+          "url": "https://compliance.apideck.com/subprocessors",
+          "host": "compliance.apideck.com",
+          "seen": "2026-09-03"
+        },
+        "status": {
+          "url": "https://status.apideck.com",
+          "host": "status.apideck.com",
+          "seen": "2026-09-03"
+        },
+        "bounty": null
+      },
+      "processors": [
+        {
+          "name": "Amazon Web Services, Inc",
+          "slug": "amazon-web-services",
+          "id": "amazon-web-services",
+          "source_url": "https://compliance.apideck.com/subprocessors"
+        },
+        {
+          "name": "Intercom, Inc",
+          "slug": "intercom",
+          "id": "intercom",
+          "source_url": "https://compliance.apideck.com/subprocessors"
+        },
+        {
+          "name": "Auth0, Inc",
+          "slug": "auth0",
+          "id": "auth0",
+          "source_url": "https://compliance.apideck.com/subprocessors"
+        },
+        {
+          "name": "Slack, Inc",
+          "slug": "slack",
+          "id": "slack",
+          "source_url": "https://compliance.apideck.com/subprocessors"
+        },
+        {
+          "name": "Google",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://compliance.apideck.com/subprocessors"
+        },
+        {
+          "name": "Twilio Inc",
+          "slug": "twilio",
+          "id": "twilio",
+          "source_url": "https://compliance.apideck.com/subprocessors"
+        },
+        {
+          "name": "Stripe Payments Europe, Limited",
+          "slug": "stripe",
+          "id": "stripe",
+          "source_url": "https://compliance.apideck.com/subprocessors"
+        },
+        {
+          "name": "Vercel, Inc",
+          "slug": "vercel",
+          "id": "vercel",
+          "source_url": "https://compliance.apideck.com/subprocessors"
+        },
+        {
+          "name": "HubSpot, Inc",
+          "slug": "hubspot",
+          "id": "hubspot",
+          "source_url": "https://compliance.apideck.com/subprocessors"
+        },
+        {
+          "name": "Fathom Analytics, Inc",
+          "slug": null,
+          "id": "fathom-analytics",
+          "source_url": "https://compliance.apideck.com/subprocessors"
+        },
+        {
+          "name": "FrontApp, Inc",
+          "slug": "front",
+          "id": "front",
+          "source_url": "https://compliance.apideck.com/subprocessors"
+        }
+      ],
+      "disclosure": {
+        "score": 55,
+        "tier": "on-file",
+        "factors": {
+          "page": 20,
+          "marks": 10,
+          "dpa": 8,
+          "processors": 8,
+          "status": 6,
+          "bounty": 0,
+          "privacy": 0,
+          "years": 3
+        }
+      },
+      "tier": "on-file",
+      "file": {
+        "page": 20,
+        "marks": 20,
+        "dpa": 20,
+        "subprocessors": 20,
+        "years": 20
+      },
+      "_crawl": {
+        "vendor": "unknown",
+        "title": "",
+        "http_status": null
+      },
+      "official_url": "https://www.apideck.com/",
+      "list_rank": 4276
+    },
+    {
+      "rank": 402,
       "name": "xAI",
       "slug": "xai",
       "domain": "x.ai",
@@ -64735,7 +65064,7 @@
       "list_rank": 180
     },
     {
-      "rank": 401,
+      "rank": 403,
       "name": "IBM",
       "slug": "ibm",
       "domain": "ibm.com",
@@ -65058,7 +65387,7 @@
       "list_rank": 140
     },
     {
-      "rank": 402,
+      "rank": 404,
       "name": "Intuit",
       "slug": "intuit",
       "domain": "intuit.com",
@@ -65143,7 +65472,7 @@
       "list_rank": 141
     },
     {
-      "rank": 403,
+      "rank": 405,
       "name": "Pinewood Technologies",
       "slug": "pinewood-technologies",
       "domain": "pinewood.ai",
@@ -65224,7 +65553,7 @@
       "list_rank": 1081
     },
     {
-      "rank": 404,
+      "rank": 406,
       "name": "Google",
       "slug": "google",
       "domain": "google.com",
@@ -65463,7 +65792,7 @@
       "list_rank": 136
     },
     {
-      "rank": 405,
+      "rank": 407,
       "name": "MaxMind",
       "slug": "maxmind",
       "domain": "maxmind.com",
@@ -65548,7 +65877,7 @@
       "list_rank": 4260
     },
     {
-      "rank": 406,
+      "rank": 408,
       "name": "DocuSign",
       "slug": "docusign",
       "domain": "docusign.com",
@@ -65743,7 +66072,7 @@
       "list_rank": 126
     },
     {
-      "rank": 407,
+      "rank": 409,
       "name": "Box",
       "slug": "box",
       "domain": "box.com",
@@ -65921,7 +66250,7 @@
       "list_rank": 112
     },
     {
-      "rank": 408,
+      "rank": 410,
       "name": "BrowserStack",
       "slug": "browserstack",
       "domain": "browserstack.com",
@@ -66190,7 +66519,7 @@
       "list_rank": 67
     },
     {
-      "rank": 409,
+      "rank": 411,
       "name": "Synap",
       "slug": "synap",
       "domain": "synap.ac",
@@ -66273,7 +66602,7 @@
       "list_rank": 2597
     },
     {
-      "rank": 410,
+      "rank": 412,
       "name": "CoreWeave",
       "slug": "coreweave",
       "domain": "coreweave.com",
@@ -66393,7 +66722,7 @@
       "list_rank": 120
     },
     {
-      "rank": 411,
+      "rank": 413,
       "name": "Amadeus",
       "slug": "amadeus",
       "domain": "amadeus.com",
@@ -66482,7 +66811,7 @@
       "list_rank": 306
     },
     {
-      "rank": 412,
+      "rank": 414,
       "name": "Cognition AI",
       "slug": "cognition-ai",
       "domain": "cognition.ai",
@@ -66569,7 +66898,7 @@
       "list_rank": 4657
     },
     {
-      "rank": 413,
+      "rank": 415,
       "name": "Dashlane",
       "slug": "dashlane",
       "domain": "dashlane.com",
@@ -66877,7 +67206,7 @@
       "list_rank": 1607
     },
     {
-      "rank": 414,
+      "rank": 416,
       "name": "DataBank",
       "slug": "databank",
       "domain": "databank.com",
@@ -66962,7 +67291,7 @@
       "list_rank": 3085
     },
     {
-      "rank": 415,
+      "rank": 417,
       "name": "hCaptcha",
       "slug": "intuition-machines-hcaptcha",
       "domain": "hcaptcha.com",
@@ -67049,7 +67378,7 @@
       "list_rank": 3091
     },
     {
-      "rank": 416,
+      "rank": 418,
       "name": "Ideogram",
       "slug": "ideogram-ai",
       "domain": "ideogram.ai",
@@ -67134,7 +67463,7 @@
       "list_rank": 3517
     },
     {
-      "rank": 417,
+      "rank": 419,
       "name": "iMerit",
       "slug": "imerit",
       "domain": "imerit.ai",
@@ -67226,7 +67555,7 @@
       "list_rank": 4716
     },
     {
-      "rank": 418,
+      "rank": 420,
       "name": "Ironclad",
       "slug": "ironclad",
       "domain": "ironcladapp.com",
@@ -67312,7 +67641,7 @@
       "list_rank": 3224
     },
     {
-      "rank": 419,
+      "rank": 421,
       "name": "Lovable",
       "slug": "lovable",
       "domain": "lovable.dev",
@@ -67401,7 +67730,7 @@
       "list_rank": 1168
     },
     {
-      "rank": 420,
+      "rank": 422,
       "name": "OneSignal",
       "slug": "onesignal",
       "domain": "onesignal.com",
@@ -67543,7 +67872,7 @@
       "list_rank": 2980
     },
     {
-      "rank": 421,
+      "rank": 423,
       "name": "OpenEvidence",
       "slug": "openevidence",
       "domain": "openevidence.com",
@@ -67638,7 +67967,7 @@
       "list_rank": 985
     },
     {
-      "rank": 422,
+      "rank": 424,
       "name": "Plain",
       "slug": "plain",
       "domain": "plain.com",
@@ -67719,98 +68048,7 @@
       "list_rank": 3256
     },
     {
-      "rank": 423,
-      "name": "Rollbar, Inc",
-      "slug": "rollbar",
-      "domain": "rollbar.com",
-      "found": true,
-      "trust_url": "https://rollbar.com/security",
-      "final_url": "https://docs.rollbar.com/docs/security",
-      "list": "named-processor-gap",
-      "source": "https://www.pagerduty.com/subprocessors/",
-      "source_url": "https://www.pagerduty.com/subprocessors/",
-      "probed": 13,
-      "probed_at": "2026-09-03T16:58:38Z",
-      "certs": [
-        "SOC 2 Type II",
-        "SOC 3"
-      ],
-      "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        },
-        {
-          "id": "soc-3",
-          "name": "SOC 3",
-          "weight": 4
-        }
-      ],
-      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, SOC 3.",
-      "founded_year": null,
-      "founded_source": null,
-      "instruments": {
-        "trust": {
-          "url": "https://rollbar.com/security",
-          "host": "rollbar.com",
-          "seen": "2026-09-03"
-        },
-        "security": {
-          "url": "https://docs.rollbar.com/docs/security",
-          "host": "docs.rollbar.com",
-          "seen": "2026-09-03"
-        },
-        "privacy": {
-          "url": "https://docs.rollbar.com/docs/privacy-policy",
-          "host": "docs.rollbar.com",
-          "seen": "2026-09-03"
-        },
-        "dpa": {
-          "url": "https://docs.rollbar.com/docs/data-processing-agreement",
-          "host": "docs.rollbar.com",
-          "seen": "2026-09-03"
-        },
-        "subprocessors": null,
-        "status": {
-          "url": "https://status.rollbar.com",
-          "host": "status.rollbar.com",
-          "seen": "2026-09-03"
-        },
-        "bounty": null
-      },
-      "processors": [],
-      "disclosure": {
-        "score": 54,
-        "tier": "on-file",
-        "factors": {
-          "page": 20,
-          "marks": 14,
-          "dpa": 8,
-          "processors": 0,
-          "status": 6,
-          "bounty": 0,
-          "privacy": 6,
-          "years": 0
-        }
-      },
-      "tier": "on-file",
-      "file": {
-        "page": 20,
-        "marks": 20,
-        "dpa": 20,
-        "subprocessors": 0,
-        "years": 0
-      },
-      "_crawl": {
-        "vendor": "unknown",
-        "title": "",
-        "http_status": null
-      },
-      "list_rank": 3288
-    },
-    {
-      "rank": 424,
+      "rank": 425,
       "name": "SupportLogic, Inc",
       "slug": "supportlogic",
       "domain": "supportlogic.com",
@@ -67899,7 +68137,7 @@
       "list_rank": 3289
     },
     {
-      "rank": 425,
+      "rank": 426,
       "name": "VEED",
       "slug": "veed",
       "domain": "veed.io",
@@ -67984,7 +68222,7 @@
       "list_rank": 3323
     },
     {
-      "rank": 426,
+      "rank": 427,
       "name": "Voltage Park",
       "slug": "voltage-park",
       "domain": "voltagepark.com",
@@ -68071,7 +68309,7 @@
       "list_rank": 3328
     },
     {
-      "rank": 427,
+      "rank": 428,
       "name": "Nemetschek",
       "slug": "nemetschek",
       "domain": "nemetschek.com",
@@ -68182,7 +68420,7 @@
       "list_rank": 309
     },
     {
-      "rank": 428,
+      "rank": 429,
       "name": "Sherpa.ai",
       "slug": "sherpa-ai",
       "domain": "sherpa.ai",
@@ -68271,7 +68509,7 @@
       "list_rank": 2700
     },
     {
-      "rank": 429,
+      "rank": 430,
       "name": "Huntress",
       "slug": "huntress",
       "domain": "huntress.com",
@@ -68360,7 +68598,7 @@
       "list_rank": 1007
     },
     {
-      "rank": 430,
+      "rank": 431,
       "name": "Flatfile",
       "slug": "flatfile",
       "domain": "flatfile.com",
@@ -68457,7 +68695,7 @@
       "list_rank": 3520
     },
     {
-      "rank": 431,
+      "rank": 432,
       "name": "Plume",
       "slug": "plume",
       "domain": "plume.com",
@@ -68661,7 +68899,7 @@
       "list_rank": 4410
     },
     {
-      "rank": 432,
+      "rank": 433,
       "name": "Sportradar",
       "slug": "sportradar",
       "domain": "sportradar.com",
@@ -68738,7 +68976,7 @@
       "list_rank": 4677
     },
     {
-      "rank": 433,
+      "rank": 434,
       "name": "Riverbed Technology",
       "slug": "riverbed-technology",
       "domain": "riverbed.com",
@@ -68811,7 +69049,7 @@
       "list_rank": 4268
     },
     {
-      "rank": 434,
+      "rank": 435,
       "name": "Odoo",
       "slug": "odoo",
       "domain": "odoo.com",
@@ -68907,7 +69145,7 @@
       "list_rank": 85
     },
     {
-      "rank": 435,
+      "rank": 436,
       "name": "Chartbeat",
       "slug": "chartbeat",
       "domain": "chartbeat.com",
@@ -68988,7 +69226,7 @@
       "list_rank": 1384
     },
     {
-      "rank": 436,
+      "rank": 437,
       "name": "Dwolla",
       "slug": "dwolla",
       "domain": "dwolla.com",
@@ -69073,7 +69311,7 @@
       "list_rank": 3459
     },
     {
-      "rank": 437,
+      "rank": 438,
       "name": "FloQast",
       "slug": "floqast",
       "domain": "floqast.com",
@@ -69166,7 +69404,7 @@
       "list_rank": 1485
     },
     {
-      "rank": 438,
+      "rank": 439,
       "name": "CodeSignal",
       "slug": "codesignal",
       "domain": "codesignal.com",
@@ -69243,7 +69481,7 @@
       "list_rank": 2583
     },
     {
-      "rank": 439,
+      "rank": 440,
       "name": "Wealthsimple",
       "slug": "wealthsimple",
       "domain": "wealthsimple.com",
@@ -69334,7 +69572,7 @@
       "list_rank": 3201
     },
     {
-      "rank": 440,
+      "rank": 441,
       "name": "Flock Safety",
       "slug": "flock-safety",
       "domain": "flocksafety.com",
@@ -69518,7 +69756,7 @@
       "list_rank": 23
     },
     {
-      "rank": 441,
+      "rank": 442,
       "name": "Retool",
       "slug": "retool",
       "domain": "retool.com",
@@ -69666,7 +69904,7 @@
       "list_rank": 3300
     },
     {
-      "rank": 442,
+      "rank": 443,
       "name": "Abnormal AI",
       "slug": "abnormal-ai",
       "domain": "abnormal.ai",
@@ -69958,7 +70196,153 @@
       "list_rank": 19
     },
     {
-      "rank": 443,
+      "rank": 444,
+      "name": "ClientSuccess",
+      "slug": "client-success",
+      "domain": "clientsuccess.com",
+      "found": true,
+      "trust_url": "https://clientsuccess.com/security",
+      "final_url": "https://www.clientsuccess.com/security-compliance",
+      "list": "named-processor-gap",
+      "source": "https://www.veracode.com/legal-privacy/subprocessors-notification/",
+      "source_url": "https://www.veracode.com/legal-privacy/subprocessors-notification/",
+      "probed": 18,
+      "probed_at": "2026-09-03T16:58:38Z",
+      "certs": [
+        "SOC 2 Type II"
+      ],
+      "attestations": [
+        {
+          "id": "soc-2-type-ii",
+          "name": "SOC 2 Type II",
+          "weight": 10
+        }
+      ],
+      "summary": "Public trust center. On file: SOC 2 Type II.",
+      "founded_year": null,
+      "founded_source": null,
+      "instruments": {
+        "trust": {
+          "url": "https://clientsuccess.com/security",
+          "host": "clientsuccess.com",
+          "seen": "2026-09-03"
+        },
+        "security": {
+          "url": "https://www.clientsuccess.com/security-compliance",
+          "host": "clientsuccess.com",
+          "seen": "2026-09-03"
+        },
+        "privacy": {
+          "url": "https://www.clientsuccess.com/privacy-policy",
+          "host": "clientsuccess.com",
+          "seen": "2026-09-03"
+        },
+        "dpa": {
+          "url": "https://www.clientsuccess.com/data-processing-amendment",
+          "host": "clientsuccess.com",
+          "seen": "2026-09-03"
+        },
+        "subprocessors": {
+          "url": "https://www.clientsuccess.com/list-of-sub-processors",
+          "host": "clientsuccess.com",
+          "seen": "2026-09-03"
+        },
+        "status": null,
+        "bounty": null
+      },
+      "processors": [
+        {
+          "name": "Amazon Web Services",
+          "slug": "amazon-web-services",
+          "id": "amazon-web-services",
+          "source_url": "https://www.clientsuccess.com/list-of-sub-processors"
+        },
+        {
+          "name": "Google LLC",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://www.clientsuccess.com/list-of-sub-processors"
+        },
+        {
+          "name": "Salesforce / Heroku",
+          "slug": "salesforce",
+          "id": "salesforce",
+          "source_url": "https://www.clientsuccess.com/list-of-sub-processors"
+        },
+        {
+          "name": "Stripe",
+          "slug": "stripe",
+          "id": "stripe",
+          "source_url": "https://www.clientsuccess.com/list-of-sub-processors"
+        },
+        {
+          "name": "Zendesk",
+          "slug": "zendesk",
+          "id": "zendesk",
+          "source_url": "https://www.clientsuccess.com/list-of-sub-processors"
+        },
+        {
+          "name": "Twilio / SendGrid",
+          "slug": "twilio",
+          "id": "twilio",
+          "source_url": "https://www.clientsuccess.com/list-of-sub-processors"
+        },
+        {
+          "name": "Mixpanel",
+          "slug": "mixpanel",
+          "id": "mixpanel",
+          "source_url": "https://www.clientsuccess.com/list-of-sub-processors"
+        },
+        {
+          "name": "Intercom",
+          "slug": "intercom",
+          "id": "intercom",
+          "source_url": "https://www.clientsuccess.com/list-of-sub-processors"
+        },
+        {
+          "name": "HubSpot",
+          "slug": "hubspot",
+          "id": "hubspot",
+          "source_url": "https://www.clientsuccess.com/list-of-sub-processors"
+        },
+        {
+          "name": "Snowflake",
+          "slug": "snowflake",
+          "id": "snowflake",
+          "source_url": "https://www.clientsuccess.com/list-of-sub-processors"
+        }
+      ],
+      "disclosure": {
+        "score": 52,
+        "tier": "on-file",
+        "factors": {
+          "page": 20,
+          "marks": 10,
+          "dpa": 8,
+          "processors": 8,
+          "status": 0,
+          "bounty": 0,
+          "privacy": 6,
+          "years": 0
+        }
+      },
+      "tier": "on-file",
+      "file": {
+        "page": 20,
+        "marks": 20,
+        "dpa": 20,
+        "subprocessors": 20,
+        "years": 0
+      },
+      "_crawl": {
+        "vendor": "unknown",
+        "title": "",
+        "http_status": null
+      },
+      "list_rank": 3379
+    },
+    {
+      "rank": 445,
       "name": "Grafana Labs",
       "slug": "grafana-labs",
       "domain": "grafana.com",
@@ -70118,7 +70502,7 @@
       "list_rank": 13
     },
     {
-      "rank": 444,
+      "rank": 446,
       "name": "Liveblocks",
       "slug": "liveblocks",
       "domain": "liveblocks.io",
@@ -70172,7 +70556,92 @@
         "status": null,
         "bounty": null
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "WorkOS",
+          "slug": "workos",
+          "id": "workos",
+          "source_url": "https://liveblocks.io/subprocessors"
+        },
+        {
+          "name": "Amazon",
+          "slug": "amazon",
+          "id": "amazon",
+          "source_url": "https://liveblocks.io/subprocessors"
+        },
+        {
+          "name": "Cloudflare",
+          "slug": "cloudflare",
+          "id": "cloudflare",
+          "source_url": "https://liveblocks.io/subprocessors"
+        },
+        {
+          "name": "Cohere",
+          "slug": "cohere",
+          "id": "cohere",
+          "source_url": "https://liveblocks.io/subprocessors"
+        },
+        {
+          "name": "Datadog",
+          "slug": "datadog",
+          "id": "datadog",
+          "source_url": "https://liveblocks.io/subprocessors"
+        },
+        {
+          "name": "Google Cloud",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://liveblocks.io/subprocessors"
+        },
+        {
+          "name": "MongoDB",
+          "slug": "mongodb",
+          "id": "mongodb",
+          "source_url": "https://liveblocks.io/subprocessors"
+        },
+        {
+          "name": "Mixpanel",
+          "slug": "mixpanel",
+          "id": "mixpanel",
+          "source_url": "https://liveblocks.io/subprocessors"
+        },
+        {
+          "name": "Sendgrid",
+          "slug": "twilio",
+          "id": "twilio",
+          "source_url": "https://liveblocks.io/subprocessors"
+        },
+        {
+          "name": "Resend",
+          "slug": null,
+          "id": "resend",
+          "source_url": "https://liveblocks.io/subprocessors"
+        },
+        {
+          "name": "Stripe",
+          "slug": "stripe",
+          "id": "stripe",
+          "source_url": "https://liveblocks.io/subprocessors"
+        },
+        {
+          "name": "Svix",
+          "slug": null,
+          "id": "svix",
+          "source_url": "https://liveblocks.io/subprocessors"
+        },
+        {
+          "name": "Timescale",
+          "slug": null,
+          "id": "timescale",
+          "source_url": "https://liveblocks.io/subprocessors"
+        },
+        {
+          "name": "Turbopuffer",
+          "slug": "turbopuffer",
+          "id": "turbopuffer",
+          "source_url": "https://liveblocks.io/subprocessors"
+        }
+      ],
       "disclosure": {
         "score": 52,
         "tier": "on-file",
@@ -70192,7 +70661,7 @@
         "page": 20,
         "marks": 20,
         "dpa": 20,
-        "subprocessors": 10,
+        "subprocessors": 20,
         "years": 0
       },
       "_crawl": {
@@ -70204,7 +70673,7 @@
       "list_rank": 3235
     },
     {
-      "rank": 445,
+      "rank": 447,
       "name": "LiveKit",
       "slug": "livekit",
       "domain": "livekit.com",
@@ -70473,7 +70942,7 @@
       "list_rank": 3238
     },
     {
-      "rank": 446,
+      "rank": 448,
       "name": "Metabase",
       "slug": "metabase",
       "domain": "metabase.com",
@@ -70561,7 +71030,7 @@
       "list_rank": 4964
     },
     {
-      "rank": 447,
+      "rank": 449,
       "name": "Snorkel AI",
       "slug": "snorkel-ai",
       "domain": "snorkel.ai",
@@ -70654,7 +71123,7 @@
       "list_rank": 986
     },
     {
-      "rank": 448,
+      "rank": 450,
       "name": "Stytch",
       "slug": "stytch",
       "domain": "stytch.com",
@@ -70750,7 +71219,7 @@
       "list_rank": 3019
     },
     {
-      "rank": 449,
+      "rank": 451,
       "name": "CrowdStrike",
       "slug": "crowdstrike",
       "domain": "crowdstrike.com",
@@ -71000,7 +71469,7 @@
       "list_rank": 122
     },
     {
-      "rank": 450,
+      "rank": 452,
       "name": "Instabase",
       "slug": "instabase",
       "domain": "instabase.com",
@@ -71101,7 +71570,7 @@
       "list_rank": 1524
     },
     {
-      "rank": 451,
+      "rank": 453,
       "name": "You.com",
       "slug": "susea",
       "domain": "you.com",
@@ -71178,7 +71647,7 @@
       "list_rank": 3646
     },
     {
-      "rank": 452,
+      "rank": 454,
       "name": "Actively AI",
       "slug": "actively-ai",
       "domain": "actively.ai",
@@ -71269,7 +71738,7 @@
       "list_rank": 1213
     },
     {
-      "rank": 453,
+      "rank": 455,
       "name": "Kentik",
       "slug": "kentik",
       "domain": "kentik.com",
@@ -71463,7 +71932,7 @@
       "list_rank": 1553
     },
     {
-      "rank": 454,
+      "rank": 456,
       "name": "CTSI-Global",
       "slug": "ctsi-global",
       "domain": "ctsi-global.com",
@@ -71536,7 +72005,7 @@
       "list_rank": 2675
     },
     {
-      "rank": 455,
+      "rank": 457,
       "name": "Bromcom",
       "slug": "bromcom",
       "domain": "bromcom.com",
@@ -71609,7 +72078,7 @@
       "list_rank": 2018
     },
     {
-      "rank": 456,
+      "rank": 458,
       "name": "SuperOffice",
       "slug": "superoffice",
       "domain": "superoffice.com",
@@ -71682,7 +72151,7 @@
       "list_rank": 2334
     },
     {
-      "rank": 457,
+      "rank": 459,
       "name": "Extensis",
       "slug": "extensis",
       "domain": "extensis.com",
@@ -71755,7 +72224,7 @@
       "list_rank": 1463
     },
     {
-      "rank": 458,
+      "rank": 460,
       "name": "Netcraft",
       "slug": "netcraft",
       "domain": "netcraft.com",
@@ -71828,7 +72297,7 @@
       "list_rank": 1654
     },
     {
-      "rank": 459,
+      "rank": 461,
       "name": "Perforce",
       "slug": "perforce",
       "domain": "perforce.com",
@@ -71901,7 +72370,7 @@
       "list_rank": 1796
     },
     {
-      "rank": 460,
+      "rank": 462,
       "name": "Appen",
       "slug": "appen",
       "domain": "appen.com",
@@ -71974,7 +72443,7 @@
       "list_rank": 4340
     },
     {
-      "rank": 461,
+      "rank": 463,
       "name": "Akamai",
       "slug": "akamai",
       "domain": "akamai.com",
@@ -72110,7 +72579,7 @@
       "list_rank": 103
     },
     {
-      "rank": 462,
+      "rank": 464,
       "name": "Telestream",
       "slug": "telestream",
       "domain": "telestream.net",
@@ -72183,7 +72652,7 @@
       "list_rank": 2665
     },
     {
-      "rank": 463,
+      "rank": 465,
       "name": "Lightspeed Systems",
       "slug": "lightspeed-systems",
       "domain": "lightspeedsystems.com",
@@ -72256,7 +72725,7 @@
       "list_rank": 4493
     },
     {
-      "rank": 464,
+      "rank": 466,
       "name": "Bluebeam Software, Inc.",
       "slug": "bluebeam-software-inc",
       "domain": "bluebeam.com",
@@ -72333,7 +72802,7 @@
       "list_rank": 4368
     },
     {
-      "rank": 465,
+      "rank": 467,
       "name": "Anaplan",
       "slug": "anaplan",
       "domain": "anaplan.com",
@@ -72406,7 +72875,7 @@
       "list_rank": 2824
     },
     {
-      "rank": 466,
+      "rank": 468,
       "name": "Percona",
       "slug": "percona",
       "domain": "percona.com",
@@ -72483,7 +72952,7 @@
       "list_rank": 2774
     },
     {
-      "rank": 467,
+      "rank": 469,
       "name": "Versapay",
       "slug": "versapay",
       "domain": "versapay.com",
@@ -72556,7 +73025,7 @@
       "list_rank": 2118
     },
     {
-      "rank": 468,
+      "rank": 470,
       "name": "Shippo",
       "slug": "shippo",
       "domain": "goshippo.com",
@@ -72635,7 +73104,7 @@
       "list_rank": 4281
     },
     {
-      "rank": 469,
+      "rank": 471,
       "name": "CesiumAstro",
       "slug": "cesiumastro",
       "domain": "cesiumastro.com",
@@ -72718,7 +73187,7 @@
       "list_rank": 3884
     },
     {
-      "rank": 470,
+      "rank": 472,
       "name": "Forethought Technologies",
       "slug": "forethought-technologies",
       "domain": "forethought.ai",
@@ -72764,7 +73233,134 @@
         "status": null,
         "bounty": null
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "Amazon Web Services, Inc",
+          "slug": "amazon-web-services",
+          "id": "amazon-web-services",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "MongoDB",
+          "slug": "mongodb",
+          "id": "mongodb",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "Microsoft Hosting Services",
+          "slug": "microsoft",
+          "id": "microsoft",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "Google, Inc",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "Cloudflare",
+          "slug": "cloudflare",
+          "id": "cloudflare",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "id": "openai",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "Groq",
+          "slug": "groq",
+          "id": "groq",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral-ai",
+          "id": "mistral-ai",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "Pusher",
+          "slug": "pusher",
+          "id": "pusher",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "Datadog",
+          "slug": "datadog",
+          "id": "datadog",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "Gladia",
+          "slug": "gladia",
+          "id": "gladia",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "Deepgram",
+          "slug": "deepgram",
+          "id": "deepgram",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "ElevenLabs",
+          "slug": "elevenlabs",
+          "id": "elevenlabs",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "Cartesia",
+          "slug": "cartesia",
+          "id": "cartesia",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "Daily.co",
+          "slug": "daily",
+          "id": "daily",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "Twilio",
+          "slug": "twilio",
+          "id": "twilio",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "Snowflake Inc",
+          "slug": "snowflake",
+          "id": "snowflake",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "Sentry",
+          "slug": "sentry",
+          "id": "sentry",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "Appcues",
+          "slug": "appcues",
+          "id": "appcues",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "Gainsight",
+          "slug": "gainsight",
+          "id": "gainsight",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        },
+        {
+          "name": "SendGrid, Inc",
+          "slug": "twilio",
+          "id": "twilio",
+          "source_url": "https://forethought.ai/data-subprocessors"
+        }
+      ],
       "disclosure": {
         "score": 50,
         "tier": "on-file",
@@ -72784,7 +73380,7 @@
         "page": 20,
         "marks": 20,
         "dpa": 20,
-        "subprocessors": 10,
+        "subprocessors": 20,
         "years": 20
       },
       "_crawl": {
@@ -72795,7 +73391,7 @@
       "list_rank": 2806
     },
     {
-      "rank": 471,
+      "rank": 473,
       "name": "Krisp",
       "slug": "krisp",
       "domain": "krisp.ai",
@@ -72876,7 +73472,7 @@
       "list_rank": 3671
     },
     {
-      "rank": 472,
+      "rank": 474,
       "name": "Seqera Labs",
       "slug": "seqera-labs",
       "domain": "seqera.io",
@@ -72953,7 +73549,7 @@
       "list_rank": 2694
     },
     {
-      "rank": 473,
+      "rank": 475,
       "name": "DeepJudge",
       "slug": "deepjudge",
       "domain": "deepjudge.ai",
@@ -73036,7 +73632,7 @@
       "list_rank": 1239
     },
     {
-      "rank": 474,
+      "rank": 476,
       "name": "Mercor",
       "slug": "mercor",
       "domain": "mercor.com",
@@ -73177,7 +73773,7 @@
       "list_rank": 89
     },
     {
-      "rank": 475,
+      "rank": 477,
       "name": "Bright Data",
       "slug": "bright-data",
       "domain": "brightdata.com",
@@ -73277,7 +73873,7 @@
       "list_rank": 3108
     },
     {
-      "rank": 476,
+      "rank": 478,
       "name": "CloudAMQP",
       "slug": "84codes-cloudamqp",
       "domain": "cloudamqp.com",
@@ -73360,7 +73956,7 @@
       "list_rank": 3092
     },
     {
-      "rank": 477,
+      "rank": 479,
       "name": "Constellation Energy",
       "slug": "constellation-energy",
       "domain": "constellation.com",
@@ -73447,7 +74043,7 @@
       "list_rank": 840
     },
     {
-      "rank": 478,
+      "rank": 480,
       "name": "Enterpret",
       "slug": "enterpret",
       "domain": "enterpret.com",
@@ -73532,7 +74128,7 @@
       "list_rank": 3084
     },
     {
-      "rank": 479,
+      "rank": 481,
       "name": "INTERSHOP Communications",
       "slug": "intershop-communications",
       "domain": "intershop.com",
@@ -73613,7 +74209,7 @@
       "list_rank": 562
     },
     {
-      "rank": 480,
+      "rank": 482,
       "name": "Lob",
       "slug": "lob-com",
       "domain": "lob.com",
@@ -73700,7 +74296,7 @@
       "list_rank": 3389
     },
     {
-      "rank": 481,
+      "rank": 483,
       "name": "Neon",
       "slug": "neon",
       "domain": "neon.tech",
@@ -73788,7 +74384,7 @@
       "list_rank": 4919
     },
     {
-      "rank": 482,
+      "rank": 484,
       "name": "Nightfall",
       "slug": "nightfall",
       "domain": "nightfall.ai",
@@ -73873,7 +74469,7 @@
       "list_rank": 3321
     },
     {
-      "rank": 483,
+      "rank": 485,
       "name": "NinjaOne",
       "slug": "ninjaone",
       "domain": "ninjaone.com",
@@ -74033,7 +74629,7 @@
       "list_rank": 47
     },
     {
-      "rank": 484,
+      "rank": 486,
       "name": "PAR Technology",
       "slug": "par-technology",
       "domain": "partech.com",
@@ -74138,7 +74734,7 @@
       "list_rank": 1080
     },
     {
-      "rank": 485,
+      "rank": 487,
       "name": "PlayerZero",
       "slug": "playerzero",
       "domain": "playerzero.ai",
@@ -74227,7 +74823,7 @@
       "list_rank": 1275
     },
     {
-      "rank": 486,
+      "rank": 488,
       "name": "Synchronoss",
       "slug": "synchronoss",
       "domain": "synchronoss.com",
@@ -74313,7 +74909,7 @@
       "list_rank": 456
     },
     {
-      "rank": 487,
+      "rank": 489,
       "name": "G Data CyberDefense",
       "slug": "g-data-cyberdefense",
       "domain": "gdatasoftware.com",
@@ -74396,7 +74992,7 @@
       "list_rank": 4722
     },
     {
-      "rank": 488,
+      "rank": 490,
       "name": "ProjectManager.com",
       "slug": "projectmanager-com",
       "domain": "projectmanager.com",
@@ -74469,7 +75065,7 @@
       "list_rank": 2374
     },
     {
-      "rank": 489,
+      "rank": 491,
       "name": "Rocket Lawyer",
       "slug": "rocket-lawyer",
       "domain": "rocketlawyer.com",
@@ -74546,7 +75142,7 @@
       "list_rank": 3822
     },
     {
-      "rank": 490,
+      "rank": 492,
       "name": "Sauce Labs",
       "slug": "sauce-labs",
       "domain": "saucelabs.com",
@@ -74619,7 +75215,7 @@
       "list_rank": 3723
     },
     {
-      "rank": 491,
+      "rank": 493,
       "name": "Brightwheel",
       "slug": "brightwheel",
       "domain": "brightwheel.com",
@@ -74720,7 +75316,7 @@
       "list_rank": 94
     },
     {
-      "rank": 492,
+      "rank": 494,
       "name": "Typeform",
       "slug": "typeform",
       "domain": "typeform.com",
@@ -74793,7 +75389,7 @@
       "list_rank": 1879
     },
     {
-      "rank": 493,
+      "rank": 495,
       "name": "Certara",
       "slug": "certara",
       "domain": "certara.com",
@@ -74896,7 +75492,7 @@
       "list_rank": 1052
     },
     {
-      "rank": 494,
+      "rank": 496,
       "name": "Eagle Eye Solutions",
       "slug": "eagle-eye-solutions",
       "domain": "eagleeye.com",
@@ -74989,7 +75585,7 @@
       "list_rank": 1064
     },
     {
-      "rank": 495,
+      "rank": 497,
       "name": "Skyward",
       "slug": "skyward",
       "domain": "skyward.com",
@@ -75070,7 +75666,7 @@
       "list_rank": 4662
     },
     {
-      "rank": 496,
+      "rank": 498,
       "name": "PROS",
       "slug": "pros",
       "domain": "pros.com",
@@ -75155,7 +75751,7 @@
       "list_rank": 3653
     },
     {
-      "rank": 497,
+      "rank": 499,
       "name": "Avid Technology",
       "slug": "avid-technology",
       "domain": "avid.com",
@@ -75232,7 +75828,7 @@
       "list_rank": 1343
     },
     {
-      "rank": 498,
+      "rank": 500,
       "name": "SAP Ariba",
       "slug": "sap-ariba",
       "domain": "ariba.com",
@@ -75309,7 +75905,7 @@
       "list_rank": 2631
     },
     {
-      "rank": 499,
+      "rank": 501,
       "name": "PayPal",
       "slug": "paypal",
       "domain": "paypal.com",
@@ -75386,7 +75982,7 @@
       "list_rank": 157
     },
     {
-      "rank": 500,
+      "rank": 502,
       "name": "CyberArk",
       "slug": "cyberark",
       "domain": "cyberark.com",
@@ -75664,7 +76260,7 @@
       "list_rank": 123
     },
     {
-      "rank": 501,
+      "rank": 503,
       "name": "Palantir",
       "slug": "palantir",
       "domain": "palantir.com",
@@ -75831,7 +76427,7 @@
       "list_rank": 155
     },
     {
-      "rank": 502,
+      "rank": 504,
       "name": "Treering",
       "slug": "treering",
       "domain": "treering.com",
@@ -75904,7 +76500,7 @@
       "list_rank": 4202
     },
     {
-      "rank": 503,
+      "rank": 505,
       "name": "Guesty",
       "slug": "guesty",
       "domain": "guesty.com",
@@ -75977,7 +76573,7 @@
       "list_rank": 1958
     },
     {
-      "rank": 504,
+      "rank": 506,
       "name": "Personio",
       "slug": "personio",
       "domain": "personio.com",
@@ -76066,7 +76662,7 @@
       "list_rank": 69
     },
     {
-      "rank": 505,
+      "rank": 507,
       "name": "6sense",
       "slug": "6sense",
       "domain": "6sense.com",
@@ -76143,7 +76739,7 @@
       "list_rank": 3512
     },
     {
-      "rank": 506,
+      "rank": 508,
       "name": "Accredible",
       "slug": "edinvent-accredible",
       "domain": "accredible.com",
@@ -76224,7 +76820,7 @@
       "list_rank": 3381
     },
     {
-      "rank": 507,
+      "rank": 509,
       "name": "Ashby",
       "slug": "ashby",
       "domain": "ashbyhq.com",
@@ -76310,7 +76906,7 @@
       "list_rank": 3100
     },
     {
-      "rank": 508,
+      "rank": 510,
       "name": "Boomi, LP",
       "slug": "boomi-lp",
       "domain": "boomi.com",
@@ -76430,7 +77026,7 @@
       "list_rank": 1358
     },
     {
-      "rank": 509,
+      "rank": 511,
       "name": "Cartesia",
       "slug": "cartesia",
       "domain": "cartesia.ai",
@@ -76508,7 +77104,7 @@
       "list_rank": 3159
     },
     {
-      "rank": 510,
+      "rank": 512,
       "name": "Cognition",
       "slug": "cognition",
       "domain": "cognition.com",
@@ -76612,7 +77208,7 @@
       "list_rank": 1160
     },
     {
-      "rank": 511,
+      "rank": 513,
       "name": "Colossyan",
       "slug": "colossyan",
       "domain": "colossyan.com",
@@ -76694,7 +77290,7 @@
       "list_rank": 3738
     },
     {
-      "rank": 512,
+      "rank": 514,
       "name": "Exasol AG",
       "slug": "exasol-ag",
       "domain": "exasol.com",
@@ -76776,7 +77372,7 @@
       "list_rank": 541
     },
     {
-      "rank": 513,
+      "rank": 515,
       "name": "HorizonIQ",
       "slug": "horizoniq",
       "domain": "horizoniq.com",
@@ -76857,7 +77453,7 @@
       "list_rank": 3539
     },
     {
-      "rank": 514,
+      "rank": 516,
       "name": "Jasper",
       "slug": "jasper-ai",
       "domain": "jasper.ai",
@@ -76871,7 +77467,7 @@
       "probed_at": "2026-09-03T16:58:38Z",
       "certs": [],
       "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "summary": "Official page on file. Named processors filed from a first-party list.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -76907,7 +77503,194 @@
         },
         "bounty": null
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "Amplitude",
+          "slug": "amplitude",
+          "id": "amplitude",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "dbt Cloud",
+          "slug": null,
+          "id": "dbt-cloud",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Fivetran",
+          "slug": "fivetran",
+          "id": "fivetran",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Mode",
+          "slug": null,
+          "id": "mode",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Productboard",
+          "slug": "productboard",
+          "id": "productboard",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Chargehound",
+          "slug": null,
+          "id": "chargehound",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Churnkey",
+          "slug": null,
+          "id": "churnkey",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Maxio",
+          "slug": null,
+          "id": "maxio",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Orb",
+          "slug": "orb",
+          "id": "orb",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Stripe",
+          "slug": "stripe",
+          "id": "stripe",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Google Workspace",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "SendGrid",
+          "slug": "twilio",
+          "id": "twilio",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "LaunchDarkly",
+          "slug": "launchdarkly",
+          "id": "launchdarkly",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "FingerprintJS",
+          "slug": null,
+          "id": "fingerprintjs",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "SerpApi",
+          "slug": null,
+          "id": "serpapi",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Cloudflare",
+          "slug": "cloudflare",
+          "id": "cloudflare",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Vercel",
+          "slug": "vercel",
+          "id": "vercel",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Paragon",
+          "slug": null,
+          "id": "paragon",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic",
+          "id": "anthropic",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Cohere",
+          "slug": "cohere",
+          "id": "cohere",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "OpenAI",
+          "slug": "openai",
+          "id": "openai",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Datadog",
+          "slug": "datadog",
+          "id": "datadog",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Splunk",
+          "slug": "splunk",
+          "id": "splunk",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Transcend",
+          "slug": null,
+          "id": "transcend",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "ADA",
+          "slug": "ada",
+          "id": "ada",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Gong",
+          "slug": "gong",
+          "id": "gong",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Retool",
+          "slug": "retool",
+          "id": "retool",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Slack",
+          "slug": "slack",
+          "id": "slack",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Zendesk",
+          "slug": "zendesk",
+          "id": "zendesk",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Google Cloud",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        },
+        {
+          "name": "Google Gemini",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://www.jasper.ai/legal/sub-processors"
+        }
+      ],
       "disclosure": {
         "score": 48,
         "tier": "on-file",
@@ -76927,7 +77710,7 @@
         "page": 20,
         "marks": 10,
         "dpa": 20,
-        "subprocessors": 10,
+        "subprocessors": 20,
         "years": 0
       },
       "_crawl": {
@@ -76939,7 +77722,7 @@
       "list_rank": 3233
     },
     {
-      "rank": 515,
+      "rank": 517,
       "name": "PostHog",
       "slug": "posthog",
       "domain": "posthog.com",
@@ -77016,7 +77799,7 @@
       "list_rank": 3069
     },
     {
-      "rank": 516,
+      "rank": 518,
       "name": "RudderStack",
       "slug": "rudderstack",
       "domain": "rudderstack.com",
@@ -77097,7 +77880,7 @@
       "list_rank": 3580
     },
     {
-      "rank": 517,
+      "rank": 519,
       "name": "Sigma",
       "slug": "sigma",
       "domain": "sigmacomputing.com",
@@ -77111,7 +77894,7 @@
       "probed_at": "2026-09-03T16:58:38Z",
       "certs": [],
       "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "summary": "Official page on file. Named processors filed from a first-party list.",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -77147,7 +77930,128 @@
         },
         "bounty": null
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "Amazon Web Services",
+          "slug": "amazon-web-services",
+          "id": "amazon-web-services",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        },
+        {
+          "name": "Atlassian",
+          "slug": "atlassian",
+          "id": "atlassian",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        },
+        {
+          "name": "Cloudflare",
+          "slug": "cloudflare",
+          "id": "cloudflare",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        },
+        {
+          "name": "Dagster",
+          "slug": null,
+          "id": "dagster",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        },
+        {
+          "name": "Datadog",
+          "slug": "datadog",
+          "id": "datadog",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        },
+        {
+          "name": "FiveTran",
+          "slug": "fivetran",
+          "id": "fivetran",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        },
+        {
+          "name": "Google Cloud Platform",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        },
+        {
+          "name": "G Suite",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        },
+        {
+          "name": "Hubspot",
+          "slug": "hubspot",
+          "id": "hubspot",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        },
+        {
+          "name": "Intercom",
+          "slug": "intercom",
+          "id": "intercom",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        },
+        {
+          "name": "Microsoft Azure",
+          "slug": "microsoft",
+          "id": "microsoft",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        },
+        {
+          "name": "Observe Inc",
+          "slug": null,
+          "id": "observe",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        },
+        {
+          "name": "Panther Labs Inc",
+          "slug": "panther-labs",
+          "id": "panther-labs",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        },
+        {
+          "name": "Salesforce",
+          "slug": "salesforce",
+          "id": "salesforce",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        },
+        {
+          "name": "SendGrid",
+          "slug": "twilio",
+          "id": "twilio",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        },
+        {
+          "name": "Sentry",
+          "slug": "sentry",
+          "id": "sentry",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        },
+        {
+          "name": "Snowflake",
+          "slug": "snowflake",
+          "id": "snowflake",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        },
+        {
+          "name": "Statsig",
+          "slug": null,
+          "id": "statsig",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        },
+        {
+          "name": "Zendesk",
+          "slug": "zendesk",
+          "id": "zendesk",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        },
+        {
+          "name": "Census",
+          "slug": "fivetran",
+          "id": "fivetran",
+          "source_url": "https://www.sigmacomputing.com/legal/subprocessors"
+        }
+      ],
       "disclosure": {
         "score": 48,
         "tier": "on-file",
@@ -77167,7 +78071,7 @@
         "page": 20,
         "marks": 10,
         "dpa": 20,
-        "subprocessors": 10,
+        "subprocessors": 20,
         "years": 0
       },
       "_crawl": {
@@ -77178,7 +78082,7 @@
       "list_rank": 3341
     },
     {
-      "rank": 518,
+      "rank": 520,
       "name": "Tray.ai",
       "slug": "tray-ai",
       "domain": "tray.ai",
@@ -77310,7 +78214,7 @@
       "list_rank": 3072
     },
     {
-      "rank": 519,
+      "rank": 521,
       "name": "Upwind",
       "slug": "upwind",
       "domain": "upwind.io",
@@ -77391,7 +78295,7 @@
       "list_rank": 3529
     },
     {
-      "rank": 520,
+      "rank": 522,
       "name": "UserTesting",
       "slug": "user-testing",
       "domain": "usertesting.com",
@@ -77571,7 +78475,7 @@
       "list_rank": 3075
     },
     {
-      "rank": 521,
+      "rank": 523,
       "name": "Viant Technology",
       "slug": "viant-technology",
       "domain": "viantinc.com",
@@ -77655,7 +78559,7 @@
       "list_rank": 1104
     },
     {
-      "rank": 522,
+      "rank": 524,
       "name": "ZeroTier",
       "slug": "zerotier",
       "domain": "zerotier.com",
@@ -77732,7 +78636,7 @@
       "list_rank": 1734
     },
     {
-      "rank": 523,
+      "rank": 525,
       "name": "Ziflow",
       "slug": "ziflow",
       "domain": "ziflow.com",
@@ -77814,7 +78718,7 @@
       "list_rank": 3692
     },
     {
-      "rank": 524,
+      "rank": 526,
       "name": "Manhattan Associates",
       "slug": "manhattan-associates",
       "domain": "manh.com",
@@ -77994,7 +78898,7 @@
       "list_rank": 212
     },
     {
-      "rank": 525,
+      "rank": 527,
       "name": "LivePerson",
       "slug": "liveperson",
       "domain": "liveperson.com",
@@ -78097,7 +79001,7 @@
       "list_rank": 520
     },
     {
-      "rank": 526,
+      "rank": 528,
       "name": "Datto",
       "slug": "datto",
       "domain": "datto.com",
@@ -78170,7 +79074,7 @@
       "list_rank": 1631
     },
     {
-      "rank": 527,
+      "rank": 529,
       "name": "Hostinger",
       "slug": "hostinger",
       "domain": "hostinger.com",
@@ -78247,7 +79151,7 @@
       "list_rank": 3620
     },
     {
-      "rank": 528,
+      "rank": 530,
       "name": "Trulioo",
       "slug": "trulioo",
       "domain": "trulioo.com",
@@ -78324,7 +79228,7 @@
       "list_rank": 3526
     },
     {
-      "rank": 529,
+      "rank": 531,
       "name": "Ceros",
       "slug": "ceros",
       "domain": "ceros.com",
@@ -78397,7 +79301,7 @@
       "list_rank": 3028
     },
     {
-      "rank": 530,
+      "rank": 532,
       "name": "Salt Security",
       "slug": "salt-security",
       "domain": "salt.security",
@@ -78474,85 +79378,7 @@
       "list_rank": 1017
     },
     {
-      "rank": 531,
-      "name": "Apideck",
-      "slug": "apideck",
-      "domain": "apideck.com",
-      "found": true,
-      "trust_url": "https://compliance.apideck.com/certifications",
-      "final_url": "https://compliance.apideck.com/certifications",
-      "list": "named-processor-gap",
-      "source": "https://trust.hellobonsai.com/subprocessors",
-      "source_url": "https://trust.hellobonsai.com/subprocessors",
-      "probed": 32,
-      "probed_at": "2026-09-03T16:58:38Z",
-      "certs": [
-        "SOC 2 Type II"
-      ],
-      "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        }
-      ],
-      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II.",
-      "founded_year": 2019,
-      "founded_source": "https://www.apideck.com/about",
-      "instruments": {
-        "trust": {
-          "url": "https://compliance.apideck.com/certifications",
-          "host": "compliance.apideck.com",
-          "seen": "2026-09-03"
-        },
-        "security": null,
-        "privacy": null,
-        "dpa": {
-          "url": "https://compliance.apideck.com/dpa",
-          "host": "compliance.apideck.com",
-          "seen": "2026-09-03"
-        },
-        "subprocessors": null,
-        "status": {
-          "url": "https://status.apideck.com",
-          "host": "status.apideck.com",
-          "seen": "2026-09-03"
-        },
-        "bounty": null
-      },
-      "processors": [],
-      "disclosure": {
-        "score": 47,
-        "tier": "on-file",
-        "factors": {
-          "page": 20,
-          "marks": 10,
-          "dpa": 8,
-          "processors": 0,
-          "status": 6,
-          "bounty": 0,
-          "privacy": 0,
-          "years": 3
-        }
-      },
-      "tier": "on-file",
-      "file": {
-        "page": 20,
-        "marks": 20,
-        "dpa": 20,
-        "subprocessors": 0,
-        "years": 20
-      },
-      "_crawl": {
-        "vendor": "unknown",
-        "title": "",
-        "http_status": null
-      },
-      "official_url": "https://www.apideck.com/",
-      "list_rank": 4276
-    },
-    {
-      "rank": 532,
+      "rank": 533,
       "name": "Calix, Inc.",
       "slug": "calix-inc",
       "domain": "calix.com",
@@ -78629,7 +79455,7 @@
       "list_rank": 5052
     },
     {
-      "rank": 533,
+      "rank": 534,
       "name": "Caspio",
       "slug": "caspio",
       "domain": "caspio.com",
@@ -78698,7 +79524,7 @@
       "list_rank": 1383
     },
     {
-      "rank": 534,
+      "rank": 535,
       "name": "Collaborative Drug Discovery",
       "slug": "collaborative-drug-discovery",
       "domain": "collaborativedrug.com",
@@ -78775,7 +79601,7 @@
       "list_rank": 3664
     },
     {
-      "rank": 535,
+      "rank": 536,
       "name": "BambooHR",
       "slug": "bamboohr",
       "domain": "bamboohr.com",
@@ -78878,7 +79704,7 @@
       "list_rank": 664
     },
     {
-      "rank": 536,
+      "rank": 537,
       "name": "Udemy",
       "slug": "udemy",
       "domain": "udemy.com",
@@ -78955,7 +79781,7 @@
       "list_rank": 3741
     },
     {
-      "rank": 537,
+      "rank": 538,
       "name": "LiveRamp",
       "slug": "liveramp",
       "domain": "liveramp.com",
@@ -79136,7 +79962,7 @@
       "list_rank": 412
     },
     {
-      "rank": 538,
+      "rank": 539,
       "name": "EarnIn",
       "slug": "earnin",
       "domain": "earnin.com",
@@ -79209,7 +80035,7 @@
       "list_rank": 2601
     },
     {
-      "rank": 539,
+      "rank": 540,
       "name": "BigID",
       "slug": "bigid",
       "domain": "bigid.com",
@@ -79448,7 +80274,7 @@
       "list_rank": 224
     },
     {
-      "rank": 540,
+      "rank": 541,
       "name": "Lumana",
       "slug": "lumana",
       "domain": "lumana.ai",
@@ -79531,7 +80357,7 @@
       "list_rank": 1260
     },
     {
-      "rank": 541,
+      "rank": 542,
       "name": "Thinking Machine Labs",
       "slug": "thinking-machine-labs",
       "domain": "thinkingmachines.ai",
@@ -79616,7 +80442,7 @@
       "list_rank": 994
     },
     {
-      "rank": 542,
+      "rank": 543,
       "name": "1Mind AI",
       "slug": "1mind-ai",
       "domain": "1mind.com",
@@ -79693,7 +80519,7 @@
       "list_rank": 3373
     },
     {
-      "rank": 543,
+      "rank": 544,
       "name": "Ably",
       "slug": "ably",
       "domain": "ably.com",
@@ -79775,7 +80601,7 @@
       "list_rank": 3096
     },
     {
-      "rank": 544,
+      "rank": 545,
       "name": "Astronomer",
       "slug": "astronomer",
       "domain": "astronomer.io",
@@ -79857,7 +80683,7 @@
       "list_rank": 3098
     },
     {
-      "rank": 545,
+      "rank": 546,
       "name": "Browserbase",
       "slug": "browserbase",
       "domain": "browserbase.com",
@@ -79939,7 +80765,7 @@
       "list_rank": 3101
     },
     {
-      "rank": 546,
+      "rank": 547,
       "name": "Contentsquare",
       "slug": "contentsquare",
       "domain": "contentsquare.com",
@@ -80016,7 +80842,7 @@
       "list_rank": 3311
     },
     {
-      "rank": 547,
+      "rank": 548,
       "name": "Decagon",
       "slug": "decagon",
       "domain": "decagon.ai",
@@ -80101,7 +80927,7 @@
       "list_rank": 988
     },
     {
-      "rank": 548,
+      "rank": 549,
       "name": "Exa",
       "slug": "exa",
       "domain": "exa.ai",
@@ -80179,7 +81005,7 @@
       "list_rank": 3026
     },
     {
-      "rank": 549,
+      "rank": 550,
       "name": "Firecrawl",
       "slug": "firecrawl",
       "domain": "firecrawl.dev",
@@ -80257,7 +81083,7 @@
       "list_rank": 3167
     },
     {
-      "rank": 550,
+      "rank": 551,
       "name": "Further AI",
       "slug": "further-ai",
       "domain": "furtherai.com",
@@ -80363,7 +81189,7 @@
       "list_rank": 1245
     },
     {
-      "rank": 551,
+      "rank": 552,
       "name": "Insightly",
       "slug": "insightly",
       "domain": "insightly.com",
@@ -80444,7 +81270,7 @@
       "list_rank": 1534
     },
     {
-      "rank": 552,
+      "rank": 553,
       "name": "Linkup",
       "slug": "linkup",
       "domain": "linkup.so",
@@ -80529,7 +81355,7 @@
       "list_rank": 1258
     },
     {
-      "rank": 553,
+      "rank": 554,
       "name": "OneSchema",
       "slug": "oneschema",
       "domain": "oneschema.co",
@@ -80613,7 +81439,7 @@
       "list_rank": 4278
     },
     {
-      "rank": 554,
+      "rank": 555,
       "name": "Orb",
       "slug": "orb",
       "domain": "withorb.com",
@@ -80700,7 +81526,7 @@
       "list_rank": 3392
     },
     {
-      "rank": 555,
+      "rank": 556,
       "name": "Reducto, Inc",
       "slug": "reducto",
       "domain": "reducto.ai",
@@ -80777,7 +81603,7 @@
       "list_rank": 3287
     },
     {
-      "rank": 556,
+      "rank": 557,
       "name": "Smallest AI",
       "slug": "smallestai",
       "domain": "smallest.ai",
@@ -80858,7 +81684,7 @@
       "list_rank": 3334
     },
     {
-      "rank": 557,
+      "rank": 558,
       "name": "Synadia",
       "slug": "synadia-cloud",
       "domain": "synadia.com",
@@ -80912,7 +81738,86 @@
         "status": null,
         "bounty": null
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "Amazon Web Services",
+          "slug": "amazon-web-services",
+          "id": "amazon-web-services",
+          "source_url": "https://www.synadia.com/legal/subprocessors"
+        },
+        {
+          "name": "Zendesk",
+          "slug": "zendesk",
+          "id": "zendesk",
+          "source_url": "https://www.synadia.com/legal/subprocessors"
+        },
+        {
+          "name": "Salesforce.com",
+          "slug": "salesforce",
+          "id": "salesforce",
+          "source_url": "https://www.synadia.com/legal/subprocessors"
+        },
+        {
+          "name": "Stripe",
+          "slug": "stripe",
+          "id": "stripe",
+          "source_url": "https://www.synadia.com/legal/subprocessors"
+        },
+        {
+          "name": "Google LLC",
+          "slug": "google",
+          "id": "google",
+          "source_url": "https://www.synadia.com/legal/subprocessors"
+        },
+        {
+          "name": "Slack Technologies Inc",
+          "slug": "slack",
+          "id": "slack",
+          "source_url": "https://www.synadia.com/legal/subprocessors"
+        },
+        {
+          "name": "Microsoft Corporation",
+          "slug": "microsoft",
+          "id": "microsoft",
+          "source_url": "https://www.synadia.com/legal/subprocessors"
+        },
+        {
+          "name": "Grafana Labs",
+          "slug": "grafana-labs",
+          "id": "grafana-labs",
+          "source_url": "https://www.synadia.com/legal/subprocessors"
+        },
+        {
+          "name": "Reo.dev",
+          "slug": null,
+          "id": "reo-dev",
+          "source_url": "https://www.synadia.com/legal/subprocessors"
+        },
+        {
+          "name": "LinkedIn",
+          "slug": "linkedin",
+          "id": "linkedin",
+          "source_url": "https://www.synadia.com/legal/subprocessors"
+        },
+        {
+          "name": "PostHog",
+          "slug": "posthog",
+          "id": "posthog",
+          "source_url": "https://www.synadia.com/legal/subprocessors"
+        },
+        {
+          "name": "HubSpot",
+          "slug": "hubspot",
+          "id": "hubspot",
+          "source_url": "https://www.synadia.com/legal/subprocessors"
+        },
+        {
+          "name": "Cloudflare, Inc",
+          "slug": "cloudflare",
+          "id": "cloudflare",
+          "source_url": "https://www.synadia.com/legal/subprocessors"
+        }
+      ],
       "disclosure": {
         "score": 46,
         "tier": "on-file",
@@ -80932,7 +81837,7 @@
         "page": 20,
         "marks": 20,
         "dpa": 20,
-        "subprocessors": 10,
+        "subprocessors": 20,
         "years": 0
       },
       "_crawl": {
@@ -80943,7 +81848,7 @@
       "list_rank": 3320
     },
     {
-      "rank": 558,
+      "rank": 559,
       "name": "Transloadit",
       "slug": "transloadit",
       "domain": "transloadit.com",
@@ -81026,7 +81931,7 @@
       "list_rank": 3330
     },
     {
-      "rank": 559,
+      "rank": 560,
       "name": "Unbabel",
       "slug": "unbabel",
       "domain": "unbabel.com",
@@ -81109,7 +82014,7 @@
       "list_rank": 2831
     },
     {
-      "rank": 560,
+      "rank": 561,
       "name": "Uploadcare",
       "slug": "uploadcare",
       "domain": "uploadcare.com",
@@ -81186,7 +82091,7 @@
       "list_rank": 3522
     },
     {
-      "rank": 561,
+      "rank": 562,
       "name": "Yellow.ai",
       "slug": "yellowai",
       "domain": "yellow.ai",
@@ -81263,7 +82168,7 @@
       "list_rank": 3519
     },
     {
-      "rank": 562,
+      "rank": 563,
       "name": "Yoti",
       "slug": "yoti",
       "domain": "yoti.com",
@@ -81346,7 +82251,7 @@
       "list_rank": 3331
     },
     {
-      "rank": 563,
+      "rank": 564,
       "name": "Altium",
       "slug": "altium",
       "domain": "altium.com",
@@ -81427,7 +82332,7 @@
       "list_rank": 1321
     },
     {
-      "rank": 564,
+      "rank": 565,
       "name": "Tableau",
       "slug": "tableau",
       "domain": "tableau.com",
@@ -81508,7 +82413,7 @@
       "list_rank": 2977
     },
     {
-      "rank": 565,
+      "rank": 566,
       "name": "Xsolla",
       "slug": "xsolla",
       "domain": "xsolla.com",
@@ -81589,7 +82494,7 @@
       "list_rank": 3582
     },
     {
-      "rank": 566,
+      "rank": 567,
       "name": "SumUp",
       "slug": "sumup",
       "domain": "sumup.com",
@@ -81666,7 +82571,7 @@
       "list_rank": 3581
     },
     {
-      "rank": 567,
+      "rank": 568,
       "name": "Xylem Inc.",
       "slug": "xylem-inc",
       "domain": "xylem.com",
@@ -81747,7 +82652,7 @@
       "list_rank": 1142
     },
     {
-      "rank": 568,
+      "rank": 569,
       "name": "Affirm Holdings",
       "slug": "affirm-holdings",
       "domain": "affirm.com",
@@ -81824,7 +82729,7 @@
       "list_rank": 3054
     },
     {
-      "rank": 569,
+      "rank": 570,
       "name": "WalkMe",
       "slug": "walkme",
       "domain": "walkme.com",
@@ -81901,7 +82806,7 @@
       "list_rank": 2702
     },
     {
-      "rank": 570,
+      "rank": 571,
       "name": "Snappy Gifts",
       "slug": "snappy-gifts",
       "domain": "snappy.com",
@@ -81974,7 +82879,7 @@
       "list_rank": 1994
     },
     {
-      "rank": 571,
+      "rank": 572,
       "name": "Hive",
       "slug": "hive",
       "domain": "hive.com",
@@ -82057,7 +82962,7 @@
       "list_rank": 3324
     },
     {
-      "rank": 572,
+      "rank": 573,
       "name": "Recall.ai",
       "slug": "recall-ai",
       "domain": "recall.ai",
@@ -82134,7 +83039,7 @@
       "list_rank": 3315
     },
     {
-      "rank": 573,
+      "rank": 574,
       "name": "Progress Software",
       "slug": "progress-software",
       "domain": "progress.com",
@@ -82240,7 +83145,7 @@
       "list_rank": 430
     },
     {
-      "rank": 574,
+      "rank": 575,
       "name": "Avaloq",
       "slug": "avaloq",
       "domain": "avaloq.com",
@@ -82309,7 +83214,7 @@
       "list_rank": 1895
     },
     {
-      "rank": 575,
+      "rank": 576,
       "name": "NVIDIA",
       "slug": "nvidia",
       "domain": "nvidia.com",
@@ -82397,7 +83302,7 @@
       "list_rank": 151
     },
     {
-      "rank": 576,
+      "rank": 577,
       "name": "Softcat",
       "slug": "softcat",
       "domain": "softcat.com",
@@ -82492,7 +83397,7 @@
       "list_rank": 4448
     },
     {
-      "rank": 577,
+      "rank": 578,
       "name": "ActiveState",
       "slug": "activestate",
       "domain": "activestate.com",
@@ -82561,7 +83466,7 @@
       "list_rank": 2078
     },
     {
-      "rank": 578,
+      "rank": 579,
       "name": "Genedata",
       "slug": "genedata",
       "domain": "genedata.com",
@@ -82630,7 +83535,7 @@
       "list_rank": 2338
     },
     {
-      "rank": 579,
+      "rank": 580,
       "name": "Cars.com",
       "slug": "cars-com",
       "domain": "cars.com",
@@ -82699,7 +83604,7 @@
       "list_rank": 3985
     },
     {
-      "rank": 580,
+      "rank": 581,
       "name": "NetDocuments",
       "slug": "netdocuments",
       "domain": "netdocuments.com",
@@ -82768,7 +83673,7 @@
       "list_rank": 4590
     },
     {
-      "rank": 581,
+      "rank": 582,
       "name": "Kiteworks",
       "slug": "kiteworks",
       "domain": "kiteworks.com",
@@ -82837,7 +83742,7 @@
       "list_rank": 1860
     },
     {
-      "rank": 582,
+      "rank": 583,
       "name": "KCF Technologies",
       "slug": "kcf-technologies",
       "domain": "kcftech.com",
@@ -82906,7 +83811,7 @@
       "list_rank": 4282
     },
     {
-      "rank": 583,
+      "rank": 584,
       "name": "Liveops",
       "slug": "liveops",
       "domain": "liveops.com",
@@ -82975,7 +83880,7 @@
       "list_rank": 3804
     },
     {
-      "rank": 584,
+      "rank": 585,
       "name": "eSentire",
       "slug": "esentire",
       "domain": "esentire.com",
@@ -83044,7 +83949,7 @@
       "list_rank": 1006
     },
     {
-      "rank": 585,
+      "rank": 586,
       "name": "Canonical",
       "slug": "canonical",
       "domain": "canonical.com",
@@ -83113,7 +84018,7 @@
       "list_rank": 2758
     },
     {
-      "rank": 586,
+      "rank": 587,
       "name": "Opengear",
       "slug": "opengear",
       "domain": "opengear.com",
@@ -83186,7 +84091,7 @@
       "list_rank": 4659
     },
     {
-      "rank": 587,
+      "rank": 588,
       "name": "Bill.com",
       "slug": "bill",
       "domain": "bill.com",
@@ -83269,7 +84174,7 @@
       "list_rank": 110
     },
     {
-      "rank": 588,
+      "rank": 589,
       "name": "Auth0",
       "slug": "auth0",
       "domain": "auth0.com",
@@ -83346,7 +84251,7 @@
       "list_rank": 2978
     },
     {
-      "rank": 589,
+      "rank": 590,
       "name": "SingleStore",
       "slug": "singlestore",
       "domain": "singlestore.com",
@@ -83423,7 +84328,7 @@
       "list_rank": 3095
     },
     {
-      "rank": 590,
+      "rank": 591,
       "name": "BlueVoyant",
       "slug": "bluevoyant",
       "domain": "bluevoyant.com",
@@ -83496,7 +84401,7 @@
       "list_rank": 999
     },
     {
-      "rank": 591,
+      "rank": 592,
       "name": "Datavant",
       "slug": "datavant",
       "domain": "datavant.com",
@@ -83569,7 +84474,7 @@
       "list_rank": 3883
     },
     {
-      "rank": 592,
+      "rank": 593,
       "name": "Apollo.io",
       "slug": "apollo-io",
       "domain": "apollo.io",
@@ -83655,7 +84560,7 @@
       "list_rank": 3097
     },
     {
-      "rank": 593,
+      "rank": 594,
       "name": "CDK Global",
       "slug": "cdk-global",
       "domain": "cdkglobal.com",
@@ -83738,87 +84643,6 @@
         "http_status": null
       },
       "list_rank": 698
-    },
-    {
-      "rank": 594,
-      "name": "ClientSuccess",
-      "slug": "client-success",
-      "domain": "clientsuccess.com",
-      "found": true,
-      "trust_url": "https://clientsuccess.com/security",
-      "final_url": "https://www.clientsuccess.com/security-compliance",
-      "list": "named-processor-gap",
-      "source": "https://www.veracode.com/legal-privacy/subprocessors-notification/",
-      "source_url": "https://www.veracode.com/legal-privacy/subprocessors-notification/",
-      "probed": 18,
-      "probed_at": "2026-09-03T16:58:38Z",
-      "certs": [
-        "SOC 2 Type II"
-      ],
-      "attestations": [
-        {
-          "id": "soc-2-type-ii",
-          "name": "SOC 2 Type II",
-          "weight": 10
-        }
-      ],
-      "summary": "Public trust center. On file: SOC 2 Type II.",
-      "founded_year": null,
-      "founded_source": null,
-      "instruments": {
-        "trust": {
-          "url": "https://clientsuccess.com/security",
-          "host": "clientsuccess.com",
-          "seen": "2026-09-03"
-        },
-        "security": {
-          "url": "https://www.clientsuccess.com/security-compliance",
-          "host": "clientsuccess.com",
-          "seen": "2026-09-03"
-        },
-        "privacy": {
-          "url": "https://www.clientsuccess.com/privacy-policy",
-          "host": "clientsuccess.com",
-          "seen": "2026-09-03"
-        },
-        "dpa": {
-          "url": "https://www.clientsuccess.com/data-processing-amendment",
-          "host": "clientsuccess.com",
-          "seen": "2026-09-03"
-        },
-        "subprocessors": null,
-        "status": null,
-        "bounty": null
-      },
-      "processors": [],
-      "disclosure": {
-        "score": 44,
-        "tier": "on-file",
-        "factors": {
-          "page": 20,
-          "marks": 10,
-          "dpa": 8,
-          "processors": 0,
-          "status": 0,
-          "bounty": 0,
-          "privacy": 6,
-          "years": 0
-        }
-      },
-      "tier": "on-file",
-      "file": {
-        "page": 20,
-        "marks": 20,
-        "dpa": 20,
-        "subprocessors": 0,
-        "years": 0
-      },
-      "_crawl": {
-        "vendor": "unknown",
-        "title": "",
-        "http_status": null
-      },
-      "list_rank": 3379
     },
     {
       "rank": 595,
@@ -385877,19 +386701,19 @@
     "companies": 5492,
     "years": 718,
     "certs_companies": 799,
-    "edges": 2973,
+    "edges": 3107,
     "top_processors": [
       {
         "id": "amazon-web-services",
-        "n": 204
+        "n": 209
       },
       {
         "id": "google",
-        "n": 154
+        "n": 166
       },
       {
         "id": "twilio",
-        "n": 97
+        "n": 104
       }
     ],
     "links": {
@@ -385898,7 +386722,7 @@
       "privacy": 1076,
       "status": 595,
       "bug_bounty": 278,
-      "subprocessors": 521
+      "subprocessors": 524
     },
     "tiers": {
       "silent": 4342,

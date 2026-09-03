@@ -246,80 +246,142 @@ def main() -> int:
 
     # This increment: upper-quadrant DPA-on-file / subprocessors queue (~40).
     expected_batch = [
-        "uniphore",
-        "logic-monitor",
-        "sentry",
-        "modsquad",
-        "linear",
-        "mux",
-        "ory-corp",
-        "ovhcloud",
-        "workos",
-        "teleport",
-        "captionhub",
-        "zerobounce",
-        "matillion",
-        "scalekit",
-        "clerk",
-        "appcues",
-        "arkose-labs",
-        "front",
-        "incident-io",
-        "moveworks",
-        "sendmarc",
-        "stream-io",
-        "messagebird",
-        "inworld",
-        "clari",
-        "nium",
-        "g2",
-        "daily",
-        "day-ai",
-        "wizy-io",
-        "pypestream",
-        "clazar",
-        "assemblyai",
-        "trello",
-        "qualified-com",
-        "tinybird",
-        "mapbox",
-        "clearfeed",
-        "opensesame-inc",
-        "cognition-ai",
+        "sam-labs",
+        "databank",
+        "ideogram-ai",
+        "ironclad",
+        "lovable",
+        "plain",
+        "rollbar",
+        "supportlogic",
+        "veed",
+        "sportradar",
+        "riverbed-technology",
+        "liveblocks",
+        "susea",
+        "bluebeam-software-inc",
+        "forethought-technologies",
+        "deepjudge",
+        "84codes-cloudamqp",
+        "intershop-communications",
+        "playerzero",
+        "6sense",
+        "edinvent-accredible",
+        "cartesia",
+        "cognition",
+        "jasper-ai",
+        "posthog",
+        "sigma",
+        "upwind",
+        "ziflow",
+        "hostinger",
+        "trulioo",
+        "apideck",
+        "lumana",
+        "ably",
+        "astronomer",
+        "smallestai",
+        "synadia-cloud",
+        "yellowai",
+        "recall-ai",
+        "apollo-io",
+        "client-success",
     ]
     check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
     check(not (report.get("dpa_filed") or []), "no DPA was newly filed")
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
-    check(len(filed_sub) == 5, f"five named-processor lists filed, got {sorted(filed_sub)}")
-    check(set(filed_sub) == {"clazar", "daily", "front", "sentry", "stream-io"}, f"kept filings {sorted(filed_sub)}")
-    check(filed_sub["clazar"]["url"] == "https://clazar.io/dpa", "clazar list URL")
-    check(len(filed_sub["clazar"]["names"]) == 17, "clazar 17 names")
+    check(len(filed_sub) == 8, f"eight named-processor lists filed, got {sorted(filed_sub)}")
     check(
-        filed_sub["daily"]["url"] == "https://www.daily.co/legal/sub-processors/",
-        "daily list URL",
+        set(filed_sub)
+        == {
+            "apideck",
+            "client-success",
+            "forethought-technologies",
+            "jasper-ai",
+            "liveblocks",
+            "rollbar",
+            "sigma",
+            "synadia-cloud",
+        },
+        f"kept filings {sorted(filed_sub)}",
     )
-    check(len(filed_sub["daily"]["names"]) == 22, "daily 22 names")
+    check(filed_sub["apideck"]["url"] == "https://compliance.apideck.com/subprocessors", "apideck list URL")
+    check(len(filed_sub["apideck"]["names"]) == 11, "apideck 11 names")
     check(
-        filed_sub["front"]["url"] == "https://front.com/legal/list-of-subprocessors",
-        "front list URL",
+        filed_sub["client-success"]["url"] == "https://www.clientsuccess.com/list-of-sub-processors",
+        "client-success list URL",
     )
-    check(len(filed_sub["front"]["names"]) == 9, "front 9 names")
+    check(len(filed_sub["client-success"]["names"]) == 10, "client-success 10 names")
     check(
-        filed_sub["sentry"]["url"] == "https://sentry.io/legal/subprocessors/",
-        "sentry list URL",
+        filed_sub["forethought-technologies"]["url"] == "https://forethought.ai/data-subprocessors",
+        "forethought list URL",
     )
-    check(len(filed_sub["sentry"]["names"]) == 7, "sentry 7 names")
+    check(len(filed_sub["forethought-technologies"]["names"]) == 21, "forethought 21 names")
+    check(filed_sub["jasper-ai"]["url"] == "https://www.jasper.ai/legal/sub-processors", "jasper list URL")
+    check(len(filed_sub["jasper-ai"]["names"]) == 31, "jasper 31 names")
+    check(filed_sub["liveblocks"]["url"] == "https://liveblocks.io/subprocessors", "liveblocks list URL")
+    check(len(filed_sub["liveblocks"]["names"]) == 14, "liveblocks 14 names")
     check(
-        filed_sub["stream-io"]["url"] == "https://getstream.io/legal/subprocessors/",
-        "stream-io list URL",
+        filed_sub["rollbar"]["url"] == "https://docs.rollbar.com/docs/data-subprocessors",
+        "rollbar list URL",
     )
-    check(len(filed_sub["stream-io"]["names"]) == 15, "stream-io 15 names")
+    check(len(filed_sub["rollbar"]["names"]) == 14, "rollbar 14 names")
+    check(
+        filed_sub["sigma"]["url"] == "https://www.sigmacomputing.com/legal/subprocessors",
+        "sigma list URL",
+    )
+    check(len(filed_sub["sigma"]["names"]) == 20, "sigma 20 names")
+    check(
+        filed_sub["synadia-cloud"]["url"] == "https://www.synadia.com/legal/subprocessors",
+        "synadia list URL",
+    )
+    check(len(filed_sub["synadia-cloud"]["names"]) == 13, "synadia 13 names")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
-    check(len(stayed) == 35, f"35 slots stayed open, got {len(stayed)}")
-    check(stayed == set(expected_batch) - set(filed_sub), f"stayed-open matches batch minus filings, got {sorted(stayed ^ (set(expected_batch) - set(filed_sub)))}")
+    check(len(stayed) == 32, f"32 slots stayed open, got {len(stayed)}")
+    check(
+        stayed == set(expected_batch) - set(filed_sub),
+        f"stayed-open matches batch minus filings, got {sorted(stayed ^ (set(expected_batch) - set(filed_sub)))}",
+    )
+    check("84codes-cloudamqp" in stayed, "CloudAMQP DPA/ToS annex fill stayed open")
+    check("84codes-cloudamqp" not in filed_sub, "CloudAMQP is not a filed named-processor list")
+    check(not (by_pub["84codes-cloudamqp"].get("processors") or []), "CloudAMQP names no processors")
+    check(
+        "subprocessors" not in ((by_enr["84codes-cloudamqp"].get("links") or {})),
+        "CloudAMQP links.subprocessors stays off the DPA URL",
+    )
+
+    for slug in stayed:
+        pub = by_pub[slug]
+        check(not (pub.get("processors") or []), f"{slug} named processors stay open")
+
+    from file_company_dpa_processors import PRIOR_ATTEMPTED, select_batch
+    for slug in expected_batch:
+        check(slug in PRIOR_ATTEMPTED, f"{slug} is on the next-increment skip list")
+    leftover = select_batch(list(public["companies"]), by_enr)
+    leftover_slugs = {r["slug"] for r in leftover}
+    check(not leftover_slugs & set(expected_batch), f"this batch is not retried, got {leftover_slugs & set(expected_batch)}")
+    for slug in (
+        "navan", "vercel", "backblaze", "1password", "peak", "translated",
+        "anaplan", "sarvam-ai", "salesloft", "verint-systems", "thoughtspot",
+        "uniphore", "arkose-labs", "clazar", "cognition-ai",
+    ):
+        check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
+        check(slug not in leftover_slugs, f"{slug} leftover is not retried")
+
+    for slug, rec in filed_sub.items():
+        html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
+        check(rec["url"] in html, f"{slug} dossier cites the list URL")
+        check('rel="noopener noreferrer"' in html, f"{slug} outbound links use noopener")
+    cloud_html = (ROOT / "site" / "c" / "84codes-cloudamqp.html").read_text(encoding="utf-8")
+    check(">Topic<" not in cloud_html, "CloudAMQP does not print DPA Topic as a processor")
+    check("Retention period" not in cloud_html, "CloudAMQP does not print Retention period")
+    # PR 263 filings stay on file. Annex/cookie/data-category drops stay unread.
+    check(len(by_pub["clazar"].get("processors") or []) == 17, "clazar 17 names stay")
+    check(len(by_pub["daily"].get("processors") or []) == 22, "daily 22 names stay")
+    check(len(by_pub["front"].get("processors") or []) == 9, "front 9 names stay")
+    check(len(by_pub["sentry"].get("processors") or []) == 7, "sentry 7 names stay")
+    check(len(by_pub["stream-io"].get("processors") or []) == 15, "stream-io 15 names stay")
     for slug in ("arkose-labs", "qualified-com", "incident-io", "mapbox"):
-        check(slug in stayed, f"{slug} annex/cookie-table fill stayed open")
-        check(slug not in filed_sub, f"{slug} is not a filed named-processor list")
         check(not (by_pub[slug].get("processors") or []), f"{slug} names no processors")
         check((by_pub[slug].get("file") or {}).get("subprocessors") in (0, 10, False, None), f"{slug} processors glyph is not printed")
     check("subprocessors" not in ((by_enr["arkose-labs"].get("links") or {})), "arkose-labs links.subprocessors stays off file")
@@ -338,28 +400,6 @@ def main() -> int:
         == "https://www.mapbox.com/legal/subprocessors",
         "mapbox stored list URL stays, names stay unread",
     )
-
-    for slug in stayed:
-        pub = by_pub[slug]
-        check(not (pub.get("processors") or []), f"{slug} named processors stay open")
-
-    from file_company_dpa_processors import PRIOR_ATTEMPTED, select_batch
-    for slug in expected_batch:
-        check(slug in PRIOR_ATTEMPTED, f"{slug} is on the next-increment skip list")
-    leftover = select_batch(list(public["companies"]), by_enr)
-    leftover_slugs = {r["slug"] for r in leftover}
-    check(not leftover_slugs & set(expected_batch), f"this batch is not retried, got {leftover_slugs & set(expected_batch)}")
-    for slug in (
-        "navan", "vercel", "backblaze", "1password", "peak", "translated",
-        "anaplan", "sarvam-ai", "salesloft", "verint-systems", "thoughtspot",
-    ):
-        check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
-        check(slug not in leftover_slugs, f"{slug} leftover is not retried")
-
-    for slug, rec in filed_sub.items():
-        html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
-        check(rec["url"] in html, f"{slug} dossier cites the list URL")
-        check('rel="noopener noreferrer"' in html, f"{slug} outbound links use noopener")
     arkose_html = (ROOT / "site" / "c" / "arkose-labs.html").read_text(encoding="utf-8")
     check("Data Subjects" not in arkose_html, "arkose-labs does not print SCC annex headings")
     check("UK GDPR" not in arkose_html, "arkose-labs does not print UK GDPR as a processor")

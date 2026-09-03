@@ -865,6 +865,9 @@ REGISTER_ALIASES: dict[str, str] = {
     # Front's own subprocessor list names FrontApp SARL (EU entity).
     # front is on the register (front.com). Do not invent a second Front dossier.
     "frontapp-sarl": "front",
+    # Sigma prints G Suite for email. google-workspace already aliases;
+    # this is the old product name. google is on the register.
+    "g-suite": "google",
 
 }
 
@@ -892,6 +895,10 @@ SKIP_PROCESSOR_IDS = {
     "optional-features-for-the-us-payroll-module",
     "uk-payroll-module",
     "us-payroll-module",
+    # CloudAMQP DPA/ToS annex headings (not the data-center table)
+    "topic",
+    "processing-operations-and-purposes",
+    "retention-period",
     # Arkose Labs legal-dpa — SCC annex headings
     "data-subjects",
     "special-category-personal-data-if-applicable",
@@ -994,6 +1001,10 @@ SKIP_PROCESSOR_NAMES = {
     "optional features for the us payroll module",
     "uk payroll module",
     "us payroll module",
+    # CloudAMQP DPA/ToS annex headings
+    "topic",
+    "processing operations and purposes",
+    "retention period",
     # Arkose Labs SCC annex headings
     "data subjects",
     "special category personal data (if applicable)",
