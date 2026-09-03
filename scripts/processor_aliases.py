@@ -148,6 +148,8 @@ REGISTER_ALIASES: dict[str, str] = {
     "mistral-ai-sas": "mistral-ai",
     "notion-labs-notion": "notion",
     "hashicorp-cloud": "hashicorp",
+    # dbt Cloud is dbt Labs. dbt-labs is on the register.
+    "dbt-cloud": "dbt-labs",
     "crusoe-cloud": "crusoe",
     "crusoe-energy-system-llc": "crusoe",
     "grafana-labs-raintank": "grafana-labs",

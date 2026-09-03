@@ -602,6 +602,8 @@ def main() -> int:
         REGISTER_ALIASES["deft-formerly-known-as-servercentral"] == "summit",
         "deft-formerly-known-as-servercentral aliases to summit",
     )
+    dbt_reg = {**register, "dbt-labs": {"slug": "dbt-labs", "name": "dbt Labs", "domain": "getdbt.com"}}
+    check(canonical_processor_id("dbt-cloud", dbt_reg) == "dbt-labs", "dbt Cloud is dbt Labs")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch
