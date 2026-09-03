@@ -397,6 +397,29 @@ def main() -> int:
     check(REGISTER_ALIASES.get("conversocial") != "khoros", "conversocial must not map to khoros")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
+    # PR 263 junk rows: legal-annex / SCC / OneTrust cookie / Data Category.
+    check(skip_processor("data-subjects", "Data Subjects"), "SCC annex Data Subjects is garbage")
+    check(skip_processor("uk-gdpr", "UK GDPR"), "UK GDPR heading is garbage")
+    check(skip_processor("eu-sccs", "EU SCCs"), "EU SCCs heading is garbage")
+    check(skip_processor("annex-1a-list-of-parties", "Annex 1A: List of Parties"), "Annex 1A is garbage")
+    check(skip_processor("my-onetrust-groups", "my_onetrust_groups"), "OneTrust cookie row is garbage")
+    check(skip_processor("qualified-session", "qualified_session"), "cookie name is garbage")
+    check(
+        skip_processor("cloudflare", "This cookie is used by Cloudflare for load balancing"),
+        "cookie-purpose Cloudflare row is garbage",
+    )
+    check(skip_processor("company-number-or-equivalent", "Company number or equivalent"), "DPA annex field is garbage")
+    check(skip_processor("role-controller-processor", "Role (controller/processor)"), "Role heading is garbage")
+    check(skip_processor("data-category", "Data Category"), "Data Category heading is garbage")
+    check(skip_processor("geolocation-data", "Geolocation Data"), "Geolocation Data is garbage")
+    check(skip_processor("commercial-information", "Commercial Information"), "Commercial Information is garbage")
+    check(not skip_processor("amazon-web-services", "Amazon Web Services"), "AWS is a real org")
+    check(not skip_processor("cloudflare", "Cloudflare"), "Cloudflare is a real org")
+    check(not skip_processor("google", "Google"), "Google is a real org")
+    check(not skip_processor("sentry", "Sentry"), "Sentry is a real org")
+    check(skip_processor("topic", "Topic"), "CloudAMQP DPA Topic heading is garbage")
+    check(skip_processor("retention-period", "Retention period"), "Retention period heading is garbage")
+    check(REGISTER_ALIASES["g-suite"] == "google", "G Suite is Google")
 
     subs = {
         "nodes": [

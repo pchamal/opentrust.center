@@ -23,6 +23,7 @@ sys.path.insert(0, str(ROOT))
 import crawl  # noqa: E402
 from marks import apply_supersede, extract_certs_from_html, mark_blob  # noqa: E402
 from merge_render import rescore  # noqa: E402
+from processor_aliases import skip_processor  # noqa: E402
 
 DATA = ROOT / "data"
 CACHE = DATA / "cache"
@@ -1261,6 +1262,29 @@ def names_from_labeled_spans(html: str) -> list[str]:
     return found
 
 
+def non_org_list_page_reason(title: str, text: str, html: str) -> str | None:
+    """SCC annex / OneTrust cookie / CCPA data-category tables are not named lists.
+
+    Concrete PR 263 failure signatures only. A DPA that also prints
+    organization names (Clazar-style) is not refused.
+    """
+    blob = f"{title}\n{text[:20000]}\n{(html or '')[:12000]}".lower()
+    if "my_onetrust_groups" in blob:
+        return "cookie-table"
+    if (
+        "data category" in blob
+        and "geolocation data" in blob
+        and "commercial information" in blob
+    ):
+        return "data-category-table"
+    if (
+        "role (controller/processor)" in blob
+        and "company number or equivalent" in blob
+    ):
+        return "legal-annex"
+    return None
+
+
 def cited_list_skip_reason(url: str, rec: dict, company: dict) -> str | None:
     if not url or not str(url).strip().startswith("http"):
         return "not-a-url"
@@ -1284,6 +1308,9 @@ def cited_list_skip_reason(url: str, rec: dict, company: dict) -> str | None:
             return "js-portal"
     if "manifestPreload" in html and not TABLE_RE.search(html) and len(text) < 2000:
         return "js-portal"
+    page_skip = non_org_list_page_reason(title, text, html)
+    if page_skip:
+        return page_skip
     return None
 
 
@@ -1300,6 +1327,22 @@ def is_first_party_list_url(url: str, final_url: str, company: dict) -> bool:
             if h.endswith("." + known):
                 return True
     return False
+
+
+def keep_org_processor_rows(
+    rows: list[tuple[str, str, str]],
+) -> list[tuple[str, str, str]]:
+    """Drop legal-annex / cookie / data-category headings. Refuse a junk-majority table."""
+    if not rows:
+        return []
+    junk = sum(1 for pid, name, _ev in rows if skip_processor(pid, name))
+    if junk >= 3 and junk * 2 >= len(rows):
+        return []
+    return [
+        (pid, name, ev)
+        for pid, name, ev in rows
+        if not skip_processor(pid, name)
+    ]
 
 
 def published_processors_from_html(
@@ -1327,7 +1370,7 @@ def published_processors_from_html(
             continue
         seen.add(pid)
         out.append((pid, published, published))
-    return out
+    return keep_org_processor_rows(out)
 
 
 def processors_from_company(
@@ -2099,6 +2142,9 @@ def cited_list_skip_reason(url: str, rec: dict, company: dict) -> str | None:
             return "js-portal"
     if "manifestPreload" in html and not TABLE_RE.search(html) and len(text) < 2000:
         return "js-portal"
+    page_skip = non_org_list_page_reason(title, text, html)
+    if page_skip:
+        return page_skip
     return None
 
 
@@ -2127,7 +2173,7 @@ def published_processors_from_html(
             continue
         seen.add(pid)
         out.append((pid, published, published))
-    return out
+    return keep_org_processor_rows(out)
 
 
 def published_processors_from_cited(
