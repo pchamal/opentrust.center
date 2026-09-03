@@ -358,6 +358,13 @@ SPECIAL_URLS = {
     "language-i-o": [
         ("https://languageio.com/security-commitment/", "security"),
     ],
+    # /seguridad is a product lander (SSL / antivirus). Legal HTML names
+    # first-party ISO / ENS certificates. About names the same holds.
+    # Neither is Official page.
+    "arsys": [
+        ("https://www.arsys.es/legal/privacidad", "privacy"),
+        ("https://www.arsys.es/quienes-somos", "security"),
+    ],
 }
 
 _MONTH = (
