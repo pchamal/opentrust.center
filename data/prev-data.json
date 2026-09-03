@@ -3985,28 +3985,6 @@
    }
   },
   {
-   "domain": "arkoselabs.com",
-   "tier": "substantial",
-   "certs": [
-    "HIPAA",
-    "ISO 27001",
-    "ISO 27018",
-    "ISO 27701",
-    "PCI DSS",
-    "SOC 1 Type II",
-    "SOC 2 Type II"
-   ],
-   "instruments": {
-    "trust": "https://www.arkoselabs.com/compliance",
-    "security": null,
-    "privacy": null,
-    "dpa": "https://www.arkoselabs.com/legal-dpa",
-    "subprocessors": "https://www.arkoselabs.com/legal-dpa",
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
    "domain": "conga.com",
    "tier": "substantial",
    "certs": [
@@ -5347,6 +5325,28 @@
    }
   },
   {
+   "domain": "arkoselabs.com",
+   "tier": "on-file",
+   "certs": [
+    "HIPAA",
+    "ISO 27001",
+    "ISO 27018",
+    "ISO 27701",
+    "PCI DSS",
+    "SOC 1 Type II",
+    "SOC 2 Type II"
+   ],
+   "instruments": {
+    "trust": "https://www.arkoselabs.com/compliance",
+    "security": null,
+    "privacy": null,
+    "dpa": "https://www.arkoselabs.com/legal-dpa",
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
+   }
+  },
+  {
    "domain": "front.com",
    "tier": "on-file",
    "certs": [
@@ -5375,7 +5375,7 @@
     "security": "https://incident.io/security",
     "privacy": "https://incident.io/legal/privacy",
     "dpa": "https://incident.io/legal/data-processing-addendum",
-    "subprocessors": "https://incident.io/legal/data-processing-addendum",
+    "subprocessors": "https://incident.io/legal/sub-processors",
     "status": "https://status.incident.io",
     "bounty": "https://incident.io/legal/vulnerability-disclosure"
    }

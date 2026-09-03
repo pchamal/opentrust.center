@@ -46,34 +46,6 @@
   "dpa_filed": [],
   "subprocessors_filed": [
     {
-      "slug": "arkose-labs",
-      "name": "Arkose Labs",
-      "url": "https://www.arkoselabs.com/legal-dpa",
-      "names": [
-        "Data Subjects",
-        "Special Category Personal Data (if applicable)",
-        "Nature of the Processing",
-        "Purposes of Processing",
-        "Frequency of the transfer",
-        "Start Date",
-        "The Parties",
-        "Parties\u2019 Details",
-        "Key Contact",
-        "EU SCCs",
-        "Annex 1A: List of Parties",
-        "Annex 2B: Description of Transfer",
-        "UK Addendum",
-        "Appendix Information",
-        "Appropriate Safeguards",
-        "Approved UK Addendum",
-        "Approved EU SCCs",
-        "ICO",
-        "ex-UK Transfer",
-        "UK Data Protection Laws",
-        "UK GDPR"
-      ]
-    },
-    {
       "slug": "clazar",
       "name": "Clazar",
       "url": "https://clazar.io/dpa",
@@ -140,87 +112,6 @@
         "Sendgrid by Twilio, Inc. 101 Spear Street, First Floor, San Francisco, CA 94105 twilio.com",
         "Snowflake, Inc. 106 East Babcock Street, Suite 3A, Bozeman, Montana 59715 snowflake.com",
         "FrontApp SARL"
-      ]
-    },
-    {
-      "slug": "incident-io",
-      "name": "incident.io",
-      "url": "https://incident.io/legal/data-processing-addendum",
-      "names": [
-        "Details",
-        "Address",
-        "Company number or equivalent",
-        "Role (controller/processor)",
-        "Details of the representative in the European Union",
-        "Nature and description of processing and further processing",
-        "Frequency of the transfer",
-        "Types of personal data being processed/transferred",
-        "Types of data subjects whose data is processed/transferred",
-        "Sensitive data processed/transferred and applied restrictions or safeguards",
-        "Additional instructions"
-      ]
-    },
-    {
-      "slug": "mapbox",
-      "name": "Mapbox",
-      "url": "https://www.mapbox.com/legal/subprocessors",
-      "names": [
-        "Data Category",
-        "Identifiers",
-        "Commercial Information",
-        "Internet or other electronic network activity",
-        "Geolocation Data"
-      ]
-    },
-    {
-      "slug": "qualified-com",
-      "name": "Qualified",
-      "url": "https://www.qualified.com/legal/subprocessors",
-      "names": [
-        "qualified_session",
-        "Required cookie for Qualified Trust Site",
-        "This cookie is used by Cloudflare for load balancing",
-        "my_onetrust_groups",
-        "GainsightConsent",
-        "_ga",
-        "_gd_visitor",
-        "g2.com",
-        "simplecast.com",
-        "_gcl_au",
-        "doubleclick.net",
-        "test_cookie",
-        "pardot.com",
-        "visitor_id",
-        "linkedin.com",
-        "Lidc",
-        "li_sugr",
-        "__cf_bm",
-        "UserMatchHistory",
-        "Bscookie",
-        "AnalyticsSyncHistory",
-        "ar_debug",
-        "facebook.com",
-        "events_distinct_id",
-        "_g2_session_id",
-        "g2crowd.com",
-        "6sc.co",
-        "youtube.com",
-        "VISITOR_INFO1_LIVE",
-        "YSC",
-        "VISITOR_PRIVACY_METADATA",
-        "stackadapt.com",
-        "SA User ID V2",
-        "SA User ID V3",
-        "turn.com",
-        "google.com",
-        "innovid.com",
-        "Personal information (\u201cPI\u201d) we collect",
-        "Contact data",
-        "Profile data",
-        "Communications data",
-        "Marketing data",
-        "Online activity data",
-        "Data derived from the above"
       ]
     },
     {
@@ -337,6 +228,16 @@
       "rule": "subprocessors"
     },
     {
+      "slug": "arkose-labs",
+      "name": "Arkose Labs",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "incident-io",
+      "name": "incident.io",
+      "rule": "subprocessors"
+    },
+    {
       "slug": "moveworks",
       "name": "Moveworks",
       "rule": "subprocessors"
@@ -397,8 +298,18 @@
       "rule": "subprocessors"
     },
     {
+      "slug": "qualified-com",
+      "name": "Qualified",
+      "rule": "subprocessors"
+    },
+    {
       "slug": "tinybird",
       "name": "Tinybird",
+      "rule": "subprocessors"
+    },
+    {
+      "slug": "mapbox",
+      "name": "Mapbox",
       "rule": "subprocessors"
     },
     {
@@ -418,6 +329,34 @@
     }
   ],
   "rejected": [
+    {
+      "slug": "mapbox",
+      "url": "https://www.mapbox.com/legal/subprocessors",
+      "reason": "data-category-table",
+      "kind": "subprocessors",
+      "note": "review drop: page printed legal-annex headings or cookie/data-category table, not organization names"
+    },
+    {
+      "slug": "incident-io",
+      "url": "https://incident.io/legal/data-processing-addendum",
+      "reason": "legal-annex-headings",
+      "kind": "subprocessors",
+      "note": "review drop: page printed legal-annex headings or cookie/data-category table, not organization names"
+    },
+    {
+      "slug": "qualified-com",
+      "url": "https://www.qualified.com/legal/subprocessors",
+      "reason": "cookie-table",
+      "kind": "subprocessors",
+      "note": "review drop: page printed legal-annex headings or cookie/data-category table, not organization names"
+    },
+    {
+      "slug": "arkose-labs",
+      "url": "https://www.arkoselabs.com/legal-dpa",
+      "reason": "legal-annex-headings",
+      "kind": "subprocessors",
+      "note": "review drop: page printed legal-annex headings or cookie/data-category table, not organization names"
+    },
     {
       "slug": "logic-monitor",
       "url": "https://www.logicmonitor.com/legal/data-processing-addendum",

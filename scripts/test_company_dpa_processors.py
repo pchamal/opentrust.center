@@ -290,12 +290,8 @@ def main() -> int:
     check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
     check(not (report.get("dpa_filed") or []), "no DPA was newly filed")
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
-    check(len(filed_sub) == 9, f"nine named-processor lists filed, got {sorted(filed_sub)}")
-    check(
-        filed_sub["arkose-labs"]["url"] == "https://www.arkoselabs.com/legal-dpa",
-        "arkose-labs list URL",
-    )
-    check(len(filed_sub["arkose-labs"]["names"]) == 21, "arkose-labs 21 names")
+    check(len(filed_sub) == 5, f"five named-processor lists filed, got {sorted(filed_sub)}")
+    check(set(filed_sub) == {"clazar", "daily", "front", "sentry", "stream-io"}, f"kept filings {sorted(filed_sub)}")
     check(filed_sub["clazar"]["url"] == "https://clazar.io/dpa", "clazar list URL")
     check(len(filed_sub["clazar"]["names"]) == 17, "clazar 17 names")
     check(
@@ -309,21 +305,6 @@ def main() -> int:
     )
     check(len(filed_sub["front"]["names"]) == 9, "front 9 names")
     check(
-        filed_sub["incident-io"]["url"] == "https://incident.io/legal/data-processing-addendum",
-        "incident-io list URL",
-    )
-    check(len(filed_sub["incident-io"]["names"]) == 11, "incident-io 11 names")
-    check(
-        filed_sub["mapbox"]["url"] == "https://www.mapbox.com/legal/subprocessors",
-        "mapbox list URL",
-    )
-    check(len(filed_sub["mapbox"]["names"]) == 5, "mapbox 5 names")
-    check(
-        filed_sub["qualified-com"]["url"] == "https://www.qualified.com/legal/subprocessors",
-        "qualified-com list URL",
-    )
-    check(len(filed_sub["qualified-com"]["names"]) == 44, "qualified-com 44 names")
-    check(
         filed_sub["sentry"]["url"] == "https://sentry.io/legal/subprocessors/",
         "sentry list URL",
     )
@@ -334,8 +315,29 @@ def main() -> int:
     )
     check(len(filed_sub["stream-io"]["names"]) == 15, "stream-io 15 names")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
-    check(len(stayed) == 31, f"31 slots stayed open, got {len(stayed)}")
+    check(len(stayed) == 35, f"35 slots stayed open, got {len(stayed)}")
     check(stayed == set(expected_batch) - set(filed_sub), f"stayed-open matches batch minus filings, got {sorted(stayed ^ (set(expected_batch) - set(filed_sub)))}")
+    for slug in ("arkose-labs", "qualified-com", "incident-io", "mapbox"):
+        check(slug in stayed, f"{slug} annex/cookie-table fill stayed open")
+        check(slug not in filed_sub, f"{slug} is not a filed named-processor list")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} names no processors")
+        check((by_pub[slug].get("file") or {}).get("subprocessors") in (0, 10, False, None), f"{slug} processors glyph is not printed")
+    check("subprocessors" not in ((by_enr["arkose-labs"].get("links") or {})), "arkose-labs links.subprocessors stays off file")
+    check(
+        (by_enr["incident-io"].get("links") or {}).get("subprocessors")
+        == "https://incident.io/legal/sub-processors",
+        "incident-io list URL stays the first-party sub-processors page",
+    )
+    check(
+        (by_enr["qualified-com"].get("links") or {}).get("subprocessors")
+        == "https://www.qualified.com/legal/subprocessors",
+        "qualified-com stored list URL stays, names stay unread",
+    )
+    check(
+        (by_enr["mapbox"].get("links") or {}).get("subprocessors")
+        == "https://www.mapbox.com/legal/subprocessors",
+        "mapbox stored list URL stays, names stay unread",
+    )
 
     for slug in stayed:
         pub = by_pub[slug]
@@ -358,6 +360,18 @@ def main() -> int:
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check(rec["url"] in html, f"{slug} dossier cites the list URL")
         check('rel="noopener noreferrer"' in html, f"{slug} outbound links use noopener")
+    arkose_html = (ROOT / "site" / "c" / "arkose-labs.html").read_text(encoding="utf-8")
+    check("Data Subjects" not in arkose_html, "arkose-labs does not print SCC annex headings")
+    check("UK GDPR" not in arkose_html, "arkose-labs does not print UK GDPR as a processor")
+    q_html = (ROOT / "site" / "c" / "qualified-com.html").read_text(encoding="utf-8")
+    check("qualified_session" not in q_html, "qualified-com does not print cookie names")
+    check("my_onetrust_groups" not in q_html, "qualified-com does not print OneTrust cookie rows")
+    inc_html = (ROOT / "site" / "c" / "incident-io.html").read_text(encoding="utf-8")
+    check("company-number-or-equivalent" not in inc_html, "incident-io does not print DPA annex headings")
+    check("Role (controller/processor)" not in inc_html, "incident-io does not print Role heading")
+    mapbox_html = (ROOT / "site" / "c" / "mapbox.html").read_text(encoding="utf-8")
+    check("Geolocation Data" not in mapbox_html, "mapbox does not print data-category rows")
+    check("Commercial Information" not in mapbox_html, "mapbox does not print Commercial Information")
     pronto_html = (ROOT / "site" / "c" / "pronto-software.html").read_text(encoding="utf-8")
     check("Official page" in pronto_html, "Pronto Software still prints Official page")
     cognition = (ROOT / "site" / "c" / "cognition.html").read_text(encoding="utf-8")
