@@ -246,46 +246,46 @@ def main() -> int:
 
     # This increment: upper-quadrant DPA-on-file / subprocessors queue (~40).
     expected_batch = [
-        "rime",
-        "bigpanda",
-        "cognism",
-        "descope",
-        "geordie-ai",
-        "heroku",
-        "lumen-technologies",
-        "workvivo",
-        "dash0",
-        "blue-yonder",
-        "panther-labs",
-        "tietoevry",
-        "impartner",
-        "smarsh",
-        "cronofy",
-        "productboard",
-        "scylladb",
-        "temporal",
-        "youmail",
-        "maxmind",
-        "intuition-machines-hcaptcha",
-        "imerit",
-        "voltage-park",
-        "flatfile",
-        "plume",
-        "dwolla",
-        "wealthsimple",
-        "metabase",
-        "stytch",
-        "actively-ai",
-        "appen",
-        "lightspeed-systems",
-        "shippo",
-        "cesiumastro",
-        "krisp",
-        "bright-data",
-        "enterpret",
-        "lob-com",
-        "neon",
-        "nightfall",
+        "synchronoss",
+        "g-data-cyberdefense",
+        "rocket-lawyer",
+        "sauce-labs",
+        "skyward",
+        "pros",
+        "treering",
+        "ashby",
+        "colossyan",
+        "exasol-ag",
+        "horizoniq",
+        "rudderstack",
+        "ceros",
+        "calix-inc",
+        "collaborative-drug-discovery",
+        "udemy",
+        "1mind-ai",
+        "browserbase",
+        "contentsquare",
+        "exa",
+        "firecrawl",
+        "further-ai",
+        "linkup",
+        "oneschema",
+        "orb",
+        "reducto",
+        "transloadit",
+        "unbabel",
+        "uploadcare",
+        "yoti",
+        "tableau",
+        "xsolla",
+        "sumup",
+        "affirm-holdings",
+        "hive",
+        "softcat",
+        "cars-com",
+        "netdocuments",
+        "kcf-technologies",
+        "liveops",
     ]
     check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
     check(not (report.get("dpa_filed") or []), "no DPA was newly filed")
@@ -294,46 +294,45 @@ def main() -> int:
     check(
         set(filed_sub)
         == {
-            "lob-com",
-            "productboard",
+            "contentsquare",
+            "uploadcare",
         },
         f"kept filings {sorted(filed_sub)}",
     )
     check(
-        filed_sub["lob-com"]["url"] == "https://www.lob.com/subprocessors",
-        "lob-com list URL",
+        filed_sub["contentsquare"]["url"] == "https://contentsquare.com/privacy-center/subprocessors/",
+        "contentsquare list URL",
     )
-    check(len(filed_sub["lob-com"]["names"]) == 37, "lob-com 37 names")
+    check(len(filed_sub["contentsquare"]["names"]) == 24, "contentsquare 24 names")
     check(
-        filed_sub["productboard"]["url"] == "https://www.productboard.com/subprocessors/",
-        "productboard list URL",
+        filed_sub["uploadcare"]["url"] == "https://uploadcare.com/about/sub-processors/",
+        "uploadcare list URL",
     )
-    check(len(filed_sub["productboard"]["names"]) == 15, "productboard 15 names")
+    check(len(filed_sub["uploadcare"]["names"]) == 25, "uploadcare 25 names")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
     check(stayed == set(expected_batch), f"stayed-open covers the batch, got {sorted(stayed ^ set(expected_batch))}")
-    check(len(report.get("stayed_open") or []) == 74, f"74 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
+    check(len(report.get("stayed_open") or []) == 78, f"78 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
     check(len(stayed_dpa) == 40, f"40 DPA slots stayed open, got {len(stayed_dpa)}")
-    check(len(stayed_sub) == 34, f"34 subprocessors slots stayed open, got {len(stayed_sub)}")
+    check(len(stayed_sub) == 38, f"38 subprocessors slots stayed open, got {len(stayed_sub)}")
     check(not (set(filed_sub) & stayed_sub), "kept filings are not in subprocessors stayed-open")
-    check("dash0" in stayed_dpa, "Dash0 PDF DPA stayed open")
-    check("dash0" not in {r["slug"] for r in (report.get("dpa_filed") or [])}, "Dash0 DPA was not filed")
+    check("browserbase" in stayed_dpa, "Browserbase login-wall DPA stayed open")
+    check("browserbase" not in {r["slug"] for r in (report.get("dpa_filed") or [])}, "Browserbase DPA was not filed")
     check(
-        "dpa" not in ((by_enr["dash0"].get("links") or {})),
-        "Dash0 links.dpa stays off the PDF",
+        "dpa" not in ((by_enr["browserbase"].get("links") or {})),
+        "Browserbase links.dpa stays off the sign-in wall",
     )
-    check("temporal" in stayed_dpa, "Temporal PDF DPA stayed open")
+    check("tableau" in stayed_dpa, "Tableau Salesforce PDF DPA stayed open")
     check(
-        "dpa" not in ((by_enr["temporal"].get("links") or {})),
-        "Temporal links.dpa stays off the PDF",
+        "dpa" not in ((by_enr["tableau"].get("links") or {})),
+        "Tableau links.dpa stays off the Salesforce parent PDF",
     )
-    check("panther-labs" in stayed_dpa, "Panther Framer JS-shell DPA stayed open")
+    # Prior-cut review drops stay unread.
     check(
         "dpa" not in ((by_enr["panther-labs"].get("links") or {})),
         "Panther links.dpa stays off the Framer JS-shell",
     )
-    check("neon" in stayed, "Neon Databricks list stayed open")
     check("neon" not in filed_sub, "Neon is not a filed named-processor list")
     check(not (by_pub["neon"].get("processors") or []), "Neon names no processors")
     check(
@@ -341,7 +340,6 @@ def main() -> int:
         "Neon links.subprocessors stays off the Databricks parent-company list",
     )
     check("smarsh" not in filed_sub, "Smarsh Cloudflare 403 list was not filed")
-    check("smarsh" in stayed_sub, "Smarsh subprocessors stayed open")
     check(not (by_pub["smarsh"].get("processors") or []), "Smarsh names no processors")
     check((by_pub["smarsh"].get("file") or {}).get("subprocessors") == 10, "Smarsh list URL stays dotted, names unread")
     check(
@@ -367,6 +365,8 @@ def main() -> int:
         "sam-labs", "apideck", "client-success", "84codes-cloudamqp",
         "heygen", "modal", "surveysparrow", "coralogix",
         "help-scout", "lastpass", "recurly-com", "segment",
+        "lob-com", "productboard", "dash0", "temporal", "neon", "smarsh",
+        "panther-labs", "plume",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")
@@ -639,6 +639,84 @@ def main() -> int:
             sum(int((by_pub[slug].get("file") or {}).get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years")) == 0,
             f"{slug} Completeness is 0",
         )
+
+    # This cut: Contentsquare first-party affiliate + third-party table.
+    # Content Square / Hotjar / Loris group rows stay off file (same company).
+    cs_names = [p.get("name") for p in (by_pub["contentsquare"].get("processors") or [])]
+    cs_slugs = [p.get("slug") for p in (by_pub["contentsquare"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["contentsquare"], "subprocessors")
+        == "https://contentsquare.com/privacy-center/subprocessors/",
+        "contentsquare list URL stays the first-party privacy-center table",
+    )
+    check((by_pub["contentsquare"].get("file") or {}).get("subprocessors") == 20, "contentsquare list printed")
+    check((by_pub["contentsquare"].get("file") or {}).get("dpa") in (0, False, None), "contentsquare DPA stays open")
+    check("Atlassian Pty Ltd (Jira)" in cs_names, "contentsquare names Atlassian Pty Ltd (Jira)")
+    check("Amazon Web Services, Inc" in cs_names, "contentsquare names Amazon Web Services, Inc")
+    check("Microsoft Azure" in cs_names, "contentsquare names Microsoft Azure")
+    check("Ada Support, Inc" in cs_names, "contentsquare names Ada Support, Inc")
+    check("OpenAI OpCo, LLC" in cs_names, "contentsquare names OpenAI OpCo, LLC")
+    check("Turbopuffer Inc" in cs_names, "contentsquare names Turbopuffer Inc")
+    check("Content Square SAS" not in cs_names, "contentsquare self-affiliate Content Square SAS stays off file")
+    check("Hotjar Germany GmbH" not in cs_names, "contentsquare Hotjar group row stays off file")
+    check("Loris Technologies, Ltd" not in cs_names, "contentsquare Loris group row stays off file")
+    check(len(cs_names) == 24, f"contentsquare printed 24 third-party names, got {len(cs_names)}")
+    check("amazon-web-services" in cs_slugs, "contentsquare AWS uses the Amazon Web Services file")
+    check("microsoft" in cs_slugs, "contentsquare Azure uses the Microsoft file")
+    check("ada" in cs_slugs, "contentsquare Ada Support uses the Ada file")
+    check("content-square-sas" not in cs_slugs, "contentsquare does not invent a Content Square dossier")
+    check("hotjar-germany" not in cs_slugs, "contentsquare does not invent a Hotjar Germany dossier")
+    cs_html = (ROOT / "site" / "c" / "contentsquare.html").read_text(encoding="utf-8")
+    check(
+        "https://contentsquare.com/privacy-center/subprocessors/" in cs_html,
+        "contentsquare dossier keeps the list URL",
+    )
+    check("./amazon-web-services.html" in cs_html, "contentsquare AWS cross-links to Amazon Web Services")
+    check("./microsoft.html" in cs_html, "contentsquare Azure cross-links to Microsoft")
+    check("./ada.html" in cs_html, "contentsquare Ada Support cross-links to Ada")
+    check("Content Square SAS" not in cs_html, "contentsquare dossier does not print Content Square SAS")
+    check("Hotjar Germany" not in cs_html, "contentsquare dossier does not print Hotjar Germany")
+
+    # This cut: Uploadcare first-party /about/sub-processors/ table. Portal
+    # catalog URL upgraded to printed HTML. Product cells alias to existing files.
+    uc_names = [p.get("name") for p in (by_pub["uploadcare"].get("processors") or [])]
+    uc_slugs = [p.get("slug") for p in (by_pub["uploadcare"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["uploadcare"], "subprocessors")
+        == "https://uploadcare.com/about/sub-processors/",
+        "uploadcare list URL is the first-party printed table",
+    )
+    check((by_pub["uploadcare"].get("file") or {}).get("subprocessors") == 20, "uploadcare list printed")
+    check((by_pub["uploadcare"].get("file") or {}).get("dpa") in (0, False, None), "uploadcare DPA stays open")
+    check("Amazon Web Services" in uc_names, "uploadcare names Amazon Web Services")
+    check("Zencoder" in uc_names, "uploadcare names Zencoder")
+    check("Facebook for Business" in uc_names, "uploadcare names Facebook for Business")
+    check("Google Cloud" in uc_names, "uploadcare names Google Cloud")
+    check("Google Workspace" in uc_names, "uploadcare names Google Workspace")
+    check("Google Marketing Platform" in uc_names, "uploadcare names Google Marketing Platform")
+    check("Microsoft Advertising" in uc_names, "uploadcare names Microsoft Advertising")
+    check("Talend" in uc_names, "uploadcare names Talend")
+    check(len(uc_names) == 25, f"uploadcare printed 25 named processors, got {len(uc_names)}")
+    check("amazon-web-services" in uc_slugs, "uploadcare AWS uses the Amazon Web Services file")
+    check("brightcove" in uc_slugs, "uploadcare Zencoder uses the Brightcove file")
+    check("meta" in uc_slugs, "uploadcare Facebook for Business uses the Meta file")
+    check("google" in uc_slugs, "uploadcare Google cells use the Google file")
+    check("microsoft" in uc_slugs, "uploadcare Microsoft Advertising uses the Microsoft file")
+    check("qlik" in uc_slugs, "uploadcare Talend uses the Qlik file")
+    check("facebook-for-business" not in uc_slugs, "uploadcare does not invent a Facebook for Business dossier")
+    check("talend" not in uc_slugs, "uploadcare does not invent a Talend dossier")
+    check("kaleido" not in by_pub, "kaleido leftover does not invent a dossier")
+    check("zamzar" not in by_pub, "zamzar leftover does not invent a dossier")
+    check("fern" not in by_pub, "fern leftover does not invent a dossier")
+    check("mezmo" not in by_pub, "mezmo leftover does not invent a dossier")
+    uc_html = (ROOT / "site" / "c" / "uploadcare.html").read_text(encoding="utf-8")
+    check("https://uploadcare.com/about/sub-processors/" in uc_html, "uploadcare dossier keeps the list URL")
+    check("./amazon-web-services.html" in uc_html, "uploadcare AWS cross-links to Amazon Web Services")
+    check("./brightcove.html" in uc_html, "uploadcare Zencoder cross-links to Brightcove")
+    check("./meta.html" in uc_html, "uploadcare Facebook for Business cross-links to Meta")
+    check("./google.html" in uc_html, "uploadcare Google cells cross-link to Google")
+    check("./qlik.html" in uc_html, "uploadcare Talend cross-links to Qlik")
+    check("trust.uploadcare.com/subprocessors" not in uc_html, "uploadcare dossier dropped the portal list URL")
 
     # This cut: Branch Metrics leftover. First-party /security is Official page.
     # legal.branch.io DPA and Subprocessor List print. Conveyor stays off Official page.

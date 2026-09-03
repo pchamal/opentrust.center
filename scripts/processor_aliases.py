@@ -904,6 +904,30 @@ REGISTER_ALIASES: dict[str, str] = {
     # Productboard prints FoundryLabs. foundry-labs is on the register
     # (foundrylabs.com). Do not invent a second Foundry Labs dossier.
     "foundrylabs": "foundry-labs",
+    # Contentsquare affiliate table prints Content Square / Hotjar / Loris
+    # group entities. hotjar already aliases here. Regional leftovers land
+    # on contentsquare. Do not invent a second dossier. Contentsquare's
+    # own list drops these as self — aliases are for other companies.
+    "content-square-sas": "contentsquare",
+    "content-square": "contentsquare",
+    "content-square-israel": "contentsquare",
+    "content-square-singapore-pte": "contentsquare",
+    "content-square-spain-s-l": "contentsquare",
+    "content-square-canada": "contentsquare",
+    "content-square-ltd": "contentsquare",
+    "content-square-gmbh": "contentsquare",
+    "hotjar-germany": "contentsquare",
+    "hotjar-uk": "contentsquare",
+    "hotjar-netherlands": "contentsquare",
+    "hotjar-web-portugal-unipessoal-lda": "contentsquare",
+    "hotjar-web-services-spain-s-l": "contentsquare",
+    "loris-technologies": "contentsquare",
+    # Uploadcare product / brand cells. meta / google / microsoft / qlik
+    # are on the register. Talend homepage 301s to Qlik Talend.
+    "facebook-for-business": "meta",
+    "google-marketing-platform": "google",
+    "microsoft-advertising": "microsoft",
+    "talend": "qlik",
 
 }
 
