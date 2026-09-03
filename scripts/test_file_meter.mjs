@@ -139,12 +139,15 @@ expect(
 
 const arsys = bySlug.arsys;
 expect(
-  "arsys is a domain-only Completeness-0 row on arsys.es",
+  "arsys Completeness is marks; about/legal is not Official page",
   arsys &&
     arsys.domain === "arsys.es" &&
     arsys.found === false &&
     !arsys.trust_url &&
-    fileScore(fileFlags(arsys)) === 0,
+    (arsys.certs || []).includes("ISO 27001") &&
+    fileFlags(arsys).page === 0 &&
+    fileFlags(arsys).marks === 20 &&
+    fileScore(fileFlags(arsys)) === 20,
 );
 expect("arsys is not ionos", arsys && arsys.slug === "arsys" && bySlug.ionos && bySlug.ionos.domain === "ionos.com");
 
@@ -1887,6 +1890,29 @@ expect(
       fileFlags(row).years === 0 &&
       fileScore(fileFlags(row)) === 40 &&
       ruleOn(fileIndexHtml(row))[0] === true &&
+      ruleOn(fileIndexHtml(row))[1] === true
+    );
+  })(),
+);
+expect(
+  "sutherland Completeness is marks; privacy DPF is not Official page",
+  (() => {
+    const row = bySlug["sutherland-global-services"];
+    return (
+      row &&
+      row.domain === "sutherlandglobal.com" &&
+      row.found === false &&
+      !row.trust_url &&
+      (row.certs || []).length === 1 &&
+      (row.certs || [])[0] === "EU-US DPF" &&
+      !row.founded_year &&
+      fileFlags(row).page === 0 &&
+      fileFlags(row).marks === 20 &&
+      fileFlags(row).dpa === 0 &&
+      fileFlags(row).subprocessors === 0 &&
+      fileFlags(row).years === 0 &&
+      fileScore(fileFlags(row)) === 20 &&
+      ruleOn(fileIndexHtml(row))[0] === false &&
       ruleOn(fileIndexHtml(row))[1] === true
     );
   })(),
