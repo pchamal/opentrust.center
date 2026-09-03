@@ -901,6 +901,9 @@ REGISTER_ALIASES: dict[str, str] = {
     # Wrike prints Adtrib, Inc. (k/n/a/ MaestroQA). maestroqa is on the
     # register (maestroqa.com). Do not invent a second MaestroQA dossier.
     "adtrib-k-n-a-maestroqa": "maestroqa",
+    # Productboard prints FoundryLabs. foundry-labs is on the register
+    # (foundrylabs.com). Do not invent a second Foundry Labs dossier.
+    "foundrylabs": "foundry-labs",
 
 }
 
@@ -1015,6 +1018,8 @@ SKIP_PROCESSOR_IDS = {
     "marketing-data",
     "online-activity-data",
     "data-derived-from-the-above",
+    # Smarsh optional-feature product line (not an organization)
+    "voci-medallia-vspark-cloud-optional-feature",
 }
 SKIP_PROCESSOR_NAMES = {
     "entity name",
@@ -1126,6 +1131,9 @@ SKIP_PROCESSOR_NAMES = {
     "marketing data",
     "online activity data",
     "data derived from the above",
+    # Smarsh optional-feature product line (not an organization)
+    "voci – medallia vspark cloud (optional feature)",
+    "voci - medallia vspark cloud (optional feature)",
 }
 
 
