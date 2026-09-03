@@ -625,6 +625,22 @@ def main() -> int:
     foundry_reg = {**register, "foundry-labs": {"slug": "foundry-labs", "name": "Foundry Labs", "domain": "foundrylabs.com"}}
     check(canonical_processor_id("foundrylabs", foundry_reg) == "foundry-labs", "FoundryLabs is Foundry Labs")
     check(REGISTER_ALIASES["foundrylabs"] == "foundry-labs", "foundrylabs aliases to foundry-labs")
+    cs_reg2 = {**register, "contentsquare": {"slug": "contentsquare", "name": "Contentsquare", "domain": "contentsquare.com"}}
+    check(canonical_processor_id("hotjar-germany", cs_reg2) == "contentsquare", "Hotjar Germany is Contentsquare")
+    check(canonical_processor_id("loris-technologies", cs_reg2) == "contentsquare", "Loris Technologies is Contentsquare")
+    check(canonical_processor_id("content-square-sas", cs_reg2) == "contentsquare", "Content Square SAS is Contentsquare")
+    check(REGISTER_ALIASES["hotjar-germany"] == "contentsquare", "hotjar-germany aliases to contentsquare")
+    check(REGISTER_ALIASES["loris-technologies"] == "contentsquare", "loris-technologies aliases to contentsquare")
+    meta_reg = {**register, "meta": {"slug": "meta", "name": "Meta", "domain": "meta.com"}}
+    check(canonical_processor_id("facebook-for-business", meta_reg) == "meta", "Facebook for Business is Meta")
+    check(REGISTER_ALIASES["facebook-for-business"] == "meta", "facebook-for-business aliases to meta")
+    check(canonical_processor_id("google-marketing-platform", register) == "google", "Google Marketing Platform is Google")
+    check(REGISTER_ALIASES["google-marketing-platform"] == "google", "google-marketing-platform aliases to google")
+    check(canonical_processor_id("microsoft-advertising", register) == "microsoft", "Microsoft Advertising is Microsoft")
+    check(REGISTER_ALIASES["microsoft-advertising"] == "microsoft", "microsoft-advertising aliases to microsoft")
+    qlik_reg = {**register, "qlik": {"slug": "qlik", "name": "Qlik", "domain": "qlik.com"}}
+    check(canonical_processor_id("talend", qlik_reg) == "qlik", "Talend is Qlik")
+    check(REGISTER_ALIASES["talend"] == "qlik", "talend aliases to qlik")
     check(
         skip_processor("voci-medallia-vspark-cloud-optional-feature", "VOCI – Medallia VSpark Cloud (Optional feature)"),
         "Smarsh VOCI optional feature is garbage",
