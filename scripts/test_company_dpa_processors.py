@@ -290,13 +290,12 @@ def main() -> int:
     check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
     check(not (report.get("dpa_filed") or []), "no DPA was newly filed")
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
-    check(len(filed_sub) == 3, f"three named-processor lists filed, got {sorted(filed_sub)}")
+    check(len(filed_sub) == 2, f"two named-processor lists filed, got {sorted(filed_sub)}")
     check(
         set(filed_sub)
         == {
             "lob-com",
             "productboard",
-            "smarsh",
         },
         f"kept filings {sorted(filed_sub)}",
     )
@@ -310,18 +309,13 @@ def main() -> int:
         "productboard list URL",
     )
     check(len(filed_sub["productboard"]["names"]) == 15, "productboard 15 names")
-    check(
-        filed_sub["smarsh"]["url"] == "https://www.smarsh.com/subprocessors",
-        "smarsh list URL",
-    )
-    check(len(filed_sub["smarsh"]["names"]) == 2, "smarsh 2 names after optional-feature drop")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
     check(stayed == set(expected_batch), f"stayed-open covers the batch, got {sorted(stayed ^ set(expected_batch))}")
-    check(len(report.get("stayed_open") or []) == 73, f"73 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
+    check(len(report.get("stayed_open") or []) == 74, f"74 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
     check(len(stayed_dpa) == 40, f"40 DPA slots stayed open, got {len(stayed_dpa)}")
-    check(len(stayed_sub) == 33, f"33 subprocessors slots stayed open, got {len(stayed_sub)}")
+    check(len(stayed_sub) == 34, f"34 subprocessors slots stayed open, got {len(stayed_sub)}")
     check(not (set(filed_sub) & stayed_sub), "kept filings are not in subprocessors stayed-open")
     check("dash0" in stayed_dpa, "Dash0 PDF DPA stayed open")
     check("dash0" not in {r["slug"] for r in (report.get("dpa_filed") or [])}, "Dash0 DPA was not filed")
@@ -345,6 +339,15 @@ def main() -> int:
     check(
         "subprocessors" not in ((by_enr["neon"].get("links") or {})),
         "Neon links.subprocessors stays off the Databricks parent-company list",
+    )
+    check("smarsh" not in filed_sub, "Smarsh Cloudflare 403 list was not filed")
+    check("smarsh" in stayed_sub, "Smarsh subprocessors stayed open")
+    check(not (by_pub["smarsh"].get("processors") or []), "Smarsh names no processors")
+    check((by_pub["smarsh"].get("file") or {}).get("subprocessors") == 10, "Smarsh list URL stays dotted, names unread")
+    check(
+        (by_enr["smarsh"].get("links") or {}).get("subprocessors")
+        == "https://www.smarsh.com/subprocessors",
+        "Smarsh stored list URL stays, names stay unread",
     )
 
     for slug in stayed_sub:
@@ -376,8 +379,8 @@ def main() -> int:
     check((by_pub["lob-com"].get("file") or {}).get("subprocessors") == 20, "lob-com processors print")
     check(len(by_pub["productboard"].get("processors") or []) == 15, "productboard 15 names print")
     check((by_pub["productboard"].get("file") or {}).get("subprocessors") == 20, "productboard processors print")
-    check(len(by_pub["smarsh"].get("processors") or []) == 2, "smarsh 2 names print")
-    check((by_pub["smarsh"].get("file") or {}).get("subprocessors") == 20, "smarsh processors print")
+    check(not (by_pub["smarsh"].get("processors") or []), "smarsh named processors stay unread")
+    check((by_pub["smarsh"].get("file") or {}).get("subprocessors") == 10, "smarsh Completeness is not bumped")
     lob_html = (ROOT / "site" / "c" / "lob-com.html").read_text(encoding="utf-8")
     check("./mailchimp.html" in lob_html, "lob Rocket Science Group cross-links to Mailchimp")
     check("./shutterfly.html" in lob_html, "lob Shutterfly cross-links to Shutterfly")
@@ -386,8 +389,8 @@ def main() -> int:
     check("./foundry-labs.html" in pb_html, "productboard FoundryLabs cross-links to Foundry Labs")
     check("./google.html" in pb_html, "productboard Google Vertex AI cross-links to Google")
     sm_html = (ROOT / "site" / "c" / "smarsh.html").read_text(encoding="utf-8")
-    check("VOCI" not in sm_html, "smarsh does not print the VOCI optional-feature product line")
-    check("Optional feature" not in sm_html, "smarsh does not print optional-feature junk")
+    check("Named processors filed from a first-party list" not in sm_html, "smarsh clerk line is not a named-list fill")
+    check("410 Terry Ave" not in sm_html, "smarsh does not print the unread Cloudflare-wall names")
     cloud_html = (ROOT / "site" / "c" / "84codes-cloudamqp.html").read_text(encoding="utf-8")
     check(">Topic<" not in cloud_html, "CloudAMQP does not print DPA Topic as a processor")
     check("Retention period" not in cloud_html, "CloudAMQP does not print Retention period")

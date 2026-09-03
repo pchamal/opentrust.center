@@ -804,7 +804,7 @@ PRIOR_ATTEMPTED = {
     "bandwidth-inc",
     "lyzr",
     "speechmatics",
-    # this cut — upper-quadrant subprocessors batch (40 attempted, 3 filed)
+    # this cut — upper-quadrant subprocessors batch (40 attempted, 2 filed)
     "rime",
     "bigpanda",
     "cognism",
