@@ -622,6 +622,13 @@ def main() -> int:
         "Adtrib k/n/a MaestroQA is MaestroQA",
     )
     check(REGISTER_ALIASES["adtrib-k-n-a-maestroqa"] == "maestroqa", "adtrib-k-n-a-maestroqa aliases to maestroqa")
+    foundry_reg = {**register, "foundry-labs": {"slug": "foundry-labs", "name": "Foundry Labs", "domain": "foundrylabs.com"}}
+    check(canonical_processor_id("foundrylabs", foundry_reg) == "foundry-labs", "FoundryLabs is Foundry Labs")
+    check(REGISTER_ALIASES["foundrylabs"] == "foundry-labs", "foundrylabs aliases to foundry-labs")
+    check(
+        skip_processor("voci-medallia-vspark-cloud-optional-feature", "VOCI – Medallia VSpark Cloud (Optional feature)"),
+        "Smarsh VOCI optional feature is garbage",
+    )
     dbt_reg = {**register, "dbt-labs": {"slug": "dbt-labs", "name": "dbt Labs", "domain": "getdbt.com"}}
     check(canonical_processor_id("dbt-cloud", dbt_reg) == "dbt-labs", "dbt Cloud is dbt Labs")
 

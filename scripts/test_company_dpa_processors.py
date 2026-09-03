@@ -246,112 +246,111 @@ def main() -> int:
 
     # This increment: upper-quadrant DPA-on-file / subprocessors queue (~40).
     expected_batch = [
-        "tensorwave",
-        "freightos",
-        "serko-limited",
-        "planet-labs",
-        "help-scout",
-        "vyond",
-        "naseej",
-        "beamery",
-        "nylas",
-        "wingify",
-        "gandi",
-        "formstack",
-        "wrike",
-        "morning-consult",
-        "lastpass",
-        "maven-agi",
-        "elastic-io",
-        "model-n",
-        "infobip",
-        "incountry",
-        "macstadium",
-        "segment",
-        "matterport",
-        "ant-international",
-        "identity-automation-lp",
-        "markmonitor",
-        "gmo-globalsign",
-        "digital-realty",
-        "iterable",
-        "omni-analytics",
-        "rackspace",
-        "recurly-com",
-        "relx-d-b-a-lexisnexis",
-        "bitpay",
-        "shortcut-software",
-        "orum",
-        "spotdraft",
-        "bandwidth-inc",
-        "lyzr",
-        "speechmatics",
+        "rime",
+        "bigpanda",
+        "cognism",
+        "descope",
+        "geordie-ai",
+        "heroku",
+        "lumen-technologies",
+        "workvivo",
+        "dash0",
+        "blue-yonder",
+        "panther-labs",
+        "tietoevry",
+        "impartner",
+        "smarsh",
+        "cronofy",
+        "productboard",
+        "scylladb",
+        "temporal",
+        "youmail",
+        "maxmind",
+        "intuition-machines-hcaptcha",
+        "imerit",
+        "voltage-park",
+        "flatfile",
+        "plume",
+        "dwolla",
+        "wealthsimple",
+        "metabase",
+        "stytch",
+        "actively-ai",
+        "appen",
+        "lightspeed-systems",
+        "shippo",
+        "cesiumastro",
+        "krisp",
+        "bright-data",
+        "enterpret",
+        "lob-com",
+        "neon",
+        "nightfall",
     ]
     check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
     check(not (report.get("dpa_filed") or []), "no DPA was newly filed")
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
-    check(len(filed_sub) == 4, f"four named-processor lists filed, got {sorted(filed_sub)}")
+    check(len(filed_sub) == 2, f"two named-processor lists filed, got {sorted(filed_sub)}")
     check(
         set(filed_sub)
         == {
-            "help-scout",
-            "shortcut-software",
-            "wingify",
-            "wrike",
+            "lob-com",
+            "productboard",
         },
         f"kept filings {sorted(filed_sub)}",
     )
     check(
-        filed_sub["help-scout"]["url"] == "https://www.helpscout.com/company/legal/sub-processors/",
-        "help-scout list URL",
+        filed_sub["lob-com"]["url"] == "https://www.lob.com/subprocessors",
+        "lob-com list URL",
     )
-    check(len(filed_sub["help-scout"]["names"]) == 20, "help-scout 20 names")
+    check(len(filed_sub["lob-com"]["names"]) == 37, "lob-com 37 names")
     check(
-        filed_sub["shortcut-software"]["url"] == "https://www.shortcut.com/gdpr-subprocessors/",
-        "shortcut list URL",
+        filed_sub["productboard"]["url"] == "https://www.productboard.com/subprocessors/",
+        "productboard list URL",
     )
-    check(len(filed_sub["shortcut-software"]["names"]) == 33, "shortcut 33 names")
-    check(
-        filed_sub["wingify"]["url"] == "https://wingify.com/compliance/subprocessors/",
-        "wingify list URL",
-    )
-    check(len(filed_sub["wingify"]["names"]) == 6, "wingify 6 names")
-    check(
-        filed_sub["wrike"]["url"] == "https://www.wrike.com/legal/subprocessors-list/",
-        "wrike list URL",
-    )
-    check(len(filed_sub["wrike"]["names"]) == 21, "wrike 21 names")
+    check(len(filed_sub["productboard"]["names"]) == 15, "productboard 15 names")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
     check(stayed == set(expected_batch), f"stayed-open covers the batch, got {sorted(stayed ^ set(expected_batch))}")
-    check(len(report.get("stayed_open") or []) == 64, f"64 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
-    check(len(stayed_dpa) == 37, f"37 DPA slots stayed open, got {len(stayed_dpa)}")
-    check(len(stayed_sub) == 27, f"27 subprocessors slots stayed open, got {len(stayed_sub)}")
+    check(len(report.get("stayed_open") or []) == 74, f"74 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
+    check(len(stayed_dpa) == 40, f"40 DPA slots stayed open, got {len(stayed_dpa)}")
+    check(len(stayed_sub) == 34, f"34 subprocessors slots stayed open, got {len(stayed_sub)}")
     check(not (set(filed_sub) & stayed_sub), "kept filings are not in subprocessors stayed-open")
-    check("lastpass" in stayed, "LastPass JS-shell DPA stayed open")
-    check("lastpass" not in {r["slug"] for r in (report.get("dpa_filed") or [])}, "LastPass DPA was not filed")
+    check("dash0" in stayed_dpa, "Dash0 PDF DPA stayed open")
+    check("dash0" not in {r["slug"] for r in (report.get("dpa_filed") or [])}, "Dash0 DPA was not filed")
     check(
-        "dpa" not in ((by_enr["lastpass"].get("links") or {})),
-        "LastPass links.dpa stays off the JS-shell addendum URL",
+        "dpa" not in ((by_enr["dash0"].get("links") or {})),
+        "Dash0 links.dpa stays off the PDF",
     )
-    check("recurly-com" in stayed, "Recurly PDF DPA stayed open")
+    check("temporal" in stayed_dpa, "Temporal PDF DPA stayed open")
     check(
-        "dpa" not in ((by_enr["recurly-com"].get("links") or {})),
-        "Recurly links.dpa stays off the Marketo PDF",
+        "dpa" not in ((by_enr["temporal"].get("links") or {})),
+        "Temporal links.dpa stays off the PDF",
     )
-    check("segment" in stayed, "Segment Twilio list stayed open")
-    check("segment" not in filed_sub, "Segment is not a filed named-processor list")
-    check(not (by_pub["segment"].get("processors") or []), "Segment names no processors")
+    check("panther-labs" in stayed_dpa, "Panther Framer JS-shell DPA stayed open")
     check(
-        (by_enr["segment"].get("links") or {}).get("subprocessors")
-        == "https://www.twilio.com/en-us/legal/sub-processors",
-        "Segment stored list URL stays the Twilio page, names stay unread",
+        "dpa" not in ((by_enr["panther-labs"].get("links") or {})),
+        "Panther links.dpa stays off the Framer JS-shell",
+    )
+    check("neon" in stayed, "Neon Databricks list stayed open")
+    check("neon" not in filed_sub, "Neon is not a filed named-processor list")
+    check(not (by_pub["neon"].get("processors") or []), "Neon names no processors")
+    check(
+        "subprocessors" not in ((by_enr["neon"].get("links") or {})),
+        "Neon links.subprocessors stays off the Databricks parent-company list",
+    )
+    check("smarsh" not in filed_sub, "Smarsh Cloudflare 403 list was not filed")
+    check("smarsh" in stayed_sub, "Smarsh subprocessors stayed open")
+    check(not (by_pub["smarsh"].get("processors") or []), "Smarsh names no processors")
+    check((by_pub["smarsh"].get("file") or {}).get("subprocessors") == 10, "Smarsh list URL stays dotted, names unread")
+    check(
+        (by_enr["smarsh"].get("links") or {}).get("subprocessors")
+        == "https://www.smarsh.com/subprocessors",
+        "Smarsh stored list URL stays, names stay unread",
     )
 
     for slug in stayed_sub:
-        if slug == "recurly-com":
-            continue
         pub = by_pub[slug]
         check(not (pub.get("processors") or []), f"{slug} named processors stay open")
 
@@ -367,6 +366,7 @@ def main() -> int:
         "uniphore", "arkose-labs", "clazar", "cognition-ai",
         "sam-labs", "apideck", "client-success", "84codes-cloudamqp",
         "heygen", "modal", "surveysparrow", "coralogix",
+        "help-scout", "lastpass", "recurly-com", "segment",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")
@@ -375,14 +375,38 @@ def main() -> int:
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check(rec["url"] in html, f"{slug} dossier cites the list URL")
         check('rel="noopener noreferrer"' in html, f"{slug} outbound links use noopener")
-    check(len(by_pub["help-scout"].get("processors") or []) == 20, "help-scout 20 names print")
-    check((by_pub["help-scout"].get("file") or {}).get("subprocessors") == 20, "help-scout processors print")
-    check(len(by_pub["shortcut-software"].get("processors") or []) == 33, "shortcut 33 names print")
-    check((by_pub["shortcut-software"].get("file") or {}).get("subprocessors") == 20, "shortcut processors print")
-    check(len(by_pub["wingify"].get("processors") or []) == 6, "wingify 6 names print")
-    check((by_pub["wingify"].get("file") or {}).get("subprocessors") == 20, "wingify processors print")
-    check(len(by_pub["wrike"].get("processors") or []) == 21, "wrike 21 names print")
-    check((by_pub["wrike"].get("file") or {}).get("subprocessors") == 20, "wrike processors print")
+    check(len(by_pub["lob-com"].get("processors") or []) == 37, "lob-com 37 names print")
+    check((by_pub["lob-com"].get("file") or {}).get("subprocessors") == 20, "lob-com processors print")
+    check(len(by_pub["productboard"].get("processors") or []) == 15, "productboard 15 names print")
+    check((by_pub["productboard"].get("file") or {}).get("subprocessors") == 20, "productboard processors print")
+    check(not (by_pub["smarsh"].get("processors") or []), "smarsh named processors stay unread")
+    check((by_pub["smarsh"].get("file") or {}).get("subprocessors") == 10, "smarsh Completeness is not bumped")
+    lob_html = (ROOT / "site" / "c" / "lob-com.html").read_text(encoding="utf-8")
+    check("./mailchimp.html" in lob_html, "lob Rocket Science Group cross-links to Mailchimp")
+    check("./shutterfly.html" in lob_html, "lob Shutterfly cross-links to Shutterfly")
+    pb_html = (ROOT / "site" / "c" / "productboard.html").read_text(encoding="utf-8")
+    check("./twilio.html" in pb_html, "productboard SendGrid cross-links to Twilio")
+    check("./foundry-labs.html" in pb_html, "productboard FoundryLabs cross-links to Foundry Labs")
+    check("./google.html" in pb_html, "productboard Google Vertex AI cross-links to Google")
+    sm_html = (ROOT / "site" / "c" / "smarsh.html").read_text(encoding="utf-8")
+    check("Named processors filed from a first-party list" not in sm_html, "smarsh clerk line is not a named-list fill")
+    check("410 Terry Ave" not in sm_html, "smarsh does not print the unread Cloudflare-wall names")
+    cloud_html = (ROOT / "site" / "c" / "84codes-cloudamqp.html").read_text(encoding="utf-8")
+    check(">Topic<" not in cloud_html, "CloudAMQP does not print DPA Topic as a processor")
+    check("Retention period" not in cloud_html, "CloudAMQP does not print Retention period")
+    # PR 267 filings stay on file. LastPass / Recurly / Segment review drops stay unread.
+    check(len(by_pub["help-scout"].get("processors") or []) == 20, "help-scout 20 names stay")
+    check(len(by_pub["shortcut-software"].get("processors") or []) == 33, "shortcut 33 names stay")
+    check(len(by_pub["wingify"].get("processors") or []) == 6, "wingify 6 names stay")
+    check(len(by_pub["wrike"].get("processors") or []) == 21, "wrike 21 names stay")
+    check("dpa" not in ((by_enr["lastpass"].get("links") or {})), "LastPass JS-shell DPA stays off file")
+    check("dpa" not in ((by_enr["recurly-com"].get("links") or {})), "Recurly Marketo PDF DPA stays off file")
+    check(not (by_pub["segment"].get("processors") or []), "Segment names no processors")
+    check(
+        (by_enr["segment"].get("links") or {}).get("subprocessors")
+        == "https://www.twilio.com/en-us/legal/sub-processors",
+        "Segment stored list URL stays the Twilio page, names stay unread",
+    )
     help_html = (ROOT / "site" / "c" / "help-scout.html").read_text(encoding="utf-8")
     check("./pusher.html" in help_html, "help-scout Pusher.io cross-links to Pusher")
     check("./fivetran.html" in help_html, "help-scout Census cross-links to Fivetran")
@@ -392,9 +416,6 @@ def main() -> int:
     wrike_html = (ROOT / "site" / "c" / "wrike.html").read_text(encoding="utf-8")
     check("./maestroqa.html" in wrike_html, "wrike Adtrib/MaestroQA cross-links to MaestroQA")
     check("./ada.html" in wrike_html, "wrike Ada Support cross-links to Ada")
-    cloud_html = (ROOT / "site" / "c" / "84codes-cloudamqp.html").read_text(encoding="utf-8")
-    check(">Topic<" not in cloud_html, "CloudAMQP does not print DPA Topic as a processor")
-    check("Retention period" not in cloud_html, "CloudAMQP does not print Retention period")
     # PR 266 filings stay on file. Modal / SurveySparrow DPA annex drops stay unread.
     check(len(by_pub["coralogix"].get("processors") or []) == 13, "coralogix 13 names stay")
     check(len(by_pub["lambdatest"].get("processors") or []) == 34, "lambdatest 34 names stay")
