@@ -545,6 +545,19 @@ def main() -> int:
     mosse_reg = {**register, "mosse-security": {"slug": "mosse-security", "name": "Mossé Security", "domain": "mosse-security.com"}}
     check(canonical_processor_id("benjamin-mosse-consulting", mosse_reg) == "mosse-security", "Benjamin Mosse Consulting is Mossé Security")
     check(REGISTER_ALIASES["benjamin-mosse-consulting"] == "mosse-security", "benjamin-mosse-consulting aliases to mosse-security")
+    check(canonical_processor_id("bigquery", register) == "google", "BigQuery is Google")
+    check(REGISTER_ALIASES["bigquery"] == "google", "bigquery aliases to google")
+    docker_reg = {**register, "docker-inc": {"slug": "docker-inc", "name": "Docker, Inc.", "domain": "docker.com"}}
+    check(canonical_processor_id("docker-hub", docker_reg) == "docker-inc", "Docker Hub is Docker")
+    check(REGISTER_ALIASES["docker-hub"] == "docker-inc", "docker-hub aliases to docker-inc")
+    check(canonical_processor_id("oracle-oci", register) == "oracle", "Oracle OCI is Oracle")
+    check(REGISTER_ALIASES["oracle-oci"] == "oracle", "oracle-oci aliases to oracle")
+    redis_reg = {**register, "redis": {"slug": "redis", "name": "Redis", "domain": "redislabs.com"}}
+    check(canonical_processor_id("redis-cloud", redis_reg) == "redis", "Redis Cloud is Redis")
+    check(REGISTER_ALIASES["redis-cloud"] == "redis", "redis-cloud aliases to redis")
+    front_reg = {**register, "front": {"slug": "front", "name": "Front", "domain": "front.com"}}
+    check(canonical_processor_id("frontapp-sarl", front_reg) == "front", "FrontApp SARL is Front")
+    check(REGISTER_ALIASES["frontapp-sarl"] == "front", "frontapp-sarl aliases to front")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch

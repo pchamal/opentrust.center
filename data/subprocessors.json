@@ -34896,20 +34896,6 @@
       "in_register": true
     },
     {
-      "id": "redis-cloud",
-      "name": "Redis Cloud",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "docker-hub",
-      "name": "Docker hub",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "svix",
       "name": "Svix",
       "domain": "",
@@ -34917,22 +34903,8 @@
       "in_register": false
     },
     {
-      "id": "bigquery",
-      "name": "BigQuery",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "signalwire",
       "name": "SignalWire",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "frontapp-sarl",
-      "name": "FrontApp SARL",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -34961,13 +34933,6 @@
     {
       "id": "zenlayer",
       "name": "ZenLayer",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "oracle-oci",
-      "name": "Oracle (OCI)",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -52436,7 +52401,7 @@
     },
     {
       "from": "clazar",
-      "to": "redis-cloud",
+      "to": "redis",
       "source_url": "https://clazar.io/dpa",
       "evidence": "Redis Cloud"
     },
@@ -52466,7 +52431,7 @@
     },
     {
       "from": "clazar",
-      "to": "docker-hub",
+      "to": "docker-inc",
       "source_url": "https://clazar.io/dpa",
       "evidence": "Docker hub"
     },
@@ -52502,7 +52467,7 @@
     },
     {
       "from": "daily",
-      "to": "bigquery",
+      "to": "google",
       "source_url": "https://www.daily.co/legal/sub-processors/",
       "evidence": "BigQuery"
     },
@@ -52676,7 +52641,7 @@
     },
     {
       "from": "front",
-      "to": "frontapp-sarl",
+      "to": "front",
       "source_url": "https://front.com/legal/list-of-subprocessors",
       "evidence": "FrontApp SARL"
     },
@@ -52790,7 +52755,7 @@
     },
     {
       "from": "stream-io",
-      "to": "oracle-oci",
+      "to": "oracle",
       "source_url": "https://getstream.io/legal/subprocessors/",
       "evidence": "Oracle (OCI)"
     },
@@ -53308,6 +53273,11 @@
     "ai-data-innovation": "ai-data-innovations",
     "agile-management-experts": "amx",
     "avertech": "e2open",
-    "benjamin-mosse-consulting": "mosse-security"
+    "benjamin-mosse-consulting": "mosse-security",
+    "bigquery": "google",
+    "docker-hub": "docker-inc",
+    "oracle-oci": "oracle",
+    "redis-cloud": "redis",
+    "frontapp-sarl": "front"
   }
 }

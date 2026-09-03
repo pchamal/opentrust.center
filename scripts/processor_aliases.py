@@ -849,6 +849,22 @@ REGISTER_ALIASES: dict[str, str] = {
     # business name Mosse Security (from 09 Aug 2013). Filed in this
     # increment. Do not invent a second dossier.
     "benjamin-mosse-consulting": "mosse-security",
+    # Daily.co names BigQuery. google-bigquery already aliases; this is the
+    # bare product id. google is on the register. Do not invent a second
+    # BigQuery dossier.
+    "bigquery": "google",
+    # Clazar names Docker hub. docker-inc is on the register (docker.com).
+    # Do not invent a second Docker Hub dossier.
+    "docker-hub": "docker-inc",
+    # Stream names Oracle (OCI). oracle-cloud-infrastructure already aliases
+    # to oracle. oracle is on the register. Do not invent a second OCI dossier.
+    "oracle-oci": "oracle",
+    # Clazar names Redis Cloud. redis-labs already aliases to redis.
+    # redis is on the register. Do not invent a second Redis Cloud dossier.
+    "redis-cloud": "redis",
+    # Front's own subprocessor list names FrontApp SARL (EU entity).
+    # front is on the register (front.com). Do not invent a second Front dossier.
+    "frontapp-sarl": "front",
 
 }
 
