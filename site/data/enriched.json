@@ -45190,10 +45190,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1991,
+      "founded_source": "https://www.accusoft.com/company/about/history"
     },
     {
       "rank": 1315,
@@ -66630,13 +66634,20 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-companies-germany",
       "certs": [],
-      "links": {},
+      "links": {
+        "dpa": "https://www.ableton.com/en/dpa/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 18,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "dpa": 8,
+          "longevity": 10
+        }
+      },
+      "founded_year": 1999,
+      "founded_source": "https://www.ableton.com/en/about"
     },
     {
       "rank": 2132,
@@ -66721,13 +66732,17 @@
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Germany",
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-companies-germany",
-      "certs": [],
+      "certs": [
+        "TISAX"
+      ],
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 4,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "marks": 4
+        }
       }
     },
     {
@@ -132288,23 +132303,36 @@
       "name": "Accurx",
       "slug": "accurx",
       "domain": "accurx.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.accurx.com/security-for-healthcare-professionals",
+      "final_url": "https://www.accurx.com/security-for-healthcare-professionals",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_Kingdom",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: ISO 27001, Cyber Essentials Plus.",
       "list": "wikipedia-software-uk",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "ISO 27001",
+        "Cyber Essentials Plus"
+      ],
+      "links": {
+        "security": "https://www.accurx.com/security-for-healthcare-professionals",
+        "dpa": "https://www.accurx.com/data-processing-agreement"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 47,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 14,
+          "dpa": 8,
+          "longevity": 5
+        }
+      },
+      "founded_year": 2016,
+      "founded_source": "https://www.accurx.com/who-we-are"
     },
     {
       "rank": 4662,
