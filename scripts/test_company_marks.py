@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from enrich import apply_marks_to_row, hosts_for, is_first_party_url  # noqa: E402
+from enrich import SPECIAL_URLS, apply_marks_to_row, hosts_for, is_first_party_url  # noqa: E402
 from file_company_marks import hold_marks  # noqa: E402
 from marks import MARK_PATTERNS  # noqa: E402
 
@@ -1891,6 +1891,50 @@ def main() -> int:
     check("ISO 27001" in adi_html, "ai-data-innovations dossier prints ISO 27001")
     check("SOC 2 Type I" in adi_html, "ai-data-innovations dossier prints SOC 2 Type I")
     check("Official page · not on file" in adi_html, "ai-data-innovations Official page stays open")
+    check(by_pub["arsys"].get("found") is False, "arsys Official page stays open")
+    check(not by_pub["arsys"].get("trust_url"), "arsys about/legal is not Official page")
+    check(
+        any("arsys.es/legal/privacidad" in u for u, _k in SPECIAL_URLS.get("arsys", [])),
+        "arsys legal Certificaciones page is seeded for the marks walker",
+    )
+    check(
+        sorted(by_pub["arsys"].get("certs") or [])
+        == ["ENS", "ISO 27001", "ISO 27018", "ISO 9001"],
+        f"arsys files first-party legal Certificaciones holds {by_pub['arsys'].get('certs')}",
+    )
+    check("GDPR" not in (by_pub["arsys"].get("certs") or []), "arsys RGPD stays open")
+    check("ISO 14001" not in (by_pub["arsys"].get("certs") or []), "arsys ISO 14001 stays open")
+    check("ISO 50001" not in (by_pub["arsys"].get("certs") or []), "arsys ISO 50001 stays open")
+    check((by_pub["arsys"].get("file") or {}).get("marks") == 20, "arsys marks print")
+    check((by_pub["arsys"].get("file") or {}).get("page") in (0, False, None), "arsys Official page stays open")
+    check((by_pub["arsys"].get("file") or {}).get("dpa") in (0, False, None), "arsys DPA stays open")
+    check((by_pub["arsys"].get("file") or {}).get("years") in (0, False, None), "arsys years stay open")
+    check(by_pub["arsys"].get("founded_year") in (None, 0, False), "arsys desde 1996 is not founded")
+    arsys_html = (ROOT / "site" / "c" / "arsys.html").read_text(encoding="utf-8")
+    check("<h1>Arsys</h1>" in arsys_html, "arsys dossier is its own file")
+    check("ISO 27001" in arsys_html, "arsys dossier prints ISO 27001")
+    check("ISO 27018" in arsys_html, "arsys dossier prints ISO 27018")
+    check("ISO 9001" in arsys_html, "arsys dossier prints ISO 9001")
+    check("ENS" in arsys_html, "arsys dossier prints ENS")
+    check("Official page · not on file" in arsys_html, "arsys Official page stays open")
+    check("founded · <span class=\"absent\">not on file</span>" in arsys_html, "arsys dossier years stay open")
+    check("safebase" not in arsys_html.lower(), "arsys does not name a portal vendor")
+    kept, why = hold_marks(
+        ["ISO 27001", "ISO 27018", "ISO 9001", "ENS", "GDPR"],
+        "Los proyectos y soluciones alojados en nuestras instalaciones están "
+        "avalados por las certificaciones de calidad ISO 9001, de seguridad "
+        "ISO 27001 y el Esquema Nacional de Seguridad (ENS). Certificación "
+        "Internacional 27001 Sistema de Gestión de Seguridad de la Información "
+        "de Arsys. El certificado ISO 27018 es un estándar internacional que "
+        "garantiza la gestión de la privacidad en los servicios en la Nube de "
+        "Arsys. Como complemento del certificado ISO 27001, añadimos una base "
+        "de buenas prácticas.",
+        "privacy",
+    )
+    check(
+        sorted(kept) == ["ENS", "ISO 27001", "ISO 27018", "ISO 9001"] and why is None,
+        f"arsys first-party Certificaciones holds file: {kept} {why}",
+    )
     kept, why = hold_marks(
         ["SOC 2 Type I", "ISO 27001", "GDPR"],
         "AICPA SOC 2 Type I Our SOC 2 Type I attestation reflects our rigorous "
