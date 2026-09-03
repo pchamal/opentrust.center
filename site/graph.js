@@ -325,6 +325,83 @@ function namerLine(n) {
     : `<li>${named}${src}</li>`;
 }
 
+function renderConcentration() {
+  const wrap = $("concentration-bars");
+  const line = $("concentration-line");
+  if (!wrap) return;
+  const rows = state.processors
+    .slice()
+    .sort((a, b) => (b.exposure || 0) - (a.exposure || 0))
+    .slice(0, 12);
+  if (!rows.length) {
+    wrap.innerHTML = "";
+    if (line) line.textContent = "";
+    return;
+  }
+  const max = rows[0].exposure || 1;
+  const total = state.processors.reduce((s, p) => s + (p.exposure || 0), 0);
+  const top = rows.slice(0, 3);
+  const topSum = top.reduce((s, p) => s + (p.exposure || 0), 0);
+  wrap.innerHTML = rows
+    .map((p) => {
+      const pct = Math.max(2, Math.round(((p.exposure || 0) / max) * 100));
+      return (
+        `<div class="conc-row">` +
+        `<a class="conc-name" href="./graph.html?p=${encodeURIComponent(p.id)}">${escapeHtml(p.name)}</a>` +
+        `<span class="conc-track" aria-hidden="true"><i style="width:${pct}%"></i></span>` +
+        `<span class="conc-num">${p.exposure}</span></div>`
+      );
+    })
+    .join("");
+  if (line) {
+    line.textContent =
+      `Three processors — ${top.map((p) => p.name).join(", ")} — ` +
+      `account for ${topSum} of ${total} published namings.`;
+  }
+}
+
+/* Transitive chains D → C → P: namers of this processor that are
+   themselves named processors, with one of their own namers each. */
+function transitiveChains(p) {
+  const byKey = new Map();
+  for (const q of state.processors) {
+    byKey.set(q.id, q);
+    if (q.slug) byKey.set(q.slug, q);
+  }
+  const chains = [];
+  const seen = new Set();
+  for (const n of p.namers || []) {
+    const mid = byKey.get(n.company);
+    if (!mid || mid === p) continue;
+    for (const d of mid.namers || []) {
+      const key = d.company + ">" + n.company;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      chains.push({ from: d, mid: n, midProc: mid, focus: p });
+      if (chains.length >= 8) return chains;
+    }
+  }
+  return chains;
+}
+
+function chainLine(c) {
+  const dCo = state.companies.get(c.from.company);
+  const dHtml = dCo
+    ? `<a href="./c/${encodeURIComponent(dCo.slug)}.html">${escapeHtml(dCo.name)}</a>`
+    : escapeHtml(c.from.company);
+  const midHtml =
+    `<a href="./graph.html?p=${encodeURIComponent(c.midProc.id)}">` +
+    `${escapeHtml(c.midProc.name)}</a>`;
+  const src = c.from.source_url
+    ? ` <span class="muted">· <a href="${escapeHtml(c.from.source_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(hostOfSafe(c.from.source_url))}</a></span>`
+    : "";
+  return (
+    `<li>${dHtml} <span class="muted" aria-hidden="true">→</span> ` +
+    `${midHtml} <span class="muted" aria-hidden="true">→</span> ` +
+    `${escapeHtml(c.focus.name)}${src}</li>`
+  );
+}
+
 function renderStub() {
   const el = $("stub");
   if (state.focus == null) {
@@ -343,11 +420,17 @@ function renderStub() {
     ? `<p class="ident-meta">on file · <a href="./c/${encodeURIComponent(p.slug)}.html">dossier</a></p>`
     : `<p class="ident-meta"><span class="absent">not in register</span></p>`;
   const self = p.slug ? state.companies.get(p.slug) : null;
+  const chains = transitiveChains(p);
+  const chainBlock = chains.length
+    ? `<p class="fig-sub">Transitive, as published — their vendors' vendors.</p>` +
+      `<ul class="guesses">${chains.map(chainLine).join("")}</ul>`
+    : "";
   el.innerHTML = `<h2>${nameWithIcon(p.name, iconForDomain(p.domain, self))}</h2>
     ${status}
-    <p class="ident-meta">named by ${p.exposure} · exposure, not a score</p>
+    <p class="ident-meta">named by ${p.exposure} · exposure, not a score${chains.length ? ` · ${chains.length} transitive chain${chains.length === 1 ? "" : "s"}` : ""}</p>
     <p class="fig-sub">Who named them, as published.</p>
     <ul class="guesses">${p.namers.map(namerLine).join("")}</ul>
+    ${chainBlock}
     <button type="button" class="go-out" id="copy-permalink">copy link to this processor</button>`;
   document.title = `${p.name} · named by ${p.exposure} · opentrust.center`;
 }
@@ -713,6 +796,7 @@ function fileProcessor(i) {
   map.focusKey = null;
   renderTable();
   renderStub();
+  renderConcentration();
   renderHoodLine();
   if (state.view === "map") drawMap();
   const id = p.id || p.slug;

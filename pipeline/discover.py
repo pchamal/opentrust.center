@@ -410,6 +410,33 @@ async def discover_domain(client: httpx.AsyncClient, ig: InsForge,
             verified.append(res)
             await ig.mark_verified(client, key, res["kind"], res["title"], res["status"])
 
+    if not verified and home_status in (403, 429):
+        # Walled homepage, open side doors: browser-render the three most
+        # promising path leads and verify the rendered document instead.
+        tried = 0
+        for key, lead in ranked:
+            if tried >= 3 or verified:
+                break
+            if lead["strategy"] not in ("path", "search"):
+                continue
+            tried += 1
+            status, html = await deep_render(lead["url"], deep_sem)
+            if status not in (200, 0) and not html:
+                continue
+            if not html or not same_site(lead["url"], domain):
+                continue
+            title = title_of(html)
+            if not title or any(s in title.lower()[:60] for s in SOFT_404):
+                continue
+            if len(re.sub(r"<[^>]+>", " ", html)) < 400:
+                continue
+            kind = kind_of(lead["url"], title)
+            if not kind:
+                continue
+            res = {"url": lead["url"], "status": 200, "title": title, "kind": kind}
+            verified.append(res)
+            await ig.mark_verified(client, key, kind, title, 200)
+
     if verified:
         state = "recovered"
     elif home_status == 0:
@@ -435,6 +462,8 @@ async def main() -> int:
     ap.add_argument("--search", action="store_true", help="also mine DuckDuckGo site: search")
     ap.add_argument("--resume", action="store_true", help="skip domains already in ot_leads")
     ap.add_argument("--concurrency", type=int, default=6, help="parallel domains in flight")
+    ap.add_argument("--order", default="file", choices=["file", "rank", "exposure"],
+                    help="rank: lowest list rank first; exposure: most-named-as-subprocessor first")
     ap.add_argument("--learn", action="store_true", help="mine verified ot_leads for extra path patterns first")
     args = ap.parse_args()
 
@@ -451,6 +480,28 @@ async def main() -> int:
         if c.get("tier") == args.tier:
             seen_domains.add(d)
             seeds.append(c)
+    if args.order == "rank":
+        seeds.sort(key=lambda c: (c.get("rank") if isinstance(c.get("rank"), int) else 10**9))
+    elif args.order == "exposure":
+        try:
+            sp = json.loads((ROOT / "site" / "data" / "subprocessors.json").read_text())
+        except Exception:
+            sp = {}
+        exp: dict[str, int] = {}
+        for e in sp.get("edges", []) or []:
+            t = e.get("to")
+            if t:
+                exp[t] = exp.get(t, 0) + 1
+        by_id = {n.get("id"): n for n in sp.get("nodes", []) or []}
+        dom_exp: dict[str, int] = {}
+        for pid, n in exp.items():
+            node = by_id.get(pid) or {}
+            if node.get("domain"):
+                dom_exp[node["domain"].lower()] = max(dom_exp.get(node["domain"].lower(), 0), n)
+        seeds.sort(key=lambda c: (-dom_exp.get((c.get("domain") or "").lower(), 0),
+                                  c.get("rank") if isinstance(c.get("rank"), int) else 10**9))
+        top = [(c.get("domain"), dom_exp.get((c.get("domain") or "").lower(), 0)) for c in seeds[:8]]
+        print("hit list: " + " · ".join(f"{d}×{n}" for d, n in top))
     seeds = seeds[: args.limit]
 
     ig = InsForge()
