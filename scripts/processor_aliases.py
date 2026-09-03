@@ -868,6 +868,21 @@ REGISTER_ALIASES: dict[str, str] = {
     # Sigma prints G Suite for email. google-workspace already aliases;
     # this is the old product name. google is on the register.
     "g-suite": "google",
+    # LambdaTest / TestMu prints Sales Force CRM next to SalesForce Service
+    # Desk. salesforce is on the register. Do not invent a second CRM dossier.
+    "sales-force-crm": "salesforce",
+    # LambdaTest prints Ring Central. ringcentral is on the register.
+    "ring-central": "ringcentral",
+    # LambdaTest prints HashiCorp Vault. hashicorp-cloud already aliases;
+    # this is the product name. hashicorp is on the register.
+    "hashicorp-vault": "hashicorp",
+    # LambdaTest prints Brightdata. bright-data is on the register
+    # (brightdata.com). Do not invent a second Bright Data dossier.
+    "brightdata": "bright-data",
+    # Postmark prints Deft (formerly known as ServerCentral). deft already
+    # aliases to summit (deft.com 301s to summithq.com). summit is on the
+    # register. Do not invent a second Deft / ServerCentral dossier.
+    "deft-formerly-known-as-servercentral": "summit",
 
 }
 

@@ -34919,16 +34919,16 @@
     {
       "id": "datapacket",
       "name": "Datapacket",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "datapacket.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "bodyguard-ai",
       "name": "Bodyguard.ai",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "bodyguard.ai",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "zenlayer",
@@ -35052,6 +35052,69 @@
     {
       "id": "reo-dev",
       "name": "Reo.dev",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "superhuman",
+      "name": "Superhuman",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "macstadium",
+      "name": "MacStadium, Inc",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "ctrls",
+      "name": "CtrlS",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "servecentric",
+      "name": "Servecentric",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "justcall",
+      "name": "JustCall",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "jumpcloud-iam",
+      "name": "JumpCloud IAM",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "keka",
+      "name": "Keka",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "spotdraft",
+      "name": "Spotdraft",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "polar-signals",
+      "name": "Polar Signals",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -53699,6 +53762,402 @@
       "to": "fivetran",
       "source_url": "https://www.sigmacomputing.com/legal/subprocessors",
       "evidence": "Census"
+    },
+    {
+      "from": "coralogix",
+      "to": "amazon-web-services",
+      "source_url": "https://coralogix.com/authorized-sub-processors/",
+      "evidence": "Amazon Web Services"
+    },
+    {
+      "from": "coralogix",
+      "to": "alphabet",
+      "source_url": "https://coralogix.com/authorized-sub-processors/",
+      "evidence": "Alphabet Inc (holding company of Google LLC)"
+    },
+    {
+      "from": "coralogix",
+      "to": "salesforce",
+      "source_url": "https://coralogix.com/authorized-sub-processors/",
+      "evidence": "Salesforce"
+    },
+    {
+      "from": "coralogix",
+      "to": "slack",
+      "source_url": "https://coralogix.com/authorized-sub-processors/",
+      "evidence": "Slack Technologies Inc"
+    },
+    {
+      "from": "coralogix",
+      "to": "snowflake",
+      "source_url": "https://coralogix.com/authorized-sub-processors/",
+      "evidence": "Snowflake"
+    },
+    {
+      "from": "coralogix",
+      "to": "atlassian",
+      "source_url": "https://coralogix.com/authorized-sub-processors/",
+      "evidence": "Atlassian Pty Ltd (Jira)"
+    },
+    {
+      "from": "coralogix",
+      "to": "monday",
+      "source_url": "https://coralogix.com/authorized-sub-processors/",
+      "evidence": "Monday.com"
+    },
+    {
+      "from": "coralogix",
+      "to": "stripe",
+      "source_url": "https://coralogix.com/authorized-sub-processors/",
+      "evidence": "Stripe"
+    },
+    {
+      "from": "coralogix",
+      "to": "intercom",
+      "source_url": "https://coralogix.com/authorized-sub-processors/",
+      "evidence": "Intercom"
+    },
+    {
+      "from": "coralogix",
+      "to": "openai",
+      "source_url": "https://coralogix.com/authorized-sub-processors/",
+      "evidence": "OpenAI Inc"
+    },
+    {
+      "from": "coralogix",
+      "to": "microsoft",
+      "source_url": "https://coralogix.com/authorized-sub-processors/",
+      "evidence": "Microsoft (Azure OpenAI)"
+    },
+    {
+      "from": "coralogix",
+      "to": "zendesk",
+      "source_url": "https://coralogix.com/authorized-sub-processors/",
+      "evidence": "Zendesk"
+    },
+    {
+      "from": "coralogix",
+      "to": "superhuman",
+      "source_url": "https://coralogix.com/authorized-sub-processors/",
+      "evidence": "Superhuman"
+    },
+    {
+      "from": "lambdatest",
+      "to": "amazon-web-services",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Amazon Web Services (AWS)"
+    },
+    {
+      "from": "lambdatest",
+      "to": "microsoft",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Microsoft Azure"
+    },
+    {
+      "from": "lambdatest",
+      "to": "cloudflare",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Cloudflare, Inc"
+    },
+    {
+      "from": "lambdatest",
+      "to": "sumo-logic",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "SumoLogic,Inc"
+    },
+    {
+      "from": "lambdatest",
+      "to": "macstadium",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "MacStadium, Inc"
+    },
+    {
+      "from": "lambdatest",
+      "to": "leaseweb-global",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Leaseweb"
+    },
+    {
+      "from": "lambdatest",
+      "to": "ctrls",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "CtrlS"
+    },
+    {
+      "from": "lambdatest",
+      "to": "servecentric",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Servecentric"
+    },
+    {
+      "from": "lambdatest",
+      "to": "okta",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Okta"
+    },
+    {
+      "from": "lambdatest",
+      "to": "amplitude",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Amplitude, Inc"
+    },
+    {
+      "from": "lambdatest",
+      "to": "atlassian",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Atlassian"
+    },
+    {
+      "from": "lambdatest",
+      "to": "hashicorp",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "HashiCorp Vault"
+    },
+    {
+      "from": "lambdatest",
+      "to": "github",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "GitHub"
+    },
+    {
+      "from": "lambdatest",
+      "to": "bright-data",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Brightdata"
+    },
+    {
+      "from": "lambdatest",
+      "to": "salesforce",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "SalesForce Service Desk"
+    },
+    {
+      "from": "lambdatest",
+      "to": "slack",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Slack Technologies, Inc"
+    },
+    {
+      "from": "lambdatest",
+      "to": "openai",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "OpenAI"
+    },
+    {
+      "from": "lambdatest",
+      "to": "salesforce",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Sales Force CRM"
+    },
+    {
+      "from": "lambdatest",
+      "to": "linkedin",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "LinkedIn Sales Navigator"
+    },
+    {
+      "from": "lambdatest",
+      "to": "stripe",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Stripe"
+    },
+    {
+      "from": "lambdatest",
+      "to": "justcall",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "JustCall"
+    },
+    {
+      "from": "lambdatest",
+      "to": "ringcentral",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Ring Central"
+    },
+    {
+      "from": "lambdatest",
+      "to": "docusign",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "DocuSign"
+    },
+    {
+      "from": "lambdatest",
+      "to": "google",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Google LLC (G Suite)"
+    },
+    {
+      "from": "lambdatest",
+      "to": "jumpcloud-iam",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "JumpCloud IAM"
+    },
+    {
+      "from": "lambdatest",
+      "to": "1password",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "1Password"
+    },
+    {
+      "from": "lambdatest",
+      "to": "keka",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Keka"
+    },
+    {
+      "from": "lambdatest",
+      "to": "spotdraft",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Spotdraft"
+    },
+    {
+      "from": "lambdatest",
+      "to": "braze",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Braze"
+    },
+    {
+      "from": "lambdatest",
+      "to": "lusha",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Lusha"
+    },
+    {
+      "from": "lambdatest",
+      "to": "apollo-io",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Apollo.io"
+    },
+    {
+      "from": "lambdatest",
+      "to": "calendly",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Calendly"
+    },
+    {
+      "from": "lambdatest",
+      "to": "superhuman",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "Superhuman"
+    },
+    {
+      "from": "postmark",
+      "to": "summit",
+      "source_url": "https://postmarkapp.com/eu-privacy",
+      "evidence": "Deft (formerly known as ServerCentral)"
+    },
+    {
+      "from": "postmark",
+      "to": "amazon-web-services",
+      "source_url": "https://postmarkapp.com/eu-privacy",
+      "evidence": "Amazon Web Services"
+    },
+    {
+      "from": "turbopuffer",
+      "to": "amazon-web-services",
+      "source_url": "https://turbopuffer.com/docs/security/subprocessors",
+      "evidence": "Amazon Web Services (AWS)"
+    },
+    {
+      "from": "turbopuffer",
+      "to": "google",
+      "source_url": "https://turbopuffer.com/docs/security/subprocessors",
+      "evidence": "Google LLC (GCP)"
+    },
+    {
+      "from": "turbopuffer",
+      "to": "datadog",
+      "source_url": "https://turbopuffer.com/docs/security/subprocessors",
+      "evidence": "Datadog"
+    },
+    {
+      "from": "turbopuffer",
+      "to": "incident-io",
+      "source_url": "https://turbopuffer.com/docs/security/subprocessors",
+      "evidence": "Incident.io"
+    },
+    {
+      "from": "turbopuffer",
+      "to": "orb",
+      "source_url": "https://turbopuffer.com/docs/security/subprocessors",
+      "evidence": "Orb"
+    },
+    {
+      "from": "turbopuffer",
+      "to": "planetscale",
+      "source_url": "https://turbopuffer.com/docs/security/subprocessors",
+      "evidence": "PlanetScale"
+    },
+    {
+      "from": "turbopuffer",
+      "to": "polar-signals",
+      "source_url": "https://turbopuffer.com/docs/security/subprocessors",
+      "evidence": "Polar Signals"
+    },
+    {
+      "from": "turbopuffer",
+      "to": "pylon",
+      "source_url": "https://turbopuffer.com/docs/security/subprocessors",
+      "evidence": "Pylon"
+    },
+    {
+      "from": "turbopuffer",
+      "to": "resend",
+      "source_url": "https://turbopuffer.com/docs/security/subprocessors",
+      "evidence": "Resend"
+    },
+    {
+      "from": "turbopuffer",
+      "to": "stripe",
+      "source_url": "https://turbopuffer.com/docs/security/subprocessors",
+      "evidence": "Stripe"
+    },
+    {
+      "from": "turbopuffer",
+      "to": "teleport",
+      "source_url": "https://turbopuffer.com/docs/security/subprocessors",
+      "evidence": "Teleport"
+    },
+    {
+      "from": "turbopuffer",
+      "to": "vercel",
+      "source_url": "https://turbopuffer.com/docs/security/subprocessors",
+      "evidence": "Vercel"
+    },
+    {
+      "from": "turbopuffer",
+      "to": "workos",
+      "source_url": "https://turbopuffer.com/docs/security/subprocessors",
+      "evidence": "WorkOS"
+    },
+    {
+      "from": "turbopuffer",
+      "to": "baseten",
+      "source_url": "https://turbopuffer.com/docs/security/subprocessors",
+      "evidence": "Baseten"
+    },
+    {
+      "from": "turbopuffer",
+      "to": "cohere",
+      "source_url": "https://turbopuffer.com/docs/security/subprocessors",
+      "evidence": "Cohere"
+    },
+    {
+      "from": "turbopuffer",
+      "to": "fireworks-ai",
+      "source_url": "https://turbopuffer.com/docs/security/subprocessors",
+      "evidence": "Fireworks AI"
+    },
+    {
+      "from": "turbopuffer",
+      "to": "mongodb",
+      "source_url": "https://turbopuffer.com/docs/security/subprocessors",
+      "evidence": "Voyage AI (MongoDB)"
+    },
+    {
+      "from": "lambdatest",
+      "to": "atlassian",
+      "source_url": "https://www.testmuai.com/legal/sub-processor/",
+      "evidence": "OpsGenie"
     }
   ],
   "aliases": {
@@ -54201,6 +54660,12 @@
     "docker-hub": "docker-inc",
     "oracle-oci": "oracle",
     "redis-cloud": "redis",
-    "frontapp-sarl": "front"
+    "frontapp-sarl": "front",
+    "g-suite": "google",
+    "sales-force-crm": "salesforce",
+    "ring-central": "ringcentral",
+    "hashicorp-vault": "hashicorp",
+    "brightdata": "bright-data",
+    "deft-formerly-known-as-servercentral": "summit"
   }
 }

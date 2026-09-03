@@ -88853,18 +88853,38 @@
         "status": "https://status.turbopuffer.com",
         "privacy": "https://turbopuffer.com/privacy-policy",
         "dpa": "https://turbopuffer.com/dpa.pdf",
-        "security": "https://turbopuffer.com/docs/security"
+        "security": "https://turbopuffer.com/docs/security",
+        "subprocessors": "https://turbopuffer.com/docs/security/subprocessors"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "gcp",
+        "datadog",
+        "incident-io",
+        "orb",
+        "planetscale",
+        "polar-signals",
+        "pylon",
+        "resend",
+        "stripe",
+        "teleport",
+        "vercel",
+        "workos",
+        "baseten",
+        "cohere",
+        "fireworks-ai",
+        "mongodb"
+      ],
       "disclosure": {
-        "score": 44,
+        "score": 52,
         "tier": "on-file",
         "factors": {
           "portal": 20,
           "marks": 4,
           "dpa": 8,
           "status": 6,
-          "privacy": 6
+          "privacy": 6,
+          "subprocessors": 8
         }
       },
       "official_url": "https://turbopuffer.com/"
@@ -92967,15 +92987,31 @@
       "links": {
         "trust": "https://trust.coralogix.com",
         "privacy": "https://coralogix.com/privacy-policy/",
-        "dpa": "https://coralogix.com/data-processing-agreement/"
+        "dpa": "https://coralogix.com/data-processing-agreement/",
+        "subprocessors": "https://coralogix.com/authorized-sub-processors/"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "alphabet",
+        "salesforce",
+        "slack",
+        "snowflake",
+        "atlassian",
+        "monday",
+        "stripe",
+        "intercom",
+        "openai",
+        "azure",
+        "zendesk",
+        "superhuman"
+      ],
       "disclosure": {
-        "score": 14,
+        "score": 22,
         "tier": "silent",
         "factors": {
           "dpa": 8,
-          "privacy": 6
+          "privacy": 6,
+          "subprocessors": 8
         }
       },
       "official_url": "https://coralogix.com/"
@@ -95479,17 +95515,54 @@
         "privacy": "https://www.testmuai.com/legal/privacy/",
         "dpa": "https://www.testmuai.com/legal/data-processing-addendum/",
         "security": "https://www.testmuai.com/trust/security/",
-        "status": "https://status.lambdatest.io"
+        "status": "https://status.lambdatest.io",
+        "subprocessors": "https://www.testmuai.com/legal/sub-processor/"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "azure",
+        "cloudflare",
+        "sumologic",
+        "macstadium",
+        "leaseweb-global",
+        "ctrls",
+        "servecentric",
+        "okta",
+        "amplitude",
+        "atlassian",
+        "opsgenie",
+        "hashicorp-vault",
+        "github",
+        "brightdata",
+        "salesforce",
+        "slack",
+        "openai",
+        "sales-force-crm",
+        "linkedin-sales-navigator",
+        "stripe",
+        "justcall",
+        "ring-central",
+        "docusign",
+        "google",
+        "jumpcloud-iam",
+        "1password",
+        "keka",
+        "spotdraft",
+        "braze",
+        "lusha",
+        "apollo-io",
+        "calendly",
+        "superhuman"
+      ],
       "disclosure": {
-        "score": 40,
+        "score": 48,
         "tier": "on-file",
         "factors": {
           "portal": 20,
           "dpa": 8,
           "status": 6,
-          "privacy": 6
+          "privacy": 6,
+          "subprocessors": 8
         }
       },
       "official_url": "https://www.testmuai.com/"
