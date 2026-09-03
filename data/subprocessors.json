@@ -34894,6 +34894,83 @@
       "domain": "mosse-security.com",
       "kind": "company",
       "in_register": true
+    },
+    {
+      "id": "redis-cloud",
+      "name": "Redis Cloud",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "docker-hub",
+      "name": "Docker hub",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "svix",
+      "name": "Svix",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "bigquery",
+      "name": "BigQuery",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "signalwire",
+      "name": "SignalWire",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "frontapp-sarl",
+      "name": "FrontApp SARL",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "servers-com",
+      "name": "Servers.com",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "datapacket",
+      "name": "Datapacket",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "bodyguard-ai",
+      "name": "Bodyguard.ai",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "zenlayer",
+      "name": "ZenLayer",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "oracle-oci",
+      "name": "Oracle (OCI)",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
     }
   ],
   "edges": [
@@ -52314,6 +52391,426 @@
       "to": "voyage-ai",
       "source_url": "https://weaviate.io/subprocessors",
       "evidence": "Voyage AI"
+    },
+    {
+      "from": "clazar",
+      "to": "heroku",
+      "source_url": "https://clazar.io/dpa",
+      "evidence": "Heroku"
+    },
+    {
+      "from": "clazar",
+      "to": "amazon-web-services",
+      "source_url": "https://clazar.io/dpa",
+      "evidence": "AWS"
+    },
+    {
+      "from": "clazar",
+      "to": "google",
+      "source_url": "https://clazar.io/dpa",
+      "evidence": "GCP"
+    },
+    {
+      "from": "clazar",
+      "to": "microsoft",
+      "source_url": "https://clazar.io/dpa",
+      "evidence": "Azure"
+    },
+    {
+      "from": "clazar",
+      "to": "elastic",
+      "source_url": "https://clazar.io/dpa",
+      "evidence": "Elastic Cloud"
+    },
+    {
+      "from": "clazar",
+      "to": "omni-analytics",
+      "source_url": "https://clazar.io/dpa",
+      "evidence": "Omni"
+    },
+    {
+      "from": "clazar",
+      "to": "anthropic",
+      "source_url": "https://clazar.io/dpa",
+      "evidence": "Anthropic"
+    },
+    {
+      "from": "clazar",
+      "to": "redis-cloud",
+      "source_url": "https://clazar.io/dpa",
+      "evidence": "Redis Cloud"
+    },
+    {
+      "from": "clazar",
+      "to": "pylon",
+      "source_url": "https://clazar.io/dpa",
+      "evidence": "Pylon"
+    },
+    {
+      "from": "clazar",
+      "to": "twilio",
+      "source_url": "https://clazar.io/dpa",
+      "evidence": "Sendgrid"
+    },
+    {
+      "from": "clazar",
+      "to": "datadog",
+      "source_url": "https://clazar.io/dpa",
+      "evidence": "Datadog"
+    },
+    {
+      "from": "clazar",
+      "to": "sentry",
+      "source_url": "https://clazar.io/dpa",
+      "evidence": "Sentry"
+    },
+    {
+      "from": "clazar",
+      "to": "docker-hub",
+      "source_url": "https://clazar.io/dpa",
+      "evidence": "Docker hub"
+    },
+    {
+      "from": "clazar",
+      "to": "auth0",
+      "source_url": "https://clazar.io/dpa",
+      "evidence": "Auth0"
+    },
+    {
+      "from": "clazar",
+      "to": "snowflake",
+      "source_url": "https://clazar.io/dpa",
+      "evidence": "Snowflake"
+    },
+    {
+      "from": "clazar",
+      "to": "fivetran",
+      "source_url": "https://clazar.io/dpa",
+      "evidence": "Fivetran"
+    },
+    {
+      "from": "clazar",
+      "to": "svix",
+      "source_url": "https://clazar.io/dpa",
+      "evidence": "Svix"
+    },
+    {
+      "from": "daily",
+      "to": "amazon-web-services",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "AWS"
+    },
+    {
+      "from": "daily",
+      "to": "bigquery",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "BigQuery"
+    },
+    {
+      "from": "daily",
+      "to": "cloudflare",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "Cloudflare"
+    },
+    {
+      "from": "daily",
+      "to": "deepgram",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "Deepgram"
+    },
+    {
+      "from": "daily",
+      "to": "fivetran",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "Fivetran"
+    },
+    {
+      "from": "daily",
+      "to": "modal",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "Modal"
+    },
+    {
+      "from": "daily",
+      "to": "openai",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "OpenAI"
+    },
+    {
+      "from": "daily",
+      "to": "oracle",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "Oracle"
+    },
+    {
+      "from": "daily",
+      "to": "sentry",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "Sentry"
+    },
+    {
+      "from": "daily",
+      "to": "signalwire",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "SignalWire"
+    },
+    {
+      "from": "daily",
+      "to": "stripe",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "Stripe"
+    },
+    {
+      "from": "daily",
+      "to": "twilio",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "Twilio"
+    },
+    {
+      "from": "daily",
+      "to": "workos",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "WorkOS"
+    },
+    {
+      "from": "daily",
+      "to": "clerk",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "Clerk"
+    },
+    {
+      "from": "daily",
+      "to": "anthropic",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "Anthropic"
+    },
+    {
+      "from": "daily",
+      "to": "mailchimp",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "Mailchimp"
+    },
+    {
+      "from": "daily",
+      "to": "mixpanel",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "Mixpanel"
+    },
+    {
+      "from": "daily",
+      "to": "mongodb",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "MongoDB"
+    },
+    {
+      "from": "daily",
+      "to": "plain",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "Plain"
+    },
+    {
+      "from": "daily",
+      "to": "posthog",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "Posthog"
+    },
+    {
+      "from": "daily",
+      "to": "render",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "Render"
+    },
+    {
+      "from": "daily",
+      "to": "retool",
+      "source_url": "https://www.daily.co/legal/sub-processors/",
+      "evidence": "Retool"
+    },
+    {
+      "from": "front",
+      "to": "amazon-web-services",
+      "source_url": "https://front.com/legal/list-of-subprocessors",
+      "evidence": "Amazon Web Services, Inc. 410 Terry Avenue North Seattle, WA 98109 aws.amazon.com"
+    },
+    {
+      "from": "front",
+      "to": "anthropic",
+      "source_url": "https://front.com/legal/list-of-subprocessors",
+      "evidence": "Anthropic PBC 548 Market St, PMB 90375, San Francisco, CA 94104 https://www.anthropic.com/"
+    },
+    {
+      "from": "front",
+      "to": "microsoft",
+      "source_url": "https://front.com/legal/list-of-subprocessors",
+      "evidence": "Azure by Microsoft Corporation, Inc. One Microsoft Way. Redmond, Washington 98052-6399 microsoft.com"
+    },
+    {
+      "from": "front",
+      "to": "datadog",
+      "source_url": "https://front.com/legal/list-of-subprocessors",
+      "evidence": "Datadog, Inc. 620 8th Avenue, 45th Floor, New York, New York 10018 datadog.com"
+    },
+    {
+      "from": "front",
+      "to": "fastly",
+      "source_url": "https://front.com/legal/list-of-subprocessors",
+      "evidence": "Fastly, Inc. 475 Brannan St. #300. San Francisco, CA 94107 fastly.com"
+    },
+    {
+      "from": "front",
+      "to": "openai",
+      "source_url": "https://front.com/legal/list-of-subprocessors",
+      "evidence": "OpenAI, Inc. 3180 18th St. San Francisco, California 94110 openai.com"
+    },
+    {
+      "from": "front",
+      "to": "twilio",
+      "source_url": "https://front.com/legal/list-of-subprocessors",
+      "evidence": "Sendgrid by Twilio, Inc. 101 Spear Street, First Floor, San Francisco, CA 94105 twilio.com"
+    },
+    {
+      "from": "front",
+      "to": "snowflake",
+      "source_url": "https://front.com/legal/list-of-subprocessors",
+      "evidence": "Snowflake, Inc. 106 East Babcock Street, Suite 3A, Bozeman, Montana 59715 snowflake.com"
+    },
+    {
+      "from": "front",
+      "to": "frontapp-sarl",
+      "source_url": "https://front.com/legal/list-of-subprocessors",
+      "evidence": "FrontApp SARL"
+    },
+    {
+      "from": "sentry",
+      "to": "amazon-web-services",
+      "source_url": "https://sentry.io/legal/subprocessors/",
+      "evidence": "Amazon Web Services, Inc. 410 Terry Avenue North Seattle, WA 98109 United States"
+    },
+    {
+      "from": "sentry",
+      "to": "anthropic",
+      "source_url": "https://sentry.io/legal/subprocessors/",
+      "evidence": "Anthropic, PBC 548 Market St San Francisco, CA 94104 United States"
+    },
+    {
+      "from": "sentry",
+      "to": "cloudflare",
+      "source_url": "https://sentry.io/legal/subprocessors/",
+      "evidence": "Cloudflare, Inc. 101 Townsend St San Francisco, CA 94107 United States"
+    },
+    {
+      "from": "sentry",
+      "to": "google",
+      "source_url": "https://sentry.io/legal/subprocessors/",
+      "evidence": "Google LLC (Google Cloud Platform) 1600 Amphitheatre Parkway Mountain View, CA 94043 United States"
+    },
+    {
+      "from": "sentry",
+      "to": "intercom",
+      "source_url": "https://sentry.io/legal/subprocessors/",
+      "evidence": "Intercom, Inc. 55 2nd St, 4th Fl San Francisco, CA 94105 United States"
+    },
+    {
+      "from": "sentry",
+      "to": "openai",
+      "source_url": "https://sentry.io/legal/subprocessors/",
+      "evidence": "OpenAI, L.L.C. 3180 18th St. San Francisco, CA 94110 United States"
+    },
+    {
+      "from": "sentry",
+      "to": "twilio",
+      "source_url": "https://sentry.io/legal/subprocessors/",
+      "evidence": "Twilio Inc. (SendGrid) 101 Spear Street, First Floor San Francisco, CA 94105 United States"
+    },
+    {
+      "from": "stream-io",
+      "to": "amazon-web-services",
+      "source_url": "https://getstream.io/legal/subprocessors/",
+      "evidence": "Amazon Web Services, Inc"
+    },
+    {
+      "from": "stream-io",
+      "to": "servers-com",
+      "source_url": "https://getstream.io/legal/subprocessors/",
+      "evidence": "Servers.com"
+    },
+    {
+      "from": "stream-io",
+      "to": "datapacket",
+      "source_url": "https://getstream.io/legal/subprocessors/",
+      "evidence": "Datapacket"
+    },
+    {
+      "from": "stream-io",
+      "to": "ovhcloud",
+      "source_url": "https://getstream.io/legal/subprocessors/",
+      "evidence": "OVH"
+    },
+    {
+      "from": "stream-io",
+      "to": "leaseweb-global",
+      "source_url": "https://getstream.io/legal/subprocessors/",
+      "evidence": "Leaseweb"
+    },
+    {
+      "from": "stream-io",
+      "to": "hetzner-online",
+      "source_url": "https://getstream.io/legal/subprocessors/",
+      "evidence": "Hetzner"
+    },
+    {
+      "from": "stream-io",
+      "to": "microsoft",
+      "source_url": "https://getstream.io/legal/subprocessors/",
+      "evidence": "Microsoft Azure"
+    },
+    {
+      "from": "stream-io",
+      "to": "bodyguard-ai",
+      "source_url": "https://getstream.io/legal/subprocessors/",
+      "evidence": "Bodyguard.ai"
+    },
+    {
+      "from": "stream-io",
+      "to": "openai",
+      "source_url": "https://getstream.io/legal/subprocessors/",
+      "evidence": "OpenAI"
+    },
+    {
+      "from": "stream-io",
+      "to": "vultr",
+      "source_url": "https://getstream.io/legal/subprocessors/",
+      "evidence": "Vultr"
+    },
+    {
+      "from": "stream-io",
+      "to": "zenlayer",
+      "source_url": "https://getstream.io/legal/subprocessors/",
+      "evidence": "ZenLayer"
+    },
+    {
+      "from": "stream-io",
+      "to": "oracle-oci",
+      "source_url": "https://getstream.io/legal/subprocessors/",
+      "evidence": "Oracle (OCI)"
+    },
+    {
+      "from": "stream-io",
+      "to": "linode",
+      "source_url": "https://getstream.io/legal/subprocessors/",
+      "evidence": "Linode"
+    },
+    {
+      "from": "stream-io",
+      "to": "google",
+      "source_url": "https://getstream.io/legal/subprocessors/",
+      "evidence": "Google Cloud Engine"
+    },
+    {
+      "from": "stream-io",
+      "to": "planetscale",
+      "source_url": "https://getstream.io/legal/subprocessors/",
+      "evidence": "Planetscale"
     }
   ],
   "aliases": {

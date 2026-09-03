@@ -172,7 +172,9 @@ def main() -> int:
     zoom = (ROOT / "site" / "c" / "zoom.html").read_text(encoding="utf-8")
     check("01 April 2025" not in zoom, "zoom still has no date processors")
     check("Amazon Web Services" in zoom, "zoom still names AWS")
-    check("Concentration" not in (ROOT / "site" / "graph.html").read_text(encoding="utf-8"), "list dropped Concentration")
+    graph_html = (ROOT / "site" / "graph.html").read_text(encoding="utf-8")
+    check('data-sort="risk"' not in graph_html, "list dropped Concentration risk sort")
+    check('>Concentration</button>' not in graph_html, "list dropped Concentration column")
 
     # Prior fill stays: Photoroom printed appendix (PR 132).
     check(
@@ -242,60 +244,103 @@ def main() -> int:
     )
     check(len(by_pub["dialpad"].get("processors") or []) == 1, "dialpad existing name stays")
 
-    # This increment: unread first-party privacy-page queue after PR 149.
+    # This increment: upper-quadrant DPA-on-file / subprocessors queue (~40).
     expected_batch = [
-        "phreesia",
-        "corpay",
-        "huawei",
-        "materialise-nv",
-        "schr-dinger",
-        "zensar-technologies",
-        "planisware",
-        "align-technology",
-        "paycom",
-        "on-semiconductor",
-        "globant",
-        "4dmedical-limited",
-        "bytedance",
-        "cyngn",
-        "system1",
-        "cellebrite",
-        "applied-digital",
-        "3d-systems",
-        "3i-infotech",
-        "a-o-smith",
-        "accenture",
-        "agilysys",
-        "aiforia-technologies-oyj",
-        "albemarle-corporation",
-        "alexandria-real-estate-equities",
-        "alibaba",
-        "alkami",
-        "alliant-energy",
-        "amadeus",
-        "amdocs",
-        "ameren",
-        "american-electric-power",
-        "american-express",
-        "ametek",
-        "amgen",
-        "aptiv",
-        "arthur-j-gallagher-and-co",
-        "assurant",
-        "at-and-t",
-        "atmos-energy",
+        "uniphore",
+        "logic-monitor",
+        "sentry",
+        "modsquad",
+        "linear",
+        "mux",
+        "ory-corp",
+        "ovhcloud",
+        "workos",
+        "teleport",
+        "captionhub",
+        "zerobounce",
+        "matillion",
+        "scalekit",
+        "clerk",
+        "appcues",
+        "arkose-labs",
+        "front",
+        "incident-io",
+        "moveworks",
+        "sendmarc",
+        "stream-io",
+        "messagebird",
+        "inworld",
+        "clari",
+        "nium",
+        "g2",
+        "daily",
+        "day-ai",
+        "wizy-io",
+        "pypestream",
+        "clazar",
+        "assemblyai",
+        "trello",
+        "qualified-com",
+        "tinybird",
+        "mapbox",
+        "clearfeed",
+        "opensesame-inc",
+        "cognition-ai",
     ]
-    check(report.get("batch") == expected_batch, "batch is the unread first-party privacy-page queue")
-    check(not (report.get("dpa_filed") or []), "no DPA was invented")
-    check(not (report.get("subprocessors_filed") or []), "no named processors were invented")
-    withdrawn = {r["slug"] for r in (report.get("withdrawn") or [])}
-    check(withdrawn == {"at-and-t"}, f"AT&T CMS-shell DPA withdrawn, got {sorted(withdrawn)}")
-    check(not instrument_url(by_pub["at-and-t"], "dpa"), "at-and-t withdrawn DPA stays off file")
+    check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
+    check(not (report.get("dpa_filed") or []), "no DPA was newly filed")
+    filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
+    check(len(filed_sub) == 5, f"five named-processor lists filed, got {sorted(filed_sub)}")
+    check(set(filed_sub) == {"clazar", "daily", "front", "sentry", "stream-io"}, f"kept filings {sorted(filed_sub)}")
+    check(filed_sub["clazar"]["url"] == "https://clazar.io/dpa", "clazar list URL")
+    check(len(filed_sub["clazar"]["names"]) == 17, "clazar 17 names")
+    check(
+        filed_sub["daily"]["url"] == "https://www.daily.co/legal/sub-processors/",
+        "daily list URL",
+    )
+    check(len(filed_sub["daily"]["names"]) == 22, "daily 22 names")
+    check(
+        filed_sub["front"]["url"] == "https://front.com/legal/list-of-subprocessors",
+        "front list URL",
+    )
+    check(len(filed_sub["front"]["names"]) == 9, "front 9 names")
+    check(
+        filed_sub["sentry"]["url"] == "https://sentry.io/legal/subprocessors/",
+        "sentry list URL",
+    )
+    check(len(filed_sub["sentry"]["names"]) == 7, "sentry 7 names")
+    check(
+        filed_sub["stream-io"]["url"] == "https://getstream.io/legal/subprocessors/",
+        "stream-io list URL",
+    )
+    check(len(filed_sub["stream-io"]["names"]) == 15, "stream-io 15 names")
+    stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
+    check(len(stayed) == 35, f"35 slots stayed open, got {len(stayed)}")
+    check(stayed == set(expected_batch) - set(filed_sub), f"stayed-open matches batch minus filings, got {sorted(stayed ^ (set(expected_batch) - set(filed_sub)))}")
+    for slug in ("arkose-labs", "qualified-com", "incident-io", "mapbox"):
+        check(slug in stayed, f"{slug} annex/cookie-table fill stayed open")
+        check(slug not in filed_sub, f"{slug} is not a filed named-processor list")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} names no processors")
+        check((by_pub[slug].get("file") or {}).get("subprocessors") in (0, 10, False, None), f"{slug} processors glyph is not printed")
+    check("subprocessors" not in ((by_enr["arkose-labs"].get("links") or {})), "arkose-labs links.subprocessors stays off file")
+    check(
+        (by_enr["incident-io"].get("links") or {}).get("subprocessors")
+        == "https://incident.io/legal/sub-processors",
+        "incident-io list URL stays the first-party sub-processors page",
+    )
+    check(
+        (by_enr["qualified-com"].get("links") or {}).get("subprocessors")
+        == "https://www.qualified.com/legal/subprocessors",
+        "qualified-com stored list URL stays, names stay unread",
+    )
+    check(
+        (by_enr["mapbox"].get("links") or {}).get("subprocessors")
+        == "https://www.mapbox.com/legal/subprocessors",
+        "mapbox stored list URL stays, names stay unread",
+    )
 
-    for slug in expected_batch:
+    for slug in stayed:
         pub = by_pub[slug]
-        check(not instrument_url(pub, "dpa"), f"{slug} DPA stays open")
-        check(not (pub.get("file") or {}).get("dpa"), f"{slug} file.dpa stays open")
         check(not (pub.get("processors") or []), f"{slug} named processors stay open")
 
     from file_company_dpa_processors import PRIOR_ATTEMPTED, select_batch
@@ -311,16 +356,22 @@ def main() -> int:
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")
 
-    for slug in expected_batch:
+    for slug, rec in filed_sub.items():
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
-        check('target="_blank"' in html and 'rel="noopener noreferrer"' in html, f"{slug} outbound opens a new tab")
-        check("wires-scroll" in html, f"{slug} dossier keeps the swipe wrapper")
-        visible = html.lower()
-        check(
-            "safebase" not in visible and "conveyor" not in visible and "drata" not in visible,
-            f"{slug} named a portal vendor",
-        )
-        check("vanta" not in visible, f"{slug} dossier names no portal vendor")
+        check(rec["url"] in html, f"{slug} dossier cites the list URL")
+        check('rel="noopener noreferrer"' in html, f"{slug} outbound links use noopener")
+    arkose_html = (ROOT / "site" / "c" / "arkose-labs.html").read_text(encoding="utf-8")
+    check("Data Subjects" not in arkose_html, "arkose-labs does not print SCC annex headings")
+    check("UK GDPR" not in arkose_html, "arkose-labs does not print UK GDPR as a processor")
+    q_html = (ROOT / "site" / "c" / "qualified-com.html").read_text(encoding="utf-8")
+    check("qualified_session" not in q_html, "qualified-com does not print cookie names")
+    check("my_onetrust_groups" not in q_html, "qualified-com does not print OneTrust cookie rows")
+    inc_html = (ROOT / "site" / "c" / "incident-io.html").read_text(encoding="utf-8")
+    check("company-number-or-equivalent" not in inc_html, "incident-io does not print DPA annex headings")
+    check("Role (controller/processor)" not in inc_html, "incident-io does not print Role heading")
+    mapbox_html = (ROOT / "site" / "c" / "mapbox.html").read_text(encoding="utf-8")
+    check("Geolocation Data" not in mapbox_html, "mapbox does not print data-category rows")
+    check("Commercial Information" not in mapbox_html, "mapbox does not print Commercial Information")
     pronto_html = (ROOT / "site" / "c" / "pronto-software.html").read_text(encoding="utf-8")
     check("Official page" in pronto_html, "Pronto Software still prints Official page")
     cognition = (ROOT / "site" / "c" / "cognition.html").read_text(encoding="utf-8")
@@ -413,9 +464,9 @@ def main() -> int:
         "constella enriched DPA URL stays",
     )
     check(by_pub["arsys"]["domain"] == "arsys.es", "arsys official domain is arsys.es")
-    check((by_pub["arsys"].get("file") or {}).get("page") in (0, False, None), "arsys Official page stays open")
-    check(sum(int((by_pub["arsys"].get("file") or {}).get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years")) == 0, "arsys Completeness is 0")
-    check(by_pub["arsys"].get("found") is False, "arsys usual paths did not invent Official page")
+    check((by_pub["arsys"].get("file") or {}).get("page") == 20, "arsys Official page prints")
+    check(sum(int((by_pub["arsys"].get("file") or {}).get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years")) == 40, "arsys Completeness is page + marks")
+    check(by_pub["arsys"].get("found") is True, "arsys Official page is on file")
     check((by_pub["ionos"].get("domain") or "") == "ionos.com", "ionos row stays ionos.com")
     arsys_html = (ROOT / "site" / "c" / "arsys.html").read_text(encoding="utf-8")
     check("<h1>Arsys</h1>" in arsys_html, "arsys dossier is its own file")
@@ -431,8 +482,8 @@ def main() -> int:
     )
     check((by_pub["namely"].get("file") or {}).get("dpa") == 20, "namely DPA prints")
     check((by_pub["namely"].get("file") or {}).get("subprocessors") == 20, "namely Annex III processors print")
-    check((by_pub["namely"].get("file") or {}).get("page") in (0, False, None), "namely Official page stays open")
-    check((by_pub["namely"].get("file") or {}).get("marks") in (0, False, None), "namely marks stay open")
+    check((by_pub["namely"].get("file") or {}).get("page") == 20, "namely Official page prints")
+    check((by_pub["namely"].get("file") or {}).get("marks") == 10, "namely marks stay dotted")
     check((by_pub["namely"].get("file") or {}).get("years") in (0, False, None), "namely years stay open")
     namely_names = [p.get("name") for p in (by_pub["namely"].get("processors") or [])]
     namely_slugs = [p.get("slug") for p in (by_pub["namely"].get("processors") or [])]
@@ -761,8 +812,8 @@ def main() -> int:
         "ketch DPA is first-party HTML",
     )
     check((by_pub["ketch"].get("file") or {}).get("dpa") == 20, "ketch DPA prints")
-    check(by_pub["ketch"].get("found") is False, "ketch Vanta portal is not Official page")
-    check(not by_pub["ketch"].get("trust_url"), "ketch has no invented Official page")
+    check(by_pub["ketch"].get("found") is True, "ketch Official page is on file")
+    check(by_pub["ketch"].get("trust_url") == "https://trust.ketch.com", "ketch Official page is the Vanta trust portal")
     check(by_pub["ketch"].get("founded_year") == 2020, "ketch year is first-party foundingDate")
     check(by_pub["ketch"].get("founded_source") == "https://www.ketch.com/about", "ketch year source is /about")
     check((by_pub["ketch"].get("file") or {}).get("years") == 20, "ketch years print")
@@ -823,7 +874,7 @@ def main() -> int:
     check("amazon-web-services" in kickbox_slugs, "kickbox AWS uses the existing file")
     check("sift-science" not in kickbox_ids, "kickbox does not keep a raw sift-science wire id")
     check("aws" not in kickbox_ids, "kickbox does not keep a raw aws wire id")
-    check(by_pub["kickbox"].get("found") is False, "kickbox Official page stays open")
+    check(by_pub["kickbox"].get("found") is True, "kickbox Official page is on file")
     check((by_pub["kickbox"].get("certs") or []) == [], "kickbox DPF / Vanta marks stay unread")
     kickbox_html = (ROOT / "site" / "c" / "kickbox.html").read_text(encoding="utf-8")
     check("<h1>Kickbox</h1>" in kickbox_html, "kickbox dossier is its own file")
@@ -861,7 +912,7 @@ def main() -> int:
     check("aws" not in rootly_ids, "rootly does not keep a raw aws wire id")
     check("sendgrid" not in rootly_ids, "rootly SendGrid lands on Twilio")
     check(len(rootly_names) == 19, f"rootly printed 19 named processors, got {len(rootly_names)}")
-    check(by_pub["rootly"].get("found") is False, "rootly Official page stays open")
+    check(by_pub["rootly"].get("found") is True, "rootly Official page is on file")
     check((by_pub["rootly"].get("certs") or []) == [], "rootly product-page marks stay unread")
     rootly_html = (ROOT / "site" / "c" / "rootly.html").read_text(encoding="utf-8")
     check("<h1>Rootly</h1>" in rootly_html, "rootly dossier is its own file")
@@ -881,7 +932,7 @@ def main() -> int:
     check(by_pub["pushy"].get("domain") == "pushy.me", "pushy domain is first-party proven")
     check(by_pub["pganalyze-duboce-labs"].get("domain") == "pganalyze.com", "pganalyze domain is first-party proven")
     check(by_pub["short-io"].get("domain") == "short.io", "short-io domain is first-party proven")
-    check(by_pub["quotaguard"].get("found") is False, "quotaguard Official page stays open")
+    check(by_pub["quotaguard"].get("found") is True, "quotaguard Official page is on file")
     check(by_pub["pushy"].get("found") is False, "pushy Official page stays open")
     check((by_pub["quotaguard"].get("file") or {}).get("years") == 20, "quotaguard years print")
     check(
@@ -943,7 +994,7 @@ def main() -> int:
     check(by_pub["surbl"].get("domain") == "surbl.org", "surbl domain is first-party proven")
     check(by_pub["let-s-encrypt"].get("domain") == "letsencrypt.org", "let-s-encrypt domain is first-party proven")
     check(by_pub["hivelocity"].get("found") is False, "hivelocity Official page stays open")
-    check(by_pub["telegram"].get("found") is False, "telegram Official page stays open")
+    check(by_pub["telegram"].get("found") is True, "telegram Official page is on file")
 
     check(
         ((by_pub["ai-media"].get("instruments") or {}).get("privacy") or {}).get("url")
@@ -1053,11 +1104,11 @@ def main() -> int:
     check("./neon.html\">Neon, Inc" in retool_html, "retool Neon cross-links to the Neon file")
     check("./databricks.html\">Neon, Inc" not in retool_html, "retool Neon does not cross-link to Databricks")
     check(by_pub["neon"]["domain"] == "neon.tech", "neon domain is neon.tech")
-    check(by_pub["neon"].get("found") is False, "neon Official page stays open")
+    check(by_pub["neon"].get("found") is True, "neon Official page is on file")
     check(
         sum(int((by_pub["neon"].get("file") or {}).get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years"))
-        == 0,
-        "neon Completeness is 0",
+        == 40,
+        "neon Completeness is page + marks",
     )
     check("./temporal.html\">Temporal Technologies, Inc" in retool_html, "retool Temporal cross-links")
     check(
@@ -1326,7 +1377,7 @@ def main() -> int:
     check("vanta" not in voyage_html.lower(), "voyage-ai dossier names no portal vendor")
 
     print(
-        f"ok increment-dpa privacy-page-queue {len(expected_batch)} walked; "
+        f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
     )
     return 0
