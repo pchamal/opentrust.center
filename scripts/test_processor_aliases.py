@@ -602,6 +602,26 @@ def main() -> int:
         REGISTER_ALIASES["deft-formerly-known-as-servercentral"] == "summit",
         "deft-formerly-known-as-servercentral aliases to summit",
     )
+    pusher_reg = {**register, "pusher": {"slug": "pusher", "name": "Pusher", "domain": "pusher.com"}}
+    check(canonical_processor_id("pusher-io", pusher_reg) == "pusher", "Pusher.io is Pusher")
+    check(REGISTER_ALIASES["pusher-io"] == "pusher", "pusher-io aliases to pusher")
+    ketch_reg = {**register, "ketch": {"slug": "ketch", "name": "Ketch", "domain": "ketch.com"}}
+    check(canonical_processor_id("ketch-kloud", ketch_reg) == "ketch", "Ketch Kloud is Ketch")
+    check(REGISTER_ALIASES["ketch-kloud"] == "ketch", "ketch-kloud aliases to ketch")
+    plain_reg = {**register, "plain": {"slug": "plain", "name": "Plain", "domain": "plain.com"}}
+    check(
+        canonical_processor_id("not-just-tickets-plain", plain_reg) == "plain",
+        "Not Just Tickets (Plain) is Plain",
+    )
+    check(REGISTER_ALIASES["not-just-tickets-plain"] == "plain", "not-just-tickets-plain aliases to plain")
+    check(canonical_processor_id("google-vertex-gemini", register) == "google", "Vertex Gemini is Google")
+    check(REGISTER_ALIASES["google-vertex-gemini"] == "google", "google-vertex-gemini aliases to google")
+    mq_reg = {**register, "maestroqa": {"slug": "maestroqa", "name": "MaestroQA", "domain": "maestroqa.com"}}
+    check(
+        canonical_processor_id("adtrib-k-n-a-maestroqa", mq_reg) == "maestroqa",
+        "Adtrib k/n/a MaestroQA is MaestroQA",
+    )
+    check(REGISTER_ALIASES["adtrib-k-n-a-maestroqa"] == "maestroqa", "adtrib-k-n-a-maestroqa aliases to maestroqa")
     dbt_reg = {**register, "dbt-labs": {"slug": "dbt-labs", "name": "dbt Labs", "domain": "getdbt.com"}}
     check(canonical_processor_id("dbt-cloud", dbt_reg) == "dbt-labs", "dbt Cloud is dbt Labs")
 

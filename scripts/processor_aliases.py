@@ -885,6 +885,22 @@ REGISTER_ALIASES: dict[str, str] = {
     # aliases to summit (deft.com 301s to summithq.com). summit is on the
     # register. Do not invent a second Deft / ServerCentral dossier.
     "deft-formerly-known-as-servercentral": "summit",
+    # Help Scout prints Pusher.io. pusher is on the register (pusher.com).
+    # Do not invent a second Pusher dossier.
+    "pusher-io": "pusher",
+    # Shortcut prints Ketch Kloud. ketch is on the register (ketch.com).
+    # Do not invent a second Ketch dossier.
+    "ketch-kloud": "ketch",
+    # Shortcut prints Not Just Tickets (Plain). plain is on the register
+    # (plain.com). Do not invent a second Plain dossier.
+    "not-just-tickets-plain": "plain",
+    # Wrike prints Google (Vertex, Gemini). google-vertex-ai and
+    # google-gemini already alias; this is the combined product cell.
+    # google is on the register. Do not invent a second Google dossier.
+    "google-vertex-gemini": "google",
+    # Wrike prints Adtrib, Inc. (k/n/a/ MaestroQA). maestroqa is on the
+    # register (maestroqa.com). Do not invent a second MaestroQA dossier.
+    "adtrib-k-n-a-maestroqa": "maestroqa",
 
 }
 
