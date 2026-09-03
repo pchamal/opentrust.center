@@ -1899,3 +1899,38 @@ body.register .view-toggle button.on {
 .watch-email-label { display: block; margin: 26px 0 6px; font: var(--t-meta); color: var(--ot-graphite); }
 #watch-form .finder { max-width: 480px; }
 .watch-remove-cell { text-align: right; white-space: nowrap; }
+
+/* ——— Subprocessor concentration ledger ——— */
+.concentration { margin: 20px 0 8px; }
+#concentration-bars { margin-top: 10px; border-top: 1px solid var(--ot-rule); }
+.conc-row {
+  display: grid;
+  grid-template-columns: minmax(0, 200px) minmax(0, 1fr) 4ch;
+  gap: 14px;
+  align-items: center;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--ot-rule);
+}
+.conc-name {
+  font: var(--t-name);
+  font-size: 15px;
+  color: var(--ot-ledger-black);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.conc-name:hover { text-decoration: underline; text-decoration-color: var(--ot-rule-strong); }
+.conc-track { display: block; height: 10px; background: var(--ot-paper); }
+.conc-track i { display: block; height: 100%; background: var(--ot-ledger-black); }
+.conc-num {
+  font: var(--t-data);
+  font-variant-numeric: tabular-nums;
+  color: var(--ot-graphite);
+  text-align: right;
+}
+#concentration-line { margin-top: 10px; }
+@media (max-width: 639px) {
+  .conc-row { grid-template-columns: minmax(0, 1fr) 4ch; }
+  .conc-track { display: none; }
+}
