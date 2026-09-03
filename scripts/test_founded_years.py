@@ -750,6 +750,34 @@ def test_grcs_year_landed() -> None:
     )
 
 
+def test_upper_quadrant_year_landed() -> None:
+    """This increment filed Upper Quadrant 2001 from first-party about FOUNDED metric."""
+    import json
+    public = json.loads((ROOT / "site" / "data.json").read_text())
+    enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
+    by_pub = {c["slug"]: c for c in public["companies"]}
+    by_enr = {c["slug"]: c for c in enr["companies"]}
+    pub, row = by_pub["upper-quadrant"], by_enr["upper-quadrant"]
+    check(pub.get("founded_year") == 2001, "Upper Quadrant public year 2001")
+    check(row.get("founded_year") == 2001, "Upper Quadrant enriched year 2001")
+    check(
+        pub.get("founded_source") == "https://upperquadrant.com/company/about",
+        "Upper Quadrant year source is first-party /company/about",
+    )
+    check((pub.get("file") or {}).get("years") in (True, 20), "Upper Quadrant years rule prints")
+    check(pub.get("found") is False, "Upper Quadrant Official page stays open")
+    check((pub.get("certs") or []) == [], "Upper Quadrant privacy CCPA stays off file")
+    html = (ROOT / "site" / "c" / "upper-quadrant.html").read_text(encoding="utf-8")
+    check("founded · 2001" in html, "Upper Quadrant dossier prints 2001")
+    check("https://upperquadrant.com/company/about" in html, "Upper Quadrant dossier cites about source")
+    check("Official page · not on file" in html, "Upper Quadrant Official page stays open")
+    check("CCPA" not in html, "Upper Quadrant dossier does not print privacy CCPA")
+    check(
+        parse_official_founded_year("About Upper Quadrant FOUNDED 2001", "Upper Quadrant") == 2001,
+        "Upper Quadrant about FOUNDED 2001 metric parses",
+    )
+
+
 def test_swan_year_landed() -> None:
     """This increment filed Swan 2024 from first-party JSON-LD foundingDate."""
     import json
@@ -784,6 +812,7 @@ def main() -> int:
     test_ltx_jt_years_landed()
     test_swan_year_landed()
     test_grcs_year_landed()
+    test_upper_quadrant_year_landed()
     # Live company-years.json is a later leftover walk (WNS). Do not hang
     # this increment's year asserts on that stale report suite.
     print("ok")
