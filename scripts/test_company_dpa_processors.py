@@ -322,11 +322,13 @@ def main() -> int:
     )
     check(len(filed_sub["wrike"]["names"]) == 21, "wrike 21 names")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
-    check(len(stayed) == 36, f"36 companies stayed open, got {len(stayed)}")
-    check(
-        stayed == set(expected_batch) - set(filed_sub),
-        f"stayed-open matches batch minus filings, got {sorted(stayed ^ (set(expected_batch) - set(filed_sub)))}",
-    )
+    stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
+    stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
+    check(stayed == set(expected_batch), f"stayed-open covers the batch, got {sorted(stayed ^ set(expected_batch))}")
+    check(len(report.get("stayed_open") or []) == 64, f"64 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
+    check(len(stayed_dpa) == 37, f"37 DPA slots stayed open, got {len(stayed_dpa)}")
+    check(len(stayed_sub) == 27, f"27 subprocessors slots stayed open, got {len(stayed_sub)}")
+    check(not (set(filed_sub) & stayed_sub), "kept filings are not in subprocessors stayed-open")
     check("lastpass" in stayed, "LastPass JS-shell DPA stayed open")
     check("lastpass" not in {r["slug"] for r in (report.get("dpa_filed") or [])}, "LastPass DPA was not filed")
     check(
@@ -347,7 +349,7 @@ def main() -> int:
         "Segment stored list URL stays the Twilio page, names stay unread",
     )
 
-    for slug in stayed:
+    for slug in stayed_sub:
         if slug == "recurly-com":
             continue
         pub = by_pub[slug]
