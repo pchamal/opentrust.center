@@ -34,6 +34,7 @@ REPORT = ROOT / "data" / "discovery-report.json"
 INSFORGE_META = ROOT.parent / ".insforge" / "project.json"
 
 UA = "opentrust.center-discovery/1.0 (+https://opentrust.center/bot)"
+UA2 = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
 TIMEOUT = httpx.Timeout(12.0, connect=6.0)
 
 PATH_CANDIDATES = [
@@ -149,6 +150,65 @@ async def fetch(client: httpx.AsyncClient, url: str) -> tuple[int, str, str]:
         return 0, url, ""
 
 
+async def search_provider(client: httpx.AsyncClient, domain: str) -> list[str]:
+    """Managed search API when keys exist (Serper/Exa shapes), else []."""
+    import os
+    provider = os.environ.get("SEARCH_PROVIDER", "").lower()
+    key = os.environ.get("SEARCH_API_KEY", "")
+    if not provider or not key:
+        return []
+    q = f"site:{domain} (trust OR security OR compliance)"
+    try:
+        if provider == "serper":
+            r = await client.post(
+                "https://google.serper.dev/search",
+                json={"q": q, "num": 10},
+                headers={"X-API-KEY": key, "Content-Type": "application/json"},
+            )
+            if r.status_code == 200:
+                return [o.get("link", "") for o in r.json().get("organic", [])]
+        elif provider == "exa":
+            r = await client.post(
+                "https://api.exa.ai/search",
+                json={"query": q, "numResults": 10},
+                headers={"x-api-key": key, "Content-Type": "application/json"},
+            )
+            if r.status_code == 200:
+                return [o.get("url", "") for o in r.json().get("results", [])]
+    except Exception:
+        pass
+    return []
+
+
+async def search_duckduckgo(client: httpx.AsyncClient, domain: str) -> list[str]:
+    """Keyless fallback: DuckDuckGo HTML site-restricted query."""
+    try:
+        q = f"site:{domain} (trust OR security OR compliance)"
+        status, _, body = await fetch(
+            client,
+            "https://html.duckduckgo.com/html/?q=" + re.sub(r"\s+", "+", q.strip()),
+        )
+        if status != 200 or not body:
+            return []
+        from urllib.parse import unquote
+        tree = HTMLParser(body)
+        out: list[str] = []
+        for node in tree.css("a.result__url, a.result__a")[:20]:
+            href = node.attributes.get("href") or ""
+            if "uddg=" in href:
+                m = re.search(r"uddg=([^&]+)", href)
+                href = unquote(m.group(1)) if m else ""
+            else:
+                href = node.text(strip=True)
+                if href and not href.startswith("http"):
+                    href = "https://" + href
+            if href and "duckduckgo.com" not in href:
+                out.append(href)
+        return out
+    except Exception:
+        return []
+
+
 async def deep_render(url: str, sem: asyncio.Semaphore) -> tuple[int, str]:
     """crawl4ai browser render for JS shells."""
     try:
@@ -169,6 +229,12 @@ async def deep_render(url: str, sem: asyncio.Semaphore) -> tuple[int, str]:
 
 class InsForge:
     def __init__(self) -> None:
+        import os
+        env_key = os.environ.get("INSFORGE_API_KEY", "")
+        env_url = os.environ.get("INSFORGE_URL", "")
+        if env_key and env_url:
+            self.base, self.key = env_url, env_key
+            return
         meta = json.loads(INSFORGE_META.read_text())
         self.base = meta["oss_host"]
         self.key = meta["api_key"]
@@ -265,6 +331,17 @@ async def discover_domain(client: httpx.AsyncClient, ig: InsForge,
         s2, _, alt = await fetch(client, base_hosts[1])
         if s2 == 200 and alt and not looks_like_shell(alt):
             home_status, home_html = s2, alt
+    if home_status in (0, 403, 429):
+        # One retry with the alternate host and a browser UA — many WAFs
+        # key on the exact fingerprint of the first request.
+        try:
+            alt_host = base_hosts[1] if home_status == 0 else base_hosts[0]
+            r = await client.get(alt_host, headers={"User-Agent": UA2},
+                                 follow_redirects=True)
+            if r.status_code == 200 and r.text:
+                home_status, home_html = 200, r.text
+        except Exception:
+            pass
     if home_status == 0 or not home_html:
         s3, home_html = await deep_render(base_hosts[0], deep_sem)
         home_status = s3 or home_status
@@ -294,32 +371,15 @@ async def discover_domain(client: httpx.AsyncClient, ig: InsForge,
                 add(loc, "sitemap")
                 n += 1
 
-    # Search: DuckDuckGo HTML site-restricted query — no API key,
-    # surfaces URLs not linked from the homepage but indexed.
+    # Search: managed API (Serper/Exa via env) when keyed, else DuckDuckGo
+    # HTML — surfaces URLs that are indexed but not linked from home.
     if use_search:
-        try:
-            q = f"site:{domain} (trust OR security OR compliance)"
-            status, _, body = await fetch(
-                client,
-                "https://html.duckduckgo.com/html/?q=" + re.sub(r"\s+", "+", q.strip()),
-            )
-            if status == 200 and body:
-                tree = HTMLParser(body)
-                for node in tree.css("a.result__url, a.result__a")[:20]:
-                    href = node.attributes.get("href") or ""
-                    if "uddg=" in href:
-                        href = re.search(r"uddg=([^&]+)", href)
-                        href = __import__("urllib.parse", fromlist=["unquote"]).unquote(href.group(1)) if href else ""
-                    else:
-                        href = node.text(strip=True)
-                        if href and not href.startswith("http"):
-                            href = "https://" + href
-                    if not href or "duckduckgo.com" in href:
-                        continue
-                    if same_site(href, domain):
-                        add(href, "search")
-        except Exception:
-            pass
+        hits = await search_provider(client, domain)
+        if not hits:
+            hits = await search_duckduckgo(client, domain)
+        for href in hits[:20]:
+            if href and same_site(href, domain):
+                add(href, "search")
 
     existing = await ig.existing_keys(client, domain)
     fresh = [v for k, v in leads.items() if k not in existing]
@@ -350,13 +410,21 @@ async def discover_domain(client: httpx.AsyncClient, ig: InsForge,
             verified.append(res)
             await ig.mark_verified(client, key, res["kind"], res["title"], res["status"])
 
+    if verified:
+        state = "recovered"
+    elif home_status == 0:
+        state = "dead"
+    elif home_status in (403, 429):
+        state = "bot-walled"
+    else:
+        state = "none-found"
     print(f"  {domain:<32} leads:{len(leads):>3} new:{inserted:>3} "
           f"verified:{len(verified):>2}  {[v['kind'] for v in verified]}"
-          f"{'' if verified else '  (still silent, honestly)'}")
+          f"{'' if verified else '  (' + state + ')'}", flush=True)
     return {"domain": domain, "leads": len(leads), "newLeads": inserted,
             "verifiedFiles": [{"kind": v["kind"], "url": v["url"],
                                "title": v["title"]} for v in verified],
-            "homepageStatus": home_status}
+            "homepageStatus": home_status, "state": state}
 
 
 async def main() -> int:
@@ -366,6 +434,8 @@ async def main() -> int:
     ap.add_argument("--only", default="")
     ap.add_argument("--search", action="store_true", help="also mine DuckDuckGo site: search")
     ap.add_argument("--resume", action="store_true", help="skip domains already in ot_leads")
+    ap.add_argument("--concurrency", type=int, default=6, help="parallel domains in flight")
+    ap.add_argument("--learn", action="store_true", help="mine verified ot_leads for extra path patterns first")
     args = ap.parse_args()
 
     data = json.loads(DATA_JSON.read_text())
@@ -415,14 +485,63 @@ async def main() -> int:
             print(f"skip-scanned check failed ({exc}) — scanning all requested domains")
 
     results: list[dict] = []
-    limits = httpx.Limits(max_connections=10)
+    limits = httpx.Limits(max_connections=40)
+    done = {"n": 0}
+
+    async def learn_patterns(client: httpx.AsyncClient) -> None:
+        try:
+            r = await client.get(
+                f"{ig.base}/api/database/records/ot_leads",
+                params={"verified": "eq.true", "select": "url", "limit": 1000},
+                headers=ig.headers,
+            )
+            if r.status_code != 200:
+                return
+            from collections import Counter
+            seen_paths: Counter[str] = Counter()
+            for row in r.json():
+                try:
+                    p = urlparse(row.get("url") or "").path.rstrip("/").lower()
+                except Exception:
+                    continue
+                if not p or p in ("/", ""):
+                    continue
+                segs = [s for s in p.split("/") if s][:2]
+                seen_paths["/" + "/".join(segs)] += 1
+            added = 0
+            for pattern, n in seen_paths.most_common(40):
+                if n < 2 or added >= 12:
+                    break
+                if not any(pattern in c for c in PATH_CANDIDATES):
+                    PATH_CANDIDATES.append(pattern)
+                    added += 1
+            if added:
+                print(f"learned {added} extra path patterns from verified files")
+        except Exception as exc:
+            print(f"pattern learning skipped ({exc})")
+
     async with httpx.AsyncClient(timeout=TIMEOUT, limits=limits,
                                  follow_redirects=True) as client:
-        for row in seeds:
-            try:
-                results.append(await discover_domain(client, ig, deep_sem, row, use_search=args.search))
-            except Exception as exc:
-                print(f"  {row['domain']:<32} error {exc}")
+        if args.learn:
+            await learn_patterns(client)
+        dom_sem = asyncio.Semaphore(max(1, args.concurrency))
+
+        async def run_one(row: dict) -> dict:
+            async with dom_sem:
+                try:
+                    res = await discover_domain(client, ig, deep_sem, row, use_search=args.search)
+                except Exception as exc:
+                    print(f"  {row['domain']:<32} error {exc}", flush=True)
+                    res = {"domain": row["domain"], "leads": 0, "newLeads": 0,
+                           "verifiedFiles": [], "homepageStatus": 0, "state": "error"}
+                done["n"] += 1
+                if done["n"] % 25 == 0 or done["n"] == len(seeds):
+                    hit = sum(1 for x in results if x.get("verifiedFiles"))
+                    print(f"... {done['n']}/{len(seeds)} domains · {hit} recovered so far", flush=True)
+                return res
+
+        for coro in asyncio.as_completed([run_one(r) for r in seeds]):
+            results.append(await coro)
         totals = {
             "startedAt": started, "domains": len(results),
             "leads": sum(r["leads"] for r in results),
@@ -431,9 +550,13 @@ async def main() -> int:
         }
         await ig.record_sweep(client, totals)
 
+    from collections import Counter as _Counter
+    states = _Counter(r.get("state", "?") for r in results)
+    totals["states"] = dict(states)
     REPORT.write_text(json.dumps({"sweep": totals, "domains": results}, indent=2))
     print(f"\nsweep · domains {totals['domains']} · leads {totals['leads']} "
           f"· files verified {totals['verified']}")
+    print(f"states: {' · '.join(f'{k} {v}' for k, v in sorted(states.items()))}")
     print(f"report → {REPORT.relative_to(ROOT)}")
     hit = sum(1 for r in results if r["verifiedFiles"])
     print(f"{hit}/{len(results)} previously-{args.tier} domains have a real file on record.")
