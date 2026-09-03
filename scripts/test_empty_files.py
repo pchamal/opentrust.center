@@ -261,6 +261,35 @@ def test_seeds_start_from_domain_and_official() -> None:
     check(any(".safebase.us" in u for u in kinds), "portal hosts stay in the usual-path set to classify")
 
 
+def test_trust_body_clears_wordpress_chrome() -> None:
+    """196 KiB misses a late first-party ISO hold; 1 MiB reads it. Still capped."""
+    sys.path.insert(0, str(ROOT))
+    from crawl import candidate_urls
+    from enrich import TRUST_BODY
+    from marks import extract_certs_from_html
+
+    check(TRUST_BODY == 1048576, f"TRUST_BODY is 1 MiB, got {TRUST_BODY}")
+    check(TRUST_BODY > 196608, "new cap is past the old 196 KiB cut")
+    chrome = ("<!-- wp:html -->" + ("x" * 80) + "<!-- /wp:html -->") * 2500
+    sentence = (
+        "<p>Download a copy of our ISO 27001:2022 certificate. "
+        "Language IO is certified against the ISO 27001 standard.</p>"
+    )
+    page = chrome + sentence
+    check(len(chrome) > 196608, "fixture chrome is past the old cap")
+    check("ISO 27001" not in page[:196608], "old cap never sees the hold")
+    check("ISO 27001" in page[:TRUST_BODY], "1 MiB cap reaches the hold")
+    named_old = extract_certs_from_html(page[:196608], text=page[:196608])
+    named_new = extract_certs_from_html(page[:TRUST_BODY], text=page[:TRUST_BODY])
+    check("ISO 27001" not in named_old, f"196 KiB extract misses ISO 27001: {named_old}")
+    check("ISO 27001" in named_new, f"1 MiB extract files ISO 27001: {named_new}")
+    seeds = candidate_urls({"slug": "language-i-o", "domain": "languageio.com", "aliases": []})
+    check(
+        any(u.rstrip("/") == "https://languageio.com/security-commitment" for u in seeds),
+        "language-i-o seed hits first-party /security-commitment",
+    )
+
+
 def _check_hits(report: dict, by_pub: dict, by_enr: dict) -> None:
     for rec in report.get("hits") or []:
         slug = rec["slug"]
@@ -296,6 +325,8 @@ def test_audit_when_present() -> None:
     public = json.loads(PUBLIC.read_text())
     enr = json.loads(ENRICHED.read_text())
     report = json.loads(REPORT.read_text())
+    if "batch" not in report:
+        return
     by_pub = {c["slug"]: c for c in public["companies"]}
     by_enr = {c["slug"]: c for c in enr["companies"]}
     batch = report.get("batch") or []
@@ -333,6 +364,7 @@ def main() -> int:
     test_hold_marks_not_invented()
     test_apply_does_not_overwrite()
     test_seeds_start_from_domain_and_official()
+    test_trust_body_clears_wordpress_chrome()
     test_audit_when_present()
     print("ok empty-file validator")
     return 0

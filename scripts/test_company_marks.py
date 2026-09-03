@@ -1397,6 +1397,64 @@ def main() -> int:
         == "https://languageio.com/legal/privacy-policy/",
         "language-i-o privacy is first-party HTML",
     )
+    # This cut: WordPress chrome parked the hold past 196 KiB. 1 MiB TRUST_BODY
+    # plus the /security-commitment seed reads first-party ISO holds.
+    # /security is a "Secure Translation Software" lander — not Official page.
+    # Regular SOC 2 audits, GDPR/CCPA, HIPAA alignment, PCI self-attest stay open.
+    # About-us "founded Language IO in 2011" is past the year text cap; years stay open.
+    kept, why = hold_marks(
+        ["ISO 27001", "ISO 42001"],
+        "Download a copy of our ISO 27001:2022 certificate. "
+        "In 2025, Language IO became one of the first AI vendors in the "
+        "conversational translation space to receive the ISO/IEC 42001 certification.",
+        "security",
+    )
+    check(
+        kept == ["ISO 27001", "ISO 42001"] and why is None,
+        f"language-i-o first-party ISO holds file: {kept} {why}",
+    )
+    kept, why = hold_marks(
+        ["SOC 2", "GDPR", "CCPA", "HIPAA", "PCI DSS"],
+        "It also undergoes regular SOC 2 audits. Combined with ISO 27001, "
+        "SOC II, OWASP, GDPR, PCI, and CCPA compliance. HIPAA alignment.",
+        "security",
+    )
+    check(
+        "SOC 2" not in (by_pub["language-i-o"].get("certs") or []),
+        "language-i-o regular SOC 2 audits stay open",
+    )
+    check(by_pub["language-i-o"].get("found") is True, "language-i-o Official page is on file")
+    check(
+        by_pub["language-i-o"].get("trust_url") == "https://languageio.com/security-commitment/",
+        "language-i-o Official page is first-party /security-commitment",
+    )
+    check(
+        by_pub["language-i-o"].get("trust_url") != "https://languageio.com/security",
+        "language-i-o product /security lander is not Official page",
+    )
+    check(
+        set(by_pub["language-i-o"].get("certs") or []) == {"ISO 27001", "ISO 42001"},
+        f"language-i-o first-party holds {by_pub['language-i-o'].get('certs')}",
+    )
+    check("SOC 2" not in (by_pub["language-i-o"].get("certs") or []), "language-i-o SOC 2 stays open")
+    check("GDPR" not in (by_pub["language-i-o"].get("certs") or []), "language-i-o GDPR stays open")
+    check("CCPA" not in (by_pub["language-i-o"].get("certs") or []), "language-i-o CCPA stays open")
+    check("HIPAA" not in (by_pub["language-i-o"].get("certs") or []), "language-i-o HIPAA stays open")
+    check("PCI DSS" not in (by_pub["language-i-o"].get("certs") or []), "language-i-o PCI stays open")
+    check(by_pub["language-i-o"].get("founded_year") in (None, 0, False), "language-i-o years stay open")
+    check((by_pub["language-i-o"].get("file") or {}).get("page") == 20, "language-i-o Official page prints")
+    check((by_pub["language-i-o"].get("file") or {}).get("marks") == 20, "language-i-o marks print")
+    check((by_pub["language-i-o"].get("file") or {}).get("years") in (0, False, None), "language-i-o years stay open")
+    lio_html = (ROOT / "site" / "c" / "language-i-o.html").read_text(encoding="utf-8")
+    check("<h1>Language I/O</h1>" in lio_html, "language-i-o dossier is its own file")
+    check("https://languageio.com/security-commitment/" in lio_html, "language-i-o dossier cites Official page")
+    check("ISO 27001" in lio_html, "language-i-o dossier prints ISO 27001")
+    check("ISO 42001" in lio_html, "language-i-o dossier prints ISO 42001")
+    check("SOC 2" not in lio_html, "language-i-o dossier does not print SOC 2 audits")
+    check("GDPR" not in lio_html, "language-i-o dossier does not print GDPR")
+    check("HIPAA" not in lio_html, "language-i-o dossier does not print HIPAA")
+    check("PCI" not in lio_html, "language-i-o dossier does not print PCI")
+    check("founded · <span class=\"absent\">not on file</span>" in lio_html, "language-i-o dossier years stay open")
 
     check(by_pub["capacity"].get("found") is True, "capacity Official page is on file")
     check(

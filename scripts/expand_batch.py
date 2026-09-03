@@ -31,7 +31,7 @@ SITE_ENRICHED = ROOT / "site" / "data" / "enriched.json"
 BATCH_SIZE = 40
 WORKERS = 12
 
-TRUST_BODY = 196608
+TRUST_BODY = 1048576
 
 
 def load_json(path: Path, default):
