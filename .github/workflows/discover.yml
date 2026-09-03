@@ -10,7 +10,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
       - run: pip install httpx selectolax crawl4ai && python -m playwright install --with-deps chromium
-      - run: python pipeline/discover.py --limit 200 --search --resume
+      - run: python pipeline/discover.py --limit 300 --search --resume --learn --concurrency 8
         env: { INSFORGE_API_KEY: "${{ secrets.INSFORGE_API_KEY }}", INSFORGE_URL: "https://hm3jx7vv.us-east.insforge.app" }
       - run: python pipeline/export_verified.py && python build_pages.py
       - run: |

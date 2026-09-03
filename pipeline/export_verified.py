@@ -25,8 +25,13 @@ KIND_PRIORITY = {"trust": 0, "security": 1, "compliance": 2}
 
 
 def main() -> int:
-    meta = json.loads(INSFORGE_META.read_text())
-    base, key = meta["oss_host"], meta["api_key"]
+    import os
+    env_key, env_url = os.environ.get("INSFORGE_API_KEY", ""), os.environ.get("INSFORGE_URL", "")
+    if env_key and env_url:
+        base, key = env_url, env_key
+    else:
+        meta = json.loads(INSFORGE_META.read_text())
+        base, key = meta["oss_host"], meta["api_key"]
     headers = {"Authorization": f"Bearer {key}"}
 
     rows: list[dict] = []
