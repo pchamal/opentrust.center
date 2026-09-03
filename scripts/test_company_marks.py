@@ -1652,18 +1652,55 @@ def main() -> int:
     check("CCPA" not in hv_html, "hivelocity dossier does not print CCPA")
     check("Official page · not on file" in hv_html, "hivelocity Official page stays open")
     check(by_pub["e2open"].get("found") is False, "e2open Official page stays open")
-    check(not by_pub["e2open"].get("trust_url"), "e2open has no invented Official page")
-    check((by_pub["e2open"].get("certs") or []) == [], "e2open title-only cert pages stay unread")
-    check((by_pub["e2open"].get("file") or {}).get("marks") in (0, False, None), "e2open marks stay open")
+    check(not by_pub["e2open"].get("trust_url"), "e2open certifications catalog is not Official page")
+    check(
+        any("e2open.com/certifications/ssae18-soc1-and-soc2" in u for u, _k in SPECIAL_URLS.get("e2open", [])),
+        "e2open SSAE18 SOC page is seeded for the marks walker",
+    )
+    check(
+        any("e2open.com/certifications/iso-27001-certification" in u for u, _k in SPECIAL_URLS.get("e2open", [])),
+        "e2open ISO 27001 page is seeded for the marks walker",
+    )
+    check(
+        sorted(by_pub["e2open"].get("certs") or [])
+        == ["ISO 27001", "SOC 1 Type II", "SOC 2 Type II"],
+        f"e2open files first-party certification holds {by_pub['e2open'].get('certs')}",
+    )
+    check((by_pub["e2open"].get("file") or {}).get("marks") == 20, "e2open marks print")
     check((by_pub["e2open"].get("file") or {}).get("page") in (0, False, None), "e2open Official page stays open")
+    check((by_pub["e2open"].get("file") or {}).get("dpa") in (0, False, None), "e2open WiseTech DPA stays open")
+    check((by_pub["e2open"].get("file") or {}).get("years") in (0, False, None), "e2open years stay open")
+    check(by_pub["e2open"].get("founded_year") in (None, 0, False), "e2open years stay open")
     e2_html = (ROOT / "site" / "c" / "e2open.html").read_text(encoding="utf-8")
     check("<h1>E2open</h1>" in e2_html, "e2open dossier is its own file")
-    check("SOC 2 Type II" not in e2_html, "e2open dossier does not print title-only SOC 2")
-    check("SOC 1 Type II" not in e2_html, "e2open dossier does not print title-only SOC 1")
-    check("ISO 27001" not in e2_html, "e2open dossier does not print title-only ISO 27001")
+    check("ISO 27001" in e2_html, "e2open dossier prints ISO 27001")
+    check("SOC 2 Type II" in e2_html, "e2open dossier prints SOC 2 Type II")
+    check("SOC 1 Type II" in e2_html, "e2open dossier prints SOC 1 Type II")
     check("Official page · not on file" in e2_html, "e2open Official page stays open")
-    check("ssae18-soc1-and-soc2" not in e2_html, "e2open dossier does not file the JS-shell cert URL")
-    check("iso-27001-certification" not in e2_html, "e2open dossier does not file the JS-shell ISO URL")
+    check("founded · <span class=\"absent\">not on file</span>" in e2_html, "e2open dossier years stay open")
+    check("safebase" not in e2_html.lower(), "e2open does not name a portal vendor")
+    kept, why = hold_marks(
+        ["SOC 2 Type II", "SOC 1 Type II"],
+        "Working with an accounting firm, e2open received its SSAE18 SOC1 Type II "
+        "report, which covers the period from September 1, 2023 to August 31, 2024, "
+        "reporting on internal controls over financial reporting. e2open’s SOC2 Type II "
+        "report, which covers the period from September 1, 2023 to August 31, 2024 "
+        "reporting on controls over information technology.",
+        "security",
+    )
+    check(
+        sorted(kept) == ["SOC 1 Type II", "SOC 2 Type II"] and why is None,
+        f"e2open first-party SSAE18 holds file: {kept} {why}",
+    )
+    kept, why = hold_marks(
+        ["ISO 27001"],
+        "e2open is one of the first dedicated, cloud-based supply chain "
+        "software-as-a-service (SaaS) vendors to achieve the International "
+        "Organization for Standardization/International Electrotechnical Commission "
+        "(ISO/IEC) 27001:2022 Security Registration (ISO 27001).",
+        "security",
+    )
+    check(kept == ["ISO 27001"] and why is None, f"e2open first-party ISO 27001 files: {kept} {why}")
 
     check(by_pub["neon"].get("found") is True, "neon Official page is on file")
     check(
