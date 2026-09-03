@@ -32,7 +32,10 @@ UA = crawl.UA
 WORKERS = 16
 WIKI_WORKERS = 6
 PROBE_BODY = 24576
-TRUST_BODY = 196608
+# 1 MiB. WordPress first-party security HTML parks the hold past 196 KiB
+# (languageio.com/security-commitment ISO 27001:2022 certificate at ~946 KiB).
+# Not an unbounded fetch — still a hard cap.
+TRUST_BODY = 1048576
 PROCESSOR_BODY = 900000
 
 VENDOR_WORDS = re.compile(
@@ -350,6 +353,10 @@ SPECIAL_URLS = {
             "https://docs.vultr.com/support/platform/compliance/how-can-i-access-vultrs-compliance-reports",
             "security",
         ),
+    ],
+    # WordPress /security is a product lander; the hold is on this first-party page.
+    "language-i-o": [
+        ("https://languageio.com/security-commitment/", "security"),
     ],
 }
 

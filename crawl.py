@@ -63,6 +63,8 @@ SEED_URLS = {
     "cisco": ["https://www.cisco.com/c/en/us/about/trust-center.html"],
     "adobe": ["https://www.adobe.com/trust.html"],
     "servicenow": ["https://www.servicenow.com/company/trust.html"],
+    # First-party security-commitment HTML. /security is a product lander.
+    "language-i-o": ["https://languageio.com/security-commitment/"],
 }
 
 VENDOR_RANK = [

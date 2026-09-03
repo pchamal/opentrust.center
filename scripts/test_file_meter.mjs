@@ -1864,6 +1864,34 @@ expect(
   })(),
 );
 expect(
+  "language-i-o Completeness is page + marks; product /security is not Official page",
+  (() => {
+    const row = bySlug["language-i-o"];
+    const certs = row.certs || [];
+    return (
+      row &&
+      row.domain === "languageio.com" &&
+      row.found === true &&
+      row.trust_url === "https://languageio.com/security-commitment/" &&
+      certs.includes("ISO 27001") &&
+      certs.includes("ISO 42001") &&
+      !certs.includes("SOC 2") &&
+      !certs.includes("GDPR") &&
+      !certs.includes("HIPAA") &&
+      !certs.includes("PCI DSS") &&
+      !row.founded_year &&
+      fileFlags(row).page === 20 &&
+      fileFlags(row).marks === 20 &&
+      fileFlags(row).dpa === 0 &&
+      fileFlags(row).subprocessors === 0 &&
+      fileFlags(row).years === 0 &&
+      fileScore(fileFlags(row)) === 40 &&
+      ruleOn(fileIndexHtml(row))[0] === true &&
+      ruleOn(fileIndexHtml(row))[1] === true
+    );
+  })(),
+);
+expect(
   "netsuite Completeness stays 0; Akamai 403 is not a hold",
   (() => {
     const row = bySlug.netsuite;
