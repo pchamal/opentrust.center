@@ -1302,10 +1302,10 @@ def main() -> int:
     swan_html = (ROOT / "site" / "c" / "swan.html").read_text(encoding="utf-8")
     check("https://www.getswan.com/legal/dpa" in swan_html, "swan dossier cites the DPA")
     check("notion.site" not in swan_html, "swan dossier does not file the Notion processor shell")
-    # This cut: first-party Completeness DPA on Coralogix. SafeBase
+    # Prior cut: first-party Completeness DPA on Coralogix. SafeBase
     # trust.coralogix.com is not Official page — URL-only instrument.
-    # Footer SOC/ISO/PCI/HIPAA chips stay unread. Usual first-party
-    # /security /trust /compliance paths 404 or bounce to the portal.
+    # Footer SOC/ISO/PCI/HIPAA chips stay unread. This cut files the
+    # first-party authorized-sub-processors list; Official page stays open.
     check(
         instrument_url(by_pub["coralogix"], "dpa")
         == "https://coralogix.com/data-processing-agreement/",
@@ -1322,10 +1322,12 @@ def main() -> int:
     check(not (by_pub["coralogix"].get("certs") or []), "coralogix footer chips stay unread")
     check((by_pub["coralogix"].get("file") or {}).get("marks") in (0, False, None), "coralogix marks stay open")
     check((by_pub["coralogix"].get("file") or {}).get("page") in (0, False, None), "coralogix Official page stays open")
-    check(not (by_pub["coralogix"].get("processors") or []), "coralogix named processors stay open")
+    check(len(by_pub["coralogix"].get("processors") or []) == 13, "coralogix 13 names print")
+    check((by_pub["coralogix"].get("file") or {}).get("subprocessors") == 20, "coralogix processors print")
     check(
-        (by_pub["coralogix"].get("file") or {}).get("subprocessors") in (0, False, None),
-        "coralogix processors stay open",
+        instrument_url(by_pub["coralogix"], "subprocessors")
+        == "https://coralogix.com/authorized-sub-processors/",
+        "coralogix list URL is the first-party authorized-sub-processors page",
     )
     check(by_pub["coralogix"].get("founded_year") in (None, 0, False), "coralogix years stay open")
     coralogix_html = (ROOT / "site" / "c" / "coralogix.html").read_text(encoding="utf-8")
@@ -1333,6 +1335,10 @@ def main() -> int:
     check(
         "https://coralogix.com/data-processing-agreement/" in coralogix_html,
         "coralogix dossier cites the DPA",
+    )
+    check(
+        "https://coralogix.com/authorized-sub-processors/" in coralogix_html,
+        "coralogix dossier cites the authorized-sub-processors list",
     )
     check("https://trust.coralogix.com" in coralogix_html, "coralogix dossier cites the portal as an instrument URL")
     check("Official page · not on file" in coralogix_html, "coralogix Official page stays open")
