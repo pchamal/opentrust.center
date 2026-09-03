@@ -1935,6 +1935,39 @@ def main() -> int:
         sorted(kept) == ["ENS", "ISO 27001", "ISO 27018", "ISO 9001"] and why is None,
         f"arsys first-party Certificaciones holds file: {kept} {why}",
     )
+
+    # Sutherland privacy DPF self-cert. Official page stays open (/security is an SVG).
+    check(by_pub["sutherland-global-services"].get("found") is False, "sutherland Official page stays open")
+    check(not by_pub["sutherland-global-services"].get("trust_url"), "sutherland privacy is not Official page")
+    check(
+        (by_pub["sutherland-global-services"].get("certs") or []) == ["EU-US DPF"],
+        f"sutherland files first-party privacy DPF {by_pub['sutherland-global-services'].get('certs')}",
+    )
+    check("GDPR" not in (by_pub["sutherland-global-services"].get("certs") or []), "sutherland privacy GDPR stays open")
+    check((by_pub["sutherland-global-services"].get("file") or {}).get("marks") == 20, "sutherland marks print")
+    check((by_pub["sutherland-global-services"].get("file") or {}).get("page") in (0, False, None), "sutherland Official page stays open")
+    check((by_pub["sutherland-global-services"].get("file") or {}).get("dpa") in (0, False, None), "sutherland DPA stays open")
+    check((by_pub["sutherland-global-services"].get("file") or {}).get("years") in (0, False, None), "sutherland years stay open")
+    check(by_pub["sutherland-global-services"].get("founded_year") in (None, 0, False), "sutherland years stay open")
+    suth_html = (ROOT / "site" / "c" / "sutherland-global-services.html").read_text(encoding="utf-8")
+    check("<h1>Sutherland Global</h1>" in suth_html, "sutherland dossier is its own file")
+    check("EU-US DPF" in suth_html, "sutherland dossier prints EU-US DPF")
+    check("Official page · not on file" in suth_html, "sutherland Official page stays open")
+    check("founded · <span class=\"absent\">not on file</span>" in suth_html, "sutherland dossier years stay open")
+    check("GDPR" not in suth_html, "sutherland dossier does not print privacy GDPR")
+    check("safebase" not in suth_html.lower(), "sutherland does not name a portal vendor")
+    kept, why = hold_marks(
+        ["EU-US DPF", "GDPR"],
+        "Sutherland Global Holdings Inc. complies with the EU-U.S. Data Privacy "
+        "Framework (EU-U.S. DPF), the UK Extension to the EU-U.S. DPF, and the "
+        "Swiss-U.S. Data Privacy Framework (Swiss-U.S. DPF) as set forth by the "
+        "U.S. Department of Commerce. Sutherland has certified to the U.S. "
+        "Department of Commerce that it adheres to the EU-U.S. Data Privacy "
+        "Framework Principles.",
+        "privacy",
+    )
+    check(kept == ["EU-US DPF"] and why is None, f"sutherland privacy DPF self-cert files: {kept} {why}")
+
     kept, why = hold_marks(
         ["SOC 2 Type I", "ISO 27001", "GDPR"],
         "AICPA SOC 2 Type I Our SOC 2 Type I attestation reflects our rigorous "
