@@ -36000,6 +36000,20 @@
       "domain": "",
       "kind": "processor",
       "in_register": false
+    },
+    {
+      "id": "oopspam",
+      "name": "OOPSpam LLC",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "pipedream",
+      "name": "Pipedream, LLC",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
     }
   ],
   "edges": [
@@ -57326,6 +57340,90 @@
       "to": "google",
       "source_url": "https://www.scoro.com/subprocessor-list/",
       "evidence": "Google Workspace"
+    },
+    {
+      "from": "aha",
+      "to": "amazon-web-services",
+      "source_url": "https://www.aha.io/legal/subprocessors",
+      "evidence": "Amazon Web Services, Inc"
+    },
+    {
+      "from": "aha",
+      "to": "automattic",
+      "source_url": "https://www.aha.io/legal/subprocessors",
+      "evidence": "Automattic Inc"
+    },
+    {
+      "from": "aha",
+      "to": "datadog",
+      "source_url": "https://www.aha.io/legal/subprocessors",
+      "evidence": "Datadog, Inc"
+    },
+    {
+      "from": "aha",
+      "to": "cisco",
+      "source_url": "https://www.aha.io/legal/subprocessors",
+      "evidence": "Duo Security, Inc"
+    },
+    {
+      "from": "aha",
+      "to": "sentry",
+      "source_url": "https://www.aha.io/legal/subprocessors",
+      "evidence": "Functional Software, Inc"
+    },
+    {
+      "from": "aha",
+      "to": "google",
+      "source_url": "https://www.aha.io/legal/subprocessors",
+      "evidence": "Google Inc"
+    },
+    {
+      "from": "aha",
+      "to": "microsoft",
+      "source_url": "https://www.aha.io/legal/subprocessors",
+      "evidence": "Microsoft Corporation"
+    },
+    {
+      "from": "aha",
+      "to": "netlify",
+      "source_url": "https://www.aha.io/legal/subprocessors",
+      "evidence": "Netlify Inc"
+    },
+    {
+      "from": "aha",
+      "to": "oopspam",
+      "source_url": "https://www.aha.io/legal/subprocessors",
+      "evidence": "OOPSpam LLC"
+    },
+    {
+      "from": "aha",
+      "to": "openai",
+      "source_url": "https://www.aha.io/legal/subprocessors",
+      "evidence": "O﻿penAI, LLC"
+    },
+    {
+      "from": "aha",
+      "to": "pipedream",
+      "source_url": "https://www.aha.io/legal/subprocessors",
+      "evidence": "Pipedream, LLC"
+    },
+    {
+      "from": "aha",
+      "to": "recurly-com",
+      "source_url": "https://www.aha.io/legal/subprocessors",
+      "evidence": "Recurly, Inc"
+    },
+    {
+      "from": "aha",
+      "to": "mailchimp",
+      "source_url": "https://www.aha.io/legal/subprocessors",
+      "evidence": "The Rocket Science Group, LLC"
+    },
+    {
+      "from": "aha",
+      "to": "zendesk",
+      "source_url": "https://www.aha.io/legal/subprocessors",
+      "evidence": "Zendesk, Inc"
     }
   ],
   "aliases": {
@@ -57352,6 +57450,9 @@
     "parallel-web-systems": "parallel",
     "google-gemini": "google",
     "gemini": "google",
+    "functional-software": "sentry",
+    "o-penai": "openai",
+    "duo-security": "cisco",
     "google-ireland": "google",
     "google-firebase": "google",
     "google-vertex-ai": "google",

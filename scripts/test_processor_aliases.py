@@ -64,6 +64,15 @@ def main() -> int:
     check(REGISTER_ALIASES["google-gemini"] == "google", "Gemini is Google")
     check(REGISTER_ALIASES["gemini"] == "google", "plain Gemini is Google")
     check(canonical_processor_id("gemini", register) == "google", "Gemini wires land on google")
+    sentry_reg = {**register, "sentry": {"slug": "sentry", "name": "Sentry", "domain": "sentry.io"}}
+    check(canonical_processor_id("functional-software", sentry_reg) == "sentry", "Functional Software is Sentry")
+    check(REGISTER_ALIASES["functional-software"] == "sentry", "functional-software aliases to sentry")
+    openai_reg = {**register, "openai": {"slug": "openai", "name": "OpenAI", "domain": "openai.com"}}
+    check(canonical_processor_id("o-penai", openai_reg) == "openai", "O+ZWSP+penAI slug is OpenAI")
+    check(REGISTER_ALIASES["o-penai"] == "openai", "o-penai aliases to openai")
+    cisco_reg = {**register, "cisco": {"slug": "cisco", "name": "Cisco", "domain": "cisco.com"}}
+    check(canonical_processor_id("duo-security", cisco_reg) == "cisco", "Duo Security is Cisco")
+    check(REGISTER_ALIASES["duo-security"] == "cisco", "duo-security aliases to cisco")
     check(REGISTER_ALIASES["oracle-netsuite"] == "netsuite", "Oracle NetSuite keeps the NetSuite row")
     adobe_reg = {**register, "adobe": {"slug": "adobe", "name": "Adobe", "domain": "adobe.com"}}
     check(canonical_processor_id("marketo", adobe_reg) == "adobe", "Marketo is Adobe")
