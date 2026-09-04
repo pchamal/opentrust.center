@@ -304,11 +304,16 @@ def test_wrong_company_pairs_stay_rejected() -> None:
     saved = expand_batch.load_json
     expand_batch.load_json = lambda path, default=None: {"companies": []}
     try:
-        picked = expand_batch.next_batch(queue, state, 4)
+        picked = expand_batch.next_batch(queue, state, 1)
+        picked_all = expand_batch.next_batch(queue, {"cursor": 0}, 5)
     finally:
         expand_batch.load_json = saved
     check(picked and [r["slug"] for r in picked] == ["sentry"], f"rejected pairs stay off the batch: {picked}")
     check(state["cursor"] == 0, "rejected gap pairs do not burn the leftover cursor")
+    check(
+        [r["slug"] for r in picked_all] == ["sentry"],
+        f"rejected pairs stay off a larger batch: {picked_all}",
+    )
 
 
 def test_year_needs_website_match() -> None:
