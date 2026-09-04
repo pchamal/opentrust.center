@@ -606,8 +606,8 @@ def main() -> int:
     check("squadcast" not in by_pub, "scoro does not invent a Squadcast dossier")
     check("gemini" not in by_pub, "scoro does not invent a Gemini dossier")
     # Prior cut: first-party Completeness DPA on strongDM. Koala first-party
-    # HTML list. SendGrid aliases onto Twilio. Mode stays a leftover graph
-    # node. Kombo PDF-download DPA and Litmus→Validity parent list stay open.
+    # HTML list. SendGrid aliases onto Twilio. Mode aliases onto ThoughtSpot.
+    # Kombo PDF-download DPA and Litmus→Validity parent list stay open.
     check(
         instrument_url(by_pub["strongdm"], "dpa")
         == "https://www.strongdm.com/legal/data-processing-agreement",
@@ -631,7 +631,11 @@ def main() -> int:
     check("amazon-web-services" in koala_slugs, "konfetti-koala AWS uses the Amazon Web Services file")
     check("cloudflare" in koala_slugs, "konfetti-koala Cloudflare uses the Cloudflare file")
     check("twilio" in koala_slugs, "konfetti-koala SendGrid uses the Twilio file")
+    check("thoughtspot" in koala_slugs, "konfetti-koala Mode uses the ThoughtSpot file")
     check("mode" not in by_pub, "konfetti-koala does not invent a Mode dossier")
+    check("clearbit" not in by_pub, "Help Scout does not invent a Clearbit dossier")
+    hs_slugs = [p.get("slug") for p in (by_pub["help-scout"].get("processors") or [])]
+    check("hubspot" in hs_slugs, "help-scout Clearbit uses the HubSpot file")
     check("dpa" not in ((by_enr["kombo-technologies"].get("links") or {})), "Kombo PDF DPA stays off file")
     check(not (by_pub["litmus"].get("processors") or []), "Litmus names no parent-company processors")
     # Prior cut: first-party Completeness DPA on Artie, Discourse, Pluralsight.
@@ -2045,6 +2049,32 @@ def main() -> int:
     check("HIPAA" not in voyage_html, "voyage-ai dossier does not print footer HIPAA")
     check("mongodb" not in voyage_html.lower(), "voyage-ai is not aliased to MongoDB")
     check("vanta" not in voyage_html.lower(), "voyage-ai dossier names no portal vendor")
+
+    # This cut: alias Clearbit→HubSpot and Mode→ThoughtSpot. File Resend,
+    # Superhuman, and Svix on verified first-party domains. Do not invent a
+    # second dossier for Clearbit or Mode.
+    check(by_pub["resend"]["domain"] == "resend.com", "resend official domain is resend.com")
+    check(by_pub["superhuman"]["domain"] == "superhuman.com", "superhuman official domain is superhuman.com")
+    check(by_pub["svix"]["domain"] == "svix.com", "svix official domain is svix.com")
+    check("clearbit" not in by_pub, "clearbit is not a second HubSpot dossier")
+    check("mode" not in by_pub, "mode is not a second ThoughtSpot dossier")
+    check(by_pub["resend"].get("found") is True, "resend Official page is on file")
+    check((by_pub["resend"].get("file") or {}).get("page") == 20, "resend Official page prints")
+    check((by_pub["resend"].get("file") or {}).get("dpa") == 20, "resend DPA prints")
+    check("SOC 2 Type II" in (by_pub["resend"].get("certs") or []), "resend files SOC 2 Type II")
+    check("ISO 27001" not in (by_pub["resend"].get("certs") or []), "resend does not hold ISO 27001")
+    check("HIPAA" not in (by_pub["resend"].get("certs") or []), "resend does not hold HIPAA")
+    check("GDPR" not in (by_pub["resend"].get("certs") or []), "resend GDPR is not a mark")
+    check(by_pub["svix"].get("found") is True, "svix Official page is on file")
+    check("SOC 2 Type II" in (by_pub["svix"].get("certs") or []), "svix files SOC 2 Type II")
+    check("HIPAA" in (by_pub["svix"].get("certs") or []), "svix files HIPAA attestation")
+    check("PCI DSS" in (by_pub["svix"].get("certs") or []), "svix files PCI-DSS attestation")
+    check("GDPR" not in (by_pub["svix"].get("certs") or []), "svix GDPR is not a mark")
+    check("CCPA" not in (by_pub["svix"].get("certs") or []), "svix CCPA is not a mark")
+    svix_slugs = [p.get("slug") for p in (by_pub["svix"].get("processors") or [])]
+    check("amazon-web-services" in svix_slugs, "svix names AWS on the existing file")
+    check("plain" in svix_slugs, "svix Plain uses the Plain file")
+    check(not (by_pub["superhuman"].get("certs") or []), "superhuman SafeBase marks stay unread")
 
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "

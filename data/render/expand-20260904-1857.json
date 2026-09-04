@@ -1,0 +1,130 @@
+{
+  "batch": "named-processor-gap",
+  "rows": [
+    {
+      "rank": 5811,
+      "name": "Resend",
+      "slug": "resend",
+      "domain": "resend.com",
+      "found": true,
+      "trust_url": "https://resend.com/security",
+      "final_url": "https://resend.com/security",
+      "vendor": "unknown",
+      "title": "Security \u00b7 Resend",
+      "probed": 13,
+      "source": "https://liveblocks.io/subprocessors",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II.",
+      "list": "named-processor-gap",
+      "certs": [
+        "SOC 2 Type II"
+      ],
+      "links": {
+        "trust": "https://resend.com/security",
+        "security": "https://resend.com/security",
+        "dpa": "https://resend.com/legal/dpa",
+        "subprocessors": "https://resend.com/legal/subprocessors",
+        "privacy": "https://resend.com/legal/privacy-policy"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 52,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 10,
+          "dpa": 8,
+          "processors": 8,
+          "privacy": 6
+        }
+      }
+    },
+    {
+      "rank": 5812,
+      "name": "Superhuman",
+      "slug": "superhuman",
+      "domain": "superhuman.com",
+      "found": true,
+      "trust_url": "https://trust.superhuman.com",
+      "final_url": "https://trust.superhuman.com",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 5,
+      "source": "https://coralogix.com/authorized-sub-processors/",
+      "summary": "Trust portal found; marks not yet read from the public page.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {
+        "trust": "https://trust.superhuman.com",
+        "privacy": "https://superhuman.com/legal/privacy-policy",
+        "subprocessors": "https://superhuman.com/legal/subprocessors",
+        "dpa": "https://superhuman.com/legal/dpa",
+        "status": "https://status.superhuman.com"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 48,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "dpa": 8,
+          "processors": 8,
+          "status": 6,
+          "privacy": 6
+        }
+      }
+    },
+    {
+      "rank": 5813,
+      "name": "Svix",
+      "slug": "svix",
+      "domain": "svix.com",
+      "found": true,
+      "trust_url": "https://svix.com/security",
+      "final_url": "https://www.svix.com/security/",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://clazar.io/dpa",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, HIPAA, PCI DSS.",
+      "list": "named-processor-gap",
+      "certs": [
+        "SOC 2 Type II",
+        "HIPAA",
+        "PCI DSS"
+      ],
+      "links": {
+        "trust": "https://svix.com/security",
+        "security_txt": "https://www.svix.com/.well-known/security.txt",
+        "privacy": "https://www.svix.com/legal/privacy/",
+        "subprocessors": "https://www.svix.com/legal/subprocessors/",
+        "status": "https://status.svix.com",
+        "security": "https://www.svix.com/security/"
+      },
+      "subprocessors": [
+        "amazon-web-services",
+        "auth0",
+        "sentry",
+        "datadog",
+        "google",
+        "mailgun",
+        "slack",
+        "github",
+        "stripe",
+        "posthog",
+        "plain"
+      ],
+      "disclosure": {
+        "score": 70,
+        "tier": "substantial",
+        "factors": {
+          "portal": 20,
+          "marks": 24,
+          "processors": 8,
+          "status": 6,
+          "disclosure": 6,
+          "privacy": 6
+        }
+      }
+    }
+  ]
+}
