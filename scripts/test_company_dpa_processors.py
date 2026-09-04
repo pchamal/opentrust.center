@@ -246,74 +246,80 @@ def main() -> int:
 
     # This increment: upper-quadrant DPA-on-file / subprocessors queue (~40).
     expected_batch = [
-        "accordance",
-        "acorns",
-        "acquire-asia-pacific-philippines",
-        "actian",
-        "actionstep",
-        "acumatica",
-        "ada",
-        "adacore",
-        "adp",
-        "agentsmyth",
-        "aha",
-        "airbrake",
-        "anytech365",
-        "armo-security",
-        "blogvault",
-        "bluesnap",
-        "bugsnag",
-        "chargebee",
-        "clickatell",
-        "cloudwave",
-        "common-room",
-        "crypto-com",
-        "customer-dynamics",
-        "datagrail",
-        "datalab",
-        "adjiva-pte-aka-deltax",
-        "devo",
-        "discord",
-        "dstny-automate-formerly-qunifi",
-        "create-without-limits-technologies-dba-enhancor",
-        "exoscale",
-        "fieldai",
-        "filestack",
-        "flapping-airplanes",
-        "foundever-operating",
-        "grab",
-        "happyfox",
-        "hiddenlayer",
-        "hoodwink-consulting",
-        "hp",
+        "humans-and",
+        "idera-inc",
+        "immunify360",
+        "invoiceexpress",
+        "jack-henry",
+        "jack-henry-and-associates",
+        "jettycloud",
+        "kickbox",
+        "knostic",
+        "lakera-ai",
+        "leaseweb-global",
+        "legalinc-com",
+        "legora",
+        "leo-ai",
+        "logikcull",
+        "mediactive",
+        "mividas",
+        "mpower",
+        "nodedata",
+        "novita",
+        "onespan",
+        "onfido",
+        "papertrail",
+        "ownd-aps-parahelp",
+        "pganalyze-duboce-labs",
+        "ping-identity",
+        "playlist-com",
+        "plextrac",
+        "prove-identity",
+        "purecaller-id",
+        "raspberry-ai",
+        "rattle-software",
+        "reversing-labs",
+        "rogo",
+        "rootly",
+        "runware",
+        "satismeter-s-r-o",
+        "seon",
+        "sift",
+        "singular-lab",
     ]
     check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
     filed_dpa = {r["slug"]: r for r in (report.get("dpa_filed") or [])}
-    check(set(filed_dpa) == {"exoscale", "hiddenlayer"}, f"DPA links filed, got {sorted(filed_dpa)}")
+    check(set(filed_dpa) == {"immunify360", "invoiceexpress"}, f"DPA links filed, got {sorted(filed_dpa)}")
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
-    check(set(filed_sub) == {"aha"}, f"named-processor lists filed, got {sorted(filed_sub)}")
+    check(set(filed_sub) == set(), f"named-processor lists filed, got {sorted(filed_sub)}")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
-    check("exoscale" not in stayed_dpa, "Exoscale DPA was filed")
-    check("exoscale" in stayed_sub, "Exoscale named list stayed open")
-    check("hiddenlayer" not in stayed_dpa, "HiddenLayer DPA was filed")
-    check("hiddenlayer" in stayed_sub, "HiddenLayer named list stayed open")
-    check("aha" in stayed_dpa, "Aha! DPA probes stayed open")
-    check("aha" not in stayed_sub, "Aha! named list was filed")
-    check("chargebee" in stayed_dpa, "Chargebee Nuxt JS-shell DPA stayed open")
-    check("chargebee" in stayed_sub, "Chargebee named list stayed open")
-    check(len(report.get("stayed_open") or []) == 77, f"77 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
+    check("immunify360" not in stayed_dpa, "Imunify360 DPA was filed")
+    check("immunify360" in stayed_sub, "Imunify360 named list stayed open")
+    check("invoiceexpress" not in stayed_dpa, "InvoiceXpress DPA was filed")
+    check("invoiceexpress" in stayed_sub, "InvoiceXpress named list stayed open")
+    check("nodedata" in stayed_dpa, "Nodedata soft-404 DPA stayed open")
+    check("reversing-labs" in stayed_dpa, "ReversingLabs Next.js shell DPA stayed open")
+    check(len(report.get("stayed_open") or []) == 76, f"76 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
     check(len(stayed_dpa) == 38, f"38 DPA slots stayed open, got {len(stayed_dpa)}")
-    check(len(stayed_sub) == 39, f"39 subprocessors slots stayed open, got {len(stayed_sub)}")
+    check(len(stayed_sub) == 38, f"38 subprocessors slots stayed open, got {len(stayed_sub)}")
     # This-cut review drops stay unread.
+    check("dpa" not in ((by_enr["nodedata"].get("links") or {})), "Nodedata links.dpa stays off the SvelteKit 404")
+    check(not instrument_url(by_pub["nodedata"], "dpa"), "Nodedata DPA stays open")
+    check("dpa" not in ((by_enr["reversing-labs"].get("links") or {})), "ReversingLabs links.dpa stays off the Next.js shell")
+    check(not instrument_url(by_pub["reversing-labs"], "dpa"), "ReversingLabs DPA stays open")
+    check("dpa" not in ((by_enr["onespan"].get("links") or {})), "OneSpan links.dpa stays off the PDF / privacy-center bounce")
+    check("dpa" not in ((by_enr["rogo"].get("links") or {})), "Rogo links.dpa stays off the Framer JS-shell")
+    check("dpa" not in ((by_enr["leaseweb-global"].get("links") or {})), "Leaseweb links.dpa stays off the JS config shell")
+    check("dpa" not in ((by_enr["humans-and"].get("links") or {})), "Humans& links.dpa stays off the same-title SPA")
+    # Prior-cut review drops stay unread.
     check("dpa" not in ((by_enr["chargebee"].get("links") or {})), "Chargebee links.dpa stays off the Nuxt JS-shell")
     check(not instrument_url(by_pub["chargebee"], "dpa"), "Chargebee DPA stays open")
     check("dpa" not in ((by_enr["aha"].get("links") or {})), "Aha! links.dpa stays off the 404 probes")
     check(not instrument_url(by_pub["aha"], "dpa"), "Aha! DPA stays open")
     check("dpa" not in ((by_enr["discord"].get("links") or {})), "Discord links.dpa stays off the privacy-policy bounce")
     check("subprocessors" not in ((by_enr["ada"].get("links") or {})), "Ada links.subprocessors stays off the SafeBase portal")
-    # Prior-cut review drops stay unread.
     check("unbounce" not in expected_batch, "Unbounce is not retried")
     check("subprocessors" not in ((by_enr["unbounce"].get("links") or {})), "Unbounce links.subprocessors stays off the CSS-grid page")
     check(not (by_pub["unbounce"].get("processors") or []), "Unbounce names no CSS-grid processors")
@@ -391,6 +397,9 @@ def main() -> int:
         "ask-ai", "sublime-security", "monetate", "protiviti",
         "telesign", "alphasights", "scoro", "absolute-security", "crowdin",
         "chargebee", "discord", "ada", "bugsnag",
+        "exoscale", "hiddenlayer", "aha",
+        "nodedata", "reversing-labs", "onespan", "rogo", "humans-and",
+        "leaseweb-global",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")
@@ -403,7 +412,28 @@ def main() -> int:
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check(rec["url"] in html, f"{slug} dossier cites the list URL")
         check('rel="noopener noreferrer"' in html, f"{slug} outbound links use noopener")
-    # This cut: first-party Completeness DPA on Exoscale and HiddenLayer.
+    # This cut: first-party Completeness DPA on Imunify360 and InvoiceXpress.
+    # Nodedata /dpa is a SvelteKit soft-404. ReversingLabs /data-processing-
+    # addendum is a Next.js marketing shell. OneSpan PDF / privacy-center,
+    # Rogo Framer shell, Leaseweb JS config shell, and Humans& same-title
+    # SPA stay unread. Imunify360 DPA annex table is not a cited list URL.
+    check(
+        instrument_url(by_pub["immunify360"], "dpa")
+        == "https://imunify360.com/legal/data-processing-addendum/",
+        "immunify360 DPA is first-party HTML",
+    )
+    check((by_pub["immunify360"].get("file") or {}).get("dpa") == 20, "immunify360 DPA prints")
+    check(not (by_pub["immunify360"].get("processors") or []), "immunify360 named list stays unread")
+    check((by_pub["immunify360"].get("file") or {}).get("subprocessors") in (0, False, None), "immunify360 processors stay open")
+    check(
+        instrument_url(by_pub["invoiceexpress"], "dpa")
+        == "https://invoicexpress.com/data-processing-terms/",
+        "invoiceexpress DPA is first-party HTML",
+    )
+    check((by_pub["invoiceexpress"].get("file") or {}).get("dpa") == 20, "invoiceexpress DPA prints")
+    check(not (by_pub["invoiceexpress"].get("processors") or []), "invoiceexpress named list stays unread")
+    check((by_pub["invoiceexpress"].get("file") or {}).get("subprocessors") in (0, False, None), "invoiceexpress processors stay open")
+    # Prior cut: first-party Completeness DPA on Exoscale and HiddenLayer.
     # Aha! first-party HTML table. Chargebee Nuxt JS-shell titled DPA stays
     # unread. Discord /privacy/dpa is the privacy policy. Ada SafeBase
     # catalog stays unread. Bugsnag /legal/dpa parent-bounces to SmartBear.
