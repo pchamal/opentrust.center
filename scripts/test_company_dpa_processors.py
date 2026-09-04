@@ -246,80 +246,120 @@ def main() -> int:
 
     # This increment: upper-quadrant DPA-on-file / subprocessors queue (~40).
     expected_batch = [
-        "accurx",
-        "opengear",
-        "auth0",
-        "singlestore",
-        "datavant",
-        "cdk-global",
-        "q4",
-        "reo-dev",
-        "egnyte",
-        "money-forward",
-        "aidoc",
-        "astra",
-        "inkeep",
-        "oppo",
-        "nordvpn",
-        "capacity",
-        "convertapi-uab",
-        "hetzner-online",
-        "inngest",
-        "jam-dev",
-        "kyndryl",
-        "kyndryl-holdings",
-        "language-i-o",
-        "logrocket",
-        "sendsafely",
-        "traversal",
-        "whatnot",
-        "7ai",
-        "sync",
-        "khoros",
-        "intuitive-machines",
-        "podium",
-        "veryfi-inc",
-        "resolve-ai",
-        "anima-app",
-        "apryse",
-        "balto",
-        "becton-dickinson",
-        "bodyguard-ai",
-        "censys",
+        "cloud-convert",
+        "data-zoo",
+        "digicert",
+        "elliptic",
+        "etleap",
+        "great-question",
+        "inscribeai",
+        "justt-ai",
+        "langfuse",
+        "metronome",
+        "middesk",
+        "ppro",
+        "radiant",
+        "relevance-ai",
+        "shufti-pro",
+        "smartrecruiters",
+        "sms-magic",
+        "tavily",
+        "trolley",
+        "verkada",
+        "gooddata-ai",
+        "moniepoint-inc",
+        "rockwell-information-services",
+        "harte-hanks",
+        "quest-software",
+        "extreme-networks",
+        "payu",
+        "brighthire",
+        "cloudinary",
+        "echoworx",
+        "hightouch",
+        "oso-security",
+        "plivo",
+        "validity",
+        "vonage",
+        "wistia",
+        "airalo",
+        "oceaneering-international",
+        "wind-river-systems",
+        "pkware",
     ]
     check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
     check(not (report.get("dpa_filed") or []), "no DPA was newly filed")
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
-    check(len(filed_sub) == 1, f"one named-processor list filed, got {sorted(filed_sub)}")
-    check(set(filed_sub) == {"accurx"}, f"kept filings {sorted(filed_sub)}")
+    check(len(filed_sub) == 5, f"five named-processor lists filed, got {sorted(filed_sub)}")
     check(
-        filed_sub["accurx"]["url"]
-        == "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors",
-        "accurx list URL is the first-party support article",
+        set(filed_sub) == {"data-zoo", "hightouch", "plivo", "smartrecruiters", "sms-magic"},
+        f"kept filings {sorted(filed_sub)}",
     )
-    check(len(filed_sub["accurx"]["names"]) == 13, "accurx 13 names")
+    check(
+        filed_sub["data-zoo"]["url"] == "https://datazoo.com/policy/data-sub-processor-list",
+        "data-zoo list URL is the first-party policy page",
+    )
+    check(len(filed_sub["data-zoo"]["names"]) == 16, "data-zoo 16 names")
+    check(
+        filed_sub["hightouch"]["url"] == "https://hightouch.com/subprocessors",
+        "hightouch list URL is first-party HTML",
+    )
+    check(len(filed_sub["hightouch"]["names"]) == 14, "hightouch 14 names")
+    check(
+        filed_sub["plivo"]["url"] == "https://www.plivo.com/legal/subprocessors/",
+        "plivo list URL is first-party HTML",
+    )
+    check(len(filed_sub["plivo"]["names"]) == 31, "plivo 31 names after junk drops")
+    check(
+        filed_sub["smartrecruiters"]["url"] == "https://www.smartrecruiters.com/legal/subprocessors/",
+        "smartrecruiters list URL is first-party HTML",
+    )
+    check(len(filed_sub["smartrecruiters"]["names"]) == 41, "smartrecruiters 41 names")
+    check(
+        filed_sub["sms-magic"]["url"] == "https://trust.sms-magic.com/subprocessors/",
+        "sms-magic list URL is the first-party trust page",
+    )
+    check(len(filed_sub["sms-magic"]["names"]) == 17, "sms-magic 17 names after telecom-partner drops")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
     check(
-        stayed == set(expected_batch) - {"accurx"},
-        f"stayed-open covers the unread batch, got {sorted(stayed ^ (set(expected_batch) - {'accurx'}))}",
+        stayed == set(expected_batch),
+        f"stayed-open covers the unread batch, got {sorted(stayed ^ set(expected_batch))}",
     )
-    check(len(report.get("stayed_open") or []) == 77, f"77 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
-    check(len(stayed_dpa) == 39, f"39 DPA slots stayed open, got {len(stayed_dpa)}")
-    check(len(stayed_sub) == 38, f"38 subprocessors slots stayed open, got {len(stayed_sub)}")
-    check("accurx" not in stayed_sub, "Accurx named list is not in subprocessors stayed-open")
-    check("accurx" not in stayed_dpa, "Accurx DPA was already on file")
-    check("inkeep" in stayed_dpa, "Inkeep PDF DPA stayed open")
+    check(len(report.get("stayed_open") or []) == 73, f"73 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
+    check(len(stayed_dpa) == 40, f"40 DPA slots stayed open, got {len(stayed_dpa)}")
+    check(len(stayed_sub) == 33, f"33 subprocessors slots stayed open, got {len(stayed_sub)}")
+    for slug in ("data-zoo", "hightouch", "plivo", "smartrecruiters", "sms-magic"):
+        check(slug not in stayed_sub, f"{slug} named list is not in subprocessors stayed-open")
+        check(slug in stayed_dpa, f"{slug} DPA stayed open")
+    check("cloudinary" in stayed_dpa, "Cloudinary PDF DPA stayed open")
+    check("dpa" not in ((by_enr["cloudinary"].get("links") or {})), "Cloudinary links.dpa stays off the PDF")
+    check("langfuse" in stayed_sub, "Langfuse ClickHouse parent list stayed open")
+    check(
+        "subprocessors" not in ((by_enr["langfuse"].get("links") or {})),
+        "Langfuse links.subprocessors stays off the ClickHouse parent page",
+    )
+    check(not (by_pub["langfuse"].get("processors") or []), "Langfuse names no processors")
+    # This-cut review drops stay unread.
+    check("clickhouse.com" not in ((by_enr["langfuse"].get("links") or {}).get("subprocessors") or ""), "Langfuse does not store the parent list")
+    check("Grok, Perplexity" not in filed_sub["plivo"]["names"], "Plivo combined Grok/Perplexity row stays off file")
+    check("ElevenLabs, Cartesia, Rime" not in filed_sub["plivo"]["names"], "Plivo combined model-vendor row stays off file")
+    check("PunHub" not in filed_sub["plivo"]["names"], "Plivo PunHub typo stays off file")
+    check("Google, Meta & LinkedIn Ads" not in filed_sub["plivo"]["names"], "Plivo combined ads row stays off file")
+    check("Google Analytics & Hot Jar" not in filed_sub["plivo"]["names"], "Plivo combined analytics row stays off file")
+    check("Telecom Partners (Aus)" not in filed_sub["sms-magic"]["names"], "SMS-Magic unnamed Aus telecom row stays off file")
+    check("Telecom Partners (Europe)" not in filed_sub["sms-magic"]["names"], "SMS-Magic unnamed Europe telecom row stays off file")
+    check("Telecom Partners (USA)" not in filed_sub["sms-magic"]["names"], "SMS-Magic unnamed USA telecom row stays off file")
+    check("Vanta" not in filed_sub["data-zoo"]["names"], "Data Zoo portal vendor Vanta stays off file")
+    # Prior-cut review drops stay unread.
+    check("inkeep" not in expected_batch, "Inkeep is not retried")
     check("dpa" not in ((by_enr["inkeep"].get("links") or {})), "Inkeep links.dpa stays off the PDF")
-    check("kyndryl" in stayed_dpa, "Kyndryl PDF DPA stayed open")
     check("dpa" not in ((by_enr["kyndryl"].get("links") or {})), "Kyndryl links.dpa stays off the PDF")
-    check("kyndryl-holdings" in stayed_dpa, "Kyndryl Holdings parent PDF DPA stayed open")
     check(
         "dpa" not in ((by_enr["kyndryl-holdings"].get("links") or {})),
         "Kyndryl Holdings links.dpa stays off the parent PDF",
     )
-    # Prior-cut review drops stay unread.
     check("browserbase" not in {r["slug"] for r in (report.get("dpa_filed") or [])}, "Browserbase DPA was not filed")
     check(
         "dpa" not in ((by_enr["browserbase"].get("links") or {})),
@@ -329,7 +369,6 @@ def main() -> int:
         "dpa" not in ((by_enr["tableau"].get("links") or {})),
         "Tableau links.dpa stays off the Salesforce parent PDF",
     )
-    # Prior-cut review drops stay unread.
     check(
         "dpa" not in ((by_enr["panther-labs"].get("links") or {})),
         "Panther links.dpa stays off the Framer JS-shell",
@@ -368,7 +407,7 @@ def main() -> int:
         "help-scout", "lastpass", "recurly-com", "segment",
         "lob-com", "productboard", "dash0", "temporal", "neon", "smarsh",
         "panther-labs", "plume", "contentsquare", "uploadcare",
-        "browserbase", "tableau",
+        "browserbase", "tableau", "accurx", "inkeep", "kyndryl",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")
@@ -377,7 +416,87 @@ def main() -> int:
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check(rec["url"] in html, f"{slug} dossier cites the list URL")
         check('rel="noopener noreferrer"' in html, f"{slug} outbound links use noopener")
-    # This cut: Accurx first-party support-article table. DPA annex headings
+    # This cut: first-party HTML lists. Combined / unnamed / parent / PDF rows
+    # stay unread. Same-company leftovers alias onto existing register slugs.
+    datazoo_names = [p.get("name") for p in (by_pub["data-zoo"].get("processors") or [])]
+    datazoo_slugs = [p.get("slug") for p in (by_pub["data-zoo"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["data-zoo"], "subprocessors")
+        == "https://datazoo.com/policy/data-sub-processor-list",
+        "data-zoo list URL is the first-party policy page",
+    )
+    check((by_pub["data-zoo"].get("file") or {}).get("subprocessors") == 20, "data-zoo processors print")
+    check(len(datazoo_names) == 16, f"data-zoo printed 16 named processors, got {len(datazoo_names)}")
+    check("Aha!" in datazoo_names, "data-zoo names Aha!")
+    check("Google Cloud Platform" in datazoo_names, "data-zoo names Google Cloud Platform")
+    check("Microsoft Office" in datazoo_names, "data-zoo names Microsoft Office")
+    check("Vanta" not in datazoo_names, "data-zoo portal vendor Vanta stays off file")
+    check("google" in datazoo_slugs, "data-zoo GCP uses the Google file")
+    check("microsoft" in datazoo_slugs, "data-zoo Microsoft Office uses the Microsoft file")
+    check("sentry" in datazoo_slugs, "data-zoo Sentry uses the Sentry file")
+    check("crushftp" not in by_pub, "data-zoo does not invent a CrushFTP dossier")
+    check("voyager" not in by_pub, "data-zoo does not invent a Voyager dossier")
+    check("employment-hero" not in by_pub, "data-zoo does not invent an Employment Hero dossier")
+    ht_names = [p.get("name") for p in (by_pub["hightouch"].get("processors") or [])]
+    ht_slugs = [p.get("slug") for p in (by_pub["hightouch"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["hightouch"], "subprocessors") == "https://hightouch.com/subprocessors",
+        "hightouch list URL is first-party HTML",
+    )
+    check((by_pub["hightouch"].get("file") or {}).get("subprocessors") == 20, "hightouch processors print")
+    check(len(ht_names) == 14, f"hightouch printed 14 named processors, got {len(ht_names)}")
+    check("Amazon Web Services, Inc" in ht_names, "hightouch names AWS")
+    check("HotJar, Ltd" in ht_names, "hightouch names HotJar")
+    check("amazon-web-services" in ht_slugs, "hightouch AWS uses the Amazon Web Services file")
+    check("contentsquare" in ht_slugs, "hightouch HotJar uses the Contentsquare file")
+    check("chili-piper" not in by_pub, "hightouch does not invent a Chili Piper dossier")
+    plivo_names = [p.get("name") for p in (by_pub["plivo"].get("processors") or [])]
+    plivo_slugs = [p.get("slug") for p in (by_pub["plivo"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["plivo"], "subprocessors") == "https://www.plivo.com/legal/subprocessors/",
+        "plivo list URL is first-party HTML",
+    )
+    check((by_pub["plivo"].get("file") or {}).get("subprocessors") == 20, "plivo processors print")
+    check(len(plivo_names) == 31, f"plivo printed 31 named processors, got {len(plivo_names)}")
+    check("Open AI" in plivo_names, "plivo names Open AI")
+    check("openai" in plivo_slugs, "plivo Open AI uses the OpenAI file")
+    check("linkedin" in plivo_slugs, "plivo LinkedIn Sales Navigator uses the LinkedIn file")
+    check("Grok, Perplexity" not in plivo_names, "plivo combined Grok/Perplexity stays off file")
+    check("PunHub" not in plivo_names, "plivo PunHub stays off file")
+    check("punhub" not in by_pub, "plivo does not invent a PunHub dossier")
+    sr_names = [p.get("name") for p in (by_pub["smartrecruiters"].get("processors") or [])]
+    sr_slugs = [p.get("slug") for p in (by_pub["smartrecruiters"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["smartrecruiters"], "subprocessors")
+        == "https://www.smartrecruiters.com/legal/subprocessors/",
+        "smartrecruiters list URL is first-party HTML",
+    )
+    check((by_pub["smartrecruiters"].get("file") or {}).get("subprocessors") == 20, "smartrecruiters processors print")
+    check(len(sr_names) == 41, f"smartrecruiters printed 41 named processors, got {len(sr_names)}")
+    check("SendGrid Inc" in sr_names, "smartrecruiters names SendGrid")
+    check("twilio" in sr_slugs, "smartrecruiters SendGrid uses the Twilio file")
+    check("microsoft" in sr_slugs, "smartrecruiters Microsoft Ireland uses the Microsoft file")
+    check("deepl" in sr_slugs, "smartrecruiters DeepL SE uses the DeepL file")
+    check("dispatch" not in by_pub, "smartrecruiters does not invent a Dispatch dossier")
+    sms_names = [p.get("name") for p in (by_pub["sms-magic"].get("processors") or [])]
+    sms_slugs = [p.get("slug") for p in (by_pub["sms-magic"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["sms-magic"], "subprocessors")
+        == "https://trust.sms-magic.com/subprocessors/",
+        "sms-magic list URL is the first-party trust page",
+    )
+    check((by_pub["sms-magic"].get("file") or {}).get("subprocessors") == 20, "sms-magic processors print")
+    check(len(sms_names) == 17, f"sms-magic printed 17 named processors, got {len(sms_names)}")
+    check("Fresh Desk" in sms_names, "sms-magic names Fresh Desk")
+    check("Pardot" in sms_names, "sms-magic names Pardot")
+    check("Quick Books" in sms_names, "sms-magic names Quick Books")
+    check("freshworks" in sms_slugs, "sms-magic Fresh Desk uses the Freshworks file")
+    check("salesforce" in sms_slugs, "sms-magic Pardot uses the Salesforce file")
+    check("intuit" in sms_slugs, "sms-magic Quick Books uses the Intuit file")
+    check("Telecom Partners (Aus)" not in sms_names, "sms-magic unnamed telecom rows stay off file")
+    check("match-my-email" not in by_pub, "sms-magic does not invent a Match My Email dossier")
+    check("aircall" not in by_pub, "sms-magic does not invent an Aircall dossier")
+    # Prior cut: Accurx first-party support-article table. DPA annex headings
     # stay unread. Azure / SendGrid / TeamViewer UK alias onto existing rows.
     accurx_names = [p.get("name") for p in (by_pub["accurx"].get("processors") or [])]
     accurx_slugs = [p.get("slug") for p in (by_pub["accurx"].get("processors") or [])]

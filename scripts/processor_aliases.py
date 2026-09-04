@@ -400,6 +400,10 @@ REGISTER_ALIASES: dict[str, str] = {
     "tvscientific": "pinterest",
     # Visa acquired Verifi (chargeback). visa is on the register.
     "verifi": "visa",
+    # SMS-Magic prints product brands that are already on the register.
+    "fresh-desk": "freshworks",
+    "pardot": "salesforce",
+    "quick-books": "intuit",
     # Wire ids that land on rows filed in this increment.
     "hotjar": "contentsquare",
     "zencoder": "brightcove",
