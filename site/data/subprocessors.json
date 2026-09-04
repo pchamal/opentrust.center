@@ -34898,9 +34898,9 @@
     {
       "id": "svix",
       "name": "Svix",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "svix.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "signalwire",
@@ -34940,13 +34940,6 @@
     {
       "id": "fathom-analytics",
       "name": "Fathom Analytics, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "mode",
-      "name": "Mode",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -35003,9 +34996,9 @@
     {
       "id": "resend",
       "name": "Resend",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "resend.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "timescale",
@@ -35052,9 +35045,9 @@
     {
       "id": "superhuman",
       "name": "Superhuman",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "superhuman.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "macstadium",
@@ -35108,13 +35101,6 @@
     {
       "id": "polar-signals",
       "name": "Polar Signals",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "clearbit",
-      "name": "Clearbit",
       "domain": "",
       "kind": "processor",
       "in_register": false
@@ -54121,7 +54107,7 @@
     },
     {
       "from": "jasper-ai",
-      "to": "mode",
+      "to": "thoughtspot",
       "source_url": "https://www.jasper.ai/legal/sub-processors",
       "evidence": "Mode"
     },
@@ -55081,7 +55067,7 @@
     },
     {
       "from": "help-scout",
-      "to": "clearbit",
+      "to": "hubspot",
       "source_url": "https://www.helpscout.com/company/legal/sub-processors/",
       "evidence": "Clearbit"
     },
@@ -56557,7 +56543,7 @@
     },
     {
       "from": "plivo",
-      "to": "clearbit",
+      "to": "hubspot",
       "source_url": "https://www.plivo.com/legal/subprocessors/",
       "evidence": "Clearbit, Inc"
     },
@@ -57139,7 +57125,7 @@
     },
     {
       "from": "konfetti-koala",
-      "to": "mode",
+      "to": "thoughtspot",
       "source_url": "https://getkoala.com/legal/subprocessors",
       "evidence": "Mode"
     },
@@ -57424,6 +57410,72 @@
       "to": "zendesk",
       "source_url": "https://www.aha.io/legal/subprocessors",
       "evidence": "Zendesk, Inc"
+    },
+    {
+      "from": "svix",
+      "to": "amazon-web-services",
+      "source_url": "https://www.svix.com/legal/subprocessors/",
+      "evidence": "Amazon Web Services, Inc"
+    },
+    {
+      "from": "svix",
+      "to": "auth0",
+      "source_url": "https://www.svix.com/legal/subprocessors/",
+      "evidence": "Auth0, Inc"
+    },
+    {
+      "from": "svix",
+      "to": "sentry",
+      "source_url": "https://www.svix.com/legal/subprocessors/",
+      "evidence": "Functional Software, Inc. d/b/a Sentry"
+    },
+    {
+      "from": "svix",
+      "to": "datadog",
+      "source_url": "https://www.svix.com/legal/subprocessors/",
+      "evidence": "Datadog, Inc"
+    },
+    {
+      "from": "svix",
+      "to": "google",
+      "source_url": "https://www.svix.com/legal/subprocessors/",
+      "evidence": "Google LLC (G Suite)"
+    },
+    {
+      "from": "svix",
+      "to": "mailgun",
+      "source_url": "https://www.svix.com/legal/subprocessors/",
+      "evidence": "Mailgun Technologies, Inc"
+    },
+    {
+      "from": "svix",
+      "to": "slack",
+      "source_url": "https://www.svix.com/legal/subprocessors/",
+      "evidence": "Slack Technologies, Inc"
+    },
+    {
+      "from": "svix",
+      "to": "github",
+      "source_url": "https://www.svix.com/legal/subprocessors/",
+      "evidence": "Github, Inc"
+    },
+    {
+      "from": "svix",
+      "to": "stripe",
+      "source_url": "https://www.svix.com/legal/subprocessors/",
+      "evidence": "Stripe, Inc"
+    },
+    {
+      "from": "svix",
+      "to": "posthog",
+      "source_url": "https://www.svix.com/legal/subprocessors/",
+      "evidence": "PostHog, Inc"
+    },
+    {
+      "from": "svix",
+      "to": "plain",
+      "source_url": "https://www.svix.com/legal/subprocessors/",
+      "evidence": "Not Just Tickets Ltd d/b/a Plain"
     }
   ],
   "aliases": {
@@ -57969,6 +58021,11 @@
     "intercom-uk": "intercom",
     "cloudfront": "amazon-web-services",
     "elastic-search": "elastic",
-    "google-ad-manager": "google"
-  }
+    "google-ad-manager": "google",
+    "clearbit": "hubspot",
+    "mode": "thoughtspot",
+    "google-g-suite": "google",
+    "not-just-tickets-d-b-a-plain": "plain"
+  },
+  "generated_at": "2026-09-04T19:01:22Z"
 }

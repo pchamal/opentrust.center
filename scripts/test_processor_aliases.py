@@ -684,6 +684,25 @@ def main() -> int:
     check(REGISTER_ALIASES["elastic-search"] == "elastic", "elastic-search aliases to elastic")
     check(canonical_processor_id("google-ad-manager", register) == "google", "Google Ad Manager is Google")
     check(REGISTER_ALIASES["google-ad-manager"] == "google", "google-ad-manager aliases to google")
+    hs_reg = {**register, "hubspot": {"slug": "hubspot", "name": "HubSpot", "domain": "hubspot.com"}}
+    check(canonical_processor_id("clearbit", hs_reg) == "hubspot", "Clearbit is HubSpot")
+    check(REGISTER_ALIASES["clearbit"] == "hubspot", "clearbit aliases to hubspot")
+    ts_reg = {**register, "thoughtspot": {"slug": "thoughtspot", "name": "ThoughtSpot", "domain": "thoughtspot.com"}}
+    check(canonical_processor_id("mode", ts_reg) == "thoughtspot", "Mode is ThoughtSpot")
+    check(REGISTER_ALIASES["mode"] == "thoughtspot", "mode aliases to thoughtspot")
+    check("mode-analytics" not in REGISTER_ALIASES, "do not invent a mode-analytics alias")
+    check("clearbit" not in ("resend", "superhuman", "svix"), "clearbit is aliased, not filed")
+    check(REGISTER_ALIASES["google-g-suite"] == "google", "Google G Suite is Google")
+    check(canonical_processor_id("google-g-suite", register) == "google", "Google G Suite wires land on google")
+    plain_reg = {**register, "plain": {"slug": "plain", "name": "Plain", "domain": "plain.com"}}
+    check(
+        canonical_processor_id("not-just-tickets-d-b-a-plain", plain_reg) == "plain",
+        "Not Just Tickets d/b/a Plain is Plain",
+    )
+    check(
+        REGISTER_ALIASES["not-just-tickets-d-b-a-plain"] == "plain",
+        "not-just-tickets-d-b-a-plain aliases to plain",
+    )
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch
