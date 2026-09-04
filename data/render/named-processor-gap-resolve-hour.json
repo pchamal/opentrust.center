@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-04T02:06:15Z",
-  "gap": 144,
+  "generated_at": "2026-09-04T02:59:38Z",
+  "gap": 140,
   "wikidata_resolved": [
     {
       "slug": "aircall",
@@ -17,20 +17,6 @@
       "status": "resolved"
     },
     {
-      "slug": "bitly",
-      "name": "Bitly",
-      "domain": "bitly.com",
-      "named_by": 1,
-      "source_url": "https://trust.sms-magic.com/subprocessors/",
-      "source_urls": [
-        "https://trust.sms-magic.com/subprocessors/"
-      ],
-      "source": "named-processor-gap",
-      "qid": "Q21079",
-      "reason": "exact",
-      "status": "resolved"
-    },
-    {
       "slug": "maxio",
       "name": "Maxio",
       "domain": "maxionwheels.com",
@@ -43,71 +29,10 @@
       "qid": "Q25384897",
       "reason": "same-domain-all-org-candidates",
       "status": "resolved"
-    },
-    {
-      "slug": "wowza",
-      "name": "Wowza",
-      "domain": "wowza.com",
-      "named_by": 1,
-      "source_url": "https://www.brightcove.com/legal/services-subprocessors",
-      "source_urls": [
-        "https://www.brightcove.com/legal/services-subprocessors"
-      ],
-      "source": "named-processor-gap",
-      "qid": "Q4053257",
-      "reason": "same-domain-all-org-candidates",
-      "status": "resolved"
     }
   ],
-  "enqueued_candidates": [
-    {
-      "name": "Bitly",
-      "slug": "bitly",
-      "domain": "bitly.com",
-      "source": "named-processor-gap",
-      "source_url": "https://trust.sms-magic.com/subprocessors/",
-      "named_by": 1,
-      "reason": "exact"
-    },
-    {
-      "name": "Wowza",
-      "slug": "wowza",
-      "domain": "wowza.com",
-      "source": "named-processor-gap",
-      "source_url": "https://www.brightcove.com/legal/services-subprocessors",
-      "named_by": 1,
-      "reason": "same-domain-all-org-candidates"
-    },
-    {
-      "name": "CrushFTP",
-      "slug": "crushftp",
-      "domain": "crushftp.com",
-      "source": "named-processor-gap",
-      "source_url": "https://datazoo.com/policy/data-sub-processor-list",
-      "named_by": 1,
-      "reason": "naming-list-homepage score=14"
-    },
-    {
-      "name": "Employment Hero",
-      "slug": "employment-hero",
-      "domain": "employmenthero.com",
-      "source": "named-processor-gap",
-      "source_url": "https://datazoo.com/policy/data-sub-processor-list",
-      "named_by": 1,
-      "reason": "naming-list-homepage score=14"
-    }
-  ],
+  "enqueued_candidates": [],
   "homepage_hits": [
-    {
-      "slug": "crushftp",
-      "domain": "crushftp.com",
-      "reason": "naming-list-homepage score=14"
-    },
-    {
-      "slug": "employment-hero",
-      "domain": "employmenthero.com",
-      "reason": "naming-list-homepage score=14"
-    },
     {
       "slug": "fathom-analytics",
       "domain": "fathom.video",
@@ -940,9 +865,46 @@
   ],
   "already_aliased": [],
   "dropped_false_positives": [
-    "aircall->aircall.se",
-    "maxio->maxionwheels.com",
-    "fathom-analytics->fathom.video",
-    "voyager->voyager.nz"
-  ]
+    {
+      "name": "Aircall",
+      "slug": "aircall",
+      "domain": "aircall.se",
+      "source": "named-processor-gap",
+      "source_url": "https://trust.sms-magic.com/subprocessors/",
+      "named_by": 1,
+      "reason": "exact",
+      "drop_reason": "wikidata-or-homepage-collision; not verified first-party"
+    },
+    {
+      "name": "Maxio",
+      "slug": "maxio",
+      "domain": "maxionwheels.com",
+      "source": "named-processor-gap",
+      "source_url": "https://www.jasper.ai/legal/sub-processors",
+      "named_by": 1,
+      "reason": "same-domain-all-org-candidates",
+      "drop_reason": "wikidata-or-homepage-collision; not verified first-party"
+    },
+    {
+      "name": "Fathom Analytics, Inc",
+      "slug": "fathom-analytics",
+      "domain": "fathom.video",
+      "source": "named-processor-gap",
+      "source_url": "https://compliance.apideck.com/subprocessors",
+      "named_by": 1,
+      "reason": "naming-list-homepage score=10",
+      "drop_reason": "wikidata-or-homepage-collision; not verified first-party"
+    },
+    {
+      "name": "Voyager",
+      "slug": "voyager",
+      "domain": "voyager.nz",
+      "source": "named-processor-gap",
+      "source_url": "https://datazoo.com/policy/data-sub-processor-list",
+      "named_by": 1,
+      "reason": "naming-list-homepage score=14",
+      "drop_reason": "wikidata-or-homepage-collision; not verified first-party"
+    }
+  ],
+  "note": "Hourly resolve found no trustworthy new domains; ready Wikipedia queue >= 80"
 }
