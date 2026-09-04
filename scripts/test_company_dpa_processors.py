@@ -246,63 +246,52 @@ def main() -> int:
 
     # This increment: upper-quadrant DPA-on-file / subprocessors queue (~40).
     expected_batch = [
-        "viatel",
-        "employment-hero",
-        "bitly",
-        "vorboss",
-        "snom",
-        "chameleon",
-        "intel",
-        "justcall",
-        "kombo-technologies",
-        "leandata",
-        "litmus",
-        "marsello",
-        "nym-technologies",
-        "opera",
-        "pindrop-security",
-        "skedulo",
-        "stitch",
-        "strongdm",
-        "trust",
-        "vapi",
-        "very-good-security",
-        "xero",
-        "zenbusiness",
-        "supportninja",
-        "hornetsecurity",
-        "codan",
-        "hireright",
-        "bilt-rewards",
-        "ankar",
-        "chartmogul",
-        "chipagents",
-        "globallogic",
-        "here",
-        "keycard",
-        "konfetti-koala",
-        "kumospace",
-        "partnerhero",
-        "prowritingaid",
-        "webbula",
-        "zight-formerly-cloudapp",
+        "monetate",
+        "aura-previously-pango-anchorfree",
+        "ramco-systems",
+        "sublime-security",
+        "turbo",
+        "unbounce",
+        "arsys",
+        "ask-ai",
+        "authzed",
+        "cinder",
+        "design-huddle",
+        "deutsche-telekom",
+        "eon-io",
+        "escalent",
+        "gainsight",
+        "juspay",
+        "kantata-and-rtm-consulting",
+        "knox-systems",
+        "link-mobility",
+        "london-stock-exchange-group",
+        "plansource",
+        "pmg-net",
+        "sontiq-a-transunion-company",
+        "spinsci-patient-assist",
+        "spreedly",
+        "tabs",
+        "thetalake",
+        "welocalize",
+        "western-digital",
+        "applied-intuition",
+        "boltz",
+        "canny",
+        "e2open",
+        "krea",
+        "rox",
+        "sqlgrease",
+        "bria-ai",
+        "adfinis",
+        "f-secure",
+        "protiviti",
     ]
     check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
     filed_dpa = {r["slug"]: r for r in (report.get("dpa_filed") or [])}
-    check(len(filed_dpa) == 1, f"one DPA link filed, got {sorted(filed_dpa)}")
-    check(set(filed_dpa) == {"strongdm"}, f"kept DPA filings {sorted(filed_dpa)}")
-    check(
-        filed_dpa["strongdm"]["url"] == "https://www.strongdm.com/legal/data-processing-agreement",
-        "strongdm DPA is first-party HTML",
-    )
+    check(len(filed_dpa) == 0, f"no DPA link filed, got {sorted(filed_dpa)}")
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
-    check(len(filed_sub) == 1, f"one named-processor list filed, got {sorted(filed_sub)}")
-    check(set(filed_sub) == {"konfetti-koala"}, f"kept filings {sorted(filed_sub)}")
-    check(
-        filed_sub["konfetti-koala"]["url"] == "https://getkoala.com/legal/subprocessors",
-        "konfetti-koala list URL is first-party HTML",
-    )
-    check(len(filed_sub["konfetti-koala"]["names"]) == 4, "konfetti-koala 4 printed names")
+    check(len(filed_sub) == 0, f"no named-processor list filed, got {sorted(filed_sub)}")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
@@ -310,24 +299,27 @@ def main() -> int:
         stayed == set(expected_batch),
         f"stayed-open covers the unread batch, got {sorted(stayed ^ set(expected_batch))}",
     )
-    check(len(report.get("stayed_open") or []) == 77, f"77 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
-    check(len(stayed_dpa) == 38, f"38 DPA slots stayed open, got {len(stayed_dpa)}")
-    check(len(stayed_sub) == 39, f"39 subprocessors slots stayed open, got {len(stayed_sub)}")
-    check("strongdm" not in stayed_dpa, "strongdm DPA is not in stayed-open")
-    check("strongdm" in stayed_sub, "strongdm named processors stayed open")
-    check("konfetti-koala" not in stayed_sub, "konfetti-koala named list is not in subprocessors stayed-open")
-    check("konfetti-koala" in stayed_dpa, "konfetti-koala DPA stayed open")
+    check(len(report.get("stayed_open") or []) == 80, f"80 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
+    check(len(stayed_dpa) == 40, f"40 DPA slots stayed open, got {len(stayed_dpa)}")
+    check(len(stayed_sub) == 40, f"40 subprocessors slots stayed open, got {len(stayed_sub)}")
     # This-cut review drops stay unread.
-    check("kombo-technologies" in stayed_dpa, "Kombo PDF-download DPA stayed open")
-    check("dpa" not in ((by_enr["kombo-technologies"].get("links") or {})), "Kombo links.dpa stays off the PDF wrapper")
-    check("litmus" in stayed_sub, "Litmus parent-company Validity list stayed open")
+    check("unbounce" in stayed_sub, "Unbounce CSS-grid ql-block list stayed open")
+    check("subprocessors" not in ((by_enr["unbounce"].get("links") or {})), "Unbounce links.subprocessors stays off the CSS-grid page")
+    check(not (by_pub["unbounce"].get("processors") or []), "Unbounce names no CSS-grid processors")
+    check("link-mobility" in stayed_sub, "LINK Mobility PDF-only lists stayed open")
     check(
-        "subprocessors" not in ((by_enr["litmus"].get("links") or {})),
-        "Litmus links.subprocessors stays off the Validity parent-company list",
+        "subprocessors" not in ((by_enr["link-mobility"].get("links") or {})),
+        "LINK Mobility links.subprocessors stays off the PDF catalog",
     )
-    check("viatel" in stayed_sub, "Viatel PDF-only DPA/list stayed open")
-    check("employment-hero" in stayed_sub, "Employment Hero JS-portal list stayed open")
-    check("bitly" in stayed_sub, "Bitly SafeBase itemUid list stayed open")
+    check("e2open" in stayed_dpa, "E2open parent-company WiseTech DPA stayed open")
+    check("dpa" not in ((by_enr["e2open"].get("links") or {})), "E2open links.dpa stays off the WiseTech parent page")
+    check("krea" in stayed_sub, "Krea Secureframe portal list stayed open")
+    check("boltz" in stayed_dpa, "Boltz JS-shell DPA probes stayed open")
+    check("arsys" in stayed_dpa, "Arsys JS legal-hub DPA probes stayed open")
+    check("ask-ai" in stayed_dpa, "Ask-AI Mosaic rebrand/parent trust page stayed open")
+    check("sublime-security" in stayed_dpa, "Sublime Security WAF 429 DPA probes stayed open")
+    check("monetate" in stayed_sub, "Monetate SafeBase itemUid list stayed open")
+    check("gainsight" in stayed_sub, "Gainsight SafeBase itemUid list stayed open")
     # Prior-cut review drops stay unread.
     check("inkeep" not in expected_batch, "Inkeep is not retried")
     check("dpa" not in ((by_enr["inkeep"].get("links") or {})), "Inkeep links.dpa stays off the PDF")
@@ -363,6 +355,12 @@ def main() -> int:
         == "https://www.smarsh.com/subprocessors",
         "Smarsh stored list URL stays, names stay unread",
     )
+    check("dpa" not in ((by_enr["kombo-technologies"].get("links") or {})), "Kombo links.dpa stays off the PDF wrapper")
+    check(
+        "subprocessors" not in ((by_enr["litmus"].get("links") or {})),
+        "Litmus links.subprocessors stays off the Validity parent-company list",
+    )
+    check(not (by_pub["viatel"].get("processors") or []), "Viatel PDF-only list stays unread")
 
     for slug in stayed_sub:
         pub = by_pub[slug]
@@ -388,6 +386,8 @@ def main() -> int:
         "cloudinary", "langfuse",
         "artie", "discourse", "pluralsight", "brightcove",
         "kombo-technologies", "litmus",
+        "unbounce", "e2open", "krea", "boltz", "link-mobility", "arsys",
+        "ask-ai", "sublime-security",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")
@@ -400,7 +400,11 @@ def main() -> int:
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check(rec["url"] in html, f"{slug} dossier cites the list URL")
         check('rel="noopener noreferrer"' in html, f"{slug} outbound links use noopener")
-    # This cut: first-party Completeness DPA on strongDM. Koala first-party
+    # This cut: zero first-party HTML fills. Unbounce CSS-grid ql-block names,
+    # LINK Mobility PDF catalogs, E2open→WiseTech parent DPA, Krea Secureframe,
+    # Boltz/Arsys JS shells, Ask-AI Mosaic rebrand, Sublime WAF 429, and
+    # SafeBase itemUid portals stay open.
+    # Prior cut: first-party Completeness DPA on strongDM. Koala first-party
     # HTML list. SendGrid aliases onto Twilio. Mode stays a leftover graph
     # node. Kombo PDF-download DPA and Litmus→Validity parent list stay open.
     check(
