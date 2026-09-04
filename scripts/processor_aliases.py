@@ -937,6 +937,14 @@ REGISTER_ALIASES: dict[str, str] = {
     # regional dossier.
     "teamviewer-uk": "teamviewer",
     "intercom-uk": "intercom",
+    # Brightcove services-subprocessors table. Cloudfront is Amazon
+    # CloudFront (amazon-cloudfront already aliases). Elastic Search is
+    # Elasticsearch / Elastic. Google Ad Manager is Google. elastic,
+    # amazon-web-services, and google are on the register. Do not invent
+    # a second dossier.
+    "cloudfront": "amazon-web-services",
+    "elastic-search": "elastic",
+    "google-ad-manager": "google",
 
 }
 
