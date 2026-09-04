@@ -246,65 +246,78 @@ def main() -> int:
 
     # This increment: upper-quadrant DPA-on-file / subprocessors queue (~40).
     expected_batch = [
-        "humans-and",
-        "idera-inc",
-        "immunify360",
-        "invoiceexpress",
-        "jack-henry",
-        "jack-henry-and-associates",
-        "jettycloud",
-        "kickbox",
-        "knostic",
-        "lakera-ai",
-        "leaseweb-global",
-        "legalinc-com",
-        "legora",
-        "leo-ai",
-        "logikcull",
-        "mediactive",
-        "mividas",
-        "mpower",
-        "nodedata",
-        "novita",
-        "onespan",
-        "onfido",
-        "papertrail",
-        "ownd-aps-parahelp",
-        "pganalyze-duboce-labs",
-        "ping-identity",
-        "playlist-com",
-        "plextrac",
-        "prove-identity",
-        "purecaller-id",
-        "raspberry-ai",
-        "rattle-software",
-        "reversing-labs",
-        "rogo",
-        "rootly",
-        "runware",
-        "satismeter-s-r-o",
-        "seon",
-        "sift",
-        "singular-lab",
+        "skyhigh-security",
+        "softserve",
+        "softwarex",
+        "sonata-software",
+        "spryng",
+        "successive-technologies",
+        "summit",
+        "support-zebra",
+        "surveylab",
+        "sutherland-global-services",
+        "syniverse-technologies",
+        "taskus",
+        "tata-communications",
+        "telegram",
+        "thorn",
+        "transunion-formerly-neustar-information-services",
+        "tropic",
+        "upcloud",
+        "visa",
+        "wpremote",
+        "wso2",
+        "xiaomi",
+        "enea",
+        "telecom-italia-sparkle-spa",
+        "e-core",
+        "releaseteam",
+        "tanla-platforms",
+        "userfront",
+        "kiss-metrics",
+        "tavus",
+        "amazon",
+        "netstars",
+        "beetexting",
+        "concentrix",
+        "creatify-ai",
+        "ordway",
+        "carbon-health",
+        "varjo",
+        "cf-industries",
+        "boldr",
     ]
     check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
     filed_dpa = {r["slug"]: r for r in (report.get("dpa_filed") or [])}
-    check(set(filed_dpa) == {"immunify360", "invoiceexpress"}, f"DPA links filed, got {sorted(filed_dpa)}")
+    check(set(filed_dpa) == set(), f"DPA links filed, got {sorted(filed_dpa)}")
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
     check(set(filed_sub) == set(), f"named-processor lists filed, got {sorted(filed_sub)}")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
-    check("immunify360" not in stayed_dpa, "Imunify360 DPA was filed")
-    check("immunify360" in stayed_sub, "Imunify360 named list stayed open")
-    check("invoiceexpress" not in stayed_dpa, "InvoiceXpress DPA was filed")
-    check("invoiceexpress" in stayed_sub, "InvoiceXpress named list stayed open")
-    check("nodedata" in stayed_dpa, "Nodedata soft-404 DPA stayed open")
-    check("reversing-labs" in stayed_dpa, "ReversingLabs Next.js shell DPA stayed open")
-    check(len(report.get("stayed_open") or []) == 76, f"76 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
-    check(len(stayed_dpa) == 38, f"38 DPA slots stayed open, got {len(stayed_dpa)}")
-    check(len(stayed_sub) == 38, f"38 subprocessors slots stayed open, got {len(stayed_sub)}")
+    check("tropic" in stayed_dpa, "Tropic DPA probes stayed open")
+    check("tropic" not in stayed_sub, "Tropic named list was already on file")
+    check("support-zebra" in stayed_dpa, "SupportZebra same-title blog bounce DPA stayed open")
+    check("softwarex" in stayed_dpa, "SoftwareX Wix JS-shell DPA stayed open")
+    check("telegram" in stayed_dpa, "Telegram same-title homepage DPA stayed open")
+    check(len(report.get("stayed_open") or []) == 79, f"79 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
+    check(len(stayed_dpa) == 40, f"40 DPA slots stayed open, got {len(stayed_dpa)}")
+    check(len(stayed_sub) == 39, f"39 subprocessors slots stayed open, got {len(stayed_sub)}")
     # This-cut review drops stay unread.
+    check("dpa" not in ((by_enr["support-zebra"].get("links") or {})), "SupportZebra links.dpa stays off the same-title blog bounce")
+    check(not instrument_url(by_pub["support-zebra"], "dpa"), "SupportZebra DPA stays open")
+    check("dpa" not in ((by_enr["softwarex"].get("links") or {})), "SoftwareX links.dpa stays off the Wix JS-shell")
+    check(not instrument_url(by_pub["softwarex"], "dpa"), "SoftwareX DPA stays open")
+    check("subprocessors" not in ((by_enr["softwarex"].get("links") or {})), "SoftwareX links.subprocessors stays off the Wix JS-shell")
+    check("dpa" not in ((by_enr["telegram"].get("links") or {})), "Telegram links.dpa stays off the same-title homepage")
+    check(not instrument_url(by_pub["telegram"], "dpa"), "Telegram DPA stays open")
+    check("dpa" not in ((by_enr["skyhigh-security"].get("links") or {})), "Skyhigh links.dpa stays off the legal-notices hub")
+    check("dpa" not in ((by_enr["softserve"].get("links") or {})), "SoftServe links.dpa stays off the 302 Loading shell")
+    check("dpa" not in ((by_enr["surveylab"].get("links") or {})), "SurveyLab links.dpa stays off the homepage bounce")
+    check("dpa" not in ((by_enr["e-core"].get("links") or {})), "e-Core links.dpa stays off the homepage bounce")
+    check("dpa" not in ((by_enr["concentrix"].get("links") or {})), "Concentrix links.dpa stays off the homepage bounce")
+    check(not instrument_url(by_pub["tropic"], "dpa"), "Tropic DPA stays open")
+    # Prior-cut review drops stay unread.
     check("dpa" not in ((by_enr["nodedata"].get("links") or {})), "Nodedata links.dpa stays off the SvelteKit 404")
     check(not instrument_url(by_pub["nodedata"], "dpa"), "Nodedata DPA stays open")
     check("dpa" not in ((by_enr["reversing-labs"].get("links") or {})), "ReversingLabs links.dpa stays off the Next.js shell")
@@ -313,7 +326,6 @@ def main() -> int:
     check("dpa" not in ((by_enr["rogo"].get("links") or {})), "Rogo links.dpa stays off the Framer JS-shell")
     check("dpa" not in ((by_enr["leaseweb-global"].get("links") or {})), "Leaseweb links.dpa stays off the JS config shell")
     check("dpa" not in ((by_enr["humans-and"].get("links") or {})), "Humans& links.dpa stays off the same-title SPA")
-    # Prior-cut review drops stay unread.
     check("dpa" not in ((by_enr["chargebee"].get("links") or {})), "Chargebee links.dpa stays off the Nuxt JS-shell")
     check(not instrument_url(by_pub["chargebee"], "dpa"), "Chargebee DPA stays open")
     check("dpa" not in ((by_enr["aha"].get("links") or {})), "Aha! links.dpa stays off the 404 probes")
@@ -399,7 +411,9 @@ def main() -> int:
         "chargebee", "discord", "ada", "bugsnag",
         "exoscale", "hiddenlayer", "aha",
         "nodedata", "reversing-labs", "onespan", "rogo", "humans-and",
-        "leaseweb-global",
+        "leaseweb-global", "immunify360", "invoiceexpress",
+        "support-zebra", "softwarex", "telegram", "skyhigh-security",
+        "softserve", "surveylab", "e-core", "concentrix", "tropic",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")
@@ -412,7 +426,12 @@ def main() -> int:
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check(rec["url"] in html, f"{slug} dossier cites the list URL")
         check('rel="noopener noreferrer"' in html, f"{slug} outbound links use noopener")
-    # This cut: first-party Completeness DPA on Imunify360 and InvoiceXpress.
+    # This cut: open is the honest result. SupportZebra same-title WordPress
+    # blog bounce, SoftwareX Wix/Parastorage JS-shell, Telegram same-title
+    # homepage, SoftServe 302 Loading shell, Skyhigh legal-notices hub,
+    # SurveyLab / e-Core / Concentrix homepage bounces stay unread. Tropic
+    # already has a named list; DPA probes 404.
+    # Prior cut: first-party Completeness DPA on Imunify360 and InvoiceXpress.
     # Nodedata /dpa is a SvelteKit soft-404. ReversingLabs /data-processing-
     # addendum is a Next.js marketing shell. OneSpan PDF / privacy-center,
     # Rogo Framer shell, Leaseweb JS config shell, and Humans& same-title
