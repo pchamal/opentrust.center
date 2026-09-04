@@ -604,6 +604,7 @@ def main() -> int:
     check("sentry" in datazoo_slugs, "data-zoo Sentry uses the Sentry file")
     check(by_pub["crushftp"].get("domain") == "crushftp.com", "data-zoo CrushFTP uses the existing CrushFTP file")
     check("voyager" not in by_pub, "data-zoo does not invent a Voyager dossier")
+    check("voyager" not in by_enr, "voyager stays a domain-less leftover after the wrong-company revert")
     check(
         by_pub["employment-hero"].get("domain") == "employmenthero.com",
         "data-zoo Employment Hero uses the existing Employment Hero file",
@@ -667,6 +668,7 @@ def main() -> int:
     check("Telecom Partners (Aus)" not in sms_names, "sms-magic unnamed telecom rows stay off file")
     check("match-my-email" not in by_pub, "sms-magic does not invent a Match My Email dossier")
     check("aircall" not in by_pub, "sms-magic does not invent an Aircall dossier")
+    check("aircall" not in by_enr, "aircall stays a domain-less leftover after the wrong-company revert")
     # Prior cut: Accurx first-party support-article table. DPA annex headings
     # stay unread. Azure / SendGrid / TeamViewer UK alias onto existing rows.
     accurx_names = [p.get("name") for p in (by_pub["accurx"].get("processors") or [])]
@@ -768,9 +770,43 @@ def main() -> int:
     )
     # PR 265 filings stay on file. CloudAMQP DPA annex drop stays unread.
     check(len(by_pub["apideck"].get("processors") or []) == 11, "apideck 11 names stay")
+    check("fathom-analytics" not in by_pub, "apideck does not invent a Fathom Analytics dossier")
+    check("fathom-analytics" not in by_enr, "fathom-analytics stays a domain-less leftover after the wrong-company revert")
     check(len(by_pub["client-success"].get("processors") or []) == 10, "client-success 10 names stay")
     check(len(by_pub["forethought-technologies"].get("processors") or []) == 21, "forethought 21 names stay")
     check(len(by_pub["jasper-ai"].get("processors") or []) == 31, "jasper 31 names stay")
+    check("maxio" not in by_pub, "jasper does not invent a Maxio dossier")
+    check("maxio" not in by_enr, "maxio stays a domain-less leftover after the wrong-company revert")
+    leftover_nodes = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug, bad_domain in (
+        ("maxio", "maxionwheels.com"),
+        ("aircall", "aircall.se"),
+        ("voyager", "voyager.nz"),
+        ("fathom-analytics", "fathom.video"),
+    ):
+        node = leftover_nodes.get(slug) or {}
+        check(node, f"{slug} leftover graph node stays")
+        check(not (node.get("domain") or ""), f"{slug} leftover stays domain-less, got {node.get('domain')!r}")
+        check(bad_domain not in (node.get("domain") or ""), f"{slug} leftover does not keep {bad_domain}")
+        check(not node.get("in_register"), f"{slug} leftover stays off the register")
+        check(not (ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier page is gone")
+    datazoo_html = (ROOT / "site" / "c" / "data-zoo.html").read_text(encoding="utf-8")
+    sms_html = (ROOT / "site" / "c" / "sms-magic.html").read_text(encoding="utf-8")
+    jasper_html = (ROOT / "site" / "c" / "jasper-ai.html").read_text(encoding="utf-8")
+    apideck_html = (ROOT / "site" / "c" / "apideck.html").read_text(encoding="utf-8")
+    check('../graph.html#p=voyager">Voyager' in datazoo_html, "data-zoo Voyager stays a leftover map node")
+    check("./voyager.html" not in datazoo_html, "data-zoo does not link a Voyager dossier")
+    check("voyager.nz" not in datazoo_html, "data-zoo does not cite voyager.nz")
+    check('../graph.html#p=aircall">Aircall' in sms_html, "sms-magic Aircall stays a leftover map node")
+    check("./aircall.html" not in sms_html, "sms-magic does not link an Aircall dossier")
+    check("aircall.se" not in sms_html, "sms-magic does not cite aircall.se")
+    check('../graph.html#p=maxio">Maxio' in jasper_html, "jasper Maxio stays a leftover map node")
+    check("./maxio.html" not in jasper_html, "jasper does not link a Maxio dossier")
+    check("maxionwheels.com" not in jasper_html, "jasper does not cite maxionwheels.com")
+    check('../graph.html#p=fathom-analytics">Fathom Analytics, Inc' in apideck_html, "apideck Fathom Analytics stays a leftover map node")
+    check("./fathom-analytics.html" not in apideck_html, "apideck does not link a Fathom Analytics dossier")
+    check("fathom.video" not in apideck_html, "apideck does not cite fathom.video")
+    check("fathom.ai" not in apideck_html, "apideck does not cite fathom.ai")
     check(len(by_pub["liveblocks"].get("processors") or []) == 14, "liveblocks 14 names stay")
     check(len(by_pub["rollbar"].get("processors") or []) == 14, "rollbar 14 names stay")
     check(len(by_pub["sigma"].get("processors") or []) == 20, "sigma 20 names stay")

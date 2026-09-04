@@ -262,6 +262,55 @@ def test_enrich_one_lands_published_facts_only() -> None:
     check(not empty.get("_edges"), "itemUid has no edges")
 
 
+def test_wrong_company_pairs_stay_rejected() -> None:
+    """Expand / gap-resolve must not refile the four 190b4c2 collisions."""
+    from resolve_queue_domains import verify_domain
+
+    pairs = (
+        ("maxio", "Maxio", "maxionwheels.com"),
+        ("fathom-analytics", "Fathom Analytics, Inc", "fathom.video"),
+        ("aircall", "Aircall", "aircall.se"),
+        ("voyager", "Voyager", "voyager.nz"),
+    )
+    for slug, name, domain in pairs:
+        check(
+            expand_batch.rejected_mapping(slug, domain),
+            f"{slug}→{domain} is on the expand reject list",
+        )
+        check(
+            not expand_batch.rejected_mapping(slug, "example.com"),
+            f"{slug} does not reject an unrelated domain",
+        )
+        ok, why, home = verify_domain(name, domain, slug, require_page=False)
+        check(not ok, f"{slug}→{domain} verify stays rejected")
+        check(why == "rejected-collision", f"{slug} reason is rejected-collision, got {why}")
+        check(home == {}, f"{slug} reject does not fetch a homepage")
+
+    check(
+        not expand_batch.rejected_mapping("other", "fathom.video"),
+        "fathom.video is not a global domain ban",
+    )
+
+    queue = {
+        "companies": [
+            {"slug": "maxio", "domain": "maxionwheels.com", "source": expand_batch.GAP_SOURCE},
+            {"slug": "fathom-analytics", "domain": "fathom.video", "source": expand_batch.GAP_SOURCE},
+            {"slug": "aircall", "domain": "aircall.se", "source": expand_batch.GAP_SOURCE},
+            {"slug": "voyager", "domain": "voyager.nz", "source": expand_batch.GAP_SOURCE},
+            {"slug": "sentry", "domain": "sentry.io", "source": expand_batch.GAP_SOURCE},
+        ]
+    }
+    state = {"cursor": 0}
+    saved = expand_batch.load_json
+    expand_batch.load_json = lambda path, default=None: {"companies": []}
+    try:
+        picked = expand_batch.next_batch(queue, state, 4)
+    finally:
+        expand_batch.load_json = saved
+    check(picked and [r["slug"] for r in picked] == ["sentry"], f"rejected pairs stay off the batch: {picked}")
+    check(state["cursor"] == 0, "rejected gap pairs do not burn the leftover cursor")
+
+
 def test_year_needs_website_match() -> None:
     """One-shot years cannot ride a loose title prefix (Manhattan / Sage Publishing)."""
     check(
@@ -282,6 +331,7 @@ def main() -> int:
     test_found_page_calls_enrich()
     test_walled_list_no_invented_names()
     test_enrich_one_lands_published_facts_only()
+    test_wrong_company_pairs_stay_rejected()
     test_year_needs_website_match()
     print("ok")
     return 0
