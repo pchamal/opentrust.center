@@ -50,6 +50,12 @@ REGISTER_ALIASES: dict[str, str] = {
     "google-gemini": "google",
     # Scoro prints Gemini as the employee AI assistant. google is on the register.
     "gemini": "google",
+    # Aha! prints Functional Software, Inc. sentry is on the register.
+    "functional-software": "sentry",
+    # Aha! prints O+ZWSP+penAI, LLC, which slugifies to o-penai. openai is on the register.
+    "o-penai": "openai",
+    # Aha! prints Duo Security, Inc. Cisco acquired Duo. cisco is on the register.
+    "duo-security": "cisco",
     "google-ireland": "google",
     "google-firebase": "google",
     "google-vertex-ai": "google",

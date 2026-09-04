@@ -45329,12 +45329,31 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-us",
       "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "links": {
+        "subprocessors": "https://www.aha.io/legal/subprocessors"
+      },
+      "subprocessors": [
+        "aws",
+        "automattic",
+        "datadog",
+        "duo-security",
+        "functional-software",
+        "google",
+        "microsoft",
+        "netlify",
+        "oopspam",
+        "o-penai",
+        "pipedream",
+        "recurly-com",
+        "the-rocket-science-group",
+        "zendesk"
+      ],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "subprocessors": 8
+        }
       }
     },
     {
@@ -93822,14 +93841,16 @@
       "list": "named-processor-gap",
       "certs": [],
       "links": {
-        "security": "https://www.exoscale.com/security/"
+        "security": "https://www.exoscale.com/security/",
+        "dpa": "https://www.exoscale.com/dpa/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 28,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "dpa": 8
         }
       },
       "official_url": "https://www.exoscale.com/"
@@ -95538,14 +95559,16 @@
       "certs": [],
       "links": {
         "security": "https://www.hiddenlayer.com/security",
-        "trust": "https://www.hiddenlayer.com/security"
+        "trust": "https://www.hiddenlayer.com/security",
+        "dpa": "https://www.hiddenlayer.com/dpa"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
+        "score": 28,
         "tier": "thin",
         "factors": {
-          "portal": 20
+          "portal": 20,
+          "dpa": 8
         }
       },
       "official_url": "https://www.hiddenlayer.com/"
