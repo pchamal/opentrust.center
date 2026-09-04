@@ -246,46 +246,46 @@ def main() -> int:
 
     # This increment: upper-quadrant DPA-on-file / subprocessors queue (~40).
     expected_batch = [
-        "skyhigh-security",
-        "softserve",
-        "softwarex",
-        "sonata-software",
-        "spryng",
-        "successive-technologies",
-        "summit",
-        "support-zebra",
-        "surveylab",
-        "sutherland-global-services",
-        "syniverse-technologies",
-        "taskus",
-        "tata-communications",
-        "telegram",
-        "thorn",
-        "transunion-formerly-neustar-information-services",
-        "tropic",
-        "upcloud",
-        "visa",
-        "wpremote",
-        "wso2",
-        "xiaomi",
-        "enea",
-        "telecom-italia-sparkle-spa",
-        "e-core",
-        "releaseteam",
-        "tanla-platforms",
-        "userfront",
-        "kiss-metrics",
-        "tavus",
-        "amazon",
-        "netstars",
-        "beetexting",
-        "concentrix",
-        "creatify-ai",
-        "ordway",
-        "carbon-health",
-        "varjo",
-        "cf-industries",
-        "boldr",
+        "hcl-tech",
+        "ookla",
+        "5c-ai-group-inc",
+        "ai-media",
+        "aml-rightsource",
+        "attribution",
+        "bastionx",
+        "black-diamond-development",
+        "cequens-fze",
+        "claranet",
+        "coherent-corp",
+        "commetric",
+        "cprime",
+        "elegant-themes",
+        "gmi-cloud",
+        "intraedge",
+        "ipdata",
+        "keycdn",
+        "luma-ai",
+        "mutare",
+        "name-com",
+        "netnumber-global-data-services",
+        "printfection",
+        "replicate",
+        "saicom-voice-services",
+        "ternpro-dba-slope",
+        "surveysensum-neurosensum-international-pte",
+        "tokenx",
+        "worketics-it-solutions",
+        "aurora-innovation",
+        "baker-hughes",
+        "beyond",
+        "bristol-myers-squibb",
+        "builders-firstsource",
+        "c-h-robinson",
+        "camden-property-trust",
+        "carrier-global",
+        "cencora",
+        "centerpoint-energy",
+        "charles-schwab-corporation",
     ]
     check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
     filed_dpa = {r["slug"]: r for r in (report.get("dpa_filed") or [])}
@@ -295,15 +295,30 @@ def main() -> int:
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
-    check("tropic" in stayed_dpa, "Tropic DPA probes stayed open")
-    check("tropic" not in stayed_sub, "Tropic named list was already on file")
-    check("support-zebra" in stayed_dpa, "SupportZebra same-title blog bounce DPA stayed open")
-    check("softwarex" in stayed_dpa, "SoftwareX Wix JS-shell DPA stayed open")
-    check("telegram" in stayed_dpa, "Telegram same-title homepage DPA stayed open")
-    check(len(report.get("stayed_open") or []) == 79, f"79 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
+    check("hcl-tech" in stayed_dpa, "HCL SaaS DPA PDF stayed open")
+    check("luma-ai" in stayed_dpa, "Luma off-domain lumalabs.ai DPA stayed open")
+    check("black-diamond-development" in stayed_dpa, "Black Diamond same-title SPA DPA stayed open")
+    check("tokenx" in stayed_dpa, "TokenX same-title SPA DPA stayed open")
+    check("beyond" in stayed_dpa, "Beyond same-title retail SPA DPA stayed open")
+    check(len(report.get("stayed_open") or []) == 80, f"80 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
     check(len(stayed_dpa) == 40, f"40 DPA slots stayed open, got {len(stayed_dpa)}")
-    check(len(stayed_sub) == 39, f"39 subprocessors slots stayed open, got {len(stayed_sub)}")
+    check(len(stayed_sub) == 40, f"40 subprocessors slots stayed open, got {len(stayed_sub)}")
     # This-cut review drops stay unread.
+    check("dpa" not in ((by_enr["hcl-tech"].get("links") or {})), "HCL links.dpa stays off the SaaS PDF")
+    check(not instrument_url(by_pub["hcl-tech"], "dpa"), "HCL DPA stays open")
+    check("dpa" not in ((by_enr["luma-ai"].get("links") or {})), "Luma links.dpa stays off the lumalabs.ai host")
+    check(not instrument_url(by_pub["luma-ai"], "dpa"), "Luma DPA stays open")
+    check("dpa" not in ((by_enr["black-diamond-development"].get("links") or {})), "Black Diamond links.dpa stays off the same-title SPA")
+    check(not instrument_url(by_pub["black-diamond-development"], "dpa"), "Black Diamond DPA stays open")
+    check("dpa" not in ((by_enr["tokenx"].get("links") or {})), "TokenX links.dpa stays off the same-title SPA")
+    check(not instrument_url(by_pub["tokenx"], "dpa"), "TokenX DPA stays open")
+    check("dpa" not in ((by_enr["beyond"].get("links") or {})), "Beyond links.dpa stays off the same-title retail SPA")
+    check(not instrument_url(by_pub["beyond"], "dpa"), "Beyond DPA stays open")
+    check("dpa" not in ((by_enr["charles-schwab-corporation"].get("links") or {})), "Schwab links.dpa stays off the same-title SPA")
+    check("dpa" not in ((by_enr["replicate"].get("links") or {})), "Replicate links.dpa stays off the enterprise sales page")
+    check("dpa" not in ((by_enr["keycdn"].get("links") or {})), "KeyCDN links.dpa stays off the support-request GDPR page")
+    check("dpa" not in ((by_enr["name-com"].get("links") or {})), "Name.com links.dpa stays off the reseller PDF")
+    # Prior-cut review drops stay unread.
     check("dpa" not in ((by_enr["support-zebra"].get("links") or {})), "SupportZebra links.dpa stays off the same-title blog bounce")
     check(not instrument_url(by_pub["support-zebra"], "dpa"), "SupportZebra DPA stays open")
     check("dpa" not in ((by_enr["softwarex"].get("links") or {})), "SoftwareX links.dpa stays off the Wix JS-shell")
@@ -317,7 +332,6 @@ def main() -> int:
     check("dpa" not in ((by_enr["e-core"].get("links") or {})), "e-Core links.dpa stays off the homepage bounce")
     check("dpa" not in ((by_enr["concentrix"].get("links") or {})), "Concentrix links.dpa stays off the homepage bounce")
     check(not instrument_url(by_pub["tropic"], "dpa"), "Tropic DPA stays open")
-    # Prior-cut review drops stay unread.
     check("dpa" not in ((by_enr["nodedata"].get("links") or {})), "Nodedata links.dpa stays off the SvelteKit 404")
     check(not instrument_url(by_pub["nodedata"], "dpa"), "Nodedata DPA stays open")
     check("dpa" not in ((by_enr["reversing-labs"].get("links") or {})), "ReversingLabs links.dpa stays off the Next.js shell")
@@ -414,6 +428,9 @@ def main() -> int:
         "leaseweb-global", "immunify360", "invoiceexpress",
         "support-zebra", "softwarex", "telegram", "skyhigh-security",
         "softserve", "surveylab", "e-core", "concentrix", "tropic",
+        "hcl-tech", "luma-ai", "black-diamond-development", "tokenx",
+        "beyond", "charles-schwab-corporation", "replicate", "keycdn",
+        "name-com",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")
@@ -426,7 +443,12 @@ def main() -> int:
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check(rec["url"] in html, f"{slug} dossier cites the list URL")
         check('rel="noopener noreferrer"' in html, f"{slug} outbound links use noopener")
-    # This cut: open is the honest result. SupportZebra same-title WordPress
+    # This cut: open is the honest result. HCL SaaS DPA is PDF-only.
+    # Luma's printed DPA is on lumalabs.ai, not the on-file luma.ai host.
+    # Black Diamond / TokenX / Beyond / Schwab same-title SPA shells,
+    # Replicate enterprise-sales DPA, KeyCDN support-request GDPR page,
+    # and Name.com reseller PDF stay unread.
+    # Prior cut: open is the honest result. SupportZebra same-title WordPress
     # blog bounce, SoftwareX Wix/Parastorage JS-shell, Telegram same-title
     # homepage, SoftServe 302 Loading shell, Skyhigh legal-notices hub,
     # SurveyLab / e-Core / Concentrix homepage bounces stay unread. Tropic
