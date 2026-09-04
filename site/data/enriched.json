@@ -53745,12 +53745,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-computer-security",
       "certs": [],
-      "links": {},
+      "links": {
+        "dpa": "https://www.absolute.com/company/legal/data-processing-addendum"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "dpa": 8
+        }
       }
     },
     {
@@ -74171,13 +74175,32 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-companies-estonia",
       "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "links": {
+        "subprocessors": "https://www.scoro.com/subprocessor-list/"
+      },
+      "subprocessors": [
+        "aws",
+        "amplitude",
+        "gemini",
+        "gcp",
+        "google-workspace",
+        "mailgun",
+        "hetzner",
+        "hubspot",
+        "planhat",
+        "sentry",
+        "stripe",
+        "squadcast",
+        "openai",
+        "zendesk",
+        "zerobounce"
+      ],
       "disclosure": {
-        "score": 6,
+        "score": 14,
         "tier": "silent",
         "factors": {
-          "longevity": 6
+          "longevity": 6,
+          "subprocessors": 8
         }
       },
       "founded_year": 2013,
@@ -83800,13 +83823,37 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-business-intelligence-companies",
       "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "links": {
+        "dpa": "https://www.alphasights.com/dpa/",
+        "subprocessors": "https://www.alphasights.com/sub-processors/"
+      },
+      "subprocessors": [
+        "aws",
+        "twilio",
+        "zoom",
+        "zipdx",
+        "forsta-as",
+        "docdelta",
+        "rare-patient-voice",
+        "qualtrics",
+        "rev",
+        "assemblyai",
+        "research-nexus-solutions",
+        "openai",
+        "gcp",
+        "fireworks-ai",
+        "anthropic",
+        "smartcat-platform",
+        "s-p-global-market-intelligence",
+        "24slides-aps"
+      ],
       "disclosure": {
-        "score": 9,
+        "score": 25,
         "tier": "silent",
         "factors": {
-          "longevity": 9
+          "longevity": 9,
+          "dpa": 8,
+          "subprocessors": 8
         }
       },
       "founded_year": 2008,

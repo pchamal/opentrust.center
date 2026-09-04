@@ -62,6 +62,8 @@ def main() -> int:
     ada_reg = {**register, "ada": {"slug": "ada", "name": "Ada", "domain": "ada.cx"}}
     check(canonical_processor_id("ada-support", ada_reg) == "ada", "Ada Support is Ada")
     check(REGISTER_ALIASES["google-gemini"] == "google", "Gemini is Google")
+    check(REGISTER_ALIASES["gemini"] == "google", "plain Gemini is Google")
+    check(canonical_processor_id("gemini", register) == "google", "Gemini wires land on google")
     check(REGISTER_ALIASES["oracle-netsuite"] == "netsuite", "Oracle NetSuite keeps the NetSuite row")
     adobe_reg = {**register, "adobe": {"slug": "adobe", "name": "Adobe", "domain": "adobe.com"}}
     check(canonical_processor_id("marketo", adobe_reg) == "adobe", "Marketo is Adobe")
