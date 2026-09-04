@@ -246,95 +246,88 @@ def main() -> int:
 
     # This increment: upper-quadrant DPA-on-file / subprocessors queue (~40).
     expected_batch = [
-        "telus",
-        "chip-pc-technologies",
-        "damovo-global-services",
-        "intelepeer",
-        "pluralsight",
-        "zimbra",
-        "maestroqa",
-        "compyl",
-        "crunchy-data-solutions",
-        "equifax",
-        "pdf",
-        "pusher",
-        "vitally",
-        "worktrace-ai",
-        "zayo-group",
-        "contentful",
-        "kraken-robotics",
-        "deepgram",
-        "bambu-lab",
-        "tipalti",
-        "discourse",
-        "360insights",
-        "artie",
-        "conferma-ltd",
-        "datadome-solutions",
-        "demicon",
-        "dreamdata",
-        "freepik",
-        "integris-it",
-        "north",
-        "novalnet",
-        "readme",
-        "redox",
-        "relyance-ai",
-        "suki-ai",
-        "vector",
-        "within",
-        "world-labs",
-        "seeq-corporation",
-        "brightcove",
+        "viatel",
+        "employment-hero",
+        "bitly",
+        "vorboss",
+        "snom",
+        "chameleon",
+        "intel",
+        "justcall",
+        "kombo-technologies",
+        "leandata",
+        "litmus",
+        "marsello",
+        "nym-technologies",
+        "opera",
+        "pindrop-security",
+        "skedulo",
+        "stitch",
+        "strongdm",
+        "trust",
+        "vapi",
+        "very-good-security",
+        "xero",
+        "zenbusiness",
+        "supportninja",
+        "hornetsecurity",
+        "codan",
+        "hireright",
+        "bilt-rewards",
+        "ankar",
+        "chartmogul",
+        "chipagents",
+        "globallogic",
+        "here",
+        "keycard",
+        "konfetti-koala",
+        "kumospace",
+        "partnerhero",
+        "prowritingaid",
+        "webbula",
+        "zight-formerly-cloudapp",
     ]
     check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
     filed_dpa = {r["slug"]: r for r in (report.get("dpa_filed") or [])}
-    check(len(filed_dpa) == 3, f"three DPA links filed, got {sorted(filed_dpa)}")
-    check(set(filed_dpa) == {"artie", "discourse", "pluralsight"}, f"kept DPA filings {sorted(filed_dpa)}")
+    check(len(filed_dpa) == 1, f"one DPA link filed, got {sorted(filed_dpa)}")
+    check(set(filed_dpa) == {"strongdm"}, f"kept DPA filings {sorted(filed_dpa)}")
     check(
-        filed_dpa["artie"]["url"] == "https://www.artie.com/docs/legal/data-processing-addendum",
-        "artie DPA is first-party HTML",
-    )
-    check(
-        filed_dpa["discourse"]["url"] == "https://www.discourse.org/data-processing-addendum",
-        "discourse DPA is first-party HTML",
-    )
-    check(
-        filed_dpa["pluralsight"]["url"] == "https://www.pluralsight.com/terms/dpa",
-        "pluralsight DPA is first-party HTML",
+        filed_dpa["strongdm"]["url"] == "https://www.strongdm.com/legal/data-processing-agreement",
+        "strongdm DPA is first-party HTML",
     )
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
     check(len(filed_sub) == 1, f"one named-processor list filed, got {sorted(filed_sub)}")
-    check(set(filed_sub) == {"brightcove"}, f"kept filings {sorted(filed_sub)}")
+    check(set(filed_sub) == {"konfetti-koala"}, f"kept filings {sorted(filed_sub)}")
     check(
-        filed_sub["brightcove"]["url"] == "https://www.brightcove.com/legal/services-subprocessors",
-        "brightcove list URL is first-party HTML",
+        filed_sub["konfetti-koala"]["url"] == "https://getkoala.com/legal/subprocessors",
+        "konfetti-koala list URL is first-party HTML",
     )
-    check(len(filed_sub["brightcove"]["names"]) == 31, "brightcove 31 names after parent-affiliate drop")
+    check(len(filed_sub["konfetti-koala"]["names"]) == 4, "konfetti-koala 4 printed names")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
     check(
-        stayed == set(expected_batch) - {"discourse"},
-        f"stayed-open covers the unread batch, got {sorted(stayed ^ (set(expected_batch) - {'discourse'}))}",
+        stayed == set(expected_batch),
+        f"stayed-open covers the unread batch, got {sorted(stayed ^ set(expected_batch))}",
     )
-    check(len(report.get("stayed_open") or []) == 74, f"74 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
-    check(len(stayed_dpa) == 37, f"37 DPA slots stayed open, got {len(stayed_dpa)}")
-    check(len(stayed_sub) == 37, f"37 subprocessors slots stayed open, got {len(stayed_sub)}")
-    check("discourse" not in stayed, "discourse DPA is not in stayed-open")
-    for slug in ("artie", "pluralsight"):
-        check(slug not in stayed_dpa, f"{slug} DPA is not in stayed-open")
-        check(slug in stayed_sub, f"{slug} named processors stayed open")
-    check("brightcove" not in stayed_sub, "brightcove named list is not in subprocessors stayed-open")
-    check("brightcove" in stayed_dpa, "brightcove PDF DPA stayed open")
-    check("dpa" not in ((by_enr["brightcove"].get("links") or {})), "Brightcove links.dpa stays off the PDF")
+    check(len(report.get("stayed_open") or []) == 77, f"77 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
+    check(len(stayed_dpa) == 38, f"38 DPA slots stayed open, got {len(stayed_dpa)}")
+    check(len(stayed_sub) == 39, f"39 subprocessors slots stayed open, got {len(stayed_sub)}")
+    check("strongdm" not in stayed_dpa, "strongdm DPA is not in stayed-open")
+    check("strongdm" in stayed_sub, "strongdm named processors stayed open")
+    check("konfetti-koala" not in stayed_sub, "konfetti-koala named list is not in subprocessors stayed-open")
+    check("konfetti-koala" in stayed_dpa, "konfetti-koala DPA stayed open")
     # This-cut review drops stay unread.
-    check("Bending Spoons and its affiliates" not in filed_sub["brightcove"]["names"], "Brightcove parent-affiliate row stays off file")
-    check("360insights" in stayed_sub, "360insights PDF-only list stayed open")
-    check("deepgram" in stayed_sub, "Deepgram CSS-grid list stayed open — not a table")
-    check("within" in stayed_sub, "Within JS-shell list stayed open")
-    check("zayo-group" in stayed_sub, "Zayo homepage-bounce list stayed open")
-    check("pluralsight" in stayed_sub, "Pluralsight legal-hub JS-shell list stayed open")
+    check("kombo-technologies" in stayed_dpa, "Kombo PDF-download DPA stayed open")
+    check("dpa" not in ((by_enr["kombo-technologies"].get("links") or {})), "Kombo links.dpa stays off the PDF wrapper")
+    check("litmus" in stayed_sub, "Litmus parent-company Validity list stayed open")
+    check(
+        "subprocessors" not in ((by_enr["litmus"].get("links") or {})),
+        "Litmus links.subprocessors stays off the Validity parent-company list",
+    )
+    check("viatel" in stayed_sub, "Viatel PDF-only DPA/list stayed open")
+    check("employment-hero" in stayed_sub, "Employment Hero JS-portal list stayed open")
+    check("bitly" in stayed_sub, "Bitly SafeBase itemUid list stayed open")
     # Prior-cut review drops stay unread.
     check("inkeep" not in expected_batch, "Inkeep is not retried")
     check("dpa" not in ((by_enr["inkeep"].get("links") or {})), "Inkeep links.dpa stays off the PDF")
@@ -393,6 +386,8 @@ def main() -> int:
         "browserbase", "tableau", "accurx", "inkeep", "kyndryl",
         "data-zoo", "hightouch", "plivo", "smartrecruiters", "sms-magic",
         "cloudinary", "langfuse",
+        "artie", "discourse", "pluralsight", "brightcove",
+        "kombo-technologies", "litmus",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")
@@ -405,7 +400,36 @@ def main() -> int:
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check(rec["url"] in html, f"{slug} dossier cites the list URL")
         check('rel="noopener noreferrer"' in html, f"{slug} outbound links use noopener")
-    # This cut: first-party Completeness DPA on Artie, Discourse, Pluralsight.
+    # This cut: first-party Completeness DPA on strongDM. Koala first-party
+    # HTML list. SendGrid aliases onto Twilio. Mode stays a leftover graph
+    # node. Kombo PDF-download DPA and Litmus→Validity parent list stay open.
+    check(
+        instrument_url(by_pub["strongdm"], "dpa")
+        == "https://www.strongdm.com/legal/data-processing-agreement",
+        "strongdm DPA is first-party HTML",
+    )
+    check((by_pub["strongdm"].get("file") or {}).get("dpa") == 20, "strongdm DPA prints")
+    check(not (by_pub["strongdm"].get("processors") or []), "strongdm SafeBase list stays unread")
+    koala_names = [p.get("name") for p in (by_pub["konfetti-koala"].get("processors") or [])]
+    koala_slugs = [p.get("slug") for p in (by_pub["konfetti-koala"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["konfetti-koala"], "subprocessors")
+        == "https://getkoala.com/legal/subprocessors",
+        "konfetti-koala list URL is first-party HTML",
+    )
+    check((by_pub["konfetti-koala"].get("file") or {}).get("subprocessors") == 20, "konfetti-koala processors print")
+    check(len(koala_names) == 4, f"konfetti-koala printed 4 named processors, got {len(koala_names)}")
+    check("Amazon Web Services" in koala_names, "konfetti-koala names AWS")
+    check("Cloudflare" in koala_names, "konfetti-koala names Cloudflare")
+    check("SendGrid" in koala_names, "konfetti-koala names SendGrid")
+    check("Mode" in koala_names, "konfetti-koala names Mode")
+    check("amazon-web-services" in koala_slugs, "konfetti-koala AWS uses the Amazon Web Services file")
+    check("cloudflare" in koala_slugs, "konfetti-koala Cloudflare uses the Cloudflare file")
+    check("twilio" in koala_slugs, "konfetti-koala SendGrid uses the Twilio file")
+    check("mode" not in by_pub, "konfetti-koala does not invent a Mode dossier")
+    check("dpa" not in ((by_enr["kombo-technologies"].get("links") or {})), "Kombo PDF DPA stays off file")
+    check(not (by_pub["litmus"].get("processors") or []), "Litmus names no parent-company processors")
+    # Prior cut: first-party Completeness DPA on Artie, Discourse, Pluralsight.
     # Brightcove first-party HTML list. Bending Spoons parent-affiliate row
     # stays unread. Cloudfront / Elastic Search / Google Ad Manager alias
     # onto existing register slugs. PDF DPA and CSS-grid / JS-shell lists
@@ -454,7 +478,7 @@ def main() -> int:
     check("castlabs" not in by_pub, "brightcove does not invent a CastLabs dossier")
     check("keen-io" not in by_pub, "brightcove does not invent a Keen.io dossier")
     check("last9" not in by_pub, "brightcove does not invent a Last9 dossier")
-    check("wowza" not in by_pub, "brightcove does not invent a Wowza dossier")
+    check(by_pub["wowza"].get("domain") == "wowza.com", "brightcove Wowza uses the existing Wowza file")
     check("pigeonlab" not in by_pub, "brightcove does not invent a PigeonLab dossier")
     check("bending-spoons-and-its-affiliates" not in by_pub, "brightcove does not invent a Bending Spoons affiliates dossier")
     # Prior cut: first-party HTML lists. Combined / unnamed / parent / PDF rows
@@ -475,9 +499,12 @@ def main() -> int:
     check("google" in datazoo_slugs, "data-zoo GCP uses the Google file")
     check("microsoft" in datazoo_slugs, "data-zoo Microsoft Office uses the Microsoft file")
     check("sentry" in datazoo_slugs, "data-zoo Sentry uses the Sentry file")
-    check("crushftp" not in by_pub, "data-zoo does not invent a CrushFTP dossier")
+    check(by_pub["crushftp"].get("domain") == "crushftp.com", "data-zoo CrushFTP uses the existing CrushFTP file")
     check("voyager" not in by_pub, "data-zoo does not invent a Voyager dossier")
-    check("employment-hero" not in by_pub, "data-zoo does not invent an Employment Hero dossier")
+    check(
+        by_pub["employment-hero"].get("domain") == "employmenthero.com",
+        "data-zoo Employment Hero uses the existing Employment Hero file",
+    )
     ht_names = [p.get("name") for p in (by_pub["hightouch"].get("processors") or [])]
     ht_slugs = [p.get("slug") for p in (by_pub["hightouch"].get("processors") or [])]
     check(
