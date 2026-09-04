@@ -666,6 +666,13 @@ def main() -> int:
     intuit_reg = {**register, "intuit": {"slug": "intuit", "name": "Intuit", "domain": "intuit.com"}}
     check(canonical_processor_id("quick-books", intuit_reg) == "intuit", "Quick Books is Intuit")
     check(REGISTER_ALIASES["quick-books"] == "intuit", "quick-books aliases to intuit")
+    check(canonical_processor_id("cloudfront", register) == "amazon-web-services", "Cloudfront is AWS")
+    check(REGISTER_ALIASES["cloudfront"] == "amazon-web-services", "cloudfront aliases to amazon-web-services")
+    elastic_reg = {**register, "elastic": {"slug": "elastic", "name": "Elastic", "domain": "elastic.co"}}
+    check(canonical_processor_id("elastic-search", elastic_reg) == "elastic", "Elastic Search is Elastic")
+    check(REGISTER_ALIASES["elastic-search"] == "elastic", "elastic-search aliases to elastic")
+    check(canonical_processor_id("google-ad-manager", register) == "google", "Google Ad Manager is Google")
+    check(REGISTER_ALIASES["google-ad-manager"] == "google", "google-ad-manager aliases to google")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch

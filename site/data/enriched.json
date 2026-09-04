@@ -91347,16 +91347,18 @@
       "links": {
         "trust": "https://trust.artie.com",
         "privacy": "https://artie.com/privacy",
-        "subprocessors": "https://trust.artie.com/subprocessors"
+        "subprocessors": "https://trust.artie.com/subprocessors",
+        "dpa": "https://www.artie.com/docs/legal/data-processing-addendum"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 34,
-        "tier": "thin",
+        "score": 42,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
           "subprocessors": 8,
-          "privacy": 6
+          "privacy": 6,
+          "dpa": 8
         }
       },
       "official_url": "https://artie.com/"
@@ -94017,7 +94019,8 @@
       "certs": [],
       "links": {
         "security": "https://www.discourse.org/security",
-        "subprocessors": "https://www.discourse.org/subprocessors"
+        "subprocessors": "https://www.discourse.org/subprocessors",
+        "dpa": "https://www.discourse.org/data-processing-addendum"
       },
       "subprocessors": [
         "amazon-web-services",
@@ -94028,12 +94031,13 @@
         "keycdn"
       ],
       "disclosure": {
-        "score": 34,
-        "tier": "thin",
+        "score": 42,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
           "processors": 8,
-          "longevity": 6
+          "longevity": 6,
+          "dpa": 8
         }
       },
       "founded_year": 2013,
@@ -98194,16 +98198,50 @@
       "links": {
         "trust": "https://trust.brightcove.com",
         "privacy": "https://www.brightcove.com:443/legal/privacy-policy",
-        "status": "https://status.brightcove.com"
+        "status": "https://status.brightcove.com",
+        "subprocessors": "https://www.brightcove.com/legal/services-subprocessors"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "akamai",
+        "aws",
+        "anthropic",
+        "castlabs",
+        "cloudfront",
+        "datadog",
+        "elastic-search",
+        "elevenlabs",
+        "fastly",
+        "frequency-networks",
+        "fullstory",
+        "google-ad-manager",
+        "google-analytics",
+        "gcp",
+        "keen-io",
+        "last9",
+        "magnite",
+        "messagebird",
+        "mongodb",
+        "okta",
+        "openai",
+        "oracle",
+        "pigeonlab",
+        "pubmatic",
+        "rollbar",
+        "salesforce",
+        "springserve",
+        "status-io",
+        "syncwords",
+        "wochit",
+        "wowza"
+      ],
       "disclosure": {
-        "score": 32,
-        "tier": "thin",
+        "score": 40,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
           "status": 6,
-          "privacy": 6
+          "privacy": 6,
+          "subprocessors": 8
         }
       }
     },
@@ -130814,16 +130852,18 @@
         "trust": "https://trust.pluralsight.com",
         "security_txt": "https://pluralsight.com/.well-known/security.txt",
         "security": "https://www.pluralsight.com/browse/information-cyber-security",
-        "bug_bounty": "https://hackerone.com/pluralsight"
+        "bug_bounty": "https://hackerone.com/pluralsight",
+        "dpa": "https://www.pluralsight.com/terms/dpa"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 36,
-        "tier": "thin",
+        "score": 44,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
           "disclosure": 6,
-          "longevity": 10
+          "longevity": 10,
+          "dpa": 8
         }
       },
       "founded_year": 2004,
