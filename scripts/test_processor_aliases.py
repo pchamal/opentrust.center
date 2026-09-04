@@ -420,6 +420,16 @@ def main() -> int:
     check(skip_processor("topic", "Topic"), "CloudAMQP DPA Topic heading is garbage")
     check(skip_processor("retention-period", "Retention period"), "Retention period heading is garbage")
     check(REGISTER_ALIASES["g-suite"] == "google", "G Suite is Google")
+    tv_reg = {**register, "teamviewer": {"slug": "teamviewer", "name": "TeamViewer", "domain": "teamviewer.com"}}
+    check(canonical_processor_id("teamviewer-uk", tv_reg) == "teamviewer", "TeamViewer UK is TeamViewer")
+    check(REGISTER_ALIASES["teamviewer-uk"] == "teamviewer", "teamviewer-uk aliases to teamviewer")
+    ic_reg = {**register, "intercom": {"slug": "intercom", "name": "Intercom", "domain": "intercom.com"}}
+    check(canonical_processor_id("intercom-uk", ic_reg) == "intercom", "Intercom UK is Intercom")
+    check(REGISTER_ALIASES["intercom-uk"] == "intercom", "intercom-uk aliases to intercom")
+    check(skip_processor("service-category", "Service category"), "Accurx DPA Service category is garbage")
+    check(skip_processor("security-measure", "Security Measure"), "Accurx DPA Security Measure is garbage")
+    check(skip_processor("core-services", "Core Services"), "Accurx DPA Core Services is garbage")
+    check(skip_processor("measures-for-ensuring-accountability", "Measures for ensuring accountability"), "Accurx TOM heading is garbage")
 
     subs = {
         "nodes": [

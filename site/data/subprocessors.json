@@ -35524,6 +35524,48 @@
       "domain": "",
       "kind": "processor",
       "in_register": false
+    },
+    {
+      "id": "tandem-health",
+      "name": "Tandem Health AB",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "firetext-communications",
+      "name": "FireText Communications Ltd",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "bt",
+      "name": "BT Ltd",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "nhs-mail",
+      "name": "NHS Mail",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "whereby",
+      "name": "Whereby Ltd",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "aircall-sas",
+      "name": "Aircall SAS",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
     }
   ],
   "edges": [
@@ -55650,6 +55692,84 @@
       "to": "google",
       "source_url": "https://uploadcare.com/about/sub-processors/",
       "evidence": "Google Workspace"
+    },
+    {
+      "from": "accurx",
+      "to": "tandem-health",
+      "source_url": "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors",
+      "evidence": "Tandem Health AB"
+    },
+    {
+      "from": "accurx",
+      "to": "microsoft",
+      "source_url": "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors",
+      "evidence": "Microsoft Azure"
+    },
+    {
+      "from": "accurx",
+      "to": "firetext-communications",
+      "source_url": "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors",
+      "evidence": "FireText Communications Ltd"
+    },
+    {
+      "from": "accurx",
+      "to": "bt",
+      "source_url": "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors",
+      "evidence": "BT Ltd"
+    },
+    {
+      "from": "accurx",
+      "to": "vonage",
+      "source_url": "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors",
+      "evidence": "Vonage"
+    },
+    {
+      "from": "accurx",
+      "to": "nhs-mail",
+      "source_url": "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors",
+      "evidence": "NHS Mail"
+    },
+    {
+      "from": "accurx",
+      "to": "whereby",
+      "source_url": "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors",
+      "evidence": "Whereby Ltd"
+    },
+    {
+      "from": "accurx",
+      "to": "twilio",
+      "source_url": "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors",
+      "evidence": "Sendgrid Inc"
+    },
+    {
+      "from": "accurx",
+      "to": "intercom",
+      "source_url": "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors",
+      "evidence": "Intercom Inc"
+    },
+    {
+      "from": "accurx",
+      "to": "activecampaign",
+      "source_url": "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors",
+      "evidence": "ActiveCampaign"
+    },
+    {
+      "from": "accurx",
+      "to": "teamviewer",
+      "source_url": "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors",
+      "evidence": "TeamViewer UK Ltd"
+    },
+    {
+      "from": "accurx",
+      "to": "aircall-sas",
+      "source_url": "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors",
+      "evidence": "Aircall SAS"
+    },
+    {
+      "from": "accurx",
+      "to": "google",
+      "source_url": "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors",
+      "evidence": "Google LLC"
     }
   ],
   "aliases": {

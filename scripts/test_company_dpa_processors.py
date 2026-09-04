@@ -246,84 +246,85 @@ def main() -> int:
 
     # This increment: upper-quadrant DPA-on-file / subprocessors queue (~40).
     expected_batch = [
-        "synchronoss",
-        "g-data-cyberdefense",
-        "rocket-lawyer",
-        "sauce-labs",
-        "skyward",
-        "pros",
-        "treering",
-        "ashby",
-        "colossyan",
-        "exasol-ag",
-        "horizoniq",
-        "rudderstack",
-        "ceros",
-        "calix-inc",
-        "collaborative-drug-discovery",
-        "udemy",
-        "1mind-ai",
-        "browserbase",
-        "contentsquare",
-        "exa",
-        "firecrawl",
-        "further-ai",
-        "linkup",
-        "oneschema",
-        "orb",
-        "reducto",
-        "transloadit",
-        "unbabel",
-        "uploadcare",
-        "yoti",
-        "tableau",
-        "xsolla",
-        "sumup",
-        "affirm-holdings",
-        "hive",
-        "softcat",
-        "cars-com",
-        "netdocuments",
-        "kcf-technologies",
-        "liveops",
+        "accurx",
+        "opengear",
+        "auth0",
+        "singlestore",
+        "datavant",
+        "cdk-global",
+        "q4",
+        "reo-dev",
+        "egnyte",
+        "money-forward",
+        "aidoc",
+        "astra",
+        "inkeep",
+        "oppo",
+        "nordvpn",
+        "capacity",
+        "convertapi-uab",
+        "hetzner-online",
+        "inngest",
+        "jam-dev",
+        "kyndryl",
+        "kyndryl-holdings",
+        "language-i-o",
+        "logrocket",
+        "sendsafely",
+        "traversal",
+        "whatnot",
+        "7ai",
+        "sync",
+        "khoros",
+        "intuitive-machines",
+        "podium",
+        "veryfi-inc",
+        "resolve-ai",
+        "anima-app",
+        "apryse",
+        "balto",
+        "becton-dickinson",
+        "bodyguard-ai",
+        "censys",
     ]
     check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
     check(not (report.get("dpa_filed") or []), "no DPA was newly filed")
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
-    check(len(filed_sub) == 2, f"two named-processor lists filed, got {sorted(filed_sub)}")
+    check(len(filed_sub) == 1, f"one named-processor list filed, got {sorted(filed_sub)}")
+    check(set(filed_sub) == {"accurx"}, f"kept filings {sorted(filed_sub)}")
     check(
-        set(filed_sub)
-        == {
-            "contentsquare",
-            "uploadcare",
-        },
-        f"kept filings {sorted(filed_sub)}",
+        filed_sub["accurx"]["url"]
+        == "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors",
+        "accurx list URL is the first-party support article",
     )
-    check(
-        filed_sub["contentsquare"]["url"] == "https://contentsquare.com/privacy-center/subprocessors/",
-        "contentsquare list URL",
-    )
-    check(len(filed_sub["contentsquare"]["names"]) == 24, "contentsquare 24 names")
-    check(
-        filed_sub["uploadcare"]["url"] == "https://uploadcare.com/about/sub-processors/",
-        "uploadcare list URL",
-    )
-    check(len(filed_sub["uploadcare"]["names"]) == 25, "uploadcare 25 names")
+    check(len(filed_sub["accurx"]["names"]) == 13, "accurx 13 names")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
-    check(stayed == set(expected_batch), f"stayed-open covers the batch, got {sorted(stayed ^ set(expected_batch))}")
-    check(len(report.get("stayed_open") or []) == 78, f"78 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
-    check(len(stayed_dpa) == 40, f"40 DPA slots stayed open, got {len(stayed_dpa)}")
+    check(
+        stayed == set(expected_batch) - {"accurx"},
+        f"stayed-open covers the unread batch, got {sorted(stayed ^ (set(expected_batch) - {'accurx'}))}",
+    )
+    check(len(report.get("stayed_open") or []) == 77, f"77 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
+    check(len(stayed_dpa) == 39, f"39 DPA slots stayed open, got {len(stayed_dpa)}")
     check(len(stayed_sub) == 38, f"38 subprocessors slots stayed open, got {len(stayed_sub)}")
-    check(not (set(filed_sub) & stayed_sub), "kept filings are not in subprocessors stayed-open")
-    check("browserbase" in stayed_dpa, "Browserbase login-wall DPA stayed open")
+    check("accurx" not in stayed_sub, "Accurx named list is not in subprocessors stayed-open")
+    check("accurx" not in stayed_dpa, "Accurx DPA was already on file")
+    check("inkeep" in stayed_dpa, "Inkeep PDF DPA stayed open")
+    check("dpa" not in ((by_enr["inkeep"].get("links") or {})), "Inkeep links.dpa stays off the PDF")
+    check("kyndryl" in stayed_dpa, "Kyndryl PDF DPA stayed open")
+    check("dpa" not in ((by_enr["kyndryl"].get("links") or {})), "Kyndryl links.dpa stays off the PDF")
+    check("kyndryl-holdings" in stayed_dpa, "Kyndryl Holdings parent PDF DPA stayed open")
+    check(
+        "dpa" not in ((by_enr["kyndryl-holdings"].get("links") or {})),
+        "Kyndryl Holdings links.dpa stays off the parent PDF",
+    )
+    # Prior-cut review drops stay unread.
     check("browserbase" not in {r["slug"] for r in (report.get("dpa_filed") or [])}, "Browserbase DPA was not filed")
     check(
         "dpa" not in ((by_enr["browserbase"].get("links") or {})),
         "Browserbase links.dpa stays off the sign-in wall",
     )
-    check("tableau" in stayed_dpa, "Tableau Salesforce PDF DPA stayed open")
     check(
         "dpa" not in ((by_enr["tableau"].get("links") or {})),
         "Tableau links.dpa stays off the Salesforce parent PDF",
@@ -366,7 +367,8 @@ def main() -> int:
         "heygen", "modal", "surveysparrow", "coralogix",
         "help-scout", "lastpass", "recurly-com", "segment",
         "lob-com", "productboard", "dash0", "temporal", "neon", "smarsh",
-        "panther-labs", "plume",
+        "panther-labs", "plume", "contentsquare", "uploadcare",
+        "browserbase", "tableau",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")
@@ -375,6 +377,45 @@ def main() -> int:
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check(rec["url"] in html, f"{slug} dossier cites the list URL")
         check('rel="noopener noreferrer"' in html, f"{slug} outbound links use noopener")
+    # This cut: Accurx first-party support-article table. DPA annex headings
+    # stay unread. Azure / SendGrid / TeamViewer UK alias onto existing rows.
+    accurx_names = [p.get("name") for p in (by_pub["accurx"].get("processors") or [])]
+    accurx_slugs = [p.get("slug") for p in (by_pub["accurx"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["accurx"], "subprocessors")
+        == "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors",
+        "accurx list URL is the first-party support article",
+    )
+    check((by_pub["accurx"].get("file") or {}).get("subprocessors") == 20, "accurx processors print")
+    check(len(accurx_names) == 13, f"accurx printed 13 named processors, got {len(accurx_names)}")
+    check("Tandem Health AB" in accurx_names, "accurx names Tandem Health AB")
+    check("Microsoft Azure" in accurx_names, "accurx names Microsoft Azure")
+    check("Sendgrid Inc" in accurx_names, "accurx names Sendgrid Inc")
+    check("TeamViewer UK Ltd" in accurx_names, "accurx names TeamViewer UK Ltd")
+    check("Service category" not in accurx_names, "accurx DPA Service category stays off file")
+    check("Security Measure" not in accurx_names, "accurx DPA Security Measure stays off file")
+    check("Core Services" not in accurx_names, "accurx DPA Core Services stays off file")
+    check("microsoft" in accurx_slugs, "accurx Azure uses the Microsoft file")
+    check("twilio" in accurx_slugs, "accurx Sendgrid uses the Twilio file")
+    check("teamviewer" in accurx_slugs, "accurx TeamViewer UK uses the TeamViewer file")
+    check("intercom" in accurx_slugs, "accurx Intercom uses the Intercom file")
+    check("google" in accurx_slugs, "accurx Google LLC uses the Google file")
+    check("tandem-health" not in by_pub, "accurx does not invent a Tandem Health dossier")
+    check("whereby" not in by_pub, "accurx does not invent a Whereby dossier")
+    check("aircall-sas" not in by_pub, "accurx does not invent an Aircall dossier")
+    accurx_html = (ROOT / "site" / "c" / "accurx.html").read_text(encoding="utf-8")
+    check(
+        "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors" in accurx_html,
+        "accurx dossier cites the support-article list",
+    )
+    check("./microsoft.html" in accurx_html, "accurx Azure cross-links to Microsoft")
+    check("./twilio.html" in accurx_html, "accurx Sendgrid cross-links to Twilio")
+    check("./teamviewer.html" in accurx_html, "accurx TeamViewer UK cross-links to TeamViewer")
+    check("Service category" not in accurx_html, "accurx dossier does not print DPA Service category")
+    check("Security Measure" not in accurx_html, "accurx dossier does not print DPA Security Measure")
+    # PR 269 filings stay on file. Browserbase / Tableau review drops stay unread.
+    check(len(by_pub["contentsquare"].get("processors") or []) == 24, "contentsquare 24 names stay")
+    check(len(by_pub["uploadcare"].get("processors") or []) == 25, "uploadcare 25 names stay")
     check(len(by_pub["lob-com"].get("processors") or []) == 37, "lob-com 37 names print")
     check((by_pub["lob-com"].get("file") or {}).get("subprocessors") == 20, "lob-com processors print")
     check(len(by_pub["productboard"].get("processors") or []) == 15, "productboard 15 names print")
@@ -706,9 +747,13 @@ def main() -> int:
     check("facebook-for-business" not in uc_slugs, "uploadcare does not invent a Facebook for Business dossier")
     check("talend" not in uc_slugs, "uploadcare does not invent a Talend dossier")
     check("kaleido" not in by_pub, "kaleido leftover does not invent a dossier")
-    check("zamzar" not in by_pub, "zamzar leftover does not invent a dossier")
     check("fern" not in by_pub, "fern leftover does not invent a dossier")
-    check("mezmo" not in by_pub, "mezmo leftover does not invent a dossier")
+    # Expand on main promoted Zamzar / Mezmo from leftover nodes to silent
+    # register rows. This cut does not invent a first-party file for them.
+    check(by_pub["zamzar"].get("found") is False, "zamzar Official page stays open")
+    check((by_pub["zamzar"].get("file") or {}).get("page") in (0, False, None), "zamzar Official page stays unread")
+    check(by_pub["mezmo"].get("found") is False, "mezmo Official page stays open")
+    check((by_pub["mezmo"].get("file") or {}).get("page") in (0, False, None), "mezmo Official page stays unread")
     uc_html = (ROOT / "site" / "c" / "uploadcare.html").read_text(encoding="utf-8")
     check("https://uploadcare.com/about/sub-processors/" in uc_html, "uploadcare dossier keeps the list URL")
     check("./amazon-web-services.html" in uc_html, "uploadcare AWS cross-links to Amazon Web Services")

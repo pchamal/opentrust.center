@@ -928,6 +928,11 @@ REGISTER_ALIASES: dict[str, str] = {
     "google-marketing-platform": "google",
     "microsoft-advertising": "microsoft",
     "talend": "qlik",
+    # Accurx support article names TeamViewer UK Ltd / Intercom UK Ltd.
+    # teamviewer and intercom are on the register. Do not invent a second
+    # regional dossier.
+    "teamviewer-uk": "teamviewer",
+    "intercom-uk": "intercom",
 
 }
 
@@ -1044,6 +1049,25 @@ SKIP_PROCESSOR_IDS = {
     "data-derived-from-the-above",
     # Smarsh optional-feature product line (not an organization)
     "voci-medallia-vspark-cloud-optional-feature",
+    # Accurx DPA annex / TOM headings (real list is the support article)
+    "service-category",
+    "core-services",
+    "care-navigation-triage-services-and-workflow-management",
+    "patient-communication-engagement-and-telephony-services",
+    "consultation-documentation-and-coding-services",
+    "ai-supported-processing-and-automation",
+    "security-measure",
+    "measures-for-user-identification-and-authorisation",
+    "measures-for-the-protection-of-data-during-transmission",
+    "measures-for-the-protection-of-data-during-storage",
+    "measures-for-ensuring-events-logging",
+    "measures-for-ensuring-system-configuration-including-default",
+    "measures-for-certification-assurance-of-processes-and-produc",
+    "measures-for-ensuring-data-minimisation",
+    "measures-for-ensuring-data-quality",
+    "measures-for-ensuring-data-retention",
+    "measures-for-ensuring-accountability",
+    "measures-for-allowing-data-portability-and-ensuring-erasure",
 }
 SKIP_PROCESSOR_NAMES = {
     "entity name",
@@ -1158,6 +1182,25 @@ SKIP_PROCESSOR_NAMES = {
     # Smarsh optional-feature product line (not an organization)
     "voci – medallia vspark cloud (optional feature)",
     "voci - medallia vspark cloud (optional feature)",
+    # Accurx DPA annex / TOM headings
+    "service category",
+    "core services",
+    "care navigation, triage services and workflow management",
+    "patient communication, engagement and telephony services",
+    "consultation, documentation and coding services",
+    "ai-supported processing and automation",
+    "security measure",
+    "measures for user identification and authorisation",
+    "measures for the protection of data during transmission",
+    "measures for the protection of data during storage",
+    "measures for ensuring events logging",
+    "measures for ensuring system configuration, including default configuration",
+    "measures for certification/assurance of processes and products",
+    "measures for ensuring data minimisation",
+    "measures for ensuring data quality",
+    "measures for ensuring limited data retention",
+    "measures for ensuring accountability",
+    "measures for allowing data portability and ensuring erasure",
 }
 
 
