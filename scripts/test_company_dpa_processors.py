@@ -747,9 +747,13 @@ def main() -> int:
     check("facebook-for-business" not in uc_slugs, "uploadcare does not invent a Facebook for Business dossier")
     check("talend" not in uc_slugs, "uploadcare does not invent a Talend dossier")
     check("kaleido" not in by_pub, "kaleido leftover does not invent a dossier")
-    check("zamzar" not in by_pub, "zamzar leftover does not invent a dossier")
     check("fern" not in by_pub, "fern leftover does not invent a dossier")
-    check("mezmo" not in by_pub, "mezmo leftover does not invent a dossier")
+    # Expand on main promoted Zamzar / Mezmo from leftover nodes to silent
+    # register rows. This cut does not invent a first-party file for them.
+    check(by_pub["zamzar"].get("found") is False, "zamzar Official page stays open")
+    check((by_pub["zamzar"].get("file") or {}).get("page") in (0, False, None), "zamzar Official page stays unread")
+    check(by_pub["mezmo"].get("found") is False, "mezmo Official page stays open")
+    check((by_pub["mezmo"].get("file") or {}).get("page") in (0, False, None), "mezmo Official page stays unread")
     uc_html = (ROOT / "site" / "c" / "uploadcare.html").read_text(encoding="utf-8")
     check("https://uploadcare.com/about/sub-processors/" in uc_html, "uploadcare dossier keeps the list URL")
     check("./amazon-web-services.html" in uc_html, "uploadcare AWS cross-links to Amazon Web Services")
