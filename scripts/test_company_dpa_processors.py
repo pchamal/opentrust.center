@@ -246,46 +246,46 @@ def main() -> int:
 
     # This increment: upper-quadrant DPA-on-file / subprocessors queue (~40).
     expected_batch = [
-        "hcl-tech",
-        "ookla",
-        "5c-ai-group-inc",
-        "ai-media",
-        "aml-rightsource",
-        "attribution",
-        "bastionx",
-        "black-diamond-development",
-        "cequens-fze",
-        "claranet",
-        "coherent-corp",
-        "commetric",
-        "cprime",
-        "elegant-themes",
-        "gmi-cloud",
-        "intraedge",
-        "ipdata",
-        "keycdn",
-        "luma-ai",
-        "mutare",
-        "name-com",
-        "netnumber-global-data-services",
-        "printfection",
-        "replicate",
-        "saicom-voice-services",
-        "ternpro-dba-slope",
-        "surveysensum-neurosensum-international-pte",
-        "tokenx",
-        "worketics-it-solutions",
-        "aurora-innovation",
-        "baker-hughes",
-        "beyond",
-        "bristol-myers-squibb",
-        "builders-firstsource",
-        "c-h-robinson",
-        "camden-property-trust",
-        "carrier-global",
-        "cencora",
-        "centerpoint-energy",
-        "charles-schwab-corporation",
+        "netcore-cloud",
+        "chipotle-mexican-grill",
+        "chubb-limited",
+        "church-and-dwight",
+        "cincinnati-financial",
+        "cognizant",
+        "cognizant-technology-solutions",
+        "cognyte",
+        "comfort-systems-usa",
+        "conocophillips",
+        "constellation-brands",
+        "constellation-software",
+        "copart",
+        "corteva",
+        "cox-enterprises",
+        "crh-plc",
+        "crown-castle",
+        "cvs-health",
+        "d-r-horton",
+        "darden-restaurants",
+        "davita",
+        "deckers-brands",
+        "delta-air-lines",
+        "devon-energy",
+        "dollar-general",
+        "dollar-tree",
+        "dte-energy",
+        "dye-and-durham",
+        "elevance-health",
+        "energy-transfer-partners",
+        "enterprise-mobility",
+        "enterprise-products-partners",
+        "epic-games",
+        "exxon-mobil",
+        "fanatics",
+        "fannie-mae",
+        "fedex",
+        "figure-ai",
+        "flex-ltd",
+        "fox-corporation",
     ]
     check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
     filed_dpa = {r["slug"]: r for r in (report.get("dpa_filed") or [])}
@@ -295,15 +295,40 @@ def main() -> int:
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
-    check("hcl-tech" in stayed_dpa, "HCL SaaS DPA PDF stayed open")
-    check("luma-ai" in stayed_dpa, "Luma off-domain lumalabs.ai DPA stayed open")
-    check("black-diamond-development" in stayed_dpa, "Black Diamond same-title SPA DPA stayed open")
-    check("tokenx" in stayed_dpa, "TokenX same-title SPA DPA stayed open")
-    check("beyond" in stayed_dpa, "Beyond same-title retail SPA DPA stayed open")
+    check("netcore-cloud" in stayed_dpa, "Netcore Cloud SafeBase portal DPA stayed open")
+    check("church-and-dwight" in stayed_dpa, "Church & Dwight same-title SPA DPA stayed open")
+    check("cognizant" in stayed_dpa, "Cognizant homepage-bounce DPA stayed open")
+    check("copart" in stayed_dpa, "Copart same-title SPA DPA stayed open")
+    check("fedex" in stayed_dpa, "FedEx same-title SPA DPA stayed open")
     check(len(report.get("stayed_open") or []) == 80, f"80 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
     check(len(stayed_dpa) == 40, f"40 DPA slots stayed open, got {len(stayed_dpa)}")
     check(len(stayed_sub) == 40, f"40 subprocessors slots stayed open, got {len(stayed_sub)}")
     # This-cut review drops stay unread.
+    check("dpa" not in ((by_enr["netcore-cloud"].get("links") or {})), "Netcore Cloud links.dpa stays off the SafeBase portal")
+    check(not instrument_url(by_pub["netcore-cloud"], "dpa"), "Netcore Cloud DPA stays open")
+    check(
+        "subprocessors" not in ((by_enr["netcore-cloud"].get("links") or {})),
+        "Netcore Cloud links.subprocessors stays off the SafeBase itemUid catalog",
+    )
+    check(not (by_pub["netcore-cloud"].get("processors") or []), "Netcore Cloud names no portal processors")
+    check("dpa" not in ((by_enr["church-and-dwight"].get("links") or {})), "Church & Dwight links.dpa stays off the same-title SPA")
+    check(not instrument_url(by_pub["church-and-dwight"], "dpa"), "Church & Dwight DPA stays open")
+    check("dpa" not in ((by_enr["cognizant"].get("links") or {})), "Cognizant links.dpa stays off the homepage bounce")
+    check(not instrument_url(by_pub["cognizant"], "dpa"), "Cognizant DPA stays open")
+    check(
+        "dpa" not in ((by_enr["cognizant-technology-solutions"].get("links") or {})),
+        "Cognizant Technology Solutions links.dpa stays off the same homepage bounce",
+    )
+    check("dpa" not in ((by_enr["copart"].get("links") or {})), "Copart links.dpa stays off the same-title SPA")
+    check(not instrument_url(by_pub["copart"], "dpa"), "Copart DPA stays open")
+    check("dpa" not in ((by_enr["energy-transfer-partners"].get("links") or {})), "Energy Transfer links.dpa stays off the same-title SPA")
+    check("dpa" not in ((by_enr["fedex"].get("links") or {})), "FedEx links.dpa stays off the same-title SPA")
+    check(not instrument_url(by_pub["fedex"], "dpa"), "FedEx DPA stays open")
+    check("dpa" not in ((by_enr["epic-games"].get("links") or {})), "Epic Games links.dpa stays off the 403 probes")
+    check("dpa" not in ((by_enr["flex-ltd"].get("links") or {})), "Flex links.dpa stays off the distributed-power-architecture glossary")
+    check(not instrument_url(by_pub["flex-ltd"], "dpa"), "Flex DPA stays open")
+    check("dpa" not in ((by_enr["comfort-systems-usa"].get("links") or {})), "Comfort Systems links.dpa stays off the HTTP 202 probes")
+    # Prior-cut review drops stay unread.
     check("dpa" not in ((by_enr["hcl-tech"].get("links") or {})), "HCL links.dpa stays off the SaaS PDF")
     check(not instrument_url(by_pub["hcl-tech"], "dpa"), "HCL DPA stays open")
     check("dpa" not in ((by_enr["luma-ai"].get("links") or {})), "Luma links.dpa stays off the lumalabs.ai host")
@@ -318,7 +343,6 @@ def main() -> int:
     check("dpa" not in ((by_enr["replicate"].get("links") or {})), "Replicate links.dpa stays off the enterprise sales page")
     check("dpa" not in ((by_enr["keycdn"].get("links") or {})), "KeyCDN links.dpa stays off the support-request GDPR page")
     check("dpa" not in ((by_enr["name-com"].get("links") or {})), "Name.com links.dpa stays off the reseller PDF")
-    # Prior-cut review drops stay unread.
     check("dpa" not in ((by_enr["support-zebra"].get("links") or {})), "SupportZebra links.dpa stays off the same-title blog bounce")
     check(not instrument_url(by_pub["support-zebra"], "dpa"), "SupportZebra DPA stays open")
     check("dpa" not in ((by_enr["softwarex"].get("links") or {})), "SoftwareX links.dpa stays off the Wix JS-shell")
@@ -431,6 +455,8 @@ def main() -> int:
         "hcl-tech", "luma-ai", "black-diamond-development", "tokenx",
         "beyond", "charles-schwab-corporation", "replicate", "keycdn",
         "name-com",
+        "netcore-cloud", "church-and-dwight", "cognizant", "copart",
+        "fedex", "epic-games", "flex-ltd", "energy-transfer-partners",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")
@@ -443,7 +469,12 @@ def main() -> int:
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check(rec["url"] in html, f"{slug} dossier cites the list URL")
         check('rel="noopener noreferrer"' in html, f"{slug} outbound links use noopener")
-    # This cut: open is the honest result. HCL SaaS DPA is PDF-only.
+    # This cut: open is the honest result. Netcore Cloud SafeBase
+    # itemUid catalog, Church & Dwight / Copart / Energy Transfer /
+    # FedEx same-title SPA shells, Cognizant homepage bounce, Epic
+    # Games 403s, Flex distributed-power-architecture glossary, and
+    # Comfort Systems HTTP 202 probes stay unread.
+    # Prior cut: open is the honest result. HCL SaaS DPA is PDF-only.
     # Luma's printed DPA is on lumalabs.ai, not the on-file luma.ai host.
     # Black Diamond / TokenX / Beyond / Schwab same-title SPA shells,
     # Replicate enterprise-sales DPA, KeyCDN support-request GDPR page,
