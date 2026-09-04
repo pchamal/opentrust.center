@@ -132318,17 +132318,33 @@
       ],
       "links": {
         "security": "https://www.accurx.com/security-for-healthcare-professionals",
-        "dpa": "https://www.accurx.com/data-processing-agreement"
+        "dpa": "https://www.accurx.com/data-processing-agreement",
+        "subprocessors": "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "tandem-health",
+        "microsoft",
+        "firetext-communications",
+        "bt",
+        "vonage",
+        "nhs-mail",
+        "whereby",
+        "twilio",
+        "intercom",
+        "activecampaign",
+        "teamviewer",
+        "aircall-sas",
+        "google"
+      ],
       "disclosure": {
-        "score": 47,
+        "score": 55,
         "tier": "on-file",
         "factors": {
           "portal": 20,
           "marks": 14,
           "dpa": 8,
-          "longevity": 5
+          "longevity": 5,
+          "subprocessors": 8
         }
       },
       "founded_year": 2016,
