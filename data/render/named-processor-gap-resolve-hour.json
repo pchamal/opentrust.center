@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-09-04T01:11:45Z",
-  "gap": 87,
+  "generated_at": "2026-09-04T02:06:15Z",
+  "gap": 144,
   "wikidata_resolved": [
+    {
+      "slug": "aircall",
+      "name": "Aircall",
+      "domain": "aircall.se",
+      "named_by": 1,
+      "source_url": "https://trust.sms-magic.com/subprocessors/",
+      "source_urls": [
+        "https://trust.sms-magic.com/subprocessors/"
+      ],
+      "source": "named-processor-gap",
+      "qid": "Q10403864",
+      "reason": "exact",
+      "status": "resolved"
+    },
+    {
+      "slug": "bitly",
+      "name": "Bitly",
+      "domain": "bitly.com",
+      "named_by": 1,
+      "source_url": "https://trust.sms-magic.com/subprocessors/",
+      "source_urls": [
+        "https://trust.sms-magic.com/subprocessors/"
+      ],
+      "source": "named-processor-gap",
+      "qid": "Q21079",
+      "reason": "exact",
+      "status": "resolved"
+    },
     {
       "slug": "maxio",
       "name": "Maxio",
@@ -15,18 +43,90 @@
       "qid": "Q25384897",
       "reason": "same-domain-all-org-candidates",
       "status": "resolved"
+    },
+    {
+      "slug": "wowza",
+      "name": "Wowza",
+      "domain": "wowza.com",
+      "named_by": 1,
+      "source_url": "https://www.brightcove.com/legal/services-subprocessors",
+      "source_urls": [
+        "https://www.brightcove.com/legal/services-subprocessors"
+      ],
+      "source": "named-processor-gap",
+      "qid": "Q4053257",
+      "reason": "same-domain-all-org-candidates",
+      "status": "resolved"
     }
   ],
-  "enqueued_candidates": [],
+  "enqueued_candidates": [
+    {
+      "name": "Bitly",
+      "slug": "bitly",
+      "domain": "bitly.com",
+      "source": "named-processor-gap",
+      "source_url": "https://trust.sms-magic.com/subprocessors/",
+      "named_by": 1,
+      "reason": "exact"
+    },
+    {
+      "name": "Wowza",
+      "slug": "wowza",
+      "domain": "wowza.com",
+      "source": "named-processor-gap",
+      "source_url": "https://www.brightcove.com/legal/services-subprocessors",
+      "named_by": 1,
+      "reason": "same-domain-all-org-candidates"
+    },
+    {
+      "name": "CrushFTP",
+      "slug": "crushftp",
+      "domain": "crushftp.com",
+      "source": "named-processor-gap",
+      "source_url": "https://datazoo.com/policy/data-sub-processor-list",
+      "named_by": 1,
+      "reason": "naming-list-homepage score=14"
+    },
+    {
+      "name": "Employment Hero",
+      "slug": "employment-hero",
+      "domain": "employmenthero.com",
+      "source": "named-processor-gap",
+      "source_url": "https://datazoo.com/policy/data-sub-processor-list",
+      "named_by": 1,
+      "reason": "naming-list-homepage score=14"
+    }
+  ],
   "homepage_hits": [
+    {
+      "slug": "crushftp",
+      "domain": "crushftp.com",
+      "reason": "naming-list-homepage score=14"
+    },
+    {
+      "slug": "employment-hero",
+      "domain": "employmenthero.com",
+      "reason": "naming-list-homepage score=14"
+    },
     {
       "slug": "fathom-analytics",
       "domain": "fathom.video",
       "reason": "naming-list-homepage score=10"
+    },
+    {
+      "slug": "voyager",
+      "domain": "voyager.nz",
+      "reason": "naming-list-homepage score=14"
     }
   ],
-  "unresolved_n": 85,
+  "unresolved_n": 136,
   "unresolved": [
+    {
+      "slug": "clearbit",
+      "name": "Clearbit",
+      "reason": "no-org-with-official-website",
+      "status": "unresolved"
+    },
     {
       "slug": "resend",
       "name": "Resend",
@@ -58,8 +158,44 @@
       "status": "unresolved"
     },
     {
+      "slug": "adeptid",
+      "name": "AdeptID",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
       "slug": "admail-west",
       "name": "Admail West, Inc",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "aircall-sas",
+      "name": "Aircall SAS",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "alexander-mann-bpo-solutions-pte-singapore",
+      "name": "ALEXANDER MANN BPO SOLUTIONS PTE. LTD. (SINGAPORE)",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "alexander-mann-solutions",
+      "name": "Alexander Mann Solutions Limited",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "alliantis",
+      "name": "Alliantis GmbH",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "altinity",
+      "name": "Altinity Inc",
       "reason": "no-wikidata-hits",
       "status": "unresolved"
     },
@@ -67,6 +203,12 @@
       "slug": "amacuro",
       "name": "Amacuro",
       "reason": "no-org-with-official-website",
+      "status": "unresolved"
+    },
+    {
+      "slug": "ams-alexander-mann-solutions",
+      "name": "AMS \u2013 Alexander Mann Solutions Corporation",
+      "reason": "no-wikidata-hits",
       "status": "unresolved"
     },
     {
@@ -88,8 +230,20 @@
       "status": "unresolved"
     },
     {
+      "slug": "bt",
+      "name": "BT Ltd",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
       "slug": "cardinal-path",
       "name": "Cardinal Path LLC",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "castlabs",
+      "name": "CastLabs",
       "reason": "no-wikidata-hits",
       "status": "unresolved"
     },
@@ -100,8 +254,20 @@
       "status": "unresolved"
     },
     {
+      "slug": "chili-piper",
+      "name": "Chili Piper, Inc",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
       "slug": "churnkey",
       "name": "Churnkey",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "cielo",
+      "name": "Cielo Inc",
       "reason": "no-wikidata-hits",
       "status": "unresolved"
     },
@@ -118,9 +284,9 @@
       "status": "unresolved"
     },
     {
-      "slug": "clearbit",
-      "name": "Clearbit",
-      "reason": "no-org-with-official-website",
+      "slug": "cloudorizon",
+      "name": "CLOUDORIZON LIMITED",
+      "reason": "no-wikidata-hits",
       "status": "unresolved"
     },
     {
@@ -136,6 +302,12 @@
       "status": "unresolved"
     },
     {
+      "slug": "cookie-bot",
+      "name": "Cookie Bot",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
       "slug": "curtis-1000",
       "name": "Curtis 1000 Inc",
       "reason": "no-wikidata-hits",
@@ -145,6 +317,12 @@
       "slug": "dagster",
       "name": "Dagster",
       "reason": "no-exact-or-close-label; 1 org candidate Q140785949 dagster-slurm",
+      "status": "unresolved"
+    },
+    {
+      "slug": "dare-to-change",
+      "name": "Dare to change Ltd",
+      "reason": "no-wikidata-hits",
       "status": "unresolved"
     },
     {
@@ -172,6 +350,12 @@
       "status": "unresolved"
     },
     {
+      "slug": "dispatch",
+      "name": "Dispatch",
+      "reason": "no-org-with-official-website",
+      "status": "unresolved"
+    },
+    {
       "slug": "ds-graphics-dba-ds-graphics-universal-wilde",
       "name": "DS Graphics Inc. dba DS Graphics Universal Wilde",
       "reason": "no-wikidata-hits",
@@ -184,9 +368,21 @@
       "status": "unresolved"
     },
     {
+      "slug": "edgetech-consulting",
+      "name": "EdgeTech Consulting, LLC",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
       "slug": "encompass-elements",
       "name": "Encompass Elements",
       "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "explo",
+      "name": "Explo",
+      "reason": "no-org-with-official-website",
       "status": "unresolved"
     },
     {
@@ -208,6 +404,12 @@
       "status": "unresolved"
     },
     {
+      "slug": "firetext-communications",
+      "name": "FireText Communications Ltd",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
       "slug": "formspree",
       "name": "Formspree",
       "reason": "no-wikidata-hits",
@@ -217,6 +419,18 @@
       "slug": "freeplay",
       "name": "Freeplay",
       "reason": "no-exact-or-close-label; 1 org candidate Q5501096 Freeplay Energy",
+      "status": "unresolved"
+    },
+    {
+      "slug": "freonit",
+      "name": "Freonit GmbH",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "frequency-networks",
+      "name": "Frequency Networks, Inc",
+      "reason": "no-wikidata-hits",
       "status": "unresolved"
     },
     {
@@ -244,6 +458,12 @@
       "status": "unresolved"
     },
     {
+      "slug": "hireport-nl",
+      "name": "HIREPORT NL B.V",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
       "slug": "hudson-printing-company",
       "name": "Hudson Printing Company",
       "reason": "no-wikidata-hits",
@@ -262,9 +482,51 @@
       "status": "unresolved"
     },
     {
+      "slug": "intech-solution",
+      "name": "Intech Solution Pty Ltd",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "ip-info",
+      "name": "IP Info",
+      "reason": "no-org-with-official-website",
+      "status": "unresolved"
+    },
+    {
+      "slug": "j-labs-spoika-z-ograniczona-odpowiedzialnoscia",
+      "name": "J-LABS Spoika z ograniczona odpowiedzialnoscia",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "jitsu",
+      "name": "Jitsu Inc",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "jitterbit",
+      "name": "Jitterbit, Inc",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "joveo",
+      "name": "Joveo",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
       "slug": "kaleido",
       "name": "Kaleido",
       "reason": "no-org-with-official-website",
+      "status": "unresolved"
+    },
+    {
+      "slug": "keen-io",
+      "name": "Keen.io, LLC",
+      "reason": "no-wikidata-hits",
       "status": "unresolved"
     },
     {
@@ -282,6 +544,12 @@
     {
       "slug": "lake-county-press",
       "name": "Lake County Press, Inc",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "last9",
+      "name": "Last9 Inc",
       "reason": "no-wikidata-hits",
       "status": "unresolved"
     },
@@ -310,8 +578,20 @@
       "status": "unresolved"
     },
     {
+      "slug": "magnite",
+      "name": "Magnite, Inc",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
       "slug": "marksys-holdings-llp",
       "name": "MarkSYS Holdings, LLP",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "match-my-email",
+      "name": "Match My Email",
       "reason": "no-wikidata-hits",
       "status": "unresolved"
     },
@@ -346,6 +626,18 @@
       "status": "unresolved"
     },
     {
+      "slug": "ndm-global",
+      "name": "NDM Global Inc",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "nhs-mail",
+      "name": "NHS Mail",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
       "slug": "novemilla",
       "name": "Novemilla",
       "reason": "no-wikidata-hits",
@@ -370,6 +662,12 @@
       "status": "unresolved"
     },
     {
+      "slug": "pigeonlab",
+      "name": "PigeonLab",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
       "slug": "polar-signals",
       "name": "Polar Signals",
       "reason": "no-wikidata-hits",
@@ -390,6 +688,24 @@
     {
       "slug": "quantum-color-graphics",
       "name": "Quantum Color Graphics, LLC",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "rb2b",
+      "name": "RB2B",
+      "reason": "no-org-with-official-website",
+      "status": "unresolved"
+    },
+    {
+      "slug": "regula-baltija",
+      "name": "Regula Baltija LLC",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "rhaegal-sasu",
+      "name": "Rhaegal SASU",
       "reason": "no-wikidata-hits",
       "status": "unresolved"
     },
@@ -442,8 +758,20 @@
       "status": "unresolved"
     },
     {
+      "slug": "springserve",
+      "name": "SpringServe, Inc",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
       "slug": "statsig",
       "name": "Statsig",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "status-io",
+      "name": "Status.io",
       "reason": "no-wikidata-hits",
       "status": "unresolved"
     },
@@ -454,8 +782,32 @@
       "status": "unresolved"
     },
     {
+      "slug": "syncwords",
+      "name": "SyncWords, Inc",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "talent-tech-solutions",
+      "name": "Talent Tech Solutions Pty Ltd",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "tandem-health",
+      "name": "Tandem Health AB",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
       "slug": "temesis-sas",
       "name": "Temesis SAS",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "textkernel",
+      "name": "Textkernel BV",
       "reason": "no-wikidata-hits",
       "status": "unresolved"
     },
@@ -472,9 +824,21 @@
       "status": "unresolved"
     },
     {
+      "slug": "the-udder-group-t-a-udder",
+      "name": "The Udder Group Limited t/a Udder",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
       "slug": "timescale",
       "name": "Timescale",
       "reason": "no-org-with-official-website",
+      "status": "unresolved"
+    },
+    {
+      "slug": "tq-solutions",
+      "name": "TQ Solutions",
+      "reason": "no-wikidata-hits",
       "status": "unresolved"
     },
     {
@@ -502,8 +866,26 @@
       "status": "unresolved"
     },
     {
+      "slug": "visier",
+      "name": "VISIER, INC",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
       "slug": "vivaops",
       "name": "VivaOps LLC",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "vonq",
+      "name": "VONQ B.V",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "vroom-consultancy-worldofwork",
+      "name": "Vroom Consultancy B.V. (worldofwork)",
       "reason": "no-wikidata-hits",
       "status": "unresolved"
     },
@@ -514,8 +896,26 @@
       "status": "unresolved"
     },
     {
+      "slug": "whereby",
+      "name": "Whereby Ltd",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "wochit",
+      "name": "Wochit, Inc",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
       "slug": "wolverine-solutions-group",
       "name": "Wolverine Solutions Group",
+      "reason": "no-wikidata-hits",
+      "status": "unresolved"
+    },
+    {
+      "slug": "xfive",
+      "name": "xFive Pty Ltd",
       "reason": "no-wikidata-hits",
       "status": "unresolved"
     },
@@ -539,25 +939,10 @@
     }
   ],
   "already_aliased": [],
-  "rejected_false_positive": [
-    {
-      "name": "Maxio",
-      "slug": "maxio",
-      "domain": "maxionwheels.com",
-      "source": "named-processor-gap",
-      "source_url": "https://www.jasper.ai/legal/sub-processors",
-      "named_by": 1,
-      "reason": "same-domain-all-org-candidates"
-    },
-    {
-      "name": "Fathom Analytics, Inc",
-      "slug": "fathom-analytics",
-      "domain": "fathom.video",
-      "source": "named-processor-gap",
-      "source_url": "https://compliance.apideck.com/subprocessors",
-      "named_by": 1,
-      "reason": "naming-list-homepage score=10"
-    }
-  ],
-  "note": "Dropped maxio\u2192maxionwheels.com (wrong org) and fathom-analytics\u2192fathom.video (Apideck mislabel; Analytics is usefathom.com)."
+  "dropped_false_positives": [
+    "aircall->aircall.se",
+    "maxio->maxionwheels.com",
+    "fathom-analytics->fathom.video",
+    "voyager->voyager.nz"
+  ]
 }
