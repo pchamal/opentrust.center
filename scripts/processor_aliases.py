@@ -48,6 +48,8 @@ REGISTER_ALIASES: dict[str, str] = {
     "parallel-web-systems": "parallel",
     # Google products / regional entities.
     "google-gemini": "google",
+    # Scoro prints Gemini as the employee AI assistant. google is on the register.
+    "gemini": "google",
     "google-ireland": "google",
     "google-firebase": "google",
     "google-vertex-ai": "google",
