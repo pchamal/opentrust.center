@@ -23,6 +23,27 @@ from processor_aliases import canonical_processor_id  # noqa: E402
 GAP_SOURCE = "named-processor-gap"
 GAP_SOURCES = {GAP_SOURCE, "named-subprocessor-gap"}
 
+# Slug → domain pairs expand / gap-resolve already got wrong. Do not
+# re-enqueue. Do not invent a replacement domain here.
+REJECT_PAIRS = {
+    ("maxio", "maxionwheels.com"),  # Maxion Wheels, not Maxio billing
+    ("fathom-analytics", "fathom.video"),  # Fathom AI Notetaker, not Analytics
+    ("aircall", "aircall.se"),  # parked Sedo, not Aircall
+    ("voyager", "voyager.nz"),  # NZ ISP, not Data Zoo's Voyager
+}
+
+
+def rejected_mapping(slug: str, domain: str) -> bool:
+    """True when this slug was already rejected for this official domain."""
+    s = (slug or "").strip().lower()
+    d = (domain or "").strip().lower().removeprefix("www.")
+    if not s or not d:
+        return False
+    if (s, d) in REJECT_PAIRS:
+        return True
+    host = enrich.registrable(d) if d else ""
+    return bool(host) and (s, host) in REJECT_PAIRS
+
 DATA = ROOT / "data"
 QUEUE = DATA / "crawl-queue.json"
 STATE = DATA / "crawl-state.json"
@@ -65,6 +86,8 @@ def next_batch(queue: dict, state: dict, n: int) -> list[dict]:
         slug = row.get("slug")
         if not row.get("domain") or not slug or slug in have or slug in seen:
             continue
+        if rejected_mapping(slug, row.get("domain")):
+            continue
         picked.append(row)
         seen.add(slug)
     i = cursor
@@ -73,6 +96,8 @@ def next_batch(queue: dict, state: dict, n: int) -> list[dict]:
         i += 1
         slug = row.get("slug")
         if not row.get("domain") or not slug or slug in have or slug in seen:
+            continue
+        if rejected_mapping(slug, row.get("domain")):
             continue
         picked.append(row)
         seen.add(slug)

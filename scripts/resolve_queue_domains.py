@@ -21,7 +21,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 import crawl  # noqa: E402
 import enrich  # noqa: E402
-from expand_batch import extract_certs, to_record  # noqa: E402
+from expand_batch import extract_certs, rejected_mapping, to_record  # noqa: E402
 from merge_render import rescore  # noqa: E402
 
 DATA = ROOT / "data"
@@ -430,6 +430,8 @@ def verify_domain(name: str, domain: str, slug: str, *, require_page: bool, skip
     domain = (domain or "").lower().removeprefix("www.")
     if domain in REJECT_DOMAINS or registrable(domain) in REJECT_DOMAINS:
         return False, "rejected-collision", {}
+    if rejected_mapping(slug, domain):
+        return False, "rejected-collision", {}
     if not domain or is_directory_host(domain):
         return False, "directory-or-empty", {}
     if any(domain.endswith(sfx) for sfx in PORTAL_HOSTS):
@@ -799,8 +801,14 @@ def resolve_queue() -> dict:
     for row in queue["companies"]:
         rec = by_slug.get(row["slug"])
         if rec and rec.get("domain"):
-            row["domain"] = rec["domain"]
-            filled += 1
+            if rejected_mapping(row.get("slug"), rec["domain"]):
+                rec["domain"] = None
+                rec["reason"] = "rejected-collision"
+            else:
+                row["domain"] = rec["domain"]
+                filled += 1
+        if rejected_mapping(row.get("slug"), row.get("domain")):
+            row["domain"] = ""
 
     still = [c for c in queue["companies"] if not c.get("domain")]
     queue["domain_resolve_at"] = utc_now()
