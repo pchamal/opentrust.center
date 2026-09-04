@@ -633,9 +633,13 @@ def main() -> int:
     check("twilio" in koala_slugs, "konfetti-koala SendGrid uses the Twilio file")
     check("thoughtspot" in koala_slugs, "konfetti-koala Mode uses the ThoughtSpot file")
     check("mode" not in by_pub, "konfetti-koala does not invent a Mode dossier")
+    koala_html = (ROOT / "site" / "c" / "konfetti-koala.html").read_text(encoding="utf-8")
+    check("./thoughtspot.html\">Mode" in koala_html, "konfetti-koala Mode cross-links to ThoughtSpot")
     check("clearbit" not in by_pub, "Help Scout does not invent a Clearbit dossier")
     hs_slugs = [p.get("slug") for p in (by_pub["help-scout"].get("processors") or [])]
     check("hubspot" in hs_slugs, "help-scout Clearbit uses the HubSpot file")
+    help_html = (ROOT / "site" / "c" / "help-scout.html").read_text(encoding="utf-8")
+    check("./hubspot.html\">Clearbit" in help_html, "help-scout Clearbit cross-links to HubSpot")
     check("dpa" not in ((by_enr["kombo-technologies"].get("links") or {})), "Kombo PDF DPA stays off file")
     check(not (by_pub["litmus"].get("processors") or []), "Litmus names no parent-company processors")
     # Prior cut: first-party Completeness DPA on Artie, Discourse, Pluralsight.

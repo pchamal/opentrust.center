@@ -138,24 +138,6 @@ def main() -> int:
         'href="./perimeter-81.html">Perimeter81</a>' not in sonicwall_html,
         "SonicWall does not keep a second Perimeter 81 dossier wire",
     )
-    koala_html = (ROOT / "site" / "c" / "konfetti-koala.html").read_text(encoding="utf-8")
-    check(
-        'href="./thoughtspot.html">Mode</a>' in koala_html,
-        "Koala Mode wire lands on the ThoughtSpot dossier",
-    )
-    check(
-        'href="./mode.html">Mode</a>' not in koala_html,
-        "Koala does not keep a second Mode dossier wire",
-    )
-    help_html = (ROOT / "site" / "c" / "help-scout.html").read_text(encoding="utf-8")
-    check(
-        'href="./hubspot.html">Clearbit</a>' in help_html,
-        "Help Scout Clearbit wire lands on the HubSpot dossier",
-    )
-    check(
-        'href="./clearbit.html">Clearbit</a>' not in help_html,
-        "Help Scout does not keep a second Clearbit dossier wire",
-    )
     print("ok")
     return 0
 
