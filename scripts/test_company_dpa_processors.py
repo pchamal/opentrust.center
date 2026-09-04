@@ -478,7 +478,7 @@ def main() -> int:
     check("castlabs" not in by_pub, "brightcove does not invent a CastLabs dossier")
     check("keen-io" not in by_pub, "brightcove does not invent a Keen.io dossier")
     check("last9" not in by_pub, "brightcove does not invent a Last9 dossier")
-    check("wowza" not in by_pub, "brightcove does not invent a Wowza dossier")
+    check(by_pub["wowza"].get("domain") == "wowza.com", "brightcove Wowza uses the existing Wowza file")
     check("pigeonlab" not in by_pub, "brightcove does not invent a PigeonLab dossier")
     check("bending-spoons-and-its-affiliates" not in by_pub, "brightcove does not invent a Bending Spoons affiliates dossier")
     # Prior cut: first-party HTML lists. Combined / unnamed / parent / PDF rows
@@ -499,7 +499,7 @@ def main() -> int:
     check("google" in datazoo_slugs, "data-zoo GCP uses the Google file")
     check("microsoft" in datazoo_slugs, "data-zoo Microsoft Office uses the Microsoft file")
     check("sentry" in datazoo_slugs, "data-zoo Sentry uses the Sentry file")
-    check("crushftp" not in by_pub, "data-zoo does not invent a CrushFTP dossier")
+    check(by_pub["crushftp"].get("domain") == "crushftp.com", "data-zoo CrushFTP uses the existing CrushFTP file")
     check("voyager" not in by_pub, "data-zoo does not invent a Voyager dossier")
     check(
         by_pub["employment-hero"].get("domain") == "employmenthero.com",
