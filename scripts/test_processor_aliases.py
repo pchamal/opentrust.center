@@ -657,6 +657,15 @@ def main() -> int:
     )
     dbt_reg = {**register, "dbt-labs": {"slug": "dbt-labs", "name": "dbt Labs", "domain": "getdbt.com"}}
     check(canonical_processor_id("dbt-cloud", dbt_reg) == "dbt-labs", "dbt Cloud is dbt Labs")
+    fw_reg = {**register, "freshworks": {"slug": "freshworks", "name": "Freshworks", "domain": "freshworks.com"}}
+    check(canonical_processor_id("fresh-desk", fw_reg) == "freshworks", "Fresh Desk is Freshworks")
+    check(REGISTER_ALIASES["fresh-desk"] == "freshworks", "fresh-desk aliases to freshworks")
+    sf_reg2 = {**register, "salesforce": {"slug": "salesforce", "name": "Salesforce", "domain": "salesforce.com"}}
+    check(canonical_processor_id("pardot", sf_reg2) == "salesforce", "Pardot is Salesforce")
+    check(REGISTER_ALIASES["pardot"] == "salesforce", "pardot aliases to salesforce")
+    intuit_reg = {**register, "intuit": {"slug": "intuit", "name": "Intuit", "domain": "intuit.com"}}
+    check(canonical_processor_id("quick-books", intuit_reg) == "intuit", "Quick Books is Intuit")
+    check(REGISTER_ALIASES["quick-books"] == "intuit", "quick-books aliases to intuit")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch
