@@ -2056,7 +2056,8 @@ def main() -> int:
 
     # This cut: alias Clearbit→HubSpot and Mode→ThoughtSpot. File Resend,
     # Superhuman, and Svix on verified first-party domains. Do not invent a
-    # second dossier for Clearbit or Mode.
+    # second dossier for Clearbit or Mode. Superhuman's only trust URL is
+    # trust.superhuman.com (SafeBase). Portals are never Official page.
     check(by_pub["resend"]["domain"] == "resend.com", "resend official domain is resend.com")
     check(by_pub["superhuman"]["domain"] == "superhuman.com", "superhuman official domain is superhuman.com")
     check(by_pub["svix"]["domain"] == "svix.com", "svix official domain is svix.com")
@@ -2079,6 +2080,27 @@ def main() -> int:
     check("amazon-web-services" in svix_slugs, "svix names AWS on the existing file")
     check("plain" in svix_slugs, "svix Plain uses the Plain file")
     check(not (by_pub["superhuman"].get("certs") or []), "superhuman SafeBase marks stay unread")
+    check(by_pub["superhuman"].get("found") is False, "superhuman SafeBase portal is not Official page")
+    check(not by_pub["superhuman"].get("trust_url"), "superhuman portal is not the Official page URL")
+    check((by_pub["superhuman"].get("file") or {}).get("page") in (0, False, None), "superhuman Official page stays open")
+    check(
+        ((by_pub["superhuman"].get("instruments") or {}).get("trust") or {}).get("url")
+        == "https://trust.superhuman.com",
+        "superhuman trust instrument keeps the portal URL as a link",
+    )
+    check(
+        instrument_url(by_pub["superhuman"], "dpa") == "https://superhuman.com/legal/dpa",
+        "superhuman DPA URL stays on file",
+    )
+    check((by_pub["superhuman"].get("file") or {}).get("dpa") == 20, "superhuman DPA prints")
+    check((by_pub["superhuman"].get("file") or {}).get("marks") in (0, False, None), "superhuman marks stay open")
+    superhuman_html = (ROOT / "site" / "c" / "superhuman.html").read_text(encoding="utf-8")
+    check("<h1>Superhuman</h1>" in superhuman_html, "superhuman dossier is its own file")
+    check("https://trust.superhuman.com" in superhuman_html, "superhuman dossier cites the portal as an instrument URL")
+    check("https://superhuman.com/legal/dpa" in superhuman_html, "superhuman dossier cites the DPA")
+    check("Official page · not on file" in superhuman_html, "superhuman Official page stays open")
+    check("safebase" not in superhuman_html.lower(), "superhuman dossier names no portal vendor")
+    check("vanta" not in superhuman_html.lower(), "superhuman dossier names no portal vendor")
 
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "

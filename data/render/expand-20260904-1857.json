@@ -2,7 +2,7 @@
   "batch": "named-processor-gap",
   "rows": [
     {
-      "rank": 5811,
+      "rank": 5840,
       "name": "Resend",
       "slug": "resend",
       "domain": "resend.com",
@@ -10,7 +10,7 @@
       "trust_url": "https://resend.com/security",
       "final_url": "https://resend.com/security",
       "vendor": "unknown",
-      "title": "Security \u00b7 Resend",
+      "title": "Security · Resend",
       "probed": 13,
       "source": "https://liveblocks.io/subprocessors",
       "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II.",
@@ -39,18 +39,18 @@
       }
     },
     {
-      "rank": 5812,
+      "rank": 5841,
       "name": "Superhuman",
       "slug": "superhuman",
       "domain": "superhuman.com",
-      "found": true,
-      "trust_url": "https://trust.superhuman.com",
-      "final_url": "https://trust.superhuman.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
       "vendor": "unknown",
       "title": "",
       "probed": 5,
       "source": "https://coralogix.com/authorized-sub-processors/",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
       "links": {
@@ -62,10 +62,9 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 48,
-        "tier": "on-file",
+        "score": 28,
+        "tier": "silent",
         "factors": {
-          "portal": 20,
           "dpa": 8,
           "processors": 8,
           "status": 6,
@@ -74,7 +73,7 @@
       }
     },
     {
-      "rank": 5813,
+      "rank": 5842,
       "name": "Svix",
       "slug": "svix",
       "domain": "svix.com",
