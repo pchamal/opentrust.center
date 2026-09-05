@@ -172,7 +172,9 @@ def main() -> int:
     zoom = (ROOT / "site" / "c" / "zoom.html").read_text(encoding="utf-8")
     check("01 April 2025" not in zoom, "zoom still has no date processors")
     check("Amazon Web Services" in zoom, "zoom still names AWS")
-    check("Concentration" not in (ROOT / "site" / "graph.html").read_text(encoding="utf-8"), "list dropped Concentration")
+    graph_html = (ROOT / "site" / "graph.html").read_text(encoding="utf-8")
+    check('data-sort="risk"' not in graph_html, "list dropped Concentration risk sort")
+    check('>Concentration</button>' not in graph_html, "list dropped Concentration column")
 
     # Prior fill stays: Photoroom printed appendix (PR 132).
     check(
@@ -242,60 +244,183 @@ def main() -> int:
     )
     check(len(by_pub["dialpad"].get("processors") or []) == 1, "dialpad existing name stays")
 
-    # This increment: unread first-party privacy-page queue after PR 149.
+    # This increment: upper-quadrant DPA-on-file / subprocessors queue (~40).
     expected_batch = [
-        "phreesia",
-        "corpay",
-        "huawei",
-        "materialise-nv",
-        "schr-dinger",
-        "zensar-technologies",
-        "planisware",
-        "align-technology",
-        "paycom",
-        "on-semiconductor",
-        "globant",
-        "4dmedical-limited",
-        "bytedance",
-        "cyngn",
-        "system1",
-        "cellebrite",
-        "applied-digital",
-        "3d-systems",
-        "3i-infotech",
-        "a-o-smith",
-        "accenture",
-        "agilysys",
-        "aiforia-technologies-oyj",
-        "albemarle-corporation",
-        "alexandria-real-estate-equities",
-        "alibaba",
-        "alkami",
-        "alliant-energy",
-        "amadeus",
-        "amdocs",
-        "ameren",
-        "american-electric-power",
-        "american-express",
-        "ametek",
-        "amgen",
-        "aptiv",
-        "arthur-j-gallagher-and-co",
-        "assurant",
-        "at-and-t",
-        "atmos-energy",
+        "netcore-cloud",
+        "chipotle-mexican-grill",
+        "chubb-limited",
+        "church-and-dwight",
+        "cincinnati-financial",
+        "cognizant",
+        "cognizant-technology-solutions",
+        "cognyte",
+        "comfort-systems-usa",
+        "conocophillips",
+        "constellation-brands",
+        "constellation-software",
+        "copart",
+        "corteva",
+        "cox-enterprises",
+        "crh-plc",
+        "crown-castle",
+        "cvs-health",
+        "d-r-horton",
+        "darden-restaurants",
+        "davita",
+        "deckers-brands",
+        "delta-air-lines",
+        "devon-energy",
+        "dollar-general",
+        "dollar-tree",
+        "dte-energy",
+        "dye-and-durham",
+        "elevance-health",
+        "energy-transfer-partners",
+        "enterprise-mobility",
+        "enterprise-products-partners",
+        "epic-games",
+        "exxon-mobil",
+        "fanatics",
+        "fannie-mae",
+        "fedex",
+        "figure-ai",
+        "flex-ltd",
+        "fox-corporation",
     ]
-    check(report.get("batch") == expected_batch, "batch is the unread first-party privacy-page queue")
-    check(not (report.get("dpa_filed") or []), "no DPA was invented")
-    check(not (report.get("subprocessors_filed") or []), "no named processors were invented")
-    withdrawn = {r["slug"] for r in (report.get("withdrawn") or [])}
-    check(withdrawn == {"at-and-t"}, f"AT&T CMS-shell DPA withdrawn, got {sorted(withdrawn)}")
-    check(not instrument_url(by_pub["at-and-t"], "dpa"), "at-and-t withdrawn DPA stays off file")
+    check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
+    filed_dpa = {r["slug"]: r for r in (report.get("dpa_filed") or [])}
+    check(set(filed_dpa) == set(), f"DPA links filed, got {sorted(filed_dpa)}")
+    filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
+    check(set(filed_sub) == set(), f"named-processor lists filed, got {sorted(filed_sub)}")
+    stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
+    stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
+    stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
+    check("netcore-cloud" in stayed_dpa, "Netcore Cloud SafeBase portal DPA stayed open")
+    check("church-and-dwight" in stayed_dpa, "Church & Dwight same-title SPA DPA stayed open")
+    check("cognizant" in stayed_dpa, "Cognizant homepage-bounce DPA stayed open")
+    check("copart" in stayed_dpa, "Copart same-title SPA DPA stayed open")
+    check("fedex" in stayed_dpa, "FedEx same-title SPA DPA stayed open")
+    check(len(report.get("stayed_open") or []) == 80, f"80 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
+    check(len(stayed_dpa) == 40, f"40 DPA slots stayed open, got {len(stayed_dpa)}")
+    check(len(stayed_sub) == 40, f"40 subprocessors slots stayed open, got {len(stayed_sub)}")
+    # This-cut review drops stay unread.
+    check("dpa" not in ((by_enr["netcore-cloud"].get("links") or {})), "Netcore Cloud links.dpa stays off the SafeBase portal")
+    check(not instrument_url(by_pub["netcore-cloud"], "dpa"), "Netcore Cloud DPA stays open")
+    check(
+        "subprocessors" not in ((by_enr["netcore-cloud"].get("links") or {})),
+        "Netcore Cloud links.subprocessors stays off the SafeBase itemUid catalog",
+    )
+    check(not (by_pub["netcore-cloud"].get("processors") or []), "Netcore Cloud names no portal processors")
+    check("dpa" not in ((by_enr["church-and-dwight"].get("links") or {})), "Church & Dwight links.dpa stays off the same-title SPA")
+    check(not instrument_url(by_pub["church-and-dwight"], "dpa"), "Church & Dwight DPA stays open")
+    check("dpa" not in ((by_enr["cognizant"].get("links") or {})), "Cognizant links.dpa stays off the homepage bounce")
+    check(not instrument_url(by_pub["cognizant"], "dpa"), "Cognizant DPA stays open")
+    check(
+        "dpa" not in ((by_enr["cognizant-technology-solutions"].get("links") or {})),
+        "Cognizant Technology Solutions links.dpa stays off the same homepage bounce",
+    )
+    check("dpa" not in ((by_enr["copart"].get("links") or {})), "Copart links.dpa stays off the same-title SPA")
+    check(not instrument_url(by_pub["copart"], "dpa"), "Copart DPA stays open")
+    check("dpa" not in ((by_enr["energy-transfer-partners"].get("links") or {})), "Energy Transfer links.dpa stays off the same-title SPA")
+    check("dpa" not in ((by_enr["fedex"].get("links") or {})), "FedEx links.dpa stays off the same-title SPA")
+    check(not instrument_url(by_pub["fedex"], "dpa"), "FedEx DPA stays open")
+    check("dpa" not in ((by_enr["epic-games"].get("links") or {})), "Epic Games links.dpa stays off the 403 probes")
+    check("dpa" not in ((by_enr["flex-ltd"].get("links") or {})), "Flex links.dpa stays off the distributed-power-architecture glossary")
+    check(not instrument_url(by_pub["flex-ltd"], "dpa"), "Flex DPA stays open")
+    check("dpa" not in ((by_enr["comfort-systems-usa"].get("links") or {})), "Comfort Systems links.dpa stays off the HTTP 202 probes")
+    # Prior-cut review drops stay unread.
+    check("dpa" not in ((by_enr["hcl-tech"].get("links") or {})), "HCL links.dpa stays off the SaaS PDF")
+    check(not instrument_url(by_pub["hcl-tech"], "dpa"), "HCL DPA stays open")
+    check("dpa" not in ((by_enr["luma-ai"].get("links") or {})), "Luma links.dpa stays off the lumalabs.ai host")
+    check(not instrument_url(by_pub["luma-ai"], "dpa"), "Luma DPA stays open")
+    check("dpa" not in ((by_enr["black-diamond-development"].get("links") or {})), "Black Diamond links.dpa stays off the same-title SPA")
+    check(not instrument_url(by_pub["black-diamond-development"], "dpa"), "Black Diamond DPA stays open")
+    check("dpa" not in ((by_enr["tokenx"].get("links") or {})), "TokenX links.dpa stays off the same-title SPA")
+    check(not instrument_url(by_pub["tokenx"], "dpa"), "TokenX DPA stays open")
+    check("dpa" not in ((by_enr["beyond"].get("links") or {})), "Beyond links.dpa stays off the same-title retail SPA")
+    check(not instrument_url(by_pub["beyond"], "dpa"), "Beyond DPA stays open")
+    check("dpa" not in ((by_enr["charles-schwab-corporation"].get("links") or {})), "Schwab links.dpa stays off the same-title SPA")
+    check("dpa" not in ((by_enr["replicate"].get("links") or {})), "Replicate links.dpa stays off the enterprise sales page")
+    check("dpa" not in ((by_enr["keycdn"].get("links") or {})), "KeyCDN links.dpa stays off the support-request GDPR page")
+    check("dpa" not in ((by_enr["name-com"].get("links") or {})), "Name.com links.dpa stays off the reseller PDF")
+    check("dpa" not in ((by_enr["support-zebra"].get("links") or {})), "SupportZebra links.dpa stays off the same-title blog bounce")
+    check(not instrument_url(by_pub["support-zebra"], "dpa"), "SupportZebra DPA stays open")
+    check("dpa" not in ((by_enr["softwarex"].get("links") or {})), "SoftwareX links.dpa stays off the Wix JS-shell")
+    check(not instrument_url(by_pub["softwarex"], "dpa"), "SoftwareX DPA stays open")
+    check("subprocessors" not in ((by_enr["softwarex"].get("links") or {})), "SoftwareX links.subprocessors stays off the Wix JS-shell")
+    check("dpa" not in ((by_enr["telegram"].get("links") or {})), "Telegram links.dpa stays off the same-title homepage")
+    check(not instrument_url(by_pub["telegram"], "dpa"), "Telegram DPA stays open")
+    check("dpa" not in ((by_enr["skyhigh-security"].get("links") or {})), "Skyhigh links.dpa stays off the legal-notices hub")
+    check("dpa" not in ((by_enr["softserve"].get("links") or {})), "SoftServe links.dpa stays off the 302 Loading shell")
+    check("dpa" not in ((by_enr["surveylab"].get("links") or {})), "SurveyLab links.dpa stays off the homepage bounce")
+    check("dpa" not in ((by_enr["e-core"].get("links") or {})), "e-Core links.dpa stays off the homepage bounce")
+    check("dpa" not in ((by_enr["concentrix"].get("links") or {})), "Concentrix links.dpa stays off the homepage bounce")
+    check(not instrument_url(by_pub["tropic"], "dpa"), "Tropic DPA stays open")
+    check("dpa" not in ((by_enr["nodedata"].get("links") or {})), "Nodedata links.dpa stays off the SvelteKit 404")
+    check(not instrument_url(by_pub["nodedata"], "dpa"), "Nodedata DPA stays open")
+    check("dpa" not in ((by_enr["reversing-labs"].get("links") or {})), "ReversingLabs links.dpa stays off the Next.js shell")
+    check(not instrument_url(by_pub["reversing-labs"], "dpa"), "ReversingLabs DPA stays open")
+    check("dpa" not in ((by_enr["onespan"].get("links") or {})), "OneSpan links.dpa stays off the PDF / privacy-center bounce")
+    check("dpa" not in ((by_enr["rogo"].get("links") or {})), "Rogo links.dpa stays off the Framer JS-shell")
+    check("dpa" not in ((by_enr["leaseweb-global"].get("links") or {})), "Leaseweb links.dpa stays off the JS config shell")
+    check("dpa" not in ((by_enr["humans-and"].get("links") or {})), "Humans& links.dpa stays off the same-title SPA")
+    check("dpa" not in ((by_enr["chargebee"].get("links") or {})), "Chargebee links.dpa stays off the Nuxt JS-shell")
+    check(not instrument_url(by_pub["chargebee"], "dpa"), "Chargebee DPA stays open")
+    check("dpa" not in ((by_enr["aha"].get("links") or {})), "Aha! links.dpa stays off the 404 probes")
+    check(not instrument_url(by_pub["aha"], "dpa"), "Aha! DPA stays open")
+    check("dpa" not in ((by_enr["discord"].get("links") or {})), "Discord links.dpa stays off the privacy-policy bounce")
+    check("subprocessors" not in ((by_enr["ada"].get("links") or {})), "Ada links.subprocessors stays off the SafeBase portal")
+    check("unbounce" not in expected_batch, "Unbounce is not retried")
+    check("subprocessors" not in ((by_enr["unbounce"].get("links") or {})), "Unbounce links.subprocessors stays off the CSS-grid page")
+    check(not (by_pub["unbounce"].get("processors") or []), "Unbounce names no CSS-grid processors")
+    check(
+        "subprocessors" not in ((by_enr["link-mobility"].get("links") or {})),
+        "LINK Mobility links.subprocessors stays off the PDF catalog",
+    )
+    check("dpa" not in ((by_enr["e2open"].get("links") or {})), "E2open links.dpa stays off the WiseTech parent page")
+    check("inkeep" not in expected_batch, "Inkeep is not retried")
+    check("dpa" not in ((by_enr["inkeep"].get("links") or {})), "Inkeep links.dpa stays off the PDF")
+    check("dpa" not in ((by_enr["kyndryl"].get("links") or {})), "Kyndryl links.dpa stays off the PDF")
+    check(
+        "dpa" not in ((by_enr["kyndryl-holdings"].get("links") or {})),
+        "Kyndryl Holdings links.dpa stays off the parent PDF",
+    )
+    check("browserbase" not in {r["slug"] for r in (report.get("dpa_filed") or [])}, "Browserbase DPA was not filed")
+    check(
+        "dpa" not in ((by_enr["browserbase"].get("links") or {})),
+        "Browserbase links.dpa stays off the sign-in wall",
+    )
+    check(
+        "dpa" not in ((by_enr["tableau"].get("links") or {})),
+        "Tableau links.dpa stays off the Salesforce parent PDF",
+    )
+    check(
+        "dpa" not in ((by_enr["panther-labs"].get("links") or {})),
+        "Panther links.dpa stays off the Framer JS-shell",
+    )
+    check("neon" not in filed_sub, "Neon is not a filed named-processor list")
+    check(not (by_pub["neon"].get("processors") or []), "Neon names no processors")
+    check(
+        "subprocessors" not in ((by_enr["neon"].get("links") or {})),
+        "Neon links.subprocessors stays off the Databricks parent-company list",
+    )
+    check("smarsh" not in filed_sub, "Smarsh Cloudflare 403 list was not filed")
+    check(not (by_pub["smarsh"].get("processors") or []), "Smarsh names no processors")
+    check((by_pub["smarsh"].get("file") or {}).get("subprocessors") == 10, "Smarsh list URL stays dotted, names unread")
+    check(
+        (by_enr["smarsh"].get("links") or {}).get("subprocessors")
+        == "https://www.smarsh.com/subprocessors",
+        "Smarsh stored list URL stays, names stay unread",
+    )
+    check("dpa" not in ((by_enr["kombo-technologies"].get("links") or {})), "Kombo links.dpa stays off the PDF wrapper")
+    check(
+        "subprocessors" not in ((by_enr["litmus"].get("links") or {})),
+        "Litmus links.subprocessors stays off the Validity parent-company list",
+    )
+    check(not (by_pub["viatel"].get("processors") or []), "Viatel PDF-only list stays unread")
 
-    for slug in expected_batch:
+    for slug in stayed_sub:
         pub = by_pub[slug]
-        check(not instrument_url(pub, "dpa"), f"{slug} DPA stays open")
-        check(not (pub.get("file") or {}).get("dpa"), f"{slug} file.dpa stays open")
         check(not (pub.get("processors") or []), f"{slug} named processors stay open")
 
     from file_company_dpa_processors import PRIOR_ATTEMPTED, select_batch
@@ -307,20 +432,528 @@ def main() -> int:
     for slug in (
         "navan", "vercel", "backblaze", "1password", "peak", "translated",
         "anaplan", "sarvam-ai", "salesloft", "verint-systems", "thoughtspot",
+        "uniphore", "arkose-labs", "clazar", "cognition-ai",
+        "sam-labs", "apideck", "client-success", "84codes-cloudamqp",
+        "heygen", "modal", "surveysparrow", "coralogix",
+        "help-scout", "lastpass", "recurly-com", "segment",
+        "lob-com", "productboard", "dash0", "temporal", "neon", "smarsh",
+        "panther-labs", "plume", "contentsquare", "uploadcare",
+        "browserbase", "tableau", "accurx", "inkeep", "kyndryl",
+        "data-zoo", "hightouch", "plivo", "smartrecruiters", "sms-magic",
+        "cloudinary", "langfuse",
+        "artie", "discourse", "pluralsight", "brightcove",
+        "kombo-technologies", "litmus",
+        "unbounce", "e2open", "krea", "boltz", "link-mobility", "arsys",
+        "ask-ai", "sublime-security", "monetate", "protiviti",
+        "telesign", "alphasights", "scoro", "absolute-security", "crowdin",
+        "chargebee", "discord", "ada", "bugsnag",
+        "exoscale", "hiddenlayer", "aha",
+        "nodedata", "reversing-labs", "onespan", "rogo", "humans-and",
+        "leaseweb-global", "immunify360", "invoiceexpress",
+        "support-zebra", "softwarex", "telegram", "skyhigh-security",
+        "softserve", "surveylab", "e-core", "concentrix", "tropic",
+        "hcl-tech", "luma-ai", "black-diamond-development", "tokenx",
+        "beyond", "charles-schwab-corporation", "replicate", "keycdn",
+        "name-com",
+        "netcore-cloud", "church-and-dwight", "cognizant", "copart",
+        "fedex", "epic-games", "flex-ltd", "energy-transfer-partners",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")
 
-    for slug in expected_batch:
+    for slug, rec in filed_dpa.items():
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
-        check('target="_blank"' in html and 'rel="noopener noreferrer"' in html, f"{slug} outbound opens a new tab")
-        check("wires-scroll" in html, f"{slug} dossier keeps the swipe wrapper")
-        visible = html.lower()
-        check(
-            "safebase" not in visible and "conveyor" not in visible and "drata" not in visible,
-            f"{slug} named a portal vendor",
-        )
-        check("vanta" not in visible, f"{slug} dossier names no portal vendor")
+        check(rec["url"] in html, f"{slug} dossier cites the DPA URL")
+        check('rel="noopener noreferrer"' in html, f"{slug} outbound links use noopener")
+    for slug, rec in filed_sub.items():
+        html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
+        check(rec["url"] in html, f"{slug} dossier cites the list URL")
+        check('rel="noopener noreferrer"' in html, f"{slug} outbound links use noopener")
+    # This cut: open is the honest result. Netcore Cloud SafeBase
+    # itemUid catalog, Church & Dwight / Copart / Energy Transfer /
+    # FedEx same-title SPA shells, Cognizant homepage bounce, Epic
+    # Games 403s, Flex distributed-power-architecture glossary, and
+    # Comfort Systems HTTP 202 probes stay unread.
+    # Prior cut: open is the honest result. HCL SaaS DPA is PDF-only.
+    # Luma's printed DPA is on lumalabs.ai, not the on-file luma.ai host.
+    # Black Diamond / TokenX / Beyond / Schwab same-title SPA shells,
+    # Replicate enterprise-sales DPA, KeyCDN support-request GDPR page,
+    # and Name.com reseller PDF stay unread.
+    # Prior cut: open is the honest result. SupportZebra same-title WordPress
+    # blog bounce, SoftwareX Wix/Parastorage JS-shell, Telegram same-title
+    # homepage, SoftServe 302 Loading shell, Skyhigh legal-notices hub,
+    # SurveyLab / e-Core / Concentrix homepage bounces stay unread. Tropic
+    # already has a named list; DPA probes 404.
+    # Prior cut: first-party Completeness DPA on Imunify360 and InvoiceXpress.
+    # Nodedata /dpa is a SvelteKit soft-404. ReversingLabs /data-processing-
+    # addendum is a Next.js marketing shell. OneSpan PDF / privacy-center,
+    # Rogo Framer shell, Leaseweb JS config shell, and Humans& same-title
+    # SPA stay unread. Imunify360 DPA annex table is not a cited list URL.
+    check(
+        instrument_url(by_pub["immunify360"], "dpa")
+        == "https://imunify360.com/legal/data-processing-addendum/",
+        "immunify360 DPA is first-party HTML",
+    )
+    check((by_pub["immunify360"].get("file") or {}).get("dpa") == 20, "immunify360 DPA prints")
+    check(not (by_pub["immunify360"].get("processors") or []), "immunify360 named list stays unread")
+    check((by_pub["immunify360"].get("file") or {}).get("subprocessors") in (0, False, None), "immunify360 processors stay open")
+    check(
+        instrument_url(by_pub["invoiceexpress"], "dpa")
+        == "https://invoicexpress.com/data-processing-terms/",
+        "invoiceexpress DPA is first-party HTML",
+    )
+    check((by_pub["invoiceexpress"].get("file") or {}).get("dpa") == 20, "invoiceexpress DPA prints")
+    check(not (by_pub["invoiceexpress"].get("processors") or []), "invoiceexpress named list stays unread")
+    check((by_pub["invoiceexpress"].get("file") or {}).get("subprocessors") in (0, False, None), "invoiceexpress processors stay open")
+    # Prior cut: first-party Completeness DPA on Exoscale and HiddenLayer.
+    # Aha! first-party HTML table. Chargebee Nuxt JS-shell titled DPA stays
+    # unread. Discord /privacy/dpa is the privacy policy. Ada SafeBase
+    # catalog stays unread. Bugsnag /legal/dpa parent-bounces to SmartBear.
+    # Functional Software aliases onto Sentry. O+ZWSP+penAI aliases onto
+    # OpenAI. Duo Security aliases onto Cisco. Rocket Science Group already
+    # lands on Mailchimp. OOPSpam and Pipedream stay leftover graph nodes.
+    check(
+        instrument_url(by_pub["exoscale"], "dpa") == "https://www.exoscale.com/dpa/",
+        "exoscale DPA is first-party HTML",
+    )
+    check((by_pub["exoscale"].get("file") or {}).get("dpa") == 20, "exoscale DPA prints")
+    check(not (by_pub["exoscale"].get("processors") or []), "exoscale named list stays unread")
+    check((by_pub["exoscale"].get("file") or {}).get("subprocessors") in (0, False, None), "exoscale processors stay open")
+    check(
+        instrument_url(by_pub["hiddenlayer"], "dpa") == "https://www.hiddenlayer.com/dpa",
+        "hiddenlayer DPA is first-party HTML",
+    )
+    check((by_pub["hiddenlayer"].get("file") or {}).get("dpa") == 20, "hiddenlayer DPA prints")
+    check(not (by_pub["hiddenlayer"].get("processors") or []), "hiddenlayer named list stays unread")
+    check((by_pub["hiddenlayer"].get("file") or {}).get("subprocessors") in (0, False, None), "hiddenlayer processors stay open")
+    aha_names = [p.get("name") for p in (by_pub["aha"].get("processors") or [])]
+    aha_slugs = [p.get("slug") for p in (by_pub["aha"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["aha"], "subprocessors")
+        == "https://www.aha.io/legal/subprocessors",
+        "aha list URL is first-party HTML",
+    )
+    check((by_pub["aha"].get("file") or {}).get("subprocessors") == 20, "aha processors print")
+    check(len(aha_names) == 14, f"aha printed 14 named processors, got {len(aha_names)}")
+    check("Amazon Web Services, Inc" in aha_names, "aha names AWS")
+    check("Functional Software, Inc" in aha_names, "aha names Functional Software")
+    check("Duo Security, Inc" in aha_names, "aha names Duo Security")
+    check("The Rocket Science Group, LLC" in aha_names, "aha names Rocket Science Group")
+    check("amazon-web-services" in aha_slugs, "aha AWS uses the Amazon Web Services file")
+    check("sentry" in aha_slugs, "aha Functional Software uses the Sentry file")
+    check("cisco" in aha_slugs, "aha Duo Security uses the Cisco file")
+    check("openai" in aha_slugs, "aha OpenAI uses the OpenAI file")
+    check("mailchimp" in aha_slugs, "aha Rocket Science Group uses the Mailchimp file")
+    check("oopspam" not in by_pub, "aha does not invent an OOPSpam dossier")
+    check("pipedream" not in by_pub, "aha does not invent a Pipedream dossier")
+    check("o-penai" not in by_pub, "aha does not invent an o-penai dossier")
+    check("duo-security" not in by_pub, "aha does not invent a Duo Security dossier")
+    check("functional-software" not in by_pub, "aha does not invent a Functional Software dossier")
+    # Prior cut: first-party Completeness DPA on Absolute Security and
+    # AlphaSights. AlphaSights and Scoro first-party HTML tables. Crowdin
+    # privacy-policy glossary (Client / User / Visitor) stays unread. Gemini
+    # aliases onto Google. ZipDX / PlanHat / Squadcast stay leftover graph
+    # nodes. Scoro DPA homepage-bounce stays open.
+    check(
+        instrument_url(by_pub["absolute-security"], "dpa")
+        == "https://www.absolute.com/company/legal/data-processing-addendum",
+        "absolute-security DPA is first-party HTML",
+    )
+    check((by_pub["absolute-security"].get("file") or {}).get("dpa") == 20, "absolute-security DPA prints")
+    check(not (by_pub["absolute-security"].get("processors") or []), "absolute-security named list stays unread")
+    check((by_pub["absolute-security"].get("file") or {}).get("subprocessors") in (0, False, None), "absolute-security processors stay open")
+    check(
+        instrument_url(by_pub["alphasights"], "dpa") == "https://www.alphasights.com/dpa/",
+        "alphasights DPA is first-party HTML",
+    )
+    check((by_pub["alphasights"].get("file") or {}).get("dpa") == 20, "alphasights DPA prints")
+    as_names = [p.get("name") for p in (by_pub["alphasights"].get("processors") or [])]
+    as_slugs = [p.get("slug") for p in (by_pub["alphasights"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["alphasights"], "subprocessors")
+        == "https://www.alphasights.com/sub-processors/",
+        "alphasights list URL is first-party HTML",
+    )
+    check((by_pub["alphasights"].get("file") or {}).get("subprocessors") == 20, "alphasights processors print")
+    check(len(as_names) == 18, f"alphasights printed 18 named processors, got {len(as_names)}")
+    check("Amazon Web Services" in as_names, "alphasights names AWS")
+    check("Twilio Inc" in as_names, "alphasights names Twilio")
+    check("Zoom Video Communications, Inc" in as_names, "alphasights names Zoom")
+    check("Google Cloud EMEA Limited" in as_names, "alphasights names Google Cloud EMEA")
+    check("amazon-web-services" in as_slugs, "alphasights AWS uses the Amazon Web Services file")
+    check("twilio" in as_slugs, "alphasights Twilio uses the Twilio file")
+    check("zoom" in as_slugs, "alphasights Zoom uses the Zoom file")
+    check("google" in as_slugs, "alphasights Google Cloud EMEA uses the Google file")
+    check("zipdx" not in by_pub, "alphasights does not invent a ZipDX dossier")
+    check(
+        instrument_url(by_pub["scoro"], "subprocessors")
+        == "https://www.scoro.com/subprocessor-list/",
+        "scoro list URL is first-party HTML",
+    )
+    check((by_pub["scoro"].get("file") or {}).get("subprocessors") == 20, "scoro processors print")
+    sc_names = [p.get("name") for p in (by_pub["scoro"].get("processors") or [])]
+    sc_slugs = [p.get("slug") for p in (by_pub["scoro"].get("processors") or [])]
+    check(len(sc_names) == 15, f"scoro printed 15 named processors, got {len(sc_names)}")
+    check("Amazon Web Services" in sc_names, "scoro names AWS")
+    check("Gemini" in sc_names, "scoro names Gemini")
+    check("Google Cloud Platform" in sc_names, "scoro names Google Cloud Platform")
+    check("Google Workspace" in sc_names, "scoro names Google Workspace")
+    check("Hetzner" in sc_names, "scoro names Hetzner")
+    check("amazon-web-services" in sc_slugs, "scoro AWS uses the Amazon Web Services file")
+    check("google" in sc_slugs, "scoro Gemini / GCP / Workspace use the Google file")
+    check("hetzner-online" in sc_slugs, "scoro Hetzner uses the Hetzner Online file")
+    check("planhat" not in by_pub, "scoro does not invent a PlanHat dossier")
+    check("squadcast" not in by_pub, "scoro does not invent a Squadcast dossier")
+    check("gemini" not in by_pub, "scoro does not invent a Gemini dossier")
+    # Prior cut: first-party Completeness DPA on strongDM. Koala first-party
+    # HTML list. SendGrid aliases onto Twilio. Mode stays a leftover graph
+    # node. Kombo PDF-download DPA and Litmus→Validity parent list stay open.
+    check(
+        instrument_url(by_pub["strongdm"], "dpa")
+        == "https://www.strongdm.com/legal/data-processing-agreement",
+        "strongdm DPA is first-party HTML",
+    )
+    check((by_pub["strongdm"].get("file") or {}).get("dpa") == 20, "strongdm DPA prints")
+    check(not (by_pub["strongdm"].get("processors") or []), "strongdm SafeBase list stays unread")
+    koala_names = [p.get("name") for p in (by_pub["konfetti-koala"].get("processors") or [])]
+    koala_slugs = [p.get("slug") for p in (by_pub["konfetti-koala"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["konfetti-koala"], "subprocessors")
+        == "https://getkoala.com/legal/subprocessors",
+        "konfetti-koala list URL is first-party HTML",
+    )
+    check((by_pub["konfetti-koala"].get("file") or {}).get("subprocessors") == 20, "konfetti-koala processors print")
+    check(len(koala_names) == 4, f"konfetti-koala printed 4 named processors, got {len(koala_names)}")
+    check("Amazon Web Services" in koala_names, "konfetti-koala names AWS")
+    check("Cloudflare" in koala_names, "konfetti-koala names Cloudflare")
+    check("SendGrid" in koala_names, "konfetti-koala names SendGrid")
+    check("Mode" in koala_names, "konfetti-koala names Mode")
+    check("amazon-web-services" in koala_slugs, "konfetti-koala AWS uses the Amazon Web Services file")
+    check("cloudflare" in koala_slugs, "konfetti-koala Cloudflare uses the Cloudflare file")
+    check("twilio" in koala_slugs, "konfetti-koala SendGrid uses the Twilio file")
+    check("mode" not in by_pub, "konfetti-koala does not invent a Mode dossier")
+    check("dpa" not in ((by_enr["kombo-technologies"].get("links") or {})), "Kombo PDF DPA stays off file")
+    check(not (by_pub["litmus"].get("processors") or []), "Litmus names no parent-company processors")
+    # Prior cut: first-party Completeness DPA on Artie, Discourse, Pluralsight.
+    # Brightcove first-party HTML list. Bending Spoons parent-affiliate row
+    # stays unread. Cloudfront / Elastic Search / Google Ad Manager alias
+    # onto existing register slugs. PDF DPA and CSS-grid / JS-shell lists
+    # stay open.
+    check(
+        instrument_url(by_pub["artie"], "dpa")
+        == "https://www.artie.com/docs/legal/data-processing-addendum",
+        "artie DPA is first-party HTML",
+    )
+    check((by_pub["artie"].get("file") or {}).get("dpa") == 20, "artie DPA prints")
+    check(not (by_pub["artie"].get("processors") or []), "artie portal list stays unread")
+    check(
+        instrument_url(by_pub["discourse"], "dpa")
+        == "https://www.discourse.org/data-processing-addendum",
+        "discourse DPA is first-party HTML",
+    )
+    check((by_pub["discourse"].get("file") or {}).get("dpa") == 20, "discourse DPA prints")
+    check(
+        instrument_url(by_pub["pluralsight"], "dpa") == "https://www.pluralsight.com/terms/dpa",
+        "pluralsight DPA is first-party HTML",
+    )
+    check((by_pub["pluralsight"].get("file") or {}).get("dpa") == 20, "pluralsight DPA prints")
+    check(not (by_pub["pluralsight"].get("processors") or []), "pluralsight JS-shell list stays unread")
+    bc_names = [p.get("name") for p in (by_pub["brightcove"].get("processors") or [])]
+    bc_slugs = [p.get("slug") for p in (by_pub["brightcove"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["brightcove"], "subprocessors")
+        == "https://www.brightcove.com/legal/services-subprocessors",
+        "brightcove list URL is first-party HTML",
+    )
+    check((by_pub["brightcove"].get("file") or {}).get("subprocessors") == 20, "brightcove processors print")
+    check(len(bc_names) == 31, f"brightcove printed 31 named processors, got {len(bc_names)}")
+    check("Amazon Web Services" in bc_names, "brightcove names AWS")
+    check("Cloudfront" in bc_names, "brightcove names Cloudfront")
+    check("Elastic Search" in bc_names, "brightcove names Elastic Search")
+    check("Google Ad Manager" in bc_names, "brightcove names Google Ad Manager")
+    check("Google Cloud Platform" in bc_names, "brightcove names Google Cloud Platform")
+    check("MessageBird (Pusher)" in bc_names, "brightcove names MessageBird (Pusher)")
+    check("Bending Spoons and its affiliates" not in bc_names, "brightcove parent-affiliate stays off file")
+    check("amazon-web-services" in bc_slugs, "brightcove Cloudfront uses the Amazon Web Services file")
+    check("elastic" in bc_slugs, "brightcove Elastic Search uses the Elastic file")
+    check("google" in bc_slugs, "brightcove Google Ad Manager uses the Google file")
+    check("messagebird" in bc_slugs, "brightcove MessageBird uses the MessageBird file")
+    check("mongodb" in bc_slugs, "brightcove MongoDB / Atlas uses the MongoDB file")
+    check("openai" in bc_slugs, "brightcove OpenAI Ireland uses the OpenAI file")
+    check("castlabs" not in by_pub, "brightcove does not invent a CastLabs dossier")
+    check("keen-io" not in by_pub, "brightcove does not invent a Keen.io dossier")
+    check("last9" not in by_pub, "brightcove does not invent a Last9 dossier")
+    check(by_pub["wowza"].get("domain") == "wowza.com", "brightcove Wowza uses the existing Wowza file")
+    check("pigeonlab" not in by_pub, "brightcove does not invent a PigeonLab dossier")
+    check("bending-spoons-and-its-affiliates" not in by_pub, "brightcove does not invent a Bending Spoons affiliates dossier")
+    # Prior cut: first-party HTML lists. Combined / unnamed / parent / PDF rows
+    # stay unread. Same-company leftovers alias onto existing register slugs.
+    datazoo_names = [p.get("name") for p in (by_pub["data-zoo"].get("processors") or [])]
+    datazoo_slugs = [p.get("slug") for p in (by_pub["data-zoo"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["data-zoo"], "subprocessors")
+        == "https://datazoo.com/policy/data-sub-processor-list",
+        "data-zoo list URL is the first-party policy page",
+    )
+    check((by_pub["data-zoo"].get("file") or {}).get("subprocessors") == 20, "data-zoo processors print")
+    check(len(datazoo_names) == 16, f"data-zoo printed 16 named processors, got {len(datazoo_names)}")
+    check("Aha!" in datazoo_names, "data-zoo names Aha!")
+    check("Google Cloud Platform" in datazoo_names, "data-zoo names Google Cloud Platform")
+    check("Microsoft Office" in datazoo_names, "data-zoo names Microsoft Office")
+    check("Vanta" not in datazoo_names, "data-zoo portal vendor Vanta stays off file")
+    check("google" in datazoo_slugs, "data-zoo GCP uses the Google file")
+    check("microsoft" in datazoo_slugs, "data-zoo Microsoft Office uses the Microsoft file")
+    check("sentry" in datazoo_slugs, "data-zoo Sentry uses the Sentry file")
+    check(by_pub["crushftp"].get("domain") == "crushftp.com", "data-zoo CrushFTP uses the existing CrushFTP file")
+    check("voyager" not in by_pub, "data-zoo does not invent a Voyager dossier")
+    check("voyager" not in by_enr, "voyager stays a domain-less leftover after the wrong-company revert")
+    check(
+        by_pub["employment-hero"].get("domain") == "employmenthero.com",
+        "data-zoo Employment Hero uses the existing Employment Hero file",
+    )
+    ht_names = [p.get("name") for p in (by_pub["hightouch"].get("processors") or [])]
+    ht_slugs = [p.get("slug") for p in (by_pub["hightouch"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["hightouch"], "subprocessors") == "https://hightouch.com/subprocessors",
+        "hightouch list URL is first-party HTML",
+    )
+    check((by_pub["hightouch"].get("file") or {}).get("subprocessors") == 20, "hightouch processors print")
+    check(len(ht_names) == 14, f"hightouch printed 14 named processors, got {len(ht_names)}")
+    check("Amazon Web Services, Inc" in ht_names, "hightouch names AWS")
+    check("HotJar, Ltd" in ht_names, "hightouch names HotJar")
+    check("amazon-web-services" in ht_slugs, "hightouch AWS uses the Amazon Web Services file")
+    check("contentsquare" in ht_slugs, "hightouch HotJar uses the Contentsquare file")
+    check("chili-piper" not in by_pub, "hightouch does not invent a Chili Piper dossier")
+    plivo_names = [p.get("name") for p in (by_pub["plivo"].get("processors") or [])]
+    plivo_slugs = [p.get("slug") for p in (by_pub["plivo"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["plivo"], "subprocessors") == "https://www.plivo.com/legal/subprocessors/",
+        "plivo list URL is first-party HTML",
+    )
+    check((by_pub["plivo"].get("file") or {}).get("subprocessors") == 20, "plivo processors print")
+    check(len(plivo_names) == 31, f"plivo printed 31 named processors, got {len(plivo_names)}")
+    check("Open AI" in plivo_names, "plivo names Open AI")
+    check("openai" in plivo_slugs, "plivo Open AI uses the OpenAI file")
+    check("linkedin" in plivo_slugs, "plivo LinkedIn Sales Navigator uses the LinkedIn file")
+    check("Grok, Perplexity" not in plivo_names, "plivo combined Grok/Perplexity stays off file")
+    check("PunHub" not in plivo_names, "plivo PunHub stays off file")
+    check("punhub" not in by_pub, "plivo does not invent a PunHub dossier")
+    sr_names = [p.get("name") for p in (by_pub["smartrecruiters"].get("processors") or [])]
+    sr_slugs = [p.get("slug") for p in (by_pub["smartrecruiters"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["smartrecruiters"], "subprocessors")
+        == "https://www.smartrecruiters.com/legal/subprocessors/",
+        "smartrecruiters list URL is first-party HTML",
+    )
+    check((by_pub["smartrecruiters"].get("file") or {}).get("subprocessors") == 20, "smartrecruiters processors print")
+    check(len(sr_names) == 41, f"smartrecruiters printed 41 named processors, got {len(sr_names)}")
+    check("SendGrid Inc" in sr_names, "smartrecruiters names SendGrid")
+    check("twilio" in sr_slugs, "smartrecruiters SendGrid uses the Twilio file")
+    check("microsoft" in sr_slugs, "smartrecruiters Microsoft Ireland uses the Microsoft file")
+    check("deepl" in sr_slugs, "smartrecruiters DeepL SE uses the DeepL file")
+    check("dispatch" not in by_pub, "smartrecruiters does not invent a Dispatch dossier")
+    sms_names = [p.get("name") for p in (by_pub["sms-magic"].get("processors") or [])]
+    sms_slugs = [p.get("slug") for p in (by_pub["sms-magic"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["sms-magic"], "subprocessors")
+        == "https://trust.sms-magic.com/subprocessors/",
+        "sms-magic list URL is the first-party trust page",
+    )
+    check((by_pub["sms-magic"].get("file") or {}).get("subprocessors") == 20, "sms-magic processors print")
+    check(len(sms_names) == 17, f"sms-magic printed 17 named processors, got {len(sms_names)}")
+    check("Fresh Desk" in sms_names, "sms-magic names Fresh Desk")
+    check("Pardot" in sms_names, "sms-magic names Pardot")
+    check("Quick Books" in sms_names, "sms-magic names Quick Books")
+    check("freshworks" in sms_slugs, "sms-magic Fresh Desk uses the Freshworks file")
+    check("salesforce" in sms_slugs, "sms-magic Pardot uses the Salesforce file")
+    check("intuit" in sms_slugs, "sms-magic Quick Books uses the Intuit file")
+    check("Telecom Partners (Aus)" not in sms_names, "sms-magic unnamed telecom rows stay off file")
+    check("match-my-email" not in by_pub, "sms-magic does not invent a Match My Email dossier")
+    check("aircall" not in by_pub, "sms-magic does not invent an Aircall dossier")
+    check("aircall" not in by_enr, "aircall stays a domain-less leftover after the wrong-company revert")
+    # Prior cut: Accurx first-party support-article table. DPA annex headings
+    # stay unread. Azure / SendGrid / TeamViewer UK alias onto existing rows.
+    accurx_names = [p.get("name") for p in (by_pub["accurx"].get("processors") or [])]
+    accurx_slugs = [p.get("slug") for p in (by_pub["accurx"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["accurx"], "subprocessors")
+        == "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors",
+        "accurx list URL is the first-party support article",
+    )
+    check((by_pub["accurx"].get("file") or {}).get("subprocessors") == 20, "accurx processors print")
+    check(len(accurx_names) == 13, f"accurx printed 13 named processors, got {len(accurx_names)}")
+    check("Tandem Health AB" in accurx_names, "accurx names Tandem Health AB")
+    check("Microsoft Azure" in accurx_names, "accurx names Microsoft Azure")
+    check("Sendgrid Inc" in accurx_names, "accurx names Sendgrid Inc")
+    check("TeamViewer UK Ltd" in accurx_names, "accurx names TeamViewer UK Ltd")
+    check("Service category" not in accurx_names, "accurx DPA Service category stays off file")
+    check("Security Measure" not in accurx_names, "accurx DPA Security Measure stays off file")
+    check("Core Services" not in accurx_names, "accurx DPA Core Services stays off file")
+    check("microsoft" in accurx_slugs, "accurx Azure uses the Microsoft file")
+    check("twilio" in accurx_slugs, "accurx Sendgrid uses the Twilio file")
+    check("teamviewer" in accurx_slugs, "accurx TeamViewer UK uses the TeamViewer file")
+    check("intercom" in accurx_slugs, "accurx Intercom uses the Intercom file")
+    check("google" in accurx_slugs, "accurx Google LLC uses the Google file")
+    check("tandem-health" not in by_pub, "accurx does not invent a Tandem Health dossier")
+    check("whereby" not in by_pub, "accurx does not invent a Whereby dossier")
+    check("aircall-sas" not in by_pub, "accurx does not invent an Aircall dossier")
+    accurx_html = (ROOT / "site" / "c" / "accurx.html").read_text(encoding="utf-8")
+    check(
+        "https://support.accurx.com/en/articles/768787-privacy-security-accurx-sub-processors" in accurx_html,
+        "accurx dossier cites the support-article list",
+    )
+    check("./microsoft.html" in accurx_html, "accurx Azure cross-links to Microsoft")
+    check("./twilio.html" in accurx_html, "accurx Sendgrid cross-links to Twilio")
+    check("./teamviewer.html" in accurx_html, "accurx TeamViewer UK cross-links to TeamViewer")
+    check("Service category" not in accurx_html, "accurx dossier does not print DPA Service category")
+    check("Security Measure" not in accurx_html, "accurx dossier does not print DPA Security Measure")
+    # PR 269 filings stay on file. Browserbase / Tableau review drops stay unread.
+    check(len(by_pub["contentsquare"].get("processors") or []) == 24, "contentsquare 24 names stay")
+    check(len(by_pub["uploadcare"].get("processors") or []) == 25, "uploadcare 25 names stay")
+    check(len(by_pub["lob-com"].get("processors") or []) == 37, "lob-com 37 names print")
+    check((by_pub["lob-com"].get("file") or {}).get("subprocessors") == 20, "lob-com processors print")
+    check(len(by_pub["productboard"].get("processors") or []) == 15, "productboard 15 names print")
+    check((by_pub["productboard"].get("file") or {}).get("subprocessors") == 20, "productboard processors print")
+    check(not (by_pub["smarsh"].get("processors") or []), "smarsh named processors stay unread")
+    check((by_pub["smarsh"].get("file") or {}).get("subprocessors") == 10, "smarsh Completeness is not bumped")
+    lob_html = (ROOT / "site" / "c" / "lob-com.html").read_text(encoding="utf-8")
+    check("./mailchimp.html" in lob_html, "lob Rocket Science Group cross-links to Mailchimp")
+    check("./shutterfly.html" in lob_html, "lob Shutterfly cross-links to Shutterfly")
+    pb_html = (ROOT / "site" / "c" / "productboard.html").read_text(encoding="utf-8")
+    check("./twilio.html" in pb_html, "productboard SendGrid cross-links to Twilio")
+    check("./foundry-labs.html" in pb_html, "productboard FoundryLabs cross-links to Foundry Labs")
+    check("./google.html" in pb_html, "productboard Google Vertex AI cross-links to Google")
+    sm_html = (ROOT / "site" / "c" / "smarsh.html").read_text(encoding="utf-8")
+    check("Named processors filed from a first-party list" not in sm_html, "smarsh clerk line is not a named-list fill")
+    check("410 Terry Ave" not in sm_html, "smarsh does not print the unread Cloudflare-wall names")
+    cloud_html = (ROOT / "site" / "c" / "84codes-cloudamqp.html").read_text(encoding="utf-8")
+    check(">Topic<" not in cloud_html, "CloudAMQP does not print DPA Topic as a processor")
+    check("Retention period" not in cloud_html, "CloudAMQP does not print Retention period")
+    # PR 267 filings stay on file. LastPass / Recurly / Segment review drops stay unread.
+    check(len(by_pub["help-scout"].get("processors") or []) == 20, "help-scout 20 names stay")
+    check(len(by_pub["shortcut-software"].get("processors") or []) == 33, "shortcut 33 names stay")
+    check(len(by_pub["wingify"].get("processors") or []) == 6, "wingify 6 names stay")
+    check(len(by_pub["wrike"].get("processors") or []) == 21, "wrike 21 names stay")
+    check("dpa" not in ((by_enr["lastpass"].get("links") or {})), "LastPass JS-shell DPA stays off file")
+    check("dpa" not in ((by_enr["recurly-com"].get("links") or {})), "Recurly Marketo PDF DPA stays off file")
+    check(not (by_pub["segment"].get("processors") or []), "Segment names no processors")
+    check(
+        (by_enr["segment"].get("links") or {}).get("subprocessors")
+        == "https://www.twilio.com/en-us/legal/sub-processors",
+        "Segment stored list URL stays the Twilio page, names stay unread",
+    )
+    help_html = (ROOT / "site" / "c" / "help-scout.html").read_text(encoding="utf-8")
+    check("./pusher.html" in help_html, "help-scout Pusher.io cross-links to Pusher")
+    check("./fivetran.html" in help_html, "help-scout Census cross-links to Fivetran")
+    short_html = (ROOT / "site" / "c" / "shortcut-software.html").read_text(encoding="utf-8")
+    check("./ketch.html" in short_html, "shortcut Ketch Kloud cross-links to Ketch")
+    check("./plain.html" in short_html, "shortcut Not Just Tickets cross-links to Plain")
+    wrike_html = (ROOT / "site" / "c" / "wrike.html").read_text(encoding="utf-8")
+    check("./maestroqa.html" in wrike_html, "wrike Adtrib/MaestroQA cross-links to MaestroQA")
+    check("./ada.html" in wrike_html, "wrike Ada Support cross-links to Ada")
+    # PR 266 filings stay on file. Modal / SurveySparrow DPA annex drops stay unread.
+    check(len(by_pub["coralogix"].get("processors") or []) == 13, "coralogix 13 names stay")
+    check(len(by_pub["lambdatest"].get("processors") or []) == 34, "lambdatest 34 names stay")
+    check(len(by_pub["postmark"].get("processors") or []) == 2, "postmark 2 names stay")
+    check(len(by_pub["turbopuffer"].get("processors") or []) == 17, "turbopuffer 17 names stay")
+    check(not (by_pub["modal"].get("processors") or []), "Modal names no processors")
+    check(
+        "subprocessors" not in ((by_enr["modal"].get("links") or {})),
+        "Modal links.subprocessors stays off the DPA URL",
+    )
+    check(not (by_pub["surveysparrow"].get("processors") or []), "SurveySparrow names no processors")
+    check(
+        (by_enr["surveysparrow"].get("links") or {}).get("dpa") == "https://surveysparrow.com/legal/dpa/",
+        "SurveySparrow DPA stays on file",
+    )
+    check(
+        "subprocessors" not in ((by_enr["surveysparrow"].get("links") or {})),
+        "SurveySparrow links.subprocessors stays off the DPA URL",
+    )
+    # PR 265 filings stay on file. CloudAMQP DPA annex drop stays unread.
+    check(len(by_pub["apideck"].get("processors") or []) == 11, "apideck 11 names stay")
+    check("fathom-analytics" not in by_pub, "apideck does not invent a Fathom Analytics dossier")
+    check("fathom-analytics" not in by_enr, "fathom-analytics stays a domain-less leftover after the wrong-company revert")
+    check(len(by_pub["client-success"].get("processors") or []) == 10, "client-success 10 names stay")
+    check(len(by_pub["forethought-technologies"].get("processors") or []) == 21, "forethought 21 names stay")
+    check(len(by_pub["jasper-ai"].get("processors") or []) == 31, "jasper 31 names stay")
+    check("maxio" not in by_pub, "jasper does not invent a Maxio dossier")
+    check("maxio" not in by_enr, "maxio stays a domain-less leftover after the wrong-company revert")
+    leftover_nodes = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug, bad_domain in (
+        ("maxio", "maxionwheels.com"),
+        ("aircall", "aircall.se"),
+        ("voyager", "voyager.nz"),
+        ("fathom-analytics", "fathom.video"),
+    ):
+        node = leftover_nodes.get(slug) or {}
+        check(node, f"{slug} leftover graph node stays")
+        check(not (node.get("domain") or ""), f"{slug} leftover stays domain-less, got {node.get('domain')!r}")
+        check(bad_domain not in (node.get("domain") or ""), f"{slug} leftover does not keep {bad_domain}")
+        check(not node.get("in_register"), f"{slug} leftover stays off the register")
+        check(not (ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier page is gone")
+    datazoo_html = (ROOT / "site" / "c" / "data-zoo.html").read_text(encoding="utf-8")
+    sms_html = (ROOT / "site" / "c" / "sms-magic.html").read_text(encoding="utf-8")
+    jasper_html = (ROOT / "site" / "c" / "jasper-ai.html").read_text(encoding="utf-8")
+    apideck_html = (ROOT / "site" / "c" / "apideck.html").read_text(encoding="utf-8")
+    check('../graph.html#p=voyager">Voyager' in datazoo_html, "data-zoo Voyager stays a leftover map node")
+    check("./voyager.html" not in datazoo_html, "data-zoo does not link a Voyager dossier")
+    check("voyager.nz" not in datazoo_html, "data-zoo does not cite voyager.nz")
+    check('../graph.html#p=aircall">Aircall' in sms_html, "sms-magic Aircall stays a leftover map node")
+    check("./aircall.html" not in sms_html, "sms-magic does not link an Aircall dossier")
+    check("aircall.se" not in sms_html, "sms-magic does not cite aircall.se")
+    check('../graph.html#p=maxio">Maxio' in jasper_html, "jasper Maxio stays a leftover map node")
+    check("./maxio.html" not in jasper_html, "jasper does not link a Maxio dossier")
+    check("maxionwheels.com" not in jasper_html, "jasper does not cite maxionwheels.com")
+    check('../graph.html#p=fathom-analytics">Fathom Analytics, Inc' in apideck_html, "apideck Fathom Analytics stays a leftover map node")
+    check("./fathom-analytics.html" not in apideck_html, "apideck does not link a Fathom Analytics dossier")
+    check("fathom.video" not in apideck_html, "apideck does not cite fathom.video")
+    check("fathom.ai" not in apideck_html, "apideck does not cite fathom.ai")
+    check(len(by_pub["liveblocks"].get("processors") or []) == 14, "liveblocks 14 names stay")
+    check(len(by_pub["rollbar"].get("processors") or []) == 14, "rollbar 14 names stay")
+    check(len(by_pub["sigma"].get("processors") or []) == 20, "sigma 20 names stay")
+    check(len(by_pub["synadia-cloud"].get("processors") or []) == 13, "synadia 13 names stay")
+    check(not (by_pub["84codes-cloudamqp"].get("processors") or []), "CloudAMQP names no processors")
+    modal_html = (ROOT / "site" / "c" / "modal.html").read_text(encoding="utf-8")
+    check("Technical and Organizational Security Measure" not in modal_html, "Modal does not print DPA TOM headings")
+    check("Measures of pseudonymisation" not in modal_html, "Modal does not print SCC annex measures")
+    # PR 263 filings stay on file. Annex/cookie/data-category drops stay unread.
+    check(len(by_pub["clazar"].get("processors") or []) == 17, "clazar 17 names stay")
+    check(len(by_pub["daily"].get("processors") or []) == 22, "daily 22 names stay")
+    check(len(by_pub["front"].get("processors") or []) == 9, "front 9 names stay")
+    check(len(by_pub["sentry"].get("processors") or []) == 7, "sentry 7 names stay")
+    check(len(by_pub["stream-io"].get("processors") or []) == 15, "stream-io 15 names stay")
+    for slug in ("arkose-labs", "qualified-com", "incident-io", "mapbox"):
+        check(not (by_pub[slug].get("processors") or []), f"{slug} names no processors")
+        check((by_pub[slug].get("file") or {}).get("subprocessors") in (0, 10, False, None), f"{slug} processors glyph is not printed")
+    check("subprocessors" not in ((by_enr["arkose-labs"].get("links") or {})), "arkose-labs links.subprocessors stays off file")
+    check(
+        (by_enr["incident-io"].get("links") or {}).get("subprocessors")
+        == "https://incident.io/legal/sub-processors",
+        "incident-io list URL stays the first-party sub-processors page",
+    )
+    check(
+        (by_enr["qualified-com"].get("links") or {}).get("subprocessors")
+        == "https://www.qualified.com/legal/subprocessors",
+        "qualified-com stored list URL stays, names stay unread",
+    )
+    check(
+        (by_enr["mapbox"].get("links") or {}).get("subprocessors")
+        == "https://www.mapbox.com/legal/subprocessors",
+        "mapbox stored list URL stays, names stay unread",
+    )
+    arkose_html = (ROOT / "site" / "c" / "arkose-labs.html").read_text(encoding="utf-8")
+    check("Data Subjects" not in arkose_html, "arkose-labs does not print SCC annex headings")
+    check("UK GDPR" not in arkose_html, "arkose-labs does not print UK GDPR as a processor")
+    q_html = (ROOT / "site" / "c" / "qualified-com.html").read_text(encoding="utf-8")
+    check("qualified_session" not in q_html, "qualified-com does not print cookie names")
+    check("my_onetrust_groups" not in q_html, "qualified-com does not print OneTrust cookie rows")
+    inc_html = (ROOT / "site" / "c" / "incident-io.html").read_text(encoding="utf-8")
+    check("company-number-or-equivalent" not in inc_html, "incident-io does not print DPA annex headings")
+    check("Role (controller/processor)" not in inc_html, "incident-io does not print Role heading")
+    mapbox_html = (ROOT / "site" / "c" / "mapbox.html").read_text(encoding="utf-8")
+    check("Geolocation Data" not in mapbox_html, "mapbox does not print data-category rows")
+    check("Commercial Information" not in mapbox_html, "mapbox does not print Commercial Information")
     pronto_html = (ROOT / "site" / "c" / "pronto-software.html").read_text(encoding="utf-8")
     check("Official page" in pronto_html, "Pronto Software still prints Official page")
     cognition = (ROOT / "site" / "c" / "cognition.html").read_text(encoding="utf-8")
@@ -413,9 +1046,9 @@ def main() -> int:
         "constella enriched DPA URL stays",
     )
     check(by_pub["arsys"]["domain"] == "arsys.es", "arsys official domain is arsys.es")
-    check((by_pub["arsys"].get("file") or {}).get("page") in (0, False, None), "arsys Official page stays open")
-    check(sum(int((by_pub["arsys"].get("file") or {}).get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years")) == 0, "arsys Completeness is 0")
-    check(by_pub["arsys"].get("found") is False, "arsys usual paths did not invent Official page")
+    check((by_pub["arsys"].get("file") or {}).get("page") == 20, "arsys Official page prints")
+    check(sum(int((by_pub["arsys"].get("file") or {}).get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years")) == 40, "arsys Completeness is page + marks")
+    check(by_pub["arsys"].get("found") is True, "arsys Official page is on file")
     check((by_pub["ionos"].get("domain") or "") == "ionos.com", "ionos row stays ionos.com")
     arsys_html = (ROOT / "site" / "c" / "arsys.html").read_text(encoding="utf-8")
     check("<h1>Arsys</h1>" in arsys_html, "arsys dossier is its own file")
@@ -431,8 +1064,8 @@ def main() -> int:
     )
     check((by_pub["namely"].get("file") or {}).get("dpa") == 20, "namely DPA prints")
     check((by_pub["namely"].get("file") or {}).get("subprocessors") == 20, "namely Annex III processors print")
-    check((by_pub["namely"].get("file") or {}).get("page") in (0, False, None), "namely Official page stays open")
-    check((by_pub["namely"].get("file") or {}).get("marks") in (0, False, None), "namely marks stay open")
+    check((by_pub["namely"].get("file") or {}).get("page") == 20, "namely Official page prints")
+    check((by_pub["namely"].get("file") or {}).get("marks") == 10, "namely marks stay dotted")
     check((by_pub["namely"].get("file") or {}).get("years") in (0, False, None), "namely years stay open")
     namely_names = [p.get("name") for p in (by_pub["namely"].get("processors") or [])]
     namely_slugs = [p.get("slug") for p in (by_pub["namely"].get("processors") or [])]
@@ -475,6 +1108,88 @@ def main() -> int:
             sum(int((by_pub[slug].get("file") or {}).get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years")) == 0,
             f"{slug} Completeness is 0",
         )
+
+    # This cut: Contentsquare first-party affiliate + third-party table.
+    # Content Square / Hotjar / Loris group rows stay off file (same company).
+    cs_names = [p.get("name") for p in (by_pub["contentsquare"].get("processors") or [])]
+    cs_slugs = [p.get("slug") for p in (by_pub["contentsquare"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["contentsquare"], "subprocessors")
+        == "https://contentsquare.com/privacy-center/subprocessors/",
+        "contentsquare list URL stays the first-party privacy-center table",
+    )
+    check((by_pub["contentsquare"].get("file") or {}).get("subprocessors") == 20, "contentsquare list printed")
+    check((by_pub["contentsquare"].get("file") or {}).get("dpa") in (0, False, None), "contentsquare DPA stays open")
+    check("Atlassian Pty Ltd (Jira)" in cs_names, "contentsquare names Atlassian Pty Ltd (Jira)")
+    check("Amazon Web Services, Inc" in cs_names, "contentsquare names Amazon Web Services, Inc")
+    check("Microsoft Azure" in cs_names, "contentsquare names Microsoft Azure")
+    check("Ada Support, Inc" in cs_names, "contentsquare names Ada Support, Inc")
+    check("OpenAI OpCo, LLC" in cs_names, "contentsquare names OpenAI OpCo, LLC")
+    check("Turbopuffer Inc" in cs_names, "contentsquare names Turbopuffer Inc")
+    check("Content Square SAS" not in cs_names, "contentsquare self-affiliate Content Square SAS stays off file")
+    check("Hotjar Germany GmbH" not in cs_names, "contentsquare Hotjar group row stays off file")
+    check("Loris Technologies, Ltd" not in cs_names, "contentsquare Loris group row stays off file")
+    check(len(cs_names) == 24, f"contentsquare printed 24 third-party names, got {len(cs_names)}")
+    check("amazon-web-services" in cs_slugs, "contentsquare AWS uses the Amazon Web Services file")
+    check("microsoft" in cs_slugs, "contentsquare Azure uses the Microsoft file")
+    check("ada" in cs_slugs, "contentsquare Ada Support uses the Ada file")
+    check("content-square-sas" not in cs_slugs, "contentsquare does not invent a Content Square dossier")
+    check("hotjar-germany" not in cs_slugs, "contentsquare does not invent a Hotjar Germany dossier")
+    cs_html = (ROOT / "site" / "c" / "contentsquare.html").read_text(encoding="utf-8")
+    check(
+        "https://contentsquare.com/privacy-center/subprocessors/" in cs_html,
+        "contentsquare dossier keeps the list URL",
+    )
+    check("./amazon-web-services.html" in cs_html, "contentsquare AWS cross-links to Amazon Web Services")
+    check("./microsoft.html" in cs_html, "contentsquare Azure cross-links to Microsoft")
+    check("./ada.html" in cs_html, "contentsquare Ada Support cross-links to Ada")
+    check("Content Square SAS" not in cs_html, "contentsquare dossier does not print Content Square SAS")
+    check("Hotjar Germany" not in cs_html, "contentsquare dossier does not print Hotjar Germany")
+
+    # This cut: Uploadcare first-party /about/sub-processors/ table. Portal
+    # catalog URL upgraded to printed HTML. Product cells alias to existing files.
+    uc_names = [p.get("name") for p in (by_pub["uploadcare"].get("processors") or [])]
+    uc_slugs = [p.get("slug") for p in (by_pub["uploadcare"].get("processors") or [])]
+    check(
+        instrument_url(by_pub["uploadcare"], "subprocessors")
+        == "https://uploadcare.com/about/sub-processors/",
+        "uploadcare list URL is the first-party printed table",
+    )
+    check((by_pub["uploadcare"].get("file") or {}).get("subprocessors") == 20, "uploadcare list printed")
+    check((by_pub["uploadcare"].get("file") or {}).get("dpa") in (0, False, None), "uploadcare DPA stays open")
+    check("Amazon Web Services" in uc_names, "uploadcare names Amazon Web Services")
+    check("Zencoder" in uc_names, "uploadcare names Zencoder")
+    check("Facebook for Business" in uc_names, "uploadcare names Facebook for Business")
+    check("Google Cloud" in uc_names, "uploadcare names Google Cloud")
+    check("Google Workspace" in uc_names, "uploadcare names Google Workspace")
+    check("Google Marketing Platform" in uc_names, "uploadcare names Google Marketing Platform")
+    check("Microsoft Advertising" in uc_names, "uploadcare names Microsoft Advertising")
+    check("Talend" in uc_names, "uploadcare names Talend")
+    check(len(uc_names) == 25, f"uploadcare printed 25 named processors, got {len(uc_names)}")
+    check("amazon-web-services" in uc_slugs, "uploadcare AWS uses the Amazon Web Services file")
+    check("brightcove" in uc_slugs, "uploadcare Zencoder uses the Brightcove file")
+    check("meta" in uc_slugs, "uploadcare Facebook for Business uses the Meta file")
+    check("google" in uc_slugs, "uploadcare Google cells use the Google file")
+    check("microsoft" in uc_slugs, "uploadcare Microsoft Advertising uses the Microsoft file")
+    check("qlik" in uc_slugs, "uploadcare Talend uses the Qlik file")
+    check("facebook-for-business" not in uc_slugs, "uploadcare does not invent a Facebook for Business dossier")
+    check("talend" not in uc_slugs, "uploadcare does not invent a Talend dossier")
+    check("kaleido" not in by_pub, "kaleido leftover does not invent a dossier")
+    check("fern" not in by_pub, "fern leftover does not invent a dossier")
+    # Expand on main promoted Zamzar / Mezmo from leftover nodes to silent
+    # register rows. This cut does not invent a first-party file for them.
+    check(by_pub["zamzar"].get("found") is False, "zamzar Official page stays open")
+    check((by_pub["zamzar"].get("file") or {}).get("page") in (0, False, None), "zamzar Official page stays unread")
+    check(by_pub["mezmo"].get("found") is False, "mezmo Official page stays open")
+    check((by_pub["mezmo"].get("file") or {}).get("page") in (0, False, None), "mezmo Official page stays unread")
+    uc_html = (ROOT / "site" / "c" / "uploadcare.html").read_text(encoding="utf-8")
+    check("https://uploadcare.com/about/sub-processors/" in uc_html, "uploadcare dossier keeps the list URL")
+    check("./amazon-web-services.html" in uc_html, "uploadcare AWS cross-links to Amazon Web Services")
+    check("./brightcove.html" in uc_html, "uploadcare Zencoder cross-links to Brightcove")
+    check("./meta.html" in uc_html, "uploadcare Facebook for Business cross-links to Meta")
+    check("./google.html" in uc_html, "uploadcare Google cells cross-link to Google")
+    check("./qlik.html" in uc_html, "uploadcare Talend cross-links to Qlik")
+    check("trust.uploadcare.com/subprocessors" not in uc_html, "uploadcare dossier dropped the portal list URL")
 
     # This cut: Branch Metrics leftover. First-party /security is Official page.
     # legal.branch.io DPA and Subprocessor List print. Conveyor stays off Official page.
@@ -761,8 +1476,8 @@ def main() -> int:
         "ketch DPA is first-party HTML",
     )
     check((by_pub["ketch"].get("file") or {}).get("dpa") == 20, "ketch DPA prints")
-    check(by_pub["ketch"].get("found") is False, "ketch Vanta portal is not Official page")
-    check(not by_pub["ketch"].get("trust_url"), "ketch has no invented Official page")
+    check(by_pub["ketch"].get("found") is True, "ketch Official page is on file")
+    check(by_pub["ketch"].get("trust_url") == "https://trust.ketch.com", "ketch Official page is the Vanta trust portal")
     check(by_pub["ketch"].get("founded_year") == 2020, "ketch year is first-party foundingDate")
     check(by_pub["ketch"].get("founded_source") == "https://www.ketch.com/about", "ketch year source is /about")
     check((by_pub["ketch"].get("file") or {}).get("years") == 20, "ketch years print")
@@ -823,7 +1538,7 @@ def main() -> int:
     check("amazon-web-services" in kickbox_slugs, "kickbox AWS uses the existing file")
     check("sift-science" not in kickbox_ids, "kickbox does not keep a raw sift-science wire id")
     check("aws" not in kickbox_ids, "kickbox does not keep a raw aws wire id")
-    check(by_pub["kickbox"].get("found") is False, "kickbox Official page stays open")
+    check(by_pub["kickbox"].get("found") is True, "kickbox Official page is on file")
     check((by_pub["kickbox"].get("certs") or []) == [], "kickbox DPF / Vanta marks stay unread")
     kickbox_html = (ROOT / "site" / "c" / "kickbox.html").read_text(encoding="utf-8")
     check("<h1>Kickbox</h1>" in kickbox_html, "kickbox dossier is its own file")
@@ -861,7 +1576,7 @@ def main() -> int:
     check("aws" not in rootly_ids, "rootly does not keep a raw aws wire id")
     check("sendgrid" not in rootly_ids, "rootly SendGrid lands on Twilio")
     check(len(rootly_names) == 19, f"rootly printed 19 named processors, got {len(rootly_names)}")
-    check(by_pub["rootly"].get("found") is False, "rootly Official page stays open")
+    check(by_pub["rootly"].get("found") is True, "rootly Official page is on file")
     check((by_pub["rootly"].get("certs") or []) == [], "rootly product-page marks stay unread")
     rootly_html = (ROOT / "site" / "c" / "rootly.html").read_text(encoding="utf-8")
     check("<h1>Rootly</h1>" in rootly_html, "rootly dossier is its own file")
@@ -881,7 +1596,7 @@ def main() -> int:
     check(by_pub["pushy"].get("domain") == "pushy.me", "pushy domain is first-party proven")
     check(by_pub["pganalyze-duboce-labs"].get("domain") == "pganalyze.com", "pganalyze domain is first-party proven")
     check(by_pub["short-io"].get("domain") == "short.io", "short-io domain is first-party proven")
-    check(by_pub["quotaguard"].get("found") is False, "quotaguard Official page stays open")
+    check(by_pub["quotaguard"].get("found") is True, "quotaguard Official page is on file")
     check(by_pub["pushy"].get("found") is False, "pushy Official page stays open")
     check((by_pub["quotaguard"].get("file") or {}).get("years") == 20, "quotaguard years print")
     check(
@@ -943,7 +1658,7 @@ def main() -> int:
     check(by_pub["surbl"].get("domain") == "surbl.org", "surbl domain is first-party proven")
     check(by_pub["let-s-encrypt"].get("domain") == "letsencrypt.org", "let-s-encrypt domain is first-party proven")
     check(by_pub["hivelocity"].get("found") is False, "hivelocity Official page stays open")
-    check(by_pub["telegram"].get("found") is False, "telegram Official page stays open")
+    check(by_pub["telegram"].get("found") is True, "telegram Official page is on file")
 
     check(
         ((by_pub["ai-media"].get("instruments") or {}).get("privacy") or {}).get("url")
@@ -1053,11 +1768,11 @@ def main() -> int:
     check("./neon.html\">Neon, Inc" in retool_html, "retool Neon cross-links to the Neon file")
     check("./databricks.html\">Neon, Inc" not in retool_html, "retool Neon does not cross-link to Databricks")
     check(by_pub["neon"]["domain"] == "neon.tech", "neon domain is neon.tech")
-    check(by_pub["neon"].get("found") is False, "neon Official page stays open")
+    check(by_pub["neon"].get("found") is True, "neon Official page is on file")
     check(
         sum(int((by_pub["neon"].get("file") or {}).get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years"))
-        == 0,
-        "neon Completeness is 0",
+        == 40,
+        "neon Completeness is page + marks",
     )
     check("./temporal.html\">Temporal Technologies, Inc" in retool_html, "retool Temporal cross-links")
     check(
@@ -1204,10 +1919,10 @@ def main() -> int:
     swan_html = (ROOT / "site" / "c" / "swan.html").read_text(encoding="utf-8")
     check("https://www.getswan.com/legal/dpa" in swan_html, "swan dossier cites the DPA")
     check("notion.site" not in swan_html, "swan dossier does not file the Notion processor shell")
-    # This cut: first-party Completeness DPA on Coralogix. SafeBase
+    # Prior cut: first-party Completeness DPA on Coralogix. SafeBase
     # trust.coralogix.com is not Official page — URL-only instrument.
-    # Footer SOC/ISO/PCI/HIPAA chips stay unread. Usual first-party
-    # /security /trust /compliance paths 404 or bounce to the portal.
+    # Footer SOC/ISO/PCI/HIPAA chips stay unread. This cut files the
+    # first-party authorized-sub-processors list; Official page stays open.
     check(
         instrument_url(by_pub["coralogix"], "dpa")
         == "https://coralogix.com/data-processing-agreement/",
@@ -1224,10 +1939,12 @@ def main() -> int:
     check(not (by_pub["coralogix"].get("certs") or []), "coralogix footer chips stay unread")
     check((by_pub["coralogix"].get("file") or {}).get("marks") in (0, False, None), "coralogix marks stay open")
     check((by_pub["coralogix"].get("file") or {}).get("page") in (0, False, None), "coralogix Official page stays open")
-    check(not (by_pub["coralogix"].get("processors") or []), "coralogix named processors stay open")
+    check(len(by_pub["coralogix"].get("processors") or []) == 13, "coralogix 13 names print")
+    check((by_pub["coralogix"].get("file") or {}).get("subprocessors") == 20, "coralogix processors print")
     check(
-        (by_pub["coralogix"].get("file") or {}).get("subprocessors") in (0, False, None),
-        "coralogix processors stay open",
+        instrument_url(by_pub["coralogix"], "subprocessors")
+        == "https://coralogix.com/authorized-sub-processors/",
+        "coralogix list URL is the first-party authorized-sub-processors page",
     )
     check(by_pub["coralogix"].get("founded_year") in (None, 0, False), "coralogix years stay open")
     coralogix_html = (ROOT / "site" / "c" / "coralogix.html").read_text(encoding="utf-8")
@@ -1235,6 +1952,10 @@ def main() -> int:
     check(
         "https://coralogix.com/data-processing-agreement/" in coralogix_html,
         "coralogix dossier cites the DPA",
+    )
+    check(
+        "https://coralogix.com/authorized-sub-processors/" in coralogix_html,
+        "coralogix dossier cites the authorized-sub-processors list",
     )
     check("https://trust.coralogix.com" in coralogix_html, "coralogix dossier cites the portal as an instrument URL")
     check("Official page · not on file" in coralogix_html, "coralogix Official page stays open")
@@ -1326,7 +2047,7 @@ def main() -> int:
     check("vanta" not in voyage_html.lower(), "voyage-ai dossier names no portal vendor")
 
     print(
-        f"ok increment-dpa privacy-page-queue {len(expected_batch)} walked; "
+        f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
     )
     return 0

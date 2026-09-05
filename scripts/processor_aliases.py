@@ -48,6 +48,14 @@ REGISTER_ALIASES: dict[str, str] = {
     "parallel-web-systems": "parallel",
     # Google products / regional entities.
     "google-gemini": "google",
+    # Scoro prints Gemini as the employee AI assistant. google is on the register.
+    "gemini": "google",
+    # Aha! prints Functional Software, Inc. sentry is on the register.
+    "functional-software": "sentry",
+    # Aha! prints O+ZWSP+penAI, LLC, which slugifies to o-penai. openai is on the register.
+    "o-penai": "openai",
+    # Aha! prints Duo Security, Inc. Cisco acquired Duo. cisco is on the register.
+    "duo-security": "cisco",
     "google-ireland": "google",
     "google-firebase": "google",
     "google-vertex-ai": "google",
@@ -148,6 +156,8 @@ REGISTER_ALIASES: dict[str, str] = {
     "mistral-ai-sas": "mistral-ai",
     "notion-labs-notion": "notion",
     "hashicorp-cloud": "hashicorp",
+    # dbt Cloud is dbt Labs. dbt-labs is on the register.
+    "dbt-cloud": "dbt-labs",
     "crusoe-cloud": "crusoe",
     "crusoe-energy-system-llc": "crusoe",
     "grafana-labs-raintank": "grafana-labs",
@@ -398,6 +408,10 @@ REGISTER_ALIASES: dict[str, str] = {
     "tvscientific": "pinterest",
     # Visa acquired Verifi (chargeback). visa is on the register.
     "verifi": "visa",
+    # SMS-Magic prints product brands that are already on the register.
+    "fresh-desk": "freshworks",
+    "pardot": "salesforce",
+    "quick-books": "intuit",
     # Wire ids that land on rows filed in this increment.
     "hotjar": "contentsquare",
     "zencoder": "brightcove",
@@ -849,11 +863,106 @@ REGISTER_ALIASES: dict[str, str] = {
     # business name Mosse Security (from 09 Aug 2013). Filed in this
     # increment. Do not invent a second dossier.
     "benjamin-mosse-consulting": "mosse-security",
+    # Daily.co names BigQuery. google-bigquery already aliases; this is the
+    # bare product id. google is on the register. Do not invent a second
+    # BigQuery dossier.
+    "bigquery": "google",
+    # Clazar names Docker hub. docker-inc is on the register (docker.com).
+    # Do not invent a second Docker Hub dossier.
+    "docker-hub": "docker-inc",
+    # Stream names Oracle (OCI). oracle-cloud-infrastructure already aliases
+    # to oracle. oracle is on the register. Do not invent a second OCI dossier.
+    "oracle-oci": "oracle",
+    # Clazar names Redis Cloud. redis-labs already aliases to redis.
+    # redis is on the register. Do not invent a second Redis Cloud dossier.
+    "redis-cloud": "redis",
+    # Front's own subprocessor list names FrontApp SARL (EU entity).
+    # front is on the register (front.com). Do not invent a second Front dossier.
+    "frontapp-sarl": "front",
+    # Sigma prints G Suite for email. google-workspace already aliases;
+    # this is the old product name. google is on the register.
+    "g-suite": "google",
+    # LambdaTest / TestMu prints Sales Force CRM next to SalesForce Service
+    # Desk. salesforce is on the register. Do not invent a second CRM dossier.
+    "sales-force-crm": "salesforce",
+    # LambdaTest prints Ring Central. ringcentral is on the register.
+    "ring-central": "ringcentral",
+    # LambdaTest prints HashiCorp Vault. hashicorp-cloud already aliases;
+    # this is the product name. hashicorp is on the register.
+    "hashicorp-vault": "hashicorp",
+    # LambdaTest prints Brightdata. bright-data is on the register
+    # (brightdata.com). Do not invent a second Bright Data dossier.
+    "brightdata": "bright-data",
+    # Postmark prints Deft (formerly known as ServerCentral). deft already
+    # aliases to summit (deft.com 301s to summithq.com). summit is on the
+    # register. Do not invent a second Deft / ServerCentral dossier.
+    "deft-formerly-known-as-servercentral": "summit",
+    # Help Scout prints Pusher.io. pusher is on the register (pusher.com).
+    # Do not invent a second Pusher dossier.
+    "pusher-io": "pusher",
+    # Shortcut prints Ketch Kloud. ketch is on the register (ketch.com).
+    # Do not invent a second Ketch dossier.
+    "ketch-kloud": "ketch",
+    # Shortcut prints Not Just Tickets (Plain). plain is on the register
+    # (plain.com). Do not invent a second Plain dossier.
+    "not-just-tickets-plain": "plain",
+    # Wrike prints Google (Vertex, Gemini). google-vertex-ai and
+    # google-gemini already alias; this is the combined product cell.
+    # google is on the register. Do not invent a second Google dossier.
+    "google-vertex-gemini": "google",
+    # Wrike prints Adtrib, Inc. (k/n/a/ MaestroQA). maestroqa is on the
+    # register (maestroqa.com). Do not invent a second MaestroQA dossier.
+    "adtrib-k-n-a-maestroqa": "maestroqa",
+    # Productboard prints FoundryLabs. foundry-labs is on the register
+    # (foundrylabs.com). Do not invent a second Foundry Labs dossier.
+    "foundrylabs": "foundry-labs",
+    # Contentsquare affiliate table prints Content Square / Hotjar / Loris
+    # group entities. hotjar already aliases here. Regional leftovers land
+    # on contentsquare. Do not invent a second dossier. Contentsquare's
+    # own list drops these as self — aliases are for other companies.
+    "content-square-sas": "contentsquare",
+    "content-square": "contentsquare",
+    "content-square-israel": "contentsquare",
+    "content-square-singapore-pte": "contentsquare",
+    "content-square-spain-s-l": "contentsquare",
+    "content-square-canada": "contentsquare",
+    "content-square-ltd": "contentsquare",
+    "content-square-gmbh": "contentsquare",
+    "hotjar-germany": "contentsquare",
+    "hotjar-uk": "contentsquare",
+    "hotjar-netherlands": "contentsquare",
+    "hotjar-web-portugal-unipessoal-lda": "contentsquare",
+    "hotjar-web-services-spain-s-l": "contentsquare",
+    "loris-technologies": "contentsquare",
+    # Uploadcare product / brand cells. meta / google / microsoft / qlik
+    # are on the register. Talend homepage 301s to Qlik Talend.
+    "facebook-for-business": "meta",
+    "google-marketing-platform": "google",
+    "microsoft-advertising": "microsoft",
+    "talend": "qlik",
+    # Accurx support article names TeamViewer UK Ltd / Intercom UK Ltd.
+    # teamviewer and intercom are on the register. Do not invent a second
+    # regional dossier.
+    "teamviewer-uk": "teamviewer",
+    "intercom-uk": "intercom",
+    # Brightcove services-subprocessors table. Cloudfront is Amazon
+    # CloudFront (amazon-cloudfront already aliases). Elastic Search is
+    # Elasticsearch / Elastic. Google Ad Manager is Google. elastic,
+    # amazon-web-services, and google are on the register. Do not invent
+    # a second dossier.
+    "cloudfront": "amazon-web-services",
+    "elastic-search": "elastic",
+    "google-ad-manager": "google",
 
 }
 
 
 # Published header garbage. Not a company. Do not file or alias.
+# PR 263 review drops: SCC annex / DPA form fields, OneTrust cookie-category
+# rows, and CCPA "Data Category" headings. Exact ids/names the extractor
+# emitted. Do not add cloudflare / google / amazon-web-services — those
+# are real orgs (Qualified's cookie table printed a Cloudflare purpose
+# sentence; skip that sentence, not the Cloudflare dossier).
 SKIP_PROCESSOR_IDS = {
     "entity-name",
     "n-a",
@@ -871,6 +980,114 @@ SKIP_PROCESSOR_IDS = {
     "optional-features-for-the-us-payroll-module",
     "uk-payroll-module",
     "us-payroll-module",
+    # CloudAMQP DPA/ToS annex headings (not the data-center table)
+    "topic",
+    "processing-operations-and-purposes",
+    "retention-period",
+    # Arkose Labs legal-dpa — SCC annex headings
+    "data-subjects",
+    "special-category-personal-data-if-applicable",
+    "nature-of-the-processing",
+    "purposes-of-processing",
+    "frequency-of-the-transfer",
+    "start-date",
+    "the-parties",
+    "parties-details",
+    "key-contact",
+    "eu-sccs",
+    "annex-1a-list-of-parties",
+    "annex-2b-description-of-transfer",
+    "uk-addendum",
+    "appendix-information",
+    "appropriate-safeguards",
+    "approved-uk-addendum",
+    "approved-eu-sccs",
+    "ico",
+    "ex-uk-transfer",
+    "uk-data-protection-laws",
+    "uk-gdpr",
+    # incident.io DPA annex headings (wrong URL; real list is /legal/sub-processors)
+    "details",
+    "address",
+    "company-number-or-equivalent",
+    "role-controller-processor",
+    "details-of-the-representative-in-the-european-union",
+    "nature-and-description-of-processing-and-further-processing",
+    "types-of-personal-data-being-processed-transferred",
+    "types-of-data-subjects-whose-data-is-processed-transferred",
+    "sensitive-data-processed-transferred-and-applied-restriction",
+    "additional-instructions",
+    # Mapbox — Data Category / CCPA table
+    "data-category",
+    "identifiers",
+    "commercial-information",
+    "internet-or-other-electronic-network-activity",
+    "geolocation-data",
+    # Qualified — OneTrust cookie names / CCPA categories (not org slugs)
+    "qualified-session",
+    "required-cookie-for-qualified-trust-site",
+    "my-onetrust-groups",
+    "gainsightconsent",
+    "ga",
+    "gd-visitor",
+    "g2-com",
+    "simplecast-com",
+    "gcl-au",
+    "doubleclick-net",
+    "test-cookie",
+    "pardot-com",
+    "visitor-id",
+    "linkedin-com",
+    "lidc",
+    "li-sugr",
+    "cf-bm",
+    "usermatchhistory",
+    "bscookie",
+    "analyticssynchistory",
+    "ar-debug",
+    "facebook-com",
+    "events-distinct-id",
+    "g2-session-id",
+    "g2crowd-com",
+    "6sc",
+    "youtube-com",
+    "visitor-info1-live",
+    "ysc",
+    "visitor-privacy-metadata",
+    "stackadapt-com",
+    "user-id-v2",
+    "user-id-v3",
+    "turn-com",
+    "google-com",
+    "innovid-com",
+    "personal-information-pi-we-collect",
+    "contact-data",
+    "profile-data",
+    "communications-data",
+    "marketing-data",
+    "online-activity-data",
+    "data-derived-from-the-above",
+    # Smarsh optional-feature product line (not an organization)
+    "voci-medallia-vspark-cloud-optional-feature",
+    # Accurx DPA annex / TOM headings (real list is the support article)
+    "service-category",
+    "core-services",
+    "care-navigation-triage-services-and-workflow-management",
+    "patient-communication-engagement-and-telephony-services",
+    "consultation-documentation-and-coding-services",
+    "ai-supported-processing-and-automation",
+    "security-measure",
+    "measures-for-user-identification-and-authorisation",
+    "measures-for-the-protection-of-data-during-transmission",
+    "measures-for-the-protection-of-data-during-storage",
+    "measures-for-ensuring-events-logging",
+    "measures-for-ensuring-system-configuration-including-default",
+    "measures-for-certification-assurance-of-processes-and-produc",
+    "measures-for-ensuring-data-minimisation",
+    "measures-for-ensuring-data-quality",
+    "measures-for-ensuring-data-retention",
+    "measures-for-ensuring-accountability",
+    "measures-for-allowing-data-portability-and-ensuring-erasure",
 }
 SKIP_PROCESSOR_NAMES = {
     "entity name",
@@ -890,6 +1107,120 @@ SKIP_PROCESSOR_NAMES = {
     "optional features for the us payroll module",
     "uk payroll module",
     "us payroll module",
+    # CloudAMQP DPA/ToS annex headings
+    "topic",
+    "processing operations and purposes",
+    "retention period",
+    # Arkose Labs SCC annex headings
+    "data subjects",
+    "special category personal data (if applicable)",
+    "nature of the processing",
+    "purposes of processing",
+    "frequency of the transfer",
+    "start date",
+    "the parties",
+    "parties\u2019 details",
+    "parties' details",
+    "key contact",
+    "eu sccs",
+    "annex 1a: list of parties",
+    "annex 2b: description of transfer",
+    "uk addendum",
+    "appendix information",
+    "appropriate safeguards",
+    "approved uk addendum",
+    "approved eu sccs",
+    "ico",
+    "ex-uk transfer",
+    "uk data protection laws",
+    "uk gdpr",
+    # incident.io DPA annex headings
+    "details",
+    "address",
+    "company number or equivalent",
+    "role (controller/processor)",
+    "details of the representative in the european union",
+    "nature and description of processing and further processing",
+    "types of personal data being processed/transferred",
+    "types of data subjects whose data is processed/transferred",
+    "sensitive data processed/transferred and applied restrictions or safeguards",
+    "additional instructions",
+    # Mapbox Data Category table
+    "data category",
+    "identifiers",
+    "commercial information",
+    "internet or other electronic network activity",
+    "geolocation data",
+    # Qualified OneTrust cookie / CCPA category rows
+    "qualified_session",
+    "required cookie for qualified trust site",
+    "this cookie is used by cloudflare for load balancing",
+    "my_onetrust_groups",
+    "gainsightconsent",
+    "_ga",
+    "_gd_visitor",
+    "g2.com",
+    "simplecast.com",
+    "_gcl_au",
+    "doubleclick.net",
+    "test_cookie",
+    "pardot.com",
+    "visitor_id",
+    "linkedin.com",
+    "lidc",
+    "li_sugr",
+    "__cf_bm",
+    "usermatchhistory",
+    "bscookie",
+    "analyticssynchistory",
+    "ar_debug",
+    "facebook.com",
+    "events_distinct_id",
+    "_g2_session_id",
+    "g2crowd.com",
+    "6sc.co",
+    "youtube.com",
+    "visitor_info1_live",
+    "ysc",
+    "visitor_privacy_metadata",
+    "stackadapt.com",
+    "sa-user-id-v2",
+    "sa-user-id-v3",
+    "sa user id v2",
+    "sa user id v3",
+    "turn.com",
+    "google.com",
+    "innovid.com",
+    "personal information (\u201cpi\u201d) we collect",
+    "personal information (\"pi\") we collect",
+    "contact data",
+    "profile data",
+    "communications data",
+    "marketing data",
+    "online activity data",
+    "data derived from the above",
+    # Smarsh optional-feature product line (not an organization)
+    "voci – medallia vspark cloud (optional feature)",
+    "voci - medallia vspark cloud (optional feature)",
+    # Accurx DPA annex / TOM headings
+    "service category",
+    "core services",
+    "care navigation, triage services and workflow management",
+    "patient communication, engagement and telephony services",
+    "consultation, documentation and coding services",
+    "ai-supported processing and automation",
+    "security measure",
+    "measures for user identification and authorisation",
+    "measures for the protection of data during transmission",
+    "measures for the protection of data during storage",
+    "measures for ensuring events logging",
+    "measures for ensuring system configuration, including default configuration",
+    "measures for certification/assurance of processes and products",
+    "measures for ensuring data minimisation",
+    "measures for ensuring data quality",
+    "measures for ensuring limited data retention",
+    "measures for ensuring accountability",
+    "measures for allowing data portability and ensuring erasure",
 }
 
 

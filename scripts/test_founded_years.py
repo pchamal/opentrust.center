@@ -750,6 +750,37 @@ def test_grcs_year_landed() -> None:
     )
 
 
+def test_marketstar_year_landed() -> None:
+    """This increment filed MarketStar 1988 from first-party about Founded metric."""
+    import json
+    public = json.loads((ROOT / "site" / "data.json").read_text())
+    enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
+    by_pub = {c["slug"]: c for c in public["companies"]}
+    by_enr = {c["slug"]: c for c in enr["companies"]}
+    pub, row = by_pub["marketstar"], by_enr["marketstar"]
+    check(pub.get("founded_year") == 1988, "MarketStar public year 1988")
+    check(row.get("founded_year") == 1988, "MarketStar enriched year 1988")
+    check(
+        pub.get("founded_source") == "https://www.marketstar.com/about-us",
+        "MarketStar year source is first-party /about-us",
+    )
+    check((pub.get("file") or {}).get("years") in (True, 20), "MarketStar years rule prints")
+    check(pub.get("found") is False, "MarketStar Official page stays open")
+    check((pub.get("certs") or []) == [], "MarketStar marks stay off file")
+    html = (ROOT / "site" / "c" / "marketstar.html").read_text(encoding="utf-8")
+    check("founded · 1988" in html, "MarketStar dossier prints 1988")
+    check("https://www.marketstar.com/about-us" in html, "MarketStar dossier cites about source")
+    check("Official page · not on file" in html, "MarketStar Official page stays open")
+    check(
+        parse_official_founded_year(
+            "About MarketStar | Sales Outsourcing Company Founded in 1988",
+            "MarketStar",
+        )
+        == 1988,
+        "MarketStar about Founded in 1988 metric parses",
+    )
+
+
 def test_upper_quadrant_year_landed() -> None:
     """This increment filed Upper Quadrant 2001 from first-party about FOUNDED metric."""
     import json
@@ -813,6 +844,7 @@ def main() -> int:
     test_swan_year_landed()
     test_grcs_year_landed()
     test_upper_quadrant_year_landed()
+    test_marketstar_year_landed()
     # Live company-years.json is a later leftover walk (WNS). Do not hang
     # this increment's year asserts on that stale report suite.
     print("ok")

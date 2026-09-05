@@ -62,6 +62,17 @@ def main() -> int:
     ada_reg = {**register, "ada": {"slug": "ada", "name": "Ada", "domain": "ada.cx"}}
     check(canonical_processor_id("ada-support", ada_reg) == "ada", "Ada Support is Ada")
     check(REGISTER_ALIASES["google-gemini"] == "google", "Gemini is Google")
+    check(REGISTER_ALIASES["gemini"] == "google", "plain Gemini is Google")
+    check(canonical_processor_id("gemini", register) == "google", "Gemini wires land on google")
+    sentry_reg = {**register, "sentry": {"slug": "sentry", "name": "Sentry", "domain": "sentry.io"}}
+    check(canonical_processor_id("functional-software", sentry_reg) == "sentry", "Functional Software is Sentry")
+    check(REGISTER_ALIASES["functional-software"] == "sentry", "functional-software aliases to sentry")
+    openai_reg = {**register, "openai": {"slug": "openai", "name": "OpenAI", "domain": "openai.com"}}
+    check(canonical_processor_id("o-penai", openai_reg) == "openai", "O+ZWSP+penAI slug is OpenAI")
+    check(REGISTER_ALIASES["o-penai"] == "openai", "o-penai aliases to openai")
+    cisco_reg = {**register, "cisco": {"slug": "cisco", "name": "Cisco", "domain": "cisco.com"}}
+    check(canonical_processor_id("duo-security", cisco_reg) == "cisco", "Duo Security is Cisco")
+    check(REGISTER_ALIASES["duo-security"] == "cisco", "duo-security aliases to cisco")
     check(REGISTER_ALIASES["oracle-netsuite"] == "netsuite", "Oracle NetSuite keeps the NetSuite row")
     adobe_reg = {**register, "adobe": {"slug": "adobe", "name": "Adobe", "domain": "adobe.com"}}
     check(canonical_processor_id("marketo", adobe_reg) == "adobe", "Marketo is Adobe")
@@ -397,6 +408,39 @@ def main() -> int:
     check(REGISTER_ALIASES.get("conversocial") != "khoros", "conversocial must not map to khoros")
     check(skip_processor("customers-have-discretion-to-select-a-different-location", "Customers have discretion to select a different location"), "location discretion is garbage")
     check(skip_processor("bob-finance-module", "Bob Finance module"), "HiBob module is not a company")
+    # PR 263 junk rows: legal-annex / SCC / OneTrust cookie / Data Category.
+    check(skip_processor("data-subjects", "Data Subjects"), "SCC annex Data Subjects is garbage")
+    check(skip_processor("uk-gdpr", "UK GDPR"), "UK GDPR heading is garbage")
+    check(skip_processor("eu-sccs", "EU SCCs"), "EU SCCs heading is garbage")
+    check(skip_processor("annex-1a-list-of-parties", "Annex 1A: List of Parties"), "Annex 1A is garbage")
+    check(skip_processor("my-onetrust-groups", "my_onetrust_groups"), "OneTrust cookie row is garbage")
+    check(skip_processor("qualified-session", "qualified_session"), "cookie name is garbage")
+    check(
+        skip_processor("cloudflare", "This cookie is used by Cloudflare for load balancing"),
+        "cookie-purpose Cloudflare row is garbage",
+    )
+    check(skip_processor("company-number-or-equivalent", "Company number or equivalent"), "DPA annex field is garbage")
+    check(skip_processor("role-controller-processor", "Role (controller/processor)"), "Role heading is garbage")
+    check(skip_processor("data-category", "Data Category"), "Data Category heading is garbage")
+    check(skip_processor("geolocation-data", "Geolocation Data"), "Geolocation Data is garbage")
+    check(skip_processor("commercial-information", "Commercial Information"), "Commercial Information is garbage")
+    check(not skip_processor("amazon-web-services", "Amazon Web Services"), "AWS is a real org")
+    check(not skip_processor("cloudflare", "Cloudflare"), "Cloudflare is a real org")
+    check(not skip_processor("google", "Google"), "Google is a real org")
+    check(not skip_processor("sentry", "Sentry"), "Sentry is a real org")
+    check(skip_processor("topic", "Topic"), "CloudAMQP DPA Topic heading is garbage")
+    check(skip_processor("retention-period", "Retention period"), "Retention period heading is garbage")
+    check(REGISTER_ALIASES["g-suite"] == "google", "G Suite is Google")
+    tv_reg = {**register, "teamviewer": {"slug": "teamviewer", "name": "TeamViewer", "domain": "teamviewer.com"}}
+    check(canonical_processor_id("teamviewer-uk", tv_reg) == "teamviewer", "TeamViewer UK is TeamViewer")
+    check(REGISTER_ALIASES["teamviewer-uk"] == "teamviewer", "teamviewer-uk aliases to teamviewer")
+    ic_reg = {**register, "intercom": {"slug": "intercom", "name": "Intercom", "domain": "intercom.com"}}
+    check(canonical_processor_id("intercom-uk", ic_reg) == "intercom", "Intercom UK is Intercom")
+    check(REGISTER_ALIASES["intercom-uk"] == "intercom", "intercom-uk aliases to intercom")
+    check(skip_processor("service-category", "Service category"), "Accurx DPA Service category is garbage")
+    check(skip_processor("security-measure", "Security Measure"), "Accurx DPA Security Measure is garbage")
+    check(skip_processor("core-services", "Core Services"), "Accurx DPA Core Services is garbage")
+    check(skip_processor("measures-for-ensuring-accountability", "Measures for ensuring accountability"), "Accurx TOM heading is garbage")
 
     subs = {
         "nodes": [
@@ -545,6 +589,101 @@ def main() -> int:
     mosse_reg = {**register, "mosse-security": {"slug": "mosse-security", "name": "Mossé Security", "domain": "mosse-security.com"}}
     check(canonical_processor_id("benjamin-mosse-consulting", mosse_reg) == "mosse-security", "Benjamin Mosse Consulting is Mossé Security")
     check(REGISTER_ALIASES["benjamin-mosse-consulting"] == "mosse-security", "benjamin-mosse-consulting aliases to mosse-security")
+    check(canonical_processor_id("bigquery", register) == "google", "BigQuery is Google")
+    check(REGISTER_ALIASES["bigquery"] == "google", "bigquery aliases to google")
+    docker_reg = {**register, "docker-inc": {"slug": "docker-inc", "name": "Docker, Inc.", "domain": "docker.com"}}
+    check(canonical_processor_id("docker-hub", docker_reg) == "docker-inc", "Docker Hub is Docker")
+    check(REGISTER_ALIASES["docker-hub"] == "docker-inc", "docker-hub aliases to docker-inc")
+    check(canonical_processor_id("oracle-oci", register) == "oracle", "Oracle OCI is Oracle")
+    check(REGISTER_ALIASES["oracle-oci"] == "oracle", "oracle-oci aliases to oracle")
+    redis_reg = {**register, "redis": {"slug": "redis", "name": "Redis", "domain": "redislabs.com"}}
+    check(canonical_processor_id("redis-cloud", redis_reg) == "redis", "Redis Cloud is Redis")
+    check(REGISTER_ALIASES["redis-cloud"] == "redis", "redis-cloud aliases to redis")
+    front_reg = {**register, "front": {"slug": "front", "name": "Front", "domain": "front.com"}}
+    check(canonical_processor_id("frontapp-sarl", front_reg) == "front", "FrontApp SARL is Front")
+    check(REGISTER_ALIASES["frontapp-sarl"] == "front", "frontapp-sarl aliases to front")
+    sf_reg = {**register, "salesforce": {"slug": "salesforce", "name": "Salesforce", "domain": "salesforce.com"}}
+    check(canonical_processor_id("sales-force-crm", sf_reg) == "salesforce", "Sales Force CRM is Salesforce")
+    check(REGISTER_ALIASES["sales-force-crm"] == "salesforce", "sales-force-crm aliases to salesforce")
+    rc_reg = {**register, "ringcentral": {"slug": "ringcentral", "name": "RingCentral", "domain": "ringcentral.com"}}
+    check(canonical_processor_id("ring-central", rc_reg) == "ringcentral", "Ring Central is RingCentral")
+    check(REGISTER_ALIASES["ring-central"] == "ringcentral", "ring-central aliases to ringcentral")
+    hash_reg = {**register, "hashicorp": {"slug": "hashicorp", "name": "HashiCorp", "domain": "hashicorp.com"}}
+    check(canonical_processor_id("hashicorp-vault", hash_reg) == "hashicorp", "HashiCorp Vault is HashiCorp")
+    check(REGISTER_ALIASES["hashicorp-vault"] == "hashicorp", "hashicorp-vault aliases to hashicorp")
+    bd_reg = {**register, "bright-data": {"slug": "bright-data", "name": "Bright Data", "domain": "brightdata.com"}}
+    check(canonical_processor_id("brightdata", bd_reg) == "bright-data", "Brightdata is Bright Data")
+    check(REGISTER_ALIASES["brightdata"] == "bright-data", "brightdata aliases to bright-data")
+    summit_reg = {**register, "summit": {"slug": "summit", "name": "Summit", "domain": "summithq.com"}}
+    check(
+        canonical_processor_id("deft-formerly-known-as-servercentral", summit_reg) == "summit",
+        "Deft formerly ServerCentral is Summit",
+    )
+    check(
+        REGISTER_ALIASES["deft-formerly-known-as-servercentral"] == "summit",
+        "deft-formerly-known-as-servercentral aliases to summit",
+    )
+    pusher_reg = {**register, "pusher": {"slug": "pusher", "name": "Pusher", "domain": "pusher.com"}}
+    check(canonical_processor_id("pusher-io", pusher_reg) == "pusher", "Pusher.io is Pusher")
+    check(REGISTER_ALIASES["pusher-io"] == "pusher", "pusher-io aliases to pusher")
+    ketch_reg = {**register, "ketch": {"slug": "ketch", "name": "Ketch", "domain": "ketch.com"}}
+    check(canonical_processor_id("ketch-kloud", ketch_reg) == "ketch", "Ketch Kloud is Ketch")
+    check(REGISTER_ALIASES["ketch-kloud"] == "ketch", "ketch-kloud aliases to ketch")
+    plain_reg = {**register, "plain": {"slug": "plain", "name": "Plain", "domain": "plain.com"}}
+    check(
+        canonical_processor_id("not-just-tickets-plain", plain_reg) == "plain",
+        "Not Just Tickets (Plain) is Plain",
+    )
+    check(REGISTER_ALIASES["not-just-tickets-plain"] == "plain", "not-just-tickets-plain aliases to plain")
+    check(canonical_processor_id("google-vertex-gemini", register) == "google", "Vertex Gemini is Google")
+    check(REGISTER_ALIASES["google-vertex-gemini"] == "google", "google-vertex-gemini aliases to google")
+    mq_reg = {**register, "maestroqa": {"slug": "maestroqa", "name": "MaestroQA", "domain": "maestroqa.com"}}
+    check(
+        canonical_processor_id("adtrib-k-n-a-maestroqa", mq_reg) == "maestroqa",
+        "Adtrib k/n/a MaestroQA is MaestroQA",
+    )
+    check(REGISTER_ALIASES["adtrib-k-n-a-maestroqa"] == "maestroqa", "adtrib-k-n-a-maestroqa aliases to maestroqa")
+    foundry_reg = {**register, "foundry-labs": {"slug": "foundry-labs", "name": "Foundry Labs", "domain": "foundrylabs.com"}}
+    check(canonical_processor_id("foundrylabs", foundry_reg) == "foundry-labs", "FoundryLabs is Foundry Labs")
+    check(REGISTER_ALIASES["foundrylabs"] == "foundry-labs", "foundrylabs aliases to foundry-labs")
+    cs_reg2 = {**register, "contentsquare": {"slug": "contentsquare", "name": "Contentsquare", "domain": "contentsquare.com"}}
+    check(canonical_processor_id("hotjar-germany", cs_reg2) == "contentsquare", "Hotjar Germany is Contentsquare")
+    check(canonical_processor_id("loris-technologies", cs_reg2) == "contentsquare", "Loris Technologies is Contentsquare")
+    check(canonical_processor_id("content-square-sas", cs_reg2) == "contentsquare", "Content Square SAS is Contentsquare")
+    check(REGISTER_ALIASES["hotjar-germany"] == "contentsquare", "hotjar-germany aliases to contentsquare")
+    check(REGISTER_ALIASES["loris-technologies"] == "contentsquare", "loris-technologies aliases to contentsquare")
+    meta_reg = {**register, "meta": {"slug": "meta", "name": "Meta", "domain": "meta.com"}}
+    check(canonical_processor_id("facebook-for-business", meta_reg) == "meta", "Facebook for Business is Meta")
+    check(REGISTER_ALIASES["facebook-for-business"] == "meta", "facebook-for-business aliases to meta")
+    check(canonical_processor_id("google-marketing-platform", register) == "google", "Google Marketing Platform is Google")
+    check(REGISTER_ALIASES["google-marketing-platform"] == "google", "google-marketing-platform aliases to google")
+    check(canonical_processor_id("microsoft-advertising", register) == "microsoft", "Microsoft Advertising is Microsoft")
+    check(REGISTER_ALIASES["microsoft-advertising"] == "microsoft", "microsoft-advertising aliases to microsoft")
+    qlik_reg = {**register, "qlik": {"slug": "qlik", "name": "Qlik", "domain": "qlik.com"}}
+    check(canonical_processor_id("talend", qlik_reg) == "qlik", "Talend is Qlik")
+    check(REGISTER_ALIASES["talend"] == "qlik", "talend aliases to qlik")
+    check(
+        skip_processor("voci-medallia-vspark-cloud-optional-feature", "VOCI – Medallia VSpark Cloud (Optional feature)"),
+        "Smarsh VOCI optional feature is garbage",
+    )
+    dbt_reg = {**register, "dbt-labs": {"slug": "dbt-labs", "name": "dbt Labs", "domain": "getdbt.com"}}
+    check(canonical_processor_id("dbt-cloud", dbt_reg) == "dbt-labs", "dbt Cloud is dbt Labs")
+    fw_reg = {**register, "freshworks": {"slug": "freshworks", "name": "Freshworks", "domain": "freshworks.com"}}
+    check(canonical_processor_id("fresh-desk", fw_reg) == "freshworks", "Fresh Desk is Freshworks")
+    check(REGISTER_ALIASES["fresh-desk"] == "freshworks", "fresh-desk aliases to freshworks")
+    sf_reg2 = {**register, "salesforce": {"slug": "salesforce", "name": "Salesforce", "domain": "salesforce.com"}}
+    check(canonical_processor_id("pardot", sf_reg2) == "salesforce", "Pardot is Salesforce")
+    check(REGISTER_ALIASES["pardot"] == "salesforce", "pardot aliases to salesforce")
+    intuit_reg = {**register, "intuit": {"slug": "intuit", "name": "Intuit", "domain": "intuit.com"}}
+    check(canonical_processor_id("quick-books", intuit_reg) == "intuit", "Quick Books is Intuit")
+    check(REGISTER_ALIASES["quick-books"] == "intuit", "quick-books aliases to intuit")
+    check(canonical_processor_id("cloudfront", register) == "amazon-web-services", "Cloudfront is AWS")
+    check(REGISTER_ALIASES["cloudfront"] == "amazon-web-services", "cloudfront aliases to amazon-web-services")
+    elastic_reg = {**register, "elastic": {"slug": "elastic", "name": "Elastic", "domain": "elastic.co"}}
+    check(canonical_processor_id("elastic-search", elastic_reg) == "elastic", "Elastic Search is Elastic")
+    check(REGISTER_ALIASES["elastic-search"] == "elastic", "elastic-search aliases to elastic")
+    check(canonical_processor_id("google-ad-manager", register) == "google", "Google Ad Manager is Google")
+    check(REGISTER_ALIASES["google-ad-manager"] == "google", "google-ad-manager aliases to google")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch

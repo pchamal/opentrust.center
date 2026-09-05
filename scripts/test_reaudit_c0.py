@@ -186,12 +186,14 @@ def test_live_ledger_when_present() -> None:
     payload = json.loads(path.read_text())
     entries = ledger_entries(payload)
     batch = payload.get("last_batch") or []
-    check(len(batch) <= DEFAULT_LIMIT, f"paced batch stays at {DEFAULT_LIMIT}, got {len(batch)}")
-    check(len(batch) > 0, "first batch wrote last_batch")
-    check(len(batch) == 30, f"first cut probed 30 Completeness-0 rows, got {len(batch)}")
     summary = payload.get("summary") or {}
-    check(summary.get("filled") == 1, f"first cut filed 1 honest fill, got {summary.get('filled')}")
-    check("imerit" in batch, "first cut probed imerit")
+    # Paced cut. Do not drain the Completeness-0 queue.
+    check(0 < len(batch) <= 40, f"paced last_batch, got {len(batch)}")
+    check(summary.get("batch") == len(batch), "summary.batch matches last_batch")
+
+    first = [slug for slug, rec in entries.items() if rec.get("date") == "2026-09-01"]
+    check(len(first) == 30, f"first cut still has 30 rows dated 2026-09-01, got {len(first)}")
+    check("imerit" in first, "first cut probed imerit")
     imerit = entries.get("imerit") or {}
     check(imerit.get("filed") is True, "imerit ledger row records the apply")
     check(imerit.get("could_fill") == ["page", "marks"], f"imerit could_fill {imerit.get('could_fill')}")
@@ -199,8 +201,149 @@ def test_live_ledger_when_present() -> None:
     added = ((imerit.get("hit") or {}).get("marks") or {}).get("added") or []
     check("GDPR" not in added, "imerit ledger does not file GDPR")
     check("HIPAA" not in added, "imerit ledger does not file HIPAA")
-    for slug in batch:
-        rec = entries.get(slug) or {}
+
+    second = [
+        "lightdash",
+        "luma-ai",
+        "mutare",
+        "name-com",
+        "netnumber-global-data-services",
+        "netsuite",
+        "printfection",
+        "replicate",
+        "saicom-voice-services",
+        "ternpro-dba-slope",
+        "surveysensum-neurosensum-international-pte",
+        "timekit",
+        "tokenx",
+        "worketics-it-solutions",
+        "01-communique",
+        "123-reg",
+        "1366-technologies",
+        "1871",
+        "1c-company",
+        "1qbit",
+        "1spatial",
+        "1x-technologies",
+        "24-7-media",
+        "24sevenoffice",
+        "2u",
+        "2wire",
+        "33across",
+        "360-security-technology",
+        "3d-robotics",
+        "3d-systems",
+        "3dflow",
+        "3i-infotech",
+        "3pillar-global",
+        "3scale",
+        "4d-inc",
+    ]
+    check(len(second) == 35, f"second cut is 35 Completeness-0 rows, got {len(second)}")
+    check(all(slug in entries for slug in second), "second cut rows stay in the ledger")
+    check(not set(second) & set(first), "second cut must be never-reaudited vs 2026-09-01")
+    check(all(not (entries.get(slug) or {}).get("filed") for slug in second), "second cut filed no honest fill")
+    check("lightdash" in second, "second cut starts at the next never-reaudited C0 row")
+
+    third = list(batch)
+    check(len(third) == 35, f"third cut probed 35 Completeness-0 rows, got {len(third)}")
+    check(not set(third) & set(first), "third cut must be never-reaudited vs 2026-09-01")
+    check(not set(third) & set(second), "third cut must be never-reaudited vs the lightdash cut")
+    check(third[0] == "4d-sas", "third cut starts at the next never-reaudited C0 row")
+    check("accurx" in third and "ableton" in third, "third cut includes the clerk-filed rows")
+    check(summary.get("batch") == 35, "third cut summary.batch is 35")
+    check(summary.get("fileable") == 6, f"third cut extractor fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 15, f"third cut soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("filled") == 4, f"third cut clerk-approved fills, got {summary.get('filled')}")
+
+    ableton = entries.get("ableton") or {}
+    check(ableton.get("filed") is True, "ableton ledger row records the apply")
+    check(set(ableton.get("filed_keys") or []) == {"dpa", "years"}, f"ableton filed_keys {ableton.get('filed_keys')}")
+    check((ableton.get("hit") or {}).get("dpa", {}).get("url") == "https://www.ableton.com/en/dpa/", "ableton DPA in ledger")
+    check((ableton.get("hit") or {}).get("years", {}).get("year") == 1999, "ableton year in ledger")
+    check(
+        (ableton.get("hit") or {}).get("page", {}).get("url")
+        == "https://www.ableton.com/en/education/certification-program/",
+        "ableton extractor still recorded the education lander",
+    )
+
+    absint = entries.get("absint") or {}
+    check(absint.get("filed") is True, "absint ledger row records the apply")
+    check(set(absint.get("filed_keys") or []) == {"marks"}, f"absint filed_keys {absint.get('filed_keys')}")
+    check(((absint.get("hit") or {}).get("marks") or {}).get("added") == ["TISAX"], "absint TISAX in ledger")
+    check("Phone" in (((absint.get("hit") or {}).get("subprocessors") or {}).get("names") or []), "absint extractor junk subs stay unfiled")
+
+    accurx = entries.get("accurx") or {}
+    check(accurx.get("filed") is True, "accurx ledger row records the apply")
+    check(
+        set(accurx.get("filed_keys") or []) == {"page", "marks", "dpa", "years"},
+        f"accurx filed_keys {accurx.get('filed_keys')}",
+    )
+    check(
+        (accurx.get("hit") or {}).get("page", {}).get("url")
+        == "https://www.accurx.com/security-for-healthcare-professionals",
+        "accurx Official page in ledger",
+    )
+    check(
+        set(((accurx.get("hit") or {}).get("marks") or {}).get("added") or [])
+        == {"ISO 27001", "Cyber Essentials Plus"},
+        f"accurx marks {((accurx.get('hit') or {}).get('marks') or {}).get('added')}",
+    )
+    check((accurx.get("hit") or {}).get("years", {}).get("year") == 2016, "accurx year in ledger")
+
+    accusoft = entries.get("accusoft") or {}
+    check(accusoft.get("filed") is True, "accusoft ledger row records the apply")
+    check(set(accusoft.get("filed_keys") or []) == {"years"}, f"accusoft filed_keys {accusoft.get('filed_keys')}")
+    check((accusoft.get("hit") or {}).get("years", {}).get("year") == 1991, "accusoft year in ledger")
+
+    check(not (entries.get("a-plus") or {}).get("filed"), "a-plus empty placeholder was not filed")
+    check(not (entries.get("accountor") or {}).get("filed"), "accountor framework-ISO was not filed")
+
+    public = json.loads((ROOT / "site" / "data.json").read_text())
+    by_pub = {row.get("slug"): row for row in public.get("companies") or [] if row.get("slug")}
+
+    pub_ableton = by_pub["ableton"]
+    check(pub_ableton.get("found") is False, "ableton education cert lander is not Official page")
+    check(not pub_ableton.get("trust_url"), "ableton Official page stays open")
+    check((pub_ableton.get("file") or {}).get("dpa") == 20, "ableton DPA prints")
+    check((pub_ableton.get("file") or {}).get("years") == 20, "ableton years print")
+    check(pub_ableton.get("founded_year") == 1999, "ableton year is first-party about")
+    check(((pub_ableton.get("instruments") or {}).get("dpa") or {}).get("url") == "https://www.ableton.com/en/dpa/", "ableton DPA URL")
+
+    pub_absint = by_pub["absint"]
+    check(pub_absint.get("certs") == ["TISAX"], f"absint marks {pub_absint.get('certs')}")
+    check((pub_absint.get("file") or {}).get("marks") == 20, "absint TISAX prints")
+    check((pub_absint.get("file") or {}).get("subprocessors") in (0, False, None), "absint junk Phone/Fax/Email/Web stay off file")
+    check(not (pub_absint.get("processors") or []), "absint named processors stay open")
+
+    pub_accurx = by_pub["accurx"]
+    check(pub_accurx.get("found") is True, "accurx Official page is on file")
+    check(
+        pub_accurx.get("trust_url") == "https://www.accurx.com/security-for-healthcare-professionals",
+        "accurx Official page is first-party security HTML",
+    )
+    check(set(pub_accurx.get("certs") or []) == {"ISO 27001", "Cyber Essentials Plus"}, f"accurx marks {pub_accurx.get('certs')}")
+    check((pub_accurx.get("file") or {}).get("page") == 20, "accurx Official page prints")
+    check((pub_accurx.get("file") or {}).get("marks") == 20, "accurx marks print")
+    check((pub_accurx.get("file") or {}).get("dpa") == 20, "accurx DPA prints")
+    check((pub_accurx.get("file") or {}).get("years") == 20, "accurx years print")
+    check((pub_accurx.get("file") or {}).get("subprocessors") in (0, False, None), "accurx category-header subs stay off file")
+    check(pub_accurx.get("founded_year") == 2016, "accurx year is first-party who-we-are")
+    check(
+        ((pub_accurx.get("instruments") or {}).get("dpa") or {}).get("url")
+        == "https://www.accurx.com/data-processing-agreement",
+        "accurx DPA URL",
+    )
+
+    pub_accusoft = by_pub["accusoft"]
+    check(pub_accusoft.get("founded_year") == 1991, "accusoft year is first-party company history")
+    check((pub_accusoft.get("file") or {}).get("years") == 20, "accusoft years print")
+    check(pub_accusoft.get("found") is False, "accusoft Official page stays open")
+
+    check((by_pub["a-plus"].get("file") or {}).get("page") in (0, False, None), "a-plus empty placeholder is not Official page")
+    check(not (by_pub["accountor"].get("certs") or []), "accountor guiding-framework ISO 27001 stays open")
+
+    for slug, rec in entries.items():
         check(rec.get("domain"), f"{slug} ledger row is missing a domain")
         check(rec.get("date"), f"{slug} ledger row is missing an ISO date")
         check(isinstance(rec.get("probed"), list), f"{slug} probed URLs missing")

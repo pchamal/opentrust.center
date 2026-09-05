@@ -1261,7 +1261,6 @@ for (const slug of [
   "mako-it-lab",
   "fwd-deploy",
   "software-mind",
-  "marketstar",
   "cloud-support-technologies",
   "mosse-security",
 ]) {
@@ -1624,6 +1623,26 @@ expect(
     ruleOn(fileIndexHtml(upperQuadrant))[0] === false &&
     ruleOn(fileIndexHtml(upperQuadrant))[1] === false &&
     ruleOn(fileIndexHtml(upperQuadrant))[4] === true,
+);
+const marketstar = bySlug.marketstar;
+expect(
+  "marketstar Completeness is years; about Founded metric is not Official page",
+  marketstar &&
+    marketstar.domain === "marketstar.com" &&
+    marketstar.found === false &&
+    !marketstar.trust_url &&
+    !(marketstar.certs || []).length &&
+    marketstar.founded_year === 1988 &&
+    marketstar.founded_source === "https://www.marketstar.com/about-us" &&
+    fileFlags(marketstar).page === 0 &&
+    fileFlags(marketstar).marks === 0 &&
+    fileFlags(marketstar).dpa === 0 &&
+    fileFlags(marketstar).subprocessors === 0 &&
+    fileFlags(marketstar).years === 20 &&
+    fileScore(fileFlags(marketstar)) === 20 &&
+    ruleOn(fileIndexHtml(marketstar))[0] === false &&
+    ruleOn(fileIndexHtml(marketstar))[1] === false &&
+    ruleOn(fileIndexHtml(marketstar))[4] === true,
 );
 const e2open = bySlug.e2open;
 expect(
