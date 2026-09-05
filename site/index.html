@@ -98,7 +98,7 @@
   <main class="canvas" id="main">
     <div id="file-view">
     <h2 class="page-title">AI Trust Index</h2>
-    <p class="lede">Five instruments per system: page · standards · processors · evals · incidents. On file, or not.</p>
+    <p class="lede">Five AI instruments per system: page · standards · processors · evals · incidents. Trust files live on the Register. On file, or not.</p>
     <nav class="view-toggle" role="tablist" aria-label="View">
       <button type="button" role="tab" data-view="file" class="on" aria-controls="file-view" aria-selected="true">completeness</button>
       <span class="sep" aria-hidden="true">|</span>
@@ -115,8 +115,8 @@
 
     <p class="queryline" id="queryline" hidden></p>
     <p class="countline" id="countline"></p>
-    <p class="file-legend" id="file-legend">page · standards · processors · evals · incidents</p>
-    <p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing. 100 is five prints.</p>
+    <p class="file-legend" id="file-legend">AI page · AI standards · AI processors · evals · incidents</p>
+    <p class="file-method" id="file-method">100 is five prints.</p>
 
     <div id="miss" class="miss" hidden>
       <p class="miss-title" id="miss-title">Not in the index.</p>
@@ -157,9 +157,9 @@
         <button type="button" role="tab" data-view="method" class="on" aria-controls="method-view" aria-selected="true">method</button>
       </nav>
       <h2 class="sec-kicker">The count</h2>
-      <p class="clerk">20 printed · 10 on file, not extracted · 0 missing. 100 is five prints.</p>
+      <p class="clerk" id="file-method-detail">100 is five prints.</p>
       <h2 class="sec-kicker">AITI</h2>
-      <p class="clerk">page · standards · processors · evals · incidents. Standards print only when an AI standard is on the page. Empty incidents are inconclusive.</p>
+      <p class="clerk">AI page · AI standards · AI processors · evals · incidents. Completeness counts AI disclosures only — a full trust file can still print 0 here. Standards print only when an AI standard is on the page. Empty incidents are inconclusive.</p>
       <h2 class="sec-kicker">Register</h2>
       <p class="clerk">page · standards · DPA · subprocessors · years.</p>
       <h2 class="sec-kicker">What counts</h2>

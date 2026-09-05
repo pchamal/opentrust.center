@@ -85,6 +85,31 @@ def same_site(url: str, base_domain: str) -> bool:
         return False
 
 
+AI_HREF_HINTS = (
+    "model-card", "modelcard", "system-card", "systemcard",
+    "responsible-ai", "ai-safety", "ai-security", "ai-principles",
+    "ai-ethics", "ai-governance", "trustworthy-ai", "ai-transparency",
+    "ai-trust",
+)
+AI_ANCHOR_HINTS = (
+    "responsible ai", "ai safety", "ai principles", "ai ethics",
+    "ai governance", "trustworthy ai", "model card", "system card",
+    "ai transparency", "ai trust",
+)
+AI_PATHS = [
+    "/responsible-ai", "/ai-safety", "/ai-principles", "/ai-ethics",
+    "/ai-governance", "/ai-transparency", "/ai-trust", "/trustworthy-ai",
+    "/model-cards", "/ai/model-cards", "/system-cards", "/ai/system-cards",
+    "/company/responsible-ai", "/about/responsible-ai", "/legal/ai",
+    "/ai-responsibility",
+]
+
+AI_PAGE_RE = re.compile(
+    r"model-?cards?|system-?cards?|responsible-ai|ai-safety|ai-security|"
+    r"ai-principles|ai-ethics|ai-governance|trustworthy-ai|ai-transparency|ai-trust"
+)
+
+
 def kind_of(url: str, title: str = "") -> str | None:
     u = url.lower()
     t = (title or "").lower()
@@ -92,6 +117,8 @@ def kind_of(url: str, title: str = "") -> str | None:
         return "subprocessors"
     if any(k in u for k in DPA_HINTS):
         return "dpa"
+    if AI_PAGE_RE.search(u) or AI_PAGE_RE.search(t):
+        return "ai-page"
     if "compliance" in u or "compliance" in t:
         return "compliance"
     if "trust" in u or "trust" in t:
@@ -131,8 +158,12 @@ def extract_anchors(html: str, base_url: str) -> list[tuple[str, str]]:
     return out
 
 
-def anchor_is_lead(href: str, text: str) -> bool:
+def anchor_is_lead(href: str, text: str, ai: bool = False) -> bool:
     low = href.lower()
+    if ai:
+        if any(h in low for h in AI_HREF_HINTS):
+            return True
+        return any(a in text for a in AI_ANCHOR_HINTS)
     if any(h in low for h in HREF_KEYWORDS):
         return True
     return any(a in text for a in ANCHOR_KEYWORDS)
@@ -150,14 +181,15 @@ async def fetch(client: httpx.AsyncClient, url: str) -> tuple[int, str, str]:
         return 0, url, ""
 
 
-async def search_provider(client: httpx.AsyncClient, domain: str) -> list[str]:
+async def search_provider(client: httpx.AsyncClient, domain: str, ai: bool = False) -> list[str]:
     """Managed search API when keys exist (Serper/Exa shapes), else []."""
     import os
     provider = os.environ.get("SEARCH_PROVIDER", "").lower()
     key = os.environ.get("SEARCH_API_KEY", "")
     if not provider or not key:
         return []
-    q = f"site:{domain} (trust OR security OR compliance)"
+    q = (f"site:{domain} (responsible AI OR AI safety OR model card OR AI principles)"
+         if ai else f"site:{domain} (trust OR security OR compliance)")
     try:
         if provider == "serper":
             r = await client.post(
@@ -180,10 +212,11 @@ async def search_provider(client: httpx.AsyncClient, domain: str) -> list[str]:
     return []
 
 
-async def search_duckduckgo(client: httpx.AsyncClient, domain: str) -> list[str]:
+async def search_duckduckgo(client: httpx.AsyncClient, domain: str, ai: bool = False) -> list[str]:
     """Keyless fallback: DuckDuckGo HTML site-restricted query."""
     try:
-        q = f"site:{domain} (trust OR security OR compliance)"
+        q = (f"site:{domain} (responsible AI OR AI safety OR model card OR AI principles)"
+             if ai else f"site:{domain} (trust OR security OR compliance)")
         status, _, body = await fetch(
             client,
             "https://html.duckduckgo.com/html/?q=" + re.sub(r"\s+", "+", q.strip()),
@@ -209,22 +242,54 @@ async def search_duckduckgo(client: httpx.AsyncClient, domain: str) -> list[str]
         return []
 
 
+_CRAWLER = None
+_CRAWLER_LOCK = None
+
+
+def _crawler_lock() -> asyncio.Lock:
+    global _CRAWLER_LOCK
+    if _CRAWLER_LOCK is None:
+        _CRAWLER_LOCK = asyncio.Lock()
+    return _CRAWLER_LOCK
+
+
 async def deep_render(url: str, sem: asyncio.Semaphore) -> tuple[int, str]:
-    """crawl4ai browser render for JS shells."""
+    """crawl4ai browser render for JS shells. One shared browser per run —
+    spawning a shell per call exhausts memory on small machines."""
+    global _CRAWLER
     try:
         from crawl4ai import AsyncWebCrawler, BrowserConfig, CacheMode, CrawlerRunConfig
     except Exception:
         return 0, ""
     async with sem:
         try:
-            bcfg = BrowserConfig(headless=True, user_agent=UA)
-            cfg = CrawlerRunConfig(cache_mode=CacheMode.BYPASS, page_timeout=28_000,
-                                   verbose=False)
-            async with AsyncWebCrawler(config=bcfg) as crawler:
-                r = await crawler.arun(url=url, config=cfg)
+            async with _crawler_lock():
+                if _CRAWLER is None:
+                    _CRAWLER = AsyncWebCrawler(
+                        config=BrowserConfig(headless=True, user_agent=UA))
+                    await _CRAWLER.__aenter__()
+                cfg = CrawlerRunConfig(cache_mode=CacheMode.BYPASS,
+                                       page_timeout=28_000, verbose=False)
+                r = await _CRAWLER.arun(url=url, config=cfg)
                 return int(r.status_code or 0), (r.html or "")
         except Exception:
+            try:
+                if _CRAWLER is not None:
+                    await _CRAWLER.__aexit__(None, None, None)
+            except Exception:
+                pass
+            _CRAWLER = None
             return 0, ""
+
+
+async def close_browser() -> None:
+    global _CRAWLER
+    try:
+        if _CRAWLER is not None:
+            await _CRAWLER.__aexit__(None, None, None)
+    except Exception:
+        pass
+    _CRAWLER = None
 
 
 class InsForge:
@@ -311,8 +376,10 @@ async def verify_lead(client: httpx.AsyncClient, domain: str, url: str) -> dict 
 
 async def discover_domain(client: httpx.AsyncClient, ig: InsForge,
                           deep_sem: asyncio.Semaphore, row: dict,
-                          verify_cap: int = 10, use_search: bool = False) -> dict:
+                          verify_cap: int = 10, use_search: bool = False,
+                          use_ai: bool = False) -> dict:
     domain = row["domain"].lower()
+    paths = AI_PATHS if use_ai else PATH_CANDIDATES
     base_hosts = [f"https://{domain}", f"https://www.{domain}"]
     leads: dict[str, dict] = {}
 
@@ -348,10 +415,10 @@ async def discover_domain(client: httpx.AsyncClient, ig: InsForge,
 
     if home_html:
         for href, text in extract_anchors(home_html, base_hosts[0]):
-            if anchor_is_lead(href, text):
+            if anchor_is_lead(href, text, ai=use_ai):
                 add(href, "footer", text or "")
 
-    for path in PATH_CANDIDATES:
+    for path in paths:
         add(f"https://{domain}{path}", "path")
 
     sm_status, _, sm_body = await fetch(client, f"https://{domain}/sitemap.xml")
@@ -367,16 +434,16 @@ async def discover_domain(client: httpx.AsyncClient, ig: InsForge,
         for loc in locs:
             if n >= 25:
                 break
-            if anchor_is_lead(loc, ""):
+            if anchor_is_lead(loc, "", ai=use_ai):
                 add(loc, "sitemap")
                 n += 1
 
     # Search: managed API (Serper/Exa via env) when keyed, else DuckDuckGo
     # HTML — surfaces URLs that are indexed but not linked from home.
     if use_search:
-        hits = await search_provider(client, domain)
+        hits = await search_provider(client, domain, ai=use_ai)
         if not hits:
-            hits = await search_duckduckgo(client, domain)
+            hits = await search_duckduckgo(client, domain, ai=use_ai)
         for href in hits[:20]:
             if href and same_site(href, domain):
                 add(href, "search")
@@ -389,6 +456,8 @@ async def discover_domain(client: httpx.AsyncClient, ig: InsForge,
         _, lead = item
         u = lead["url"].lower()
         score = 0
+        if use_ai and AI_PAGE_RE.search(u):
+            score -= 5
         if "/trust" in u:
             score -= 4
         if "security" in u:
@@ -460,6 +529,7 @@ async def main() -> int:
     ap.add_argument("--tier", default="silent")
     ap.add_argument("--only", default="")
     ap.add_argument("--search", action="store_true", help="also mine DuckDuckGo site: search")
+    ap.add_argument("--ai", action="store_true", help="AI-file strategies: AI paths, AI anchors, AI search terms")
     ap.add_argument("--resume", action="store_true", help="skip domains already in ot_leads")
     ap.add_argument("--concurrency", type=int, default=6, help="parallel domains in flight")
     ap.add_argument("--order", default="file", choices=["file", "rank", "exposure"],
@@ -477,7 +547,7 @@ async def main() -> int:
             continue
         if only and d not in only:
             continue
-        if c.get("tier") == args.tier:
+        if args.tier == "all" or c.get("tier") == args.tier:
             seen_domains.add(d)
             seeds.append(c)
     if args.order == "rank":
@@ -580,7 +650,7 @@ async def main() -> int:
         async def run_one(row: dict) -> dict:
             async with dom_sem:
                 try:
-                    res = await discover_domain(client, ig, deep_sem, row, use_search=args.search)
+                    res = await discover_domain(client, ig, deep_sem, row, use_search=args.search, use_ai=args.ai)
                 except Exception as exc:
                     print(f"  {row['domain']:<32} error {exc}", flush=True)
                     res = {"domain": row["domain"], "leads": 0, "newLeads": 0,
@@ -604,6 +674,7 @@ async def main() -> int:
     from collections import Counter as _Counter
     states = _Counter(r.get("state", "?") for r in results)
     totals["states"] = dict(states)
+    await close_browser()
     REPORT.write_text(json.dumps({"sweep": totals, "domains": results}, indent=2))
     print(f"\nsweep · domains {totals['domains']} · leads {totals['leads']} "
           f"· files verified {totals['verified']}")
