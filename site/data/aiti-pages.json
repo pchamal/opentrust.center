@@ -3,7 +3,7 @@
   "seen": "2026-08-20",
   "rule": "Page fills only from a stored first-party AI-page URL. The company's generic trust, privacy, or status page is not enough. No SafeBase, login-walled portals, or third-party directories. When unsure, leave the rule open. Do not invent processors, evals, incidents, companies, or URLs.",
   "method": "Conservative curated first-party list, checked by fetch (crawl.fetch, UA opentrust.center/1.0). A URL is filed only when HTTP 200 and the document is clearly an AI instrument on the company's own domain or an official docs/research/CDN subdomain they operate. Soft-404s, homepage bounces, Cloudflare/login walls, vendor hosts, and third-party org pages are rejected. Path guesses that returned 404 stay open.",
-  "count": 40,
+  "count": 60,
   "pages": {
     "anthropic": {
       "url": "https://www.anthropic.com/responsible-scaling-policy",
@@ -310,6 +310,166 @@
       "via": "curated-first-party",
       "seen": "2026-08-22",
       "note": "Official Annual Integrity Transparency Report. Fetch 200 with Purpose, Scope, Model Safety Approach, and Safety and Responsible AI Practices in the document body. /safety remains a Squarespace product shell. The AUP is not filed."
+    },
+    "aurascape": {
+      "url": "https://aurascape.ai/ai-governance-and-compliance",
+      "host": "aurascape.ai",
+      "title": "AI Governance and Compliance Platform | Aurascape",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
+    },
+    "seekr": {
+      "url": "https://seekr.com/about/responsible-ai",
+      "host": "seekr.com",
+      "title": "Responsible AI for Enterprises | Seekr",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
+    },
+    "hugging-face": {
+      "url": "https://huggingface.co/ai-governance",
+      "host": "huggingface.co",
+      "title": "ai-governance (AI Governance)",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
+    },
+    "cyera": {
+      "url": "https://cyera.com/pulse-check/ai-security",
+      "host": "cyera.com",
+      "title": "AI Security Pulse Check | Cyera",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
+    },
+    "perplexity-ai": {
+      "url": "https://perplexity.ai/trustworthy-ai",
+      "host": "perplexity.ai",
+      "title": "Perplexity",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
+    },
+    "openrouter": {
+      "url": "https://openrouter.ai/about/responsible-ai",
+      "host": "openrouter.ai",
+      "title": "OpenRouter",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
+    },
+    "cloudflare": {
+      "url": "https://cloudflare.com/trust-hub/responsible-ai",
+      "host": "cloudflare.com",
+      "title": "Cloudflare’s approach to responsible AI | Cloudflare",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
+    },
+    "gamma": {
+      "url": "https://gamma.app/trustworthy-ai",
+      "host": "gamma.app",
+      "title": "Gamma",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
+    },
+    "humans-and": {
+      "url": "https://humansand.ai/trustworthy-ai",
+      "host": "humansand.ai",
+      "title": "humans&",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
+    },
+    "wan-ai": {
+      "url": "https://wan.video/ai-ethics",
+      "host": "an.video",
+      "title": "Wan AI: Leading AI Video Generation Model",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
+    },
+    "midjourney": {
+      "url": "https://midjourney.com/about/responsible-ai",
+      "host": "midjourney.com",
+      "title": "Just a moment...",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
+    },
+    "irregular": {
+      "url": "https://irregular.com/research/ai-security-priorities-a-field-wide-agenda",
+      "host": "irregular.com",
+      "title": "Introducing AI Security Priorities: A Field-Wide Agenda - Irregular",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
+    },
+    "openevidence": {
+      "url": "https://openevidence.com/trustworthy-ai",
+      "host": "openevidence.com",
+      "title": "OpenEvidence",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
+    },
+    "boltz": {
+      "url": "https://boltz.bio/trustworthy-ai",
+      "host": "boltz.bio",
+      "title": "Boltz - Build Better Molecules with AI",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
+    },
+    "bytedance": {
+      "url": "https://bytedance.com/trustworthy-ai",
+      "host": "bytedance.com",
+      "title": "ByteDance - Inspire Creativity, Enrich Life",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
+    },
+    "lmarena": {
+      "url": "https://arena.ai/trustworthy-ai",
+      "host": "arena.ai",
+      "title": "Arena | Benchmark &amp; Compare the Best AI Models",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
+    },
+    "01-ai": {
+      "url": "https://01.ai/trustworthy-ai",
+      "host": "01.ai",
+      "title": "01.AI 零一万物 - 大模型赋能千行百业",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
+    },
+    "7ai": {
+      "url": "https://7ai.com/foundational-ai-security",
+      "host": "7ai.com",
+      "title": "What Is Foundational AI Security? | 7AI",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
+    },
+    "suno": {
+      "url": "https://suno.com/about/responsible-ai",
+      "host": "suno.com",
+      "title": "Suno",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
+    },
+    "superblocks": {
+      "url": "https://www.superblocks.com/ai-security-landing",
+      "host": "superblocks.com",
+      "title": "AI Security Landing",
+      "kind": "discovered-first-party",
+      "via": "discovery-pipeline",
+      "seen": "2026-09-03"
     }
   },
   "rejected": [

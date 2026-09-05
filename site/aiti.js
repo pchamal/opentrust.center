@@ -141,15 +141,37 @@ function apply() {
   return filterAiRows(state.rows, state.q, state.sort, state.dir);
 }
 
+const TRUST_TIER_WORDS = {
+  silent: "silent",
+  thin: "thin",
+  "on-file": "on file",
+  substantial: "substantial",
+  complete: "public file complete",
+};
+
 export function aitiRowHtml(row, i, selectedSlug) {
   const selected = selectedSlug === row.slug ? ' aria-selected="true"' : "";
   const n = String(fileScore(aiFileFlags(row)));
+  const trustWord = TRUST_TIER_WORDS[row.tier] || "not on file";
   return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${nameWithIcon(row.name, row.favicon)}</a></td>
         <td class="domain">${printedAitiUrl(row)}</td>
-        <td class="file-cell"><span class="file-num">${escapeHtml(n)}</span>${aiFileIndexHtml(row)}</td>
+        <td class="file-cell" title="AI file ${escapeHtml(n)} of 100 · trust file: ${trustWord}"><span class="file-num">${escapeHtml(n)}</span>${aiFileIndexHtml(row)}</td>
         <td class="marks">${aiMarksCell(row)}</td>
       </tr>`;
+}
+
+function paintFileMethod(rows) {
+  const n = rows.length;
+  const printed = rows.filter((r) => fileScore(aiFileFlags(r)) > 0).length;
+  const pages = rows.filter((r) => r && r.ai_page && (r.ai_page.url || typeof r.ai_page === "string")).length;
+  const text = n
+    ? `${printed} of ${n} print at least one AI instrument · ${pages} AI pages on file · 100 is five prints.`
+    : "100 is five prints.";
+  const el = $("file-method");
+  if (el) el.textContent = text;
+  const detail = $("file-method-detail");
+  if (detail) detail.textContent = text;
 }
 
 function guessDomain(q) {
@@ -361,8 +383,10 @@ async function load() {
     state.rows = selectAiFiles(companies);
     state.generatedAt = data.generated_at || null;
     fillAitiIssue($("issue"), data, state.rows.length);
+    paintFileMethod(state.rows);
   } catch {
     state.rows = [];
+    paintFileMethod(state.rows);
   }
   render();
 }
