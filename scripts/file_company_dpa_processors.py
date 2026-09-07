@@ -1419,6 +1419,14 @@ PRIOR_ATTEMPTED = {
     "verisk",
     "verizon-communications",
     "vitec-software",
+    # this cut — upper-quadrant subprocessors batch (1 filed)
+    "vroom-com",
+    "wipro",
+    "xunlei",
+    "yandex",
+    "zillow",
+    "zspace",
+    "zuken",
 }
 
 

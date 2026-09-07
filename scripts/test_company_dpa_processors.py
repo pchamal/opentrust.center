@@ -244,67 +244,50 @@ def main() -> int:
     )
     check(len(by_pub["dialpad"].get("processors") or []) == 1, "dialpad existing name stays")
 
-    # This increment: upper-quadrant DPA-on-file / subprocessors queue (~40).
+    # This increment: live select_batch after PR 286 — last 7 upper-quadrant
+    # silent rows with a first-party privacy URL and an open DPA / named list.
     expected_batch = [
-        "phillips-66",
-        "porch-group",
-        "pro-medicus",
-        "publix-super-markets",
-        "quick-heal",
-        "raysearch-laboratories",
-        "robinhood",
-        "rtx",
-        "sandisk",
-        "sanmina",
-        "science-applications-international",
-        "serviceware",
-        "silvaco",
-        "simulations-plus",
-        "smith-micro-software",
-        "soundthinking",
-        "southern-glazer-s-wine-and-spirits",
-        "spotify",
-        "ssc-technologies",
-        "super-micro-computer",
-        "synopsys",
-        "sysco",
-        "take-two-interactive",
-        "target",
-        "td-synnex",
-        "tech-mahindra",
-        "teledyne-technologies",
-        "thales",
-        "tko-group-holdings",
-        "tose-software",
-        "tucows",
-        "twitter",
-        "txt-e-solutions",
-        "unisys",
-        "unitedhealth-group",
-        "urgent-ly-inc",
-        "verimatrix",
-        "verisk",
-        "verizon-communications",
-        "vitec-software",
+        "vroom-com",
+        "wipro",
+        "xunlei",
+        "yandex",
+        "zillow",
+        "zspace",
+        "zuken",
     ]
     check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
     filed_dpa = {r["slug"]: r for r in (report.get("dpa_filed") or [])}
-    check(set(filed_dpa) == {"synopsys"}, f"DPA links filed, got {sorted(filed_dpa)}")
+    check(set(filed_dpa) == {"yandex"}, f"DPA links filed, got {sorted(filed_dpa)}")
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
-    check(set(filed_sub) == {"verimatrix"}, f"named-processor lists filed, got {sorted(filed_sub)}")
+    check(set(filed_sub) == set(), f"named-processor lists filed, got {sorted(filed_sub)}")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
-    check("synopsys" not in stayed_dpa, "Synopsys DPA was filed")
-    check("verimatrix" not in stayed_sub, "Verimatrix named list was filed")
-    check("twitter" in stayed_dpa, "Twitter /dpa X profile stayed open")
-    check("sysco" in stayed_dpa, "Sysco Next.js DPA shell stayed open")
-    check("simulations-plus" in stayed_dpa, "Simulations Plus vendor-facing PDF DPA stayed open")
-    check("spotify" in stayed_dpa, "Spotify error-page DPA stayed open")
-    check(len(report.get("stayed_open") or []) == 78, f"78 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
-    check(len(stayed_dpa) == 39, f"39 DPA slots stayed open, got {len(stayed_dpa)}")
-    check(len(stayed_sub) == 39, f"39 subprocessors slots stayed open, got {len(stayed_sub)}")
+    check("yandex" not in stayed_dpa, "Yandex DPA was filed")
+    check("yandex" in stayed_sub, "Yandex named list stayed open")
+    check("zillow" in stayed_dpa, "Zillow JS listing shell stayed open")
+    check("xunlei" in stayed_dpa, "Xunlei homepage 200s stayed open")
+    check("zspace" in stayed_dpa, "zSpace empty-title GTM shell stayed open")
+    check("zuken" in stayed_dpa, "Zuken homepage bounce stayed open")
+    check(len(report.get("stayed_open") or []) == 13, f"13 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
+    check(len(stayed_dpa) == 6, f"6 DPA slots stayed open, got {len(stayed_dpa)}")
+    check(len(stayed_sub) == 7, f"7 subprocessors slots stayed open, got {len(stayed_sub)}")
     # This-cut review drops stay unread.
+    check("dpa" not in ((by_enr["zillow"].get("links") or {})), "Zillow links.dpa stays off the Legal AB listing shell")
+    check(not instrument_url(by_pub["zillow"], "dpa"), "Zillow DPA stays open")
+    check("dpa" not in ((by_enr["xunlei"].get("links") or {})), "Xunlei links.dpa stays off the homepage 200")
+    check(not instrument_url(by_pub["xunlei"], "dpa"), "Xunlei DPA stays open")
+    check("dpa" not in ((by_enr["zspace"].get("links") or {})), "zSpace links.dpa stays off the empty-title GTM shell")
+    check(not instrument_url(by_pub["zspace"], "dpa"), "zSpace DPA stays open")
+    check("dpa" not in ((by_enr["zuken"].get("links") or {})), "Zuken links.dpa stays off the homepage bounce")
+    check(not instrument_url(by_pub["zuken"], "dpa"), "Zuken DPA stays open")
+    check("dpa" not in ((by_enr["vroom-com"].get("links") or {})), "Vroom links.dpa stays off the 404 probes")
+    check(not instrument_url(by_pub["vroom-com"], "dpa"), "Vroom DPA stays open")
+    check("dpa" not in ((by_enr["wipro"].get("links") or {})), "Wipro links.dpa stays off the 404 probes")
+    check(not instrument_url(by_pub["wipro"], "dpa"), "Wipro DPA stays open")
+    check("subprocessors" not in ((by_enr["yandex"].get("links") or {})), "Yandex DPA §6 is not a named list")
+    check(not (by_pub["yandex"].get("processors") or []), "Yandex names no processors")
+    # Prior-cut review drops stay unread.
     check("dpa" not in ((by_enr["twitter"].get("links") or {})), "Twitter links.dpa stays off the @dpa X profile")
     check(not instrument_url(by_pub["twitter"], "dpa"), "Twitter DPA stays open")
     check("dpa" not in ((by_enr["sysco"].get("links") or {})), "Sysco links.dpa stays off the Next.js shell")
@@ -491,6 +474,8 @@ def main() -> int:
         "hca-healthcare", "grubhub", "jfrog", "informatica", "netflix",
         "nutanix",
         "twitter", "sysco", "simulations-plus", "spotify",
+        "phillips-66", "synopsys", "verimatrix", "vitec-software",
+        "vroom-com", "wipro", "xunlei", "yandex", "zillow", "zspace", "zuken",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")
@@ -503,7 +488,24 @@ def main() -> int:
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check(rec["url"] in html, f"{slug} dossier cites the list URL")
         check('rel="noopener noreferrer"' in html, f"{slug} outbound links use noopener")
-    # This cut: first-party Completeness DPA on Synopsys. Named list on
+    # This cut: first-party Completeness DPA on Yandex. Section 6 names
+    # affiliates / third-party subprocessors with no printed organization
+    # table. Zillow /legal/dpa is a JS real-estate listing shell. Xunlei
+    # well-known DPA paths return the Chinese homepage. zSpace /dpa is an
+    # empty-title GTM shell. Zuken homepage-bounces. Vroom and Wipro DPA
+    # probes 404. Do not invent domains. No new aliases.
+    check(
+        instrument_url(by_pub["yandex"], "dpa")
+        == "https://yandex.com/legal/dpa/en/",
+        "yandex DPA is first-party HTML",
+    )
+    check((by_pub["yandex"].get("file") or {}).get("dpa") == 20, "yandex DPA prints")
+    check(not (by_pub["yandex"].get("processors") or []), "yandex named list stays unread")
+    check((by_pub["yandex"].get("file") or {}).get("subprocessors") in (0, False, None), "yandex processors stay open")
+    yandex_html = (ROOT / "site" / "c" / "yandex.html").read_text(encoding="utf-8")
+    check("https://yandex.com/legal/dpa/en/" in yandex_html, "yandex dossier cites the DPA")
+    check('rel="noopener noreferrer"' in yandex_html, "yandex outbound links use noopener")
+    # Prior cut: first-party Completeness DPA on Synopsys. Named list on
     # Verimatrix from the printed product subprocessor table only.
     # Website-visitor / CRM vendor tables (AdRoll, Google Ads, OneTrust)
     # stay unread. Twitter /dpa is the @dpa X profile. Sysco
