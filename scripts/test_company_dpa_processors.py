@@ -246,64 +246,81 @@ def main() -> int:
 
     # This increment: upper-quadrant DPA-on-file / subprocessors queue (~40).
     expected_batch = [
-        "netcore-cloud",
-        "chipotle-mexican-grill",
-        "chubb-limited",
-        "church-and-dwight",
-        "cincinnati-financial",
-        "cognizant",
-        "cognizant-technology-solutions",
-        "cognyte",
-        "comfort-systems-usa",
-        "conocophillips",
-        "constellation-brands",
-        "constellation-software",
-        "copart",
-        "corteva",
-        "cox-enterprises",
-        "crh-plc",
-        "crown-castle",
-        "cvs-health",
-        "d-r-horton",
-        "darden-restaurants",
-        "davita",
-        "deckers-brands",
-        "delta-air-lines",
-        "devon-energy",
-        "dollar-general",
-        "dollar-tree",
-        "dte-energy",
-        "dye-and-durham",
-        "elevance-health",
-        "energy-transfer-partners",
-        "enterprise-mobility",
-        "enterprise-products-partners",
-        "epic-games",
-        "exxon-mobil",
-        "fanatics",
-        "fannie-mae",
-        "fedex",
-        "figure-ai",
-        "flex-ltd",
-        "fox-corporation",
+        "resend",
+        "superhuman",
+        "svix",
+        "freddie-mac",
+        "grubhub",
+        "h-e-b-grocery-company",
+        "hbx-group-international-plc",
+        "hca-healthcare",
+        "humana",
+        "informatica",
+        "infotel",
+        "jfrog",
+        "johnson-and-johnson",
+        "kakao",
+        "kingsoft",
+        "kla",
+        "kpit-technologies",
+        "ltts",
+        "lectra",
+        "liberty-mutual-insurance-group",
+        "linedata",
+        "live-nation-entertainment",
+        "magic-software",
+        "mapmyindia",
+        "marin-software",
+        "mercadolibre",
+        "metlife",
+        "micro-systemation",
+        "monolithic-power-systems",
+        "msci",
+        "netcall",
+        "netflix",
+        "news-corp",
+        "nextnav",
+        "nutanix",
+        "nxp-semiconductors",
+        "one-software-technologies",
+        "opendoor",
+        "perfect-corp",
+        "performance-food-group",
     ]
     check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
     filed_dpa = {r["slug"]: r for r in (report.get("dpa_filed") or [])}
-    check(set(filed_dpa) == set(), f"DPA links filed, got {sorted(filed_dpa)}")
+    check(set(filed_dpa) == {"nutanix"}, f"DPA links filed, got {sorted(filed_dpa)}")
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
-    check(set(filed_sub) == set(), f"named-processor lists filed, got {sorted(filed_sub)}")
+    check(set(filed_sub) == {"nutanix"}, f"named-processor lists filed, got {sorted(filed_sub)}")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
-    check("netcore-cloud" in stayed_dpa, "Netcore Cloud SafeBase portal DPA stayed open")
-    check("church-and-dwight" in stayed_dpa, "Church & Dwight same-title SPA DPA stayed open")
-    check("cognizant" in stayed_dpa, "Cognizant homepage-bounce DPA stayed open")
-    check("copart" in stayed_dpa, "Copart same-title SPA DPA stayed open")
-    check("fedex" in stayed_dpa, "FedEx same-title SPA DPA stayed open")
-    check(len(report.get("stayed_open") or []) == 80, f"80 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
-    check(len(stayed_dpa) == 40, f"40 DPA slots stayed open, got {len(stayed_dpa)}")
-    check(len(stayed_sub) == 40, f"40 subprocessors slots stayed open, got {len(stayed_sub)}")
+    check("nutanix" not in stayed, "Nutanix DPA and named list were filed")
+    check("resend" in stayed_sub, "Resend markdown/JS list stayed open")
+    check("superhuman" in stayed_sub, "Superhuman JS list stayed open")
+    check("svix" in stayed_dpa, "Svix DPA probes stayed open")
+    check("live-nation-entertainment" in stayed_dpa, "Live Nation Next.js /dpa shell stayed open")
+    check("hca-healthcare" in stayed_sub, "HCA privacy-appendix vendor list stayed open")
+    check("grubhub" in stayed_dpa, "Grubhub same-title SPA DPA stayed open")
+    check(len(report.get("stayed_open") or []) == 75, f"75 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
+    check(len(stayed_dpa) == 37, f"37 DPA slots stayed open, got {len(stayed_dpa)}")
+    check(len(stayed_sub) == 38, f"38 subprocessors slots stayed open, got {len(stayed_sub)}")
     # This-cut review drops stay unread.
+    check("dpa" not in ((by_enr["live-nation-entertainment"].get("links") or {})), "Live Nation links.dpa stays off the Next.js shell")
+    check(not instrument_url(by_pub["live-nation-entertainment"], "dpa"), "Live Nation DPA stays open")
+    check(
+        "subprocessors" not in ((by_enr["hca-healthcare"].get("links") or {})),
+        "HCA links.subprocessors stays off the privacy-policy appendix",
+    )
+    check(not (by_pub["hca-healthcare"].get("processors") or []), "HCA names no website privacy-appendix vendors")
+    check(not (by_pub["resend"].get("processors") or []), "Resend named list stays unread")
+    check(not (by_pub["superhuman"].get("processors") or []), "Superhuman named list stays unread")
+    check("dpa" not in ((by_enr["svix"].get("links") or {})), "Svix links.dpa stays off the 404 probes")
+    check("dpa" not in ((by_enr["grubhub"].get("links") or {})), "Grubhub links.dpa stays off the same-title SPA")
+    check("dpa" not in ((by_enr["jfrog"].get("links") or {})), "JFrog links.dpa stays off the AWS WAF 202 probes")
+    check("dpa" not in ((by_enr["informatica"].get("links") or {})), "Informatica links.dpa stays off the homepage bounce")
+    check("dpa" not in ((by_enr["netflix"].get("links") or {})), "Netflix links.dpa stays off the NotFound probes")
+    # Prior-cut review drops stay unread.
     check("dpa" not in ((by_enr["netcore-cloud"].get("links") or {})), "Netcore Cloud links.dpa stays off the SafeBase portal")
     check(not instrument_url(by_pub["netcore-cloud"], "dpa"), "Netcore Cloud DPA stays open")
     check(
@@ -457,6 +474,9 @@ def main() -> int:
         "name-com",
         "netcore-cloud", "church-and-dwight", "cognizant", "copart",
         "fedex", "epic-games", "flex-ltd", "energy-transfer-partners",
+        "resend", "superhuman", "svix", "live-nation-entertainment",
+        "hca-healthcare", "grubhub", "jfrog", "informatica", "netflix",
+        "nutanix",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")
@@ -469,7 +489,53 @@ def main() -> int:
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check(rec["url"] in html, f"{slug} dossier cites the list URL")
         check('rel="noopener noreferrer"' in html, f"{slug} outbound links use noopener")
-    # This cut: open is the honest result. Netcore Cloud SafeBase
+    # This cut: first-party Completeness DPA + named list on Nutanix.
+    # Live Nation /dpa is a Next.js shell (empty title, no printed DPA body).
+    # HCA appendix is a privacy-policy website vendor list (title “Arrow Right”).
+    # Resend markdown/JS list and Superhuman JS list stay unread. Svix DPA
+    # probes 404. Grubhub /dpa is a same-title SPA. JFrog AWS WAF 202.
+    # Informatica homepage bounce. Netflix NotFound. Cardtronics USA aliases
+    # onto NCR Voyix. Accenture International aliases onto Accenture.
+    # Flash Global Logistics and Baxter Planning Systems stay leftover
+    # graph nodes. Do not invent domains. Do not alias Baxter Planning
+    # onto Baxter International.
+    check(
+        instrument_url(by_pub["nutanix"], "dpa")
+        == "https://www.nutanix.com/legal/data-processing-addendum",
+        "nutanix DPA is first-party HTML",
+    )
+    check((by_pub["nutanix"].get("file") or {}).get("dpa") == 20, "nutanix DPA prints")
+    check(
+        instrument_url(by_pub["nutanix"], "subprocessors")
+        == "https://www.nutanix.com/trust/subprocessors",
+        "nutanix list URL is first-party HTML",
+    )
+    check((by_pub["nutanix"].get("file") or {}).get("subprocessors") == 20, "nutanix processors print")
+    nx_names = [p.get("name") for p in (by_pub["nutanix"].get("processors") or [])]
+    nx_slugs = [p.get("slug") for p in (by_pub["nutanix"].get("processors") or [])]
+    check(len(nx_names) == 19, f"nutanix printed 19 named processors, got {len(nx_names)}")
+    check("Amazon Web Services, Inc" in nx_names, "nutanix names AWS")
+    check("Intercom, Inc" in nx_names, "nutanix names Intercom")
+    check("Twilio Inc" in nx_names, "nutanix names Twilio")
+    check("Google Cloud Provider" in nx_names, "nutanix names Google Cloud Provider")
+    check("Google LLC" in nx_names, "nutanix names Google LLC")
+    check("Google Gemini" in nx_names, "nutanix names Google Gemini")
+    check("Cardtronics USA, Inc" in nx_names, "nutanix names Cardtronics USA")
+    check("Accenture International Limited" in nx_names, "nutanix names Accenture International")
+    check("Flash Global Logistics, Inc" in nx_names, "nutanix names Flash Global Logistics")
+    check("Baxter Planning Systems, Inc" in nx_names, "nutanix names Baxter Planning Systems")
+    check("amazon-web-services" in nx_slugs, "nutanix AWS uses the Amazon Web Services file")
+    check("intercom" in nx_slugs, "nutanix Intercom uses the Intercom file")
+    check("twilio" in nx_slugs, "nutanix Twilio uses the Twilio file")
+    check("google" in nx_slugs, "nutanix Google Cloud / Gemini uses the Google file")
+    check("ncr-voyix" in nx_slugs, "nutanix Cardtronics USA uses the NCR Voyix file")
+    check("accenture" in nx_slugs, "nutanix Accenture International uses the Accenture file")
+    check("cardtronics-usa" not in by_pub, "nutanix does not invent a Cardtronics dossier")
+    check("accenture-international" not in by_pub, "nutanix does not invent an Accenture International dossier")
+    check("baxter-planning-systems" not in by_pub, "nutanix does not invent a Baxter Planning Systems dossier")
+    check("flash-global-logistics" not in by_pub, "nutanix does not invent a Flash Global Logistics dossier")
+    check("baxter-international" not in nx_slugs, "nutanix does not alias Baxter Planning onto Baxter International")
+    # Prior cut: open is the honest result. Netcore Cloud SafeBase
     # itemUid catalog, Church & Dwight / Copart / Energy Transfer /
     # FedEx same-title SPA shells, Cognizant homepage bounce, Epic
     # Games 403s, Flex distributed-power-architecture glossary, and

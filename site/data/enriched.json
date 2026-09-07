@@ -13543,13 +13543,36 @@
       "certs": [],
       "links": {
         "status": "https://status.nutanix.com",
-        "privacy": "https://www.nutanix.com/legal/privacy-statement"
+        "privacy": "https://www.nutanix.com/legal/privacy-statement",
+        "dpa": "https://www.nutanix.com/legal/data-processing-addendum",
+        "subprocessors": "https://www.nutanix.com/trust/subprocessors"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "amazon-web-services",
+        "intercom",
+        "twilio",
+        "google",
+        "snowflake",
+        "salesforce",
+        "coralogix",
+        "microsoft",
+        "mongodb",
+        "zoom",
+        "walkme",
+        "ncr-voyix",
+        "flash-global-logistics",
+        "baxter-planning-systems",
+        "accenture",
+        "super-micro-computer",
+        "anysphere"
+      ],
       "disclosure": {
-        "score": 0,
+        "score": 16,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "dpa": 8,
+          "subprocessors": 8
+        }
       }
     },
     {
@@ -26216,9 +26239,11 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "subprocessors": 8
+        }
       }
     },
     {
@@ -29676,9 +29701,11 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "dpa": 8
+        }
       }
     },
     {
