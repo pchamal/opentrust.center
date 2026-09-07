@@ -2509,6 +2509,81 @@ def main() -> int:
     check("Official page · not on file" in tandem_html, "tandem Official page stays open")
     check("vanta" not in tandem_html.lower(), "tandem dossier names no portal vendor")
 
+    # This cut: no same-company leftover proved onto an existing register slug.
+    # File named-by-1 leftovers on first-party domains. Portal chrome is never
+    # Official page. GDPR/CCPA-as-rights stay unread.
+    for slug, domain in (
+        ("alliantis", "alliantis.de"),
+        ("cielo", "cielotalent.com"),
+        ("cloudorizon", "cloudorizon.com"),
+        ("converteo-sas", "converteo.com"),
+        ("frequency-networks", "frequency.com"),
+        ("group-onepoint-sas", "groupeonepoint.com"),
+        ("hireport-nl", "hireport.io"),
+        ("j-labs-spoika-z-ograniczona-odpowiedzialnoscia", "j-labs.pl"),
+        ("temesis-sas", "temesis.com"),
+        ("xfive", "xfive.co"),
+        ("zilker-trail-consulting", "getzilker.com"),
+        ("freonit", "freonit.com"),
+        ("rhaegal-sasu", "rhaegal.com"),
+        ("atoms-retex", "retex.com"),
+        ("vroom-consultancy-worldofwork", "worldofwork.nl"),
+    ):
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check("GDPR" not in (by_pub[slug].get("certs") or []), f"{slug} GDPR is not a mark")
+        check("CCPA" not in (by_pub[slug].get("certs") or []), f"{slug} CCPA is not a mark")
+    for slug in (
+        "maxio", "aircall", "aircall-sas", "voyager", "fathom-analytics",
+        "kaleido", "fern", "dispatch", "cookie-bot", "joveo", "altinity",
+        "level-access", "shibumi-com", "springserve", "profitwell",
+        "pigeonlab", "luma", "paragon", "bt", "gcs",
+    ):
+        check(slug not in by_pub, f"{slug} stays off the register")
+    check(not by_pub["cielo"].get("trust_url"), "cielo portal is not the Official page URL")
+    check(
+        ((by_pub["cielo"].get("instruments") or {}).get("trust") or {}).get("url")
+        == "https://trust.cielotalent.com",
+        "cielo trust instrument keeps the portal URL as a link",
+    )
+    check(
+        instrument_url(by_pub["cielo"], "privacy")
+        == "https://www.cielotalent.com/privacy-legal/privacy-notice/",
+        "cielo privacy is first-party HTML",
+    )
+    check(not by_pub["hireport-nl"].get("trust_url"), "hireport portal is not the Official page URL")
+    check(
+        ((by_pub["hireport-nl"].get("instruments") or {}).get("trust") or {}).get("url")
+        == "https://trust.hireport.io",
+        "hireport trust instrument keeps the portal URL as a link",
+    )
+    check(
+        instrument_url(by_pub["hireport-nl"], "subprocessors") == "",
+        "hireport portal subprocessors stay unread",
+    )
+    check(
+        instrument_url(by_pub["converteo-sas"], "privacy")
+        == "https://converteo.com/privacy-policy",
+        "converteo privacy is first-party HTML",
+    )
+    check(
+        instrument_url(by_pub["frequency-networks"], "privacy")
+        == "https://www.frequency.com/privacy",
+        "frequency privacy is first-party HTML",
+    )
+    cielo_html = (ROOT / "site" / "c" / "cielo.html").read_text(encoding="utf-8")
+    check("<h1>Cielo</h1>" in cielo_html, "cielo dossier is its own file")
+    check("Official page · not on file" in cielo_html, "cielo Official page stays open")
+    check("safebase" not in cielo_html.lower(), "cielo dossier names no portal vendor")
+    hire_html = (ROOT / "site" / "c" / "hireport-nl.html").read_text(encoding="utf-8")
+    check("<h1>HirePort</h1>" in hire_html, "hireport dossier is its own file")
+    check("Official page · not on file" in hire_html, "hireport Official page stays open")
+    check("vanta" not in hire_html.lower(), "hireport dossier names no portal vendor")
+    retex_html = (ROOT / "site" / "c" / "atoms-retex.html").read_text(encoding="utf-8")
+    check("<h1>Retex</h1>" in retex_html, "atoms-retex dossier is its own file")
+    check("https://www.retex.com/privacy" in retex_html, "atoms-retex dossier cites first-party privacy")
+
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"

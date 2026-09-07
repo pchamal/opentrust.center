@@ -252,6 +252,21 @@ EXTRA_GUESSES = {
     "headwayapp": ["headwayapp.co"],
     "intech-solution": ["intechsolutions.com.au"],
     "match-my-email": ["matchmyemail.com"],
+    "alliantis": ["alliantis.de"],
+    "cielo": ["cielotalent.com"],
+    "cloudorizon": ["cloudorizon.com"],
+    "converteo-sas": ["converteo.com"],
+    "frequency-networks": ["frequency.com"],
+    "group-onepoint-sas": ["groupeonepoint.com"],
+    "hireport-nl": ["hireport.io", "hireport.nl"],
+    "j-labs-spoika-z-ograniczona-odpowiedzialnoscia": ["j-labs.pl"],
+    "temesis-sas": ["temesis.com"],
+    "xfive": ["xfive.co"],
+    "zilker-trail-consulting": ["getzilker.com", "zilkertrail.com"],
+    "freonit": ["freonit.com"],
+    "rhaegal-sasu": ["rhaegal.com"],
+    "atoms-retex": ["retex.com"],
+    "vroom-consultancy-worldofwork": ["worldofwork.nl"],
 }
 
 PORTAL_HOSTS = (

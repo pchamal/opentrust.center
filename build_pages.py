@@ -755,6 +755,9 @@ PORTAL_URL_ONLY_SLUGS = {
     "pipedream",
     # This cut: SafeBase / Vanta custom hosts. Never Official page.
     "warmly-ai", "tandem-health",
+    # This cut: Cielo talent SafeBase / HirePort Vanta hosts. Never Official page.
+    "cielo",
+    "hireport-nl",
 }
 
 
