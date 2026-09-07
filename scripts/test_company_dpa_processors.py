@@ -246,70 +246,47 @@ def main() -> int:
 
     # This increment: Completeness fill after leftover named-by-1 queue was
     # only skip-list / 403 / JS / print-BPO / ambiguous shorts. Walk the next
-    # 40 on-file companies with an open DPA or named list. Statsig→Amplitude
-    # parent list stays unread. Portal chrome is never Official page.
+    # leftover-company open DPA / named-list files. Alias Forsta leftovers
+    # that now resolve onto existing register slugs. Portal chrome is never
+    # Official page. Statsig→Amplitude parent list stays unread.
     expected_batch = [
-        "planhat",
-        "rev",
-        "timescale",
-        "jitsu",
-        "smartcat-platform",
-        "transcend",
-        "ckeditor",
-        "serpapi",
-        "magnite",
-        "opswat",
-        "chili-piper",
-        "fingerprintjs",
-        "whereby",
-        "formspree",
-        "status-io",
-        "dagster",
-        "statsig",
-        "contrast-security",
-        "wochit",
-        "chargehound",
-        "churnkey",
-        "ndm-global",
-        "rb2b",
-        "last9",
-        "headwayapp",
-        "jitterbit",
-        "meilisearch",
-        "vespa-ai",
-        "pipedream",
-        "stigg",
-        "tandem-health",
-        "adeptid",
-        "cardinal-path",
-        "cielo",
-        "cloudorizon",
-        "converteo-sas",
-        "datafold",
-        "dare-to-change",
-        "firetext-communications",
-        "forsta-as",
+        "frequency-networks",
+        "intech-solution",
+        "ip-info",
+        "j-labs-spoika-z-ograniczona-odpowiedzialnoscia",
+        "keen-io",
+        "polar-signals",
+        "rare-patient-voice",
+        "atoms-retex",
+        "tq-solutions",
+        "the-udder-group-t-a-udder",
+        "warmly-ai",
+        "vroom-consultancy-worldofwork",
+        "xfive",
+        "zilker-trail-consulting",
+        "zipdx",
+        "hireport-nl",
+        "signalwire",
     ]
     check(report.get("batch") == expected_batch, "batch is the leftover-company Completeness queue")
     filed_dpa = {r["slug"]: r for r in (report.get("dpa_filed") or [])}
     check(
-        set(filed_dpa) == {"datafold", "fingerprintjs", "vespa-ai", "wochit"},
+        set(filed_dpa) == {"ip-info"},
         f"DPA links filed, got {sorted(filed_dpa)}",
     )
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
-    check(
-        set(filed_sub) == {"forsta-as", "pipedream", "planhat", "timescale", "transcend", "vespa-ai"},
-        f"named-processor lists filed, got {sorted(filed_sub)}",
-    )
+    check(not filed_sub, f"no named-processor lists filed, got {sorted(filed_sub)}")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
-    check("statsig" in stayed_sub, "Statsig Amplitude parent list stayed open")
+    check("ip-info" not in stayed_dpa, "IPinfo DPA was filed")
+    check("ip-info" in stayed_sub, "IPinfo named list stayed open")
+    check("signalwire" in stayed_dpa, "SignalWire login-wall DPA stayed open")
     check("statsig" not in filed_sub, "Statsig Amplitude parent list was not filed")
     check("yandex" not in stayed_dpa, "prior Yandex DPA stay is not this report")
-    check(len(report.get("stayed_open") or []) == 63, f"63 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
-    check(len(stayed_dpa) == 30, f"30 DPA slots stayed open, got {len(stayed_dpa)}")
-    check(len(stayed_sub) == 33, f"33 subprocessors slots stayed open, got {len(stayed_sub)}")
+    check(len(report.get("stayed_open") or []) == 33, f"33 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
+    check(len(stayed_dpa) == 16, f"16 DPA slots stayed open, got {len(stayed_dpa)}")
+    check(len(stayed_sub) == 17, f"17 subprocessors slots stayed open, got {len(stayed_sub)}")
     # Prior-cut review drops stay unread.
     check("dpa" not in ((by_enr["zillow"].get("links") or {})), "Zillow links.dpa stays off the Legal AB listing shell")
     check(not instrument_url(by_pub["zillow"], "dpa"), "Zillow DPA stays open")
@@ -474,7 +451,7 @@ def main() -> int:
         pub = by_pub[slug]
         check(not (pub.get("processors") or []), f"{slug} named processors stay open")
 
-    # This-cut Completeness fills. First-party HTML only. Parent-company
+    # Prior cut: Completeness fills. First-party HTML only. Parent-company
     # Amplitude list stays unread. GDPR/CCPA-as-rights stay unread.
     check(
         instrument_url(by_pub["datafold"], "dpa")
@@ -540,6 +517,10 @@ def main() -> int:
     check("amazon-web-services" in forsta_slugs, "forsta Amazon.com, Inc lands on AWS")
     check("speechmatics" in forsta_slugs, "forsta Cantab Research lands on Speechmatics")
     check("amazon-com" not in forsta_slugs, "forsta does not invent a second Amazon dossier")
+    check("arctic-wolf" in forsta_slugs, "forsta Arctic Wolf Networks lands on Arctic Wolf")
+    check("wowza" in forsta_slugs, "forsta Wowza Media Systems lands on Wowza")
+    check("arctic-wolf-networks" not in forsta_slugs, "forsta does not invent a second Arctic Wolf dossier")
+    check("wowza-media-systems" not in forsta_slugs, "forsta does not invent a second Wowza dossier")
     check("liveperson" in forsta_slugs, "forsta Voicebase lands on LivePerson")
     check("front" in forsta_slugs, "forsta FrontApp lands on Front")
     pd_slugs = [p.get("slug") for p in (by_pub["pipedream"].get("processors") or [])]
@@ -568,6 +549,41 @@ def main() -> int:
     check("https://www.tigerdata.com/legal/subprocessors" in ts_html, "timescale dossier cites the Tiger Data named list")
     statsig_html = (ROOT / "site" / "c" / "statsig.html").read_text(encoding="utf-8")
     check("amplitude.com/subprocessor-list" not in statsig_html, "statsig dossier does not cite Amplitude's parent list")
+
+    # This cut: first-party Completeness DPA on IPinfo. Named list probes
+    # 404. SignalWire /policies/dpa 302s to the login wall. Warmly /
+    # HirePort / SignalWire portal chrome is never Official page.
+    # Forsta Arctic Wolf Networks / Wowza Media Systems alias onto the
+    # existing register rows. GDPR/CCPA-as-rights stay unread.
+    check(
+        instrument_url(by_pub["ip-info"], "dpa")
+        == "https://ipinfo.io/data-processing-agreement",
+        "ip-info DPA is first-party HTML",
+    )
+    check((by_pub["ip-info"].get("file") or {}).get("dpa") == 20, "ip-info DPA prints")
+    check(not (by_pub["ip-info"].get("processors") or []), "ip-info named list stays unread")
+    check((by_pub["ip-info"].get("file") or {}).get("subprocessors") in (0, False, None), "ip-info processors stay open")
+    check(by_pub["ip-info"].get("found") is False, "ip-info Official page stays open")
+    check(not by_pub["ip-info"].get("trust_url"), "ip-info has no invented Official page")
+    check("GDPR" not in (by_pub["ip-info"].get("certs") or []), "ip-info GDPR is not a mark")
+    check("CCPA" not in (by_pub["ip-info"].get("certs") or []), "ip-info CCPA is not a mark")
+    check("dpa" not in ((by_enr["signalwire"].get("links") or {})), "SignalWire links.dpa stays off the login wall")
+    check(not instrument_url(by_pub["signalwire"], "dpa"), "SignalWire DPA stays open")
+    check(not by_pub["warmly-ai"].get("trust_url"), "warmly portal is not the Official page URL")
+    check(not by_pub["hireport-nl"].get("trust_url"), "hireport portal is not the Official page URL")
+    check(not by_pub["signalwire"].get("trust_url"), "signalwire portal is not the Official page URL")
+    ipinfo_html = (ROOT / "site" / "c" / "ip-info.html").read_text(encoding="utf-8")
+    check("<h1>IPinfo</h1>" in ipinfo_html, "ip-info dossier is its own file")
+    check("https://ipinfo.io/data-processing-agreement" in ipinfo_html, "ip-info dossier cites the DPA")
+    check("Official page · not on file" in ipinfo_html, "ip-info Official page stays open")
+    check("vanta" not in ipinfo_html.lower(), "ip-info dossier names no portal vendor")
+    check("safebase" not in ipinfo_html.lower(), "ip-info dossier names no portal vendor")
+    check('rel="noopener noreferrer"' in ipinfo_html, "ip-info outbound links use noopener")
+    forsta_html = (ROOT / "site" / "c" / "forsta-as.html").read_text(encoding="utf-8")
+    check("./arctic-wolf.html\">Arctic Wolf Networks Inc" in forsta_html, "forsta Arctic Wolf lands on the Arctic Wolf dossier")
+    check("./wowza.html\">Wowza Media Systems, LLC" in forsta_html, "forsta Wowza lands on the Wowza dossier")
+    check("../graph.html#p=arctic-wolf-networks" not in forsta_html, "forsta Arctic Wolf is no longer a leftover map node")
+    check("../graph.html#p=wowza-media-systems" not in forsta_html, "forsta Wowza is no longer a leftover map node")
 
     from file_company_dpa_processors import PRIOR_ATTEMPTED, select_batch
     for slug in expected_batch:
@@ -609,6 +625,14 @@ def main() -> int:
         "twitter", "sysco", "simulations-plus", "spotify",
         "phillips-66", "synopsys", "verimatrix", "vitec-software",
         "vroom-com", "wipro", "xunlei", "yandex", "zillow", "zspace", "zuken",
+        "planhat", "rev", "timescale", "jitsu", "smartcat-platform", "transcend",
+        "ckeditor", "serpapi", "magnite", "opswat", "chili-piper", "fingerprintjs",
+        "whereby", "formspree", "status-io", "dagster", "statsig",
+        "contrast-security", "wochit", "chargehound", "churnkey", "ndm-global",
+        "rb2b", "last9", "headwayapp", "jitterbit", "meilisearch", "vespa-ai",
+        "pipedream", "stigg", "tandem-health", "adeptid", "cardinal-path",
+        "cielo", "cloudorizon", "converteo-sas", "datafold", "dare-to-change",
+        "firetext-communications", "forsta-as",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")

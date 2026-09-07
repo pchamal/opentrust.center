@@ -1468,6 +1468,24 @@ PRIOR_ATTEMPTED = {
     "dare-to-change",
     "firetext-communications",
     "forsta-as",
+    # this cut — leftover-company Completeness fill (1 DPA)
+    "frequency-networks",
+    "intech-solution",
+    "ip-info",
+    "j-labs-spoika-z-ograniczona-odpowiedzialnoscia",
+    "keen-io",
+    "polar-signals",
+    "rare-patient-voice",
+    "atoms-retex",
+    "tq-solutions",
+    "the-udder-group-t-a-udder",
+    "warmly-ai",
+    "vroom-consultancy-worldofwork",
+    "xfive",
+    "zilker-trail-consulting",
+    "zipdx",
+    "hireport-nl",
+    "signalwire",
 }
 
 
