@@ -244,34 +244,34 @@ def main() -> int:
     )
     check(len(by_pub["dialpad"].get("processors") or []) == 1, "dialpad existing name stays")
 
-    # This increment: Completeness fill after leftover named-by-1 queue was
-    # only skip-list / 403 / JS / print-BPO / ambiguous shorts. Walk the next
-    # leftover-company open DPA / named-list files. Alias Forsta leftovers
-    # that now resolve onto existing register slugs. Portal chrome is never
-    # Official page. Statsig→Amplitude parent list stays unread.
+    # This increment: Completeness fill on leftover-company open files.
+    # Named-by-1 leftovers are still skip-list / 403 / JS / print-BPO /
+    # ambiguous shorts (Osano prints but this cut fills on-file rows).
+    # Portal chrome is never Official page. Parent-list redirects stay
+    # unread (Basefarm→Orange, Observe→Snowflake). Fern stays silent.
     expected_batch = [
-        "frequency-networks",
-        "intech-solution",
-        "ip-info",
-        "j-labs-spoika-z-ograniczona-odpowiedzialnoscia",
-        "keen-io",
-        "polar-signals",
-        "rare-patient-voice",
-        "atoms-retex",
-        "tq-solutions",
-        "the-udder-group-t-a-udder",
-        "warmly-ai",
-        "vroom-consultancy-worldofwork",
-        "xfive",
-        "zilker-trail-consulting",
-        "zipdx",
-        "hireport-nl",
-        "signalwire",
+        "mezmo",
+        "oopspam",
+        "tremendous",
+        "zamzar",
+        "jumpcloud-iam",
+        "wowza",
+        "pandadoc",
+        "zenlayer",
+        "observe",
+        "explo",
+        "castlabs",
+        "servers-com",
+        "icinga",
+        "docdelta",
+        "baxter-planning-systems",
+        "datapacket",
+        "media-connect",
     ]
     check(report.get("batch") == expected_batch, "batch is the leftover-company Completeness queue")
     filed_dpa = {r["slug"]: r for r in (report.get("dpa_filed") or [])}
     check(
-        set(filed_dpa) == {"ip-info"},
+        set(filed_dpa) == {"mezmo", "oopspam", "zamzar"},
         f"DPA links filed, got {sorted(filed_dpa)}",
     )
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
@@ -279,13 +279,19 @@ def main() -> int:
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
-    check("ip-info" not in stayed_dpa, "IPinfo DPA was filed")
-    check("ip-info" in stayed_sub, "IPinfo named list stayed open")
-    check("signalwire" in stayed_dpa, "SignalWire login-wall DPA stayed open")
+    check("mezmo" not in stayed_dpa, "Mezmo DPA was filed")
+    check("oopspam" not in stayed_dpa, "OOPSpam DPA was filed")
+    check("zamzar" not in stayed_dpa, "Zamzar DPA was filed")
+    check("mezmo" in stayed_sub, "Mezmo named list stayed open")
+    check("oopspam" in stayed_sub, "OOPSpam named list stayed open")
+    check("zamzar" in stayed_sub, "Zamzar named list stayed open")
+    check("tremendous" in stayed_dpa, "Tremendous JS-payload DPA stayed open")
+    check("jumpcloud-iam" in stayed_dpa, "JumpCloud PDF DPA stayed open")
     check("statsig" not in filed_sub, "Statsig Amplitude parent list was not filed")
     check("yandex" not in stayed_dpa, "prior Yandex DPA stay is not this report")
-    check(len(report.get("stayed_open") or []) == 33, f"33 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
-    check(len(stayed_dpa) == 16, f"16 DPA slots stayed open, got {len(stayed_dpa)}")
+    check("ip-info" not in stayed_dpa, "prior IPinfo DPA stay is not this report")
+    check(len(report.get("stayed_open") or []) == 31, f"31 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
+    check(len(stayed_dpa) == 14, f"14 DPA slots stayed open, got {len(stayed_dpa)}")
     check(len(stayed_sub) == 17, f"17 subprocessors slots stayed open, got {len(stayed_sub)}")
     # Prior-cut review drops stay unread.
     check("dpa" not in ((by_enr["zillow"].get("links") or {})), "Zillow links.dpa stays off the Legal AB listing shell")
@@ -585,6 +591,76 @@ def main() -> int:
     check("../graph.html#p=arctic-wolf-networks" not in forsta_html, "forsta Arctic Wolf is no longer a leftover map node")
     check("../graph.html#p=wowza-media-systems" not in forsta_html, "forsta Wowza is no longer a leftover map node")
 
+    # This cut: first-party Completeness DPAs on Mezmo, OOPSpam, and Zamzar.
+    # JumpCloud /security is Official page and prints SOC 2 Type II / ISO 27001.
+    # GDPR/CCPA-as-rights stay unread. Tremendous DPA is a JS payload at
+    # probe size — unread. Explo /security is a Webflow shell — not Official
+    # page. JumpCloud customer DPA is a PDF — unread. Fern stays silent on
+    # buildwithfern.com. Basefarm→Orange and Observe→Snowflake parent
+    # redirects stay unread. Portal chrome is never Official page.
+    check(
+        instrument_url(by_pub["mezmo"], "dpa") == "https://www.mezmo.com/dpa",
+        "mezmo DPA is first-party HTML",
+    )
+    check((by_pub["mezmo"].get("file") or {}).get("dpa") == 20, "mezmo DPA prints")
+    check(by_pub["mezmo"].get("found") is False, "mezmo Official page stays open")
+    check(not (by_pub["mezmo"].get("processors") or []), "mezmo named list stays unread")
+    check("GDPR" not in (by_pub["mezmo"].get("certs") or []), "mezmo GDPR is not a mark")
+    check("CCPA" not in (by_pub["mezmo"].get("certs") or []), "mezmo CCPA is not a mark")
+    check(
+        instrument_url(by_pub["oopspam"], "dpa") == "https://www.oopspam.com/dpa",
+        "oopspam DPA is first-party HTML",
+    )
+    check((by_pub["oopspam"].get("file") or {}).get("dpa") == 20, "oopspam DPA prints")
+    check(by_pub["oopspam"].get("found") is False, "oopspam Official page stays open")
+    check(not (by_pub["oopspam"].get("processors") or []), "oopspam named list stays unread")
+    check(
+        instrument_url(by_pub["zamzar"], "dpa") == "https://www.zamzar.com/dpa/",
+        "zamzar DPA is first-party HTML",
+    )
+    check((by_pub["zamzar"].get("file") or {}).get("dpa") == 20, "zamzar DPA prints")
+    check(by_pub["zamzar"].get("found") is False, "zamzar Official page stays open")
+    check(not instrument_url(by_pub["tremendous"], "dpa"), "tremendous JS-payload DPA stays open")
+    check(by_pub["jumpcloud-iam"].get("found") is True, "jumpcloud Official page is on file")
+    check(
+        by_pub["jumpcloud-iam"].get("trust_url") == "https://jumpcloud.com/security",
+        "jumpcloud Official page is first-party security",
+    )
+    check("SOC 2 Type II" in (by_pub["jumpcloud-iam"].get("certs") or []), "jumpcloud files SOC 2 Type II")
+    check("ISO 27001" in (by_pub["jumpcloud-iam"].get("certs") or []), "jumpcloud files ISO 27001")
+    check("GDPR" not in (by_pub["jumpcloud-iam"].get("certs") or []), "jumpcloud GDPR is not a mark")
+    check("CCPA" not in (by_pub["jumpcloud-iam"].get("certs") or []), "jumpcloud CCPA is not a mark")
+    check(not instrument_url(by_pub["jumpcloud-iam"], "dpa"), "jumpcloud PDF DPA stays open")
+    check(by_pub["explo"].get("found") is False, "explo Webflow security shell is not Official page")
+    check(by_pub["fern"].get("found") is False, "fern Official page stays open")
+    check(by_pub["fern"]["domain"] == "buildwithfern.com", "fern stays the silent buildwithfern.com file")
+    check("springserve" not in by_pub, "springserve stays aliased onto magnite")
+    check("dpa" not in ((by_enr["observe"].get("links") or {})), "Observe DPA stays off the Snowflake parent legal hub")
+    check("dpa" not in ((by_enr["basefarm-as"].get("links") or {})), "Basefarm DPA stays off the Orange parent homepage")
+    mezmo_html = (ROOT / "site" / "c" / "mezmo.html").read_text(encoding="utf-8")
+    check("<h1>Mezmo</h1>" in mezmo_html, "mezmo dossier is its own file")
+    check("https://www.mezmo.com/dpa" in mezmo_html, "mezmo dossier cites the DPA")
+    check("Official page · not on file" in mezmo_html, "mezmo Official page stays open")
+    check("vanta" not in mezmo_html.lower(), "mezmo dossier names no portal vendor")
+    check("safebase" not in mezmo_html.lower(), "mezmo dossier names no portal vendor")
+    oop_html = (ROOT / "site" / "c" / "oopspam.html").read_text(encoding="utf-8")
+    check("<h1>OOPSpam</h1>" in oop_html, "oopspam dossier is its own file")
+    check("https://www.oopspam.com/dpa" in oop_html, "oopspam dossier cites the DPA")
+    check("Official page · not on file" in oop_html, "oopspam Official page stays open")
+    zamzar_html = (ROOT / "site" / "c" / "zamzar.html").read_text(encoding="utf-8")
+    check("<h1>Zamzar</h1>" in zamzar_html, "zamzar dossier is its own file")
+    check("https://www.zamzar.com/dpa/" in zamzar_html, "zamzar dossier cites the DPA")
+    check("Official page · not on file" in zamzar_html, "zamzar Official page stays open")
+    jc_html = (ROOT / "site" / "c" / "jumpcloud-iam.html").read_text(encoding="utf-8")
+    check("<h1>JumpCloud IAM</h1>" in jc_html, "jumpcloud dossier is its own file")
+    check("https://jumpcloud.com/security" in jc_html, "jumpcloud dossier cites first-party security")
+    check("vanta" not in jc_html.lower(), "jumpcloud dossier names no portal vendor")
+    check("safebase" not in jc_html.lower(), "jumpcloud dossier names no portal vendor")
+    fern_html = (ROOT / "site" / "c" / "fern.html").read_text(encoding="utf-8")
+    check("<h1>Fern</h1>" in fern_html, "fern dossier is its own file")
+    check("Official page · not on file" in fern_html, "fern Official page stays open")
+    check("buildwithfern.com" in fern_html, "fern dossier keeps the expand domain")
+
     from file_company_dpa_processors import PRIOR_ATTEMPTED, select_batch
     for slug in expected_batch:
         check(slug in PRIOR_ATTEMPTED, f"{slug} is on the next-increment skip list")
@@ -633,6 +709,12 @@ def main() -> int:
         "pipedream", "stigg", "tandem-health", "adeptid", "cardinal-path",
         "cielo", "cloudorizon", "converteo-sas", "datafold", "dare-to-change",
         "firetext-communications", "forsta-as",
+        "frequency-networks", "intech-solution", "ip-info",
+        "j-labs-spoika-z-ograniczona-odpowiedzialnoscia", "keen-io",
+        "polar-signals", "rare-patient-voice", "atoms-retex", "tq-solutions",
+        "the-udder-group-t-a-udder", "warmly-ai",
+        "vroom-consultancy-worldofwork", "xfive", "zilker-trail-consulting",
+        "zipdx", "hireport-nl", "signalwire",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")
@@ -2901,10 +2983,20 @@ def main() -> int:
         "regula-baltija", "up-reply",
         "24slides-aps", "visier", "freeplay",
         "talent-tech-solutions", "rule-56",
-        "smt-consultoria-e-solucoes-em-technologia-ltda",
         "df-tech-fz", "dentsu-manchester",
     ):
         check(slug not in by_pub, f"{slug} stays off the register")
+    # Expand on main filed the SMT leftover onto first-party smttech.com.br.
+    # Official page stays open. This cut does not invent a file for it.
+    check("smt-consultoria-e-solucoes-em-technologia-ltda" in by_pub, "smt is on the register")
+    check(
+        by_pub["smt-consultoria-e-solucoes-em-technologia-ltda"]["domain"] == "smttech.com.br",
+        "smt official domain is smttech.com.br",
+    )
+    check(
+        by_pub["smt-consultoria-e-solucoes-em-technologia-ltda"].get("found") is False,
+        "smt Official page stays open",
+    )
     mag_wires = [
         e for e in wires.get("edges") or []
         if e.get("to") == "magnite" and "springserve" in (e.get("evidence") or "").lower()

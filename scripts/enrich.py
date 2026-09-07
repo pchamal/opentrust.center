@@ -511,6 +511,51 @@ SPECIAL_URLS = {
     "cardinal-path": [
         ("https://www.cardinalpath.com/policies/privacy-policy", "privacy"),
     ],
+    # Leftover Completeness fill. First-party DPA / privacy / security HTML.
+    # Portal hosts and parent-company redirects stay unread. Fern stays silent.
+    "mezmo": [
+        ("https://www.mezmo.com/dpa", "dpa"),
+        ("https://www.mezmo.com/privacy-policy", "privacy"),
+    ],
+    "oopspam": [
+        ("https://www.oopspam.com/dpa", "dpa"),
+    ],
+    "tremendous": [
+        ("https://www.tremendous.com/data-processing-addendum/", "dpa"),
+        ("https://www.tremendous.com/privacy/", "privacy"),
+    ],
+    "zamzar": [
+        ("https://www.zamzar.com/dpa/", "dpa"),
+        ("https://www.zamzar.com/privacy/", "privacy"),
+    ],
+    "jumpcloud-iam": [
+        ("https://jumpcloud.com/security", "security"),
+        ("https://jumpcloud.com/privacy", "privacy"),
+    ],
+    "wowza": [
+        ("https://www.wowza.com/legal/privacy", "privacy"),
+    ],
+    "zenlayer": [
+        ("https://www.zenlayer.com/privacy-policy/", "privacy"),
+    ],
+    "observe": [
+        ("https://www.observeinc.com/legal/privacy-policy", "privacy"),
+    ],
+    "servers-com": [
+        ("https://www.servers.com/privacy-policy", "privacy"),
+    ],
+    "icinga": [
+        ("https://icinga.com/company/privacy-policy/", "privacy"),
+    ],
+    "docdelta": [
+        ("https://docdelta.com/privacy", "privacy"),
+    ],
+    "baxter-planning-systems": [
+        ("https://baxterplanning.com/privacy-policy/", "privacy"),
+    ],
+    "datapacket": [
+        ("https://www.datapacket.com/privacy-policy", "privacy"),
+    ],
     # Branch Metrics leftover. legal.branch.io is first-party of branch.io.
     # trust.branch.io is a Conveyor portal — not Official page, not a mark source.
     "branch-metrics": [
