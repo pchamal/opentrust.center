@@ -327,6 +327,12 @@ REGISTER_ALIASES: dict[str, str] = {
     "cardtronics-usa": "ncr-voyix",
     # Nutanix prints Accenture International Limited. accenture is on the register.
     "accenture-international": "accenture",
+    # Verimatrix prints Dataiku SAS. dataiku is on the register.
+    "dataiku-sas": "dataiku",
+    # Verimatrix prints Grafana. grafana-labs is on the register.
+    "grafana": "grafana-labs",
+    # Verimatrix prints Pager Duty. pagerduty is on the register.
+    "pager-duty": "pagerduty",
     "cayan-tsys": "global-payments",
     "ekata": "mastercard",
     "intsights-cyber-intelligence": "rapid7",
