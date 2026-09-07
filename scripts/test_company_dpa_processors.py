@@ -2658,12 +2658,14 @@ def main() -> int:
     check("Official page · not on file" in udder_html, "udder Official page stays open")
     check("https://udder.rocks/privacy-policy" in udder_html, "udder dossier cites first-party privacy")
 
-    # This cut: no same-company leftover proved onto an existing register slug.
-    # File named-by-1 leftovers on first-party domains. Portal chrome is never
+    # This cut: drop regula-baltija / up-reply (no first-party Baltija print;
+    # upreply.de is a JS/challenge shell). File named-by-1 leftovers whose
+    # first-party HTML prints the leftover name. SafeBase chrome is never
     # Official page. GDPR/CCPA-as-rights stay unread.
     for slug, domain in (
-        ("regula-baltija", "regulaforensics.com"),
-        ("up-reply", "upreply.de"),
+        ("adeptid", "adept-id.com"),
+        ("rare-patient-voice", "rarepatientvoice.com"),
+        ("cardinal-path", "cardinalpath.com"),
     ):
         check(slug in by_pub, f"{slug} is on the register")
         check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
@@ -2675,43 +2677,48 @@ def main() -> int:
         "kaleido", "fern", "dispatch", "cookie-bot", "joveo", "altinity",
         "level-access", "springserve", "profitwell",
         "pigeonlab", "luma", "paragon", "bt", "gcs",
+        "regula-baltija", "up-reply",
     ):
         check(slug not in by_pub, f"{slug} stays off the register")
-    check(not by_pub["regula-baltija"].get("trust_url"), "regula Vanta portal is not the Official page URL")
+    check(not by_pub["adeptid"].get("trust_url"), "adeptid SafeBase portal is not the Official page URL")
     check(
-        ((by_pub["regula-baltija"].get("instruments") or {}).get("trust") or {}).get("url")
-        == "https://trust.regulaforensics.com",
-        "regula trust instrument keeps the portal URL as a link",
+        ((by_pub["adeptid"].get("instruments") or {}).get("trust") or {}).get("url")
+        == "https://trust.adept-id.com",
+        "adeptid trust instrument keeps the portal URL as a link",
     )
     check(
-        instrument_url(by_pub["regula-baltija"], "privacy")
-        == "https://regulaforensics.com/privacy/",
-        "regula privacy is first-party HTML",
+        instrument_url(by_pub["adeptid"], "privacy")
+        == "https://www.adept-id.com/privacy-policy/",
+        "adeptid privacy is first-party HTML",
     )
     check(
-        instrument_url(by_pub["regula-baltija"], "status")
-        == "https://status.regulaforensics.com",
-        "regula status is first-party Better Stack",
+        instrument_url(by_pub["adeptid"], "subprocessors") == "",
+        "adeptid portal subprocessors stay unread",
     )
     check(
-        instrument_url(by_pub["regula-baltija"], "subprocessors") == "",
-        "regula portal subprocessors stay unread",
+        instrument_url(by_pub["rare-patient-voice"], "privacy")
+        == "https://rarepatientvoice.com/read-our-privacy-policy/",
+        "rare-patient-voice privacy is first-party HTML",
     )
     check(
-        instrument_url(by_pub["up-reply"], "privacy")
-        == "https://upreply.de/datenschutz/",
-        "up-reply privacy is first-party HTML",
+        instrument_url(by_pub["cardinal-path"], "privacy")
+        == "https://www.cardinalpath.com/policies/privacy-policy",
+        "cardinal-path privacy is first-party HTML",
     )
-    regula_html = (ROOT / "site" / "c" / "regula-baltija.html").read_text(encoding="utf-8")
-    check("<h1>Regula</h1>" in regula_html, "regula dossier is its own file")
-    check("Official page · not on file" in regula_html, "regula Official page stays open")
-    check("https://regulaforensics.com/privacy/" in regula_html, "regula dossier cites first-party privacy")
-    check("vanta" not in regula_html.lower(), "regula dossier names no portal vendor")
-    check("safebase" not in regula_html.lower(), "regula dossier names no portal vendor")
-    up_html = (ROOT / "site" / "c" / "up-reply.html").read_text(encoding="utf-8")
-    check("<h1>Up Reply</h1>" in up_html, "up-reply dossier is its own file")
-    check("Official page · not on file" in up_html, "up-reply Official page stays open")
-    check("https://upreply.de/datenschutz/" in up_html, "up-reply dossier cites first-party privacy")
+    adept_html = (ROOT / "site" / "c" / "adeptid.html").read_text(encoding="utf-8")
+    check("<h1>AdeptID</h1>" in adept_html, "adeptid dossier is its own file")
+    check("Official page · not on file" in adept_html, "adeptid Official page stays open")
+    check("https://www.adept-id.com/privacy-policy/" in adept_html, "adeptid dossier cites first-party privacy")
+    check("vanta" not in adept_html.lower(), "adeptid dossier names no portal vendor")
+    check("safebase" not in adept_html.lower(), "adeptid dossier names no portal vendor")
+    rpv_html = (ROOT / "site" / "c" / "rare-patient-voice.html").read_text(encoding="utf-8")
+    check("<h1>Rare Patient Voice</h1>" in rpv_html, "rare-patient-voice dossier is its own file")
+    check("Official page · not on file" in rpv_html, "rare-patient-voice Official page stays open")
+    check("https://rarepatientvoice.com/read-our-privacy-policy/" in rpv_html, "rpv dossier cites first-party privacy")
+    cp_html = (ROOT / "site" / "c" / "cardinal-path.html").read_text(encoding="utf-8")
+    check("<h1>Cardinal Path</h1>" in cp_html, "cardinal-path dossier is its own file")
+    check("Official page · not on file" in cp_html, "cardinal-path Official page stays open")
+    check("https://www.cardinalpath.com/policies/privacy-policy" in cp_html, "cardinal-path dossier cites first-party privacy")
 
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
