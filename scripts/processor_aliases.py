@@ -953,6 +953,22 @@ REGISTER_ALIASES: dict[str, str] = {
     "cloudfront": "amazon-web-services",
     "elastic-search": "elastic",
     "google-ad-manager": "google",
+    # Clearbit first-party homepage (clearbit.com) titles
+    # "Clearbit has joined HubSpot". hubspot is on the register.
+    # Do not invent a second Clearbit dossier.
+    "clearbit": "hubspot",
+    # Mode first-party homepage (mode.com) prints
+    # "ThoughtSpot acquires Mode…". thoughtspot is on the register.
+    # Do not invent a second Mode dossier. mode-analytics is not on
+    # the wire; do not invent that alias.
+    "mode": "thoughtspot",
+    # Svix first-party subprocessors table prints Google LLC (G Suite).
+    # g-suite already lands on google.
+    "google-g-suite": "google",
+    # Svix first-party subprocessors table prints
+    # Not Just Tickets Ltd d/b/a Plain. not-just-tickets-plain already
+    # lands on plain.
+    "not-just-tickets-d-b-a-plain": "plain",
 
 }
 

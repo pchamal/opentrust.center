@@ -742,7 +742,10 @@ def filed_disclosure(row: dict) -> dict:
 
 FILE_METER_KEYS = ("page", "marks", "dpa", "subprocessors", "years")
 # Portal hosts stay URL-only instruments. Never Official page.
-PORTAL_URL_ONLY_SLUGS = {"softcat", "virtuozzo", "coralogix"}
+# Superhuman: trust.superhuman.com is SafeBase chrome. /security 404s.
+# /legal/trust is a JS shell (title only). No first-party printed HTML
+# security page. Keep the portal as trust_url / URL-only instrument.
+PORTAL_URL_ONLY_SLUGS = {"softcat", "virtuozzo", "coralogix", "superhuman"}
 
 
 def _instrument_url(row: dict, key: str) -> bool:

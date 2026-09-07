@@ -198,6 +198,9 @@ EXTRA_GUESSES = {
     "mosse-security": ["mosse-security.com"],
     "benjamin-mosse-consulting": ["mosse-security.com"],
     "vector": ["vector.co"],
+    "resend": ["resend.com"],
+    "superhuman": ["superhuman.com"],
+    "svix": ["svix.com"],
 }
 
 PORTAL_HOSTS = (
