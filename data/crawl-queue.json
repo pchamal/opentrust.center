@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-04T19:08:59Z",
+  "generated_at": "2026-09-07T17:02:07Z",
   "target": 10000,
   "already_on_file": 4918,
-  "queued": 2056,
+  "queued": 2059,
   "companies": [
     {
       "name": "Resend",
@@ -16329,22 +16329,22 @@
     {
       "name": "Aircall",
       "slug": "aircall",
-      "domain": "",
+      "domain": "aircall.se",
       "source": "named-processor-gap",
       "source_url": "https://trust.sms-magic.com/subprocessors/",
       "named_by": 1,
       "priority": 0,
-      "reason": "rejected-collision"
+      "reason": "exact"
     },
     {
       "name": "Maxio",
       "slug": "maxio",
-      "domain": "",
+      "domain": "maxionwheels.com",
       "source": "named-processor-gap",
       "source_url": "https://www.jasper.ai/legal/sub-processors",
       "named_by": 1,
       "priority": 0,
-      "reason": "rejected-collision"
+      "reason": "same-domain-all-org-candidates"
     },
     {
       "name": "Fathom Analytics, Inc",
@@ -16597,6 +16597,36 @@
       "source": "wikipedia-tech-india",
       "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_India",
       "priority": 3
+    },
+    {
+      "name": "Flash Global Logistics, Inc",
+      "slug": "flash-global-logistics",
+      "domain": "flashglobal.com",
+      "source": "named-processor-gap",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "named_by": 1,
+      "priority": 0,
+      "reason": "naming-list-homepage score=10"
+    },
+    {
+      "name": "XFX",
+      "slug": "xfx",
+      "domain": "xfxforce.com",
+      "source": "wikipedia-p856-initials",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Computer_hardware_companies",
+      "priority": 3,
+      "qid": null,
+      "reason": "p856-initials-or-compact"
+    },
+    {
+      "name": "Mag+",
+      "slug": "magplus",
+      "domain": "magplus.com",
+      "source": "wikipedia-software-sweden",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Sweden",
+      "priority": 3,
+      "qid": null,
+      "reason": "p856-initials-or-compact"
     }
   ],
   "domain_resolve_at": "2026-09-01T21:24:34Z"
