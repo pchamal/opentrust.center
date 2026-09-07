@@ -502,6 +502,12 @@ SPECIAL_URLS = {
     "tq-solutions": [
         ("https://www.tqsolutions.com.au/privacy-policy", "privacy"),
     ],
+    "regula-baltija": [
+        ("https://regulaforensics.com/privacy/", "privacy"),
+    ],
+    "up-reply": [
+        ("https://upreply.de/datenschutz/", "privacy"),
+    ],
     # Branch Metrics leftover. legal.branch.io is first-party of branch.io.
     # trust.branch.io is a Conveyor portal — not Official page, not a mark source.
     "branch-metrics": [

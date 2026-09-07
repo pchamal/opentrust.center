@@ -273,6 +273,8 @@ EXTRA_GUESSES = {
     "dare-to-change": ["dtcsolution.org"],
     "edgetech-consulting": ["edgetech-consulting.com"],
     "tq-solutions": ["tqsolutions.com.au"],
+    "regula-baltija": ["regulaforensics.com"],
+    "up-reply": ["upreply.de"],
 }
 
 PORTAL_HOSTS = (

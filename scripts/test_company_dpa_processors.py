@@ -2658,6 +2658,61 @@ def main() -> int:
     check("Official page · not on file" in udder_html, "udder Official page stays open")
     check("https://udder.rocks/privacy-policy" in udder_html, "udder dossier cites first-party privacy")
 
+    # This cut: no same-company leftover proved onto an existing register slug.
+    # File named-by-1 leftovers on first-party domains. Portal chrome is never
+    # Official page. GDPR/CCPA-as-rights stay unread.
+    for slug, domain in (
+        ("regula-baltija", "regulaforensics.com"),
+        ("up-reply", "upreply.de"),
+    ):
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check("GDPR" not in (by_pub[slug].get("certs") or []), f"{slug} GDPR is not a mark")
+        check("CCPA" not in (by_pub[slug].get("certs") or []), f"{slug} CCPA is not a mark")
+    for slug in (
+        "maxio", "aircall", "aircall-sas", "voyager", "fathom-analytics",
+        "kaleido", "fern", "dispatch", "cookie-bot", "joveo", "altinity",
+        "level-access", "springserve", "profitwell",
+        "pigeonlab", "luma", "paragon", "bt", "gcs",
+    ):
+        check(slug not in by_pub, f"{slug} stays off the register")
+    check(not by_pub["regula-baltija"].get("trust_url"), "regula Vanta portal is not the Official page URL")
+    check(
+        ((by_pub["regula-baltija"].get("instruments") or {}).get("trust") or {}).get("url")
+        == "https://trust.regulaforensics.com",
+        "regula trust instrument keeps the portal URL as a link",
+    )
+    check(
+        instrument_url(by_pub["regula-baltija"], "privacy")
+        == "https://regulaforensics.com/privacy/",
+        "regula privacy is first-party HTML",
+    )
+    check(
+        instrument_url(by_pub["regula-baltija"], "status")
+        == "https://status.regulaforensics.com",
+        "regula status is first-party Better Stack",
+    )
+    check(
+        instrument_url(by_pub["regula-baltija"], "subprocessors") == "",
+        "regula portal subprocessors stay unread",
+    )
+    check(
+        instrument_url(by_pub["up-reply"], "privacy")
+        == "https://upreply.de/datenschutz/",
+        "up-reply privacy is first-party HTML",
+    )
+    regula_html = (ROOT / "site" / "c" / "regula-baltija.html").read_text(encoding="utf-8")
+    check("<h1>Regula</h1>" in regula_html, "regula dossier is its own file")
+    check("Official page · not on file" in regula_html, "regula Official page stays open")
+    check("https://regulaforensics.com/privacy/" in regula_html, "regula dossier cites first-party privacy")
+    check("vanta" not in regula_html.lower(), "regula dossier names no portal vendor")
+    check("safebase" not in regula_html.lower(), "regula dossier names no portal vendor")
+    up_html = (ROOT / "site" / "c" / "up-reply.html").read_text(encoding="utf-8")
+    check("<h1>Up Reply</h1>" in up_html, "up-reply dossier is its own file")
+    check("Official page · not on file" in up_html, "up-reply Official page stays open")
+    check("https://upreply.de/datenschutz/" in up_html, "up-reply dossier cites first-party privacy")
+
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
