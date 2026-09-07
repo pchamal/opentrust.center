@@ -753,6 +753,8 @@ PORTAL_URL_ONLY_SLUGS = {
     "meilisearch", "last9", "vespa-ai", "stigg",
     # Docs HTML names holds; /security is not a first-party Official page.
     "pipedream",
+    # This cut: SafeBase / Vanta custom hosts. Never Official page.
+    "warmly-ai", "tandem-health",
 }
 
 

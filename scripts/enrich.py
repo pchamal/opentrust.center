@@ -425,6 +425,43 @@ SPECIAL_URLS = {
     "castlabs": [
         ("https://castlabs.com/legal/", "privacy"),
     ],
+    "status-io": [
+        ("https://status.io/security", "security"),
+        ("https://status.io/privacy", "privacy"),
+    ],
+    "rev": [
+        ("https://www.rev.com/security", "security"),
+        ("https://www.rev.com/legal/data-processing-addendum", "dpa"),
+        ("https://www.rev.com/legal/privacy", "privacy"),
+    ],
+    "headwayapp": [
+        ("https://headwayapp.co/security", "security"),
+        ("https://headwayapp.co/privacy", "privacy"),
+    ],
+    "ip-info": [
+        ("https://ipinfo.io/privacy-policy", "privacy"),
+    ],
+    "polar-signals": [
+        ("https://www.polarsignals.com/privacy", "privacy"),
+    ],
+    "zipdx": [
+        ("https://www.zipdx.info/about/privacy-policy/", "privacy"),
+    ],
+    "keen-io": [
+        ("https://keen.io/privacy-policy/", "privacy"),
+    ],
+    "intech-solution": [
+        ("https://www.intechsolutions.com.au/privacy/", "privacy"),
+    ],
+    "firetext-communications": [
+        ("https://www.firetext.co.uk/privacy", "privacy"),
+    ],
+    "warmly-ai": [
+        ("https://www.warmly.ai/p/privacy-policy", "privacy"),
+    ],
+    "tandem-health": [
+        ("https://tandemhealth.ai/legal/privacy-policy", "privacy"),
+    ],
     # Branch Metrics leftover. legal.branch.io is first-party of branch.io.
     # trust.branch.io is a Conveyor portal — not Official page, not a mark source.
     "branch-metrics": [

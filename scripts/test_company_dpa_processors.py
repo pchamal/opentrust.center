@@ -727,7 +727,8 @@ def main() -> int:
     check("twilio" in as_slugs, "alphasights Twilio uses the Twilio file")
     check("zoom" in as_slugs, "alphasights Zoom uses the Zoom file")
     check("google" in as_slugs, "alphasights Google Cloud EMEA uses the Google file")
-    check("zipdx" not in by_pub, "alphasights does not invent a ZipDX dossier")
+    check("zipdx" in by_pub, "alphasights ZipDX uses the named-processor-gap file")
+    check(by_pub["zipdx"].get("domain") == "zipdx.info", "zipdx official domain is zipdx.info")
     check(
         instrument_url(by_pub["scoro"], "subprocessors")
         == "https://www.scoro.com/subprocessor-list/",
@@ -835,7 +836,8 @@ def main() -> int:
     check("openai" in bc_slugs, "brightcove OpenAI Ireland uses the OpenAI file")
     check("castlabs" in by_pub, "brightcove CastLabs uses the named-processor-gap file")
     check(by_pub["castlabs"].get("domain") == "castlabs.com", "castlabs official domain is castlabs.com")
-    check("keen-io" not in by_pub, "brightcove does not invent a Keen.io dossier")
+    check("keen-io" in by_pub, "brightcove Keen.io uses the named-processor-gap file")
+    check(by_pub["keen-io"].get("domain") == "keen.io", "keen-io official domain is keen.io")
     check("last9" in by_pub, "brightcove Last9 uses the named-processor-gap file")
     check(by_pub["last9"].get("domain") == "last9.io", "last9 official domain is last9.io")
     check(by_pub["wowza"].get("domain") == "wowza.com", "brightcove Wowza uses the existing Wowza file")
@@ -924,7 +926,8 @@ def main() -> int:
     check("salesforce" in sms_slugs, "sms-magic Pardot uses the Salesforce file")
     check("intuit" in sms_slugs, "sms-magic Quick Books uses the Intuit file")
     check("Telecom Partners (Aus)" not in sms_names, "sms-magic unnamed telecom rows stay off file")
-    check("match-my-email" not in by_pub, "sms-magic does not invent a Match My Email dossier")
+    check("match-my-email" in by_pub, "sms-magic Match My Email uses the named-processor-gap file")
+    check(by_pub["match-my-email"].get("domain") == "matchmyemail.com", "match-my-email official domain is matchmyemail.com")
     check("aircall" not in by_pub, "sms-magic does not invent an Aircall dossier")
     check("aircall" not in by_enr, "aircall stays a domain-less leftover after the wrong-company revert")
     # Prior cut: Accurx first-party support-article table. DPA annex headings
@@ -950,7 +953,8 @@ def main() -> int:
     check("teamviewer" in accurx_slugs, "accurx TeamViewer UK uses the TeamViewer file")
     check("intercom" in accurx_slugs, "accurx Intercom uses the Intercom file")
     check("google" in accurx_slugs, "accurx Google LLC uses the Google file")
-    check("tandem-health" not in by_pub, "accurx does not invent a Tandem Health dossier")
+    check("tandem-health" in by_pub, "accurx Tandem Health uses the named-processor-gap file")
+    check(by_pub["tandem-health"].get("domain") == "tandemhealth.ai", "tandem-health official domain is tandemhealth.ai")
     check("whereby" in by_pub, "accurx Whereby uses the named-processor-gap file")
     check(by_pub["whereby"].get("domain") == "whereby.com", "whereby official domain is whereby.com")
     check("aircall-sas" not in by_pub, "accurx does not invent an Aircall dossier")
@@ -2420,6 +2424,90 @@ def main() -> int:
     ibm_wires = [e for e in wires.get("edges") or [] if e.get("to") == "ibm" and "streamset" in (e.get("evidence") or "").lower()]
     check(ibm_wires, "Verimatrix Streamsets wire lands on IBM")
     check(not any(e.get("to") == "streamsets" for e in (wires.get("edges") or [])), "streamsets leftover node is gone")
+
+    # This cut: file named-by-1 leftovers on first-party domains. No same-company
+    # leftover proved onto an existing register slug. Portal chrome is never
+    # Official page. GDPR/CCPA-as-rights stay unread. FireText homepage badges
+    # stay unread. Intech /security is a researcher VDP, not Official page.
+    for slug, domain in (
+        ("vonq", "vonq.com"),
+        ("textkernel", "textkernel.com"),
+        ("ip-info", "ipinfo.io"),
+        ("polar-signals", "polarsignals.com"),
+        ("status-io", "status.io"),
+        ("syncwords", "syncwords.com"),
+        ("warmly-ai", "warmly.ai"),
+        ("zipdx", "zipdx.info"),
+        ("tandem-health", "tandemhealth.ai"),
+        ("firetext-communications", "firetext.co.uk"),
+        ("rev", "rev.com"),
+        ("keen-io", "keen.io"),
+        ("headwayapp", "headwayapp.co"),
+        ("intech-solution", "intechsolutions.com.au"),
+        ("match-my-email", "matchmyemail.com"),
+    ):
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+    for slug in ("maxio", "aircall", "voyager", "fathom-analytics", "kaleido", "fern", "dispatch"):
+        check(slug not in by_pub, f"{slug} stays off the register")
+    check(by_pub["rev"].get("found") is True, "rev Official page is on file")
+    check(by_pub["rev"].get("trust_url") == "https://www.rev.com/security", "rev Official page is first-party security")
+    check("SOC 2 Type II" in (by_pub["rev"].get("certs") or []), "rev files SOC 2 Type II")
+    check("SOC 3" in (by_pub["rev"].get("certs") or []), "rev files SOC 3")
+    check("HIPAA" in (by_pub["rev"].get("certs") or []), "rev files HIPAA")
+    check("GDPR" not in (by_pub["rev"].get("certs") or []), "rev GDPR is not a mark")
+    check("CCPA" not in (by_pub["rev"].get("certs") or []), "rev CCPA is not a mark")
+    check(
+        instrument_url(by_pub["rev"], "dpa")
+        == "https://www.rev.com/legal/data-processing-addendum",
+        "rev DPA is first-party HTML",
+    )
+    check((by_pub["rev"].get("file") or {}).get("dpa") == 20, "rev DPA prints")
+    check(by_pub["status-io"].get("found") is True, "status-io Official page is on file")
+    check(by_pub["status-io"].get("trust_url") == "https://status.io/security", "status-io Official page is first-party security")
+    check("SOC 2 Type II" in (by_pub["status-io"].get("certs") or []), "status-io files SOC 2 Type II")
+    check("ISO 27001" in (by_pub["status-io"].get("certs") or []), "status-io files ISO 27001")
+    check("ISO 27018" in (by_pub["status-io"].get("certs") or []), "status-io files ISO 27018")
+    check("GDPR" not in (by_pub["status-io"].get("certs") or []), "status-io GDPR is not a mark")
+    check("CCPA" not in (by_pub["status-io"].get("certs") or []), "status-io CCPA is not a mark")
+    check(by_pub["headwayapp"].get("found") is True, "headwayapp Official page is on file")
+    check(
+        by_pub["headwayapp"].get("trust_url") == "https://headwayapp.co/security",
+        "headwayapp Official page is first-party security",
+    )
+    check(not (by_pub["headwayapp"].get("certs") or []), "headwayapp has no unread marks")
+    check(by_pub["warmly-ai"].get("found") is False, "warmly SafeBase portal is not Official page")
+    check(not by_pub["warmly-ai"].get("trust_url"), "warmly portal is not the Official page URL")
+    check(
+        ((by_pub["warmly-ai"].get("instruments") or {}).get("trust") or {}).get("url")
+        == "https://security.warmly.ai",
+        "warmly trust instrument keeps the portal URL as a link",
+    )
+    check(by_pub["tandem-health"].get("found") is False, "tandem Vanta portal is not Official page")
+    check(not by_pub["tandem-health"].get("trust_url"), "tandem portal is not the Official page URL")
+    check(
+        instrument_url(by_pub["tandem-health"], "subprocessors") == "",
+        "tandem portal subprocessors stay unread",
+    )
+    check(by_pub["vonq"].get("found") is False, "vonq Official page stays open")
+    check(by_pub["textkernel"].get("found") is False, "textkernel Official page stays open")
+    check(by_pub["intech-solution"].get("found") is False, "intech VDP is not Official page")
+    check(by_pub["firetext-communications"].get("found") is False, "firetext Official page stays open")
+    check(not (by_pub["firetext-communications"].get("certs") or []), "firetext homepage badges stay unread")
+    check(by_pub["match-my-email"].get("found") is False, "match-my-email Official page stays open")
+    rev_html = (ROOT / "site" / "c" / "rev.html").read_text(encoding="utf-8")
+    check("<h1>Rev</h1>" in rev_html, "rev dossier is its own file")
+    check("https://www.rev.com/security" in rev_html, "rev dossier cites first-party security")
+    check("https://www.rev.com/legal/data-processing-addendum" in rev_html, "rev dossier cites the DPA")
+    check("safebase" not in rev_html.lower(), "rev dossier names no portal vendor")
+    warmly_html = (ROOT / "site" / "c" / "warmly-ai.html").read_text(encoding="utf-8")
+    check("<h1>Warmly</h1>" in warmly_html, "warmly dossier is its own file")
+    check("Official page · not on file" in warmly_html, "warmly Official page stays open")
+    check("safebase" not in warmly_html.lower(), "warmly dossier names no portal vendor")
+    tandem_html = (ROOT / "site" / "c" / "tandem-health.html").read_text(encoding="utf-8")
+    check("<h1>Tandem Health</h1>" in tandem_html, "tandem dossier is its own file")
+    check("Official page · not on file" in tandem_html, "tandem Official page stays open")
+    check("vanta" not in tandem_html.lower(), "tandem dossier names no portal vendor")
 
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "

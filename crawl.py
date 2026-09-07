@@ -65,6 +65,9 @@ SEED_URLS = {
     "servicenow": ["https://www.servicenow.com/company/trust.html"],
     # First-party security-commitment HTML. /security is a product lander.
     "language-i-o": ["https://languageio.com/security-commitment/"],
+    "rev": ["https://www.rev.com/security"],
+    "status-io": ["https://status.io/security"],
+    "headwayapp": ["https://headwayapp.co/security"],
 }
 
 VENDOR_RANK = [
