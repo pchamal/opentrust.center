@@ -1336,7 +1336,12 @@ def main() -> int:
     check("facebook-for-business" not in uc_slugs, "uploadcare does not invent a Facebook for Business dossier")
     check("talend" not in uc_slugs, "uploadcare does not invent a Talend dossier")
     check("kaleido" not in by_pub, "kaleido leftover does not invent a dossier")
-    check("fern" not in by_pub, "fern leftover does not invent a dossier")
+    # Expand on main filed Fern from the Uploadcare leftover onto first-party
+    # buildwithfern.com. Official page stays open. Kaleido stays frozen.
+    check("fern" in by_pub, "fern is on the register")
+    check(by_pub["fern"]["domain"] == "buildwithfern.com", "fern official domain is buildwithfern.com")
+    check(by_pub["fern"].get("found") is False, "fern Official page stays open")
+    check((by_pub["fern"].get("file") or {}).get("page") in (0, False, None), "fern Official page stays unread")
     # Expand on main promoted Zamzar / Mezmo from leftover nodes to silent
     # register rows. This cut does not invent a first-party file for them.
     check(by_pub["zamzar"].get("found") is False, "zamzar Official page stays open")
@@ -2448,7 +2453,7 @@ def main() -> int:
     ):
         check(slug in by_pub, f"{slug} is on the register")
         check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
-    for slug in ("maxio", "aircall", "voyager", "fathom-analytics", "kaleido", "fern", "dispatch"):
+    for slug in ("maxio", "aircall", "voyager", "fathom-analytics", "kaleido", "dispatch"):
         check(slug not in by_pub, f"{slug} stays off the register")
     check(by_pub["rev"].get("found") is True, "rev Official page is on file")
     check(by_pub["rev"].get("trust_url") == "https://www.rev.com/security", "rev Official page is first-party security")
@@ -2536,7 +2541,7 @@ def main() -> int:
         check("CCPA" not in (by_pub[slug].get("certs") or []), f"{slug} CCPA is not a mark")
     for slug in (
         "maxio", "aircall", "aircall-sas", "voyager", "fathom-analytics",
-        "kaleido", "fern", "dispatch", "cookie-bot", "joveo", "altinity",
+        "kaleido", "dispatch", "cookie-bot", "joveo", "altinity",
         "level-access", "springserve", "profitwell",
         "pigeonlab", "luma", "paragon", "bt", "gcs",
     ):
@@ -2602,7 +2607,7 @@ def main() -> int:
         check("CCPA" not in (by_pub[slug].get("certs") or []), f"{slug} CCPA is not a mark")
     for slug in (
         "maxio", "aircall", "aircall-sas", "voyager", "fathom-analytics",
-        "kaleido", "fern", "dispatch", "cookie-bot", "joveo", "altinity",
+        "kaleido", "dispatch", "cookie-bot", "joveo", "altinity",
         "level-access", "springserve", "profitwell",
         "pigeonlab", "luma", "paragon", "bt", "gcs",
     ):
@@ -2674,7 +2679,7 @@ def main() -> int:
         check("CCPA" not in (by_pub[slug].get("certs") or []), f"{slug} CCPA is not a mark")
     for slug in (
         "maxio", "aircall", "aircall-sas", "voyager", "fathom-analytics",
-        "kaleido", "fern", "dispatch", "cookie-bot", "joveo", "altinity",
+        "kaleido", "dispatch", "cookie-bot", "joveo", "altinity",
         "level-access", "springserve", "profitwell",
         "pigeonlab", "luma", "paragon", "bt", "gcs",
         "regula-baltija", "up-reply",
