@@ -980,6 +980,14 @@ REGISTER_ALIASES: dict[str, str] = {
     # Not Just Tickets Ltd d/b/a Plain. not-just-tickets-plain already
     # lands on plain.
     "not-just-tickets-d-b-a-plain": "plain",
+    # Verimatrix names Streamsets. streamsets.com 301s to IBM's first-party
+    # product page titled "IBM StreamSets". ibm is on the register. Do not
+    # invent a second StreamSets dossier.
+    "streamsets": "ibm",
+    # AlphaSights names S&P Global Market Intelligence LLC. sandp-global
+    # is already on the register (spglobal.com). Do not invent a second
+    # S&P Global dossier.
+    "s-p-global-market-intelligence": "sandp-global",
 
 }
 

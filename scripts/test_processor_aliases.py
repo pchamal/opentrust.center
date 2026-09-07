@@ -721,6 +721,19 @@ def main() -> int:
     pd_reg = {**register, "pagerduty": {"slug": "pagerduty", "name": "PagerDuty", "domain": "pagerduty.com"}}
     check(canonical_processor_id("pager-duty", pd_reg) == "pagerduty", "Pager Duty is PagerDuty")
     check(REGISTER_ALIASES["pager-duty"] == "pagerduty", "pager-duty aliases to pagerduty")
+    ibm_stream = {**register, "ibm": {"slug": "ibm", "name": "IBM", "domain": "ibm.com"}}
+    check(canonical_processor_id("streamsets", ibm_stream) == "ibm", "StreamSets is IBM")
+    check(REGISTER_ALIASES["streamsets"] == "ibm", "streamsets aliases to ibm")
+    check("streamsets" not in ("signalwire", "zenlayer", "timescale"), "streamsets is aliased, not filed")
+    sandp_reg = {**register, "sandp-global": {"slug": "sandp-global", "name": "S&P Global", "domain": "spglobal.com"}}
+    check(
+        canonical_processor_id("s-p-global-market-intelligence", sandp_reg) == "sandp-global",
+        "S&P Global Market Intelligence is S&P Global",
+    )
+    check(
+        REGISTER_ALIASES["s-p-global-market-intelligence"] == "sandp-global",
+        "s-p-global-market-intelligence aliases to sandp-global",
+    )
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch
