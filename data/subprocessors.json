@@ -41894,6 +41894,20 @@
       "domain": "",
       "kind": "processor",
       "in_register": false
+    },
+    {
+      "id": "hydrolix",
+      "name": "Hydrolix Inc",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "queue-it",
+      "name": "Queue-it",
+      "domain": "queue-it.com",
+      "kind": "company",
+      "in_register": true
     }
   ],
   "edges": [
@@ -64024,6 +64038,36 @@
       "to": "stripe",
       "source_url": "https://vespa.ai/service-providers/",
       "evidence": "Stripe"
+    },
+    {
+      "from": "queue-it",
+      "to": "amazon-web-services",
+      "source_url": "https://queue-it.com/data-processing-agreement-sub-processors",
+      "evidence": "Amazon Web Services, Inc"
+    },
+    {
+      "from": "queue-it",
+      "to": "datadog",
+      "source_url": "https://queue-it.com/data-processing-agreement-sub-processors",
+      "evidence": "Datadog, Inc"
+    },
+    {
+      "from": "queue-it",
+      "to": "intercom",
+      "source_url": "https://queue-it.com/data-processing-agreement-sub-processors",
+      "evidence": "Intercom R&D Unlimited Company (Ireland)"
+    },
+    {
+      "from": "queue-it",
+      "to": "hydrolix",
+      "source_url": "https://queue-it.com/data-processing-agreement-sub-processors",
+      "evidence": "Hydrolix Inc"
+    },
+    {
+      "from": "queue-it",
+      "to": "twilio",
+      "source_url": "https://queue-it.com/data-processing-agreement-sub-processors",
+      "evidence": "Twilio, Inc"
     }
   ],
   "aliases": {

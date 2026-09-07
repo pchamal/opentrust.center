@@ -244,55 +244,44 @@ def main() -> int:
     )
     check(len(by_pub["dialpad"].get("processors") or []) == 1, "dialpad existing name stays")
 
-    # This increment: Completeness fill on leftover-company open files.
-    # Named-by-1 leftovers are still skip-list / 403 / JS / print-BPO /
-    # ambiguous shorts (Osano prints but this cut fills on-file rows).
+    # This increment: Completeness fill on expand-hour found companies.
+    # Queue-it first-party DPA + named list + Official page. Neuroflash /
+    # Roboflow SafeBase-Vanta chrome is not Official page. Surfshark
+    # /trust-center stays Official page. GDPR/CCPA-as-rights unread.
     # Portal chrome is never Official page. Parent-list redirects stay
     # unread (Basefarm→Orange, Observe→Snowflake). Fern stays silent.
     expected_batch = [
-        "mezmo",
-        "oopspam",
-        "tremendous",
-        "zamzar",
-        "jumpcloud-iam",
-        "wowza",
-        "pandadoc",
-        "zenlayer",
-        "observe",
-        "explo",
-        "castlabs",
-        "servers-com",
-        "icinga",
-        "docdelta",
-        "baxter-planning-systems",
-        "datapacket",
-        "media-connect",
+        "neuroflash",
+        "queue-it",
+        "surfshark-vpn",
+        "roboflow",
     ]
-    check(report.get("batch") == expected_batch, "batch is the leftover-company Completeness queue")
+    check(report.get("batch") == expected_batch, "batch is the expand-hour Completeness queue")
     filed_dpa = {r["slug"]: r for r in (report.get("dpa_filed") or [])}
     check(
-        set(filed_dpa) == {"mezmo", "oopspam", "zamzar"},
+        set(filed_dpa) == {"queue-it"},
         f"DPA links filed, got {sorted(filed_dpa)}",
     )
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
-    check(not filed_sub, f"no named-processor lists filed, got {sorted(filed_sub)}")
+    check(set(filed_sub) == {"queue-it"}, f"named-processor lists filed, got {sorted(filed_sub)}")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
-    check("mezmo" not in stayed_dpa, "Mezmo DPA was filed")
-    check("oopspam" not in stayed_dpa, "OOPSpam DPA was filed")
-    check("zamzar" not in stayed_dpa, "Zamzar DPA was filed")
-    check("mezmo" in stayed_sub, "Mezmo named list stayed open")
-    check("oopspam" in stayed_sub, "OOPSpam named list stayed open")
-    check("zamzar" in stayed_sub, "Zamzar named list stayed open")
-    check("tremendous" in stayed_dpa, "Tremendous JS-payload DPA stayed open")
-    check("jumpcloud-iam" in stayed_dpa, "JumpCloud PDF DPA stayed open")
+    check("queue-it" not in stayed_dpa, "Queue-it DPA was filed")
+    check("queue-it" not in stayed_sub, "Queue-it named list was filed")
+    check("neuroflash" in stayed_dpa, "Neuroflash DPA stayed open")
+    check("neuroflash" in stayed_sub, "Neuroflash named list stayed open")
+    check("surfshark-vpn" in stayed_dpa, "Surfshark DPA stayed open")
+    check("surfshark-vpn" in stayed_sub, "Surfshark named list stayed open")
+    check("roboflow" in stayed_dpa, "Roboflow DPA stayed open")
+    check("roboflow" in stayed_sub, "Roboflow named list stayed open")
     check("statsig" not in filed_sub, "Statsig Amplitude parent list was not filed")
     check("yandex" not in stayed_dpa, "prior Yandex DPA stay is not this report")
     check("ip-info" not in stayed_dpa, "prior IPinfo DPA stay is not this report")
-    check(len(report.get("stayed_open") or []) == 31, f"31 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
-    check(len(stayed_dpa) == 14, f"14 DPA slots stayed open, got {len(stayed_dpa)}")
-    check(len(stayed_sub) == 17, f"17 subprocessors slots stayed open, got {len(stayed_sub)}")
+    check("mezmo" not in stayed_dpa, "prior Mezmo DPA stay is not this report")
+    check(len(report.get("stayed_open") or []) == 6, f"6 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
+    check(len(stayed_dpa) == 3, f"3 DPA slots stayed open, got {len(stayed_dpa)}")
+    check(len(stayed_sub) == 3, f"3 subprocessors slots stayed open, got {len(stayed_sub)}")
     # Prior-cut review drops stay unread.
     check("dpa" not in ((by_enr["zillow"].get("links") or {})), "Zillow links.dpa stays off the Legal AB listing shell")
     check(not instrument_url(by_pub["zillow"], "dpa"), "Zillow DPA stays open")
@@ -661,6 +650,96 @@ def main() -> int:
     check("Official page · not on file" in fern_html, "fern Official page stays open")
     check("buildwithfern.com" in fern_html, "fern dossier keeps the expand domain")
 
+    # This cut: Completeness fill on expand-hour found companies.
+    # Queue-it /trust-center/security is Official page and prints ISO 27001 /
+    # 27017 / 27018. First-party DPA and named list. Neuroflash Vanta and
+    # Roboflow SafeBase chrome are not Official page. Surfshark
+    # /trust-center stays Official page. GDPR/CCPA-as-rights stay unread.
+    # Hydrolix stays a domain-less leftover. Portal chrome is never Official
+    # page. Fern stays silent on buildwithfern.com.
+    check(
+        instrument_url(by_pub["queue-it"], "dpa")
+        == "https://queue-it.com/data-processing-agreement",
+        "queue-it DPA is first-party HTML",
+    )
+    check((by_pub["queue-it"].get("file") or {}).get("dpa") == 20, "queue-it DPA prints")
+    check(
+        instrument_url(by_pub["queue-it"], "subprocessors")
+        == "https://queue-it.com/data-processing-agreement-sub-processors",
+        "queue-it named list is first-party HTML",
+    )
+    check((by_pub["queue-it"].get("file") or {}).get("subprocessors") == 20, "queue-it list printed")
+    check(by_pub["queue-it"].get("found") is True, "queue-it Official page is on file")
+    check(
+        by_pub["queue-it"].get("trust_url") == "https://queue-it.com/trust-center/security/",
+        "queue-it Official page is first-party security",
+    )
+    check("ISO 27001" in (by_pub["queue-it"].get("certs") or []), "queue-it files ISO 27001")
+    check("ISO 27017" in (by_pub["queue-it"].get("certs") or []), "queue-it files ISO 27017")
+    check("ISO 27018" in (by_pub["queue-it"].get("certs") or []), "queue-it files ISO 27018")
+    check("GDPR" not in (by_pub["queue-it"].get("certs") or []), "queue-it GDPR is not a mark")
+    check("CCPA" not in (by_pub["queue-it"].get("certs") or []), "queue-it CCPA is not a mark")
+    qi_slugs = [p.get("slug") for p in (by_pub["queue-it"].get("processors") or [])]
+    check("amazon-web-services" in qi_slugs, "queue-it AWS lands on amazon-web-services")
+    check("datadog" in qi_slugs, "queue-it names Datadog")
+    check("intercom" in qi_slugs, "queue-it names Intercom")
+    check("twilio" in qi_slugs, "queue-it Twilio SendGrid lands on Twilio")
+    check("hydrolix" not in by_pub, "hydrolix leftover does not invent a dossier")
+    check("aws" not in qi_slugs, "queue-it does not invent a second AWS dossier")
+    check(by_pub["neuroflash"].get("found") is False, "neuroflash Vanta portal is not Official page")
+    check(not by_pub["neuroflash"].get("trust_url"), "neuroflash portal is not the Official page URL")
+    check(
+        ((by_pub["neuroflash"].get("instruments") or {}).get("trust") or {}).get("url")
+        == "https://trust.neuroflash.com",
+        "neuroflash trust instrument keeps the portal URL as a link",
+    )
+    check("GDPR" not in (by_pub["neuroflash"].get("certs") or []), "neuroflash GDPR is not a mark")
+    check("CCPA" not in (by_pub["neuroflash"].get("certs") or []), "neuroflash CCPA is not a mark")
+    check(not (by_pub["neuroflash"].get("processors") or []), "neuroflash named list stays unread")
+    check(not instrument_url(by_pub["neuroflash"], "dpa"), "neuroflash DPA stays open")
+    check(by_pub["roboflow"].get("found") is False, "roboflow SafeBase portal is not Official page")
+    check(not by_pub["roboflow"].get("trust_url"), "roboflow portal is not the Official page URL")
+    check(
+        ((by_pub["roboflow"].get("instruments") or {}).get("trust") or {}).get("url")
+        == "https://security.roboflow.com",
+        "roboflow trust instrument keeps the portal URL as a link",
+    )
+    check(not instrument_url(by_pub["roboflow"], "dpa"), "roboflow DPA stays open")
+    check(not (by_pub["roboflow"].get("processors") or []), "roboflow named list stays unread")
+    check(by_pub["surfshark-vpn"].get("found") is True, "surfshark Official page is on file")
+    check(
+        by_pub["surfshark-vpn"].get("trust_url") == "https://surfshark.com/trust-center",
+        "surfshark Official page is first-party trust-center",
+    )
+    check("GDPR" not in (by_pub["surfshark-vpn"].get("certs") or []), "surfshark GDPR is not a mark")
+    check("CCPA" not in (by_pub["surfshark-vpn"].get("certs") or []), "surfshark CCPA is not a mark")
+    check(not instrument_url(by_pub["surfshark-vpn"], "dpa"), "surfshark DPA stays open")
+    check(not (by_pub["surfshark-vpn"].get("processors") or []), "surfshark named list stays unread")
+    qi_html = (ROOT / "site" / "c" / "queue-it.html").read_text(encoding="utf-8")
+    check("<h1>Queue-it</h1>" in qi_html, "queue-it dossier is its own file")
+    check("https://queue-it.com/data-processing-agreement" in qi_html, "queue-it dossier cites the DPA")
+    check(
+        "https://queue-it.com/data-processing-agreement-sub-processors" in qi_html,
+        "queue-it dossier cites the named list",
+    )
+    check("https://queue-it.com/trust-center/security/" in qi_html, "queue-it dossier cites first-party security")
+    check("vanta" not in qi_html.lower(), "queue-it dossier names no portal vendor")
+    check("safebase" not in qi_html.lower(), "queue-it dossier names no portal vendor")
+    check('rel="noopener noreferrer"' in qi_html, "queue-it outbound links use noopener")
+    nf_html = (ROOT / "site" / "c" / "neuroflash.html").read_text(encoding="utf-8")
+    check("<h1>Neuroflash</h1>" in nf_html, "neuroflash dossier is its own file")
+    check("Official page · not on file" in nf_html, "neuroflash Official page stays open")
+    check("vanta" not in nf_html.lower(), "neuroflash dossier names no portal vendor")
+    rf_html = (ROOT / "site" / "c" / "roboflow.html").read_text(encoding="utf-8")
+    check("<h1>Roboflow</h1>" in rf_html, "roboflow dossier is its own file")
+    check("Official page · not on file" in rf_html, "roboflow Official page stays open")
+    check("safebase" not in rf_html.lower(), "roboflow dossier names no portal vendor")
+    ss_html = (ROOT / "site" / "c" / "surfshark-vpn.html").read_text(encoding="utf-8")
+    check("<h1>Surfshark VPN</h1>" in ss_html, "surfshark dossier is its own file")
+    check("https://surfshark.com/trust-center" in ss_html, "surfshark dossier cites first-party trust-center")
+    check("vanta" not in ss_html.lower(), "surfshark dossier names no portal vendor")
+    check("safebase" not in ss_html.lower(), "surfshark dossier names no portal vendor")
+
     from file_company_dpa_processors import PRIOR_ATTEMPTED, select_batch
     for slug in expected_batch:
         check(slug in PRIOR_ATTEMPTED, f"{slug} is on the next-increment skip list")
@@ -715,6 +794,10 @@ def main() -> int:
         "the-udder-group-t-a-udder", "warmly-ai",
         "vroom-consultancy-worldofwork", "xfive", "zilker-trail-consulting",
         "zipdx", "hireport-nl", "signalwire",
+        "mezmo", "oopspam", "tremendous", "zamzar", "jumpcloud-iam", "wowza",
+        "pandadoc", "zenlayer", "observe", "explo", "castlabs", "servers-com",
+        "icinga", "docdelta", "baxter-planning-systems", "datapacket",
+        "media-connect",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")

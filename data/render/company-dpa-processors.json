@@ -1,2984 +1,672 @@
 {
-  "generated_at": "2026-09-07T21:05:27Z",
+  "generated_at": "2026-09-07T22:02:48Z",
   "rule": "Next ~40 companies: first those with links.dpa on file and an empty named-processor list, then portal-catalog DPAs that may upgrade to printed first-party HTML, then those with first-party trust/privacy/security URLs and no DPA link yet (including silent rows once the found-company queue is exhausted). Named subprocessors fill only from printed organization names in live first-party HTML tables or labeled spans. A stored list URL with no printed names stays open. A DPA is filed only when a printed first-party DPA is newly found; an existing DPA is never dropped. Dates, JS shells, login walls, PDF-only lists, affiliate-only rows, and portal catalogs stay open.",
   "batch": [
-    "mezmo",
-    "oopspam",
-    "tremendous",
-    "zamzar",
-    "jumpcloud-iam",
-    "wowza",
-    "pandadoc",
-    "zenlayer",
-    "observe",
-    "explo",
-    "castlabs",
-    "servers-com",
-    "icinga",
-    "docdelta",
-    "baxter-planning-systems",
-    "datapacket",
-    "media-connect"
+    "neuroflash",
+    "queue-it",
+    "surfshark-vpn",
+    "roboflow"
   ],
   "dpa_filed": [
     {
-      "slug": "mezmo",
-      "name": "Mezmo",
-      "url": "https://www.mezmo.com/dpa"
-    },
-    {
-      "slug": "oopspam",
-      "name": "OOPSpam",
-      "url": "https://www.oopspam.com/dpa"
-    },
-    {
-      "slug": "zamzar",
-      "name": "Zamzar",
-      "url": "https://www.zamzar.com/dpa/"
+      "slug": "queue-it",
+      "name": "Queue-it",
+      "url": "https://queue-it.com/data-processing-agreement"
     }
   ],
-  "subprocessors_filed": [],
+  "subprocessors_filed": [
+    {
+      "slug": "queue-it",
+      "name": "Queue-it",
+      "url": "https://queue-it.com/data-processing-agreement-sub-processors",
+      "names": [
+        "Amazon Web Services, Inc",
+        "Datadog, Inc",
+        "Intercom R&D Unlimited Company (Ireland)",
+        "Hydrolix Inc",
+        "Twilio, Inc"
+      ]
+    }
+  ],
   "stayed_open": [
     {
-      "slug": "mezmo",
-      "name": "Mezmo",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "oopspam",
-      "name": "OOPSpam",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "tremendous",
-      "name": "Tremendous, LLC",
+      "slug": "neuroflash",
+      "name": "Neuroflash",
       "rule": "dpa"
     },
     {
-      "slug": "tremendous",
-      "name": "Tremendous, LLC",
+      "slug": "neuroflash",
+      "name": "Neuroflash",
       "rule": "subprocessors"
     },
     {
-      "slug": "zamzar",
-      "name": "Zamzar",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "jumpcloud-iam",
-      "name": "JumpCloud IAM",
+      "slug": "surfshark-vpn",
+      "name": "Surfshark VPN",
       "rule": "dpa"
     },
     {
-      "slug": "jumpcloud-iam",
-      "name": "JumpCloud IAM",
+      "slug": "surfshark-vpn",
+      "name": "Surfshark VPN",
       "rule": "subprocessors"
     },
     {
-      "slug": "wowza",
-      "name": "Wowza",
+      "slug": "roboflow",
+      "name": "Roboflow",
       "rule": "dpa"
     },
     {
-      "slug": "wowza",
-      "name": "Wowza",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "pandadoc",
-      "name": "PandaDoc",
-      "rule": "dpa"
-    },
-    {
-      "slug": "pandadoc",
-      "name": "PandaDoc",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "zenlayer",
-      "name": "Zenlayer",
-      "rule": "dpa"
-    },
-    {
-      "slug": "zenlayer",
-      "name": "Zenlayer",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "observe",
-      "name": "Observe",
-      "rule": "dpa"
-    },
-    {
-      "slug": "observe",
-      "name": "Observe",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "explo",
-      "name": "Explo",
-      "rule": "dpa"
-    },
-    {
-      "slug": "explo",
-      "name": "Explo",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "castlabs",
-      "name": "castlabs",
-      "rule": "dpa"
-    },
-    {
-      "slug": "castlabs",
-      "name": "castlabs",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "servers-com",
-      "name": "Servers.com",
-      "rule": "dpa"
-    },
-    {
-      "slug": "servers-com",
-      "name": "Servers.com",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "icinga",
-      "name": "Icinga GmbH",
-      "rule": "dpa"
-    },
-    {
-      "slug": "icinga",
-      "name": "Icinga GmbH",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "docdelta",
-      "name": "DocDelta",
-      "rule": "dpa"
-    },
-    {
-      "slug": "docdelta",
-      "name": "DocDelta",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "name": "Baxter Planning",
-      "rule": "dpa"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "name": "Baxter Planning",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "datapacket",
-      "name": "Datapacket",
-      "rule": "dpa"
-    },
-    {
-      "slug": "datapacket",
-      "name": "Datapacket",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "media-connect",
-      "name": "MediaConnect",
-      "rule": "dpa"
-    },
-    {
-      "slug": "media-connect",
-      "name": "MediaConnect",
+      "slug": "roboflow",
+      "name": "Roboflow",
       "rule": "subprocessors"
     }
   ],
   "rejected": [
     {
-      "slug": "oopspam",
-      "url": "https://oopspam.com/legal/dpa",
-      "final": "https://oopspam.com/legal/dpa",
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/legal/dpa",
+      "final": "https://neuroflash.com/legal/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/data-processing-agreement",
-      "final": "https://tremendous.com/data-processing-agreement",
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/legal/data-processing-addendum",
+      "final": "https://neuroflash.com/legal/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/data-processing-addendum",
-      "final": "https://www.tremendous.com/data-processing-addendum/",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/gdpr/dpa",
-      "final": "https://tremendous.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/legal/data-processing-agreement",
-      "final": "https://tremendous.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/terms/dpa",
-      "final": "https://tremendous.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/policies/data-processing-addendum",
-      "final": "https://tremendous.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/policies/dpa",
-      "final": "https://tremendous.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/legal/data-processing-addendum",
-      "final": "https://tremendous.com/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/legal/dpa",
-      "final": "https://tremendous.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/company/dpa",
-      "final": "https://tremendous.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/policies/data-processing-agreement",
-      "final": "https://tremendous.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/dpa",
-      "final": "https://tremendous.com/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/data-processing",
-      "final": "https://tremendous.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/legal/gdpr/dpa",
-      "final": "https://tremendous.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/legal/data-processing",
-      "final": "https://tremendous.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://www.tremendous.com/data-processing-addendum",
-      "final": "https://www.tremendous.com/data-processing-addendum/",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/privacy/dpa",
-      "final": "https://tremendous.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/legal/processor-terms",
-      "final": "https://tremendous.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "zamzar",
-      "url": "https://zamzar.com/legal/data-processing-agreement",
-      "final": "https://zamzar.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "zamzar",
-      "url": "https://zamzar.com/legal/data-processing-addendum",
-      "final": "https://zamzar.com/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "zamzar",
-      "url": "https://zamzar.com/data-processing-addendum",
-      "final": "https://zamzar.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "zamzar",
-      "url": "https://zamzar.com/legal/dpa",
-      "final": "https://zamzar.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "zamzar",
-      "url": "https://zamzar.com/data-processing-agreement",
-      "final": "https://zamzar.com/data-processing-agreement",
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/policies/dpa",
+      "final": "https://neuroflash.com/policies/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/dpa",
-      "final": "https://jumpcloud.com/dpa",
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/dpa",
+      "final": "https://neuroflash.com/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/legal/dpa",
-      "final": "https://jumpcloud.com/legal/dpa",
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/data-processing-agreement",
+      "final": "https://neuroflash.com/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/legal/data-processing-agreement",
-      "final": "https://jumpcloud.com/legal/data-processing-agreement",
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/legal/data-processing-agreement",
+      "final": "https://neuroflash.com/legal/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/data-processing-addendum",
-      "final": "https://jumpcloud.com/data-processing-addendum",
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/terms/dpa",
+      "final": "https://neuroflash.com/terms/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/data-processing-agreement",
-      "final": "https://jumpcloud.com/data-processing-agreement",
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/gdpr/dpa",
+      "final": "https://neuroflash.com/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/legal/data-processing-addendum",
-      "final": "https://jumpcloud.com/legal/data-processing-addendum",
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/data-processing-addendum",
+      "final": "https://neuroflash.com/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "wowza",
-      "url": "https://wowza.com/dpa",
-      "final": "https://wowza.com/dpa",
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/policies/data-processing-agreement",
+      "final": "https://neuroflash.com/policies/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/policies/data-processing-addendum",
-      "final": "https://jumpcloud.com/policies/data-processing-addendum",
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/policies/data-processing-addendum",
+      "final": "https://neuroflash.com/policies/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/policies/data-processing-agreement",
-      "final": "https://jumpcloud.com/policies/data-processing-agreement",
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/company/dpa",
+      "final": "https://neuroflash.com/company/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/policies/dpa",
-      "final": "https://jumpcloud.com/policies/dpa",
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/legal/gdpr/dpa",
+      "final": "https://neuroflash.com/legal/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/terms/dpa",
-      "final": "https://jumpcloud.com/terms/dpa",
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/privacy/dpa",
+      "final": "https://neuroflash.com/privacy/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "wowza",
-      "url": "https://wowza.com/legal/dpa",
-      "final": "https://wowza.com/legal/dpa",
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/legal/processor-terms",
+      "final": "https://neuroflash.com/legal/processor-terms",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/gdpr/dpa",
-      "final": "https://jumpcloud.com/gdpr/dpa",
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/legal/data-processing",
+      "final": "https://neuroflash.com/legal/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/company/dpa",
-      "final": "https://jumpcloud.com/company/dpa",
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/data-processing",
+      "final": "https://neuroflash.com/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/legal/data-processing",
-      "final": "https://jumpcloud.com/legal/data-processing",
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/legal/dpa",
+      "final": "https://surfshark.com/legal/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/privacy/dpa",
-      "final": "https://jumpcloud.com/privacy/dpa",
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/dpa",
+      "final": "https://surfshark.com/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/data-processing",
-      "final": "https://jumpcloud.com/data-processing",
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/data-processing-addendum",
+      "final": "https://surfshark.com/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/legal/processor-terms",
-      "final": "https://jumpcloud.com/legal/processor-terms",
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/data-processing-agreement",
+      "final": "https://surfshark.com/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/legal/gdpr/dpa",
-      "final": "https://jumpcloud.com/legal/gdpr/dpa",
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/legal/data-processing-addendum",
+      "final": "https://surfshark.com/legal/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "wowza",
-      "url": "https://wowza.com/legal/data-processing-addendum",
-      "final": "https://wowza.com/legal/data-processing-addendum",
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/legal/data-processing-agreement",
+      "final": "https://surfshark.com/legal/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "wowza",
-      "url": "https://wowza.com/legal/data-processing-agreement",
-      "final": "https://wowza.com/legal/data-processing-agreement",
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/policies/data-processing-addendum",
+      "final": "https://surfshark.com/policies/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "wowza",
-      "url": "https://wowza.com/data-processing-addendum",
-      "final": "https://wowza.com/data-processing-addendum",
+      "slug": "roboflow",
+      "url": "https://roboflow.com/dpa",
+      "final": "https://roboflow.com/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "wowza",
-      "url": "https://wowza.com/policies/dpa",
-      "final": "https://wowza.com/policies/dpa",
+      "slug": "roboflow",
+      "url": "https://roboflow.com/legal/dpa",
+      "final": "https://roboflow.com/legal/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "wowza",
-      "url": "https://wowza.com/data-processing-agreement",
-      "final": "https://wowza.com/data-processing-agreement",
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/policies/data-processing-agreement",
+      "final": "https://surfshark.com/policies/data-processing-agreement",
       "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/dpa",
-      "final": "https://pandadoc.com/dpa",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/legal/data-processing-addendum",
-      "final": "https://pandadoc.com/legal/data-processing-addendum",
-      "reason": "http-429",
       "kind": "dpa"
     },
     {
-      "slug": "wowza",
-      "url": "https://wowza.com/policies/data-processing-addendum",
-      "final": "https://wowza.com/policies/data-processing-addendum",
+      "slug": "roboflow",
+      "url": "https://roboflow.com/legal/data-processing-addendum",
+      "final": "https://roboflow.com/legal/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "wowza",
-      "url": "https://wowza.com/policies/data-processing-agreement",
-      "final": "https://wowza.com/policies/data-processing-agreement",
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/policies/dpa",
+      "final": "https://surfshark.com/policies/dpa",
       "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/legal/dpa",
-      "final": "https://pandadoc.com/legal/dpa",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/legal/data-processing-agreement",
-      "final": "https://pandadoc.com/legal/data-processing-agreement",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/data-processing-addendum",
-      "final": "https://pandadoc.com/data-processing-addendum",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/policies/data-processing-addendum",
-      "final": "https://pandadoc.com/policies/data-processing-addendum",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/data-processing-agreement",
-      "final": "https://pandadoc.com/data-processing-agreement",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/policies/dpa",
-      "final": "https://pandadoc.com/policies/dpa",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/company/dpa",
-      "final": "https://pandadoc.com/company/dpa",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/legal/gdpr/dpa",
-      "final": "https://pandadoc.com/legal/gdpr/dpa",
-      "reason": "http-429",
       "kind": "dpa"
     },
     {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/policies/data-processing-agreement",
-      "final": "https://pandadoc.com/policies/data-processing-agreement",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/terms/dpa",
-      "final": "https://pandadoc.com/terms/dpa",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "wowza",
-      "url": "https://wowza.com/terms/dpa",
-      "final": "https://wowza.com/terms/dpa",
+      "slug": "roboflow",
+      "url": "https://roboflow.com/data-processing-addendum",
+      "final": "https://roboflow.com/data-processing-addendum",
       "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/legal/processor-terms",
-      "final": "https://pandadoc.com/legal/processor-terms",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/gdpr/dpa",
-      "final": "https://pandadoc.com/gdpr/dpa",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/data-processing",
-      "final": "https://pandadoc.com/data-processing",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/privacy/dpa",
-      "final": "https://pandadoc.com/privacy/dpa",
-      "reason": "http-429",
-      "kind": "dpa"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/legal/data-processing",
-      "final": "https://pandadoc.com/legal/data-processing",
-      "reason": "http-429",
       "kind": "dpa"
     },
     {
-      "slug": "wowza",
-      "url": "https://wowza.com/legal/gdpr/dpa",
-      "final": "https://wowza.com/legal/gdpr/dpa",
+      "slug": "roboflow",
+      "url": "https://roboflow.com/data-processing-agreement",
+      "final": "https://roboflow.com/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "wowza",
-      "url": "https://wowza.com/gdpr/dpa",
-      "final": "https://wowza.com/gdpr/dpa",
+      "slug": "roboflow",
+      "url": "https://roboflow.com/legal/data-processing-agreement",
+      "final": "https://roboflow.com/legal/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "wowza",
-      "url": "https://wowza.com/privacy/dpa",
-      "final": "https://wowza.com/privacy/dpa",
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/terms/dpa",
+      "final": "https://surfshark.com/terms/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "wowza",
-      "url": "https://wowza.com/company/dpa",
-      "final": "https://wowza.com/company/dpa",
+      "slug": "roboflow",
+      "url": "https://roboflow.com/policies/data-processing-addendum",
+      "final": "https://roboflow.com/policies/data-processing-addendum",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "wowza",
-      "url": "https://wowza.com/legal/data-processing",
-      "final": "https://wowza.com/legal/data-processing",
+      "slug": "roboflow",
+      "url": "https://roboflow.com/policies/data-processing-agreement",
+      "final": "https://roboflow.com/policies/data-processing-agreement",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "wowza",
-      "url": "https://wowza.com/legal/processor-terms",
-      "final": "https://wowza.com/legal/processor-terms",
+      "slug": "roboflow",
+      "url": "https://roboflow.com/terms/dpa",
+      "final": "https://roboflow.com/terms/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "wowza",
-      "url": "https://wowza.com/data-processing",
-      "final": "https://wowza.com/data-processing",
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/legal/gdpr/dpa",
+      "final": "https://surfshark.com/legal/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/policies/data-processing-agreement",
-      "final": "https://zenlayer.com/policies/data-processing-agreement",
+      "slug": "roboflow",
+      "url": "https://roboflow.com/policies/dpa",
+      "final": "https://roboflow.com/policies/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/company/dpa",
-      "final": "https://zenlayer.com/company/dpa",
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/company/dpa",
+      "final": "https://surfshark.com/company/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/dpa",
-      "final": "https://zenlayer.com/dpa",
+      "slug": "roboflow",
+      "url": "https://roboflow.com/company/dpa",
+      "final": "https://roboflow.com/company/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/policies/data-processing-addendum",
-      "final": "https://zenlayer.com/policies/data-processing-addendum",
+      "slug": "roboflow",
+      "url": "https://roboflow.com/gdpr/dpa",
+      "final": "https://roboflow.com/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/policies/dpa",
-      "final": "https://zenlayer.com/policies/dpa",
+      "slug": "roboflow",
+      "url": "https://roboflow.com/privacy/dpa",
+      "final": "https://roboflow.com/privacy/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/legal/data-processing-addendum",
-      "final": "https://zenlayer.com/legal/data-processing-addendum",
+      "slug": "roboflow",
+      "url": "https://roboflow.com/legal/gdpr/dpa",
+      "final": "https://roboflow.com/legal/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/data-processing-agreement",
-      "final": "https://zenlayer.com/data-processing-agreement",
+      "slug": "roboflow",
+      "url": "https://roboflow.com/legal/processor-terms",
+      "final": "https://roboflow.com/legal/processor-terms",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/data-processing-addendum",
-      "final": "https://zenlayer.com/data-processing-addendum",
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/gdpr/dpa",
+      "final": "https://surfshark.com/gdpr/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "observe",
-      "url": "https://observeinc.com/dpa",
-      "final": "https://observeinc.com/dpa",
+      "slug": "roboflow",
+      "url": "https://roboflow.com/legal/data-processing",
+      "final": "https://roboflow.com/legal/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "observe",
-      "url": "https://observeinc.com/legal/dpa",
-      "final": "https://observeinc.com/legal/dpa",
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/legal/data-processing",
+      "final": "https://surfshark.com/legal/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "observe",
-      "url": "https://observeinc.com/legal/data-processing-addendum",
-      "final": "https://observeinc.com/legal/data-processing-addendum",
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/privacy/dpa",
+      "final": "https://surfshark.com/privacy/dpa",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "observe",
-      "url": "https://observeinc.com/data-processing-agreement",
-      "final": "https://observeinc.com/data-processing-agreement",
+      "slug": "roboflow",
+      "url": "https://roboflow.com/data-processing",
+      "final": "https://roboflow.com/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "observe",
-      "url": "https://observeinc.com/data-processing-addendum",
-      "final": "https://observeinc.com/data-processing-addendum",
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/legal/processor-terms",
+      "final": "https://surfshark.com/legal/processor-terms",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "observe",
-      "url": "https://observeinc.com/legal/data-processing-agreement",
-      "final": "https://observeinc.com/legal/data-processing-agreement",
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/data-processing",
+      "final": "https://surfshark.com/data-processing",
       "reason": "http-404",
       "kind": "dpa"
     },
     {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/legal/dpa",
-      "final": "https://zenlayer.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "neuroflash",
+      "url": "https://trust.neuroflash.com/subprocessors",
+      "final": "https://trust.neuroflash.com/subprocessors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
     },
     {
-      "slug": "observe",
-      "url": "https://observeinc.com/policies/data-processing-agreement",
-      "final": "https://observeinc.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "neuroflash",
+      "url": "https://trust.neuroflash.com/sub-processors",
+      "final": "https://trust.neuroflash.com/sub-processors",
+      "reason": "js-portal",
+      "kind": "subprocessors"
     },
     {
-      "slug": "observe",
-      "url": "https://observeinc.com/policies/data-processing-addendum",
-      "final": "https://observeinc.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "queue-it",
+      "url": "https://queue-it.com/legal/subprocessors",
+      "final": "https://queue-it.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "observe",
-      "url": "https://observeinc.com/policies/dpa",
-      "final": "https://observeinc.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "queue-it",
+      "url": "https://queue-it.com/subprocessors",
+      "final": "https://queue-it.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "observe",
-      "url": "https://observeinc.com/terms/dpa",
-      "final": "https://observeinc.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "queue-it",
+      "url": "https://queue-it.com/sub-processors",
+      "final": "https://queue-it.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/legal/data-processing-agreement",
-      "final": "https://zenlayer.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/legal/sub-processors",
+      "final": "https://neuroflash.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "observe",
-      "url": "https://observeinc.com/company/dpa",
-      "final": "https://observeinc.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/legal/sub-processors-page",
+      "final": "https://neuroflash.com/legal/sub-processors-page",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "observe",
-      "url": "https://observeinc.com/legal/gdpr/dpa",
-      "final": "https://observeinc.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/subprocessors",
+      "final": "https://neuroflash.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "observe",
-      "url": "https://observeinc.com/gdpr/dpa",
-      "final": "https://observeinc.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/trust/subprocessors",
+      "final": "https://neuroflash.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "observe",
-      "url": "https://observeinc.com/privacy/dpa",
-      "final": "https://observeinc.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/legal/service-providers",
+      "final": "https://neuroflash.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "explo",
-      "url": "https://explo.co/dpa",
-      "final": "https://explo.co/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/privacy/subprocessors",
+      "final": "https://neuroflash.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "observe",
-      "url": "https://observeinc.com/legal/processor-terms",
-      "final": "https://observeinc.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/legal/subprocessors",
+      "final": "https://neuroflash.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "explo",
-      "url": "https://explo.co/legal/dpa",
-      "final": "https://explo.co/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/company/subprocessors",
+      "final": "https://neuroflash.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "explo",
-      "url": "https://explo.co/legal/data-processing-addendum",
-      "final": "https://explo.co/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "queue-it",
+      "url": "https://trust.queue-it.com/sub-processors",
+      "final": "https://trust.queue-it.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "explo",
-      "url": "https://explo.co/legal/data-processing-agreement",
-      "final": "https://explo.co/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "queue-it",
+      "url": "https://trust.queue-it.com/subprocessors",
+      "final": "https://trust.queue-it.com/",
+      "reason": "safebase-itemuid",
+      "kind": "subprocessors"
     },
     {
-      "slug": "observe",
-      "url": "https://observeinc.com/legal/data-processing",
-      "final": "https://observeinc.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/legal/subprocessors",
+      "final": "https://surfshark.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "observe",
-      "url": "https://observeinc.com/data-processing",
-      "final": "https://observeinc.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "neuroflash",
+      "url": "https://neuroflash.com/sub-processors",
+      "final": "https://neuroflash.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "explo",
-      "url": "https://explo.co/data-processing-addendum",
-      "final": "https://explo.co/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/subprocessors",
+      "final": "https://surfshark.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "explo",
-      "url": "https://explo.co/data-processing-agreement",
-      "final": "https://explo.co/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "roboflow",
+      "url": "https://roboflow.com/subprocessors",
+      "final": "https://roboflow.com/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "explo",
-      "url": "https://explo.co/policies/data-processing-addendum",
-      "final": "https://explo.co/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "roboflow",
+      "url": "https://roboflow.com/sub-processors",
+      "final": "https://roboflow.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "explo",
-      "url": "https://explo.co/policies/data-processing-agreement",
-      "final": "https://explo.co/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "roboflow",
+      "url": "https://roboflow.com/legal/subprocessors",
+      "final": "https://roboflow.com/legal/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "explo",
-      "url": "https://explo.co/policies/dpa",
-      "final": "https://explo.co/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "roboflow",
+      "url": "https://roboflow.com/legal/sub-processors",
+      "final": "https://roboflow.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "explo",
-      "url": "https://explo.co/company/dpa",
-      "final": "https://explo.co/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/legal/service-providers",
+      "final": "https://surfshark.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "explo",
-      "url": "https://explo.co/terms/dpa",
-      "final": "https://explo.co/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/legal/sub-processors",
+      "final": "https://surfshark.com/legal/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/gdpr/dpa",
-      "final": "https://zenlayer.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "roboflow",
+      "url": "https://roboflow.com/legal/service-providers",
+      "final": "https://roboflow.com/legal/service-providers",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/legal/gdpr/dpa",
-      "final": "https://zenlayer.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/company/subprocessors",
+      "final": "https://surfshark.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/privacy/dpa",
-      "final": "https://zenlayer.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/sub-processors",
+      "final": "https://surfshark.com/sub-processors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/terms/dpa",
-      "final": "https://zenlayer.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/privacy/subprocessors",
+      "final": "https://surfshark.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "explo",
-      "url": "https://explo.co/gdpr/dpa",
-      "final": "https://explo.co/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "roboflow",
+      "url": "https://roboflow.com/privacy/subprocessors",
+      "final": "https://roboflow.com/privacy/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "explo",
-      "url": "https://explo.co/legal/gdpr/dpa",
-      "final": "https://explo.co/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "roboflow",
+      "url": "https://roboflow.com/company/subprocessors",
+      "final": "https://roboflow.com/company/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "explo",
-      "url": "https://explo.co/privacy/dpa",
-      "final": "https://explo.co/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
+      "slug": "roboflow",
+      "url": "https://roboflow.com/trust/subprocessors",
+      "final": "https://roboflow.com/trust/subprocessors",
+      "reason": "fetch-failed",
+      "kind": "subprocessors"
     },
     {
-      "slug": "explo",
-      "url": "https://explo.co/legal/processor-terms",
-      "final": "https://explo.co/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "explo",
-      "url": "https://explo.co/legal/data-processing",
-      "final": "https://explo.co/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "explo",
-      "url": "https://explo.co/data-processing",
-      "final": "https://explo.co/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/data-processing",
-      "final": "https://zenlayer.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/legal/data-processing",
-      "final": "https://zenlayer.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/legal/processor-terms",
-      "final": "https://zenlayer.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/terms/dpa",
-      "final": "https://castlabs.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/gdpr/dpa",
-      "final": "https://castlabs.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/company/dpa",
-      "final": "https://castlabs.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/legal/dpa",
-      "final": "https://castlabs.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/legal/data-processing-addendum",
-      "final": "https://castlabs.com/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/data-processing-addendum",
-      "final": "https://castlabs.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/policies/data-processing-addendum",
-      "final": "https://castlabs.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/legal/data-processing-agreement",
-      "final": "https://castlabs.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/dpa",
-      "final": "https://castlabs.com/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/data-processing-agreement",
-      "final": "https://castlabs.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/policies/dpa",
-      "final": "https://castlabs.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/policies/data-processing-agreement",
-      "final": "https://castlabs.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/legal/gdpr/dpa",
-      "final": "https://castlabs.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/data-processing",
-      "final": "https://castlabs.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/legal/processor-terms",
-      "final": "https://castlabs.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/privacy/dpa",
-      "final": "https://castlabs.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/legal/data-processing",
-      "final": "https://castlabs.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/data-processing-agreement",
-      "final": "https://servers.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/policies/data-processing-addendum",
-      "final": "https://servers.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/dpa",
-      "final": "https://servers.com/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/data-processing-addendum",
-      "final": "https://servers.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/legal/data-processing-agreement",
-      "final": "https://servers.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/legal/dpa",
-      "final": "https://servers.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/legal/data-processing-addendum",
-      "final": "https://servers.com/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/policies/data-processing-agreement",
-      "final": "https://servers.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/policies/dpa",
-      "final": "https://servers.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/terms/dpa",
-      "final": "https://servers.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/company/dpa",
-      "final": "https://servers.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/gdpr/dpa",
-      "final": "https://servers.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/privacy/dpa",
-      "final": "https://servers.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/legal/processor-terms",
-      "final": "https://servers.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/legal/gdpr/dpa",
-      "final": "https://servers.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/legal/data-processing",
-      "final": "https://servers.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/data-processing",
-      "final": "https://servers.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/dpa",
-      "final": "https://icinga.com/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/legal/dpa",
-      "final": "https://icinga.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/legal/data-processing-addendum",
-      "final": "https://icinga.com/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/data-processing-addendum",
-      "final": "https://icinga.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/legal/data-processing-agreement",
-      "final": "https://icinga.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/data-processing-agreement",
-      "final": "https://icinga.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/policies/data-processing-addendum",
-      "final": "https://icinga.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/policies/dpa",
-      "final": "https://icinga.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/policies/data-processing-agreement",
-      "final": "https://icinga.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/terms/dpa",
-      "final": "https://icinga.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/dpa",
-      "final": "https://docdelta.com/dpa",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/legal/dpa",
-      "final": "https://docdelta.com/legal/dpa",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/legal/data-processing-addendum",
-      "final": "https://docdelta.com/legal/data-processing-addendum",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/legal/data-processing-agreement",
-      "final": "https://docdelta.com/legal/data-processing-agreement",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/data-processing-addendum",
-      "final": "https://docdelta.com/data-processing-addendum",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/data-processing-agreement",
-      "final": "https://docdelta.com/data-processing-agreement",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/policies/data-processing-addendum",
-      "final": "https://docdelta.com/policies/data-processing-addendum",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/policies/data-processing-agreement",
-      "final": "https://docdelta.com/policies/data-processing-agreement",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/policies/dpa",
-      "final": "https://docdelta.com/policies/dpa",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/terms/dpa",
-      "final": "https://docdelta.com/terms/dpa",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/company/dpa",
-      "final": "https://docdelta.com/company/dpa",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/gdpr/dpa",
-      "final": "https://docdelta.com/gdpr/dpa",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/legal/gdpr/dpa",
-      "final": "https://docdelta.com/legal/gdpr/dpa",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/privacy/dpa",
-      "final": "https://docdelta.com/privacy/dpa",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/legal/processor-terms",
-      "final": "https://docdelta.com/legal/processor-terms",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/legal/data-processing",
-      "final": "https://docdelta.com/legal/data-processing",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/data-processing",
-      "final": "https://docdelta.com/data-processing",
-      "reason": "not-a-dpa",
-      "kind": "dpa"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/company/dpa",
-      "final": "https://icinga.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/gdpr/dpa",
-      "final": "https://icinga.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/dpa",
-      "final": "https://baxterplanning.com/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/legal/gdpr/dpa",
-      "final": "https://icinga.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/legal/dpa",
-      "final": "https://baxterplanning.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/privacy/dpa",
-      "final": "https://icinga.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/legal/data-processing-addendum",
-      "final": "https://baxterplanning.com/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/legal/data-processing-agreement",
-      "final": "https://baxterplanning.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/data-processing-addendum",
-      "final": "https://baxterplanning.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/data-processing-agreement",
-      "final": "https://baxterplanning.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/data-processing",
-      "final": "https://icinga.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/policies/data-processing-addendum",
-      "final": "https://baxterplanning.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/policies/data-processing-agreement",
-      "final": "https://baxterplanning.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/legal/processor-terms",
-      "final": "https://icinga.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/legal/data-processing",
-      "final": "https://icinga.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/policies/dpa",
-      "final": "https://baxterplanning.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/terms/dpa",
-      "final": "https://baxterplanning.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/company/dpa",
-      "final": "https://baxterplanning.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/privacy/dpa",
-      "final": "https://baxterplanning.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/gdpr/dpa",
-      "final": "https://baxterplanning.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/legal/gdpr/dpa",
-      "final": "https://baxterplanning.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/legal/processor-terms",
-      "final": "https://baxterplanning.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/legal/data-processing",
-      "final": "https://baxterplanning.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/legal/dpa",
-      "final": "https://datapacket.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/legal/data-processing-addendum",
-      "final": "https://datapacket.com/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/dpa",
-      "final": "https://datapacket.com/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/data-processing",
-      "final": "https://baxterplanning.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/data-processing-addendum",
-      "final": "https://datapacket.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/legal/data-processing-agreement",
-      "final": "https://datapacket.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/policies/data-processing-addendum",
-      "final": "https://datapacket.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/data-processing-agreement",
-      "final": "https://datapacket.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/policies/data-processing-agreement",
-      "final": "https://datapacket.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/policies/dpa",
-      "final": "https://datapacket.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/terms/dpa",
-      "final": "https://datapacket.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/company/dpa",
-      "final": "https://datapacket.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/gdpr/dpa",
-      "final": "https://datapacket.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/legal/gdpr/dpa",
-      "final": "https://datapacket.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/legal/processor-terms",
-      "final": "https://datapacket.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/privacy/dpa",
-      "final": "https://datapacket.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/legal/data-processing",
-      "final": "https://datapacket.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/data-processing",
-      "final": "https://datapacket.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/dpa",
-      "final": "https://mediaconnect.com.au/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/legal/dpa",
-      "final": "https://mediaconnect.com.au/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/legal/data-processing-agreement",
-      "final": "https://mediaconnect.com.au/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/terms/dpa",
-      "final": "https://mediaconnect.com.au/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/data-processing-agreement",
-      "final": "https://mediaconnect.com.au/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/legal/data-processing-addendum",
-      "final": "https://mediaconnect.com.au/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/policies/data-processing-agreement",
-      "final": "https://mediaconnect.com.au/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/company/dpa",
-      "final": "https://mediaconnect.com.au/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/policies/data-processing-addendum",
-      "final": "https://mediaconnect.com.au/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/data-processing-addendum",
-      "final": "https://mediaconnect.com.au/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/policies/dpa",
-      "final": "https://mediaconnect.com.au/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/gdpr/dpa",
-      "final": "https://mediaconnect.com.au/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/privacy/dpa",
-      "final": "https://mediaconnect.com.au/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/legal/gdpr/dpa",
-      "final": "https://mediaconnect.com.au/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/legal/processor-terms",
-      "final": "https://mediaconnect.com.au/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/legal/data-processing",
-      "final": "https://mediaconnect.com.au/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/data-processing",
-      "final": "https://mediaconnect.com.au/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "oopspam",
-      "url": "https://oopspam.com/subprocessors",
-      "final": "https://oopspam.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "oopspam",
-      "url": "https://oopspam.com/legal/subprocessors",
-      "final": "https://oopspam.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "oopspam",
-      "url": "https://oopspam.com/sub-processors",
-      "final": "https://oopspam.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "oopspam",
-      "url": "https://oopspam.com/legal/sub-processors",
-      "final": "https://oopspam.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "oopspam",
-      "url": "https://oopspam.com/legal/service-providers",
-      "final": "https://oopspam.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mezmo",
-      "url": "https://mezmo.com/legal/sub-processors",
-      "final": "https://mezmo.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mezmo",
-      "url": "https://mezmo.com/legal/subprocessors",
-      "final": "https://mezmo.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "oopspam",
-      "url": "https://oopspam.com/company/subprocessors",
-      "final": "https://oopspam.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mezmo",
-      "url": "https://mezmo.com/sub-processors",
-      "final": "https://mezmo.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mezmo",
-      "url": "https://mezmo.com/subprocessors",
-      "final": "https://mezmo.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "oopspam",
-      "url": "https://oopspam.com/privacy/subprocessors",
-      "final": "https://oopspam.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "oopspam",
-      "url": "https://oopspam.com/legal/sub-processors-page",
-      "final": "https://oopspam.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "oopspam",
-      "url": "https://oopspam.com/trust/subprocessors",
-      "final": "https://oopspam.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mezmo",
-      "url": "https://mezmo.com/company/subprocessors",
-      "final": "https://mezmo.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/sub-processors",
-      "final": "https://tremendous.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/legal/subprocessors",
-      "final": "https://tremendous.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mezmo",
-      "url": "https://mezmo.com/trust/subprocessors",
-      "final": "https://mezmo.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mezmo",
-      "url": "https://mezmo.com/legal/sub-processors-page",
-      "final": "https://mezmo.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/legal/sub-processors",
-      "final": "https://tremendous.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/subprocessors",
-      "final": "https://tremendous.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mezmo",
-      "url": "https://mezmo.com/legal/service-providers",
-      "final": "https://mezmo.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/privacy/subprocessors",
-      "final": "https://tremendous.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "mezmo",
-      "url": "https://mezmo.com/privacy/subprocessors",
-      "final": "https://mezmo.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/legal/service-providers",
-      "final": "https://tremendous.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/company/subprocessors",
-      "final": "https://tremendous.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/legal/sub-processors-page",
-      "final": "https://tremendous.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "tremendous",
-      "url": "https://tremendous.com/trust/subprocessors",
-      "final": "https://tremendous.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/sub-processors",
-      "final": "https://jumpcloud.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "zamzar",
-      "url": "https://zamzar.com/subprocessors",
-      "final": "https://zamzar.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "zamzar",
-      "url": "https://zamzar.com/legal/subprocessors",
-      "final": "https://zamzar.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "zamzar",
-      "url": "https://zamzar.com/privacy/subprocessors",
-      "final": "https://zamzar.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/subprocessors",
-      "final": "https://jumpcloud.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "zamzar",
-      "url": "https://zamzar.com/legal/sub-processors",
-      "final": "https://zamzar.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "zamzar",
-      "url": "https://zamzar.com/legal/service-providers",
-      "final": "https://zamzar.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "zamzar",
-      "url": "https://zamzar.com/sub-processors",
-      "final": "https://zamzar.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "zamzar",
-      "url": "https://zamzar.com/company/subprocessors",
-      "final": "https://zamzar.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "zamzar",
-      "url": "https://zamzar.com/legal/sub-processors-page",
-      "final": "https://zamzar.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "zamzar",
-      "url": "https://zamzar.com/trust/subprocessors",
-      "final": "https://zamzar.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/legal/subprocessors",
-      "final": "https://jumpcloud.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "wowza",
-      "url": "https://wowza.com/subprocessors",
-      "final": "https://wowza.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "wowza",
-      "url": "https://wowza.com/legal/subprocessors",
-      "final": "https://wowza.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "wowza",
-      "url": "https://wowza.com/sub-processors",
-      "final": "https://wowza.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/privacy/subprocessors",
-      "final": "https://jumpcloud.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "wowza",
-      "url": "https://wowza.com/legal/service-providers",
-      "final": "https://wowza.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/sub-processors",
-      "final": "https://pandadoc.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/legal/sub-processors",
-      "final": "https://jumpcloud.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/legal/sub-processors",
-      "final": "https://pandadoc.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/subprocessors",
-      "final": "https://pandadoc.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/company/subprocessors",
-      "final": "https://jumpcloud.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/privacy/subprocessors",
-      "final": "https://pandadoc.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/legal/subprocessors",
-      "final": "https://pandadoc.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/legal/service-providers",
-      "final": "https://jumpcloud.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/trust/subprocessors",
-      "final": "https://pandadoc.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/trust/subprocessors",
-      "final": "https://jumpcloud.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "wowza",
-      "url": "https://wowza.com/legal/sub-processors",
-      "final": "https://wowza.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/legal/service-providers",
-      "final": "https://pandadoc.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "jumpcloud-iam",
-      "url": "https://jumpcloud.com/legal/sub-processors-page",
-      "final": "https://jumpcloud.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/company/subprocessors",
-      "final": "https://pandadoc.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "pandadoc",
-      "url": "https://pandadoc.com/legal/sub-processors-page",
-      "final": "https://pandadoc.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "wowza",
-      "url": "https://wowza.com/privacy/subprocessors",
-      "final": "https://wowza.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/subprocessors",
-      "final": "https://zenlayer.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/legal/subprocessors",
-      "final": "https://zenlayer.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "wowza",
-      "url": "https://wowza.com/legal/sub-processors-page",
-      "final": "https://wowza.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/company/subprocessors",
-      "final": "https://zenlayer.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/privacy/subprocessors",
-      "final": "https://zenlayer.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/trust/subprocessors",
-      "final": "https://zenlayer.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "observe",
-      "url": "https://observeinc.com/subprocessors",
-      "final": "https://observeinc.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "observe",
-      "url": "https://observeinc.com/legal/subprocessors",
-      "final": "https://observeinc.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "observe",
-      "url": "https://observeinc.com/sub-processors",
-      "final": "https://observeinc.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "observe",
-      "url": "https://observeinc.com/legal/sub-processors",
-      "final": "https://observeinc.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "wowza",
-      "url": "https://wowza.com/trust/subprocessors",
-      "final": "https://wowza.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "wowza",
-      "url": "https://wowza.com/company/subprocessors",
-      "final": "https://wowza.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "explo",
-      "url": "https://explo.co/subprocessors",
-      "final": "https://explo.co/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "observe",
-      "url": "https://observeinc.com/legal/service-providers",
-      "final": "https://observeinc.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "explo",
-      "url": "https://explo.co/sub-processors",
-      "final": "https://explo.co/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "explo",
-      "url": "https://explo.co/legal/subprocessors",
-      "final": "https://explo.co/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "observe",
-      "url": "https://observeinc.com/privacy/subprocessors",
-      "final": "https://observeinc.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "observe",
-      "url": "https://observeinc.com/company/subprocessors",
-      "final": "https://observeinc.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "explo",
-      "url": "https://explo.co/legal/sub-processors",
-      "final": "https://explo.co/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "observe",
-      "url": "https://observeinc.com/trust/subprocessors",
-      "final": "https://observeinc.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "observe",
-      "url": "https://observeinc.com/legal/sub-processors-page",
-      "final": "https://observeinc.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "explo",
-      "url": "https://explo.co/company/subprocessors",
-      "final": "https://explo.co/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "explo",
-      "url": "https://explo.co/legal/service-providers",
-      "final": "https://explo.co/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "explo",
-      "url": "https://explo.co/privacy/subprocessors",
-      "final": "https://explo.co/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "explo",
-      "url": "https://explo.co/legal/sub-processors-page",
-      "final": "https://explo.co/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "explo",
-      "url": "https://explo.co/trust/subprocessors",
-      "final": "https://explo.co/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/legal/subprocessors",
-      "final": "https://castlabs.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/sub-processors",
-      "final": "https://castlabs.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/subprocessors",
-      "final": "https://castlabs.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/legal/service-providers",
-      "final": "https://castlabs.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/privacy/subprocessors",
-      "final": "https://castlabs.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/legal/sub-processors",
-      "final": "https://castlabs.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/company/subprocessors",
-      "final": "https://castlabs.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/trust/subprocessors",
-      "final": "https://castlabs.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "castlabs",
-      "url": "https://castlabs.com/legal/sub-processors-page",
-      "final": "https://castlabs.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/subprocessors",
-      "final": "https://servers.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/sub-processors",
-      "final": "https://servers.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/legal/subprocessors",
-      "final": "https://servers.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/legal/sub-processors",
-      "final": "https://servers.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/legal/service-providers",
-      "final": "https://servers.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/privacy/subprocessors",
-      "final": "https://servers.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/company/subprocessors",
-      "final": "https://servers.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/legal/service-providers",
-      "final": "https://zenlayer.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/trust/subprocessors",
-      "final": "https://servers.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "servers-com",
-      "url": "https://servers.com/legal/sub-processors-page",
-      "final": "https://servers.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/legal/sub-processors-page",
-      "final": "https://zenlayer.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/legal/sub-processors",
-      "final": "https://zenlayer.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "zenlayer",
-      "url": "https://zenlayer.com/sub-processors",
-      "final": "https://zenlayer.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/subprocessors",
-      "final": "https://docdelta.com/subprocessors",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/sub-processors",
-      "final": "https://docdelta.com/sub-processors",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/legal/subprocessors",
-      "final": "https://docdelta.com/legal/subprocessors",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/legal/sub-processors",
-      "final": "https://docdelta.com/legal/sub-processors",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/legal/service-providers",
-      "final": "https://docdelta.com/legal/service-providers",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/privacy/subprocessors",
-      "final": "https://docdelta.com/privacy/subprocessors",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/company/subprocessors",
-      "final": "https://docdelta.com/company/subprocessors",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/trust/subprocessors",
-      "final": "https://docdelta.com/trust/subprocessors",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "docdelta",
-      "url": "https://docdelta.com/legal/sub-processors-page",
-      "final": "https://docdelta.com/legal/sub-processors-page",
-      "reason": "no-printed-names",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/sub-processors",
-      "final": "https://baxterplanning.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/subprocessors",
-      "final": "https://baxterplanning.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/legal/subprocessors",
-      "final": "https://baxterplanning.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/legal/subprocessors",
-      "final": "https://icinga.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/sub-processors",
-      "final": "https://icinga.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/privacy/subprocessors",
-      "final": "https://icinga.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/legal/service-providers",
-      "final": "https://icinga.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/subprocessors",
-      "final": "https://icinga.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/legal/sub-processors",
-      "final": "https://icinga.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/legal/sub-processors",
-      "final": "https://baxterplanning.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/legal/service-providers",
-      "final": "https://baxterplanning.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/privacy/subprocessors",
-      "final": "https://baxterplanning.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/company/subprocessors",
-      "final": "https://baxterplanning.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/legal/sub-processors-page",
-      "final": "https://baxterplanning.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "baxter-planning-systems",
-      "url": "https://baxterplanning.com/trust/subprocessors",
-      "final": "https://baxterplanning.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/trust/subprocessors",
-      "final": "https://icinga.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/company/subprocessors",
-      "final": "https://icinga.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "icinga",
-      "url": "https://icinga.com/legal/sub-processors-page",
-      "final": "https://icinga.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/subprocessors",
-      "final": "https://datapacket.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/sub-processors",
-      "final": "https://datapacket.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/legal/subprocessors",
-      "final": "https://datapacket.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/trust/subprocessors",
-      "final": "https://datapacket.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/legal/sub-processors",
-      "final": "https://datapacket.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/legal/sub-processors-page",
-      "final": "https://datapacket.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/legal/service-providers",
-      "final": "https://datapacket.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/privacy/subprocessors",
-      "final": "https://datapacket.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "datapacket",
-      "url": "https://datapacket.com/company/subprocessors",
-      "final": "https://datapacket.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/sub-processors",
-      "final": "https://mediaconnect.com.au/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/subprocessors",
-      "final": "https://mediaconnect.com.au/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/legal/subprocessors",
-      "final": "https://mediaconnect.com.au/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/legal/service-providers",
-      "final": "https://mediaconnect.com.au/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/legal/sub-processors-page",
-      "final": "https://mediaconnect.com.au/legal/sub-processors-page",
-      "reason": "fetch-failed",
+      "slug": "roboflow",
+      "url": "https://security.roboflow.com/subprocessors",
+      "final": "https://security.roboflow.com/",
+      "reason": "safebase-itemuid",
       "kind": "subprocessors"
     },
     {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/privacy/subprocessors",
-      "final": "https://mediaconnect.com.au/privacy/subprocessors",
+      "slug": "roboflow",
+      "url": "https://roboflow.com/legal/sub-processors-page",
+      "final": "https://roboflow.com/legal/sub-processors-page",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/legal/sub-processors",
-      "final": "https://mediaconnect.com.au/legal/sub-processors",
+      "slug": "roboflow",
+      "url": "https://security.roboflow.com/sub-processors",
+      "final": "https://security.roboflow.com/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/company/subprocessors",
-      "final": "https://mediaconnect.com.au/company/subprocessors",
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/trust/subprocessors",
+      "final": "https://surfshark.com/trust/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "media-connect",
-      "url": "https://mediaconnect.com.au/trust/subprocessors",
-      "final": "https://mediaconnect.com.au/trust/subprocessors",
+      "slug": "surfshark-vpn",
+      "url": "https://surfshark.com/legal/sub-processors-page",
+      "final": "https://surfshark.com/legal/sub-processors-page",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     }
