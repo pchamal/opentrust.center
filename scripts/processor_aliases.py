@@ -1025,6 +1025,20 @@ REGISTER_ALIASES: dict[str, str] = {
     # "About Us and Company Overview | Wowza Media Systems".
     # wowza is on the register. Do not invent a second Wowza dossier.
     "wowza-media-systems": "wowza",
+    # Forsta names Dapresy Deutschland GmbH. dapresy.com 302s to
+    # forsta.com, then 301s to www.forsta.com titled
+    # "Customer Experience & Research Technology | Forsta".
+    # legal.forsta.com prints Dapresy. forsta-as is on the register.
+    # Do not invent a second Dapresy dossier.
+    "dapresy-deutschland": "forsta-as",
+    # CookieYes names Cloudways Ltd. digitalocean.com and
+    # digitalocean.com/products/cloudways print Cloudways as a
+    # DigitalOcean product (title
+    # "Fully Managed VPS Hosting - Start for Free | Cloudways").
+    # cloudways.com is a Cloudflare challenge, not a first-party
+    # file. digitalocean is on the register. Do not invent a
+    # second Cloudways dossier.
+    "cloudways": "digitalocean",
 
 }
 
