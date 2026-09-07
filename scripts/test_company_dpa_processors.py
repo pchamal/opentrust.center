@@ -2537,7 +2537,7 @@ def main() -> int:
     for slug in (
         "maxio", "aircall", "aircall-sas", "voyager", "fathom-analytics",
         "kaleido", "fern", "dispatch", "cookie-bot", "joveo", "altinity",
-        "level-access", "shibumi-com", "springserve", "profitwell",
+        "level-access", "springserve", "profitwell",
         "pigeonlab", "luma", "paragon", "bt", "gcs",
     ):
         check(slug not in by_pub, f"{slug} stays off the register")
@@ -2583,6 +2583,80 @@ def main() -> int:
     retex_html = (ROOT / "site" / "c" / "atoms-retex.html").read_text(encoding="utf-8")
     check("<h1>Retex</h1>" in retex_html, "atoms-retex dossier is its own file")
     check("https://www.retex.com/privacy" in retex_html, "atoms-retex dossier cites first-party privacy")
+
+    # This cut: no same-company leftover proved onto an existing register slug.
+    # File named-by-1 leftovers on first-party domains. DocQ /security is
+    # Official page; partner SOC 2 / CSA STAR and GDPR/CCPA/HIPAA-as-rights
+    # stay unread. Portal chrome is never Official page.
+    for slug, domain in (
+        ("ndm-global", "docq.app"),
+        ("media-connect", "mediaconnect.com.au"),
+        ("the-udder-group-t-a-udder", "udder.rocks"),
+        ("dare-to-change", "dtcsolution.org"),
+        ("edgetech-consulting", "edgetech-consulting.com"),
+        ("tq-solutions", "tqsolutions.com.au"),
+    ):
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check("GDPR" not in (by_pub[slug].get("certs") or []), f"{slug} GDPR is not a mark")
+        check("CCPA" not in (by_pub[slug].get("certs") or []), f"{slug} CCPA is not a mark")
+    for slug in (
+        "maxio", "aircall", "aircall-sas", "voyager", "fathom-analytics",
+        "kaleido", "fern", "dispatch", "cookie-bot", "joveo", "altinity",
+        "level-access", "springserve", "profitwell",
+        "pigeonlab", "luma", "paragon", "bt", "gcs",
+    ):
+        check(slug not in by_pub, f"{slug} stays off the register")
+    check(by_pub["ndm-global"].get("found") is True, "ndm-global Official page is on file")
+    check(
+        by_pub["ndm-global"].get("trust_url") == "https://www.docq.app/security",
+        "ndm-global Official page is first-party security",
+    )
+    check("ISO 27001" in (by_pub["ndm-global"].get("certs") or []), "ndm-global files ISO 27001")
+    check("SOC 2 Type II" not in (by_pub["ndm-global"].get("certs") or []), "ndm-global partner SOC 2 stays unread")
+    check("CSA STAR" not in (by_pub["ndm-global"].get("certs") or []), "ndm-global partner CSA STAR stays unread")
+    check("HIPAA" not in (by_pub["ndm-global"].get("certs") or []), "ndm-global HIPAA-compliant stays unread")
+    check(
+        instrument_url(by_pub["ndm-global"], "privacy") == "https://www.docq.app/privacy",
+        "ndm-global privacy is first-party HTML",
+    )
+    for slug in (
+        "media-connect",
+        "the-udder-group-t-a-udder",
+        "dare-to-change",
+        "edgetech-consulting",
+        "tq-solutions",
+    ):
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+    check(
+        instrument_url(by_pub["the-udder-group-t-a-udder"], "privacy")
+        == "https://udder.rocks/privacy-policy",
+        "udder privacy is first-party HTML",
+    )
+    check(
+        instrument_url(by_pub["dare-to-change"], "privacy")
+        == "https://dtcsolution.org/privacy-statement/",
+        "dare-to-change privacy is first-party HTML",
+    )
+    check(
+        instrument_url(by_pub["tq-solutions"], "privacy")
+        == "https://www.tqsolutions.com.au/privacy-policy",
+        "tq-solutions privacy is first-party HTML",
+    )
+    check(
+        instrument_url(by_pub["edgetech-consulting"], "security") == "",
+        "edgetech services lander is not a security instrument",
+    )
+    docq_html = (ROOT / "site" / "c" / "ndm-global.html").read_text(encoding="utf-8")
+    check("<h1>DocQ</h1>" in docq_html, "ndm-global dossier is its own file")
+    check("https://www.docq.app/security" in docq_html, "ndm-global dossier cites first-party security")
+    check("https://www.docq.app/privacy" in docq_html, "ndm-global dossier cites first-party privacy")
+    check("vanta" not in docq_html.lower(), "ndm-global dossier names no portal vendor")
+    check("safebase" not in docq_html.lower(), "ndm-global dossier names no portal vendor")
+    udder_html = (ROOT / "site" / "c" / "the-udder-group-t-a-udder.html").read_text(encoding="utf-8")
+    check("<h1>Udder</h1>" in udder_html, "udder dossier is its own file")
+    check("Official page · not on file" in udder_html, "udder Official page stays open")
+    check("https://udder.rocks/privacy-policy" in udder_html, "udder dossier cites first-party privacy")
 
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
