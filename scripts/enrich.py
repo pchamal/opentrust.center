@@ -502,6 +502,15 @@ SPECIAL_URLS = {
     "tq-solutions": [
         ("https://www.tqsolutions.com.au/privacy-policy", "privacy"),
     ],
+    "adeptid": [
+        ("https://www.adept-id.com/privacy-policy/", "privacy"),
+    ],
+    "rare-patient-voice": [
+        ("https://rarepatientvoice.com/read-our-privacy-policy/", "privacy"),
+    ],
+    "cardinal-path": [
+        ("https://www.cardinalpath.com/policies/privacy-policy", "privacy"),
+    ],
     # Branch Metrics leftover. legal.branch.io is first-party of branch.io.
     # trust.branch.io is a Conveyor portal — not Official page, not a mark source.
     "branch-metrics": [

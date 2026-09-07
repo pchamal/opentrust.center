@@ -758,6 +758,8 @@ PORTAL_URL_ONLY_SLUGS = {
     # This cut: Cielo talent SafeBase / HirePort Vanta hosts. Never Official page.
     "cielo",
     "hireport-nl",
+    # This cut: trust.adept-id.com is SafeBase chrome. Never Official page.
+    "adeptid",
 }
 
 

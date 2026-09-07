@@ -273,6 +273,9 @@ EXTRA_GUESSES = {
     "dare-to-change": ["dtcsolution.org"],
     "edgetech-consulting": ["edgetech-consulting.com"],
     "tq-solutions": ["tqsolutions.com.au"],
+    "adeptid": ["adept-id.com", "adeptid.com"],
+    "rare-patient-voice": ["rarepatientvoice.com"],
+    "cardinal-path": ["cardinalpath.com"],
 }
 
 PORTAL_HOSTS = (

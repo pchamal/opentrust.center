@@ -2658,6 +2658,68 @@ def main() -> int:
     check("Official page · not on file" in udder_html, "udder Official page stays open")
     check("https://udder.rocks/privacy-policy" in udder_html, "udder dossier cites first-party privacy")
 
+    # This cut: drop regula-baltija / up-reply (no first-party Baltija print;
+    # upreply.de is a JS/challenge shell). File named-by-1 leftovers whose
+    # first-party HTML prints the leftover name. SafeBase chrome is never
+    # Official page. GDPR/CCPA-as-rights stay unread.
+    for slug, domain in (
+        ("adeptid", "adept-id.com"),
+        ("rare-patient-voice", "rarepatientvoice.com"),
+        ("cardinal-path", "cardinalpath.com"),
+    ):
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check("GDPR" not in (by_pub[slug].get("certs") or []), f"{slug} GDPR is not a mark")
+        check("CCPA" not in (by_pub[slug].get("certs") or []), f"{slug} CCPA is not a mark")
+    for slug in (
+        "maxio", "aircall", "aircall-sas", "voyager", "fathom-analytics",
+        "kaleido", "fern", "dispatch", "cookie-bot", "joveo", "altinity",
+        "level-access", "springserve", "profitwell",
+        "pigeonlab", "luma", "paragon", "bt", "gcs",
+        "regula-baltija", "up-reply",
+    ):
+        check(slug not in by_pub, f"{slug} stays off the register")
+    check(not by_pub["adeptid"].get("trust_url"), "adeptid SafeBase portal is not the Official page URL")
+    check(
+        ((by_pub["adeptid"].get("instruments") or {}).get("trust") or {}).get("url")
+        == "https://trust.adept-id.com",
+        "adeptid trust instrument keeps the portal URL as a link",
+    )
+    check(
+        instrument_url(by_pub["adeptid"], "privacy")
+        == "https://www.adept-id.com/privacy-policy/",
+        "adeptid privacy is first-party HTML",
+    )
+    check(
+        instrument_url(by_pub["adeptid"], "subprocessors") == "",
+        "adeptid portal subprocessors stay unread",
+    )
+    check(
+        instrument_url(by_pub["rare-patient-voice"], "privacy")
+        == "https://rarepatientvoice.com/read-our-privacy-policy/",
+        "rare-patient-voice privacy is first-party HTML",
+    )
+    check(
+        instrument_url(by_pub["cardinal-path"], "privacy")
+        == "https://www.cardinalpath.com/policies/privacy-policy",
+        "cardinal-path privacy is first-party HTML",
+    )
+    adept_html = (ROOT / "site" / "c" / "adeptid.html").read_text(encoding="utf-8")
+    check("<h1>AdeptID</h1>" in adept_html, "adeptid dossier is its own file")
+    check("Official page · not on file" in adept_html, "adeptid Official page stays open")
+    check("https://www.adept-id.com/privacy-policy/" in adept_html, "adeptid dossier cites first-party privacy")
+    check("vanta" not in adept_html.lower(), "adeptid dossier names no portal vendor")
+    check("safebase" not in adept_html.lower(), "adeptid dossier names no portal vendor")
+    rpv_html = (ROOT / "site" / "c" / "rare-patient-voice.html").read_text(encoding="utf-8")
+    check("<h1>Rare Patient Voice</h1>" in rpv_html, "rare-patient-voice dossier is its own file")
+    check("Official page · not on file" in rpv_html, "rare-patient-voice Official page stays open")
+    check("https://rarepatientvoice.com/read-our-privacy-policy/" in rpv_html, "rpv dossier cites first-party privacy")
+    cp_html = (ROOT / "site" / "c" / "cardinal-path.html").read_text(encoding="utf-8")
+    check("<h1>Cardinal Path</h1>" in cp_html, "cardinal-path dossier is its own file")
+    check("Official page · not on file" in cp_html, "cardinal-path Official page stays open")
+    check("https://www.cardinalpath.com/policies/privacy-policy" in cp_html, "cardinal-path dossier cites first-party privacy")
+
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
