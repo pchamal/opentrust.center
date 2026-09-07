@@ -1486,6 +1486,24 @@ PRIOR_ATTEMPTED = {
     "zipdx",
     "hireport-nl",
     "signalwire",
+    # this cut — leftover-company Completeness fill (4 DPA, 1 Official page)
+    "mezmo",
+    "oopspam",
+    "tremendous",
+    "zamzar",
+    "jumpcloud-iam",
+    "wowza",
+    "pandadoc",
+    "zenlayer",
+    "observe",
+    "explo",
+    "castlabs",
+    "servers-com",
+    "icinga",
+    "docdelta",
+    "baxter-planning-systems",
+    "datapacket",
+    "media-connect",
 }
 
 
@@ -1578,10 +1596,17 @@ def select_batch(public_rows: list[dict], enr_by: dict[str, dict]) -> list[dict]
             return None
         cands = first_party_candidates(row, enr)
         if not cands:
-            return None
+            # Explicit slugs: probe well-known first-party paths from the
+            # on-file domain. Do not invent a host.
+            if not wanted or not (enr.get("domain") or row.get("domain")):
+                return None
         # Found-company DPA queue is exhausted after PRIOR. Silent rows with a
         # stored first-party trust/privacy/security URL are the next unread file.
-        if not row.get("found") and not has_trust_privacy_security(cands):
+        if (
+            not wanted
+            and not row.get("found")
+            and not has_trust_privacy_security(cands)
+        ):
             return None
         dpa_url = stored_dpa_url(row, enr)
         dpa_open = not dpa_url
