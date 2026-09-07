@@ -462,6 +462,33 @@ SPECIAL_URLS = {
     "tandem-health": [
         ("https://tandemhealth.ai/legal/privacy-policy", "privacy"),
     ],
+    "cielo": [
+        ("https://www.cielotalent.com/privacy-policy", "privacy"),
+    ],
+    "cloudorizon": [
+        ("https://www.cloudorizon.com/privacy", "privacy"),
+    ],
+    "converteo-sas": [
+        ("https://converteo.com/privacy-policy", "privacy"),
+    ],
+    "frequency-networks": [
+        ("https://www.frequency.com/privacy", "privacy"),
+    ],
+    "j-labs-spoika-z-ograniczona-odpowiedzialnoscia": [
+        ("https://www.j-labs.pl/privacy", "privacy"),
+    ],
+    "xfive": [
+        ("https://www.xfive.co/privacy", "privacy"),
+    ],
+    "zilker-trail-consulting": [
+        ("https://www.getzilker.com/privacy-policy", "privacy"),
+    ],
+    "atoms-retex": [
+        ("https://www.retex.com/privacy", "privacy"),
+    ],
+    "vroom-consultancy-worldofwork": [
+        ("https://www.worldofwork.nl/privacy-policy", "privacy"),
+    ],
     # Branch Metrics leftover. legal.branch.io is first-party of branch.io.
     # trust.branch.io is a Conveyor portal — not Official page, not a mark source.
     "branch-metrics": [
