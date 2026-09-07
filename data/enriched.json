@@ -108169,7 +108169,13 @@
         "status": "https://status.trustarc.com",
         "security": "https://trust.trustarc.com/en-US/security"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "mailgun-technologies",
+        "microsoft",
+        "salesforce",
+        "workato"
+      ],
       "disclosure": {
         "score": 40,
         "tier": "on-file",

@@ -125,6 +125,13 @@ class DpaClassifyTest(unittest.TestCase):
         self.assertTrue(is_first_party_url("https://trust.osano.com", osano))
         self.assertTrue(is_first_party_url("https://www.osano.com/legal/dpa", osano))
         self.assertFalse(is_first_party_url("https://www.osano.com/cmp", plaid))
+        trustarc = {"slug": "trustarc", "domain": "trustarc.com", "aliases": []}
+        self.assertTrue(is_first_party_url("https://trust.trustarc.com", trustarc))
+        self.assertTrue(is_first_party_url(
+            "https://trust.trustarc.com/en-US/policies/sub-processors-and-affiliates",
+            trustarc,
+        ))
+        self.assertFalse(is_first_party_url("https://trustarc.com/cmp", plaid))
 
     def test_link_text_extracts_dpa(self):
         html = (

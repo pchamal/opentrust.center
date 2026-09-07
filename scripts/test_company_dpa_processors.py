@@ -245,27 +245,29 @@ def main() -> int:
     check(len(by_pub["dialpad"].get("processors") or []) == 1, "dialpad existing name stays")
 
     # This increment: Completeness fill on on-file companies with open
-    # instruments. CookieYes first-party named list. Osano Vanta chrome
-    # is not Official page. First-party Completeness on Osano is not
-    # open (/security 404; /legal/dpa and /legal/privacy bounce to
-    # TrustHub). GDPR/CCPA-as-rights unread. Portal chrome is never
-    # Official page. Parent-list redirects stay unread. Fern stays
-    # silent. springserve stays aliased onto magnite.
+    # instruments. TrustArc Trust Center list prints names. Trust Center
+    # chrome is not Official page. First-party Completeness on TrustArc
+    # is not open (/security 404; /privacy and /data-processing-addendum
+    # bounce to the Trust Center; the Trust Center DPA URL is a policies
+    # shell, not a printed DPA). GDPR/CCPA-as-rights unread. Portal
+    # chrome is never Official page. Parent-list redirects stay unread.
+    # Fern stays silent. springserve stays aliased onto magnite.
+    # Osano Official page stays open (portal already dropped).
     expected_batch = [
-        "cookieyes",
-        "osano",
+        "trustarc",
     ]
     check(report.get("batch") == expected_batch, "batch is the on-file Completeness queue")
     filed_dpa = {r["slug"]: r for r in (report.get("dpa_filed") or [])}
     check(not filed_dpa, f"no new DPA links filed, got {sorted(filed_dpa)}")
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
-    check(set(filed_sub) == {"cookieyes"}, f"named-processor lists filed, got {sorted(filed_sub)}")
+    check(set(filed_sub) == {"trustarc"}, f"named-processor lists filed, got {sorted(filed_sub)}")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
-    check("cookieyes" not in stayed_sub, "CookieYes named list was filed")
-    check("osano" in stayed_sub, "Osano Vanta named list stayed open")
-    check(not stayed_dpa, f"no DPA slots stayed open, got {sorted(stayed_dpa)}")
+    check("trustarc" not in stayed_sub, "TrustArc named list was filed")
+    check("trustarc" in stayed_dpa, "TrustArc Trust Center DPA shell stayed open")
+    check("cookieyes" not in stayed_sub, "prior CookieYes named list stay is not this report")
+    check("osano" not in stayed_sub, "prior Osano list stay is not this report")
     check("queue-it" not in stayed_dpa, "prior Queue-it DPA stay is not this report")
     check("neuroflash" not in stayed_dpa, "prior Neuroflash DPA stay is not this report")
     check("statsig" not in filed_sub, "Statsig Amplitude parent list was not filed")
@@ -273,8 +275,8 @@ def main() -> int:
     check("ip-info" not in stayed_dpa, "prior IPinfo DPA stay is not this report")
     check("mezmo" not in stayed_dpa, "prior Mezmo DPA stay is not this report")
     check(len(report.get("stayed_open") or []) == 1, f"1 open DPA/subprocessors slot, got {len(report.get('stayed_open') or [])}")
-    check(len(stayed_dpa) == 0, f"0 DPA slots stayed open, got {len(stayed_dpa)}")
-    check(len(stayed_sub) == 1, f"1 subprocessors slot stayed open, got {len(stayed_sub)}")
+    check(len(stayed_dpa) == 1, f"1 DPA slot stayed open, got {len(stayed_dpa)}")
+    check(len(stayed_sub) == 0, f"0 subprocessors slots stayed open, got {len(stayed_sub)}")
     # Prior-cut review drops stay unread.
     check("dpa" not in ((by_enr["zillow"].get("links") or {})), "Zillow links.dpa stays off the Legal AB listing shell")
     check(not instrument_url(by_pub["zillow"], "dpa"), "Zillow DPA stays open")
@@ -812,6 +814,60 @@ def main() -> int:
     check("https://trust.osano.com" in os_html, "osano dossier cites the portal as an instrument URL")
     check("vanta" not in os_html.lower(), "osano dossier names no portal vendor")
     check("safebase" not in os_html.lower(), "osano dossier names no portal vendor")
+
+    # This cut: Completeness fill on TrustArc. Trust Center list prints
+    # five names. AWS / Mailgun / Microsoft / Salesforce / Workato land
+    # on existing files. Trust Center chrome is not Official page.
+    # First-party /security 404s. Privacy and DPA paths bounce to the
+    # Trust Center. The Trust Center DPA URL is a policies shell, not a
+    # printed DPA. GDPR/CCPA-as-rights and portal SOC 2 stay unread.
+    # Osano Official page stays open (portal already dropped).
+    check(
+        instrument_url(by_pub["trustarc"], "subprocessors")
+        == "https://trust.trustarc.com/en-US/policies/sub-processors-and-affiliates",
+        "trustarc named list is the Trust Center HTML table",
+    )
+    check((by_pub["trustarc"].get("file") or {}).get("subprocessors") == 20, "trustarc list printed")
+    check(instrument_url(by_pub["trustarc"], "dpa") == "", "trustarc Trust Center DPA shell stays unread")
+    check((by_pub["trustarc"].get("file") or {}).get("dpa") in (0, False, None), "trustarc DPA stays open")
+    check(by_pub["trustarc"].get("found") is False, "trustarc Trust Center portal is not Official page")
+    check(not by_pub["trustarc"].get("trust_url"), "trustarc portal is not the Official page URL")
+    check(
+        ((by_pub["trustarc"].get("instruments") or {}).get("trust") or {}).get("url")
+        == "https://trust.trustarc.com",
+        "trustarc trust instrument keeps the portal URL as a link",
+    )
+    check(
+        instrument_url(by_pub["trustarc"], "privacy")
+        == "https://trust.trustarc.com/en-US/policies/trustarc-privacy-notice",
+        "trustarc privacy stays the Trust Center notice",
+    )
+    check("GDPR" not in (by_pub["trustarc"].get("certs") or []), "trustarc GDPR is not a mark")
+    check("CCPA" not in (by_pub["trustarc"].get("certs") or []), "trustarc CCPA is not a mark")
+    check("SOC 2 Type II" not in (by_pub["trustarc"].get("certs") or []), "trustarc portal SOC 2 stays unread")
+    check("ISO 27001" not in (by_pub["trustarc"].get("certs") or []), "trustarc ISO stays unread")
+    ta_slugs = [p.get("slug") for p in (by_pub["trustarc"].get("processors") or [])]
+    ta_names = [p.get("name") for p in (by_pub["trustarc"].get("processors") or [])]
+    check("amazon-web-services" in ta_slugs, "trustarc AWS lands on amazon-web-services")
+    check("mailgun" in ta_slugs, "trustarc Mailgun Technologies lands on mailgun")
+    check("microsoft" in ta_slugs, "trustarc Microsoft lands on microsoft")
+    check("salesforce" in ta_slugs, "trustarc Salesforce.com lands on salesforce")
+    check("workato" in ta_slugs, "trustarc Workato lands on workato")
+    check("aws" not in ta_slugs, "trustarc does not invent an AWS leftover")
+    check("mailgun-technologies" not in ta_slugs, "trustarc does not invent a Mailgun leftover")
+    check("salesforce-com" not in ta_slugs, "trustarc does not invent a Salesforce.com leftover")
+    check("Amazon Web Services" in ta_names, "trustarc names Amazon Web Services")
+    check("Workato, Inc" in ta_names, "trustarc names Workato")
+    ta_html = (ROOT / "site" / "c" / "trustarc.html").read_text(encoding="utf-8")
+    check("<h1>TrustArc Inc</h1>" in ta_html, "trustarc dossier is its own file")
+    check("Official page · not on file" in ta_html, "trustarc Official page stays open")
+    check("https://trust.trustarc.com" in ta_html, "trustarc dossier cites the portal as an instrument URL")
+    check(
+        "https://trust.trustarc.com/en-US/policies/sub-processors-and-affiliates" in ta_html,
+        "trustarc dossier cites the named list",
+    )
+    check("vanta" not in ta_html.lower(), "trustarc dossier names no portal vendor")
+    check("safebase" not in ta_html.lower(), "trustarc dossier names no portal vendor")
 
     from file_company_dpa_processors import PRIOR_ATTEMPTED, select_batch
     for slug in expected_batch:

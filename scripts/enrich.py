@@ -568,6 +568,15 @@ SPECIAL_URLS = {
         ("https://www.cookieyes.com/sub-processors-list/", "subprocessors"),
         ("https://www.cookieyes.com/privacy-policy/", "privacy"),
     ],
+    # This cut: Completeness fill on TrustArc. Trust Center chrome is
+    # URL-only (never Official page). First-party /security 404s. Privacy
+    # and DPA paths on trustarc.com bounce to the Trust Center. The
+    # Trust Center list prints names in HTML tables.
+    "trustarc": [
+        ("https://trust.trustarc.com/en-US/policies/data-processing-addendum", "dpa"),
+        ("https://trust.trustarc.com/en-US/policies/sub-processors-and-affiliates", "subprocessors"),
+        ("https://trust.trustarc.com/en-US/policies/trustarc-privacy-notice", "privacy"),
+    ],
     "servers-com": [
         ("https://www.servers.com/privacy-policy", "privacy"),
     ],

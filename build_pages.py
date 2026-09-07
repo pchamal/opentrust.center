@@ -767,6 +767,10 @@ PORTAL_URL_ONLY_SLUGS = {
     # This cut: trust.osano.com is Vanta chrome. First-party /security 404s.
     # /legal/dpa and /legal/privacy bounce to TrustHub. Never Official page.
     "osano",
+    # This cut: trust.trustarc.com is TrustArc Trust Center chrome.
+    # First-party /security 404s. Privacy / DPA paths bounce to the
+    # Trust Center. Never Official page.
+    "trustarc",
 }
 
 

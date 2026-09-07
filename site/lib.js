@@ -132,6 +132,7 @@ const PORTAL_URL_ONLY_SLUGS = new Set([
   "cielo", "hireport-nl", "adeptid",
   "neuroflash", "roboflow",
   "osano",
+  "trustarc",
 ]);
 
 function officialPageOnFile(row) {
