@@ -2725,6 +2725,41 @@ def main() -> int:
     check("Official page · not on file" in cp_html, "cardinal-path Official page stays open")
     check("https://www.cardinalpath.com/policies/privacy-policy" in cp_html, "cardinal-path dossier cites first-party privacy")
 
+    # This cut: alias SpringServe→Magnite. Brightcove names SpringServe, Inc.
+    # springserve.com 301s to Magnite's first-party homepage, which prints
+    # SpringServe. magnite.com/sellers/ prints Magnite SpringServe. magnite
+    # is on the register. Do not invent a second SpringServe dossier. Fern
+    # stays the expand-hour silent file. No other leftover proved onto an
+    # existing slug. Remaining named-by-1 leftovers lack a resolvable
+    # official domain that prints the leftover name (or sit on the
+    # permanent skip list). Portal chrome is never Official page.
+    # GDPR/CCPA-as-rights stay unread.
+    check("springserve" not in by_pub, "springserve is not a second Magnite dossier")
+    check("magnite" in by_pub, "magnite stays the filed SpringServe row")
+    for slug in (
+        "maxio", "aircall", "aircall-sas", "voyager", "fathom-analytics",
+        "kaleido", "dispatch", "cookie-bot", "joveo", "altinity",
+        "level-access", "springserve", "profitwell",
+        "pigeonlab", "luma", "paragon", "bt", "gcs",
+        "regula-baltija", "up-reply",
+        "24slides-aps", "visier", "freeplay",
+        "talent-tech-solutions", "rule-56",
+        "smt-consultoria-e-solucoes-em-technologia-ltda",
+        "df-tech-fz", "dentsu-manchester",
+    ):
+        check(slug not in by_pub, f"{slug} stays off the register")
+    mag_wires = [
+        e for e in wires.get("edges") or []
+        if e.get("to") == "magnite" and "springserve" in (e.get("evidence") or "").lower()
+    ]
+    check(mag_wires, "Brightcove SpringServe wire lands on Magnite")
+    check(not any(e.get("to") == "springserve" for e in (wires.get("edges") or [])), "springserve leftover node is gone")
+    bright_html = (ROOT / "site" / "c" / "brightcove.html").read_text(encoding="utf-8")
+    check("../graph.html#p=springserve" not in bright_html, "brightcove SpringServe is no longer a leftover map node")
+    check("./magnite.html\">SpringServe, Inc" in bright_html, "brightcove SpringServe lands on the Magnite dossier")
+    check("safebase" not in bright_html.lower(), "brightcove dossier names no portal vendor")
+    check("vanta" not in bright_html.lower(), "brightcove dossier names no portal vendor")
+
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
