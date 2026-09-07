@@ -2016,6 +2016,25 @@ expect(
     ruleOn(fileIndexHtml(coralogix))[0] === false &&
     ruleOn(fileIndexHtml(coralogix))[2] === true,
 );
+const osano = bySlug.osano;
+expect(
+  "osano Completeness is DPA + dotted list; Vanta portal is not Official page",
+  osano.found === false &&
+    !osano.trust_url &&
+    ((osano.instruments || {}).trust || {}).url === "https://trust.osano.com" &&
+    osano.instruments.dpa.url === "https://osano.trusthub.com/dpa" &&
+    osano.instruments.subprocessors.url === "https://trust.osano.com/subprocessors" &&
+    !(osano.certs || []).length &&
+    !(osano.processors || []).length &&
+    fileFlags(osano).page === 0 &&
+    fileFlags(osano).marks === 0 &&
+    fileFlags(osano).dpa === 20 &&
+    fileFlags(osano).subprocessors === 10 &&
+    fileFlags(osano).years === 0 &&
+    fileScore(fileFlags(osano)) === 30 &&
+    ruleOn(fileIndexHtml(osano))[0] === false &&
+    ruleOn(fileIndexHtml(osano))[2] === true,
+);
 const planview = bySlug.planview;
 expect(
   "URL-only subprocessors is 10 not 20",

@@ -1004,6 +1004,12 @@ REGISTER_ALIASES: dict[str, str] = {
     # "Sellers - Magnite" and prints Magnite SpringServe. magnite is
     # on the register. Do not invent a second SpringServe dossier.
     "springserve": "magnite",
+    # CookieYes names Digital Ocean. digitalocean is on the register.
+    # Do not invent a second DigitalOcean dossier.
+    "digital-ocean": "digitalocean",
+    # CookieYes names Gsuite (Google Workspace). google is on the register.
+    # gsuite-google already lands here. Do not invent a G Suite dossier.
+    "gsuite-google-workspace": "google",
     # Forsta names Amazon.com, Inc for Virtual Servers & CDN.
     # amazon-web-services is on the register. Do not invent a second Amazon dossier.
     "amazon-com": "amazon-web-services",

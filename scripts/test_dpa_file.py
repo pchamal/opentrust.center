@@ -121,6 +121,10 @@ class DpaClassifyTest(unittest.TestCase):
         vanta = {"slug": "vanta", "domain": "vanta.com", "aliases": []}
         self.assertFalse(is_portal_vendor_host("https://www.vanta.com/legal/dpa", vanta))
         self.assertTrue(is_first_party_url("https://www.vanta.com/legal/dpa", vanta))
+        osano = {"slug": "osano", "domain": "osano.com", "aliases": []}
+        self.assertTrue(is_first_party_url("https://trust.osano.com", osano))
+        self.assertTrue(is_first_party_url("https://www.osano.com/legal/dpa", osano))
+        self.assertFalse(is_first_party_url("https://www.osano.com/cmp", plaid))
 
     def test_link_text_extracts_dpa(self):
         html = (

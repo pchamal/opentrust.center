@@ -744,6 +744,12 @@ def main() -> int:
     check(canonical_processor_id("springserve", mag_reg) == "magnite", "SpringServe is Magnite")
     check(REGISTER_ALIASES["springserve"] == "magnite", "springserve aliases to magnite")
     check("springserve" not in ("adeptid", "rare-patient-voice", "cardinal-path"), "springserve is aliased, not filed")
+    do_reg = {**register, "digitalocean": {"slug": "digitalocean", "name": "DigitalOcean", "domain": "digitalocean.com"}}
+    check(canonical_processor_id("digital-ocean", do_reg) == "digitalocean", "Digital Ocean is DigitalOcean")
+    check(REGISTER_ALIASES["digital-ocean"] == "digitalocean", "digital-ocean aliases to digitalocean")
+    gs_reg = {**register, "google": {"slug": "google", "name": "Google", "domain": "google.com"}}
+    check(canonical_processor_id("gsuite-google-workspace", gs_reg) == "google", "Gsuite Google Workspace is Google")
+    check(REGISTER_ALIASES["gsuite-google-workspace"] == "google", "gsuite-google-workspace aliases to google")
     check(REGISTER_ALIASES["amazon-com"] == "amazon-web-services", "amazon-com aliases to amazon-web-services")
     check(canonical_processor_id("amazon-com", register) == "amazon-web-services", "Amazon.com, Inc is AWS")
     speech_reg = {**register, "speechmatics": {"slug": "speechmatics", "name": "Speechmatics", "domain": "speechmatics.com"}}

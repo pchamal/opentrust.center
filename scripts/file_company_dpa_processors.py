@@ -1509,6 +1509,9 @@ PRIOR_ATTEMPTED = {
     "queue-it",
     "surfshark-vpn",
     "roboflow",
+    # this cut — Completeness fill (1 named list; Osano portal Official page dropped)
+    "cookieyes",
+    "osano",
 }
 
 
@@ -1709,19 +1712,23 @@ def append_processor_edges(edges: list[dict], register: dict[str, dict]) -> None
     src = paths[0] if paths[0].exists() else paths[1]
     subs = load_json(src, {"nodes": [], "edges": []})
     nodes = {n["id"]: n for n in (subs.get("nodes") or []) if n.get("id")}
-    existing = {(e.get("from"), e.get("to")) for e in (subs.get("edges") or [])}
+    existing = {
+        (e.get("from"), e.get("to"), e.get("source_url"), (e.get("evidence") or "").strip())
+        for e in (subs.get("edges") or [])
+    }
     proc_meta = {i: (n, d) for i, n, d, _a in enrich.PROCESSORS}
     for e in edges:
         src_url, frm, to = e.get("source_url"), e.get("from"), canonical_processor_id(e.get("to"), register)
-        if not src_url or not frm or not to or (frm, to) in existing:
+        evidence = (e.get("evidence") or to or "").strip()
+        if not src_url or not frm or not to or (frm, to, src_url, evidence) in existing:
             continue
         subs.setdefault("edges", []).append({
             "from": frm,
             "to": to,
             "source_url": src_url,
-            "evidence": e.get("evidence") or to,
+            "evidence": evidence,
         })
-        existing.add((frm, to))
+        existing.add((frm, to, src_url, evidence))
         if to in nodes:
             continue
         if to in register:
