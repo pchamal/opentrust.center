@@ -559,8 +559,9 @@ def main() -> int:
     # probes 404. Grubhub /dpa is a same-title SPA. JFrog AWS WAF 202.
     # Informatica homepage bounce. Netflix NotFound. Cardtronics USA aliases
     # onto NCR Voyix. Accenture International aliases onto Accenture.
-    # Flash Global Logistics and Baxter Planning Systems stay leftover
-    # graph nodes. Do not invent domains. Do not alias Baxter Planning
+    # Flash Global Logistics is the named-processor-gap expand file
+    # (flashglobal.com). Baxter Planning Systems stays a leftover
+    # graph node. Do not invent domains. Do not alias Baxter Planning
     # onto Baxter International.
     check(
         instrument_url(by_pub["nutanix"], "dpa")
@@ -596,7 +597,8 @@ def main() -> int:
     check("cardtronics-usa" not in by_pub, "nutanix does not invent a Cardtronics dossier")
     check("accenture-international" not in by_pub, "nutanix does not invent an Accenture International dossier")
     check("baxter-planning-systems" not in by_pub, "nutanix does not invent a Baxter Planning Systems dossier")
-    check("flash-global-logistics" not in by_pub, "nutanix does not invent a Flash Global Logistics dossier")
+    check("flash-global-logistics" in by_pub, "nutanix Flash Global Logistics uses the named-processor-gap file")
+    check(by_pub["flash-global-logistics"].get("domain") == "flashglobal.com", "flash-global-logistics keeps the expand domain")
     check("baxter-international" not in nx_slugs, "nutanix does not alias Baxter Planning onto Baxter International")
     # Prior cut: open is the honest result. Netcore Cloud SafeBase
     # itemUid catalog, Church & Dwight / Copart / Energy Transfer /
