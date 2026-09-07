@@ -560,6 +560,14 @@ SPECIAL_URLS = {
     "roboflow": [
         ("https://roboflow.com/privacy", "privacy"),
     ],
+    # This cut: Completeness fill on on-file companies. CookieYes first-party
+    # named list. Osano Vanta chrome stays URL-only. Prefer first-party
+    # Completeness when it is open; do not invent a domain.
+    "cookieyes": [
+        ("https://www.cookieyes.com/dpa/", "dpa"),
+        ("https://www.cookieyes.com/sub-processors-list/", "subprocessors"),
+        ("https://www.cookieyes.com/privacy-policy/", "privacy"),
+    ],
     "servers-com": [
         ("https://www.servers.com/privacy-policy", "privacy"),
     ],
@@ -6726,8 +6734,16 @@ def file_published_privacy() -> int:
     return 0
 
 def is_first_party_url(url: str, company: dict) -> bool:
-    if is_portal_vendor_host(url, company) or is_cmp_vendor_host(url):
+    if is_portal_vendor_host(url, company):
         return False
+    # CMP hosts are third-party for other companies. A CMP vendor's own
+    # dossier may still read its first-party pages (Osano / osano.com).
+    if is_cmp_vendor_host(url):
+        own = {registrable(x) for x in hosts_for(company)}
+        if company.get("domain"):
+            own.add(registrable(company["domain"]))
+        if registrable(host_of(url) or "") not in own:
+            return False
     hosts = set(hosts_for(company))
     for raw in (company.get("trust_url"), company.get("final_url"), company.get("domain")):
         if not raw:

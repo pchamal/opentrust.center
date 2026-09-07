@@ -93527,15 +93527,40 @@
       "list": "named-processor-gap",
       "certs": [],
       "links": {
-        "dpa": "https://www.cookieyes.com/dpa/"
+        "dpa": "https://www.cookieyes.com/dpa/",
+        "privacy": "https://www.cookieyes.com/privacy-policy/",
+        "subprocessors": "https://www.cookieyes.com/sub-processors-list/"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "mozilor-technologies-pvt",
+        "g-joseph-associates",
+        "brevo",
+        "zendesk",
+        "lemlist",
+        "sendgrid",
+        "mixpanel",
+        "hotjar",
+        "calendly",
+        "zoom",
+        "gsuite-google-workspace",
+        "intercom",
+        "google-analytics",
+        "aws",
+        "cloudflare",
+        "cloudways",
+        "digital-ocean",
+        "clickhouse",
+        "microsoft-clarity",
+        "anthropic"
+      ],
       "disclosure": {
-        "score": 11,
+        "score": 25,
         "tier": "silent",
         "factors": {
           "dpa": 8,
-          "longevity": 3
+          "longevity": 3,
+          "privacy": 6,
+          "subprocessors": 8
         }
       },
       "official_url": "https://www.cookieyes.com/",
@@ -164020,14 +164045,14 @@
       "name": "Osano",
       "slug": "osano",
       "domain": "osano.com",
-      "found": true,
-      "trust_url": "https://trust.osano.com",
-      "final_url": "https://trust.osano.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
       "vendor": "unknown",
       "title": "",
       "probed": 5,
       "source": "https://vespa.ai/service-providers/",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
       "links": {
@@ -164039,10 +164064,9 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 48,
-        "tier": "on-file",
+        "score": 28,
+        "tier": "silent",
         "factors": {
-          "portal": 20,
           "dpa": 8,
           "subprocessors": 8,
           "status": 6,

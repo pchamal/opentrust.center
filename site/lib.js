@@ -123,12 +123,23 @@ function namedProcessorList(row) {
   return procs.some((p) => p && String(p.name || "").trim());
 }
 
+const PORTAL_URL_ONLY_SLUGS = new Set([
+  "softcat", "virtuozzo", "coralogix", "superhuman",
+  "signalwire", "datafold", "transcend",
+  "meilisearch", "last9", "vespa-ai", "stigg",
+  "pipedream",
+  "warmly-ai", "tandem-health",
+  "cielo", "hireport-nl", "adeptid",
+  "neuroflash", "roboflow",
+  "osano",
+]);
+
 function officialPageOnFile(row) {
   // Portal trust URL is never Official page. Softcat expand filed
   // trust.softcat.com only; that host stays an instrument link.
   // Virtuozzo expand filed virtuozzo.trust.site the same way.
-  // Coralogix trust.coralogix.com is SafeBase — URL-only, not Official page.
-  if (row && (row.slug === "softcat" || row.slug === "virtuozzo" || row.slug === "coralogix")) return false;
+  // Coralogix / Osano trust.* hosts are SafeBase / Vanta — URL-only.
+  if (row && PORTAL_URL_ONLY_SLUGS.has(row.slug)) return false;
   if (row && row.found && (row.trust_url || row.final_url)) return true;
   return !!(instrumentUrl(row, "trust") || instrumentUrl(row, "security"));
 }

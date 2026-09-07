@@ -764,6 +764,9 @@ PORTAL_URL_ONLY_SLUGS = {
     # Queue-it Official page is first-party /trust-center/security/.
     "neuroflash",
     "roboflow",
+    # This cut: trust.osano.com is Vanta chrome. First-party /security 404s.
+    # /legal/dpa and /legal/privacy bounce to TrustHub. Never Official page.
+    "osano",
 }
 
 

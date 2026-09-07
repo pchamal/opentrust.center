@@ -244,44 +244,37 @@ def main() -> int:
     )
     check(len(by_pub["dialpad"].get("processors") or []) == 1, "dialpad existing name stays")
 
-    # This increment: Completeness fill on expand-hour found companies.
-    # Queue-it first-party DPA + named list + Official page. Neuroflash /
-    # Roboflow SafeBase-Vanta chrome is not Official page. Surfshark
-    # /trust-center stays Official page. GDPR/CCPA-as-rights unread.
-    # Portal chrome is never Official page. Parent-list redirects stay
-    # unread (Basefarm→Orange, Observe→Snowflake). Fern stays silent.
+    # This increment: Completeness fill on on-file companies with open
+    # instruments. CookieYes first-party named list. Osano Vanta chrome
+    # is not Official page. First-party Completeness on Osano is not
+    # open (/security 404; /legal/dpa and /legal/privacy bounce to
+    # TrustHub). GDPR/CCPA-as-rights unread. Portal chrome is never
+    # Official page. Parent-list redirects stay unread. Fern stays
+    # silent. springserve stays aliased onto magnite.
     expected_batch = [
-        "neuroflash",
-        "queue-it",
-        "surfshark-vpn",
-        "roboflow",
+        "cookieyes",
+        "osano",
     ]
-    check(report.get("batch") == expected_batch, "batch is the expand-hour Completeness queue")
+    check(report.get("batch") == expected_batch, "batch is the on-file Completeness queue")
     filed_dpa = {r["slug"]: r for r in (report.get("dpa_filed") or [])}
-    check(
-        set(filed_dpa) == {"queue-it"},
-        f"DPA links filed, got {sorted(filed_dpa)}",
-    )
+    check(not filed_dpa, f"no new DPA links filed, got {sorted(filed_dpa)}")
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
-    check(set(filed_sub) == {"queue-it"}, f"named-processor lists filed, got {sorted(filed_sub)}")
+    check(set(filed_sub) == {"cookieyes"}, f"named-processor lists filed, got {sorted(filed_sub)}")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
-    check("queue-it" not in stayed_dpa, "Queue-it DPA was filed")
-    check("queue-it" not in stayed_sub, "Queue-it named list was filed")
-    check("neuroflash" in stayed_dpa, "Neuroflash DPA stayed open")
-    check("neuroflash" in stayed_sub, "Neuroflash named list stayed open")
-    check("surfshark-vpn" in stayed_dpa, "Surfshark DPA stayed open")
-    check("surfshark-vpn" in stayed_sub, "Surfshark named list stayed open")
-    check("roboflow" in stayed_dpa, "Roboflow DPA stayed open")
-    check("roboflow" in stayed_sub, "Roboflow named list stayed open")
+    check("cookieyes" not in stayed_sub, "CookieYes named list was filed")
+    check("osano" in stayed_sub, "Osano Vanta named list stayed open")
+    check(not stayed_dpa, f"no DPA slots stayed open, got {sorted(stayed_dpa)}")
+    check("queue-it" not in stayed_dpa, "prior Queue-it DPA stay is not this report")
+    check("neuroflash" not in stayed_dpa, "prior Neuroflash DPA stay is not this report")
     check("statsig" not in filed_sub, "Statsig Amplitude parent list was not filed")
     check("yandex" not in stayed_dpa, "prior Yandex DPA stay is not this report")
     check("ip-info" not in stayed_dpa, "prior IPinfo DPA stay is not this report")
     check("mezmo" not in stayed_dpa, "prior Mezmo DPA stay is not this report")
-    check(len(report.get("stayed_open") or []) == 6, f"6 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
-    check(len(stayed_dpa) == 3, f"3 DPA slots stayed open, got {len(stayed_dpa)}")
-    check(len(stayed_sub) == 3, f"3 subprocessors slots stayed open, got {len(stayed_sub)}")
+    check(len(report.get("stayed_open") or []) == 1, f"1 open DPA/subprocessors slot, got {len(report.get('stayed_open') or [])}")
+    check(len(stayed_dpa) == 0, f"0 DPA slots stayed open, got {len(stayed_dpa)}")
+    check(len(stayed_sub) == 1, f"1 subprocessors slot stayed open, got {len(stayed_sub)}")
     # Prior-cut review drops stay unread.
     check("dpa" not in ((by_enr["zillow"].get("links") or {})), "Zillow links.dpa stays off the Legal AB listing shell")
     check(not instrument_url(by_pub["zillow"], "dpa"), "Zillow DPA stays open")
@@ -739,6 +732,86 @@ def main() -> int:
     check("https://surfshark.com/trust-center" in ss_html, "surfshark dossier cites first-party trust-center")
     check("vanta" not in ss_html.lower(), "surfshark dossier names no portal vendor")
     check("safebase" not in ss_html.lower(), "surfshark dossier names no portal vendor")
+
+    # This cut: Completeness fill on on-file companies. CookieYes first-party
+    # /sub-processors-list/ prints 20 names. Digital Ocean lands on
+    # DigitalOcean. Gsuite (Google Workspace) lands on Google. SendGrid
+    # lands on Twilio. Hotjar lands on Contentsquare. Official page stays
+    # open. GDPR/CCPA-as-rights stay unread. List-page footer marks stay
+    # unread. Osano Vanta chrome is not Official page. First-party
+    # Completeness on Osano is not open. Fern stays silent.
+    check(
+        instrument_url(by_pub["cookieyes"], "dpa") == "https://www.cookieyes.com/dpa/",
+        "cookieyes DPA stays first-party HTML",
+    )
+    check((by_pub["cookieyes"].get("file") or {}).get("dpa") == 20, "cookieyes DPA prints")
+    check(
+        instrument_url(by_pub["cookieyes"], "subprocessors")
+        == "https://www.cookieyes.com/sub-processors-list/",
+        "cookieyes named list is first-party HTML",
+    )
+    check((by_pub["cookieyes"].get("file") or {}).get("subprocessors") == 20, "cookieyes list printed")
+    check(
+        instrument_url(by_pub["cookieyes"], "privacy")
+        == "https://www.cookieyes.com/privacy-policy/",
+        "cookieyes privacy is first-party HTML",
+    )
+    check(by_pub["cookieyes"].get("found") is False, "cookieyes Official page stays open")
+    check(not by_pub["cookieyes"].get("trust_url"), "cookieyes has no invented Official page")
+    check("GDPR" not in (by_pub["cookieyes"].get("certs") or []), "cookieyes GDPR is not a mark")
+    check("CCPA" not in (by_pub["cookieyes"].get("certs") or []), "cookieyes CCPA is not a mark")
+    check("ISO 27001" not in (by_pub["cookieyes"].get("certs") or []), "cookieyes list-page ISO stays unread")
+    check("HIPAA" not in (by_pub["cookieyes"].get("certs") or []), "cookieyes list-page HIPAA stays unread")
+    cy_slugs = [p.get("slug") for p in (by_pub["cookieyes"].get("processors") or [])]
+    cy_names = [p.get("name") for p in (by_pub["cookieyes"].get("processors") or [])]
+    check("digitalocean" in cy_slugs, "cookieyes Digital Ocean lands on digitalocean")
+    check("google" in cy_slugs, "cookieyes Gsuite / Analytics land on google")
+    check("twilio" in cy_slugs, "cookieyes SendGrid lands on Twilio")
+    check("contentsquare" in cy_slugs, "cookieyes Hotjar lands on Contentsquare")
+    check("amazon-web-services" in cy_slugs, "cookieyes AWS lands on amazon-web-services")
+    check("microsoft" in cy_slugs, "cookieyes Microsoft Clarity lands on microsoft")
+    check("sendgrid" not in cy_slugs, "cookieyes does not invent a SendGrid dossier")
+    check("digital-ocean" not in cy_slugs, "cookieyes does not invent a Digital Ocean dossier")
+    check("gsuite-google-workspace" not in cy_slugs, "cookieyes does not invent a G Suite dossier")
+    check("Mozilor Technologies Pvt Ltd" in cy_names, "cookieyes names Mozilor")
+    check("Lemlist" in cy_names, "cookieyes names Lemlist")
+    check("Cloudways Ltd" in cy_names, "cookieyes names Cloudways")
+    check("lemlist" not in by_pub, "lemlist leftover does not invent a dossier")
+    check("cloudways" not in by_pub, "cloudways leftover does not invent a dossier")
+    check("mozilor-technologies-pvt" not in by_pub, "mozilor leftover does not invent a dossier")
+    check(by_pub["osano"].get("found") is False, "osano Vanta portal is not Official page")
+    check(not by_pub["osano"].get("trust_url"), "osano portal is not the Official page URL")
+    check(
+        ((by_pub["osano"].get("instruments") or {}).get("trust") or {}).get("url")
+        == "https://trust.osano.com",
+        "osano trust instrument keeps the portal URL as a link",
+    )
+    check(
+        instrument_url(by_pub["osano"], "dpa") == "https://osano.trusthub.com/dpa",
+        "osano portal DPA stays on file",
+    )
+    check((by_pub["osano"].get("file") or {}).get("dpa") == 20, "osano DPA prints")
+    check(not (by_pub["osano"].get("processors") or []), "osano Vanta names stay unread")
+    check((by_pub["osano"].get("file") or {}).get("subprocessors") == 10, "osano list URL stays dotted")
+    check("GDPR" not in (by_pub["osano"].get("certs") or []), "osano GDPR is not a mark")
+    check("CCPA" not in (by_pub["osano"].get("certs") or []), "osano CCPA is not a mark")
+    check(by_pub["fern"].get("found") is False, "fern Official page stays open")
+    check(by_pub["fern"]["domain"] == "buildwithfern.com", "fern stays the silent buildwithfern.com file")
+    check("springserve" not in by_pub, "springserve stays aliased onto magnite")
+    cy_html = (ROOT / "site" / "c" / "cookieyes.html").read_text(encoding="utf-8")
+    check("<h1>CookieYes</h1>" in cy_html, "cookieyes dossier is its own file")
+    check("https://www.cookieyes.com/dpa/" in cy_html, "cookieyes dossier cites the DPA")
+    check("https://www.cookieyes.com/sub-processors-list/" in cy_html, "cookieyes dossier cites the named list")
+    check("https://www.cookieyes.com/privacy-policy/" in cy_html, "cookieyes dossier cites first-party privacy")
+    check("Official page · not on file" in cy_html, "cookieyes Official page stays open")
+    check("vanta" not in cy_html.lower(), "cookieyes dossier names no portal vendor")
+    check("safebase" not in cy_html.lower(), "cookieyes dossier names no portal vendor")
+    os_html = (ROOT / "site" / "c" / "osano.html").read_text(encoding="utf-8")
+    check("<h1>Osano</h1>" in os_html, "osano dossier is its own file")
+    check("Official page · not on file" in os_html, "osano Official page stays open")
+    check("https://trust.osano.com" in os_html, "osano dossier cites the portal as an instrument URL")
+    check("vanta" not in os_html.lower(), "osano dossier names no portal vendor")
+    check("safebase" not in os_html.lower(), "osano dossier names no portal vendor")
 
     from file_company_dpa_processors import PRIOR_ATTEMPTED, select_batch
     for slug in expected_batch:

@@ -2,671 +2,114 @@
   "generated_at": "2026-09-07T22:02:48Z",
   "rule": "Next ~40 companies: first those with links.dpa on file and an empty named-processor list, then portal-catalog DPAs that may upgrade to printed first-party HTML, then those with first-party trust/privacy/security URLs and no DPA link yet (including silent rows once the found-company queue is exhausted). Named subprocessors fill only from printed organization names in live first-party HTML tables or labeled spans. A stored list URL with no printed names stays open. A DPA is filed only when a printed first-party DPA is newly found; an existing DPA is never dropped. Dates, JS shells, login walls, PDF-only lists, affiliate-only rows, and portal catalogs stay open.",
   "batch": [
-    "neuroflash",
-    "queue-it",
-    "surfshark-vpn",
-    "roboflow"
+    "cookieyes",
+    "osano"
   ],
-  "dpa_filed": [
-    {
-      "slug": "queue-it",
-      "name": "Queue-it",
-      "url": "https://queue-it.com/data-processing-agreement"
-    }
-  ],
+  "dpa_filed": [],
   "subprocessors_filed": [
     {
-      "slug": "queue-it",
-      "name": "Queue-it",
-      "url": "https://queue-it.com/data-processing-agreement-sub-processors",
+      "slug": "cookieyes",
+      "name": "CookieYes",
+      "url": "https://www.cookieyes.com/sub-processors-list/",
       "names": [
-        "Amazon Web Services, Inc",
-        "Datadog, Inc",
-        "Intercom R&D Unlimited Company (Ireland)",
-        "Hydrolix Inc",
-        "Twilio, Inc"
+        "Mozilor Technologies Pvt Ltd",
+        "G Joseph & Associates",
+        "Brevo",
+        "Zendesk Inc",
+        "Lemlist",
+        "Sendgrid",
+        "Mixpanel",
+        "Hotjar",
+        "Calendly",
+        "Zoom",
+        "Gsuite (Google Workspace)",
+        "Intercom",
+        "Google Analytics",
+        "Amazon Web Services",
+        "Cloudflare Inc",
+        "Cloudways Ltd",
+        "Digital Ocean",
+        "Clickhouse",
+        "Microsoft Clarity",
+        "Anthropic PBC"
       ]
     }
   ],
   "stayed_open": [
     {
-      "slug": "neuroflash",
-      "name": "Neuroflash",
-      "rule": "dpa"
-    },
-    {
-      "slug": "neuroflash",
-      "name": "Neuroflash",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "name": "Surfshark VPN",
-      "rule": "dpa"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "name": "Surfshark VPN",
-      "rule": "subprocessors"
-    },
-    {
-      "slug": "roboflow",
-      "name": "Roboflow",
-      "rule": "dpa"
-    },
-    {
-      "slug": "roboflow",
-      "name": "Roboflow",
+      "slug": "osano",
+      "name": "Osano",
       "rule": "subprocessors"
     }
   ],
   "rejected": [
     {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/legal/dpa",
-      "final": "https://neuroflash.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/legal/data-processing-addendum",
-      "final": "https://neuroflash.com/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/policies/dpa",
-      "final": "https://neuroflash.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/dpa",
-      "final": "https://neuroflash.com/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/data-processing-agreement",
-      "final": "https://neuroflash.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/legal/data-processing-agreement",
-      "final": "https://neuroflash.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/terms/dpa",
-      "final": "https://neuroflash.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/gdpr/dpa",
-      "final": "https://neuroflash.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/data-processing-addendum",
-      "final": "https://neuroflash.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/policies/data-processing-agreement",
-      "final": "https://neuroflash.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/policies/data-processing-addendum",
-      "final": "https://neuroflash.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/company/dpa",
-      "final": "https://neuroflash.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/legal/gdpr/dpa",
-      "final": "https://neuroflash.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/privacy/dpa",
-      "final": "https://neuroflash.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/legal/processor-terms",
-      "final": "https://neuroflash.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/legal/data-processing",
-      "final": "https://neuroflash.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/data-processing",
-      "final": "https://neuroflash.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/legal/dpa",
-      "final": "https://surfshark.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/dpa",
-      "final": "https://surfshark.com/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/data-processing-addendum",
-      "final": "https://surfshark.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/data-processing-agreement",
-      "final": "https://surfshark.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/legal/data-processing-addendum",
-      "final": "https://surfshark.com/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/legal/data-processing-agreement",
-      "final": "https://surfshark.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/policies/data-processing-addendum",
-      "final": "https://surfshark.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/dpa",
-      "final": "https://roboflow.com/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/legal/dpa",
-      "final": "https://roboflow.com/legal/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/policies/data-processing-agreement",
-      "final": "https://surfshark.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/legal/data-processing-addendum",
-      "final": "https://roboflow.com/legal/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/policies/dpa",
-      "final": "https://surfshark.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/data-processing-addendum",
-      "final": "https://roboflow.com/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/data-processing-agreement",
-      "final": "https://roboflow.com/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/legal/data-processing-agreement",
-      "final": "https://roboflow.com/legal/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/terms/dpa",
-      "final": "https://surfshark.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/policies/data-processing-addendum",
-      "final": "https://roboflow.com/policies/data-processing-addendum",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/policies/data-processing-agreement",
-      "final": "https://roboflow.com/policies/data-processing-agreement",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/terms/dpa",
-      "final": "https://roboflow.com/terms/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/legal/gdpr/dpa",
-      "final": "https://surfshark.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/policies/dpa",
-      "final": "https://roboflow.com/policies/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/company/dpa",
-      "final": "https://surfshark.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/company/dpa",
-      "final": "https://roboflow.com/company/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/gdpr/dpa",
-      "final": "https://roboflow.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/privacy/dpa",
-      "final": "https://roboflow.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/legal/gdpr/dpa",
-      "final": "https://roboflow.com/legal/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/legal/processor-terms",
-      "final": "https://roboflow.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/gdpr/dpa",
-      "final": "https://surfshark.com/gdpr/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/legal/data-processing",
-      "final": "https://roboflow.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/legal/data-processing",
-      "final": "https://surfshark.com/legal/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/privacy/dpa",
-      "final": "https://surfshark.com/privacy/dpa",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/data-processing",
-      "final": "https://roboflow.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/legal/processor-terms",
-      "final": "https://surfshark.com/legal/processor-terms",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/data-processing",
-      "final": "https://surfshark.com/data-processing",
-      "reason": "http-404",
-      "kind": "dpa"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://trust.neuroflash.com/subprocessors",
-      "final": "https://trust.neuroflash.com/subprocessors",
+      "slug": "osano",
+      "url": "https://trust.osano.com/subprocessors",
+      "final": "https://trust.osano.com/subprocessors",
       "reason": "js-portal",
       "kind": "subprocessors"
     },
     {
-      "slug": "neuroflash",
-      "url": "https://trust.neuroflash.com/sub-processors",
-      "final": "https://trust.neuroflash.com/sub-processors",
-      "reason": "js-portal",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "queue-it",
-      "url": "https://queue-it.com/legal/subprocessors",
-      "final": "https://queue-it.com/legal/subprocessors",
+      "slug": "osano",
+      "url": "https://osano.com/subprocessors",
+      "final": "https://osano.com/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "queue-it",
-      "url": "https://queue-it.com/subprocessors",
-      "final": "https://queue-it.com/subprocessors",
+      "slug": "osano",
+      "url": "https://osano.com/sub-processors",
+      "final": "https://osano.com/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "queue-it",
-      "url": "https://queue-it.com/sub-processors",
-      "final": "https://queue-it.com/sub-processors",
+      "slug": "osano",
+      "url": "https://osano.com/legal/sub-processors",
+      "final": "https://osano.com/legal/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/legal/sub-processors",
-      "final": "https://neuroflash.com/legal/sub-processors",
+      "slug": "osano",
+      "url": "https://osano.com/legal/subprocessors",
+      "final": "https://osano.com/legal/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/legal/sub-processors-page",
-      "final": "https://neuroflash.com/legal/sub-processors-page",
+      "slug": "osano",
+      "url": "https://osano.com/legal/service-providers",
+      "final": "https://osano.com/legal/service-providers",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/subprocessors",
-      "final": "https://neuroflash.com/subprocessors",
+      "slug": "osano",
+      "url": "https://osano.com/privacy/subprocessors",
+      "final": "https://osano.com/privacy/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/trust/subprocessors",
-      "final": "https://neuroflash.com/trust/subprocessors",
+      "slug": "osano",
+      "url": "https://osano.com/trust/subprocessors",
+      "final": "https://osano.com/trust/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/legal/service-providers",
-      "final": "https://neuroflash.com/legal/service-providers",
+      "slug": "osano",
+      "url": "https://osano.com/company/subprocessors",
+      "final": "https://osano.com/company/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/privacy/subprocessors",
-      "final": "https://neuroflash.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/legal/subprocessors",
-      "final": "https://neuroflash.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/company/subprocessors",
-      "final": "https://neuroflash.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "queue-it",
-      "url": "https://trust.queue-it.com/sub-processors",
-      "final": "https://trust.queue-it.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "queue-it",
-      "url": "https://trust.queue-it.com/subprocessors",
-      "final": "https://trust.queue-it.com/",
-      "reason": "safebase-itemuid",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/legal/subprocessors",
-      "final": "https://surfshark.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "neuroflash",
-      "url": "https://neuroflash.com/sub-processors",
-      "final": "https://neuroflash.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/subprocessors",
-      "final": "https://surfshark.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/subprocessors",
-      "final": "https://roboflow.com/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/sub-processors",
-      "final": "https://roboflow.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/legal/subprocessors",
-      "final": "https://roboflow.com/legal/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/legal/sub-processors",
-      "final": "https://roboflow.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/legal/service-providers",
-      "final": "https://surfshark.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/legal/sub-processors",
-      "final": "https://surfshark.com/legal/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/legal/service-providers",
-      "final": "https://roboflow.com/legal/service-providers",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/company/subprocessors",
-      "final": "https://surfshark.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/sub-processors",
-      "final": "https://surfshark.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/privacy/subprocessors",
-      "final": "https://surfshark.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/privacy/subprocessors",
-      "final": "https://roboflow.com/privacy/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/company/subprocessors",
-      "final": "https://roboflow.com/company/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/trust/subprocessors",
-      "final": "https://roboflow.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://security.roboflow.com/subprocessors",
-      "final": "https://security.roboflow.com/",
-      "reason": "safebase-itemuid",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://roboflow.com/legal/sub-processors-page",
-      "final": "https://roboflow.com/legal/sub-processors-page",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "roboflow",
-      "url": "https://security.roboflow.com/sub-processors",
-      "final": "https://security.roboflow.com/sub-processors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/trust/subprocessors",
-      "final": "https://surfshark.com/trust/subprocessors",
-      "reason": "fetch-failed",
-      "kind": "subprocessors"
-    },
-    {
-      "slug": "surfshark-vpn",
-      "url": "https://surfshark.com/legal/sub-processors-page",
-      "final": "https://surfshark.com/legal/sub-processors-page",
+      "slug": "osano",
+      "url": "https://osano.com/legal/sub-processors-page",
+      "final": "https://osano.com/legal/sub-processors-page",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     }
