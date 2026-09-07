@@ -68,6 +68,7 @@ SEED_URLS = {
     "rev": ["https://www.rev.com/security"],
     "status-io": ["https://status.io/security"],
     "headwayapp": ["https://headwayapp.co/security"],
+    "ndm-global": ["https://www.docq.app/security"],
 }
 
 VENDOR_RANK = [

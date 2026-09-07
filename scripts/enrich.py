@@ -489,6 +489,19 @@ SPECIAL_URLS = {
     "vroom-consultancy-worldofwork": [
         ("https://www.worldofwork.nl/privacy-policy", "privacy"),
     ],
+    "ndm-global": [
+        ("https://www.docq.app/security", "security"),
+        ("https://www.docq.app/privacy", "privacy"),
+    ],
+    "the-udder-group-t-a-udder": [
+        ("https://udder.rocks/privacy-policy", "privacy"),
+    ],
+    "dare-to-change": [
+        ("https://dtcsolution.org/privacy-statement/", "privacy"),
+    ],
+    "tq-solutions": [
+        ("https://www.tqsolutions.com.au/privacy-policy", "privacy"),
+    ],
     # Branch Metrics leftover. legal.branch.io is first-party of branch.io.
     # trust.branch.io is a Conveyor portal — not Official page, not a mark source.
     "branch-metrics": [

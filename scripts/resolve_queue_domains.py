@@ -267,6 +267,12 @@ EXTRA_GUESSES = {
     "rhaegal-sasu": ["rhaegal.com"],
     "atoms-retex": ["retex.com"],
     "vroom-consultancy-worldofwork": ["worldofwork.nl"],
+    "ndm-global": ["docq.app", "ndmglobal.com"],
+    "media-connect": ["mediaconnect.com.au"],
+    "the-udder-group-t-a-udder": ["udder.rocks"],
+    "dare-to-change": ["dtcsolution.org"],
+    "edgetech-consulting": ["edgetech-consulting.com"],
+    "tq-solutions": ["tqsolutions.com.au"],
 }
 
 PORTAL_HOSTS = (
