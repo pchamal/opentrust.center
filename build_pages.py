@@ -760,6 +760,10 @@ PORTAL_URL_ONLY_SLUGS = {
     "hireport-nl",
     # This cut: trust.adept-id.com is SafeBase chrome. Never Official page.
     "adeptid",
+    # This cut: Vanta / SafeBase chrome on expand-hour found companies.
+    # Queue-it Official page is first-party /trust-center/security/.
+    "neuroflash",
+    "roboflow",
 }
 
 

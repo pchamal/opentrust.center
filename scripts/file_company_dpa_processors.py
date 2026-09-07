@@ -1504,6 +1504,11 @@ PRIOR_ATTEMPTED = {
     "baxter-planning-systems",
     "datapacket",
     "media-connect",
+    # this cut — expand-hour Completeness fill (1 DPA, 1 named list, 1 Official page)
+    "neuroflash",
+    "queue-it",
+    "surfshark-vpn",
+    "roboflow",
 }
 
 

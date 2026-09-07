@@ -541,6 +541,25 @@ SPECIAL_URLS = {
     "observe": [
         ("https://www.observeinc.com/legal/privacy-policy", "privacy"),
     ],
+    # This cut: Completeness fill on expand-hour found companies.
+    # Queue-it /trust-center/security is first-party Official page.
+    # SafeBase / Vanta chrome on Queue-it, Neuroflash, Roboflow stays URL-only.
+    "queue-it": [
+        ("https://queue-it.com/trust-center/security/", "security"),
+        ("https://queue-it.com/data-processing-agreement", "dpa"),
+        ("https://queue-it.com/data-processing-agreement-sub-processors/", "subprocessors"),
+        ("https://queue-it.com/privacy-policy", "privacy"),
+    ],
+    "surfshark-vpn": [
+        ("https://surfshark.com/trust-center", "trust"),
+        ("https://surfshark.com/privacy", "privacy"),
+    ],
+    "neuroflash": [
+        ("https://neuroflash.com/privacy-statement/", "privacy"),
+    ],
+    "roboflow": [
+        ("https://roboflow.com/privacy", "privacy"),
+    ],
     "servers-com": [
         ("https://www.servers.com/privacy-policy", "privacy"),
     ],
