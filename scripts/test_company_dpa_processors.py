@@ -246,66 +246,79 @@ def main() -> int:
 
     # This increment: upper-quadrant DPA-on-file / subprocessors queue (~40).
     expected_batch = [
-        "resend",
-        "superhuman",
-        "svix",
-        "freddie-mac",
-        "grubhub",
-        "h-e-b-grocery-company",
-        "hbx-group-international-plc",
-        "hca-healthcare",
-        "humana",
-        "informatica",
-        "infotel",
-        "jfrog",
-        "johnson-and-johnson",
-        "kakao",
-        "kingsoft",
-        "kla",
-        "kpit-technologies",
-        "ltts",
-        "lectra",
-        "liberty-mutual-insurance-group",
-        "linedata",
-        "live-nation-entertainment",
-        "magic-software",
-        "mapmyindia",
-        "marin-software",
-        "mercadolibre",
-        "metlife",
-        "micro-systemation",
-        "monolithic-power-systems",
-        "msci",
-        "netcall",
-        "netflix",
-        "news-corp",
-        "nextnav",
-        "nutanix",
-        "nxp-semiconductors",
-        "one-software-technologies",
-        "opendoor",
-        "perfect-corp",
-        "performance-food-group",
+        "phillips-66",
+        "porch-group",
+        "pro-medicus",
+        "publix-super-markets",
+        "quick-heal",
+        "raysearch-laboratories",
+        "robinhood",
+        "rtx",
+        "sandisk",
+        "sanmina",
+        "science-applications-international",
+        "serviceware",
+        "silvaco",
+        "simulations-plus",
+        "smith-micro-software",
+        "soundthinking",
+        "southern-glazer-s-wine-and-spirits",
+        "spotify",
+        "ssc-technologies",
+        "super-micro-computer",
+        "synopsys",
+        "sysco",
+        "take-two-interactive",
+        "target",
+        "td-synnex",
+        "tech-mahindra",
+        "teledyne-technologies",
+        "thales",
+        "tko-group-holdings",
+        "tose-software",
+        "tucows",
+        "twitter",
+        "txt-e-solutions",
+        "unisys",
+        "unitedhealth-group",
+        "urgent-ly-inc",
+        "verimatrix",
+        "verisk",
+        "verizon-communications",
+        "vitec-software",
     ]
     check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
     filed_dpa = {r["slug"]: r for r in (report.get("dpa_filed") or [])}
-    check(set(filed_dpa) == {"nutanix"}, f"DPA links filed, got {sorted(filed_dpa)}")
+    check(set(filed_dpa) == {"synopsys"}, f"DPA links filed, got {sorted(filed_dpa)}")
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
-    check(set(filed_sub) == {"nutanix"}, f"named-processor lists filed, got {sorted(filed_sub)}")
+    check(set(filed_sub) == {"verimatrix"}, f"named-processor lists filed, got {sorted(filed_sub)}")
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
-    check("nutanix" not in stayed, "Nutanix DPA and named list were filed")
-    check("resend" in stayed_sub, "Resend markdown/JS list stayed open")
-    check("superhuman" in stayed_sub, "Superhuman JS list stayed open")
-    check("svix" in stayed_dpa, "Svix DPA probes stayed open")
-    check("live-nation-entertainment" in stayed_dpa, "Live Nation Next.js /dpa shell stayed open")
-    check("hca-healthcare" in stayed_sub, "HCA privacy-appendix vendor list stayed open")
-    check("grubhub" in stayed_dpa, "Grubhub same-title SPA DPA stayed open")
-    check(len(report.get("stayed_open") or []) == 75, f"75 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
-    check(len(stayed_dpa) == 37, f"37 DPA slots stayed open, got {len(stayed_dpa)}")
-    check(len(stayed_sub) == 38, f"38 subprocessors slots stayed open, got {len(stayed_sub)}")
+    check("synopsys" not in stayed_dpa, "Synopsys DPA was filed")
+    check("verimatrix" not in stayed_sub, "Verimatrix named list was filed")
+    check("twitter" in stayed_dpa, "Twitter /dpa X profile stayed open")
+    check("sysco" in stayed_dpa, "Sysco Next.js DPA shell stayed open")
+    check("simulations-plus" in stayed_dpa, "Simulations Plus vendor-facing PDF DPA stayed open")
+    check("spotify" in stayed_dpa, "Spotify error-page DPA stayed open")
+    check(len(report.get("stayed_open") or []) == 78, f"78 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
+    check(len(stayed_dpa) == 39, f"39 DPA slots stayed open, got {len(stayed_dpa)}")
+    check(len(stayed_sub) == 39, f"39 subprocessors slots stayed open, got {len(stayed_sub)}")
     # This-cut review drops stay unread.
+    check("dpa" not in ((by_enr["twitter"].get("links") or {})), "Twitter links.dpa stays off the @dpa X profile")
+    check(not instrument_url(by_pub["twitter"], "dpa"), "Twitter DPA stays open")
+    check("dpa" not in ((by_enr["sysco"].get("links") or {})), "Sysco links.dpa stays off the Next.js shell")
+    check(not instrument_url(by_pub["sysco"], "dpa"), "Sysco DPA stays open")
+    check("dpa" not in ((by_enr["simulations-plus"].get("links") or {})), "Simulations Plus links.dpa stays off the vendor-facing PDF")
+    check(not instrument_url(by_pub["simulations-plus"], "dpa"), "Simulations Plus DPA stays open")
+    check("dpa" not in ((by_enr["spotify"].get("links") or {})), "Spotify links.dpa stays off the Oh no error page")
+    check(not (by_pub["verimatrix"].get("processors") and any(
+        (p.get("name") if isinstance(p, dict) else p) in {
+            "AdRoll", "Google Ads", "Google Analytics", "OneTrust", "Jazz HR", "Semrush",
+        }
+        for p in (by_pub["verimatrix"].get("processors") or [])
+    )), "Verimatrix does not file the website-visitor vendor table")
+    # Prior-cut review drops stay unread.
     check("dpa" not in ((by_enr["live-nation-entertainment"].get("links") or {})), "Live Nation links.dpa stays off the Next.js shell")
     check(not instrument_url(by_pub["live-nation-entertainment"], "dpa"), "Live Nation DPA stays open")
     check(
@@ -477,6 +490,7 @@ def main() -> int:
         "resend", "superhuman", "svix", "live-nation-entertainment",
         "hca-healthcare", "grubhub", "jfrog", "informatica", "netflix",
         "nutanix",
+        "twitter", "sysco", "simulations-plus", "spotify",
     ):
         check(slug in PRIOR_ATTEMPTED, f"{slug} leftover walk stays on the skip list")
         check(slug not in leftover_slugs, f"{slug} leftover is not retried")
@@ -489,7 +503,54 @@ def main() -> int:
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check(rec["url"] in html, f"{slug} dossier cites the list URL")
         check('rel="noopener noreferrer"' in html, f"{slug} outbound links use noopener")
-    # This cut: first-party Completeness DPA + named list on Nutanix.
+    # This cut: first-party Completeness DPA on Synopsys. Named list on
+    # Verimatrix from the printed product subprocessor table only.
+    # Website-visitor / CRM vendor tables (AdRoll, Google Ads, OneTrust)
+    # stay unread. Twitter /dpa is the @dpa X profile. Sysco
+    # /legal/data-processing-addendum is a Next.js empty shell.
+    # Simulations Plus is a vendor-facing PDF resource card. Spotify
+    # legal DPA is an Oh no error page. Dataiku SAS / Grafana /
+    # Pager Duty alias onto existing files. FluentD, Icinga,
+    # Jscrambler, and Streamsets stay leftover graph nodes. Do not
+    # invent domains.
+    check(
+        instrument_url(by_pub["synopsys"], "dpa")
+        == "https://www.synopsys.com/company/legal/dpa-supplement.html",
+        "synopsys DPA is first-party HTML",
+    )
+    check((by_pub["synopsys"].get("file") or {}).get("dpa") == 20, "synopsys DPA prints")
+    check(not (by_pub["synopsys"].get("processors") or []), "synopsys named list stays unread")
+    check(
+        instrument_url(by_pub["verimatrix"], "subprocessors")
+        == "https://www.verimatrix.com/sub-processors/",
+        "verimatrix list URL is first-party HTML",
+    )
+    check((by_pub["verimatrix"].get("file") or {}).get("subprocessors") == 20, "verimatrix processors print")
+    vx_names = [p.get("name") for p in (by_pub["verimatrix"].get("processors") or [])]
+    vx_slugs = [p.get("slug") for p in (by_pub["verimatrix"].get("processors") or [])]
+    check(len(vx_names) == 14, f"verimatrix printed 14 product subprocessors, got {len(vx_names)}")
+    check("Amazon Web Services" in vx_names, "verimatrix names AWS")
+    check("Dataiku SAS" in vx_names, "verimatrix names Dataiku SAS")
+    check("Elasticsearch (including Kabana)" in vx_names, "verimatrix names Elasticsearch")
+    check("Looker" in vx_names, "verimatrix names Looker")
+    check("OpsGenie" in vx_names, "verimatrix names OpsGenie")
+    check("Pager Duty" in vx_names, "verimatrix names Pager Duty")
+    check("AdRoll" not in vx_names, "verimatrix does not name website-visitor AdRoll")
+    check("OneTrust" not in vx_names, "verimatrix does not name website-visitor OneTrust")
+    check("amazon-web-services" in vx_slugs, "verimatrix AWS uses the Amazon Web Services file")
+    check("dataiku" in vx_slugs, "verimatrix Dataiku SAS uses the Dataiku file")
+    check("grafana-labs" in vx_slugs, "verimatrix Grafana uses the Grafana Labs file")
+    check("google" in vx_slugs, "verimatrix Looker uses the Google file")
+    check("atlassian" in vx_slugs, "verimatrix OpsGenie uses the Atlassian file")
+    check("pagerduty" in vx_slugs, "verimatrix Pager Duty uses the PagerDuty file")
+    check("dataiku-sas" not in by_pub, "verimatrix does not invent a Dataiku SAS dossier")
+    check("grafana" not in by_pub, "verimatrix does not invent a Grafana dossier")
+    check("pager-duty" not in by_pub, "verimatrix does not invent a Pager Duty dossier")
+    check("fluentd" not in by_pub, "verimatrix does not invent a FluentD dossier")
+    check("icinga" not in by_pub, "verimatrix does not invent an Icinga dossier")
+    check("jscrambler" not in by_pub, "verimatrix does not invent a Jscrambler dossier")
+    check("streamsets" not in by_pub, "verimatrix does not invent a Streamsets dossier")
+    # Prior cut: first-party Completeness DPA + named list on Nutanix.
     # Live Nation /dpa is a Next.js shell (empty title, no printed DPA body).
     # HCA appendix is a privacy-policy website vendor list (title “Arrow Right”).
     # Resend markdown/JS list and Superhuman JS list stay unread. Svix DPA

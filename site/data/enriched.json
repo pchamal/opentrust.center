@@ -12636,13 +12636,16 @@
       "list": "forbes-software-2025",
       "certs": [],
       "links": {
-        "privacy": "https://www.synopsys.com/company/legal/privacy-policy.html"
+        "privacy": "https://www.synopsys.com/company/legal/privacy-policy.html",
+        "dpa": "https://www.synopsys.com/company/legal/dpa-supplement.html"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "dpa": 8
+        }
       }
     },
     {
@@ -23957,13 +23960,31 @@
       "certs": [],
       "links": {
         "status": "https://status.verimatrix.com",
-        "privacy": "https://www.verimatrix.com/privacy/"
+        "privacy": "https://www.verimatrix.com/privacy/",
+        "subprocessors": "https://www.verimatrix.com/sub-processors/"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "amazon-web-services",
+        "dataiku",
+        "elastic",
+        "fluentd",
+        "grafana-labs",
+        "icinga",
+        "jscrambler",
+        "google",
+        "modsquad",
+        "atlassian",
+        "pagerduty",
+        "snowflake",
+        "streamsets",
+        "zendesk"
+      ],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "subprocessors": 8
+        }
       }
     },
     {

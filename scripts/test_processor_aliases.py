@@ -712,6 +712,15 @@ def main() -> int:
         "Accenture International is Accenture",
     )
     check(REGISTER_ALIASES["accenture-international"] == "accenture", "accenture-international aliases to accenture")
+    dk_reg = {**register, "dataiku": {"slug": "dataiku", "name": "Dataiku", "domain": "dataiku.com"}}
+    check(canonical_processor_id("dataiku-sas", dk_reg) == "dataiku", "Dataiku SAS is Dataiku")
+    check(REGISTER_ALIASES["dataiku-sas"] == "dataiku", "dataiku-sas aliases to dataiku")
+    gr_reg = {**register, "grafana-labs": {"slug": "grafana-labs", "name": "Grafana Labs", "domain": "grafana.com"}}
+    check(canonical_processor_id("grafana", gr_reg) == "grafana-labs", "Grafana is Grafana Labs")
+    check(REGISTER_ALIASES["grafana"] == "grafana-labs", "grafana aliases to grafana-labs")
+    pd_reg = {**register, "pagerduty": {"slug": "pagerduty", "name": "PagerDuty", "domain": "pagerduty.com"}}
+    check(canonical_processor_id("pager-duty", pd_reg) == "pagerduty", "Pager Duty is PagerDuty")
+    check(REGISTER_ALIASES["pager-duty"] == "pagerduty", "pager-duty aliases to pagerduty")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch
