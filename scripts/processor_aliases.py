@@ -1004,6 +1004,12 @@ REGISTER_ALIASES: dict[str, str] = {
     # "Sellers - Magnite" and prints Magnite SpringServe. magnite is
     # on the register. Do not invent a second SpringServe dossier.
     "springserve": "magnite",
+    # Forsta names Amazon.com, Inc for Virtual Servers & CDN.
+    # amazon-web-services is on the register. Do not invent a second Amazon dossier.
+    "amazon-com": "amazon-web-services",
+    # Forsta names Cantab Research Ltd (Speechmatics).
+    # cantab-research-trading-as-speechmatics already lands here.
+    "cantab-research-speechmatics": "speechmatics",
 
 }
 

@@ -1496,18 +1496,19 @@ def cited_list_skip_reason(url: str, rec: dict, company: dict) -> str | None:
 
 
 def is_first_party_list_url(url: str, final_url: str, company: dict) -> bool:
+    """The published page must be first-party.
+
+    A first-party path that 302s onto a parent-company list (Statsig→Amplitude,
+    Neon→Databricks, Litmus→Validity) is not this company's file.
+    """
     hosts = set(hosts_for(company))
     regs = {registrable(h) for h in hosts}
-    for raw in (url, final_url):
-        h = host_of(raw)
-        if not h:
-            continue
-        if h in hosts or registrable(h) in regs:
-            return True
-        for known in hosts | regs:
-            if h.endswith("." + known):
-                return True
-    return False
+    h = host_of(final_url or url)
+    if not h:
+        return False
+    if h in hosts or registrable(h) in regs:
+        return True
+    return any(h.endswith("." + known) for known in (hosts | regs) if known)
 
 
 def keep_org_processor_rows(
@@ -2286,18 +2287,19 @@ def names_from_labeled_spans(html: str) -> list[str]:
 
 
 def is_first_party_list_url(url: str, final_url: str, company: dict) -> bool:
+    """The published page must be first-party.
+
+    A first-party path that 302s onto a parent-company list (Statsig→Amplitude,
+    Neon→Databricks, Litmus→Validity) is not this company's file.
+    """
     hosts = set(hosts_for(company))
     regs = {registrable(h) for h in hosts}
-    for raw in (url, final_url):
-        h = host_of(raw)
-        if not h:
-            continue
-        if h in hosts or registrable(h) in regs:
-            return True
-        for known in hosts | regs:
-            if h.endswith("." + known):
-                return True
-    return False
+    h = host_of(final_url or url)
+    if not h:
+        return False
+    if h in hosts or registrable(h) in regs:
+        return True
+    return any(h.endswith("." + known) for known in (hosts | regs) if known)
 
 
 def cited_list_skip_reason(url: str, rec: dict, company: dict) -> str | None:

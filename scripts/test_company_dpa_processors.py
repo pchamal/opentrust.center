@@ -244,35 +244,73 @@ def main() -> int:
     )
     check(len(by_pub["dialpad"].get("processors") or []) == 1, "dialpad existing name stays")
 
-    # This increment: live select_batch after PR 286 — last 7 upper-quadrant
-    # silent rows with a first-party privacy URL and an open DPA / named list.
+    # This increment: Completeness fill after leftover named-by-1 queue was
+    # only skip-list / 403 / JS / print-BPO / ambiguous shorts. Walk the next
+    # 40 on-file companies with an open DPA or named list. Statsig→Amplitude
+    # parent list stays unread. Portal chrome is never Official page.
     expected_batch = [
-        "vroom-com",
-        "wipro",
-        "xunlei",
-        "yandex",
-        "zillow",
-        "zspace",
-        "zuken",
+        "planhat",
+        "rev",
+        "timescale",
+        "jitsu",
+        "smartcat-platform",
+        "transcend",
+        "ckeditor",
+        "serpapi",
+        "magnite",
+        "opswat",
+        "chili-piper",
+        "fingerprintjs",
+        "whereby",
+        "formspree",
+        "status-io",
+        "dagster",
+        "statsig",
+        "contrast-security",
+        "wochit",
+        "chargehound",
+        "churnkey",
+        "ndm-global",
+        "rb2b",
+        "last9",
+        "headwayapp",
+        "jitterbit",
+        "meilisearch",
+        "vespa-ai",
+        "pipedream",
+        "stigg",
+        "tandem-health",
+        "adeptid",
+        "cardinal-path",
+        "cielo",
+        "cloudorizon",
+        "converteo-sas",
+        "datafold",
+        "dare-to-change",
+        "firetext-communications",
+        "forsta-as",
     ]
-    check(report.get("batch") == expected_batch, "batch is the upper-quadrant subprocessors queue")
+    check(report.get("batch") == expected_batch, "batch is the leftover-company Completeness queue")
     filed_dpa = {r["slug"]: r for r in (report.get("dpa_filed") or [])}
-    check(set(filed_dpa) == {"yandex"}, f"DPA links filed, got {sorted(filed_dpa)}")
+    check(
+        set(filed_dpa) == {"datafold", "fingerprintjs", "vespa-ai", "wochit"},
+        f"DPA links filed, got {sorted(filed_dpa)}",
+    )
     filed_sub = {r["slug"]: r for r in (report.get("subprocessors_filed") or [])}
-    check(set(filed_sub) == set(), f"named-processor lists filed, got {sorted(filed_sub)}")
+    check(
+        set(filed_sub) == {"forsta-as", "pipedream", "planhat", "timescale", "transcend", "vespa-ai"},
+        f"named-processor lists filed, got {sorted(filed_sub)}",
+    )
     stayed = {r["slug"] for r in (report.get("stayed_open") or [])}
     stayed_dpa = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "dpa"}
     stayed_sub = {r["slug"] for r in (report.get("stayed_open") or []) if r.get("rule") == "subprocessors"}
-    check("yandex" not in stayed_dpa, "Yandex DPA was filed")
-    check("yandex" in stayed_sub, "Yandex named list stayed open")
-    check("zillow" in stayed_dpa, "Zillow JS listing shell stayed open")
-    check("xunlei" in stayed_dpa, "Xunlei homepage 200s stayed open")
-    check("zspace" in stayed_dpa, "zSpace empty-title GTM shell stayed open")
-    check("zuken" in stayed_dpa, "Zuken homepage bounce stayed open")
-    check(len(report.get("stayed_open") or []) == 13, f"13 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
-    check(len(stayed_dpa) == 6, f"6 DPA slots stayed open, got {len(stayed_dpa)}")
-    check(len(stayed_sub) == 7, f"7 subprocessors slots stayed open, got {len(stayed_sub)}")
-    # This-cut review drops stay unread.
+    check("statsig" in stayed_sub, "Statsig Amplitude parent list stayed open")
+    check("statsig" not in filed_sub, "Statsig Amplitude parent list was not filed")
+    check("yandex" not in stayed_dpa, "prior Yandex DPA stay is not this report")
+    check(len(report.get("stayed_open") or []) == 63, f"63 open DPA/subprocessors slots, got {len(report.get('stayed_open') or [])}")
+    check(len(stayed_dpa) == 30, f"30 DPA slots stayed open, got {len(stayed_dpa)}")
+    check(len(stayed_sub) == 33, f"33 subprocessors slots stayed open, got {len(stayed_sub)}")
+    # Prior-cut review drops stay unread.
     check("dpa" not in ((by_enr["zillow"].get("links") or {})), "Zillow links.dpa stays off the Legal AB listing shell")
     check(not instrument_url(by_pub["zillow"], "dpa"), "Zillow DPA stays open")
     check("dpa" not in ((by_enr["xunlei"].get("links") or {})), "Xunlei links.dpa stays off the homepage 200")
@@ -435,6 +473,101 @@ def main() -> int:
     for slug in stayed_sub:
         pub = by_pub[slug]
         check(not (pub.get("processors") or []), f"{slug} named processors stay open")
+
+    # This-cut Completeness fills. First-party HTML only. Parent-company
+    # Amplitude list stays unread. GDPR/CCPA-as-rights stay unread.
+    check(
+        instrument_url(by_pub["datafold"], "dpa")
+        == "https://www.datafold.com/data-processing-agreement/",
+        "datafold DPA is first-party HTML",
+    )
+    check((by_pub["datafold"].get("file") or {}).get("dpa") == 20, "datafold DPA prints")
+    check(
+        instrument_url(by_pub["fingerprintjs"], "dpa")
+        == "https://docs.fingerprint.com/docs/dpa-gdpr",
+        "fingerprintjs DPA is first-party docs HTML",
+    )
+    check((by_pub["fingerprintjs"].get("file") or {}).get("dpa") == 20, "fingerprintjs DPA prints")
+    check(
+        instrument_url(by_pub["vespa-ai"], "dpa")
+        == "https://vespa.ai/data-processing-agreement/",
+        "vespa-ai DPA is first-party HTML",
+    )
+    check(
+        instrument_url(by_pub["wochit"], "dpa")
+        == "https://www.wochit.com/data-processing-agreement/",
+        "wochit DPA is first-party HTML",
+    )
+    check((by_pub["wochit"].get("file") or {}).get("dpa") == 20, "wochit DPA prints")
+    check(
+        instrument_url(by_pub["planhat"], "subprocessors")
+        == "https://www.planhat.com/legal/subprocessor-disclosure",
+        "planhat named list is first-party HTML",
+    )
+    check(
+        instrument_url(by_pub["timescale"], "subprocessors")
+        == "https://www.tigerdata.com/legal/subprocessors",
+        "timescale named list is Tiger Data first-party HTML",
+    )
+    check(
+        instrument_url(by_pub["transcend"], "subprocessors")
+        == "https://docs.transcend.io/docs/articles/security/transcends-subprocessors",
+        "transcend named list is first-party docs HTML",
+    )
+    check(
+        instrument_url(by_pub["pipedream"], "subprocessors")
+        == "https://pipedream.com/docs/subprocessors",
+        "pipedream named list is first-party docs HTML",
+    )
+    check(
+        instrument_url(by_pub["forsta-as"], "subprocessors")
+        == "https://legal.forsta.com/legal/forsta-sub-processor-list/",
+        "forsta-as named list is first-party HTML",
+    )
+    check(
+        instrument_url(by_pub["vespa-ai"], "subprocessors")
+        == "https://vespa.ai/service-providers/",
+        "vespa-ai named list is first-party HTML",
+    )
+    planhat_slugs = [p.get("slug") for p in (by_pub["planhat"].get("processors") or [])]
+    check("google" in planhat_slugs, "planhat Google Cloud lands on Google")
+    check("mongodb" in planhat_slugs, "planhat names MongoDB")
+    ts_slugs = [p.get("slug") for p in (by_pub["timescale"].get("processors") or [])]
+    check("amazon-web-services" in ts_slugs, "timescale AWS lands on amazon-web-services")
+    check("atlassian" in ts_slugs, "timescale OpsGenie lands on Atlassian")
+    check("gemini" not in ts_slugs, "timescale Gemini is not a second Google dossier")
+    forsta_slugs = [p.get("slug") for p in (by_pub["forsta-as"].get("processors") or [])]
+    check("amazon-web-services" in forsta_slugs, "forsta Amazon.com, Inc lands on AWS")
+    check("speechmatics" in forsta_slugs, "forsta Cantab Research lands on Speechmatics")
+    check("amazon-com" not in forsta_slugs, "forsta does not invent a second Amazon dossier")
+    check("liveperson" in forsta_slugs, "forsta Voicebase lands on LivePerson")
+    check("front" in forsta_slugs, "forsta FrontApp lands on Front")
+    pd_slugs = [p.get("slug") for p in (by_pub["pipedream"].get("processors") or [])]
+    check("google" in pd_slugs, "pipedream GCP/Looker land on Google")
+    check("looker" not in pd_slugs, "pipedream does not invent a second Looker dossier")
+    check("redis" in pd_slugs, "pipedream Redis Labs lands on Redis")
+    vespa_slugs = [p.get("slug") for p in (by_pub["vespa-ai"].get("processors") or [])]
+    check("amazon-web-services" in vespa_slugs, "vespa AWS lands on amazon-web-services")
+    check("grafana-labs" in vespa_slugs, "vespa Grafana lands on Grafana Labs")
+    check(
+        (by_enr["statsig"].get("links") or {}).get("subprocessors") != "https://amplitude.com/subprocessor-list",
+        "Statsig links.subprocessors stays off Amplitude's parent list",
+    )
+    check(not (by_pub["statsig"].get("processors") or []), "Statsig names no Amplitude-parent processors")
+    check("dpa" not in ((by_enr["statsig"].get("links") or {})), "Statsig DPA stays open")
+    check("GDPR" not in (by_pub["datafold"].get("certs") or []), "datafold GDPR is not a mark")
+    check("CCPA" not in (by_pub["vespa-ai"].get("certs") or []), "vespa-ai CCPA is not a mark")
+    datafold_html = (ROOT / "site" / "c" / "datafold.html").read_text(encoding="utf-8")
+    check("<h1>Datafold</h1>" in datafold_html, "datafold dossier is its own file")
+    check("https://www.datafold.com/data-processing-agreement/" in datafold_html, "datafold dossier cites the DPA")
+    check("vanta" not in datafold_html.lower(), "datafold dossier names no portal vendor")
+    planhat_html = (ROOT / "site" / "c" / "planhat.html").read_text(encoding="utf-8")
+    check("https://www.planhat.com/legal/subprocessor-disclosure" in planhat_html, "planhat dossier cites the named list")
+    check("safebase" not in planhat_html.lower(), "planhat dossier names no portal vendor")
+    ts_html = (ROOT / "site" / "c" / "timescale.html").read_text(encoding="utf-8")
+    check("https://www.tigerdata.com/legal/subprocessors" in ts_html, "timescale dossier cites the Tiger Data named list")
+    statsig_html = (ROOT / "site" / "c" / "statsig.html").read_text(encoding="utf-8")
+    check("amplitude.com/subprocessor-list" not in statsig_html, "statsig dossier does not cite Amplitude's parent list")
 
     from file_company_dpa_processors import PRIOR_ATTEMPTED, select_batch
     for slug in expected_batch:

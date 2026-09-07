@@ -160981,14 +160981,16 @@
       "certs": [],
       "links": {
         "privacy": "https://www.datafold.com/privacy-policy/",
-        "trust": "https://security.datafold.com"
+        "trust": "https://security.datafold.com",
+        "dpa": "https://www.datafold.com/data-processing-agreement/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 6,
+        "score": 14,
         "tier": "silent",
         "factors": {
-          "privacy": 6
+          "privacy": 6,
+          "dpa": 8
         }
       }
     },
@@ -161075,7 +161077,21 @@
         "dpa": "https://www.tigerdata.com/legal/data-processing-addendum",
         "bug_bounty": "https://www.tigerdata.com/security/vulnerability-disclosure"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "gcp",
+        "azure",
+        "cloudflare",
+        "google",
+        "opsgenie",
+        "salesforce",
+        "slack",
+        "sentry",
+        "zoom",
+        "openai",
+        "anthropic",
+        "gemini"
+      ],
       "disclosure": {
         "score": 58,
         "tier": "on-file",
@@ -161449,15 +161465,20 @@
       "links": {
         "dpa": "https://transcend.io/legal/data-processing-addendum",
         "status": "https://status.transcend.io",
-        "trust": "https://security.transcend.io"
+        "trust": "https://security.transcend.io",
+        "subprocessors": "https://docs.transcend.io/docs/articles/security/transcends-subprocessors"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "openai"
+      ],
       "disclosure": {
-        "score": 14,
+        "score": 22,
         "tier": "silent",
         "factors": {
           "dpa": 8,
-          "status": 6
+          "status": 6,
+          "subprocessors": 8
         }
       }
     },
@@ -161483,17 +161504,19 @@
         "privacy": "https://docs.fingerprint.com/docs/privacy-policy",
         "status": "https://status.fingerprint.com",
         "security": "https://fingerprint.com/security/",
-        "trust": "https://fingerprint.com/security/"
+        "trust": "https://fingerprint.com/security/",
+        "dpa": "https://docs.fingerprint.com/docs/dpa-gdpr"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 52,
+        "score": 60,
         "tier": "on-file",
         "factors": {
           "portal": 20,
           "marks": 20,
           "status": 6,
-          "privacy": 6
+          "privacy": 6,
+          "dpa": 8
         }
       }
     },
@@ -161579,14 +161602,35 @@
       "list": "named-processor-gap",
       "certs": [],
       "links": {
-        "privacy": "https://legal.forsta.com/legal/privacy-notice/"
+        "privacy": "https://legal.forsta.com/legal/privacy-notice/",
+        "subprocessors": "https://legal.forsta.com/legal/forsta-sub-processor-list/"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "adobe-systems",
+        "amazon-com",
+        "american-teleconferencing-services-d-b-a-premiere-global-ser",
+        "arctic-wolf-networks",
+        "booth-partners-pte",
+        "cantab-research-speechmatics",
+        "encoding-com",
+        "focus-forward-dba-panel-direct-online",
+        "frontapp",
+        "syncscript",
+        "voicebase",
+        "wowza-media-systems",
+        "zendesk",
+        "rackspace",
+        "microsoft",
+        "twilio",
+        "zoom",
+        "dapresy-deutschland"
+      ],
       "disclosure": {
-        "score": 6,
+        "score": 14,
         "tier": "silent",
         "factors": {
-          "privacy": 6
+          "privacy": 6,
+          "subprocessors": 8
         }
       },
       "official_url": "https://www.forsta.com/"
@@ -161812,14 +161856,28 @@
         "HIPAA"
       ],
       "links": {
-        "security": "https://pipedream.com/docs/privacy-and-security"
+        "security": "https://pipedream.com/docs/privacy-and-security",
+        "subprocessors": "https://pipedream.com/docs/subprocessors"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "anthropic",
+        "datadog",
+        "gcp",
+        "langfuse",
+        "looker",
+        "openai",
+        "redis-labs",
+        "sentry",
+        "snowflake",
+        "workday"
+      ],
       "disclosure": {
-        "score": 16,
+        "score": 24,
         "tier": "silent",
         "factors": {
-          "marks": 16
+          "marks": 16,
+          "subprocessors": 8
         }
       },
       "official_url": "https://pipedream.com/"
@@ -161847,18 +161905,27 @@
         "dpa": "https://www.planhat.com/legal/dpa",
         "status": "https://status.planhat.com",
         "security": "https://www.planhat.com/security",
-        "privacy": "https://www.planhat.com/legal/privacy-policy-20230919"
+        "privacy": "https://www.planhat.com/legal/privacy-policy-20230919",
+        "subprocessors": "https://www.planhat.com/legal/subprocessor-disclosure"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "gcp",
+        "mongodb",
+        "twilio",
+        "google-vertex-ai",
+        "openai",
+        "intercom"
+      ],
       "disclosure": {
-        "score": 60,
+        "score": 68,
         "tier": "on-file",
         "factors": {
           "portal": 20,
           "marks": 20,
           "dpa": 8,
           "status": 6,
-          "privacy": 6
+          "privacy": 6,
+          "subprocessors": 8
         }
       },
       "official_url": "https://www.planhat.com/"
@@ -161960,13 +162027,14 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 42,
+        "score": 50,
         "tier": "on-file",
         "factors": {
           "portal": 20,
           "marks": 10,
           "status": 6,
-          "disclosure": 6
+          "disclosure": 6,
+          "subprocessors": 8
         }
       },
       "official_url": "https://www.statsig.com/"
@@ -162022,16 +162090,29 @@
         "security_txt": "https://vespa.ai/.well-known/security.txt",
         "privacy": "https://vespa.ai/privacy-policy/",
         "status": "https://status.vespa.ai",
-        "bug_bounty": "https://vespa.ai/responsible-disclosure/"
+        "bug_bounty": "https://vespa.ai/responsible-disclosure/",
+        "dpa": "https://vespa.ai/data-processing-agreement/",
+        "subprocessors": "https://vespa.ai/service-providers/"
       },
-      "subprocessors": [],
+      "subprocessors": [
+        "aws",
+        "google",
+        "auth0",
+        "osano",
+        "grafana",
+        "hubspot",
+        "atlassian",
+        "stripe"
+      ],
       "disclosure": {
-        "score": 18,
+        "score": 34,
         "tier": "silent",
         "factors": {
           "status": 6,
           "disclosure": 6,
-          "privacy": 6
+          "privacy": 6,
+          "dpa": 8,
+          "subprocessors": 8
         }
       },
       "official_url": "https://vespa.ai/"
@@ -162097,16 +162178,18 @@
       "links": {
         "security": "https://www.wochit.com/security/",
         "trust": "https://www.wochit.com/security/",
-        "privacy": "https://www.wochit.com/privacy/"
+        "privacy": "https://www.wochit.com/privacy/",
+        "dpa": "https://www.wochit.com/data-processing-agreement/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 40,
+        "score": 48,
         "tier": "on-file",
         "factors": {
           "portal": 20,
           "marks": 14,
-          "privacy": 6
+          "privacy": 6,
+          "dpa": 8
         }
       },
       "official_url": "https://www.wochit.com/"
