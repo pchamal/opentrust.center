@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-07T21:04:28Z",
+  "generated_at": "2026-09-07T21:59:38Z",
   "target": 10000,
   "already_on_file": 4918,
-  "queued": 2138,
+  "queued": 2174,
   "companies": [
     {
       "name": "AdeptID",
@@ -16590,45 +16590,45 @@
     {
       "name": "Aircall",
       "slug": "aircall",
-      "domain": "aircall.se",
+      "domain": "",
       "source": "named-processor-gap",
       "source_url": "https://trust.sms-magic.com/subprocessors/",
       "named_by": 1,
       "priority": 0,
-      "reason": "exact",
+      "reason": "exact; cleared-rejected-mapping",
       "reject_domain": "aircall.se"
     },
     {
       "name": "Maxio",
       "slug": "maxio",
-      "domain": "maxionwheels.com",
+      "domain": "",
       "source": "named-processor-gap",
       "source_url": "https://www.jasper.ai/legal/sub-processors",
       "named_by": 1,
       "priority": 0,
-      "reason": "same-domain-all-org-candidates",
+      "reason": "same-domain-all-org-candidates; cleared-rejected-mapping",
       "reject_domain": "maxionwheels.com"
     },
     {
       "name": "Fathom Analytics, Inc",
       "slug": "fathom-analytics",
-      "domain": "fathom.video",
+      "domain": "",
       "source": "named-processor-gap",
       "source_url": "https://compliance.apideck.com/subprocessors",
       "named_by": 1,
       "priority": 0,
-      "reason": "naming-list-homepage score=10",
+      "reason": "naming-list-homepage score=10; cleared-rejected-mapping",
       "reject_domain": "fathom.video"
     },
     {
       "name": "Voyager",
       "slug": "voyager",
-      "domain": "voyager.nz",
+      "domain": "",
       "source": "named-processor-gap",
       "source_url": "https://datazoo.com/policy/data-sub-processor-list",
       "named_by": 1,
       "priority": 0,
-      "reason": "naming-list-homepage score=14",
+      "reason": "naming-list-homepage score=14; cleared-rejected-mapping",
       "reject_domain": "voyager.nz"
     },
     {
@@ -17355,6 +17355,300 @@
       "domain": "monimoto.com",
       "source": "wikipedia-tech-lithuania",
       "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Lithuania",
+      "priority": 3
+    },
+    {
+      "name": "SMT Consultoria. E Solucoes Em Technologia Ltda",
+      "slug": "smt-consultoria-e-solucoes-em-technologia-ltda",
+      "domain": "smttech.com.br",
+      "source": "named-processor-gap",
+      "source_url": "https://www.wrike.com/legal/subprocessors-list/",
+      "named_by": 1,
+      "priority": 0,
+      "reason": "naming-list-homepage score=16"
+    },
+    {
+      "name": "Encoding.com, Inc",
+      "slug": "encoding-com",
+      "domain": "encoding.com",
+      "source": "named-processor-gap",
+      "source_url": "https://legal.forsta.com/legal/forsta-sub-processor-list/",
+      "named_by": 1,
+      "priority": 0,
+      "reason": "naming-list-text-domain encoding.com adjacent to Encoding.com, Inc."
+    },
+    {
+      "name": "Osano",
+      "slug": "osano",
+      "domain": "osano.com",
+      "source": "named-processor-gap",
+      "source_url": "https://vespa.ai/service-providers/",
+      "named_by": 1,
+      "priority": 0,
+      "reason": "naming-list host cmp.osano.com on Vespa service-providers"
+    },
+    {
+      "name": "Surfshark VPN",
+      "slug": "surfshark-vpn",
+      "domain": "surfshark.com",
+      "source": "wikipedia-vpn-services",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Virtual_private_network_services",
+      "priority": 3
+    },
+    {
+      "name": "Mir",
+      "slug": "mir",
+      "domain": "mironline.ru",
+      "source": "wikipedia-payment-service-providers",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Payment_service_providers",
+      "priority": 3
+    },
+    {
+      "name": "Pimax",
+      "slug": "pimax",
+      "domain": "pimax.com",
+      "source": "wikipedia-tech-established-2015",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2015",
+      "priority": 3
+    },
+    {
+      "name": "AgeX Therapeutics",
+      "slug": "agex-therapeutics",
+      "domain": "agexinc.com",
+      "source": "wikipedia-tech-established-2017",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2017",
+      "priority": 3
+    },
+    {
+      "name": "Firefly Aerospace",
+      "slug": "firefly-aerospace",
+      "domain": "fireflyspace.com",
+      "source": "wikipedia-tech-established-2017",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2017",
+      "priority": 3
+    },
+    {
+      "name": "Coco Robotics",
+      "slug": "coco-robotics",
+      "domain": "cocodelivery.com",
+      "source": "wikipedia-tech-established-2020",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2020",
+      "priority": 3
+    },
+    {
+      "name": "MapTiler",
+      "slug": "maptiler",
+      "domain": "maptiler.com",
+      "source": "wikipedia-software-established-2018",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_established_in_2018",
+      "priority": 3
+    },
+    {
+      "name": "Roboflow",
+      "slug": "roboflow",
+      "domain": "roboflow.com",
+      "source": "wikipedia-software-established-2019",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_established_in_2019",
+      "priority": 3
+    },
+    {
+      "name": "Neuroflash",
+      "slug": "neuroflash",
+      "domain": "neuroflash.com",
+      "source": "wikipedia-software-established-2021",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_established_in_2021",
+      "priority": 3
+    },
+    {
+      "name": "Feedzai",
+      "slug": "feedzai",
+      "domain": "feedzai.com",
+      "source": "wikipedia-tech-portugal",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Portugal",
+      "priority": 3
+    },
+    {
+      "name": "Tekever",
+      "slug": "tekever",
+      "domain": "tekever.com",
+      "source": "wikipedia-tech-portugal",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Portugal",
+      "priority": 3
+    },
+    {
+      "name": "Alpes Lasers",
+      "slug": "alpes-lasers",
+      "domain": "alpeslasers.ch",
+      "source": "wikipedia-tech-switzerland",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Switzerland",
+      "priority": 3
+    },
+    {
+      "name": "Dectris",
+      "slug": "dectris",
+      "domain": "dectris.com",
+      "source": "wikipedia-tech-switzerland",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Switzerland",
+      "priority": 3
+    },
+    {
+      "name": "Endress+Hauser",
+      "slug": "endressplushauser",
+      "domain": "endress.com",
+      "source": "wikipedia-tech-switzerland",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Switzerland",
+      "priority": 3
+    },
+    {
+      "name": "IQAir",
+      "slug": "iqair",
+      "domain": "iqair.com",
+      "source": "wikipedia-tech-switzerland",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Switzerland",
+      "priority": 3
+    },
+    {
+      "name": "IRsweep",
+      "slug": "irsweep",
+      "domain": "irsweep.com",
+      "source": "wikipedia-tech-switzerland",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Switzerland",
+      "priority": 3
+    },
+    {
+      "name": "Nanosensors",
+      "slug": "nanosensors",
+      "domain": "nanosensors.com",
+      "source": "wikipedia-tech-switzerland",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Switzerland",
+      "priority": 3
+    },
+    {
+      "name": "Reichle & De-Massari",
+      "slug": "reichle-and-de-massari",
+      "domain": "rdm.com",
+      "source": "wikipedia-tech-switzerland",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Switzerland",
+      "priority": 3
+    },
+    {
+      "name": "ROSEN Group",
+      "slug": "rosen-group",
+      "domain": "rosen-group.com",
+      "source": "wikipedia-tech-switzerland",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Switzerland",
+      "priority": 3
+    },
+    {
+      "name": "Tecan",
+      "slug": "tecan",
+      "domain": "tecan.com",
+      "source": "wikipedia-tech-switzerland",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Switzerland",
+      "priority": 3
+    },
+    {
+      "name": "Yesim",
+      "slug": "yesim",
+      "domain": "yesim.app",
+      "source": "wikipedia-tech-switzerland",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Switzerland",
+      "priority": 3
+    },
+    {
+      "name": "Kapsch",
+      "slug": "kapsch",
+      "domain": "kapsch.net",
+      "source": "wikipedia-tech-austria",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Austria",
+      "priority": 3
+    },
+    {
+      "name": "Kapsch CarrierCom AG",
+      "slug": "kapsch-carriercom-ag",
+      "domain": "kapschcarrier.com",
+      "source": "wikipedia-tech-austria",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Austria",
+      "priority": 3
+    },
+    {
+      "name": "SKIDATA",
+      "slug": "skidata",
+      "domain": "skidata.com",
+      "source": "wikipedia-tech-austria",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Austria",
+      "priority": 3
+    },
+    {
+      "name": "3Shape",
+      "slug": "3shape",
+      "domain": "3shape.com",
+      "source": "wikipedia-tech-denmark",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Denmark",
+      "priority": 3
+    },
+    {
+      "name": "GomSpace",
+      "slug": "gomspace",
+      "domain": "gomspace.com",
+      "source": "wikipedia-tech-denmark",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Denmark",
+      "priority": 3
+    },
+    {
+      "name": "Queue-it",
+      "slug": "queue-it",
+      "domain": "queue-it.com",
+      "source": "wikipedia-tech-denmark",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Denmark",
+      "priority": 3
+    },
+    {
+      "name": "Cxense",
+      "slug": "cxense",
+      "domain": "cxense.com",
+      "source": "wikipedia-tech-norway",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Norway",
+      "priority": 3
+    },
+    {
+      "name": "Datakortet",
+      "slug": "datakortet",
+      "domain": "datakortet.no",
+      "source": "wikipedia-tech-norway",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Norway",
+      "priority": 3
+    },
+    {
+      "name": "HydrogenPro",
+      "slug": "hydrogenpro",
+      "domain": "hydrogenpro.com",
+      "source": "wikipedia-tech-norway",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Norway",
+      "priority": 3
+    },
+    {
+      "name": "IDEX Biometrics",
+      "slug": "idex-biometrics",
+      "domain": "idex.no",
+      "source": "wikipedia-tech-norway",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Norway",
+      "priority": 3
+    },
+    {
+      "name": "Seatower",
+      "slug": "seatower",
+      "domain": "seatower.com",
+      "source": "wikipedia-tech-norway",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Norway",
+      "priority": 3
+    },
+    {
+      "name": "Yarwil",
+      "slug": "yarwil",
+      "domain": "yarwil.com",
+      "source": "wikipedia-tech-norway",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Norway",
       "priority": 3
     }
   ],
