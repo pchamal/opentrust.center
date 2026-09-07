@@ -997,6 +997,13 @@ REGISTER_ALIASES: dict[str, str] = {
     # "IT Incident Response Software by Squadcast | SolarWinds".
     # solarwinds is on the register. Do not invent a second Squadcast dossier.
     "squadcast": "solarwinds",
+    # Brightcove names SpringServe, Inc. springserve.com 301s to
+    # Magnite's first-party homepage titled
+    # "Magnite - The Largest Independent Sell-Side Advertising Company"
+    # and prints SpringServe. magnite.com/sellers/ titles
+    # "Sellers - Magnite" and prints Magnite SpringServe. magnite is
+    # on the register. Do not invent a second SpringServe dossier.
+    "springserve": "magnite",
 
 }
 

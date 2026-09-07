@@ -740,6 +740,10 @@ def main() -> int:
         REGISTER_ALIASES["s-p-global-market-intelligence"] == "sandp-global",
         "s-p-global-market-intelligence aliases to sandp-global",
     )
+    mag_reg = {**register, "magnite": {"slug": "magnite", "name": "Magnite", "domain": "magnite.com"}}
+    check(canonical_processor_id("springserve", mag_reg) == "magnite", "SpringServe is Magnite")
+    check(REGISTER_ALIASES["springserve"] == "magnite", "springserve aliases to magnite")
+    check("springserve" not in ("adeptid", "rare-patient-voice", "cardinal-path"), "springserve is aliased, not filed")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch
