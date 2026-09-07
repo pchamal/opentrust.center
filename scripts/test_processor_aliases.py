@@ -749,6 +749,12 @@ def main() -> int:
     speech_reg = {**register, "speechmatics": {"slug": "speechmatics", "name": "Speechmatics", "domain": "speechmatics.com"}}
     check(canonical_processor_id("cantab-research-speechmatics", speech_reg) == "speechmatics", "Cantab Research Speechmatics is Speechmatics")
     check(REGISTER_ALIASES["cantab-research-speechmatics"] == "speechmatics", "cantab-research-speechmatics aliases to speechmatics")
+    aw_reg = {**register, "arctic-wolf": {"slug": "arctic-wolf", "name": "Arctic Wolf", "domain": "arcticwolf.com"}}
+    check(canonical_processor_id("arctic-wolf-networks", aw_reg) == "arctic-wolf", "Arctic Wolf Networks is Arctic Wolf")
+    check(REGISTER_ALIASES["arctic-wolf-networks"] == "arctic-wolf", "arctic-wolf-networks aliases to arctic-wolf")
+    wow_reg = {**register, "wowza": {"slug": "wowza", "name": "Wowza", "domain": "wowza.com"}}
+    check(canonical_processor_id("wowza-media-systems", wow_reg) == "wowza", "Wowza Media Systems is Wowza")
+    check(REGISTER_ALIASES["wowza-media-systems"] == "wowza", "wowza-media-systems aliases to wowza")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch

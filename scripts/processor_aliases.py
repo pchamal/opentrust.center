@@ -1010,6 +1010,15 @@ REGISTER_ALIASES: dict[str, str] = {
     # Forsta names Cantab Research Ltd (Speechmatics).
     # cantab-research-trading-as-speechmatics already lands here.
     "cantab-research-speechmatics": "speechmatics",
+    # Forsta names Arctic Wolf Networks Inc. arcticwolf.com titles
+    # "Human Instinct Meets AI Speed | Arctic Wolf" and prints
+    # Arctic Wolf Networks. arctic-wolf is on the register.
+    # Do not invent a second Arctic Wolf dossier.
+    "arctic-wolf-networks": "arctic-wolf",
+    # Forsta names Wowza Media Systems, LLC. wowza.com/company titles
+    # "About Us and Company Overview | Wowza Media Systems".
+    # wowza is on the register. Do not invent a second Wowza dossier.
+    "wowza-media-systems": "wowza",
 
 }
 
