@@ -685,8 +685,10 @@ def main() -> int:
     check("cisco" in aha_slugs, "aha Duo Security uses the Cisco file")
     check("openai" in aha_slugs, "aha OpenAI uses the OpenAI file")
     check("mailchimp" in aha_slugs, "aha Rocket Science Group uses the Mailchimp file")
-    check("oopspam" not in by_pub, "aha does not invent an OOPSpam dossier")
-    check("pipedream" not in by_pub, "aha does not invent a Pipedream dossier")
+    check("oopspam" in by_pub, "aha OOPSpam uses the named-processor-gap file")
+    check(by_pub["oopspam"].get("domain") == "oopspam.com", "oopspam official domain is oopspam.com")
+    check("pipedream" in by_pub, "aha Pipedream uses the named-processor-gap file")
+    check(by_pub["pipedream"].get("domain") == "pipedream.com", "pipedream official domain is pipedream.com")
     check("o-penai" not in by_pub, "aha does not invent an o-penai dossier")
     check("duo-security" not in by_pub, "aha does not invent a Duo Security dossier")
     check("functional-software" not in by_pub, "aha does not invent a Functional Software dossier")
@@ -743,8 +745,10 @@ def main() -> int:
     check("amazon-web-services" in sc_slugs, "scoro AWS uses the Amazon Web Services file")
     check("google" in sc_slugs, "scoro Gemini / GCP / Workspace use the Google file")
     check("hetzner-online" in sc_slugs, "scoro Hetzner uses the Hetzner Online file")
-    check("planhat" not in by_pub, "scoro does not invent a PlanHat dossier")
+    check("planhat" in by_pub, "scoro PlanHat uses the named-processor-gap file")
+    check(by_pub["planhat"].get("domain") == "planhat.com", "planhat official domain is planhat.com")
     check("squadcast" not in by_pub, "scoro does not invent a Squadcast dossier")
+    check("solarwinds" in sc_slugs, "scoro Squadcast uses the SolarWinds file")
     check("gemini" not in by_pub, "scoro does not invent a Gemini dossier")
     # Prior cut: first-party Completeness DPA on strongDM. Koala first-party
     # HTML list. SendGrid aliases onto Twilio. Mode aliases onto ThoughtSpot.
@@ -829,9 +833,11 @@ def main() -> int:
     check("messagebird" in bc_slugs, "brightcove MessageBird uses the MessageBird file")
     check("mongodb" in bc_slugs, "brightcove MongoDB / Atlas uses the MongoDB file")
     check("openai" in bc_slugs, "brightcove OpenAI Ireland uses the OpenAI file")
-    check("castlabs" not in by_pub, "brightcove does not invent a CastLabs dossier")
+    check("castlabs" in by_pub, "brightcove CastLabs uses the named-processor-gap file")
+    check(by_pub["castlabs"].get("domain") == "castlabs.com", "castlabs official domain is castlabs.com")
     check("keen-io" not in by_pub, "brightcove does not invent a Keen.io dossier")
-    check("last9" not in by_pub, "brightcove does not invent a Last9 dossier")
+    check("last9" in by_pub, "brightcove Last9 uses the named-processor-gap file")
+    check(by_pub["last9"].get("domain") == "last9.io", "last9 official domain is last9.io")
     check(by_pub["wowza"].get("domain") == "wowza.com", "brightcove Wowza uses the existing Wowza file")
     check("pigeonlab" not in by_pub, "brightcove does not invent a PigeonLab dossier")
     check("bending-spoons-and-its-affiliates" not in by_pub, "brightcove does not invent a Bending Spoons affiliates dossier")
@@ -945,7 +951,8 @@ def main() -> int:
     check("intercom" in accurx_slugs, "accurx Intercom uses the Intercom file")
     check("google" in accurx_slugs, "accurx Google LLC uses the Google file")
     check("tandem-health" not in by_pub, "accurx does not invent a Tandem Health dossier")
-    check("whereby" not in by_pub, "accurx does not invent a Whereby dossier")
+    check("whereby" in by_pub, "accurx Whereby uses the named-processor-gap file")
+    check(by_pub["whereby"].get("domain") == "whereby.com", "whereby official domain is whereby.com")
     check("aircall-sas" not in by_pub, "accurx does not invent an Aircall dossier")
     accurx_html = (ROOT / "site" / "c" / "accurx.html").read_text(encoding="utf-8")
     check(
@@ -2317,6 +2324,66 @@ def main() -> int:
     check("GDPR" not in (by_pub["serpapi"].get("certs") or []), "serpapi GDPR is not a mark")
     check(by_pub["fingerprintjs"].get("found") is True, "fingerprintjs Official page is on file")
     check(by_pub["fingerprintjs"].get("trust_url") == "https://fingerprint.com/security/", "fingerprintjs Official page is first-party security")
+    # This cut: alias Klaxoon→Wrike and Squadcast→SolarWinds. File named-by-1
+    # leftovers on first-party domains. Portal chrome is never Official page.
+    # Aircall / Maxio / Voyager / Fathom stay off.
+    for slug, domain in (
+        ("statsig", "statsig.com"),
+        ("planhat", "planhat.com"),
+        ("pipedream", "pipedream.com"),
+        ("jitsu", "jitsu.com"),
+        ("whereby", "whereby.com"),
+        ("jitterbit", "jitterbit.com"),
+        ("wochit", "wochit.com"),
+        ("rb2b", "rb2b.com"),
+        ("magnite", "magnite.com"),
+        ("ckeditor", "ckeditor.com"),
+        ("smartcat-platform", "smartcat.com"),
+        ("meilisearch", "meilisearch.com"),
+        ("last9", "last9.io"),
+        ("vespa-ai", "vespa.ai"),
+        ("stigg", "stigg.io"),
+        ("oopspam", "oopspam.com"),
+        ("forsta-as", "forsta.com"),
+        ("castlabs", "castlabs.com"),
+    ):
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+    check("klaxoon-sas" not in by_pub, "klaxoon-sas is not a second Wrike dossier")
+    check("squadcast" not in by_pub, "squadcast is not a second SolarWinds dossier")
+    for slug in ("maxio", "aircall", "voyager", "fathom-analytics"):
+        check(slug not in by_pub, f"{slug} stays off the register")
+    check(by_pub["statsig"].get("found") is True, "statsig Official page is on file")
+    check(
+        by_pub["statsig"].get("trust_url") == "https://www.statsig.com/legal/security",
+        "statsig Official page is first-party security",
+    )
+    check("SOC 2 Type II" in (by_pub["statsig"].get("certs") or []), "statsig files SOC 2 Type II")
+    check("amplitude.com" not in json.dumps(by_enr["statsig"].get("links") or {}), "statsig does not file Amplitude URLs")
+    check(by_pub["planhat"].get("found") is True, "planhat Official page is on file")
+    check(by_pub["planhat"].get("trust_url") == "https://www.planhat.com/security", "planhat Official page is first-party security")
+    check("SOC 2 Type II" in (by_pub["planhat"].get("certs") or []), "planhat files SOC 2 Type II")
+    check("ISO 27001" in (by_pub["planhat"].get("certs") or []), "planhat files ISO 27001")
+    check(by_pub["jitsu"].get("found") is True, "jitsu Official page is on file")
+    check(by_pub["jitsu"].get("trust_url") == "https://jitsu.com/security", "jitsu Official page is first-party security")
+    check(by_pub["whereby"].get("found") is True, "whereby Official page is on file")
+    check(
+        by_pub["whereby"].get("trust_url") == "https://whereby.com/information/security/",
+        "whereby Official page is first-party security",
+    )
+    check(by_pub["wochit"].get("found") is True, "wochit Official page is on file")
+    check(by_pub["rb2b"].get("found") is True, "rb2b Official page is on file")
+    check(by_pub["magnite"].get("found") is True, "magnite Official page is on file")
+    check(by_pub["ckeditor"].get("found") is True, "ckeditor Official page is on file")
+    check(by_pub["jitterbit"].get("found") is True, "jitterbit Official page is on file")
+    check(by_pub["smartcat-platform"].get("found") is True, "smartcat Official page is on file")
+    check(by_pub["meilisearch"].get("found") is False, "meilisearch Official page stays open (Bastion portal)")
+    check(by_pub["last9"].get("found") is False, "last9 Official page stays open (trust.site portal)")
+    check(by_pub["vespa-ai"].get("found") is False, "vespa-ai Official page stays open (portal)")
+    check(by_pub["stigg"].get("found") is False, "stigg Official page stays open (SafeBase portal)")
+    check(by_pub["pipedream"].get("found") is False, "pipedream Official page stays open (docs, not /security)")
+    check(by_pub["oopspam"].get("found") is False, "oopspam Official page stays open")
+    check(by_pub["castlabs"].get("found") is False, "castlabs Official page stays open")
     check("SOC 2 Type II" in (by_pub["fingerprintjs"].get("certs") or []), "fingerprintjs files SOC 2 Type II")
     check("ISO 27001" in (by_pub["fingerprintjs"].get("certs") or []), "fingerprintjs files ISO 27001")
     check(by_pub["chargehound"].get("found") is True, "chargehound Official page is on file")

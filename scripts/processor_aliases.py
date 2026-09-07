@@ -988,6 +988,15 @@ REGISTER_ALIASES: dict[str, str] = {
     # is already on the register (spglobal.com). Do not invent a second
     # S&P Global dossier.
     "s-p-global-market-intelligence": "sandp-global",
+    # Wrike names Klaxoon, SAS. klaxoon.com first-party HTML titles
+    # "The collaborative platform designed for companies | Klaxoon by Wrike".
+    # wrike is on the register. Do not invent a second Klaxoon dossier.
+    "klaxoon-sas": "wrike",
+    # Scoro names Squadcast. squadcast.com 301s to SolarWinds'
+    # first-party product page titled
+    # "IT Incident Response Software by Squadcast | SolarWinds".
+    # solarwinds is on the register. Do not invent a second Squadcast dossier.
+    "squadcast": "solarwinds",
 
 }
 

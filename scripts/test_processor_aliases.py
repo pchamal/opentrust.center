@@ -721,6 +721,12 @@ def main() -> int:
     pd_reg = {**register, "pagerduty": {"slug": "pagerduty", "name": "PagerDuty", "domain": "pagerduty.com"}}
     check(canonical_processor_id("pager-duty", pd_reg) == "pagerduty", "Pager Duty is PagerDuty")
     check(REGISTER_ALIASES["pager-duty"] == "pagerduty", "pager-duty aliases to pagerduty")
+    wrike_reg = {**register, "wrike": {"slug": "wrike", "name": "Wrike", "domain": "wrike.com"}}
+    check(canonical_processor_id("klaxoon-sas", wrike_reg) == "wrike", "Klaxoon is Wrike")
+    check(REGISTER_ALIASES["klaxoon-sas"] == "wrike", "klaxoon-sas aliases to wrike")
+    sw_reg = {**register, "solarwinds": {"slug": "solarwinds", "name": "SolarWinds", "domain": "solarwinds.com"}}
+    check(canonical_processor_id("squadcast", sw_reg) == "solarwinds", "Squadcast is SolarWinds")
+    check(REGISTER_ALIASES["squadcast"] == "solarwinds", "squadcast aliases to solarwinds")
     ibm_stream = {**register, "ibm": {"slug": "ibm", "name": "IBM", "domain": "ibm.com"}}
     check(canonical_processor_id("streamsets", ibm_stream) == "ibm", "StreamSets is IBM")
     check(REGISTER_ALIASES["streamsets"] == "ibm", "streamsets aliases to ibm")
