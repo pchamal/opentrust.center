@@ -744,6 +744,11 @@ def main() -> int:
     check(canonical_processor_id("springserve", mag_reg) == "magnite", "SpringServe is Magnite")
     check(REGISTER_ALIASES["springserve"] == "magnite", "springserve aliases to magnite")
     check("springserve" not in ("adeptid", "rare-patient-voice", "cardinal-path"), "springserve is aliased, not filed")
+    check(REGISTER_ALIASES["amazon-com"] == "amazon-web-services", "amazon-com aliases to amazon-web-services")
+    check(canonical_processor_id("amazon-com", register) == "amazon-web-services", "Amazon.com, Inc is AWS")
+    speech_reg = {**register, "speechmatics": {"slug": "speechmatics", "name": "Speechmatics", "domain": "speechmatics.com"}}
+    check(canonical_processor_id("cantab-research-speechmatics", speech_reg) == "speechmatics", "Cantab Research Speechmatics is Speechmatics")
+    check(REGISTER_ALIASES["cantab-research-speechmatics"] == "speechmatics", "cantab-research-speechmatics aliases to speechmatics")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch

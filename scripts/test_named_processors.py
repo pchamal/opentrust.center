@@ -160,6 +160,18 @@ def main() -> int:
         ) == "not-first-party",
         "do not file another company's list",
     )
+    statsig = {"slug": "statsig", "name": "Statsig", "domain": "statsig.com"}
+    statsig_req = "https://www.statsig.com/legal/subprocessors"
+    amp_rec = rec(
+        statsig_req,
+        "<html><head><title>Amplitude Subprocessor List</title></head><body>Amazon Web Services</body></html>",
+        "Amplitude Subprocessor List",
+    )
+    amp_rec["final_url"] = "https://amplitude.com/subprocessor-list"
+    check(
+        cited_list_skip_reason(statsig_req, amp_rec, statsig) == "not-first-party",
+        "Statsig 302 onto Amplitude's parent list stays unread",
+    )
     aws_self = {"slug": "amazon-web-services", "name": "Amazon Web Services", "domain": "aws.amazon.com", "subprocessors": ["aws"]}
     check(not has_filed_names(aws_self, set()), "self-only aws row is still empty")
 
