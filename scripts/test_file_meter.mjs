@@ -2055,6 +2055,25 @@ expect(
     ruleOn(fileIndexHtml(trustarc))[0] === false &&
     ruleOn(fileIndexHtml(trustarc))[3] === true,
 );
+const lemlist = bySlug.lemlist;
+expect(
+  "lemlist Completeness is DPA; Bastion portal is not Official page",
+  lemlist &&
+    lemlist.found === false &&
+    !lemlist.trust_url &&
+    lemlist.instruments.dpa.url === "https://www.lemlist.com/legal/dpa" &&
+    lemlist.instruments.privacy.url === "https://www.lemlist.com/legal/privacy-policy" &&
+    !(lemlist.certs || []).length &&
+    !(lemlist.processors || []).length &&
+    fileFlags(lemlist).page === 0 &&
+    fileFlags(lemlist).marks === 0 &&
+    fileFlags(lemlist).dpa === 20 &&
+    fileFlags(lemlist).subprocessors === 0 &&
+    fileFlags(lemlist).years === 0 &&
+    fileScore(fileFlags(lemlist)) === 20 &&
+    ruleOn(fileIndexHtml(lemlist))[0] === false &&
+    ruleOn(fileIndexHtml(lemlist))[2] === true,
+);
 const planview = bySlug.planview;
 expect(
   "URL-only subprocessors is 10 not 20",

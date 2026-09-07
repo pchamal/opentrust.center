@@ -276,6 +276,7 @@ EXTRA_GUESSES = {
     "adeptid": ["adept-id.com", "adeptid.com"],
     "rare-patient-voice": ["rarepatientvoice.com"],
     "cardinal-path": ["cardinalpath.com"],
+    "lemlist": ["lemlist.com"],
 }
 
 PORTAL_HOSTS = (

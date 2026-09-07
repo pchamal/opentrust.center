@@ -778,8 +778,10 @@ def main() -> int:
     check("Mozilor Technologies Pvt Ltd" in cy_names, "cookieyes names Mozilor")
     check("Lemlist" in cy_names, "cookieyes names Lemlist")
     check("Cloudways Ltd" in cy_names, "cookieyes names Cloudways")
-    check("lemlist" not in by_pub, "lemlist leftover does not invent a dossier")
-    check("cloudways" not in by_pub, "cloudways leftover does not invent a dossier")
+    check("lemlist" in by_pub, "lemlist is the filed CookieYes leftover")
+    check("lemlist" in cy_slugs, "cookieyes Lemlist lands on lemlist")
+    check("cloudways" not in by_pub, "cloudways is not a second DigitalOcean dossier")
+    check("cloudways" not in cy_slugs, "cookieyes Cloudways lands on digitalocean")
     check("mozilor-technologies-pvt" not in by_pub, "mozilor leftover does not invent a dossier")
     check(by_pub["osano"].get("found") is False, "osano Vanta portal is not Official page")
     check(not by_pub["osano"].get("trust_url"), "osano portal is not the Official page URL")
@@ -3220,6 +3222,72 @@ def main() -> int:
     check("./magnite.html\">SpringServe, Inc" in bright_html, "brightcove SpringServe lands on the Magnite dossier")
     check("safebase" not in bright_html.lower(), "brightcove dossier names no portal vendor")
     check("vanta" not in bright_html.lower(), "brightcove dossier names no portal vendor")
+
+    # This cut: alias Dapresy Deutschland→Forsta and Cloudways→DigitalOcean.
+    # File Lemlist on first-party lemlist.com. dapresy.com 302s to Forsta.
+    # legal.forsta.com prints Dapresy. digitalocean.com/products/cloudways
+    # prints Cloudways. lemlist.com titles lemlist and prints a first-party
+    # DPA / privacy policy. Bastion trust.lemlist.com is never Official page.
+    # /security 404s. GDPR/CCPA-as-rights stay unread. Fern stays silent.
+    # springserve stays aliased onto magnite.
+    check("dapresy-deutschland" not in by_pub, "dapresy-deutschland is not a second Forsta dossier")
+    check("forsta-as" in by_pub, "forsta-as stays the filed Dapresy row")
+    check("cloudways" not in by_pub, "cloudways is not a second DigitalOcean dossier")
+    check("digitalocean" in by_pub, "digitalocean stays the filed Cloudways row")
+    check("lemlist" in by_pub, "lemlist is on the register")
+    check(by_pub["lemlist"]["domain"] == "lemlist.com", "lemlist official domain is lemlist.com")
+    check(by_pub["lemlist"].get("found") is False, "lemlist Bastion portal is not Official page")
+    check(not by_pub["lemlist"].get("trust_url"), "lemlist portal is not the Official page URL")
+    check(
+        instrument_url(by_pub["lemlist"], "dpa") == "https://www.lemlist.com/legal/dpa",
+        "lemlist DPA is first-party HTML",
+    )
+    check((by_pub["lemlist"].get("file") or {}).get("dpa") == 20, "lemlist DPA prints")
+    check(
+        instrument_url(by_pub["lemlist"], "privacy")
+        == "https://www.lemlist.com/legal/privacy-policy",
+        "lemlist privacy is first-party HTML",
+    )
+    check(not (by_pub["lemlist"].get("processors") or []), "lemlist named list stays open")
+    check((by_pub["lemlist"].get("file") or {}).get("subprocessors") in (0, False, None), "lemlist processors stay open")
+    check("GDPR" not in (by_pub["lemlist"].get("certs") or []), "lemlist GDPR is not a mark")
+    check("CCPA" not in (by_pub["lemlist"].get("certs") or []), "lemlist CCPA is not a mark")
+    check(by_pub["fern"].get("found") is False, "fern Official page stays open")
+    check(by_pub["fern"]["domain"] == "buildwithfern.com", "fern stays the silent buildwithfern.com file")
+    check("springserve" not in by_pub, "springserve stays aliased onto magnite")
+    dap_wires = [
+        e for e in wires.get("edges") or []
+        if e.get("to") == "forsta-as" and "dapresy" in (e.get("evidence") or "").lower()
+    ]
+    check(dap_wires, "Forsta Dapresy Deutschland wire lands on Forsta")
+    check(
+        not any(e.get("to") == "dapresy-deutschland" for e in (wires.get("edges") or [])),
+        "dapresy-deutschland leftover node is gone",
+    )
+    cw_wires = [
+        e for e in wires.get("edges") or []
+        if e.get("to") == "digitalocean" and "cloudways" in (e.get("evidence") or "").lower()
+    ]
+    check(cw_wires, "CookieYes Cloudways wire lands on DigitalOcean")
+    check(not any(e.get("to") == "cloudways" for e in (wires.get("edges") or [])), "cloudways leftover node is gone")
+    forsta_html = (ROOT / "site" / "c" / "forsta-as.html").read_text(encoding="utf-8")
+    check("<h1>Forsta</h1>" in forsta_html, "forsta dossier is its own file")
+    check("../graph.html#p=dapresy-deutschland" not in forsta_html, "forsta Dapresy is no longer a leftover map node")
+    check("./forsta-as.html\">Dapresy Deutschland GmbH" in forsta_html, "forsta Dapresy lands on the Forsta dossier")
+    cy_html_cut = (ROOT / "site" / "c" / "cookieyes.html").read_text(encoding="utf-8")
+    check("../graph.html#p=cloudways" not in cy_html_cut, "cookieyes Cloudways is no longer a leftover map node")
+    check("./digitalocean.html\">Cloudways Ltd" in cy_html_cut, "cookieyes Cloudways lands on the DigitalOcean dossier")
+    check("./lemlist.html\">Lemlist" in cy_html_cut, "cookieyes Lemlist lands on the Lemlist dossier")
+    check("../graph.html#p=lemlist" not in cy_html_cut, "cookieyes Lemlist is no longer a leftover map node")
+    lem_html = (ROOT / "site" / "c" / "lemlist.html").read_text(encoding="utf-8")
+    check("<h1>Lemlist</h1>" in lem_html, "lemlist dossier is its own file")
+    check("Official page · not on file" in lem_html, "lemlist Official page stays open")
+    check("https://www.lemlist.com/legal/dpa" in lem_html, "lemlist dossier cites the DPA")
+    check("https://www.lemlist.com/legal/privacy-policy" in lem_html, "lemlist dossier cites first-party privacy")
+    check("trust.lemlist.com" not in lem_html, "lemlist dossier does not file the Bastion portal")
+    check("vanta" not in lem_html.lower(), "lemlist dossier names no portal vendor")
+    check("safebase" not in lem_html.lower(), "lemlist dossier names no portal vendor")
+    check("bastion" not in lem_html.lower(), "lemlist dossier names no portal vendor")
 
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "

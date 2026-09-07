@@ -511,6 +511,10 @@ SPECIAL_URLS = {
     "cardinal-path": [
         ("https://www.cardinalpath.com/policies/privacy-policy", "privacy"),
     ],
+    "lemlist": [
+        ("https://www.lemlist.com/legal/dpa", "dpa"),
+        ("https://www.lemlist.com/legal/privacy-policy", "privacy"),
+    ],
     # Leftover Completeness fill. First-party DPA / privacy / security HTML.
     # Portal hosts and parent-company redirects stay unread. Fern stays silent.
     "mezmo": [

@@ -761,6 +761,13 @@ def main() -> int:
     wow_reg = {**register, "wowza": {"slug": "wowza", "name": "Wowza", "domain": "wowza.com"}}
     check(canonical_processor_id("wowza-media-systems", wow_reg) == "wowza", "Wowza Media Systems is Wowza")
     check(REGISTER_ALIASES["wowza-media-systems"] == "wowza", "wowza-media-systems aliases to wowza")
+    forsta_reg = {**register, "forsta-as": {"slug": "forsta-as", "name": "Forsta", "domain": "forsta.com"}}
+    check(canonical_processor_id("dapresy-deutschland", forsta_reg) == "forsta-as", "Dapresy Deutschland is Forsta")
+    check(REGISTER_ALIASES["dapresy-deutschland"] == "forsta-as", "dapresy-deutschland aliases to forsta-as")
+    do_cloud = {**register, "digitalocean": {"slug": "digitalocean", "name": "DigitalOcean", "domain": "digitalocean.com"}}
+    check(canonical_processor_id("cloudways", do_cloud) == "digitalocean", "Cloudways is DigitalOcean")
+    check(REGISTER_ALIASES["cloudways"] == "digitalocean", "cloudways aliases to digitalocean")
+    check("cloudways" not in ("lemlist", "adeptid", "cardinal-path"), "cloudways is aliased, not filed")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch

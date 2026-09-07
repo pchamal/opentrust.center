@@ -35185,9 +35185,9 @@
     {
       "id": "smt-consultoria-e-solucoes-em-technologia-ltda",
       "name": "SMT Consultoria. E Solucoes Em Technologia Ltda",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "smttech.com.br",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "cloud-convert",
@@ -41863,9 +41863,9 @@
     {
       "id": "encoding-com",
       "name": "Encoding.com, Inc",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "encoding.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "focus-forward-dba-panel-direct-online",
@@ -41882,18 +41882,11 @@
       "in_register": false
     },
     {
-      "id": "dapresy-deutschland",
-      "name": "Dapresy Deutschland GmbH",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
       "id": "osano",
       "name": "Osano",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "osano.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "hydrolix",
@@ -41926,16 +41919,9 @@
     {
       "id": "lemlist",
       "name": "Lemlist",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
-    },
-    {
-      "id": "cloudways",
-      "name": "Cloudways Ltd",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "lemlist.com",
+      "kind": "company",
+      "in_register": true
     }
   ],
   "edges": [
@@ -63847,7 +63833,7 @@
     },
     {
       "from": "forsta-as",
-      "to": "dapresy-deutschland",
+      "to": "forsta-as",
       "source_url": "https://legal.forsta.com/legal/forsta-sub-processor-list/",
       "evidence": "Dapresy Deutschland GmbH"
     },
@@ -64189,7 +64175,7 @@
     },
     {
       "from": "cookieyes",
-      "to": "cloudways",
+      "to": "digitalocean",
       "source_url": "https://www.cookieyes.com/sub-processors-list/",
       "evidence": "Cloudways Ltd"
     },
@@ -64806,9 +64792,13 @@
     "klaxoon-sas": "wrike",
     "squadcast": "solarwinds",
     "springserve": "magnite",
+    "digital-ocean": "digitalocean",
+    "gsuite-google-workspace": "google",
     "amazon-com": "amazon-web-services",
     "cantab-research-speechmatics": "speechmatics",
     "arctic-wolf-networks": "arctic-wolf",
-    "wowza-media-systems": "wowza"
+    "wowza-media-systems": "wowza",
+    "dapresy-deutschland": "forsta-as",
+    "cloudways": "digitalocean"
   }
 }

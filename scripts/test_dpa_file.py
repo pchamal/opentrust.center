@@ -132,6 +132,10 @@ class DpaClassifyTest(unittest.TestCase):
             trustarc,
         ))
         self.assertFalse(is_first_party_url("https://trustarc.com/cmp", plaid))
+        lemlist = {"slug": "lemlist", "domain": "lemlist.com", "aliases": []}
+        self.assertTrue(is_first_party_url("https://www.lemlist.com/legal/dpa", lemlist))
+        self.assertTrue(is_first_party_url("https://www.lemlist.com/legal/privacy-policy", lemlist))
+        self.assertFalse(is_first_party_url("https://www.lemlist.com/legal/dpa", plaid))
 
     def test_link_text_extracts_dpa(self):
         html = (
