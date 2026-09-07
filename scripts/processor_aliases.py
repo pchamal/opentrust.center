@@ -322,6 +322,11 @@ REGISTER_ALIASES: dict[str, str] = {
     "vend": "lightspeed-commerce",
     "ikentoo-france-sasu": "lightspeed-commerce",
     "cardtronics-usa-previously-ncr": "ncr-voyix",
+    # Nutanix prints Cardtronics USA, Inc. ncr-voyix is on the register
+    # (Cardtronics → NCR → NCR Voyix). Do not invent a second dossier.
+    "cardtronics-usa": "ncr-voyix",
+    # Nutanix prints Accenture International Limited. accenture is on the register.
+    "accenture-international": "accenture",
     "cayan-tsys": "global-payments",
     "ekata": "mastercard",
     "intsights-cyber-intelligence": "rapid7",

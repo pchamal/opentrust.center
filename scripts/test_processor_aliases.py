@@ -703,6 +703,15 @@ def main() -> int:
         REGISTER_ALIASES["not-just-tickets-d-b-a-plain"] == "plain",
         "not-just-tickets-d-b-a-plain aliases to plain",
     )
+    ncr_reg = {**register, "ncr-voyix": {"slug": "ncr-voyix", "name": "NCR Voyix", "domain": "ncrvoyix.com"}}
+    check(canonical_processor_id("cardtronics-usa", ncr_reg) == "ncr-voyix", "Cardtronics USA is NCR Voyix")
+    check(REGISTER_ALIASES["cardtronics-usa"] == "ncr-voyix", "cardtronics-usa aliases to ncr-voyix")
+    acc_reg = {**register, "accenture": {"slug": "accenture", "name": "Accenture", "domain": "accenture.com"}}
+    check(
+        canonical_processor_id("accenture-international", acc_reg) == "accenture",
+        "Accenture International is Accenture",
+    )
+    check(REGISTER_ALIASES["accenture-international"] == "accenture", "accenture-international aliases to accenture")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch

@@ -36000,6 +36000,20 @@
       "domain": "",
       "kind": "processor",
       "in_register": false
+    },
+    {
+      "id": "flash-global-logistics",
+      "name": "Flash Global Logistics, Inc",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "baxter-planning-systems",
+      "name": "Baxter Planning Systems, Inc",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
     }
   ],
   "edges": [
@@ -57476,6 +57490,120 @@
       "to": "plain",
       "source_url": "https://www.svix.com/legal/subprocessors/",
       "evidence": "Not Just Tickets Ltd d/b/a Plain"
+    },
+    {
+      "from": "nutanix",
+      "to": "amazon-web-services",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "evidence": "Amazon Web Services, Inc"
+    },
+    {
+      "from": "nutanix",
+      "to": "intercom",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "evidence": "Intercom, Inc"
+    },
+    {
+      "from": "nutanix",
+      "to": "twilio",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "evidence": "Twilio Inc"
+    },
+    {
+      "from": "nutanix",
+      "to": "google",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "evidence": "Google Cloud Provider"
+    },
+    {
+      "from": "nutanix",
+      "to": "snowflake",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "evidence": "Snowflake Inc"
+    },
+    {
+      "from": "nutanix",
+      "to": "salesforce",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "evidence": "Salesforce, Inc"
+    },
+    {
+      "from": "nutanix",
+      "to": "coralogix",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "evidence": "Coralogix Inc"
+    },
+    {
+      "from": "nutanix",
+      "to": "microsoft",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "evidence": "Microsoft Corporation"
+    },
+    {
+      "from": "nutanix",
+      "to": "google",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "evidence": "Google LLC"
+    },
+    {
+      "from": "nutanix",
+      "to": "mongodb",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "evidence": "MongoDB, Inc"
+    },
+    {
+      "from": "nutanix",
+      "to": "zoom",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "evidence": "Zoom Video Communications, Inc"
+    },
+    {
+      "from": "nutanix",
+      "to": "walkme",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "evidence": "WalkMe, Inc"
+    },
+    {
+      "from": "nutanix",
+      "to": "ncr-voyix",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "evidence": "Cardtronics USA, Inc"
+    },
+    {
+      "from": "nutanix",
+      "to": "flash-global-logistics",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "evidence": "Flash Global Logistics, Inc"
+    },
+    {
+      "from": "nutanix",
+      "to": "baxter-planning-systems",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "evidence": "Baxter Planning Systems, Inc"
+    },
+    {
+      "from": "nutanix",
+      "to": "accenture",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "evidence": "Accenture International Limited"
+    },
+    {
+      "from": "nutanix",
+      "to": "super-micro-computer",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "evidence": "Super Micro Computer, Inc"
+    },
+    {
+      "from": "nutanix",
+      "to": "anysphere",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "evidence": "Anysphere Inc"
+    },
+    {
+      "from": "nutanix",
+      "to": "google",
+      "source_url": "https://www.nutanix.com/trust/subprocessors",
+      "evidence": "Google Gemini"
     }
   ],
   "aliases": {
@@ -57743,6 +57871,8 @@
     "vend": "lightspeed-commerce",
     "ikentoo-france-sasu": "lightspeed-commerce",
     "cardtronics-usa-previously-ncr": "ncr-voyix",
+    "cardtronics-usa": "ncr-voyix",
+    "accenture-international": "accenture",
     "cayan-tsys": "global-payments",
     "ekata": "mastercard",
     "intsights-cyber-intelligence": "rapid7",
