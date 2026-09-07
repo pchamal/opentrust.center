@@ -237,6 +237,21 @@ EXTRA_GUESSES = {
     "oopspam": ["oopspam.com"],
     "forsta-as": ["forsta.com"],
     "castlabs": ["castlabs.com"],
+    "vonq": ["vonq.com"],
+    "textkernel": ["textkernel.com"],
+    "ip-info": ["ipinfo.io"],
+    "polar-signals": ["polarsignals.com"],
+    "status-io": ["status.io"],
+    "syncwords": ["syncwords.com"],
+    "warmly-ai": ["warmly.ai"],
+    "zipdx": ["zipdx.info", "zipdx.com"],
+    "tandem-health": ["tandemhealth.ai"],
+    "firetext-communications": ["firetext.co.uk"],
+    "rev": ["rev.com"],
+    "keen-io": ["keen.io"],
+    "headwayapp": ["headwayapp.co"],
+    "intech-solution": ["intechsolutions.com.au"],
+    "match-my-email": ["matchmyemail.com"],
 }
 
 PORTAL_HOSTS = (
