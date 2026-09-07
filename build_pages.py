@@ -745,7 +745,11 @@ FILE_METER_KEYS = ("page", "marks", "dpa", "subprocessors", "years")
 # Superhuman: trust.superhuman.com is SafeBase chrome. /security 404s.
 # /legal/trust is a JS shell (title only). No first-party printed HTML
 # security page. Keep the portal as trust_url / URL-only instrument.
-PORTAL_URL_ONLY_SLUGS = {"softcat", "virtuozzo", "coralogix", "superhuman"}
+PORTAL_URL_ONLY_SLUGS = {
+    "softcat", "virtuozzo", "coralogix", "superhuman",
+    # Named-by-1 leftovers whose only trust URL is portal chrome.
+    "signalwire", "datafold", "transcend",
+}
 
 
 def _instrument_url(row: dict, key: str) -> bool:

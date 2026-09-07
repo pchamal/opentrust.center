@@ -330,6 +330,40 @@ SPECIAL_URLS = {
     "vercel": [("https://vercel.com/legal/dpa", "dpa"), ("https://www.vercel-status.com", "status")],
     "canva": [("https://www.canva.com/policies/subprocessors/", "subprocessors")],
     "microsoft": [("https://status.cloud.microsoft", "status")],
+    # Named-by-1 leftovers. First-party security / DPA / subprocessors HTML.
+    # Portal hosts (Vanta / SafeBase / Secureframe) stay URL-only.
+    "chili-piper": [
+        ("https://www.chilipiper.com/security", "security"),
+        ("https://www.chilipiper.com/privacy-policy", "privacy"),
+    ],
+    "formspree": [
+        ("https://formspree.io/security/", "security"),
+        ("https://formspree.io/legal/subprocessors/", "subprocessors"),
+        ("https://formspree.io/legal/privacy-policy/", "privacy"),
+    ],
+    "fingerprintjs": [
+        ("https://fingerprint.com/security/", "security"),
+    ],
+    "dagster": [
+        ("https://dagster.io/security", "security"),
+    ],
+    "timescale": [
+        ("https://www.tigerdata.com/security", "security"),
+        ("https://www.tigerdata.com/legal/data-processing-addendum", "dpa"),
+        ("https://www.tigerdata.com/legal/privacy", "privacy"),
+    ],
+    "churnkey": [
+        ("https://churnkey.co/security", "security"),
+    ],
+    "chargehound": [
+        ("https://www.chargehound.com/security", "security"),
+    ],
+    "serpapi": [
+        ("https://serpapi.com/security", "security"),
+    ],
+    "transcend": [
+        ("https://transcend.io/legal/data-processing-addendum", "dpa"),
+    ],
     # Branch Metrics leftover. legal.branch.io is first-party of branch.io.
     # trust.branch.io is a Conveyor portal — not Official page, not a mark source.
     "branch-metrics": [

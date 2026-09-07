@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T17:55:18Z",
+  "generated_at": "2026-09-07T18:09:33Z",
   "notes": "Public pages only. Incomplete by nature. No invented URLs, years, certs, or processors.",
   "companies": [
     {
@@ -160919,29 +160919,6 @@
       }
     },
     {
-      "rank": 5848,
-      "name": "Streamsets",
-      "slug": "streamsets",
-      "domain": "streamsets.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
-      "vendor": "unknown",
-      "title": "",
-      "probed": 13,
-      "source": "https://www.verimatrix.com/sub-processors/",
-      "summary": "No public trust center found on the usual paths.",
-      "list": "named-processor-gap",
-      "certs": [],
-      "links": {},
-      "subprocessors": [],
-      "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
-    },
-    {
       "rank": 5849,
       "name": "Icinga GmbH",
       "slug": "icinga",
@@ -160962,6 +160939,562 @@
         "score": 0,
         "tier": "silent",
         "factors": {}
+      }
+    },
+    {
+      "rank": 5855,
+      "name": "Explo",
+      "slug": "explo",
+      "domain": "explo.co",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://www.plivo.com/legal/subprocessors/",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      }
+    },
+    {
+      "rank": 5846,
+      "name": "Datafold",
+      "slug": "datafold",
+      "domain": "datafold.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 2,
+      "source": "https://www.shortcut.com/gdpr-subprocessors/",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {
+        "privacy": "https://www.datafold.com/privacy-policy/",
+        "trust": "https://security.datafold.com"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 6,
+        "tier": "silent",
+        "factors": {
+          "privacy": 6
+        }
+      }
+    },
+    {
+      "rank": 5860,
+      "name": "Baxter Planning",
+      "slug": "baxter-planning-systems",
+      "domain": "baxterplanning.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 23,
+      "source": "https://www.nutanix.com/trust/subprocessors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      }
+    },
+    {
+      "rank": 5854,
+      "name": "Dagster",
+      "slug": "dagster",
+      "domain": "dagster.io",
+      "found": true,
+      "trust_url": "https://dagster.io/security",
+      "final_url": "https://dagster.io/security",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://www.sigmacomputing.com/legal/subprocessors",
+      "summary": "Public trust center. On file: SOC 2 Type II, HIPAA.",
+      "list": "named-processor-gap",
+      "certs": [
+        "SOC 2 Type II",
+        "HIPAA"
+      ],
+      "links": {
+        "trust": "https://dagster.io/security",
+        "security": "https://dagster.io/security",
+        "privacy": "https://dagster.io/privacy"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 42,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 16,
+          "privacy": 6
+        }
+      }
+    },
+    {
+      "rank": 5858,
+      "name": "Timescale",
+      "slug": "timescale",
+      "domain": "tigerdata.com",
+      "found": true,
+      "trust_url": "https://www.tigerdata.com/security",
+      "final_url": "https://www.tigerdata.com/security",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 18,
+      "source": "https://liveblocks.io/subprocessors",
+      "summary": "Public trust center. On file: SOC 2 Type II, HIPAA, GDPR, CCPA.",
+      "list": "named-processor-gap",
+      "certs": [
+        "SOC 2 Type II"
+      ],
+      "links": {
+        "trust": "https://www.tigerdata.com/security",
+        "security": "https://www.tigerdata.com/security",
+        "security_txt": "https://www.tigerdata.com/.well-known/security.txt",
+        "privacy": "https://www.tigerdata.com/legal/privacy",
+        "subprocessors": "https://www.tigerdata.com/legal/subprocessors",
+        "dpa": "https://www.tigerdata.com/legal/data-processing-addendum",
+        "bug_bounty": "https://www.tigerdata.com/security/vulnerability-disclosure"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 58,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 10,
+          "dpa": 8,
+          "processors": 8,
+          "disclosure": 6,
+          "privacy": 6
+        }
+      }
+    },
+    {
+      "rank": 5861,
+      "name": "Zenlayer",
+      "slug": "zenlayer",
+      "domain": "zenlayer.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://getstream.io/legal/subprocessors/",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      }
+    },
+    {
+      "rank": 5862,
+      "name": "EHAWK",
+      "slug": "e-hawk",
+      "domain": "ehawk.net",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 18,
+      "source": "https://www.helpscout.com/company/legal/sub-processors/",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      }
+    },
+    {
+      "rank": 5847,
+      "name": "Chili Piper",
+      "slug": "chili-piper",
+      "domain": "chilipiper.com",
+      "found": true,
+      "trust_url": "https://www.chilipiper.com/security",
+      "final_url": "https://www.chilipiper.com/security",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 5,
+      "source": "https://hightouch.com/subprocessors",
+      "summary": "Public trust center. On file: SOC 2 Type II, ISO 27001, GDPR, CCPA.",
+      "list": "named-processor-gap",
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001"
+      ],
+      "links": {
+        "privacy": "https://www.chilipiper.com/privacy-policy",
+        "status": "https://status.chilipiper.com",
+        "security": "https://www.chilipiper.com/security",
+        "trust": "https://www.chilipiper.com/security"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 52,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 20,
+          "status": 6,
+          "privacy": 6
+        }
+      }
+    },
+    {
+      "rank": 5852,
+      "name": "Chargehound",
+      "slug": "chargehound",
+      "domain": "chargehound.com",
+      "found": true,
+      "trust_url": "https://www.chargehound.com/security",
+      "final_url": "https://www.chargehound.com/security",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://www.jasper.ai/legal/sub-processors",
+      "summary": "Public trust center. On file: SOC 2 Type II.",
+      "list": "named-processor-gap",
+      "certs": [
+        "SOC 2 Type II"
+      ],
+      "links": {
+        "trust": "https://www.chargehound.com/security",
+        "security": "https://www.chargehound.com/security",
+        "privacy": "https://www.chargehound.com/privacy"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 36,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "marks": 10,
+          "privacy": 6
+        }
+      }
+    },
+    {
+      "rank": 5851,
+      "name": "SerpApi",
+      "slug": "serpapi",
+      "domain": "serpapi.com",
+      "found": true,
+      "trust_url": "https://serpapi.com/security",
+      "final_url": "https://serpapi.com/security",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://www.jasper.ai/legal/sub-processors",
+      "summary": "Public trust center. On file: SOC 2, SOC 3, ISO 27001, ISO 27701, GDPR.",
+      "list": "named-processor-gap",
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "ISO 27001",
+        "ISO 27701"
+      ],
+      "links": {
+        "trust": "https://serpapi.com/security",
+        "security": "https://serpapi.com/security",
+        "security_txt": "https://serpapi.com/.well-known/security.txt",
+        "status": "https://status.serpapi.com"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 62,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 30,
+          "status": 6,
+          "disclosure": 6
+        }
+      }
+    },
+    {
+      "rank": 5859,
+      "name": "Observe",
+      "slug": "observe",
+      "domain": "observeinc.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 18,
+      "source": "https://www.sigmacomputing.com/legal/subprocessors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      }
+    },
+    {
+      "rank": 5857,
+      "name": "DocDelta",
+      "slug": "docdelta",
+      "domain": "docdelta.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://www.alphasights.com/sub-processors/",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      }
+    },
+    {
+      "rank": 5856,
+      "name": "Churnkey",
+      "slug": "churnkey",
+      "domain": "churnkey.co",
+      "found": true,
+      "trust_url": "https://churnkey.co/security",
+      "final_url": "https://churnkey.co/security",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 13,
+      "source": "https://www.jasper.ai/legal/sub-processors",
+      "summary": "Public trust center. On file: SOC 2 Type I, GDPR.",
+      "list": "named-processor-gap",
+      "certs": [
+        "SOC 2 Type I"
+      ],
+      "links": {
+        "trust": "https://churnkey.co/security",
+        "security": "https://churnkey.co/security",
+        "status": "https://status.churnkey.co",
+        "privacy": "https://churnkey.co/legal/privacy-policy"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 36,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "marks": 4,
+          "status": 6,
+          "privacy": 6
+        }
+      }
+    },
+    {
+      "rank": 5850,
+      "name": "SignalWire",
+      "slug": "signalwire",
+      "domain": "signalwire.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 3,
+      "source": "https://www.daily.co/legal/sub-processors/",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {
+        "trust": "https://compliance.signalwire.com"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      }
+    },
+    {
+      "rank": 5863,
+      "name": "Servers.com",
+      "slug": "servers-com",
+      "domain": "servers.com",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 23,
+      "source": "https://getstream.io/legal/subprocessors/",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {},
+      "subprocessors": [],
+      "disclosure": {
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
+      }
+    },
+    {
+      "rank": 5848,
+      "name": "Formspree",
+      "slug": "formspree",
+      "domain": "formspree.io",
+      "found": true,
+      "trust_url": "https://formspree.io/security/",
+      "final_url": "https://formspree.io/security/",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 11,
+      "source": "https://www.shortcut.com/gdpr-subprocessors/",
+      "summary": "Public trust center. On file: SOC 2 Type II, GDPR, CCPA.",
+      "list": "named-processor-gap",
+      "certs": [
+        "SOC 2 Type II"
+      ],
+      "links": {
+        "subprocessors": "https://formspree.io/legal/subprocessors/",
+        "status": "https://status.formspree.io",
+        "security": "https://formspree.io/security/",
+        "privacy": "https://formspree.io/legal/privacy-policy/",
+        "trust": "https://formspree.io/security/"
+      },
+      "subprocessors": [
+        "amazon",
+        "amplitude",
+        "automattic",
+        "brex",
+        "chartmogul",
+        "hubspot",
+        "customer-io",
+        "cloudflare",
+        "github",
+        "google",
+        "hex",
+        "mailchimp",
+        "mailgun",
+        "notion",
+        "openai",
+        "profitwell",
+        "posthog",
+        "twilio",
+        "sentry",
+        "slack",
+        "stripe",
+        "zendesk"
+      ],
+      "disclosure": {
+        "score": 50,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 10,
+          "processors": 8,
+          "status": 6,
+          "privacy": 6
+        }
+      }
+    },
+    {
+      "rank": 5849,
+      "name": "Transcend",
+      "slug": "transcend",
+      "domain": "transcend.io",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
+      "vendor": "unknown",
+      "title": "",
+      "probed": 5,
+      "source": "https://www.jasper.ai/legal/sub-processors",
+      "summary": "No public trust center found on the usual paths.",
+      "list": "named-processor-gap",
+      "certs": [],
+      "links": {
+        "dpa": "https://transcend.io/legal/data-processing-addendum",
+        "status": "https://status.transcend.io",
+        "trust": "https://security.transcend.io"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 14,
+        "tier": "silent",
+        "factors": {
+          "dpa": 8,
+          "status": 6
+        }
+      }
+    },
+    {
+      "rank": 5853,
+      "name": "Fingerprint",
+      "slug": "fingerprintjs",
+      "domain": "fingerprint.com",
+      "found": true,
+      "trust_url": "https://fingerprint.com/security/",
+      "final_url": "https://fingerprint.com/security/",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 4,
+      "source": "https://www.jasper.ai/legal/sub-processors",
+      "summary": "Public trust center. On file: SOC 2.",
+      "list": "named-processor-gap",
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001"
+      ],
+      "links": {
+        "privacy": "https://docs.fingerprint.com/docs/privacy-policy",
+        "status": "https://status.fingerprint.com",
+        "security": "https://fingerprint.com/security/",
+        "trust": "https://fingerprint.com/security/"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 52,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 20,
+          "status": 6,
+          "privacy": 6
+        }
       }
     }
   ]

@@ -548,10 +548,19 @@ def main() -> int:
     check("dataiku-sas" not in by_pub, "verimatrix does not invent a Dataiku SAS dossier")
     check("grafana" not in by_pub, "verimatrix does not invent a Grafana dossier")
     check("pager-duty" not in by_pub, "verimatrix does not invent a Pager Duty dossier")
-    check("fluentd" not in by_pub, "verimatrix does not invent a FluentD dossier")
-    check("icinga" not in by_pub, "verimatrix does not invent an Icinga dossier")
-    check("jscrambler" not in by_pub, "verimatrix does not invent a Jscrambler dossier")
-    check("streamsets" not in by_pub, "verimatrix does not invent a Streamsets dossier")
+    # Expand hour 9063bca9bc filed silent first-party leftovers for
+    # Fluentd / Jscrambler / Icinga. Keep those rows. StreamSets is IBM
+    # (streamsets.com 301s to IBM StreamSets) — do not keep the silent dossier.
+    check("fluentd" in by_pub, "fluentd is the expand-hour silent file")
+    check(by_pub["fluentd"].get("domain") == "fluentd.org", "fluentd keeps fluentd.org")
+    check(by_pub["fluentd"].get("found") is False, "fluentd Official page stays open")
+    check("icinga" in by_pub, "icinga is the expand-hour silent file")
+    check(by_pub["icinga"].get("domain") == "icinga.com", "icinga keeps icinga.com")
+    check(by_pub["icinga"].get("found") is False, "icinga Official page stays open")
+    check("jscrambler" in by_pub, "jscrambler is the expand-hour silent file")
+    check(by_pub["jscrambler"].get("domain") == "jscrambler.com", "jscrambler keeps jscrambler.com")
+    check(by_pub["jscrambler"].get("found") is False, "jscrambler Official page stays open")
+    check("streamsets" not in by_pub, "streamsets is not a second IBM dossier")
     # Prior cut: first-party Completeness DPA + named list on Nutanix.
     # Live Nation /dpa is a Next.js shell (empty title, no printed DPA body).
     # HCA appendix is a privacy-policy website vendor list (title “Arrow Right”).
@@ -560,8 +569,8 @@ def main() -> int:
     # Informatica homepage bounce. Netflix NotFound. Cardtronics USA aliases
     # onto NCR Voyix. Accenture International aliases onto Accenture.
     # Flash Global Logistics is the named-processor-gap expand file
-    # (flashglobal.com). Baxter Planning Systems stays a leftover
-    # graph node. Do not invent domains. Do not alias Baxter Planning
+    # (flashglobal.com). Baxter Planning Systems is now the named-by-1
+    # expand file (baxterplanning.com). Do not alias Baxter Planning
     # onto Baxter International.
     check(
         instrument_url(by_pub["nutanix"], "dpa")
@@ -596,7 +605,8 @@ def main() -> int:
     check("accenture" in nx_slugs, "nutanix Accenture International uses the Accenture file")
     check("cardtronics-usa" not in by_pub, "nutanix does not invent a Cardtronics dossier")
     check("accenture-international" not in by_pub, "nutanix does not invent an Accenture International dossier")
-    check("baxter-planning-systems" not in by_pub, "nutanix does not invent a Baxter Planning Systems dossier")
+    check("baxter-planning-systems" in by_pub, "nutanix Baxter Planning uses the named-processor-gap file")
+    check(by_pub["baxter-planning-systems"].get("domain") == "baxterplanning.com", "baxter-planning-systems keeps the expand domain")
     check("flash-global-logistics" in by_pub, "nutanix Flash Global Logistics uses the named-processor-gap file")
     check(by_pub["flash-global-logistics"].get("domain") == "flashglobal.com", "flash-global-logistics keeps the expand domain")
     check("baxter-international" not in nx_slugs, "nutanix does not alias Baxter Planning onto Baxter International")
@@ -862,7 +872,8 @@ def main() -> int:
     check("HotJar, Ltd" in ht_names, "hightouch names HotJar")
     check("amazon-web-services" in ht_slugs, "hightouch AWS uses the Amazon Web Services file")
     check("contentsquare" in ht_slugs, "hightouch HotJar uses the Contentsquare file")
-    check("chili-piper" not in by_pub, "hightouch does not invent a Chili Piper dossier")
+    check("chili-piper" in by_pub, "hightouch Chili Piper uses the named-processor-gap file")
+    check(by_pub["chili-piper"].get("domain") == "chilipiper.com", "chili-piper keeps the expand domain")
     plivo_names = [p.get("name") for p in (by_pub["plivo"].get("processors") or [])]
     plivo_slugs = [p.get("slug") for p in (by_pub["plivo"].get("processors") or [])]
     check(
@@ -2232,6 +2243,116 @@ def main() -> int:
     check("Official page · not on file" in superhuman_html, "superhuman Official page stays open")
     check("safebase" not in superhuman_html.lower(), "superhuman dossier names no portal vendor")
     check("vanta" not in superhuman_html.lower(), "superhuman dossier names no portal vendor")
+
+    # This cut: alias StreamSets→IBM and S&P Global Market Intelligence→S&P
+    # Global. File named-by-1 leftovers on first-party domains. Portal chrome
+    # (Vanta / SafeBase / Secureframe) is never Official page. GDPR/CCPA-as-
+    # rights stay unread. Maxio / Aircall / Voyager / Fathom stay off.
+    for slug, domain in (
+        ("signalwire", "signalwire.com"),
+        ("servers-com", "servers.com"),
+        ("zenlayer", "zenlayer.com"),
+        ("chili-piper", "chilipiper.com"),
+        ("dagster", "dagster.io"),
+        ("datafold", "datafold.com"),
+        ("formspree", "formspree.io"),
+        ("chargehound", "chargehound.com"),
+        ("churnkey", "churnkey.co"),
+        ("explo", "explo.co"),
+        ("observe", "observeinc.com"),
+        ("transcend", "transcend.io"),
+        ("serpapi", "serpapi.com"),
+        ("fingerprintjs", "fingerprint.com"),
+        ("e-hawk", "ehawk.net"),
+        ("docdelta", "docdelta.com"),
+        ("baxter-planning-systems", "baxterplanning.com"),
+        ("timescale", "tigerdata.com"),
+    ):
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check("streamsets" not in by_pub, "streamsets is not a second IBM dossier")
+        check("s-p-global-market-intelligence" not in by_pub, "S&P Market Intelligence is not a second S&P dossier")
+    for slug, domain in (
+        ("fluentd", "fluentd.org"),
+        ("jscrambler", "jscrambler.com"),
+        ("icinga", "icinga.com"),
+    ):
+        check(slug in by_pub, f"{slug} expand-hour silent file stays on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+    for slug in ("maxio", "aircall", "voyager", "fathom-analytics"):
+        check(slug not in by_pub, f"{slug} stays off the register")
+    check(by_pub["chili-piper"].get("found") is True, "chili-piper Official page is on file")
+    check(by_pub["chili-piper"].get("trust_url") == "https://www.chilipiper.com/security", "chili-piper Official page is first-party security")
+    check("SOC 2 Type II" in (by_pub["chili-piper"].get("certs") or []), "chili-piper files SOC 2 Type II")
+    check("ISO 27001" in (by_pub["chili-piper"].get("certs") or []), "chili-piper files ISO 27001")
+    check("GDPR" not in (by_pub["chili-piper"].get("certs") or []), "chili-piper GDPR is not a mark")
+    check("CCPA" not in (by_pub["chili-piper"].get("certs") or []), "chili-piper CCPA is not a mark")
+    check(by_pub["formspree"].get("found") is True, "formspree Official page is on file")
+    check(by_pub["formspree"].get("trust_url") == "https://formspree.io/security/", "formspree Official page is first-party security")
+    check("SOC 2 Type II" in (by_pub["formspree"].get("certs") or []), "formspree files SOC 2 Type II")
+    check("GDPR" not in (by_pub["formspree"].get("certs") or []), "formspree GDPR is not a mark")
+    formspree_slugs = [p.get("slug") for p in (by_pub["formspree"].get("processors") or [])]
+    check("twilio" in formspree_slugs, "formspree SendGrid lands on Twilio")
+    check("hubspot" in formspree_slugs, "formspree Clearbit lands on HubSpot")
+    check("hex" in formspree_slugs, "formspree Hex Technologies lands on Hex")
+    check("sendgrid" not in formspree_slugs, "formspree does not invent a SendGrid dossier")
+    check("clearbit" not in formspree_slugs, "formspree does not invent a Clearbit dossier")
+    check(by_pub["dagster"].get("found") is True, "dagster Official page is on file")
+    check("SOC 2 Type II" in (by_pub["dagster"].get("certs") or []), "dagster files SOC 2 Type II")
+    check("HIPAA" in (by_pub["dagster"].get("certs") or []), "dagster files HIPAA")
+    check(by_pub["timescale"].get("found") is True, "timescale Official page is on file")
+    check(by_pub["timescale"].get("trust_url") == "https://www.tigerdata.com/security", "timescale Official page is Tiger Data security")
+    check("SOC 2 Type II" in (by_pub["timescale"].get("certs") or []), "timescale files SOC 2 Type II")
+    check(
+        instrument_url(by_pub["timescale"], "dpa")
+        == "https://www.tigerdata.com/legal/data-processing-addendum",
+        "timescale DPA is first-party Tiger Data HTML",
+    )
+    check((by_pub["timescale"].get("file") or {}).get("dpa") == 20, "timescale DPA prints")
+    check(by_pub["serpapi"].get("found") is True, "serpapi Official page is on file")
+    check("SOC 2 Type II" in (by_pub["serpapi"].get("certs") or []), "serpapi files SOC 2 Type II")
+    check("ISO 27001" in (by_pub["serpapi"].get("certs") or []), "serpapi files ISO 27001")
+    check("ISO 27701" in (by_pub["serpapi"].get("certs") or []), "serpapi files ISO 27701")
+    check("GDPR" not in (by_pub["serpapi"].get("certs") or []), "serpapi GDPR is not a mark")
+    check(by_pub["fingerprintjs"].get("found") is True, "fingerprintjs Official page is on file")
+    check(by_pub["fingerprintjs"].get("trust_url") == "https://fingerprint.com/security/", "fingerprintjs Official page is first-party security")
+    check("SOC 2 Type II" in (by_pub["fingerprintjs"].get("certs") or []), "fingerprintjs files SOC 2 Type II")
+    check("ISO 27001" in (by_pub["fingerprintjs"].get("certs") or []), "fingerprintjs files ISO 27001")
+    check(by_pub["chargehound"].get("found") is True, "chargehound Official page is on file")
+    check("SOC 2 Type II" in (by_pub["chargehound"].get("certs") or []), "chargehound files SOC 2 Type II")
+    check(by_pub["churnkey"].get("found") is True, "churnkey Official page is on file")
+    check("SOC 2 Type I" in (by_pub["churnkey"].get("certs") or []), "churnkey files SOC 2 Type I")
+    check(by_pub["transcend"].get("found") is False, "transcend Vanta portal is not Official page")
+    check(not by_pub["transcend"].get("trust_url"), "transcend portal is not the Official page URL")
+    check(
+        instrument_url(by_pub["transcend"], "dpa")
+        == "https://transcend.io/legal/data-processing-addendum",
+        "transcend DPA URL stays on file",
+    )
+    check((by_pub["transcend"].get("file") or {}).get("dpa") == 20, "transcend DPA prints")
+    check((by_pub["transcend"].get("file") or {}).get("page") in (0, False, None), "transcend Official page stays open")
+    check(not (by_pub["transcend"].get("certs") or []), "transcend portal marks stay unread")
+    check(by_pub["signalwire"].get("found") is False, "signalwire Vanta portal is not Official page")
+    check(not (by_pub["signalwire"].get("certs") or []), "signalwire portal marks stay unread")
+    check(by_pub["datafold"].get("found") is False, "datafold SafeBase portal is not Official page")
+    check(not (by_pub["datafold"].get("certs") or []), "datafold portal marks stay unread")
+    chili_html = (ROOT / "site" / "c" / "chili-piper.html").read_text(encoding="utf-8")
+    check("<h1>Chili Piper</h1>" in chili_html, "chili-piper dossier is its own file")
+    check("https://www.chilipiper.com/security" in chili_html, "chili-piper dossier cites first-party security")
+    check("vanta" not in chili_html.lower(), "chili-piper dossier names no portal vendor")
+    check("trust.chilipiper.com" not in chili_html, "chili-piper dossier does not cite the Vanta portal")
+    form_html = (ROOT / "site" / "c" / "formspree.html").read_text(encoding="utf-8")
+    check("<h1>Formspree</h1>" in form_html, "formspree dossier is its own file")
+    check("https://formspree.io/security/" in form_html, "formspree dossier cites first-party security")
+    check("secureframe" not in form_html.lower(), "formspree dossier names no portal vendor")
+    ts_html = (ROOT / "site" / "c" / "timescale.html").read_text(encoding="utf-8")
+    check("<h1>Timescale</h1>" in ts_html, "timescale dossier is its own file")
+    check("https://www.tigerdata.com/security" in ts_html, "timescale dossier cites Tiger Data security")
+    check("https://www.tigerdata.com/legal/data-processing-addendum" in ts_html, "timescale dossier cites the DPA")
+    ibm_wires = [e for e in wires.get("edges") or [] if e.get("to") == "ibm" and "streamset" in (e.get("evidence") or "").lower()]
+    check(ibm_wires, "Verimatrix Streamsets wire lands on IBM")
+    check(not any(e.get("to") == "streamsets" for e in (wires.get("edges") or [])), "streamsets leftover node is gone")
 
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
