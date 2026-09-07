@@ -749,6 +749,10 @@ PORTAL_URL_ONLY_SLUGS = {
     "softcat", "virtuozzo", "coralogix", "superhuman",
     # Named-by-1 leftovers whose only trust URL is portal chrome.
     "signalwire", "datafold", "transcend",
+    # This cut: Bastion / trust.site / SafeBase / first-party trust.* portals.
+    "meilisearch", "last9", "vespa-ai", "stigg",
+    # Docs HTML names holds; /security is not a first-party Official page.
+    "pipedream",
 }
 
 

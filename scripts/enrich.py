@@ -364,6 +364,67 @@ SPECIAL_URLS = {
     "transcend": [
         ("https://transcend.io/legal/data-processing-addendum", "dpa"),
     ],
+    "statsig": [
+        ("https://www.statsig.com/legal/security", "security"),
+    ],
+    "planhat": [
+        ("https://www.planhat.com/security", "security"),
+        ("https://www.planhat.com/legal/dpa", "dpa"),
+    ],
+    "pipedream": [
+        ("https://pipedream.com/docs/privacy-and-security", "security"),
+    ],
+    "jitsu": [
+        ("https://jitsu.com/security", "security"),
+        ("https://jitsu.com/privacy", "privacy"),
+    ],
+    "whereby": [
+        ("https://whereby.com/information/security/", "security"),
+        ("https://whereby.com/information/tos/privacy-policy/", "privacy"),
+    ],
+    "jitterbit": [
+        ("https://www.jitterbit.com/security/", "security"),
+        ("https://www.jitterbit.com/privacy-policy/", "privacy"),
+    ],
+    "wochit": [
+        ("https://www.wochit.com/security/", "security"),
+        ("https://www.wochit.com/privacy/", "privacy"),
+    ],
+    "rb2b": [
+        ("https://www.rb2b.com/security", "security"),
+        ("https://www.rb2b.com/privacy-policy", "privacy"),
+    ],
+    "magnite": [
+        ("https://www.magnite.com/trust-center/", "security"),
+        ("https://www.magnite.com/legal/magnite-website-privacy-policy/", "privacy"),
+    ],
+    "ckeditor": [
+        ("https://ckeditor.com/secure-rich-text-editor/", "security"),
+        ("https://ckeditor.com/legal/privacy-policy/", "privacy"),
+    ],
+    "smartcat-platform": [
+        ("https://www.smartcat.com/security/", "security"),
+        ("https://www.smartcat.com/legal/dpa/", "dpa"),
+        ("https://www.smartcat.com/legal/privacy-policy/", "privacy"),
+    ],
+    "meilisearch": [
+        ("https://www.meilisearch.com/privacy-policy", "privacy"),
+    ],
+    "last9": [
+        ("https://last9.io/privacy/", "privacy"),
+    ],
+    "vespa-ai": [
+        ("https://vespa.ai/privacy-policy/", "privacy"),
+    ],
+    "stigg": [
+        ("https://www.stigg.io/privacy-policy", "privacy"),
+    ],
+    "forsta-as": [
+        ("https://legal.forsta.com/legal/privacy-notice/", "privacy"),
+    ],
+    "castlabs": [
+        ("https://castlabs.com/legal/", "privacy"),
+    ],
     # Branch Metrics leftover. legal.branch.io is first-party of branch.io.
     # trust.branch.io is a Conveyor portal — not Official page, not a mark source.
     "branch-metrics": [
