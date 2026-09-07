@@ -99177,9 +99177,9 @@
       "name": "TrustArc Inc",
       "slug": "trustarc",
       "domain": "trustarc.com",
-      "found": true,
-      "trust_url": "https://trust.trustarc.com",
-      "final_url": "https://trust.trustarc.com/en-US/",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
       "list": "named-processor-gap",
       "source": "https://www.egnyte.com/subcontractors",
       "source_url": "https://www.egnyte.com/subcontractors",
@@ -99187,7 +99187,7 @@
       "probed_at": "2026-09-07T22:02:48Z",
       "certs": [],
       "attestations": [],
-      "summary": "Official page on file. No marks extracted from the public HTML.",
+      "summary": "",
       "founded_year": null,
       "founded_source": null,
       "instruments": {
@@ -99219,7 +99219,38 @@
         },
         "bounty": null
       },
-      "processors": [],
+      "processors": [
+        {
+          "name": "Amazon Web Services",
+          "slug": "amazon-web-services",
+          "id": "amazon-web-services",
+          "source_url": "https://trust.trustarc.com/en-US/policies/sub-processors-and-affiliates"
+        },
+        {
+          "name": "Mailgun Technologies, Inc",
+          "slug": "mailgun",
+          "id": "mailgun",
+          "source_url": "https://trust.trustarc.com/en-US/policies/sub-processors-and-affiliates"
+        },
+        {
+          "name": "Microsoft, Inc. (including Microsoft Canada Inc.)",
+          "slug": "microsoft",
+          "id": "microsoft",
+          "source_url": "https://trust.trustarc.com/en-US/policies/sub-processors-and-affiliates"
+        },
+        {
+          "name": "Salesforce.com",
+          "slug": "salesforce",
+          "id": "salesforce",
+          "source_url": "https://trust.trustarc.com/en-US/policies/sub-processors-and-affiliates"
+        },
+        {
+          "name": "Workato, Inc",
+          "slug": "workato",
+          "id": "workato",
+          "source_url": "https://trust.trustarc.com/en-US/policies/sub-processors-and-affiliates"
+        }
+      ],
       "disclosure": {
         "score": 40,
         "tier": "on-file",
@@ -99236,14 +99267,14 @@
       },
       "tier": "on-file",
       "file": {
-        "page": 20,
-        "marks": 10,
+        "page": 0,
+        "marks": 0,
         "dpa": 0,
-        "subprocessors": 10,
+        "subprocessors": 20,
         "years": 0
       },
       "_crawl": {
-        "vendor": "unknown",
+        "vendor": null,
         "title": "",
         "http_status": null
       },
@@ -420470,17 +420501,17 @@
       "list_rank": 5486
     }
   ],
-  "found": 1205,
+  "found": 1204,
   "total": 5986,
   "coverage": {
     "companies": 5986,
     "years": 733,
     "certs_companies": 834,
-    "edges": 3713,
+    "edges": 3718,
     "top_processors": [
       {
         "id": "amazon-web-services",
-        "n": 240
+        "n": 241
       },
       {
         "id": "google",

@@ -1512,6 +1512,8 @@ PRIOR_ATTEMPTED = {
     # this cut — Completeness fill (1 named list; Osano portal Official page dropped)
     "cookieyes",
     "osano",
+    # this cut — Completeness fill (1 named list; TrustArc Trust Center Official page dropped)
+    "trustarc",
 }
 
 

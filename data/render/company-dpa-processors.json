@@ -2,115 +2,225 @@
   "generated_at": "2026-09-07T22:02:48Z",
   "rule": "Next ~40 companies: first those with links.dpa on file and an empty named-processor list, then portal-catalog DPAs that may upgrade to printed first-party HTML, then those with first-party trust/privacy/security URLs and no DPA link yet (including silent rows once the found-company queue is exhausted). Named subprocessors fill only from printed organization names in live first-party HTML tables or labeled spans. A stored list URL with no printed names stays open. A DPA is filed only when a printed first-party DPA is newly found; an existing DPA is never dropped. Dates, JS shells, login walls, PDF-only lists, affiliate-only rows, and portal catalogs stay open.",
   "batch": [
-    "cookieyes",
-    "osano"
+    "trustarc"
   ],
   "dpa_filed": [],
   "subprocessors_filed": [
     {
-      "slug": "cookieyes",
-      "name": "CookieYes",
-      "url": "https://www.cookieyes.com/sub-processors-list/",
+      "slug": "trustarc",
+      "name": "TrustArc Inc",
+      "url": "https://trust.trustarc.com/en-US/policies/sub-processors-and-affiliates",
       "names": [
-        "Mozilor Technologies Pvt Ltd",
-        "G Joseph & Associates",
-        "Brevo",
-        "Zendesk Inc",
-        "Lemlist",
-        "Sendgrid",
-        "Mixpanel",
-        "Hotjar",
-        "Calendly",
-        "Zoom",
-        "Gsuite (Google Workspace)",
-        "Intercom",
-        "Google Analytics",
         "Amazon Web Services",
-        "Cloudflare Inc",
-        "Cloudways Ltd",
-        "Digital Ocean",
-        "Clickhouse",
-        "Microsoft Clarity",
-        "Anthropic PBC"
+        "Mailgun Technologies, Inc",
+        "Microsoft, Inc. (including Microsoft Canada Inc.)",
+        "Salesforce.com",
+        "Workato, Inc"
       ]
     }
   ],
   "stayed_open": [
     {
-      "slug": "osano",
-      "name": "Osano",
-      "rule": "subprocessors"
+      "slug": "trustarc",
+      "name": "TrustArc Inc",
+      "rule": "dpa"
     }
   ],
   "rejected": [
     {
-      "slug": "osano",
-      "url": "https://trust.osano.com/subprocessors",
-      "final": "https://trust.osano.com/subprocessors",
-      "reason": "js-portal",
-      "kind": "subprocessors"
+      "slug": "trustarc",
+      "url": "https://trustarc.com/policies/data-processing-addendum",
+      "final": "https://trustarc.com/policies/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
     },
     {
-      "slug": "osano",
-      "url": "https://osano.com/subprocessors",
-      "final": "https://osano.com/subprocessors",
+      "slug": "trustarc",
+      "url": "https://trustarc.com/legal/data-processing-addendum",
+      "final": "https://trustarc.com/legal/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustarc",
+      "url": "https://trustarc.com/legal/dpa",
+      "final": "https://trustarc.com/legal/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustarc",
+      "url": "https://trustarc.com/policies/data-processing-agreement",
+      "final": "https://trustarc.com/policies/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustarc",
+      "url": "https://trustarc.com/dpa",
+      "final": "https://trustarc.com/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustarc",
+      "url": "https://trustarc.com/legal/data-processing-agreement",
+      "final": "https://trustarc.com/legal/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustarc",
+      "url": "https://trustarc.com/policies/dpa",
+      "final": "https://trustarc.com/policies/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustarc",
+      "url": "https://trustarc.com/gdpr/dpa",
+      "final": "https://trustarc.com/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustarc",
+      "url": "https://trustarc.com/company/dpa",
+      "final": "https://trustarc.com/company/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustarc",
+      "url": "https://trustarc.com/terms/dpa",
+      "final": "https://trustarc.com/terms/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustarc",
+      "url": "https://trustarc.com/data-processing-agreement",
+      "final": "https://trustarc.com/data-processing-agreement",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustarc",
+      "url": "https://trustarc.com/data-processing-addendum",
+      "final": "https://trustarc.com/data-processing-addendum",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustarc",
+      "url": "https://trustarc.com/privacy/dpa",
+      "final": "https://trustarc.com/privacy/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustarc",
+      "url": "https://trustarc.com/legal/processor-terms",
+      "final": "https://trustarc.com/legal/processor-terms",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustarc",
+      "url": "https://trustarc.com/legal/data-processing",
+      "final": "https://trustarc.com/legal/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustarc",
+      "url": "https://trustarc.com/legal/gdpr/dpa",
+      "final": "https://trustarc.com/legal/gdpr/dpa",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustarc",
+      "url": "https://trustarc.com/data-processing",
+      "final": "https://trustarc.com/data-processing",
+      "reason": "http-403",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustarc",
+      "url": "https://trust.trustarc.com/en-US/policies/data-processing-addendum",
+      "final": "https://trust.trustarc.com/en-US/policies/data-processing-addendum",
+      "reason": "not-a-dpa",
+      "kind": "dpa"
+    },
+    {
+      "slug": "trustarc",
+      "url": "https://trustarc.com/sub-processors",
+      "final": "https://trustarc.com/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "osano",
-      "url": "https://osano.com/sub-processors",
-      "final": "https://osano.com/sub-processors",
+      "slug": "trustarc",
+      "url": "https://trustarc.com/legal/subprocessors",
+      "final": "https://trustarc.com/legal/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "osano",
-      "url": "https://osano.com/legal/sub-processors",
-      "final": "https://osano.com/legal/sub-processors",
+      "slug": "trustarc",
+      "url": "https://trustarc.com/subprocessors",
+      "final": "https://trustarc.com/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "osano",
-      "url": "https://osano.com/legal/subprocessors",
-      "final": "https://osano.com/legal/subprocessors",
+      "slug": "trustarc",
+      "url": "https://trustarc.com/legal/service-providers",
+      "final": "https://trustarc.com/legal/service-providers",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "osano",
-      "url": "https://osano.com/legal/service-providers",
-      "final": "https://osano.com/legal/service-providers",
+      "slug": "trustarc",
+      "url": "https://trustarc.com/trust/subprocessors",
+      "final": "https://trustarc.com/trust/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "osano",
-      "url": "https://osano.com/privacy/subprocessors",
-      "final": "https://osano.com/privacy/subprocessors",
+      "slug": "trustarc",
+      "url": "https://trustarc.com/legal/sub-processors",
+      "final": "https://trustarc.com/legal/sub-processors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "osano",
-      "url": "https://osano.com/trust/subprocessors",
-      "final": "https://osano.com/trust/subprocessors",
+      "slug": "trustarc",
+      "url": "https://trustarc.com/privacy/subprocessors",
+      "final": "https://trustarc.com/privacy/subprocessors",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "osano",
-      "url": "https://osano.com/company/subprocessors",
-      "final": "https://osano.com/company/subprocessors",
+      "slug": "trustarc",
+      "url": "https://trustarc.com/legal/sub-processors-page",
+      "final": "https://trustarc.com/legal/sub-processors-page",
       "reason": "fetch-failed",
       "kind": "subprocessors"
     },
     {
-      "slug": "osano",
-      "url": "https://osano.com/legal/sub-processors-page",
-      "final": "https://osano.com/legal/sub-processors-page",
+      "slug": "trustarc",
+      "url": "https://trustarc.com/company/subprocessors",
+      "final": "https://trustarc.com/company/subprocessors",
       "reason": "fetch-failed",
+      "kind": "subprocessors"
+    },
+    {
+      "slug": "trustarc",
+      "url": "https://trust.trustarc.com/subprocessors",
+      "final": "https://trust.trustarc.com/en-US/subprocessors",
+      "reason": "no-printed-names",
       "kind": "subprocessors"
     }
   ]

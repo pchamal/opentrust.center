@@ -2035,6 +2035,26 @@ expect(
     ruleOn(fileIndexHtml(osano))[0] === false &&
     ruleOn(fileIndexHtml(osano))[2] === true,
 );
+const trustarc = bySlug.trustarc;
+expect(
+  "trustarc Completeness is named list; Trust Center portal is not Official page",
+  trustarc.found === false &&
+    !trustarc.trust_url &&
+    ((trustarc.instruments || {}).trust || {}).url === "https://trust.trustarc.com" &&
+    !((trustarc.instruments || {}).dpa || {}).url &&
+    trustarc.instruments.subprocessors.url ===
+      "https://trust.trustarc.com/en-US/policies/sub-processors-and-affiliates" &&
+    (trustarc.processors || []).length === 5 &&
+    !(trustarc.certs || []).length &&
+    fileFlags(trustarc).page === 0 &&
+    fileFlags(trustarc).marks === 0 &&
+    fileFlags(trustarc).dpa === 0 &&
+    fileFlags(trustarc).subprocessors === 20 &&
+    fileFlags(trustarc).years === 0 &&
+    fileScore(fileFlags(trustarc)) === 20 &&
+    ruleOn(fileIndexHtml(trustarc))[0] === false &&
+    ruleOn(fileIndexHtml(trustarc))[3] === true,
+);
 const planview = bySlug.planview;
 expect(
   "URL-only subprocessors is 10 not 20",
