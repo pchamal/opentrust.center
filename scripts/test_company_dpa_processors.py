@@ -577,8 +577,8 @@ def main() -> int:
 
     # This cut: first-party Completeness DPAs on Mezmo, OOPSpam, and Zamzar.
     # JumpCloud /security is Official page and prints SOC 2 Type II / ISO 27001.
-    # GDPR/CCPA-as-rights stay unread. Tremendous DPA is a JS payload at
-    # probe size — unread. Explo /security is a Webflow shell — not Official
+    # GDPR/CCPA-as-rights stay unread. Tremendous DPA is now the published
+    # first-party addendum. Explo /security is a Webflow shell — not Official
     # page. JumpCloud customer DPA is a PDF — unread. Fern stays silent on
     # buildwithfern.com. Basefarm→Orange and Observe→Snowflake parent
     # redirects stay unread. Portal chrome is never Official page.
@@ -604,7 +604,11 @@ def main() -> int:
     )
     check((by_pub["zamzar"].get("file") or {}).get("dpa") == 20, "zamzar DPA prints")
     check(by_pub["zamzar"].get("found") is False, "zamzar Official page stays open")
-    check(not instrument_url(by_pub["tremendous"], "dpa"), "tremendous JS-payload DPA stays open")
+    check(
+        instrument_url(by_pub["tremendous"], "dpa") == "https://www.tremendous.com/data-processing-addendum/",
+        "tremendous DPA is the published addendum",
+    )
+    check((by_pub["tremendous"].get("file") or {}).get("dpa") == 20, "tremendous DPA prints")
     check(by_pub["jumpcloud-iam"].get("found") is True, "jumpcloud Official page is on file")
     check(
         by_pub["jumpcloud-iam"].get("trust_url") == "https://jumpcloud.com/security",
@@ -2949,8 +2953,16 @@ def main() -> int:
     )
     check(by_pub["vonq"].get("found") is False, "vonq Official page stays open")
     check(by_pub["textkernel"].get("found") is False, "textkernel Official page stays open")
-    check(by_pub["intech-solution"].get("found") is False, "intech VDP is not Official page")
-    check(by_pub["firetext-communications"].get("found") is False, "firetext Official page stays open")
+    check(by_pub["intech-solution"].get("found") is True, "intech Official page is the vulnerability disclosure policy")
+    check(
+        by_pub["intech-solution"].get("trust_url") == "https://www.intechsolutions.com.au/security/",
+        "intech Official page URL",
+    )
+    check(by_pub["firetext-communications"].get("found") is True, "firetext information security statement is Official page")
+    check(
+        by_pub["firetext-communications"].get("trust_url") == "https://www.firetext.co.uk/information-security-statement",
+        "firetext Official page URL",
+    )
     check(not (by_pub["firetext-communications"].get("certs") or []), "firetext homepage badges stay unread")
     check(by_pub["match-my-email"].get("found") is False, "match-my-email Official page stays open")
     rev_html = (ROOT / "site" / "c" / "rev.html").read_text(encoding="utf-8")

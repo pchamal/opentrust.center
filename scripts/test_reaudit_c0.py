@@ -245,16 +245,59 @@ def test_live_ledger_when_present() -> None:
     check(all(not (entries.get(slug) or {}).get("filed") for slug in second), "second cut filed no honest fill")
     check("lightdash" in second, "second cut starts at the next never-reaudited C0 row")
 
-    third = list(batch)
+    third = [
+        "4d-sas",
+        "4info",
+        "5linx",
+        "8i",
+        "a-plus",
+        "aandd-company",
+        "aandp-group",
+        "a123-systems",
+        "a4tech",
+        "aaeon",
+        "abacus-data-systems",
+        "abas-erp",
+        "abbvie",
+        "ableton",
+        "abm-intelligence",
+        "absint",
+        "academy-chicago-publishers",
+        "acadine-technologies",
+        "accelya",
+        "access-is",
+        "accessdata",
+        "accessiway",
+        "accordent-technologies",
+        "accountor",
+        "accton",
+        "accurx",
+        "accusoft",
+        "acd-systems",
+        "acer-inc",
+        "aci-worldwide",
+        "acision",
+        "acn-inc",
+        "aconex",
+        "acquity-group",
+        "acsis",
+    ]
     check(len(third) == 35, f"third cut probed 35 Completeness-0 rows, got {len(third)}")
+    check(all(slug in entries for slug in third), "third cut rows stay in the ledger")
     check(not set(third) & set(first), "third cut must be never-reaudited vs 2026-09-01")
     check(not set(third) & set(second), "third cut must be never-reaudited vs the lightdash cut")
     check(third[0] == "4d-sas", "third cut starts at the next never-reaudited C0 row")
     check("accurx" in third and "ableton" in third, "third cut includes the clerk-filed rows")
-    check(summary.get("batch") == 35, "third cut summary.batch is 35")
-    check(summary.get("fileable") == 6, f"third cut extractor fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 15, f"third cut soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("filled") == 4, f"third cut clerk-approved fills, got {summary.get('filled')}")
+
+    check(len(batch) == 30, f"2026-10-23 batch is 30, got {len(batch)}")
+    check(batch[0] == "addepar" and batch[-1] == "agfa", "2026-10-23 batch is the addepar–agfa cut")
+    check(summary.get("batch") == 30, "2026-10-23 summary.batch is 30")
+    check(summary.get("fileable") == 11, f"2026-10-23 extractor fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 5, f"2026-10-23 soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 19, f"2026-10-23 still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 4, f"2026-10-23 last-batch clerk fills, got {summary.get('filled')}")
+    october = [slug for slug, rec in entries.items() if str(rec.get("date") or "").startswith("2026-10-")]
+    check(len(october) == 90, f"10/22 and 10/23 cuts stay in the ledger, got {len(october)}")
 
     ableton = entries.get("ableton") or {}
     check(ableton.get("filed") is True, "ableton ledger row records the apply")
@@ -299,6 +342,56 @@ def test_live_ledger_when_present() -> None:
     check(not (entries.get("a-plus") or {}).get("filed"), "a-plus empty placeholder was not filed")
     check(not (entries.get("accountor") or {}).get("filed"), "accountor framework-ISO was not filed")
 
+    shipped = {
+        "meilisearch": {"marks"},
+        "tandem-health": {"dpa"},
+        "cielo": {"marks"},
+        "datapacket": {"years"},
+        "firetext-communications": {"page", "years"},
+        "intech-solution": {"page"},
+        "servers-com": {"marks", "dpa", "years"},
+        "tremendous": {"page", "dpa"},
+        "warmly-ai": {"years"},
+        "wowza": {"marks", "years"},
+        "xfive": {"years"},
+        "3shape": {"dpa", "subprocessors"},
+        "8-4": {"years"},
+        "active-network-llc": {"dpa"},
+        "active-space-technologies": {"years"},
+        "adacel": {"marks", "years"},
+        "adamworks": {"years"},
+        "addepar": {"marks", "subprocessors"},
+        "adguard": {"dpa"},
+        "afriex": {"years"},
+        "aftershock-pc": {"years"},
+    }
+    for slug, keys in shipped.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-10-23", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+    check(
+        ((entries.get("meilisearch") or {}).get("hit") or {}).get("marks", {}).get("added") == ["SOC 2 Type II"],
+        "meilisearch SOC 2 Type II in ledger",
+    )
+    check(
+        ((entries.get("3shape") or {}).get("hit") or {}).get("subprocessors", {}).get("names")
+        == ["Microsoft Ireland Operations, Ltd"],
+        "3shape named list is the one printed row",
+    )
+    check((entries.get("tandem-health") or {}).get("filed_keys") == ["dpa"], "tandem year on /legal/ stays unfiled")
+    for slug in (
+        "act-on",
+        "access-communications",
+        "live-nation-entertainment",
+        "docdelta",
+        "zenlayer",
+        "aero-controls",
+        "agfa",
+        "hca-healthcare",
+    ):
+        check(not (entries.get(slug) or {}).get("filed"), f"{slug} stays unfiled")
+
     public = json.loads((ROOT / "site" / "data.json").read_text())
     by_pub = {row.get("slug"): row for row in public.get("companies") or [] if row.get("slug")}
 
@@ -327,7 +420,11 @@ def test_live_ledger_when_present() -> None:
     check((pub_accurx.get("file") or {}).get("marks") == 20, "accurx marks print")
     check((pub_accurx.get("file") or {}).get("dpa") == 20, "accurx DPA prints")
     check((pub_accurx.get("file") or {}).get("years") == 20, "accurx years print")
-    check((pub_accurx.get("file") or {}).get("subprocessors") in (0, False, None), "accurx category-header subs stay off file")
+    check((pub_accurx.get("file") or {}).get("subprocessors") == 20, "accurx named list stays on file")
+    check(
+        any((p or {}).get("name") == "Tandem Health AB" for p in (pub_accurx.get("processors") or [])),
+        "accurx named processors stay",
+    )
     check(pub_accurx.get("founded_year") == 2016, "accurx year is first-party who-we-are")
     check(
         ((pub_accurx.get("instruments") or {}).get("dpa") or {}).get("url")
@@ -342,6 +439,50 @@ def test_live_ledger_when_present() -> None:
 
     check((by_pub["a-plus"].get("file") or {}).get("page") in (0, False, None), "a-plus empty placeholder is not Official page")
     check(not (by_pub["accountor"].get("certs") or []), "accountor guiding-framework ISO 27001 stays open")
+
+    pub_meili = by_pub["meilisearch"]
+    check(pub_meili.get("certs") == ["SOC 2 Type II"], f"meilisearch marks {pub_meili.get('certs')}")
+    check((pub_meili.get("file") or {}).get("marks") == 20, "meilisearch marks print")
+    check(pub_meili.get("found") is False, "meilisearch privacy policy is not Official page")
+
+    pub_fire = by_pub["firetext-communications"]
+    check(pub_fire.get("found") is True, "firetext Official page is on file")
+    check(
+        pub_fire.get("trust_url") == "https://www.firetext.co.uk/information-security-statement",
+        "firetext Official page URL",
+    )
+    check(not (pub_fire.get("certs") or []), "firetext ISO wording stays off the marks rule")
+    check(pub_fire.get("founded_year") == 2007, "firetext year is first-party about")
+    check((pub_fire.get("file") or {}).get("page") == 20, "firetext Official page prints")
+    check((pub_fire.get("file") or {}).get("years") == 20, "firetext years print")
+
+    pub_tandem = by_pub["tandem-health"]
+    check(
+        ((pub_tandem.get("instruments") or {}).get("dpa") or {}).get("url")
+        == "https://tandemhealth.ai/legal/data-processing-agreement",
+        "tandem DPA URL",
+    )
+    check(not pub_tandem.get("founded_year"), "tandem /legal/ foundingDate stays off the years rule")
+    check(pub_tandem.get("found") is False, "tandem customer story is not Official page")
+    check(not (pub_tandem.get("processors") or []), "tandem JS-shell subprocessors stay off file")
+
+    pub_3shape = by_pub["3shape"]
+    check(
+        [p.get("name") for p in (pub_3shape.get("processors") or [])] == ["Microsoft Ireland Operations, Ltd"],
+        f"3shape processors {pub_3shape.get('processors')}",
+    )
+    check((pub_3shape.get("file") or {}).get("subprocessors") == 20, "3shape named list prints")
+    check((pub_3shape.get("file") or {}).get("dpa") == 20, "3shape DPA prints")
+
+    pub_addepar = by_pub["addepar"]
+    check(pub_addepar.get("certs") == ["SOC 3"], f"addepar marks {pub_addepar.get('certs')}")
+    check(len(pub_addepar.get("processors") or []) == 29, "addepar named list is the printed 29")
+    check((pub_addepar.get("file") or {}).get("subprocessors") == 20, "addepar named list prints")
+
+    for slug in ("act-on", "access-communications", "live-nation-entertainment", "docdelta", "zenlayer"):
+        check((by_pub[slug].get("file") or {}).get("page") in (0, False, None), f"{slug} Official page stays open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
 
     for slug, rec in entries.items():
         check(rec.get("domain"), f"{slug} ledger row is missing a domain")
