@@ -972,6 +972,16 @@ def main() -> int:
     check("pandora-fms" not in REGISTER_ALIASES, "pandora-fms stays the filed row")
     check(not skip_processor("pandora-fms", "Pandora FMS"), "pandora-fms is not a garbage slug")
     check(not skip_processor("rtica-pfms-slu", "Ártica PFMS SLU"), "rtica-pfms-slu is not a garbage slug")
+    check("zealep-business-solutions" not in REGISTER_ALIASES, "zealep-business-solutions stays the filed row")
+    check("fineyear-human-resources-service" not in REGISTER_ALIASES, "fineyear-human-resources-service stays the filed row")
+    check(
+        not skip_processor("zealep-business-solutions", "ZBiz Solutions (Zealep Business Solutions)"),
+        "zealep-business-solutions is not a garbage slug",
+    )
+    check(
+        not skip_processor("fineyear-human-resources-service", "Fineyear Human Resources Service"),
+        "fineyear-human-resources-service is not a garbage slug",
+    )
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch
