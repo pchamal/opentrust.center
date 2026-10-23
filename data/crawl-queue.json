@@ -2,7 +2,7 @@
   "generated_at": "2026-10-21T22:48:56Z",
   "target": 10000,
   "already_on_file": 4918,
-  "queued": 2185,
+  "queued": 2196,
   "companies": [
     {
       "name": "Lemlist",
@@ -650,7 +650,7 @@
       "priority": 0
     },
     {
-      "name": "\u00c1rtica PFMS SLU",
+      "name": "Ártica PFMS SLU",
       "slug": "rtica-pfms-slu",
       "domain": "",
       "source": "named-processor-gap",
@@ -1488,7 +1488,7 @@
       "priority": 3
     },
     {
-      "name": "Safefood 360\u00b0",
+      "name": "Safefood 360°",
       "slug": "safefood-360",
       "domain": "safefood360.com",
       "source": "wikipedia-software-nyc",
@@ -2567,7 +2567,7 @@
       "priority": 3
     },
     {
-      "name": "Encyclop\u00e6dia Britannica, Inc.",
+      "name": "Encyclopædia Britannica, Inc.",
       "slug": "encyclop-dia-britannica-inc",
       "domain": "corporate.britannica.com",
       "source": "wikipedia-companies-chicago",
@@ -15427,7 +15427,7 @@
       "source_url": "https://www.testmuai.com/legal/sub-processor/",
       "named_by": 1,
       "priority": 0,
-      "reason": "naming-list first-party help.justcall.io \u2192 justcall.io"
+      "reason": "naming-list first-party help.justcall.io → justcall.io"
     },
     {
       "name": "MacStadium, Inc",
@@ -15437,7 +15437,7 @@
       "source_url": "https://www.testmuai.com/legal/sub-processor/",
       "named_by": 1,
       "priority": 0,
-      "reason": "naming-list first-party docs.macstadium.com \u2192 macstadium.com"
+      "reason": "naming-list first-party docs.macstadium.com → macstadium.com"
     },
     {
       "name": "Reo.dev",
@@ -16600,35 +16600,38 @@
     {
       "name": "Aircall",
       "slug": "aircall",
-      "domain": "",
+      "domain": "aircall.io",
       "source": "named-processor-gap",
       "source_url": "https://trust.sms-magic.com/subprocessors/",
       "named_by": 1,
       "priority": 0,
-      "reason": "exact; cleared-rejected-mapping",
-      "reject_domain": "aircall.se"
+      "reason": "first-party-homepage",
+      "reject_domain": "aircall.se",
+      "official_url": "https://aircall.io/"
     },
     {
       "name": "Maxio",
       "slug": "maxio",
-      "domain": "",
+      "domain": "maxio.com",
       "source": "named-processor-gap",
       "source_url": "https://www.jasper.ai/legal/sub-processors",
       "named_by": 1,
       "priority": 0,
-      "reason": "same-domain-all-org-candidates; cleared-rejected-mapping",
-      "reject_domain": "maxionwheels.com"
+      "reason": "first-party-homepage",
+      "reject_domain": "maxionwheels.com",
+      "official_url": "https://maxio.com/"
     },
     {
-      "name": "Fathom Analytics, Inc",
+      "name": "Fathom Analytics",
       "slug": "fathom-analytics",
-      "domain": "",
+      "domain": "usefathom.com",
       "source": "named-processor-gap",
       "source_url": "https://compliance.apideck.com/subprocessors",
       "named_by": 1,
       "priority": 0,
-      "reason": "naming-list-homepage score=10; cleared-rejected-mapping",
-      "reject_domain": "fathom.video"
+      "reason": "first-party-homepage",
+      "reject_domain": "fathom.video",
+      "official_url": "https://usefathom.com/"
     },
     {
       "name": "Voyager",
@@ -16714,7 +16717,7 @@
       "priority": 3
     },
     {
-      "name": "S\u00edragon",
+      "name": "Síragon",
       "slug": "s-ragon",
       "domain": "siragon.com",
       "source": "wikipedia-computer-hardware-companies",
@@ -16722,7 +16725,7 @@
       "priority": 3
     },
     {
-      "name": "S\u00fbrtab",
+      "name": "Sûrtab",
       "slug": "s-rtab",
       "domain": "surtab.com",
       "source": "wikipedia-computer-hardware-companies",
@@ -16842,7 +16845,7 @@
       "priority": 3
     },
     {
-      "name": "Telef\u00f3nica Germany",
+      "name": "Telefónica Germany",
       "slug": "telef-nica-germany",
       "domain": "telefonica.de",
       "source": "wikipedia-telecom-germany",
@@ -17740,6 +17743,127 @@
       "source": "wikipedia-software-spain",
       "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Spain",
       "priority": 3
+    },
+    {
+      "name": "Airbyte",
+      "slug": "airbyte",
+      "domain": "airbyte.com",
+      "source": "named-processor-gap",
+      "source_url": "https://addepar.com/legal/sub-processors",
+      "named_by": 1,
+      "priority": 0,
+      "official_url": "https://airbyte.com/",
+      "reason": "first-party-homepage"
+    },
+    {
+      "name": "Kong",
+      "slug": "kong",
+      "domain": "konghq.com",
+      "source": "named-processor-gap",
+      "source_url": "https://addepar.com/legal/sub-processors",
+      "named_by": 1,
+      "priority": 0,
+      "official_url": "https://konghq.com/",
+      "reason": "first-party-homepage"
+    },
+    {
+      "name": "Visier",
+      "slug": "visier",
+      "domain": "visier.com",
+      "source": "named-processor-gap",
+      "source_url": "https://www.smartrecruiters.com/legal/subprocessors/",
+      "named_by": 1,
+      "priority": 0,
+      "official_url": "https://visier.com/",
+      "reason": "first-party-homepage"
+    },
+    {
+      "name": "Altinity",
+      "slug": "altinity",
+      "domain": "altinity.com",
+      "source": "named-processor-gap",
+      "source_url": "https://www.plivo.com/legal/subprocessors/",
+      "named_by": 1,
+      "priority": 0,
+      "official_url": "https://altinity.com/",
+      "reason": "first-party-homepage"
+    },
+    {
+      "name": "Level Access",
+      "slug": "level-access",
+      "domain": "levelaccess.com",
+      "source": "named-processor-gap",
+      "source_url": "https://contentsquare.com/privacy-center/subprocessors/",
+      "named_by": 1,
+      "priority": 0,
+      "official_url": "https://levelaccess.com/",
+      "reason": "first-party-homepage"
+    },
+    {
+      "name": "Joveo",
+      "slug": "joveo",
+      "domain": "joveo.com",
+      "source": "named-processor-gap",
+      "source_url": "https://www.smartrecruiters.com/legal/subprocessors/",
+      "named_by": 1,
+      "priority": 0,
+      "official_url": "https://joveo.com/",
+      "reason": "first-party-homepage"
+    },
+    {
+      "name": "Allego",
+      "slug": "allego",
+      "domain": "allego.com",
+      "source": "named-processor-gap",
+      "source_url": "https://addepar.com/legal/sub-processors",
+      "named_by": 1,
+      "priority": 0,
+      "official_url": "https://allego.com/",
+      "reason": "first-party-homepage"
+    },
+    {
+      "name": "Usercentrics",
+      "slug": "usercentrics",
+      "domain": "usercentrics.com",
+      "source": "named-processor-gap",
+      "source_url": "https://www.plivo.com/legal/subprocessors/",
+      "named_by": 1,
+      "priority": 0,
+      "official_url": "https://usercentrics.com/",
+      "reason": "first-party-homepage"
+    },
+    {
+      "name": "Paddle",
+      "slug": "paddle",
+      "domain": "paddle.com",
+      "source": "named-processor-gap",
+      "source_url": "https://formspree.io/legal/subprocessors/",
+      "named_by": 1,
+      "priority": 0,
+      "official_url": "https://paddle.com/",
+      "reason": "first-party-homepage"
+    },
+    {
+      "name": "24Slides",
+      "slug": "24slides",
+      "domain": "24slides.com",
+      "source": "named-processor-gap",
+      "source_url": "https://www.alphasights.com/sub-processors/",
+      "named_by": 1,
+      "priority": 0,
+      "official_url": "https://24slides.com/",
+      "reason": "first-party-homepage"
+    },
+    {
+      "name": "AltExchange",
+      "slug": "altexchange",
+      "domain": "altexchange.com",
+      "source": "named-processor-gap",
+      "source_url": "https://addepar.com/legal/sub-processors",
+      "named_by": 1,
+      "priority": 0,
+      "official_url": "https://altexchange.com/",
+      "reason": "first-party-homepage"
     }
   ],
   "domain_resolve_at": "2026-09-01T21:24:34Z"

@@ -768,6 +768,33 @@ def main() -> int:
     check(canonical_processor_id("cloudways", do_cloud) == "digitalocean", "Cloudways is DigitalOcean")
     check(REGISTER_ALIASES["cloudways"] == "digitalocean", "cloudways aliases to digitalocean")
     check("cloudways" not in ("lemlist", "adeptid", "cardinal-path"), "cloudways is aliased, not filed")
+    aircall_reg = {**register, "aircall": {"slug": "aircall", "name": "Aircall", "domain": "aircall.io"}}
+    check(canonical_processor_id("aircall-sas", aircall_reg) == "aircall", "Aircall SAS is Aircall")
+    check(REGISTER_ALIASES["aircall-sas"] == "aircall", "aircall-sas aliases to aircall")
+    check(canonical_processor_id("apigee-x-google", register) == "google", "Apigee X is Google")
+    check(REGISTER_ALIASES["apigee-x-google"] == "google", "apigee-x-google aliases to google")
+    check(canonical_processor_id("google-apps", register) == "google", "Google Apps is Google")
+    check(REGISTER_ALIASES["google-apps"] == "google", "google-apps aliases to google")
+    abn_reg = {**register, "abnormal-ai": {"slug": "abnormal-ai", "name": "Abnormal AI", "domain": "abnormal.ai"}}
+    check(canonical_processor_id("abnormal-security", abn_reg) == "abnormal-ai", "Abnormal Security is Abnormal AI")
+    check(REGISTER_ALIASES["abnormal-security"] == "abnormal-ai", "abnormal-security aliases to abnormal-ai")
+    bt_reg = {**register, "bt-business-and-public-sector": {"slug": "bt-business-and-public-sector", "name": "BT Business and Public Sector", "domain": "bt.com"}}
+    check(canonical_processor_id("bt", bt_reg) == "bt-business-and-public-sector", "BT Ltd is BT Business and Public Sector")
+    check(REGISTER_ALIASES["bt"] == "bt-business-and-public-sector", "bt aliases to bt-business-and-public-sector")
+    check(canonical_processor_id("heap", cs_reg) == "contentsquare", "Heap is Contentsquare")
+    check(REGISTER_ALIASES["heap"] == "contentsquare", "heap aliases to contentsquare")
+    paddle_reg = {**register, "paddle": {"slug": "paddle", "name": "Paddle", "domain": "paddle.com"}}
+    check(canonical_processor_id("profitwell", paddle_reg) == "paddle", "Profitwell is Paddle")
+    check(REGISTER_ALIASES["profitwell"] == "paddle", "profitwell aliases to paddle")
+    uc_reg = {**register, "usercentrics": {"slug": "usercentrics", "name": "Usercentrics", "domain": "usercentrics.com"}}
+    check(canonical_processor_id("cookie-bot", uc_reg) == "usercentrics", "Cookie Bot is Usercentrics")
+    check(REGISTER_ALIASES["cookie-bot"] == "usercentrics", "cookie-bot aliases to usercentrics")
+    slides_reg = {**register, "24slides": {"slug": "24slides", "name": "24Slides", "domain": "24slides.com"}}
+    check(canonical_processor_id("24slides-aps", slides_reg) == "24slides", "24Slides ApS is 24Slides")
+    check(REGISTER_ALIASES["24slides-aps"] == "24slides", "24slides-aps aliases to 24slides")
+    check("workramp" not in REGISTER_ALIASES, "workramp stays unaliased")
+    check("hydrolix" not in REGISTER_ALIASES, "hydrolix stays unaliased")
+    check("voyager" not in REGISTER_ALIASES, "voyager stays unaliased")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch

@@ -1385,8 +1385,10 @@ def main() -> int:
     check("Telecom Partners (Aus)" not in sms_names, "sms-magic unnamed telecom rows stay off file")
     check("match-my-email" in by_pub, "sms-magic Match My Email uses the named-processor-gap file")
     check(by_pub["match-my-email"].get("domain") == "matchmyemail.com", "match-my-email official domain is matchmyemail.com")
-    check("aircall" not in by_pub, "sms-magic does not invent an Aircall dossier")
-    check("aircall" not in by_enr, "aircall stays a domain-less leftover after the wrong-company revert")
+    check("aircall" in by_pub, "sms-magic Aircall uses the aircall.io file")
+    check(by_pub["aircall"]["domain"] == "aircall.io", "aircall official domain is aircall.io")
+    check(by_enr["aircall"]["domain"] == "aircall.io", "aircall enriched domain is aircall.io")
+    check("aircall.se" not in (by_pub["aircall"].get("domain") or ""), "aircall.se stays rejected")
     # Prior cut: Accurx first-party support-article table. DPA annex headings
     # stay unread. Azure / SendGrid / TeamViewer UK alias onto existing rows.
     accurx_names = [p.get("name") for p in (by_pub["accurx"].get("processors") or [])]
@@ -1490,26 +1492,35 @@ def main() -> int:
     )
     # PR 265 filings stay on file. CloudAMQP DPA annex drop stays unread.
     check(len(by_pub["apideck"].get("processors") or []) == 11, "apideck 11 names stay")
-    check("fathom-analytics" not in by_pub, "apideck does not invent a Fathom Analytics dossier")
-    check("fathom-analytics" not in by_enr, "fathom-analytics stays a domain-less leftover after the wrong-company revert")
+    check("fathom-analytics" in by_pub, "apideck Fathom Analytics uses the usefathom.com file")
+    check(by_pub["fathom-analytics"]["domain"] == "usefathom.com", "fathom-analytics official domain is usefathom.com")
+    check(by_enr["fathom-analytics"]["domain"] == "usefathom.com", "fathom-analytics enriched domain is usefathom.com")
+    check("fathom.video" not in (by_pub["fathom-analytics"].get("domain") or ""), "fathom.video stays rejected")
     check(len(by_pub["client-success"].get("processors") or []) == 10, "client-success 10 names stay")
     check(len(by_pub["forethought-technologies"].get("processors") or []) == 21, "forethought 21 names stay")
     check(len(by_pub["jasper-ai"].get("processors") or []) == 31, "jasper 31 names stay")
-    check("maxio" not in by_pub, "jasper does not invent a Maxio dossier")
-    check("maxio" not in by_enr, "maxio stays a domain-less leftover after the wrong-company revert")
+    check("maxio" in by_pub, "jasper Maxio uses the maxio.com file")
+    check(by_pub["maxio"]["domain"] == "maxio.com", "maxio official domain is maxio.com")
+    check(by_enr["maxio"]["domain"] == "maxio.com", "maxio enriched domain is maxio.com")
+    check("maxionwheels.com" not in (by_pub["maxio"].get("domain") or ""), "maxionwheels.com stays rejected")
     leftover_nodes = {n.get("id"): n for n in (wires.get("nodes") or [])}
-    for slug, bad_domain in (
-        ("maxio", "maxionwheels.com"),
-        ("aircall", "aircall.se"),
-        ("voyager", "voyager.nz"),
-        ("fathom-analytics", "fathom.video"),
+    for slug, domain, bad_domain in (
+        ("maxio", "maxio.com", "maxionwheels.com"),
+        ("aircall", "aircall.io", "aircall.se"),
+        ("fathom-analytics", "usefathom.com", "fathom.video"),
     ):
         node = leftover_nodes.get(slug) or {}
-        check(node, f"{slug} leftover graph node stays")
-        check(not (node.get("domain") or ""), f"{slug} leftover stays domain-less, got {node.get('domain')!r}")
-        check(bad_domain not in (node.get("domain") or ""), f"{slug} leftover does not keep {bad_domain}")
-        check(not node.get("in_register"), f"{slug} leftover stays off the register")
-        check(not (ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier page is gone")
+        check(node, f"{slug} graph node stays")
+        check(node.get("domain") == domain, f"{slug} graph domain is {domain}, got {node.get('domain')!r}")
+        check(bad_domain not in (node.get("domain") or ""), f"{slug} does not keep {bad_domain}")
+        check(node.get("in_register") is True, f"{slug} is on the register")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier page is on file")
+    voyager_node = leftover_nodes.get("voyager") or {}
+    check(voyager_node, "voyager leftover graph node stays")
+    check(not (voyager_node.get("domain") or ""), f"voyager leftover stays domain-less, got {voyager_node.get('domain')!r}")
+    check("voyager.nz" not in (voyager_node.get("domain") or ""), "voyager leftover does not keep voyager.nz")
+    check(not voyager_node.get("in_register"), "voyager leftover stays off the register")
+    check(not (ROOT / "site" / "c" / "voyager.html").exists(), "voyager dossier page is gone")
     datazoo_html = (ROOT / "site" / "c" / "data-zoo.html").read_text(encoding="utf-8")
     sms_html = (ROOT / "site" / "c" / "sms-magic.html").read_text(encoding="utf-8")
     jasper_html = (ROOT / "site" / "c" / "jasper-ai.html").read_text(encoding="utf-8")
@@ -1517,14 +1528,14 @@ def main() -> int:
     check('../graph.html#p=voyager">Voyager' in datazoo_html, "data-zoo Voyager stays a leftover map node")
     check("./voyager.html" not in datazoo_html, "data-zoo does not link a Voyager dossier")
     check("voyager.nz" not in datazoo_html, "data-zoo does not cite voyager.nz")
-    check('../graph.html#p=aircall">Aircall' in sms_html, "sms-magic Aircall stays a leftover map node")
-    check("./aircall.html" not in sms_html, "sms-magic does not link an Aircall dossier")
+    check("./aircall.html\">Aircall" in sms_html, "sms-magic Aircall lands on the Aircall dossier")
+    check("../graph.html#p=aircall" not in sms_html, "sms-magic Aircall is no longer a leftover map node")
     check("aircall.se" not in sms_html, "sms-magic does not cite aircall.se")
-    check('../graph.html#p=maxio">Maxio' in jasper_html, "jasper Maxio stays a leftover map node")
-    check("./maxio.html" not in jasper_html, "jasper does not link a Maxio dossier")
+    check("./maxio.html\">Maxio" in jasper_html, "jasper Maxio lands on the Maxio dossier")
+    check("../graph.html#p=maxio" not in jasper_html, "jasper Maxio is no longer a leftover map node")
     check("maxionwheels.com" not in jasper_html, "jasper does not cite maxionwheels.com")
-    check('../graph.html#p=fathom-analytics">Fathom Analytics, Inc' in apideck_html, "apideck Fathom Analytics stays a leftover map node")
-    check("./fathom-analytics.html" not in apideck_html, "apideck does not link a Fathom Analytics dossier")
+    check("./fathom-analytics.html\">Fathom Analytics, Inc" in apideck_html, "apideck Fathom Analytics lands on the Fathom dossier")
+    check("../graph.html#p=fathom-analytics" not in apideck_html, "apideck Fathom Analytics is no longer a leftover map node")
     check("fathom.video" not in apideck_html, "apideck does not cite fathom.video")
     check("fathom.ai" not in apideck_html, "apideck does not cite fathom.ai")
     check(len(by_pub["liveblocks"].get("processors") or []) == 14, "liveblocks 14 names stay")
@@ -2753,7 +2764,7 @@ def main() -> int:
         check(slug in by_pub, f"{slug} expand-hour silent file stays on the register")
         check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
-    for slug in ("maxio", "aircall", "voyager", "fathom-analytics"):
+    for slug in ("voyager",):
         check(slug not in by_pub, f"{slug} stays off the register")
     check(by_pub["chili-piper"].get("found") is True, "chili-piper Official page is on file")
     check(by_pub["chili-piper"].get("trust_url") == "https://www.chilipiper.com/security", "chili-piper Official page is first-party security")
@@ -2817,7 +2828,7 @@ def main() -> int:
         check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
     check("klaxoon-sas" not in by_pub, "klaxoon-sas is not a second Wrike dossier")
     check("squadcast" not in by_pub, "squadcast is not a second SolarWinds dossier")
-    for slug in ("maxio", "aircall", "voyager", "fathom-analytics"):
+    for slug in ("voyager",):
         check(slug not in by_pub, f"{slug} stays off the register")
     check(by_pub["statsig"].get("found") is True, "statsig Official page is on file")
     check(
@@ -2910,7 +2921,7 @@ def main() -> int:
     ):
         check(slug in by_pub, f"{slug} is on the register")
         check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
-    for slug in ("maxio", "aircall", "voyager", "fathom-analytics", "kaleido", "dispatch"):
+    for slug in ("voyager", "kaleido", "dispatch"):
         check(slug not in by_pub, f"{slug} stays off the register")
     check(by_pub["rev"].get("found") is True, "rev Official page is on file")
     check(by_pub["rev"].get("trust_url") == "https://www.rev.com/security", "rev Official page is first-party security")
@@ -3005,9 +3016,9 @@ def main() -> int:
         check("GDPR" not in (by_pub[slug].get("certs") or []), f"{slug} GDPR is not a mark")
         check("CCPA" not in (by_pub[slug].get("certs") or []), f"{slug} CCPA is not a mark")
     for slug in (
-        "maxio", "aircall", "aircall-sas", "voyager", "fathom-analytics",
-        "kaleido", "dispatch", "cookie-bot", "joveo", "altinity",
-        "level-access", "springserve", "profitwell",
+        "aircall-sas", "voyager",
+        "kaleido", "dispatch", "cookie-bot",
+        "springserve", "profitwell",
         "pigeonlab", "luma", "paragon", "bt", "gcs",
     ):
         check(slug not in by_pub, f"{slug} stays off the register")
@@ -3071,9 +3082,9 @@ def main() -> int:
         check("GDPR" not in (by_pub[slug].get("certs") or []), f"{slug} GDPR is not a mark")
         check("CCPA" not in (by_pub[slug].get("certs") or []), f"{slug} CCPA is not a mark")
     for slug in (
-        "maxio", "aircall", "aircall-sas", "voyager", "fathom-analytics",
-        "kaleido", "dispatch", "cookie-bot", "joveo", "altinity",
-        "level-access", "springserve", "profitwell",
+        "aircall-sas", "voyager",
+        "kaleido", "dispatch", "cookie-bot",
+        "springserve", "profitwell",
         "pigeonlab", "luma", "paragon", "bt", "gcs",
     ):
         check(slug not in by_pub, f"{slug} stays off the register")
@@ -3143,9 +3154,9 @@ def main() -> int:
         check("GDPR" not in (by_pub[slug].get("certs") or []), f"{slug} GDPR is not a mark")
         check("CCPA" not in (by_pub[slug].get("certs") or []), f"{slug} CCPA is not a mark")
     for slug in (
-        "maxio", "aircall", "aircall-sas", "voyager", "fathom-analytics",
-        "kaleido", "dispatch", "cookie-bot", "joveo", "altinity",
-        "level-access", "springserve", "profitwell",
+        "aircall-sas", "voyager",
+        "kaleido", "dispatch", "cookie-bot",
+        "springserve", "profitwell",
         "pigeonlab", "luma", "paragon", "bt", "gcs",
         "regula-baltija", "up-reply",
     ):
@@ -3202,12 +3213,12 @@ def main() -> int:
     check("springserve" not in by_pub, "springserve is not a second Magnite dossier")
     check("magnite" in by_pub, "magnite stays the filed SpringServe row")
     for slug in (
-        "maxio", "aircall", "aircall-sas", "voyager", "fathom-analytics",
-        "kaleido", "dispatch", "cookie-bot", "joveo", "altinity",
-        "level-access", "springserve", "profitwell",
+        "aircall-sas", "voyager",
+        "kaleido", "dispatch", "cookie-bot",
+        "springserve", "profitwell",
         "pigeonlab", "luma", "paragon", "bt", "gcs",
         "regula-baltija", "up-reply",
-        "24slides-aps", "visier", "freeplay",
+        "24slides-aps", "freeplay",
         "talent-tech-solutions", "rule-56",
         "df-tech-fz", "dentsu-manchester",
     ):
@@ -3300,6 +3311,98 @@ def main() -> int:
     check("vanta" not in lem_html.lower(), "lemlist dossier names no portal vendor")
     check("safebase" not in lem_html.lower(), "lemlist dossier names no portal vendor")
     check("bastion" not in lem_html.lower(), "lemlist dossier names no portal vendor")
+
+    # This cut: alias same-company wire ids onto an existing or newly filed
+    # slug. File the vetted domain-only rows. No trust URL, mark, DPA,
+    # named list, or year on these new files. Completeness stays 0.
+    # Rejected domains stay rejected. Skip-list names stay off the register.
+    filed = {
+        "aircall": "aircall.io",
+        "airbyte": "airbyte.com",
+        "kong": "konghq.com",
+        "visier": "visier.com",
+        "altinity": "altinity.com",
+        "level-access": "levelaccess.com",
+        "fathom-analytics": "usefathom.com",
+        "maxio": "maxio.com",
+        "joveo": "joveo.com",
+        "allego": "allego.com",
+        "usercentrics": "usercentrics.com",
+        "paddle": "paddle.com",
+        "24slides": "24slides.com",
+        "altexchange": "altexchange.com",
+    }
+    for slug, domain in filed.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    for slug in (
+        "aircall-sas", "apigee-x-google", "google-apps", "abnormal-security",
+        "bt", "heap", "profitwell", "cookie-bot", "24slides-aps",
+        "workramp", "hydrolix", "mozilor-technologies-pvt",
+        "kaleido", "luma", "paragon", "dispatch", "voyager", "freeplay",
+    ):
+        check(slug not in by_pub, f"{slug} is not a second dossier")
+    gap_nodes = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed:
+        node = gap_nodes.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed[slug], f"{slug} graph domain is the filed domain")
+    for src, dest in (
+        ("aircall-sas", "aircall"),
+        ("apigee-x-google", "google"),
+        ("google-apps", "google"),
+        ("abnormal-security", "abnormal-ai"),
+        ("bt", "bt-business-and-public-sector"),
+        ("heap", "contentsquare"),
+        ("profitwell", "paddle"),
+        ("cookie-bot", "usercentrics"),
+        ("24slides-aps", "24slides"),
+    ):
+        check(src not in gap_nodes, f"{src} leftover node is gone")
+        check((gap_nodes.get(dest) or {}).get("in_register") is True, f"{dest} stays on the register")
+        check(not any(e.get("to") == src for e in (wires.get("edges") or [])), f"{src} wire is remapped")
+    addepar_html = (ROOT / "site" / "c" / "addepar.html").read_text(encoding="utf-8")
+    check("./abnormal-ai.html\">Abnormal Security" in addepar_html, "addepar Abnormal Security lands on Abnormal AI")
+    check("./airbyte.html\">Airbyte, Inc" in addepar_html, "addepar Airbyte lands on the Airbyte dossier")
+    check("./allego.html\">Allego, Inc" in addepar_html, "addepar Allego lands on the Allego dossier")
+    check("./altexchange.html\">AltExchange, Inc" in addepar_html, "addepar AltExchange lands on the AltExchange dossier")
+    check("./google.html\">Apigee X (Google)" in addepar_html, "addepar Apigee X lands on Google")
+    check("./google.html\">Google Apps" in addepar_html, "addepar Google Apps lands on Google")
+    check("./contentsquare.html\">Heap" in addepar_html, "addepar Heap lands on Contentsquare")
+    check("./kong.html\">Kong, Inc" in addepar_html, "addepar Kong lands on the Kong dossier")
+    check("../graph.html#p=airbyte" not in addepar_html, "addepar Airbyte is no longer a leftover map node")
+    check("../graph.html#p=heap" not in addepar_html, "addepar Heap is no longer a leftover map node")
+    plivo_html = (ROOT / "site" / "c" / "plivo.html").read_text(encoding="utf-8")
+    check("./usercentrics.html\">Cookie Bot" in plivo_html, "plivo Cookie Bot lands on Usercentrics")
+    check("./altinity.html\">Altinity Inc" in plivo_html, "plivo Altinity lands on the Altinity dossier")
+    check("../graph.html#p=cookie-bot" not in plivo_html, "plivo Cookie Bot is no longer a leftover map node")
+    form_html_cut = (ROOT / "site" / "c" / "formspree.html").read_text(encoding="utf-8")
+    check("./paddle.html\">Profitwell" in form_html_cut, "formspree Profitwell lands on Paddle")
+    check("../graph.html#p=profitwell" not in form_html_cut, "formspree Profitwell is no longer a leftover map node")
+    cs_html = (ROOT / "site" / "c" / "contentsquare.html").read_text(encoding="utf-8")
+    check("./level-access.html\">Level Access, Inc" in cs_html, "contentsquare Level Access lands on the Level Access dossier")
+    sr_html = (ROOT / "site" / "c" / "smartrecruiters.html").read_text(encoding="utf-8")
+    check("./visier.html" in sr_html, "smartrecruiters Visier lands on the Visier dossier")
+    check("./joveo.html" in sr_html, "smartrecruiters Joveo lands on the Joveo dossier")
+    alpha_html = (ROOT / "site" / "c" / "alphasights.html").read_text(encoding="utf-8")
+    check("./24slides.html\">24Slides ApS" in alpha_html, "alphasights 24Slides ApS lands on the 24Slides dossier")
+    check("../graph.html#p=24slides-aps" not in alpha_html, "alphasights 24Slides is no longer a leftover map node")
+    check("./aircall.html\">Aircall SAS" in accurx_html, "accurx Aircall SAS lands on the Aircall dossier")
+    check("../graph.html#p=aircall-sas" not in accurx_html, "accurx Aircall SAS is no longer a leftover map node")
+    check("../graph.html#p=bt\"" not in accurx_html, "accurx BT Ltd is no longer a leftover map node")
+    check("./bt-business-and-public-sector.html" in accurx_html, "accurx BT Ltd lands on the BT dossier")
 
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
