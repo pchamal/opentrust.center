@@ -828,6 +828,10 @@ def main() -> int:
     check(canonical_processor_id("the-dot", dot_reg) == "dot-corp", "The Dot Corp is dot-corp")
     check(REGISTER_ALIASES["the-dot"] == "dot-corp", "the-dot aliases to dot-corp")
     check("lake-county-press" not in REGISTER_ALIASES, "lake-county-press stays unaliased")
+    check("pel-hughes-printing" not in REGISTER_ALIASES, "pel-hughes-printing stays unaliased")
+    cy_reg = {**register, "cookieyes": {"slug": "cookieyes", "name": "CookieYes", "domain": "cookieyes.com"}}
+    check(canonical_processor_id("mozilor-technologies-pvt", cy_reg) == "cookieyes", "Mozilor Technologies is CookieYes")
+    check(REGISTER_ALIASES["mozilor-technologies-pvt"] == "cookieyes", "mozilor-technologies-pvt aliases to cookieyes")
     check("workramp" not in ("reply", "dentsu", "regula"), "workramp stays off this cut")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.

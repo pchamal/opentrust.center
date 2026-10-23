@@ -3443,7 +3443,7 @@ def main() -> int:
         "dentsu-manchester", "regula-baltija", "booth-partners-pte",
         "the-segerdahl-group-dba-sg360", "asora-technologies",
         "nahan-printings", "the-dot",
-        "lake-county-press", "workramp", "hydrolix", "voyager",
+        "workramp", "hydrolix", "voyager",
         "kaleido", "luma", "paragon", "dispatch", "freeplay",
     ):
         check(slug not in by_pub, f"{slug} is not a second dossier")
@@ -3500,6 +3500,50 @@ def main() -> int:
     check("../graph.html#p=asora-technologies" not in addepar_html_cut2, "addepar Asora is no longer a leftover map node")
     check("../graph.html#p=mirador\"" not in addepar_html_cut2, "addepar Mirador is no longer a leftover map node")
     check("../graph.html#p=mirador-worldwide" not in addepar_html_cut2, "addepar Mirador Worldwide is no longer a leftover map node")
+
+    # This cut: Mozilor Technologies is CookieYes. File Lake County Press and
+    # Pel Hughes on the vetted domain only. No trust URL, mark, DPA,
+    # named list, or year on these new files. Completeness stays 0.
+    filed_cut3 = {
+        "lake-county-press": "lakecountypress.com",
+        "pel-hughes-printing": "pelhughes.com",
+    }
+    for slug, domain in filed_cut3.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    for slug in ("mozilor-technologies-pvt", "workramp", "hydrolix", "voyager"):
+        check(slug not in by_pub, f"{slug} is not a second dossier")
+    gap_nodes_cut3 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut3:
+        node = gap_nodes_cut3.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut3[slug], f"{slug} graph domain is the filed domain")
+    check("mozilor-technologies-pvt" not in gap_nodes_cut3, "mozilor leftover node is gone")
+    check((gap_nodes_cut3.get("cookieyes") or {}).get("in_register") is True, "cookieyes stays on the register")
+    check(
+        not any(e.get("to") == "mozilor-technologies-pvt" for e in (wires.get("edges") or [])),
+        "mozilor wire is remapped",
+    )
+    lob_html_cut3 = (ROOT / "site" / "c" / "lob-com.html").read_text(encoding="utf-8")
+    check("./lake-county-press.html\">Lake County Press, Inc" in lob_html_cut3, "lob Lake County Press lands on its dossier")
+    check("./pel-hughes-printing.html\">Pel Hughes Printing LLC" in lob_html_cut3, "lob Pel Hughes lands on its dossier")
+    check("../graph.html#p=lake-county-press" not in lob_html_cut3, "lob Lake County Press is no longer a leftover map node")
+    check("../graph.html#p=pel-hughes-printing" not in lob_html_cut3, "lob Pel Hughes is no longer a leftover map node")
+    cy_html_cut3 = (ROOT / "site" / "c" / "cookieyes.html").read_text(encoding="utf-8")
+    check("./cookieyes.html\">Mozilor Technologies Pvt Ltd" in cy_html_cut3, "cookieyes Mozilor lands on the CookieYes dossier")
+    check("../graph.html#p=mozilor-technologies-pvt" not in cy_html_cut3, "cookieyes Mozilor is no longer a leftover map node")
 
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
