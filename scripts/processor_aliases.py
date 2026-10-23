@@ -1114,6 +1114,11 @@ REGISTER_ALIASES: dict[str, str] = {
     # The filed slug is dot-corp (thedotcorp.com). Do not invent a
     # second Dot dossier.
     "the-dot": "dot-corp",
+    # CookieYes prints Mozilor Technologies Pvt Ltd. Mozilor Technologies
+    # is the company behind CookieYes, named on cookieyes.com's own
+    # subprocessor list. cookieyes is on the register (cookieyes.com).
+    # Do not invent a second Mozilor dossier.
+    "mozilor-technologies-pvt": "cookieyes",
 
 }
 
