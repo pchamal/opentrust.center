@@ -914,6 +914,44 @@ def main() -> int:
         "lsc-communications-us-dba-digital-lizard aliases to digital-lizard",
     )
     check("digital-lizard" not in REGISTER_ALIASES, "digital-lizard stays the filed row")
+    iz_reg = {
+        **register,
+        "input-zero-technologies": {
+            "slug": "input-zero-technologies",
+            "name": "Input Zero Technologies",
+            "domain": "inputzero.com",
+        },
+    }
+    check(
+        canonical_processor_id("input-zero-technologies-pvt", iz_reg) == "input-zero-technologies",
+        "Input Zero Technologies Pvt Ltd is Input Zero Technologies",
+    )
+    check(
+        REGISTER_ALIASES["input-zero-technologies-pvt"] == "input-zero-technologies",
+        "input-zero-technologies-pvt aliases to input-zero-technologies",
+    )
+    check("input-zero-technologies" not in REGISTER_ALIASES, "input-zero-technologies stays the filed row")
+    check(
+        iz_reg["input-zero-technologies"]["domain"] == "inputzero.com",
+        "Input Zero domain is inputzero.com, not inputzero.io",
+    )
+    ff_reg = {
+        **register,
+        "focus-forward": {
+            "slug": "focus-forward",
+            "name": "Focus Forward",
+            "domain": "focusfwd.com",
+        },
+    }
+    check(
+        canonical_processor_id("focus-forward-dba-panel-direct-online", ff_reg) == "focus-forward",
+        "Focus Forward LLC dba Panel Direct Online is Focus Forward",
+    )
+    check(
+        REGISTER_ALIASES["focus-forward-dba-panel-direct-online"] == "focus-forward",
+        "focus-forward-dba-panel-direct-online aliases to focus-forward",
+    )
+    check("focus-forward" not in REGISTER_ALIASES, "focus-forward stays the filed row")
     check("workramp" not in ("reply", "dentsu", "regula"), "workramp stays off this cut")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
