@@ -3404,6 +3404,103 @@ def main() -> int:
     check("../graph.html#p=bt\"" not in accurx_html, "accurx BT Ltd is no longer a leftover map node")
     check("./bt-business-and-public-sector.html" in accurx_html, "accurx BT Ltd lands on the BT dossier")
 
+    # This cut: alias same-company wire ids onto an existing or newly filed
+    # slug. File the vetted domain-only rows. No trust URL, mark, DPA,
+    # named list, or year on these new files. Completeness stays 0.
+    # Skip-list names stay off the register.
+    filed_cut2 = {
+        "reply": "reply.com",
+        "dentsu": "dentsu.com",
+        "regula": "regulaforensics.com",
+        "booth": "hirebooth.com",
+        "sg360": "sg360.com",
+        "asora": "asora.com",
+        "nahan": "nahan.com",
+        "darwill": "darwill.com",
+        "admail-west": "admailwest.com",
+        "anro": "anro.com",
+        "printcomm": "printcomm.com",
+        "citipost": "citipost.com",
+        "dot-corp": "thedotcorp.com",
+    }
+    for slug, domain in filed_cut2.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    for slug in (
+        "curtis-1000", "mirador", "mirador-worldwide", "up-reply",
+        "dentsu-manchester", "regula-baltija", "booth-partners-pte",
+        "the-segerdahl-group-dba-sg360", "asora-technologies",
+        "nahan-printings", "the-dot",
+        "lake-county-press", "workramp", "hydrolix", "voyager",
+        "kaleido", "luma", "paragon", "dispatch", "freeplay",
+    ):
+        check(slug not in by_pub, f"{slug} is not a second dossier")
+    gap_nodes_cut2 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut2:
+        node = gap_nodes_cut2.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut2[slug], f"{slug} graph domain is the filed domain")
+    for src, dest in (
+        ("curtis-1000", "taylor"),
+        ("mirador", "icapital"),
+        ("mirador-worldwide", "icapital"),
+        ("up-reply", "reply"),
+        ("dentsu-manchester", "dentsu"),
+        ("regula-baltija", "regula"),
+        ("booth-partners-pte", "booth"),
+        ("the-segerdahl-group-dba-sg360", "sg360"),
+        ("asora-technologies", "asora"),
+        ("nahan-printings", "nahan"),
+        ("the-dot", "dot-corp"),
+    ):
+        check(src not in gap_nodes_cut2, f"{src} leftover node is gone")
+        check((gap_nodes_cut2.get(dest) or {}).get("in_register") is True, f"{dest} stays on the register")
+        check(not any(e.get("to") == src for e in (wires.get("edges") or [])), f"{src} wire is remapped")
+    lob_html = (ROOT / "site" / "c" / "lob-com.html").read_text(encoding="utf-8")
+    check("./taylor.html\">Curtis 1000 Inc" in lob_html, "lob Curtis 1000 lands on Taylor")
+    check("./darwill.html\">Darwill, Inc" in lob_html, "lob Darwill lands on the Darwill dossier")
+    check("./admail-west.html\">Admail West, Inc" in lob_html, "lob Admail West lands on the Admail West dossier")
+    check("./anro.html\">ANRO Inc" in lob_html, "lob ANRO lands on the ANRO dossier")
+    check("./printcomm.html\">PrintComm Inc" in lob_html, "lob PrintComm lands on the PrintComm dossier")
+    check("./citipost.html\">Citipost Ltd" in lob_html, "lob Citipost lands on the Citipost dossier")
+    check("./nahan.html\">Nahan Printings, Inc" in lob_html, "lob Nahan lands on the Nahan dossier")
+    check("./sg360.html\">The Segerdahl Group dba SG360" in lob_html, "lob SG360 lands on the sg360 dossier")
+    check("./dot-corp.html\">The Dot Corp Inc" in lob_html, "lob The Dot lands on the Dot dossier")
+    check("../graph.html#p=curtis-1000" not in lob_html, "lob Curtis 1000 is no longer a leftover map node")
+    check("../graph.html#p=the-dot" not in lob_html, "lob The Dot is no longer a leftover map node")
+    check("../graph.html#p=the-segerdahl-group-dba-sg360" not in lob_html, "lob SG360 is no longer a leftover map node")
+    cs_html_cut2 = (ROOT / "site" / "c" / "contentsquare.html").read_text(encoding="utf-8")
+    check("./reply.html\">Up Reply GmbH" in cs_html_cut2, "contentsquare Up Reply lands on the Reply dossier")
+    check("./dentsu.html\">Dentsu Manchester Limited" in cs_html_cut2, "contentsquare Dentsu Manchester lands on dentsu")
+    check("../graph.html#p=up-reply" not in cs_html_cut2, "contentsquare Up Reply is no longer a leftover map node")
+    check("../graph.html#p=dentsu-manchester" not in cs_html_cut2, "contentsquare Dentsu Manchester is no longer a leftover map node")
+    dz_html = (ROOT / "site" / "c" / "data-zoo.html").read_text(encoding="utf-8")
+    check("./regula.html\">Regula Baltija LLC" in dz_html, "data-zoo Regula Baltija lands on the Regula dossier")
+    check("../graph.html#p=regula-baltija" not in dz_html, "data-zoo Regula Baltija is no longer a leftover map node")
+    check("../graph.html#p=voyager" in dz_html, "data-zoo Voyager stays a leftover map node")
+    forsta_html_cut2 = (ROOT / "site" / "c" / "forsta-as.html").read_text(encoding="utf-8")
+    check("./booth.html\">Booth &amp; Partners PTE. Ltd" in forsta_html_cut2, "forsta Booth lands on the Booth dossier")
+    check("../graph.html#p=booth-partners-pte" not in forsta_html_cut2, "forsta Booth is no longer a leftover map node")
+    addepar_html_cut2 = (ROOT / "site" / "c" / "addepar.html").read_text(encoding="utf-8")
+    check("./asora.html\">Asora Technologies, Ltd" in addepar_html_cut2, "addepar Asora lands on the Asora dossier")
+    check("./icapital.html\">Mirador, LLC" in addepar_html_cut2, "addepar Mirador lands on ICapital")
+    check("./icapital.html\">Mirador, Worldwide Ltd" in addepar_html_cut2, "addepar Mirador Worldwide lands on ICapital")
+    check("../graph.html#p=asora-technologies" not in addepar_html_cut2, "addepar Asora is no longer a leftover map node")
+    check("../graph.html#p=mirador\"" not in addepar_html_cut2, "addepar Mirador is no longer a leftover map node")
+    check("../graph.html#p=mirador-worldwide" not in addepar_html_cut2, "addepar Mirador Worldwide is no longer a leftover map node")
+
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
