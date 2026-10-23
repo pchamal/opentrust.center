@@ -878,6 +878,42 @@ def main() -> int:
         "alexander-mann-bpo-solutions-pte-singapore aliases to alexander-mann-solutions",
     )
     check("alexander-mann-solutions" not in REGISTER_ALIASES, "alexander-mann-solutions stays the filed row")
+    check("paragon" not in REGISTER_ALIASES, "paragon stays unaliased")
+    check("paragon-software-group" not in REGISTER_ALIASES, "paragon-software-group stays unaliased")
+    para_reg = {
+        **register,
+        "paragon": {"slug": "paragon", "name": "Paragon", "domain": "useparagon.com"},
+        "paragon-software-group": {
+            "slug": "paragon-software-group",
+            "name": "Paragon Software Group",
+            "domain": "paragon-software.com",
+        },
+    }
+    check(
+        canonical_processor_id("paragon", para_reg) == "paragon",
+        "Paragon the integration platform is not Paragon Software Group",
+    )
+    check(
+        canonical_processor_id("paragon-software-group", para_reg) == "paragon-software-group",
+        "Paragon Software Group stays paragon-software-group",
+    )
+    dl_reg = {
+        **register,
+        "digital-lizard": {
+            "slug": "digital-lizard",
+            "name": "Digital Lizard",
+            "domain": "digitallizardprint.com",
+        },
+    }
+    check(
+        canonical_processor_id("lsc-communications-us-dba-digital-lizard", dl_reg) == "digital-lizard",
+        "LSC Communications US dba Digital Lizard is Digital Lizard",
+    )
+    check(
+        REGISTER_ALIASES["lsc-communications-us-dba-digital-lizard"] == "digital-lizard",
+        "lsc-communications-us-dba-digital-lizard aliases to digital-lizard",
+    )
+    check("digital-lizard" not in REGISTER_ALIASES, "digital-lizard stays the filed row")
     check("workramp" not in ("reply", "dentsu", "regula"), "workramp stays off this cut")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
