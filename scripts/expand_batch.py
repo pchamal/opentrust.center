@@ -29,7 +29,7 @@ REJECT_PAIRS = {
     ("maxio", "maxionwheels.com"),  # Maxion Wheels, not Maxio billing
     ("fathom-analytics", "fathom.video"),  # Fathom AI Notetaker, not Analytics
     ("aircall", "aircall.se"),  # parked Sedo, not Aircall
-    ("voyager", "voyager.nz"),  # NZ ISP, not Data Zoo's Voyager
+    ("voyager", "voyager.nz"),  # filed as voyager-internet; do not refile slug voyager
 }
 
 

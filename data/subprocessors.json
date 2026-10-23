@@ -7547,11 +7547,11 @@
       "in_register": true
     },
     {
-      "id": "gcs",
-      "name": "GCS",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "id": "computer-generated-solutions",
+      "name": "CGS (Computer Generated Solutions)",
+      "domain": "cgsinc.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "damovo-global-services",
@@ -35505,11 +35505,11 @@
       "in_register": true
     },
     {
-      "id": "voyager",
-      "name": "Voyager",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "id": "voyager-internet",
+      "name": "Voyager Internet",
+      "domain": "voyager.nz",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "chili-piper",
@@ -51012,7 +51012,7 @@
     },
     {
       "from": "audiocodes",
-      "to": "gcs",
+      "to": "computer-generated-solutions",
       "source_url": "https://www.audiocodes.com/data-sub-processors",
       "evidence": "GCS"
     },
@@ -62220,7 +62220,7 @@
     },
     {
       "from": "data-zoo",
-      "to": "voyager",
+      "to": "voyager-internet",
       "source_url": "https://datazoo.com/policy/data-sub-processor-list",
       "evidence": "Voyager"
     },
@@ -65015,6 +65015,8 @@
     "input-zero-technologies-pvt": "input-zero-technologies",
     "focus-forward-dba-panel-direct-online": "focus-forward",
     "workramp": "confirm",
-    "rtica-pfms-slu": "pandora-fms"
+    "rtica-pfms-slu": "pandora-fms",
+    "voyager": "voyager-internet",
+    "gcs": "computer-generated-solutions"
   }
 }

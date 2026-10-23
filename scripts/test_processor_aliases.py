@@ -793,7 +793,7 @@ def main() -> int:
     check(canonical_processor_id("24slides-aps", slides_reg) == "24slides", "24Slides ApS is 24Slides")
     check(REGISTER_ALIASES["24slides-aps"] == "24slides", "24slides-aps aliases to 24slides")
     check("hydrolix" not in REGISTER_ALIASES, "hydrolix stays unaliased")
-    check("voyager" not in REGISTER_ALIASES, "voyager stays unaliased")
+    check(REGISTER_ALIASES["voyager"] == "voyager-internet", "voyager aliases to voyager-internet")
     taylor_reg = {**register, "taylor": {"slug": "taylor", "name": "Taylor Corporation", "domain": "taylor.com"}}
     check(canonical_processor_id("curtis-1000", taylor_reg) == "taylor", "Curtis 1000 is Taylor")
     check(REGISTER_ALIASES["curtis-1000"] == "taylor", "curtis-1000 aliases to taylor")
@@ -982,6 +982,34 @@ def main() -> int:
         not skip_processor("fineyear-human-resources-service", "Fineyear Human Resources Service"),
         "fineyear-human-resources-service is not a garbage slug",
     )
+    voyager_reg = {
+        **register,
+        "voyager-internet": {"slug": "voyager-internet", "name": "Voyager Internet", "domain": "voyager.nz"},
+    }
+    check(canonical_processor_id("voyager", voyager_reg) == "voyager-internet", "Voyager is Voyager Internet")
+    check(REGISTER_ALIASES["voyager"] == "voyager-internet", "voyager aliases to voyager-internet")
+    check("voyager-internet" not in REGISTER_ALIASES, "voyager-internet stays the filed row")
+    check(not skip_processor("voyager-internet", "Voyager Internet"), "voyager-internet is not a garbage slug")
+    check(not skip_processor("voyager", "Voyager"), "voyager is not a garbage slug")
+    cgs_reg = {
+        **register,
+        "computer-generated-solutions": {
+            "slug": "computer-generated-solutions",
+            "name": "CGS (Computer Generated Solutions)",
+            "domain": "cgsinc.com",
+        },
+    }
+    check(
+        canonical_processor_id("gcs", cgs_reg) == "computer-generated-solutions",
+        "GCS is Computer Generated Solutions",
+    )
+    check(REGISTER_ALIASES["gcs"] == "computer-generated-solutions", "gcs aliases to computer-generated-solutions")
+    check("computer-generated-solutions" not in REGISTER_ALIASES, "computer-generated-solutions stays the filed row")
+    check(
+        not skip_processor("computer-generated-solutions", "CGS (Computer Generated Solutions)"),
+        "computer-generated-solutions is not a garbage slug",
+    )
+    check(not skip_processor("gcs", "GCS"), "gcs is not a garbage slug")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch

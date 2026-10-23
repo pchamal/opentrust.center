@@ -1154,6 +1154,15 @@ REGISTER_ALIASES: dict[str, str] = {
     # pandora-fms is filed in this increment (pandorafms.com).
     # Do not invent a second Pandora FMS dossier.
     "rtica-pfms-slu": "pandora-fms",
+    # Data Zoo names Voyager and links its privacy policy to
+    # voyager.nz/terms/privacy. voyager-internet is filed in this
+    # increment (voyager.nz). Do not invent a second Voyager dossier.
+    "voyager": "voyager-internet",
+    # AudioCodes prints GCS for Computer Generated Solutions, Romania
+    # S.R.L. The graph id gcs is that mislabel. computer-generated-solutions
+    # is filed in this increment (cgsinc.com). Do not invent a second
+    # CGS dossier.
+    "gcs": "computer-generated-solutions",
 
 }
 

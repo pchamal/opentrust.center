@@ -1320,8 +1320,10 @@ def main() -> int:
     check("microsoft" in datazoo_slugs, "data-zoo Microsoft Office uses the Microsoft file")
     check("sentry" in datazoo_slugs, "data-zoo Sentry uses the Sentry file")
     check(by_pub["crushftp"].get("domain") == "crushftp.com", "data-zoo CrushFTP uses the existing CrushFTP file")
-    check("voyager" not in by_pub, "data-zoo does not invent a Voyager dossier")
-    check("voyager" not in by_enr, "voyager stays a domain-less leftover after the wrong-company revert")
+    check("voyager" not in by_pub, "voyager is not a second Voyager dossier")
+    check("voyager" not in by_enr, "voyager is not a second Voyager dossier")
+    check("voyager-internet" in by_pub, "data-zoo Voyager uses the Voyager Internet file")
+    check(by_pub["voyager-internet"].get("domain") == "voyager.nz", "voyager-internet official domain is voyager.nz")
     check(
         by_pub["employment-hero"].get("domain") == "employmenthero.com",
         "data-zoo Employment Hero uses the existing Employment Hero file",
@@ -1516,18 +1518,19 @@ def main() -> int:
         check(bad_domain not in (node.get("domain") or ""), f"{slug} does not keep {bad_domain}")
         check(node.get("in_register") is True, f"{slug} is on the register")
         check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier page is on file")
-    voyager_node = leftover_nodes.get("voyager") or {}
-    check(voyager_node, "voyager leftover graph node stays")
-    check(not (voyager_node.get("domain") or ""), f"voyager leftover stays domain-less, got {voyager_node.get('domain')!r}")
-    check("voyager.nz" not in (voyager_node.get("domain") or ""), "voyager leftover does not keep voyager.nz")
-    check(not voyager_node.get("in_register"), "voyager leftover stays off the register")
-    check(not (ROOT / "site" / "c" / "voyager.html").exists(), "voyager dossier page is gone")
+    check("voyager" not in leftover_nodes, "voyager leftover graph node is gone")
+    voyager_internet_node = leftover_nodes.get("voyager-internet") or {}
+    check(voyager_internet_node.get("in_register") is True, "voyager-internet graph node is on the register")
+    check(voyager_internet_node.get("domain") == "voyager.nz", "voyager-internet graph domain is voyager.nz")
+    check(not (ROOT / "site" / "c" / "voyager.html").exists(), "voyager is not a second dossier page")
+    check((ROOT / "site" / "c" / "voyager-internet.html").exists(), "voyager-internet dossier page is on file")
     datazoo_html = (ROOT / "site" / "c" / "data-zoo.html").read_text(encoding="utf-8")
     sms_html = (ROOT / "site" / "c" / "sms-magic.html").read_text(encoding="utf-8")
     jasper_html = (ROOT / "site" / "c" / "jasper-ai.html").read_text(encoding="utf-8")
     apideck_html = (ROOT / "site" / "c" / "apideck.html").read_text(encoding="utf-8")
-    check('../graph.html#p=voyager">Voyager' in datazoo_html, "data-zoo Voyager stays a leftover map node")
-    check("./voyager.html" not in datazoo_html, "data-zoo does not link a Voyager dossier")
+    check('./voyager-internet.html">Voyager' in datazoo_html, "data-zoo Voyager lands on the Voyager Internet dossier")
+    check('../graph.html#p=voyager"' not in datazoo_html, "data-zoo Voyager is no longer a leftover map node")
+    check("./voyager.html" not in datazoo_html, "data-zoo does not link a second Voyager dossier")
     check("voyager.nz" not in datazoo_html, "data-zoo does not cite voyager.nz")
     check("./aircall.html\">Aircall" in sms_html, "sms-magic Aircall lands on the Aircall dossier")
     check("../graph.html#p=aircall" not in sms_html, "sms-magic Aircall is no longer a leftover map node")
@@ -3490,7 +3493,8 @@ def main() -> int:
     dz_html = (ROOT / "site" / "c" / "data-zoo.html").read_text(encoding="utf-8")
     check("./regula.html\">Regula Baltija LLC" in dz_html, "data-zoo Regula Baltija lands on the Regula dossier")
     check("../graph.html#p=regula-baltija" not in dz_html, "data-zoo Regula Baltija is no longer a leftover map node")
-    check("../graph.html#p=voyager" in dz_html, "data-zoo Voyager stays a leftover map node")
+    check('./voyager-internet.html">Voyager' in dz_html, "data-zoo Voyager lands on the Voyager Internet dossier")
+    check('../graph.html#p=voyager"' not in dz_html, "data-zoo Voyager is no longer a leftover map node")
     forsta_html_cut2 = (ROOT / "site" / "c" / "forsta-as.html").read_text(encoding="utf-8")
     check("./booth.html\">Booth &amp; Partners PTE. Ltd" in forsta_html_cut2, "forsta Booth lands on the Booth dossier")
     check("../graph.html#p=booth-partners-pte" not in forsta_html_cut2, "forsta Booth is no longer a leftover map node")
@@ -4260,6 +4264,101 @@ def main() -> int:
         "../graph.html#p=fineyear-human-resources-service" not in mw_html_cut13,
         "meltwater Fineyear is no longer a leftover map node",
     )
+
+    # This cut: Data Zoo names Voyager and links voyager.nz/terms/privacy.
+    # AudioCodes names GCS - Computer Generated Solutions, Romania S.R.L.
+    # File both on the vetted domain only and alias the graph ids onto them.
+    # No trust URL, mark, DPA, named list, or year. Completeness stays 0.
+    filed_cut14 = {
+        "voyager-internet": "voyager.nz",
+        "computer-generated-solutions": "cgsinc.com",
+    }
+    for slug, domain in filed_cut14.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    check(by_pub["voyager-internet"]["name"] == "Voyager Internet", "Voyager Internet name is Voyager Internet")
+    check(
+        by_pub["computer-generated-solutions"]["name"] == "CGS (Computer Generated Solutions)",
+        "CGS name is CGS (Computer Generated Solutions)",
+    )
+    check(sum(1 for c in by_enr.values() if c.get("slug") == "voyager-internet") == 1, "voyager-internet slug is unique")
+    check(
+        sum(1 for c in by_enr.values() if c.get("slug") == "computer-generated-solutions") == 1,
+        "computer-generated-solutions slug is unique",
+    )
+    check(
+        by_enr["voyager-internet"].get("official_url") == "https://voyager.nz/",
+        "Voyager Internet homepage is voyager.nz",
+    )
+    check(
+        by_pub["voyager-internet"].get("official_url") == "https://voyager.nz/",
+        "Voyager Internet public homepage is voyager.nz",
+    )
+    check(
+        by_enr["computer-generated-solutions"].get("official_url") == "https://cgsinc.com/",
+        "CGS homepage is cgsinc.com",
+    )
+    check(
+        by_pub["computer-generated-solutions"].get("official_url") == "https://cgsinc.com/",
+        "CGS public homepage is cgsinc.com",
+    )
+    check(match_processor("Voyager Internet", by_enr)[0] == "voyager-internet", "Voyager Internet matches the filed row")
+    check(
+        match_processor("CGS (Computer Generated Solutions)", by_enr)[0] == "computer-generated-solutions",
+        "CGS matches the filed row",
+    )
+    check("voyager" not in by_pub, "voyager is not a second Voyager dossier")
+    check("gcs" not in by_pub, "gcs is not a second CGS dossier")
+    gap_nodes_cut14 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut14:
+        node = gap_nodes_cut14.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut14[slug], f"{slug} graph domain is the filed domain")
+        check(node.get("kind") == "company", f"{slug} graph node is a company")
+    check("voyager" not in gap_nodes_cut14, "voyager leftover node is gone")
+    check("gcs" not in gap_nodes_cut14, "gcs leftover node is gone")
+    check(
+        not any(e.get("to") == "voyager" for e in (wires.get("edges") or [])),
+        "voyager wire is remapped",
+    )
+    check(
+        not any(e.get("to") == "gcs" for e in (wires.get("edges") or [])),
+        "gcs wire is remapped",
+    )
+    check(
+        any(e.get("to") == "voyager-internet" and e.get("from") == "data-zoo" for e in (wires.get("edges") or [])),
+        "data-zoo Voyager wire lands on voyager-internet",
+    )
+    check(
+        any(
+            e.get("to") == "computer-generated-solutions" and e.get("from") == "audiocodes"
+            for e in (wires.get("edges") or [])
+        ),
+        "audiocodes GCS wire lands on computer-generated-solutions",
+    )
+    check((wires.get("aliases") or {}).get("voyager") == "voyager-internet", "voyager alias is on the graph")
+    check((wires.get("aliases") or {}).get("gcs") == "computer-generated-solutions", "gcs alias is on the graph")
+    dz_html_cut14 = (ROOT / "site" / "c" / "data-zoo.html").read_text(encoding="utf-8")
+    check('./voyager-internet.html">Voyager' in dz_html_cut14, "data-zoo Voyager lands on the Voyager Internet dossier")
+    check('../graph.html#p=voyager"' not in dz_html_cut14, "data-zoo Voyager is no longer a leftover map node")
+    ac_html_cut14 = (ROOT / "site" / "c" / "audiocodes.html").read_text(encoding="utf-8")
+    check(
+        './computer-generated-solutions.html">GCS' in ac_html_cut14,
+        "audiocodes GCS lands on the CGS dossier",
+    )
+    check('../graph.html#p=gcs"' not in ac_html_cut14, "audiocodes GCS is no longer a leftover map node")
 
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
