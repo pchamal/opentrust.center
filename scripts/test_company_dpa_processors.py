@@ -4151,6 +4151,116 @@ def main() -> int:
     check("../graph.html#p=rtica-pfms-slu" not in wg_html_cut12, "watchguard Ártica is no longer a leftover map node")
     check("../graph.html#p=pandora-fms" not in wg_html_cut12, "watchguard Ártica is no longer a leftover map node")
 
+    # This cut: Meltwater names Zealep Business Solutions and Fineyear
+    # Human Resources Service Ltd. The graph slugs are the register slugs.
+    # File both on the vetted domain only. No alias. No trust URL, mark,
+    # DPA, named list, or year. Completeness stays 0.
+    filed_cut13 = {
+        "zealep-business-solutions": "zbiz.solutions",
+        "fineyear-human-resources-service": "fineyear.com",
+    }
+    for slug, domain in filed_cut13.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    check(
+        by_pub["zealep-business-solutions"]["name"] == "ZBiz Solutions (Zealep Business Solutions)",
+        "Zealep name is ZBiz Solutions (Zealep Business Solutions)",
+    )
+    check(
+        by_pub["fineyear-human-resources-service"]["name"] == "Fineyear Human Resources Service",
+        "Fineyear name is Fineyear Human Resources Service",
+    )
+    check(
+        sum(1 for c in by_enr.values() if c.get("slug") == "zealep-business-solutions") == 1,
+        "zealep-business-solutions slug is unique",
+    )
+    check(
+        sum(1 for c in by_enr.values() if c.get("slug") == "fineyear-human-resources-service") == 1,
+        "fineyear-human-resources-service slug is unique",
+    )
+    check(
+        by_enr["zealep-business-solutions"].get("official_url") == "https://zbiz.solutions/",
+        "Zealep homepage is zbiz.solutions",
+    )
+    check(
+        by_pub["zealep-business-solutions"].get("official_url") == "https://zbiz.solutions/",
+        "Zealep public homepage is zbiz.solutions",
+    )
+    check(
+        by_enr["fineyear-human-resources-service"].get("official_url") == "https://fineyear.com/",
+        "Fineyear homepage is fineyear.com",
+    )
+    check(
+        by_pub["fineyear-human-resources-service"].get("official_url") == "https://fineyear.com/",
+        "Fineyear public homepage is fineyear.com",
+    )
+    check(
+        match_processor("ZBiz Solutions (Zealep Business Solutions)", by_enr)[0] == "zealep-business-solutions",
+        "ZBiz Solutions matches the filed row",
+    )
+    check(
+        match_processor("Zealep Business Solutions", by_enr)[0] == "zealep-business-solutions",
+        "Zealep Business Solutions matches the filed row",
+    )
+    check(
+        match_processor("Fineyear Human Resources Service", by_enr)[0] == "fineyear-human-resources-service",
+        "Fineyear matches the filed row",
+    )
+    check(
+        match_processor("Fineyear Human Resources Service Ltd", by_enr)[0] == "fineyear-human-resources-service",
+        "Fineyear Ltd matches the filed row",
+    )
+    gap_nodes_cut13 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut13:
+        node = gap_nodes_cut13.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut13[slug], f"{slug} graph domain is the filed domain")
+        check(node.get("kind") == "company", f"{slug} graph node is a company")
+        check(slug not in (wires.get("aliases") or {}), f"{slug} has no alias")
+    check(
+        any(
+            e.get("to") == "zealep-business-solutions" and e.get("from") == "meltwater"
+            for e in (wires.get("edges") or [])
+        ),
+        "meltwater Zealep wire stays on zealep-business-solutions",
+    )
+    check(
+        any(
+            e.get("to") == "fineyear-human-resources-service" and e.get("from") == "meltwater"
+            for e in (wires.get("edges") or [])
+        ),
+        "meltwater Fineyear wire stays on fineyear-human-resources-service",
+    )
+    mw_html_cut13 = (ROOT / "site" / "c" / "meltwater.html").read_text(encoding="utf-8")
+    check(
+        "./zealep-business-solutions.html\">Zealep Business Solutions" in mw_html_cut13,
+        "meltwater Zealep lands on its dossier",
+    )
+    check(
+        "../graph.html#p=zealep-business-solutions" not in mw_html_cut13,
+        "meltwater Zealep is no longer a leftover map node",
+    )
+    check(
+        "./fineyear-human-resources-service.html\">Fineyear Human Resources Service Ltd" in mw_html_cut13,
+        "meltwater Fineyear lands on its dossier",
+    )
+    check(
+        "../graph.html#p=fineyear-human-resources-service" not in mw_html_cut13,
+        "meltwater Fineyear is no longer a leftover map node",
+    )
+
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
