@@ -834,9 +834,16 @@ def main() -> int:
     check("wolverine-solutions-group" not in REGISTER_ALIASES, "wolverine-solutions-group stays unaliased")
     check("quantum-color-graphics" not in REGISTER_ALIASES, "quantum-color-graphics stays unaliased")
     check("liberty-lithographers" not in REGISTER_ALIASES, "liberty-lithographers stays unaliased")
+    check(
+        "ds-graphics-dba-ds-graphics-universal-wilde" not in REGISTER_ALIASES,
+        "ds-graphics-dba-ds-graphics-universal-wilde stays unaliased",
+    )
     cy_reg = {**register, "cookieyes": {"slug": "cookieyes", "name": "CookieYes", "domain": "cookieyes.com"}}
     check(canonical_processor_id("mozilor-technologies-pvt", cy_reg) == "cookieyes", "Mozilor Technologies is CookieYes")
     check(REGISTER_ALIASES["mozilor-technologies-pvt"] == "cookieyes", "mozilor-technologies-pvt aliases to cookieyes")
+    canva_reg = {**register, "canva": {"slug": "canva", "name": "Canva", "domain": "canva.com"}}
+    check(canonical_processor_id("kaleido", canva_reg) == "canva", "Kaleido is Canva")
+    check(REGISTER_ALIASES["kaleido"] == "canva", "kaleido aliases to canva")
     check("workramp" not in ("reply", "dentsu", "regula"), "workramp stays off this cut")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
