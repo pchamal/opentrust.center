@@ -1119,6 +1119,11 @@ REGISTER_ALIASES: dict[str, str] = {
     # subprocessor list. cookieyes is on the register (cookieyes.com).
     # Do not invent a second Mozilor dossier.
     "mozilor-technologies-pvt": "cookieyes",
+    # Uploadcare prints Kaleido. kaleido.ai states Kaleido AI GmbH is
+    # now Canva Austria GmbH; Kaleido became part of Canva in 2021.
+    # canva is on the register (canva.com). Do not invent a second
+    # Kaleido dossier.
+    "kaleido": "canva",
 
 }
 
