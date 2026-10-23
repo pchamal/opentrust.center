@@ -1131,6 +1131,10 @@ REGISTER_ALIASES: dict[str, str] = {
     # Do not invent a second AMS dossier.
     "ams-alexander-mann-solutions": "alexander-mann-solutions",
     "alexander-mann-bpo-solutions-pte-singapore": "alexander-mann-solutions",
+    # Lob prints LSC Communications US, LLC dba Digital Lizard.
+    # digital-lizard is filed in this increment (digitallizardprint.com).
+    # Do not invent a second Digital Lizard dossier.
+    "lsc-communications-us-dba-digital-lizard": "digital-lizard",
 
 }
 

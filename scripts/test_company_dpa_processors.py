@@ -3020,7 +3020,7 @@ def main() -> int:
         "aircall-sas", "voyager",
         "kaleido", "dispatch", "cookie-bot",
         "springserve", "profitwell",
-        "pigeonlab", "paragon", "bt", "gcs",
+        "pigeonlab", "bt", "gcs",
     ):
         check(slug not in by_pub, f"{slug} stays off the register")
     check(not by_pub["cielo"].get("trust_url"), "cielo portal is not the Official page URL")
@@ -3086,7 +3086,7 @@ def main() -> int:
         "aircall-sas", "voyager",
         "kaleido", "dispatch", "cookie-bot",
         "springserve", "profitwell",
-        "pigeonlab", "paragon", "bt", "gcs",
+        "pigeonlab", "bt", "gcs",
     ):
         check(slug not in by_pub, f"{slug} stays off the register")
     check(by_pub["ndm-global"].get("found") is True, "ndm-global Official page is on file")
@@ -3158,7 +3158,7 @@ def main() -> int:
         "aircall-sas", "voyager",
         "kaleido", "dispatch", "cookie-bot",
         "springserve", "profitwell",
-        "pigeonlab", "paragon", "bt", "gcs",
+        "pigeonlab", "bt", "gcs",
         "regula-baltija", "up-reply",
     ):
         check(slug not in by_pub, f"{slug} stays off the register")
@@ -3217,7 +3217,7 @@ def main() -> int:
         "aircall-sas", "voyager",
         "kaleido", "dispatch", "cookie-bot",
         "springserve", "profitwell",
-        "pigeonlab", "paragon", "bt", "gcs",
+        "pigeonlab", "bt", "gcs",
         "regula-baltija", "up-reply",
         "24slides-aps", "freeplay",
         "talent-tech-solutions", "rule-56",
@@ -3352,7 +3352,7 @@ def main() -> int:
         "aircall-sas", "apigee-x-google", "google-apps", "abnormal-security",
         "bt", "heap", "profitwell", "cookie-bot", "24slides-aps",
         "workramp", "mozilor-technologies-pvt",
-        "kaleido", "paragon", "dispatch", "voyager", "freeplay",
+        "kaleido", "dispatch", "voyager", "freeplay",
     ):
         check(slug not in by_pub, f"{slug} is not a second dossier")
     gap_nodes = {n.get("id"): n for n in (wires.get("nodes") or [])}
@@ -3445,7 +3445,7 @@ def main() -> int:
         "the-segerdahl-group-dba-sg360", "asora-technologies",
         "nahan-printings", "the-dot",
         "workramp", "voyager",
-        "kaleido", "paragon", "dispatch", "freeplay",
+        "kaleido", "dispatch", "freeplay",
     ):
         check(slug not in by_pub, f"{slug} is not a second dossier")
     gap_nodes_cut2 = {n.get("id"): n for n in (wires.get("nodes") or [])}
@@ -3801,6 +3801,109 @@ def main() -> int:
     check(
         "../graph.html#p=alexander-mann-bpo-solutions-pte-singapore" not in sr_html_cut8,
         "smartrecruiters AMS Singapore is no longer a leftover map node",
+    )
+
+    # This cut: Jasper names Paragon, the integration platform. That is a
+    # different company from Paragon Software Group. Lob names LSC
+    # Communications US, LLC dba Digital Lizard. File both on the vetted
+    # domain only and alias the Lob node onto digital-lizard. No trust
+    # URL, mark, DPA, named list, or year. Completeness stays 0.
+    filed_cut9 = {
+        "paragon": "useparagon.com",
+        "digital-lizard": "digitallizardprint.com",
+    }
+    for slug, domain in filed_cut9.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    check(by_pub["paragon"]["name"] == "Paragon", "Paragon name is Paragon")
+    check(by_pub["digital-lizard"]["name"] == "Digital Lizard", "Digital Lizard name is Digital Lizard")
+    check(
+        by_pub["paragon-software-group"]["domain"] == "paragon-software.com",
+        "paragon-software-group stays on paragon-software.com",
+    )
+    check(
+        by_pub["paragon-software-group"]["name"] == "Paragon Software Group",
+        "paragon-software-group name stays Paragon Software Group",
+    )
+    check(
+        match_processor("Paragon", by_enr)[0] == "paragon",
+        "Paragon the integration platform is not Paragon Software Group",
+    )
+    check(
+        match_processor("Paragon Software Group", by_enr)[0] == "paragon-software-group",
+        "Paragon Software Group stays paragon-software-group",
+    )
+    check(
+        match_processor("Digital Lizard", by_enr)[0] == "digital-lizard",
+        "Digital Lizard matches the filed row",
+    )
+    gap_nodes_cut9 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut9:
+        node = gap_nodes_cut9.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut9[slug], f"{slug} graph domain is the filed domain")
+        check(node.get("kind") == "company", f"{slug} graph node is a company")
+    check(
+        (gap_nodes_cut9.get("paragon-software-group") or {}).get("domain") == "paragon-software.com",
+        "paragon-software-group graph domain stays paragon-software.com",
+    )
+    check(
+        "lsc-communications-us-dba-digital-lizard" not in gap_nodes_cut9,
+        "Digital Lizard leftover node is gone",
+    )
+    check(
+        not any(
+            e.get("to") == "lsc-communications-us-dba-digital-lizard"
+            for e in (wires.get("edges") or [])
+        ),
+        "Digital Lizard wire is remapped",
+    )
+    check(
+        any(e.get("to") == "paragon" and e.get("from") == "jasper-ai" for e in (wires.get("edges") or [])),
+        "jasper Paragon wire stays on paragon",
+    )
+    check(
+        not any(
+            e.get("to") == "paragon-software-group" and e.get("from") == "jasper-ai"
+            for e in (wires.get("edges") or [])
+        ),
+        "jasper Paragon wire does not land on paragon-software-group",
+    )
+    check(
+        any(e.get("to") == "digital-lizard" and e.get("from") == "lob-com" for e in (wires.get("edges") or [])),
+        "lob Digital Lizard wire lands on digital-lizard",
+    )
+    jasper_html_cut9 = (ROOT / "site" / "c" / "jasper-ai.html").read_text(encoding="utf-8")
+    check("./paragon.html\">Paragon" in jasper_html_cut9, "jasper Paragon lands on the Paragon dossier")
+    check(
+        "./paragon-software-group.html\">Paragon" not in jasper_html_cut9,
+        "jasper Paragon does not land on Paragon Software Group",
+    )
+    check("../graph.html#p=paragon" not in jasper_html_cut9, "jasper Paragon is no longer a leftover map node")
+    lob_html_cut9 = (ROOT / "site" / "c" / "lob-com.html").read_text(encoding="utf-8")
+    check(
+        "./digital-lizard.html\">LSC Communications US, LLC dba Digital Lizard" in lob_html_cut9,
+        "lob Digital Lizard lands on its dossier",
+    )
+    check(
+        "../graph.html#p=lsc-communications-us-dba-digital-lizard" not in lob_html_cut9,
+        "lob Digital Lizard is no longer a leftover map node",
+    )
+    check(
+        "../graph.html#p=digital-lizard" not in lob_html_cut9,
+        "lob Digital Lizard is no longer a leftover map node",
     )
 
     print(
