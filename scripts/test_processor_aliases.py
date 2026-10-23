@@ -795,6 +795,40 @@ def main() -> int:
     check("workramp" not in REGISTER_ALIASES, "workramp stays unaliased")
     check("hydrolix" not in REGISTER_ALIASES, "hydrolix stays unaliased")
     check("voyager" not in REGISTER_ALIASES, "voyager stays unaliased")
+    taylor_reg = {**register, "taylor": {"slug": "taylor", "name": "Taylor Corporation", "domain": "taylor.com"}}
+    check(canonical_processor_id("curtis-1000", taylor_reg) == "taylor", "Curtis 1000 is Taylor")
+    check(REGISTER_ALIASES["curtis-1000"] == "taylor", "curtis-1000 aliases to taylor")
+    icap_reg = {**register, "icapital": {"slug": "icapital", "name": "ICapital", "domain": "icapitalnetwork.com"}}
+    check(canonical_processor_id("mirador", icap_reg) == "icapital", "Mirador is ICapital")
+    check(canonical_processor_id("mirador-worldwide", icap_reg) == "icapital", "Mirador Worldwide is ICapital")
+    check(REGISTER_ALIASES["mirador"] == "icapital", "mirador aliases to icapital")
+    check(REGISTER_ALIASES["mirador-worldwide"] == "icapital", "mirador-worldwide aliases to icapital")
+    reply_reg = {**register, "reply": {"slug": "reply", "name": "Reply", "domain": "reply.com"}}
+    check(canonical_processor_id("up-reply", reply_reg) == "reply", "Up Reply is Reply")
+    check(REGISTER_ALIASES["up-reply"] == "reply", "up-reply aliases to reply")
+    dentsu_reg = {**register, "dentsu": {"slug": "dentsu", "name": "dentsu", "domain": "dentsu.com"}}
+    check(canonical_processor_id("dentsu-manchester", dentsu_reg) == "dentsu", "Dentsu Manchester is dentsu")
+    check(REGISTER_ALIASES["dentsu-manchester"] == "dentsu", "dentsu-manchester aliases to dentsu")
+    regula_reg = {**register, "regula": {"slug": "regula", "name": "Regula", "domain": "regulaforensics.com"}}
+    check(canonical_processor_id("regula-baltija", regula_reg) == "regula", "Regula Baltija is Regula")
+    check(REGISTER_ALIASES["regula-baltija"] == "regula", "regula-baltija aliases to regula")
+    booth_reg = {**register, "booth": {"slug": "booth", "name": "Booth", "domain": "hirebooth.com"}}
+    check(canonical_processor_id("booth-partners-pte", booth_reg) == "booth", "Booth & Partners is Booth")
+    check(REGISTER_ALIASES["booth-partners-pte"] == "booth", "booth-partners-pte aliases to booth")
+    sg_reg = {**register, "sg360": {"slug": "sg360", "name": "sg360", "domain": "sg360.com"}}
+    check(canonical_processor_id("the-segerdahl-group-dba-sg360", sg_reg) == "sg360", "Segerdahl is sg360")
+    check(REGISTER_ALIASES["the-segerdahl-group-dba-sg360"] == "sg360", "the-segerdahl-group-dba-sg360 aliases to sg360")
+    asora_reg = {**register, "asora": {"slug": "asora", "name": "Asora", "domain": "asora.com"}}
+    check(canonical_processor_id("asora-technologies", asora_reg) == "asora", "Asora Technologies is Asora")
+    check(REGISTER_ALIASES["asora-technologies"] == "asora", "asora-technologies aliases to asora")
+    nahan_reg = {**register, "nahan": {"slug": "nahan", "name": "Nahan", "domain": "nahan.com"}}
+    check(canonical_processor_id("nahan-printings", nahan_reg) == "nahan", "Nahan Printings is Nahan")
+    check(REGISTER_ALIASES["nahan-printings"] == "nahan", "nahan-printings aliases to nahan")
+    dot_reg = {**register, "dot-corp": {"slug": "dot-corp", "name": "DOT (The Dot Corp)", "domain": "thedotcorp.com"}}
+    check(canonical_processor_id("the-dot", dot_reg) == "dot-corp", "The Dot Corp is dot-corp")
+    check(REGISTER_ALIASES["the-dot"] == "dot-corp", "the-dot aliases to dot-corp")
+    check("lake-county-press" not in REGISTER_ALIASES, "lake-county-press stays unaliased")
+    check("workramp" not in ("reply", "dentsu", "regula"), "workramp stays off this cut")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch

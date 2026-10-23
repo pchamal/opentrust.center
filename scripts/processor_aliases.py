@@ -1071,6 +1071,49 @@ REGISTER_ALIASES: dict[str, str] = {
     # The filed slug is 24slides (24slides.com). Do not invent a second
     # 24Slides dossier.
     "24slides-aps": "24slides",
+    # Lob prints Curtis 1000 Inc. curtis1000.com redirects to taylor.com
+    # (Taylor Corporation). taylor is on the register (taylor.com).
+    # Do not invent a second Curtis 1000 dossier.
+    "curtis-1000": "taylor",
+    # Addepar prints Mirador, LLC. mirador.com 301s to
+    # icapital.com/data-solutions. icapital is on the register
+    # (icapitalnetwork.com). Do not invent a second Mirador dossier.
+    "mirador": "icapital",
+    # Addepar prints Mirador, Worldwide Ltd. Same Mirador entity.
+    # Do not invent a second Mirador dossier.
+    "mirador-worldwide": "icapital",
+    # Contentsquare prints Up Reply GmbH, a Reply company.
+    # reply is filed in this increment (reply.com). Do not invent a
+    # second Reply dossier.
+    "up-reply": "reply",
+    # Contentsquare prints Dentsu Manchester Limited.
+    # dentsu is filed in this increment (dentsu.com). Do not invent a
+    # second dentsu dossier.
+    "dentsu-manchester": "dentsu",
+    # Data Zoo prints Regula Baltija LLC.
+    # regula is filed in this increment (regulaforensics.com).
+    # Do not invent a second Regula dossier.
+    "regula-baltija": "regula",
+    # Forsta prints Booth & Partners PTE. Ltd. boothandpartners.com
+    # redirects to hirebooth.com. booth is filed in this increment.
+    # Do not invent a second Booth dossier.
+    "booth-partners-pte": "booth",
+    # Lob prints The Segerdahl Group dba SG360.
+    # sg360 is filed in this increment (sg360.com). Do not invent a
+    # second SG360 dossier.
+    "the-segerdahl-group-dba-sg360": "sg360",
+    # Addepar prints Asora Technologies, Ltd.
+    # asora is filed in this increment (asora.com). Do not invent a
+    # second Asora dossier.
+    "asora-technologies": "asora",
+    # Lob prints Nahan Printings, Inc.
+    # nahan is filed in this increment (nahan.com). Do not invent a
+    # second Nahan dossier.
+    "nahan-printings": "nahan",
+    # Lob prints The Dot Corp Inc. The wire id is the-dot.
+    # The filed slug is dot-corp (thedotcorp.com). Do not invent a
+    # second Dot dossier.
+    "the-dot": "dot-corp",
 
 }
 
