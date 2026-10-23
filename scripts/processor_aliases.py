@@ -1135,6 +1135,15 @@ REGISTER_ALIASES: dict[str, str] = {
     # digital-lizard is filed in this increment (digitallizardprint.com).
     # Do not invent a second Digital Lizard dossier.
     "lsc-communications-us-dba-digital-lizard": "digital-lizard",
+    # Addepar prints Input Zero Technologies Pvt Ltd.
+    # input-zero-technologies is filed in this increment (inputzero.com).
+    # inputzero.io is an unrelated blog. Do not invent a second
+    # Input Zero dossier.
+    "input-zero-technologies-pvt": "input-zero-technologies",
+    # Forsta prints Focus Forward LLC dba Panel Direct Online.
+    # focus-forward is filed in this increment (focusfwd.com).
+    # Do not invent a second Focus Forward dossier.
+    "focus-forward-dba-panel-direct-online": "focus-forward",
 
 }
 

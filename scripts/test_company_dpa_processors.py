@@ -3906,6 +3906,126 @@ def main() -> int:
         "lob Digital Lizard is no longer a leftover map node",
     )
 
+    # This cut: Addepar names Input Zero Technologies Pvt Ltd. Forsta names
+    # Focus Forward LLC dba Panel Direct Online. File both on the vetted
+    # domain only and alias the raw graph nodes onto those slugs. No trust
+    # URL, mark, DPA, named list, or year. Completeness stays 0.
+    # inputzero.io is an unrelated blog and stays off the register.
+    filed_cut10 = {
+        "input-zero-technologies": "inputzero.com",
+        "focus-forward": "focusfwd.com",
+    }
+    for slug, domain in filed_cut10.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    check(by_pub["input-zero-technologies"]["name"] == "Input Zero Technologies", "Input Zero name is Input Zero Technologies")
+    check(by_pub["focus-forward"]["name"] == "Focus Forward", "Focus Forward name is Focus Forward")
+    check(
+        by_enr["input-zero-technologies"].get("official_url") == "https://inputzero.com/",
+        "Input Zero homepage is the apex that returned 200",
+    )
+    check(
+        by_pub["input-zero-technologies"].get("official_url") == "https://inputzero.com/",
+        "Input Zero public homepage is inputzero.com",
+    )
+    check(
+        by_enr["focus-forward"].get("official_url") == "https://www.focusfwd.com/",
+        "Focus Forward homepage is the www host that returned 200",
+    )
+    check(
+        by_pub["focus-forward"].get("official_url") == "https://www.focusfwd.com/",
+        "Focus Forward public homepage is www.focusfwd.com",
+    )
+    check(
+        not any((c.get("domain") or "") == "inputzero.io" for c in by_enr.values()),
+        "inputzero.io stays off the register",
+    )
+    check(
+        match_processor("Input Zero Technologies", by_enr)[0] == "input-zero-technologies",
+        "Input Zero Technologies matches the filed row",
+    )
+    check(
+        match_processor("Focus Forward", by_enr)[0] == "focus-forward",
+        "Focus Forward matches the filed row",
+    )
+    gap_nodes_cut10 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut10:
+        node = gap_nodes_cut10.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut10[slug], f"{slug} graph domain is the filed domain")
+        check(node.get("kind") == "company", f"{slug} graph node is a company")
+    check(
+        "input-zero-technologies-pvt" not in gap_nodes_cut10,
+        "Input Zero leftover node is gone",
+    )
+    check(
+        "focus-forward-dba-panel-direct-online" not in gap_nodes_cut10,
+        "Focus Forward leftover node is gone",
+    )
+    check(
+        not any(e.get("to") == "input-zero-technologies-pvt" for e in (wires.get("edges") or [])),
+        "Input Zero wire is remapped",
+    )
+    check(
+        not any(
+            e.get("to") == "focus-forward-dba-panel-direct-online"
+            for e in (wires.get("edges") or [])
+        ),
+        "Focus Forward wire is remapped",
+    )
+    check(
+        any(
+            e.get("to") == "input-zero-technologies" and e.get("from") == "addepar"
+            for e in (wires.get("edges") or [])
+        ),
+        "addepar Input Zero wire lands on input-zero-technologies",
+    )
+    check(
+        any(
+            e.get("to") == "focus-forward" and e.get("from") == "forsta-as"
+            for e in (wires.get("edges") or [])
+        ),
+        "forsta Focus Forward wire lands on focus-forward",
+    )
+    addepar_html_cut10 = (ROOT / "site" / "c" / "addepar.html").read_text(encoding="utf-8")
+    check(
+        "./input-zero-technologies.html\">Input Zero Technologies Pvt Ltd" in addepar_html_cut10,
+        "addepar Input Zero lands on its dossier",
+    )
+    check(
+        "../graph.html#p=input-zero-technologies-pvt" not in addepar_html_cut10,
+        "addepar Input Zero is no longer a leftover map node",
+    )
+    check(
+        "../graph.html#p=input-zero-technologies" not in addepar_html_cut10,
+        "addepar Input Zero is no longer a leftover map node",
+    )
+    forsta_html_cut10 = (ROOT / "site" / "c" / "forsta-as.html").read_text(encoding="utf-8")
+    check(
+        "./focus-forward.html\">Focus Forward LLC dba Panel Direct Online" in forsta_html_cut10,
+        "forsta Focus Forward lands on its dossier",
+    )
+    check(
+        "../graph.html#p=focus-forward-dba-panel-direct-online" not in forsta_html_cut10,
+        "forsta Focus Forward is no longer a leftover map node",
+    )
+    check(
+        "../graph.html#p=focus-forward" not in forsta_html_cut10,
+        "forsta Focus Forward is no longer a leftover map node",
+    )
+
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
