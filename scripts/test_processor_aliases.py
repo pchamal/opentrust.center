@@ -838,6 +838,15 @@ def main() -> int:
         "ds-graphics-dba-ds-graphics-universal-wilde" not in REGISTER_ALIASES,
         "ds-graphics-dba-ds-graphics-universal-wilde stays unaliased",
     )
+    check("luma" not in REGISTER_ALIASES, "luma stays unaliased")
+    check("luma-ai" not in REGISTER_ALIASES, "luma-ai stays unaliased")
+    luma_reg = {
+        **register,
+        "luma": {"slug": "luma", "name": "Luma", "domain": "luma.com"},
+        "luma-ai": {"slug": "luma-ai", "name": "Luma AI", "domain": "luma.ai"},
+    }
+    check(canonical_processor_id("luma", luma_reg) == "luma", "Luma events is not Luma AI")
+    check(canonical_processor_id("luma-ai", luma_reg) == "luma-ai", "Luma AI stays luma-ai")
     cy_reg = {**register, "cookieyes": {"slug": "cookieyes", "name": "CookieYes", "domain": "cookieyes.com"}}
     check(canonical_processor_id("mozilor-technologies-pvt", cy_reg) == "cookieyes", "Mozilor Technologies is CookieYes")
     check(REGISTER_ALIASES["mozilor-technologies-pvt"] == "cookieyes", "mozilor-technologies-pvt aliases to cookieyes")

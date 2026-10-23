@@ -654,7 +654,7 @@ def main() -> int:
     # 27017 / 27018. First-party DPA and named list. Neuroflash Vanta and
     # Roboflow SafeBase chrome are not Official page. Surfshark
     # /trust-center stays Official page. GDPR/CCPA-as-rights stay unread.
-    # Hydrolix stays a domain-less leftover. Portal chrome is never Official
+    # Hydrolix is on file at hydrolix.io. Portal chrome is never Official
     # page. Fern stays silent on buildwithfern.com.
     check(
         instrument_url(by_pub["queue-it"], "dpa")
@@ -683,7 +683,8 @@ def main() -> int:
     check("datadog" in qi_slugs, "queue-it names Datadog")
     check("intercom" in qi_slugs, "queue-it names Intercom")
     check("twilio" in qi_slugs, "queue-it Twilio SendGrid lands on Twilio")
-    check("hydrolix" not in by_pub, "hydrolix leftover does not invent a dossier")
+    check(by_pub["hydrolix"]["domain"] == "hydrolix.io", "hydrolix is the hydrolix.io dossier")
+    check("hydrolix" in qi_slugs, "queue-it Hydrolix lands on hydrolix")
     check("aws" not in qi_slugs, "queue-it does not invent a second AWS dossier")
     check(by_pub["neuroflash"].get("found") is False, "neuroflash Vanta portal is not Official page")
     check(not by_pub["neuroflash"].get("trust_url"), "neuroflash portal is not the Official page URL")
@@ -3019,7 +3020,7 @@ def main() -> int:
         "aircall-sas", "voyager",
         "kaleido", "dispatch", "cookie-bot",
         "springserve", "profitwell",
-        "pigeonlab", "luma", "paragon", "bt", "gcs",
+        "pigeonlab", "paragon", "bt", "gcs",
     ):
         check(slug not in by_pub, f"{slug} stays off the register")
     check(not by_pub["cielo"].get("trust_url"), "cielo portal is not the Official page URL")
@@ -3085,7 +3086,7 @@ def main() -> int:
         "aircall-sas", "voyager",
         "kaleido", "dispatch", "cookie-bot",
         "springserve", "profitwell",
-        "pigeonlab", "luma", "paragon", "bt", "gcs",
+        "pigeonlab", "paragon", "bt", "gcs",
     ):
         check(slug not in by_pub, f"{slug} stays off the register")
     check(by_pub["ndm-global"].get("found") is True, "ndm-global Official page is on file")
@@ -3157,7 +3158,7 @@ def main() -> int:
         "aircall-sas", "voyager",
         "kaleido", "dispatch", "cookie-bot",
         "springserve", "profitwell",
-        "pigeonlab", "luma", "paragon", "bt", "gcs",
+        "pigeonlab", "paragon", "bt", "gcs",
         "regula-baltija", "up-reply",
     ):
         check(slug not in by_pub, f"{slug} stays off the register")
@@ -3216,7 +3217,7 @@ def main() -> int:
         "aircall-sas", "voyager",
         "kaleido", "dispatch", "cookie-bot",
         "springserve", "profitwell",
-        "pigeonlab", "luma", "paragon", "bt", "gcs",
+        "pigeonlab", "paragon", "bt", "gcs",
         "regula-baltija", "up-reply",
         "24slides-aps", "freeplay",
         "talent-tech-solutions", "rule-56",
@@ -3350,8 +3351,8 @@ def main() -> int:
     for slug in (
         "aircall-sas", "apigee-x-google", "google-apps", "abnormal-security",
         "bt", "heap", "profitwell", "cookie-bot", "24slides-aps",
-        "workramp", "hydrolix", "mozilor-technologies-pvt",
-        "kaleido", "luma", "paragon", "dispatch", "voyager", "freeplay",
+        "workramp", "mozilor-technologies-pvt",
+        "kaleido", "paragon", "dispatch", "voyager", "freeplay",
     ):
         check(slug not in by_pub, f"{slug} is not a second dossier")
     gap_nodes = {n.get("id"): n for n in (wires.get("nodes") or [])}
@@ -3443,8 +3444,8 @@ def main() -> int:
         "dentsu-manchester", "regula-baltija", "booth-partners-pte",
         "the-segerdahl-group-dba-sg360", "asora-technologies",
         "nahan-printings", "the-dot",
-        "workramp", "hydrolix", "voyager",
-        "kaleido", "luma", "paragon", "dispatch", "freeplay",
+        "workramp", "voyager",
+        "kaleido", "paragon", "dispatch", "freeplay",
     ):
         check(slug not in by_pub, f"{slug} is not a second dossier")
     gap_nodes_cut2 = {n.get("id"): n for n in (wires.get("nodes") or [])}
@@ -3523,7 +3524,7 @@ def main() -> int:
         for key in ("page", "marks", "dpa", "subprocessors", "years"):
             check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
         check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
-    for slug in ("mozilor-technologies-pvt", "workramp", "hydrolix", "voyager"):
+    for slug in ("mozilor-technologies-pvt", "workramp", "voyager"):
         check(slug not in by_pub, f"{slug} is not a second dossier")
     gap_nodes_cut3 = {n.get("id"): n for n in (wires.get("nodes") or [])}
     for slug in filed_cut3:
@@ -3674,6 +3675,59 @@ def main() -> int:
     uc_html_cut6 = (ROOT / "site" / "c" / "uploadcare.html").read_text(encoding="utf-8")
     check("./canva.html\">Kaleido" in uc_html_cut6, "uploadcare Kaleido lands on the Canva dossier")
     check("../graph.html#p=kaleido" not in uc_html_cut6, "uploadcare Kaleido is no longer a leftover map node")
+
+    # This cut: file Luma (luma.com) and Hydrolix (hydrolix.io) on the vetted
+    # domain only. Luma the events platform is not Luma AI (luma.ai). No
+    # alias either way. No trust URL, mark, DPA, named list, or year.
+    # Completeness stays 0.
+    filed_cut7 = {
+        "luma": "luma.com",
+        "hydrolix": "hydrolix.io",
+    }
+    for slug, domain in filed_cut7.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    check(by_pub["luma-ai"]["domain"] == "luma.ai", "luma-ai stays on luma.ai")
+    check(by_pub["luma-ai"]["name"] == "Luma AI", "luma-ai name stays Luma AI")
+    check(by_pub["luma"]["name"] == "Luma", "luma name is Luma")
+    check(by_pub["hydrolix"]["name"] == "Hydrolix", "hydrolix name is Hydrolix")
+    check(match_processor("Luma", by_enr)[0] == "luma", "Luma the events platform is not Luma AI")
+    check(match_processor("Luma AI", by_enr)[0] == "luma-ai", "Luma AI stays luma-ai")
+    check(match_processor("Hydrolix Inc", by_enr)[0] == "hydrolix", "Hydrolix Inc is hydrolix")
+    gap_nodes_cut7 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut7:
+        node = gap_nodes_cut7.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut7[slug], f"{slug} graph domain is the filed domain")
+        check(node.get("kind") == "company", f"{slug} graph node is a company")
+    check((gap_nodes_cut7.get("luma-ai") or {}).get("domain") == "luma.ai", "luma-ai graph domain stays luma.ai")
+    check(
+        not any(e.get("to") == "luma-ai" and e.get("from") == "shortcut-software" for e in (wires.get("edges") or [])),
+        "shortcut Luma wire does not land on luma-ai",
+    )
+    check(
+        any(e.get("to") == "luma" and e.get("from") == "shortcut-software" for e in (wires.get("edges") or [])),
+        "shortcut Luma wire stays on luma",
+    )
+    sc_html_cut7 = (ROOT / "site" / "c" / "shortcut-software.html").read_text(encoding="utf-8")
+    check("./luma.html\">Luma" in sc_html_cut7, "shortcut Luma lands on the Luma dossier")
+    check("./luma-ai.html\">Luma" not in sc_html_cut7, "shortcut Luma does not land on Luma AI")
+    check("../graph.html#p=luma" not in sc_html_cut7, "shortcut Luma is no longer a leftover map node")
+    qi_html_cut7 = (ROOT / "site" / "c" / "queue-it.html").read_text(encoding="utf-8")
+    check("./hydrolix.html\">Hydrolix Inc" in qi_html_cut7, "queue-it Hydrolix lands on its dossier")
+    check("../graph.html#p=hydrolix" not in qi_html_cut7, "queue-it Hydrolix is no longer a leftover map node")
 
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
