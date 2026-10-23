@@ -1039,6 +1039,38 @@ REGISTER_ALIASES: dict[str, str] = {
     # file. digitalocean is on the register. Do not invent a
     # second Cloudways dossier.
     "cloudways": "digitalocean",
+    # Accurx prints Aircall SAS. SMS-Magic prints Aircall. Both are the
+    # Aircall row filed in this increment (aircall.io). Do not invent a
+    # second Aircall dossier. aircall.se stays rejected.
+    "aircall-sas": "aircall",
+    # Addepar prints Apigee X (Google). google is on the register.
+    # The separate apigee dossier (apigee.com) stays. Do not invent an
+    # Apigee X dossier.
+    "apigee-x-google": "google",
+    # Addepar prints Google Apps. google is on the register.
+    # Do not invent a Google Apps dossier.
+    "google-apps": "google",
+    # Addepar prints Abnormal Security. abnormal-ai is on the register
+    # (abnormal.ai). Do not invent a second Abnormal dossier.
+    "abnormal-security": "abnormal-ai",
+    # Accurx prints BT Ltd. bt-business-and-public-sector is on the
+    # register (bt.com). Do not invent a second BT dossier.
+    "bt": "bt-business-and-public-sector",
+    # Addepar prints Heap. contentsquare is on the register. hotjar
+    # already lands here. Do not invent a second Heap dossier.
+    "heap": "contentsquare",
+    # Formspree prints Profitwell. profitwell.com redirects to paddle.com.
+    # paddle is filed in this increment. Do not invent a second
+    # Profitwell dossier.
+    "profitwell": "paddle",
+    # Plivo prints Cookie Bot. cookiebot.com is Cookiebot by Usercentrics.
+    # usercentrics is filed in this increment. Do not invent a second
+    # Cookiebot dossier.
+    "cookie-bot": "usercentrics",
+    # AlphaSights prints 24Slides ApS. The wire id keeps the ApS suffix.
+    # The filed slug is 24slides (24slides.com). Do not invent a second
+    # 24Slides dossier.
+    "24slides-aps": "24slides",
 
 }
 
