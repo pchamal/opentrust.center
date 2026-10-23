@@ -963,6 +963,15 @@ def main() -> int:
     check(not skip_processor("confirm", "Confirm"), "confirm is not a garbage slug")
     check(not skip_processor("freeplay", "Freeplay"), "freeplay is not a garbage slug")
     check(not skip_processor("workramp", "Workramp"), "workramp is not a garbage slug")
+    pandora_reg = {
+        **register,
+        "pandora-fms": {"slug": "pandora-fms", "name": "Pandora FMS", "domain": "pandorafms.com"},
+    }
+    check(canonical_processor_id("rtica-pfms-slu", pandora_reg) == "pandora-fms", "Ártica PFMS SLU is Pandora FMS")
+    check(REGISTER_ALIASES["rtica-pfms-slu"] == "pandora-fms", "rtica-pfms-slu aliases to pandora-fms")
+    check("pandora-fms" not in REGISTER_ALIASES, "pandora-fms stays the filed row")
+    check(not skip_processor("pandora-fms", "Pandora FMS"), "pandora-fms is not a garbage slug")
+    check(not skip_processor("rtica-pfms-slu", "Ártica PFMS SLU"), "rtica-pfms-slu is not a garbage slug")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch

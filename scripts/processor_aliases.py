@@ -1149,6 +1149,11 @@ REGISTER_ALIASES: dict[str, str] = {
     # confirm is filed in this increment (confirm.com).
     # Do not invent a second WorkRamp dossier.
     "workramp": "confirm",
+    # WatchGuard prints Ártica PFMS SLU. artica.es redirects to
+    # pandorafms.com, and the privacy policy names Pandora FMS S.L.U.
+    # pandora-fms is filed in this increment (pandorafms.com).
+    # Do not invent a second Pandora FMS dossier.
+    "rtica-pfms-slu": "pandora-fms",
 
 }
 

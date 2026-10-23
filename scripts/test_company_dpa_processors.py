@@ -4098,6 +4098,59 @@ def main() -> int:
     check("../graph.html#p=workramp" not in addepar_html_cut11, "addepar Workramp is no longer a leftover map node")
     check("../graph.html#p=confirm" not in addepar_html_cut11, "addepar Workramp is no longer a leftover map node")
 
+    # This cut: WatchGuard names Ártica PFMS SLU. That entity is Pandora FMS.
+    # File pandora-fms on pandorafms.com only and alias rtica-pfms-slu onto
+    # it. No trust URL, mark, DPA, named list, or year. Completeness stays 0.
+    filed_cut12 = {
+        "pandora-fms": "pandorafms.com",
+    }
+    for slug, domain in filed_cut12.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    check(by_pub["pandora-fms"]["name"] == "Pandora FMS", "Pandora FMS name is Pandora FMS")
+    check(sum(1 for c in by_enr.values() if c.get("slug") == "pandora-fms") == 1, "pandora-fms slug is unique")
+    check(
+        by_enr["pandora-fms"].get("official_url") == "https://pandorafms.com/en/",
+        "Pandora FMS homepage is the English host",
+    )
+    check(
+        by_pub["pandora-fms"].get("official_url") == "https://pandorafms.com/en/",
+        "Pandora FMS public homepage is pandorafms.com/en/",
+    )
+    check(match_processor("Pandora FMS", by_enr)[0] == "pandora-fms", "Pandora FMS matches the filed row")
+    check("rtica-pfms-slu" not in by_pub, "rtica-pfms-slu is not a second Pandora FMS dossier")
+    gap_nodes_cut12 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut12:
+        node = gap_nodes_cut12.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut12[slug], f"{slug} graph domain is the filed domain")
+        check(node.get("kind") == "company", f"{slug} graph node is a company")
+    check("rtica-pfms-slu" not in gap_nodes_cut12, "rtica-pfms-slu leftover node is gone")
+    check(
+        not any(e.get("to") == "rtica-pfms-slu" for e in (wires.get("edges") or [])),
+        "rtica-pfms-slu wire is remapped",
+    )
+    check(
+        any(e.get("to") == "pandora-fms" and e.get("from") == "watchguard" for e in (wires.get("edges") or [])),
+        "watchguard Ártica wire lands on pandora-fms",
+    )
+    wg_html_cut12 = (ROOT / "site" / "c" / "watchguard.html").read_text(encoding="utf-8")
+    check("./pandora-fms.html\">Ártica PFMS SLU" in wg_html_cut12, "watchguard Ártica lands on the Pandora FMS dossier")
+    check("../graph.html#p=rtica-pfms-slu" not in wg_html_cut12, "watchguard Ártica is no longer a leftover map node")
+    check("../graph.html#p=pandora-fms" not in wg_html_cut12, "watchguard Ártica is no longer a leftover map node")
+
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
