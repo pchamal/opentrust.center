@@ -4360,6 +4360,91 @@ def main() -> int:
     )
     check('../graph.html#p=gcs"' not in ac_html_cut14, "audiocodes GCS is no longer a leftover map node")
 
+    # This cut: Addepar names Lightspeed for provision of trading
+    # functionality. That is Lightspeed Financial Services Group, LLC
+    # (lightspeed.com), not Lightspeed Commerce or Lightspeed Systems.
+    # File the vetted domain only and alias graph id lightspeed onto it.
+    # No trust URL, mark, DPA, named list, or year. Completeness stays 0.
+    filed_cut15 = {
+        "lightspeed-financial": "lightspeed.com",
+    }
+    for slug, domain in filed_cut15.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    check(
+        by_pub["lightspeed-financial"]["name"] == "Lightspeed Financial Services Group",
+        "Lightspeed Financial name is Lightspeed Financial Services Group",
+    )
+    check(
+        sum(1 for c in by_enr.values() if c.get("slug") == "lightspeed-financial") == 1,
+        "lightspeed-financial slug is unique",
+    )
+    check(
+        by_enr["lightspeed-financial"].get("official_url") == "https://lightspeed.com/",
+        "Lightspeed Financial homepage is lightspeed.com",
+    )
+    check(
+        by_pub["lightspeed-financial"].get("official_url") == "https://lightspeed.com/",
+        "Lightspeed Financial public homepage is lightspeed.com",
+    )
+    check(
+        match_processor("Lightspeed Financial Services Group", by_enr)[0] == "lightspeed-financial",
+        "Lightspeed Financial Services Group matches the filed row",
+    )
+    check("lightspeed" not in by_pub, "lightspeed is not a second Lightspeed dossier")
+    check(by_pub["lightspeed-commerce"]["domain"] == "lightspeedhq.com", "Lightspeed Commerce domain stays lightspeedhq.com")
+    check(
+        by_pub["lightspeed-systems"]["domain"] == "lightspeedsystems.com",
+        "Lightspeed Systems domain stays lightspeedsystems.com",
+    )
+    gap_nodes_cut15 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut15:
+        node = gap_nodes_cut15.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut15[slug], f"{slug} graph domain is the filed domain")
+        check(node.get("kind") == "company", f"{slug} graph node is a company")
+    check("lightspeed" not in gap_nodes_cut15, "lightspeed leftover node is gone")
+    check(
+        not any(e.get("to") == "lightspeed" for e in (wires.get("edges") or [])),
+        "lightspeed wire is remapped",
+    )
+    check(
+        any(
+            e.get("to") == "lightspeed-financial" and e.get("from") == "addepar"
+            for e in (wires.get("edges") or [])
+        ),
+        "addepar Lightspeed wire lands on lightspeed-financial",
+    )
+    check(
+        (wires.get("aliases") or {}).get("lightspeed") == "lightspeed-financial",
+        "lightspeed alias is on the graph",
+    )
+    check(
+        (wires.get("aliases") or {}).get("shopkeep") == "lightspeed-commerce",
+        "shopkeep alias stays on lightspeed-commerce",
+    )
+    addepar_html = (ROOT / "site" / "c" / "addepar.html").read_text(encoding="utf-8")
+    check(
+        './lightspeed-financial.html">Lightspeed' in addepar_html,
+        "addepar Lightspeed lands on the Lightspeed Financial dossier",
+    )
+    check(
+        '../graph.html#p=lightspeed"' not in addepar_html,
+        "addepar Lightspeed is no longer a leftover map node",
+    )
+
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
