@@ -1170,6 +1170,11 @@ REGISTER_ALIASES: dict[str, str] = {
     # (lightspeedsystems.com). lightspeed-financial is filed in this
     # increment. Do not alias this wire onto those rows.
     "lightspeed": "lightspeed-financial",
+    # Brightcove's services sub-processor list names PigeonLab.
+    # PigeonLab Pte Ltd makes Pigeonhole Live (pigeonholelive.com).
+    # pigeonhole-live is filed in this increment. Do not invent a
+    # second PigeonLab dossier.
+    "pigeonlab": "pigeonhole-live",
 
 }
 

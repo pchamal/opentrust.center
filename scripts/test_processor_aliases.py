@@ -1053,6 +1053,25 @@ def main() -> int:
         "lightspeed-financial is not a garbage slug",
     )
     check(not skip_processor("lightspeed", "Lightspeed"), "lightspeed is not a garbage slug")
+    ph_reg = {
+        **register,
+        "pigeonhole-live": {
+            "slug": "pigeonhole-live",
+            "name": "Pigeonhole Live (PigeonLab)",
+            "domain": "pigeonholelive.com",
+        },
+    }
+    check(
+        canonical_processor_id("pigeonlab", ph_reg) == "pigeonhole-live",
+        "Brightcove PigeonLab is Pigeonhole Live",
+    )
+    check(REGISTER_ALIASES["pigeonlab"] == "pigeonhole-live", "pigeonlab aliases to pigeonhole-live")
+    check("pigeonhole-live" not in REGISTER_ALIASES, "pigeonhole-live stays the filed row")
+    check(
+        not skip_processor("pigeonhole-live", "Pigeonhole Live (PigeonLab)"),
+        "pigeonhole-live is not a garbage slug",
+    )
+    check(not skip_processor("pigeonlab", "PigeonLab"), "pigeonlab is not a garbage slug")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch
