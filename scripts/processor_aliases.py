@@ -1124,6 +1124,13 @@ REGISTER_ALIASES: dict[str, str] = {
     # canva is on the register (canva.com). Do not invent a second
     # Kaleido dossier.
     "kaleido": "canva",
+    # SmartRecruiters prints three AMS entities as separate nodes.
+    # weareams.com is AMS (now a Korn Ferry company; Korn Ferry is not
+    # on the register, and AMS keeps its own brand and domain).
+    # alexander-mann-solutions is filed in this increment (weareams.com).
+    # Do not invent a second AMS dossier.
+    "ams-alexander-mann-solutions": "alexander-mann-solutions",
+    "alexander-mann-bpo-solutions-pte-singapore": "alexander-mann-solutions",
 
 }
 

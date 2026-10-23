@@ -853,6 +853,31 @@ def main() -> int:
     canva_reg = {**register, "canva": {"slug": "canva", "name": "Canva", "domain": "canva.com"}}
     check(canonical_processor_id("kaleido", canva_reg) == "canva", "Kaleido is Canva")
     check(REGISTER_ALIASES["kaleido"] == "canva", "kaleido aliases to canva")
+    ams_reg = {
+        **register,
+        "alexander-mann-solutions": {
+            "slug": "alexander-mann-solutions",
+            "name": "AMS (Alexander Mann Solutions)",
+            "domain": "weareams.com",
+        },
+    }
+    check(
+        canonical_processor_id("ams-alexander-mann-solutions", ams_reg) == "alexander-mann-solutions",
+        "AMS Corporation is AMS",
+    )
+    check(
+        canonical_processor_id("alexander-mann-bpo-solutions-pte-singapore", ams_reg) == "alexander-mann-solutions",
+        "AMS Singapore is AMS",
+    )
+    check(
+        REGISTER_ALIASES["ams-alexander-mann-solutions"] == "alexander-mann-solutions",
+        "ams-alexander-mann-solutions aliases to alexander-mann-solutions",
+    )
+    check(
+        REGISTER_ALIASES["alexander-mann-bpo-solutions-pte-singapore"] == "alexander-mann-solutions",
+        "alexander-mann-bpo-solutions-pte-singapore aliases to alexander-mann-solutions",
+    )
+    check("alexander-mann-solutions" not in REGISTER_ALIASES, "alexander-mann-solutions stays the filed row")
     check("workramp" not in ("reply", "dentsu", "regula"), "workramp stays off this cut")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
