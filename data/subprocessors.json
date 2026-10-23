@@ -8107,11 +8107,11 @@
       "in_register": true
     },
     {
-      "id": "rtica-pfms-slu",
-      "name": "Ártica PFMS SLU",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "id": "pandora-fms",
+      "name": "Pandora FMS",
+      "domain": "pandorafms.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "hornetsecurity",
@@ -52494,7 +52494,7 @@
     },
     {
       "from": "watchguard",
-      "to": "rtica-pfms-slu",
+      "to": "pandora-fms",
       "source_url": "https://www.watchguard.com/wgrd-trust-center/watchguard-sub-processors",
       "evidence": "Ártica PFMS SLU"
     },
@@ -65014,6 +65014,7 @@
     "lsc-communications-us-dba-digital-lizard": "digital-lizard",
     "input-zero-technologies-pvt": "input-zero-technologies",
     "focus-forward-dba-panel-direct-online": "focus-forward",
-    "workramp": "confirm"
+    "workramp": "confirm",
+    "rtica-pfms-slu": "pandora-fms"
   }
 }
