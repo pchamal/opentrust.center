@@ -3219,7 +3219,7 @@ def main() -> int:
         "springserve", "profitwell",
         "pigeonlab", "bt", "gcs",
         "regula-baltija", "up-reply",
-        "24slides-aps", "freeplay",
+        "24slides-aps",
         "talent-tech-solutions", "rule-56",
         "df-tech-fz", "dentsu-manchester",
     ):
@@ -3352,7 +3352,7 @@ def main() -> int:
         "aircall-sas", "apigee-x-google", "google-apps", "abnormal-security",
         "bt", "heap", "profitwell", "cookie-bot", "24slides-aps",
         "workramp", "mozilor-technologies-pvt",
-        "kaleido", "dispatch", "voyager", "freeplay",
+        "kaleido", "dispatch", "voyager",
     ):
         check(slug not in by_pub, f"{slug} is not a second dossier")
     gap_nodes = {n.get("id"): n for n in (wires.get("nodes") or [])}
@@ -3445,7 +3445,7 @@ def main() -> int:
         "the-segerdahl-group-dba-sg360", "asora-technologies",
         "nahan-printings", "the-dot",
         "workramp", "voyager",
-        "kaleido", "dispatch", "freeplay",
+        "kaleido", "dispatch",
     ):
         check(slug not in by_pub, f"{slug} is not a second dossier")
     gap_nodes_cut2 = {n.get("id"): n for n in (wires.get("nodes") or [])}
@@ -4025,6 +4025,78 @@ def main() -> int:
         "../graph.html#p=focus-forward" not in forsta_html_cut10,
         "forsta Focus Forward is no longer a leftover map node",
     )
+
+    # This cut: Help Scout names Freeplay. Addepar names Workramp, which
+    # is now Confirm. File both on the vetted domain only and alias
+    # workramp onto confirm. No trust URL, mark, DPA, named list, or
+    # year. Completeness stays 0. confirm is not a garbage slug.
+    filed_cut11 = {
+        "freeplay": "freeplay.ai",
+        "confirm": "confirm.com",
+    }
+    for slug, domain in filed_cut11.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    check(by_pub["freeplay"]["name"] == "Freeplay", "Freeplay name is Freeplay")
+    check(by_pub["confirm"]["name"] == "Confirm", "Confirm name is Confirm")
+    check(sum(1 for c in by_enr.values() if c.get("slug") == "confirm") == 1, "confirm slug is unique")
+    check(
+        by_enr["freeplay"].get("official_url") == "https://docs.freeplay.ai/",
+        "Freeplay homepage is the docs host",
+    )
+    check(
+        by_pub["freeplay"].get("official_url") == "https://docs.freeplay.ai/",
+        "Freeplay public homepage is docs.freeplay.ai",
+    )
+    check(
+        by_enr["confirm"].get("official_url") == "https://www.confirm.com/",
+        "Confirm homepage is the www host that returned 200",
+    )
+    check(
+        by_pub["confirm"].get("official_url") == "https://www.confirm.com/",
+        "Confirm public homepage is www.confirm.com",
+    )
+    check(match_processor("Freeplay", by_enr)[0] == "freeplay", "Freeplay matches the filed row")
+    check(match_processor("Confirm", by_enr)[0] == "confirm", "Confirm matches the filed row")
+    check("workramp" not in by_pub, "workramp is not a second Confirm dossier")
+    gap_nodes_cut11 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut11:
+        node = gap_nodes_cut11.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut11[slug], f"{slug} graph domain is the filed domain")
+        check(node.get("kind") == "company", f"{slug} graph node is a company")
+    check("workramp" not in gap_nodes_cut11, "workramp leftover node is gone")
+    check(
+        not any(e.get("to") == "workramp" for e in (wires.get("edges") or [])),
+        "workramp wire is remapped",
+    )
+    check(
+        any(e.get("to") == "freeplay" and e.get("from") == "help-scout" for e in (wires.get("edges") or [])),
+        "help-scout Freeplay wire stays on freeplay",
+    )
+    check(
+        any(e.get("to") == "confirm" and e.get("from") == "addepar" for e in (wires.get("edges") or [])),
+        "addepar Workramp wire lands on confirm",
+    )
+    hs_html_cut11 = (ROOT / "site" / "c" / "help-scout.html").read_text(encoding="utf-8")
+    check("./freeplay.html\">Freeplay" in hs_html_cut11, "help-scout Freeplay lands on its dossier")
+    check("../graph.html#p=freeplay" not in hs_html_cut11, "help-scout Freeplay is no longer a leftover map node")
+    addepar_html_cut11 = (ROOT / "site" / "c" / "addepar.html").read_text(encoding="utf-8")
+    check("./confirm.html\">Workramp" in addepar_html_cut11, "addepar Workramp lands on the Confirm dossier")
+    check("../graph.html#p=workramp" not in addepar_html_cut11, "addepar Workramp is no longer a leftover map node")
+    check("../graph.html#p=confirm" not in addepar_html_cut11, "addepar Workramp is no longer a leftover map node")
 
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "

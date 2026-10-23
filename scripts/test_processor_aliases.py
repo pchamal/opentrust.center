@@ -792,7 +792,6 @@ def main() -> int:
     slides_reg = {**register, "24slides": {"slug": "24slides", "name": "24Slides", "domain": "24slides.com"}}
     check(canonical_processor_id("24slides-aps", slides_reg) == "24slides", "24Slides ApS is 24Slides")
     check(REGISTER_ALIASES["24slides-aps"] == "24slides", "24slides-aps aliases to 24slides")
-    check("workramp" not in REGISTER_ALIASES, "workramp stays unaliased")
     check("hydrolix" not in REGISTER_ALIASES, "hydrolix stays unaliased")
     check("voyager" not in REGISTER_ALIASES, "voyager stays unaliased")
     taylor_reg = {**register, "taylor": {"slug": "taylor", "name": "Taylor Corporation", "domain": "taylor.com"}}
@@ -953,6 +952,17 @@ def main() -> int:
     )
     check("focus-forward" not in REGISTER_ALIASES, "focus-forward stays the filed row")
     check("workramp" not in ("reply", "dentsu", "regula"), "workramp stays off this cut")
+    confirm_reg = {
+        **register,
+        "confirm": {"slug": "confirm", "name": "Confirm", "domain": "confirm.com"},
+    }
+    check(canonical_processor_id("workramp", confirm_reg) == "confirm", "Workramp is Confirm")
+    check(REGISTER_ALIASES["workramp"] == "confirm", "workramp aliases to confirm")
+    check("confirm" not in REGISTER_ALIASES, "confirm stays the filed row")
+    check("freeplay" not in REGISTER_ALIASES, "freeplay stays the filed row")
+    check(not skip_processor("confirm", "Confirm"), "confirm is not a garbage slug")
+    check(not skip_processor("freeplay", "Freeplay"), "freeplay is not a garbage slug")
+    check(not skip_processor("workramp", "Workramp"), "workramp is not a garbage slug")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch

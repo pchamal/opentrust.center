@@ -35115,9 +35115,9 @@
     {
       "id": "freeplay",
       "name": "Freeplay",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "domain": "freeplay.ai",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "ckeditor",
@@ -41826,11 +41826,11 @@
       "in_register": true
     },
     {
-      "id": "workramp",
-      "name": "Workramp",
-      "domain": "",
-      "kind": "processor",
-      "in_register": false
+      "id": "confirm",
+      "name": "Confirm",
+      "domain": "confirm.com",
+      "kind": "company",
+      "in_register": true
     },
     {
       "id": "altexchange",
@@ -64368,7 +64368,7 @@
     },
     {
       "from": "addepar",
-      "to": "workramp",
+      "to": "confirm",
       "source_url": "https://addepar.com/legal/sub-processors",
       "evidence": "Workramp"
     },
@@ -65013,6 +65013,7 @@
     "alexander-mann-bpo-solutions-pte-singapore": "alexander-mann-solutions",
     "lsc-communications-us-dba-digital-lizard": "digital-lizard",
     "input-zero-technologies-pvt": "input-zero-technologies",
-    "focus-forward-dba-panel-direct-online": "focus-forward"
+    "focus-forward-dba-panel-direct-online": "focus-forward",
+    "workramp": "confirm"
   }
 }
