@@ -3729,6 +3729,80 @@ def main() -> int:
     check("./hydrolix.html\">Hydrolix Inc" in qi_html_cut7, "queue-it Hydrolix lands on its dossier")
     check("../graph.html#p=hydrolix" not in qi_html_cut7, "queue-it Hydrolix is no longer a leftover map node")
 
+    # This cut: SmartRecruiters names three AMS entities. They are one
+    # company. File AMS on the vetted domain only and alias the two
+    # variant nodes onto it. No trust URL, mark, DPA, named list, or
+    # year. Completeness stays 0. Korn Ferry stays off the register.
+    filed_cut8 = {
+        "alexander-mann-solutions": "weareams.com",
+    }
+    for slug, domain in filed_cut8.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    check(by_pub["alexander-mann-solutions"]["name"] == "AMS (Alexander Mann Solutions)", "AMS name is the filed name")
+    check("korn-ferry" not in by_pub, "Korn Ferry stays off the register")
+    check(
+        match_processor("AMS (Alexander Mann Solutions)", by_enr)[0] == "alexander-mann-solutions",
+        "filed AMS name matches the AMS row",
+    )
+    gap_nodes_cut8 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut8:
+        node = gap_nodes_cut8.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut8[slug], f"{slug} graph domain is the filed domain")
+        check(node.get("kind") == "company", f"{slug} graph node is a company")
+    check("ams-alexander-mann-solutions" not in gap_nodes_cut8, "AMS Corporation leftover node is gone")
+    check(
+        "alexander-mann-bpo-solutions-pte-singapore" not in gap_nodes_cut8,
+        "AMS Singapore leftover node is gone",
+    )
+    check(
+        not any(e.get("to") == "ams-alexander-mann-solutions" for e in (wires.get("edges") or [])),
+        "AMS Corporation wire is remapped",
+    )
+    check(
+        not any(
+            e.get("to") == "alexander-mann-bpo-solutions-pte-singapore"
+            for e in (wires.get("edges") or [])
+        ),
+        "AMS Singapore wire is remapped",
+    )
+    sr_html_cut8 = (ROOT / "site" / "c" / "smartrecruiters.html").read_text(encoding="utf-8")
+    sr_landings_cut8 = {
+        "Alexander Mann Solutions Limited": "Alexander Mann Solutions Limited",
+        "AMS Corporation": "AMS \u2013 Alexander Mann Solutions Corporation",
+        "AMS Singapore": "ALEXANDER MANN BPO SOLUTIONS PTE. LTD. (SINGAPORE)",
+    }
+    for label, evidence in sr_landings_cut8.items():
+        check(
+            f"./alexander-mann-solutions.html\">{evidence}" in sr_html_cut8,
+            f"smartrecruiters {label} lands on the AMS dossier",
+        )
+    check(
+        "../graph.html#p=alexander-mann-solutions" not in sr_html_cut8,
+        "smartrecruiters Alexander Mann Solutions is no longer a leftover map node",
+    )
+    check(
+        "../graph.html#p=ams-alexander-mann-solutions" not in sr_html_cut8,
+        "smartrecruiters AMS Corporation is no longer a leftover map node",
+    )
+    check(
+        "../graph.html#p=alexander-mann-bpo-solutions-pte-singapore" not in sr_html_cut8,
+        "smartrecruiters AMS Singapore is no longer a leftover map node",
+    )
+
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
