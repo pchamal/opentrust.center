@@ -1144,6 +1144,11 @@ REGISTER_ALIASES: dict[str, str] = {
     # focus-forward is filed in this increment (focusfwd.com).
     # Do not invent a second Focus Forward dossier.
     "focus-forward-dba-panel-direct-online": "focus-forward",
+    # Addepar prints Workramp. www.workramp.com redirects to Confirm,
+    # and Confirm's FAQ says WorkRamp is now Confirm's Learn:Up.
+    # confirm is filed in this increment (confirm.com).
+    # Do not invent a second WorkRamp dossier.
+    "workramp": "confirm",
 
 }
 
