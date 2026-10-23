@@ -3582,6 +3582,53 @@ def main() -> int:
         "sophos Blue Ocean is no longer a leftover map node",
     )
 
+    # This cut: file four Lob-named printers on the vetted domain only.
+    # No trust URL, mark, DPA, named list, or year. Completeness stays 0.
+    # No alias.
+    filed_cut5 = {
+        "hatteras-press": "hatteras.us",
+        "wolverine-solutions-group": "wolverinemail.com",
+        "quantum-color-graphics": "quantumgroup.com",
+        "liberty-lithographers": "libertycreativesolutions.com",
+    }
+    for slug, domain in filed_cut5.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    gap_nodes_cut5 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut5:
+        node = gap_nodes_cut5.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut5[slug], f"{slug} graph domain is the filed domain")
+        check(node.get("kind") == "company", f"{slug} graph node is a company")
+    lob_html_cut5 = (ROOT / "site" / "c" / "lob-com.html").read_text(encoding="utf-8")
+    lob_landings_cut5 = {
+        "hatteras-press": "Hatteras Press, Inc",
+        "wolverine-solutions-group": "Wolverine Solutions Group",
+        "quantum-color-graphics": "Quantum Color Graphics, LLC",
+        "liberty-lithographers": "Liberty Lithographers, Inc",
+    }
+    for slug, evidence in lob_landings_cut5.items():
+        check(
+            f"./{slug}.html\">{evidence}" in lob_html_cut5,
+            f"lob {evidence} lands on its dossier",
+        )
+        check(
+            f"../graph.html#p={slug}" not in lob_html_cut5,
+            f"lob {evidence} is no longer a leftover map node",
+        )
+
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"

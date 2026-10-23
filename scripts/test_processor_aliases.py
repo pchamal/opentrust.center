@@ -830,6 +830,10 @@ def main() -> int:
     check("lake-county-press" not in REGISTER_ALIASES, "lake-county-press stays unaliased")
     check("pel-hughes-printing" not in REGISTER_ALIASES, "pel-hughes-printing stays unaliased")
     check("blue-ocean-contact-centres" not in REGISTER_ALIASES, "blue-ocean-contact-centres stays unaliased")
+    check("hatteras-press" not in REGISTER_ALIASES, "hatteras-press stays unaliased")
+    check("wolverine-solutions-group" not in REGISTER_ALIASES, "wolverine-solutions-group stays unaliased")
+    check("quantum-color-graphics" not in REGISTER_ALIASES, "quantum-color-graphics stays unaliased")
+    check("liberty-lithographers" not in REGISTER_ALIASES, "liberty-lithographers stays unaliased")
     cy_reg = {**register, "cookieyes": {"slug": "cookieyes", "name": "CookieYes", "domain": "cookieyes.com"}}
     check(canonical_processor_id("mozilor-technologies-pvt", cy_reg) == "cookieyes", "Mozilor Technologies is CookieYes")
     check(REGISTER_ALIASES["mozilor-technologies-pvt"] == "cookieyes", "mozilor-technologies-pvt aliases to cookieyes")
