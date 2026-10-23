@@ -3545,6 +3545,43 @@ def main() -> int:
     check("./cookieyes.html\">Mozilor Technologies Pvt Ltd" in cy_html_cut3, "cookieyes Mozilor lands on the CookieYes dossier")
     check("../graph.html#p=mozilor-technologies-pvt" not in cy_html_cut3, "cookieyes Mozilor is no longer a leftover map node")
 
+    # This cut: file Blue Ocean Contact Centers on the vetted domain only.
+    # Named by Sophos. No trust URL, mark, DPA, named list, or year.
+    # Completeness stays 0. No alias.
+    filed_cut4 = {
+        "blue-ocean-contact-centres": "blueocean.ca",
+    }
+    for slug, domain in filed_cut4.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    gap_nodes_cut4 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut4:
+        node = gap_nodes_cut4.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut4[slug], f"{slug} graph domain is the filed domain")
+        check(node.get("kind") == "company", f"{slug} graph node is a company")
+    sophos_html_cut4 = (ROOT / "site" / "c" / "sophos.html").read_text(encoding="utf-8")
+    check(
+        "./blue-ocean-contact-centres.html\">Blue Ocean Contact Centres Inc" in sophos_html_cut4,
+        "sophos Blue Ocean lands on its dossier",
+    )
+    check(
+        "../graph.html#p=blue-ocean-contact-centres" not in sophos_html_cut4,
+        "sophos Blue Ocean is no longer a leftover map node",
+    )
+
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
