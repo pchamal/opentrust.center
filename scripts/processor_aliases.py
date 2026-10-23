@@ -1163,6 +1163,13 @@ REGISTER_ALIASES: dict[str, str] = {
     # is filed in this increment (cgsinc.com). Do not invent a second
     # CGS dossier.
     "gcs": "computer-generated-solutions",
+    # Addepar names Lightspeed for provision of trading functionality
+    # (addepar.com/legal/sub-processors). That is Lightspeed Financial
+    # Services Group, LLC (lightspeed.com; Member FINRA, NFA and SIPC),
+    # not Lightspeed Commerce (lightspeedhq.com) or Lightspeed Systems
+    # (lightspeedsystems.com). lightspeed-financial is filed in this
+    # increment. Do not alias this wire onto those rows.
+    "lightspeed": "lightspeed-financial",
 
 }
 

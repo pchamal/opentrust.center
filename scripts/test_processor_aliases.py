@@ -1010,6 +1010,49 @@ def main() -> int:
         "computer-generated-solutions is not a garbage slug",
     )
     check(not skip_processor("gcs", "GCS"), "gcs is not a garbage slug")
+    ls_fin_reg = {
+        **register,
+        "lightspeed-financial": {
+            "slug": "lightspeed-financial",
+            "name": "Lightspeed Financial Services Group",
+            "domain": "lightspeed.com",
+        },
+        "lightspeed-commerce": {
+            "slug": "lightspeed-commerce",
+            "name": "Lightspeed Commerce",
+            "domain": "lightspeedhq.com",
+        },
+        "lightspeed-systems": {
+            "slug": "lightspeed-systems",
+            "name": "Lightspeed Systems",
+            "domain": "lightspeedsystems.com",
+        },
+    }
+    check(
+        canonical_processor_id("lightspeed", ls_fin_reg) == "lightspeed-financial",
+        "Addepar Lightspeed is Lightspeed Financial",
+    )
+    check(REGISTER_ALIASES["lightspeed"] == "lightspeed-financial", "lightspeed aliases to lightspeed-financial")
+    check("lightspeed-financial" not in REGISTER_ALIASES, "lightspeed-financial stays the filed row")
+    check("lightspeed-commerce" not in REGISTER_ALIASES, "lightspeed-commerce stays its own row")
+    check("lightspeed-systems" not in REGISTER_ALIASES, "lightspeed-systems stays its own row")
+    check(
+        canonical_processor_id("lightspeed-commerce", ls_fin_reg) == "lightspeed-commerce",
+        "Lightspeed Commerce stays lightspeed-commerce",
+    )
+    check(
+        canonical_processor_id("lightspeed-systems", ls_fin_reg) == "lightspeed-systems",
+        "Lightspeed Systems stays lightspeed-systems",
+    )
+    check(
+        canonical_processor_id("shopkeep", ls_fin_reg) == "lightspeed-commerce",
+        "ShopKeep stays on Lightspeed Commerce",
+    )
+    check(
+        not skip_processor("lightspeed-financial", "Lightspeed Financial Services Group"),
+        "lightspeed-financial is not a garbage slug",
+    )
+    check(not skip_processor("lightspeed", "Lightspeed"), "lightspeed is not a garbage slug")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch
