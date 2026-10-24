@@ -4627,6 +4627,74 @@ def main() -> int:
         "smartrecruiters Talent Tech is no longer a leftover map node",
     )
 
+    # This cut: Lob names KP LLC, a US print/delivery partner. That is
+    # KP Corporation (kpcorp.com; footer KP LLC). Graph id kp is the
+    # register slug. File the vetted domain only. No alias. No trust
+    # URL, mark, DPA, named list, or year. Completeness stays 0.
+    # Do not touch KPIT Technologies or KPN.
+    filed_cut18 = {
+        "kp": "kpcorp.com",
+    }
+    for slug, domain in filed_cut18.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    check(
+        by_pub["kp"]["name"] == "KP Corporation (KP LLC)",
+        "KP name is KP Corporation (KP LLC)",
+    )
+    check(sum(1 for c in by_enr.values() if c.get("slug") == "kp") == 1, "kp slug is unique")
+    check(
+        by_enr["kp"].get("official_url") == "https://www.kpcorp.com/",
+        "KP Corporation homepage is kpcorp.com",
+    )
+    check(
+        by_pub["kp"].get("official_url") == "https://www.kpcorp.com/",
+        "KP Corporation public homepage is kpcorp.com",
+    )
+    check(
+        match_processor("KP Corporation (KP LLC)", by_enr)[0] == "kp",
+        "KP Corporation (KP LLC) matches the filed row",
+    )
+    check(match_processor("KP LLC", by_enr)[0] == "kp", "KP LLC matches the filed row")
+    check(by_pub["kpit-technologies"]["domain"] == "kpit.com", "KPIT Technologies domain stays kpit.com")
+    check(by_pub["kpit-technologies"]["name"] == "KPIT Technologies", "KPIT Technologies name stays")
+    check(by_pub["kpn"]["domain"] == "kpn.com", "KPN domain stays kpn.com")
+    check(by_pub["kpn"]["name"] == "KPN", "KPN name stays")
+    gap_nodes_cut18 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut18:
+        node = gap_nodes_cut18.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut18[slug], f"{slug} graph domain is the filed domain")
+        check(node.get("kind") == "company", f"{slug} graph node is a company")
+        check(slug not in (wires.get("aliases") or {}), f"{slug} has no alias")
+    check(
+        any(e.get("to") == "kp" and e.get("from") == "lob-com" for e in (wires.get("edges") or [])),
+        "lob KP LLC wire stays on kp",
+    )
+    check((gap_nodes_cut18.get("kpit-technologies") or {}).get("domain") == "kpit.com", "kpit graph domain stays")
+    check((gap_nodes_cut18.get("kpn") or {}).get("domain") == "kpn.com", "kpn graph domain stays")
+    lob_html_cut18 = (ROOT / "site" / "c" / "lob-com.html").read_text(encoding="utf-8")
+    check('./kp.html">KP LLC' in lob_html_cut18, "lob KP LLC lands on its dossier")
+    check("../graph.html#p=kp" not in lob_html_cut18, "lob KP LLC is no longer a leftover map node")
+    kp_html = (ROOT / "site" / "c" / "kp.html").read_text(encoding="utf-8")
+    check("<h1>KP Corporation (KP LLC)</h1>" in kp_html, "kp dossier is its own file")
+    check("Official page · not on file" in kp_html, "kp Official page stays open")
+    check("https://www.kpcorp.com/" in kp_html, "kp dossier cites the homepage")
+    check("kpit.com" not in kp_html, "kp dossier is not KPIT")
+    check("kpn.com" not in kp_html, "kp dossier is not KPN")
+
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
