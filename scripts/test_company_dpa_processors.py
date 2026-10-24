@@ -3223,7 +3223,6 @@ def main() -> int:
         "pigeonlab", "bt", "gcs",
         "regula-baltija", "up-reply",
         "24slides-aps",
-        "rule-56",
         "df-tech-fz", "dentsu-manchester",
     ):
         check(slug not in by_pub, f"{slug} stays off the register")
@@ -4817,6 +4816,61 @@ def main() -> int:
     check("https://precisionproco.co.uk/" in proco_html, "proco dossier cites the homepage")
     check("procore.com" not in proco_html, "proco dossier is not Procore")
     check("precisionmanuals.com" not in proco_html, "proco dossier is not Precision Manuals")
+
+    # This cut: Sophos names Rule 56 (United States) on its Advisory
+    # Services table. The official site is rule56.io. Graph id rule-56
+    # stays the register slug. File the vetted domain only. No alias.
+    # No trust URL, mark, DPA, named list, or year. Completeness stays 0.
+    filed_cut20 = {
+        "rule-56": "rule56.io",
+    }
+    for slug, domain in filed_cut20.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    check(by_pub["rule-56"]["name"] == "Rule 56", "Rule 56 name is Rule 56")
+    check(sum(1 for c in by_enr.values() if c.get("slug") == "rule-56") == 1, "rule-56 slug is unique")
+    check(
+        by_enr["rule-56"].get("official_url") == "https://www.rule56.io/",
+        "Rule 56 homepage is rule56.io",
+    )
+    check(
+        by_pub["rule-56"].get("official_url") == "https://www.rule56.io/",
+        "Rule 56 public homepage is rule56.io",
+    )
+    check(match_processor("Rule 56", by_enr)[0] == "rule-56", "Rule 56 matches the filed row")
+    gap_nodes_cut20 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut20:
+        node = gap_nodes_cut20.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut20[slug], f"{slug} graph domain is the filed domain")
+        check(node.get("kind") == "company", f"{slug} graph node is a company")
+        check(slug not in (wires.get("aliases") or {}), f"{slug} has no alias")
+    check(
+        any(e.get("to") == "rule-56" and e.get("from") == "sophos" for e in (wires.get("edges") or [])),
+        "sophos Rule 56 wire stays on rule-56",
+    )
+    sophos_html_cut20 = (ROOT / "site" / "c" / "sophos.html").read_text(encoding="utf-8")
+    check('./rule-56.html">Rule 56' in sophos_html_cut20, "sophos Rule 56 lands on its dossier")
+    check(
+        "../graph.html#p=rule-56" not in sophos_html_cut20,
+        "sophos Rule 56 is no longer a leftover map node",
+    )
+    rule56_html = (ROOT / "site" / "c" / "rule-56.html").read_text(encoding="utf-8")
+    check("<h1>Rule 56</h1>" in rule56_html, "rule-56 dossier is its own file")
+    check("Official page · not on file" in rule56_html, "rule-56 Official page stays open")
+    check("https://www.rule56.io/" in rule56_html, "rule-56 dossier cites the homepage")
 
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
