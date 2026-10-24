@@ -1100,6 +1100,34 @@ def main() -> int:
         canonical_processor_id("talent-tech-solutions", sync_reg) == "talent-tech-solutions",
         "Talent Tech Solutions stays talent-tech-solutions",
     )
+    check("kp" not in REGISTER_ALIASES, "kp stays the filed row")
+    check("kpit-technologies" not in REGISTER_ALIASES, "kpit-technologies stays its own row")
+    check("kpn" not in REGISTER_ALIASES, "kpn stays its own row")
+    check(not skip_processor("kp", "KP Corporation (KP LLC)"), "kp is not a garbage slug")
+    kp_reg = {
+        **register,
+        "kp": {
+            "slug": "kp",
+            "name": "KP Corporation (KP LLC)",
+            "domain": "kpcorp.com",
+        },
+        "kpit-technologies": {
+            "slug": "kpit-technologies",
+            "name": "KPIT Technologies",
+            "domain": "kpit.com",
+        },
+        "kpn": {
+            "slug": "kpn",
+            "name": "KPN",
+            "domain": "kpn.com",
+        },
+    }
+    check(canonical_processor_id("kp", kp_reg) == "kp", "KP LLC stays kp")
+    check(
+        canonical_processor_id("kpit-technologies", kp_reg) == "kpit-technologies",
+        "KPIT Technologies stays kpit-technologies",
+    )
+    check(canonical_processor_id("kpn", kp_reg) == "kpn", "KPN stays kpn")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch
