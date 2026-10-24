@@ -1163,6 +1163,17 @@ def main() -> int:
     )
     check(canonical_processor_id("proco-print", lob_reg) == "proco-print", "ProCo Print stays proco-print")
     check(canonical_processor_id("procore", lob_reg) == "procore", "Procore stays procore")
+    check("rule-56" not in REGISTER_ALIASES, "rule-56 stays the filed row")
+    check(not skip_processor("rule-56", "Rule 56"), "rule-56 is not a garbage slug")
+    rule56_reg = {
+        **register,
+        "rule-56": {
+            "slug": "rule-56",
+            "name": "Rule 56",
+            "domain": "rule56.io",
+        },
+    }
+    check(canonical_processor_id("rule-56", rule56_reg) == "rule-56", "Rule 56 stays rule-56")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch
