@@ -4695,6 +4695,129 @@ def main() -> int:
     check("kpit.com" not in kp_html, "kp dossier is not KPIT")
     check("kpn.com" not in kp_html, "kp dossier is not KPN")
 
+    # This cut: Lob names Immediate Mailing Services, Inc and ProCo Print Ltd.
+    # IMS is Immediate Mailing Services (imsdirect.com). ProCo Print Ltd
+    # trades as Precision Proco (precisionproco.co.uk). Graph ids stay the
+    # register slugs. File the vetted domains only. No alias. No trust
+    # URL, mark, DPA, named list, or year. Completeness stays 0.
+    # Do not touch Procore or Precision Manuals.
+    filed_cut19 = {
+        "immediate-mailing-services": "imsdirect.com",
+        "proco-print": "precisionproco.co.uk",
+    }
+    for slug, domain in filed_cut19.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    check(
+        by_pub["immediate-mailing-services"]["name"] == "Immediate Mailing Services (IMS, Inc.)",
+        "IMS name is Immediate Mailing Services (IMS, Inc.)",
+    )
+    check(
+        by_pub["proco-print"]["name"] == "ProCo Print (Precision Proco)",
+        "ProCo name is ProCo Print (Precision Proco)",
+    )
+    check(
+        sum(1 for c in by_enr.values() if c.get("slug") == "immediate-mailing-services") == 1,
+        "immediate-mailing-services slug is unique",
+    )
+    check(sum(1 for c in by_enr.values() if c.get("slug") == "proco-print") == 1, "proco-print slug is unique")
+    check(
+        by_enr["immediate-mailing-services"].get("official_url") == "https://imsdirect.com/",
+        "IMS homepage is imsdirect.com",
+    )
+    check(
+        by_pub["immediate-mailing-services"].get("official_url") == "https://imsdirect.com/",
+        "IMS public homepage is imsdirect.com",
+    )
+    check(
+        by_enr["proco-print"].get("official_url") == "https://precisionproco.co.uk/",
+        "ProCo homepage is precisionproco.co.uk",
+    )
+    check(
+        by_pub["proco-print"].get("official_url") == "https://precisionproco.co.uk/",
+        "ProCo public homepage is precisionproco.co.uk",
+    )
+    check(
+        match_processor("Immediate Mailing Services (IMS, Inc.)", by_enr)[0] == "immediate-mailing-services",
+        "Immediate Mailing Services (IMS, Inc.) matches the filed row",
+    )
+    check(
+        match_processor("Immediate Mailing Services, Inc", by_enr)[0] == "immediate-mailing-services",
+        "Immediate Mailing Services, Inc matches the filed row",
+    )
+    check(
+        match_processor("ProCo Print (Precision Proco)", by_enr)[0] == "proco-print",
+        "ProCo Print (Precision Proco) matches the filed row",
+    )
+    check(match_processor("ProCo Print Ltd", by_enr)[0] == "proco-print", "ProCo Print Ltd matches the filed row")
+    check(by_pub["procore"]["domain"] == "procore.com", "Procore domain stays procore.com")
+    check(by_pub["procore"]["name"] == "Procore", "Procore name stays")
+    check(
+        by_pub["precision-manuals-development-group"]["domain"] == "precisionmanuals.com",
+        "Precision Manuals domain stays precisionmanuals.com",
+    )
+    check(
+        by_pub["precision-manuals-development-group"]["name"] == "Precision Manuals Development Group",
+        "Precision Manuals name stays",
+    )
+    gap_nodes_cut19 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut19:
+        node = gap_nodes_cut19.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut19[slug], f"{slug} graph domain is the filed domain")
+        check(node.get("kind") == "company", f"{slug} graph node is a company")
+        check(slug not in (wires.get("aliases") or {}), f"{slug} has no alias")
+    check(
+        any(
+            e.get("to") == "immediate-mailing-services" and e.get("from") == "lob-com"
+            for e in (wires.get("edges") or [])
+        ),
+        "lob Immediate Mailing Services wire stays on immediate-mailing-services",
+    )
+    check(
+        any(e.get("to") == "proco-print" and e.get("from") == "lob-com" for e in (wires.get("edges") or [])),
+        "lob ProCo Print wire stays on proco-print",
+    )
+    check((gap_nodes_cut19.get("procore") or {}).get("domain") == "procore.com", "procore graph domain stays")
+    check(
+        (gap_nodes_cut19.get("precision-manuals-development-group") or {}).get("domain") == "precisionmanuals.com",
+        "precision manuals graph domain stays",
+    )
+    lob_html_cut19 = (ROOT / "site" / "c" / "lob-com.html").read_text(encoding="utf-8")
+    check(
+        './immediate-mailing-services.html">Immediate Mailing Services, Inc' in lob_html_cut19,
+        "lob Immediate Mailing Services lands on its dossier",
+    )
+    check(
+        "../graph.html#p=immediate-mailing-services" not in lob_html_cut19,
+        "lob Immediate Mailing Services is no longer a leftover map node",
+    )
+    check('./proco-print.html">ProCo Print Ltd' in lob_html_cut19, "lob ProCo Print lands on its dossier")
+    check("../graph.html#p=proco-print" not in lob_html_cut19, "lob ProCo Print is no longer a leftover map node")
+    ims_html = (ROOT / "site" / "c" / "immediate-mailing-services.html").read_text(encoding="utf-8")
+    check("<h1>Immediate Mailing Services (IMS, Inc.)</h1>" in ims_html, "ims dossier is its own file")
+    check("Official page · not on file" in ims_html, "ims Official page stays open")
+    check("https://imsdirect.com/" in ims_html, "ims dossier cites the homepage")
+    check("procore.com" not in ims_html, "ims dossier is not Procore")
+    proco_html = (ROOT / "site" / "c" / "proco-print.html").read_text(encoding="utf-8")
+    check("<h1>ProCo Print (Precision Proco)</h1>" in proco_html, "proco dossier is its own file")
+    check("Official page · not on file" in proco_html, "proco Official page stays open")
+    check("https://precisionproco.co.uk/" in proco_html, "proco dossier cites the homepage")
+    check("procore.com" not in proco_html, "proco dossier is not Procore")
+    check("precisionmanuals.com" not in proco_html, "proco dossier is not Precision Manuals")
+
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
