@@ -1128,6 +1128,41 @@ def main() -> int:
         "KPIT Technologies stays kpit-technologies",
     )
     check(canonical_processor_id("kpn", kp_reg) == "kpn", "KPN stays kpn")
+    check("immediate-mailing-services" not in REGISTER_ALIASES, "immediate-mailing-services stays the filed row")
+    check("proco-print" not in REGISTER_ALIASES, "proco-print stays the filed row")
+    check("procore" not in REGISTER_ALIASES, "procore stays its own row")
+    check(
+        not skip_processor("immediate-mailing-services", "Immediate Mailing Services (IMS, Inc.)"),
+        "immediate-mailing-services is not a garbage slug",
+    )
+    check(
+        not skip_processor("proco-print", "ProCo Print (Precision Proco)"),
+        "proco-print is not a garbage slug",
+    )
+    lob_reg = {
+        **register,
+        "immediate-mailing-services": {
+            "slug": "immediate-mailing-services",
+            "name": "Immediate Mailing Services (IMS, Inc.)",
+            "domain": "imsdirect.com",
+        },
+        "proco-print": {
+            "slug": "proco-print",
+            "name": "ProCo Print (Precision Proco)",
+            "domain": "precisionproco.co.uk",
+        },
+        "procore": {
+            "slug": "procore",
+            "name": "Procore",
+            "domain": "procore.com",
+        },
+    }
+    check(
+        canonical_processor_id("immediate-mailing-services", lob_reg) == "immediate-mailing-services",
+        "Immediate Mailing Services stays immediate-mailing-services",
+    )
+    check(canonical_processor_id("proco-print", lob_reg) == "proco-print", "ProCo Print stays proco-print")
+    check(canonical_processor_id("procore", lob_reg) == "procore", "Procore stays procore")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch
