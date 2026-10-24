@@ -3223,7 +3223,7 @@ def main() -> int:
         "pigeonlab", "bt", "gcs",
         "regula-baltija", "up-reply",
         "24slides-aps",
-        "talent-tech-solutions", "rule-56",
+        "rule-56",
         "df-tech-fz", "dentsu-manchester",
     ):
         check(slug not in by_pub, f"{slug} stays off the register")
@@ -4518,6 +4518,113 @@ def main() -> int:
     check(
         '../graph.html#p=pigeonlab"' not in brightcove_html_cut16,
         "brightcove PigeonLab is no longer a leftover map node",
+    )
+
+    # This cut: Forsta names SyncScript, LLC. That company rebranded to
+    # Sync Research Group (syncresearchgroup.com). SmartRecruiters names
+    # Talent Tech Solutions Pty Ltd, which is TalentTech (talenttech.co).
+    # Graph ids are the register slugs. File both on the vetted domain
+    # only. No alias. No trust URL, mark, DPA, named list, or year.
+    # Completeness stays 0.
+    filed_cut17 = {
+        "syncscript": "syncresearchgroup.com",
+        "talent-tech-solutions": "talenttech.co",
+    }
+    for slug, domain in filed_cut17.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    check(
+        by_pub["syncscript"]["name"] == "Sync Research Group (SyncScript)",
+        "SyncScript name is Sync Research Group (SyncScript)",
+    )
+    check(
+        by_pub["talent-tech-solutions"]["name"] == "TalentTech (Talent Tech Solutions)",
+        "TalentTech name is TalentTech (Talent Tech Solutions)",
+    )
+    check(sum(1 for c in by_enr.values() if c.get("slug") == "syncscript") == 1, "syncscript slug is unique")
+    check(
+        sum(1 for c in by_enr.values() if c.get("slug") == "talent-tech-solutions") == 1,
+        "talent-tech-solutions slug is unique",
+    )
+    check(
+        by_enr["syncscript"].get("official_url") == "https://syncresearchgroup.com/",
+        "Sync Research Group homepage is syncresearchgroup.com",
+    )
+    check(
+        by_pub["syncscript"].get("official_url") == "https://syncresearchgroup.com/",
+        "Sync Research Group public homepage is syncresearchgroup.com",
+    )
+    check(
+        by_enr["talent-tech-solutions"].get("official_url") == "https://www.talenttech.co/",
+        "TalentTech homepage is talenttech.co",
+    )
+    check(
+        by_pub["talent-tech-solutions"].get("official_url") == "https://www.talenttech.co/",
+        "TalentTech public homepage is talenttech.co",
+    )
+    check(
+        match_processor("Sync Research Group (SyncScript)", by_enr)[0] == "syncscript",
+        "Sync Research Group matches the filed row",
+    )
+    check(
+        match_processor("SyncScript, LLC", by_enr)[0] == "syncscript",
+        "SyncScript, LLC matches the filed row",
+    )
+    check(
+        match_processor("TalentTech (Talent Tech Solutions)", by_enr)[0] == "talent-tech-solutions",
+        "TalentTech matches the filed row",
+    )
+    check(
+        match_processor("Talent Tech Solutions Pty Ltd", by_enr)[0] == "talent-tech-solutions",
+        "Talent Tech Solutions Pty Ltd matches the filed row",
+    )
+    gap_nodes_cut17 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut17:
+        node = gap_nodes_cut17.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut17[slug], f"{slug} graph domain is the filed domain")
+        check(node.get("kind") == "company", f"{slug} graph node is a company")
+        check(slug not in (wires.get("aliases") or {}), f"{slug} has no alias")
+    check(
+        any(e.get("to") == "syncscript" and e.get("from") == "forsta-as" for e in (wires.get("edges") or [])),
+        "forsta SyncScript wire stays on syncscript",
+    )
+    check(
+        any(
+            e.get("to") == "talent-tech-solutions" and e.get("from") == "smartrecruiters"
+            for e in (wires.get("edges") or [])
+        ),
+        "smartrecruiters Talent Tech wire stays on talent-tech-solutions",
+    )
+    forsta_html_cut17 = (ROOT / "site" / "c" / "forsta-as.html").read_text(encoding="utf-8")
+    check(
+        './syncscript.html">SyncScript, LLC' in forsta_html_cut17,
+        "forsta SyncScript lands on its dossier",
+    )
+    check(
+        "../graph.html#p=syncscript" not in forsta_html_cut17,
+        "forsta SyncScript is no longer a leftover map node",
+    )
+    sr_html_cut17 = (ROOT / "site" / "c" / "smartrecruiters.html").read_text(encoding="utf-8")
+    check(
+        './talent-tech-solutions.html">Talent Tech Solutions Pty Ltd' in sr_html_cut17,
+        "smartrecruiters Talent Tech lands on its dossier",
+    )
+    check(
+        "../graph.html#p=talent-tech-solutions" not in sr_html_cut17,
+        "smartrecruiters Talent Tech is no longer a leftover map node",
     )
 
     print(
