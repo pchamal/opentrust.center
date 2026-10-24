@@ -1072,6 +1072,34 @@ def main() -> int:
         "pigeonhole-live is not a garbage slug",
     )
     check(not skip_processor("pigeonlab", "PigeonLab"), "pigeonlab is not a garbage slug")
+    check("syncscript" not in REGISTER_ALIASES, "syncscript stays the filed row")
+    check("talent-tech-solutions" not in REGISTER_ALIASES, "talent-tech-solutions stays the filed row")
+    check(
+        not skip_processor("syncscript", "Sync Research Group (SyncScript)"),
+        "syncscript is not a garbage slug",
+    )
+    check(
+        not skip_processor("talent-tech-solutions", "TalentTech (Talent Tech Solutions)"),
+        "talent-tech-solutions is not a garbage slug",
+    )
+    sync_reg = {
+        **register,
+        "syncscript": {
+            "slug": "syncscript",
+            "name": "Sync Research Group (SyncScript)",
+            "domain": "syncresearchgroup.com",
+        },
+        "talent-tech-solutions": {
+            "slug": "talent-tech-solutions",
+            "name": "TalentTech (Talent Tech Solutions)",
+            "domain": "talenttech.co",
+        },
+    }
+    check(canonical_processor_id("syncscript", sync_reg) == "syncscript", "SyncScript stays syncscript")
+    check(
+        canonical_processor_id("talent-tech-solutions", sync_reg) == "talent-tech-solutions",
+        "Talent Tech Solutions stays talent-tech-solutions",
+    )
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch
