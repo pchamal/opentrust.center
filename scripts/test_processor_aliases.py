@@ -1174,6 +1174,17 @@ def main() -> int:
         },
     }
     check(canonical_processor_id("rule-56", rule56_reg) == "rule-56", "Rule 56 stays rule-56")
+    check("dispatch" not in REGISTER_ALIASES, "dispatch stays the filed row")
+    check(not skip_processor("dispatch", "Dispatch Integration"), "dispatch is not a garbage slug")
+    dispatch_reg = {
+        **register,
+        "dispatch": {
+            "slug": "dispatch",
+            "name": "Dispatch Integration",
+            "domain": "dispatchintegration.com",
+        },
+    }
+    check(canonical_processor_id("dispatch", dispatch_reg) == "dispatch", "Dispatch Integration stays dispatch")
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch

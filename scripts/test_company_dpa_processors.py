@@ -1369,7 +1369,11 @@ def main() -> int:
     check("twilio" in sr_slugs, "smartrecruiters SendGrid uses the Twilio file")
     check("microsoft" in sr_slugs, "smartrecruiters Microsoft Ireland uses the Microsoft file")
     check("deepl" in sr_slugs, "smartrecruiters DeepL SE uses the DeepL file")
-    check("dispatch" not in by_pub, "smartrecruiters does not invent a Dispatch dossier")
+    check("dispatch" in sr_slugs, "smartrecruiters Dispatch uses the filed Dispatch Integration row")
+    check(
+        by_pub["dispatch"]["name"] == "Dispatch Integration",
+        "smartrecruiters Dispatch dossier is Dispatch Integration",
+    )
     sms_names = [p.get("name") for p in (by_pub["sms-magic"].get("processors") or [])]
     sms_slugs = [p.get("slug") for p in (by_pub["sms-magic"].get("processors") or [])]
     check(
@@ -2925,7 +2929,7 @@ def main() -> int:
     ):
         check(slug in by_pub, f"{slug} is on the register")
         check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
-    for slug in ("voyager", "kaleido", "dispatch"):
+    for slug in ("voyager", "kaleido"):
         check(slug not in by_pub, f"{slug} stays off the register")
     check(by_pub["rev"].get("found") is True, "rev Official page is on file")
     check(by_pub["rev"].get("trust_url") == "https://www.rev.com/security", "rev Official page is first-party security")
@@ -3021,7 +3025,7 @@ def main() -> int:
         check("CCPA" not in (by_pub[slug].get("certs") or []), f"{slug} CCPA is not a mark")
     for slug in (
         "aircall-sas", "voyager",
-        "kaleido", "dispatch", "cookie-bot",
+        "kaleido", "cookie-bot",
         "springserve", "profitwell",
         "pigeonlab", "bt", "gcs",
     ):
@@ -3087,7 +3091,7 @@ def main() -> int:
         check("CCPA" not in (by_pub[slug].get("certs") or []), f"{slug} CCPA is not a mark")
     for slug in (
         "aircall-sas", "voyager",
-        "kaleido", "dispatch", "cookie-bot",
+        "kaleido", "cookie-bot",
         "springserve", "profitwell",
         "pigeonlab", "bt", "gcs",
     ):
@@ -3159,7 +3163,7 @@ def main() -> int:
         check("CCPA" not in (by_pub[slug].get("certs") or []), f"{slug} CCPA is not a mark")
     for slug in (
         "aircall-sas", "voyager",
-        "kaleido", "dispatch", "cookie-bot",
+        "kaleido", "cookie-bot",
         "springserve", "profitwell",
         "pigeonlab", "bt", "gcs",
         "regula-baltija", "up-reply",
@@ -3218,7 +3222,7 @@ def main() -> int:
     check("magnite" in by_pub, "magnite stays the filed SpringServe row")
     for slug in (
         "aircall-sas", "voyager",
-        "kaleido", "dispatch", "cookie-bot",
+        "kaleido", "cookie-bot",
         "springserve", "profitwell",
         "pigeonlab", "bt", "gcs",
         "regula-baltija", "up-reply",
@@ -3354,7 +3358,7 @@ def main() -> int:
         "aircall-sas", "apigee-x-google", "google-apps", "abnormal-security",
         "bt", "heap", "profitwell", "cookie-bot", "24slides-aps",
         "workramp", "mozilor-technologies-pvt",
-        "kaleido", "dispatch", "voyager",
+        "kaleido", "voyager",
     ):
         check(slug not in by_pub, f"{slug} is not a second dossier")
     gap_nodes = {n.get("id"): n for n in (wires.get("nodes") or [])}
@@ -3447,7 +3451,7 @@ def main() -> int:
         "the-segerdahl-group-dba-sg360", "asora-technologies",
         "nahan-printings", "the-dot",
         "workramp", "voyager",
-        "kaleido", "dispatch",
+        "kaleido",
     ):
         check(slug not in by_pub, f"{slug} is not a second dossier")
     gap_nodes_cut2 = {n.get("id"): n for n in (wires.get("nodes") or [])}
@@ -4871,6 +4875,66 @@ def main() -> int:
     check("<h1>Rule 56</h1>" in rule56_html, "rule-56 dossier is its own file")
     check("Official page · not on file" in rule56_html, "rule-56 Official page stays open")
     check("https://www.rule56.io/" in rule56_html, "rule-56 dossier cites the homepage")
+
+    # This cut: SmartRecruiters names Dispatch on its Optional Sub-processors
+    # table (Oakville, Ontario). The company is Dispatch Integration
+    # (dispatchintegration.com). Graph id dispatch stays the register slug.
+    # File the vetted domain only. No alias. No trust URL, mark, DPA,
+    # named list, or year. Completeness stays 0.
+    filed_cut21 = {
+        "dispatch": "dispatchintegration.com",
+    }
+    for slug, domain in filed_cut21.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    check(by_pub["dispatch"]["name"] == "Dispatch Integration", "Dispatch Integration name is Dispatch Integration")
+    check(sum(1 for c in by_enr.values() if c.get("slug") == "dispatch") == 1, "dispatch slug is unique")
+    check(
+        by_enr["dispatch"].get("official_url") == "https://dispatchintegration.com/",
+        "Dispatch Integration homepage is dispatchintegration.com",
+    )
+    check(
+        by_pub["dispatch"].get("official_url") == "https://dispatchintegration.com/",
+        "Dispatch Integration public homepage is dispatchintegration.com",
+    )
+    check(
+        match_processor("Dispatch Integration", by_enr)[0] == "dispatch",
+        "Dispatch Integration matches the filed row",
+    )
+    gap_nodes_cut21 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut21:
+        node = gap_nodes_cut21.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut21[slug], f"{slug} graph domain is the filed domain")
+        check(node.get("kind") == "company", f"{slug} graph node is a company")
+        check(node.get("name") == "Dispatch Integration", f"{slug} graph name is Dispatch Integration")
+        check(slug not in (wires.get("aliases") or {}), f"{slug} has no alias")
+    check(
+        any(e.get("to") == "dispatch" and e.get("from") == "smartrecruiters" for e in (wires.get("edges") or [])),
+        "smartrecruiters Dispatch wire stays on dispatch",
+    )
+    sr_html_cut21 = (ROOT / "site" / "c" / "smartrecruiters.html").read_text(encoding="utf-8")
+    check('./dispatch.html">Dispatch' in sr_html_cut21, "smartrecruiters Dispatch lands on its dossier")
+    check(
+        "../graph.html#p=dispatch" not in sr_html_cut21,
+        "smartrecruiters Dispatch is no longer a leftover map node",
+    )
+    dispatch_html = (ROOT / "site" / "c" / "dispatch.html").read_text(encoding="utf-8")
+    check("<h1>Dispatch Integration</h1>" in dispatch_html, "dispatch dossier is its own file")
+    check("Official page · not on file" in dispatch_html, "dispatch Official page stays open")
+    check("https://dispatchintegration.com/" in dispatch_html, "dispatch dossier cites the homepage")
 
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
