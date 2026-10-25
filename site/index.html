@@ -3,31 +3,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>opentrust.center — public trust ledger</title>
-  <meta name="description" content="The public file on AI systems. Not a trust score.">
+  <title>The AI Trust Index</title>
+  <meta name="description" content="What AI systems publish about their own disclosures, read from their own sites. Counted from data.json at load.">
   <meta name="theme-color" content="#0B1411">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://opentrust.center/">
-  <meta property="og:title" content="opentrust.center — public trust ledger">
-  <meta property="og:description" content="The public file on AI systems. Not a trust score.">
+  <meta property="og:title" content="The AI Trust Index">
+  <meta property="og:description" content="What AI systems publish about their own disclosures, read from their own sites. Counted from data.json at load.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://opentrust.center/">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="opentrust.center — public trust ledger">
-  <meta name="twitter:description" content="The public file on AI systems. Not a trust score.">
+  <meta name="twitter:title" content="The AI Trust Index">
+  <meta name="twitter:description" content="What AI systems publish about their own disclosures, read from their own sites. Counted from data.json at load.">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "opentrust.center",
+    "name": "The AI Trust Index",
     "url": "https://opentrust.center/",
-    "description": "The public file on AI systems. Not a trust score."
+    "description": "What AI systems publish about their own disclosures, read from their own sites. Counted from data.json at load."
   }
   </script>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./plate.css">
 </head>
-<body class="register aiti">
+<body class="register aiti plate">
   <a class="skip" href="#main">Skip to the record</a>
   <header class="mast">
     <a class="wordmark" href="./">opentrust<span class="wm-dot">.</span>center</a>
@@ -38,146 +39,121 @@
       <a href="./attestations.html">Standards</a>
       <a href="./watch.html">Notices</a>
     </nav>
+    <p class="issue plate-iss" id="issue">issue</p>
   </header>
 
-  <section class="binding" aria-label="opentrust.center overview">
-    <div class="binding-status">
-      <p class="issue" id="issue">issue —</p>
-      <span class="binding-live"><i class="binding-dot" aria-hidden="true"></i>fetching</span>
-    </div>
-
+  <section class="binding" aria-label="The AI Trust Index">
     <div class="wrap">
-      <div class="binding-grid">
-        <div class="binding-claim">
-          <p class="binding-kicker">public evidence register · ai trust index</p>
-          <h1 class="binding-title">The public file on AI&nbsp;systems.</h1>
-          <p class="binding-lede">What AI companies publish about themselves, verified on their
-          own host, printed as a receipt. Not a trust score. Disclosure rates the file — never the company.</p>
-          <div class="binding-actions">
-            <a class="binding-go" href="#main">Open the index<span aria-hidden="true"> ↓</span></a>
-            <button type="button" class="binding-chip" data-find="complete">complete files</button>
+      <div class="hero">
+        <h1>The AI Trust Index</h1>
+        <div class="hero-row">
+          <p>What AI companies publish about their systems, read from their own sites. Each system is checked for five disclosures. The count measures what is published. It says nothing about how a company behaves.</p>
+          <div class="plate-acts">
+            <button type="button" class="binding-chip" data-find="complete">public file complete</button>
             <button type="button" class="binding-chip" data-find="silent">silent</button>
             <button type="button" class="binding-chip" data-find="iso 42001">ISO 42001</button>
+            <a class="plate-go" href="#main">Open the index</a>
           </div>
         </div>
-
-        <aside class="b-console" aria-label="Live probe console">
-          <span class="b-reg b-reg-tl" aria-hidden="true">+</span><span class="b-reg b-reg-tr" aria-hidden="true">+</span>
-          <span class="b-reg b-reg-bl" aria-hidden="true">+</span><span class="b-reg b-reg-br" aria-hidden="true">+</span>
-          <p class="b-console-head"><span>probe console</span><span id="b-sweep-stamp" class="b-dim">sweep</span></p>
-          <div class="b-console-body">
-            <p class="b-row"><span class="b-k">$ sweep · 4 targets</span></p>
-            <p class="b-row"><span class="b-k">→ docs.stripe.com</span><span class="b-dots" aria-hidden="true">·········</span><span class="b-v" id="b-pr-stripe">queued</span></p>
-            <p class="b-row"><span class="b-k">→ trust.openai.com</span><span class="b-dots" aria-hidden="true">·········</span><span class="b-v" id="b-pr-openai">queued</span></p>
-            <p class="b-row"><span class="b-k">→ cloudflare.com</span><span class="b-dots" aria-hidden="true">·········</span><span class="b-v" id="b-pr-cloudflare">queued</span></p>
-            <p class="b-row"><span class="b-k">→ trust.mistral.ai</span><span class="b-dots" aria-hidden="true">·········</span><span class="b-v" id="b-pr-mistral">queued</span></p>
-            <p class="b-rule" aria-hidden="true"></p>
-            <p class="b-row b-verdict"><span class="b-k">verdict</span><span class="b-dots" aria-hidden="true">·········</span><span class="b-v" id="b-verdict">sweeping</span></p>
-          </div>
-          <p class="b-console-foot"><span>cadence daily</span><span>latency measured in your browser</span><span>timeout prints not on file</span></p>
-        </aside>
       </div>
-    </div>
-
-    <div class="b-ticker" aria-hidden="true">
-      <div class="b-ticker-track" id="b-ticker-track"></div>
-    </div>
-
-    <div class="wrap">
-      <dl class="b-counts" id="b-counts">
-        <div class="b-count"><dt>domains in scope</dt><dd id="b-stat-scope">—</dd></div>
-        <div class="b-count"><dt>files on record</dt><dd id="b-stat-found">—</dd></div>
-        <div class="b-count"><dt>subprocessor edges</dt><dd id="b-stat-edges">—</dd></div>
-        <div class="b-count"><dt>marks explained</dt><dd id="b-stat-marks">—</dd></div>
-      </dl>
-      <p class="b-tier-line" id="b-tier-line"></p>
-      <p class="b-count-note" id="b-count-note">counts computed from data.json at load. a row that cannot be fetched prints not on file — it is never dropped.</p>
+      <figure class="fig">
+        <div class="fig-capline">
+          <p class="fig-cap" id="cap"></p>
+          <span class="fig-src" id="src"></span>
+        </div>
+        <div id="fig"></div>
+        <p class="leg" id="leg">Thick line: systems that publish it. Thin line: not on file, which is inconclusive. Counted from data.json at load.</p>
+      </figure>
+      <p class="counts" id="counts"></p>
+      <p class="method" id="probe">Method: first-party pages are re-probed from your browser on load. <span data-u="https://docs.stripe.com/security">docs.stripe.com <span class="v">probing</span></span>, <span data-u="https://trust.openai.com">trust.openai.com <span class="v">probing</span></span>, <span data-u="https://www.cloudflare.com/trust-hub/">cloudflare.com <span class="v">probing</span></span>, <span data-u="https://trust.mistral.ai">trust.mistral.ai <span class="v">probing</span></span>. A timeout prints <em>not on file</em>.</p>
     </div>
   </section>
 
-  <main class="canvas" id="main">
+  <main id="main">
     <div id="file-view">
-    <h2 class="page-title">AI Trust Index</h2>
-    <p class="lede">Five AI instruments per system: page · standards · processors · evals · incidents. Trust files live on the Register. On file, or not.</p>
-    <nav class="view-toggle" role="tablist" aria-label="View">
-      <button type="button" role="tab" data-view="file" class="on" aria-controls="file-view" aria-selected="true">completeness</button>
-      <span class="sep" aria-hidden="true">|</span>
-      <button type="button" role="tab" data-view="method" aria-controls="method-view" aria-selected="false">method</button>
-    </nav>
+      <div class="plate-main">
+        <h2 id="aiti-heading">All AI systems</h2>
+        <p class="lede">Each system is checked for an AI page, AI standards, AI processors, evals and incidents. Company trust files are on the Register.</p>
+        <div class="plate-tools">
+          <form class="finder" id="finder" role="search">
+            <label>
+              <span class="sr-only">Find an AI file</span>
+              <input id="q" type="search" name="q" placeholder="Find an AI file: cursor, AIUC-1" autocomplete="off" spellcheck="false">
+            </label>
+            <button type="submit" class="finder-go">Find</button>
+          </form>
+          <nav class="view-toggle" role="tablist" aria-label="View">
+            <button type="button" role="tab" data-view="file" class="on" aria-controls="file-view" aria-selected="true">completeness</button>
+            <button type="button" role="tab" data-view="method" aria-controls="method-view" aria-selected="false">method</button>
+          </nav>
+        </div>
+        <div class="plate-meta">
+          <span id="countline"></span>
+          <span id="file-method">Completeness adds 20 for each printed disclosure, so 100 means all five are printed.</span>
+        </div>
+        <p class="queryline" id="queryline" hidden></p>
+      </div>
 
-    <form class="finder" id="finder" role="search">
-      <label>
-        <span class="sr-only">Find an AI file</span>
-        <input id="q" type="search" name="q" placeholder="/ cursor, aiuc-1" autocomplete="off" spellcheck="false" autofocus>
-      </label>
-      <button type="submit" class="finder-go">Find</button>
-    </form>
+      <div id="miss" class="miss plate-main" hidden>
+        <p class="miss-title" id="miss-title">Not in the index.</p>
+        <p class="muted" id="miss-body"></p>
+        <ul class="guesses" id="guesses"></ul>
+        <div class="miss-actions" id="miss-actions" hidden>
+          <button type="button" class="miss-go" id="miss-reset">Reset this query</button>
+          <a class="miss-go" id="miss-look" target="_blank" rel="noopener noreferrer">View source paths</a>
+          <a class="miss-go" id="miss-request" target="_blank" rel="noopener noreferrer">Report a correction</a>
+        </div>
+      </div>
 
-    <p class="queryline" id="queryline" hidden></p>
-    <p class="countline" id="countline"></p>
-    <p class="file-legend" id="file-legend">AI page · AI standards · AI processors · evals · incidents</p>
-    <p class="file-method" id="file-method">100 is five prints.</p>
+      <div class="sheet">
+        <div class="wrap">
+          <table class="reg" id="reg" hidden>
+            <thead>
+              <tr>
+                <th scope="col" data-sort="name" aria-sort="none"><button type="button">Name</button></th>
+                <th scope="col" data-sort="host" aria-sort="none"><button type="button">Domain</button></th>
+                <th scope="col" class="on" data-sort="file" aria-sort="descending"><button type="button">Completeness</button></th>
+                <th scope="col" class="marks" data-sort="marks" aria-sort="none"><button type="button">Standards</button></th>
+              </tr>
+            </thead>
+            <tbody id="reg-body"></tbody>
+          </table>
+        </div>
+      </div>
 
-    <div id="miss" class="miss" hidden>
-      <p class="miss-title" id="miss-title">Not in the index.</p>
-      <p class="muted" id="miss-body"></p>
-      <ul class="guesses" id="guesses"></ul>
-      <div class="miss-actions" id="miss-actions" hidden>
-        <button type="button" class="miss-go" id="miss-reset">Reset this query</button>
-        <a class="miss-go" id="miss-look" target="_blank" rel="noopener noreferrer">View source paths</a>
-        <a class="miss-go" id="miss-request" target="_blank" rel="noopener noreferrer">Report a correction</a>
+      <div id="empty" class="empty plate-main" hidden>
+        <p>No crawl data on file.</p>
       </div>
     </div>
 
-    <div class="wires-scroll">
-    <table class="reg" id="reg" hidden>
-      <thead>
-        <tr>
-          <th scope="col" data-sort="name" aria-sort="none"><button type="button">Name</button></th>
-          <th scope="col" data-sort="host" aria-sort="none"><button type="button">Domain</button></th>
-          <th scope="col" class="on" data-sort="file" aria-sort="descending"><button type="button">Completeness</button></th>
-          <th scope="col" class="marks" data-sort="marks" aria-sort="none"><button type="button">Standards</button></th>
-        </tr>
-      </thead>
-      <tbody id="reg-body"></tbody>
-    </table>
-    </div>
-
-    <div id="empty" class="empty" hidden>
-      <p>No crawl data on file.</p>
-    </div>
-    </div>
-
-    <div id="method-view" hidden>
+    <div id="method-view" class="plate-main" hidden>
       <h2 class="page-title">Method</h2>
       <p class="lede">How we count a public file. Not a company grade.</p>
       <nav class="view-toggle" role="tablist" aria-label="View">
         <button type="button" role="tab" data-view="file" aria-controls="file-view" aria-selected="false">completeness</button>
-        <span class="sep" aria-hidden="true">|</span>
         <button type="button" role="tab" data-view="method" class="on" aria-controls="method-view" aria-selected="true">method</button>
       </nav>
       <h2 class="sec-kicker">The count</h2>
-      <p class="clerk" id="file-method-detail">100 is five prints.</p>
+      <p class="clerk" id="file-method-detail">Completeness adds 20 for each printed disclosure, so 100 means all five are printed.</p>
       <h2 class="sec-kicker">AITI</h2>
-      <p class="clerk">AI page · AI standards · AI processors · evals · incidents. Completeness counts AI disclosures only — a full trust file can still print 0 here. Standards print only when an AI standard is on the page. Empty incidents are inconclusive.</p>
+      <p class="clerk">AI page, AI standards, AI processors, evals, incidents. Completeness counts AI disclosures only. A full trust file can still print 0 here. Standards print only when an AI standard is on the page. Empty incidents are inconclusive.</p>
       <h2 class="sec-kicker">Register</h2>
-      <p class="clerk">page · standards · DPA · subprocessors · years.</p>
+      <p class="clerk">page, standards, DPA, subprocessors, years.</p>
       <h2 class="sec-kicker">What counts</h2>
       <p class="clerk">First-party public HTML or a first-party legal PDF on the company’s own host. Fetch-check. No invented companies, certs, processors, or URLs.</p>
       <h2 class="sec-kicker">What stays open</h2>
       <p class="clerk">JS shells, HTTP 403/404, login walls, regulation-only GDPR/CCPA rights text, DPF as a transfer among SCCs, portal hosts. Missing prints <i>not on file</i>. When unsure, leave open.</p>
       <h2 class="sec-kicker">Discovery</h2>
-      <p class="clerk">First-party only: candidate paths, the company&rsquo;s own footer links, and its sitemaps. A lead is not a finding until it passes the first three rules.</p>
-
+      <p class="clerk">First-party only: candidate paths, the company’s own footer links, and its sitemaps. A lead is not a finding until it passes the first three rules.</p>
       <h2 class="sec-kicker">Outbound</h2>
       <p class="clerk">Outbound is human-gated. Documents stay on the company’s domain.</p>
     </div>
   </main>
 
   <footer class="colo">
-    <p>AITI is the public file on AI systems, not a trust score. Marks print only when an AI mark is on the page. Page, processors, evals, and incidents stay open until a first-party AI-file instrument is on file. Missing rows print <i>not on file</i>.</p>
-    <p><a href="./">AITI</a> · <a href="./companies.html">Register</a> · <a href="./graph.html">Subprocessors</a> · <a href="./attestations.html">Standards</a>
-      <a href="./watch.html">Notices</a> · <a href="./brand.html">specimen</a> · <a href="./methodology.html">methodology</a> · <a href="./contact.html">contact</a> · <a href="https://github.com/pchamal/opentrust.center" target="_blank" rel="noopener noreferrer">code</a> · outbound is human-gated. Documents stay on the company's domain.</p>
+    <p>The AI Trust Index counts published AI disclosures. It is not a trust score. Missing rows print <i>not on file</i>.</p>
+    <p><a href="./">AITI</a> <a href="./companies.html">Register</a> <a href="./graph.html">Subprocessors</a> <a href="./attestations.html">Standards</a>
+      <a href="./watch.html">Notices</a> <a href="./brand.html">specimen</a> <a href="./methodology.html">methodology</a> <a href="./contact.html">contact</a> <a href="https://github.com/pchamal/opentrust.center" target="_blank" rel="noopener noreferrer">code</a></p>
   </footer>
 
   <script type="module" src="./aiti.js"></script>

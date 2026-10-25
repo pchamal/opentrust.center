@@ -186,7 +186,7 @@ function renderBook() {
         ${read}
         <p class="entry-body">${escapeHtml(body || "")}</p>
         <button type="button" class="depth" data-id="${escapeHtml(item.id)}">${deep ? "eli-5" : "elaborate"}</button>
-        <p class="related">related · ${related || "—"}</p>
+        <p class="related">related, ${related || "none"}</p>
         <p class="related">cited by · ${citeLine}</p>
       </article>`;
     })

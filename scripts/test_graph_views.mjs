@@ -28,8 +28,8 @@ const wires = JSON.parse(readFileSync(new URL("../site/data/subprocessors.json",
 expect("list and map are words", html.includes(">list</button>") && html.includes(">map</button>") && html.includes("|"));
 expect("list is the landing", /id="view-list"[^>]*aria-selected="true"/.test(html) && /id="wires"[^>]*data-view="list"/.test(html));
 expect("list stays a table", html.includes('id="wire-table"') && html.includes("Named by") && !html.includes("Concentration") && !html.includes("not a security grade"));
-expect("AITI table sits in a swipe wrapper", /<div class="wires-scroll">\s*<table class="reg" id="reg"/.test(index));
-expect("Register table sits in a swipe wrapper", /<div class="wires-scroll">\s*<table class="reg" id="reg"/.test(companies));
+expect("AITI table sits on the sheet", /<div class="sheet">\s*<div class="wrap">\s*<table class="reg" id="reg"/.test(index));
+expect("Register table sits on the sheet", /<div class="sheet">\s*<div class="wrap">\s*<table class="reg" id="reg"/.test(companies));
 expect("graph table already sits in wires-scroll", html.includes('class="wires-scroll"') && html.includes('id="wire-table"'));
 expect("dossier instruments sit in a swipe wrapper", /<div class="wires-scroll">[\s\S]*<table class="inst" data-table="instruments"/.test(dossier));
 expect("phone keeps register thead", !/\.reg thead \{ display: none/.test(css));

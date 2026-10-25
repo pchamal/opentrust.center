@@ -12,6 +12,7 @@ import {
   printedAitiUrl,
   nameWithIcon,
   bindFileMethodToggle,
+  fmtNum,
 } from "./lib.js";
 import { parseFinder, stripFinderToken, echoWords } from "./finder.js";
 import { clickSort, cmpText, paintHeaders } from "./sort.js";
@@ -49,13 +50,13 @@ export function aiMarksCell(row) {
   }
   const line = names
     .map((a) => {
-      const label = escapeHtml(String(a.short || a.name).toLowerCase());
+      const label = escapeHtml(String(a.short || a.name || ""));
       const id = String((a && a.id) || "").trim();
       return id
         ? `<a class="mark-chip" href="./attestations.html#${encodeURIComponent(id)}">${label}</a>`
         : `<span class="mark-chip">${label}</span>`;
     })
-    .join(" · ");
+    .join(", ");
   return `<span class="mark-line">${line}</span>`;
 }
 
@@ -149,14 +150,15 @@ const TRUST_TIER_WORDS = {
   complete: "public file complete",
 };
 
-export function aitiRowHtml(row, i, selectedSlug) {
+export function aitiRowHtml(row, i, selectedSlug, changed) {
   const selected = selectedSlug === row.slug ? ' aria-selected="true"' : "";
+  const changedClass = changed ? " chg" : "";
   const n = String(fileScore(aiFileFlags(row)));
   const trustWord = TRUST_TIER_WORDS[row.tier] || "not on file";
-  return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
+  return `<tr class="folio${changedClass}"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${nameWithIcon(row.name, row.favicon)}</a></td>
         <td class="domain">${printedAitiUrl(row)}</td>
-        <td class="file-cell" title="AI file ${escapeHtml(n)} of 100 · trust file: ${trustWord}"><span class="file-num">${escapeHtml(n)}</span>${aiFileIndexHtml(row)}</td>
+        <td class="file-cell" title="AI file ${escapeHtml(n)} of 100, trust file: ${trustWord}"><span class="file-num">${escapeHtml(n)}</span>${aiFileIndexHtml(row)}</td>
         <td class="marks">${aiMarksCell(row)}</td>
       </tr>`;
 }
@@ -164,14 +166,13 @@ export function aitiRowHtml(row, i, selectedSlug) {
 function paintFileMethod(rows) {
   const n = rows.length;
   const printed = rows.filter((r) => fileScore(aiFileFlags(r)) > 0).length;
-  const pages = rows.filter((r) => r && r.ai_page && (r.ai_page.url || typeof r.ai_page === "string")).length;
   const text = n
-    ? `${printed} of ${n} print at least one AI instrument · ${pages} AI pages on file · 100 is five prints.`
-    : "100 is five prints.";
-  const el = $("file-method");
-  if (el) el.textContent = text;
+    ? `Showing ${fmtNum(n)} of ${fmtNum(n)}. ${fmtNum(printed)} print at least one AI disclosure.`
+    : "";
+  const el = $("countline");
+  if (el && !state.q) el.textContent = text;
   const detail = $("file-method-detail");
-  if (detail) detail.textContent = text;
+  if (detail && detail.dataset.live === "count") detail.textContent = text;
 }
 
 function guessDomain(q) {
@@ -211,7 +212,7 @@ function renderEcho() {
   el.hidden = false;
   el.innerHTML = bits
     .map((b, i) => {
-      const sep = i ? `<span class="sep"> · </span>` : "";
+      const sep = i ? `<span class="sep">, </span>` : "";
       return `${sep}<button type="button" data-clear="${escapeHtml(b.kind)}">${escapeHtml(b.label)}</button>`;
     })
     .join("");
@@ -225,7 +226,10 @@ function render() {
   const miss = $("miss");
   const count = $("countline");
   const n = state.rows.length;
-  count.textContent = n ? `showing ${rows.length} of ${n}` : "";
+  const printed = state.rows.filter((r) => fileScore(aiFileFlags(r)) > 0).length;
+  count.textContent = n
+    ? `Showing ${fmtNum(rows.length)} of ${fmtNum(n)}. ${fmtNum(printed)} print at least one AI disclosure.`
+    : "";
   renderEcho();
   paintHeaders($("reg"), state.sort, state.dir);
   syncUrl();
@@ -249,7 +253,7 @@ function render() {
     const domain = guessDomain(q);
     const asked = typed || q;
     $("miss-body").textContent = asked
-      ? `No public file matches “${asked}”. Missing from this index is inconclusive — a page may exist under another URL.`
+      ? `No public file matches “${asked}”. Missing from this index is inconclusive. A page may exist under another URL.`
       : "No public file matches this query.";
     const guesses = domain
       ? [
@@ -288,7 +292,13 @@ function render() {
   if (actions) actions.hidden = true;
   table.hidden = false;
   const body = $("reg-body");
-  body.innerHTML = rows.map((row, i) => aitiRowHtml(row, i, state.selected)).join("");
+  body.innerHTML = rows
+    .map((row, i) => {
+      const changed =
+        state.sort === "file" && i > 0 && fileScore(aiFileFlags(rows[i - 1])) !== fileScore(aiFileFlags(row));
+      return aitiRowHtml(row, i, state.selected, changed);
+    })
+    .join("");
 }
 
 function clearToken(kind) {
@@ -382,7 +392,7 @@ async function load() {
     const companies = Array.isArray(data.companies) ? data.companies : [];
     state.rows = selectAiFiles(companies);
     state.generatedAt = data.generated_at || null;
-    fillAitiIssue($("issue"), data, state.rows.length);
+    if (!document.body.classList.contains("plate")) fillAitiIssue($("issue"), data, state.rows.length);
     paintFileMethod(state.rows);
   } catch {
     state.rows = [];

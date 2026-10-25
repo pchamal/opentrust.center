@@ -543,12 +543,69 @@ export function $(id) {
   return document.getElementById(id);
 }
 
+/* Em and en dashes never reach rendered text. A lone dash is an empty value. */
+export function softenDashes(s) {
+  const raw = String(s == null ? "" : s);
+  if (/^[\s\u2014\u2013]*$/.test(raw) && /[\u2014\u2013]/.test(raw)) return "none";
+  return raw.replace(/[ \t]*\u2014[ \t]*/g, ", ").replace(/\u2013/g, "-");
+}
+
 export function escapeHtml(s) {
-  return String(s)
+  return softenDashes(s)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+export function fmtNum(n) {
+  return Number(n || 0).toLocaleString("en-US");
+}
+
+/* on = printed (20), partial = on file not extracted (10). full = every key printed. */
+export function instrumentCensus(rows, flagFn, keys) {
+  const by = {};
+  for (const key of keys) by[key] = { on: 0, partial: 0 };
+  let full = 0;
+  const list = rows || [];
+  for (const row of list) {
+    const flags = flagFn(row) || {};
+    let prints = 0;
+    for (const key of keys) {
+      const value = Number(flags[key]) || 0;
+      if (value >= 20) {
+        by[key].on += 1;
+        prints += 1;
+      } else if (value >= 10) {
+        by[key].partial += 1;
+      }
+    }
+    if (prints === keys.length) full += 1;
+  }
+  return { by, total: list.length, full };
+}
+
+export function figureHtml(items, total) {
+  const n = Number(total) || 0;
+  return items
+    .map((item) => {
+      const on = Number(item.on) || 0;
+      const partial = Number(item.partial) || 0;
+      const onW = n ? (on / n) * 100 : 0;
+      const partW = n ? (partial / n) * 100 : 0;
+      const part = partial
+        ? `<i class="part" style="left:${onW}%;width:${partW}%"></i>`
+        : "";
+      const extra = partial ? `, plus ${fmtNum(partial)} on file, not extracted` : "";
+      const label = escapeHtml(item.label);
+      return (
+        `<div class="f-row"><span class="k">${label}</span>` +
+        `<span class="t" aria-hidden="true"><i class="on" style="width:${onW}%"></i>${part}</span>` +
+        `<span class="c">${fmtNum(on)}</span>` +
+        `<span class="p">of ${fmtNum(n)}${extra}</span></div>`
+      );
+    })
+    .join("");
 }
 
 export function inkIcon(src, prefix = "./") {

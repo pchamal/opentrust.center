@@ -306,6 +306,10 @@ a:hover { text-decoration-color: var(--ot-ledger-black); }
   min-height: 44px;
 }
 .finder input::placeholder { color: var(--ot-graphite); }
+.finder:focus-within {
+  outline: 3px solid var(--ot-evidence-teal);
+  outline-offset: 2px;
+}
 .finder-go {
   appearance: none;
   background: transparent;
@@ -1374,6 +1378,8 @@ body.register .view-toggle button.on {
   }
   .wordmark { justify-self: start; }
   .docket { justify-content: flex-start; flex-wrap: wrap; gap: 12px 20px; }
+  .facet-group { width: 100%; border-right: 0; margin-right: 0; padding-right: 0; }
+  .facets { row-gap: 0; }
   /* Undo the 639 card stack on Register / AITI (.reg) and dossier instruments. */
   .reg,
   .reg thead,
@@ -1799,6 +1805,7 @@ body.register .view-toggle button.on {
 /* Facet groups on Standards */
 .facet-group {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   padding-right: 12px;
   margin-right: 8px;
@@ -1846,15 +1853,21 @@ body.register .view-toggle button.on {
 /* ——— Notice list ——— */
 .row-track-wrap { color: var(--ot-graphite); }
 .row-track {
+  appearance: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
   font: var(--t-meta);
   color: var(--ot-ledger-black);
   text-decoration: underline;
   text-decoration-color: var(--ot-rule-strong);
-  padding: 10px 2px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 6px;
 }
-.reg tbody tr:not(:hover) .row-track-wrap { visibility: hidden; }
+.reg tbody tr:not(:hover):not(:focus-within) .row-track-wrap { visibility: hidden; }
 @media (hover: none) {
-  .reg tbody tr:not(:hover) .row-track-wrap { visibility: visible; }
+  .reg tbody tr:not(:hover):not(:focus-within) .row-track-wrap { visibility: visible; }
 }
 .row-track.on { text-decoration-color: var(--ot-evidence-teal); color: var(--ot-deep-teal); }
 .watch-toggle[disabled] { color: var(--ot-graphite); border-bottom-color: var(--ot-rule); cursor: default; }

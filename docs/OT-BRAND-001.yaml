@@ -180,3 +180,31 @@ black_binding:
     mode: no-cors from visitor browser
     timeout_ms: 4000
     timeout_prints: "timeout - not on file"
+
+# Census Plate v3. Pukar approved, 25 Oct 2026. Home and the register only.
+titles:
+  home: The AI Trust Index
+  other: "{Page}: opentrust.center"
+  register_document: "Public trust register: opentrust.center"
+  register_social: "Public trust register: The AI Trust Index"
+voice:
+  no_em_dash: true
+  no_en_dash: true
+  empty_count: none or blank, never a dash
+  hyphen_in_names: stays
+census_plate:
+  scope: [index.html, companies.html]
+  h1_home: "80/80 Source Serif 4 600, tracking -0.035em; 64/64 under 1100; 44/46 at 390"
+  page_title: "44/48 Source Serif 4 600; 34/38 at 390"
+  caption: "20/26 Source Serif 4 600"
+  completeness_numeral: "17/22 Source Serif 4 600, lining tabular"
+  row_height: 52px
+  rule_glyph: "14px by 3px"
+  sort_target: 44px
+  wordmark: Record White, no teal period
+  one_figure: true
+  no_fig_label: true
+  no_middot_strings: true
+  no_ticker: true
+  no_console: true
+  no_load_motion: true

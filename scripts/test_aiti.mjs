@@ -148,10 +148,10 @@ expect("Subprocessors is the active word on graph", activeWord(graphHtml) === "S
 expect("Standards is the active word on attestations", activeWord(marksHtml) === "Standards");
 expect("graph still has list | map", graphHtml.includes(">list</button>") && graphHtml.includes(">map</button>"));
 expect("docket links hit the signed routes", indexHtml.includes('href="./companies.html"') && indexHtml.includes('href="./graph.html"') && indexHtml.includes('href="./attestations.html"') && companiesHtml.includes('href="./"'));
-expect("H1 is AI Trust Index", /<h1 class="page-title">AI Trust Index<\/h1>/.test(indexHtml));
-expect("product title is AI Trust Index", indexHtml.includes("opentrust.center — AI Trust Index"));
-expect("lede is the public file sentence", indexHtml.includes("The public file on AI systems. Not a trust score."));
-expect("lede is unchanged", (indexHtml.match(/<p class="lede">The public file on AI systems\. Not a trust score\.<\/p>/g) || []).length === 1);
+expect("H1 is The AI Trust Index", /<h1>The AI Trust Index<\/h1>/.test(indexHtml));
+expect("product title is The AI Trust Index", /<title>The AI Trust Index<\/title>/.test(indexHtml) && indexHtml.includes('content="The AI Trust Index"'));
+expect("lede is the published-count sentence", indexHtml.includes("The count measures what is published. It says nothing about how a company behaves."));
+expect("lede is unchanged", (indexHtml.match(/<p class="lede">Each system is checked for an AI page, AI standards, AI processors, evals and incidents\. Company trust files are on the Register\.<\/p>/g) || []).length === 1);
 
 const methodHtml = readFileSync(new URL("../site/methodology.html", import.meta.url), "utf8");
 expect("H1 is Method", /<h1 class="page-title">Method<\/h1>/.test(methodHtml));
@@ -166,21 +166,21 @@ expect(
 );
 expect(
   "The count is the three states",
-  /<h2 class="sec-kicker">The count<\/h2>\s*<p class="clerk">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/.test(methodHtml) &&
-    /<h2 class="sec-kicker">The count<\/h2>\s*<p class="clerk">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/.test(indexHtml) &&
-    /<h2 class="sec-kicker">The count<\/h2>\s*<p class="clerk">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/.test(companiesHtml),
+  methodHtml.includes("20 printed · 10 on file, not extracted · 0 missing. 100 is five prints.") &&
+    indexHtml.includes("Completeness adds 20 for each printed disclosure, so 100 means all five are printed.") &&
+    companiesHtml.includes("Completeness adds 20 for each printed instrument and 10 when one is on file but not extracted."),
 );
-expect("in-tab Method is the signed page", /id="method-view"[\s\S]*<h1 class="page-title">Method<\/h1>[\s\S]*How we count a public file\. Not a company grade\.[\s\S]*The count[\s\S]*AITI[\s\S]*Register[\s\S]*What counts[\s\S]*What stays open[\s\S]*Outbound/.test(indexHtml));
+expect("in-tab Method is the signed page", /id="method-view"[\s\S]*<h2 class="page-title">Method<\/h2>[\s\S]*How we count a public file\. Not a company grade\.[\s\S]*The count[\s\S]*AITI[\s\S]*Register[\s\S]*What counts[\s\S]*What stays open[\s\S]*Outbound/.test(indexHtml));
 expect("file|method active is Ledger Black not teal", /body\.register \.view-toggle button\.on \{[\s\S]*border-bottom-color: var\(--ot-ledger-black\)/.test(css) && !/body\.register \.view-toggle button\.on \{[\s\S]{0,120}--ot-evidence-teal/.test(css));
 expect("method docket is still four words", docketWords(methodHtml).join(" ") === "AITI Register Subprocessors Standards");
 expect("method docket has no teal on", activeWord(methodHtml) === "" && !/<nav class="docket"[^>]*>[\s\S]*class="on"/.test(methodHtml));
 expect(
-  "AITI footer has specimen · methodology · contact · code",
-  /<a href="\.\/brand\.html">specimen<\/a> · <a href="\.\/methodology\.html">methodology<\/a> · <a href="\.\/contact\.html">contact<\/a> · <a href="https:\/\/github.com\/pchamal\/opentrust.center" target="_blank" rel="noopener noreferrer">code<\/a>/.test(indexHtml),
+  "AITI footer has specimen, methodology, contact, code",
+  /<a href="\.\/brand\.html">specimen<\/a> <a href="\.\/methodology\.html">methodology<\/a> <a href="\.\/contact\.html">contact<\/a> <a href="https:\/\/github.com\/pchamal\/opentrust.center" target="_blank" rel="noopener noreferrer">code<\/a>/.test(indexHtml),
 );
 expect(
-  "Register footer has specimen · methodology · contact · code",
-  /<a href="\.\/brand\.html">specimen<\/a> · <a href="\.\/methodology\.html">methodology<\/a> · <a href="\.\/contact\.html">contact<\/a> · <a href="https:\/\/github.com\/pchamal\/opentrust.center" target="_blank" rel="noopener noreferrer">code<\/a>/.test(companiesHtml),
+  "Register footer has specimen, methodology, contact, code",
+  /<a href="\.\/brand\.html">specimen<\/a> <a href="\.\/methodology\.html">methodology<\/a> <a href="\.\/contact\.html">contact<\/a> <a href="https:\/\/github.com\/pchamal\/opentrust.center" target="_blank" rel="noopener noreferrer">code<\/a>/.test(companiesHtml),
 );
 const contactHtml = readFileSync(new URL("../site/contact.html", import.meta.url), "utf8");
 expect("H1 is Contact", /<h1 class="page-title">Contact<\/h1>/.test(contactHtml));
@@ -198,14 +198,14 @@ expect("contact page has no form", !/<form\b/i.test(contactHtml));
 expect("contact page is H1 + lede only", !/<h2\b/.test(contactHtml) && !/class="clerk"/.test(contactHtml) && !/class="sec-kicker"/.test(contactHtml));
 expect("no See methodology chip on AITI", !/See methodology/i.test(indexHtml));
 expect("no See methodology chip on Register", !/See methodology/i.test(companiesHtml));
-expect("AITI method line is the three-state sentence once", (indexHtml.match(/<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/g) || []).length === 1);
+expect("AITI method line is the disclosure sentence once", (indexHtml.match(/id="file-method">Completeness adds 20 for each printed disclosure, so 100 means all five are printed\.<\/span>/g) || []).length === 1);
 expect(
   "Method AITI slot list says standards",
-  indexHtml.includes("page · standards · processors · evals · incidents. Standards print only when an AI standard is on the page.") &&
-    companiesHtml.includes("page · standards · DPA · subprocessors · years.") &&
+  indexHtml.includes("AI page, AI standards, AI processors, evals, incidents. Completeness counts AI disclosures only.") &&
+    companiesHtml.includes("page, standards, DPA, subprocessors, years.") &&
     methodHtml.includes("Standards print only when an AI standard is on the page."),
 );
-expect("Register method line is the three-state sentence once", (companiesHtml.match(/<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/g) || []).length === 1);
+expect("Register method line is the instrument sentence once", (companiesHtml.match(/id="file-method">Completeness adds 20 for each printed instrument and 10 when one is on file but not extracted\./g) || []).length === 1);
 expect("AITI has completeness | method", indexHtml.includes(">completeness</button>") && indexHtml.includes(">method</button>") && indexHtml.includes('class="view-toggle"'));
 expect("Register has completeness | method", companiesHtml.includes(">completeness</button>") && companiesHtml.includes(">method</button>"));
 expect("default view is file", /id="file-view"/.test(indexHtml) && /id="method-view"[^>]*hidden/.test(indexHtml) && /id="method-view"[^>]*hidden/.test(companiesHtml));
@@ -251,13 +251,12 @@ expect(
     marksHead.classes.includes("marks"),
 );
 expect("AITI has no N of 5", !aitiJs.includes(" of 5") && !indexHtml.includes(" of 5"));
-expect("showing uses the AITI N", aitiJs.includes("showing ${rows.length} of ${n}"));
+expect("showing uses the AITI N", aitiJs.includes("Showing ${fmtNum(rows.length)} of ${fmtNum(n)}"));
 expect("AITI does not paginate a second universe", !aitiJs.includes("PAGE_SIZE") && !indexHtml.includes("pager"));
-expect("legend is the AI five", indexHtml.includes("page · standards · processors · evals · incidents"));
+expect("legend is the AI five", indexHtml.includes("Thick line: systems that publish it. Thin line: not on file, which is inconclusive."));
 expect(
   "method line is once under the legend",
-  /id="file-legend">page · standards · processors · evals · incidents<\/p>\s*<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/.test(indexHtml) &&
-    (indexHtml.match(/<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/g) || []).length === 1,
+  (indexHtml.match(/id="file-method">Completeness adds 20 for each printed disclosure, so 100 means all five are printed\.<\/span>/g) || []).length === 1,
 );
 expect("wordmark unchanged", /<a class="wordmark" href="\.\/">opentrust<span class="wm-dot">\.<\/span>center<\/a>/.test(indexHtml));
 
@@ -407,10 +406,10 @@ const anthropicHtml = aiFileIndexHtml(anthropic);
 const anthropicOn = ruleOn(anthropicHtml);
 const anthropicMarks = aiMarksCell(anthropic);
 const anthropicFlags = aiFileFlags(anthropic);
-expect("Anthropic Marks cell prints iso 42001", anthropicMarks.includes("iso 42001"));
+expect("Anthropic Marks cell prints ISO 42001", anthropicMarks.includes("ISO 42001"));
 expect(
   "Anthropic marks print roman not italic",
-  anthropicMarks.includes("iso 42001") &&
+  anthropicMarks.includes("ISO 42001") &&
     !/<i[\s>]/.test(anthropicMarks) &&
     !/font-style:\s*italic/.test(anthropicMarks) &&
     !anthropicMarks.includes("absent"),
@@ -696,14 +695,14 @@ expect("AITI Domain prints the company domain", aitiJs.includes("printedAitiUrl(
 expect("Midjourney Domain stays the homepage", printedAitiUrl(mid).includes("midjourney.com") && printedAitiUrl(mid).includes(">midjourney.com<") && !printedAitiUrl(mid).includes("responsible"));
 expect("AITI names use the icon helper", aitiJs.includes("nameWithIcon(row.name, row.favicon)"));
 expect("01.AI 12px mark is name only", !bySlug["01-ai"].favicon && !nameWithIcon(bySlug["01-ai"].name, bySlug["01-ai"].favicon).includes("ink-ico"));
-expect("finder example is aiuc-1", indexHtml.includes('placeholder="/ cursor, aiuc-1"') && !indexHtml.includes("aluc-1") && !aitiJs.includes("aluc-1"));
+expect("finder example is aiuc-1", indexHtml.includes('placeholder="Find an AI file: cursor, AIUC-1"') && !indexHtml.includes("aluc-1") && !aitiJs.includes("aluc-1"));
 expect("AITI has no medal # column", !aitiJs.includes('class="num"') && !/#<\/th>/.test(indexHtml));
 expect("AITI does not invent a globe or index placeholder", !aitiJs.includes("globe") && !aitiJs.includes("placeholder") && !aitiJs.includes("inkIcon("));
-expect("AITI body scopes the first-screen nibble", indexHtml.includes('class="register aiti"'));
+expect("AITI body scopes the first-screen nibble", indexHtml.includes('class="register aiti plate"'));
 expect("AITI File numeral is Source Serif Ledger Black", /body\.aiti \.reg td\.file-cell \.file-num \{[\s\S]*font: var\(--t-name\)[\s\S]*color: var\(--ot-ledger-black\)/.test(css));
 expect("AITI File numeral has no teal", !/body\.aiti \.reg td\.file-cell \.file-num \{[\s\S]{0,180}--ot-evidence-teal/.test(css));
 expect("390 stacks the File numeral above the rules", /@media \(max-width: 390px\) \{[\s\S]*body\.aiti \.reg td\.file-cell \.file-num \{[\s\S]*display: block/.test(css));
-expect("AITI table sits in a swipe wrapper", /<div class="wires-scroll">\s*<table class="reg" id="reg"/.test(indexHtml));
+expect("AITI table sits on the sheet", /<div class="sheet">\s*<div class="wrap">\s*<table class="reg" id="reg"/.test(indexHtml));
 expect("phone keeps the AITI thead", !/\.reg thead \{ display: none/.test(css));
 expect("639 keeps AITI .reg a table", /@media \(max-width: 639px\) \{[\s\S]*\.reg \{ display: table/.test(css));
 const homeDocket = (indexHtml.match(/<nav class="docket"[^>]*>[\s\S]*?<\/nav>/) || [])[0] || "";
@@ -746,7 +745,7 @@ expect(
     !css.includes('content: "▾"'),
 );
 expect("header row hairline stays graphite", /\.reg th \{[\s\S]*border-bottom: 1px solid var\(--ot-rule\)/.test(css));
-expect("companies first screen H1 stays", companiesHtml.includes('<h1 class="page-title">Public trust register</h1>') && companiesHtml.includes("A database of each company’s public trust ledger."));
+expect("companies first screen H1 stays", companiesHtml.includes('<h1 class="page-title">Public trust register</h1>') && companiesHtml.includes("Each company's public trust file, as published on its own site."));
 expect("AITI domain and marks hover is a 1px clerk rule", /body\.aiti \.reg td\.domain a:hover,[\s\S]*text-decoration: underline;[\s\S]*text-decoration-color: var\(--ot-rule-strong\)/.test(css));
 expect("AITI clerk hover matches Companies names", /\.reg td\.name a:hover \{[\s\S]*text-decoration: underline;[\s\S]*text-decoration-color: var\(--ot-rule-strong\)/.test(css));
 

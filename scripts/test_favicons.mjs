@@ -25,7 +25,7 @@ const marks = marksCell({
     { name: "ISO 27001", short: "ISO 27001", id: "iso-27001" },
   ],
 });
-expect("marks cell stays words", marks.includes("soc 2 type ii") && marks.includes("iso 27001"));
+expect("marks cell stays words", marks.includes("SOC 2 Type II") && marks.includes("ISO 27001"));
 expect("marks cell is not a chip pile of icons", !marks.includes("ink-ico") && !marks.includes("<img"));
 
 const registerSrc = readFileSync(new URL("../site/register.js", import.meta.url), "utf8");
