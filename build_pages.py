@@ -5,7 +5,22 @@ from __future__ import annotations
 import json
 import re
 from collections import Counter
-from html import escape
+from html import escape as html_escape
+
+
+def soften(value) -> str:
+    """No em or en dash in rendered text. A lone dash is an empty value."""
+    if value is None:
+        return ""
+    text = str(value)
+    if text.strip() in {"—", "–"}:
+        return "none"
+    text = re.sub(r"[ \t]*\u2014[ \t]*", ", ", text)
+    return text.replace("\u2013", "-")
+
+
+def escape(value) -> str:
+    return html_escape(soften(value), quote=True)
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -1722,19 +1737,19 @@ def cell(value: str | None, italic_if_empty: bool = True) -> str:
         return escape(value)
     if italic_if_empty:
         return '<span class="absent">not on file</span>'
-    return "—"
+    return "none"
 
 
 def dossier_issue_line(generated_at: str, slug: str = "") -> str:
-    day = fmt_day(generated_at) or "—"
-    when = fmt_when(generated_at) or "—"
+    day = fmt_day(generated_at) or "none"
+    when = fmt_when(generated_at) or "none"
     bits = [f"issue {day}", f"last probed {when}"]
     return " · ".join(bits)
 
 
 def snapshot_line(generated_at: str, on_file: int, not_on: int, extra: str = "") -> str:
-    day = fmt_day(generated_at) or "—"
-    when = fmt_when(generated_at) or "—"
+    day = fmt_day(generated_at) or "none"
+    when = fmt_when(generated_at) or "none"
     bits = [
         f"issue {day}",
         f"{on_file} on file",
@@ -1770,7 +1785,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
     disc = row["disclosure"]
     flags = file_flags(row, disc)
     file_html = file_index_html(flags)
-    title = f"{name} — opentrust.center"
+    title = f"{soften(name)}: opentrust.center"
     desc = "A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not."
     year = row.get("founded_year")
     year_src = row.get("founded_source")
@@ -1820,7 +1835,7 @@ def dossier_html(row: dict, generated_at: str, snapshot: str = "") -> str:
             )
         else:
             inst_rows.append(
-                f'<tr><td>{escape(label)}</td><td><span class="absent">not on file</span></td><td>—</td></tr>'
+                f'<tr><td>{escape(label)}</td><td><span class="absent">not on file</span></td><td>none</td></tr>'
             )
 
     ai_rec = inst.get("ai") if isinstance(inst.get("ai"), dict) else None
@@ -2042,7 +2057,7 @@ def redirect_dossier_html(row: dict) -> str:
   <meta charset="utf-8">
   <meta http-equiv="refresh" content="0;url=./{escape(slug)}.html">
   <link rel="canonical" href="{escape(dest)}">
-  <title>{escape(name)} — opentrust.center</title>
+  <title>{escape(name)}: opentrust.center</title>
   <script>location.replace("./{escape(slug)}.html"+location.search+location.hash)</script>
 </head>
 <body>

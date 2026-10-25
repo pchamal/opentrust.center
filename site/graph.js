@@ -1,4 +1,4 @@
-import { $, escapeHtml, fillIssue, dataUrl, nameWithIcon, fileFlags, fileIndexHtml, fileScore } from "./lib.js";
+import { $, escapeHtml, fillIssue, dataUrl, nameWithIcon, fileFlags, fileIndexHtml, fileScore, softenDashes } from "./lib.js";
 import { arrange, clickSort, cmpText, paintHeaders } from "./sort.js";
 
 const SORT_DEFAULTS = {
@@ -355,7 +355,7 @@ function renderConcentration() {
     .join("");
   if (line) {
     line.textContent =
-      `Three processors — ${top.map((p) => p.name).join(", ")} — ` +
+      `Three processors, ${top.map((p) => softenDashes(p.name)).join(", ")}, ` +
       `account for ${topSum} of ${total} published namings.`;
   }
 }
@@ -406,13 +406,13 @@ function renderStub() {
   const el = $("stub");
   if (state.focus == null) {
     el.hidden = true;
-    document.title = "opentrust.center — public trust ledger";
+    document.title = "Named subprocessors: opentrust.center";
     return;
   }
   const p = state.processors[state.focus];
   if (!p) {
     el.hidden = true;
-    document.title = "opentrust.center — public trust ledger";
+    document.title = "Named subprocessors: opentrust.center";
     return;
   }
   el.hidden = false;
@@ -422,7 +422,7 @@ function renderStub() {
   const self = p.slug ? state.companies.get(p.slug) : null;
   const chains = transitiveChains(p);
   const chainBlock = chains.length
-    ? `<p class="fig-sub">Transitive, as published — their vendors' vendors.</p>` +
+    ? `<p class="fig-sub">Transitive, as published. Their vendors' vendors.</p>` +
       `<ul class="guesses">${chains.map(chainLine).join("")}</ul>`
     : "";
   el.innerHTML = `<h2>${nameWithIcon(p.name, iconForDomain(p.domain, self))}</h2>
@@ -432,7 +432,7 @@ function renderStub() {
     <ul class="guesses">${p.namers.map(namerLine).join("")}</ul>
     ${chainBlock}
     <button type="button" class="go-out" id="copy-permalink">copy link to this processor</button>`;
-  document.title = `${p.name} · named by ${p.exposure} · opentrust.center`;
+  document.title = `${softenDashes(p.name)}: opentrust.center`;
 }
 
 const map = {

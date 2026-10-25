@@ -1,0 +1,584 @@
+/* Census Plate v3. Home and Register only. Other pages do not load this file. */
+body.plate {
+  --canvas: 1320px;
+  --gutter: 40px;
+  --plate-dim: rgba(248, 250, 249, 0.74);
+  --plate-mid: rgba(248, 250, 249, 0.86);
+}
+
+body.plate .mast {
+  height: 56px;
+  grid-template-columns: auto 1fr auto;
+  gap: 32px;
+}
+body.plate .wordmark .wm-dot {
+  color: var(--ot-record-white);
+}
+body.plate .wordmark .wm-dot::after {
+  content: none;
+}
+body.plate .docket a.on {
+  border-bottom-color: var(--ot-bright-teal);
+}
+body.plate .plate-iss {
+  justify-self: end;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--plate-dim);
+  font: 400 14px/20px var(--ot-font-utility);
+  white-space: nowrap;
+}
+
+body.plate .binding {
+  border-bottom: 0;
+  border-top: 1px solid var(--ot-binding-line);
+}
+body.plate .hero {
+  padding: 80px 0 40px;
+}
+body.plate .hero h1 {
+  margin: 0;
+  font: 600 80px/80px var(--ot-font-editorial);
+  letter-spacing: -0.035em;
+  color: var(--ot-record-white);
+  text-wrap: balance;
+}
+body.plate .hero-row {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 64px;
+  align-items: end;
+  margin-top: 32px;
+}
+body.plate .hero p {
+  margin: 0;
+  max-width: 52ch;
+  font: 400 18px/28px var(--ot-font-utility);
+  color: var(--plate-mid);
+}
+body.plate .plate-acts {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: flex-end;
+  font: 400 16px/20px var(--ot-font-utility);
+}
+body.plate .plate-go {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 20px;
+  background: var(--ot-record-white);
+  color: var(--ot-ledger-black);
+  border-radius: var(--ot-radius-control);
+  font: 600 16px/20px var(--ot-font-utility);
+  text-decoration: none;
+}
+body.plate .plate-acts .binding-chip {
+  appearance: none;
+  background: none;
+  border: 0;
+  color: var(--plate-mid);
+  min-height: 44px;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--ot-binding-line);
+  text-underline-offset: 3px;
+}
+body.plate .plate-acts .binding-chip:hover {
+  color: var(--ot-record-white);
+  text-decoration-color: var(--ot-bright-teal);
+}
+
+body.plate .fig {
+  margin: 0;
+  border-top: 1px solid var(--ot-binding-line);
+  padding: 28px 0 4px;
+}
+body.plate .fig-capline {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  margin: 0 0 8px;
+}
+body.plate .fig-cap {
+  margin: 0;
+  font: 600 20px/26px var(--ot-font-editorial);
+  letter-spacing: -0.01em;
+  color: var(--ot-record-white);
+}
+body.plate .fig-src {
+  font: 400 14px/20px var(--ot-font-utility);
+  color: var(--plate-dim);
+}
+body.plate .f-row {
+  display: grid;
+  grid-template-columns: 170px 1fr 88px 240px;
+  align-items: center;
+  gap: 24px;
+  min-height: 52px;
+  border-bottom: 1px solid var(--ot-binding-line);
+}
+body.plate .f-row .k {
+  font: 400 17px/24px var(--ot-font-utility);
+}
+body.plate .f-row .t {
+  position: relative;
+  height: 5px;
+  border-bottom: 1px solid rgba(248, 250, 249, 0.4);
+}
+body.plate .f-row .t i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+body.plate .f-row .t i.on {
+  background: var(--ot-record-white);
+}
+body.plate .f-row .t i.part {
+  background: none;
+  border-top: 2px dotted var(--ot-record-white);
+  bottom: auto;
+  top: 1px;
+}
+body.plate .f-row .c {
+  text-align: right;
+  font: 500 22px/28px var(--ot-font-editorial);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+body.plate .f-row .p {
+  font: 400 15px/20px var(--ot-font-editorial);
+  font-variant-numeric: lining-nums tabular-nums;
+  color: var(--plate-dim);
+  white-space: nowrap;
+}
+body.plate .leg {
+  margin: 0;
+  padding: 14px 0 0;
+  font: 400 14px/20px var(--ot-font-utility);
+  color: var(--plate-dim);
+}
+body.plate .counts {
+  border-top: 1px solid var(--ot-binding-line);
+  margin: 28px 0 0;
+  padding: 18px 0;
+  font: 400 16px/24px var(--ot-font-utility);
+  color: var(--plate-mid);
+}
+body.plate .counts b {
+  font: 600 16px/24px var(--ot-font-editorial);
+  font-variant-numeric: lining-nums tabular-nums;
+  color: var(--ot-record-white);
+}
+body.plate .method {
+  border-top: 1px solid var(--ot-binding-line);
+  padding: 14px 0 18px;
+  margin: 0;
+  font: 400 14px/20px var(--ot-font-utility);
+  color: var(--plate-dim);
+}
+body.plate .method em {
+  font-style: italic;
+}
+
+body.plate .plate-main {
+  width: min(var(--canvas), calc(100% - 2 * var(--gutter)));
+  margin: 0 auto;
+  padding: 72px 0 28px;
+}
+body.plate .plate-main h2 {
+  margin: 0;
+  font: 600 44px/48px var(--ot-font-editorial);
+  letter-spacing: -0.025em;
+}
+body.plate .plate-tools {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: end;
+  margin-top: 36px;
+}
+body.plate .plate-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 28px;
+  margin: 16px 0 28px;
+  font: 400 14px/20px var(--ot-font-utility);
+  color: var(--ot-graphite);
+}
+body.plate .sheet {
+  background: var(--ot-sheet-white);
+  border-top: 1px solid var(--ot-rule);
+  border-bottom: 1px solid var(--ot-rule);
+}
+body.plate .sheet .wrap {
+  width: min(var(--canvas), calc(100% - 2 * var(--gutter)));
+}
+body.plate .reg thead th {
+  position: sticky;
+  top: 0;
+  background: var(--ot-sheet-white);
+  font: 600 14px/20px var(--ot-font-utility);
+  border-bottom: 2px solid var(--ot-ledger-black);
+  padding: 0 16px 0 0;
+}
+body.plate .reg thead th:first-child {
+  padding-left: 12px;
+}
+body.plate .reg thead th button {
+  border-bottom: 0;
+  text-decoration: none;
+  min-height: 44px;
+  padding: 12px 0;
+}
+body.plate .reg thead th.on button {
+  border-bottom-color: transparent;
+}
+body.plate .reg thead th[aria-sort="ascending"] button,
+body.plate .reg thead th[aria-sort="descending"] button {
+  text-decoration: underline;
+  text-decoration-color: var(--ot-evidence-teal);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+body.plate .reg td {
+  height: 52px;
+  padding: 0 16px 0 0;
+}
+body.plate .reg td.name {
+  width: 26%;
+  padding-left: 12px;
+}
+body.plate .reg td.name a {
+  min-height: 44px;
+  font: 600 17px/22px var(--ot-font-editorial);
+  letter-spacing: -0.02em;
+}
+body.plate .reg td.domain,
+body.plate .reg td.dom {
+  width: 18%;
+  font: 400 14px/20px var(--ot-font-utility);
+}
+body.plate .reg td.file,
+body.plate .reg td.file-cell {
+  width: 16%;
+  white-space: nowrap;
+}
+body.plate .reg td.file .file-num,
+body.plate .reg td.file-cell .file-num {
+  display: inline-block;
+  width: 36px;
+  margin: 0 12px 0 0;
+  text-align: right;
+  font: 600 17px/22px var(--ot-font-editorial);
+  font-variant-numeric: lining-nums tabular-nums;
+  vertical-align: middle;
+}
+body.plate .file-rule {
+  width: 14px;
+  height: 3px;
+}
+body.plate .reg td.marks {
+  font: 400 14px/20px var(--ot-font-utility);
+  max-width: 28em;
+  overflow: hidden;
+}
+body.plate .reg td.marks .mark-line {
+  display: block;
+  max-height: 20px;
+  overflow: hidden;
+  white-space: normal;
+}
+body.plate .reg .mark-chip,
+body.plate .reg .fr-mark {
+  white-space: nowrap;
+}
+body.plate .reg tr.chg td {
+  border-top: 1px solid var(--ot-ledger-black);
+}
+body.plate .reg tbody tr:hover td.name {
+  box-shadow: inset 2px 0 0 var(--ot-evidence-teal);
+}
+body.plate .colo {
+  width: min(var(--canvas), calc(100% - 2 * var(--gutter)));
+}
+
+/* Register figure on paper, tight enough for a 1440x900 first screen. */
+body.plate.regp .plate-main {
+  padding: 32px 0 0;
+}
+body.plate.regp h1.page-title {
+  font: 600 44px/48px var(--ot-font-editorial);
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+body.plate.regp .lede {
+  max-width: none;
+  margin: 8px 0 0;
+  font: 400 18px/28px var(--ot-font-utility);
+}
+body.plate.regp .capline {
+  display: grid;
+  grid-template-columns: 1fr minmax(420px, 560px);
+  gap: 32px;
+  align-items: center;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ot-ledger-black);
+}
+body.plate.regp .capline .fig-cap {
+  color: var(--ot-ledger-black);
+}
+body.plate.regp .capline .plate-tools {
+  margin: 0;
+  align-items: center;
+}
+body.plate.regp .fig.paper {
+  border-top: 0;
+  margin-top: 8px;
+  padding: 0 0 4px;
+}
+body.plate.regp .fig.paper .f-row {
+  min-height: 0;
+  padding: 8px 0;
+  align-items: baseline;
+  gap: 24px;
+  grid-template-columns: 150px 1fr 72px 300px;
+  border-bottom-color: var(--ot-rule);
+}
+body.plate.regp .fig.paper .f-row .k {
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--ot-ledger-black);
+}
+body.plate.regp .fig.paper .f-row .t {
+  align-self: center;
+  border-bottom-color: var(--ot-rule-strong);
+}
+body.plate.regp .fig.paper .f-row .t i.on {
+  background: var(--ot-ledger-black);
+}
+body.plate.regp .fig.paper .f-row .t i.part {
+  border-top-color: var(--ot-ledger-black);
+}
+body.plate.regp .fig.paper .f-row .c {
+  font-size: 18px;
+  line-height: 20px;
+  color: var(--ot-ledger-black);
+}
+body.plate.regp .fig.paper .f-row .p,
+body.plate.regp .fig.paper .leg {
+  color: var(--ot-graphite);
+}
+body.plate.regp .fig.paper .f-row .p {
+  font-size: 15px;
+  line-height: 20px;
+}
+body.plate.regp .leg {
+  padding-top: 10px;
+}
+body.plate.regp .plate-meta {
+  margin: 10px 0 16px;
+}
+
+@media (max-width: 1100px) {
+  body.plate .hero-row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  body.plate .plate-acts {
+    justify-content: flex-start;
+  }
+  body.plate .hero h1 {
+    font-size: 64px;
+    line-height: 64px;
+  }
+  body.plate .f-row {
+    grid-template-columns: 130px 1fr 70px 200px;
+  }
+  body.plate.regp .capline {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 639px) {
+  body.plate {
+    --gutter: 16px;
+  }
+  body.plate .mast {
+    height: auto;
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-top: 12px;
+    padding-bottom: 0;
+  }
+  body.plate .plate-iss {
+    display: none;
+  }
+  body.plate .docket {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0;
+    margin-top: 4px;
+  }
+  body.plate .docket a {
+    padding: 12px 0;
+  }
+  body.plate .hero {
+    padding: 40px 0 28px;
+  }
+  body.plate .hero h1 {
+    font-size: 44px;
+    line-height: 46px;
+  }
+  body.plate .hero p {
+    font-size: 17px;
+    line-height: 26px;
+  }
+  body.plate .plate-acts {
+    flex-wrap: wrap;
+    gap: 8px 20px;
+  }
+  body.plate .fig-capline {
+    flex-direction: column;
+    gap: 4px;
+  }
+  body.plate .f-row {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "k c" "t t" "p p";
+    padding: 12px 0;
+    gap: 6px 12px;
+    min-height: 0;
+  }
+  body.plate .f-row .k { grid-area: k; font-size: 16px; }
+  body.plate .f-row .c { grid-area: c; font-size: 20px; }
+  body.plate .f-row .t { grid-area: t; }
+  body.plate .f-row .p { grid-area: p; white-space: normal; }
+  body.plate .plate-main {
+    padding: 48px 0 24px;
+  }
+  body.plate .plate-main h2,
+  body.plate.regp h1.page-title {
+    font-size: 34px;
+    line-height: 38px;
+  }
+  body.plate .plate-tools {
+    grid-template-columns: 1fr;
+  }
+  body.plate.regp .plate-main {
+    padding-top: 24px;
+  }
+  body.plate.regp .capline {
+    gap: 16px;
+  }
+  body.plate.regp .capline .plate-tools {
+    order: -1;
+  }
+  body.plate.regp .fig.paper .f-row {
+    grid-template-columns: 1fr auto;
+    padding: 8px 0;
+    gap: 4px 12px;
+  }
+  body.plate.regp .fig.paper .f-row .p {
+    grid-column: 1 / -1;
+  }
+
+  /* Compact stacked record. Header words stay 44px sort buttons. */
+  body.plate .reg {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+  body.plate .reg thead,
+  body.plate .reg thead tr {
+    display: block;
+  }
+  body.plate .reg thead tr {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 16px;
+    border-bottom: 2px solid var(--ot-ledger-black);
+  }
+  body.plate .reg thead th {
+    position: static;
+    border: 0;
+    padding: 0;
+    display: block;
+  }
+  body.plate .reg thead th:first-child {
+    padding-left: 0;
+  }
+  body.plate .reg thead th button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  body.plate .reg tbody,
+  body.plate .reg tr {
+    display: block;
+  }
+  body.plate .reg tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "name comp" "dom comp" "marks marks";
+    padding: 12px 0;
+    border-bottom: 1px solid var(--ot-rule);
+    width: 100%;
+    max-width: 100%;
+  }
+  body.plate .reg td.name,
+  body.plate .reg td.name a,
+  body.plate .reg td.domain,
+  body.plate .reg td.dom {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  body.plate .reg tr.chg {
+    border-top: 1px solid var(--ot-ledger-black);
+  }
+  body.plate .reg td {
+    display: block;
+    height: auto;
+    border: 0;
+    padding: 0;
+    width: auto;
+  }
+  body.plate .reg td.name {
+    grid-area: name;
+    padding-left: 0;
+  }
+  body.plate .reg td.name a {
+    min-height: 28px;
+  }
+  body.plate .reg td.domain,
+  body.plate .reg td.dom {
+    grid-area: dom;
+  }
+  body.plate .reg td.file,
+  body.plate .reg td.file-cell {
+    grid-area: comp;
+    align-self: center;
+    width: auto;
+  }
+  body.plate .reg td.file .file-num,
+  body.plate .reg td.file-cell .file-num {
+    display: inline-block;
+    width: 36px;
+    margin: 0 12px 0 0;
+  }
+  body.plate .reg td.marks {
+    grid-area: marks;
+    margin-top: 6px;
+  }
+  body.plate .reg td.marks .mark-line {
+    max-height: 40px;
+  }
+  body.plate .reg tbody tr:hover td.name {
+    box-shadow: none;
+  }
+}

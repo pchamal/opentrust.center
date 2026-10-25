@@ -185,7 +185,7 @@ export function mountWatchPage() {
         const st = load();
         st.confirmed = false;
         save(st);
-        flash("Filed. A confirmation note is on its way — nothing prints until you confirm.");
+        flash("Filed. A confirmation note is on its way. Nothing prints until you confirm.");
         render();
       } else {
         flash("The filing did not take. Check the address and try again.");

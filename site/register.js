@@ -1,7 +1,6 @@
 import {
   $,
   escapeHtml,
-  fillIssue,
   fileFlags,
   fileIndexHtml,
   fileScore,
@@ -9,6 +8,12 @@ import {
   bindFileMethodToggle,
   nameWithIcon,
   printedUrl,
+  figureHtml,
+  instrumentCensus,
+  FILE_KEYS,
+  FILE_LABELS,
+  fmtNum,
+  fmtDay,
 } from "./lib.js";
 import { toggle, has, count, CAP } from "./watch.js";
 
@@ -27,8 +32,8 @@ function paintWatchStrip() {
   const state = JSON.parse(localStorage.getItem("ot-notice-list") || "{}");
   const word = state.email ? (state.confirmed ? "active" : "unconfirmed") : "unconfirmed";
   strip.innerHTML =
-    `<a href="./watch.html">notice list</a> · ${n} of ${CAP} files · ${word}` +
-    (word === "unconfirmed" ? ` · <a href="./watch.html">confirm to start the presses</a>` : "");
+    `<a href="./watch.html">notice list</a>, ${n} of ${CAP} files, ${word}` +
+    (word === "unconfirmed" ? `. <a href="./watch.html">Confirm to start the presses</a>` : "");
 }
 import {
   parseFinder,
@@ -250,8 +255,12 @@ function fedrampMark(row) {
   const fr = row.fedramp;
   if (!fr) return "";
   const url = fr.marketplace || "";
-  if (!url) return `<span class="fr-mark">fedramp</span>`;
-  return `<a class="fr-mark" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">fedramp</a>`;
+  if (!url) return `<span class="fr-mark">FedRAMP</span>`;
+  return `<a class="fr-mark" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">FedRAMP</a>`;
+}
+
+function markDisplay(a) {
+  return String((a && (a.short || a.name)) || "");
 }
 
 function markLabel(a) {
@@ -287,27 +296,28 @@ export function marksCell(row) {
   }
   const line = names
     .map((a) => {
-      const label = escapeHtml(markLabel(a));
+      const label = escapeHtml(markDisplay(a));
       const id = String((a && a.id) || "").trim();
       return id
         ? `<a class="mark-chip" href="./attestations.html#${encodeURIComponent(id)}">${label}</a>`
         : `<span class="mark-chip">${label}</span>`;
     })
-    .join(" · ");
+    .join(", ");
   /* Full mark list rides along as title: clipping must never lose a finding. */
-  const plain = names.map((a) => String(markLabel(a) || "")).filter(Boolean).join(" · ");
-  const inner = stamp ? stamp + (line ? " · " + line : "") : line;
+  const plain = names.map((a) => String(markDisplay(a) || "")).filter(Boolean).join(", ");
+  const inner = stamp ? stamp + (line ? ", " + line : "") : line;
   return `<span class="mark-line"${plain ? ` title="${escapeHtml(plain)}"` : ""}>${inner}</span>`;
 }
 
-export function registerRowHtml(row, selectedSlug) {
+export function registerRowHtml(row, selectedSlug, changed) {
   const selected = selectedSlug === row.slug ? ' aria-selected="true"' : "";
+  const changedClass = changed ? " chg" : "";
   const n = String(fileScore(fileFlags(row)));
-  return `<tr class="folio"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
+  return `<tr class="folio${changedClass}"${selected} data-slug="${escapeHtml(row.slug)}" tabindex="0" aria-label="Open dossier: ${escapeHtml(row.name)}">
         <td class="name"><a href="./c/${encodeURIComponent(row.slug)}.html">${nameWithIcon(row.name, row.favicon)}</a></td>
         <td class="domain">${printedUrl(row.domain || "", row.domain || "")}</td>
         <td class="file"><span class="file-num">${escapeHtml(n)}</span>${fileIndexHtml(row)}</td>
-        <td class="marks">${marksCell(row)}<span class="row-track-wrap"> · <a href="#" class="row-track" data-slug="${escapeHtml(row.slug)}" data-domain="${escapeHtml((row.domain || "").toLowerCase())}" data-name="${escapeHtml(row.name)}">track</a></span></td>
+        <td class="marks">${marksCell(row)}<span class="row-track-wrap"><button type="button" class="row-track" data-slug="${escapeHtml(row.slug)}" data-domain="${escapeHtml((row.domain || "").toLowerCase())}" data-name="${escapeHtml(row.name)}">track</button></span></td>
       </tr>`;
 }
 
@@ -356,7 +366,7 @@ function renderEcho() {
   el.hidden = false;
   el.innerHTML = bits
     .map((b, i) => {
-      const sep = i ? `<span class="sep"> · </span>` : "";
+      const sep = i ? `<span class="sep">, </span>` : "";
       return `${sep}<button type="button" data-clear="${escapeHtml(b.kind)}">${escapeHtml(b.label)}</button>`;
     })
     .join("");
@@ -377,7 +387,7 @@ function renderPager(shown, total) {
   const end = start + shown - 1;
   el.innerHTML = `
     <button type="button" data-page="prev" ${state.page <= 1 ? "disabled" : ""}>Previous</button>
-    <span>Page ${state.page} of ${pages} · ${start}–${end} of ${total}</span>
+    <span>Page ${state.page} of ${pages}, ${fmtNum(start)} to ${fmtNum(end)} of ${fmtNum(total)}</span>
     <button type="button" data-page="next" ${state.page >= pages ? "disabled" : ""}>Next</button>
   `;
 }
@@ -394,7 +404,7 @@ function render() {
   const windowed = windowRows(rows, state.page);
   if (windowed.page !== state.page) state.page = windowed.page;
   count.textContent = state.rows.length
-    ? `showing ${rows.length} of ${state.rows.length}`
+    ? `Showing ${fmtNum(rows.length)} of ${fmtNum(state.rows.length)}.`
     : "";
   renderEcho();
   paintHeaders();
@@ -425,7 +435,7 @@ function render() {
     const domain = guessDomain(q);
     const asked = typed || q;
     $("miss-body").textContent = asked
-      ? `No public file matches “${asked}”. Missing from this index is inconclusive — a page may exist under another URL.`
+      ? `No public file matches “${asked}”. Missing from this index is inconclusive. A page may exist under another URL.`
       : "No public file matches this query." ;
     const guesses = domain
       ? [
@@ -468,7 +478,13 @@ function render() {
   const body = $("reg-body");
   const view = windowed.rows;
   renderPager(view.length, rows.length);
-  body.innerHTML = view.map((row) => registerRowHtml(row, state.selected)).join("");
+  body.innerHTML = view
+    .map((row, i) => {
+      const changed =
+        state.sort === "file" && i > 0 && fileScore(fileFlags(view[i - 1])) !== fileScore(fileFlags(row));
+      return registerRowHtml(row, state.selected, changed);
+    })
+    .join("");
 }
 
 function clearToken(kind) {
@@ -578,6 +594,51 @@ function bind() {
   });
 }
 
+function fmtClock(iso) {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "";
+  return (
+    d.toLocaleTimeString("en-US", {
+      timeZone: "America/Los_Angeles",
+      hour: "numeric",
+      minute: "2-digit",
+    }) + " PT"
+  );
+}
+
+function paintRegisterPlate(data) {
+  const issue = $("issue");
+  if (issue) {
+    issue.textContent = data && data.generated_at
+      ? `issue ${fmtDay(data.generated_at)}, swept ${fmtClock(data.generated_at)}`
+      : "issue not on file";
+  }
+  const rows = (data && data.companies) || state.rows;
+  const census = instrumentCensus(rows, fileFlags, FILE_KEYS);
+  const cap = $("cap");
+  if (cap) cap.textContent = `${fmtNum(census.by.page.on)} of ${fmtNum(census.total)} domains print an official page.`;
+  const src = $("src");
+  if (src) {
+    const probed = data && data.generated_at ? fmtClock(data.generated_at) : "";
+    src.textContent = probed
+      ? `Counted of ${fmtNum(census.total)} domains from data.json at load, last probed ${probed}.`
+      : `Counted of ${fmtNum(census.total)} domains from data.json at load.`;
+  }
+  const fig = $("fig");
+  if (fig) {
+    fig.innerHTML = figureHtml(
+      FILE_KEYS.map((key) => ({
+        label: FILE_LABELS[key],
+        on: census.by[key].on,
+        partial: census.by[key].partial,
+      })),
+      census.total,
+    );
+  }
+  const full = $("full-five");
+  if (full) full.textContent = `${fmtNum(census.full)} of ${fmtNum(census.total)} files print all five, so they score 100.`;
+}
+
 async function load() {
   bind();
   const params = new URLSearchParams(window.location.search);
@@ -618,7 +679,7 @@ async function load() {
       return String(a.name).localeCompare(String(b.name));
     });
     state.generatedAt = data.generated_at || null;
-    fillIssue($("issue"), data);
+    paintRegisterPlate(data);
   } catch {
     state.rows = [];
   }

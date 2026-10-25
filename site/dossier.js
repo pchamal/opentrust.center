@@ -78,7 +78,7 @@ function mountTrack() {
     btn.disabled = full;
     btn.textContent = tracked
       ? "Stop tracking"
-      : full ? "10 of 10 files — remove one to add" : "Track this company";
+      : full ? "10 of 10 files, remove one to add" : "Track this company";
   }
   btn.addEventListener("click", () => {
     if (btn.disabled) return;

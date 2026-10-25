@@ -494,10 +494,10 @@ def main() -> int:
     graph = (ROOT / "site" / "graph.html").read_text(encoding="utf-8")
     companies = (ROOT / "site" / "companies.html").read_text(encoding="utf-8")
     zoom = (ROOT / "site" / "c" / "zoom.html").read_text(encoding="utf-8")
-    check("AI Trust Index" in index, "AITI title stays")
-    check("The public file on AI systems. Not a trust score." in index, "AITI lede stays")
-    check("page · standards · processors · evals · incidents" in index, "AITI legend stays")
-    check("AITI is the public file on AI systems, not a trust score." in index, "AITI footer was not cut")
+    check("The AI Trust Index" in index, "AITI title stays")
+    check("The count measures what is published. It says nothing about how a company behaves." in index, "AITI lede stays")
+    check("Thick line: systems that publish it. Thin line: not on file, which is inconclusive." in index, "AITI legend stays")
+    check("The AI Trust Index counts published AI disclosures. It is not a trust score." in index, "AITI footer was not cut")
     method = (ROOT / "site" / "methodology.html").read_text(encoding="utf-8")
     check('<h1 class="page-title">Method</h1>' in method, "H1 Method")
     check(
@@ -507,9 +507,9 @@ def main() -> int:
     check('id="copy-rubric">copy rubric</button>' in method, "Method copy rubric word")
     check("Cite the dossier: /c/{slug}.html" in method, "copied rubric cites the dossier")
     check(
-        'href="./brand.html">specimen</a> · <a href="./methodology.html">methodology</a> · <a href="./contact.html">contact</a> · <a href="https://github.com/pchamal/opentrust.center" target="_blank" rel="noopener noreferrer">code</a>'
+        'href="./brand.html">specimen</a> <a href="./methodology.html">methodology</a> <a href="./contact.html">contact</a> <a href="https://github.com/pchamal/opentrust.center" target="_blank" rel="noopener noreferrer">code</a>'
         in index,
-        "AITI footer has specimen · methodology · contact · code",
+        "AITI footer has specimen, methodology, contact, code",
     )
     contact = (ROOT / "site" / "contact.html").read_text(encoding="utf-8")
     check('<h1 class="page-title">Contact</h1>' in contact, "H1 Contact")

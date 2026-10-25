@@ -165,6 +165,7 @@ expect("default does not drop a slug", new Set(landing.map((r) => r.slug)).size 
 expect("default is highest Completeness then Company A–Z", fileOkLanding);
 expect("default is not Company A–Z", landing.map((r) => r.slug).join("\0") !== byNameLanding.map((r) => r.slug).join("\0"));
 expect("default leads with a full print", fileScore(fileFlags(landing[0])) === 100);
+expect("Register default order starts with 1Password at 100", landing[0].slug === "1password" && landing[0].name === "1Password" && fileScore(fileFlags(landing[0])) === 100);
 expect("01.AI at 0 does not lead", landing[0].slug !== "01-ai");
 expect("1Password at 100 sits above 01.AI", landing.findIndex((r) => r.slug === "1password") < landing.findIndex((r) => r.slug === "01-ai"));
 expect("complete stays in the table", landing.some((r) => r.tier === "complete"));
@@ -209,7 +210,7 @@ expect(
 );
 expect("register file cell has no coverage count", !/file-cov|fileCoverageHtml| of 5/.test(registerSrc));
 expect("register has no More on this file", !/More on this file|record-extra/.test(registerSrc));
-expect("folio row is a dossier click-through", /class="folio"/.test(registerSrc));
+expect("folio row is a dossier click-through", /class="folio/.test(registerSrc));
 
 const css = readFileSync(new URL("../site/styles.css", import.meta.url), "utf8");
 expect("sort chrome has no chevron", !css.includes('content: "▴"') && !css.includes('content: "▾"'));
@@ -247,18 +248,18 @@ const buyer = marksCell({
     { name: "GDPR", short: "GDPR" },
   ],
 });
-expect("marks are clerk chips", buyer.includes('class="mark-chip">soc 2 type ii<') && buyer.includes(" · "));
+expect("marks are clerk chips", buyer.includes('class="mark-chip">SOC 2 Type II<') && buyer.includes(", "));
 expect("marks cell has no icons", !buyer.includes("<img") && !buyer.includes("ink-ico"));
-expect("buyer mark is named first", buyer.indexOf("soc 2") < buyer.indexOf("iso 27001"));
+expect("buyer mark is named first", buyer.indexOf("SOC 2") < buyer.indexOf("ISO 27001"));
 expect("marks have no plus-n", !/\+\d/.test(buyer) && !buyer.includes("mark-more"));
-expect("named marks that fit stay listed", /mark-chip">soc 2/.test(buyer) && buyer.includes("ccpa") && buyer.includes("gdpr"));
+expect("named marks that fit stay listed", /mark-chip">SOC 2/.test(buyer) && buyer.includes("CCPA") && buyer.includes("GDPR"));
 const filedMarks = marksCell({
   attestations: [{ name: "SOC 2 Type II", id: "soc-2-type-ii", short: "SOC 2 Type II" }],
 });
 expect(
   "mark words go to the framework entry",
   filedMarks.includes('href="./attestations.html#soc-2-type-ii"')
-    && filedMarks.includes("soc 2 type ii")
+    && filedMarks.includes("SOC 2 Type II")
     && !filedMarks.includes("<img")
     && !filedMarks.includes("<svg"),
 );
@@ -267,7 +268,7 @@ const fed = marksCell({
   fedramp: { marketplace: "https://marketplace.fedramp.gov/products/FR123" },
   attestations: [{ name: "FedRAMP", id: "fedramp" }, { name: "SOC 2", short: "SOC 2" }],
 });
-expect("fedramp keeps marketplace underline", fed.includes('class="fr-mark"') && fed.includes("marketplace.fedramp.gov") && fed.includes(" · "));
+expect("fedramp keeps marketplace underline", fed.includes('class="fr-mark"') && fed.includes("marketplace.fedramp.gov") && fed.includes(", "));
 
 const fedSet = apply("/ fedramp moderate");
 const fedByName = arrangeRows(fedSet, "name", "asc");

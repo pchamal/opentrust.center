@@ -111,7 +111,7 @@ export function cmpNum(a, b) {
 
 export function parseClerkDate(value) {
   const s = String(value || "").replace(/\s+/g, " ").trim();
-  if (!s || s === "—" || /^not on file$/i.test(s)) return null;
+  if (!s || s === "—" || s === "none" || /^not on file$/i.test(s)) return null;
   const m = s.match(/^(\d{1,2})\s+([A-Za-z]{3})\s+(\d{4})$/);
   if (!m) {
     const t = Date.parse(s);
@@ -132,7 +132,7 @@ export function impactValue(value) {
     .replace(/\s+/g, " ")
     .trim()
     .toLowerCase();
-  if (!s || s === "—" || s === "not on file") return 0;
+  if (!s || s === "—" || s === "none" || s === "not on file") return 0;
   if (IMPACT_ORDER[s] != null) return IMPACT_ORDER[s];
   return 0;
 }

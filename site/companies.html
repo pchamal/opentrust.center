@@ -3,31 +3,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>opentrust.center — public trust ledger</title>
-  <meta name="description" content="A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not.">
+  <title>Public trust register: opentrust.center</title>
+  <meta name="description" content="Public trust files, read from each company's own site.">
   <meta name="theme-color" content="#0B1411">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://opentrust.center/companies.html">
-  <meta property="og:title" content="opentrust.center — public trust ledger">
-  <meta property="og:description" content="A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not.">
+  <meta property="og:title" content="Public trust register: The AI Trust Index">
+  <meta property="og:description" content="Public trust files, read from each company's own site.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://opentrust.center/companies.html">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="opentrust.center — public trust ledger">
-  <meta name="twitter:description" content="A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not.">
+  <meta name="twitter:title" content="Public trust register: The AI Trust Index">
+  <meta name="twitter:description" content="Public trust files, read from each company's own site.">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "opentrust.center",
     "url": "https://opentrust.center/companies.html",
-    "description": "A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not."
+    "description": "Public trust files, read from each company's own site."
   }
   </script>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./plate.css">
 </head>
-<body class="register">
+<body class="register plate regp">
   <a class="skip" href="#main">Skip to the record</a>
   <header class="mast">
     <a class="wordmark" href="./">opentrust<span class="wm-dot">.</span>center</a>
@@ -38,94 +39,103 @@
       <a href="./attestations.html">Standards</a>
       <a href="./watch.html">Notices</a>
     </nav>
+    <p class="issue plate-iss" id="issue">issue</p>
   </header>
-  <p class="issue" id="issue">issue —</p>
 
-  <main class="canvas" id="main">
+  <main id="main">
     <div id="file-view">
-    <h1 class="page-title">Public trust register</h1>
-    <p class="lede">A database of each company’s public trust ledger.</p>
-    <nav class="view-toggle" role="tablist" aria-label="View">
-      <button type="button" role="tab" data-view="file" class="on" aria-controls="file-view" aria-selected="true">completeness</button>
-      <span class="sep" aria-hidden="true">|</span>
-      <button type="button" role="tab" data-view="method" aria-controls="method-view" aria-selected="false">method</button>
-    </nav>
+      <div class="plate-main">
+        <h1 class="page-title">Public trust register</h1>
+        <p class="lede">Each company's public trust file, as published on its own site.</p>
+        <div class="capline">
+          <p class="fig-cap" id="cap"></p>
+          <div class="plate-tools">
+            <form class="finder" id="finder" role="search">
+              <label>
+                <span class="sr-only">Find a company</span>
+                <input id="q" type="search" name="q" placeholder="stripe, on file, FedRAMP Moderate" autocomplete="off" spellcheck="false">
+              </label>
+              <button type="submit" class="finder-go">Find</button>
+            </form>
+            <nav class="view-toggle" role="tablist" aria-label="View">
+              <button type="button" role="tab" data-view="file" class="on" aria-controls="file-view" aria-selected="true">completeness</button>
+              <button type="button" role="tab" data-view="method" aria-controls="method-view" aria-selected="false">method</button>
+            </nav>
+          </div>
+        </div>
+        <figure class="fig paper" aria-labelledby="cap">
+          <div id="fig"></div>
+          <p class="leg">Thick line: printed. Dotted: on file, not extracted. Thin: not on file, which is inconclusive. <span id="src"></span></p>
+        </figure>
+        <div class="plate-meta">
+          <span id="countline"></span>
+          <span id="file-method">Completeness adds 20 for each printed instrument and 10 when one is on file but not extracted. <span id="full-five"></span></span>
+        </div>
+        <p class="queryline" id="queryline" hidden></p>
+      </div>
 
-    <form class="finder" id="finder" role="search">
-      <label>
-        <span class="sr-only">Find a company</span>
-        <input id="q" type="search" name="q" placeholder="/ stripe, on file, fedramp moderate" autocomplete="off" spellcheck="false" autofocus>
-      </label>
-      <button type="submit" class="finder-go">Find</button>
-    </form>
+      <div id="miss" class="miss plate-main" hidden>
+        <p class="miss-title" id="miss-title">Not in the index.</p>
+        <p class="muted" id="miss-body"></p>
+        <ul class="guesses" id="guesses"></ul>
+        <div class="miss-actions" id="miss-actions" hidden>
+          <button type="button" class="miss-go" id="miss-reset">Reset this query</button>
+          <a class="miss-go" id="miss-look" target="_blank" rel="noopener noreferrer">View source paths</a>
+          <a class="miss-go" id="miss-request" target="_blank" rel="noopener noreferrer">Report a correction</a>
+        </div>
+      </div>
 
-    <p class="queryline" id="queryline" hidden></p>
-    <p class="countline" id="countline"></p>
-    <p class="file-legend" id="file-legend">page · standards · DPA · subprocessors · years</p>
-    <p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing. 100 is five prints.</p>
+      <div class="sheet">
+        <div class="wrap">
+          <table class="reg" id="reg" hidden>
+            <thead>
+              <tr>
+                <th scope="col" data-sort="name" aria-sort="none"><button type="button">Company</button></th>
+                <th scope="col" data-sort="host" aria-sort="none"><button type="button">Domain</button></th>
+                <th scope="col" class="on" data-sort="file" aria-sort="descending"><button type="button">Completeness</button></th>
+                <th scope="col" class="marks" data-sort="marks" aria-sort="none"><button type="button">Standards</button></th>
+              </tr>
+            </thead>
+            <tbody id="reg-body"></tbody>
+          </table>
+        </div>
+      </div>
+      <nav class="pager plate-main" id="pager" hidden aria-label="Companies pages"></nav>
 
-    <div id="miss" class="miss" hidden>
-      <p class="miss-title" id="miss-title">Not in the index.</p>
-      <p class="muted" id="miss-body"></p>
-      <ul class="guesses" id="guesses"></ul>
-      <div class="miss-actions" id="miss-actions" hidden>
-        <button type="button" class="miss-go" id="miss-reset">Reset this query</button>
-        <a class="miss-go" id="miss-look" target="_blank" rel="noopener noreferrer">View source paths</a>
-        <a class="miss-go" id="miss-request" target="_blank" rel="noopener noreferrer">Report a correction</a>
+      <div id="empty" class="empty plate-main" hidden>
+        <p>No crawl data on file.</p>
       </div>
     </div>
 
-    <div class="wires-scroll">
-    <table class="reg" id="reg" hidden>
-      <thead>
-        <tr>
-          <th scope="col" data-sort="name" aria-sort="none"><button type="button">Company</button></th>
-          <th scope="col" data-sort="host" aria-sort="none"><button type="button">Domain</button></th>
-          <th scope="col" class="on" data-sort="file" aria-sort="descending"><button type="button">Completeness</button></th>
-          <th scope="col" class="marks" data-sort="marks" aria-sort="none"><button type="button">Standards</button></th>
-        </tr>
-      </thead>
-      <tbody id="reg-body"></tbody>
-    </table>
-    </div>
-    <nav class="pager" id="pager" hidden aria-label="Companies pages"></nav>
-
-    <div id="empty" class="empty" hidden>
-      <p>No crawl data on file.</p>
-    </div>
-    </div>
-
-    <div id="method-view" hidden>
+    <div id="method-view" class="plate-main" hidden>
       <h1 class="page-title">Method</h1>
       <p class="lede">How we count a public file. Not a company grade.</p>
       <nav class="view-toggle" role="tablist" aria-label="View">
         <button type="button" role="tab" data-view="file" aria-controls="file-view" aria-selected="false">completeness</button>
-        <span class="sep" aria-hidden="true">|</span>
         <button type="button" role="tab" data-view="method" class="on" aria-controls="method-view" aria-selected="true">method</button>
       </nav>
       <h2 class="sec-kicker">The count</h2>
-      <p class="clerk">20 printed · 10 on file, not extracted · 0 missing. 100 is five prints.</p>
+      <p class="clerk">Completeness adds 20 for each printed instrument and 10 when one is on file but not extracted. 100 is five prints.</p>
       <h2 class="sec-kicker">AITI</h2>
-      <p class="clerk">page · standards · processors · evals · incidents. Standards print only when an AI standard is on the page. Empty incidents are inconclusive.</p>
+      <p class="clerk">page, standards, processors, evals, incidents. Standards print only when an AI standard is on the page. Empty incidents are inconclusive.</p>
       <h2 class="sec-kicker">Register</h2>
-      <p class="clerk">page · standards · DPA · subprocessors · years.</p>
+      <p class="clerk">page, standards, DPA, subprocessors, years.</p>
       <h2 class="sec-kicker">What counts</h2>
       <p class="clerk">First-party public HTML or a first-party legal PDF on the company’s own host. Fetch-check. No invented companies, certs, processors, or URLs.</p>
       <h2 class="sec-kicker">What stays open</h2>
       <p class="clerk">JS shells, HTTP 403/404, login walls, regulation-only GDPR/CCPA rights text, DPF as a transfer among SCCs, portal hosts. Missing prints <i>not on file</i>. When unsure, leave open.</p>
       <h2 class="sec-kicker">Discovery</h2>
-      <p class="clerk">First-party only: candidate paths, the company&rsquo;s own footer links, and its sitemaps. A lead is not a finding until it passes the first three rules.</p>
-
+      <p class="clerk">First-party only: candidate paths, the company’s own footer links, and its sitemaps. A lead is not a finding until it passes the first three rules.</p>
       <h2 class="sec-kicker">Outbound</h2>
       <p class="clerk">Outbound is human-gated. Documents stay on the company’s domain.</p>
     </div>
   </main>
 
   <footer class="colo">
-    <p>We probe <code>trust.{domain}</code>, <code>security.{domain}</code>, and <code>/{trust,trust-center,security}</code>. Marks and named processors come from public HTML only. JS-only portals stay empty — we do not invent marks or processor names. A processor page is not a parsed name. Disclosure rates the file, not the company. Missing rows print <i>not on file</i>. FedRAMP marks are taken from the GSA marketplace, not the company's portal. File tiers (silent / thin / on file / substantial / public file complete) rate the public file, never the company.</p>
-    <p>Source · <a href="https://www.forbes.com/lists/cloud100/" target="_blank" rel="noopener noreferrer">Forbes Cloud 100 2025</a> and a curated public-enterprise set.</p>
-    <p><a href="./">AITI</a> · <a href="./companies.html">Register</a> · <a href="./graph.html">Subprocessors</a> · <a href="./attestations.html">Standards</a>
-      <a href="./watch.html">Notices</a> · <a href="./brand.html">specimen</a> · <a href="./methodology.html">methodology</a> · <a href="./contact.html">contact</a> · <a href="https://github.com/pchamal/opentrust.center" target="_blank" rel="noopener noreferrer">code</a> · outbound is human-gated. Documents stay on the company's domain.</p>
+    <p>The company’s own page stays authoritative. Report a correction from any dossier.</p>
+    <p>Source: <a href="https://www.forbes.com/lists/cloud100/" target="_blank" rel="noopener noreferrer">Forbes Cloud 100 2025</a> and a curated public-enterprise set.</p>
+    <p><a href="./">AITI</a> <a href="./companies.html">Register</a> <a href="./graph.html">Subprocessors</a> <a href="./attestations.html">Standards</a>
+      <a href="./watch.html">Notices</a> <a href="./brand.html">specimen</a> <a href="./methodology.html">methodology</a> <a href="./contact.html">contact</a> <a href="https://github.com/pchamal/opentrust.center" target="_blank" rel="noopener noreferrer">code</a></p>
   </footer>
 
   <script type="module" src="./register.js"></script>

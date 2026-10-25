@@ -34,6 +34,7 @@ Speak like the clerk who stamps the page.
 - Sentence case for nav and buttons. Uppercase only for SOC, ISO, DPA, and IDs.
 - Use: observed, source, scope, unknown, not on file, last reviewed, public evidence, silent, thin, on file, substantial, public file complete, named, filed, ledger.
 - Never: trusted company, verified company, complete (without “complete for what”), AI-powered, unlock, seamless, single source of truth, empower, reimagine, next-gen, in one place, trust made simple, the future of GRC, delightful, trust score, security rating, powered by, OpenTrust.
+- **No em dash and no en dash** in any rendered text, title, meta tag, Open Graph or Twitter tag, placeholder, or empty-count glyph. Use a period, a comma, or a colon. A hyphen inside a real name stays (EU-US DPF, AIUC-1, SOC 2 Type II). An empty count is the word `none`, or a blank. It is never a dash.
 
 Buttons: **Open dossier**, **View source**, **Report a correction**. Not Get started / Unlock insights.
 
@@ -43,7 +44,7 @@ Buttons: **Open dossier**, **View source**, **Report a correction**. Not Get sta
 | Processors | Named subprocessors, as published. | Filed from public lists. Not a complete supply chain. |
 | Attestations | Marks a buyer will meet. | By geography and industry. ELI-5, then the long form. |
 
-`<title>`: `opentrust.center — public trust ledger`
+`<title>`: Home is `The AI Trust Index`. Every other page is `{Page}: opentrust.center`.
 Meta: `A database of each company's public trust ledger. Official pages, marks, DPA, subprocessors, years. On file, or not.`
 
 Outbound: `View source`. Never “Open SafeBase.” Never name the portal vendor on a public surface.
@@ -80,7 +81,25 @@ Minimum: 13px data, 16px body.
 | `--t-title` | Editorial | 28 / 32 | −0.025em | 600 | Company / offering names only |
 | `--t-wordmark` | Editorial | 20 / 24 | −0.025em | 600 | Mast. Period only in Evidence Teal. |
 
-Wordmark is always `opentrust.center`, lowercase, Source Serif 4 600, tracking −0.025em. Color **only** the period before `center` in Evidence Teal. Other letters Ledger Black on light, Record White on the dark mast.
+Wordmark is always `opentrust.center`, lowercase, Source Serif 4 600, tracking −0.025em. On pages other than the Census Plate, color **only** the period before `center` in Evidence Teal. Other letters Ledger Black on light, Record White on the dark mast.
+
+### Census Plate (home and the register)
+
+Pukar approved this scale for the home page and the register. Other pages keep the table above.
+
+| Token | Face | Size / line | Tracking | Weight | Use |
+|---|---|---|---|---|---|
+| `plate-h1` | Editorial | 80 / 80 | −0.035em | 600 | Home H1, "The AI Trust Index". 64 / 64 under 1100px. 44 / 46 at 390. |
+| `plate-title` | Editorial | 44 / 48 | −0.025em | 600 | Register H1 and the "All N AI systems" heading. 34 / 38 at 390. |
+| `plate-caption` | Editorial | 20 / 26 | −0.01em | 600 | Figure caption. |
+| `plate-claim` | Utility | 18 / 28 | 0 | 400 | The sentence under the home H1. |
+| `plate-count` | Editorial | 22 / 28 | 0 | 500 | A figure count. Lining, tabular. Register figure count is 18 / 20. |
+| `plate-numeral` | Editorial | 17 / 22 | 0 | 600 | Completeness value. Lining, tabular. |
+| `plate-row` | n/a | 52px | n/a | n/a | One register row. |
+| `plate-rule` | n/a | 14 by 3 | n/a | n/a | One completeness rule. |
+| `plate-touch` | n/a | 44px | n/a | n/a | A header sort button, including the four words on the 390 record. |
+
+On these two pages the wordmark is Record White. The period is not Evidence Teal. Bright Teal is the current-page underline in the mast, and the underline on the sorted header. One figure per page. No Fig. label, no middot string, no ticker, no console, no load motion.
 
 ## Color
 

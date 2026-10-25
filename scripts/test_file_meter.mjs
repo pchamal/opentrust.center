@@ -88,14 +88,14 @@ const eight = bySlug["8x8"];
 const eightHtml = fileIndexHtml(eight);
 const eightMarks = marksCell(eight);
 expect("8x8 page is on file", eight.found && eight.trust_url && fileFlags(eight).page === 20);
-expect("8x8 Marks cell lists csa star", /csa star/.test(eightMarks));
+expect("8x8 Marks cell lists CSA STAR", /CSA STAR/.test(eightMarks));
 expect("8x8 marks rule is filled", fileFlags(eight).marks === 20 && ruleOn(eightHtml)[1] === true);
 expect("8x8 subprocessors URL-only is 10", fileFlags(eight).subprocessors === 10 && ruleKind(eightHtml)[3] === "partial");
 
 const abridge = bySlug.abridge;
 const abridgeHtml = fileIndexHtml(abridge);
 const abridgeMarks = marksCell(abridge);
-expect("Abridge Marks cell lists names", /soc 2/.test(abridgeMarks) && abridgeMarks.includes("hipaa") && abridgeMarks.includes("ccpa") && abridgeMarks.includes("tx-ramp"));
+expect("Abridge Marks cell lists names", /SOC 2/.test(abridgeMarks) && abridgeMarks.includes("HIPAA") && abridgeMarks.includes("CCPA") && abridgeMarks.includes("TX-RAMP"));
 expect("Abridge marks rule is filled", fileFlags(abridge).marks === 20 && ruleOn(abridgeHtml)[1] === true);
 expect("Abridge is not five open hairlines", ruleOn(abridgeHtml).some(Boolean));
 expect("Abridge page stays filled", fileFlags(abridge).page === 20 && ruleOn(abridgeHtml)[0] === true);
@@ -1382,16 +1382,15 @@ function registerFileCell(html) {
 
 expect(
   "legend is once above the grid",
-  indexHtml.includes('id="file-legend"') && indexHtml.includes("page · standards · processors · evals · incidents"),
+  indexHtml.includes('id="leg"') && indexHtml.includes("Thick line: systems that publish it. Thin line: not on file, which is inconclusive."),
 );
 expect(
   "register legend is the five Companies rules",
-  companiesHtml.includes('id="file-legend"') && companiesHtml.includes("page · standards · DPA · subprocessors · years"),
+  companiesHtml.includes("Thick line: printed. Dotted: on file, not extracted. Thin: not on file, which is inconclusive."),
 );
 expect(
   "register method line is once under the legend",
-  /id="file-legend">page · standards · DPA · subprocessors · years<\/p>\s*<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/.test(companiesHtml) &&
-    (companiesHtml.match(/<p class="file-method" id="file-method">20 printed · 10 on file, not extracted · 0 missing\. 100 is five prints\.<\/p>/g) || []).length === 1,
+  (companiesHtml.match(/id="file-method">Completeness adds 20 for each printed instrument and 10 when one is on file but not extracted\./g) || []).length === 1,
 );
 expect(
   "register method line has no strike markup",
@@ -1434,7 +1433,7 @@ expect("register has no Score header", !/>\s*Score\s*</i.test(companiesHtml) && 
 expect("register Completeness header stays Completeness", /<button type="button">Completeness<\/button>/.test(companiesHtml));
 expect(
   "finder placeholder dropped old tier words",
-  companiesHtml.includes('placeholder="/ stripe, on file, fedramp moderate"') &&
+  companiesHtml.includes('placeholder="stripe, on file, FedRAMP Moderate"') &&
     !/placeholder="[^"]*\b(silent|thin|substantial|complete)\b/.test(companiesHtml),
 );
 expect("legend is not a tooltip farm", !src.includes("title=") || !/file-rule[^>]*title=/.test(src));

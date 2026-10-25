@@ -1,151 +1,127 @@
-/* Black Binding — front-page band. Numbers come from data.json at load.
-   The console re-probes real register targets from the visitor's browser. */
-import { $, dataUrl, escapeHtml } from "./lib.js";
+/* Home plate. Counts come from data.json through lib.js. No ticker, no console. */
+import {
+  $,
+  dataUrl,
+  fmtDay,
+  fmtNum,
+  figureHtml,
+  instrumentCensus,
+  selectAiFiles,
+  aiFileFlags,
+  AI_FILE_KEYS,
+} from "./lib.js";
 
-const REDUCED =
-  globalThis.matchMedia &&
-  globalThis.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-const PROBES = [
-  { id: "b-pr-stripe", url: "https://docs.stripe.com/security" },
-  { id: "b-pr-openai", url: "https://trust.openai.com" },
-  { id: "b-pr-cloudflare", url: "https://www.cloudflare.com/trust-hub/" },
-  { id: "b-pr-mistral", url: "https://trust.mistral.ai" },
-];
-
-const TIER_WORD = {
-  silent: "silent",
-  thin: "thin",
-  "on-file": "on file",
-  substantial: "substantial",
-  complete: "public file complete",
+const AI_LABELS = {
+  page: "AI page",
+  marks: "AI standards",
+  processors: "AI processors",
+  evals: "evals",
+  incidents: "incidents",
 };
 
-function fmt(n) {
-  return Number(n || 0).toLocaleString("en-US");
-}
-
-const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-
-function fmtStamp(iso) {
+function fmtClock(iso) {
   const d = new Date(iso);
-  if (isNaN(d)) return "";
-  const hh = String(d.getUTCHours()).padStart(2, "0");
-  const mm = String(d.getUTCMinutes()).padStart(2, "0");
-  return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()} · ${hh}:${mm} UTC`;
+  if (Number.isNaN(d.getTime())) return "";
+  return (
+    d.toLocaleTimeString("en-US", {
+      timeZone: "America/Los_Angeles",
+      hour: "numeric",
+      minute: "2-digit",
+    }) + " PT"
+  );
 }
 
-function fmtDay(iso) {
-  const d = new Date(iso);
-  if (isNaN(d)) return "";
-  return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]}`;
-}
-
-async function getJson(path) {
-  const res = await fetch(dataUrl(path), { cache: "no-store" });
-  if (!res.ok) throw new Error(String(res.status));
-  return res.json();
-}
-
-function paintStats(data, marks) {
-  const scope = $("b-stat-scope");
-  const found = $("b-stat-found");
-  const edges = $("b-stat-edges");
-  const marksEl = $("b-stat-marks");
-  const note = $("b-count-note");
-  if (scope) scope.textContent = fmt(data.total);
-  if (found) found.textContent = fmt(data.found);
-  if (edges) edges.textContent = fmt(data.coverage && data.coverage.edges);
-  if (marksEl) marksEl.textContent = marks ? fmt(marks) : "not on file";
-  if (note) {
-    const stamp = fmtStamp(data.generated_at);
-    note.textContent = stamp
-      ? `counts computed from data.json at load · register generated ${stamp}. a row that cannot be fetched prints not on file — it is never dropped.`
-      : note.textContent;
-  }
-}
-
-function paintTierLine(data) {
-  const el = $("b-tier-line");
-  if (!el || !data || !data.coverage || !data.coverage.tiers) return;
-  const t = data.coverage.tiers;
-  const total = Number(data.total) || 0;
-  const silent = Number(t.silent) || 0;
-  const complete = Number(t.complete) || 0;
-  if (!total || silent === undefined) return;
-  el.innerHTML =
-    `<strong>${fmt(silent)}</strong> of ${fmt(total)} domains in scope print no AI file` +
-    ` · <strong>${fmt(complete)}</strong> print public file complete`;
-}
-
-function paintStatus(data) {
+function paintIssue(data) {
   const el = $("issue");
-  if (!el || !data) return;
-  const stamp = fmtStamp(data.generated_at);
-  el.textContent = stamp
-    ? [`last sweep ${stamp}`, `${fmt(data.found)} files on record of ${fmt(data.total)} in scope`].join(" · ")
-    : el.textContent;
-}
-
-function paintTicker(data) {
-  const track = $("b-ticker-track");
-  if (!track) return;
-  const rows = (data.companies || [])
-    .filter((r) => r && r.found)
-    .sort((a, b) => String(b.probed_at || "").localeCompare(String(a.probed_at || "")))
-    .slice(0, 10);
-  if (!rows.length) {
-    track.hidden = true;
+  if (!el || !data || !data.generated_at) {
+    if (el) el.textContent = "issue not on file";
     return;
   }
-  const items = rows.map((r) => {
-    const tier = String(r.tier || "silent");
-    const cls = tier === "silent" ? "off" : "ok";
-    const word = TIER_WORD[tier] || "not on file";
-    const day = fmtDay(r.probed_at);
-    return (
-      `<span class="b-tick"><i class="b-sym ${cls}" aria-hidden="true"></i>` +
-      `<b>${escapeHtml(r.domain)}</b> ${escapeHtml(word)}${day ? ` · probed ${day}` : ""}</span>`
+  el.textContent = `issue ${fmtDay(data.generated_at)}, swept ${fmtClock(data.generated_at)}`;
+}
+
+function paintFigure(data) {
+  const rows = selectAiFiles(data.companies || []);
+  const census = instrumentCensus(rows, aiFileFlags, AI_FILE_KEYS);
+  const page = census.by.page;
+  const cap = $("cap");
+  const src = $("src");
+  const fig = $("fig");
+  const leg = $("leg");
+  if (cap) cap.textContent = `${fmtNum(page.on)} of ${fmtNum(census.total)} AI systems print an AI page.`;
+  if (src) {
+    src.textContent = `Each line counts one disclosure across ${fmtNum(census.total)} AI systems. Issue of ${fmtDay(data.generated_at)}.`;
+  }
+  if (fig) {
+    fig.innerHTML = figureHtml(
+      AI_FILE_KEYS.map((key) => ({
+        label: AI_LABELS[key],
+        on: census.by[key].on,
+        partial: census.by[key].partial,
+      })),
+      census.total,
     );
-  });
-  const half = `<span class="b-tick-group">${items.join("")}</span>`;
-  track.innerHTML = half + half;
-}
-
-function paintProbe(id, ms) {
-  const el = $(id);
-  if (!el) return;
-  if (ms === null) {
-    el.textContent = "timeout · not on file";
-    el.className = "b-v warn";
-    return;
   }
-  el.textContent = `ok · ${fmt(ms)}ms`;
-  el.className = ms > 900 ? "b-v ok slow" : "b-v ok";
+  const anyPartial = AI_FILE_KEYS.some((key) => census.by[key].partial > 0);
+  if (leg && anyPartial) {
+    leg.textContent =
+      "Thick line: systems that publish it. Dotted: on file, not extracted. Thin line: not on file, which is inconclusive. Counted from data.json at load.";
+  }
+  const heading = $("aiti-heading");
+  if (heading) heading.textContent = `All ${fmtNum(census.total)} AI systems`;
+  return census;
 }
 
-async function sweep() {
-  let answered = 0;
-  for (const p of PROBES) {
-    let ms = null;
-    const t0 = performance.now();
+function paintCounts(data) {
+  const el = $("counts");
+  if (!el || !data) return;
+  const total = Number(data.total) || (data.companies || []).length;
+  const found = Number(data.found);
+  const tiers = data.coverage && data.coverage.tiers;
+  const complete = tiers ? Number(tiers.complete) : null;
+  const edges = data.coverage ? Number(data.coverage.edges) : null;
+  const foundWords = Number.isFinite(found)
+    ? `<b>${fmtNum(found)}</b> publish a trust file`
+    : "trust files are counted at load";
+  const completeWords =
+    complete == null || Number.isNaN(complete)
+      ? ""
+      : ` and <b>${fmtNum(complete)}</b> of those are complete`;
+  const edgeWords =
+    edges == null || Number.isNaN(edges)
+      ? ""
+      : ` Together they name <b>${fmtNum(edges)}</b> subprocessor relationships.`;
+  el.innerHTML = `The Register covers <b>${fmtNum(total)}</b> domains. ${foundWords}${completeWords}.${edgeWords}`;
+}
+
+function probe() {
+  const hosts = document.querySelectorAll("#probe [data-u]");
+  hosts.forEach((node) => {
+    const value = node.querySelector(".v");
+    if (!value) return;
+    const started = performance.now();
     const ctl = "AbortController" in globalThis ? new AbortController() : null;
     const timer = ctl && setTimeout(() => ctl.abort(), 4000);
-    try {
-      await fetch(p.url, { mode: "no-cors", cache: "no-store", signal: ctl && ctl.signal });
-      ms = Math.round(performance.now() - t0);
-      answered += 1;
-    } catch (err) {
-      ms = null;
-    }
-    if (timer) clearTimeout(timer);
-    paintProbe(p.id, ms);
-  }
-  const vd = $("b-verdict");
-  if (vd) vd.textContent = `${answered} of ${PROBES.length} answered · sweep complete`;
+    fetch(node.getAttribute("data-u"), {
+      mode: "no-cors",
+      cache: "no-store",
+      signal: ctl && ctl.signal,
+    })
+      .then(() => {
+        value.textContent = `${Math.round(performance.now() - started)} ms`;
+      })
+      .catch(() => {
+        value.innerHTML = "<em>not on file</em>";
+      })
+      .finally(() => {
+        if (timer) clearTimeout(timer);
+      });
+  });
 }
 
 function bindChips() {
+  const reduced =
+    globalThis.matchMedia && globalThis.matchMedia("(prefers-reduced-motion: reduce)").matches;
   document.querySelectorAll(".binding-chip").forEach((chip) => {
     chip.addEventListener("click", () => {
       const q = $("q");
@@ -154,25 +130,29 @@ function bindChips() {
       q.dispatchEvent(new Event("input", { bubbles: true }));
       q.focus({ preventScroll: true });
       const main = $("main");
-      if (main && main.scrollIntoView) main.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "start" });
+      if (main && main.scrollIntoView) {
+        main.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+      }
     });
   });
 }
 
 async function init() {
   bindChips();
-  const stamp = $("b-sweep-stamp");
   try {
-    const [data, att] = await Promise.all([getJson("./data.json"), getJson("./data/attestations.json").catch(() => null)]);
-    paintStatus(data);
-    paintTierLine(data);
-    paintStats(data, att && att.count);
-    paintTicker(data);
-    if (stamp) stamp.textContent = `sweep ${fmtDay(data.generated_at)}`;
+    const res = await fetch(dataUrl("./data.json"), { cache: "no-store" });
+    if (!res.ok) throw new Error(String(res.status));
+    const data = await res.json();
+    paintIssue(data);
+    paintFigure(data);
+    paintCounts(data);
   } catch (err) {
-    if (stamp) stamp.textContent = "register not on file";
+    const issue = $("issue");
+    if (issue) issue.textContent = "issue not on file";
+    const cap = $("cap");
+    if (cap) cap.textContent = "The AI file count is not on file.";
   }
-  sweep();
+  probe();
 }
 
 init();
