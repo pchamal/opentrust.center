@@ -289,15 +289,61 @@ def test_live_ledger_when_present() -> None:
     check(third[0] == "4d-sas", "third cut starts at the next never-reaudited C0 row")
     check("accurx" in third and "ableton" in third, "third cut includes the clerk-filed rows")
 
-    check(len(batch) == 30, f"2026-10-23 batch is 30, got {len(batch)}")
-    check(batch[0] == "addepar" and batch[-1] == "agfa", "2026-10-23 batch is the addepar–agfa cut")
-    check(summary.get("batch") == 30, "2026-10-23 summary.batch is 30")
-    check(summary.get("fileable") == 11, f"2026-10-23 extractor fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 5, f"2026-10-23 soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 19, f"2026-10-23 still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 4, f"2026-10-23 last-batch clerk fills, got {summary.get('filled')}")
+    fourth = [
+        "addepar",
+        "adder-technology",
+        "addtech",
+        "adf-solutions",
+        "adform",
+        "adguard",
+        "adidas-runtastic",
+        "adobe-story",
+        "adtaily",
+        "adtile-technologies",
+        "adtran",
+        "adva-optical-networking",
+        "advanced-machine-intelligence",
+        "advanced-micro-devices",
+        "advania",
+        "aeneas-internet-and-telephone",
+        "aero-controls",
+        "aerohive-networks",
+        "aerojet",
+        "aerovironment",
+        "affectiva",
+        "afriex",
+        "afterpay",
+        "aftershock-pc",
+        "ag-neovo",
+        "agap2it",
+        "ageia",
+        "agere-systems",
+        "agex-therapeutics",
+        "agfa",
+    ]
+    check(len(fourth) == 30, f"2026-10-23 batch is 30, got {len(fourth)}")
+    check(all(slug in entries for slug in fourth), "2026-10-23 addepar–agfa rows stay in the ledger")
+    check(fourth[0] == "addepar" and fourth[-1] == "agfa", "2026-10-23 batch is the addepar–agfa cut")
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-10-23" for slug in fourth),
+        "2026-10-23 cut stays dated 2026-10-23",
+    )
+    check(not set(fourth) & set(third), "2026-10-23 cut must be never-reaudited vs the 4d-sas cut")
+
+    check(len(batch) == 30, f"2026-10-26 batch is 30, got {len(batch)}")
+    check(batch[0] == "24slides" and batch[-1] == "airpair", "2026-10-26 batch is the 24slides–airpair cut")
+    check(summary.get("batch") == 30, "2026-10-26 summary.batch is 30")
+    check(summary.get("fileable") == 9, f"2026-10-26 extractor fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 8, f"2026-10-26 soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 21, f"2026-10-26 still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 8, f"2026-10-26 last-batch clerk fills, got {summary.get('filled')}")
     october = [slug for slug, rec in entries.items() if str(rec.get("date") or "").startswith("2026-10-")]
-    check(len(october) == 90, f"10/22 and 10/23 cuts stay in the ledger, got {len(october)}")
+    check(len(october) == 120, f"10/22, 10/23, and 10/26 cuts stay in the ledger, got {len(october)}")
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-10-26" for slug in batch),
+        "2026-10-26 cut is dated 2026-10-26",
+    )
+    check(not set(batch) & set(fourth), "2026-10-26 cut must be never-reaudited vs addepar–agfa")
 
     ableton = entries.get("ableton") or {}
     check(ableton.get("filed") is True, "ableton ledger row records the apply")
@@ -392,6 +438,49 @@ def test_live_ledger_when_present() -> None:
     ):
         check(not (entries.get(slug) or {}).get("filed"), f"{slug} stays unfiled")
 
+    shipped_1026 = {
+        "3cx": {"page"},
+        "ada-health": {"page"},
+        "advantest": {"years"},
+        "agiloft": {"page", "marks", "dpa", "subprocessors", "years"},
+        "aiforia-technologies-oyj": {"page", "marks"},
+        "airbnb": {"page"},
+        "airbyte": {"page", "marks"},
+        "aircall": {"page", "marks", "dpa", "subprocessors", "years"},
+    }
+    for slug, keys in shipped_1026.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-10-26", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+    check(
+        ((entries.get("agiloft") or {}).get("hit") or {}).get("marks", {}).get("added")
+        == ["SOC 2 Type II", "SOC 1", "ISO 27001", "ISO 27701", "HIPAA"],
+        "agiloft marks in ledger",
+    )
+    check(
+        ((entries.get("aircall") or {}).get("hit") or {}).get("dpa", {}).get("url") == "https://aircall.io/dpa/",
+        "aircall DPA is the re-checked first-party page",
+    )
+    check(
+        ((entries.get("aircall") or {}).get("hit") or {}).get("subprocessors", {}).get("names")
+        and len(((entries.get("aircall") or {}).get("hit") or {}).get("subprocessors", {}).get("names")) == 20,
+        "aircall named list is the 20 printed rows",
+    )
+    slides = entries.get("24slides") or {}
+    check(not slides.get("filed"), "24slides 403 verification wall was not filed")
+    check(slides.get("soft_retry") is True and slides.get("refusal") == "http-403", "24slides stays a 403 soft-retry")
+    airbus = entries.get("airbus") or {}
+    check(airbus.get("filed") is False, "airbus defence products page was not filed")
+    check(
+        airbus.get("refusal") == "defence products page, not a company security page",
+        f"airbus refusal {airbus.get('refusal')}",
+    )
+    ai21 = entries.get("ai21") or {}
+    check(ai21.get("filed") is False, "ai21 VDP page was not filed")
+    check(ai21.get("refusal") == "VDP page now Cloudflare 403", f"ai21 refusal {ai21.get('refusal')}")
+    check(ai21.get("soft_retry") is True, "ai21 stays a Cloudflare soft-retry")
+
     public = json.loads((ROOT / "site" / "data.json").read_text())
     by_pub = {row.get("slug"): row for row in public.get("companies") or [] if row.get("slug")}
 
@@ -483,6 +572,85 @@ def test_live_ledger_when_present() -> None:
         check((by_pub[slug].get("file") or {}).get("page") in (0, False, None), f"{slug} Official page stays open")
         check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
         check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+
+    def completeness(row: dict) -> int:
+        flags = row.get("file") or {}
+        return sum(int(flags.get(k) or 0) for k in FILE_KEYS)
+
+    pub_3cx = by_pub["3cx"]
+    check(pub_3cx.get("trust_url") == "https://www.3cx.com/pbx/security/", "3cx Official page")
+    check(pub_3cx.get("found") is True, "3cx Official page is on file")
+    check(not (pub_3cx.get("certs") or []), "3cx marks stay open")
+    check(completeness(pub_3cx) == 30, f"3cx Completeness {completeness(pub_3cx)}")
+
+    pub_ada = by_pub["ada-health"]
+    check(pub_ada.get("trust_url") == "https://ada.com/security/", "ada-health Official page")
+    check(completeness(pub_ada) == 30, f"ada-health Completeness {completeness(pub_ada)}")
+
+    pub_adv = by_pub["advantest"]
+    check(pub_adv.get("founded_year") == 1954, "advantest year is first-party career page")
+    check(pub_adv.get("found") is False, "advantest Official page stays open")
+    check((pub_adv.get("file") or {}).get("years") == 20, "advantest years print")
+    check(completeness(pub_adv) == 20, f"advantest Completeness {completeness(pub_adv)}")
+
+    pub_agiloft = by_pub["agiloft"]
+    check(pub_agiloft.get("trust_url") == "https://www.agiloft.com/terms-policies/security", "agiloft Official page")
+    check(
+        set(pub_agiloft.get("certs") or []) == {"SOC 2 Type II", "SOC 1", "ISO 27001", "ISO 27701", "HIPAA"},
+        f"agiloft marks {pub_agiloft.get('certs')}",
+    )
+    check(
+        ((pub_agiloft.get("instruments") or {}).get("dpa") or {}).get("url")
+        == "https://www.agiloft.com/terms-policies/data-processing-addendum",
+        "agiloft DPA URL",
+    )
+    check(len(pub_agiloft.get("processors") or []) == 13, "agiloft named list is the printed 13")
+    check(pub_agiloft.get("founded_year") == 2003, "agiloft year is first-party home")
+    check(completeness(pub_agiloft) == 100, f"agiloft Completeness {completeness(pub_agiloft)}")
+
+    pub_aiforia = by_pub["aiforia-technologies-oyj"]
+    check(pub_aiforia.get("trust_url") == "https://www.aiforia.com/security", "aiforia Official page")
+    check(
+        set(pub_aiforia.get("certs") or []) == {"SOC 2 Type II", "ISO 27001", "ISO 13485", "HIPAA"},
+        f"aiforia marks {pub_aiforia.get('certs')}",
+    )
+    check(completeness(pub_aiforia) == 40, f"aiforia Completeness {completeness(pub_aiforia)}")
+
+    pub_airbnb = by_pub["airbnb"]
+    check(pub_airbnb.get("trust_url") == "https://www.airbnb.com/e/security", "airbnb Official page")
+    check(not (pub_airbnb.get("certs") or []), "airbnb marks stay open")
+    check(completeness(pub_airbnb) == 30, f"airbnb Completeness {completeness(pub_airbnb)}")
+
+    pub_airbyte = by_pub["airbyte"]
+    check(
+        pub_airbyte.get("trust_url") == "https://airbyte.com/company/request-our-trust-report",
+        "airbyte Official page",
+    )
+    check(
+        set(pub_airbyte.get("certs") or []) == {"SOC 2 Type II", "ISO 27001", "CCPA"},
+        f"airbyte marks {pub_airbyte.get('certs')}",
+    )
+    check(completeness(pub_airbyte) == 40, f"airbyte Completeness {completeness(pub_airbyte)}")
+
+    pub_aircall = by_pub["aircall"]
+    check(pub_aircall.get("trust_url") == "https://aircall.io/security/", "aircall Official page")
+    check(
+        set(pub_aircall.get("certs") or []) == {"SOC 2 Type II", "ISO 27001", "HIPAA", "CSA STAR", "GDPR"},
+        f"aircall marks {pub_aircall.get('certs')}",
+    )
+    check(
+        ((pub_aircall.get("instruments") or {}).get("dpa") or {}).get("url") == "https://aircall.io/dpa/",
+        "aircall DPA URL",
+    )
+    check(len(pub_aircall.get("processors") or []) == 20, "aircall named list is the printed 20")
+    check(pub_aircall.get("founded_year") == 2014, "aircall year is first-party home")
+    check(completeness(pub_aircall) == 100, f"aircall Completeness {completeness(pub_aircall)}")
+
+    for slug in ("24slides", "airbus", "ai21"):
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
 
     for slug, rec in entries.items():
         check(rec.get("domain"), f"{slug} ledger row is missing a domain")

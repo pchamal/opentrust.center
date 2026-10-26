@@ -16646,9 +16646,9 @@
       "name": "Airbnb",
       "slug": "airbnb",
       "domain": "airbnb.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.airbnb.com/e/security",
+      "final_url": "https://www.airbnb.com/e/security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -16658,13 +16658,17 @@
       "certs": [],
       "links": {
         "security_txt": "https://www.airbnb.com/.well-known/security.txt",
-        "bug_bounty": "https://hackerone.com/airbnb#overview"
+        "bug_bounty": "https://hackerone.com/airbnb#overview",
+        "security": "https://www.airbnb.com/e/security"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 26,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "disclosure": 6
+        }
       }
     },
     {
@@ -23763,24 +23767,34 @@
       "name": "Aiforia Technologies Oyj",
       "slug": "aiforia-technologies-oyj",
       "domain": "aiforia.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.aiforia.com/security",
+      "final_url": "https://www.aiforia.com/security",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, ISO 13485, HIPAA.",
       "list": "companiesmarketcap-software",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 13485",
+        "HIPAA"
+      ],
       "links": {
-        "privacy": "https://www.aiforia.com/privacy-policy"
+        "privacy": "https://www.aiforia.com/privacy-policy",
+        "security": "https://www.aiforia.com/security"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 56,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "privacy": 6,
+          "marks": 30
+        }
       }
     },
     {
@@ -45030,23 +45044,55 @@
       "name": "Agiloft",
       "slug": "agiloft",
       "domain": "agiloft.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.agiloft.com/terms-policies/security",
+      "final_url": "https://www.agiloft.com/terms-policies/security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_States",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, SOC 1, ISO 27001, ISO 27701, HIPAA.",
       "list": "wikipedia-software-us",
-      "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 1",
+        "ISO 27001",
+        "ISO 27701",
+        "HIPAA"
+      ],
+      "links": {
+        "security": "https://www.agiloft.com/terms-policies/security",
+        "dpa": "https://www.agiloft.com/terms-policies/data-processing-addendum",
+        "subprocessors": "https://www.agiloft.com/terms-policies/subprocessor-list"
+      },
+      "subprocessors": [
+        "aws",
+        "pendo",
+        "posthog",
+        "launchdarkly",
+        "openai",
+        "teamwork-com",
+        "workato",
+        "auth0",
+        "hubspot",
+        "intercom",
+        "sentry",
+        "stripe",
+        "a2global-consulting-pvt"
+      ],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 82,
+        "tier": "substantial",
+        "factors": {
+          "portal": 20,
+          "marks": 36,
+          "dpa": 8,
+          "subprocessors": 8,
+          "longevity": 10
+        }
+      },
+      "founded_year": 2003,
+      "founded_source": "https://www.agiloft.com/"
     },
     {
       "rank": 1307,
@@ -165293,49 +165339,97 @@
       "name": "Aircall",
       "slug": "aircall",
       "domain": "aircall.io",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://aircall.io/security/",
+      "final_url": "https://aircall.io/security/",
       "vendor": "unknown",
       "title": "",
       "probed": 0,
       "source": "https://trust.sms-magic.com/subprocessors/",
       "source_url": "https://trust.sms-magic.com/subprocessors/",
       "official_url": "https://aircall.io/",
-      "summary": "",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, HIPAA, CSA STAR, GDPR.",
       "list": "named-processor-gap",
-      "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "HIPAA",
+        "CSA STAR",
+        "GDPR"
+      ],
+      "links": {
+        "security": "https://aircall.io/security/",
+        "dpa": "https://aircall.io/dpa/",
+        "subprocessors": "https://aircall.io/subprocessorlist/"
+      },
+      "subprocessors": [
+        "aws",
+        "twilio",
+        "ribbon",
+        "clickhouse",
+        "pinecone",
+        "datadog",
+        "atlassian",
+        "zendesk",
+        "intercom",
+        "partnerhero",
+        "pusher",
+        "rudderstack",
+        "looker",
+        "startree",
+        "azure",
+        "deepgram",
+        "elevenlabs",
+        "assemblyai",
+        "cartesia-ai",
+        "firecrawl"
+      ],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 75,
+        "tier": "substantial",
+        "factors": {
+          "portal": 20,
+          "marks": 33,
+          "dpa": 8,
+          "subprocessors": 8,
+          "longevity": 6
+        }
+      },
+      "founded_year": 2014,
+      "founded_source": "https://aircall.io/"
     },
     {
       "rank": 5999,
       "name": "Airbyte",
       "slug": "airbyte",
       "domain": "airbyte.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://airbyte.com/company/request-our-trust-report",
+      "final_url": "https://airbyte.com/company/request-our-trust-report",
       "vendor": "unknown",
       "title": "",
       "probed": 0,
       "source": "https://addepar.com/legal/sub-processors",
       "source_url": "https://addepar.com/legal/sub-processors",
       "official_url": "https://airbyte.com/",
-      "summary": "",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, CCPA.",
       "list": "named-processor-gap",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "CCPA"
+      ],
+      "links": {
+        "trust": "https://airbyte.com/company/request-our-trust-report"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 43,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 23
+        }
       }
     },
     {
@@ -168802,10 +168896,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1954,
+      "founded_source": "https://www.advantest.com/en/about/career-na"
     },
     {
       "rank": 6143,
@@ -170429,9 +170527,9 @@
       "name": "Ada Health",
       "slug": "ada-health",
       "domain": "ada.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://ada.com/security/",
+      "final_url": "https://ada.com/security/",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
@@ -170439,12 +170537,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-health-it-companies",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://ada.com/security/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -171222,9 +171324,9 @@
       "name": "3CX",
       "slug": "3cx",
       "domain": "3cx.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.3cx.com/pbx/security/",
+      "final_url": "https://www.3cx.com/pbx/security/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -171232,12 +171334,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-cyprus",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.3cx.com/pbx/security/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
