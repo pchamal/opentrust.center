@@ -44589,6 +44589,34 @@
       "domain": "yorktel.com",
       "kind": "company",
       "in_register": true
+    },
+    {
+      "id": "teamwork-com",
+      "name": "Teamwork.com",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "a2global-consulting-pvt",
+      "name": "A2Global Consulting Pvt. Ltd",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "ribbon",
+      "name": "Ribbon",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "startree",
+      "name": "Startree",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
     }
   ],
   "edges": [
@@ -67199,6 +67227,204 @@
       "to": "umami-self-hosted",
       "source_url": "https://voxislive.com/subprocessors",
       "evidence": "Umami (self-hosted)"
+    },
+    {
+      "from": "agiloft",
+      "to": "amazon-web-services",
+      "source_url": "https://www.agiloft.com/terms-policies/subprocessor-list",
+      "evidence": "Amazon Web Services"
+    },
+    {
+      "from": "agiloft",
+      "to": "pendo",
+      "source_url": "https://www.agiloft.com/terms-policies/subprocessor-list",
+      "evidence": "Pendo.io"
+    },
+    {
+      "from": "agiloft",
+      "to": "posthog",
+      "source_url": "https://www.agiloft.com/terms-policies/subprocessor-list",
+      "evidence": "PostHog"
+    },
+    {
+      "from": "agiloft",
+      "to": "launchdarkly",
+      "source_url": "https://www.agiloft.com/terms-policies/subprocessor-list",
+      "evidence": "LaunchDarkly"
+    },
+    {
+      "from": "agiloft",
+      "to": "openai",
+      "source_url": "https://www.agiloft.com/terms-policies/subprocessor-list",
+      "evidence": "OpenAI"
+    },
+    {
+      "from": "agiloft",
+      "to": "teamwork-com",
+      "source_url": "https://www.agiloft.com/terms-policies/subprocessor-list",
+      "evidence": "Teamwork.com"
+    },
+    {
+      "from": "agiloft",
+      "to": "workato",
+      "source_url": "https://www.agiloft.com/terms-policies/subprocessor-list",
+      "evidence": "Workato"
+    },
+    {
+      "from": "agiloft",
+      "to": "auth0",
+      "source_url": "https://www.agiloft.com/terms-policies/subprocessor-list",
+      "evidence": "Auth0"
+    },
+    {
+      "from": "agiloft",
+      "to": "hubspot",
+      "source_url": "https://www.agiloft.com/terms-policies/subprocessor-list",
+      "evidence": "HubSpot"
+    },
+    {
+      "from": "agiloft",
+      "to": "intercom",
+      "source_url": "https://www.agiloft.com/terms-policies/subprocessor-list",
+      "evidence": "Intercom"
+    },
+    {
+      "from": "agiloft",
+      "to": "sentry",
+      "source_url": "https://www.agiloft.com/terms-policies/subprocessor-list",
+      "evidence": "Sentry"
+    },
+    {
+      "from": "agiloft",
+      "to": "stripe",
+      "source_url": "https://www.agiloft.com/terms-policies/subprocessor-list",
+      "evidence": "Stripe"
+    },
+    {
+      "from": "agiloft",
+      "to": "a2global-consulting-pvt",
+      "source_url": "https://www.agiloft.com/terms-policies/subprocessor-list",
+      "evidence": "A2Global Consulting Pvt. Ltd"
+    },
+    {
+      "from": "aircall",
+      "to": "amazon-web-services",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "Amazon Web Services"
+    },
+    {
+      "from": "aircall",
+      "to": "twilio",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "Twilio"
+    },
+    {
+      "from": "aircall",
+      "to": "ribbon",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "Ribbon"
+    },
+    {
+      "from": "aircall",
+      "to": "clickhouse",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "ClickHouse"
+    },
+    {
+      "from": "aircall",
+      "to": "pinecone",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "Pinecone"
+    },
+    {
+      "from": "aircall",
+      "to": "datadog",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "Datadog"
+    },
+    {
+      "from": "aircall",
+      "to": "atlassian",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "Atlassian"
+    },
+    {
+      "from": "aircall",
+      "to": "zendesk",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "Zendesk"
+    },
+    {
+      "from": "aircall",
+      "to": "intercom",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "Intercom"
+    },
+    {
+      "from": "aircall",
+      "to": "partnerhero",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "PartnerHero"
+    },
+    {
+      "from": "aircall",
+      "to": "pusher",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "Pusher"
+    },
+    {
+      "from": "aircall",
+      "to": "rudderstack",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "Rudderstack"
+    },
+    {
+      "from": "aircall",
+      "to": "google",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "Looker"
+    },
+    {
+      "from": "aircall",
+      "to": "startree",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "Startree"
+    },
+    {
+      "from": "aircall",
+      "to": "microsoft",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "Microsoft Azure"
+    },
+    {
+      "from": "aircall",
+      "to": "deepgram",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "Deepgram"
+    },
+    {
+      "from": "aircall",
+      "to": "elevenlabs",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "ElevenLabs"
+    },
+    {
+      "from": "aircall",
+      "to": "assemblyai",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "AssemblyAI"
+    },
+    {
+      "from": "aircall",
+      "to": "cartesia",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "Cartesia AI"
+    },
+    {
+      "from": "aircall",
+      "to": "firecrawl",
+      "source_url": "https://aircall.io/subprocessorlist/",
+      "evidence": "Firecrawl"
     }
   ],
   "aliases": {
