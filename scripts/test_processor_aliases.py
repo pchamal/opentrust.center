@@ -1185,6 +1185,20 @@ def main() -> int:
         },
     }
     check(canonical_processor_id("dispatch", dispatch_reg) == "dispatch", "Dispatch Integration stays dispatch")
+    check("encompass-elements" not in REGISTER_ALIASES, "encompass-elements stays the filed row")
+    check(not skip_processor("encompass-elements", "Encompass Elements"), "encompass-elements is not a garbage slug")
+    encompass_reg = {
+        **register,
+        "encompass-elements": {
+            "slug": "encompass-elements",
+            "name": "Encompass Elements",
+            "domain": "encompasselements.com",
+        },
+    }
+    check(
+        canonical_processor_id("encompass-elements", encompass_reg) == "encompass-elements",
+        "Encompass Elements stays encompass-elements",
+    )
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch

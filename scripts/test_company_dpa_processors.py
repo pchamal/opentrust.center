@@ -4936,6 +4936,67 @@ def main() -> int:
     check("Official page · not on file" in dispatch_html, "dispatch Official page stays open")
     check("https://dispatchintegration.com/" in dispatch_html, "dispatch dossier cites the homepage")
 
+    # This cut: Lob names Encompass Elements on its sub-processor list
+    # (Print / Delivery Partner, United States). The company is the Lansdale
+    # marketing-fulfillment firm (encompasselements.com). Graph id
+    # encompass-elements stays the register slug. File the vetted domain
+    # only. No alias. No trust URL, mark, DPA, named list, or year.
+    # Completeness stays 0.
+    filed_cut22 = {
+        "encompass-elements": "encompasselements.com",
+    }
+    for slug, domain in filed_cut22.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    check(by_pub["encompass-elements"]["name"] == "Encompass Elements", "Encompass Elements name is Encompass Elements")
+    check(sum(1 for c in by_enr.values() if c.get("slug") == "encompass-elements") == 1, "encompass-elements slug is unique")
+    check(
+        by_enr["encompass-elements"].get("official_url") == "https://encompasselements.com/",
+        "Encompass Elements homepage is encompasselements.com",
+    )
+    check(
+        by_pub["encompass-elements"].get("official_url") == "https://encompasselements.com/",
+        "Encompass Elements public homepage is encompasselements.com",
+    )
+    check(
+        match_processor("Encompass Elements", by_enr)[0] == "encompass-elements",
+        "Encompass Elements matches the filed row",
+    )
+    gap_nodes_cut22 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut22:
+        node = gap_nodes_cut22.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut22[slug], f"{slug} graph domain is the filed domain")
+        check(node.get("kind") == "company", f"{slug} graph node is a company")
+        check(node.get("name") == "Encompass Elements", f"{slug} graph name is Encompass Elements")
+        check(slug not in (wires.get("aliases") or {}), f"{slug} has no alias")
+    check(
+        any(e.get("to") == "encompass-elements" and e.get("from") == "lob-com" for e in (wires.get("edges") or [])),
+        "lob Encompass Elements wire stays on encompass-elements",
+    )
+    lob_html_cut22 = (ROOT / "site" / "c" / "lob-com.html").read_text(encoding="utf-8")
+    check('./encompass-elements.html">Encompass Elements' in lob_html_cut22, "lob Encompass Elements lands on its dossier")
+    check(
+        "../graph.html#p=encompass-elements" not in lob_html_cut22,
+        "lob Encompass Elements is no longer a leftover map node",
+    )
+    encompass_html = (ROOT / "site" / "c" / "encompass-elements.html").read_text(encoding="utf-8")
+    check("<h1>Encompass Elements</h1>" in encompass_html, "encompass-elements dossier is its own file")
+    check("Official page · not on file" in encompass_html, "encompass-elements Official page stays open")
+    check("https://encompasselements.com/" in encompass_html, "encompass-elements dossier cites the homepage")
+
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"
