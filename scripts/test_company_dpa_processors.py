@@ -3789,7 +3789,7 @@ def main() -> int:
     sr_html_cut8 = (ROOT / "site" / "c" / "smartrecruiters.html").read_text(encoding="utf-8")
     sr_landings_cut8 = {
         "Alexander Mann Solutions Limited": "Alexander Mann Solutions Limited",
-        "AMS Corporation": "AMS \u2013 Alexander Mann Solutions Corporation",
+        "AMS Corporation": "AMS - Alexander Mann Solutions Corporation",
         "AMS Singapore": "ALEXANDER MANN BPO SOLUTIONS PTE. LTD. (SINGAPORE)",
     }
     for label, evidence in sr_landings_cut8.items():
@@ -4996,6 +4996,70 @@ def main() -> int:
     check("<h1>Encompass Elements</h1>" in encompass_html, "encompass-elements dossier is its own file")
     check("Official page · not on file" in encompass_html, "encompass-elements Official page stays open")
     check("https://encompasselements.com/" in encompass_html, "encompass-elements dossier cites the homepage")
+
+    # This cut: CookieYes names G Joseph & Associates on its sub-processor
+    # list (accounts and tax, Cochin). The company is G. Joseph & Associates,
+    # chartered accountants at gja.co.in, the same Kadavanthra address.
+    # Graph id g-joseph-associates stays the register slug. File the vetted
+    # domain only. No alias. No trust URL, mark, DPA, named list, or year.
+    # Completeness stays 0.
+    filed_cut23 = {
+        "g-joseph-associates": "gja.co.in",
+    }
+    for slug, domain in filed_cut23.items():
+        check(slug in by_pub, f"{slug} is on the register")
+        check(by_pub[slug]["domain"] == domain, f"{slug} official domain is {domain}")
+        check(by_enr[slug]["domain"] == domain, f"{slug} enriched domain is {domain}")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not by_pub[slug].get("trust_url"), f"{slug} has no trust URL")
+        check(not by_enr[slug].get("trust_url"), f"{slug} enriched trust URL stays empty")
+        check(not (by_enr[slug].get("links") or {}), f"{slug} files no instrument URLs")
+        check(not (by_enr[slug].get("certs") or []), f"{slug} files no marks")
+        check(not by_enr[slug].get("founded_year"), f"{slug} files no year")
+        check(not (by_pub[slug].get("processors") or []), f"{slug} files no named processors")
+        flags = by_pub[slug].get("file") or {}
+        for key in ("page", "marks", "dpa", "subprocessors", "years"):
+            check(flags.get(key) in (0, False, None), f"{slug} Completeness {key} stays 0")
+        check((ROOT / "site" / "c" / f"{slug}.html").exists(), f"{slug} dossier is on file")
+    check(by_pub["g-joseph-associates"]["name"] == "G. Joseph & Associates", "G. Joseph & Associates name is G. Joseph & Associates")
+    check(sum(1 for c in by_enr.values() if c.get("slug") == "g-joseph-associates") == 1, "g-joseph-associates slug is unique")
+    check(
+        by_enr["g-joseph-associates"].get("official_url") == "https://www.gja.co.in/",
+        "G. Joseph & Associates homepage is gja.co.in",
+    )
+    check(
+        by_pub["g-joseph-associates"].get("official_url") == "https://www.gja.co.in/",
+        "G. Joseph & Associates public homepage is gja.co.in",
+    )
+    check(
+        match_processor("G. Joseph & Associates", by_enr)[0] == "g-joseph-associates",
+        "G. Joseph & Associates matches the filed row",
+    )
+    gap_nodes_cut23 = {n.get("id"): n for n in (wires.get("nodes") or [])}
+    for slug in filed_cut23:
+        node = gap_nodes_cut23.get(slug) or {}
+        check(node.get("in_register") is True, f"{slug} graph node is in_register")
+        check(node.get("domain") == filed_cut23[slug], f"{slug} graph domain is the filed domain")
+        check(node.get("kind") == "company", f"{slug} graph node is a company")
+        check(node.get("name") == "G. Joseph & Associates", f"{slug} graph name is G. Joseph & Associates")
+        check(slug not in (wires.get("aliases") or {}), f"{slug} has no alias")
+    check(
+        any(e.get("to") == "g-joseph-associates" and e.get("from") == "cookieyes" for e in (wires.get("edges") or [])),
+        "cookieyes G Joseph & Associates wire stays on g-joseph-associates",
+    )
+    cookieyes_html_cut23 = (ROOT / "site" / "c" / "cookieyes.html").read_text(encoding="utf-8")
+    check(
+        './g-joseph-associates.html">G Joseph &amp; Associates' in cookieyes_html_cut23,
+        "cookieyes G Joseph & Associates lands on its dossier",
+    )
+    check(
+        "../graph.html#p=g-joseph-associates" not in cookieyes_html_cut23,
+        "cookieyes G Joseph & Associates is no longer a leftover map node",
+    )
+    gja_html = (ROOT / "site" / "c" / "g-joseph-associates.html").read_text(encoding="utf-8")
+    check("<h1>G. Joseph &amp; Associates</h1>" in gja_html, "g-joseph-associates dossier is its own file")
+    check("Official page · not on file" in gja_html, "g-joseph-associates Official page stays open")
+    check("https://www.gja.co.in/" in gja_html, "g-joseph-associates dossier cites the homepage")
 
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "

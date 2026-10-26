@@ -1199,6 +1199,20 @@ def main() -> int:
         canonical_processor_id("encompass-elements", encompass_reg) == "encompass-elements",
         "Encompass Elements stays encompass-elements",
     )
+    check("g-joseph-associates" not in REGISTER_ALIASES, "g-joseph-associates stays the filed row")
+    check(not skip_processor("g-joseph-associates", "G. Joseph & Associates"), "g-joseph-associates is not a garbage slug")
+    gja_reg = {
+        **register,
+        "g-joseph-associates": {
+            "slug": "g-joseph-associates",
+            "name": "G. Joseph & Associates",
+            "domain": "gja.co.in",
+        },
+    }
+    check(
+        canonical_processor_id("g-joseph-associates", gja_reg) == "g-joseph-associates",
+        "G. Joseph & Associates stays g-joseph-associates",
+    )
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch
