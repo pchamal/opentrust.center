@@ -1213,6 +1213,20 @@ def main() -> int:
         canonical_processor_id("g-joseph-associates", gja_reg) == "g-joseph-associates",
         "G. Joseph & Associates stays g-joseph-associates",
     )
+    check("hudson-printing-company" not in REGISTER_ALIASES, "hudson-printing-company stays the filed row")
+    check(not skip_processor("hudson-printing-company", "Hudson Printing Company"), "hudson-printing-company is not a garbage slug")
+    hudson_reg = {
+        **register,
+        "hudson-printing-company": {
+            "slug": "hudson-printing-company",
+            "name": "Hudson Printing Company",
+            "domain": "hudsonprinting.com",
+        },
+    }
+    check(
+        canonical_processor_id("hudson-printing-company", hudson_reg) == "hudson-printing-company",
+        "Hudson Printing Company stays hudson-printing-company",
+    )
 
     # expand/keep-building prefers named-processor-gap over leftover cursor walks.
     import expand_batch
