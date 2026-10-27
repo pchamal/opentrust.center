@@ -136935,10 +136935,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1972,
+      "founded_source": "https://alignaero.com/about/"
     },
     {
       "rank": 4827,
@@ -171698,22 +171702,30 @@
       "name": "AlgoSec",
       "slug": "algosec",
       "domain": "algosec.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.algosec.com/resources/algosec-security-center",
+      "final_url": "https://www.algosec.com/resources/algosec-security-center",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://cloudsecurityalliance.org/star/registry/algosec",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001.",
       "list": "csa-star-registry",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001"
+      ],
+      "links": {
+        "security": "https://www.algosec.com/resources/algosec-security-center"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 40,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 20
+        }
       }
     },
     {
