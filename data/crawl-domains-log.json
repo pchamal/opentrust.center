@@ -1,85 +1,73 @@
 {
-  "generated_at": "2026-10-27T00:52:17Z",
+  "generated_at": "2026-10-27T01:55:57Z",
   "method": "wikidata enwiki sitelink -> P856 only; no invented domains",
   "user_agent": "opentrust.center/1.0 (+https://opentrust.center)",
-  "note": "hourly top-up appended 5 verified P856 from CRN Security 100 2023 leftover + Wikipedia tech-established 1915-1929 + EU/Asia software leftover + unused geo/sector categories (and further unused software categories if needed); CMC software page 6+ was empty; did not repeat exhausted lists or S&P 500",
+  "note": "hourly top-up appended 1 verified P856 from CRN Security 100 2023 leftover + Wikipedia tech-established 1915-1929 + EU/Asia software leftover + unused geo/sector categories (and further unused software categories if needed); CMC software page 6+ was empty; did not repeat exhausted lists or S&P 500",
   "counts": {
-    "appended": 5,
-    "resolved": 5,
-    "unresolved": 51,
+    "appended": 1,
+    "resolved": 1,
+    "unresolved": 47,
     "dropped_wrong_or_dup": 9,
     "by_source": {
-      "wikipedia-software-companies-established-in-1996": 1,
-      "wikipedia-software-companies-established-in-1995": 4
+      "wikipedia-software-companies-established-in-1993": 1
     },
     "by_source_url": {
-      "https://en.wikipedia.org/wiki/Category:Software_companies_established_in_1996": 1,
-      "https://en.wikipedia.org/wiki/Category:Software_companies_established_in_1995": 4
+      "https://en.wikipedia.org/wiki/Category:Software_companies_established_in_1993": 1
     }
   },
   "appended": [
     {
-      "name": "Media 100",
-      "slug": "media-100",
-      "domain": "media100.de",
-      "source": "wikipedia-software-companies-established-in-1996",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_established_in_1996",
+      "name": "IBA GROUP",
+      "slug": "iba-group",
+      "domain": "ibagroupit.com",
+      "source": "wikipedia-software-companies-established-in-1993",
+      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_established_in_1993",
       "priority": 3,
-      "qid": "Q1916154",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Alestra",
-      "slug": "alestra",
-      "domain": "alestra.com.mx",
-      "source": "wikipedia-software-companies-established-in-1995",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_established_in_1995",
-      "priority": 3,
-      "qid": "Q5665942",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Lutris Technologies",
-      "slug": "lutris-technologies",
-      "domain": "lutris.com",
-      "source": "wikipedia-software-companies-established-in-1995",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_established_in_1995",
-      "priority": 3,
-      "qid": "Q6705924",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "NetIQ",
-      "slug": "netiq",
-      "domain": "netiq.com",
-      "source": "wikipedia-software-companies-established-in-1995",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_established_in_1995",
-      "priority": 3,
-      "qid": "Q17082960",
-      "reason": "enwiki-title P856"
-    },
-    {
-      "name": "Zeus Technology",
-      "slug": "zeus-technology",
-      "domain": "zeus.com",
-      "source": "wikipedia-software-companies-established-in-1995",
-      "source_url": "https://en.wikipedia.org/wiki/Category:Software_companies_established_in_1995",
-      "priority": 3,
-      "qid": "Q8069818",
+      "qid": "Q4150666",
       "reason": "enwiki-title P856"
     }
   ],
   "dropped_wrong_p856": [
     {
-      "name": "Dalian Hi-Think Computer",
-      "slug": "dalian-hi-think-computer",
-      "domain": "dhc.com.cn",
+      "name": "China Electronics Technology Group Corporation",
+      "slug": "china-electronics-technology-group-corporation",
+      "domain": "cetc.com.cn",
       "reason": "implausible-p856"
     },
     {
-      "name": "FatWire",
-      "slug": "fatwire",
-      "domain": "oracle.com",
+      "name": "GridApp Systems",
+      "slug": "gridapp-systems",
+      "domain": "bmc.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "PGP Corporation",
+      "slug": "pgp-corporation",
+      "domain": "web.archive.org",
+      "reason": "blocked-host"
+    },
+    {
+      "name": "Base One International",
+      "slug": "base-one-international",
+      "domain": "boic.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "FRISK Software International",
+      "slug": "frisk-software-international",
+      "domain": "f-prot.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Geeknet",
+      "slug": "geeknet",
+      "domain": "slashdotmedia.com",
+      "reason": "implausible-p856"
+    },
+    {
+      "name": "Phase One Karma",
+      "slug": "phase-one-karma",
+      "domain": "p1k.org",
       "reason": "implausible-p856"
     },
     {
@@ -87,39 +75,201 @@
       "slug": "interconsult-bulgaria",
       "domain": "icb.bg",
       "reason": "implausible-p856"
-    },
-    {
-      "name": "IID",
-      "slug": "iid",
-      "domain": "internetidentity.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Taleo",
-      "slug": "taleo",
-      "domain": "oracle.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "WebMethods",
-      "slug": "webmethods",
-      "domain": "ibm.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Agile Software Corporation",
-      "slug": "agile-software-corporation",
-      "domain": "oracle.com",
-      "reason": "implausible-p856"
-    },
-    {
-      "name": "Kindwise",
-      "slug": "kindwise",
-      "domain": "flowerchecker.com",
-      "reason": "implausible-p856"
     }
   ],
   "unresolved": [
+    {
+      "name": "Cogniview",
+      "slug": "cogniview",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "DeviceLogics",
+      "slug": "devicelogics",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "MessageCast",
+      "slug": "messagecast",
+      "reason": "not-org no-org p31=[] desc=",
+      "status": null
+    },
+    {
+      "name": "Realmac Software",
+      "slug": "realmac-software",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Secure64 Software",
+      "slug": "secure64-software",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Loggro",
+      "slug": "loggro",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "SecurityPal",
+      "slug": "securitypal",
+      "reason": "no-wikidata-item",
+      "status": null
+    },
+    {
+      "name": "Slash",
+      "slug": "slash",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Writesonic",
+      "slug": "writesonic",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Aikido Security",
+      "slug": "aikido-security",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "MotherDuck",
+      "slug": "motherduck",
+      "reason": "not-org no-org p31=['Q7397'] desc=cloud analytics platform",
+      "status": null
+    },
+    {
+      "name": "Veriti",
+      "slug": "veriti",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Arcada Software",
+      "slug": "arcada-software",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Caldera",
+      "slug": "caldera",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "CHS Electronics",
+      "slug": "chs-electronics",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Engels Maps",
+      "slug": "engels-maps",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "KDS",
+      "slug": "kds",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Kiva Software",
+      "slug": "kiva-software",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Pixo",
+      "slug": "pixo",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Scientific Vector Language",
+      "slug": "scientific-vector-language",
+      "reason": "not-org no-org p31=['Q9143'] desc=programming language",
+      "status": null
+    },
+    {
+      "name": "Starfish Software",
+      "slug": "starfish-software",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Symyx Technologies",
+      "slug": "symyx-technologies",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Tdsoft",
+      "slug": "tdsoft",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Arcplan",
+      "slug": "arcplan",
+      "reason": "not-org no-org p31=['Q7397'] desc=Business Intelligence tool",
+      "status": null
+    },
+    {
+      "name": "Beatnik",
+      "slug": "beatnik",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Easy Software Products",
+      "slug": "easy-software-products",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "InterWorking Labs",
+      "slug": "interworking-labs",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Lavastorm Analytics",
+      "slug": "lavastorm-analytics",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "LST Software GmbH",
+      "slug": "lst-software-gmbh",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Starwave",
+      "slug": "starwave",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "AIM Productions",
+      "slug": "aim-productions",
+      "reason": "no-p856",
+      "status": null
+    },
+    {
+      "name": "Applied Maths",
+      "slug": "applied-maths",
+      "reason": "no-p856",
+      "status": null
+    },
     {
       "name": "Corporify",
       "slug": "corporify",
@@ -127,303 +277,87 @@
       "status": null
     },
     {
-      "name": "EndNote Click",
-      "slug": "endnote-click",
+      "name": "Intermodalics",
+      "slug": "intermodalics",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Fortes.Vision",
-      "slug": "fortes-vision",
+      "name": "Bluebird International",
+      "slug": "bluebird-international",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Humu",
-      "slug": "humu",
+      "name": "Avenga",
+      "slug": "avenga",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Hypergryph",
-      "slug": "hypergryph",
-      "reason": "not-org no-org p31=['Q7889'] desc=2019 video game",
-      "status": null
-    },
-    {
-      "name": "Kialo",
-      "slug": "kialo",
-      "reason": "not-org no-org p31=['Q210980'] desc=online debate platform",
-      "status": null
-    },
-    {
-      "name": "Lanes & Planes",
-      "slug": "lanes-and-planes",
+      "name": "BetterMe",
+      "slug": "betterme",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Likewise, Inc.",
-      "slug": "likewise-inc",
+      "name": "Brightgrove",
+      "slug": "brightgrove",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Neural DSP",
-      "slug": "neural-dsp",
+      "name": "Innovative Marketing",
+      "slug": "innovative-marketing",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Spidertracks",
-      "slug": "spidertracks",
+      "name": "MacPaw",
+      "slug": "macpaw",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Unqork",
-      "slug": "unqork",
+      "name": "SPD Technology",
+      "slug": "spd-technology",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Wayve",
-      "slug": "wayve",
+      "name": "WeAreBrain",
+      "slug": "wearebrain",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Autonomy Corporation",
-      "slug": "autonomy-corporation",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "C Level Design",
-      "slug": "c-level-design",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "CoffeeCup Software",
-      "slug": "coffeecup-software",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "DigitalThink",
-      "slug": "digitalthink",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "JuniorNet",
-      "slug": "juniornet",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Kana Software",
-      "slug": "kana-software",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Metavante",
-      "slug": "metavante",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Miva",
-      "slug": "miva",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "NCompass Labs Inc",
-      "slug": "ncompass-labs-inc",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Nothing Real",
-      "slug": "nothing-real",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Plumtree Software",
-      "slug": "plumtree-software",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "SciTech Software",
-      "slug": "scitech-software",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Sleepycat Software",
-      "slug": "sleepycat-software",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Tegic",
-      "slug": "tegic",
+      "name": "BytePlus",
+      "slug": "byteplus",
       "reason": "not-org no-org p31=[] desc=",
       "status": null
     },
     {
-      "name": "Worldtalk",
-      "slug": "worldtalk",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Alias Systems Corporation",
-      "slug": "alias-systems-corporation",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Allaire Corporation",
-      "slug": "allaire-corporation",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Blaxxun",
-      "slug": "blaxxun",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "DigitalStyle",
-      "slug": "digitalstyle",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Keynote Systems",
-      "slug": "keynote-systems",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "WebLogic, Inc.",
-      "slug": "weblogic-inc",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Zip2",
-      "slug": "zip2",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Zope",
-      "slug": "zope",
-      "reason": "not-org no-org p31=['Q131093', 'Q341', 'Q63437139', 'Q1330336'] desc=family of free and open-source web application servers written in Python",
-      "status": null
-    },
-    {
-      "name": "Critical Manufacturing",
-      "slug": "critical-manufacturing",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Imaginando",
-      "slug": "imaginando",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Excalidraw",
-      "slug": "excalidraw",
-      "reason": "not-org no-org p31=['Q341', 'Q137832194'] desc=virtual whiteboard and diagramming application",
-      "status": null
-    },
-    {
-      "name": "Kentico",
-      "slug": "kentico",
-      "reason": "not-org no-org p31=['Q131093', 'Q5196456', 'Q1323528'] desc=content management and digital experience platform",
-      "status": null
-    },
-    {
-      "name": "Kontent.ai",
-      "slug": "kontent-ai",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "LLP Group",
-      "slug": "llp-group",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "Memsource",
-      "slug": "memsource",
+      "name": "Save22",
+      "slug": "save22",
       "reason": "not-org no-org p31=['Q7397'] desc=",
       "status": null
     },
     {
-      "name": "Toggl Track",
-      "slug": "toggl-track",
-      "reason": "not-org no-org p31=['Q7397'] desc=cross-platform time tracking app",
-      "status": null
-    },
-    {
-      "name": "Tailent Automation Platform",
-      "slug": "tailent-automation-platform",
+      "name": "N5 Now",
+      "slug": "n5-now",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "MarineTraffic",
-      "slug": "marinetraffic",
-      "reason": "not-org no-org p31=['Q35127', 'Q5155040'] desc=Online marine traffic tracking service",
-      "status": null
-    },
-    {
-      "name": "MLS Innovation",
-      "slug": "mls-innovation",
+      "name": "Pixart",
+      "slug": "pixart",
       "reason": "no-p856",
       "status": null
     },
     {
-      "name": "Workable",
-      "slug": "workable",
+      "name": "Chaos",
+      "slug": "chaos",
       "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "BiP",
-      "slug": "bip",
-      "reason": "not-org no-org p31=['Q2462003'] desc=instant messaging app by Turkcell",
-      "status": null
-    },
-    {
-      "name": "Fizy",
-      "slug": "fizy",
-      "reason": "not-org no-org p31=['Q15590336', 'Q59152282', 'Q220499'] desc=Music Streaming Service and Digital Music Platform",
-      "status": null
-    },
-    {
-      "name": "Logo Software",
-      "slug": "logo-software",
-      "reason": "no-p856",
-      "status": null
-    },
-    {
-      "name": "NSosyal",
-      "slug": "nsosyal",
-      "reason": "not-org no-org p31=['Q7397'] desc=Turkish social networking service",
       "status": null
     }
   ]
