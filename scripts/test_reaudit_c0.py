@@ -330,20 +330,61 @@ def test_live_ledger_when_present() -> None:
     )
     check(not set(fourth) & set(third), "2026-10-23 cut must be never-reaudited vs the 4d-sas cut")
 
-    check(len(batch) == 30, f"2026-10-26 batch is 30, got {len(batch)}")
-    check(batch[0] == "24slides" and batch[-1] == "airpair", "2026-10-26 batch is the 24slides–airpair cut")
-    check(summary.get("batch") == 30, "2026-10-26 summary.batch is 30")
-    check(summary.get("fileable") == 9, f"2026-10-26 extractor fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 8, f"2026-10-26 soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 21, f"2026-10-26 still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 8, f"2026-10-26 last-batch clerk fills, got {summary.get('filled')}")
-    october = [slug for slug, rec in entries.items() if str(rec.get("date") or "").startswith("2026-10-")]
-    check(len(october) == 120, f"10/22, 10/23, and 10/26 cuts stay in the ledger, got {len(october)}")
+    batch_1026 = [
+        "24slides",
+        "360i",
+        "3cx",
+        "abengoa-solar",
+        "academy-of-robotics",
+        "actifio",
+        "ada-health",
+        "admail-west",
+        "advantest",
+        "aeotec",
+        "affluences",
+        "aggregateiq",
+        "agiloft",
+        "agnitio",
+        "ah-software",
+        "ai21",
+        "aiforia-technologies-oyj",
+        "aigo",
+        "ailive",
+        "aimotive",
+        "air-products",
+        "air-tractor",
+        "air-worldwide",
+        "airbiquity",
+        "airbnb",
+        "airbus",
+        "airbyte",
+        "aircall",
+        "airclic",
+        "airpair",
+    ]
+    check(len(batch_1026) == 30, f"2026-10-26 batch is 30, got {len(batch_1026)}")
+    check(batch_1026[0] == "24slides" and batch_1026[-1] == "airpair", "2026-10-26 batch is the 24slides–airpair cut")
+    check(all(slug in entries for slug in batch_1026), "2026-10-26 rows stay in the ledger")
     check(
-        all((entries.get(slug) or {}).get("date") == "2026-10-26" for slug in batch),
+        all((entries.get(slug) or {}).get("date") == "2026-10-26" for slug in batch_1026),
         "2026-10-26 cut is dated 2026-10-26",
     )
-    check(not set(batch) & set(fourth), "2026-10-26 cut must be never-reaudited vs addepar–agfa")
+    check(not set(batch_1026) & set(fourth), "2026-10-26 cut must be never-reaudited vs addepar–agfa")
+
+    check(len(batch) == 30, f"2026-10-27 batch is 30, got {len(batch)}")
+    check(batch[0] == "advacam" and batch[-1] == "alchemy-cms", "2026-10-27 batch is the advacam–alchemy-cms cut")
+    check(summary.get("batch") == 30, "2026-10-27 summary.batch is 30")
+    check(summary.get("fileable") == 2, f"2026-10-27 clerk fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 8, f"2026-10-27 soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 28, f"2026-10-27 still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 2, f"2026-10-27 last-batch clerk fills, got {summary.get('filled')}")
+    october = [slug for slug, rec in entries.items() if str(rec.get("date") or "").startswith("2026-10-")]
+    check(len(october) == 150, f"10/22, 10/23, 10/26, and 10/27 cuts stay in the ledger, got {len(october)}")
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-10-27" for slug in batch),
+        "2026-10-27 cut is dated 2026-10-27",
+    )
+    check(not set(batch) & set(batch_1026), "2026-10-27 cut must be never-reaudited vs 24slides–airpair")
 
     ableton = entries.get("ableton") or {}
     check(ableton.get("filed") is True, "ableton ledger row records the apply")
@@ -480,6 +521,50 @@ def test_live_ledger_when_present() -> None:
     check(ai21.get("filed") is False, "ai21 VDP page was not filed")
     check(ai21.get("refusal") == "VDP page now Cloudflare 403", f"ai21 refusal {ai21.get('refusal')}")
     check(ai21.get("soft_retry") is True, "ai21 stays a Cloudflare soft-retry")
+
+    shipped_1027 = {
+        "airship-ai": {"years"},
+        "akai": {"years"},
+    }
+    for slug, keys in shipped_1027.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-10-27", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+        check(row.get("fileable") is True, f"{slug} year stays fileable")
+    check((entries.get("airship-ai") or {}).get("hit", {}).get("years", {}).get("year") == 2006, "airship-ai year in ledger")
+    check(
+        (entries.get("airship-ai") or {}).get("hit", {}).get("years", {}).get("url") == "https://www.airship.ai/company",
+        "airship-ai year source in ledger",
+    )
+    check((entries.get("akai") or {}).get("hit", {}).get("years", {}).get("year") == 1929, "akai year in ledger")
+    check(
+        (entries.get("akai") or {}).get("hit", {}).get("years", {}).get("url") == "https://akai.com/",
+        "akai year source in ledger",
+    )
+    refused_1027 = {
+        "airtame": "/security is a blog tag archive, not a company security page",
+        "aixtron": "supplier compliance page, not a company trust page",
+        "alarm-com": "/for-home is a product page, not a trust page",
+        "alaska-communications": "Residential page, not a trust page",
+        "albemarle-corporation": "ethics page, not a company trust page",
+        "alcatel-mobile": "hearing-aid compatibility page, not a trust page",
+        "albertsons": "HIPAA appears only as covered-entity language in a privacy policy, not an attestation",
+    }
+    for slug, reason in refused_1027.items():
+        row = entries.get(slug) or {}
+        check(row.get("date") == "2026-10-27", f"{slug} reaudited 2026-10-27")
+        check(row.get("filed") is False, f"{slug} was not filed")
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+    akeneo = entries.get("akeneo") or {}
+    check(akeneo.get("filed") is False, "akeneo security page was not filed")
+    check(akeneo.get("fileable") is False, "akeneo reads as still 0")
+    check(akeneo.get("soft_retry") is True, "akeneo stays a Cloudflare soft-retry")
+    check(akeneo.get("refusal") == "/security now Cloudflare 403", f"akeneo refusal {akeneo.get('refusal')}")
+    check(not akeneo.get("hit"), "akeneo hit stays empty")
 
     public = json.loads((ROOT / "site" / "data.json").read_text())
     by_pub = {row.get("slug"): row for row in public.get("companies") or [] if row.get("slug")}
@@ -647,6 +732,37 @@ def test_live_ledger_when_present() -> None:
     check(completeness(pub_aircall) == 100, f"aircall Completeness {completeness(pub_aircall)}")
 
     for slug in ("24slides", "airbus", "ai21"):
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+
+    pub_airship = by_pub["airship-ai"]
+    check(pub_airship.get("founded_year") == 2006, "airship-ai year is first-party company page")
+    check(pub_airship.get("founded_source") == "https://www.airship.ai/company", "airship-ai year source")
+    check((pub_airship.get("file") or {}).get("years") == 20, "airship-ai years print")
+    check(completeness(pub_airship) == 20, f"airship-ai Completeness {completeness(pub_airship)}")
+    check(pub_airship.get("found") is False, "airship-ai Official page stays open")
+    check(not (pub_airship.get("certs") or []), "airship-ai marks stay open")
+
+    pub_akai = by_pub["akai"]
+    check(pub_akai.get("founded_year") == 1929, "akai year is first-party home")
+    check(pub_akai.get("founded_source") == "https://akai.com/", "akai year source")
+    check((pub_akai.get("file") or {}).get("years") == 20, "akai years print")
+    check(completeness(pub_akai) == 20, f"akai Completeness {completeness(pub_akai)}")
+    check(pub_akai.get("found") is False, "akai Official page stays open")
+    check(not (pub_akai.get("certs") or []), "akai marks stay open")
+
+    for slug in (
+        "airtame",
+        "akeneo",
+        "aixtron",
+        "alarm-com",
+        "alaska-communications",
+        "albemarle-corporation",
+        "alcatel-mobile",
+        "albertsons",
+    ):
         check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
         check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
