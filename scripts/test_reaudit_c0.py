@@ -371,20 +371,65 @@ def test_live_ledger_when_present() -> None:
     )
     check(not set(batch_1026) & set(fourth), "2026-10-26 cut must be never-reaudited vs addepar–agfa")
 
-    check(len(batch) == 30, f"2026-10-27 batch is 30, got {len(batch)}")
-    check(batch[0] == "advacam" and batch[-1] == "alchemy-cms", "2026-10-27 batch is the advacam–alchemy-cms cut")
-    check(summary.get("batch") == 30, "2026-10-27 summary.batch is 30")
-    check(summary.get("fileable") == 2, f"2026-10-27 clerk fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 8, f"2026-10-27 soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 28, f"2026-10-27 still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 2, f"2026-10-27 last-batch clerk fills, got {summary.get('filled')}")
+    batch_1027_am = [
+        "advacam",
+        "airship-ai",
+        "airspan-networks",
+        "airtalk-wireless",
+        "airtame",
+        "airtel-africa",
+        "airware",
+        "airwave-solutions",
+        "airwide-solutions",
+        "airwolf-3d",
+        "aixtron",
+        "akai",
+        "akeneo",
+        "akka-io",
+        "alacra",
+        "aladdin-knowledge-systems",
+        "alapont-group",
+        "alarm-com",
+        "alarmforce",
+        "alaska-communications",
+        "alaxala-networks",
+        "alba-orbital",
+        "albatron-technology",
+        "albemarle-corporation",
+        "albertsons",
+        "alcan-systems",
+        "alcatel",
+        "alcatel-mobile",
+        "alcatel-lucent-enterprise",
+        "alchemy-cms",
+    ]
+    check(len(batch_1027_am) == 30, f"2026-10-27 morning batch is 30, got {len(batch_1027_am)}")
+    check(
+        batch_1027_am[0] == "advacam" and batch_1027_am[-1] == "alchemy-cms",
+        "2026-10-27 morning batch is the advacam–alchemy-cms cut",
+    )
+    check(all(slug in entries for slug in batch_1027_am), "2026-10-27 morning rows stay in the ledger")
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-10-27" for slug in batch_1027_am),
+        "2026-10-27 morning cut is dated 2026-10-27",
+    )
+    check(not set(batch_1027_am) & set(batch_1026), "2026-10-27 morning cut must be never-reaudited vs 24slides–airpair")
+
+    check(len(batch) == 30, f"2026-10-27 afternoon batch is 30, got {len(batch)}")
+    check(batch[0] == "21vianet" and batch[-1] == "aligned-assets", "2026-10-27 afternoon batch is the 21vianet–aligned-assets cut")
+    check(summary.get("batch") == 30, "2026-10-27 afternoon summary.batch is 30")
+    check(summary.get("fileable") == 2, f"2026-10-27 afternoon clerk fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 6, f"2026-10-27 afternoon soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 28, f"2026-10-27 afternoon still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 2, f"2026-10-27 afternoon last-batch clerk fills, got {summary.get('filled')}")
     october = [slug for slug, rec in entries.items() if str(rec.get("date") or "").startswith("2026-10-")]
-    check(len(october) == 150, f"10/22, 10/23, 10/26, and 10/27 cuts stay in the ledger, got {len(october)}")
+    check(len(october) == 180, f"10/22 through 10/27 cuts stay in the ledger, got {len(october)}")
     check(
         all((entries.get(slug) or {}).get("date") == "2026-10-27" for slug in batch),
-        "2026-10-27 cut is dated 2026-10-27",
+        "2026-10-27 afternoon cut is dated 2026-10-27",
     )
-    check(not set(batch) & set(batch_1026), "2026-10-27 cut must be never-reaudited vs 24slides–airpair")
+    check(not set(batch) & set(batch_1026), "2026-10-27 afternoon cut must be never-reaudited vs 24slides–airpair")
+    check(not set(batch) & set(batch_1027_am), "2026-10-27 afternoon cut must be never-reaudited vs advacam–alchemy-cms")
 
     ableton = entries.get("ableton") or {}
     check(ableton.get("filed") is True, "ableton ledger row records the apply")
@@ -565,6 +610,58 @@ def test_live_ledger_when_present() -> None:
     check(akeneo.get("soft_retry") is True, "akeneo stays a Cloudflare soft-retry")
     check(akeneo.get("refusal") == "/security now Cloudflare 403", f"akeneo refusal {akeneo.get('refusal')}")
     check(not akeneo.get("hit"), "akeneo hit stays empty")
+
+    shipped_1027_pm = {
+        "algosec": {"page", "marks"},
+        "align-aerospace": {"years"},
+    }
+    for slug, keys in shipped_1027_pm.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-10-27", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+        check(row.get("fileable") is True, f"{slug} stays fileable")
+    check(
+        (entries.get("algosec") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://www.algosec.com/resources/algosec-security-center",
+        "algosec security page in ledger",
+    )
+    check(
+        (entries.get("algosec") or {}).get("hit", {}).get("page", {}).get("kind") == "security",
+        "algosec page kind is security",
+    )
+    check(
+        set((entries.get("algosec") or {}).get("hit", {}).get("marks", {}).get("added") or [])
+        == {"SOC 2 Type II", "ISO 27001"},
+        "algosec marks in ledger",
+    )
+    check(
+        (entries.get("align-aerospace") or {}).get("hit", {}).get("years", {}).get("year") == 1972,
+        "align-aerospace year in ledger",
+    )
+    check(
+        (entries.get("align-aerospace") or {}).get("hit", {}).get("years", {}).get("url") == "https://alignaero.com/about/",
+        "align-aerospace year source in ledger",
+    )
+    check(not (entries.get("align-aerospace") or {}).get("hit", {}).get("page"), "align-aerospace quality policy stays unfiled")
+    check((entries.get("align-aerospace") or {}).get("soft_retry") is True, "align-aerospace oembed shell stays a soft-retry")
+    refused_1027_pm = {
+        "4ig": "ethics page, not a company trust page",
+        "acotel-group": "product page for its security business, not a trust page",
+        "alchip": "homepage bounce, not a trust page",
+        "alexandria-real-estate-equities": "empty shell, not a trust page",
+        "advantech": "certified-solutions page is a product page; about page copyright line is not a founded year",
+    }
+    for slug, reason in refused_1027_pm.items():
+        row = entries.get(slug) or {}
+        check(row.get("date") == "2026-10-27", f"{slug} reaudited 2026-10-27")
+        check(row.get("filed") is False, f"{slug} was not filed")
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+    acotel = entries.get("acotel-group") or {}
+    check(acotel.get("soft_retry") is True, "acotel-group oembed shell stays a soft-retry")
 
     public = json.loads((ROOT / "site" / "data.json").read_text())
     by_pub = {row.get("slug"): row for row in public.get("companies") or [] if row.get("slug")}
@@ -762,6 +859,41 @@ def test_live_ledger_when_present() -> None:
         "albemarle-corporation",
         "alcatel-mobile",
         "albertsons",
+    ):
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+
+    pub_algosec = by_pub["algosec"]
+    check(
+        pub_algosec.get("trust_url") == "https://www.algosec.com/resources/algosec-security-center",
+        "algosec Official page",
+    )
+    check(pub_algosec.get("found") is True, "algosec Official page is on file")
+    check(
+        set(pub_algosec.get("certs") or []) == {"SOC 2 Type II", "ISO 27001"},
+        f"algosec marks {pub_algosec.get('certs')}",
+    )
+    check((pub_algosec.get("file") or {}).get("page") == 20, "algosec Official page prints")
+    check((pub_algosec.get("file") or {}).get("marks") == 20, "algosec marks print")
+    check(completeness(pub_algosec) == 40, f"algosec Completeness {completeness(pub_algosec)}")
+    check(not pub_algosec.get("founded_year"), "algosec year stays open")
+
+    pub_align = by_pub["align-aerospace"]
+    check(pub_align.get("founded_year") == 1972, "align-aerospace year is first-party about")
+    check(pub_align.get("founded_source") == "https://alignaero.com/about/", "align-aerospace year source")
+    check((pub_align.get("file") or {}).get("years") == 20, "align-aerospace years print")
+    check(completeness(pub_align) == 20, f"align-aerospace Completeness {completeness(pub_align)}")
+    check(pub_align.get("found") is False, "align-aerospace Official page stays open")
+    check(not (pub_align.get("certs") or []), "align-aerospace marks stay open")
+
+    for slug in (
+        "4ig",
+        "acotel-group",
+        "advantech",
+        "alchip",
+        "alexandria-real-estate-equities",
     ):
         check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
