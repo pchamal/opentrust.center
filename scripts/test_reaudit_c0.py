@@ -415,21 +415,67 @@ def test_live_ledger_when_present() -> None:
     )
     check(not set(batch_1027_am) & set(batch_1026), "2026-10-27 morning cut must be never-reaudited vs 24slides–airpair")
 
-    check(len(batch) == 30, f"2026-10-27 afternoon batch is 30, got {len(batch)}")
-    check(batch[0] == "21vianet" and batch[-1] == "aligned-assets", "2026-10-27 afternoon batch is the 21vianet–aligned-assets cut")
-    check(summary.get("batch") == 30, "2026-10-27 afternoon summary.batch is 30")
-    check(summary.get("fileable") == 2, f"2026-10-27 afternoon clerk fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 6, f"2026-10-27 afternoon soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 28, f"2026-10-27 afternoon still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 2, f"2026-10-27 afternoon last-batch clerk fills, got {summary.get('filled')}")
-    october = [slug for slug, rec in entries.items() if str(rec.get("date") or "").startswith("2026-10-")]
-    check(len(october) == 180, f"10/22 through 10/27 cuts stay in the ledger, got {len(october)}")
+    batch_1027_pm = [
+        "21vianet",
+        "2rn",
+        "3d-maker-technologies",
+        "4ig",
+        "a1-telekom-austria-group",
+        "abertis",
+        "acotel-group",
+        "adinstruments",
+        "advantech",
+        "advista",
+        "afrihost",
+        "alchip",
+        "alcot",
+        "aldec",
+        "aleph-alpha",
+        "alerton",
+        "alestra",
+        "alexa-internet",
+        "alexandria-real-estate-equities",
+        "alfresco-software",
+        "algar-telecom",
+        "algoryx-simulation-ab",
+        "algosec",
+        "alice",
+        "alicesoft",
+        "alida",
+        "alienware",
+        "alight",
+        "align-aerospace",
+        "aligned-assets",
+    ]
+    check(len(batch_1027_pm) == 30, f"2026-10-27 afternoon batch is 30, got {len(batch_1027_pm)}")
     check(
-        all((entries.get(slug) or {}).get("date") == "2026-10-27" for slug in batch),
+        batch_1027_pm[0] == "21vianet" and batch_1027_pm[-1] == "aligned-assets",
+        "2026-10-27 afternoon batch is the 21vianet–aligned-assets cut",
+    )
+    check(all(slug in entries for slug in batch_1027_pm), "2026-10-27 afternoon rows stay in the ledger")
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-10-27" for slug in batch_1027_pm),
         "2026-10-27 afternoon cut is dated 2026-10-27",
     )
-    check(not set(batch) & set(batch_1026), "2026-10-27 afternoon cut must be never-reaudited vs 24slides–airpair")
-    check(not set(batch) & set(batch_1027_am), "2026-10-27 afternoon cut must be never-reaudited vs advacam–alchemy-cms")
+    check(not set(batch_1027_pm) & set(batch_1026), "2026-10-27 afternoon cut must be never-reaudited vs 24slides–airpair")
+    check(not set(batch_1027_pm) & set(batch_1027_am), "2026-10-27 afternoon cut must be never-reaudited vs advacam–alchemy-cms")
+
+    check(len(batch) == 30, f"2026-10-28 batch is 30, got {len(batch)}")
+    check(batch[0] == "a1-hrvatska" and batch[-1] == "altacast", "2026-10-28 batch is the a1-hrvatska–altacast cut")
+    check(summary.get("batch") == 30, "2026-10-28 summary.batch is 30")
+    check(summary.get("fileable") == 2, f"2026-10-28 clerk fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 7, f"2026-10-28 soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 28, f"2026-10-28 still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 2, f"2026-10-28 clerk fills, got {summary.get('filled')}")
+    october = [slug for slug, rec in entries.items() if str(rec.get("date") or "").startswith("2026-10-")]
+    check(len(october) == 210, f"10/22 through 10/28 cuts stay in the ledger, got {len(october)}")
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-10-28" for slug in batch),
+        "2026-10-28 cut is dated 2026-10-28",
+    )
+    check(not set(batch) & set(batch_1026), "2026-10-28 cut must be never-reaudited vs 24slides–airpair")
+    check(not set(batch) & set(batch_1027_am), "2026-10-28 cut must be never-reaudited vs advacam–alchemy-cms")
+    check(not set(batch) & set(batch_1027_pm), "2026-10-28 cut must be never-reaudited vs 21vianet–aligned-assets")
 
     ableton = entries.get("ableton") or {}
     check(ableton.get("filed") is True, "ableton ledger row records the apply")
@@ -663,6 +709,53 @@ def test_live_ledger_when_present() -> None:
     acotel = entries.get("acotel-group") or {}
     check(acotel.get("soft_retry") is True, "acotel-group oembed shell stays a soft-retry")
 
+    shipped_1028 = {
+        "alkami": {"years"},
+        "allied-van-lines": {"marks"},
+    }
+    for slug, keys in shipped_1028.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-10-28", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+        check(row.get("fileable") is True, f"{slug} stays fileable")
+    check((entries.get("alkami") or {}).get("hit", {}).get("years", {}).get("year") == 2009, "alkami year in ledger")
+    check(
+        (entries.get("alkami") or {}).get("hit", {}).get("years", {}).get("url") == "https://www.alkami.com/press-room",
+        "alkami year source in ledger",
+    )
+    check(
+        (entries.get("alkami") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "Founded in 2009 by current Chief Strategy Officer, Stephen Bohanon and partners, Alkami Technology, Inc.",
+        "alkami year quote is the press-room sentence",
+    )
+    check(not (entries.get("alkami") or {}).get("hit", {}).get("page"), "alkami demo marketing page stays unfiled")
+    check((entries.get("alkami") or {}).get("soft_retry") is True, "alkami shell stays a soft-retry")
+    check(
+        ((entries.get("allied-van-lines") or {}).get("hit") or {}).get("marks", {}).get("added") == ["EU-US DPF"],
+        "allied-van-lines EU-US DPF in ledger",
+    )
+    check(
+        ((entries.get("allied-van-lines") or {}).get("hit") or {}).get("marks", {}).get("url")
+        == "https://www.allied.com/privacy-policy",
+        "allied-van-lines mark source in ledger",
+    )
+    refused_1028 = {
+        "allbusiness-com": "third-party article, not a company security page",
+        "allego": "/trust/ now Cloudflare 403",
+        "allot": "log4j advisory PDF, not a company security page",
+    }
+    for slug, reason in refused_1028.items():
+        row = entries.get(slug) or {}
+        check(row.get("date") == "2026-10-28", f"{slug} reaudited 2026-10-28")
+        check(row.get("filed") is False, f"{slug} was not filed")
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+    allego = entries.get("allego") or {}
+    check(allego.get("soft_retry") is True, "allego /trust/ stays a Cloudflare soft-retry")
+
     public = json.loads((ROOT / "site" / "data.json").read_text())
     by_pub = {row.get("slug"): row for row in public.get("companies") or [] if row.get("slug")}
 
@@ -894,6 +987,34 @@ def test_live_ledger_when_present() -> None:
         "advantech",
         "alchip",
         "alexandria-real-estate-equities",
+    ):
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+
+    pub_alkami = by_pub["alkami"]
+    check(pub_alkami.get("founded_year") == 2009, "alkami year is first-party press room")
+    check(pub_alkami.get("founded_source") == "https://www.alkami.com/press-room", "alkami year source")
+    check((pub_alkami.get("file") or {}).get("years") == 20, "alkami years print")
+    check(completeness(pub_alkami) == 20, f"alkami Completeness {completeness(pub_alkami)}")
+    check(pub_alkami.get("found") is False, "alkami Official page stays open")
+    check(not pub_alkami.get("trust_url"), "alkami demo page is not Official page")
+    check(not (pub_alkami.get("certs") or []), "alkami marks stay open")
+
+    pub_allied = by_pub["allied-van-lines"]
+    check(pub_allied.get("certs") == ["EU-US DPF"], f"allied-van-lines marks {pub_allied.get('certs')}")
+    check((pub_allied.get("file") or {}).get("marks") == 20, "allied-van-lines marks print")
+    check(completeness(pub_allied) == 20, f"allied-van-lines Completeness {completeness(pub_allied)}")
+    check(pub_allied.get("found") is False, "allied-van-lines Official page stays open")
+    check(not pub_allied.get("founded_year"), "allied-van-lines year stays open")
+
+    for slug in (
+        "a1-hrvatska",
+        "allbusiness-com",
+        "allego",
+        "allot",
+        "altacast",
     ):
         check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
