@@ -2042,6 +2042,49 @@ def main() -> int:
         "security",
     )
     check(kept == [] and why in {"regulation-only", "no-named-marks"}, f"branch HIPAA-eligible BAA stays open: {kept} {why}")
+
+    # This cut: SecurityPal row plus vetted Cloud 100 marks whose quotes
+    # are still on a 200 first-party page. Wolfia and Conveyor titles stay
+    # unfiled. Rippling's stitched audits line is not on the live page.
+    # SecurityPal does not file ISO 27001.
+    check("securitypal" in by_pub, "securitypal is on the register")
+    check(by_pub["securitypal"]["domain"] == "securitypalhq.com", "securitypal domain is securitypalhq.com")
+    check(by_pub["securitypal"].get("official_url") == "https://www.securitypalhq.com/", "securitypal homepage is securitypalhq.com")
+    check(by_pub["securitypal"].get("trust_url") == "https://trust.securitypal.com/", "securitypal trust page is trust.securitypal.com")
+    check(by_pub["securitypal"].get("certs") == ["CCPA", "GDPR", "SOC 2 Type II"], f"securitypal marks {by_pub['securitypal'].get('certs')}")
+    check("ISO 27001" not in (by_pub["securitypal"].get("certs") or []), "securitypal does not file ISO 27001")
+    check(by_enr["securitypal"].get("certs") == ["SOC 2 Type II", "GDPR", "CCPA"], "securitypal enriched marks stay the vetted three")
+    check((by_pub["securitypal"].get("file") or {}).get("page") == 20, "securitypal page prints")
+    check((by_pub["securitypal"].get("file") or {}).get("marks") == 20, "securitypal marks print")
+    sp_flags = by_pub["securitypal"].get("file") or {}
+    check(sum(int(sp_flags.get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years")) == 80, "securitypal Completeness is 80")
+    sp_html = (ROOT / "site" / "c" / "securitypal.html").read_text(encoding="utf-8")
+    check("<h1>SecurityPal</h1>" in sp_html, "securitypal dossier is its own file")
+    check("https://trust.securitypal.com/" in sp_html, "securitypal dossier cites the trust page")
+    check("ISO 27001" not in sp_html, "securitypal dossier does not print ISO 27001")
+    filed_marks = {
+        "anysphere": {"ISO 27001", "ISO 42001"},
+        "deel": {"SOC 2", "SOC 3", "ISO 27001"},
+        "dataiku": {"ISO 42001"},
+        "glean": {"ISO 27001", "ISO 42001", "TX-RAMP"},
+        "collibra": {"SOC 1", "SOC 2", "ISO 27001", "ISO 27017", "ISO 27018", "ISO 42001", "HIPAA", "TISAX"},
+        "automattic": {"SOC 2 Type II"},
+        "launchdarkly": {"SOC 2 Type II", "ISO 27001"},
+        "claroty": {"SOC 3", "ISO 27017", "ISO 27018"},
+    }
+    for slug, marks in filed_marks.items():
+        have = set(by_pub[slug].get("certs") or [])
+        check(marks <= have, f"{slug} filed marks missing {sorted(marks - have)}")
+        check((by_pub[slug].get("file") or {}).get("marks") == 20, f"{slug} marks stay printed")
+    check("SOC 3" not in (by_pub["notion"].get("certs") or []), "notion Wolfia SOC 3 stays unfiled")
+    check("SOC 3" not in (by_pub["miro"].get("certs") or []), "miro Wolfia SOC 3 stays unfiled")
+    check("ISO 27001" not in (by_pub["carta"].get("certs") or []), "carta Conveyor ISO 27001 stays unfiled")
+    check("ISO 27701" not in (by_pub["cato-networks"].get("certs") or []), "cato Conveyor ISO 27701 stays unfiled")
+    check("ISO 27017" not in (by_pub["cato-networks"].get("certs") or []), "cato Conveyor ISO 27017 stays unfiled")
+    check("ISO 27018" not in (by_pub["cato-networks"].get("certs") or []), "cato Conveyor ISO 27018 stays unfiled")
+    check("ISO 42001" not in (by_pub["rippling"].get("certs") or []), "rippling ISO 42001 stays unfiled")
+    check("SOC 3" not in (by_pub["rippling"].get("certs") or []), "rippling SOC 3 stays unfiled")
+
     for slug in ("canonical", "beck-technology", "world-labs", "synap", "lime-technologies", "inmobi"):
         html = (ROOT / "site" / "c" / f"{slug}.html").read_text(encoding="utf-8")
         check("Official page" in html, f"{slug} still prints Official page")
