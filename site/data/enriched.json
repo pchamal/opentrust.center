@@ -35615,9 +35615,14 @@
       "title": "",
       "probed": 1,
       "source": "https://www.aiworld.lat/forbes-50.html",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, HIPAA, CCPA.",
       "list": "forbes-ai-50-2025",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "HIPAA",
+        "CCPA"
+      ],
       "links": {
         "trust": "https://trust.decagon.ai",
         "security_txt": "https://decagon.ai/.well-known/security.txt",
@@ -35628,14 +35633,15 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 46,
-        "tier": "on-file",
+        "score": 75,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
           "processors": 8,
           "status": 6,
           "disclosure": 6,
-          "privacy": 6
+          "privacy": 6,
+          "marks": 29
         }
       },
       "aiti_lists": [
@@ -43670,11 +43676,11 @@
       "source": "https://openrouter.ai/api/v1/providers",
       "source_url": "https://openrouter.ai/api/v1/providers",
       "official_url": "https://modal.com/",
-      "summary": "Official page on file. Marks cited from public HTML: SOC 2, HIPAA.",
+      "summary": "Official page on file. Marks cited from public HTML: HIPAA, SOC 2 Type II.",
       "list": "openrouter-provider",
       "certs": [
-        "SOC 2",
-        "HIPAA"
+        "HIPAA",
+        "SOC 2 Type II"
       ],
       "links": {
         "security": "https://modal.com/docs/guide/security",
@@ -43682,11 +43688,11 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 38,
-        "tier": "thin",
+        "score": 44,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
-          "marks": 10,
+          "marks": 16,
           "dpa": 8
         }
       },
@@ -90460,9 +90466,11 @@
       "title": "",
       "probed": 5,
       "source": "https://compliance.elevenlabs.io/subprocessors",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II.",
       "list": "named-processor-gap",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II"
+      ],
       "links": {
         "trust": "https://trust.posthog.com",
         "security_txt": "https://posthog.com/.well-known/security.txt",
@@ -90472,14 +90480,15 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 48,
+        "score": 58,
         "tier": "on-file",
         "factors": {
           "portal": 20,
           "dpa": 8,
           "subprocessors": 8,
           "disclosure": 6,
-          "privacy": 6
+          "privacy": 6,
+          "marks": 10
         }
       }
     },
@@ -95236,9 +95245,14 @@
       "title": "",
       "probed": 6,
       "source": "https://www.altusgroup.com/legal/gdpr-subprocessors/",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, SOC 1, HIPAA, GDPR.",
       "list": "named-processor-gap",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 1",
+        "HIPAA",
+        "GDPR"
+      ],
       "links": {
         "trust": "https://security.ironcladapp.com",
         "security": "https://security.ironcladapp.com",
@@ -95250,15 +95264,16 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 54,
-        "tier": "on-file",
+        "score": 77,
+        "tier": "substantial",
         "factors": {
           "portal": 20,
           "dpa": 8,
           "processors": 8,
           "status": 6,
           "disclosure": 6,
-          "privacy": 6
+          "privacy": 6,
+          "marks": 23
         }
       },
       "official_url": "https://ironcladapp.com/"
@@ -96397,9 +96412,12 @@
       "title": "",
       "probed": 4,
       "source": "https://zapier.com/legal/subprocessors",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, HIPAA.",
       "list": "named-processor-gap",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "HIPAA"
+      ],
       "links": {
         "trust": "https://trust.pinecone.io",
         "security": "https://security.pinecone.io/",
@@ -96409,13 +96427,14 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 40,
+        "score": 56,
         "tier": "on-file",
         "factors": {
           "portal": 20,
           "dpa": 8,
           "status": 6,
-          "privacy": 6
+          "privacy": 6,
+          "marks": 16
         }
       }
     },
@@ -98537,9 +98556,12 @@
       "title": "",
       "probed": 3,
       "source": "https://monday.com/l/privacy/sub-processors-subsidiaries-support/",
-      "summary": "Trust portal found; marks not yet read from the public page.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2, HIPAA.",
       "list": "named-processor-gap",
-      "certs": [],
+      "certs": [
+        "SOC 2",
+        "HIPAA"
+      ],
       "links": {
         "trust": "https://security.vapi.ai",
         "security": "https://security.vapi.ai",
@@ -98548,12 +98570,13 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 32,
-        "tier": "thin",
+        "score": 42,
+        "tier": "on-file",
         "factors": {
           "portal": 20,
           "status": 6,
-          "privacy": 6
+          "privacy": 6,
+          "marks": 10
         }
       }
     },
@@ -187163,6 +187186,73 @@
       },
       "founded_year": 2020,
       "founded_source": "https://www.securitypalhq.com/company"
+    },
+    {
+      "rank": 6894,
+      "name": "Supabase",
+      "slug": "supabase",
+      "domain": "supabase.com",
+      "found": true,
+      "trust_url": "https://supabase.com/security",
+      "final_url": "https://supabase.com/security",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 0,
+      "source": "https://supabase.com/",
+      "source_url": "https://supabase.com/",
+      "official_url": "https://supabase.com/",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, HIPAA.",
+      "list": "priority-request-2026-10-28",
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "HIPAA"
+      ],
+      "links": {
+        "security": "https://supabase.com/security"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 46,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 26
+        }
+      }
+    },
+    {
+      "rank": 6895,
+      "name": "Sourcegraph",
+      "slug": "sourcegraph",
+      "domain": "sourcegraph.com",
+      "found": true,
+      "trust_url": "https://sourcegraph.com/security",
+      "final_url": "https://sourcegraph.com/security",
+      "vendor": "unknown",
+      "title": "",
+      "probed": 0,
+      "source": "https://sourcegraph.com/",
+      "source_url": "https://sourcegraph.com/",
+      "official_url": "https://sourcegraph.com/",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001.",
+      "list": "priority-request-2026-10-28",
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001"
+      ],
+      "links": {
+        "security": "https://sourcegraph.com/security"
+      },
+      "subprocessors": [],
+      "disclosure": {
+        "score": 40,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 20
+        }
+      }
     }
   ]
 }

@@ -2099,6 +2099,235 @@ def main() -> int:
             f"{slug} named a portal vendor",
         )
 
+    # This cut: re-checked vetted fills. Cloudflare 403 drops Netskope and
+    # NinjaOne. Clerk hold_marks drops regulation-only GDPR / DPF. PCI that
+    # the page gives to Stripe stays off Supabase. Drata stays off the register.
+    # DeepL is not in this cut. Plain GET before merge: Hex and Temporal live
+    # titles are Powered by Conveyor, and Tavus is Powered by SecurityPal.
+    # Those fills stay off the register.
+    def completeness(row: dict) -> int:
+        flags = row.get("file") or {}
+        return sum(int(flags.get(k) or 0) for k in ("page", "marks", "dpa", "subprocessors", "years"))
+
+    check(completeness(by_pub["netskope"]) == 70, "netskope Completeness stays 70")
+    check(
+        (by_pub["netskope"].get("certs") or []) == ["CSA STAR", "FedRAMP High", "TX-RAMP"],
+        "netskope Cloudflare 403 fill stays off the file",
+    )
+    check("SOC 2" not in (by_pub["netskope"].get("certs") or []), "netskope SOC 2 stays open")
+    check(by_pub["netskope"].get("trust_url") == "https://trust.netskope.com", "netskope Official page stays")
+    check(completeness(by_pub["ninjaone"]) == 40, "ninjaone Completeness stays 40")
+    check(
+        (by_pub["ninjaone"].get("certs") or []) == ["FedRAMP Moderate", "StateRAMP", "TX-RAMP"],
+        "ninjaone Cloudflare 403 fill stays off the file",
+    )
+    check("SOC 2" not in (by_pub["ninjaone"].get("certs") or []), "ninjaone SOC 2 stays open")
+    check(by_pub["ninjaone"].get("trust_url") == "https://ninjaone.com/trust", "ninjaone Official page stays")
+
+    kept, why = hold_marks(
+        ["HIPAA", "SOC 1 Type II", "GDPR", "CCPA", "EU-US DPF"],
+        "Badges CCPA EU-US DPF GDPR HIPAA PCI SOC 2 Type II Swiss-US DPF UK-US DPF "
+        "Authorized trust center visitors can now view & download Hex's SOC 1 Type II, "
+        "SOC 2 Type II, and HIPAA audit reports.",
+        "trust",
+    )
+    check(sorted(kept) == ["CCPA", "HIPAA", "SOC 1 Type II"] and why is None, f"hex quote would hold: {kept} {why}")
+    check(completeness(by_pub["hex"]) == 80, "hex Completeness stays 80")
+    check(
+        (by_pub["hex"].get("certs") or []) == ["SOC 2 Type II"],
+        f"hex certs {by_pub['hex'].get('certs')}",
+    )
+    check("HIPAA" not in (by_pub["hex"].get("certs") or []), "hex Conveyor HIPAA stays unfiled")
+    check("SOC 1 Type II" not in (by_pub["hex"].get("certs") or []), "hex Conveyor SOC 1 Type II stays unfiled")
+    check("CCPA" not in (by_pub["hex"].get("certs") or []), "hex Conveyor CCPA stays unfiled")
+    check("GDPR" not in (by_pub["hex"].get("certs") or []), "hex GDPR badge stays open")
+    check("EU-US DPF" not in (by_pub["hex"].get("certs") or []), "hex DPF badge stays open")
+    check(by_pub["hex"].get("trust_url") == "https://trust.hex.tech", "hex Official page stays")
+    hex_html = (ROOT / "site" / "c" / "hex.html").read_text(encoding="utf-8")
+    check("SOC 2 Type II" in hex_html, "hex dossier keeps SOC 2 Type II")
+    check("SOC 1 Type II" not in hex_html and "HIPAA" not in hex_html and "CCPA" not in hex_html, "hex dossier does not print Conveyor fills")
+    check("GDPR" not in hex_html and "EU-US DPF" not in hex_html, "hex dossier does not print dropped marks")
+    check("conveyor" not in hex_html.lower(), "hex dossier does not name the portal")
+
+    kept, why = hold_marks(
+        ["HIPAA", "GDPR", "CCPA"],
+        "Badges SOC 2 Type II GDPR HIPAA CCPA",
+        "trust",
+    )
+    check(sorted(kept) == ["CCPA", "HIPAA"] and why is None, f"temporal quote would hold: {kept} {why}")
+    check(completeness(by_pub["temporal"]) == 50, "temporal Completeness stays 50")
+    check(
+        (by_pub["temporal"].get("certs") or []) == ["SOC 2 Type II"],
+        f"temporal certs {by_pub['temporal'].get('certs')}",
+    )
+    check("HIPAA" not in (by_pub["temporal"].get("certs") or []), "temporal Conveyor HIPAA stays unfiled")
+    check("CCPA" not in (by_pub["temporal"].get("certs") or []), "temporal Conveyor CCPA stays unfiled")
+    check("GDPR" not in (by_pub["temporal"].get("certs") or []), "temporal GDPR badge stays open")
+    check(by_pub["temporal"].get("trust_url") == "https://trust.temporal.io", "temporal Official page stays")
+    temporal_html = (ROOT / "site" / "c" / "temporal.html").read_text(encoding="utf-8")
+    check("SOC 2 Type II" in temporal_html, "temporal dossier keeps SOC 2 Type II")
+    check("HIPAA" not in temporal_html and "CCPA" not in temporal_html, "temporal dossier does not print Conveyor fills")
+    check("GDPR" not in temporal_html, "temporal dossier does not print GDPR")
+    check("conveyor" not in temporal_html.lower(), "temporal dossier does not name the portal")
+
+    check(completeness(by_pub["modal"]) == 60, "modal Completeness stays 60")
+    check(
+        (by_pub["modal"].get("certs") or []) == ["HIPAA", "SOC 2 Type II"],
+        f"modal SOC 2 Type II supersedes bare SOC 2 {by_pub['modal'].get('certs')}",
+    )
+    check("SOC 2" not in (by_pub["modal"].get("certs") or []), "modal bare SOC 2 is superseded")
+    check("GDPR" not in (by_pub["modal"].get("certs") or []), "modal DPA mention stays open")
+    check(by_pub["modal"].get("trust_url") == "https://modal.com/docs/guide/security", "modal Official page stays")
+    modal_html = (ROOT / "site" / "c" / "modal.html").read_text(encoding="utf-8")
+    check("SOC 2 Type II" in modal_html, "modal dossier prints SOC 2 Type II")
+    check(">SOC 2</a>" not in modal_html, "modal dossier does not print bare SOC 2")
+
+    check(completeness(by_pub["pinecone"]) == 60, "pinecone Completeness is 60")
+    check(
+        (by_pub["pinecone"].get("certs") or []) == ["HIPAA", "SOC 2 Type II"],
+        f"pinecone certs {by_pub['pinecone'].get('certs')}",
+    )
+    check("GDPR" not in (by_pub["pinecone"].get("certs") or []), "pinecone GDPR-ready stays open")
+    check(by_pub["pinecone"].get("trust_url") == "https://trust.pinecone.io", "pinecone Official page stays")
+    check((by_pub["pinecone"].get("file") or {}).get("marks") == 20, "pinecone marks print")
+    pine_html = (ROOT / "site" / "c" / "pinecone.html").read_text(encoding="utf-8")
+    check("SOC 2 Type II" in pine_html and "HIPAA" in pine_html, "pinecone dossier prints the holds")
+    check("GDPR" not in pine_html, "pinecone dossier does not print GDPR-ready")
+
+    kept, why = hold_marks(
+        ["SOC 2 Type II", "ISO 27001", "HIPAA", "GDPR", "CCPA"],
+        "SOC 2 Type II GDPR CCPA HIPAA EU AI Act ISO 27001:2002 PCI DS 4.0.1",
+        "security",
+    )
+    check(
+        sorted(kept) == ["CCPA", "HIPAA", "ISO 27001", "SOC 2 Type II"] and why is None,
+        f"decagon holds file: {kept} {why}",
+    )
+    check(completeness(by_pub["decagon"]) == 50, "decagon Completeness is 50")
+    check(
+        (by_pub["decagon"].get("certs") or []) == ["CCPA", "HIPAA", "ISO 27001", "SOC 2 Type II"],
+        f"decagon certs {by_pub['decagon'].get('certs')}",
+    )
+    check("GDPR" not in (by_pub["decagon"].get("certs") or []), "decagon GDPR badge stays open")
+    check("PCI DSS" not in (by_pub["decagon"].get("certs") or []), "decagon PCI typo stays open")
+    check(by_pub["decagon"].get("trust_url") == "https://trust.decagon.ai", "decagon Official page stays")
+    dec_html = (ROOT / "site" / "c" / "decagon.html").read_text(encoding="utf-8")
+    check("ISO 27001" in dec_html and "SOC 2 Type II" in dec_html, "decagon dossier prints the holds")
+    check("GDPR" not in dec_html and "PCI" not in dec_html, "decagon dossier does not print dropped marks")
+
+    check(completeness(by_pub["ironclad"]) == 70, "ironclad Completeness is 70")
+    check(
+        (by_pub["ironclad"].get("certs") or []) == ["GDPR", "HIPAA", "SOC 1", "SOC 2 Type II"],
+        f"ironclad certs {by_pub['ironclad'].get('certs')}",
+    )
+    check("ISO 27001" not in (by_pub["ironclad"].get("certs") or []), "ironclad cloud-vendor ISO stays open")
+    check("PCI DSS" not in (by_pub["ironclad"].get("certs") or []), "ironclad cloud-vendor PCI stays open")
+    check(by_pub["ironclad"].get("trust_url") == "https://security.ironcladapp.com", "ironclad Official page stays")
+    iron_html = (ROOT / "site" / "c" / "ironclad.html").read_text(encoding="utf-8")
+    check("SOC 1" in iron_html and "SOC 2 Type II" in iron_html and "GDPR" in iron_html, "ironclad dossier prints the holds")
+    check("ISO 27001" not in iron_html and "PCI" not in iron_html, "ironclad dossier does not print cloud-vendor marks")
+
+    check(completeness(by_pub["posthog"]) == 70, "posthog Completeness is 70")
+    check((by_pub["posthog"].get("certs") or []) == ["SOC 2 Type II"], f"posthog certs {by_pub['posthog'].get('certs')}")
+    check("GDPR" not in (by_pub["posthog"].get("certs") or []), "posthog processor GDPR stays open")
+    check("CCPA" not in (by_pub["posthog"].get("certs") or []), "posthog processor CCPA stays open")
+    check(by_pub["posthog"].get("trust_url") == "https://trust.posthog.com", "posthog Official page stays")
+    post_html = (ROOT / "site" / "c" / "posthog.html").read_text(encoding="utf-8")
+    check("SOC 2 Type II" in post_html, "posthog dossier prints SOC 2 Type II")
+    check("GDPR" not in post_html and "CCPA" not in post_html, "posthog dossier does not print processor duties")
+
+    check(completeness(by_pub["vapi"]) == 40, "vapi Completeness is 40")
+    check((by_pub["vapi"].get("certs") or []) == ["HIPAA", "SOC 2"], f"vapi certs {by_pub['vapi'].get('certs')}")
+    check("PCI DSS" not in (by_pub["vapi"].get("certs") or []), "vapi bare PCI stays open")
+    check(by_pub["vapi"].get("trust_url") == "https://security.vapi.ai", "vapi Official page stays")
+    vapi_html = (ROOT / "site" / "c" / "vapi.html").read_text(encoding="utf-8")
+    check("SOC 2" in vapi_html and "HIPAA" in vapi_html, "vapi dossier prints the holds")
+    check("PCI" not in vapi_html, "vapi dossier does not print bare PCI")
+
+    kept, why = hold_marks(
+        ["SOC 2 Type II", "HIPAA", "GDPR"],
+        "Certifications SOC 2 Type 2 HIPAA GDPR Tavus is a research lab pioneering human computing.",
+        "trust",
+    )
+    check(sorted(kept) == ["GDPR", "HIPAA", "SOC 2 Type II"] and why is None, f"tavus quote would hold: {kept} {why}")
+    check(completeness(by_pub["tavus"]) == 20, "tavus Completeness stays 20")
+    check((by_pub["tavus"].get("file") or {}).get("page") in (0, None, False), "tavus Official page stays open")
+    check(not (by_pub["tavus"].get("file") or {}).get("marks"), "tavus portal marks stay off the file")
+    check((by_pub["tavus"].get("file") or {}).get("years") == 20, "tavus years stay")
+    check(by_pub["tavus"].get("founded_year") == 2020, "tavus year stays 2020")
+    check((by_pub["tavus"].get("certs") or []) == [], f"tavus certs {by_pub['tavus'].get('certs')}")
+    check(not by_pub["tavus"].get("trust_url"), "tavus SecurityPal trust page stays off")
+    tav_html = (ROOT / "site" / "c" / "tavus.html").read_text(encoding="utf-8")
+    check("<h1>Tavus</h1>" in tav_html, "tavus dossier is its own file")
+    check("https://trust.tavus.io/" not in tav_html, "tavus dossier does not cite the portal")
+    check("SOC 2" not in tav_html and "HIPAA" not in tav_html and "GDPR" not in tav_html, "tavus dossier does not print portal marks")
+    check("securitypal" not in tav_html.lower(), "tavus dossier does not name the portal")
+    check("founded · 2020" in tav_html, "tavus dossier still prints 2020")
+
+    kept, why = hold_marks(
+        ["SOC 2 Type II", "ISO 27001", "HIPAA", "GDPR"],
+        "Supabase is SOC 2 Type 2 compliant. Supabase is HIPAA compliant. "
+        "Supabase is ISO 27001 certified. Supabase supports GDPR-compliant deployments.",
+        "security",
+    )
+    check(
+        sorted(kept) == ["HIPAA", "ISO 27001", "SOC 2 Type II"] and why is None,
+        f"supabase holds file: {kept} {why}",
+    )
+    check("supabase" in by_pub and "supabase" in by_enr, "supabase is on the register")
+    check(by_pub["supabase"]["domain"] == "supabase.com", "supabase domain is supabase.com")
+    check(by_pub["supabase"].get("trust_url") == "https://supabase.com/security", "supabase Official page is first-party /security")
+    check("trust.supabase.io" not in (by_pub["supabase"].get("trust_url") or ""), "supabase SecurityPal host is not Official page")
+    check(
+        (by_pub["supabase"].get("certs") or []) == ["HIPAA", "ISO 27001", "SOC 2 Type II"],
+        f"supabase certs {by_pub['supabase'].get('certs')}",
+    )
+    check("PCI DSS" not in (by_pub["supabase"].get("certs") or []), "supabase Stripe PCI stays open")
+    check("GDPR" not in (by_pub["supabase"].get("certs") or []), "supabase GDPR-compliant deployments stay open")
+    check(completeness(by_pub["supabase"]) == 40, "supabase Completeness is 40")
+    check((by_pub["supabase"].get("file") or {}).get("page") == 20, "supabase Official page prints")
+    check((by_pub["supabase"].get("file") or {}).get("marks") == 20, "supabase marks print")
+    sup_html = (ROOT / "site" / "c" / "supabase.html").read_text(encoding="utf-8")
+    check("<h1>Supabase</h1>" in sup_html, "supabase dossier is its own file")
+    check("https://supabase.com/security" in sup_html, "supabase dossier cites Official page")
+    check("SOC 2 Type II" in sup_html and "ISO 27001" in sup_html and "HIPAA" in sup_html, "supabase dossier prints the holds")
+    check("PCI" not in sup_html and "GDPR" not in sup_html, "supabase dossier does not print dropped marks")
+    check("securitypal" not in sup_html.lower(), "supabase dossier does not name the portal")
+
+    check("sourcegraph" in by_pub and "sourcegraph" in by_enr, "sourcegraph is on the register")
+    check(by_pub["sourcegraph"]["domain"] == "sourcegraph.com", "sourcegraph domain is sourcegraph.com")
+    check(by_pub["sourcegraph"].get("trust_url") == "https://sourcegraph.com/security", "sourcegraph Official page is /security")
+    check(
+        (by_pub["sourcegraph"].get("certs") or []) == ["ISO 27001", "SOC 2 Type II"],
+        f"sourcegraph certs {by_pub['sourcegraph'].get('certs')}",
+    )
+    check(completeness(by_pub["sourcegraph"]) == 40, "sourcegraph Completeness is 40")
+    src_html = (ROOT / "site" / "c" / "sourcegraph.html").read_text(encoding="utf-8")
+    check("<h1>Sourcegraph</h1>" in src_html, "sourcegraph dossier is its own file")
+    check("https://sourcegraph.com/security" in src_html, "sourcegraph dossier cites Official page")
+    check("SOC 2 Type II" in src_html and "ISO 27001" in src_html, "sourcegraph dossier prints the holds")
+
+    extra = json.loads((ROOT / "extra-companies.json").read_text())
+    extra_by = {row["slug"]: row for row in extra}
+    for slug, domain, name in (
+        ("supabase", "supabase.com", "Supabase"),
+        ("sourcegraph", "sourcegraph.com", "Sourcegraph"),
+    ):
+        row = extra_by[slug]
+        check(row["domain"] == domain, f"{slug} extra domain")
+        check(row["name"] == name, f"{slug} extra name")
+        check(row["source"] == "priority-request-2026-10-28", f"{slug} extra source")
+        check(row["domain_source"] == "first-party-homepage", f"{slug} extra domain source")
+        check(row.get("aliases") == [], f"{slug} extra aliases stay empty")
+    check("drata" not in by_pub and "drata" not in extra_by, "drata stays off the register")
+
+    check(
+        (by_pub["deepl"].get("certs") or []) == ["C5", "GDPR", "HIPAA", "ISO 27001", "SOC 2 Type II"],
+        "deepl certs stay as they were",
+    )
+    check(completeness(by_pub["deepl"]) == 80, "deepl Completeness stays 80")
+    check(by_pub["deepl"].get("trust_url") == "https://trust.deepl.com", "deepl Official page stays")
+
     print(
         "ok",
         "filed",

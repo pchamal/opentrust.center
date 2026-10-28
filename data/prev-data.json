@@ -4171,6 +4171,25 @@
    }
   },
   {
+   "domain": "ironcladapp.com",
+   "tier": "substantial",
+   "certs": [
+    "GDPR",
+    "HIPAA",
+    "SOC 1",
+    "SOC 2 Type II"
+   ],
+   "instruments": {
+    "trust": "https://security.ironcladapp.com",
+    "security": "https://security.ironcladapp.com",
+    "privacy": "https://ironcladapp.com/privacy",
+    "dpa": "https://ironcladapp.com/dpa",
+    "subprocessors": "https://ironcladapp.com/subprocessors",
+    "status": "https://status.ironcladapp.com",
+    "bounty": "https://ironcladapp.com/bug-bounty"
+   }
+  },
+  {
    "domain": "lambdalabs.com",
    "tier": "substantial",
    "certs": [
@@ -4497,6 +4516,25 @@
     "subprocessors": "https://aircall.io/subprocessorlist/",
     "status": null,
     "bounty": null
+   }
+  },
+  {
+   "domain": "decagon.ai",
+   "tier": "substantial",
+   "certs": [
+    "CCPA",
+    "HIPAA",
+    "ISO 27001",
+    "SOC 2 Type II"
+   ],
+   "instruments": {
+    "trust": "https://trust.decagon.ai",
+    "security": "https://decagon.ai/security",
+    "privacy": "https://decagon.ai/legal/privacy",
+    "dpa": null,
+    "subprocessors": "https://trust.decagon.ai/subprocessors",
+    "status": "https://status.decagon.ai",
+    "bounty": "https://decagon.ai/.well-known/security.txt"
    }
   },
   {
@@ -8532,6 +8570,22 @@
    }
   },
   {
+   "domain": "posthog.com",
+   "tier": "on-file",
+   "certs": [
+    "SOC 2 Type II"
+   ],
+   "instruments": {
+    "trust": "https://trust.posthog.com",
+    "security": null,
+    "privacy": "https://posthog.com/privacy",
+    "dpa": "https://posthog.com/dpa",
+    "subprocessors": "https://posthog.com/subprocessors",
+    "status": null,
+    "bounty": "https://posthog.com/.well-known/security.txt"
+   }
+  },
+  {
    "domain": "pydantic.dev",
    "tier": "on-file",
    "certs": [
@@ -9106,6 +9160,23 @@
    }
   },
   {
+   "domain": "pinecone.io",
+   "tier": "on-file",
+   "certs": [
+    "HIPAA",
+    "SOC 2 Type II"
+   ],
+   "instruments": {
+    "trust": "https://trust.pinecone.io",
+    "security": "https://security.pinecone.io/",
+    "privacy": "https://www.pinecone.io/privacy/",
+    "dpa": "https://www.pinecone.io/legal/data-processing-addendum/",
+    "subprocessors": null,
+    "status": "https://status.pinecone.io",
+    "bounty": null
+   }
+  },
+  {
    "domain": "productboard.com",
    "tier": "on-file",
    "certs": [
@@ -9664,20 +9735,6 @@
     "subprocessors": null,
     "status": null,
     "bounty": null
-   }
-  },
-  {
-   "domain": "ironcladapp.com",
-   "tier": "on-file",
-   "certs": [],
-   "instruments": {
-    "trust": "https://security.ironcladapp.com",
-    "security": "https://security.ironcladapp.com",
-    "privacy": "https://ironcladapp.com/privacy",
-    "dpa": "https://ironcladapp.com/dpa",
-    "subprocessors": "https://ironcladapp.com/subprocessors",
-    "status": "https://status.ironcladapp.com",
-    "bounty": "https://ironcladapp.com/bug-bounty"
    }
   },
   {
@@ -11638,20 +11695,6 @@
    }
   },
   {
-   "domain": "posthog.com",
-   "tier": "on-file",
-   "certs": [],
-   "instruments": {
-    "trust": "https://trust.posthog.com",
-    "security": null,
-    "privacy": "https://posthog.com/privacy",
-    "dpa": "https://posthog.com/dpa",
-    "subprocessors": "https://posthog.com/subprocessors",
-    "status": null,
-    "bounty": "https://posthog.com/.well-known/security.txt"
-   }
-  },
-  {
    "domain": "rudderstack.com",
    "tier": "on-file",
    "certs": [
@@ -12253,20 +12296,6 @@
    }
   },
   {
-   "domain": "decagon.ai",
-   "tier": "on-file",
-   "certs": [],
-   "instruments": {
-    "trust": "https://trust.decagon.ai",
-    "security": "https://decagon.ai/security",
-    "privacy": "https://decagon.ai/legal/privacy",
-    "dpa": null,
-    "subprocessors": "https://trust.decagon.ai/subprocessors",
-    "status": "https://status.decagon.ai",
-    "bounty": "https://decagon.ai/.well-known/security.txt"
-   }
-  },
-  {
    "domain": "exa.ai",
    "tier": "on-file",
    "certs": [],
@@ -12439,6 +12468,24 @@
     "subprocessors": null,
     "status": "https://status.smallest.ai",
     "bounty": "https://smallest.ai/.well-known/security.txt"
+   }
+  },
+  {
+   "domain": "supabase.com",
+   "tier": "on-file",
+   "certs": [
+    "HIPAA",
+    "ISO 27001",
+    "SOC 2 Type II"
+   ],
+   "instruments": {
+    "trust": null,
+    "security": "https://supabase.com/security",
+    "privacy": null,
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
    }
   },
   {
@@ -13080,6 +13127,23 @@
     "status": null,
     "bounty": null,
     "ai": "https://www.heygen.com/trust-and-safety"
+   }
+  },
+  {
+   "domain": "modal.com",
+   "tier": "on-file",
+   "certs": [
+    "HIPAA",
+    "SOC 2 Type II"
+   ],
+   "instruments": {
+    "trust": null,
+    "security": "https://modal.com/docs/guide/security",
+    "privacy": null,
+    "dpa": "https://modal.com/legal/dpa",
+    "subprocessors": null,
+    "status": null,
+    "bounty": null
    }
   },
   {
@@ -13860,6 +13924,23 @@
    }
   },
   {
+   "domain": "vapi.ai",
+   "tier": "on-file",
+   "certs": [
+    "HIPAA",
+    "SOC 2"
+   ],
+   "instruments": {
+    "trust": "https://security.vapi.ai",
+    "security": "https://security.vapi.ai",
+    "privacy": "https://vapi.ai/privacy",
+    "dpa": null,
+    "subprocessors": null,
+    "status": "https://status.vapi.ai",
+    "bounty": null
+   }
+  },
+  {
    "domain": "inmobi.com",
    "tier": "on-file",
    "certs": [
@@ -14613,20 +14694,6 @@
    }
   },
   {
-   "domain": "pinecone.io",
-   "tier": "on-file",
-   "certs": [],
-   "instruments": {
-    "trust": "https://trust.pinecone.io",
-    "security": "https://security.pinecone.io/",
-    "privacy": "https://www.pinecone.io/privacy/",
-    "dpa": "https://www.pinecone.io/legal/data-processing-addendum/",
-    "subprocessors": null,
-    "status": "https://status.pinecone.io",
-    "bounty": null
-   }
-  },
-  {
    "domain": "ppro.com",
    "tier": "on-file",
    "certs": [],
@@ -14707,6 +14774,23 @@
     "dpa": null,
     "subprocessors": "https://trust.sms-magic.com/subprocessors/",
     "status": "https://status.sms-magic.com",
+    "bounty": null
+   }
+  },
+  {
+   "domain": "sourcegraph.com",
+   "tier": "on-file",
+   "certs": [
+    "ISO 27001",
+    "SOC 2 Type II"
+   ],
+   "instruments": {
+    "trust": null,
+    "security": "https://sourcegraph.com/security",
+    "privacy": null,
+    "dpa": null,
+    "subprocessors": null,
+    "status": null,
     "bounty": null
    }
   },
@@ -15090,23 +15174,6 @@
     "privacy": null,
     "dpa": null,
     "subprocessors": "https://getkoala.com/legal/subprocessors",
-    "status": null,
-    "bounty": null
-   }
-  },
-  {
-   "domain": "modal.com",
-   "tier": "thin",
-   "certs": [
-    "HIPAA",
-    "SOC 2"
-   ],
-   "instruments": {
-    "trust": null,
-    "security": "https://modal.com/docs/guide/security",
-    "privacy": null,
-    "dpa": "https://modal.com/legal/dpa",
-    "subprocessors": null,
     "status": null,
     "bounty": null
    }
@@ -16690,20 +16757,6 @@
     "subprocessors": null,
     "status": null,
     "bounty": "https://drata.com/vulnerability-disclosure"
-   }
-  },
-  {
-   "domain": "vapi.ai",
-   "tier": "thin",
-   "certs": [],
-   "instruments": {
-    "trust": "https://security.vapi.ai",
-    "security": "https://security.vapi.ai",
-    "privacy": "https://vapi.ai/privacy",
-    "dpa": null,
-    "subprocessors": null,
-    "status": "https://status.vapi.ai",
-    "bounty": null
    }
   },
   {
