@@ -5125,6 +5125,13 @@ def main() -> int:
     check("Official page · not on file" in hudson_html, "hudson-printing-company Official page stays open")
     check("https://www.hudsonprinting.com/" in hudson_html, "hudson-printing-company dossier cites the homepage")
 
+    # This cut: SecurityPal first-party DPA at /dpa. Completeness DPA prints.
+    check(instrument_url(by_pub["securitypal"], "dpa") == "https://www.securitypalhq.com/dpa", "securitypal DPA is securitypalhq.com/dpa")
+    check((by_enr["securitypal"].get("links") or {}).get("dpa") == "https://www.securitypalhq.com/dpa", "securitypal enriched DPA stays")
+    check((by_pub["securitypal"].get("file") or {}).get("dpa") == 20, "securitypal DPA prints")
+    sp_html_dpa = (ROOT / "site" / "c" / "securitypal.html").read_text(encoding="utf-8")
+    check("https://www.securitypalhq.com/dpa" in sp_html_dpa, "securitypal dossier cites the DPA")
+
     print(
         f"ok increment-dpa upper-quadrant-queue {len(expected_batch)} walked; "
         f"{len(report.get('dpa_filed') or [])} dpa {len(report.get('subprocessors_filed') or [])} lists"

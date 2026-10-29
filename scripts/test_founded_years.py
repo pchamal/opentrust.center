@@ -827,8 +827,37 @@ def test_swan_year_landed() -> None:
     check("https://www.getswan.com/" in html, "Swan dossier cites foundingDate source")
 
 
+def test_securitypal_year_landed() -> None:
+    """This cut filed SecurityPal 2020 from the company page meta description."""
+    import json
+    public = json.loads((ROOT / "site" / "data.json").read_text())
+    enr = json.loads((ROOT / "site" / "data" / "enriched.json").read_text())
+    by_pub = {c["slug"]: c for c in public["companies"]}
+    by_enr = {c["slug"]: c for c in enr["companies"]}
+    pub, row = by_pub["securitypal"], by_enr["securitypal"]
+    check(pub.get("founded_year") == 2020, "SecurityPal public year 2020")
+    check(row.get("founded_year") == 2020, "SecurityPal enriched year 2020")
+    check(
+        pub.get("founded_source") == "https://www.securitypalhq.com/company",
+        "SecurityPal year source is the company page",
+    )
+    check((pub.get("file") or {}).get("years") in (True, 20), "SecurityPal years rule prints")
+    html = (ROOT / "site" / "c" / "securitypal.html").read_text(encoding="utf-8")
+    check("founded · 2020" in html, "SecurityPal dossier prints 2020")
+    check("https://www.securitypalhq.com/company" in html, "SecurityPal dossier cites the company page")
+    check(
+        parse_official_founded_year(
+            "Founded in 2020 by Pukar C. Hamal, SecurityPal helps enterprises earn trust faster",
+            "SecurityPal",
+        )
+        == 2020,
+        "SecurityPal Founded in 2020 parses",
+    )
+
+
 def main() -> int:
     test_prefix_is_not_a_match()
+    test_securitypal_year_landed()
     test_official_site_only()
     test_parse_founded_sentence()
     test_apply_rejects_wiki_and_keeps_existing()
