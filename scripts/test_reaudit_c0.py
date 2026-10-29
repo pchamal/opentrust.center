@@ -460,22 +460,72 @@ def test_live_ledger_when_present() -> None:
     check(not set(batch_1027_pm) & set(batch_1026), "2026-10-27 afternoon cut must be never-reaudited vs 24slides–airpair")
     check(not set(batch_1027_pm) & set(batch_1027_am), "2026-10-27 afternoon cut must be never-reaudited vs advacam–alchemy-cms")
 
-    check(len(batch) == 30, f"2026-10-28 batch is 30, got {len(batch)}")
-    check(batch[0] == "a1-hrvatska" and batch[-1] == "altacast", "2026-10-28 batch is the a1-hrvatska–altacast cut")
-    check(summary.get("batch") == 30, "2026-10-28 summary.batch is 30")
-    check(summary.get("fileable") == 2, f"2026-10-28 clerk fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 7, f"2026-10-28 soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 28, f"2026-10-28 still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 2, f"2026-10-28 clerk fills, got {summary.get('filled')}")
-    october = [slug for slug, rec in entries.items() if str(rec.get("date") or "").startswith("2026-10-")]
-    check(len(october) == 210, f"10/22 through 10/28 cuts stay in the ledger, got {len(october)}")
+    batch_1028 = [
+        "a1-hrvatska",
+        "africell-uganda",
+        "airtel-kenya",
+        "airtel-sri-lanka",
+        "akhali-kselebi",
+        "al-yah-satellite-communications",
+        "alfa",
+        "alinean",
+        "alkami",
+        "allbusiness-com",
+        "allegiance",
+        "allego",
+        "allegorithmic",
+        "allegro-development-corporation",
+        "allen-brothers",
+        "allen-institute-for-ai",
+        "allgeier-se",
+        "alliant-energy",
+        "alliantis",
+        "allied-van-lines",
+        "allo",
+        "allot",
+        "allstate",
+        "allstream-inc",
+        "almawave",
+        "alpes-lasers",
+        "alphabet",
+        "alphabet-energy",
+        "alphawest",
+        "altacast",
+    ]
+    check(len(batch_1028) == 30, f"2026-10-28 batch is 30, got {len(batch_1028)}")
     check(
-        all((entries.get(slug) or {}).get("date") == "2026-10-28" for slug in batch),
+        batch_1028[0] == "a1-hrvatska" and batch_1028[-1] == "altacast",
+        "2026-10-28 batch is the a1-hrvatska–altacast cut",
+    )
+    check(all(slug in entries for slug in batch_1028), "2026-10-28 rows stay in the ledger")
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-10-28" for slug in batch_1028),
         "2026-10-28 cut is dated 2026-10-28",
     )
-    check(not set(batch) & set(batch_1026), "2026-10-28 cut must be never-reaudited vs 24slides–airpair")
-    check(not set(batch) & set(batch_1027_am), "2026-10-28 cut must be never-reaudited vs advacam–alchemy-cms")
-    check(not set(batch) & set(batch_1027_pm), "2026-10-28 cut must be never-reaudited vs 21vianet–aligned-assets")
+    check(not set(batch_1028) & set(batch_1026), "2026-10-28 cut must be never-reaudited vs 24slides–airpair")
+    check(not set(batch_1028) & set(batch_1027_am), "2026-10-28 cut must be never-reaudited vs advacam–alchemy-cms")
+    check(not set(batch_1028) & set(batch_1027_pm), "2026-10-28 cut must be never-reaudited vs 21vianet–aligned-assets")
+
+    check(len(batch) == 30, f"2026-10-29 batch is 30, got {len(batch)}")
+    check(
+        batch[0] == "altair-engineering" and batch[-1] == "american-sammy",
+        "2026-10-29 batch is the altair-engineering–american-sammy cut",
+    )
+    check(summary.get("batch") == 30, "2026-10-29 summary.batch is 30")
+    check(summary.get("fileable") == 2, f"2026-10-29 clerk fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 7, f"2026-10-29 soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 28, f"2026-10-29 still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 2, f"2026-10-29 clerk fills, got {summary.get('filled')}")
+    october = [slug for slug, rec in entries.items() if str(rec.get("date") or "").startswith("2026-10-")]
+    check(len(october) == 240, f"10/22 through 10/29 cuts stay in the ledger, got {len(october)}")
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-10-29" for slug in batch),
+        "2026-10-29 cut is dated 2026-10-29",
+    )
+    check(not set(batch) & set(batch_1026), "2026-10-29 cut must be never-reaudited vs 24slides–airpair")
+    check(not set(batch) & set(batch_1027_am), "2026-10-29 cut must be never-reaudited vs advacam–alchemy-cms")
+    check(not set(batch) & set(batch_1027_pm), "2026-10-29 cut must be never-reaudited vs 21vianet–aligned-assets")
+    check(not set(batch) & set(batch_1028), "2026-10-29 cut must be never-reaudited vs a1-hrvatska–altacast")
 
     ableton = entries.get("ableton") or {}
     check(ableton.get("filed") is True, "ableton ledger row records the apply")
@@ -756,6 +806,68 @@ def test_live_ledger_when_present() -> None:
     allego = entries.get("allego") or {}
     check(allego.get("soft_retry") is True, "allego /trust/ stays a Cloudflare soft-retry")
 
+    shipped_1029 = {
+        "ambu": {"years"},
+        "american-express": {"years"},
+    }
+    for slug, keys in shipped_1029.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-10-29", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+        check(row.get("fileable") is True, f"{slug} stays fileable")
+    check((entries.get("ambu") or {}).get("hit", {}).get("years", {}).get("year") == 1937, "ambu year in ledger")
+    check(
+        (entries.get("ambu") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://www.ambu.com/about/our-history",
+        "ambu year source in ledger",
+    )
+    check(
+        (entries.get("ambu") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "That man was engineer Holger Hesse, who founded Ambu in 1937.",
+        "ambu year quote is the history sentence",
+    )
+    check(
+        (entries.get("american-express") or {}).get("hit", {}).get("years", {}).get("year") == 1850,
+        "american-express year in ledger",
+    )
+    check(
+        (entries.get("american-express") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://ir.americanexpress.com/investor-relations/default.aspx",
+        "american-express year source in ledger",
+    )
+    check(
+        (entries.get("american-express") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "Founded in 1850 and headquartered in New York, American Express has a heritage built on service and sustained by innovation.",
+        "american-express year quote is the investor-relations sentence",
+    )
+    check(
+        not (entries.get("american-express") or {}).get("hit", {}).get("page"),
+        "american-express consumer security center stays unfiled",
+    )
+    check(
+        (entries.get("american-express") or {}).get("soft_retry") is True,
+        "american-express shell stays a soft-retry",
+    )
+    refused_1029 = {
+        "altice": "site maintenance placeholder",
+        "alvion": "empty body",
+        "altinity": "SIEM product page",
+        "amco-burglar-alarm-company": "product page",
+        "alterg": "our-story now Cloudflare 403",
+        "altova": "healthcare-compliance page and HIPAA mark are product marketing, not an attestation; DPA re-fetch did not return 200",
+    }
+    for slug, reason in refused_1029.items():
+        row = entries.get(slug) or {}
+        check(row.get("date") == "2026-10-29", f"{slug} reaudited 2026-10-29")
+        check(row.get("filed") is False, f"{slug} was not filed")
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+    alterg = entries.get("alterg") or {}
+    check(alterg.get("soft_retry") is True, "alterg our-story stays a Cloudflare soft-retry")
+
     public = json.loads((ROOT / "site" / "data.json").read_text())
     by_pub = {row.get("slug"): row for row in public.get("companies") or [] if row.get("slug")}
 
@@ -1020,6 +1132,44 @@ def test_live_ledger_when_present() -> None:
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
         check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
         check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+
+    pub_ambu = by_pub["ambu"]
+    check(pub_ambu.get("founded_year") == 1937, "ambu year is first-party history")
+    check(pub_ambu.get("founded_source") == "https://www.ambu.com/about/our-history", "ambu year source")
+    check((pub_ambu.get("file") or {}).get("years") == 20, "ambu years print")
+    check(completeness(pub_ambu) == 20, f"ambu Completeness {completeness(pub_ambu)}")
+    check(pub_ambu.get("found") is False, "ambu Official page stays open")
+    check(not pub_ambu.get("trust_url"), "ambu Official page stays open")
+    check(not (pub_ambu.get("certs") or []), "ambu marks stay open")
+
+    pub_amex = by_pub["american-express"]
+    check(pub_amex.get("founded_year") == 1850, "american-express year is first-party investor relations")
+    check(
+        pub_amex.get("founded_source") == "https://ir.americanexpress.com/investor-relations/default.aspx",
+        "american-express year source",
+    )
+    check((pub_amex.get("file") or {}).get("years") == 20, "american-express years print")
+    check(completeness(pub_amex) == 20, f"american-express Completeness {completeness(pub_amex)}")
+    check(pub_amex.get("found") is False, "american-express Official page stays open")
+    check(not pub_amex.get("trust_url"), "american-express consumer security center is not Official page")
+    check(not (pub_amex.get("certs") or []), "american-express marks stay open")
+    check(not ((pub_amex.get("instruments") or {}).get("dpa") or {}).get("url"), "american-express DPA stays open")
+
+    for slug in (
+        "altair-engineering",
+        "alterg",
+        "altice",
+        "altinity",
+        "altova",
+        "alvion",
+        "amco-burglar-alarm-company",
+        "american-sammy",
+    ):
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
 
     for slug, rec in entries.items():
         check(rec.get("domain"), f"{slug} ledger row is missing a domain")
