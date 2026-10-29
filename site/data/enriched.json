@@ -31004,10 +31004,14 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1980,
+      "founded_source": "https://www.amgen.com/about/amgen-history"
     },
     {
       "rank": 798,
@@ -45890,9 +45894,9 @@
       "name": "Ancestry.com",
       "slug": "ancestry-com",
       "domain": "ancestry.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.ancestry.com/c/legal/security",
+      "final_url": "https://www.ancestry.com/c/legal/security",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
@@ -45900,12 +45904,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-us",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.ancestry.com/c/legal/security"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {

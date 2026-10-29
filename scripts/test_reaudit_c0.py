@@ -506,26 +506,88 @@ def test_live_ledger_when_present() -> None:
     check(not set(batch_1028) & set(batch_1027_am), "2026-10-28 cut must be never-reaudited vs advacam–alchemy-cms")
     check(not set(batch_1028) & set(batch_1027_pm), "2026-10-28 cut must be never-reaudited vs 21vianet–aligned-assets")
 
-    check(len(batch) == 30, f"2026-10-29 batch is 30, got {len(batch)}")
+    batch_1029_am = [
+        "altair-engineering",
+        "alterface",
+        "alterg",
+        "altergeo",
+        "altexchange",
+        "althio",
+        "altice",
+        "altice-portugal",
+        "alticom",
+        "altinity",
+        "altor-networks",
+        "altoros",
+        "altos-design-automation",
+        "altova",
+        "altria",
+        "altspacevr",
+        "alvaria",
+        "alvarion",
+        "alvion",
+        "amalto",
+        "amazon-lab126",
+        "ambu",
+        "amco-burglar-alarm-company",
+        "amebis",
+        "ameren",
+        "american-airlines-group",
+        "american-book-company",
+        "american-electric-power",
+        "american-express",
+        "american-sammy",
+    ]
+    check(len(batch_1029_am) == 30, f"2026-10-29 morning batch is 30, got {len(batch_1029_am)}")
     check(
-        batch[0] == "altair-engineering" and batch[-1] == "american-sammy",
-        "2026-10-29 batch is the altair-engineering–american-sammy cut",
+        batch_1029_am[0] == "altair-engineering" and batch_1029_am[-1] == "american-sammy",
+        "2026-10-29 morning batch is the altair-engineering–american-sammy cut",
     )
-    check(summary.get("batch") == 30, "2026-10-29 summary.batch is 30")
-    check(summary.get("fileable") == 2, f"2026-10-29 clerk fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 7, f"2026-10-29 soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 28, f"2026-10-29 still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 2, f"2026-10-29 clerk fills, got {summary.get('filled')}")
+    check(all(slug in entries for slug in batch_1029_am), "2026-10-29 morning rows stay in the ledger")
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-10-29" for slug in batch_1029_am),
+        "2026-10-29 morning cut is dated 2026-10-29",
+    )
+    check(not set(batch_1029_am) & set(batch_1026), "2026-10-29 morning cut must be never-reaudited vs 24slides–airpair")
+    check(not set(batch_1029_am) & set(batch_1027_am), "2026-10-29 morning cut must be never-reaudited vs advacam–alchemy-cms")
+    check(not set(batch_1029_am) & set(batch_1027_pm), "2026-10-29 morning cut must be never-reaudited vs 21vianet–aligned-assets")
+    check(not set(batch_1029_am) & set(batch_1028), "2026-10-29 morning cut must be never-reaudited vs a1-hrvatska–altacast")
+
+    check(len(batch) == 30, f"2026-10-29 afternoon batch is 30, got {len(batch)}")
+    check(
+        batch[0] == "american-tower" and batch[-1] == "andor-technology",
+        "2026-10-29 afternoon batch is the american-tower–andor-technology cut",
+    )
+    check("amgen" in batch and "andor-technology" in batch, "afternoon cut covers amgen..andor-technology")
+    check(summary.get("batch") == 30, "2026-10-29 afternoon summary.batch is 30")
+    check(summary.get("fileable") == 2, f"2026-10-29 afternoon clerk fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 13, f"2026-10-29 afternoon soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 28, f"2026-10-29 afternoon still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 2, f"2026-10-29 afternoon clerk fills, got {summary.get('filled')}")
     october = [slug for slug, rec in entries.items() if str(rec.get("date") or "").startswith("2026-10-")]
-    check(len(october) == 240, f"10/22 through 10/29 cuts stay in the ledger, got {len(october)}")
+    check(len(october) == 270, f"10/22 through 10/29 afternoon cuts stay in the ledger, got {len(october)}")
     check(
         all((entries.get(slug) or {}).get("date") == "2026-10-29" for slug in batch),
-        "2026-10-29 cut is dated 2026-10-29",
+        "2026-10-29 afternoon cut is dated 2026-10-29",
     )
-    check(not set(batch) & set(batch_1026), "2026-10-29 cut must be never-reaudited vs 24slides–airpair")
-    check(not set(batch) & set(batch_1027_am), "2026-10-29 cut must be never-reaudited vs advacam–alchemy-cms")
-    check(not set(batch) & set(batch_1027_pm), "2026-10-29 cut must be never-reaudited vs 21vianet–aligned-assets")
-    check(not set(batch) & set(batch_1028), "2026-10-29 cut must be never-reaudited vs a1-hrvatska–altacast")
+    check(not set(batch) & set(batch_1026), "2026-10-29 afternoon cut must be never-reaudited vs 24slides–airpair")
+    check(not set(batch) & set(batch_1027_am), "2026-10-29 afternoon cut must be never-reaudited vs advacam–alchemy-cms")
+    check(not set(batch) & set(batch_1027_pm), "2026-10-29 afternoon cut must be never-reaudited vs 21vianet–aligned-assets")
+    check(not set(batch) & set(batch_1028), "2026-10-29 afternoon cut must be never-reaudited vs a1-hrvatska–altacast")
+    check(not set(batch) & set(batch_1029_am), "2026-10-29 afternoon cut must be never-reaudited vs altair-engineering–american-sammy")
+    soft_classes = {"http-403", "js-shell", "cloudflare"}
+    for slug in batch:
+        row = entries.get(slug) or {}
+        if row.get("soft_retry"):
+            probed_classes = {item.get("class") for item in (row.get("probed") or [])}
+            check(bool(probed_classes & soft_classes), f"{slug} soft-retry is marked")
+        if slug in {"amgen", "ancestry-com"}:
+            check(row.get("filed") is True, f"{slug} ledger row records the apply")
+            continue
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
 
     ableton = entries.get("ableton") or {}
     check(ableton.get("filed") is True, "ableton ledger row records the apply")
@@ -868,6 +930,65 @@ def test_live_ledger_when_present() -> None:
     alterg = entries.get("alterg") or {}
     check(alterg.get("soft_retry") is True, "alterg our-story stays a Cloudflare soft-retry")
 
+    shipped_1029_pm = {
+        "amgen": {"years"},
+        "ancestry-com": {"page"},
+    }
+    for slug, keys in shipped_1029_pm.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-10-29", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+        check(row.get("fileable") is True, f"{slug} stays fileable")
+    check((entries.get("amgen") or {}).get("hit", {}).get("years", {}).get("year") == 1980, "amgen year in ledger")
+    check(
+        (entries.get("amgen") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://www.amgen.com/about/amgen-history",
+        "amgen year source in ledger",
+    )
+    check(
+        (entries.get("amgen") or {}).get("hit", {}).get("years", {}).get("quote")
+        == ") is established in Thousand Oaks, California, on April 8, 1980, as the brainchild of venture capitalists William K.",
+        "amgen year quote is the history sentence",
+    )
+    check(
+        "established in Thousand Oaks, California, on April 8, 1980"
+        in ((entries.get("amgen") or {}).get("hit", {}).get("years", {}).get("quote") or ""),
+        "amgen quote names the April 8, 1980 establishment",
+    )
+    check(not (entries.get("amgen") or {}).get("hit", {}).get("page"), "amgen Official page stays unfiled")
+    check(
+        (entries.get("ancestry-com") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://www.ancestry.com/c/legal/security",
+        "ancestry security page in ledger",
+    )
+    check(
+        (entries.get("ancestry-com") or {}).get("hit", {}).get("page", {}).get("kind") == "security",
+        "ancestry page kind is security",
+    )
+    check(
+        (entries.get("ancestry-com") or {}).get("soft_retry") is True,
+        "ancestry shell stays a soft-retry",
+    )
+    check(not (entries.get("ancestry-com") or {}).get("hit", {}).get("marks"), "ancestry marks stay unfiled")
+    check(not (entries.get("ancestry-com") or {}).get("hit", {}).get("years"), "ancestry year stays unfiled")
+    refused_1029_pm = {
+        "am-rica-m-vil": "overview page is not a security page",
+        "amkette": "about-us founding year left unfiled; not in this cut's vetted holds",
+        "anacomp": "HIPAA on the zero-trust product page is a product marketing claim, not an attestation",
+    }
+    for slug, reason in refused_1029_pm.items():
+        row = entries.get(slug) or {}
+        check(row.get("date") == "2026-10-29", f"{slug} reaudited 2026-10-29")
+        check(row.get("filed") is False, f"{slug} was not filed")
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+    check((entries.get("am-rica-m-vil") or {}).get("soft_retry") is True, "am-rica-m-vil stays a soft-retry")
+    check((entries.get("anacomp") or {}).get("soft_retry") is True, "anacomp oembed shell stays a soft-retry")
+    check((entries.get("amkette") or {}).get("soft_retry") is not True, "amkette about page was readable")
+
     public = json.loads((ROOT / "site" / "data.json").read_text())
     by_pub = {row.get("slug"): row for row in public.get("companies") or [] if row.get("slug")}
 
@@ -1165,6 +1286,36 @@ def test_live_ledger_when_present() -> None:
         "amco-burglar-alarm-company",
         "american-sammy",
     ):
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
+
+    pub_amgen = by_pub["amgen"]
+    check(pub_amgen.get("founded_year") == 1980, "amgen year is first-party history")
+    check(pub_amgen.get("founded_source") == "https://www.amgen.com/about/amgen-history", "amgen year source")
+    check((pub_amgen.get("file") or {}).get("years") == 20, "amgen years print")
+    check(completeness(pub_amgen) == 20, f"amgen Completeness {completeness(pub_amgen)}")
+    check(pub_amgen.get("found") is False, "amgen Official page stays open")
+    check(not pub_amgen.get("trust_url"), "amgen Official page stays open")
+    check(not (pub_amgen.get("certs") or []), "amgen marks stay open")
+
+    pub_anc = by_pub["ancestry-com"]
+    check(pub_anc.get("found") is True, "ancestry Official page is on file")
+    check(
+        pub_anc.get("trust_url") == "https://www.ancestry.com/c/legal/security",
+        "ancestry Official page is the first-party security page",
+    )
+    check((pub_anc.get("file") or {}).get("page") == 20, "ancestry Official page prints")
+    check(not (pub_anc.get("certs") or []), "ancestry marks stay open")
+    check(completeness(pub_anc) == 30, f"ancestry Completeness {completeness(pub_anc)}")
+    check(not pub_anc.get("founded_year"), "ancestry year stays open")
+    check(not ((pub_anc.get("instruments") or {}).get("dpa") or {}).get("url"), "ancestry DPA stays open")
+
+    for slug in batch:
+        if slug in {"amgen", "ancestry-com"}:
+            continue
         check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
         check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
