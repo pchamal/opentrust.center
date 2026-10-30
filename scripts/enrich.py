@@ -999,6 +999,49 @@ DOMAIN_ALIASES = {
     "payu.pl": ["poland.payu.com"],
 }
 
+# Opt-in exact hosts. A company may own more than its register domain.
+# The match is the host itself, not every subdomain of a trust platform.
+# securitypal.com stays a portal vendor for every other company, and a
+# customer portal such as plaid.securitypal.com stays third-party even for
+# SecurityPal. Whether branded customer portals may be cited is an owner
+# decision. This table does not make that decision.
+OPT_IN_FIRST_PARTY_HOSTS = {
+    "securitypal": (
+        "securitypalhq.com",
+        "securitypal.com",
+        "trust.securitypal.com",
+    ),
+    "securitypalhq.com": (
+        "securitypalhq.com",
+        "securitypal.com",
+        "trust.securitypal.com",
+    ),
+}
+
+
+def opt_in_first_party_hosts(company: dict | None) -> set[str]:
+    """Exact first-party hosts declared for this company. Empty when none are."""
+    if not company:
+        return set()
+    keys = []
+    slug = (company.get("slug") or "").strip().lower()
+    if slug:
+        keys.append(slug)
+    for raw in [company.get("domain"), *(company.get("aliases") or [])]:
+        if not raw:
+            continue
+        host = str(raw).lower().strip()
+        host = host.removeprefix("http://").removeprefix("https://").removeprefix("www.")
+        host = host.split("/")[0].split(":")[0]
+        if host:
+            keys.append(host)
+    found = set()
+    for key in keys:
+        for host in OPT_IN_FIRST_PARTY_HOSTS.get(key, ()):
+            found.add(host.lower().removeprefix("www."))
+    return found
+
+
 def hosts_for(company: dict) -> list[str]:
     out, seen = [], set()
     extras = []
@@ -1580,6 +1623,7 @@ def cited_list_skip_reason(url: str, rec: dict, company: dict) -> str | None:
     return None
 
 
+# Superseded by the later definition of the same name. Edit that one.
 def is_first_party_list_url(url: str, final_url: str, company: dict) -> bool:
     """The published page must be first-party.
 
@@ -2374,12 +2418,17 @@ def names_from_labeled_spans(html: str) -> list[str]:
 def is_first_party_list_url(url: str, final_url: str, company: dict) -> bool:
     """The published page must be first-party.
 
+    Effective copy. An earlier definition of this function does not run.
+    Opt-in alias hosts are first-party for that company only.
+
     A first-party path that 302s onto a parent-company list (Statsig→Amplitude,
     Neon→Databricks, Litmus→Validity) is not this company's file.
     """
+    h = host_of(final_url or url)
+    if h and h in opt_in_first_party_hosts(company):
+        return True
     hosts = set(hosts_for(company))
     regs = {registrable(h) for h in hosts}
-    h = host_of(final_url or url)
     if not h:
         return False
     if h in hosts or registrable(h) in regs:
@@ -2405,7 +2454,12 @@ def cited_list_skip_reason(url: str, rec: dict, company: dict) -> str | None:
     if not is_first_party_list_url(url, rec.get("final_url") or url, company):
         return "not-first-party"
     html = rec.get("html") or ""
-    if VENDOR_WORDS.search(title) and not TABLE_RE.search(html):
+    # The company's own opt-in host is not a third-party portal shell just
+    # because the title names that company. Other companies are unchanged.
+    own_alias = host_of(url) in opt_in_first_party_hosts(company) or host_of(
+        rec.get("final_url") or ""
+    ) in opt_in_first_party_hosts(company)
+    if VENDOR_WORDS.search(title) and not TABLE_RE.search(html) and not own_alias:
         if len(text) < 3000 or "manifestPreload" in html or JS_JUNK.search(html[:4000]):
             return "js-portal"
     if "manifestPreload" in html and not TABLE_RE.search(html) and len(text) < 2000:
@@ -3129,6 +3183,10 @@ def is_portal_vendor_host(url: str, company: dict) -> bool:
     h = host_of(url)
     if not h:
         return False
+    # An opted-in host is this company's own site, not a third-party portal.
+    # Hosts that are not listed stay on the portal-vendor rule.
+    if h in opt_in_first_party_hosts(company):
+        return False
     own = {registrable(x) for x in hosts_for(company)}
     if company.get("domain"):
         own.add(registrable(company["domain"]))
@@ -3140,6 +3198,7 @@ def is_portal_vendor_host(url: str, company: dict) -> bool:
     return any(h.endswith("." + v) for v in PORTAL_VENDOR_HOSTS)
 
 
+# Superseded by the later definition of the same name. Edit that one.
 def is_first_party_url(url: str, company: dict | None) -> bool:
     if not company:
         return False
@@ -3268,23 +3327,45 @@ def apply_dpa_to_row(row: dict, url: str) -> bool:
     return True
 
 
+# HREF_RE and A_TAG_RE still drop '#'. This finder keeps anchors.
+_SUB_HREF_RE = re.compile(r"""href\s*=\s*['"]([^'"]+)['"]""", re.I)
+_SUB_A_TAG_RE = re.compile(
+    r"""<a\b[^>]*href\s*=\s*['"]([^'"]+)['"][^>]*>(.*?)</a>""",
+    re.I | re.S,
+)
+
+
 def extract_subprocessor_candidates(html: str, base: str) -> list[str]:
-    """Hrefs that look like a printed subprocessor list. Portal itemUids stay out."""
+    """Hrefs that look like a printed subprocessor list. Portal itemUids stay out.
+
+    In-page anchors are kept. A #subprocessors link on
+    https://trust.securitypal.com/ stays
+    https://trust.securitypal.com/#subprocessors.
+    """
     out, seen = [], set()
 
     def add(u: str) -> None:
-        u = (u or "").split("#")[0].strip()
+        u = (u or "").strip()
         if not u.startswith("http") or u in seen:
             return
-        if ITEM_UID_RE.search(u):
+        bare = u.split("#", 1)[0]
+        if ITEM_UID_RE.search(bare):
             return
         seen.add(u)
         out.append(u)
 
-    for href in extract_hrefs(html, base):
-        if SUB_PATH_RE.search(href):
-            add(href)
-    for m in A_TAG_RE.finditer(html or ""):
+    def consider(raw: str) -> None:
+        raw = (raw or "").strip()
+        if not raw or raw.startswith(("javascript:", "mailto:", "tel:", "data:")):
+            return
+        absu = urljoin(base, raw)
+        parsed = urlparse(absu)
+        if SUB_PATH_RE.search(f"{parsed.path}#{parsed.fragment}"):
+            add(absu)
+
+    for m in _SUB_HREF_RE.finditer(html or ""):
+        consider(m.group(1))
+    for m in _SUB_A_TAG_RE.finditer(html or ""):
         raw, inner = m.group(1).strip(), strip_tags(m.group(2))
         if raw.startswith(("javascript:", "mailto:", "tel:", "data:")):
             continue
@@ -6747,6 +6828,10 @@ def file_published_privacy() -> int:
     return 0
 
 def is_first_party_url(url: str, company: dict) -> bool:
+    # Effective copy. An earlier definition of this function does not run.
+    # Opt-in alias hosts are first-party before the portal-vendor rule.
+    if company and host_of(url) in opt_in_first_party_hosts(company):
+        return True
     if is_portal_vendor_host(url, company):
         return False
     # CMP hosts are third-party for other companies. A CMP vendor's own
