@@ -593,7 +593,7 @@ def test_live_ledger_when_present() -> None:
     check("amgen" in batch_1029_pm and "andor-technology" in batch_1029_pm, "afternoon cut covers amgen..andor-technology")
     check(all(slug in entries for slug in batch_1029_pm), "2026-10-29 afternoon rows stay in the ledger")
     october = [slug for slug, rec in entries.items() if str(rec.get("date") or "").startswith("2026-10-")]
-    check(len(october) == 300, f"10/22 through 10/30 morning cuts stay in the ledger, got {len(october)}")
+    check(len(october) == 330, f"10/22 through 10/30 afternoon cuts stay in the ledger, got {len(october)}")
     check(
         all((entries.get(slug) or {}).get("date") == "2026-10-29" for slug in batch_1029_pm),
         "2026-10-29 afternoon cut is dated 2026-10-29",
@@ -1017,28 +1017,56 @@ def test_live_ledger_when_present() -> None:
     check((entries.get("anacomp") or {}).get("soft_retry") is True, "anacomp oembed shell stays a soft-retry")
     check((entries.get("amkette") or {}).get("soft_retry") is not True, "amkette about page was readable")
 
-    check(len(batch) == 30, f"2026-10-30 morning batch is 30, got {len(batch)}")
+    batch_1030_am = [
+        "anduril-industries",
+        "angel-learning",
+        "angelpad",
+        "angi-homeservices-inc",
+        "angoss",
+        "animoca-brands",
+        "animoto",
+        "animusic",
+        "ankama",
+        "anomali",
+        "anonymizer",
+        "anoto",
+        "anro",
+        "answerconnect",
+        "answerdash",
+        "antec",
+        "antel",
+        "antithesis",
+        "anybots",
+        "anystream",
+        "aoc-international",
+        "aol",
+        "aon-plc",
+        "aopen",
+        "apa-corporation",
+        "apacer",
+        "apadmi-ltd",
+        "apc-by-schneider-electric",
+        "apcera",
+        "apex-learning",
+    ]
+    check(len(batch_1030_am) == 30, f"2026-10-30 morning batch is 30, got {len(batch_1030_am)}")
     check(
-        batch[0] == "anduril-industries" and batch[-1] == "apex-learning",
+        batch_1030_am[0] == "anduril-industries" and batch_1030_am[-1] == "apex-learning",
         "2026-10-30 morning batch is the anduril-industries–apex-learning cut",
     )
-    check("animoca-brands" in batch and "apex-learning" in batch, "morning cut covers animoca-brands..apex-learning")
-    check(summary.get("batch") == 30, "2026-10-30 morning summary.batch is 30")
-    check(summary.get("fileable") == 4, f"2026-10-30 morning clerk fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 4, f"2026-10-30 morning soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 26, f"2026-10-30 morning still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 4, f"2026-10-30 morning clerk fills, got {summary.get('filled')}")
+    check("animoca-brands" in batch_1030_am and "apex-learning" in batch_1030_am, "morning cut covers animoca-brands..apex-learning")
+    check(all(slug in entries for slug in batch_1030_am), "2026-10-30 morning rows stay in the ledger")
     check(
-        all((entries.get(slug) or {}).get("date") == "2026-10-30" for slug in batch),
+        all((entries.get(slug) or {}).get("date") == "2026-10-30" for slug in batch_1030_am),
         "2026-10-30 morning cut is dated 2026-10-30",
     )
-    check(not set(batch) & set(batch_1026), "2026-10-30 morning cut must be never-reaudited vs 24slides–airpair")
-    check(not set(batch) & set(batch_1027_am), "2026-10-30 morning cut must be never-reaudited vs advacam–alchemy-cms")
-    check(not set(batch) & set(batch_1027_pm), "2026-10-30 morning cut must be never-reaudited vs 21vianet–aligned-assets")
-    check(not set(batch) & set(batch_1028), "2026-10-30 morning cut must be never-reaudited vs a1-hrvatska–altacast")
-    check(not set(batch) & set(batch_1029_am), "2026-10-30 morning cut must be never-reaudited vs altair-engineering–american-sammy")
-    check(not set(batch) & set(batch_1029_pm), "2026-10-30 morning cut must be never-reaudited vs american-tower–andor-technology")
-    for slug in batch:
+    check(not set(batch_1030_am) & set(batch_1026), "2026-10-30 morning cut must be never-reaudited vs 24slides–airpair")
+    check(not set(batch_1030_am) & set(batch_1027_am), "2026-10-30 morning cut must be never-reaudited vs advacam–alchemy-cms")
+    check(not set(batch_1030_am) & set(batch_1027_pm), "2026-10-30 morning cut must be never-reaudited vs 21vianet–aligned-assets")
+    check(not set(batch_1030_am) & set(batch_1028), "2026-10-30 morning cut must be never-reaudited vs a1-hrvatska–altacast")
+    check(not set(batch_1030_am) & set(batch_1029_am), "2026-10-30 morning cut must be never-reaudited vs altair-engineering–american-sammy")
+    check(not set(batch_1030_am) & set(batch_1029_pm), "2026-10-30 morning cut must be never-reaudited vs american-tower–andor-technology")
+    for slug in batch_1030_am:
         row = entries.get(slug) or {}
         if row.get("soft_retry"):
             probed_classes = {item.get("class") for item in (row.get("probed") or [])}
@@ -1128,6 +1156,119 @@ def test_live_ledger_when_present() -> None:
     check((entries.get("animoca-brands") or {}).get("soft_retry") is True, "animoca-brands homepage stays a Cloudflare soft-retry")
     check((entries.get("aon-plc") or {}).get("soft_retry") is not True, "aon-plc homepage bounce is a miss")
     check((entries.get("apex-learning") or {}).get("soft_retry") is not True, "apex-learning redirect is a miss")
+
+    check(len(batch) == 30, f"2026-10-30 afternoon batch is 30, got {len(batch)}")
+    check(
+        batch[0] == "apigee" and batch[-1] == "aptilo-networks",
+        "2026-10-30 afternoon batch is the apigee–aptilo-networks cut",
+    )
+    check("apollo-global-management" in batch and "aptilo-networks" in batch, "afternoon cut covers apollo-global-management..aptilo-networks")
+    check(all(slug in entries for slug in batch), "2026-10-30 afternoon rows stay in the ledger")
+    check(summary.get("batch") == 30, "2026-10-30 afternoon summary.batch is 30")
+    check(summary.get("fileable") == 4, f"2026-10-30 afternoon clerk fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 9, f"2026-10-30 afternoon soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 26, f"2026-10-30 afternoon still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 4, f"2026-10-30 afternoon clerk fills, got {summary.get('filled')}")
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-10-30" for slug in batch),
+        "2026-10-30 afternoon cut is dated 2026-10-30",
+    )
+    check(not set(batch) & set(batch_1026), "2026-10-30 afternoon cut must be never-reaudited vs 24slides–airpair")
+    check(not set(batch) & set(batch_1027_am), "2026-10-30 afternoon cut must be never-reaudited vs advacam–alchemy-cms")
+    check(not set(batch) & set(batch_1027_pm), "2026-10-30 afternoon cut must be never-reaudited vs 21vianet–aligned-assets")
+    check(not set(batch) & set(batch_1028), "2026-10-30 afternoon cut must be never-reaudited vs a1-hrvatska–altacast")
+    check(not set(batch) & set(batch_1029_am), "2026-10-30 afternoon cut must be never-reaudited vs altair-engineering–american-sammy")
+    check(not set(batch) & set(batch_1029_pm), "2026-10-30 afternoon cut must be never-reaudited vs american-tower–andor-technology")
+    check(not set(batch) & set(batch_1030_am), "2026-10-30 afternoon cut must be never-reaudited vs anduril-industries–apex-learning")
+    for slug in batch:
+        row = entries.get(slug) or {}
+        if row.get("soft_retry"):
+            probed_classes = {item.get("class") for item in (row.get("probed") or [])}
+            check(bool(probed_classes & soft_classes), f"{slug} soft-retry is marked")
+        if slug in {"apollo-global-management", "appcircle", "applyboard", "apptio"}:
+            check(row.get("filed") is True, f"{slug} ledger row records the apply")
+            continue
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+
+    shipped_1030_pm = {
+        "apollo-global-management": {"years"},
+        "appcircle": {"page"},
+        "applyboard": {"page"},
+        "apptio": {"page"},
+    }
+    for slug, keys in shipped_1030_pm.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-10-30", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+        check(row.get("fileable") is True, f"{slug} stays fileable")
+    check((entries.get("apollo-global-management") or {}).get("hit", {}).get("years", {}).get("year") == 1990, "apollo year in ledger")
+    check(
+        (entries.get("apollo-global-management") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://www.apollo.com/aboutus",
+        "apollo year source in ledger",
+    )
+    check(
+        (entries.get("apollo-global-management") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "Since our founding in 1990, we have believed that adhering to our values is integral to our success.",
+        "apollo year quote is the about sentence",
+    )
+    check(not (entries.get("apollo-global-management") or {}).get("hit", {}).get("page"), "apollo Official page stays unfiled")
+    check(not (entries.get("apollo-global-management") or {}).get("hit", {}).get("marks"), "apollo marks stay unfiled")
+    check(
+        (entries.get("appcircle") or {}).get("hit", {}).get("page", {}).get("url") == "https://appcircle.io/security",
+        "appcircle security page in ledger",
+    )
+    check(
+        (entries.get("appcircle") or {}).get("hit", {}).get("page", {}).get("kind") == "security",
+        "appcircle page kind is security",
+    )
+    check(not (entries.get("appcircle") or {}).get("hit", {}).get("marks"), "appcircle marks stay unfiled")
+    check(not (entries.get("appcircle") or {}).get("hit", {}).get("years"), "appcircle year stays unfiled")
+    check(
+        (entries.get("applyboard") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://www.applyboard.com/security",
+        "applyboard security page in ledger",
+    )
+    check(
+        (entries.get("applyboard") or {}).get("hit", {}).get("page", {}).get("kind") == "security",
+        "applyboard page kind is security",
+    )
+    check(not (entries.get("applyboard") or {}).get("hit", {}).get("marks"), "applyboard SOC 2 stays unfiled")
+    check(not (entries.get("applyboard") or {}).get("hit", {}).get("years"), "applyboard year stays unfiled")
+    check((entries.get("applyboard") or {}).get("soft_retry") is True, "applyboard shell paths stay a soft-retry")
+    check(
+        (entries.get("apptio") or {}).get("hit", {}).get("page", {}).get("url") == "https://www.apptio.com/company/trust/",
+        "apptio trust page in ledger",
+    )
+    check(
+        (entries.get("apptio") or {}).get("hit", {}).get("page", {}).get("kind") == "trust",
+        "apptio page kind is trust",
+    )
+    check(not (entries.get("apptio") or {}).get("hit", {}).get("marks"), "apptio marks stay unfiled")
+    check(not (entries.get("apptio") or {}).get("hit", {}).get("years"), "apptio year stays unfiled")
+    refused_1030_pm = {
+        "applovin": "every path bounces to the homepage https://applovin.com/en",
+        "appota-corporation": (
+            '/trust is a ~5 KB SPA shell titled "Appota - Entertainment Ecosystem"; '
+            "every path returns 200, catch-all"
+        ),
+        "aprimo": "/dpa timed out, site returns 500 on most paths; soft-retry",
+    }
+    for slug, reason in refused_1030_pm.items():
+        row = entries.get(slug) or {}
+        check(row.get("date") == "2026-10-30", f"{slug} reaudited 2026-10-30")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+    check((entries.get("applovin") or {}).get("soft_retry") is not True, "applovin homepage bounce is a miss")
+    check((entries.get("appota-corporation") or {}).get("soft_retry") is not True, "appota catch-all shell is not a fetch soft-retry")
+    check((entries.get("aprimo") or {}).get("soft_retry") is True, "aprimo stays a soft-retry")
 
     public = json.loads((ROOT / "site" / "data.json").read_text())
     by_pub = {row.get("slug"): row for row in public.get("companies") or [] if row.get("slug")}
@@ -1516,8 +1657,72 @@ def test_live_ledger_when_present() -> None:
         check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
         check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
 
-    for slug in batch:
+    for slug in batch_1030_am:
         if slug in shipped_1030:
+            continue
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
+
+    pub_apollo = by_pub["apollo-global-management"]
+    check(pub_apollo.get("founded_year") == 1990, "apollo year is first-party about")
+    check(pub_apollo.get("founded_source") == "https://www.apollo.com/aboutus", "apollo year source")
+    check((pub_apollo.get("file") or {}).get("years") == 20, "apollo years print")
+    check(completeness(pub_apollo) == 20, f"apollo Completeness {completeness(pub_apollo)}")
+    check(pub_apollo.get("found") is False, "apollo Official page stays open")
+    check(not pub_apollo.get("trust_url"), "apollo Official page stays open")
+    check(not (pub_apollo.get("certs") or []), "apollo marks stay open")
+
+    pub_circle = by_pub["appcircle"]
+    check(pub_circle.get("found") is True, "appcircle Official page is on file")
+    check(
+        pub_circle.get("trust_url") == "https://appcircle.io/security",
+        "appcircle Official page is the first-party security page",
+    )
+    check((pub_circle.get("file") or {}).get("page") == 20, "appcircle Official page prints")
+    check((pub_circle.get("file") or {}).get("marks") == 10, "appcircle page-without-marks partial prints")
+    check(not (pub_circle.get("certs") or []), "appcircle marks stay open")
+    check(completeness(pub_circle) == 30, f"appcircle Completeness {completeness(pub_circle)}")
+    check(not pub_circle.get("founded_year"), "appcircle year stays open")
+    check(not ((pub_circle.get("instruments") or {}).get("dpa") or {}).get("url"), "appcircle DPA stays open")
+
+    pub_apply = by_pub["applyboard"]
+    check(pub_apply.get("found") is True, "applyboard Official page is on file")
+    check(
+        pub_apply.get("trust_url") == "https://www.applyboard.com/security",
+        "applyboard Official page is the first-party security page",
+    )
+    check((pub_apply.get("file") or {}).get("page") == 20, "applyboard Official page prints")
+    check((pub_apply.get("file") or {}).get("marks") == 10, "applyboard page-without-marks partial prints")
+    check(not (pub_apply.get("certs") or []), "applyboard has not pursued SOC 2; marks stay open")
+    check(completeness(pub_apply) == 30, f"applyboard Completeness {completeness(pub_apply)}")
+    check(not pub_apply.get("founded_year"), "applyboard year stays open")
+    check(not ((pub_apply.get("instruments") or {}).get("dpa") or {}).get("url"), "applyboard DPA stays open")
+
+    pub_apptio = by_pub["apptio"]
+    check(pub_apptio.get("found") is True, "apptio Official page is on file")
+    check(
+        pub_apptio.get("trust_url") == "https://www.apptio.com/company/trust/",
+        "apptio Official page is the first-party trust page",
+    )
+    check((pub_apptio.get("file") or {}).get("page") == 20, "apptio Official page prints")
+    check((pub_apptio.get("file") or {}).get("marks") == 10, "apptio page-without-marks partial prints")
+    check(not (pub_apptio.get("certs") or []), "apptio marks stay open")
+    check(completeness(pub_apptio) == 30, f"apptio Completeness {completeness(pub_apptio)}")
+    check(not pub_apptio.get("founded_year"), "apptio year stays open")
+    check(not ((pub_apptio.get("instruments") or {}).get("dpa") or {}).get("url"), "apptio DPA stays open")
+
+    for slug in ("applovin", "appota-corporation", "aprimo"):
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
+
+    for slug in batch:
+        if slug in shipped_1030_pm:
             continue
         check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
