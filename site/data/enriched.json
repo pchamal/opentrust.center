@@ -42280,24 +42280,28 @@
       "name": "Antithesis",
       "slug": "antithesis",
       "domain": "antithesis.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://antithesis.com/security/manifesto/",
+      "final_url": "https://antithesis.com/security/manifesto/",
       "vendor": "unknown",
       "title": "",
       "probed": 0,
       "source": "https://www.cbinsights.com/research/report/artificial-intelligence-top-startups-2026/",
       "source_url": "https://www.cbinsights.com/research/report/artificial-intelligence-top-startups-2026/",
       "official_url": "https://antithesis.com/",
-      "summary": "",
+      "summary": "Official page on file.",
       "list": "cb-insights-ai-100-2026",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://antithesis.com/security/manifesto/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       },
       "aiti_lists": [
         "cb-insights-ai-100-2026"
@@ -55824,9 +55828,9 @@
       "name": "Anomali",
       "slug": "anomali",
       "domain": "anomali.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.anomali.com/security",
+      "final_url": "https://www.anomali.com/security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -55834,12 +55838,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-computer-security-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.anomali.com/security"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -146471,10 +146479,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1986,
+      "founded_source": "https://antec.com/aboutus"
     },
     {
       "rank": 5223,
@@ -166058,13 +166070,18 @@
       "official_url": "https://anro.com/",
       "summary": "",
       "list": "named-processor-gap",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II",
+        "PCI DSS"
+      ],
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 18,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "marks": 18
+        }
       }
     },
     {

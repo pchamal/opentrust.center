@@ -553,30 +553,58 @@ def test_live_ledger_when_present() -> None:
     check(not set(batch_1029_am) & set(batch_1027_pm), "2026-10-29 morning cut must be never-reaudited vs 21vianet–aligned-assets")
     check(not set(batch_1029_am) & set(batch_1028), "2026-10-29 morning cut must be never-reaudited vs a1-hrvatska–altacast")
 
-    check(len(batch) == 30, f"2026-10-29 afternoon batch is 30, got {len(batch)}")
+    batch_1029_pm = [
+        "american-tower",
+        "ameriprise-financial",
+        "ametek",
+        "amey",
+        "amgen",
+        "amis",
+        "amita-health",
+        "amkette",
+        "amlogic",
+        "amnezia-vpn",
+        "amoco",
+        "amoi",
+        "ampere-computing",
+        "amphenol",
+        "amplidata",
+        "alexander-mann-solutions",
+        "amtd-digital",
+        "amtel",
+        "amtelco",
+        "amwell",
+        "amy-s-candy-bar",
+        "am-rica-m-vil",
+        "anacomp",
+        "analog-devices",
+        "analogue",
+        "ancestry-com",
+        "anchorfree",
+        "ancient",
+        "andesite-ai",
+        "andor-technology",
+    ]
+    check(len(batch_1029_pm) == 30, f"2026-10-29 afternoon batch is 30, got {len(batch_1029_pm)}")
     check(
-        batch[0] == "american-tower" and batch[-1] == "andor-technology",
+        batch_1029_pm[0] == "american-tower" and batch_1029_pm[-1] == "andor-technology",
         "2026-10-29 afternoon batch is the american-tower–andor-technology cut",
     )
-    check("amgen" in batch and "andor-technology" in batch, "afternoon cut covers amgen..andor-technology")
-    check(summary.get("batch") == 30, "2026-10-29 afternoon summary.batch is 30")
-    check(summary.get("fileable") == 2, f"2026-10-29 afternoon clerk fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 13, f"2026-10-29 afternoon soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 28, f"2026-10-29 afternoon still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 2, f"2026-10-29 afternoon clerk fills, got {summary.get('filled')}")
+    check("amgen" in batch_1029_pm and "andor-technology" in batch_1029_pm, "afternoon cut covers amgen..andor-technology")
+    check(all(slug in entries for slug in batch_1029_pm), "2026-10-29 afternoon rows stay in the ledger")
     october = [slug for slug, rec in entries.items() if str(rec.get("date") or "").startswith("2026-10-")]
-    check(len(october) == 270, f"10/22 through 10/29 afternoon cuts stay in the ledger, got {len(october)}")
+    check(len(october) == 300, f"10/22 through 10/30 morning cuts stay in the ledger, got {len(october)}")
     check(
-        all((entries.get(slug) or {}).get("date") == "2026-10-29" for slug in batch),
+        all((entries.get(slug) or {}).get("date") == "2026-10-29" for slug in batch_1029_pm),
         "2026-10-29 afternoon cut is dated 2026-10-29",
     )
-    check(not set(batch) & set(batch_1026), "2026-10-29 afternoon cut must be never-reaudited vs 24slides–airpair")
-    check(not set(batch) & set(batch_1027_am), "2026-10-29 afternoon cut must be never-reaudited vs advacam–alchemy-cms")
-    check(not set(batch) & set(batch_1027_pm), "2026-10-29 afternoon cut must be never-reaudited vs 21vianet–aligned-assets")
-    check(not set(batch) & set(batch_1028), "2026-10-29 afternoon cut must be never-reaudited vs a1-hrvatska–altacast")
-    check(not set(batch) & set(batch_1029_am), "2026-10-29 afternoon cut must be never-reaudited vs altair-engineering–american-sammy")
+    check(not set(batch_1029_pm) & set(batch_1026), "2026-10-29 afternoon cut must be never-reaudited vs 24slides–airpair")
+    check(not set(batch_1029_pm) & set(batch_1027_am), "2026-10-29 afternoon cut must be never-reaudited vs advacam–alchemy-cms")
+    check(not set(batch_1029_pm) & set(batch_1027_pm), "2026-10-29 afternoon cut must be never-reaudited vs 21vianet–aligned-assets")
+    check(not set(batch_1029_pm) & set(batch_1028), "2026-10-29 afternoon cut must be never-reaudited vs a1-hrvatska–altacast")
+    check(not set(batch_1029_pm) & set(batch_1029_am), "2026-10-29 afternoon cut must be never-reaudited vs altair-engineering–american-sammy")
     soft_classes = {"http-403", "js-shell", "cloudflare"}
-    for slug in batch:
+    for slug in batch_1029_pm:
         row = entries.get(slug) or {}
         if row.get("soft_retry"):
             probed_classes = {item.get("class") for item in (row.get("probed") or [])}
@@ -989,6 +1017,118 @@ def test_live_ledger_when_present() -> None:
     check((entries.get("anacomp") or {}).get("soft_retry") is True, "anacomp oembed shell stays a soft-retry")
     check((entries.get("amkette") or {}).get("soft_retry") is not True, "amkette about page was readable")
 
+    check(len(batch) == 30, f"2026-10-30 morning batch is 30, got {len(batch)}")
+    check(
+        batch[0] == "anduril-industries" and batch[-1] == "apex-learning",
+        "2026-10-30 morning batch is the anduril-industries–apex-learning cut",
+    )
+    check("animoca-brands" in batch and "apex-learning" in batch, "morning cut covers animoca-brands..apex-learning")
+    check(summary.get("batch") == 30, "2026-10-30 morning summary.batch is 30")
+    check(summary.get("fileable") == 4, f"2026-10-30 morning clerk fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 4, f"2026-10-30 morning soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 26, f"2026-10-30 morning still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 4, f"2026-10-30 morning clerk fills, got {summary.get('filled')}")
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-10-30" for slug in batch),
+        "2026-10-30 morning cut is dated 2026-10-30",
+    )
+    check(not set(batch) & set(batch_1026), "2026-10-30 morning cut must be never-reaudited vs 24slides–airpair")
+    check(not set(batch) & set(batch_1027_am), "2026-10-30 morning cut must be never-reaudited vs advacam–alchemy-cms")
+    check(not set(batch) & set(batch_1027_pm), "2026-10-30 morning cut must be never-reaudited vs 21vianet–aligned-assets")
+    check(not set(batch) & set(batch_1028), "2026-10-30 morning cut must be never-reaudited vs a1-hrvatska–altacast")
+    check(not set(batch) & set(batch_1029_am), "2026-10-30 morning cut must be never-reaudited vs altair-engineering–american-sammy")
+    check(not set(batch) & set(batch_1029_pm), "2026-10-30 morning cut must be never-reaudited vs american-tower–andor-technology")
+    for slug in batch:
+        row = entries.get(slug) or {}
+        if row.get("soft_retry"):
+            probed_classes = {item.get("class") for item in (row.get("probed") or [])}
+            check(bool(probed_classes & soft_classes) or slug == "animoca-brands", f"{slug} soft-retry is marked")
+        if slug in {"anomali", "anro", "antec", "antithesis"}:
+            check(row.get("filed") is True, f"{slug} ledger row records the apply")
+            continue
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+
+    shipped_1030 = {
+        "anomali": {"page"},
+        "anro": {"marks"},
+        "antec": {"years"},
+        "antithesis": {"page"},
+    }
+    for slug, keys in shipped_1030.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-10-30", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+        check(row.get("fileable") is True, f"{slug} stays fileable")
+    check(
+        (entries.get("anomali") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://www.anomali.com/security",
+        "anomali security page in ledger",
+    )
+    check(
+        (entries.get("anomali") or {}).get("hit", {}).get("page", {}).get("kind") == "security",
+        "anomali page kind is security",
+    )
+    check(not (entries.get("anomali") or {}).get("hit", {}).get("marks"), "anomali marks stay unfiled")
+    check(not (entries.get("anomali") or {}).get("hit", {}).get("years"), "anomali year stays unfiled")
+    check(
+        ((entries.get("anro") or {}).get("hit") or {}).get("marks", {}).get("added")
+        == ["SOC 2 Type II", "PCI DSS"],
+        "anro marks in ledger",
+    )
+    check(
+        ((entries.get("anro") or {}).get("hit") or {}).get("marks", {}).get("url")
+        == "https://www.anro.com/privacy-policy",
+        "anro mark source in ledger",
+    )
+    check(
+        "SOC 2 Type II certified PCI DSS compliant"
+        in (((entries.get("anro") or {}).get("hit") or {}).get("marks", {}).get("quote") or ""),
+        "anro quote names SOC 2 Type II and PCI DSS",
+    )
+    check("HIPAA" not in (((entries.get("anro") or {}).get("hit") or {}).get("marks", {}).get("added") or []), "anro HIPAA stays off the filed marks")
+    check((entries.get("antec") or {}).get("hit", {}).get("years", {}).get("year") == 1986, "antec year in ledger")
+    check(
+        (entries.get("antec") or {}).get("hit", {}).get("years", {}).get("url") == "https://antec.com/aboutus",
+        "antec year source in ledger",
+    )
+    check(
+        (entries.get("antec") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "Founded in 1986, Antec is recognized as a pioneer in the industry and has maintained its position as a worldwide market leader and international provider of quiet, efficient and innovative products.",
+        "antec year quote is the about sentence",
+    )
+    check(not (entries.get("antec") or {}).get("hit", {}).get("page"), "antec Official page stays unfiled")
+    check(
+        (entries.get("antithesis") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://antithesis.com/security/manifesto/",
+        "antithesis security page in ledger",
+    )
+    check(
+        (entries.get("antithesis") or {}).get("hit", {}).get("page", {}).get("kind") == "security",
+        "antithesis page kind is security",
+    )
+    check(not (entries.get("antithesis") or {}).get("hit", {}).get("marks"), "antithesis marks stay unfiled")
+    check(not (entries.get("antithesis") or {}).get("hit", {}).get("years"), "antithesis year stays unfiled")
+    refused_1030 = {
+        "animoca-brands": "homepage now Cloudflare 403",
+        "aon-plc": "homepage bounce on every path",
+        "apex-learning": "/trust is a JS redirect to edmentum.com, not first-party content",
+    }
+    for slug, reason in refused_1030.items():
+        row = entries.get(slug) or {}
+        check(row.get("date") == "2026-10-30", f"{slug} reaudited 2026-10-30")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+    check((entries.get("animoca-brands") or {}).get("soft_retry") is True, "animoca-brands homepage stays a Cloudflare soft-retry")
+    check((entries.get("aon-plc") or {}).get("soft_retry") is not True, "aon-plc homepage bounce is a miss")
+    check((entries.get("apex-learning") or {}).get("soft_retry") is not True, "apex-learning redirect is a miss")
+
     public = json.loads((ROOT / "site" / "data.json").read_text())
     by_pub = {row.get("slug"): row for row in public.get("companies") or [] if row.get("slug")}
 
@@ -1313,8 +1453,71 @@ def test_live_ledger_when_present() -> None:
     check(not pub_anc.get("founded_year"), "ancestry year stays open")
     check(not ((pub_anc.get("instruments") or {}).get("dpa") or {}).get("url"), "ancestry DPA stays open")
 
-    for slug in batch:
+    for slug in batch_1029_pm:
         if slug in {"amgen", "ancestry-com"}:
+            continue
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
+
+    pub_anomali = by_pub["anomali"]
+    check(pub_anomali.get("found") is True, "anomali Official page is on file")
+    check(
+        pub_anomali.get("trust_url") == "https://www.anomali.com/security",
+        "anomali Official page is the first-party security page",
+    )
+    check((pub_anomali.get("file") or {}).get("page") == 20, "anomali Official page prints")
+    check((pub_anomali.get("file") or {}).get("marks") == 10, "anomali page-without-marks partial prints")
+    check(not (pub_anomali.get("certs") or []), "anomali marks stay open")
+    check(completeness(pub_anomali) == 30, f"anomali Completeness {completeness(pub_anomali)}")
+    check(not pub_anomali.get("founded_year"), "anomali year stays open")
+    check(not ((pub_anomali.get("instruments") or {}).get("dpa") or {}).get("url"), "anomali DPA stays open")
+
+    pub_anro = by_pub["anro"]
+    check(
+        set(pub_anro.get("certs") or []) == {"SOC 2 Type II", "PCI DSS"},
+        f"anro marks {pub_anro.get('certs')}",
+    )
+    check("HIPAA" not in (pub_anro.get("certs") or []), "anro HIPAA stays off the marks rule")
+    check((pub_anro.get("file") or {}).get("marks") == 20, "anro marks print")
+    check(completeness(pub_anro) == 20, f"anro Completeness {completeness(pub_anro)}")
+    check(pub_anro.get("found") is False, "anro privacy policy is not Official page")
+    check(not pub_anro.get("trust_url"), "anro Official page stays open")
+    check(not pub_anro.get("founded_year"), "anro year stays open")
+
+    pub_antec = by_pub["antec"]
+    check(pub_antec.get("founded_year") == 1986, "antec year is first-party about")
+    check(pub_antec.get("founded_source") == "https://antec.com/aboutus", "antec year source")
+    check((pub_antec.get("file") or {}).get("years") == 20, "antec years print")
+    check(completeness(pub_antec) == 20, f"antec Completeness {completeness(pub_antec)}")
+    check(pub_antec.get("found") is False, "antec Official page stays open")
+    check(not pub_antec.get("trust_url"), "antec Official page stays open")
+    check(not (pub_antec.get("certs") or []), "antec marks stay open")
+
+    pub_anti = by_pub["antithesis"]
+    check(pub_anti.get("found") is True, "antithesis Official page is on file")
+    check(
+        pub_anti.get("trust_url") == "https://antithesis.com/security/manifesto/",
+        "antithesis Official page is the first-party security manifesto",
+    )
+    check((pub_anti.get("file") or {}).get("page") == 20, "antithesis Official page prints")
+    check((pub_anti.get("file") or {}).get("marks") == 10, "antithesis page-without-marks partial prints")
+    check(not (pub_anti.get("certs") or []), "antithesis marks stay open")
+    check(completeness(pub_anti) == 30, f"antithesis Completeness {completeness(pub_anti)}")
+    check(not pub_anti.get("founded_year"), "antithesis year stays open")
+    check(not ((pub_anti.get("instruments") or {}).get("dpa") or {}).get("url"), "antithesis DPA stays open")
+
+    for slug in ("animoca-brands", "aon-plc", "apex-learning"):
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
+
+    for slug in batch:
+        if slug in shipped_1030:
             continue
         check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
