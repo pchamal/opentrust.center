@@ -21,6 +21,7 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 import crawl  # noqa: E402
+import polite  # noqa: E402
 from marks import apply_supersede, extract_certs_from_html, mark_blob  # noqa: E402
 from merge_render import rescore  # noqa: E402
 from processor_aliases import skip_processor  # noqa: E402
@@ -30,8 +31,9 @@ CACHE = DATA / "cache"
 SITE = ROOT / "site"
 NOW_YEAR = 2026
 UA = crawl.UA
-WORKERS = 16
-WIKI_WORKERS = 6
+# Same cap as the crawler. polite.fetch also keeps at most four requests in flight.
+WORKERS = crawl.WORKERS
+WIKI_WORKERS = crawl.WORKERS
 PROBE_BODY = 24576
 # 1 MiB. WordPress first-party security HTML parks the hold past 196 KiB
 # (languageio.com/security-commitment ISO 27001:2022 certificate at ~946 KiB).
@@ -1058,14 +1060,14 @@ def landed_on_home(requested: str, final_url: str) -> bool:
     return False
 
 
-def fetch_uncached(url: str, max_body: int) -> dict:
+def fetch_uncached(url: str, max_body: int, *, guessed: bool = False) -> dict:
     if not url or not str(url).strip().startswith("http") or ANNOTATED_URL_RE.search(url) or re.search(r"\s", url):
         return {
             "url": url, "ok": False, "status": 0, "final_url": url,
             "title": "", "text": "", "meta": "", "hrefs": [], "ctype": "",
             "fetched_at": utc_now(), "raw_head": "", "html": "",
         }
-    fetched = crawl.fetch(url, max_body=max_body)
+    fetched = crawl.fetch(url, max_body=max_body, guessed=guessed)
     html = fetched.get("body") or ""
     title = crawl.extract_title(html) if html else ""
     text = strip_tags(html)[:30000] if html else ""
@@ -1092,14 +1094,14 @@ def fetch_uncached(url: str, max_body: int) -> dict:
     return rec
 
 
-def fetch_cached(url: str, max_body: int = PROBE_BODY) -> dict:
+def fetch_cached(url: str, max_body: int = PROBE_BODY, *, guessed: bool = False) -> dict:
     path = cache_path(url)
     if path.exists():
         try:
             return json.loads(path.read_text())
         except Exception:
             pass
-    rec = fetch_uncached(url, max_body)
+    rec = fetch_uncached(url, max_body, guessed=guessed)
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_name(path.name + f".{os.getpid()}.{time.time_ns()}.tmp")
     tmp.write_text(json.dumps(rec, ensure_ascii=False))
@@ -2463,8 +2465,16 @@ def published_processors_from_cited(
     )
 
 
+# Subprocessor page bodies reused inside one process. Not a disk cache.
+_PROCESSOR_PAGE_CACHE: dict[str, dict] = {}
+
+
+def clear_processor_page_cache() -> None:
+    _PROCESSOR_PAGE_CACHE.clear()
+
+
 def fetch_processor_page(url: str) -> dict:
-    """Uncached GET that keeps HTML for first-party list parsing."""
+    """GET that keeps HTML for first-party list parsing. Cached for this run."""
     empty = {
         "url": url, "ok": False, "status": 0, "final_url": url,
         "title": "", "text": "", "meta": "", "hrefs": [], "ctype": "",
@@ -2472,10 +2482,14 @@ def fetch_processor_page(url: str) -> dict:
     }
     if not url or not str(url).strip().startswith("http") or ANNOTATED_URL_RE.search(url) or re.search(r"\s", url):
         return empty
+    key = polite.normalize_fetch_url(url) or url
+    cached = _PROCESSOR_PAGE_CACHE.get(key)
+    if cached is not None:
+        return cached
     fetched = crawl.fetch(url, max_body=PROCESSOR_BODY)
     html = fetched.get("body") or ""
     title = crawl.extract_title(html) if html else ""
-    return {
+    rec = {
         "url": url,
         "ok": bool(fetched.get("ok")),
         "status": fetched.get("status") or 0,
@@ -2489,6 +2503,8 @@ def fetch_processor_page(url: str) -> dict:
         "raw_head": "",
         "html": html[:PROCESSOR_BODY] if html else "",
     }
+    _PROCESSOR_PAGE_CACHE[key] = rec
+    return rec
 
 
 def has_public_page(company: dict) -> bool:
@@ -2652,7 +2668,11 @@ def probe_company(company: dict) -> dict:
         if key not in {u.lower() for u, _ in pairs}:
             pairs = [(trust, "trust"), *pairs]
     for url, hint in pairs:
-        rec = fetch_cached(url, max_body=PROBE_BODY if hint not in {"trust", "security"} else TRUST_BODY)
+        rec = fetch_cached(
+            url,
+            max_body=PROBE_BODY if hint not in {"trust", "security"} else TRUST_BODY,
+            guessed=True,
+        )
         title, text = rec.get("title") or "", rec.get("text") or ""
         if looks_like_login_wall(title, text):
             continue
@@ -2967,12 +2987,8 @@ def has_filed_names(company: dict, named_from: set[str]) -> bool:
 
 
 def fetch_cited_processor_page(url: str) -> dict:
-    rec = fetch_uncached(url, max_body=PROCESSOR_BODY)
-    if not rec.get("html") and rec.get("ok"):
-        # fetch_uncached already filled html for list URLs; keep a copy if the
-        # path was unusual but the body is still a list.
-        rec["html"] = rec.get("html") or ""
-    return rec
+    """Same run cache as fetch_processor_page. A second pass does not GET again."""
+    return fetch_processor_page(url)
 
 
 def file_named_from_cited() -> int:
