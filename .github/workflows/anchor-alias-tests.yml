@@ -1,0 +1,16 @@
+name: anchor and alias tests
+on:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: anchor and alias tests
+        run: |
+          python3 scripts/test_subprocessor_anchors.py
+          python3 scripts/test_dpa_file.py
+          python3 scripts/test_privacy_file.py
