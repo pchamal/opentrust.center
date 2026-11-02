@@ -30849,24 +30849,32 @@
       "name": "Aptiv",
       "slug": "aptiv",
       "domain": "aptiv.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://win.aptiv.com/locations-and-certifications",
+      "final_url": "https://win.aptiv.com/locations-and-certifications",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: ISO 13485, ISO 9001.",
       "list": "wikipedia-sp500-software",
-      "certs": [],
+      "certs": [
+        "ISO 13485",
+        "ISO 9001"
+      ],
       "links": {
-        "privacy": "https://www.aptiv.com/en/privacy-statement"
+        "privacy": "https://www.aptiv.com/en/privacy-statement",
+        "trust": "https://win.aptiv.com/locations-and-certifications"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 34,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "privacy": 6,
+          "marks": 8
+        }
       }
     },
     {
@@ -110038,10 +110046,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1983,
+      "founded_source": "https://www.arcserve.com/privacy-notice"
     },
     {
       "rank": 3722,
@@ -114639,10 +114651,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 2,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 2
+        }
+      },
+      "founded_year": 2022,
+      "founded_source": "https://aptoslabs.com/"
     },
     {
       "rank": 3907,
@@ -122601,10 +122617,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 2001,
+      "founded_source": "https://www.arctic.de/us/about-arctic/locations"
     },
     {
       "rank": 4240,
@@ -127718,9 +127738,9 @@
       "name": "Argonide",
       "slug": "argonide",
       "domain": "argonide.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.argonide.com/about-argonide-water-filter-manufacturing/iso-9001-certified",
+      "final_url": "https://www.argonide.com/about-argonide-water-filter-manufacturing/iso-9001-certified",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -127728,12 +127748,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-tech-established-1994",
       "certs": [],
-      "links": {},
+      "links": {
+        "trust": "https://www.argonide.com/about-argonide-water-filter-manufacturing/iso-9001-certified"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
