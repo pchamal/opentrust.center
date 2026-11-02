@@ -1157,30 +1157,57 @@ def test_live_ledger_when_present() -> None:
     check((entries.get("aon-plc") or {}).get("soft_retry") is not True, "aon-plc homepage bounce is a miss")
     check((entries.get("apex-learning") or {}).get("soft_retry") is not True, "apex-learning redirect is a miss")
 
-    check(len(batch) == 30, f"2026-10-30 afternoon batch is 30, got {len(batch)}")
+    batch_1030_pm = [
+        "apigee",
+        "apilayer",
+        "apm-automation-solutions",
+        "apollo-global-management",
+        "appcelerator",
+        "appcircle",
+        "appdynamics",
+        "apperian",
+        "appfolio",
+        "appirio",
+        "appland",
+        "applied-industrial-technologies",
+        "applied-instruments",
+        "applied-materials",
+        "applied-predictive-technologies",
+        "applied-spectral-imaging",
+        "applovin",
+        "applyboard",
+        "appneta",
+        "appnexus",
+        "appnovation",
+        "appota-corporation",
+        "appsbuilder",
+        "apptio",
+        "appy-entertainment",
+        "apricity-group",
+        "aprimo",
+        "aptech",
+        "apteligent",
+        "aptilo-networks",
+    ]
+    check(len(batch_1030_pm) == 30, f"2026-10-30 afternoon batch is 30, got {len(batch_1030_pm)}")
     check(
-        batch[0] == "apigee" and batch[-1] == "aptilo-networks",
+        batch_1030_pm[0] == "apigee" and batch_1030_pm[-1] == "aptilo-networks",
         "2026-10-30 afternoon batch is the apigee–aptilo-networks cut",
     )
-    check("apollo-global-management" in batch and "aptilo-networks" in batch, "afternoon cut covers apollo-global-management..aptilo-networks")
-    check(all(slug in entries for slug in batch), "2026-10-30 afternoon rows stay in the ledger")
-    check(summary.get("batch") == 30, "2026-10-30 afternoon summary.batch is 30")
-    check(summary.get("fileable") == 4, f"2026-10-30 afternoon clerk fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 9, f"2026-10-30 afternoon soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 26, f"2026-10-30 afternoon still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 4, f"2026-10-30 afternoon clerk fills, got {summary.get('filled')}")
+    check("apollo-global-management" in batch_1030_pm and "aptilo-networks" in batch_1030_pm, "afternoon cut covers apollo-global-management..aptilo-networks")
+    check(all(slug in entries for slug in batch_1030_pm), "2026-10-30 afternoon rows stay in the ledger")
     check(
-        all((entries.get(slug) or {}).get("date") == "2026-10-30" for slug in batch),
+        all((entries.get(slug) or {}).get("date") == "2026-10-30" for slug in batch_1030_pm),
         "2026-10-30 afternoon cut is dated 2026-10-30",
     )
-    check(not set(batch) & set(batch_1026), "2026-10-30 afternoon cut must be never-reaudited vs 24slides–airpair")
-    check(not set(batch) & set(batch_1027_am), "2026-10-30 afternoon cut must be never-reaudited vs advacam–alchemy-cms")
-    check(not set(batch) & set(batch_1027_pm), "2026-10-30 afternoon cut must be never-reaudited vs 21vianet–aligned-assets")
-    check(not set(batch) & set(batch_1028), "2026-10-30 afternoon cut must be never-reaudited vs a1-hrvatska–altacast")
-    check(not set(batch) & set(batch_1029_am), "2026-10-30 afternoon cut must be never-reaudited vs altair-engineering–american-sammy")
-    check(not set(batch) & set(batch_1029_pm), "2026-10-30 afternoon cut must be never-reaudited vs american-tower–andor-technology")
-    check(not set(batch) & set(batch_1030_am), "2026-10-30 afternoon cut must be never-reaudited vs anduril-industries–apex-learning")
-    for slug in batch:
+    check(not set(batch_1030_pm) & set(batch_1026), "2026-10-30 afternoon cut must be never-reaudited vs 24slides–airpair")
+    check(not set(batch_1030_pm) & set(batch_1027_am), "2026-10-30 afternoon cut must be never-reaudited vs advacam–alchemy-cms")
+    check(not set(batch_1030_pm) & set(batch_1027_pm), "2026-10-30 afternoon cut must be never-reaudited vs 21vianet–aligned-assets")
+    check(not set(batch_1030_pm) & set(batch_1028), "2026-10-30 afternoon cut must be never-reaudited vs a1-hrvatska–altacast")
+    check(not set(batch_1030_pm) & set(batch_1029_am), "2026-10-30 afternoon cut must be never-reaudited vs altair-engineering–american-sammy")
+    check(not set(batch_1030_pm) & set(batch_1029_pm), "2026-10-30 afternoon cut must be never-reaudited vs american-tower–andor-technology")
+    check(not set(batch_1030_pm) & set(batch_1030_am), "2026-10-30 afternoon cut must be never-reaudited vs anduril-industries–apex-learning")
+    for slug in batch_1030_pm:
         row = entries.get(slug) or {}
         if row.get("soft_retry"):
             probed_classes = {item.get("class") for item in (row.get("probed") or [])}
@@ -1269,6 +1296,149 @@ def test_live_ledger_when_present() -> None:
     check((entries.get("applovin") or {}).get("soft_retry") is not True, "applovin homepage bounce is a miss")
     check((entries.get("appota-corporation") or {}).get("soft_retry") is not True, "appota catch-all shell is not a fetch soft-retry")
     check((entries.get("aprimo") or {}).get("soft_retry") is True, "aprimo stays a soft-retry")
+
+    check(len(batch) == 30, f"2026-11-02 morning batch is 30, got {len(batch)}")
+    check(
+        batch[0] == "aptiv" and batch[-1] == "argonide",
+        "2026-11-02 morning batch is the aptiv–argonide cut",
+    )
+    check("aptos-labs" in batch and "argonide" in batch, "morning cut covers aptiv..argonide")
+    check(all(slug in entries for slug in batch), "2026-11-02 morning rows stay in the ledger")
+    check(summary.get("batch") == 30, "2026-11-02 morning summary.batch is 30")
+    check(summary.get("fileable") == 5, f"2026-11-02 morning clerk fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 7, f"2026-11-02 morning soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 25, f"2026-11-02 morning still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 5, f"2026-11-02 morning clerk fills, got {summary.get('filled')}")
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-11-02" for slug in batch),
+        "2026-11-02 morning cut is dated 2026-11-02",
+    )
+    check(not set(batch) & set(batch_1026), "2026-11-02 morning cut must be never-reaudited vs 24slides–airpair")
+    check(not set(batch) & set(batch_1027_am), "2026-11-02 morning cut must be never-reaudited vs advacam–alchemy-cms")
+    check(not set(batch) & set(batch_1027_pm), "2026-11-02 morning cut must be never-reaudited vs 21vianet–aligned-assets")
+    check(not set(batch) & set(batch_1028), "2026-11-02 morning cut must be never-reaudited vs a1-hrvatska–altacast")
+    check(not set(batch) & set(batch_1029_am), "2026-11-02 morning cut must be never-reaudited vs altair-engineering–american-sammy")
+    check(not set(batch) & set(batch_1029_pm), "2026-11-02 morning cut must be never-reaudited vs american-tower–andor-technology")
+    check(not set(batch) & set(batch_1030_am), "2026-11-02 morning cut must be never-reaudited vs anduril-industries–apex-learning")
+    check(not set(batch) & set(batch_1030_pm), "2026-11-02 morning cut must be never-reaudited vs apigee–aptilo-networks")
+    shipped_1102 = {
+        "aptiv": {"page", "marks"},
+        "aptos-labs": {"years"},
+        "arcserve": {"years"},
+        "arctic-gmbh": {"years"},
+        "argonide": {"page"},
+    }
+    for slug in batch:
+        row = entries.get(slug) or {}
+        if row.get("soft_retry"):
+            probed_classes = {item.get("class") for item in (row.get("probed") or [])}
+            check(bool(probed_classes & soft_classes), f"{slug} soft-retry is marked")
+        if slug in shipped_1102:
+            check(row.get("filed") is True, f"{slug} ledger row records the apply")
+            continue
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+    for slug, keys in shipped_1102.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-11-02", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+        check(row.get("fileable") is True, f"{slug} stays fileable")
+    check(
+        (entries.get("aptiv") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://win.aptiv.com/locations-and-certifications",
+        "aptiv certifications page in ledger",
+    )
+    check(
+        (entries.get("aptiv") or {}).get("hit", {}).get("page", {}).get("kind") == "trust",
+        "aptiv page kind is trust",
+    )
+    check(
+        ((entries.get("aptiv") or {}).get("hit") or {}).get("marks", {}).get("added")
+        == ["ISO 13485", "ISO 9001"],
+        "aptiv marks in ledger",
+    )
+    check(
+        ((entries.get("aptiv") or {}).get("hit") or {}).get("marks", {}).get("url")
+        == "https://win.aptiv.com/locations-and-certifications",
+        "aptiv mark source in ledger",
+    )
+    check(
+        "ISO 13485:2016" in (((entries.get("aptiv") or {}).get("hit") or {}).get("marks", {}).get("quote") or ""),
+        "aptiv quote names ISO 13485",
+    )
+    check(
+        "ISO 9001:2015" in (((entries.get("aptiv") or {}).get("hit") or {}).get("marks", {}).get("quote") or ""),
+        "aptiv quote names ISO 9001",
+    )
+    check(not (entries.get("aptiv") or {}).get("hit", {}).get("years"), "aptiv year stays unfiled")
+    check((entries.get("aptos-labs") or {}).get("hit", {}).get("years", {}).get("year") == 2022, "aptos-labs year in ledger")
+    check(
+        (entries.get("aptos-labs") or {}).get("hit", {}).get("years", {}).get("url") == "https://aptoslabs.com/",
+        "aptos-labs year source in ledger",
+    )
+    check(
+        (entries.get("aptos-labs") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "January 2022 Aptos Labs was founded to fulfill the vision of bringing fair access to decentralization to all.",
+        "aptos-labs year quote is the home sentence",
+    )
+    check(not (entries.get("aptos-labs") or {}).get("hit", {}).get("page"), "aptos-labs Official page stays unfiled")
+    check((entries.get("arcserve") or {}).get("hit", {}).get("years", {}).get("year") == 1983, "arcserve year in ledger")
+    check(
+        (entries.get("arcserve") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://www.arcserve.com/privacy-notice",
+        "arcserve year source in ledger",
+    )
+    check(
+        (entries.get("arcserve") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "Founded in 1983, Arcserve provides comprehensive solutions for virtual and physical environments, on premise or in the cloud.",
+        "arcserve year quote is the privacy-notice sentence",
+    )
+    check(not (entries.get("arcserve") or {}).get("hit", {}).get("page"), "arcserve Official page stays unfiled")
+    check((entries.get("arctic-gmbh") or {}).get("hit", {}).get("years", {}).get("year") == 2001, "arctic-gmbh year in ledger")
+    check(
+        (entries.get("arctic-gmbh") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://www.arctic.de/us/about-arctic/locations",
+        "arctic-gmbh year source in ledger",
+    )
+    check(
+        (entries.get("arctic-gmbh") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "Since its founding in 2001, ARCTIC has continually evolved, and this growth is reflected in its locations.",
+        "arctic-gmbh year quote is the locations sentence",
+    )
+    check(not (entries.get("arctic-gmbh") or {}).get("hit", {}).get("page"), "arctic-gmbh homepage bounce stays unfiled")
+    check(not (entries.get("arctic-gmbh") or {}).get("hit", {}).get("marks"), "arctic-gmbh marks stay unfiled")
+    check(
+        (entries.get("argonide") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://www.argonide.com/about-argonide-water-filter-manufacturing/iso-9001-certified",
+        "argonide certifications page in ledger",
+    )
+    check(
+        (entries.get("argonide") or {}).get("hit", {}).get("page", {}).get("kind") == "trust",
+        "argonide page kind is trust",
+    )
+    check(not (entries.get("argonide") or {}).get("hit", {}).get("marks"), "argonide marks stay unfiled")
+    check(not (entries.get("argonide") or {}).get("hit", {}).get("years"), "argonide year stays unfiled")
+    refused_1102 = {
+        "aptum-technologies": "security services product page and marketing compliance claim, not own posture",
+        "archax": "/security is a 1.5KB JS shell",
+        "archer-daniels-midland": "supplier non-compliance procedure, not a trust page",
+        "arecont-vision": "2018 is founding of successor entity Arecont Vision Costar, ambiguous",
+    }
+    for slug, reason in refused_1102.items():
+        row = entries.get(slug) or {}
+        check(row.get("date") == "2026-11-02", f"{slug} reaudited 2026-11-02")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+    check((entries.get("aptum-technologies") or {}).get("soft_retry") is True, "aptum-technologies probe stays a Cloudflare soft-retry")
+    check((entries.get("archax") or {}).get("soft_retry") is not True, "archax JS shell was not a fetch soft-retry class")
+    check((entries.get("archer-daniels-midland") or {}).get("soft_retry") is not True, "archer-daniels-midland supplier page is a miss")
+    check((entries.get("arecont-vision") or {}).get("soft_retry") is not True, "arecont-vision successor year is a miss")
 
     public = json.loads((ROOT / "site" / "data.json").read_text())
     by_pub = {row.get("slug"): row for row in public.get("companies") or [] if row.get("slug")}
@@ -1721,8 +1891,87 @@ def test_live_ledger_when_present() -> None:
         check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
         check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
 
-    for slug in batch:
+    for slug in batch_1030_pm:
         if slug in shipped_1030_pm:
+            continue
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
+
+    pub_aptiv = by_pub["aptiv"]
+    check(pub_aptiv.get("found") is True, "aptiv Official page is on file")
+    check(
+        pub_aptiv.get("trust_url") == "https://win.aptiv.com/locations-and-certifications",
+        "aptiv Official page is the certifications page",
+    )
+    check(
+        set(pub_aptiv.get("certs") or []) == {"ISO 13485", "ISO 9001"},
+        f"aptiv marks {pub_aptiv.get('certs')}",
+    )
+    check((pub_aptiv.get("file") or {}).get("page") == 20, "aptiv Official page prints")
+    check((pub_aptiv.get("file") or {}).get("marks") == 20, "aptiv marks print")
+    check(completeness(pub_aptiv) == 40, f"aptiv Completeness {completeness(pub_aptiv)}")
+    check(not pub_aptiv.get("founded_year"), "aptiv year stays open")
+    check(not ((pub_aptiv.get("instruments") or {}).get("dpa") or {}).get("url"), "aptiv DPA stays open")
+
+    pub_aptos = by_pub["aptos-labs"]
+    check(pub_aptos.get("founded_year") == 2022, "aptos-labs year is first-party home")
+    check(pub_aptos.get("founded_source") == "https://aptoslabs.com/", "aptos-labs year source")
+    check((pub_aptos.get("file") or {}).get("years") == 20, "aptos-labs years print")
+    check(completeness(pub_aptos) == 20, f"aptos-labs Completeness {completeness(pub_aptos)}")
+    check(pub_aptos.get("found") is False, "aptos-labs Official page stays open")
+    check(not pub_aptos.get("trust_url"), "aptos-labs Official page stays open")
+    check(not (pub_aptos.get("certs") or []), "aptos-labs marks stay open")
+
+    pub_arcserve = by_pub["arcserve"]
+    check(pub_arcserve.get("founded_year") == 1983, "arcserve year is first-party privacy notice")
+    check(
+        pub_arcserve.get("founded_source") == "https://www.arcserve.com/privacy-notice",
+        "arcserve year source",
+    )
+    check((pub_arcserve.get("file") or {}).get("years") == 20, "arcserve years print")
+    check(completeness(pub_arcserve) == 20, f"arcserve Completeness {completeness(pub_arcserve)}")
+    check(pub_arcserve.get("found") is False, "arcserve Official page stays open")
+    check(not pub_arcserve.get("trust_url"), "arcserve Official page stays open")
+    check(not (pub_arcserve.get("certs") or []), "arcserve marks stay open")
+
+    pub_arctic = by_pub["arctic-gmbh"]
+    check(pub_arctic.get("founded_year") == 2001, "arctic-gmbh year is first-party locations")
+    check(
+        pub_arctic.get("founded_source") == "https://www.arctic.de/us/about-arctic/locations",
+        "arctic-gmbh year source",
+    )
+    check((pub_arctic.get("file") or {}).get("years") == 20, "arctic-gmbh years print")
+    check(completeness(pub_arctic) == 20, f"arctic-gmbh Completeness {completeness(pub_arctic)}")
+    check(pub_arctic.get("found") is False, "arctic-gmbh homepage bounce is not Official page")
+    check(not pub_arctic.get("trust_url"), "arctic-gmbh Official page stays open")
+    check(not (pub_arctic.get("certs") or []), "arctic-gmbh marks stay open")
+
+    pub_argonide = by_pub["argonide"]
+    check(pub_argonide.get("found") is True, "argonide Official page is on file")
+    check(
+        pub_argonide.get("trust_url")
+        == "https://www.argonide.com/about-argonide-water-filter-manufacturing/iso-9001-certified",
+        "argonide Official page is the ISO 9001 page",
+    )
+    check((pub_argonide.get("file") or {}).get("page") == 20, "argonide Official page prints")
+    check((pub_argonide.get("file") or {}).get("marks") == 10, "argonide page-without-marks partial prints")
+    check(not (pub_argonide.get("certs") or []), "argonide marks stay open")
+    check(completeness(pub_argonide) == 30, f"argonide Completeness {completeness(pub_argonide)}")
+    check(not pub_argonide.get("founded_year"), "argonide year stays open")
+    check(not ((pub_argonide.get("instruments") or {}).get("dpa") or {}).get("url"), "argonide DPA stays open")
+
+    for slug in ("aptum-technologies", "archax", "archer-daniels-midland", "arecont-vision"):
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
+
+    for slug in batch:
+        if slug in shipped_1102:
             continue
         check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
