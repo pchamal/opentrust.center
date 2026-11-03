@@ -1467,31 +1467,58 @@ def test_live_ledger_when_present() -> None:
     check((entries.get("archer-daniels-midland") or {}).get("soft_retry") is not True, "archer-daniels-midland supplier page is a miss")
     check((entries.get("arecont-vision") or {}).get("soft_retry") is not True, "arecont-vision successor year is a miss")
 
-    check(len(batch) == 30, f"2026-11-02 afternoon batch is 30, got {len(batch)}")
+    batch_1102_pm = [
+        "argotec",
+        "aricent",
+        "ariel-investments",
+        "aries-telecoms",
+        "arika",
+        "arise-india",
+        "arkeia-software",
+        "arkova",
+        "armslist",
+        "arqiva",
+        "array-networks",
+        "arraycomm",
+        "arrayfire",
+        "artec-3d",
+        "artemis-technologies",
+        "artepiazza",
+        "arteris",
+        "arthur-j-gallagher-and-co",
+        "artis-llc",
+        "aruba-s-p-a",
+        "arx",
+        "arxan-technologies",
+        "as-starman",
+        "asahi-kasei",
+        "asbis",
+        "ascend-integrated-technology-solutions",
+        "ascii-group",
+        "ascon",
+        "aselsan",
+        "asg-technologies",
+    ]
+    check(len(batch_1102_pm) == 30, f"2026-11-02 afternoon batch is 30, got {len(batch_1102_pm)}")
     check(
-        batch[0] == "argotec" and batch[-1] == "asg-technologies",
+        batch_1102_pm[0] == "argotec" and batch_1102_pm[-1] == "asg-technologies",
         "2026-11-02 afternoon batch is the argotec–asg-technologies cut",
     )
-    check("ariel-investments" in batch and "ascon" in batch, "afternoon cut covers argotec..asg-technologies")
-    check(all(slug in entries for slug in batch), "2026-11-02 afternoon rows stay in the ledger")
-    check(summary.get("batch") == 30, "2026-11-02 afternoon summary.batch is 30")
-    check(summary.get("fileable") == 5, f"2026-11-02 afternoon clerk fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 2, f"2026-11-02 afternoon soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 25, f"2026-11-02 afternoon still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 5, f"2026-11-02 afternoon clerk fills, got {summary.get('filled')}")
+    check("ariel-investments" in batch_1102_pm and "ascon" in batch_1102_pm, "afternoon cut covers argotec..asg-technologies")
+    check(all(slug in entries for slug in batch_1102_pm), "2026-11-02 afternoon rows stay in the ledger")
     check(
-        all((entries.get(slug) or {}).get("date") == "2026-11-02" for slug in batch),
+        all((entries.get(slug) or {}).get("date") == "2026-11-02" for slug in batch_1102_pm),
         "2026-11-02 afternoon cut is dated 2026-11-02",
     )
-    check(not set(batch) & set(batch_1026), "2026-11-02 afternoon cut must be never-reaudited vs 24slides–airpair")
-    check(not set(batch) & set(batch_1027_am), "2026-11-02 afternoon cut must be never-reaudited vs advacam–alchemy-cms")
-    check(not set(batch) & set(batch_1027_pm), "2026-11-02 afternoon cut must be never-reaudited vs 21vianet–aligned-assets")
-    check(not set(batch) & set(batch_1028), "2026-11-02 afternoon cut must be never-reaudited vs a1-hrvatska–altacast")
-    check(not set(batch) & set(batch_1029_am), "2026-11-02 afternoon cut must be never-reaudited vs altair-engineering–american-sammy")
-    check(not set(batch) & set(batch_1029_pm), "2026-11-02 afternoon cut must be never-reaudited vs american-tower–andor-technology")
-    check(not set(batch) & set(batch_1030_am), "2026-11-02 afternoon cut must be never-reaudited vs anduril-industries–apex-learning")
-    check(not set(batch) & set(batch_1030_pm), "2026-11-02 afternoon cut must be never-reaudited vs apigee–aptilo-networks")
-    check(not set(batch) & set(batch_1102_am), "2026-11-02 afternoon cut must be never-reaudited vs aptiv–argonide")
+    check(not set(batch_1102_pm) & set(batch_1026), "2026-11-02 afternoon cut must be never-reaudited vs 24slides–airpair")
+    check(not set(batch_1102_pm) & set(batch_1027_am), "2026-11-02 afternoon cut must be never-reaudited vs advacam–alchemy-cms")
+    check(not set(batch_1102_pm) & set(batch_1027_pm), "2026-11-02 afternoon cut must be never-reaudited vs 21vianet–aligned-assets")
+    check(not set(batch_1102_pm) & set(batch_1028), "2026-11-02 afternoon cut must be never-reaudited vs a1-hrvatska–altacast")
+    check(not set(batch_1102_pm) & set(batch_1029_am), "2026-11-02 afternoon cut must be never-reaudited vs altair-engineering–american-sammy")
+    check(not set(batch_1102_pm) & set(batch_1029_pm), "2026-11-02 afternoon cut must be never-reaudited vs american-tower–andor-technology")
+    check(not set(batch_1102_pm) & set(batch_1030_am), "2026-11-02 afternoon cut must be never-reaudited vs anduril-industries–apex-learning")
+    check(not set(batch_1102_pm) & set(batch_1030_pm), "2026-11-02 afternoon cut must be never-reaudited vs apigee–aptilo-networks")
+    check(not set(batch_1102_pm) & set(batch_1102_am), "2026-11-02 afternoon cut must be never-reaudited vs aptiv–argonide")
     shipped_1102_pm = {
         "argotec": {"marks", "years"},
         "ariel-investments": {"years"},
@@ -1500,7 +1527,7 @@ def test_live_ledger_when_present() -> None:
         "ascon": {"years"},
     }
     clerk_soft_1102_pm = {"array-networks", "arthur-j-gallagher-and-co"}
-    for slug in batch:
+    for slug in batch_1102_pm:
         row = entries.get(slug) or {}
         if row.get("soft_retry") and slug not in clerk_soft_1102_pm:
             probed_classes = {item.get("class") for item in (row.get("probed") or [])}
@@ -1643,6 +1670,180 @@ def test_live_ledger_when_present() -> None:
         "gallagher Incapsula block stays a soft-retry",
     )
     check((entries.get("aselsan") or {}).get("soft_retry") is not True, "aselsan homepage is a miss")
+
+    check(len(batch) == 30, f"2026-11-03 morning batch is 30, got {len(batch)}")
+    check(
+        batch[0] == "ashmanov-and-partners" and batch[-1] == "atands",
+        "2026-11-03 morning batch is the ashmanov-and-partners–atands cut",
+    )
+    check("asian-vision" in batch and "astrolabs" in batch, "morning cut covers ashmanov-and-partners..atands")
+    check(all(slug in entries for slug in batch), "2026-11-03 morning rows stay in the ledger")
+    check(summary.get("batch") == 30, "2026-11-03 morning summary.batch is 30")
+    check(summary.get("fileable") == 6, f"2026-11-03 morning clerk fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 8, f"2026-11-03 morning soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 24, f"2026-11-03 morning still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 6, f"2026-11-03 morning clerk fills, got {summary.get('filled')}")
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-11-03" for slug in batch),
+        "2026-11-03 morning cut is dated 2026-11-03",
+    )
+    check(not set(batch) & set(batch_1026), "2026-11-03 morning cut must be never-reaudited vs 24slides–airpair")
+    check(not set(batch) & set(batch_1027_am), "2026-11-03 morning cut must be never-reaudited vs advacam–alchemy-cms")
+    check(not set(batch) & set(batch_1027_pm), "2026-11-03 morning cut must be never-reaudited vs 21vianet–aligned-assets")
+    check(not set(batch) & set(batch_1028), "2026-11-03 morning cut must be never-reaudited vs a1-hrvatska–altacast")
+    check(not set(batch) & set(batch_1029_am), "2026-11-03 morning cut must be never-reaudited vs altair-engineering–american-sammy")
+    check(not set(batch) & set(batch_1029_pm), "2026-11-03 morning cut must be never-reaudited vs american-tower–andor-technology")
+    check(not set(batch) & set(batch_1030_am), "2026-11-03 morning cut must be never-reaudited vs anduril-industries–apex-learning")
+    check(not set(batch) & set(batch_1030_pm), "2026-11-03 morning cut must be never-reaudited vs apigee–aptilo-networks")
+    check(not set(batch) & set(batch_1102_am), "2026-11-03 morning cut must be never-reaudited vs aptiv–argonide")
+    check(not set(batch) & set(batch_1102_pm), "2026-11-03 morning cut must be never-reaudited vs argotec–asg-technologies")
+    shipped_1103 = {
+        "asian-vision": {"years"},
+        "asseco-business-solutions": {"page", "marks"},
+        "assessio": {"page", "marks", "years"},
+        "astraqom": {"years"},
+        "atands": {"years"},
+        "astrolabs": {"years"},
+    }
+    clerk_soft_1103 = {"asix-s-r-o", "asrock"}
+    for slug in batch:
+        row = entries.get(slug) or {}
+        if row.get("soft_retry") and slug not in clerk_soft_1103:
+            probed_classes = {item.get("class") for item in (row.get("probed") or [])}
+            check(bool(probed_classes & soft_classes), f"{slug} soft-retry is marked")
+        if slug in shipped_1103:
+            check(row.get("filed") is True, f"{slug} ledger row records the apply")
+            continue
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+    for slug, keys in shipped_1103.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-11-03", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+        check(row.get("could_fill") == [k for k in FILE_KEYS if k in keys], f"{slug} could_fill {row.get('could_fill')}")
+        check(row.get("fileable") is True, f"{slug} stays fileable")
+    check((entries.get("asian-vision") or {}).get("hit", {}).get("years", {}).get("year") == 1973, "asian-vision year in ledger")
+    check(
+        (entries.get("asian-vision") or {}).get("hit", {}).get("years", {}).get("url") == "https://www.asianvision.com.ph/",
+        "asian-vision year source in ledger",
+    )
+    check(
+        (entries.get("asian-vision") or {}).get("hit", {}).get("years", {}).get("quote") == '"foundingDate": "1973"',
+        "asian-vision year quote is the JSON-LD foundingDate",
+    )
+    check(not (entries.get("asian-vision") or {}).get("hit", {}).get("page"), "asian-vision Official page stays unfiled")
+    check(
+        (entries.get("asseco-business-solutions") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://assecobs.pl/certificates/?lang=en",
+        "asseco certificates page in ledger",
+    )
+    check(
+        (entries.get("asseco-business-solutions") or {}).get("hit", {}).get("page", {}).get("kind") == "trust",
+        "asseco page kind is trust",
+    )
+    check(
+        ((entries.get("asseco-business-solutions") or {}).get("hit") or {}).get("marks", {}).get("added") == ["ISO 27001"],
+        "asseco marks in ledger",
+    )
+    check(
+        ((entries.get("asseco-business-solutions") or {}).get("hit") or {}).get("marks", {}).get("url")
+        == "https://assecobs.pl/certificates/?lang=en",
+        "asseco mark source in ledger",
+    )
+    check(
+        ((entries.get("asseco-business-solutions") or {}).get("hit") or {}).get("marks", {}).get("quote") == "",
+        "asseco quote stays empty; the page writes ISO/IEC 27001",
+    )
+    check(not (entries.get("asseco-business-solutions") or {}).get("hit", {}).get("years"), "asseco year stays unfiled")
+    check(
+        (entries.get("assessio") or {}).get("hit", {}).get("page", {}).get("url") == "https://assessio.com/trust-center/",
+        "assessio trust center in ledger",
+    )
+    check(
+        (entries.get("assessio") or {}).get("hit", {}).get("page", {}).get("kind") == "trust",
+        "assessio page kind is trust",
+    )
+    check(
+        ((entries.get("assessio") or {}).get("hit") or {}).get("marks", {}).get("added") == ["ISO 27001"],
+        "assessio marks in ledger",
+    )
+    check(
+        "GDPR" not in (((entries.get("assessio") or {}).get("hit") or {}).get("marks", {}).get("added") or []),
+        "assessio GDPR stays unfiled",
+    )
+    check(
+        "ISO 27001" in (((entries.get("assessio") or {}).get("hit") or {}).get("marks", {}).get("quote") or ""),
+        "assessio quote names ISO 27001",
+    )
+    check((entries.get("assessio") or {}).get("hit", {}).get("years", {}).get("year") == 1954, "assessio year in ledger")
+    check(
+        (entries.get("assessio") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://assessio.com/trust-center/privacy-notice-sweden/",
+        "assessio year source in ledger",
+    )
+    check(
+        (entries.get("assessio") or {}).get("hit", {}).get("years", {}).get("quote") == '"foundingDate":"1954"',
+        "assessio year quote is the JSON-LD foundingDate",
+    )
+    check(not (entries.get("assessio") or {}).get("hit", {}).get("dpa"), "assessio DPA stays unfiled")
+    check((entries.get("astraqom") or {}).get("hit", {}).get("years", {}).get("year") == 2008, "astraqom year in ledger")
+    check(
+        (entries.get("astraqom") or {}).get("hit", {}).get("years", {}).get("url") == "https://astraqom.com/en",
+        "astraqom year source in ledger",
+    )
+    check(
+        (entries.get("astraqom") or {}).get("hit", {}).get("years", {}).get("quote") == '"foundingDate":"2008"',
+        "astraqom year quote is the JSON-LD foundingDate",
+    )
+    check(not (entries.get("astraqom") or {}).get("hit", {}).get("page"), "astraqom Official page stays unfiled")
+    check(not (entries.get("atands") or {}).get("hit", {}).get("page"), "atands /security page stays unfiled")
+    check((entries.get("atands") or {}).get("hit", {}).get("years", {}).get("year") == 1987, "atands year in ledger")
+    check(
+        (entries.get("atands") or {}).get("hit", {}).get("years", {}).get("url") == "https://ats.net/en/company",
+        "atands year source in ledger",
+    )
+    check(
+        (entries.get("atands") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "Company | AT&S Since AT&S was founded in 1987, we have grown to become a leading supplier of high-end PCBs and IC substrates.",
+        "atands year quote is the company sentence",
+    )
+    check(not (entries.get("astrolabs") or {}).get("hit", {}).get("page"), "astrolabs construction article stays unfiled")
+    check((entries.get("astrolabs") or {}).get("hit", {}).get("years", {}).get("year") == 2013, "astrolabs year in ledger")
+    check(
+        (entries.get("astrolabs") or {}).get("hit", {}).get("years", {}).get("url") == "https://astrolabs.com/about-us",
+        "astrolabs year source in ledger",
+    )
+    check(
+        (entries.get("astrolabs") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "usiness Expansion Platform Empowering companies to thrive across the Gulf since 2013 Partner with us Contact us Our Story Our Origin Founded in 2013, AstroLabs.",
+        "astrolabs year quote is the about sentence",
+    )
+    check(not (entries.get("astrolabs") or {}).get("hit", {}).get("marks"), "astrolabs marks stay unfiled")
+    refused_1103 = {
+        "asix-s-r-o": "homepage returns 466 Access Forbidden on spot-check (soft-retry)",
+        "aspen-technology": "page is Sitecore filenotfound",
+        "asrock": "/security is an Incapsula block page (soft-retry)",
+        "astound-broadband": "page is error404.html",
+        "asure-software": "page is an unrelated blog post; DPA returns Cloudflare 403 (soft-retry)",
+        "asustor": "page is off-domain rog.asus.com campaign page",
+    }
+    for slug, reason in refused_1103.items():
+        row = entries.get(slug) or {}
+        check(row.get("date") == "2026-11-03", f"{slug} reaudited 2026-11-03")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+    check((entries.get("asix-s-r-o") or {}).get("soft_retry") is True, "asix homepage 466 stays a soft-retry")
+    check((entries.get("aspen-technology") or {}).get("soft_retry") is not True, "aspen filenotfound is a miss")
+    check((entries.get("asrock") or {}).get("soft_retry") is True, "asrock Incapsula block stays a soft-retry")
+    check((entries.get("astound-broadband") or {}).get("soft_retry") is not True, "astound error404 is a miss")
+    check((entries.get("asure-software") or {}).get("soft_retry") is True, "asure DPA Cloudflare block stays a soft-retry")
+    check((entries.get("asustor") or {}).get("soft_retry") is not True, "asustor off-domain page is a miss")
 
     public = json.loads((ROOT / "site" / "data.json").read_text())
     by_pub = {row.get("slug"): row for row in public.get("companies") or [] if row.get("slug")}
@@ -2262,8 +2463,98 @@ def test_live_ledger_when_present() -> None:
         check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
         check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
 
-    for slug in batch:
+    for slug in batch_1102_pm:
         if slug in shipped_1102_pm:
+            continue
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
+
+    pub_asian = by_pub["asian-vision"]
+    check(pub_asian.get("founded_year") == 1973, "asian-vision year is first-party home JSON-LD")
+    check(pub_asian.get("founded_source") == "https://www.asianvision.com.ph/", "asian-vision year source")
+    check((pub_asian.get("file") or {}).get("years") == 20, "asian-vision years print")
+    check(completeness(pub_asian) == 20, f"asian-vision Completeness {completeness(pub_asian)}")
+    check(pub_asian.get("found") is False, "asian-vision Official page stays open")
+    check(not pub_asian.get("trust_url"), "asian-vision Official page stays open")
+    check(not (pub_asian.get("certs") or []), "asian-vision marks stay open")
+
+    pub_asseco = by_pub["asseco-business-solutions"]
+    check(pub_asseco.get("found") is True, "asseco Official page is on file")
+    check(
+        pub_asseco.get("trust_url") == "https://assecobs.pl/certificates/?lang=en",
+        "asseco Official page is the certificates page",
+    )
+    check(pub_asseco.get("certs") == ["ISO 27001"], f"asseco marks {pub_asseco.get('certs')}")
+    check((pub_asseco.get("file") or {}).get("page") == 20, "asseco Official page prints")
+    check((pub_asseco.get("file") or {}).get("marks") == 20, "asseco marks print")
+    check(completeness(pub_asseco) == 40, f"asseco Completeness {completeness(pub_asseco)}")
+    check(not pub_asseco.get("founded_year"), "asseco year stays open")
+
+    pub_assessio = by_pub["assessio"]
+    check(pub_assessio.get("found") is True, "assessio Official page is on file")
+    check(
+        pub_assessio.get("trust_url") == "https://assessio.com/trust-center/",
+        "assessio Official page is the trust center",
+    )
+    check(pub_assessio.get("certs") == ["ISO 27001"], f"assessio marks {pub_assessio.get('certs')}")
+    check("GDPR" not in (pub_assessio.get("certs") or []), "assessio GDPR stays off the marks rule")
+    check(pub_assessio.get("founded_year") == 1954, "assessio year is first-party privacy notice")
+    check(
+        pub_assessio.get("founded_source") == "https://assessio.com/trust-center/privacy-notice-sweden/",
+        "assessio year source",
+    )
+    check((pub_assessio.get("file") or {}).get("page") == 20, "assessio Official page prints")
+    check((pub_assessio.get("file") or {}).get("marks") == 20, "assessio marks print")
+    check((pub_assessio.get("file") or {}).get("years") == 20, "assessio years print")
+    check(completeness(pub_assessio) == 60, f"assessio Completeness {completeness(pub_assessio)}")
+    check(not ((pub_assessio.get("instruments") or {}).get("dpa") or {}).get("url"), "assessio DPA stays open")
+
+    pub_astra = by_pub["astraqom"]
+    check(pub_astra.get("founded_year") == 2008, "astraqom year is first-party home JSON-LD")
+    check(pub_astra.get("founded_source") == "https://astraqom.com/en", "astraqom year source")
+    check((pub_astra.get("file") or {}).get("years") == 20, "astraqom years print")
+    check(completeness(pub_astra) == 20, f"astraqom Completeness {completeness(pub_astra)}")
+    check(pub_astra.get("found") is False, "astraqom Official page stays open")
+    check(not pub_astra.get("trust_url"), "astraqom Official page stays open")
+    check(not (pub_astra.get("certs") or []), "astraqom marks stay open")
+
+    pub_atands = by_pub["atands"]
+    check(pub_atands.get("founded_year") == 1987, "atands year is first-party company page")
+    check(pub_atands.get("founded_source") == "https://ats.net/en/company", "atands year source")
+    check((pub_atands.get("file") or {}).get("years") == 20, "atands years print")
+    check(completeness(pub_atands) == 20, f"atands Completeness {completeness(pub_atands)}")
+    check(pub_atands.get("found") is False, "atands /security page is not Official page")
+    check(not pub_atands.get("trust_url"), "atands Official page stays open")
+    check(not (pub_atands.get("certs") or []), "atands marks stay open")
+
+    pub_astro = by_pub["astrolabs"]
+    check(pub_astro.get("founded_year") == 2013, "astrolabs year is first-party about")
+    check(pub_astro.get("founded_source") == "https://astrolabs.com/about-us", "astrolabs year source")
+    check((pub_astro.get("file") or {}).get("years") == 20, "astrolabs years print")
+    check(completeness(pub_astro) == 20, f"astrolabs Completeness {completeness(pub_astro)}")
+    check(pub_astro.get("found") is False, "astrolabs construction article is not Official page")
+    check(not pub_astro.get("trust_url"), "astrolabs Official page stays open")
+    check(not (pub_astro.get("certs") or []), "astrolabs marks stay open")
+
+    for slug in (
+        "asix-s-r-o",
+        "aspen-technology",
+        "asrock",
+        "astound-broadband",
+        "asure-software",
+        "asustor",
+    ):
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
+
+    for slug in batch:
+        if slug in shipped_1103:
             continue
         check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
