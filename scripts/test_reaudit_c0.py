@@ -1671,32 +1671,59 @@ def test_live_ledger_when_present() -> None:
     )
     check((entries.get("aselsan") or {}).get("soft_retry") is not True, "aselsan homepage is a miss")
 
-    check(len(batch) == 30, f"2026-11-03 morning batch is 30, got {len(batch)}")
+    batch_1103_am = [
+        "ashmanov-and-partners",
+        "asian-vision",
+        "asiasat",
+        "asiatech-data-transmission",
+        "asix-s-r-o",
+        "ask-com",
+        "asmik-ace",
+        "asml",
+        "asocs",
+        "asora",
+        "asoriba",
+        "asos-com",
+        "aspen-technology",
+        "aspiegel-se",
+        "asrock",
+        "asseco",
+        "asseco-business-solutions",
+        "assessio",
+        "assurant",
+        "astera-labs",
+        "astound-broadband",
+        "astraqom",
+        "astridbio",
+        "astrolabs",
+        "astronautics-corporation-of-america",
+        "astrotech-corporation",
+        "asure-software",
+        "asustor",
+        "at-conference-inc",
+        "atands",
+    ]
+    check(len(batch_1103_am) == 30, f"2026-11-03 morning batch is 30, got {len(batch_1103_am)}")
     check(
-        batch[0] == "ashmanov-and-partners" and batch[-1] == "atands",
+        batch_1103_am[0] == "ashmanov-and-partners" and batch_1103_am[-1] == "atands",
         "2026-11-03 morning batch is the ashmanov-and-partners–atands cut",
     )
-    check("asian-vision" in batch and "astrolabs" in batch, "morning cut covers ashmanov-and-partners..atands")
-    check(all(slug in entries for slug in batch), "2026-11-03 morning rows stay in the ledger")
-    check(summary.get("batch") == 30, "2026-11-03 morning summary.batch is 30")
-    check(summary.get("fileable") == 6, f"2026-11-03 morning clerk fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 8, f"2026-11-03 morning soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 24, f"2026-11-03 morning still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 6, f"2026-11-03 morning clerk fills, got {summary.get('filled')}")
+    check("asian-vision" in batch_1103_am and "astrolabs" in batch_1103_am, "morning cut covers ashmanov-and-partners..atands")
+    check(all(slug in entries for slug in batch_1103_am), "2026-11-03 morning rows stay in the ledger")
     check(
-        all((entries.get(slug) or {}).get("date") == "2026-11-03" for slug in batch),
+        all((entries.get(slug) or {}).get("date") == "2026-11-03" for slug in batch_1103_am),
         "2026-11-03 morning cut is dated 2026-11-03",
     )
-    check(not set(batch) & set(batch_1026), "2026-11-03 morning cut must be never-reaudited vs 24slides–airpair")
-    check(not set(batch) & set(batch_1027_am), "2026-11-03 morning cut must be never-reaudited vs advacam–alchemy-cms")
-    check(not set(batch) & set(batch_1027_pm), "2026-11-03 morning cut must be never-reaudited vs 21vianet–aligned-assets")
-    check(not set(batch) & set(batch_1028), "2026-11-03 morning cut must be never-reaudited vs a1-hrvatska–altacast")
-    check(not set(batch) & set(batch_1029_am), "2026-11-03 morning cut must be never-reaudited vs altair-engineering–american-sammy")
-    check(not set(batch) & set(batch_1029_pm), "2026-11-03 morning cut must be never-reaudited vs american-tower–andor-technology")
-    check(not set(batch) & set(batch_1030_am), "2026-11-03 morning cut must be never-reaudited vs anduril-industries–apex-learning")
-    check(not set(batch) & set(batch_1030_pm), "2026-11-03 morning cut must be never-reaudited vs apigee–aptilo-networks")
-    check(not set(batch) & set(batch_1102_am), "2026-11-03 morning cut must be never-reaudited vs aptiv–argonide")
-    check(not set(batch) & set(batch_1102_pm), "2026-11-03 morning cut must be never-reaudited vs argotec–asg-technologies")
+    check(not set(batch_1103_am) & set(batch_1026), "2026-11-03 morning cut must be never-reaudited vs 24slides–airpair")
+    check(not set(batch_1103_am) & set(batch_1027_am), "2026-11-03 morning cut must be never-reaudited vs advacam–alchemy-cms")
+    check(not set(batch_1103_am) & set(batch_1027_pm), "2026-11-03 morning cut must be never-reaudited vs 21vianet–aligned-assets")
+    check(not set(batch_1103_am) & set(batch_1028), "2026-11-03 morning cut must be never-reaudited vs a1-hrvatska–altacast")
+    check(not set(batch_1103_am) & set(batch_1029_am), "2026-11-03 morning cut must be never-reaudited vs altair-engineering–american-sammy")
+    check(not set(batch_1103_am) & set(batch_1029_pm), "2026-11-03 morning cut must be never-reaudited vs american-tower–andor-technology")
+    check(not set(batch_1103_am) & set(batch_1030_am), "2026-11-03 morning cut must be never-reaudited vs anduril-industries–apex-learning")
+    check(not set(batch_1103_am) & set(batch_1030_pm), "2026-11-03 morning cut must be never-reaudited vs apigee–aptilo-networks")
+    check(not set(batch_1103_am) & set(batch_1102_am), "2026-11-03 morning cut must be never-reaudited vs aptiv–argonide")
+    check(not set(batch_1103_am) & set(batch_1102_pm), "2026-11-03 morning cut must be never-reaudited vs argotec–asg-technologies")
     shipped_1103 = {
         "asian-vision": {"years"},
         "asseco-business-solutions": {"page", "marks"},
@@ -1706,7 +1733,7 @@ def test_live_ledger_when_present() -> None:
         "astrolabs": {"years"},
     }
     clerk_soft_1103 = {"asix-s-r-o", "asrock"}
-    for slug in batch:
+    for slug in batch_1103_am:
         row = entries.get(slug) or {}
         if row.get("soft_retry") and slug not in clerk_soft_1103:
             probed_classes = {item.get("class") for item in (row.get("probed") or [])}
@@ -1844,6 +1871,123 @@ def test_live_ledger_when_present() -> None:
     check((entries.get("astound-broadband") or {}).get("soft_retry") is not True, "astound error404 is a miss")
     check((entries.get("asure-software") or {}).get("soft_retry") is True, "asure DPA Cloudflare block stays a soft-retry")
     check((entries.get("asustor") or {}).get("soft_retry") is not True, "asustor off-domain page is a miss")
+
+    check(len(batch) == 30, f"2026-11-03 afternoon batch is 30, got {len(batch)}")
+    check(
+        batch[0] == "atandt-alascom" and batch[-1] == "aura-sonic",
+        "2026-11-03 afternoon batch is the atandt-alascom–aura-sonic cut",
+    )
+    check("ateam-inc" in batch and "atomic-object" in batch, "afternoon cut covers atandt-alascom..aura-sonic")
+    check(all(slug in entries for slug in batch), "2026-11-03 afternoon rows stay in the ledger")
+    check(summary.get("batch") == 30, "2026-11-03 afternoon summary.batch is 30")
+    check(summary.get("fileable") == 3, f"2026-11-03 afternoon clerk fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 9, f"2026-11-03 afternoon soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 27, f"2026-11-03 afternoon still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 3, f"2026-11-03 afternoon clerk fills, got {summary.get('filled')}")
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-11-03" for slug in batch),
+        "2026-11-03 afternoon cut is dated 2026-11-03",
+    )
+    check(not set(batch) & set(batch_1026), "2026-11-03 afternoon cut must be never-reaudited vs 24slides–airpair")
+    check(not set(batch) & set(batch_1027_am), "2026-11-03 afternoon cut must be never-reaudited vs advacam–alchemy-cms")
+    check(not set(batch) & set(batch_1027_pm), "2026-11-03 afternoon cut must be never-reaudited vs 21vianet–aligned-assets")
+    check(not set(batch) & set(batch_1028), "2026-11-03 afternoon cut must be never-reaudited vs a1-hrvatska–altacast")
+    check(not set(batch) & set(batch_1029_am), "2026-11-03 afternoon cut must be never-reaudited vs altair-engineering–american-sammy")
+    check(not set(batch) & set(batch_1029_pm), "2026-11-03 afternoon cut must be never-reaudited vs american-tower–andor-technology")
+    check(not set(batch) & set(batch_1030_am), "2026-11-03 afternoon cut must be never-reaudited vs anduril-industries–apex-learning")
+    check(not set(batch) & set(batch_1030_pm), "2026-11-03 afternoon cut must be never-reaudited vs apigee–aptilo-networks")
+    check(not set(batch) & set(batch_1102_am), "2026-11-03 afternoon cut must be never-reaudited vs aptiv–argonide")
+    check(not set(batch) & set(batch_1102_pm), "2026-11-03 afternoon cut must be never-reaudited vs argotec–asg-technologies")
+    check(not set(batch) & set(batch_1103_am), "2026-11-03 afternoon cut must be never-reaudited vs ashmanov-and-partners–atands")
+    shipped_1103_pm = {
+        "ateam-inc": {"page"},
+        "ateme": {"page", "marks", "years"},
+        "atomic-object": {"years"},
+    }
+    clerk_soft_1103_pm = {"atm-mobilis"}
+    for slug in batch:
+        row = entries.get(slug) or {}
+        if row.get("soft_retry") and slug not in clerk_soft_1103_pm:
+            probed_classes = {item.get("class") for item in (row.get("probed") or [])}
+            check(bool(probed_classes & soft_classes), f"{slug} soft-retry is marked")
+        if slug in shipped_1103_pm:
+            check(row.get("filed") is True, f"{slug} ledger row records the apply")
+            continue
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+    for slug, keys in shipped_1103_pm.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-11-03", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+        check(row.get("could_fill") == [k for k in FILE_KEYS if k in keys], f"{slug} could_fill {row.get('could_fill')}")
+        check(row.get("fileable") is True, f"{slug} stays fileable")
+    check(
+        (entries.get("ateam-inc") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://www.a-tm.co.jp/securitypolicy/",
+        "ateam-inc security policy in ledger",
+    )
+    check(
+        (entries.get("ateam-inc") or {}).get("hit", {}).get("page", {}).get("kind") == "security",
+        "ateam-inc page kind is security",
+    )
+    check(not (entries.get("ateam-inc") or {}).get("hit", {}).get("marks"), "ateam-inc marks stay unfiled")
+    check(not (entries.get("ateam-inc") or {}).get("hit", {}).get("years"), "ateam-inc year stays unfiled")
+    check(
+        (entries.get("ateme") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://www.ateme.com/quality-certifications/",
+        "ateme quality page in ledger",
+    )
+    check(
+        (entries.get("ateme") or {}).get("hit", {}).get("page", {}).get("kind") == "trust",
+        "ateme page kind is trust",
+    )
+    check(
+        ((entries.get("ateme") or {}).get("hit") or {}).get("marks", {}).get("added") == ["ISO 9001"],
+        "ateme marks in ledger",
+    )
+    check(
+        ((entries.get("ateme") or {}).get("hit") or {}).get("marks", {}).get("url")
+        == "https://www.ateme.com/quality-certifications/",
+        "ateme mark source in ledger",
+    )
+    check(
+        ((entries.get("ateme") or {}).get("hit") or {}).get("marks", {}).get("quote")
+        == "Ateme is compliant with the ISO 9001: 2015 quality standard.",
+        "ateme quote is the ISO 9001:2015 sentence",
+    )
+    check((entries.get("ateme") or {}).get("hit", {}).get("years", {}).get("year") == 1991, "ateme year in ledger")
+    check(
+        (entries.get("ateme") or {}).get("hit", {}).get("years", {}).get("url") == "https://www.ateme.com/about-us",
+        "ateme year source in ledger",
+    )
+    check(
+        (entries.get("ateme") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "Founded in 1991, Ateme counts 580 employees spread over its headquarters in France and 20 o.",
+        "ateme year quote is the about sentence",
+    )
+    check(not (entries.get("atomic-object") or {}).get("hit", {}).get("page"), "atomic-object Official page stays unfiled")
+    check((entries.get("atomic-object") or {}).get("hit", {}).get("years", {}).get("year") == 2001, "atomic-object year in ledger")
+    check(
+        (entries.get("atomic-object") or {}).get("hit", {}).get("years", {}).get("url") == "https://atomicobject.com/",
+        "atomic-object year source in ledger",
+    )
+    check(
+        (entries.get("atomic-object") or {}).get("hit", {}).get("years", {}).get("quote") == '"foundingDate": "2001-01-01"',
+        "atomic-object year quote is the JSON-LD foundingDate",
+    )
+    check(not (entries.get("atomic-object") or {}).get("hit", {}).get("marks"), "atomic-object marks stay unfiled")
+    check(
+        (entries.get("atm-mobilis") or {}).get("refusal")
+        == "/security returns an F5 'Request Rejected' WAF page (soft-retry)",
+        "atm-mobilis refusal is the WAF page",
+    )
+    check((entries.get("atm-mobilis") or {}).get("soft_retry") is True, "atm-mobilis WAF page stays a soft-retry")
+    check((entries.get("atm-mobilis") or {}).get("fileable") is False, "atm-mobilis reads as still 0")
+    check((entries.get("atari") or {}).get("soft_retry") is True, "atari stays a Cloudflare soft-retry")
+    check((entries.get("atego") or {}).get("soft_retry") is not True, "atego http-0 is a miss")
 
     public = json.loads((ROOT / "site" / "data.json").read_text())
     by_pub = {row.get("slug"): row for row in public.get("companies") or [] if row.get("slug")}
@@ -2553,8 +2697,60 @@ def test_live_ledger_when_present() -> None:
         check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
         check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
 
-    for slug in batch:
+    for slug in batch_1103_am:
         if slug in shipped_1103:
+            continue
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
+
+    pub_ateam = by_pub["ateam-inc"]
+    check(pub_ateam.get("found") is True, "ateam-inc Official page is on file")
+    check(
+        pub_ateam.get("trust_url") == "https://www.a-tm.co.jp/securitypolicy/",
+        "ateam-inc Official page is the security policy",
+    )
+    check((pub_ateam.get("file") or {}).get("page") == 20, "ateam-inc Official page prints")
+    check((pub_ateam.get("file") or {}).get("marks") == 10, "ateam-inc page-without-marks partial prints")
+    check(not (pub_ateam.get("certs") or []), "ateam-inc marks stay open")
+    check(completeness(pub_ateam) == 30, f"ateam-inc Completeness {completeness(pub_ateam)}")
+    check(not pub_ateam.get("founded_year"), "ateam-inc year stays open")
+    check(not ((pub_ateam.get("instruments") or {}).get("dpa") or {}).get("url"), "ateam-inc DPA stays open")
+
+    pub_ateme = by_pub["ateme"]
+    check(pub_ateme.get("found") is True, "ateme Official page is on file")
+    check(
+        pub_ateme.get("trust_url") == "https://www.ateme.com/quality-certifications/",
+        "ateme Official page is the quality certifications page",
+    )
+    check(pub_ateme.get("certs") == ["ISO 9001"], f"ateme marks {pub_ateme.get('certs')}")
+    check(pub_ateme.get("founded_year") == 1991, "ateme year is first-party about")
+    check(pub_ateme.get("founded_source") == "https://www.ateme.com/about-us", "ateme year source")
+    check((pub_ateme.get("file") or {}).get("page") == 20, "ateme Official page prints")
+    check((pub_ateme.get("file") or {}).get("marks") == 20, "ateme marks print")
+    check((pub_ateme.get("file") or {}).get("years") == 20, "ateme years print")
+    check(completeness(pub_ateme) == 60, f"ateme Completeness {completeness(pub_ateme)}")
+    check(not ((pub_ateme.get("instruments") or {}).get("dpa") or {}).get("url"), "ateme DPA stays open")
+
+    pub_atomic = by_pub["atomic-object"]
+    check(pub_atomic.get("founded_year") == 2001, "atomic-object year is first-party home JSON-LD")
+    check(pub_atomic.get("founded_source") == "https://atomicobject.com/", "atomic-object year source")
+    check((pub_atomic.get("file") or {}).get("years") == 20, "atomic-object years print")
+    check(completeness(pub_atomic) == 20, f"atomic-object Completeness {completeness(pub_atomic)}")
+    check(pub_atomic.get("found") is False, "atomic-object Official page stays open")
+    check(not pub_atomic.get("trust_url"), "atomic-object Official page stays open")
+    check(not (pub_atomic.get("certs") or []), "atomic-object marks stay open")
+
+    check(completeness(by_pub["atm-mobilis"]) == 0, "atm-mobilis Completeness stays 0")
+    check(by_pub["atm-mobilis"].get("found") is False, "atm-mobilis WAF page is not Official page")
+    check(not by_pub["atm-mobilis"].get("trust_url"), "atm-mobilis Official page stays open")
+    check(not (by_pub["atm-mobilis"].get("certs") or []), "atm-mobilis marks stay open")
+    check(not by_pub["atm-mobilis"].get("founded_year"), "atm-mobilis year stays open")
+
+    for slug in batch:
+        if slug in shipped_1103_pm:
             continue
         check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
