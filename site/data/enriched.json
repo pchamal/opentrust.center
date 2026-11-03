@@ -46340,10 +46340,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 2001,
+      "founded_source": "https://atomicobject.com/"
     },
     {
       "rank": 1351,
@@ -68793,23 +68797,33 @@
       "name": "Ateme",
       "slug": "ateme",
       "domain": "ateme.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.ateme.com/quality-certifications/",
+      "final_url": "https://www.ateme.com/quality-certifications/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_France",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: ISO 9001.",
       "list": "wikipedia-software-companies-france",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "ISO 9001"
+      ],
+      "links": {
+        "trust": "https://www.ateme.com/quality-certifications/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 34,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "marks": 4,
+          "longevity": 10
+        }
+      },
+      "founded_year": 1991,
+      "founded_source": "https://www.ateme.com/about-us"
     },
     {
       "rank": 2213,
@@ -137133,9 +137147,9 @@
       "name": "Ateam Inc.",
       "slug": "ateam-inc",
       "domain": "a-tm.co.jp",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.a-tm.co.jp/securitypolicy/",
+      "final_url": "https://www.a-tm.co.jp/securitypolicy/",
       "vendor": "unknown",
       "title": "",
       "probed": 28,
@@ -137143,12 +137157,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-japan",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.a-tm.co.jp/securitypolicy/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
