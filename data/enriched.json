@@ -23380,24 +23380,31 @@
       "name": "Asseco Business Solutions",
       "slug": "asseco-business-solutions",
       "domain": "assecobs.pl",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://assecobs.pl/certificates/?lang=en",
+      "final_url": "https://assecobs.pl/certificates/?lang=en",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: ISO 27001.",
       "list": "companiesmarketcap-software",
-      "certs": [],
+      "certs": [
+        "ISO 27001"
+      ],
       "links": {
-        "security_txt": "https://assecobs.pl/.well-known/security.txt"
+        "security_txt": "https://assecobs.pl/.well-known/security.txt",
+        "trust": "https://assecobs.pl/certificates/?lang=en"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 36,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "disclosure": 6,
+          "marks": 10
+        }
       }
     },
     {
@@ -70243,23 +70250,33 @@
       "name": "Assessio",
       "slug": "assessio",
       "domain": "assessio.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://assessio.com/trust-center/",
+      "final_url": "https://assessio.com/trust-center/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Sweden",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: ISO 27001.",
       "list": "wikipedia-software-companies-sweden",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "ISO 27001"
+      ],
+      "links": {
+        "trust": "https://assessio.com/trust-center/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 40,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 10,
+          "longevity": 10
+        }
+      },
+      "founded_year": 1954,
+      "founded_source": "https://assessio.com/trust-center/privacy-notice-sweden/"
     },
     {
       "rank": 2274,
@@ -147178,10 +147195,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1987,
+      "founded_source": "https://ats.net/en/company"
     },
     {
       "rank": 5250,
@@ -155166,10 +155187,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 9,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 9
+        }
+      },
+      "founded_year": 2008,
+      "founded_source": "https://astraqom.com/en"
     },
     {
       "rank": 5589,
@@ -177661,10 +177686,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 6
+        }
+      },
+      "founded_year": 2013,
+      "founded_source": "https://astrolabs.com/about-us"
     },
     {
       "rank": 6477,
@@ -182410,10 +182439,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1973,
+      "founded_source": "https://www.asianvision.com.ph/"
     },
     {
       "rank": 6683,
