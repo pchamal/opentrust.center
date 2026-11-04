@@ -46225,10 +46225,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 2004,
+      "founded_source": "https://awardwallet.com/page/about"
     },
     {
       "rank": 1346,
@@ -46304,22 +46308,29 @@
       "name": "Avaya",
       "slug": "avaya",
       "domain": "avaya.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.avaya.com/en/trust-center/",
+      "final_url": "https://www.avaya.com/en/trust-center/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_States",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: FedRAMP.",
       "list": "wikipedia-software-us",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "FedRAMP"
+      ],
+      "links": {
+        "trust": "https://www.avaya.com/en/trust-center/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 32,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "marks": 12
+        }
       }
     },
     {
@@ -92500,12 +92511,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-financial-technology-companies",
       "certs": [],
-      "links": {},
+      "links": {
+        "dpa": "https://www.authorize.net/about-us/dpa.html"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "dpa": 8
+        }
       }
     },
     {
