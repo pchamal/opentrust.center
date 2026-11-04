@@ -182367,9 +182367,9 @@
       "name": "Axiata",
       "slug": "axiata",
       "domain": "axiata.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.axiata.com/digital-trust/cybersecurity",
+      "final_url": "https://www.axiata.com/digital-trust/cybersecurity",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -182377,12 +182377,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-telecommunications-companies-of-malaysia",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.axiata.com/digital-trust/cybersecurity"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -186925,23 +186929,34 @@
       "name": "Azercosmos",
       "slug": "azercosmos",
       "domain": "azercosmos.az",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://azercosmos.az/en/quality-and-information-security-policy",
+      "final_url": "https://azercosmos.az/en/quality-and-information-security-policy",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_Azerbaijan",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: ISO 27001, ISO 9001.",
       "list": "wikipedia-telecommunications-companies-of-azerbaijan",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "ISO 27001",
+        "ISO 9001"
+      ],
+      "links": {
+        "security": "https://azercosmos.az/en/quality-and-information-security-policy"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 42,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 14,
+          "longevity": 8
+        }
+      },
+      "founded_year": 2010,
+      "founded_source": "https://azercosmos.az/en/about-us/our-story"
     },
     {
       "rank": 6877,
