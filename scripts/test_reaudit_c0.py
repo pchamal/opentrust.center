@@ -2166,41 +2166,68 @@ def test_live_ledger_when_present() -> None:
     check((entries.get("autodoc") or {}).get("soft_retry") is True, "autodoc stays a Cloudflare soft-retry")
 
 
-    check(len(batch) == 30, f"2026-11-04 afternoon batch is 30, got {len(batch)}")
+    batch_1104_pm = [
+        "aws-elemental",
+        "axact",
+        "axceler",
+        "axcient",
+        "axia-netmedia",
+        "axiata",
+        "axiom",
+        "axis-telecom",
+        "axium",
+        "axonic-informationssysteme-gmbh",
+        "axtel",
+        "axway-software",
+        "axxess-technology-solutions",
+        "ayotle",
+        "azenta",
+        "azercell",
+        "azerconnect-group",
+        "azercosmos",
+        "azimo",
+        "azimuth-systems",
+        "azuro",
+        "b-scada",
+        "b-net",
+        "b2w",
+        "babylon-health",
+        "backbone-labs",
+        "backupassist",
+        "bactrack",
+        "bacula",
+        "badoinkvr",
+    ]
+    check(len(batch_1104_pm) == 30, f"2026-11-04 afternoon batch is 30, got {len(batch_1104_pm)}")
     check(
-        batch[0] == "aws-elemental" and batch[-1] == "badoinkvr",
-        "2026-11-04 afternoon batch is the aws-elemental–badoinkvr cut",
+        batch_1104_pm[0] == "aws-elemental" and batch_1104_pm[-1] == "badoinkvr",
+        "2026-11-04 afternoon batch is the aws-elemental to badoinkvr cut",
     )
-    check("axiata" in batch and "azercosmos" in batch, "afternoon cut covers aws-elemental..badoinkvr")
-    check(all(slug in entries for slug in batch), "2026-11-04 afternoon rows stay in the ledger")
-    check(summary.get("batch") == 30, "2026-11-04 afternoon summary.batch is 30")
-    check(summary.get("fileable") == 2, f"2026-11-04 afternoon clerk fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 10, f"2026-11-04 afternoon soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 28, f"2026-11-04 afternoon still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 2, f"2026-11-04 afternoon clerk fills, got {summary.get('filled')}")
+    check("axiata" in batch_1104_pm and "azercosmos" in batch_1104_pm, "afternoon cut covers aws-elemental..badoinkvr")
+    check(all(slug in entries for slug in batch_1104_pm), "2026-11-04 afternoon rows stay in the ledger")
     check(
-        all((entries.get(slug) or {}).get("date") == "2026-11-04" for slug in batch),
+        all((entries.get(slug) or {}).get("date") == "2026-11-04" for slug in batch_1104_pm),
         "2026-11-04 afternoon cut is dated 2026-11-04",
     )
-    check(not set(batch) & set(batch_1026), "2026-11-04 afternoon cut must be never-reaudited vs 24slides–airpair")
-    check(not set(batch) & set(batch_1027_am), "2026-11-04 afternoon cut must be never-reaudited vs advacam–alchemy-cms")
-    check(not set(batch) & set(batch_1027_pm), "2026-11-04 afternoon cut must be never-reaudited vs 21vianet–aligned-assets")
-    check(not set(batch) & set(batch_1028), "2026-11-04 afternoon cut must be never-reaudited vs a1-hrvatska–altacast")
-    check(not set(batch) & set(batch_1029_am), "2026-11-04 afternoon cut must be never-reaudited vs altair-engineering–american-sammy")
-    check(not set(batch) & set(batch_1029_pm), "2026-11-04 afternoon cut must be never-reaudited vs american-tower–andor-technology")
-    check(not set(batch) & set(batch_1030_am), "2026-11-04 afternoon cut must be never-reaudited vs anduril-industries–apex-learning")
-    check(not set(batch) & set(batch_1030_pm), "2026-11-04 afternoon cut must be never-reaudited vs apigee–aptilo-networks")
-    check(not set(batch) & set(batch_1102_am), "2026-11-04 afternoon cut must be never-reaudited vs aptiv–argonide")
-    check(not set(batch) & set(batch_1102_pm), "2026-11-04 afternoon cut must be never-reaudited vs argotec–asg-technologies")
-    check(not set(batch) & set(batch_1103_am), "2026-11-04 afternoon cut must be never-reaudited vs ashmanov-and-partners–atands")
-    check(not set(batch) & set(batch_1103_pm), "2026-11-04 afternoon cut must be never-reaudited vs atandt-alascom–aura-sonic")
-    check(not set(batch) & set(batch_1104_am), "2026-11-04 afternoon cut must be never-reaudited vs aurascape–awareness-technologies")
+    check(not set(batch_1104_pm) & set(batch_1026), "2026-11-04 afternoon cut must be never-reaudited vs 24slides-airpair")
+    check(not set(batch_1104_pm) & set(batch_1027_am), "2026-11-04 afternoon cut must be never-reaudited vs advacam-alchemy-cms")
+    check(not set(batch_1104_pm) & set(batch_1027_pm), "2026-11-04 afternoon cut must be never-reaudited vs 21vianet-aligned-assets")
+    check(not set(batch_1104_pm) & set(batch_1028), "2026-11-04 afternoon cut must be never-reaudited vs a1-hrvatska-altacast")
+    check(not set(batch_1104_pm) & set(batch_1029_am), "2026-11-04 afternoon cut must be never-reaudited vs altair-engineering-american-sammy")
+    check(not set(batch_1104_pm) & set(batch_1029_pm), "2026-11-04 afternoon cut must be never-reaudited vs american-tower-andor-technology")
+    check(not set(batch_1104_pm) & set(batch_1030_am), "2026-11-04 afternoon cut must be never-reaudited vs anduril-industries-apex-learning")
+    check(not set(batch_1104_pm) & set(batch_1030_pm), "2026-11-04 afternoon cut must be never-reaudited vs apigee-aptilo-networks")
+    check(not set(batch_1104_pm) & set(batch_1102_am), "2026-11-04 afternoon cut must be never-reaudited vs aptiv-argonide")
+    check(not set(batch_1104_pm) & set(batch_1102_pm), "2026-11-04 afternoon cut must be never-reaudited vs argotec-asg-technologies")
+    check(not set(batch_1104_pm) & set(batch_1103_am), "2026-11-04 afternoon cut must be never-reaudited vs ashmanov-and-partners-atands")
+    check(not set(batch_1104_pm) & set(batch_1103_pm), "2026-11-04 afternoon cut must be never-reaudited vs atandt-alascom-aura-sonic")
+    check(not set(batch_1104_pm) & set(batch_1104_am), "2026-11-04 afternoon cut must be never-reaudited vs aurascape-awareness-technologies")
     shipped_1104_pm = {
         "axiata": {"page"},
         "azercosmos": {"page", "marks", "years"},
     }
     clerk_soft_1104_pm = {"axact", "azercell"}
-    for slug in batch:
+    for slug in batch_1104_pm:
         row = entries.get(slug) or {}
         if row.get("soft_retry") and slug not in clerk_soft_1104_pm:
             probed_classes = {item.get("class") for item in (row.get("probed") or [])}
@@ -2287,6 +2314,129 @@ def test_live_ledger_when_present() -> None:
     check((entries.get("badoinkvr") or {}).get("soft_retry") is True, "badoinkvr stays a Cloudflare soft-retry")
     check((entries.get("aws-elemental") or {}).get("soft_retry") is True, "aws-elemental stays an http-403 soft-retry")
     check((entries.get("axxess-technology-solutions") or {}).get("soft_retry") is not True, "axxess training page is a miss")
+
+    batch_1105_am = [
+        "baker-hughes",
+        "barracuda",
+        "balsamiq",
+        "batchmaster-software",
+        "bandlab-technologies",
+        "bae-systems-electronic-systems",
+        "banham-group",
+        "balfour-beatty",
+        "bandai-namco-holdings",
+        "batliboi",
+    ]
+    check(batch == batch_1105_am, f"2026-11-05 morning batch {batch}")
+    check(len(batch) == 10, f"2026-11-05 morning batch is 10, got {len(batch)}")
+    check(all(slug in entries for slug in batch), "2026-11-05 morning rows stay in the ledger")
+    check(summary.get("batch") == 10, "2026-11-05 morning summary.batch is 10")
+    check(summary.get("fileable") == 3, f"2026-11-05 morning clerk fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 3, f"2026-11-05 morning soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 7, f"2026-11-05 morning still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 3, f"2026-11-05 morning clerk fills, got {summary.get('filled')}")
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-11-05" for slug in batch),
+        "2026-11-05 morning cut is dated 2026-11-05",
+    )
+    check(not set(batch) & set(batch_1104_pm), "2026-11-05 morning cut must be never-reaudited vs aws-elemental to badoinkvr")
+    check(not set(batch) & set(batch_1104_am), "2026-11-05 morning cut must be never-reaudited vs aurascape to awareness-technologies")
+    shipped_1105 = {
+        "balsamiq": {"marks", "dpa", "subprocessors"},
+        "barracuda": {"page"},
+        "batliboi": {"years"},
+    }
+    for slug, keys in shipped_1105.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-11-05", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+        check(row.get("could_fill") == [k for k in FILE_KEYS if k in keys], f"{slug} could_fill {row.get('could_fill')}")
+        check(row.get("fileable") is True, f"{slug} stays fileable")
+        check(row.get("soft_retry") is not True, f"{slug} is not a soft-retry")
+    for slug in batch:
+        if slug in shipped_1105:
+            continue
+        row = entries.get(slug) or {}
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+    check(
+        (entries.get("barracuda") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://trust.barracuda.com/",
+        "barracuda trust page in ledger",
+    )
+    check(
+        (entries.get("barracuda") or {}).get("hit", {}).get("page", {}).get("kind") == "trust",
+        "barracuda page kind is trust",
+    )
+    check(not (entries.get("barracuda") or {}).get("hit", {}).get("marks"), "barracuda marks stay unfiled")
+    check(not (entries.get("barracuda") or {}).get("hit", {}).get("dpa"), "barracuda DPA stays unfiled")
+    check(not (entries.get("barracuda") or {}).get("hit", {}).get("years"), "barracuda year stays unfiled")
+    bal_hit = (entries.get("balsamiq") or {}).get("hit") or {}
+    check(bal_hit.get("dpa", {}).get("url") == "https://balsamiq.com/legal/dpa/", "balsamiq DPA in ledger")
+    check(
+        bal_hit.get("subprocessors", {}).get("url") == "https://balsamiq.com/legal/subprocessors/",
+        "balsamiq subprocessors URL in ledger",
+    )
+    check(
+        bal_hit.get("subprocessors", {}).get("names") == [
+            "Amazon Web Services (AWS)",
+            "Atlassian",
+            "Cookiebot (Usercentrics)",
+            "Customer.io",
+            "Google (Ads)",
+            "Google (Analytics)",
+            "Google (Gemini)",
+            "Google (Workspace)",
+            "Help Scout",
+            "PostHog",
+            "Postmark",
+            "Stripe",
+        ],
+        "balsamiq subprocessors names in ledger",
+    )
+    check(bal_hit.get("marks", {}).get("added") == ["EU-US DPF", "SOC 2 Type II"], "balsamiq marks in ledger")
+    check(
+        bal_hit.get("marks", {}).get("url") == "https://balsamiq.com/legal/privacy/",
+        "balsamiq mark source in ledger",
+    )
+    check(not bal_hit.get("page"), "balsamiq Official page stays unfiled")
+    check(not bal_hit.get("years"), "balsamiq year stays unfiled")
+    check((entries.get("batliboi") or {}).get("hit", {}).get("years", {}).get("year") == 1892, "batliboi year in ledger")
+    check(
+        (entries.get("batliboi") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://batliboi.com/about-us/overview/",
+        "batliboi year source in ledger",
+    )
+    check(not (entries.get("batliboi") or {}).get("hit", {}).get("page"), "batliboi Official page stays unfiled")
+    check(not (entries.get("batliboi") or {}).get("hit", {}).get("marks"), "batliboi marks stay unfiled")
+    check(not (entries.get("batliboi") or {}).get("hit", {}).get("dpa"), "batliboi DPA stays unfiled")
+    refused_1105 = {
+        "bae-systems-electronic-systems": "Incapsula WAF 403 on /trust (soft-retry)",
+        "baker-hughes": "flow-assurance product marketing page; wrong 'trust' keyword match",
+        "balfour-beatty": "2018 is digital-transformation date on Digital-first page, not founding year",
+        "bandai-namco-holdings": "/err/403forbid.html Access Denied page",
+        "bandlab-technologies": "/trust is empty JS/CloudFront shell (~1.6KB) soft-retry",
+        "banham-group": "locks product marketing page ('Additional Locks & Security')",
+        "batchmaster-software": "regulatory-compliance-software ERP product marketing page",
+    }
+    for slug, reason in refused_1105.items():
+        row = entries.get(slug) or {}
+        check(row.get("date") == "2026-11-05", f"{slug} reaudited 2026-11-05")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+    check((entries.get("bae-systems-electronic-systems") or {}).get("soft_retry") is True, "bae systems WAF 403 stays a soft-retry")
+    check((entries.get("bandai-namco-holdings") or {}).get("soft_retry") is True, "bandai namco 403 page stays a soft-retry")
+    check((entries.get("bandlab-technologies") or {}).get("soft_retry") is True, "bandlab JS shell stays a soft-retry")
+    check((entries.get("baker-hughes") or {}).get("soft_retry") is not True, "baker hughes marketing page is a miss")
+    check((entries.get("balfour-beatty") or {}).get("soft_retry") is not True, "balfour beatty year miss is not a soft-retry")
+    check((entries.get("banham-group") or {}).get("soft_retry") is not True, "banham product page is a miss")
+    check((entries.get("batchmaster-software") or {}).get("soft_retry") is not True, "batchmaster product page is a miss")
 
     public = json.loads((ROOT / "site" / "data.json").read_text())
     by_pub = {row.get("slug"): row for row in public.get("companies") or [] if row.get("slug")}
@@ -3136,8 +3286,76 @@ def test_live_ledger_when_present() -> None:
     check(completeness(pub_azer) == 60, f"azercosmos Completeness {completeness(pub_azer)}")
     check(not ((pub_azer.get("instruments") or {}).get("dpa") or {}).get("url"), "azercosmos DPA stays open")
 
-    for slug in batch:
+    for slug in batch_1104_pm:
         if slug in shipped_1104_pm:
+            continue
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
+
+    pub_bal = by_pub["balsamiq"]
+    check(pub_bal.get("found") is False, "balsamiq Official page stays open")
+    check(not pub_bal.get("trust_url"), "balsamiq Official page stays open")
+    check(pub_bal.get("certs") == ["EU-US DPF", "SOC 2 Type II"], f"balsamiq marks {pub_bal.get('certs')}")
+    check(
+        ((pub_bal.get("instruments") or {}).get("dpa") or {}).get("url") == "https://balsamiq.com/legal/dpa/",
+        "balsamiq DPA URL",
+    )
+    check(
+        ((pub_bal.get("instruments") or {}).get("subprocessors") or {}).get("url")
+        == "https://balsamiq.com/legal/subprocessors/",
+        "balsamiq subprocessors URL",
+    )
+    check(
+        [p.get("name") for p in (pub_bal.get("processors") or [])] == [
+            "Amazon Web Services (AWS)",
+            "Atlassian",
+            "Cookiebot (Usercentrics)",
+            "Customer.io",
+            "Google (Ads)",
+            "Google (Analytics)",
+            "Google (Gemini)",
+            "Google (Workspace)",
+            "Help Scout",
+            "PostHog",
+            "Postmark",
+            "Stripe",
+        ],
+        "balsamiq named list is the vetted 12",
+    )
+    check((pub_bal.get("file") or {}).get("marks") == 20, "balsamiq marks print")
+    check((pub_bal.get("file") or {}).get("dpa") == 20, "balsamiq DPA prints")
+    check((pub_bal.get("file") or {}).get("subprocessors") == 20, "balsamiq subprocessors print")
+    check((pub_bal.get("file") or {}).get("page") == 0, "balsamiq Official page stays the open rule")
+    check(completeness(pub_bal) == 60, f"balsamiq Completeness {completeness(pub_bal)}")
+    check(not pub_bal.get("founded_year"), "balsamiq year stays open")
+
+    pub_bar = by_pub["barracuda"]
+    check(pub_bar.get("found") is True, "barracuda Official page is on file")
+    check(pub_bar.get("trust_url") == "https://trust.barracuda.com/", "barracuda Official page is the trust center")
+    check(not (pub_bar.get("certs") or []), "barracuda marks stay open")
+    check((pub_bar.get("file") or {}).get("page") == 20, "barracuda Official page prints")
+    check((pub_bar.get("file") or {}).get("marks") == 10, "barracuda marks stay the looked-none partial")
+    check(completeness(pub_bar) == 30, f"barracuda Completeness {completeness(pub_bar)}")
+    check(not pub_bar.get("founded_year"), "barracuda year stays open")
+    check(not ((pub_bar.get("instruments") or {}).get("dpa") or {}).get("url"), "barracuda DPA stays open")
+
+    pub_bat = by_pub["batliboi"]
+    check(pub_bat.get("found") is False, "batliboi Official page stays open")
+    check(pub_bat.get("founded_year") == 1892, "batliboi year is first-party about")
+    check(
+        pub_bat.get("founded_source") == "https://batliboi.com/about-us/overview/",
+        "batliboi year source",
+    )
+    check((pub_bat.get("file") or {}).get("years") == 20, "batliboi years print")
+    check(completeness(pub_bat) == 20, f"batliboi Completeness {completeness(pub_bat)}")
+    check(not (pub_bat.get("certs") or []), "batliboi marks stay open")
+    check(not ((pub_bat.get("instruments") or {}).get("dpa") or {}).get("url"), "batliboi DPA stays open")
+
+    for slug in batch:
+        if slug in shipped_1105:
             continue
         check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")

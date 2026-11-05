@@ -36624,9 +36624,9 @@
       "name": "Barracuda",
       "slug": "barracuda",
       "domain": "barracuda.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://trust.barracuda.com/",
+      "final_url": "https://trust.barracuda.com/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -36634,12 +36634,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "crn-security-100-2025",
       "certs": [],
-      "links": {},
+      "links": {
+        "trust": "https://trust.barracuda.com/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -46248,13 +46252,36 @@
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_States",
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-us",
-      "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "certs": [
+        "EU-US DPF",
+        "SOC 2 Type II"
+      ],
+      "links": {
+        "dpa": "https://balsamiq.com/legal/dpa/",
+        "subprocessors": "https://balsamiq.com/legal/subprocessors/"
+      },
+      "subprocessors": [
+        "aws",
+        "atlassian",
+        "cookiebot-usercentrics",
+        "customer-io",
+        "google-ads",
+        "google-analytics",
+        "google-gemini",
+        "google-workspace",
+        "help-scout",
+        "posthog",
+        "postmark",
+        "stripe"
+      ],
       "disclosure": {
-        "score": 0,
+        "score": 30,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "marks": 14,
+          "dpa": 8,
+          "subprocessors": 8
+        }
       }
     },
     {
@@ -160370,10 +160397,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1892,
+      "founded_source": "https://batliboi.com/about-us/overview/"
     },
     {
       "rank": 5809,
