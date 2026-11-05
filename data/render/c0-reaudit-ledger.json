@@ -1,44 +1,24 @@
 {
-  "generated_at": "2026-11-04T22:36:03Z",
+  "generated_at": "2026-11-05T17:31:58Z",
   "rule": "Paced Completeness-0 reaudit. Completeness is the sum of five 0/10/20 file rules, not disclosure.score. Domain required. Never-reaudited first, then oldest ledger date. HTTP only. Soft-404 / login / homepage bounce = miss. 403 / empty JS shell / Cloudflare = soft-retry. Portal hosts stay URL-only.",
   "last_batch": [
-    "aws-elemental",
-    "axact",
-    "axceler",
-    "axcient",
-    "axia-netmedia",
-    "axiata",
-    "axiom",
-    "axis-telecom",
-    "axium",
-    "axonic-informationssysteme-gmbh",
-    "axtel",
-    "axway-software",
-    "axxess-technology-solutions",
-    "ayotle",
-    "azenta",
-    "azercell",
-    "azerconnect-group",
-    "azercosmos",
-    "azimo",
-    "azimuth-systems",
-    "azuro",
-    "b-scada",
-    "b-net",
-    "b2w",
-    "babylon-health",
-    "backbone-labs",
-    "backupassist",
-    "bactrack",
-    "bacula",
-    "badoinkvr"
+    "baker-hughes",
+    "barracuda",
+    "balsamiq",
+    "batchmaster-software",
+    "bandlab-technologies",
+    "bae-systems-electronic-systems",
+    "banham-group",
+    "balfour-beatty",
+    "bandai-namco-holdings",
+    "batliboi"
   ],
   "summary": {
-    "batch": 30,
-    "fileable": 2,
-    "soft_retry": 10,
-    "still_0": 28,
-    "filled": 2
+    "batch": 10,
+    "fileable": 3,
+    "soft_retry": 3,
+    "still_0": 7,
+    "filled": 3
   },
   "entries": {
     "beetexting": {
@@ -235404,6 +235384,195 @@
       "fileable": false,
       "hit": null,
       "filed": false
+    },
+    "baker-hughes": {
+      "slug": "baker-hughes",
+      "name": "Baker Hughes",
+      "domain": "bakerhughes.com",
+      "date": "2026-11-05",
+      "probed": [],
+      "could_fill": [],
+      "refusal": "flow-assurance product marketing page; wrong 'trust' keyword match",
+      "soft_retry": false,
+      "fileable": false,
+      "hit": null,
+      "filed": false
+    },
+    "barracuda": {
+      "slug": "barracuda",
+      "name": "Barracuda",
+      "domain": "barracuda.com",
+      "date": "2026-11-05",
+      "probed": [],
+      "could_fill": [
+        "page"
+      ],
+      "refusal": "",
+      "soft_retry": false,
+      "fileable": true,
+      "hit": {
+        "page": {
+          "url": "https://trust.barracuda.com/",
+          "kind": "trust"
+        }
+      },
+      "filed": true,
+      "filed_keys": [
+        "page"
+      ]
+    },
+    "balsamiq": {
+      "slug": "balsamiq",
+      "name": "Balsamiq",
+      "domain": "balsamiq.com",
+      "date": "2026-11-05",
+      "probed": [],
+      "could_fill": [
+        "marks",
+        "dpa",
+        "subprocessors"
+      ],
+      "refusal": "",
+      "soft_retry": false,
+      "fileable": true,
+      "hit": {
+        "marks": {
+          "url": "https://balsamiq.com/legal/privacy/",
+          "added": [
+            "EU-US DPF",
+            "SOC 2 Type II"
+          ],
+          "quote": "Balsamiq Studios, LLC has certified to the U.S. Department of Commerce that it adheres to the EU-U.S. Data Privacy Framework Principles (EU-U.S. DPF Principles) with regard to the processing of personal data received from the European Union and the United Kingdom in reliance on the EU-U.S. DPF and the UK Extension to the EU-U.S. DPF."
+        },
+        "dpa": {
+          "url": "https://balsamiq.com/legal/dpa/"
+        },
+        "subprocessors": {
+          "url": "https://balsamiq.com/legal/subprocessors/",
+          "names": [
+            "Amazon Web Services (AWS)",
+            "Atlassian",
+            "Cookiebot (Usercentrics)",
+            "Customer.io",
+            "Google (Ads)",
+            "Google (Analytics)",
+            "Google (Gemini)",
+            "Google (Workspace)",
+            "Help Scout",
+            "PostHog",
+            "Postmark",
+            "Stripe"
+          ]
+        }
+      },
+      "filed": true,
+      "filed_keys": [
+        "marks",
+        "dpa",
+        "subprocessors"
+      ]
+    },
+    "batchmaster-software": {
+      "slug": "batchmaster-software",
+      "name": "BatchMaster Software",
+      "domain": "batchmaster.com",
+      "date": "2026-11-05",
+      "probed": [],
+      "could_fill": [],
+      "refusal": "regulatory-compliance-software ERP product marketing page",
+      "soft_retry": false,
+      "fileable": false,
+      "hit": null,
+      "filed": false
+    },
+    "bandlab-technologies": {
+      "slug": "bandlab-technologies",
+      "name": "BandLab Technologies",
+      "domain": "bandlab.com",
+      "date": "2026-11-05",
+      "probed": [],
+      "could_fill": [],
+      "refusal": "/trust is empty JS/CloudFront shell (~1.6KB) soft-retry",
+      "soft_retry": true,
+      "fileable": false,
+      "hit": null,
+      "filed": false
+    },
+    "bae-systems-electronic-systems": {
+      "slug": "bae-systems-electronic-systems",
+      "name": "BAE Systems Electronic Systems",
+      "domain": "baesystems.com",
+      "date": "2026-11-05",
+      "probed": [],
+      "could_fill": [],
+      "refusal": "Incapsula WAF 403 on /trust (soft-retry)",
+      "soft_retry": true,
+      "fileable": false,
+      "hit": null,
+      "filed": false
+    },
+    "banham-group": {
+      "slug": "banham-group",
+      "name": "Banham Group",
+      "domain": "banham.co.uk",
+      "date": "2026-11-05",
+      "probed": [],
+      "could_fill": [],
+      "refusal": "locks product marketing page ('Additional Locks & Security')",
+      "soft_retry": false,
+      "fileable": false,
+      "hit": null,
+      "filed": false
+    },
+    "balfour-beatty": {
+      "slug": "balfour-beatty",
+      "name": "Balfour Beatty",
+      "domain": "balfourbeatty.com",
+      "date": "2026-11-05",
+      "probed": [],
+      "could_fill": [],
+      "refusal": "2018 is digital-transformation date on Digital-first page, not founding year",
+      "soft_retry": false,
+      "fileable": false,
+      "hit": null,
+      "filed": false
+    },
+    "bandai-namco-holdings": {
+      "slug": "bandai-namco-holdings",
+      "name": "Bandai Namco Holdings",
+      "domain": "bandainamco.co.jp",
+      "date": "2026-11-05",
+      "probed": [],
+      "could_fill": [],
+      "refusal": "/err/403forbid.html Access Denied page",
+      "soft_retry": true,
+      "fileable": false,
+      "hit": null,
+      "filed": false
+    },
+    "batliboi": {
+      "slug": "batliboi",
+      "name": "Batliboi",
+      "domain": "batliboi.com",
+      "date": "2026-11-05",
+      "probed": [],
+      "could_fill": [
+        "years"
+      ],
+      "refusal": "",
+      "soft_retry": false,
+      "fileable": true,
+      "hit": {
+        "years": {
+          "year": 1892,
+          "url": "https://batliboi.com/about-us/overview/",
+          "quote": "Batliboi, founded in 1892, has grown to a position of leadership among engineering companies."
+        }
+      },
+      "filed": true,
+      "filed_keys": [
+        "years"
+      ]
     }
   }
 }
