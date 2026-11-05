@@ -2327,20 +2327,14 @@ def test_live_ledger_when_present() -> None:
         "bandai-namco-holdings",
         "batliboi",
     ]
-    check(batch == batch_1105_am, f"2026-11-05 morning batch {batch}")
-    check(len(batch) == 10, f"2026-11-05 morning batch is 10, got {len(batch)}")
-    check(all(slug in entries for slug in batch), "2026-11-05 morning rows stay in the ledger")
-    check(summary.get("batch") == 10, "2026-11-05 morning summary.batch is 10")
-    check(summary.get("fileable") == 3, f"2026-11-05 morning clerk fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 3, f"2026-11-05 morning soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 7, f"2026-11-05 morning still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 3, f"2026-11-05 morning clerk fills, got {summary.get('filled')}")
+    check(len(batch_1105_am) == 10, f"2026-11-05 morning batch is 10, got {len(batch_1105_am)}")
+    check(all(slug in entries for slug in batch_1105_am), "2026-11-05 morning rows stay in the ledger")
     check(
-        all((entries.get(slug) or {}).get("date") == "2026-11-05" for slug in batch),
+        all((entries.get(slug) or {}).get("date") == "2026-11-05" for slug in batch_1105_am),
         "2026-11-05 morning cut is dated 2026-11-05",
     )
-    check(not set(batch) & set(batch_1104_pm), "2026-11-05 morning cut must be never-reaudited vs aws-elemental to badoinkvr")
-    check(not set(batch) & set(batch_1104_am), "2026-11-05 morning cut must be never-reaudited vs aurascape to awareness-technologies")
+    check(not set(batch_1105_am) & set(batch_1104_pm), "2026-11-05 morning cut must be never-reaudited vs aws-elemental to badoinkvr")
+    check(not set(batch_1105_am) & set(batch_1104_am), "2026-11-05 morning cut must be never-reaudited vs aurascape to awareness-technologies")
     shipped_1105 = {
         "balsamiq": {"marks", "dpa", "subprocessors"},
         "barracuda": {"page"},
@@ -2354,7 +2348,7 @@ def test_live_ledger_when_present() -> None:
         check(row.get("could_fill") == [k for k in FILE_KEYS if k in keys], f"{slug} could_fill {row.get('could_fill')}")
         check(row.get("fileable") is True, f"{slug} stays fileable")
         check(row.get("soft_retry") is not True, f"{slug} is not a soft-retry")
-    for slug in batch:
+    for slug in batch_1105_am:
         if slug in shipped_1105:
             continue
         row = entries.get(slug) or {}
@@ -2437,6 +2431,165 @@ def test_live_ledger_when_present() -> None:
     check((entries.get("balfour-beatty") or {}).get("soft_retry") is not True, "balfour beatty year miss is not a soft-retry")
     check((entries.get("banham-group") or {}).get("soft_retry") is not True, "banham product page is a miss")
     check((entries.get("batchmaster-software") or {}).get("soft_retry") is not True, "batchmaster product page is a miss")
+
+    batch_1105_pm = [
+        "batm",
+        "bayan-telecommunications",
+        "bayanat",
+        "bazaarvoice",
+        "bce-inc",
+        "bdo-pay",
+        "bdo-usa",
+        "bdt-msd-partners",
+        "be-inc",
+        "be-quiet",
+        "be-tv",
+        "bea-systems",
+        "beamly",
+        "beca-group",
+        "bechtle",
+        "beckhoff-automation",
+        "beddit",
+        "bee-engineering",
+        "beelink",
+        "behavior-tech-computer",
+        "behringer",
+        "beijer-electronics",
+        "belarc",
+        "belkart",
+        "belkin",
+        "bell-aliant",
+        "bell-canada",
+        "bell-id",
+        "bell-mts",
+        "bellperre",
+    ]
+    check(batch == batch_1105_pm, f"2026-11-05 afternoon batch {batch}")
+    check(len(batch_1105_pm) == 30, f"2026-11-05 afternoon batch is 30, got {len(batch_1105_pm)}")
+    check(
+        batch_1105_pm[0] == "batm" and batch_1105_pm[-1] == "bellperre",
+        "2026-11-05 afternoon batch is the batm to bellperre cut",
+    )
+    check(all(slug in entries for slug in batch_1105_pm), "2026-11-05 afternoon rows stay in the ledger")
+    check(summary.get("batch") == 30, "2026-11-05 afternoon summary.batch is 30")
+    check(summary.get("fileable") == 3, f"2026-11-05 afternoon clerk fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 4, f"2026-11-05 afternoon soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 23, f"2026-11-05 afternoon still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 3, f"2026-11-05 afternoon clerk fills, got {summary.get('filled')}")
+    check(summary.get("vetted_keep") == 3, f"2026-11-05 afternoon vetted keep, got {summary.get('vetted_keep')}")
+    check(
+        summary.get("vetted_drop_fileable") == 9,
+        f"2026-11-05 afternoon vetted drops, got {summary.get('vetted_drop_fileable')}",
+    )
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-11-05" for slug in batch_1105_pm),
+        "2026-11-05 afternoon cut is dated 2026-11-05",
+    )
+    check(not set(batch_1105_pm) & set(batch_1105_am), "2026-11-05 afternoon cut must be never-reaudited vs the morning holds")
+    check(not set(batch_1105_pm) & set(batch_1104_pm), "2026-11-05 afternoon cut must be never-reaudited vs aws-elemental to badoinkvr")
+    shipped_1105_pm = {
+        "batm": {"years"},
+        "bazaarvoice": {"page"},
+        "behringer": {"years"},
+    }
+    for slug in batch_1105_pm:
+        row = entries.get(slug) or {}
+        if row.get("soft_retry") and slug != "bazaarvoice":
+            probed_classes = {item.get("class") for item in (row.get("probed") or [])}
+            check(bool(probed_classes & soft_classes), f"{slug} soft-retry is marked")
+        if slug in shipped_1105_pm:
+            check(row.get("filed") is True, f"{slug} ledger row records the apply")
+            continue
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+    for slug, keys in shipped_1105_pm.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-11-05", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+        check(row.get("could_fill") == [k for k in FILE_KEYS if k in keys], f"{slug} could_fill {row.get('could_fill')}")
+        check(row.get("fileable") is True, f"{slug} stays fileable")
+    check((entries.get("batm") or {}).get("soft_retry") is not True, "batm year hold is not a soft-retry")
+    check((entries.get("behringer") or {}).get("soft_retry") is not True, "behringer year hold is not a soft-retry")
+    check((entries.get("bazaarvoice") or {}).get("soft_retry") is True, "bazaarvoice stays a js-shell soft-retry")
+    check(
+        (entries.get("batm") or {}).get("hit", {}).get("years", {}).get("year") == 1992,
+        "batm year in ledger",
+    )
+    check(
+        (entries.get("batm") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://www.batm.com/company-governance/about-batm",
+        "batm year source in ledger",
+    )
+    check(
+        (entries.get("batm") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "Established in 1992, BATM is headquartered in Israel with offices in North America, Europe and the Far East, and it is listed on the Main Market of the London Stock Exchange.",
+        "batm year quote is the about sentence",
+    )
+    check(not (entries.get("batm") or {}).get("hit", {}).get("page"), "batm accessibility page stays unfiled")
+    check(not (entries.get("batm") or {}).get("hit", {}).get("marks"), "batm marks stay unfiled")
+    check(not (entries.get("batm") or {}).get("hit", {}).get("dpa"), "batm DPA stays unfiled")
+    check(
+        (entries.get("batm") or {}).get("refusal")
+        == "dropped page: accessibility statement is not a trust/security Completeness page; kept years 1992 from about",
+        "batm accessibility page drop stays on the row",
+    )
+    check(
+        (entries.get("bazaarvoice") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://www.bazaarvoice.com/company/trust/",
+        "bazaarvoice trust page in ledger",
+    )
+    check(
+        (entries.get("bazaarvoice") or {}).get("hit", {}).get("page", {}).get("kind") == "trust",
+        "bazaarvoice page kind is trust",
+    )
+    check(not (entries.get("bazaarvoice") or {}).get("hit", {}).get("marks"), "bazaarvoice marks stay unfiled")
+    check(not (entries.get("bazaarvoice") or {}).get("hit", {}).get("dpa"), "bazaarvoice DPA stays unfiled")
+    check(not (entries.get("bazaarvoice") or {}).get("hit", {}).get("years"), "bazaarvoice year stays unfiled")
+    check((entries.get("behringer") or {}).get("hit", {}).get("years", {}).get("year") == 1989, "behringer year in ledger")
+    check(
+        (entries.get("behringer") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://behringer.com/en/about",
+        "behringer year source in ledger",
+    )
+    check(
+        (entries.get("behringer") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "Our Story Born from a Passion for Music Founded in 1989, as a struggling musician and sound engineer, Uli Behringer couldn't afford the necessary equipment for his own studio.",
+        "behringer year quote is the about sentence",
+    )
+    check(not (entries.get("behringer") or {}).get("hit", {}).get("page"), "behringer Official page stays unfiled")
+    check(not (entries.get("behringer") or {}).get("hit", {}).get("marks"), "behringer marks stay unfiled")
+    check(not (entries.get("behringer") or {}).get("hit", {}).get("dpa"), "behringer DPA stays unfiled")
+    refused_1105_pm = {
+        "bayan-telecommunications": "trust URL HTTP 500; /data-processing-addendum is empty JS 'Loading...' shell (~498B)",
+        "bce-inc": "/security serves Newsroom content (wrong page), not a security/trust center",
+        "bdo-usa": "audit-assurance and third-party-attestation are client services marketing (BDO selling SOC2), not BDO's own trust; 2023 is ESOP date not founding",
+        "bdt-msd-partners": "only evidence is privacy JSON-LD foundingDate 2023 (merger year of BDT+MSD); no about-page founding prose — too weak",
+        "bechtle": "IT security solutions product/services marketing page, not first-party trust/security disclosure",
+        "beckhoff-automation": "2006 is Beckhoff South Africa subsidiary founding, not company founding year",
+        "bee-engineering": "ética-compliance-old anticorruption/ethics page, not Completeness trust/security/DPA hold",
+        "behavior-tech-computer": "/trust returns company About/EMS homepage content (LED manufacturing), not a trust center",
+        "belkin": "Secure KVM product marketing page (NIAP PP4.0), not company trust/security disclosure",
+    }
+    for slug, reason in refused_1105_pm.items():
+        row = entries.get(slug) or {}
+        check(row.get("date") == "2026-11-05", f"{slug} reaudited 2026-11-05")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+        check(row.get("soft_retry") is not True, f"{slug} drop is not a soft-retry")
+    check((entries.get("be-quiet") or {}).get("soft_retry") is True, "be-quiet stays a Cloudflare soft-retry")
+    check((entries.get("be-tv") or {}).get("soft_retry") is True, "be-tv JS shell stays a soft-retry")
+    check((entries.get("belkart") or {}).get("soft_retry") is True, "belkart http-403 stays a soft-retry")
+    check((entries.get("bellperre") or {}).get("soft_retry") is True, "bellperre JS shell stays a soft-retry")
+    check((entries.get("be-quiet") or {}).get("refusal") == "cloudflare", "be-quiet refusal is cloudflare")
+    check((entries.get("be-tv") or {}).get("refusal") == "js-shell", "be-tv refusal is js-shell")
+    check((entries.get("belkart") or {}).get("refusal") == "http-403", "belkart refusal is http-403")
+    check((entries.get("bellperre") or {}).get("refusal") == "js-shell", "bellperre refusal is js-shell")
 
     public = json.loads((ROOT / "site" / "data.json").read_text())
     by_pub = {row.get("slug"): row for row in public.get("companies") or [] if row.get("slug")}
@@ -3354,8 +3507,55 @@ def test_live_ledger_when_present() -> None:
     check(not (pub_bat.get("certs") or []), "batliboi marks stay open")
     check(not ((pub_bat.get("instruments") or {}).get("dpa") or {}).get("url"), "batliboi DPA stays open")
 
-    for slug in batch:
+    for slug in batch_1105_am:
         if slug in shipped_1105:
+            continue
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
+
+    pub_batm = by_pub["batm"]
+    check(pub_batm.get("found") is False, "batm Official page stays open")
+    check(not pub_batm.get("trust_url"), "batm accessibility page is not Official page")
+    check(pub_batm.get("founded_year") == 1992, "batm year is first-party about")
+    check(
+        pub_batm.get("founded_source") == "https://www.batm.com/company-governance/about-batm",
+        "batm year source",
+    )
+    check((pub_batm.get("file") or {}).get("years") == 20, "batm years print")
+    check(completeness(pub_batm) == 20, f"batm Completeness {completeness(pub_batm)}")
+    check(not (pub_batm.get("certs") or []), "batm marks stay open")
+    check(not ((pub_batm.get("instruments") or {}).get("dpa") or {}).get("url"), "batm DPA stays open")
+
+    pub_bv = by_pub["bazaarvoice"]
+    check(pub_bv.get("found") is True, "bazaarvoice Official page is on file")
+    check(
+        pub_bv.get("trust_url") == "https://www.bazaarvoice.com/company/trust/",
+        "bazaarvoice Official page is the trust page",
+    )
+    check(not (pub_bv.get("certs") or []), "bazaarvoice marks stay open")
+    check((pub_bv.get("file") or {}).get("page") == 20, "bazaarvoice Official page prints")
+    check((pub_bv.get("file") or {}).get("marks") == 10, "bazaarvoice marks stay the looked-none partial")
+    check(completeness(pub_bv) == 30, f"bazaarvoice Completeness {completeness(pub_bv)}")
+    check(not pub_bv.get("founded_year"), "bazaarvoice year stays open")
+    check(not ((pub_bv.get("instruments") or {}).get("dpa") or {}).get("url"), "bazaarvoice DPA stays open")
+
+    pub_beh = by_pub["behringer"]
+    check(pub_beh.get("found") is False, "behringer Official page stays open")
+    check(pub_beh.get("founded_year") == 1989, "behringer year is first-party about")
+    check(
+        pub_beh.get("founded_source") == "https://behringer.com/en/about",
+        "behringer year source",
+    )
+    check((pub_beh.get("file") or {}).get("years") == 20, "behringer years print")
+    check(completeness(pub_beh) == 20, f"behringer Completeness {completeness(pub_beh)}")
+    check(not (pub_beh.get("certs") or []), "behringer marks stay open")
+    check(not ((pub_beh.get("instruments") or {}).get("dpa") or {}).get("url"), "behringer DPA stays open")
+
+    for slug in batch_1105_pm:
+        if slug in shipped_1105_pm:
             continue
         check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
