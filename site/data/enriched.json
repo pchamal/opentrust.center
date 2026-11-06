@@ -31161,10 +31161,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1978,
+      "founded_source": "https://www.biogen.com/company.html"
     },
     {
       "rank": 803,
@@ -37513,9 +37517,9 @@
       "name": "Blend",
       "slug": "blend",
       "domain": "blend.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://blend.com/security-and-compliance/",
+      "final_url": "https://blend.com/security-and-compliance/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -37523,12 +37527,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://blend.com/security-and-compliance/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -61208,9 +61216,9 @@
       "name": "Bizagi",
       "slug": "bizagi",
       "domain": "bizagi.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.bizagi.com/en/platform/trust",
+      "final_url": "https://www.bizagi.com/en/platform/trust",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -61218,13 +61226,20 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-business-software-companies",
       "certs": [],
-      "links": {},
+      "links": {
+        "trust": "https://www.bizagi.com/en/platform/trust"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 30,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "longevity": 10
+        }
+      },
+      "founded_year": 1989,
+      "founded_source": "https://www.bizagi.com/en/about/the-team"
     },
     {
       "rank": 1901,
@@ -142368,22 +142383,35 @@
       "name": "Black Box Corporation",
       "slug": "black-box-corporation",
       "domain": "blackbox.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.blackbox.com/discover-bb/trust-center",
+      "final_url": "https://www.blackbox.com/discover-bb/trust-center",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
       "source": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_the_United_States",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, ISO 20000-1, ISO 9001, HIPAA, Cyber Essentials +1.",
       "list": "wikipedia-telecom-us",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 20000-1",
+        "ISO 9001",
+        "HIPAA",
+        "Cyber Essentials",
+        "CMMC L2"
+      ],
+      "links": {
+        "trust": "https://www.blackbox.com/discover-bb/trust-center"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 60,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 40
+        }
       }
     },
     {
@@ -147129,10 +147157,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1986,
+      "founded_source": "https://www.biostar.com.tw/app/en/about/about_aboutus.php"
     },
     {
       "rank": 5244,
