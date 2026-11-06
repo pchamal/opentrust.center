@@ -2464,23 +2464,12 @@ def test_live_ledger_when_present() -> None:
         "bell-mts",
         "bellperre",
     ]
-    check(batch == batch_1105_pm, f"2026-11-05 afternoon batch {batch}")
     check(len(batch_1105_pm) == 30, f"2026-11-05 afternoon batch is 30, got {len(batch_1105_pm)}")
     check(
         batch_1105_pm[0] == "batm" and batch_1105_pm[-1] == "bellperre",
         "2026-11-05 afternoon batch is the batm to bellperre cut",
     )
     check(all(slug in entries for slug in batch_1105_pm), "2026-11-05 afternoon rows stay in the ledger")
-    check(summary.get("batch") == 30, "2026-11-05 afternoon summary.batch is 30")
-    check(summary.get("fileable") == 3, f"2026-11-05 afternoon clerk fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 4, f"2026-11-05 afternoon soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 23, f"2026-11-05 afternoon still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 3, f"2026-11-05 afternoon clerk fills, got {summary.get('filled')}")
-    check(summary.get("vetted_keep") == 3, f"2026-11-05 afternoon vetted keep, got {summary.get('vetted_keep')}")
-    check(
-        summary.get("vetted_drop_fileable") == 9,
-        f"2026-11-05 afternoon vetted drops, got {summary.get('vetted_drop_fileable')}",
-    )
     check(
         all((entries.get(slug) or {}).get("date") == "2026-11-05" for slug in batch_1105_pm),
         "2026-11-05 afternoon cut is dated 2026-11-05",
@@ -2590,6 +2579,148 @@ def test_live_ledger_when_present() -> None:
     check((entries.get("be-tv") or {}).get("refusal") == "js-shell", "be-tv refusal is js-shell")
     check((entries.get("belkart") or {}).get("refusal") == "http-403", "belkart refusal is http-403")
     check((entries.get("bellperre") or {}).get("refusal") == "js-shell", "bellperre refusal is js-shell")
+
+    batch_1106_am = [
+        "bellsouth",
+        "belly",
+        "benchprep",
+        "bending-spoons",
+        "bendix-corporation",
+        "benefon",
+        "bennett-environmental",
+        "benq",
+        "benq-mobile",
+        "berkshire-hathaway",
+        "bermad",
+        "bes-utilities",
+        "best-buy",
+        "beta-systems",
+        "better-online-solutions",
+        "beurer",
+        "beyond",
+        "beyond-verbal",
+        "bezeq",
+        "bharti-airtel",
+        "bias",
+        "big-finish-games",
+        "big-fish-games",
+        "bigchampagne",
+        "billdesk",
+        "billguard",
+        "billion-electric",
+        "binatone",
+        "bio-rad-laboratories",
+        "bio-techne",
+    ]
+    check(batch == batch_1106_am, f"2026-11-06 morning batch {batch}")
+    check(len(batch_1106_am) == 30, f"2026-11-06 morning batch is 30, got {len(batch_1106_am)}")
+    check(
+        batch_1106_am[0] == "bellsouth" and batch_1106_am[-1] == "bio-techne",
+        "2026-11-06 morning batch is the bellsouth to bio-techne cut",
+    )
+    check(all(slug in entries for slug in batch_1106_am), "2026-11-06 morning rows stay in the ledger")
+    check(summary.get("batch") == 30, "2026-11-06 morning summary.batch is 30")
+    check(summary.get("fileable") == 2, f"2026-11-06 morning clerk fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 5, f"2026-11-06 morning soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 23, f"2026-11-06 morning still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 2, f"2026-11-06 morning clerk fills, got {summary.get('filled')}")
+    check(summary.get("vetted_keep") == 2, f"2026-11-06 morning vetted keep, got {summary.get('vetted_keep')}")
+    check(
+        summary.get("vetted_drop_fileable") == 5,
+        f"2026-11-06 morning vetted drops, got {summary.get('vetted_drop_fileable')}",
+    )
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-11-06" for slug in batch_1106_am),
+        "2026-11-06 morning cut is dated 2026-11-06",
+    )
+    check(not set(batch_1106_am) & set(batch_1105_pm), "2026-11-06 morning cut must be never-reaudited vs the afternoon holds")
+    check(not set(batch_1106_am) & set(batch_1105_am), "2026-11-06 morning cut must be never-reaudited vs the morning holds")
+    shipped_1106_am = {
+        "benchprep": {"page"},
+        "billion-electric": {"years"},
+    }
+    for slug in batch_1106_am:
+        row = entries.get(slug) or {}
+        if row.get("soft_retry"):
+            probed_classes = {item.get("class") for item in (row.get("probed") or [])}
+            check(bool(probed_classes & soft_classes), f"{slug} soft-retry is marked")
+        if slug in shipped_1106_am:
+            check(row.get("filed") is True, f"{slug} ledger row records the apply")
+            continue
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+    for slug, keys in shipped_1106_am.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-11-06", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+        check(row.get("could_fill") == [k for k in FILE_KEYS if k in keys], f"{slug} could_fill {row.get('could_fill')}")
+        check(row.get("fileable") is True, f"{slug} stays fileable")
+    check((entries.get("benchprep") or {}).get("soft_retry") is not True, "benchprep security page is not a soft-retry")
+    check((entries.get("billion-electric") or {}).get("soft_retry") is not True, "billion-electric year hold is not a soft-retry")
+    check(
+        (entries.get("benchprep") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://www.benchprep.com/security",
+        "benchprep security page in ledger",
+    )
+    check(
+        (entries.get("benchprep") or {}).get("hit", {}).get("page", {}).get("kind") == "security",
+        "benchprep page kind is security",
+    )
+    check(not (entries.get("benchprep") or {}).get("hit", {}).get("marks"), "benchprep marks stay unfiled")
+    check(not (entries.get("benchprep") or {}).get("hit", {}).get("dpa"), "benchprep DPA stays unfiled")
+    check(not (entries.get("benchprep") or {}).get("hit", {}).get("years"), "benchprep year stays unfiled")
+    check(
+        (entries.get("billion-electric") or {}).get("hit", {}).get("years", {}).get("year") == 1973,
+        "billion-electric year in ledger",
+    )
+    check(
+        (entries.get("billion-electric") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://www.billion.com/About-Billion",
+        "billion-electric year source in ledger",
+    )
+    check(
+        (entries.get("billion-electric") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "Founded in 1973, Billion Electric Co., Ltd. (TSE: 3027) began with power supply and ICT technologies and has since evolved into",
+        "billion-electric year quote is the about sentence",
+    )
+    check(not (entries.get("billion-electric") or {}).get("hit", {}).get("page"), "billion-electric Official page stays unfiled")
+    check(not (entries.get("billion-electric") or {}).get("hit", {}).get("marks"), "billion-electric marks stay unfiled")
+    check(not (entries.get("billion-electric") or {}).get("hit", {}).get("dpa"), "billion-electric DPA stays unfiled")
+    refused_1106_am = {
+        "bending-spoons": "support.bendingspoons.com/compliance is Modern Slavery / Code of Ethics / Organizational Model / whistleblowing legal-compliance hub, not Completeness trust/security/DPA",
+        "bendix-corporation": "about-us/certifications is manufacturing quality/environmental (ISO 9001, IATF 16949, ISO 14001), not info-security trust/security disclosure",
+        "benq": "import-export-compliance is trade/customs policy, not trust/security/DPA",
+        "beyond": "Report-Vulnerability is Overstock VDP form only; not a Completeness trust/security/privacy/DPA page (privacy URL already on file separately)",
+        "beyond-verbal": "CPR employee-training blog post, not Completeness trust/security/DPA",
+    }
+    for slug, reason in refused_1106_am.items():
+        row = entries.get(slug) or {}
+        check(row.get("date") == "2026-11-06", f"{slug} reaudited 2026-11-06")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+        check(row.get("soft_retry") is not True, f"{slug} drop is not a soft-retry")
+        check(row.get("dropped") is True, f"{slug} drop is clerked")
+    check((entries.get("belly") or {}).get("soft_retry") is True, "belly JS shell stays a soft-retry")
+    check((entries.get("bermad") or {}).get("soft_retry") is True, "bermad stays a Cloudflare soft-retry")
+    check((entries.get("big-finish-games") or {}).get("soft_retry") is True, "big-finish-games JS shell stays a soft-retry")
+    check((entries.get("billdesk") or {}).get("soft_retry") is True, "billdesk JS shell stays a soft-retry")
+    check((entries.get("bio-rad-laboratories") or {}).get("soft_retry") is True, "bio-rad-laboratories http-403 stays a soft-retry")
+    check((entries.get("belly") or {}).get("hit") is None, "belly hit stays null")
+    check((entries.get("bermad") or {}).get("hit") is None, "bermad hit stays null")
+    check((entries.get("big-finish-games") or {}).get("hit") is None, "big-finish-games hit stays null")
+    check((entries.get("billdesk") or {}).get("hit") is None, "billdesk hit stays null")
+    check((entries.get("bio-rad-laboratories") or {}).get("hit") is None, "bio-rad-laboratories hit stays null")
+    check((entries.get("belly") or {}).get("refusal") == "js-shell", "belly refusal is js-shell")
+    check((entries.get("bermad") or {}).get("refusal") == "cloudflare", "bermad refusal is cloudflare")
+    check((entries.get("big-finish-games") or {}).get("refusal") == "js-shell", "big-finish-games refusal is js-shell")
+    check((entries.get("billdesk") or {}).get("refusal") == "js-shell", "billdesk refusal is js-shell")
+    check((entries.get("bio-rad-laboratories") or {}).get("refusal") == "http-403", "bio-rad-laboratories refusal is http-403")
 
     public = json.loads((ROOT / "site" / "data.json").read_text())
     by_pub = {row.get("slug"): row for row in public.get("companies") or [] if row.get("slug")}
@@ -3556,6 +3687,46 @@ def test_live_ledger_when_present() -> None:
 
     for slug in batch_1105_pm:
         if slug in shipped_1105_pm:
+            continue
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
+
+    pub_bp = by_pub["benchprep"]
+    check(pub_bp.get("found") is True, "benchprep Official page is on file")
+    check(
+        pub_bp.get("trust_url") == "https://www.benchprep.com/security",
+        "benchprep Official page is the security page",
+    )
+    check(not (pub_bp.get("certs") or []), "benchprep marks stay open")
+    check((pub_bp.get("file") or {}).get("page") == 20, "benchprep Official page prints")
+    check((pub_bp.get("file") or {}).get("marks") == 10, "benchprep marks stay the looked-none partial")
+    check(completeness(pub_bp) == 30, f"benchprep Completeness {completeness(pub_bp)}")
+    check(not pub_bp.get("founded_year"), "benchprep year stays open")
+    check(not ((pub_bp.get("instruments") or {}).get("dpa") or {}).get("url"), "benchprep DPA stays open")
+    check(
+        ((pub_bp.get("instruments") or {}).get("security") or {}).get("url")
+        == "https://www.benchprep.com/security",
+        "benchprep security instrument URL",
+    )
+
+    pub_bil = by_pub["billion-electric"]
+    check(pub_bil.get("found") is False, "billion-electric Official page stays open")
+    check(not pub_bil.get("trust_url"), "billion-electric Official page URL stays open")
+    check(pub_bil.get("founded_year") == 1973, "billion-electric year is first-party about")
+    check(
+        pub_bil.get("founded_source") == "https://www.billion.com/About-Billion",
+        "billion-electric year source",
+    )
+    check((pub_bil.get("file") or {}).get("years") == 20, "billion-electric years print")
+    check(completeness(pub_bil) == 20, f"billion-electric Completeness {completeness(pub_bil)}")
+    check(not (pub_bil.get("certs") or []), "billion-electric marks stay open")
+    check(not ((pub_bil.get("instruments") or {}).get("dpa") or {}).get("url"), "billion-electric DPA stays open")
+
+    for slug in batch_1106_am:
+        if slug in shipped_1106_am:
             continue
         check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")

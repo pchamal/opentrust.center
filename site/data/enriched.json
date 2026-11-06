@@ -46622,9 +46622,9 @@
       "name": "BenchPrep",
       "slug": "benchprep",
       "domain": "benchprep.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.benchprep.com/security",
+      "final_url": "https://www.benchprep.com/security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -46632,12 +46632,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-us",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.benchprep.com/security"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -147317,10 +147321,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1973,
+      "founded_source": "https://www.billion.com/About-Billion"
     },
     {
       "rank": 5252,
