@@ -2612,23 +2612,12 @@ def test_live_ledger_when_present() -> None:
         "bio-rad-laboratories",
         "bio-techne",
     ]
-    check(batch == batch_1106_am, f"2026-11-06 morning batch {batch}")
     check(len(batch_1106_am) == 30, f"2026-11-06 morning batch is 30, got {len(batch_1106_am)}")
     check(
         batch_1106_am[0] == "bellsouth" and batch_1106_am[-1] == "bio-techne",
         "2026-11-06 morning batch is the bellsouth to bio-techne cut",
     )
     check(all(slug in entries for slug in batch_1106_am), "2026-11-06 morning rows stay in the ledger")
-    check(summary.get("batch") == 30, "2026-11-06 morning summary.batch is 30")
-    check(summary.get("fileable") == 2, f"2026-11-06 morning clerk fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 5, f"2026-11-06 morning soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 23, f"2026-11-06 morning still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 2, f"2026-11-06 morning clerk fills, got {summary.get('filled')}")
-    check(summary.get("vetted_keep") == 2, f"2026-11-06 morning vetted keep, got {summary.get('vetted_keep')}")
-    check(
-        summary.get("vetted_drop_fileable") == 5,
-        f"2026-11-06 morning vetted drops, got {summary.get('vetted_drop_fileable')}",
-    )
     check(
         all((entries.get(slug) or {}).get("date") == "2026-11-06" for slug in batch_1106_am),
         "2026-11-06 morning cut is dated 2026-11-06",
@@ -2721,6 +2710,222 @@ def test_live_ledger_when_present() -> None:
     check((entries.get("big-finish-games") or {}).get("refusal") == "js-shell", "big-finish-games refusal is js-shell")
     check((entries.get("billdesk") or {}).get("refusal") == "js-shell", "billdesk refusal is js-shell")
     check((entries.get("bio-rad-laboratories") or {}).get("refusal") == "http-403", "bio-rad-laboratories refusal is http-403")
+
+    batch_1106_pm = [
+        "biobam-bioinformatics",
+        "bioclipse",
+        "biogen",
+        "biostar",
+        "biotronik",
+        "birdstep-technology",
+        "birlasoft",
+        "biscom",
+        "bitbucket",
+        "bitcasa",
+        "bitdeer",
+        "bitium",
+        "bitsight",
+        "bitstream-inc",
+        "bittium",
+        "bitvavo",
+        "bitwala",
+        "biw-technologies",
+        "bixbee",
+        "bizagi",
+        "bkash",
+        "black-box-corporation",
+        "black-duck-software",
+        "black-sesame-technologies",
+        "black-swan-data",
+        "blackmagic-design",
+        "blackpoint-cyber",
+        "blackstone-inc",
+        "blausen-medical",
+        "blend",
+    ]
+    check(batch == batch_1106_pm, f"2026-11-06 afternoon batch {batch}")
+    check(payload.get("batch_label") == "2026-11-06-pm", f"batch_label {payload.get('batch_label')}")
+    check(len(batch_1106_pm) == 30, f"2026-11-06 afternoon batch is 30, got {len(batch_1106_pm)}")
+    check(
+        batch_1106_pm[0] == "biobam-bioinformatics" and batch_1106_pm[-1] == "blend",
+        "2026-11-06 afternoon batch is the biobam-bioinformatics to blend cut",
+    )
+    check(all(slug in entries for slug in batch_1106_pm), "2026-11-06 afternoon rows stay in the ledger")
+    check(summary.get("batch") == 30, "2026-11-06 afternoon summary.batch is 30")
+    check(summary.get("fileable") == 5, f"2026-11-06 afternoon clerk fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 3, f"2026-11-06 afternoon soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 22, f"2026-11-06 afternoon still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 5, f"2026-11-06 afternoon clerk fills, got {summary.get('filled')}")
+    check(summary.get("vetted_keep") == 5, f"2026-11-06 afternoon vetted keep, got {summary.get('vetted_keep')}")
+    check(
+        summary.get("vetted_drop_fileable") == 7,
+        f"2026-11-06 afternoon vetted drops, got {summary.get('vetted_drop_fileable')}",
+    )
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-11-06" for slug in batch_1106_pm),
+        "2026-11-06 afternoon cut is dated 2026-11-06",
+    )
+    check(not set(batch_1106_pm) & set(batch_1106_am), "2026-11-06 afternoon cut must be never-reaudited vs the morning holds")
+    check(not set(batch_1106_pm) & set(batch_1105_pm), "2026-11-06 afternoon cut must be never-reaudited vs the afternoon holds")
+    shipped_1106_pm = {
+        "biogen": {"years"},
+        "biostar": {"years"},
+        "bizagi": {"page", "years"},
+        "black-box-corporation": {"page", "marks"},
+        "blend": {"page"},
+    }
+    for slug in batch_1106_pm:
+        row = entries.get(slug) or {}
+        if row.get("soft_retry"):
+            probed_classes = {item.get("class") for item in (row.get("probed") or [])}
+            check(bool(probed_classes & soft_classes), f"{slug} soft-retry is marked")
+        if slug in shipped_1106_pm:
+            check(row.get("filed") is True, f"{slug} ledger row records the apply")
+            continue
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+    for slug, keys in shipped_1106_pm.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-11-06", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+        check(row.get("could_fill") == [k for k in FILE_KEYS if k in keys], f"{slug} could_fill {row.get('could_fill')}")
+        check(row.get("fileable") is True, f"{slug} stays fileable")
+    check((entries.get("biogen") or {}).get("soft_retry") is not True, "biogen year hold is not a soft-retry")
+    check((entries.get("biostar") or {}).get("soft_retry") is not True, "biostar year hold is not a soft-retry")
+    check((entries.get("bizagi") or {}).get("soft_retry") is not True, "bizagi holds are not a soft-retry")
+    check((entries.get("black-box-corporation") or {}).get("soft_retry") is not True, "black-box trust center is not a soft-retry")
+    check((entries.get("blend") or {}).get("soft_retry") is not True, "blend security page is not a soft-retry")
+    check(
+        (entries.get("biogen") or {}).get("hit", {}).get("years", {}).get("year") == 1978,
+        "biogen year in ledger",
+    )
+    check(
+        (entries.get("biogen") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://www.biogen.com/company.html",
+        "biogen year source in ledger",
+    )
+    check(
+        (entries.get("biogen") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "Founded in 1978, Biogen is a leading biotechnology company that pioneers innovative science",
+        "biogen year quote is the company sentence",
+    )
+    check(not (entries.get("biogen") or {}).get("hit", {}).get("page"), "biogen Official page stays unfiled")
+    check(not (entries.get("biogen") or {}).get("hit", {}).get("marks"), "biogen marks stay unfiled")
+    check(not (entries.get("biogen") or {}).get("hit", {}).get("dpa"), "biogen DPA stays unfiled")
+    check(
+        (entries.get("biostar") or {}).get("hit", {}).get("years", {}).get("year") == 1986,
+        "biostar year in ledger",
+    )
+    check(
+        (entries.get("biostar") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://www.biostar.com.tw/app/en/about/about_aboutus.php",
+        "biostar year source in ledger",
+    )
+    check(
+        (entries.get("biostar") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "Established In 1986 The founder of BIOSTAR GROUP,established BIOSTAR MICROTECH INTERNATIONAL CORP in 1986.",
+        "biostar year quote is the about sentence",
+    )
+    check(not (entries.get("biostar") or {}).get("hit", {}).get("page"), "biostar security.php stays unfiled")
+    check(not (entries.get("biostar") or {}).get("hit", {}).get("marks"), "biostar marks stay unfiled")
+    check(not (entries.get("biostar") or {}).get("hit", {}).get("dpa"), "biostar DPA stays unfiled")
+    check(
+        (entries.get("bizagi") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://www.bizagi.com/en/platform/trust",
+        "bizagi trust page in ledger",
+    )
+    check(
+        (entries.get("bizagi") or {}).get("hit", {}).get("page", {}).get("kind") == "trust",
+        "bizagi page kind is trust",
+    )
+    check(
+        (entries.get("bizagi") or {}).get("hit", {}).get("years", {}).get("year") == 1989,
+        "bizagi year in ledger",
+    )
+    check(
+        (entries.get("bizagi") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://www.bizagi.com/en/about/the-team",
+        "bizagi year source in ledger",
+    )
+    check(
+        (entries.get("bizagi") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "In 1989 he founded Bizagi, short for business agility.",
+        "bizagi year quote is the team sentence",
+    )
+    check(not (entries.get("bizagi") or {}).get("hit", {}).get("marks"), "bizagi marks stay unfiled")
+    check(not (entries.get("bizagi") or {}).get("hit", {}).get("dpa"), "bizagi DPA stays unfiled")
+    check(
+        (entries.get("black-box-corporation") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://www.blackbox.com/discover-bb/trust-center",
+        "black-box trust page in ledger",
+    )
+    check(
+        (entries.get("black-box-corporation") or {}).get("hit", {}).get("page", {}).get("kind") == "trust",
+        "black-box page kind is trust",
+    )
+    check(
+        (entries.get("black-box-corporation") or {}).get("hit", {}).get("marks", {}).get("added")
+        == [
+            "SOC 2 Type II",
+            "ISO 27001",
+            "ISO 20000-1",
+            "ISO 9001",
+            "HIPAA",
+            "Cyber Essentials",
+            "CMMC L2",
+        ],
+        "black-box marks in ledger",
+    )
+    check(
+        (entries.get("black-box-corporation") or {}).get("hit", {}).get("marks", {}).get("url")
+        == "https://www.blackbox.com/discover-bb/trust-center",
+        "black-box marks source in ledger",
+    )
+    check(not (entries.get("black-box-corporation") or {}).get("hit", {}).get("years"), "black-box year stays unfiled")
+    check(not (entries.get("black-box-corporation") or {}).get("hit", {}).get("dpa"), "black-box DPA stays unfiled")
+    check(
+        (entries.get("blend") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://blend.com/security-and-compliance/",
+        "blend security page in ledger",
+    )
+    check(
+        (entries.get("blend") or {}).get("hit", {}).get("page", {}).get("kind") == "security",
+        "blend page kind is security",
+    )
+    check(not (entries.get("blend") or {}).get("hit", {}).get("marks"), "blend marks stay unfiled")
+    check(not (entries.get("blend") or {}).get("hit", {}).get("dpa"), "blend DPA stays unfiled")
+    check(not (entries.get("blend") or {}).get("hit", {}).get("years"), "blend year stays unfiled")
+    refused_1106_pm = {
+        "birlasoft": "cybersecurity-services is Security-as-a-Service / client services marketing, not Birlasoft's own trust/security disclosure",
+        "bitdeer": "security-vulnerability-submissions is VDP/bug-bounty form only, not Completeness trust/security/privacy/DPA",
+        "bittium": "defence-security/ is Defence & Security product solutions marketing, not company trust/security disclosure",
+        "bkash": "bkash.com/security returns WAF 'Request Rejected' page (~246B), not a real Completeness security page",
+        "black-duck-software": "interactive-application-security-testing.html is Seeker IAST product marketing, not company trust/security disclosure",
+        "blackpoint-cyber": "media Log4Shell news article, not Completeness trust/security/DPA",
+        "blausen-medical": "sitesecurityaccess.aspx is library login/access wall; year blurb is not an official About founding page",
+    }
+    for slug, reason in refused_1106_pm.items():
+        row = entries.get(slug) or {}
+        check(row.get("date") == "2026-11-06", f"{slug} reaudited 2026-11-06")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+        check(row.get("soft_retry") is not True, f"{slug} drop is not a soft-retry")
+        check(row.get("dropped") is True, f"{slug} drop is clerked")
+    check((entries.get("bitsight") or {}).get("soft_retry") is True, "bitsight stays a Cloudflare soft-retry")
+    check((entries.get("bitvavo") or {}).get("soft_retry") is True, "bitvavo stays a Cloudflare soft-retry")
+    check((entries.get("blackstone-inc") or {}).get("soft_retry") is True, "blackstone-inc JS shell stays a soft-retry")
+    check((entries.get("bitsight") or {}).get("hit") is None, "bitsight hit stays null")
+    check((entries.get("bitvavo") or {}).get("hit") is None, "bitvavo hit stays null")
+    check((entries.get("blackstone-inc") or {}).get("hit") is None, "blackstone-inc hit stays null")
+    check((entries.get("bitsight") or {}).get("refusal") == "cloudflare", "bitsight refusal is cloudflare")
+    check((entries.get("bitvavo") or {}).get("refusal") == "cloudflare", "bitvavo refusal is cloudflare")
+    check((entries.get("blackstone-inc") or {}).get("refusal") == "js-shell", "blackstone-inc refusal is js-shell")
 
     public = json.loads((ROOT / "site" / "data.json").read_text())
     by_pub = {row.get("slug"): row for row in public.get("companies") or [] if row.get("slug")}
@@ -3727,6 +3932,112 @@ def test_live_ledger_when_present() -> None:
 
     for slug in batch_1106_am:
         if slug in shipped_1106_am:
+            continue
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
+
+    pub_biogen = by_pub["biogen"]
+    check(pub_biogen.get("found") is False, "biogen Official page stays open")
+    check(not pub_biogen.get("trust_url"), "biogen Official page URL stays open")
+    check(pub_biogen.get("founded_year") == 1978, "biogen year is first-party company page")
+    check(
+        pub_biogen.get("founded_source") == "https://www.biogen.com/company.html",
+        "biogen year source",
+    )
+    check((pub_biogen.get("file") or {}).get("years") == 20, "biogen years print")
+    check(completeness(pub_biogen) == 20, f"biogen Completeness {completeness(pub_biogen)}")
+    check(not (pub_biogen.get("certs") or []), "biogen marks stay open")
+    check(not ((pub_biogen.get("instruments") or {}).get("dpa") or {}).get("url"), "biogen DPA stays open")
+
+    pub_biostar = by_pub["biostar"]
+    check(pub_biostar.get("found") is False, "biostar Official page stays open")
+    check(not pub_biostar.get("trust_url"), "biostar Official page URL stays open")
+    check(pub_biostar.get("founded_year") == 1986, "biostar year is first-party about")
+    check(
+        pub_biostar.get("founded_source") == "https://www.biostar.com.tw/app/en/about/about_aboutus.php",
+        "biostar year source",
+    )
+    check((pub_biostar.get("file") or {}).get("years") == 20, "biostar years print")
+    check(completeness(pub_biostar) == 20, f"biostar Completeness {completeness(pub_biostar)}")
+    check(not (pub_biostar.get("certs") or []), "biostar marks stay open")
+    check(not ((pub_biostar.get("instruments") or {}).get("dpa") or {}).get("url"), "biostar DPA stays open")
+    check(not ((pub_biostar.get("instruments") or {}).get("security") or {}).get("url"), "biostar security.php stays off the file")
+
+    pub_bizagi = by_pub["bizagi"]
+    check(pub_bizagi.get("found") is True, "bizagi Official page is on file")
+    check(
+        pub_bizagi.get("trust_url") == "https://www.bizagi.com/en/platform/trust",
+        "bizagi Official page is the trust page",
+    )
+    check(not (pub_bizagi.get("certs") or []), "bizagi marks stay open")
+    check((pub_bizagi.get("file") or {}).get("page") == 20, "bizagi Official page prints")
+    check((pub_bizagi.get("file") or {}).get("marks") == 10, "bizagi marks stay the looked-none partial")
+    check((pub_bizagi.get("file") or {}).get("years") == 20, "bizagi years print")
+    check(completeness(pub_bizagi) == 50, f"bizagi Completeness {completeness(pub_bizagi)}")
+    check(pub_bizagi.get("founded_year") == 1989, "bizagi year is first-party about")
+    check(
+        pub_bizagi.get("founded_source") == "https://www.bizagi.com/en/about/the-team",
+        "bizagi year source",
+    )
+    check(not ((pub_bizagi.get("instruments") or {}).get("dpa") or {}).get("url"), "bizagi DPA stays open")
+    check(
+        ((pub_bizagi.get("instruments") or {}).get("trust") or {}).get("url")
+        == "https://www.bizagi.com/en/platform/trust",
+        "bizagi trust instrument URL",
+    )
+
+    pub_bb = by_pub["black-box-corporation"]
+    check(pub_bb.get("found") is True, "black-box Official page is on file")
+    check(
+        pub_bb.get("trust_url") == "https://www.blackbox.com/discover-bb/trust-center",
+        "black-box Official page is the trust center",
+    )
+    check(
+        set(pub_bb.get("certs") or []) == {
+            "SOC 2 Type II",
+            "ISO 27001",
+            "ISO 20000-1",
+            "ISO 9001",
+            "HIPAA",
+            "Cyber Essentials",
+            "CMMC L2",
+        },
+        f"black-box marks {pub_bb.get('certs')}",
+    )
+    check((pub_bb.get("file") or {}).get("page") == 20, "black-box Official page prints")
+    check((pub_bb.get("file") or {}).get("marks") == 20, "black-box marks print")
+    check(completeness(pub_bb) == 40, f"black-box Completeness {completeness(pub_bb)}")
+    check(not pub_bb.get("founded_year"), "black-box year stays open")
+    check(not ((pub_bb.get("instruments") or {}).get("dpa") or {}).get("url"), "black-box DPA stays open")
+    check(
+        ((pub_bb.get("instruments") or {}).get("trust") or {}).get("url")
+        == "https://www.blackbox.com/discover-bb/trust-center",
+        "black-box trust instrument URL",
+    )
+
+    pub_blend = by_pub["blend"]
+    check(pub_blend.get("found") is True, "blend Official page is on file")
+    check(
+        pub_blend.get("trust_url") == "https://blend.com/security-and-compliance/",
+        "blend Official page is the security page",
+    )
+    check(not (pub_blend.get("certs") or []), "blend marks stay open")
+    check((pub_blend.get("file") or {}).get("page") == 20, "blend Official page prints")
+    check((pub_blend.get("file") or {}).get("marks") == 10, "blend marks stay the looked-none partial")
+    check(completeness(pub_blend) == 30, f"blend Completeness {completeness(pub_blend)}")
+    check(not pub_blend.get("founded_year"), "blend year stays open")
+    check(not ((pub_blend.get("instruments") or {}).get("dpa") or {}).get("url"), "blend DPA stays open")
+    check(
+        ((pub_blend.get("instruments") or {}).get("security") or {}).get("url")
+        == "https://blend.com/security-and-compliance/",
+        "blend security instrument URL",
+    )
+
+    for slug in batch_1106_pm:
+        if slug in shipped_1106_pm:
             continue
         check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
