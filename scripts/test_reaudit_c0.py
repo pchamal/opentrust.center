@@ -2743,24 +2743,12 @@ def test_live_ledger_when_present() -> None:
         "blausen-medical",
         "blend",
     ]
-    check(batch == batch_1106_pm, f"2026-11-06 afternoon batch {batch}")
-    check(payload.get("batch_label") == "2026-11-06-pm", f"batch_label {payload.get('batch_label')}")
     check(len(batch_1106_pm) == 30, f"2026-11-06 afternoon batch is 30, got {len(batch_1106_pm)}")
     check(
         batch_1106_pm[0] == "biobam-bioinformatics" and batch_1106_pm[-1] == "blend",
         "2026-11-06 afternoon batch is the biobam-bioinformatics to blend cut",
     )
     check(all(slug in entries for slug in batch_1106_pm), "2026-11-06 afternoon rows stay in the ledger")
-    check(summary.get("batch") == 30, "2026-11-06 afternoon summary.batch is 30")
-    check(summary.get("fileable") == 5, f"2026-11-06 afternoon clerk fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 3, f"2026-11-06 afternoon soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 22, f"2026-11-06 afternoon still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 5, f"2026-11-06 afternoon clerk fills, got {summary.get('filled')}")
-    check(summary.get("vetted_keep") == 5, f"2026-11-06 afternoon vetted keep, got {summary.get('vetted_keep')}")
-    check(
-        summary.get("vetted_drop_fileable") == 7,
-        f"2026-11-06 afternoon vetted drops, got {summary.get('vetted_drop_fileable')}",
-    )
     check(
         all((entries.get(slug) or {}).get("date") == "2026-11-06" for slug in batch_1106_pm),
         "2026-11-06 afternoon cut is dated 2026-11-06",
@@ -2926,6 +2914,233 @@ def test_live_ledger_when_present() -> None:
     check((entries.get("bitsight") or {}).get("refusal") == "cloudflare", "bitsight refusal is cloudflare")
     check((entries.get("bitvavo") or {}).get("refusal") == "cloudflare", "bitvavo refusal is cloudflare")
     check((entries.get("blackstone-inc") or {}).get("refusal") == "js-shell", "blackstone-inc refusal is js-shell")
+
+    batch_1109_am = [
+        "blizoo",
+        "blockstream",
+        "bloomberg",
+        "bloomfire",
+        "blu-products",
+        "blu-telecommunications",
+        "blue-coat-systems",
+        "blue-marble-geographics",
+        "blue-ocean-contact-centres",
+        "blue-origin",
+        "blue-prism",
+        "blue-star-infotech",
+        "blue-systems",
+        "blue-water-autonomy",
+        "bluedot",
+        "bluedot-innovation",
+        "bluefish",
+        "bluehost",
+        "bluespace-federal",
+        "bluespice",
+        "bluetalon",
+        "blueware",
+        "bny-mellon",
+        "board-international",
+        "bodycote",
+        "boe-technology",
+        "boeing",
+        "boeing-uk",
+        "boku-inc",
+        "boldon-james",
+    ]
+    check(batch == batch_1109_am, f"2026-11-09 morning batch {batch}")
+    check(payload.get("batch_label") == "2026-11-09-am", f"batch_label {payload.get('batch_label')}")
+    check(len(batch_1109_am) == 30, f"2026-11-09 morning batch is 30, got {len(batch_1109_am)}")
+    check(
+        batch_1109_am[0] == "blizoo" and batch_1109_am[-1] == "boldon-james",
+        "2026-11-09 morning batch is the blizoo to boldon-james cut",
+    )
+    check(all(slug in entries for slug in batch_1109_am), "2026-11-09 morning rows stay in the ledger")
+    check(summary.get("batch") == 30, "2026-11-09 morning summary.batch is 30")
+    check(summary.get("fileable") == 7, f"2026-11-09 morning clerk fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 10, f"2026-11-09 morning soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 13, f"2026-11-09 morning still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 7, f"2026-11-09 morning clerk fills, got {summary.get('filled')}")
+    check(summary.get("vetted_keep") == 7, f"2026-11-09 morning vetted keep, got {summary.get('vetted_keep')}")
+    check(
+        summary.get("vetted_drop_fileable") == 1,
+        f"2026-11-09 morning vetted drops, got {summary.get('vetted_drop_fileable')}",
+    )
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-11-09" for slug in batch_1109_am),
+        "2026-11-09 morning cut is dated 2026-11-09",
+    )
+    check(not set(batch_1109_am) & set(batch_1106_pm), "2026-11-09 morning cut must be never-reaudited vs the afternoon holds")
+    check(not set(batch_1109_am) & set(batch_1106_am), "2026-11-09 morning cut must be never-reaudited vs the morning holds")
+    shipped_1109_am = {
+        "blockstream": {"years"},
+        "blu-products": {"years"},
+        "blue-marble-geographics": {"years"},
+        "blue-ocean-contact-centres": {"years"},
+        "blue-prism": {"page", "marks"},
+        "board-international": {"page"},
+        "boeing": {"marks"},
+    }
+    for slug in batch_1109_am:
+        row = entries.get(slug) or {}
+        if row.get("soft_retry"):
+            probed_classes = {item.get("class") for item in (row.get("probed") or [])}
+            check(bool(probed_classes & soft_classes), f"{slug} soft-retry is marked")
+        if slug in shipped_1109_am:
+            check(row.get("filed") is True, f"{slug} ledger row records the apply")
+            continue
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+    for slug, keys in shipped_1109_am.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-11-09", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+        check(row.get("could_fill") == [k for k in FILE_KEYS if k in keys], f"{slug} could_fill {row.get('could_fill')}")
+        check(row.get("fileable") is True, f"{slug} stays fileable")
+        check(row.get("soft_retry") is not True, f"{slug} filed hold is not a soft-retry")
+    check(
+        (entries.get("blockstream") or {}).get("hit", {}).get("years", {}).get("year") == 2014,
+        "blockstream year in ledger",
+    )
+    check(
+        (entries.get("blockstream") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://blockstream.com/about/us",
+        "blockstream year source in ledger",
+    )
+    check(
+        (entries.get("blockstream") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "Store Support Help Center Bitcoin Education Glossary Local About Us Founded in 2014, Blockstream has been the leading provider of blockchain technologies and h.",
+        "blockstream year quote is the about sentence",
+    )
+    check(not (entries.get("blockstream") or {}).get("hit", {}).get("page"), "blockstream Official page stays unfiled")
+    check(not (entries.get("blockstream") or {}).get("hit", {}).get("marks"), "blockstream marks stay unfiled")
+    check(not (entries.get("blockstream") or {}).get("hit", {}).get("dpa"), "blockstream DPA stays unfiled")
+    check(
+        (entries.get("blu-products") or {}).get("hit", {}).get("years", {}).get("year") == 2009,
+        "blu-products year in ledger",
+    )
+    check(
+        (entries.get("blu-products") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://www.bluproducts.com/home",
+        "blu-products year source in ledger",
+    )
+    check(
+        (entries.get("blu-products") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "BLU Products, founded in 2009, designs and manufacturers affordable, unlocked Android devices to suit a wide variety of consumer needs.",
+        "blu-products year quote is the home sentence",
+    )
+    check(not (entries.get("blu-products") or {}).get("hit", {}).get("page"), "blu-products homepage stays unfiled")
+    check(not (entries.get("blu-products") or {}).get("hit", {}).get("marks"), "blu-products marks stay unfiled")
+    check(
+        (entries.get("blue-marble-geographics") or {}).get("hit", {}).get("years", {}).get("year") == 1993,
+        "blue-marble year in ledger",
+    )
+    check(
+        (entries.get("blue-marble-geographics") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://www.bluemarblegeo.com/",
+        "blue-marble year source in ledger",
+    )
+    check(
+        (entries.get("blue-marble-geographics") or {}).get("hit", {}).get("years", {}).get("quote")
+        == '"foundingDate":"1993"',
+        "blue-marble year quote is the JSON-LD foundingDate",
+    )
+    check(not (entries.get("blue-marble-geographics") or {}).get("hit", {}).get("page"), "blue-marble Official page stays unfiled")
+    check(
+        (entries.get("blue-ocean-contact-centres") or {}).get("hit", {}).get("years", {}).get("year") == 1994,
+        "blue-ocean year in ledger",
+    )
+    check(
+        (entries.get("blue-ocean-contact-centres") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://blueocean.ca/",
+        "blue-ocean year source in ledger",
+    )
+    check(
+        (entries.get("blue-ocean-contact-centres") or {}).get("hit", {}).get("years", {}).get("quote")
+        == '"foundingDate": "1994"',
+        "blue-ocean year quote is the JSON-LD foundingDate",
+    )
+    check(not (entries.get("blue-ocean-contact-centres") or {}).get("hit", {}).get("page"), "blue-ocean Official page stays unfiled")
+    check(
+        (entries.get("blue-prism") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://www.blueprism.com/blue-prism-security/",
+        "blue-prism security page in ledger",
+    )
+    check(
+        (entries.get("blue-prism") or {}).get("hit", {}).get("page", {}).get("kind") == "security",
+        "blue-prism page kind is security",
+    )
+    check(
+        (entries.get("blue-prism") or {}).get("hit", {}).get("marks", {}).get("added") == ["Cyber Essentials"],
+        "blue-prism Cyber Essentials in ledger",
+    )
+    check(
+        (entries.get("blue-prism") or {}).get("hit", {}).get("marks", {}).get("quote")
+        == "Our policies and procedures are built on ISO270001 and Cyber Essentials guidelines.",
+        "blue-prism marks quote is the security sentence",
+    )
+    check(not (entries.get("blue-prism") or {}).get("hit", {}).get("years"), "blue-prism year stays unfiled")
+    check(not (entries.get("blue-prism") or {}).get("hit", {}).get("dpa"), "blue-prism DPA stays unfiled")
+    check(
+        (entries.get("board-international") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://www.board.com/governance-and-compliance",
+        "board governance page in ledger",
+    )
+    check(
+        (entries.get("board-international") or {}).get("hit", {}).get("page", {}).get("kind") == "trust",
+        "board page kind is trust",
+    )
+    check(not (entries.get("board-international") or {}).get("hit", {}).get("marks"), "board marks stay unfiled")
+    check(not (entries.get("board-international") or {}).get("hit", {}).get("years"), "board year stays unfiled")
+    check(
+        (entries.get("boeing") or {}).get("hit", {}).get("marks", {}).get("added") == ["EU-US DPF"],
+        "boeing EU-US DPF in ledger",
+    )
+    check(
+        (entries.get("boeing") or {}).get("hit", {}).get("marks", {}).get("url")
+        == "https://www.boeing.com/privacy-and-cookie-policy",
+        "boeing marks source in ledger",
+    )
+    check(
+        (entries.get("boeing") or {}).get("hit", {}).get("marks", {}).get("quote")
+        == "(for the purposes of this section, collectively referred to as &quot;Boeing DPF Companies&quot;) participate in the EU-U.S. Data Privacy Framework (“EU-U.",
+        "boeing marks quote is the DPF participation sentence",
+    )
+    check(not (entries.get("boeing") or {}).get("hit", {}).get("page"), "boeing FAA feature stays unfiled")
+    check(not (entries.get("boeing") or {}).get("hit", {}).get("years"), "boeing year stays unfiled")
+    check(not (entries.get("boeing") or {}).get("hit", {}).get("dpa"), "boeing DPA stays unfiled")
+    refused_1109_am = {
+        "bluespice": "en.wiki.bluespice.com/wiki/Info:Trust_and_Safety is the BlueSpice helpdesk wiki, not the company's trust/security disclosure",
+    }
+    for slug, reason in refused_1109_am.items():
+        row = entries.get(slug) or {}
+        check(row.get("date") == "2026-11-09", f"{slug} reaudited 2026-11-09")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+        check(row.get("soft_retry") is not True, f"{slug} drop is not a soft-retry")
+        check(row.get("dropped") is True, f"{slug} drop is clerked")
+    for slug, reason in {
+        "bloomberg": "http-403",
+        "bloomfire": "http-403",
+        "blue-star-infotech": "js-shell",
+        "blue-systems": "js-shell",
+        "bluehost": "http-403",
+        "blueware": "http-403",
+        "bodycote": "cloudflare",
+        "boeing-uk": "http-403",
+        "boku-inc": "js-shell",
+        "boldon-james": "http-403",
+    }.items():
+        row = entries.get(slug) or {}
+        check(row.get("soft_retry") is True, f"{slug} stays a soft-retry")
+        check(row.get("hit") is None, f"{slug} hit stays null")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+        check(row.get("filed") is not True, f"{slug} was not filed")
 
     public = json.loads((ROOT / "site" / "data.json").read_text())
     by_pub = {row.get("slug"): row for row in public.get("companies") or [] if row.get("slug")}
@@ -4038,6 +4253,101 @@ def test_live_ledger_when_present() -> None:
 
     for slug in batch_1106_pm:
         if slug in shipped_1106_pm:
+            continue
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
+
+    pub_bs = by_pub["blockstream"]
+    check(pub_bs.get("found") is False, "blockstream Official page stays open")
+    check(not pub_bs.get("trust_url"), "blockstream Official page URL stays open")
+    check(pub_bs.get("founded_year") == 2014, "blockstream year is first-party about")
+    check(pub_bs.get("founded_source") == "https://blockstream.com/about/us", "blockstream year source")
+    check((pub_bs.get("file") or {}).get("years") == 20, "blockstream years print")
+    check(completeness(pub_bs) == 20, f"blockstream Completeness {completeness(pub_bs)}")
+    check(not (pub_bs.get("certs") or []), "blockstream marks stay open")
+    check(not ((pub_bs.get("instruments") or {}).get("dpa") or {}).get("url"), "blockstream DPA stays open")
+
+    pub_blu = by_pub["blu-products"]
+    check(pub_blu.get("found") is False, "blu-products homepage is not Official page")
+    check(not pub_blu.get("trust_url"), "blu-products Official page stays open")
+    check(pub_blu.get("founded_year") == 2009, "blu-products year is first-party home")
+    check(pub_blu.get("founded_source") == "https://www.bluproducts.com/home", "blu-products year source")
+    check((pub_blu.get("file") or {}).get("years") == 20, "blu-products years print")
+    check(completeness(pub_blu) == 20, f"blu-products Completeness {completeness(pub_blu)}")
+    check(not (pub_blu.get("certs") or []), "blu-products marks stay open")
+
+    pub_bmg = by_pub["blue-marble-geographics"]
+    check(pub_bmg.get("found") is False, "blue-marble Official page stays open")
+    check(pub_bmg.get("founded_year") == 1993, "blue-marble year is first-party JSON-LD")
+    check(pub_bmg.get("founded_source") == "https://www.bluemarblegeo.com/", "blue-marble year source")
+    check((pub_bmg.get("file") or {}).get("years") == 20, "blue-marble years print")
+    check(completeness(pub_bmg) == 20, f"blue-marble Completeness {completeness(pub_bmg)}")
+    check(not (pub_bmg.get("certs") or []), "blue-marble marks stay open")
+
+    pub_boc = by_pub["blue-ocean-contact-centres"]
+    check(pub_boc.get("found") is False, "blue-ocean Official page stays open")
+    check(pub_boc.get("founded_year") == 1994, "blue-ocean year is first-party JSON-LD")
+    check(pub_boc.get("founded_source") == "https://blueocean.ca/", "blue-ocean year source")
+    check((pub_boc.get("file") or {}).get("years") == 20, "blue-ocean years print")
+    check(completeness(pub_boc) == 20, f"blue-ocean Completeness {completeness(pub_boc)}")
+    check(not (pub_boc.get("certs") or []), "blue-ocean marks stay open")
+
+    pub_bpr = by_pub["blue-prism"]
+    check(pub_bpr.get("found") is True, "blue-prism Official page is on file")
+    check(
+        pub_bpr.get("trust_url") == "https://www.blueprism.com/blue-prism-security/",
+        "blue-prism Official page is the security page",
+    )
+    check(pub_bpr.get("certs") == ["Cyber Essentials"], f"blue-prism marks {pub_bpr.get('certs')}")
+    check((pub_bpr.get("file") or {}).get("page") == 20, "blue-prism Official page prints")
+    check((pub_bpr.get("file") or {}).get("marks") == 20, "blue-prism marks print")
+    check(completeness(pub_bpr) == 40, f"blue-prism Completeness {completeness(pub_bpr)}")
+    check(not pub_bpr.get("founded_year"), "blue-prism year stays open")
+    check(not ((pub_bpr.get("instruments") or {}).get("dpa") or {}).get("url"), "blue-prism DPA stays open")
+    check(
+        ((pub_bpr.get("instruments") or {}).get("security") or {}).get("url")
+        == "https://www.blueprism.com/blue-prism-security/",
+        "blue-prism security instrument URL",
+    )
+
+    pub_board = by_pub["board-international"]
+    check(pub_board.get("found") is True, "board Official page is on file")
+    check(
+        pub_board.get("trust_url") == "https://www.board.com/governance-and-compliance",
+        "board Official page is the governance page",
+    )
+    check(not (pub_board.get("certs") or []), "board marks stay open")
+    check((pub_board.get("file") or {}).get("page") == 20, "board Official page prints")
+    check((pub_board.get("file") or {}).get("marks") == 10, "board marks stay the looked-none partial")
+    check(completeness(pub_board) == 30, f"board Completeness {completeness(pub_board)}")
+    check(not pub_board.get("founded_year"), "board year stays open")
+    check(not ((pub_board.get("instruments") or {}).get("dpa") or {}).get("url"), "board DPA stays open")
+    check(
+        ((pub_board.get("instruments") or {}).get("trust") or {}).get("url")
+        == "https://www.board.com/governance-and-compliance",
+        "board trust instrument URL",
+    )
+
+    pub_boeing = by_pub["boeing"]
+    check(pub_boeing.get("found") is False, "boeing Official page stays open")
+    check(not pub_boeing.get("trust_url"), "boeing FAA feature is not Official page")
+    check(pub_boeing.get("certs") == ["EU-US DPF"], f"boeing marks {pub_boeing.get('certs')}")
+    check((pub_boeing.get("file") or {}).get("marks") == 20, "boeing marks print")
+    check((pub_boeing.get("file") or {}).get("page") == 0, "boeing Official page stays the open rule")
+    check(completeness(pub_boeing) == 20, f"boeing Completeness {completeness(pub_boeing)}")
+    check(not pub_boeing.get("founded_year"), "boeing year stays open")
+    check(not ((pub_boeing.get("instruments") or {}).get("dpa") or {}).get("url"), "boeing DPA stays open")
+    check(
+        ((pub_boeing.get("instruments") or {}).get("bounty") or {}).get("url")
+        == "https://www.boeing.com/vulnerabilitydisclosure",
+        "boeing bounty stays",
+    )
+
+    for slug in batch_1109_am:
+        if slug in shipped_1109_am:
             continue
         check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
