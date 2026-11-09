@@ -2947,24 +2947,12 @@ def test_live_ledger_when_present() -> None:
         "boku-inc",
         "boldon-james",
     ]
-    check(batch == batch_1109_am, f"2026-11-09 morning batch {batch}")
-    check(payload.get("batch_label") == "2026-11-09-am", f"batch_label {payload.get('batch_label')}")
     check(len(batch_1109_am) == 30, f"2026-11-09 morning batch is 30, got {len(batch_1109_am)}")
     check(
         batch_1109_am[0] == "blizoo" and batch_1109_am[-1] == "boldon-james",
         "2026-11-09 morning batch is the blizoo to boldon-james cut",
     )
     check(all(slug in entries for slug in batch_1109_am), "2026-11-09 morning rows stay in the ledger")
-    check(summary.get("batch") == 30, "2026-11-09 morning summary.batch is 30")
-    check(summary.get("fileable") == 7, f"2026-11-09 morning clerk fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 10, f"2026-11-09 morning soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 13, f"2026-11-09 morning still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 7, f"2026-11-09 morning clerk fills, got {summary.get('filled')}")
-    check(summary.get("vetted_keep") == 7, f"2026-11-09 morning vetted keep, got {summary.get('vetted_keep')}")
-    check(
-        summary.get("vetted_drop_fileable") == 1,
-        f"2026-11-09 morning vetted drops, got {summary.get('vetted_drop_fileable')}",
-    )
     check(
         all((entries.get(slug) or {}).get("date") == "2026-11-09" for slug in batch_1109_am),
         "2026-11-09 morning cut is dated 2026-11-09",
@@ -3135,6 +3123,222 @@ def test_live_ledger_when_present() -> None:
         "boeing-uk": "http-403",
         "boku-inc": "js-shell",
         "boldon-james": "http-403",
+    }.items():
+        row = entries.get(slug) or {}
+        check(row.get("soft_retry") is True, f"{slug} stays a soft-retry")
+        check(row.get("hit") is None, f"{slug} hit stays null")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+
+    batch_1109_pm = [
+        "boller-and-chivens",
+        "bon-app",
+        "bookeen",
+        "booking-holdings",
+        "bookstack",
+        "booktrack",
+        "booth",
+        "boris-fx",
+        "borland",
+        "borqs",
+        "bos-semiconductors",
+        "bosch-solar-energy",
+        "boston-celtics",
+        "bottlenose",
+        "bpay",
+        "bplats",
+        "brabus",
+        "brainchip",
+        "brainlab",
+        "brainshark",
+        "brainsway",
+        "braintree",
+        "brainware",
+        "brand24",
+        "brandlive",
+        "brandwatch",
+        "brandyourself",
+        "brasil-telecom",
+        "brastel-telecom",
+        "bravura-solutions",
+    ]
+    check(batch == batch_1109_pm, f"2026-11-09 afternoon batch {batch}")
+    check(payload.get("batch_label") == "2026-11-09-pm", f"batch_label {payload.get('batch_label')}")
+    check(len(batch_1109_pm) == 30, f"2026-11-09 afternoon batch is 30, got {len(batch_1109_pm)}")
+    check(
+        batch_1109_pm[0] == "boller-and-chivens" and batch_1109_pm[-1] == "bravura-solutions",
+        "2026-11-09 afternoon batch is the boller-and-chivens to bravura-solutions cut",
+    )
+    check(all(slug in entries for slug in batch_1109_pm), "2026-11-09 afternoon rows stay in the ledger")
+    check(summary.get("batch") == 30, "2026-11-09 afternoon summary.batch is 30")
+    check(summary.get("fileable") == 6, f"2026-11-09 afternoon clerk fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 6, f"2026-11-09 afternoon soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 18, f"2026-11-09 afternoon still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 6, f"2026-11-09 afternoon clerk fills, got {summary.get('filled')}")
+    check(summary.get("vetted_keep") == 6, f"2026-11-09 afternoon vetted keep, got {summary.get('vetted_keep')}")
+    check(
+        summary.get("vetted_drop_fileable") == 1,
+        f"2026-11-09 afternoon vetted drops, got {summary.get('vetted_drop_fileable')}",
+    )
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-11-09" for slug in batch_1109_pm),
+        "2026-11-09 afternoon cut is dated 2026-11-09",
+    )
+    check(not set(batch_1109_pm) & set(batch_1109_am), "2026-11-09 afternoon cut must be never-reaudited vs the morning holds")
+    check(not set(batch_1109_pm) & set(batch_1106_pm), "2026-11-09 afternoon cut must be never-reaudited vs the 2026-11-06 afternoon holds")
+    shipped_1109_pm = {
+        "booktrack": {"years"},
+        "booth": {"years"},
+        "boris-fx": {"years"},
+        "bplats": {"marks"},
+        "brand24": {"dpa", "subprocessors", "years"},
+        "brandwatch": {"page"},
+    }
+    for slug in batch_1109_pm:
+        row = entries.get(slug) or {}
+        if row.get("soft_retry"):
+            probed_classes = {item.get("class") for item in (row.get("probed") or [])}
+            check(bool(probed_classes & soft_classes), f"{slug} soft-retry is marked")
+        if slug in shipped_1109_pm:
+            check(row.get("filed") is True, f"{slug} ledger row records the apply")
+            continue
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+    for slug, keys in shipped_1109_pm.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-11-09", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+        check(row.get("could_fill") == [k for k in FILE_KEYS if k in keys], f"{slug} could_fill {row.get('could_fill')}")
+        check(row.get("fileable") is True, f"{slug} stays fileable")
+        check(row.get("soft_retry") is not True, f"{slug} filed hold is not a soft-retry")
+    check(
+        (entries.get("booktrack") or {}).get("hit", {}).get("years", {}).get("year") == 2011,
+        "booktrack year in ledger",
+    )
+    check(
+        (entries.get("booktrack") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://www.booktrack.com/",
+        "booktrack year source in ledger",
+    )
+    check(
+        (entries.get("booktrack") or {}).get("hit", {}).get("years", {}).get("quote")
+        == '"foundingDate":"2011"',
+        "booktrack year quote is the JSON-LD foundingDate",
+    )
+    check(not (entries.get("booktrack") or {}).get("hit", {}).get("page"), "booktrack Official page stays unfiled")
+    check(not (entries.get("booktrack") or {}).get("hit", {}).get("marks"), "booktrack marks stay unfiled")
+    check(
+        (entries.get("booth") or {}).get("hit", {}).get("years", {}).get("year") == 2013,
+        "booth year in ledger",
+    )
+    check(
+        (entries.get("booth") or {}).get("hit", {}).get("years", {}).get("url") == "https://hirebooth.com/",
+        "booth year source in ledger",
+    )
+    check(
+        (entries.get("booth") or {}).get("hit", {}).get("years", {}).get("quote")
+        == '"foundingDate": "2013"',
+        "booth year quote is the JSON-LD foundingDate",
+    )
+    check(not (entries.get("booth") or {}).get("hit", {}).get("page"), "booth B Corp page stays unfiled")
+    check(
+        (entries.get("booth") or {}).get("page_dropped")
+        == "https://hirebooth.com/about-us/certifications-transparency is a B Corp page, not a trust/security page",
+        "booth B Corp page drop is clerked",
+    )
+    check(
+        (entries.get("boris-fx") or {}).get("hit", {}).get("years", {}).get("year") == 1995,
+        "boris-fx year in ledger",
+    )
+    check(
+        (entries.get("boris-fx") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://borisfx.com/company/about-us",
+        "boris-fx year source in ledger",
+    )
+    check(
+        (entries.get("boris-fx") or {}).get("hit", {}).get("years", {}).get("quote")
+        == '"foundingDate":"1995"',
+        "boris-fx year quote is the JSON-LD foundingDate",
+    )
+    check(not (entries.get("boris-fx") or {}).get("hit", {}).get("page"), "boris-fx Official page stays unfiled")
+    check(
+        (entries.get("bplats") or {}).get("hit", {}).get("marks", {}).get("added") == ["ISO 27001"],
+        "bplats ISO 27001 in ledger",
+    )
+    check(
+        (entries.get("bplats") or {}).get("hit", {}).get("marks", {}).get("url")
+        == "https://www.bplats.co.jp/privacy/",
+        "bplats marks source in ledger",
+    )
+    check((entries.get("bplats") or {}).get("hit", {}).get("marks", {}).get("quote") == "", "bplats quote stays the empty extractor result")
+    check(not (entries.get("bplats") or {}).get("hit", {}).get("page"), "bplats Official page stays unfiled")
+    check(not (entries.get("bplats") or {}).get("hit", {}).get("years"), "bplats year stays unfiled")
+    check(
+        (entries.get("brand24") or {}).get("hit", {}).get("dpa", {}).get("url")
+        == "https://brand24.com/legal/dpa/",
+        "brand24 DPA in ledger",
+    )
+    check(
+        (entries.get("brand24") or {}).get("hit", {}).get("subprocessors", {}).get("url")
+        == "https://brand24.com/legal/sub-processors/",
+        "brand24 subprocessors in ledger",
+    )
+    check(
+        (entries.get("brand24") or {}).get("hit", {}).get("subprocessors", {}).get("names")
+        == [
+            "IQ PL Sp. z o.o",
+            "OpenAI, LLC",
+            "Google LLC (Vertex AI / Gemini)",
+            "Anthropic, PBC",
+            "Intercom, Inc",
+            "Postmark (ActiveCampaign, LLC)",
+            "GetResponse S.A",
+            "Stripe, Inc",
+            "Recurly, Inc",
+            "PayPal Holdings, Inc",
+            "Worldpay, LLC",
+        ],
+        "brand24 named list in ledger",
+    )
+    check(
+        (entries.get("brand24") or {}).get("hit", {}).get("years", {}).get("year") == 2011,
+        "brand24 year in ledger",
+    )
+    check(
+        (entries.get("brand24") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://brand24.com/privacy-policy",
+        "brand24 year source in ledger",
+    )
+    check(
+        (entries.get("brand24") or {}).get("hit", {}).get("years", {}).get("quote")
+        == '"foundingDate":"2011-01-01"',
+        "brand24 year quote is the JSON-LD foundingDate",
+    )
+    check(not (entries.get("brand24") or {}).get("hit", {}).get("page"), "brand24 Official page stays unfiled")
+    check(
+        (entries.get("brandwatch") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://www.brandwatch.com/legal/information-security/",
+        "brandwatch security page in ledger",
+    )
+    check(
+        (entries.get("brandwatch") or {}).get("hit", {}).get("page", {}).get("kind") == "security",
+        "brandwatch page kind is security",
+    )
+    check(not (entries.get("brandwatch") or {}).get("hit", {}).get("marks"), "brandwatch marks stay unfiled")
+    check(not (entries.get("brandwatch") or {}).get("hit", {}).get("years"), "brandwatch year stays unfiled")
+    check((entries.get("brainsway") or {}).get("soft_retry") is True, "brainsway stays a Cloudflare soft-retry")
+    check((entries.get("brainsway") or {}).get("hit") is None, "brainsway hit stays null")
+    check((entries.get("brainsway") or {}).get("refusal") == "cloudflare", "brainsway refusal is cloudflare")
+    check((entries.get("brainsway") or {}).get("filed") is not True, "brainsway was not filed")
+    for slug, reason in {
+        "bon-app": "cloudflare",
+        "booking-holdings": "cloudflare",
+        "brainchip": "js-shell",
+        "brainshark": "js-shell",
+        "bravura-solutions": "cloudflare",
     }.items():
         row = entries.get(slug) or {}
         check(row.get("soft_retry") is True, f"{slug} stays a soft-retry")
@@ -4348,6 +4552,105 @@ def test_live_ledger_when_present() -> None:
 
     for slug in batch_1109_am:
         if slug in shipped_1109_am:
+            continue
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
+
+    pub_bt = by_pub["booktrack"]
+    check(pub_bt.get("found") is False, "booktrack Official page stays open")
+    check(not pub_bt.get("trust_url"), "booktrack Official page URL stays open")
+    check(pub_bt.get("founded_year") == 2011, "booktrack year is first-party JSON-LD")
+    check(pub_bt.get("founded_source") == "https://www.booktrack.com/", "booktrack year source")
+    check((pub_bt.get("file") or {}).get("years") == 20, "booktrack years print")
+    check(completeness(pub_bt) == 20, f"booktrack Completeness {completeness(pub_bt)}")
+    check(not (pub_bt.get("certs") or []), "booktrack marks stay open")
+
+    pub_booth = by_pub["booth"]
+    check(pub_booth.get("found") is False, "booth B Corp page is not Official page")
+    check(not pub_booth.get("trust_url"), "booth Official page stays open")
+    check(pub_booth.get("founded_year") == 2013, "booth year is first-party JSON-LD")
+    check(pub_booth.get("founded_source") == "https://hirebooth.com/", "booth year source")
+    check((pub_booth.get("file") or {}).get("years") == 20, "booth years print")
+    check((pub_booth.get("file") or {}).get("page") == 0, "booth Official page stays the open rule")
+    check(completeness(pub_booth) == 20, f"booth Completeness {completeness(pub_booth)}")
+    check(not (pub_booth.get("certs") or []), "booth marks stay open")
+
+    pub_bfx = by_pub["boris-fx"]
+    check(pub_bfx.get("found") is False, "boris-fx Official page stays open")
+    check(pub_bfx.get("founded_year") == 1995, "boris-fx year is first-party about")
+    check(pub_bfx.get("founded_source") == "https://borisfx.com/company/about-us", "boris-fx year source")
+    check((pub_bfx.get("file") or {}).get("years") == 20, "boris-fx years print")
+    check(completeness(pub_bfx) == 20, f"boris-fx Completeness {completeness(pub_bfx)}")
+    check(not (pub_bfx.get("certs") or []), "boris-fx marks stay open")
+
+    pub_bplats = by_pub["bplats"]
+    check(pub_bplats.get("found") is False, "bplats Official page stays open")
+    check(pub_bplats.get("certs") == ["ISO 27001"], f"bplats marks {pub_bplats.get('certs')}")
+    check((pub_bplats.get("file") or {}).get("marks") == 20, "bplats marks print")
+    check((pub_bplats.get("file") or {}).get("page") == 0, "bplats Official page stays the open rule")
+    check(completeness(pub_bplats) == 20, f"bplats Completeness {completeness(pub_bplats)}")
+    check(not pub_bplats.get("founded_year"), "bplats year stays open")
+
+    pub_b24 = by_pub["brand24"]
+    check(pub_b24.get("found") is False, "brand24 Official page stays open")
+    check(not pub_b24.get("trust_url"), "brand24 Official page URL stays open")
+    check(pub_b24.get("founded_year") == 2011, "brand24 year is first-party privacy policy")
+    check(pub_b24.get("founded_source") == "https://brand24.com/privacy-policy", "brand24 year source")
+    check(
+        ((pub_b24.get("instruments") or {}).get("dpa") or {}).get("url") == "https://brand24.com/legal/dpa/",
+        "brand24 DPA URL",
+    )
+    check(
+        ((pub_b24.get("instruments") or {}).get("subprocessors") or {}).get("url")
+        == "https://brand24.com/legal/sub-processors/",
+        "brand24 subprocessors URL",
+    )
+    check(
+        [p.get("name") for p in (pub_b24.get("processors") or [])] == [
+            "IQ PL Sp. z o.o",
+            "OpenAI, LLC",
+            "Google LLC (Vertex AI / Gemini)",
+            "Anthropic, PBC",
+            "Intercom, Inc",
+            "Postmark (ActiveCampaign, LLC)",
+            "GetResponse S.A",
+            "Stripe, Inc",
+            "Recurly, Inc",
+            "PayPal Holdings, Inc",
+            "Worldpay, LLC",
+        ],
+        "brand24 named list is the vetted 11",
+    )
+    check((pub_b24.get("file") or {}).get("dpa") == 20, "brand24 DPA prints")
+    check((pub_b24.get("file") or {}).get("subprocessors") == 20, "brand24 subprocessors print")
+    check((pub_b24.get("file") or {}).get("years") == 20, "brand24 years print")
+    check((pub_b24.get("file") or {}).get("page") == 0, "brand24 Official page stays the open rule")
+    check(completeness(pub_b24) == 60, f"brand24 Completeness {completeness(pub_b24)}")
+    check(not (pub_b24.get("certs") or []), "brand24 marks stay open")
+
+    pub_bw = by_pub["brandwatch"]
+    check(pub_bw.get("found") is True, "brandwatch Official page is on file")
+    check(
+        pub_bw.get("trust_url") == "https://www.brandwatch.com/legal/information-security/",
+        "brandwatch Official page is the security page",
+    )
+    check(not (pub_bw.get("certs") or []), "brandwatch marks stay open")
+    check((pub_bw.get("file") or {}).get("page") == 20, "brandwatch Official page prints")
+    check((pub_bw.get("file") or {}).get("marks") == 10, "brandwatch marks stay the looked-none partial")
+    check(completeness(pub_bw) == 30, f"brandwatch Completeness {completeness(pub_bw)}")
+    check(not pub_bw.get("founded_year"), "brandwatch year stays open")
+    check(not ((pub_bw.get("instruments") or {}).get("dpa") or {}).get("url"), "brandwatch DPA stays open")
+    check(
+        ((pub_bw.get("instruments") or {}).get("security") or {}).get("url")
+        == "https://www.brandwatch.com/legal/information-security/",
+        "brandwatch security instrument URL",
+    )
+
+    for slug in batch_1109_pm:
+        if slug in shipped_1109_pm:
             continue
         check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
