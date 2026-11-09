@@ -46798,10 +46798,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1995,
+      "founded_source": "https://borisfx.com/company/about-us"
     },
     {
       "rank": 1365,
@@ -71876,13 +71880,17 @@
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_Japan",
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-companies-japan",
-      "certs": [],
+      "certs": [
+        "ISO 27001"
+      ],
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "marks": 10
+        }
       }
     },
     {
@@ -73401,13 +73409,34 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-companies-poland",
       "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "links": {
+        "dpa": "https://brand24.com/legal/dpa/",
+        "subprocessors": "https://brand24.com/legal/sub-processors/"
+      },
+      "subprocessors": [
+        "iq-pl-sp-z-o-o",
+        "openai",
+        "google",
+        "anthropic",
+        "intercom",
+        "postmark-activecampaign",
+        "getresponse",
+        "stripe",
+        "recurly-com",
+        "paypal-holdings",
+        "worldpay"
+      ],
       "disclosure": {
-        "score": 0,
+        "score": 23,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "dpa": 8,
+          "subprocessors": 8,
+          "longevity": 7
+        }
+      },
+      "founded_year": 2011,
+      "founded_source": "https://brand24.com/privacy-policy"
     },
     {
       "rank": 2391,
@@ -166166,10 +166195,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 6
+        }
+      },
+      "founded_year": 2013,
+      "founded_source": "https://hirebooth.com/"
     },
     {
       "rank": 6016,
@@ -171593,10 +171626,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 7,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 7
+        }
+      },
+      "founded_year": 2011,
+      "founded_source": "https://www.booktrack.com/"
     },
     {
       "rank": 6241,
@@ -176668,9 +176705,9 @@
       "name": "Brandwatch",
       "slug": "brandwatch",
       "domain": "brandwatch.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.brandwatch.com/legal/information-security/",
+      "final_url": "https://www.brandwatch.com/legal/information-security/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -176678,12 +176715,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-companies-established-in-2005",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.brandwatch.com/legal/information-security/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {

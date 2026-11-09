@@ -45422,6 +45422,27 @@
       "domain": "",
       "kind": "processor",
       "in_register": false
+    },
+    {
+      "id": "iq-pl-sp-z-o-o",
+      "name": "IQ PL Sp. z o.o",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "paypal-holdings",
+      "name": "PayPal Holdings, Inc",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
+    },
+    {
+      "id": "worldpay",
+      "name": "Worldpay, LLC",
+      "domain": "",
+      "kind": "processor",
+      "in_register": false
     }
   ],
   "edges": [
@@ -68326,6 +68347,72 @@
       "to": "stripe",
       "source_url": "https://balsamiq.com/legal/subprocessors/",
       "evidence": "Stripe"
+    },
+    {
+      "from": "brand24",
+      "to": "iq-pl-sp-z-o-o",
+      "source_url": "https://brand24.com/legal/sub-processors/",
+      "evidence": "IQ PL Sp. z o.o"
+    },
+    {
+      "from": "brand24",
+      "to": "openai",
+      "source_url": "https://brand24.com/legal/sub-processors/",
+      "evidence": "OpenAI, LLC"
+    },
+    {
+      "from": "brand24",
+      "to": "google",
+      "source_url": "https://brand24.com/legal/sub-processors/",
+      "evidence": "Google LLC (Vertex AI / Gemini)"
+    },
+    {
+      "from": "brand24",
+      "to": "anthropic",
+      "source_url": "https://brand24.com/legal/sub-processors/",
+      "evidence": "Anthropic, PBC"
+    },
+    {
+      "from": "brand24",
+      "to": "intercom",
+      "source_url": "https://brand24.com/legal/sub-processors/",
+      "evidence": "Intercom, Inc"
+    },
+    {
+      "from": "brand24",
+      "to": "postmark",
+      "source_url": "https://brand24.com/legal/sub-processors/",
+      "evidence": "Postmark (ActiveCampaign, LLC)"
+    },
+    {
+      "from": "brand24",
+      "to": "getresponse",
+      "source_url": "https://brand24.com/legal/sub-processors/",
+      "evidence": "GetResponse S.A"
+    },
+    {
+      "from": "brand24",
+      "to": "stripe",
+      "source_url": "https://brand24.com/legal/sub-processors/",
+      "evidence": "Stripe, Inc"
+    },
+    {
+      "from": "brand24",
+      "to": "recurly-com",
+      "source_url": "https://brand24.com/legal/sub-processors/",
+      "evidence": "Recurly, Inc"
+    },
+    {
+      "from": "brand24",
+      "to": "paypal-holdings",
+      "source_url": "https://brand24.com/legal/sub-processors/",
+      "evidence": "PayPal Holdings, Inc"
+    },
+    {
+      "from": "brand24",
+      "to": "worldpay",
+      "source_url": "https://brand24.com/legal/sub-processors/",
+      "evidence": "Worldpay, LLC"
     }
   ],
   "aliases": {
