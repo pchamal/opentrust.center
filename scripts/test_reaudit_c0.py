@@ -3162,24 +3162,12 @@ def test_live_ledger_when_present() -> None:
         "brastel-telecom",
         "bravura-solutions",
     ]
-    check(batch == batch_1109_pm, f"2026-11-09 afternoon batch {batch}")
-    check(payload.get("batch_label") == "2026-11-09-pm", f"batch_label {payload.get('batch_label')}")
     check(len(batch_1109_pm) == 30, f"2026-11-09 afternoon batch is 30, got {len(batch_1109_pm)}")
     check(
         batch_1109_pm[0] == "boller-and-chivens" and batch_1109_pm[-1] == "bravura-solutions",
         "2026-11-09 afternoon batch is the boller-and-chivens to bravura-solutions cut",
     )
     check(all(slug in entries for slug in batch_1109_pm), "2026-11-09 afternoon rows stay in the ledger")
-    check(summary.get("batch") == 30, "2026-11-09 afternoon summary.batch is 30")
-    check(summary.get("fileable") == 6, f"2026-11-09 afternoon clerk fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 6, f"2026-11-09 afternoon soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 18, f"2026-11-09 afternoon still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 6, f"2026-11-09 afternoon clerk fills, got {summary.get('filled')}")
-    check(summary.get("vetted_keep") == 6, f"2026-11-09 afternoon vetted keep, got {summary.get('vetted_keep')}")
-    check(
-        summary.get("vetted_drop_fileable") == 1,
-        f"2026-11-09 afternoon vetted drops, got {summary.get('vetted_drop_fileable')}",
-    )
     check(
         all((entries.get(slug) or {}).get("date") == "2026-11-09" for slug in batch_1109_pm),
         "2026-11-09 afternoon cut is dated 2026-11-09",
@@ -3339,6 +3327,201 @@ def test_live_ledger_when_present() -> None:
         "brainchip": "js-shell",
         "brainshark": "js-shell",
         "bravura-solutions": "cloudflare",
+    }.items():
+        row = entries.get(slug) or {}
+        check(row.get("soft_retry") is True, f"{slug} stays a soft-retry")
+        check(row.get("hit") is None, f"{slug} hit stays null")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+
+    batch_1110_am = [
+        "bresser",
+        "breton",
+        "brickhouse-security",
+        "bridgehead-software",
+        "bridgewater-systems",
+        "bridj",
+        "bright",
+        "bright-computing",
+        "brightpoint",
+        "brionvega",
+        "bristol-myers-squibb",
+        "british-aerospace",
+        "broadband-tower",
+        "broadjam",
+        "broadleaf-commerce",
+        "broadsoft",
+        "broadspeed",
+        "broadview-networks",
+        "broadvoice",
+        "brocade-communications-systems",
+        "broccoli",
+        "broderbund",
+        "bromium",
+        "brondi",
+        "brookfield-engineering",
+        "brother-industries",
+        "brown-and-brown",
+        "bruker",
+        "bsnl",
+        "bt-business-and-public-sector",
+    ]
+    check(batch == batch_1110_am, f"2026-11-10 morning batch {batch}")
+    check(payload.get("batch_label") == "2026-11-10-am", f"batch_label {payload.get('batch_label')}")
+    check(len(batch_1110_am) == 30, f"2026-11-10 morning batch is 30, got {len(batch_1110_am)}")
+    check(
+        batch_1110_am[0] == "bresser" and batch_1110_am[-1] == "bt-business-and-public-sector",
+        "2026-11-10 morning batch is the bresser to bt-business-and-public-sector cut",
+    )
+    check(all(slug in entries for slug in batch_1110_am), "2026-11-10 morning rows stay in the ledger")
+    check(summary.get("batch") == 30, "2026-11-10 morning summary.batch is 30")
+    check(summary.get("fileable") == 4, f"2026-11-10 morning clerk fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 5, f"2026-11-10 morning soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 26, f"2026-11-10 morning still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 4, f"2026-11-10 morning clerk fills, got {summary.get('filled')}")
+    check(summary.get("vetted_keep") == 4, f"2026-11-10 morning vetted keep, got {summary.get('vetted_keep')}")
+    check(
+        summary.get("vetted_drop_fileable") == 2,
+        f"2026-11-10 morning vetted drops, got {summary.get('vetted_drop_fileable')}",
+    )
+    check(
+        summary.get("range") == "bresser..bt-business-and-public-sector",
+        f"2026-11-10 morning range {summary.get('range')}",
+    )
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-11-10" for slug in batch_1110_am),
+        "2026-11-10 morning cut is dated 2026-11-10",
+    )
+    check(not set(batch_1110_am) & set(batch_1109_pm), "2026-11-10 morning cut must be never-reaudited vs the afternoon holds")
+    check(not set(batch_1110_am) & set(batch_1109_am), "2026-11-10 morning cut must be never-reaudited vs the 2026-11-09 morning holds")
+    shipped_1110_am = {
+        "brickhouse-security": {"years"},
+        "bridgehead-software": {"page", "marks"},
+        "broadband-tower": {"page", "marks"},
+        "broadspeed": {"years"},
+    }
+    for slug in batch_1110_am:
+        row = entries.get(slug) or {}
+        if row.get("soft_retry"):
+            probed_classes = {item.get("class") for item in (row.get("probed") or [])}
+            check(bool(probed_classes & soft_classes), f"{slug} soft-retry is marked")
+        if slug in shipped_1110_am:
+            check(row.get("filed") is True, f"{slug} ledger row records the apply")
+            continue
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+    for slug, keys in shipped_1110_am.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-11-10", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+        check(row.get("could_fill") == [k for k in FILE_KEYS if k in keys], f"{slug} could_fill {row.get('could_fill')}")
+        check(row.get("fileable") is True, f"{slug} stays fileable")
+    check((entries.get("brickhouse-security") or {}).get("soft_retry") is not True, "brickhouse year hold is not a soft-retry")
+    check((entries.get("broadband-tower") or {}).get("soft_retry") is not True, "broadband-tower holds are not a soft-retry")
+    check((entries.get("broadspeed") or {}).get("soft_retry") is not True, "broadspeed year hold is not a soft-retry")
+    check(
+        (entries.get("bridgehead-software") or {}).get("soft_retry") is True,
+        "bridgehead oembed js-shell stays a soft-retry beside the filed page",
+    )
+    check(
+        (entries.get("brickhouse-security") or {}).get("hit", {}).get("years", {}).get("year") == 2005,
+        "brickhouse year in ledger",
+    )
+    check(
+        (entries.get("brickhouse-security") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://www.brickhousesecurity.com/about-us",
+        "brickhouse year source in ledger",
+    )
+    check(
+        (entries.get("brickhouse-security") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "With a background at Apple, Adobe, and MapQuest, Todd founded BrickHouse Security in 2005 to bring reliable, real-world tracking solutions to the market.",
+        "brickhouse year quote is the about sentence",
+    )
+    check(not (entries.get("brickhouse-security") or {}).get("hit", {}).get("page"), "brickhouse Official page stays unfiled")
+    check(not (entries.get("brickhouse-security") or {}).get("hit", {}).get("marks"), "brickhouse marks stay unfiled")
+    check(
+        (entries.get("bridgehead-software") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://www.bridgeheadsoftware.com/accreditations-certifications/",
+        "bridgehead trust page in ledger",
+    )
+    check(
+        (entries.get("bridgehead-software") or {}).get("hit", {}).get("page", {}).get("kind") == "trust",
+        "bridgehead page kind is trust",
+    )
+    check(
+        (entries.get("bridgehead-software") or {}).get("hit", {}).get("marks", {}).get("added") == ["Cyber Essentials Plus"],
+        "bridgehead Cyber Essentials Plus in ledger",
+    )
+    check(
+        (entries.get("bridgehead-software") or {}).get("hit", {}).get("marks", {}).get("url")
+        == "https://www.bridgeheadsoftware.com/accreditations-certifications/",
+        "bridgehead marks source in ledger",
+    )
+    check(
+        "BridgeHead Software has been awarded the Cyber Essentials Plus certification"
+        in ((entries.get("bridgehead-software") or {}).get("hit", {}).get("marks", {}).get("quote") or ""),
+        "bridgehead quote names the Cyber Essentials Plus award",
+    )
+    check(not (entries.get("bridgehead-software") or {}).get("hit", {}).get("years"), "bridgehead year stays unfiled")
+    check(
+        (entries.get("broadband-tower") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://www.bbtower.co.jp/utility/security-policy/",
+        "broadband-tower security page in ledger",
+    )
+    check(
+        (entries.get("broadband-tower") or {}).get("hit", {}).get("page", {}).get("kind") == "security",
+        "broadband-tower page kind is security",
+    )
+    check(
+        (entries.get("broadband-tower") or {}).get("hit", {}).get("marks", {}).get("added") == ["ISO 27001"],
+        "broadband-tower ISO 27001 in ledger",
+    )
+    check(
+        (entries.get("broadband-tower") or {}).get("hit", {}).get("marks", {}).get("url")
+        == "https://www.bbtower.co.jp/utility/security-policy/",
+        "broadband-tower marks source in ledger",
+    )
+    check(
+        (entries.get("broadband-tower") or {}).get("hit", {}).get("marks", {}).get("quote")
+        == "情報セキュリティマネジメントシステム (ISMS) の国際規格である ISO/IEC 27001 (JIS Q 27001) の認証を2005年9月20日に取得し",
+        "broadband-tower quote is the 2005-09-20 certification sentence",
+    )
+    check(not (entries.get("broadband-tower") or {}).get("hit", {}).get("years"), "broadband-tower year stays unfiled")
+    check(
+        (entries.get("broadspeed") or {}).get("hit", {}).get("years", {}).get("year") == 1962,
+        "broadspeed year in ledger",
+    )
+    check(
+        (entries.get("broadspeed") or {}).get("hit", {}).get("years", {}).get("url") == "https://broadspeed.com/",
+        "broadspeed year source in ledger",
+    )
+    check(
+        (entries.get("broadspeed") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "£199 + £675 = £874 (inc VAT) × About Us Broadspeed was first established in 1962 - we've been continuously online since 1995.",
+        "broadspeed year quote is the about sentence",
+    )
+    check(not (entries.get("broadspeed") or {}).get("hit", {}).get("page"), "broadspeed Official page stays unfiled")
+    check(not (entries.get("broadspeed") or {}).get("hit", {}).get("marks"), "broadspeed marks stay unfiled")
+    for slug, reason in {
+        "brookfield-engineering": "ISO 9001 quality cert only, not a trust mark",
+        "bt-business-and-public-sector": "consumer broadband security marketing page, not a trust page",
+    }.items():
+        row = entries.get(slug) or {}
+        check(row.get("date") == "2026-11-10", f"{slug} reaudited 2026-11-10")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+        check(row.get("soft_retry") is not True, f"{slug} drop is not a soft-retry")
+    for slug, reason in {
+        "bright": "js-shell",
+        "british-aerospace": "cloudflare",
+        "broadleaf-commerce": "js-shell",
+        "brondi": "cloudflare",
     }.items():
         row = entries.get(slug) or {}
         check(row.get("soft_retry") is True, f"{slug} stays a soft-retry")
@@ -4651,6 +4834,71 @@ def test_live_ledger_when_present() -> None:
 
     for slug in batch_1109_pm:
         if slug in shipped_1109_pm:
+            continue
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
+
+    pub_bhs = by_pub["brickhouse-security"]
+    check(pub_bhs.get("found") is False, "brickhouse Official page stays open")
+    check(not pub_bhs.get("trust_url"), "brickhouse Official page URL stays open")
+    check(pub_bhs.get("founded_year") == 2005, "brickhouse year is first-party about")
+    check(pub_bhs.get("founded_source") == "https://www.brickhousesecurity.com/about-us", "brickhouse year source")
+    check((pub_bhs.get("file") or {}).get("years") == 20, "brickhouse years print")
+    check((pub_bhs.get("file") or {}).get("page") == 0, "brickhouse Official page stays the open rule")
+    check(completeness(pub_bhs) == 20, f"brickhouse Completeness {completeness(pub_bhs)}")
+    check(not (pub_bhs.get("certs") or []), "brickhouse marks stay open")
+
+    pub_bh = by_pub["bridgehead-software"]
+    check(pub_bh.get("found") is True, "bridgehead Official page is on file")
+    check(
+        pub_bh.get("trust_url") == "https://www.bridgeheadsoftware.com/accreditations-certifications/",
+        "bridgehead Official page is the accreditations page",
+    )
+    check(pub_bh.get("certs") == ["Cyber Essentials Plus"], f"bridgehead marks {pub_bh.get('certs')}")
+    check((pub_bh.get("file") or {}).get("page") == 20, "bridgehead Official page prints")
+    check((pub_bh.get("file") or {}).get("marks") == 20, "bridgehead marks print")
+    check(completeness(pub_bh) == 40, f"bridgehead Completeness {completeness(pub_bh)}")
+    check(not pub_bh.get("founded_year"), "bridgehead year stays open")
+    check(not ((pub_bh.get("instruments") or {}).get("dpa") or {}).get("url"), "bridgehead DPA stays open")
+    check(
+        ((pub_bh.get("instruments") or {}).get("trust") or {}).get("url")
+        == "https://www.bridgeheadsoftware.com/accreditations-certifications/",
+        "bridgehead trust instrument URL",
+    )
+
+    pub_bbt = by_pub["broadband-tower"]
+    check(pub_bbt.get("found") is True, "broadband-tower Official page is on file")
+    check(
+        pub_bbt.get("trust_url") == "https://www.bbtower.co.jp/utility/security-policy/",
+        "broadband-tower Official page is the security policy",
+    )
+    check(pub_bbt.get("certs") == ["ISO 27001"], f"broadband-tower marks {pub_bbt.get('certs')}")
+    check((pub_bbt.get("file") or {}).get("page") == 20, "broadband-tower Official page prints")
+    check((pub_bbt.get("file") or {}).get("marks") == 20, "broadband-tower marks print")
+    check(completeness(pub_bbt) == 40, f"broadband-tower Completeness {completeness(pub_bbt)}")
+    check(not pub_bbt.get("founded_year"), "broadband-tower year stays open")
+    check(not ((pub_bbt.get("instruments") or {}).get("dpa") or {}).get("url"), "broadband-tower DPA stays open")
+    check(
+        ((pub_bbt.get("instruments") or {}).get("security") or {}).get("url")
+        == "https://www.bbtower.co.jp/utility/security-policy/",
+        "broadband-tower security instrument URL",
+    )
+
+    pub_bsp = by_pub["broadspeed"]
+    check(pub_bsp.get("found") is False, "broadspeed Official page stays open")
+    check(not pub_bsp.get("trust_url"), "broadspeed Official page URL stays open")
+    check(pub_bsp.get("founded_year") == 1962, "broadspeed year is first-party home")
+    check(pub_bsp.get("founded_source") == "https://broadspeed.com/", "broadspeed year source")
+    check((pub_bsp.get("file") or {}).get("years") == 20, "broadspeed years print")
+    check((pub_bsp.get("file") or {}).get("page") == 0, "broadspeed Official page stays the open rule")
+    check(completeness(pub_bsp) == 20, f"broadspeed Completeness {completeness(pub_bsp)}")
+    check(not (pub_bsp.get("certs") or []), "broadspeed marks stay open")
+
+    for slug in batch_1110_am:
+        if slug in shipped_1110_am:
             continue
         check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
