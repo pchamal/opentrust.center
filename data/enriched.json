@@ -46885,23 +46885,33 @@
       "name": "ByWater Solutions",
       "slug": "bywater-solutions",
       "domain": "bywatersolutions.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://bywatersolutions.com/about-us/security",
+      "final_url": "https://bywatersolutions.com/about-us/security",
       "vendor": "unknown",
       "title": "",
       "probed": 18,
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_States",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: TX-RAMP.",
       "list": "wikipedia-software-us",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "TX-RAMP"
+      ],
+      "links": {
+        "security": "https://bywatersolutions.com/about-us/security"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 32,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "marks": 4,
+          "longevity": 8
+        }
+      },
+      "founded_year": 2009,
+      "founded_source": "https://bywatersolutions.com/"
     },
     {
       "rank": 1369,
@@ -47111,9 +47121,9 @@
       "name": "Bullhorn, Inc.",
       "slug": "bullhorn-inc",
       "domain": "bullhorn.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.bullhorn.com/security/",
+      "final_url": "https://www.bullhorn.com/security/",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
@@ -47121,13 +47131,88 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-us",
       "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "links": {
+        "security": "https://www.bullhorn.com/security/",
+        "subprocessors": "https://www.bullhorn.com/legal/sub-processors/"
+      },
+      "subprocessors": [
+        "amazon-data-services-ireland",
+        "aws",
+        "bullhorn-and-its-group-companies",
+        "datastax",
+        "digitalocean",
+        "elastic",
+        "gcp",
+        "ibm",
+        "microsoft-and-microsoft",
+        "mongodb",
+        "rackspace",
+        "root",
+        "salesforce",
+        "sharefile",
+        "atlassian",
+        "recmate",
+        "sail-golden-gate",
+        "1218-global-and-its-affiliates",
+        "barclay-jones",
+        "blueprint-advisory",
+        "delaware-consulting-cv",
+        "dispatch",
+        "endava-f-k-a-five-agency",
+        "entero",
+        "frank-belford",
+        "gear-partners",
+        "guidant",
+        "helpstone",
+        "hrlinkit",
+        "kyloe",
+        "new-breed",
+        "newbury",
+        "nuage-group",
+        "searchex",
+        "sixcel",
+        "solexecution",
+        "tcs",
+        "tonichq",
+        "vox-consulting",
+        "vrp-consulting-and-its-affiliates",
+        "wrike",
+        "accusoft",
+        "burning-glass",
+        "daxtra",
+        "cm-com-international",
+        "messagemedia",
+        "bird",
+        "meta-platforms-ireland",
+        "textlocal",
+        "textus",
+        "twilio",
+        "brickftp",
+        "documill",
+        "functional-software",
+        "google",
+        "kiteworks",
+        "microsoft",
+        "nylas",
+        "onespan",
+        "papertrail",
+        "pubnub",
+        "recall-ai",
+        "socketlabs",
+        "text-control",
+        "openai"
+      ],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 38,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "subprocessors": 8,
+          "longevity": 10
+        }
+      },
+      "founded_year": 1999,
+      "founded_source": "https://www.bullhorn.com/au/privacy"
     },
     {
       "rank": 1378,
@@ -116564,10 +116649,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1891,
+      "founded_source": "https://www.bulley.com/about"
     },
     {
       "rank": 3979,
@@ -141288,10 +141377,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1923,
+      "founded_source": "https://www.bucherhydraulics.com/company"
     },
     {
       "rank": 4992,
