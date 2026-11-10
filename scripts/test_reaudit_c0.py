@@ -3366,28 +3366,12 @@ def test_live_ledger_when_present() -> None:
         "bsnl",
         "bt-business-and-public-sector",
     ]
-    check(batch == batch_1110_am, f"2026-11-10 morning batch {batch}")
-    check(payload.get("batch_label") == "2026-11-10-am", f"batch_label {payload.get('batch_label')}")
     check(len(batch_1110_am) == 30, f"2026-11-10 morning batch is 30, got {len(batch_1110_am)}")
     check(
         batch_1110_am[0] == "bresser" and batch_1110_am[-1] == "bt-business-and-public-sector",
         "2026-11-10 morning batch is the bresser to bt-business-and-public-sector cut",
     )
     check(all(slug in entries for slug in batch_1110_am), "2026-11-10 morning rows stay in the ledger")
-    check(summary.get("batch") == 30, "2026-11-10 morning summary.batch is 30")
-    check(summary.get("fileable") == 4, f"2026-11-10 morning clerk fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 5, f"2026-11-10 morning soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 26, f"2026-11-10 morning still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 4, f"2026-11-10 morning clerk fills, got {summary.get('filled')}")
-    check(summary.get("vetted_keep") == 4, f"2026-11-10 morning vetted keep, got {summary.get('vetted_keep')}")
-    check(
-        summary.get("vetted_drop_fileable") == 2,
-        f"2026-11-10 morning vetted drops, got {summary.get('vetted_drop_fileable')}",
-    )
-    check(
-        summary.get("range") == "bresser..bt-business-and-public-sector",
-        f"2026-11-10 morning range {summary.get('range')}",
-    )
     check(
         all((entries.get(slug) or {}).get("date") == "2026-11-10" for slug in batch_1110_am),
         "2026-11-10 morning cut is dated 2026-11-10",
@@ -3528,6 +3512,257 @@ def test_live_ledger_when_present() -> None:
         check(row.get("hit") is None, f"{slug} hit stays null")
         check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
         check(row.get("filed") is not True, f"{slug} was not filed")
+
+    batch_1110_pm = [
+        "bticino",
+        "bucher-hydraulics",
+        "bucketfeet",
+        "buddypress",
+        "bugsense",
+        "builder-ai",
+        "builders-firstsource",
+        "buildium",
+        "built-robotics",
+        "bulley-andrews",
+        "bullhorn-inc",
+        "bullitt-group",
+        "bulsatcom",
+        "bunchball",
+        "bunge-global",
+        "burlington-telecom",
+        "businessobjects",
+        "bwi-gmbh",
+        "bxp-inc",
+        "bynari",
+        "bytemark",
+        "bytes-technology",
+        "bywater-solutions",
+        "c-spire",
+        "c-nario",
+        "c-c-p-contact-probes",
+        "c-d-peacock",
+        "c-h-robinson",
+        "cable-and-wireless-communications",
+        "cablem-s",
+    ]
+    check(batch == batch_1110_pm, f"2026-11-10 afternoon batch {batch}")
+    check(payload.get("batch_label") == "2026-11-10-pm", f"batch_label {payload.get('batch_label')}")
+    check(len(batch_1110_pm) == 30, f"2026-11-10 afternoon batch is 30, got {len(batch_1110_pm)}")
+    check(
+        batch_1110_pm[0] == "bticino" and batch_1110_pm[-1] == "cablem-s",
+        "2026-11-10 afternoon batch is the bticino to cablem-s cut",
+    )
+    check(all(slug in entries for slug in batch_1110_pm), "2026-11-10 afternoon rows stay in the ledger")
+    check(summary.get("batch") == 30, "2026-11-10 afternoon summary.batch is 30")
+    check(summary.get("fileable") == 4, f"2026-11-10 afternoon clerk fileable, got {summary.get('fileable')}")
+    check(summary.get("soft_retry") == 11, f"2026-11-10 afternoon soft-retry, got {summary.get('soft_retry')}")
+    check(summary.get("still_0") == 26, f"2026-11-10 afternoon still-0, got {summary.get('still_0')}")
+    check(summary.get("filled") == 4, f"2026-11-10 afternoon clerk fills, got {summary.get('filled')}")
+    check(summary.get("vetted_keep") == 4, f"2026-11-10 afternoon vetted keep, got {summary.get('vetted_keep')}")
+    check(
+        summary.get("vetted_drop_fileable") == 7,
+        f"2026-11-10 afternoon vetted drops, got {summary.get('vetted_drop_fileable')}",
+    )
+    check(
+        summary.get("range") == "bticino..cablem-s",
+        f"2026-11-10 afternoon range {summary.get('range')}",
+    )
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-11-10" for slug in batch_1110_pm),
+        "2026-11-10 afternoon cut is dated 2026-11-10",
+    )
+    check(not set(batch_1110_pm) & set(batch_1110_am), "2026-11-10 afternoon cut must be never-reaudited vs the morning holds")
+    check(not set(batch_1110_pm) & set(batch_1109_pm), "2026-11-10 afternoon cut must be never-reaudited vs the 2026-11-09 afternoon holds")
+    shipped_1110_pm = {
+        "bucher-hydraulics": {"years"},
+        "bulley-andrews": {"years"},
+        "bullhorn-inc": {"page", "subprocessors", "years"},
+        "bywater-solutions": {"page", "marks", "years"},
+    }
+    for slug in batch_1110_pm:
+        row = entries.get(slug) or {}
+        check(row.get("probed"), f"{slug} probed URLs missing")
+        for item in row.get("probed") or []:
+            check(str(item.get("url") or "").startswith("http"), f"{slug} probed URL missing")
+            check("status" in item, f"{slug} http status missing")
+        if row.get("soft_retry"):
+            probed_classes = {item.get("class") for item in (row.get("probed") or [])}
+            check(bool(probed_classes & soft_classes), f"{slug} soft-retry is marked")
+        if slug in shipped_1110_pm:
+            check(row.get("filed") is True, f"{slug} ledger row records the apply")
+            check(row.get("note") == "reaudited 2026-11-10", f"{slug} reaudited 2026-11-10")
+            continue
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+        check(row.get("note") == "reaudited, still 0", f"{slug} reaudited, still 0")
+    for slug, keys in shipped_1110_pm.items():
+        row = entries.get(slug) or {}
+        check(row.get("filed") is True, f"{slug} ledger row records the apply")
+        check(row.get("date") == "2026-11-10", f"{slug} filed date {row.get('date')}")
+        check(set(row.get("filed_keys") or []) == keys, f"{slug} filed_keys {row.get('filed_keys')}")
+        check(row.get("could_fill") == [k for k in FILE_KEYS if k in keys], f"{slug} could_fill {row.get('could_fill')}")
+        check(row.get("fileable") is True, f"{slug} stays fileable")
+    check((entries.get("bucher-hydraulics") or {}).get("soft_retry") is not True, "bucher year hold is not a soft-retry")
+    check(
+        (entries.get("bulley-andrews") or {}).get("soft_retry") is True,
+        "bulley oembed js-shell stays a soft-retry beside the filed year",
+    )
+    check(
+        (entries.get("bullhorn-inc") or {}).get("soft_retry") is True,
+        "bullhorn oembed js-shell stays a soft-retry beside the filed page",
+    )
+    check(
+        (entries.get("bywater-solutions") or {}).get("soft_retry") is True,
+        "bywater cloudflare probe stays a soft-retry beside the filed page",
+    )
+    check(
+        (entries.get("bucher-hydraulics") or {}).get("hit", {}).get("years", {}).get("year") == 1923,
+        "bucher year in ledger",
+    )
+    check(
+        (entries.get("bucher-hydraulics") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://www.bucherhydraulics.com/company",
+        "bucher year source in ledger",
+    )
+    check(
+        (entries.get("bucher-hydraulics") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "Founded in 1923 Approx.",
+        "bucher year quote is the company-page line",
+    )
+    check(not (entries.get("bucher-hydraulics") or {}).get("hit", {}).get("page"), "bucher Official page stays unfiled")
+    check(
+        (entries.get("bucher-hydraulics") or {}).get("page_dropped")
+        == "https://www.bucherhydraulics.com/en/compliance is a code-of-conduct page, not a trust/security page",
+        "bucher code-of-conduct page drop is clerked",
+    )
+    check(
+        (entries.get("bulley-andrews") or {}).get("hit", {}).get("years", {}).get("year") == 1891,
+        "bulley year in ledger",
+    )
+    check(
+        (entries.get("bulley-andrews") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://www.bulley.com/about",
+        "bulley year source in ledger",
+    )
+    check(
+        (entries.get("bulley-andrews") or {}).get("hit", {}).get("years", {}).get("quote")
+        == "Profile - Bulley & Andrews Founded in 1891, Bulley & Andrews delivers trusted building solutions for project success that achieve our clients' goals.",
+        "bulley year quote is the about description",
+    )
+    check(not (entries.get("bulley-andrews") or {}).get("hit", {}).get("page"), "bulley Official page stays unfiled")
+    check(
+        (entries.get("bullhorn-inc") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://www.bullhorn.com/security/",
+        "bullhorn security page in ledger",
+    )
+    check(
+        (entries.get("bullhorn-inc") or {}).get("hit", {}).get("page", {}).get("kind") == "security",
+        "bullhorn page kind is security",
+    )
+    check(
+        (entries.get("bullhorn-inc") or {}).get("hit", {}).get("subprocessors", {}).get("url")
+        == "https://www.bullhorn.com/legal/sub-processors/",
+        "bullhorn subprocessors in ledger",
+    )
+    check(
+        len(((entries.get("bullhorn-inc") or {}).get("hit") or {}).get("subprocessors", {}).get("names") or []) == 65,
+        "bullhorn named list is 65",
+    )
+    check(
+        "OpenAI, LLC" in (((entries.get("bullhorn-inc") or {}).get("hit") or {}).get("subprocessors", {}).get("names") or []),
+        "bullhorn list names OpenAI",
+    )
+    check(
+        (entries.get("bullhorn-inc") or {}).get("hit", {}).get("years", {}).get("year") == 1999,
+        "bullhorn year in ledger",
+    )
+    check(
+        (entries.get("bullhorn-inc") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://www.bullhorn.com/au/privacy",
+        "bullhorn year source in ledger",
+    )
+    check(
+        (entries.get("bullhorn-inc") or {}).get("hit", {}).get("years", {}).get("quote")
+        == '"foundingDate": "1999"',
+        "bullhorn year quote is the JSON-LD foundingDate",
+    )
+    check(not (entries.get("bullhorn-inc") or {}).get("hit", {}).get("marks"), "bullhorn marks stay unfiled")
+    check(
+        (entries.get("bywater-solutions") or {}).get("hit", {}).get("page", {}).get("url")
+        == "https://bywatersolutions.com/about-us/security",
+        "bywater security page in ledger",
+    )
+    check(
+        (entries.get("bywater-solutions") or {}).get("hit", {}).get("page", {}).get("kind") == "security",
+        "bywater page kind is security",
+    )
+    check(
+        (entries.get("bywater-solutions") or {}).get("hit", {}).get("marks", {}).get("added") == ["TX-RAMP"],
+        "bywater TX-RAMP in ledger",
+    )
+    check(
+        (entries.get("bywater-solutions") or {}).get("hit", {}).get("marks", {}).get("quote")
+        == "As a participating member of GovRAMP, ByWater Solutions has provisional certification with TX-RAMP.",
+        "bywater quote is the provisional TX-RAMP sentence",
+    )
+    check(
+        "GovRAMP" not in ((entries.get("bywater-solutions") or {}).get("hit", {}).get("marks", {}).get("added") or []),
+        "bywater GovRAMP membership stays unfiled",
+    )
+    check(
+        "NIST 800-53" not in ((entries.get("bywater-solutions") or {}).get("hit", {}).get("marks", {}).get("added") or []),
+        "bywater NIST 800-53 framework mention stays unfiled",
+    )
+    check(
+        (entries.get("bywater-solutions") or {}).get("hit", {}).get("years", {}).get("year") == 2009,
+        "bywater year in ledger",
+    )
+    check(
+        (entries.get("bywater-solutions") or {}).get("hit", {}).get("years", {}).get("url")
+        == "https://bywatersolutions.com/",
+        "bywater year source in ledger",
+    )
+    check(
+        (entries.get("bywater-solutions") or {}).get("hit", {}).get("years", {}).get("quote")
+        == '"foundingDate":"2009-03-04"',
+        "bywater year quote is the JSON-LD foundingDate",
+    )
+    for slug, reason in {
+        "bticino": "ethics and code-of-conduct page, not a trust/security page",
+        "buddypress": "tag archive of release notes, not a trust page",
+        "bwi-gmbh": "cyber-security careers page, not a trust page",
+        "bytes-technology": "security services marketing page, not a trust page",
+        "c-d-peacock": "Rolex certified pre-owned product page, not a trust page",
+        "c-h-robinson": "freight security marketing page, not a trust page",
+        "cable-and-wireless-communications": "news story about a datacenter summit, not a trust page",
+    }.items():
+        row = entries.get(slug) or {}
+        check(row.get("date") == "2026-11-10", f"{slug} reaudited 2026-11-10")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(row.get("fileable") is False, f"{slug} reads as still 0")
+        check(not row.get("could_fill"), f"{slug} could_fill stays empty")
+        check(not row.get("hit"), f"{slug} hit stays empty")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+        check(row.get("soft_retry") is not True, f"{slug} drop is not a soft-retry")
+        check(row.get("note") == "reaudited, still 0", f"{slug} reaudited, still 0")
+    for slug, reason in {
+        "bucketfeet": "cloudflare",
+        "buildium": "cloudflare",
+        "built-robotics": "cloudflare",
+        "bullitt-group": "js-shell",
+        "bunge-global": "cloudflare",
+        "burlington-telecom": "js-shell",
+        "bxp-inc": "cloudflare",
+        "c-spire": "cloudflare",
+    }.items():
+        row = entries.get(slug) or {}
+        check(row.get("soft_retry") is True, f"{slug} stays a soft-retry")
+        check(row.get("hit") is None, f"{slug} hit stays null")
+        check(row.get("refusal") == reason, f"{slug} refusal {row.get('refusal')}")
+        check(row.get("filed") is not True, f"{slug} was not filed")
+        check(row.get("note") == "reaudited, still 0", f"{slug} reaudited, still 0")
 
     public = json.loads((ROOT / "site" / "data.json").read_text())
     by_pub = {row.get("slug"): row for row in public.get("companies") or [] if row.get("slug")}
@@ -4899,6 +5134,87 @@ def test_live_ledger_when_present() -> None:
 
     for slug in batch_1110_am:
         if slug in shipped_1110_am:
+            continue
+        check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
+        check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
+        check(not (by_pub[slug].get("certs") or []), f"{slug} marks stay open")
+        check(not by_pub[slug].get("founded_year"), f"{slug} year stays open")
+        check(not ((by_pub[slug].get("instruments") or {}).get("dpa") or {}).get("url"), f"{slug} DPA stays open")
+
+    pub_bucher = by_pub["bucher-hydraulics"]
+    check(pub_bucher.get("found") is False, "bucher Official page stays open")
+    check(not pub_bucher.get("trust_url"), "bucher Official page URL stays open")
+    check(pub_bucher.get("founded_year") == 1923, "bucher year is first-party company page")
+    check(pub_bucher.get("founded_source") == "https://www.bucherhydraulics.com/company", "bucher year source")
+    check((pub_bucher.get("file") or {}).get("years") == 20, "bucher years print")
+    check((pub_bucher.get("file") or {}).get("page") == 0, "bucher Official page stays the open rule")
+    check(completeness(pub_bucher) == 20, f"bucher Completeness {completeness(pub_bucher)}")
+    check(not (pub_bucher.get("certs") or []), "bucher marks stay open")
+
+    pub_bulley = by_pub["bulley-andrews"]
+    check(pub_bulley.get("found") is False, "bulley Official page stays open")
+    check(not pub_bulley.get("trust_url"), "bulley Official page URL stays open")
+    check(pub_bulley.get("founded_year") == 1891, "bulley year is first-party about")
+    check(pub_bulley.get("founded_source") == "https://www.bulley.com/about", "bulley year source")
+    check((pub_bulley.get("file") or {}).get("years") == 20, "bulley years print")
+    check((pub_bulley.get("file") or {}).get("page") == 0, "bulley Official page stays the open rule")
+    check(completeness(pub_bulley) == 20, f"bulley Completeness {completeness(pub_bulley)}")
+    check(not (pub_bulley.get("certs") or []), "bulley marks stay open")
+
+    pub_bull = by_pub["bullhorn-inc"]
+    check(pub_bull.get("found") is True, "bullhorn Official page is on file")
+    check(pub_bull.get("trust_url") == "https://www.bullhorn.com/security/", "bullhorn Official page is the security page")
+    check(not (pub_bull.get("certs") or []), "bullhorn marks stay open")
+    check(pub_bull.get("founded_year") == 1999, "bullhorn year is first-party privacy JSON-LD")
+    check(pub_bull.get("founded_source") == "https://www.bullhorn.com/au/privacy", "bullhorn year source")
+    check(len(pub_bull.get("processors") or []) == 65, "bullhorn named list is the printed 65")
+    pub_bull_names = [p.get("name") for p in (pub_bull.get("processors") or [])]
+    led_bull_names = ((entries.get("bullhorn-inc") or {}).get("hit") or {}).get("subprocessors", {}).get("names")
+    check(pub_bull_names == led_bull_names, "bullhorn public names match the ledger")
+    check("Amazon Web Services, Inc" in pub_bull_names, "bullhorn list names Amazon Web Services")
+    check("OpenAI, LLC" in pub_bull_names, "bullhorn list names OpenAI")
+    check("Twilio" in pub_bull_names, "bullhorn list names Twilio")
+    check((pub_bull.get("file") or {}).get("page") == 20, "bullhorn Official page prints")
+    check((pub_bull.get("file") or {}).get("marks") == 10, "bullhorn marks stay the looked-none partial")
+    check((pub_bull.get("file") or {}).get("subprocessors") == 20, "bullhorn subprocessors print")
+    check((pub_bull.get("file") or {}).get("years") == 20, "bullhorn years print")
+    check(completeness(pub_bull) == 70, f"bullhorn Completeness {completeness(pub_bull)}")
+    check(
+        ((pub_bull.get("instruments") or {}).get("security") or {}).get("url")
+        == "https://www.bullhorn.com/security/",
+        "bullhorn security instrument URL",
+    )
+    check(
+        ((pub_bull.get("instruments") or {}).get("subprocessors") or {}).get("url")
+        == "https://www.bullhorn.com/legal/sub-processors/",
+        "bullhorn subprocessors instrument URL",
+    )
+    check(not ((pub_bull.get("instruments") or {}).get("dpa") or {}).get("url"), "bullhorn DPA stays open")
+
+    pub_byw = by_pub["bywater-solutions"]
+    check(pub_byw.get("found") is True, "bywater Official page is on file")
+    check(
+        pub_byw.get("trust_url") == "https://bywatersolutions.com/about-us/security",
+        "bywater Official page is the security page",
+    )
+    check(pub_byw.get("certs") == ["TX-RAMP"], f"bywater marks {pub_byw.get('certs')}")
+    check("GovRAMP" not in (pub_byw.get("certs") or []), "bywater GovRAMP stays open")
+    check("NIST 800-53" not in (pub_byw.get("certs") or []), "bywater NIST 800-53 stays open")
+    check(pub_byw.get("founded_year") == 2009, "bywater year is first-party home")
+    check(pub_byw.get("founded_source") == "https://bywatersolutions.com/", "bywater year source")
+    check((pub_byw.get("file") or {}).get("page") == 20, "bywater Official page prints")
+    check((pub_byw.get("file") or {}).get("marks") == 20, "bywater marks print")
+    check((pub_byw.get("file") or {}).get("years") == 20, "bywater years print")
+    check(completeness(pub_byw) == 60, f"bywater Completeness {completeness(pub_byw)}")
+    check(
+        ((pub_byw.get("instruments") or {}).get("security") or {}).get("url")
+        == "https://bywatersolutions.com/about-us/security",
+        "bywater security instrument URL",
+    )
+    check(not ((pub_byw.get("instruments") or {}).get("dpa") or {}).get("url"), "bywater DPA stays open")
+
+    for slug in batch_1110_pm:
+        if slug in shipped_1110_pm:
             continue
         check(completeness(by_pub[slug]) == 0, f"{slug} Completeness stays 0")
         check(by_pub[slug].get("found") is False, f"{slug} Official page stays open")
