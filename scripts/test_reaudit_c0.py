@@ -3545,28 +3545,12 @@ def test_live_ledger_when_present() -> None:
         "cable-and-wireless-communications",
         "cablem-s",
     ]
-    check(batch == batch_1110_pm, f"2026-11-10 afternoon batch {batch}")
-    check(payload.get("batch_label") == "2026-11-10-pm", f"batch_label {payload.get('batch_label')}")
     check(len(batch_1110_pm) == 30, f"2026-11-10 afternoon batch is 30, got {len(batch_1110_pm)}")
     check(
         batch_1110_pm[0] == "bticino" and batch_1110_pm[-1] == "cablem-s",
         "2026-11-10 afternoon batch is the bticino to cablem-s cut",
     )
     check(all(slug in entries for slug in batch_1110_pm), "2026-11-10 afternoon rows stay in the ledger")
-    check(summary.get("batch") == 30, "2026-11-10 afternoon summary.batch is 30")
-    check(summary.get("fileable") == 4, f"2026-11-10 afternoon clerk fileable, got {summary.get('fileable')}")
-    check(summary.get("soft_retry") == 11, f"2026-11-10 afternoon soft-retry, got {summary.get('soft_retry')}")
-    check(summary.get("still_0") == 26, f"2026-11-10 afternoon still-0, got {summary.get('still_0')}")
-    check(summary.get("filled") == 4, f"2026-11-10 afternoon clerk fills, got {summary.get('filled')}")
-    check(summary.get("vetted_keep") == 4, f"2026-11-10 afternoon vetted keep, got {summary.get('vetted_keep')}")
-    check(
-        summary.get("vetted_drop_fileable") == 7,
-        f"2026-11-10 afternoon vetted drops, got {summary.get('vetted_drop_fileable')}",
-    )
-    check(
-        summary.get("range") == "bticino..cablem-s",
-        f"2026-11-10 afternoon range {summary.get('range')}",
-    )
     check(
         all((entries.get(slug) or {}).get("date") == "2026-11-10" for slug in batch_1110_pm),
         "2026-11-10 afternoon cut is dated 2026-11-10",
@@ -5231,6 +5215,53 @@ def test_live_ledger_when_present() -> None:
             check("status" in item, f"{slug} http status missing")
         could = rec.get("could_fill") or []
         check(set(could) <= set(FILE_KEYS), f"{slug} invented Completeness rule {could}")
+    batch_1111_am = [
+        "cachefly",
+        "caci",
+        "cadcorp",
+        "cadence",
+        "cadi-scientific",
+        "cae-inc",
+        "cafe24",
+        "caiway",
+        "calian",
+        "caliper-corporation",
+        "calliduscloud",
+        "callminer",
+        "callup-net",
+        "callware",
+        "cambio-healthcare-systems",
+        "cambridge-consultants",
+        "cambridge-semantics",
+        "camden-property-trust",
+        "cameca",
+        "campus-consortium",
+        "campustours",
+        "camtel",
+        "canaan-creative",
+        "canalplus-cz-sk",
+        "canon-inc",
+        "canon-it-solutions",
+        "canopy-labs",
+        "cantaloupe-inc",
+        "cantv",
+        "capcom"
+]
+    check(batch == batch_1111_am, f"2026-11-11 morning batch {batch}")
+    check(payload.get("batch_label") == "2026-11-11-am", f"batch_label {payload.get('batch_label')}")
+    check(len(batch_1111_am) == 30, "2026-11-11 morning batch is 30")
+    check(summary.get("filled") == 6, f"2026-11-11 morning fills, got {summary.get('filled')}")
+    check(summary.get("range") == "cachefly..capcom", f"2026-11-11 morning range {summary.get('range')}")
+    check(
+        all((entries.get(slug) or {}).get("date") == "2026-11-11" for slug in batch_1111_am),
+        "2026-11-11 morning cut is dated 2026-11-11",
+    )
+    check(not set(batch_1111_am) & set(batch_1110_pm), "2026-11-11 morning cut must be never-reaudited vs the 2026-11-10 afternoon holds")
+    for slug in ["cachefly", "caliper-corporation", "callminer", "callup-net", "cambio-healthcare-systems", "campustours"]:
+        check((entries.get(slug) or {}).get("filed") is True, f"{slug} ledger row records the apply")
+    for slug in ["cadi-scientific", "cae-inc", "calian", "cambridge-consultants", "campus-consortium", "canon-inc"]:
+        row = entries.get(slug) or {}
+        check(row.get("fileable") is False and not row.get("hit"), f"{slug} vetted drop stays unfiled")
 
 
 def main() -> int:
