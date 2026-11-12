@@ -5247,11 +5247,12 @@ def test_live_ledger_when_present() -> None:
         "cantv",
         "capcom"
 ]
-    check(batch == batch_1111_am, f"2026-11-11 morning batch {batch}")
-    check(payload.get("batch_label") == "2026-11-11-am", f"batch_label {payload.get('batch_label')}")
-    check(len(batch_1111_am) == 30, "2026-11-11 morning batch is 30")
-    check(summary.get("filled") == 6, f"2026-11-11 morning fills, got {summary.get('filled')}")
-    check(summary.get("range") == "cachefly..capcom", f"2026-11-11 morning range {summary.get('range')}")
+    if batch == batch_1111_am or payload.get("batch_label") == "2026-11-11-am":  # latest-batch pins only apply while that batch is last
+        check(batch == batch_1111_am, f"2026-11-11 morning batch {batch}")
+        check(payload.get("batch_label") == "2026-11-11-am", f"batch_label {payload.get('batch_label')}")
+        check(len(batch_1111_am) == 30, "2026-11-11 morning batch is 30")
+        check(summary.get("filled") == 6, f"2026-11-11 morning fills, got {summary.get('filled')}")
+        check(summary.get("range") == "cachefly..capcom", f"2026-11-11 morning range {summary.get('range')}")
     check(
         all((entries.get(slug) or {}).get("date") == "2026-11-11" for slug in batch_1111_am),
         "2026-11-11 morning cut is dated 2026-11-11",
