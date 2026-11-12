@@ -31841,9 +31841,9 @@
       "name": "Charles Schwab Corporation",
       "slug": "charles-schwab-corporation",
       "domain": "schwab.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.schwab.com/security",
+      "final_url": "https://www.schwab.com/security",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
@@ -31852,13 +31852,17 @@
       "list": "wikipedia-sp500-software",
       "certs": [],
       "links": {
-        "privacy": "https://www.schwab.com/privacy-policy"
+        "privacy": "https://www.schwab.com/privacy-policy",
+        "security": "https://www.schwab.com/security"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 26,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "privacy": 6
+        }
       }
     },
     {
@@ -126039,12 +126043,63 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-california",
       "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "links": {
+        "subprocessors": "https://www.centricsoftware.com/legal/subprocessors"
+      },
+      "subprocessors": [
+        "aws",
+        "atlassian",
+        "cloudflare",
+        "confluent",
+        "crowdstrike",
+        "databricks",
+        "datadog",
+        "digital-bh-800-digital-realty",
+        "elastic",
+        "encora",
+        "equinix",
+        "features-labels-fal-ai",
+        "fit-retail",
+        "fit-retail-sas",
+        "foodchain-id",
+        "sentry",
+        "gemini",
+        "gocardless-sas",
+        "google-asia-pacific-pte",
+        "google-ireland",
+        "google",
+        "hashicorp",
+        "hubspot",
+        "intercom",
+        "kripya-engineering-private",
+        "liveblocks",
+        "microsoft",
+        "mixpanel",
+        "mongodb",
+        "openai",
+        "product-experience-solutions",
+        "popmarket",
+        "pulumi",
+        "rackspace-us",
+        "sasg",
+        "stripe",
+        "ziflow",
+        "csi-software",
+        "contentserv",
+        "contentserv-benelux-n-v",
+        "cs-holding",
+        "contentserv-technologies-unipessoal-lda",
+        "contentserv-swiss",
+        "shopping-feed",
+        "shopping-flux-sas",
+        "contentserv-technologies-lda"
+      ],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "subprocessors": 8
+        }
       }
     },
     {
@@ -137948,10 +138003,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1976,
+      "founded_source": "https://www.cgi.com/en/about-us/cgi-history"
     },
     {
       "rank": 4849,
@@ -139518,14 +139577,21 @@
       "source": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_1956",
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-tech-established-1956",
-      "certs": [],
+      "certs": [
+        "ISO 9001"
+      ],
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 14,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "marks": 4,
+          "longevity": 10
+        }
+      },
+      "founded_year": 1956,
+      "founded_source": "https://www.cesi.it/about-us/history"
     },
     {
       "rank": 4916,
@@ -168295,10 +168361,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1984,
+      "founded_source": "https://cgsinc.com/en"
     },
     {
       "rank": 6095,
@@ -181761,9 +181831,9 @@
       "name": "CETIN",
       "slug": "cetin",
       "domain": "cetin.cz",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.cetin.cz/about-us/about-company/corporate-social-responsibility/certificates",
+      "final_url": "https://www.cetin.cz/about-us/about-company/corporate-social-responsibility/certificates",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -181771,13 +181841,20 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-telecommunications-companies-of-the-czech-republic",
       "certs": [],
-      "links": {},
+      "links": {
+        "trust": "https://www.cetin.cz/about-us/about-company/corporate-social-responsibility/certificates"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 25,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "longevity": 5
+        }
+      },
+      "founded_year": 2015,
+      "founded_source": "https://www.cetin.cz/"
     },
     {
       "rank": 6638,
