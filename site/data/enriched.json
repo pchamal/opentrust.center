@@ -64479,10 +64479,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1998,
+      "founded_source": "https://www.checkatrade.com/"
     },
     {
       "rank": 2025,
@@ -112016,10 +112020,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 2005,
+      "founded_source": "https://www.chess.com/"
     },
     {
       "rank": 3788,
@@ -172397,9 +172405,9 @@
       "name": "CHEQ",
       "slug": "cheq",
       "domain": "cheq.ai",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://cheq.ai/trust/",
+      "final_url": "https://cheq.ai/trust/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -172407,12 +172415,25 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "csa-star-registry",
       "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "links": {
+        "trust": "https://cheq.ai/trust/",
+        "dpa": "https://cheq.ai/data-processing-agreement/",
+        "subprocessors": "https://cheq.ai/sub-processors/"
+      },
+      "subprocessors": [
+        "aws",
+        "azure",
+        "intercom",
+        "zendesk"
+      ],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 36,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "dpa": 8,
+          "subprocessors": 8
+        }
       }
     },
     {
