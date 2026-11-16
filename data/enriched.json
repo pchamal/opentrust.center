@@ -85674,23 +85674,49 @@
       "name": "Civis Analytics",
       "slug": "civis-analytics",
       "domain": "civisanalytics.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.civisanalytics.com/platform-features/data-governance-security",
+      "final_url": "https://www.civisanalytics.com/platform-features/data-governance-security",
       "vendor": "unknown",
       "title": "",
       "probed": 18,
       "source": "https://en.wikipedia.org/wiki/Category:Big_data_companies",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, FedRAMP Moderate.",
       "list": "wikipedia-big-data-companies",
-      "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "certs": [
+        "SOC 2 Type II",
+        "FedRAMP Moderate"
+      ],
+      "links": {
+        "security": "https://www.civisanalytics.com/platform-features/data-governance-security",
+        "subprocessors": "https://www.civisanalytics.com/legal-pages/subprocessors"
+      },
+      "subprocessors": [
+        "aws",
+        "atlassian",
+        "box",
+        "datadog",
+        "github",
+        "google",
+        "gcp",
+        "pendo",
+        "salesforce",
+        "sumo-logic",
+        "tec-mailing-solutions",
+        "zendesk"
+      ],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 56,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 22,
+          "longevity": 6,
+          "subprocessors": 8
+        }
+      },
+      "founded_year": 2013,
+      "founded_source": "https://www.civisanalytics.com/about"
     },
     {
       "rank": 2880,
@@ -148241,9 +148267,9 @@
       "name": "Cisco Meraki",
       "slug": "cisco-meraki",
       "domain": "meraki.cisco.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.cisco.com/site/us/en/about/corporate-strategy-office/acquisitions/meraki/trust.html",
+      "final_url": "https://www.cisco.com/site/us/en/about/corporate-strategy-office/acquisitions/meraki/trust.html",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
@@ -148251,12 +148277,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-computer-hardware-companies",
       "certs": [],
-      "links": {},
+      "links": {
+        "trust": "https://www.cisco.com/site/us/en/about/corporate-strategy-office/acquisitions/meraki/trust.html"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -185131,10 +185161,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1997,
+      "founded_source": "https://www.citictel.com/about-us/chairmans-statement"
     },
     {
       "rank": 6777,
