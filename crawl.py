@@ -5,21 +5,22 @@ from __future__ import annotations
 
 import json
 import re
-import ssl
 import time
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from html import unescape
 from pathlib import Path
-from urllib.error import HTTPError, URLError
 from urllib.parse import urlparse
-from urllib.request import Request, urlopen
+
+import polite
 
 ROOT = Path(__file__).resolve().parent
-UA = "opentrust.center/1.0 (+https://opentrust.center)"
+# Contact address is the one published on the site contact page.
+UA = polite.UA
 TIMEOUT = 8
-WORKERS = 12
+# Four workers. polite.fetch also refuses a fifth in-flight request.
+WORKERS = polite.MAX_IN_FLIGHT
 MAX_BODY = 32768
 
 SEED_URLS = {
@@ -108,8 +109,6 @@ TRUST_WORDS = re.compile(
 TAG_RE = re.compile(r"<[^>]+>")
 TITLE_RE = re.compile(r"<title[^>]*>(.*?)</title>", re.I | re.S)
 H1_RE = re.compile(r"<h1[^>]*>(.*?)</h1>", re.I | re.S)
-
-CTX = ssl.create_default_context()
 
 
 def sld(domain: str) -> str:
@@ -208,45 +207,10 @@ def path_of(url: str) -> str:
     return urlparse(url).path or "/"
 
 
-def fetch(url: str, max_body: int | None = None) -> dict:
+def fetch(url: str, max_body: int | None = None, *, guessed: bool = False) -> dict:
+    """GET a public page. Robots, per-host delay, and Retry-After live in polite.py."""
     limit = MAX_BODY if max_body is None else max_body
-    req = Request(
-        url,
-        headers={
-            "User-Agent": UA,
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-            "Accept-Language": "en",
-        },
-        method="GET",
-    )
-    try:
-        with urlopen(req, timeout=TIMEOUT, context=CTX) as resp:
-            status = getattr(resp, "status", 200) or 200
-            final_url = resp.geturl()
-            headers = {k.lower(): v for k, v in resp.headers.items()}
-            body = resp.read(limit)
-    except HTTPError as exc:
-        try:
-            body = exc.read(limit) if exc.fp else b""
-        except Exception:
-            body = b""
-        return {
-            "ok": False,
-            "status": exc.code,
-            "final_url": url,
-            "headers": {},
-            "body": body.decode("utf-8", "replace") if body else "",
-        }
-    except (URLError, TimeoutError, ssl.SSLError, OSError):
-        return {"ok": False, "status": 0, "final_url": url, "headers": {}, "body": ""}
-
-    return {
-        "ok": True,
-        "status": status,
-        "final_url": final_url,
-        "headers": headers,
-        "body": body.decode("utf-8", "replace"),
-    }
+    return polite.fetch(url, max_body=limit, guessed=guessed, timeout=TIMEOUT)
 
 
 def detect_vendor(final_url: str, body: str, headers: dict) -> str | None:
@@ -395,7 +359,7 @@ def probe_company(company: dict) -> dict:
     last_title = ""
     for url in urls:
         probed += 1
-        fetched = fetch(url)
+        fetched = fetch(url, guessed=not is_seed(url))
         ok, vendor, title = is_trust_hit(url, fetched)
         if title:
             last_title = title
