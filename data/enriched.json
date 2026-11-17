@@ -48094,9 +48094,9 @@
       "name": "Clover Network",
       "slug": "clover-network",
       "domain": "clover.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.clover.com/security",
+      "final_url": "https://www.clover.com/security",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
@@ -48104,12 +48104,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-us",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.clover.com/security"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -57729,22 +57733,31 @@
       "name": "CloudShare",
       "slug": "cloudshare",
       "domain": "cloudshare.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.cloudshare.com/soc2-security-compliance/",
+      "final_url": "https://www.cloudshare.com/soc2-security-compliance/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/Category:Cloud_computing_providers",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, ISO 27701.",
       "list": "wikipedia-cloud-computing-providers",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27701"
+      ],
+      "links": {
+        "security": "https://www.cloudshare.com/soc2-security-compliance/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 46,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 26
+        }
       }
     },
     {
@@ -66382,12 +66395,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-companies-canada",
       "certs": [],
-      "links": {},
+      "links": {
+        "dpa": "https://cm-labs.com/en/legal/dpa/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "dpa": 8
+        }
       }
     },
     {
@@ -78437,13 +78454,17 @@
       "source": "https://en.wikipedia.org/wiki/Category:Health_care_software_companies",
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-healthcare-software-companies",
-      "certs": [],
+      "certs": [
+        "HIPAA"
+      ],
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 6,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "marks": 6
+        }
       }
     },
     {
@@ -148181,10 +148202,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1983,
+      "founded_source": "https://clevo.com.tw/"
     },
     {
       "rank": 5271,
@@ -172588,22 +172613,29 @@
       "name": "Cliniclog",
       "slug": "cliniclog",
       "domain": "cliniclog.co.il",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://cliniclog.co.il/trust",
+      "final_url": "https://cliniclog.co.il/trust",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://cloudsecurityalliance.org/star/registry/cliniclog-ltd",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: CSA STAR.",
       "list": "csa-star-registry",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "CSA STAR"
+      ],
+      "links": {
+        "trust": "https://cliniclog.co.il/trust"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 24,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "marks": 4
+        }
       }
     },
     {
