@@ -17171,9 +17171,9 @@
       "name": "Coinbase",
       "slug": "coinbase",
       "domain": "coinbase.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.coinbase.com/security",
+      "final_url": "https://www.coinbase.com/security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -17184,13 +17184,18 @@
       "links": {
         "status": "https://status.coinbase.com",
         "security_txt": "https://www.coinbase.com/.well-known/security.txt",
-        "bug_bounty": "https://hackerone.com/coinbase"
+        "bug_bounty": "https://hackerone.com/coinbase",
+        "security": "https://www.coinbase.com/security"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 32,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "status": 6,
+          "disclosure": 6
+        }
       }
     },
     {
@@ -27150,9 +27155,9 @@
       "name": "Cognizant Technology Solutions",
       "slug": "cognizant-technology-solutions",
       "domain": "cognizant.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.cognizant.com/security",
+      "final_url": "https://www.cognizant.com/security",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
@@ -27161,14 +27166,21 @@
       "list": "wikipedia-fortune-500",
       "certs": [],
       "links": {
-        "privacy": "https://www.cognizant.com/us/en/about-cognizant/privacy-notice"
+        "privacy": "https://www.cognizant.com/us/en/about-cognizant/privacy-notice",
+        "security": "https://www.cognizant.com/security"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 36,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "privacy": 6,
+          "longevity": 10
+        }
+      },
+      "founded_year": 1994,
+      "founded_source": "https://www.cognizant.com/us/en"
     },
     {
       "rank": 650,
@@ -48130,13 +48142,17 @@
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_States",
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-us",
-      "certs": [],
+      "certs": [
+        "ISO 27001"
+      ],
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "marks": 10
+        }
       }
     },
     {
@@ -80674,10 +80690,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 2004,
+      "founded_source": "https://cockos.com/"
     },
     {
       "rank": 2677,
@@ -129182,9 +129202,9 @@
       "name": "Cognitive Systems",
       "slug": "cognitive-systems",
       "domain": "cognitivesystems.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.cognitivesystems.com/trust",
+      "final_url": "https://www.cognitivesystems.com/trust",
       "vendor": "unknown",
       "title": "",
       "probed": 6,
@@ -129192,13 +129212,17 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "trust": "https://www.cognitivesystems.com/trust"
+      },
       "subprocessors": [],
       "official_url": "https://www.cognitivesystems.com/",
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
