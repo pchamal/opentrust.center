@@ -38116,9 +38116,9 @@
       "name": "Consensus Cloud Solutions",
       "slug": "consensus-cloud-solutions",
       "domain": "consensus.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.consensus.com/security",
+      "final_url": "https://www.consensus.com/security",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
@@ -38126,12 +38126,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.consensus.com/security"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -104210,9 +104214,9 @@
       "name": "COMTURE",
       "slug": "comture",
       "domain": "comture.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.comture.com/securitypolicy/",
+      "final_url": "https://www.comture.com/securitypolicy/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -104220,12 +104224,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.comture.com/securitypolicy/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -132364,22 +132372,30 @@
       "name": "Confluence",
       "slug": "confluence",
       "domain": "confluence.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.confluence.com/compliance-services/",
+      "final_url": "https://www.confluence.com/compliance-services/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_based_in_Pennsylvania",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 1 Type II, ISO 27001.",
       "list": "wikipedia-software-pennsylvania",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "SOC 1 Type II",
+        "ISO 27001"
+      ],
+      "links": {
+        "trust": "https://www.confluence.com/compliance-services/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 34,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "marks": 14
+        }
       }
     },
     {
@@ -143261,9 +143277,9 @@
       "name": "Compunetix",
       "slug": "compunetix",
       "domain": "compunetix.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.compunetix.com/certifications/",
+      "final_url": "https://www.compunetix.com/certifications/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -143271,12 +143287,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-telecom-us",
       "certs": [],
-      "links": {},
+      "links": {
+        "trust": "https://www.compunetix.com/certifications/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -167492,24 +167512,88 @@
       "name": "Confirm",
       "slug": "confirm",
       "domain": "confirm.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.confirm.com/policies",
+      "final_url": "https://www.confirm.com/policies",
       "vendor": "unknown",
       "title": "",
       "probed": 0,
       "source": "https://addepar.com/legal/sub-processors",
       "source_url": "https://addepar.com/legal/sub-processors",
       "official_url": "https://www.confirm.com/",
-      "summary": "",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, Cyber Essentials.",
       "list": "named-processor-gap",
-      "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "Cyber Essentials"
+      ],
+      "links": {
+        "trust": "https://www.confirm.com/policies",
+        "subprocessors": "https://www.confirm.com/policies/sub-processors"
+      },
+      "subprocessors": [
+        "algolia",
+        "aws",
+        "anthropic",
+        "appcues",
+        "okta",
+        "bamboohr",
+        "box",
+        "cameratag",
+        "cape-ann-enterprises",
+        "cloudflare",
+        "datadog",
+        "deepl",
+        "elevenlabs",
+        "fivetran",
+        "front",
+        "g2",
+        "github",
+        "gitlab",
+        "glean",
+        "go1",
+        "gcp",
+        "google-workspace",
+        "hubspot",
+        "intercom",
+        "launchdarkly",
+        "logrocket",
+        "looker",
+        "mailgun",
+        "mandrill",
+        "merge-dev",
+        "azure",
+        "mixpanel",
+        "mongodb",
+        "newrelic",
+        "nikalogic-onix",
+        "omni",
+        "openai",
+        "pendo",
+        "prequel",
+        "rollbar",
+        "rustici-software",
+        "salesforce",
+        "segment",
+        "sendgrid",
+        "sentry",
+        "sisense",
+        "slack",
+        "sopro",
+        "stripe",
+        "twilio",
+        "ziggeo",
+        "zoom"
+      ],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 52,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 24,
+          "subprocessors": 8
+        }
       }
     },
     {
@@ -176986,22 +177070,33 @@
       "name": "Conductor",
       "slug": "conductor",
       "domain": "conductor.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.conductor.com/security/",
+      "final_url": "https://www.conductor.com/security/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_established_in_2006",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, ISO 42001, GDPR, CCPA.",
       "list": "wikipedia-software-companies-established-in-2006",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 42001",
+        "GDPR",
+        "CCPA"
+      ],
+      "links": {
+        "security": "https://www.conductor.com/security/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 52,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 32
+        }
       }
     },
     {
@@ -180410,9 +180505,9 @@
       "name": "Comviva",
       "slug": "comviva",
       "domain": "mahindracomviva.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://mahindracomviva.com/trust",
+      "final_url": "https://mahindracomviva.com/trust",
       "vendor": "unknown",
       "title": "",
       "probed": 18,
@@ -180420,12 +180515,18 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-telecommunications-companies-of-india",
       "certs": [],
-      "links": {},
+      "links": {
+        "trust": "https://mahindracomviva.com/trust",
+        "dpa": "https://mahindracomviva.com/data-processing-addendum"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 28,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "dpa": 8
+        }
       }
     },
     {
