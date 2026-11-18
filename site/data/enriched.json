@@ -24665,9 +24665,9 @@
       "name": "Compass",
       "slug": "compass",
       "domain": "compass.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.compass.com/legal/trust-center/",
+      "final_url": "https://www.compass.com/legal/trust-center/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -24676,13 +24676,17 @@
       "list": "companiesmarketcap-software",
       "certs": [],
       "links": {
-        "security_txt": "https://www.compass.com/.well-known/security.txt"
+        "security_txt": "https://www.compass.com/.well-known/security.txt",
+        "trust": "https://www.compass.com/legal/trust-center/"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 26,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "disclosure": 6
+        }
       }
     },
     {
@@ -48293,13 +48297,18 @@
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_States",
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-us",
-      "certs": [],
+      "certs": [
+        "HIPAA",
+        "EU-US DPF"
+      ],
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "marks": 10
+        }
       }
     },
     {
@@ -54602,9 +54611,9 @@
       "name": "Comodo Cybersecurity",
       "slug": "comodo-cybersecurity",
       "domain": "comodo.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.comodo.com/website-security/",
+      "final_url": "https://www.comodo.com/website-security/",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
@@ -54612,12 +54621,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-computer-security",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.comodo.com/website-security/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -74007,9 +74020,9 @@
       "name": "Comarch",
       "slug": "comarch",
       "domain": "comarch.pl",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.comarch.pl/cyber-security/",
+      "final_url": "https://www.comarch.pl/cyber-security/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -74017,13 +74030,20 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-companies-poland",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.comarch.pl/cyber-security/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 30,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "longevity": 10
+        }
+      },
+      "founded_year": 1993,
+      "founded_source": "https://www.comarch.pl/"
     },
     {
       "rank": 2407,
@@ -83003,7 +83023,9 @@
         "score": 0,
         "tier": "silent",
         "factors": {}
-      }
+      },
+      "founded_year": 2005,
+      "founded_source": "https://www.collabora.com/about-us/our-ecosystem"
     },
     {
       "rank": 2773,
@@ -90343,7 +90365,9 @@
         "score": 0,
         "tier": "silent",
         "factors": {}
-      }
+      },
+      "founded_year": 2000,
+      "founded_source": "https://www.colligo.com/privacy-policy"
     },
     {
       "rank": 3048,
@@ -118212,22 +118236,33 @@
       "name": "Compello",
       "slug": "compello",
       "domain": "compello.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://compello.com/en/security",
+      "final_url": "https://compello.com/en/security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/Category:Technology_companies_established_in_2011",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: ISO 27001, ISO 27018, ISO 9001, PCI DSS, CSA STAR.",
       "list": "wikipedia-tech-established-2011",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "ISO 27001",
+        "ISO 27018",
+        "ISO 9001",
+        "PCI DSS",
+        "CSA STAR"
+      ],
+      "links": {
+        "security": "https://compello.com/en/security"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 50,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 30
+        }
       }
     },
     {
@@ -128551,9 +128586,9 @@
       "name": "Combis",
       "slug": "combis",
       "domain": "combis.hr",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://combis.hr/en/security/",
+      "final_url": "https://combis.hr/en/security/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -128561,12 +128596,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-tech-established-1990",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://combis.hr/en/security/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -143034,10 +143073,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1976,
+      "founded_source": "https://www.commscope.com/"
     },
     {
       "rank": 5049,
@@ -156673,22 +156716,29 @@
       "name": "Company85",
       "slug": "company85",
       "domain": "company85.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://company85.com/security/",
+      "final_url": "https://company85.com/security/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_the_United_Kingdom",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: PCI DSS.",
       "list": "wikipedia-telecom-uk",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "PCI DSS"
+      ],
+      "links": {
+        "security": "https://company85.com/security/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 28,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "marks": 8
+        }
       }
     },
     {
@@ -175703,9 +175753,9 @@
       "name": "Cologix",
       "slug": "cologix",
       "domain": "cologix.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://cologix.com/about-us/compliance-and-certifications/",
+      "final_url": "https://cologix.com/about-us/compliance-and-certifications/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -175713,12 +175763,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-internet-technology-companies-of-the-united-states",
       "certs": [],
-      "links": {},
+      "links": {
+        "trust": "https://cologix.com/about-us/compliance-and-certifications/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
