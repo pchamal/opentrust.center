@@ -25466,9 +25466,9 @@
       "name": "Costco Wholesale",
       "slug": "costco-wholesale",
       "domain": "costco.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.costco.com/f/-/ca-social-compliance",
+      "final_url": "https://www.costco.com/f/-/ca-social-compliance",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
@@ -25476,12 +25476,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-fortune-500",
       "certs": [],
-      "links": {},
+      "links": {
+        "trust": "https://www.costco.com/f/-/ca-social-compliance"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -28298,9 +28302,9 @@
       "name": "Copart",
       "slug": "copart",
       "domain": "copart.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://copart.com/security",
+      "final_url": "https://copart.com/security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -28310,13 +28314,18 @@
       "certs": [],
       "links": {
         "status": "https://status.copart.com",
-        "privacy": "https://copart.com/privacy-policy"
+        "privacy": "https://copart.com/privacy-policy",
+        "security": "https://copart.com/security"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 32,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "status": 6,
+          "privacy": 6
+        }
       }
     },
     {
@@ -32286,9 +32295,9 @@
       "name": "Cooper Companies (The)",
       "slug": "cooper-companies-the",
       "domain": "coopercos.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.coopercos.com/california-declaration-of-compliance/",
+      "final_url": "https://www.coopercos.com/california-declaration-of-compliance/",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
@@ -32296,12 +32305,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-sp500-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "trust": "https://www.coopercos.com/california-declaration-of-compliance/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -64772,9 +64785,9 @@
       "name": "CoreFiling",
       "slug": "corefiling",
       "domain": "corefiling.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.corefiling.com/2026/08/27/xbrl-audit-assurance/",
+      "final_url": "https://www.corefiling.com/2026/08/27/xbrl-audit-assurance/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -64782,12 +64795,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-companies-uk",
       "certs": [],
-      "links": {},
+      "links": {
+        "trust": "https://www.corefiling.com/2026/08/27/xbrl-audit-assurance/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -127085,9 +127102,9 @@
       "name": "Cooliris",
       "slug": "cooliris",
       "domain": "cooliris.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://cooliris.com/security",
+      "final_url": "https://cooliris.com/security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -127095,12 +127112,24 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-california",
       "certs": [],
-      "links": {},
-      "subprocessors": [],
+      "links": {
+        "security": "https://cooliris.com/security",
+        "subprocessors": "https://cooliris.com/legal/subprocessors"
+      },
+      "subprocessors": [
+        "smartphone-deals",
+        "galaxy-s24-ultra",
+        "best-cell-phone-deals",
+        "samsung-galaxy-s10-deals",
+        "latest-samsung-phone"
+      ],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 28,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "subprocessors": 8
+        }
       }
     },
     {
@@ -128387,9 +128416,9 @@
       "name": "Cooler Master",
       "slug": "cooler-master",
       "domain": "coolermaster.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.coolermaster.com/en-us",
+      "final_url": "https://www.coolermaster.com/en-us",
       "vendor": "unknown",
       "title": "",
       "probed": 18,
@@ -128397,12 +128426,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-tech-established-1992",
       "certs": [],
-      "links": {},
+      "links": {
+        "trust": "https://www.coolermaster.com/en-us"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
