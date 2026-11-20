@@ -60303,12 +60303,11 @@
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
-      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, PCI DSS, HIPAA.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, HIPAA.",
       "list": "wikipedia-cloud-applications",
       "certs": [
         "SOC 2 Type II",
         "ISO 27001",
-        "PCI DSS",
         "HIPAA"
       ],
       "links": {
@@ -60317,11 +60316,11 @@
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 79,
+        "score": 71,
         "tier": "substantial",
         "factors": {
           "portal": 20,
-          "marks": 34,
+          "marks": 26,
           "dpa": 8,
           "subprocessors": 8,
           "longevity": 9
@@ -92788,21 +92787,22 @@
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/Category:Financial_technology_companies",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II.",
       "list": "wikipedia-financial-technology-companies",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II"
+      ],
       "links": {
-        "security": "https://www.credible.com/security",
-        "dpa": "https://www.credible.com/terms/dpa"
+        "security": "https://www.credible.com/security"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 35,
+        "score": 37,
         "tier": "thin",
         "factors": {
           "portal": 20,
-          "dpa": 8,
-          "longevity": 7
+          "longevity": 7,
+          "marks": 10
         }
       },
       "founded_year": 2012,
@@ -148213,9 +148213,9 @@
       "name": "Crossbar, Inc.",
       "slug": "crossbar-inc",
       "domain": "crossbar-inc.com",
-      "found": true,
-      "trust_url": "https://crossbar-inc.com/pages/security",
-      "final_url": "https://crossbar-inc.com/pages/security",
+      "found": false,
+      "trust_url": null,
+      "final_url": null,
       "vendor": "unknown",
       "title": "",
       "probed": 18,
@@ -148223,16 +148223,12 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-computer-hardware-companies",
       "certs": [],
-      "links": {
-        "security": "https://crossbar-inc.com/pages/security"
-      },
+      "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 20,
-        "tier": "thin",
-        "factors": {
-          "portal": 20
-        }
+        "score": 0,
+        "tier": "silent",
+        "factors": {}
       }
     },
     {
