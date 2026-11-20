@@ -54414,10 +54414,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 8
+        }
+      },
+      "founded_year": 2009,
+      "founded_source": "https://www.cronlab.com/"
     },
     {
       "rank": 1629,
@@ -60292,23 +60296,39 @@
       "name": "Creately",
       "slug": "creately",
       "domain": "creately.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://creately.com/security/",
+      "final_url": "https://creately.com/security/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/Category:Cloud_applications",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, PCI DSS, HIPAA.",
       "list": "wikipedia-cloud-applications",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "PCI DSS",
+        "HIPAA"
+      ],
+      "links": {
+        "security": "https://creately.com/security/",
+        "dpa": "https://creately.com/legal/dpa/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 79,
+        "tier": "substantial",
+        "factors": {
+          "portal": 20,
+          "marks": 34,
+          "dpa": 8,
+          "subprocessors": 8,
+          "longevity": 9
+        }
+      },
+      "founded_year": 2008,
+      "founded_source": "https://creately.com/about-us"
     },
     {
       "rank": 1860,
@@ -92761,9 +92781,9 @@
       "name": "Credible",
       "slug": "credible",
       "domain": "credible.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.credible.com/security",
+      "final_url": "https://www.credible.com/security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -92771,13 +92791,22 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-financial-technology-companies",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.credible.com/security",
+        "dpa": "https://www.credible.com/terms/dpa"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 35,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "dpa": 8,
+          "longevity": 7
+        }
+      },
+      "founded_year": 2012,
+      "founded_source": "https://www.credible.com/privacy/subprocessors"
     },
     {
       "rank": 3121,
@@ -148184,9 +148213,9 @@
       "name": "Crossbar, Inc.",
       "slug": "crossbar-inc",
       "domain": "crossbar-inc.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://crossbar-inc.com/pages/security",
+      "final_url": "https://crossbar-inc.com/pages/security",
       "vendor": "unknown",
       "title": "",
       "probed": 18,
@@ -148194,12 +148223,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-computer-hardware-companies",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://crossbar-inc.com/pages/security"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
