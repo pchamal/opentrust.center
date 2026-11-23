@@ -123431,9 +123431,9 @@
       "name": "Dahua Technology",
       "slug": "dahua-technology",
       "domain": "dahuatech.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.dahuatech.com/trust",
+      "final_url": "https://www.dahuatech.com/trust",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
@@ -123441,12 +123441,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-tech-established-2001",
       "certs": [],
-      "links": {},
+      "links": {
+        "trust": "https://www.dahuatech.com/trust"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -148365,10 +148369,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1986,
+      "founded_source": "https://www.dlink.com/us/en/about-dlink"
     },
     {
       "rank": 5272,
@@ -148484,10 +148492,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1993,
+      "founded_source": "https://www.dasannetworks.com/"
     },
     {
       "rank": 5277,
@@ -161256,14 +161268,21 @@
       "source": "https://en.wikipedia.org/wiki/Category:Computer_hardware_companies",
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-computer-hardware-companies",
-      "certs": [],
+      "certs": [
+        "SOC 2 Type II"
+      ],
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 20,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "marks": 10,
+          "longevity": 10
+        }
+      },
+      "founded_year": 1999,
+      "founded_source": "https://www.dwavequantum.com/privacy-policy"
     },
     {
       "rank": 5819,
@@ -166793,25 +166812,32 @@
       "name": "Darwill",
       "slug": "darwill",
       "domain": "darwill.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.darwill.com/data-security/",
+      "final_url": "https://www.darwill.com/data-security/",
       "vendor": "unknown",
       "title": "",
       "probed": 0,
       "source": "https://www.lob.com/subprocessors",
       "source_url": "https://www.lob.com/subprocessors",
       "official_url": "https://darwill.com/",
-      "summary": "",
+      "summary": "Official page on file.",
       "list": "named-processor-gap",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.darwill.com/data-security/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 30,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "longevity": 10
+        }
+      },
+      "founded_year": 1951,
+      "founded_source": "https://www.darwill.com/privacy-policy"
     },
     {
       "rank": 6020,
