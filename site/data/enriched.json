@@ -36320,9 +36320,9 @@
       "name": "Cynomi",
       "slug": "cynomi",
       "domain": "cynomi.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://cynomi.com/security/",
+      "final_url": "https://cynomi.com/security/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -36330,12 +36330,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "crn-security-100-2025",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://cynomi.com/security/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -38901,22 +38905,30 @@
       "name": "Cy4gate",
       "slug": "cy4gate",
       "domain": "cy4gate.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.cy4gate.com/certificazioni/",
+      "final_url": "https://www.cy4gate.com/certificazioni/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://companiesmarketcap.com/software/largest-software-companies-by-market-cap/",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: ISO 27001, ISO 9001.",
       "list": "companiesmarketcap-software",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "ISO 27001",
+        "ISO 9001"
+      ],
+      "links": {
+        "trust": "https://www.cy4gate.com/certificazioni/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 34,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "marks": 14
+        }
       }
     },
     {
