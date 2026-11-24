@@ -24174,9 +24174,9 @@
       "name": "Dave Inc.",
       "slug": "dave-inc",
       "domain": "dave.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://dave.com/security-trust",
+      "final_url": "https://dave.com/security-trust",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
@@ -24184,12 +24184,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "companiesmarketcap-software",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://dave.com/security-trust"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -48743,9 +48747,9 @@
       "name": "DataViz",
       "slug": "dataviz",
       "domain": "dataviz.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://dataviz.com/security-issue/",
+      "final_url": "https://dataviz.com/security-issue/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -48753,13 +48757,20 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-us",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://dataviz.com/security-issue/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 30,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "longevity": 10
+        }
+      },
+      "founded_year": 1984,
+      "founded_source": "https://dataviz.com/about-dataviz"
     },
     {
       "rank": 1429,
@@ -48779,10 +48790,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 2000,
+      "founded_source": "https://www.daz3d.com/about-us"
     },
     {
       "rank": 1430,
@@ -83409,10 +83424,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 9,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 9
+        }
+      },
+      "founded_year": 2007,
+      "founded_source": "https://www.datavail.com/privacy-policy"
     },
     {
       "rank": 2787,
@@ -148442,10 +148461,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1967,
+      "founded_source": "https://dataram.com/about"
     },
     {
       "rank": 5275,
