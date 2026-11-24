@@ -26556,13 +26556,16 @@
       "list": "wikipedia-fortune-500",
       "certs": [],
       "links": {
-        "privacy": "https://www.delta.com/content/dam/delta-www/pdfs/privacy-notice.pdf"
+        "privacy": "https://www.delta.com/content/dam/delta-www/pdfs/privacy-notice.pdf",
+        "dpa": "https://www.delta.com/us/en/legal/privacy-and-security/data-processing-addendum"
       },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 8,
         "tier": "silent",
-        "factors": {}
+        "factors": {
+          "dpa": 8
+        }
       }
     },
     {
@@ -48701,9 +48704,9 @@
       "name": "Dejal",
       "slug": "dejal",
       "domain": "dejal.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://dejal.com/security",
+      "final_url": "https://dejal.com/security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -48711,13 +48714,20 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-us",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://dejal.com/security"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 30,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "longevity": 10
+        }
+      },
+      "founded_year": 1991,
+      "founded_source": "https://dejal.com/about"
     },
     {
       "rank": 1427,
@@ -54859,23 +54869,37 @@
       "name": "Deep Instinct",
       "slug": "deep-instinct",
       "domain": "deepinstinct.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.deepinstinct.com/gdpr-compliance",
+      "final_url": "https://www.deepinstinct.com/gdpr-compliance",
       "vendor": "unknown",
       "title": "",
       "probed": 18,
       "source": "https://en.wikipedia.org/wiki/List_of_computer_security_companies",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, ISO 27001, ISO 27017, ISO 27018, PCI DSS.",
       "list": "wikipedia-computer-security",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "ISO 27017",
+        "ISO 27018",
+        "PCI DSS"
+      ],
+      "links": {
+        "trust": "https://www.deepinstinct.com/gdpr-compliance"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 61,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 36,
+          "longevity": 5
+        }
+      },
+      "founded_year": 2015,
+      "founded_source": "https://www.deepinstinct.com/about-us"
     },
     {
       "rank": 1645,
@@ -161379,9 +161403,9 @@
       "name": "Delta Electronics",
       "slug": "delta-electronics",
       "domain": "deltaww.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.deltaww.com/en-US/service-support/product-cybersecurity/vulnerability-management-policy",
+      "final_url": "https://www.deltaww.com/en-US/service-support/product-cybersecurity/vulnerability-management-policy",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
@@ -161389,12 +161413,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-computer-hardware-companies",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.deltaww.com/en-US/service-support/product-cybersecurity/vulnerability-management-policy"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -165587,23 +165615,33 @@
       "name": "Dectris",
       "slug": "dectris",
       "domain": "dectris.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.dectris.com/en/about-dectris/compliance",
+      "final_url": "https://www.dectris.com/en/about-dectris/compliance",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Switzerland",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: ISO 9001.",
       "list": "wikipedia-tech-switzerland",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "ISO 9001"
+      ],
+      "links": {
+        "trust": "https://www.dectris.com/en/about-dectris/compliance"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 34,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "marks": 4,
+          "longevity": 10
+        }
+      },
+      "founded_year": 2006,
+      "founded_source": "https://www.dectris.com/en/about-dectris/dectris-history"
     },
     {
       "rank": 5972,
