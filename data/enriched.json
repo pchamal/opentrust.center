@@ -48902,22 +48902,29 @@
       "name": "DiSTI",
       "slug": "disti",
       "domain": "disti.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.disti.com/security",
+      "final_url": "https://www.disti.com/security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_States",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: ISO 9001.",
       "list": "wikipedia-software-us",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "ISO 9001"
+      ],
+      "links": {
+        "security": "https://www.disti.com/security"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 24,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "marks": 4
+        }
       }
     },
     {
@@ -49149,9 +49156,9 @@
       "name": "Dimensional Insight",
       "slug": "dimensional-insight",
       "domain": "dimins.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.dimins.com/security-notices/",
+      "final_url": "https://www.dimins.com/security-notices/",
       "vendor": "unknown",
       "title": "",
       "probed": 23,
@@ -49159,12 +49166,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-us",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.dimins.com/security-notices/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -64818,9 +64829,9 @@
       "name": "Digital Science",
       "slug": "digital-science",
       "domain": "digital-science.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.digital-science.com/security-certifications/",
+      "final_url": "https://www.digital-science.com/security-certifications/",
       "vendor": "unknown",
       "title": "",
       "probed": 18,
@@ -64828,13 +64839,20 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-software-companies-uk",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.digital-science.com/security-certifications/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
-      }
+        "score": 28,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "longevity": 8
+        }
+      },
+      "founded_year": 2010,
+      "founded_source": "https://www.digital-science.com/privacy-policy"
     },
     {
       "rank": 2033,
@@ -81652,10 +81670,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 2002,
+      "founded_source": "https://diptrace.com/"
     },
     {
       "rank": 2712,
@@ -126025,10 +126047,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1996,
+      "founded_source": "https://dispersion.com/about-us"
     },
     {
       "rank": 4355,

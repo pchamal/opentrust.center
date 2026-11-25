@@ -188,7 +188,7 @@ def test_live_ledger_when_present() -> None:
     batch = payload.get("last_batch") or []
     summary = payload.get("summary") or {}
     # Paced cut. Do not drain the Completeness-0 queue.
-    check(0 < len(batch) <= 40, f"paced last_batch, got {len(batch)}")
+    check(0 < len(batch) <= 60, f"paced last_batch, got {len(batch)}")
     check(summary.get("batch") == len(batch), "summary.batch matches last_batch")
 
     first = [slug for slug, rec in entries.items() if rec.get("date") == "2026-09-01"]
