@@ -2,43 +2,73 @@
   "generated_at": "2026-11-24T22:30:21Z",
   "rule": "Paced Completeness-0 reaudit. Completeness is the sum of five 0/10/20 file rules, not disclosure.score. Domain required. Never-reaudited first, then oldest ledger date. HTTP only. Soft-404 / login / homepage bounce = miss. 403 / empty JS shell / Cloudflare = soft-retry. Portal hosts stay URL-only.",
   "last_batch": [
-    "dectris",
-    "deep",
-    "deep-instinct",
-    "deepcomputing",
-    "deepcool",
-    "deepmap",
-    "deepscale",
-    "deepseek",
-    "deere",
-    "defcad",
-    "deflect-ca",
-    "deft",
-    "deimos-one",
-    "dejal",
-    "delicious-monster",
-    "dell-technologies",
-    "deloitte",
-    "delsolar",
-    "delta",
-    "delta-air-lines",
-    "delta-electronics",
-    "delta-scientific-corporation",
-    "delta-tao-software",
-    "deltaco",
-    "deltacom",
-    "deltathree",
-    "deluxe-corporation",
-    "demonware",
-    "dena",
-    "denel"
+    "denon",
+    "dentsu",
+    "depthfirst",
+    "descartes-systems",
+    "designcrowd",
+    "destinus",
+    "devialet",
+    "devicescape",
+    "devil-s-due-publishing",
+    "devon-energy",
+    "devoteam-sas",
+    "devrev",
+    "dfi",
+    "dialexia",
+    "dialog-axiata",
+    "dialogic-group",
+    "diamond-multimedia",
+    "diamondback-energy",
+    "digi-communications",
+    "digia",
+    "digilant",
+    "digimind",
+    "digion",
+    "digital-arts",
+    "digital-assembly",
+    "digital-fuel",
+    "digital-insight",
+    "digital-juice-inc",
+    "digital-keystone",
+    "digital-lizard",
+    "digital-mars",
+    "digital-rapids-corporation",
+    "digital-reasoning",
+    "digital-research",
+    "digital-river",
+    "digital-science",
+    "digital-storm",
+    "digital-surf",
+    "digitalradius",
+    "digitcom",
+    "digitel",
+    "digium",
+    "dimdim",
+    "dimensional-insight",
+    "dimps",
+    "diptrace",
+    "direct-sports-network",
+    "dish-nepal",
+    "disney-consumer-products",
+    "dispatch",
+    "dispersion-technology",
+    "disti",
+    "distributel",
+    "dito-telecommunity",
+    "ditto",
+    "djezzy",
+    "dlocal",
+    "dmailer",
+    "dmzglobal",
+    "dnn-corporation"
   ],
   "summary": {
-    "batch": 30,
-    "fileable": 9,
-    "soft_retry": 6,
-    "still_0": 21,
-    "filled": 9
+    "batch": 60,
+    "fileable": 7,
+    "soft_retry": 16,
+    "still_0": 53,
+    "filled": 5
   },
   "entries": {
     "beetexting": {
@@ -530691,6 +530721,622 @@
       "soft_retry": false,
       "fileable": false,
       "hit": {}
+    },
+    "denon": {
+      "slug": "denon",
+      "name": "Denon",
+      "domain": "denon.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [
+        "years"
+      ],
+      "soft_retry": false,
+      "refusal": "page fill: CA compliance page not a trust page (year kept)"
+    },
+    "dentsu": {
+      "slug": "dentsu",
+      "name": "dentsu",
+      "domain": "dentsu.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [
+        "years"
+      ],
+      "soft_retry": true,
+      "refusal": ""
+    },
+    "depthfirst": {
+      "slug": "depthfirst",
+      "name": "depthfirst",
+      "domain": "depthfirst.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": true,
+      "refusal": "blog post, not a security/trust page"
+    },
+    "descartes-systems": {
+      "slug": "descartes-systems",
+      "name": "Descartes Systems",
+      "domain": "descartes.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "generic legal page, not a security/trust page"
+    },
+    "designcrowd": {
+      "slug": "designcrowd",
+      "name": "DesignCrowd",
+      "domain": "designcrowd.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-404"
+    },
+    "destinus": {
+      "slug": "destinus",
+      "name": "Destinus",
+      "domain": "destinus.ch",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-404"
+    },
+    "devialet": {
+      "slug": "devialet",
+      "name": "Devialet",
+      "domain": "devialet.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": true,
+      "refusal": "cloudflare"
+    },
+    "devicescape": {
+      "slug": "devicescape",
+      "name": "Devicescape",
+      "domain": "devicescape.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-0"
+    },
+    "devil-s-due-publishing": {
+      "slug": "devil-s-due-publishing",
+      "name": "Devil's Due Publishing",
+      "domain": "devilsdue.net",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-404"
+    },
+    "devon-energy": {
+      "slug": "devon-energy",
+      "name": "Devon Energy",
+      "domain": "devonenergy.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-0"
+    },
+    "devoteam-sas": {
+      "slug": "devoteam-sas",
+      "name": "Devoteam",
+      "domain": "devoteam.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": true,
+      "refusal": "http-403"
+    },
+    "devrev": {
+      "slug": "devrev",
+      "name": "DevRev",
+      "domain": "devrev.ai",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-429"
+    },
+    "dfi": {
+      "slug": "dfi",
+      "name": "DFI",
+      "domain": "dfi.com.tw",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-0"
+    },
+    "dialexia": {
+      "slug": "dialexia",
+      "name": "Dialexia",
+      "domain": "dialexia.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-0"
+    },
+    "dialog-axiata": {
+      "slug": "dialog-axiata",
+      "name": "Dialog Axiata",
+      "domain": "dialog.lk",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-404"
+    },
+    "dialogic-group": {
+      "slug": "dialogic-group",
+      "name": "Dialogic Group",
+      "domain": "dialogic.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-404"
+    },
+    "diamond-multimedia": {
+      "slug": "diamond-multimedia",
+      "name": "Diamond Multimedia",
+      "domain": "diamondmm.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": true,
+      "refusal": "js-shell"
+    },
+    "diamondback-energy": {
+      "slug": "diamondback-energy",
+      "name": "Diamondback Energy",
+      "domain": "diamondbackenergy.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": true,
+      "refusal": "http-403"
+    },
+    "digi-communications": {
+      "slug": "digi-communications",
+      "name": "Digi Communications",
+      "domain": "digi-communications.ro",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-404"
+    },
+    "digia": {
+      "slug": "digia",
+      "name": "Digia",
+      "domain": "digia.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-404"
+    },
+    "digilant": {
+      "slug": "digilant",
+      "name": "Digilant",
+      "domain": "digilant.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": true,
+      "refusal": "js-shell"
+    },
+    "digimind": {
+      "slug": "digimind",
+      "name": "Digimind",
+      "domain": "digimind.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "not-first-party"
+    },
+    "digion": {
+      "slug": "digion",
+      "name": "DigiOn",
+      "domain": "digion.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": true,
+      "refusal": "product-line page, not company security/trust"
+    },
+    "digital-arts": {
+      "slug": "digital-arts",
+      "name": "Digital Arts",
+      "domain": "daj.jp",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": true,
+      "refusal": "URL is a 404 error page"
+    },
+    "digital-assembly": {
+      "slug": "digital-assembly",
+      "name": "Digital Assembly",
+      "domain": "digital-assembly.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-0"
+    },
+    "digital-fuel": {
+      "slug": "digital-fuel",
+      "name": "Digital Fuel",
+      "domain": "digitalfuel.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "not-first-party"
+    },
+    "digital-insight": {
+      "slug": "digital-insight",
+      "name": "Digital Insight",
+      "domain": "digitalinsight.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-0"
+    },
+    "digital-juice-inc": {
+      "slug": "digital-juice-inc",
+      "name": "Digital Juice, Inc.",
+      "domain": "digitaljuice.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-404"
+    },
+    "digital-keystone": {
+      "slug": "digital-keystone",
+      "name": "Digital Keystone",
+      "domain": "digitalkeystone.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-404"
+    },
+    "digital-lizard": {
+      "slug": "digital-lizard",
+      "name": "Digital Lizard",
+      "domain": "digitallizardprint.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "URL is an error page"
+    },
+    "digital-mars": {
+      "slug": "digital-mars",
+      "name": "Digital Mars",
+      "domain": "digitalmars.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-404"
+    },
+    "digital-rapids-corporation": {
+      "slug": "digital-rapids-corporation",
+      "name": "Digital Rapids Corporation",
+      "domain": "digitalrapids.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-0"
+    },
+    "digital-reasoning": {
+      "slug": "digital-reasoning",
+      "name": "Digital Reasoning",
+      "domain": "digitalreasoning.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-0"
+    },
+    "digital-research": {
+      "slug": "digital-research",
+      "name": "Digital Research",
+      "domain": "digitalresearch.biz",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-404"
+    },
+    "digital-river": {
+      "slug": "digital-river",
+      "name": "Digital River",
+      "domain": "digitalriver.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": true,
+      "refusal": "cloudflare"
+    },
+    "digital-science": {
+      "slug": "digital-science",
+      "name": "Digital Science",
+      "domain": "digital-science.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [
+        "page",
+        "years"
+      ],
+      "soft_retry": true,
+      "refusal": ""
+    },
+    "digital-storm": {
+      "slug": "digital-storm",
+      "name": "Digital Storm",
+      "domain": "digitalstorm.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": true,
+      "refusal": "js-shell"
+    },
+    "digital-surf": {
+      "slug": "digital-surf",
+      "name": "Digital Surf",
+      "domain": "digitalsurf.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-404"
+    },
+    "digitalradius": {
+      "slug": "digitalradius",
+      "name": "DigitalRadius",
+      "domain": "digitalradius.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-404"
+    },
+    "digitcom": {
+      "slug": "digitcom",
+      "name": "Digitcom",
+      "domain": "digitcom.ca",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "not-first-party"
+    },
+    "digitel": {
+      "slug": "digitel",
+      "name": "Digitel",
+      "domain": "digitel.com.ve",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-404"
+    },
+    "digium": {
+      "slug": "digium",
+      "name": "Digium",
+      "domain": "digium.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "not-first-party"
+    },
+    "dimdim": {
+      "slug": "dimdim",
+      "name": "Dimdim",
+      "domain": "dimdim.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "not-first-party"
+    },
+    "dimensional-insight": {
+      "slug": "dimensional-insight",
+      "name": "Dimensional Insight",
+      "domain": "dimins.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [
+        "page"
+      ],
+      "soft_retry": true,
+      "refusal": ""
+    },
+    "dimps": {
+      "slug": "dimps",
+      "name": "Dimps",
+      "domain": "dimps.co.jp",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-0"
+    },
+    "diptrace": {
+      "slug": "diptrace",
+      "name": "DipTrace",
+      "domain": "diptrace.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [
+        "years"
+      ],
+      "soft_retry": false,
+      "refusal": ""
+    },
+    "direct-sports-network": {
+      "slug": "direct-sports-network",
+      "name": "Direct Sports Network",
+      "domain": "desksite.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-404"
+    },
+    "dish-nepal": {
+      "slug": "dish-nepal",
+      "name": "Dish Nepal",
+      "domain": "dishhome.com.np",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": true,
+      "refusal": "js-shell"
+    },
+    "disney-consumer-products": {
+      "slug": "disney-consumer-products",
+      "name": "Disney Consumer Products",
+      "domain": "disneyconsumerproducts.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "not-first-party"
+    },
+    "dispatch": {
+      "slug": "dispatch",
+      "name": "Dispatch Integration",
+      "domain": "dispatchintegration.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-404"
+    },
+    "dispersion-technology": {
+      "slug": "dispersion-technology",
+      "name": "Dispersion Technology",
+      "domain": "dispersion.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [
+        "years"
+      ],
+      "soft_retry": true,
+      "refusal": ""
+    },
+    "disti": {
+      "slug": "disti",
+      "name": "DiSTI",
+      "domain": "disti.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [
+        "page",
+        "marks"
+      ],
+      "soft_retry": false,
+      "refusal": ""
+    },
+    "distributel": {
+      "slug": "distributel",
+      "name": "Distributel",
+      "domain": "distributel.ca",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-503"
+    },
+    "dito-telecommunity": {
+      "slug": "dito-telecommunity",
+      "name": "Dito Telecommunity",
+      "domain": "dito.ph",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-404"
+    },
+    "ditto": {
+      "slug": "ditto",
+      "name": "DITTO",
+      "domain": "ditto.me",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-0"
+    },
+    "djezzy": {
+      "slug": "djezzy",
+      "name": "Djezzy",
+      "domain": "djezzy.dz",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-404"
+    },
+    "dlocal": {
+      "slug": "dlocal",
+      "name": "DLocal",
+      "domain": "dlocal.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-404"
+    },
+    "dmailer": {
+      "slug": "dmailer",
+      "name": "Dmailer",
+      "domain": "dmailer.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": true,
+      "refusal": "js-shell"
+    },
+    "dmzglobal": {
+      "slug": "dmzglobal",
+      "name": "DMZGlobal",
+      "domain": "dmzglobal.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-0"
+    },
+    "dnn-corporation": {
+      "slug": "dnn-corporation",
+      "name": "DNN Corporation",
+      "domain": "dnnsoftware.com",
+      "date": "2026-11-25",
+      "probed": [],
+      "could_fill": [],
+      "soft_retry": false,
+      "refusal": "http-405"
     }
   }
 }
