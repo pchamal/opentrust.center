@@ -49089,22 +49089,31 @@
       "name": "Doximity",
       "slug": "doximity",
       "domain": "doximity.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.doximity.com/about/security",
+      "final_url": "https://www.doximity.com/about/security",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
       "source": "https://en.wikipedia.org/wiki/Category:Software_companies_of_the_United_States",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: SOC 2 Type II, SOC 3, HIPAA.",
       "list": "wikipedia-software-us",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "SOC 2 Type II",
+        "SOC 3",
+        "HIPAA"
+      ],
+      "links": {
+        "security": "https://www.doximity.com/about/security"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 40,
+        "tier": "on-file",
+        "factors": {
+          "portal": 20,
+          "marks": 20
+        }
       }
     },
     {
@@ -107830,9 +107839,9 @@
       "name": "DreamHost",
       "slug": "dreamhost",
       "domain": "dreamhost.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.dreamhost.com/features/security/",
+      "final_url": "https://www.dreamhost.com/features/security/",
       "vendor": "unknown",
       "title": "",
       "probed": 13,
@@ -107840,12 +107849,16 @@
       "summary": "No public trust center found on the usual paths.",
       "list": "wikipedia-web-hosting",
       "certs": [],
-      "links": {},
+      "links": {
+        "security": "https://www.dreamhost.com/features/security/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 20,
+        "tier": "thin",
+        "factors": {
+          "portal": 20
+        }
       }
     },
     {
@@ -148676,10 +148689,14 @@
       "links": {},
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
+        "score": 10,
         "tier": "silent",
-        "factors": {}
-      }
+        "factors": {
+          "longevity": 10
+        }
+      },
+      "founded_year": 1997,
+      "founded_source": "https://draytek.com/about/about-draytek"
     },
     {
       "rank": 5281,
@@ -169452,22 +169469,30 @@
       "name": "Ducati Energia",
       "slug": "ducati-energia",
       "domain": "ducatienergia.com",
-      "found": false,
-      "trust_url": null,
-      "final_url": null,
+      "found": true,
+      "trust_url": "https://www.ducatienergia.com/certificazioni/",
+      "final_url": "https://www.ducatienergia.com/certificazioni/",
       "vendor": "unknown",
       "title": "",
       "probed": 18,
       "source": "https://en.wikipedia.org/wiki/Category:Technology_companies_of_Italy",
-      "summary": "No public trust center found on the usual paths.",
+      "summary": "Official page on file. Marks cited from public HTML: ISO 27001, ISO 9001.",
       "list": "wikipedia-technology-companies-of-italy",
-      "certs": [],
-      "links": {},
+      "certs": [
+        "ISO 27001",
+        "ISO 9001"
+      ],
+      "links": {
+        "trust": "https://www.ducatienergia.com/certificazioni/"
+      },
       "subprocessors": [],
       "disclosure": {
-        "score": 0,
-        "tier": "silent",
-        "factors": {}
+        "score": 34,
+        "tier": "thin",
+        "factors": {
+          "portal": 20,
+          "marks": 14
+        }
       }
     },
     {
