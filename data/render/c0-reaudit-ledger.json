@@ -1,74 +1,20 @@
 {
-  "generated_at": "2026-11-24T22:30:21Z",
+  "generated_at": "2026-11-26T17:37:31Z",
   "rule": "Paced Completeness-0 reaudit. Completeness is the sum of five 0/10/20 file rules, not disclosure.score. Domain required. Never-reaudited first, then oldest ledger date. HTTP only. Soft-404 / login / homepage bounce = miss. 403 / empty JS shell / Cloudflare = soft-retry. Portal hosts stay URL-only.",
   "last_batch": [
-    "denon",
-    "dentsu",
-    "depthfirst",
-    "descartes-systems",
-    "designcrowd",
-    "destinus",
-    "devialet",
-    "devicescape",
-    "devil-s-due-publishing",
-    "devon-energy",
-    "devoteam-sas",
-    "devrev",
-    "dfi",
-    "dialexia",
-    "dialog-axiata",
-    "dialogic-group",
-    "diamond-multimedia",
-    "diamondback-energy",
-    "digi-communications",
-    "digia",
-    "digilant",
-    "digimind",
-    "digion",
-    "digital-arts",
-    "digital-assembly",
-    "digital-fuel",
-    "digital-insight",
-    "digital-juice-inc",
-    "digital-keystone",
-    "digital-lizard",
-    "digital-mars",
-    "digital-rapids-corporation",
-    "digital-reasoning",
-    "digital-research",
-    "digital-river",
-    "digital-science",
-    "digital-storm",
-    "digital-surf",
-    "digitalradius",
-    "digitcom",
-    "digitel",
-    "digium",
-    "dimdim",
-    "dimensional-insight",
-    "dimps",
-    "diptrace",
-    "direct-sports-network",
-    "dish-nepal",
-    "disney-consumer-products",
-    "dispatch",
-    "dispersion-technology",
-    "disti",
-    "distributel",
-    "dito-telecommunity",
-    "ditto",
-    "djezzy",
-    "dlocal",
-    "dmailer",
-    "dmzglobal",
-    "dnn-corporation"
+    "dochub",
+    "docuware",
+    "dodo-services",
+    "dot-corp",
+    "dow-inc",
+    "docusearch"
   ],
   "summary": {
-    "batch": 60,
-    "fileable": 7,
-    "soft_retry": 16,
-    "still_0": 53,
-    "filled": 5
+    "batch": 6,
+    "fileable": 6,
+    "soft_retry": 0,
+    "still_0": 0,
+    "filled": 6
   },
   "entries": {
     "beetexting": {
@@ -531337,6 +531283,127 @@
       "could_fill": [],
       "soft_retry": false,
       "refusal": "http-405"
+    },
+    "dochub": {
+      "slug": "dochub",
+      "name": "DocHub",
+      "domain": "dochub.com",
+      "date": "2026-11-26",
+      "probed": [],
+      "could_fill": [
+        "dpa"
+      ],
+      "soft_retry": false,
+      "refusal": "",
+      "fileable": true,
+      "hit": {
+        "dpa": {
+          "url": "https://legal.dochub.com/dpa"
+        }
+      }
+    },
+    "docuware": {
+      "slug": "docuware",
+      "name": "DocuWare",
+      "domain": "docuware.com",
+      "date": "2026-11-26",
+      "probed": [],
+      "could_fill": [
+        "page",
+        "marks"
+      ],
+      "soft_retry": false,
+      "refusal": "",
+      "fileable": true,
+      "hit": {
+        "page": {
+          "url": "https://start.docuware.com/security",
+          "kind": "security"
+        },
+        "marks": {
+          "url": "https://start.docuware.com/compliance-and-certifications",
+          "added": [
+            "SOC 2",
+            "ISO 27001"
+          ]
+        }
+      }
+    },
+    "dodo-services": {
+      "slug": "dodo-services",
+      "name": "Dodo Services",
+      "domain": "dodo.com",
+      "date": "2026-11-26",
+      "probed": [],
+      "could_fill": [
+        "years"
+      ],
+      "soft_retry": false,
+      "refusal": "",
+      "fileable": true,
+      "hit": {
+        "years": {
+          "year": 2001,
+          "url": "https://www.dodo.com/"
+        }
+      }
+    },
+    "dot-corp": {
+      "slug": "dot-corp",
+      "name": "DOT (The Dot Corp)",
+      "domain": "thedotcorp.com",
+      "date": "2026-11-26",
+      "probed": [],
+      "could_fill": [
+        "years"
+      ],
+      "soft_retry": false,
+      "refusal": "",
+      "fileable": true,
+      "hit": {
+        "years": {
+          "year": 1980,
+          "url": "https://www.thedotcorp.com/about"
+        }
+      }
+    },
+    "dow-inc": {
+      "slug": "dow-inc",
+      "name": "Dow Inc.",
+      "domain": "dow.com",
+      "date": "2026-11-26",
+      "probed": [],
+      "could_fill": [
+        "years"
+      ],
+      "soft_retry": false,
+      "refusal": "",
+      "fileable": true,
+      "hit": {
+        "years": {
+          "year": 1897,
+          "url": "https://www.dow.com/en-us"
+        }
+      }
+    },
+    "docusearch": {
+      "slug": "docusearch",
+      "name": "Docusearch",
+      "domain": "docusearch.com",
+      "date": "2026-11-26",
+      "probed": [],
+      "could_fill": [
+        "years"
+      ],
+      "soft_retry": false,
+      "refusal": "",
+      "fileable": true,
+      "hit": {
+        "years": {
+          "year": 1996,
+          "url": "https://www.docusearch.com/privacy-docusearch"
+        }
+      }
     }
   }
 }
